@@ -40,7 +40,7 @@ Follow these steps to create an SaaS offer:
    + Limit the offer ID to 50 characters. Use only numbers and lowercase letters. You can include hyphens and underscores, but no spaces.
    + The offer ID can't be changed after you select **Create**.
 
-1. Enter an **Offer alias**; this is the name used for the offer in Partner Center.
+1. Enter an **Offer alias** value. The offer alias is the name used for the offer in Partner Center.
 
    + This name isn't visible in the commercial marketplace and is different from the offer name and other values shown to customers.
    + The offer alias can't be changed after you select **Create**.
@@ -59,7 +59,7 @@ On the **Offer setup** tab, under **Setup details**, choose whether to sell your
 1. To sell through Microsoft and have Microsoft facilitate transactions for you, select **Yes**. Continue to [Enable a test drive](#enable-a-test-drive-optional).
 1. To list your offer through the commercial marketplace and process transactions independently, select **No** and then do one of the following:
    + To provide a free subscription for your offer, select **Get it now (Free)**. In the **Offer URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](azure-ad-saas.md). For example: https://contoso.com/saas-app`.
-   + To provide a 30-day free trial, select **Free trial**. In the **Trial URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can access your free trial through [one-click authentication by using Azure AD](azure-ad-saas.md). For example `https://contoso.com/trial/saas-app`.
+   + To provide a 30-day free trial, select **Free trial**. In the **Trial URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can access your free trial through [one-click authentication by using Azure AD](azure-ad-saas.md). For example: `https://contoso.com/trial/saas-app`.
    + To have potential customers contact you to purchase your offer, select **Contact me**.
 
     > [!NOTE]
