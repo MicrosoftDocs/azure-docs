@@ -29,7 +29,9 @@ You can choose the availability zone for the primary and the standby replica. Pl
 
 :::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagram that shows the architecture for zone-redundant high availability.":::
 
-The data and log files are hosted in [zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). These files are replicated to the standby server via the storage-level replication available with ZRS. If there's a failover: 
+The data and log files are hosted in [zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). The log files are replicated to the standby server via the storage-level replication available with ZRS and applied to stand by server continuously.
+
+If there's a failover: 
 - The standby replica is activated. 
 - The binary log files of the primary server continue to apply to the standby server to bring it online to the last committed transaction on the primary. 
 
@@ -49,7 +51,7 @@ The standby server offers infrastructure redundancy with a separate virtual mach
 
 :::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="Diagram that shows the architecture for same-zone high availability.":::
 
-The data and log files are hosted in [locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). These files are replicated to the standby server via the storage-level replication available with LRS.
+The data and log files are hosted in [locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). The log files are replicated to the standby server via the storage-level replication available with LRS and applied to stand by server continuously.
 
 If there's a failover: 
 - The standby replica is activated. 
