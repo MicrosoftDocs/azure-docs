@@ -23,7 +23,7 @@ Register the periodic assessment and scheduled patching feature resource provide
 
 ## Prerequisites
 
-- Azure subscription - if you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
+- Azure subscription - if you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Your account must be a member of the Azure [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in the subscription.
 
