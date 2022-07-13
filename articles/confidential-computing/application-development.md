@@ -52,5 +52,4 @@ As you design an application, identify and determine what part of needs to run i
 
 ## Next steps 
 
-- [Deploy a confidential computing Intel SGX VM](quick-create-portal.md)
 - [Start developing applications with open-source software](enclave-development-oss.md)
