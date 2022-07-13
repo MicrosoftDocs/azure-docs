@@ -29,14 +29,12 @@ items:
     href: delete-contact.md
 - name: How-to guides
   items:
-  - name: Earth Observation
-    items:
-    - name: Schedule a contact with NASA's AQUA public satellite
-      href: downlink-aqua.md 
-    - name: Collect and process AQUA satellite payload
-      href: satellite-imagery-with-orbital-ground-station.md
-    - name: Integrate partner network ground stations
-      href: partner-network-integration.md     
+  - name: Schedule a contact with NASA's AQUA public satellite
+    href: downlink-aqua.md 
+  - name: Collect and process AQUA satellite payload
+    href: satellite-imagery-with-orbital-ground-station.md
+  - name: Integrate partner network ground stations
+    href: partner-network-integration.md     
 - name: Concepts
   items:
   - name: Contact
