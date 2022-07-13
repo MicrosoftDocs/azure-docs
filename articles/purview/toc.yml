@@ -216,7 +216,7 @@ items:
       - name: Troubleshoot Power BI scans
         href: register-scan-power-bi-tenant-troubleshoot.md
       - name: Power BI metadata
-        href: avaiable-metadata.md
+        href: available-metadata.md
     - name: Salesforce
       href: register-scan-salesforce.md
     - name: SAP Business Warehouse
