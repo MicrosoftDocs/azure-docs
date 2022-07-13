@@ -26,6 +26,9 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
  * An Azure Health Data Services MedTech service including the necessary system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) permissions to the device message event hub (**Azure Events Hubs Receiver**) and FHIR service (**FHIR Data Writer**).
 
 1. When the Azure portal launches, the following fields must be filled out:
+
+   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png"::: 
+
    * **Subscription** - Choose the Azure subscription you would like to use for the deployment.
    * **Resource Group** - Choose an existing Resource Group or create a new Resource Group.
    * **Region** - The Azure region of the Resource Group used for the deployment. This field will auto-fill based on the Resource Group region.
@@ -35,8 +38,6 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
 2. Leave the **Device Mapping** and **Destination Mapping** fields with their default values.
 
 3. Select the **Review + create** button once the fields are filled out.
-
-   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png"::: 
 
 4. After the validation has passed, select the **Create** button to begin the deployment.
 
@@ -52,7 +53,7 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
   >
   > Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
   >
-  > Examples: 
+  > **Examples:** 
   > * Two MedTech services accessing the same device message event hub.
   > * A MedTech service and a storage writer application accessing the same device message event hub. 
 
@@ -60,7 +61,7 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
 
 ## Prerequisites
 
-It's important that you have the following prerequisites completed before you begin the steps of creating a MedTech service instance in Azure Health Data Services.
+It's important that you have the following prerequisites completed before you begin the steps of creating a MedTech service instance in Azure Health Data Services:
 
 * [Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Resource group deployed in the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md)
@@ -336,12 +337,12 @@ The **FHIR Data Writer** role provides read and write access to your FHIR servic
 
 ## Next steps
 
-In this article, you've learned how to deploy a MedTech service using the Azure portal. To learn more about the Device and FHIR destination mappings for the MedTech service, see
+In this article, you've learned how to deploy a MedTech service using the Azure portal. To learn more about how to troubleshoot your MedTech service or Frequently Asked Questions (FAQs) about the MedTech service, see
 
 > [!div class="nextstepaction"]
 >
-> [How to use Device mappings](how-to-use-device-mappings.md)
+> [Troubleshoot the MedTech service](iot-troubleshoot-guide.md)
 >
-> [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
+> [Frequently asked questions (FAQs) about the MedTech service](iot-connector-faqs.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
