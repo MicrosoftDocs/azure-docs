@@ -150,4 +150,4 @@ For an Application Gateway v1-v2 feature comparison, see [What is Azure Applicat
 
 ## Next steps
 
-- [Learn how Application Gateway works](how-application-gateway-works.md)
+- Learn [how an application gateway works](how-application-gateway-works.md)
