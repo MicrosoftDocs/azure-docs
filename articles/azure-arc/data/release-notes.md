@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/24/2022
+ms.date: 06/14/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -15,6 +15,64 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## July 12, 2022
+
+This release is published July 12, 2022
+
+### Image tag
+
+`v1.9.0_2022-07-12`
+
+For complete release version information, see [Version log](version-log.md#july-12-2022).
+
+### Miscellaneous
+
+- Extended the disk metrics reported in monitoring dashboards to include more queue length stats and more counters for IOPS. All disks are in scope for data collection that start with `vd` or `sd` now.
+
+### Arc-enabled SQL Managed Instance
+
+- Added buffer cache hit ratio to `collectd` and surface it in monitoring dashboards.
+- Improvements to the formatting of the legends on some dashboards.
+- Added process level CPU  and memory metrics to the monitoring dashboards for the SQL managed instance process.
+- `syncSecondaryToCommit` property is now available to be viewed and edited in Azure portal and Azure Data Studio.
+- Added ability to set the DNS name for the readableSecondaries service in Azure CLI and Azure portal.
+- Now collecting the `agent.log`, `security.log` and `sqlagentstartup.log` for Arc-enabled SQL Managed instance to ElasticSearch so they're searchable via Kibana and optionally uploading them to Azure Log Analytics.
+- There are more additional notifications when provisioning new SQL managed instances is blocked due to not exporting/uploading billing data to Azure.
+
+### Data controller
+
+- Permissions required to deploy the Arc data controller have been reduced to a least-privilege level.
+- When deployed via the Azure CLI, the Arc data controller is now installed via a K8s job that uses a helm chart to do the installation. There's no change to the user experience.
+
+## June 14, 2022
+
+This release is published June 14, 2022.
+
+### Image tag
+
+`v1.8.0_2022-06-14`
+
+For complete release version information, see [Version log](version-log.md#june-14-2022).
+
+### Miscellaneous
+
+- Canada Central and West US 3 regions are fully supported.
+
+### Data controller
+
+- Control DB SQL instance version is upgraded to latest version.
+- Additional compatibility checks are run prior to executing an upgrade request.
+- Upload status is now shown in the data controller list view in the Azure portal.
+- Show the usage upload message value in the Overview blade banner in the Azure portal if the value is not **Success**.
+
+### SQL Managed Instance
+
+  - You can now configure a SQL managed instance to use an AD connector at the time the SQL managed instance is provisioned from the Azure portal.
+  - BACKUP DATABASE TO URL to S3-compatible storage is introduced for preview. Limited to COPY_ONLY. [Documentation](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage).
+  - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter which is the number of secondary replicas that must be synchronized to fail over. Default is `-1` which sets the number of required synchronized secondaries to (# of replicas - 1) / 2.  Allowed values: `-1`, `1`, or `2`.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
+  - Billing estimate in Azure portal is updated to reflect the number of readable secondaries that are selected.
+  - Added SPNs for readable secondary service.
 
 ## May 24, 2022
 
@@ -24,7 +82,7 @@ This release is published May 24, 2022.
 
 `v1.7.0_2022-05-24`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#may-24-2022).
 
 ### Data controller reminders and warnings
 
@@ -56,7 +114,7 @@ This release is published May 4, 2022.
 
 `v1.6.0_2022-05-02`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#may-4-2022).
 
 ### Data controller
 
@@ -85,8 +143,8 @@ Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Onl
 
 Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replicas.  
 
-- If three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
-- If one or two replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
+- If three replicas: `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
+- If one or two replicas: `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
 
 In this release, the default value of the readable secondary service is `Cluster IP`.  The secondary service type can be set in the Kubernetes yaml/json at `spec.services.readableSecondaries.type`. In the next release, the default value will be the same as the primary service type.
 
@@ -106,7 +164,7 @@ This release is published April 6, 2022.
 
 `v1.5.0_2022-04-05`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#april-6-2022).
 
 ### Data controller
 
@@ -163,7 +221,7 @@ This release is published March 8, 2022.
 
 `v1.4.1_2022-03-08`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#march-8-2022).
 
 ### Data Controller
 - Fixed the issue "ConfigMap sql-config-[SQL MI] does not exist" from the February 2022 release. This issue occurs when deploying a SQL Managed Instance with service type of `loadBalancer` with certain load balancers. 
@@ -176,7 +234,7 @@ This release is published February 25, 2022.
 
 `v1.4.0_2022-02-25`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#february-25-2022).
 
 > [!CAUTION] 
 > There is a known issue with this release where deployment of Arc SQL MI hangs, and sends the controldb pods of Arc Data Controller into a
@@ -211,7 +269,7 @@ This release is published January 27, 2022.
 
 `v1.3.0_2022-01-27`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#january-27-2022).
 
 ### Data controller
 
@@ -710,8 +768,6 @@ Both custom resource definitions (CRD) for PostgreSQL have been consolidated int
 |-----|-----|
 |February 2021 and prior| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
 |Beginning March 2021 | postgresqls.arcdata.microsoft.com
-
-You will delete the previous CRDs as you cleanup past installations. See [Cleanup from past installations](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations).
 
 ### Azure Arc-enabled SQL Managed Instance
 

@@ -1371,10 +1371,6 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
     # Disable the root account
     usermod root -p '!!'
 
-    # Disabke swap in WALinuxAgent
-    ResourceDisk.Format=n
-    ResourceDisk.EnableSwap=n
-
     # Configure swap using cloud-init
     echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
     cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF

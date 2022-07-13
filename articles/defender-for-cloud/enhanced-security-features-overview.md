@@ -2,7 +2,7 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/31/2022
+ms.date: 06/29/2022
 ms.custom: references_regions
 ---
 
@@ -44,6 +44,7 @@ Defender for Cloud is offered in two modes:
 - [If a Log Analytics agent reports to multiple workspaces, is the 500 MB free data ingestion available on all of them?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
 - [Is the 500 MB free data ingestion calculated for an entire workspace or strictly per machine?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
 - [What data types are included in the 500 MB data daily allowance?](#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
+- [How can I monitor my daily usage](#how-can-i-monitor-my-daily-usage)
 
 ### How can I track who in my organization enabled a Microsoft Defender plan in Defender for Cloud?
 Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
@@ -119,7 +120,7 @@ Yes. When you enable [Microsoft Defender for Servers](defender-for-servers-intro
 
 ### If a Log Analytics agent reports to multiple workspaces, will I be charged twice?
 
-No you will not be charged twice.
+If a machine reports to multiple workspaces, and all of them have Defender for Servers enabled, the machines will be billed for each attached workspace.
 
 ### If a Log Analytics agent reports to multiple workspaces, is the 500 MB free data ingestion available on all of them?
 
@@ -146,7 +147,7 @@ Defender for Cloud's billing is closely tied to the billing for Log Analytics. [
 
 If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
 
-## How can I monitor my daily usage
+### How can I monitor my daily usage
 
 You can view your data usage in two different ways, the Azure portal, or by running a script.
 

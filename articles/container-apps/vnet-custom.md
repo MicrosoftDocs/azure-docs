@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic:  how-to
-ms.date: 05/16/2022
+ms.date: 06/09/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -16,12 +16,15 @@ zone_pivot_groups: azure-cli-or-portal
 The following example shows you how to create a Container Apps environment in an existing virtual network.
 
 > [!IMPORTANT]
-> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. For more information, see [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview).
+> Container Apps environments are deployed on a virtual network. This network can be managed or custom (pre-configured by the user beforehand). In either case, the environment has dependencies on services outside of that virtual network. For a list of these dependencies see [Outbound FQDN dependencies](firewall-integration.md#outbound-fqdn-dependencies).
 
 ::: zone pivot="azure-portal"
 
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
+
+> [!NOTE]
+> Network address prefixes requires a CIDR range of `/23`.
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
@@ -78,7 +81,7 @@ $VNET_NAME="my-custom-vnet"
 Now create an Azure virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet is required for use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet with a CDIR range of `/23` is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -118,23 +121,15 @@ az network vnet subnet create `
 
 ---
 
-With the virtual network created, you can retrieve the IDs for both the VNET and the infrastructure subnet.
+With the virtual network created, you can retrieve the ID for the infrastructure subnet.
 
 # [Bash](#tab/bash)
-
-```bash
-VNET_RESOURCE_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
-```
 
 ```bash
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
-
-```powershell
-$VNET_RESOURCE_ID=(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
-```
 
 ```powershell
 $INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv)
@@ -165,9 +160,6 @@ az containerapp env create `
 ```
 
 ---
-
-> [!NOTE]
-> As you call `az containerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
 
 The following table describes the parameters used in `containerapp env create`.
 

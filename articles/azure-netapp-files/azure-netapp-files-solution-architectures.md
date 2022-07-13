@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 07/11/2022
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -20,7 +20,7 @@ This article provides references to best practices that can help you understand 
 
 The following diagram summarizes the categories of solution architectures that Azure NetApp Files offers:
 
-![Solution architecture categories](../media/azure-netapp-files/solution-architecture-categories.png)
+:::image type="content" source="../media/azure-netapp-files/solution-architecture-categories.png" alt-text="Solution architecture categories." lightbox="../media/azure-netapp-files/solution-architecture-categories.png":::
 
 ## Linux OSS Apps and Database solutions
 
@@ -44,6 +44,9 @@ This section provides references for solutions for Linux OSS applications and da
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
 * [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md)
 * [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
+
+### Financial analytics and trading
+* [Host a Murex MX.3 workload on Azure](/azure/architecture/example-scenario/finance/murex-mx3-azure)
 
 ### Machine Learning
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
@@ -103,7 +106,9 @@ This section provides references to SAP on Azure solutions.
 * [SAP HANA scale-out with HSR and Pacemaker on RHEL - Azure Virtual Machines](../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md)
 * [Implementing Azure NetApp Files with Kerberos for SAP HANA](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/implementing-azure-netapp-files-with-kerberos/ba-p/3142010)
 * [Azure Application Consistent Snapshot tool (AzAcSnap)](azacsnap-introduction.md)
+* [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
 * [SAP HANA Disaster Recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
+* [SAP HANA backup and recovery on Azure NetApp Files with SnapCenter Service](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_backup_and_recovery_on_Azure_NetApp_Files_with_SnapCenter_Service.pdf)
 
 ### SAP AnyDB
 
@@ -133,7 +138,10 @@ This section provides references to SAP on Azure solutions.
 
 ## Azure VMware Solutions
 
-* [Azure NetApp Files with Azure VMware Solution - Guest OS Mounts](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
+* [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
+* [Attach Azure NetApp Files to Azure VMware Solution VMs - Guest OS Mounts](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
+* [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](../azure-vmware/deploy-disaster-recovery-using-jetstream.md#disaster-recovery-with-azure-netapp-files-jetstream-dr-and-azure-vmware-solution)
+* [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/) - Jetstream
 
 ## Virtual Desktop Infrastructure solutions
 

@@ -127,8 +127,8 @@ Use the following table for reference when configuring firewalls for RDP Shortpa
 | RDP Shortpath Server Endpoint | Client network | 1024-65535       | UDP      | Public IP addresses assigned to NAT Gateway or Azure Firewall                | Allow  |
 | STUN Access                   | Client network | 3478             | UDP      | 13.107.17.41/32, 13.107.64.0/18, 20.202.0.0/16, 52.112.0.0/14, 52.120.0.0/14 | Allow  |
 
- > [!NOTE]
-   > The IP ranges for STUN servers used in preview would change at the feature's release to General Availability.
+> [!NOTE]
+> The IP ranges for STUN servers used in preview will change at the feature's release to General Availability.
 
 ### Limiting port range used on the client side
 

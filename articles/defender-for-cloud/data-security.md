@@ -57,7 +57,7 @@ You can specify the workspace and region where data collected from your machines
 
 
 > [!NOTE]
-> **Microsoft Defender for Storage** stores artifacts regionally according to the location of the related Azure resource. Learn more in [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md).
+> **Microsoft Defender for Storage** stores artifacts regionally according to the location of the related Azure resource. Learn more in [Overview of Microsoft Defender for Storage](defender-for-storage-introduction.md).
 
 
 ## Data consumption

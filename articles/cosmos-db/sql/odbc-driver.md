@@ -1,43 +1,39 @@
 ---
-title: Connect to Azure Cosmos DB using BI analytics tools
-description: Learn how to use the Azure Cosmos DB ODBC driver to create tables and views so that normalized data can be viewed in BI and data analytics software.
-author: markjbrown
-ms.author: mjbrown
+title: Use Azure Cosmos DB ODBC driver to connect to BI and analytics tools
+description: Use the Azure Cosmos DB ODBC driver to create normalized data tables and views for SQL queries, analytics, BI, and visualizations.
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/04/2021
-
+ms.date: 06/21/2022
+ms.custom: kr2b-contr-experiment
 ---
 
-# Connect to Azure Cosmos DB from BI and Data Integration tools with the ODBC driver
+# Use the Azure Cosmos DB ODBC driver to connect to BI and data analytics tools
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB ODBC driver enables you to connect to Azure Cosmos DB using solutions such as SQL Server Integration Services, Alteryx, QlikSense , Tableau, and other analytics, BI, and data integration tools so that you can analyze, move, transform, and create visualizations of your Azure Cosmos DB data.
+This article walks you through installing and using the Azure Cosmos DB ODBC driver to create normalized tables and views for your Azure Cosmos DB data. You can query the normalized data with SQL queries, or import the data into Power BI or other BI and analytics software to create reports and visualizations.
 
-The Azure Cosmos DB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax. The driver offers rich features to help you renormalize data in Azure Cosmos DB. Using the driver, you can represent data in Azure Cosmos DB as tables and views. The driver enables you to perform SQL operations against the tables and views including group by queries, inserts, updates, and deletes.
+Azure Cosmos DB is a schemaless database, which enables rapid application development and lets you iterate on data models without being confined to a strict schema. A single Azure Cosmos database can contain JSON documents of various structures. To analyze or report on this data, you might need to flatten the data to fit into a schema.
 
-## Important information about this ODBC connector.
+The ODBC driver normalizes Azure Cosmos DB data into tables and views that fit your data analytics and reporting needs. The normalized schemas let you use ODBC-compliant tools to access the data. The schemas have no impact on the underlying data, and don't require developers to adhere to them. The ODBC driver helps make Azure Cosmos DB databases useful for data analysts as well as development teams.
 
-The current ODBC driver does not support aggregate pushdowns and has known issues with many analytics tools. We are working on building a new version and it's release is expected for the middle of 2022. Please check the alternatives below:
+You can do SQL operations against the normalized tables and views, including group by queries, inserts, updates, and deletes. The driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax.
 
- * Azure Synapse Link is the preferred analytics solution for Azure Cosmos DB. With Synapse Link and Synapse SQL serverless pools, you can use any BI tool to extract near real time insights from your Cosmos DB data, SQL ou MongoDB APIs. For more information, please check our [documentation](../synapse-link.md).
- * If you are using Power BI, please check our native connector [documentation](powerbi-visualize.md).
- * If you are using QlikSense, please check our how-to [documentation](../visualize-qlik-sense.md).
+You can also connect the normalized Azure Cosmos DB data to other software solutions, such as SQL Server Integration Services (SSIS), Alteryx, QlikSense, Tableau and other analytics software, BI, and data integration tools. You can use those solutions to analyze, move, transform, and create visualizations with your Azure Cosmos DB data.
 
-> [!NOTE]
-> Connecting to Azure Cosmos DB with the ODBC driver is currently supported for Azure Cosmos DB SQL API accounts only.
+> [!IMPORTANT]
+> - Connecting to Azure Cosmos DB with the ODBC driver is currently supported for Azure Cosmos DB Core (SQL) API only.
+> - The current ODBC driver doesn't support aggregate pushdowns, and has known issues with some analytics tools. Until a new version is released, you can use one of the following alternatives:
+>   - [Azure Synapse Link](../synapse-link.md) is the preferred analytics solution for Azure Cosmos DB. With Azure Synapse Link and Azure Synapse SQL serverless pools, you can use any BI tool to extract near real-time insights from Azure Cosmos DB SQL or MongoDB API data.
+>   - For Power BI, you can use the [Azure Cosmos DB connector for Power BI](powerbi-visualize.md).
+>   - For Qlik Sense, see [Connect Qlik Sense to Azure Cosmos DB](../visualize-qlik-sense.md).
 
-
-## Why do I need to normalize my data?
-Azure Cosmos DB is a schemaless database, which enables rapid application development and the ability to iterate on data models without being confined to a strict schema. A single Azure Cosmos database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often needs to be flattened and adhere to a specific schema.
-
-This is where the ODBC driver comes in. By using the ODBC driver, you can now renormalize data in Azure Cosmos DB into tables and views that fit your data analytics and reporting needs. The renormalized schemas have no impact on the underlying data and do not confine developers to adhere to them. Rather, they enable you to leverage ODBC-compliant tools to access the data. So, now your Azure Cosmos database will not only be a favorite for your development team, but your data analysts will love it too.
-
-Let's get started with the ODBC driver.
-
-## <a id="install"></a>Step 1: Install the Azure Cosmos DB ODBC driver
+<a id="install"></a>
+## Install the ODBC driver and connect to your database
 
 1. Download the drivers for your environment:
 
@@ -47,115 +43,145 @@ Let's get started with the ODBC driver.
     |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/cosmos-odbc-32x64) for 32-bit on 64-bit Windows| 64-bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, and Windows Server 2003.| 
     |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/cosmos-odbc-32x32) for 32-bit Windows|32-bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows XP, and Windows Vista.|
 
-    Run the msi file locally, which starts the **Microsoft Azure Cosmos DB ODBC Driver Installation Wizard**. 
+1. Run the *.msi* file locally, which starts the **Microsoft Azure Cosmos DB ODBC Driver Installation Wizard**.
 
-1. Complete the installation wizard using the default input to install the ODBC driver.
+1. Complete the installation wizard using the default input.
 
-1. Open the **ODBC Data source Administrator** app on your computer. You can do this by typing **ODBC Data sources** in the Windows search box. 
-    You can confirm the driver was installed by clicking the **Drivers** tab and ensuring **Microsoft Azure Cosmos DB ODBC Driver** is listed.
+1. After the driver installs, type *ODBC Data sources* in the Windows search box, and open the **ODBC Data Source Administrator**.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Azure Cosmos DB ODBC Data Source Administrator":::
+1. Make sure that the **Microsoft Azure DocumentDB ODBC Driver** is listed on the **Drivers** tab.
 
-## <a id="connect"></a>Step 2: Connect to your Azure Cosmos database
+   :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Screenshot of the O D B C Data Source Administrator window.":::
 
-1. After [Installing the Azure Cosmos DB ODBC driver](#install), in the **ODBC Data Source Administrator** window, click **Add**. You can create a User or System DSN. In this example, you are creating a User DSN.
+   <a id="connect"></a>
+1. Select the **User DSN** tab, and then select **Add** to create a new data source name (DSN). You can also create a System DSN.
 
-1. In the **Create New Data Source** window, select **Microsoft Azure Cosmos DB ODBC Driver**, and then click **Finish**.
+1. In the **Create New Data Source** window, select **Microsoft Azure DocumentDB ODBC Driver**, and then select **Finish**.
 
-1. In the **Azure Cosmos DB ODBC Driver SDN Setup** window, fill in the following information: 
+1. In the **DocumentDB ODBC Driver DSN Setup** window, fill in the following information: 
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Azure Cosmos DB ODBC Driver DSN Setup window":::
-    - **Data Source Name**: Your own friendly name for the ODBC DSN. This name is unique to your Azure Cosmos DB account, so name it appropriately if you have multiple accounts.
-    - **Description**: A brief description of the data source.
-    - **Host**: URI for your Azure Cosmos DB account. You can retrieve this from the Azure Cosmos DB Keys page in the Azure portal, as shown in the following screenshot. 
-    - **Access Key**: The primary or secondary, read-write or read-only key from the Azure Cosmos DB Keys page in the Azure portal as shown in the following screenshot. We recommend you use the read-only key if the DSN is used for read-only data processing and reporting.
-    :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Azure Cosmos DB Keys page":::
-    - **Encrypt Access Key for**: Select the best choice based on the users of this machine. 
+   :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Screenshot of the D S N Setup window.":::
+   
+   - **Data Source Name**: A friendly name for the ODBC DSN. This name is unique to this Azure Cosmos DB account.
+   - **Description**: A brief description of the data source.
+   - **Host**: The URI for your Azure Cosmos DB account. You can get this information from the **Keys** page in your Azure Cosmos DB account in the Azure portal.
+   - **Access Key**: The primary or secondary, read-write or read-only key from the Azure Cosmos DB **Keys** page in the Azure portal. It's best to use the read-only keys, if you use the DSN for read-only data processing and reporting.
+   
+     To avoid an authentication error, use the copy buttons to copy the URI and key from the Azure portal.
+   
+     :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Screenshot of the Azure Cosmos D B Keys page.":::
+   
+   - **Encrypt Access Key for**: Select the best choice, based on who uses the machine.
     
-1. Click the **Test** button to make sure you can connect to your Azure Cosmos DB account. 
+1. Select **Test** to make sure you can connect to your Azure Cosmos DB account.
 
-1.	Click **Advanced Options** and set the following values:
-    *  **REST API Version**: Select the [REST API version](/rest/api/cosmos-db/) for your operations. The default 2015-12-16. If you have containers with [large partition keys](../large-partition-keys.md) and require REST API version 2018-12-31:
-        - Type in **2018-12-31** for REST API version
-        - In the **Start** menu, type "regedit" to find and open the **Registry Editor** application.
-        - In Registry Editor, navigate to the path: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
-        - Create a new subkey with the same name as your DSN, e.g. "Contoso Account ODBC DSN".
-        - Navigate to the "Contoso Account ODBC DSN" subkey.
-        - Right-click to add a new **String** value:
-            - Value Name: **IgnoreSessionToken**
-            - Value data: **1**
-            :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Registry Editor settings":::
-    - **Query Consistency**: Select the [consistency level](../consistency-levels.md) for your operations. The default is Session.
-    - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service rate limiting.
-    - **Schema File**: You have a number of options here.
-        - By default, leaving this entry as is (blank), the driver scans the first page of data for all containers to determine the schema of each container. This is known as Container Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher startup time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
-        - If you already have a schema file (possibly one that you created using the Schema Editor), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.
-        - If you want to create a new schema, click **OK**, and then click **Schema Editor** in the main window. Then proceed to the Schema Editor information. After creating the new schema file, remember to go back to the **Advanced Options** window to include the newly created schema file.
+1. Select **Advanced Options** and set the following values:
 
-1. Once you complete and close the **Azure Cosmos DB ODBC Driver DSN Setup** window, the new User DSN is added to the User DSN tab.
+   - **REST API Version**: Select the [REST API version](/rest/api/cosmos-db) for your operations. The default is **2015-12-16**.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="New Azure Cosmos DB ODBC DSN on the User DSN tab":::
+     If you have containers with [large partition keys](../large-partition-keys.md) that need REST API version 2018-12-31, type *2018-12-31*, and then [follow the steps at the end of this procedure](#edit-the-windows-registry-to-support-rest-api-version-2018-12-31).
 
-## <a id="#container-mapping"></a>Step 3: Create a schema definition using the container mapping method
+   - **Query Consistency**: Select the [consistency level](../consistency-levels.md) for your operations. The default is **Session**.
+   - **Number of Retries**: Enter the number of times to retry an operation if the initial request doesn't complete due to service rate limiting.
+   - **Schema File**: If you don't select a schema file, the driver scans the first page of data for each container to determine its schema, called container mapping, for each session. This process can cause long startup time for applications that use the DSN. It's best to associate a schema file to the DSN.
 
-There are two types of sampling methods that you can use: **container mapping** or **table-delimiters**. A sampling session can utilize both sampling methods, but each container can only use a specific sampling method. The steps below create a schema for the data in one or more containers using the container mapping method. This sampling method retrieves the data in the page of a container to determine the structure of the data. It transposes a container to a table on the ODBC side. This sampling method is efficient and fast when the data in a container is homogenous. If a container contains heterogeneous type of data, we recommend you use the [table-delimiters mapping method](#table-mapping) as it provides a more robust sampling method to determine the data structures in the container. 
+     - If you already have a schema file, select **Browse**, navigate to the file, select **Save**, and then select **OK**.
+     - If you don't have a schema file yet, select **OK**, and then follow the steps in the next section to [create a schema definition](#create-a-schema-definition). After you create the schema, come back to this **Advanced Options** window to add the schema file.
 
-1. After completing steps 1-4 in [Connect to your Azure Cosmos database](#connect), click **Schema Editor** in the **Azure Cosmos DB ODBC Driver DSN Setup** window.
+After you select **OK** to complete and close the **DocumentDB ODBC Driver DSN Setup** window, the new User DSN appears on the **User DSN** tab of the **ODBC Data Source Administrator** window.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Schema editor button in the Azure Cosmos DB ODBC Driver DSN Setup window":::
-1. In the **Schema Editor** window, click **Create New**.
-    The **Generate Schema** window displays all the containers in the Azure Cosmos DB account. 
+   :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="Screenshot that shows the new User D S N on the User D S N tab.":::
 
-1. Select one or more containers to sample, and then click **Sample**. 
+### Edit the Windows registry to support REST API version 2018-12-31
 
-1. In the **Design View** tab, the database, schema, and table are represented. In the table view, the scan displays the set of properties associated with the column names (SQL Name, Source Name, etc.).
-    For each column, you can modify the column SQL name, the SQL type, SQL length (if applicable), Scale (if applicable), Precision (if applicable) and Nullable.
-    - You can set **Hide Column** to **true** if you want to exclude that column from query results. Columns marked Hide Column = true are not returned for selection and projection, although they are still part of the schema. For example, you can hide all of the Azure Cosmos DB system required properties starting with "_".
-    - The **id** column is the only field that cannot be hidden as it is used as the primary key in the normalized schema. 
+If you have containers with [large partition keys](../large-partition-keys.md) that need REST API version 2018-12-31, follow these steps to update the Windows registry to support this version.
 
-1. Once you have finished defining the schema, click **File** | **Save**, navigate to the directory to save the schema, and then click **Save**.
+1. In the Windows **Start** menu, type *regedit* to find and open the **Registry Editor**.
+1. In the Registry Editor, navigate to the path **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**.
+1. Create a new subkey with the same name as your DSN, such as *Contoso Account ODBC DSN*.
+1. Navigate to the new **Contoso Account ODBC DSN** subkey, and right-click to add a new **String** value:
+   - Value Name: **IgnoreSessionToken**
+   - Value data: **1**
+   :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Screenshot that shows the Windows Registry Editor settings.":::
 
-1. To use this schema with a DSN, open the **Azure Cosmos DB ODBC Driver DSN Setup window** (via the ODBC Data Source Administrator), click **Advanced Options**, and then in the **Schema File** box, navigate to the saved schema. Saving a schema file to an existing DSN modifies the DSN connection to scope to the data and structure defined by schema.
+<a id="#container-mapping"></a><a id="table-mapping"></a>
+## Create a schema definition
 
-## <a id="table-mapping"></a>Step 4: Create a schema definition using the table-delimiters mapping method
+There are two types of sampling methods you can use to create a schema: *container mapping* or *table-delimiter mapping*. A sampling session can use both sampling methods, but each container can use only one of the sampling methods. Which method to use depends on your data's characteristics.
 
-There are two types of sampling methods that you can use: **container mapping** or **table-delimiters**. A sampling session can utilize both sampling methods, but each container can only use a specific sampling method. 
+- **Container mapping** retrieves the data on a container page to determine the data structure, and transposes the container to a table on the ODBC side. This sampling method is efficient and fast when the data in a container is homogenous.
 
-The following steps create a schema for the data in one or more containers using the **table-delimiters** mapping method. We recommend that you use this sampling method when your containers contain heterogeneous type of data. You can use this method to scope the sampling to a set of attributes and its corresponding values. For example, if a document contains a "Type" property, you can scope the sampling to the values of this property. The end result of the sampling would be a set of tables for each of the values for Type you have specified. For example, Type = Car will produce a Car table while Type = Plane would produce a Plane table.
+- **Table-delimiter mapping** provides more robust sampling for heterogeneous data. This method scopes the sampling to a set of attributes and corresponding values.
 
-1. After completing steps 1-4 in [Connect to your Azure Cosmos database](#connect), click **Schema Editor** in the Azure Cosmos DB ODBC Driver DSN Setup window.
+  For example, if a document contains a **Type** property, you can scope the sampling to the values of this property. The end result of the sampling is a set of tables for each of the **Type** values you specified. **Type = Car** produces a **Car** table, while **Type = Plane** produces a **Plane** table.
 
-1. In the **Schema Editor** window, click **Create New**.
-    The **Generate Schema** window displays all the containers in the Azure Cosmos DB account. 
+To define a schema, follow these steps. For the table-delimiter mapping method, you take extra steps to define attributes and values for the schema.
 
-1. Select a container on the **Sample View** tab, in the **Mapping Definition** column for the container, click **Edit**. Then in the **Mapping Definition** window, select **Table Delimiters** method. Then do the following:
+1. On the **User DSN** tab of the **ODBC Data Source Administrator** window, select your Azure Cosmos DB User DSN Name, and then select **Configure**.
 
-    a. In the **Attributes** box, type the name of a delimiter property. This is a property in your document that you want to scope the sampling to, for instance, City and press enter. 
+1. In the **DocumentDB ODBC Driver DSN Setup** window, select **Schema Editor**.
 
-    b. If you only want to scope the sampling to certain values for the attribute you entered above, select the attribute in the selection box, enter a value in the **Value** box (e.g. Seattle), and press enter. You can continue to add multiple values for attributes. Just ensure that the correct attribute is selected when you're entering values.
+   :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Screenshot that shows the Schema Editor button in the D S N Setup window.":::
 
-    For example, if you include an **Attributes** value of City, and you want to limit your table to only include rows with a city value of New York and Dubai, you would enter City in the Attributes box, and New York and then Dubai in the **Values** box.
+1. In the **Schema Editor** window, select **Create New**. 
 
-1. Click **OK**. 
+1. The **Generate Schema** window displays all the collections in the Azure Cosmos DB account. Select the checkboxes next to the containers you want to sample.
 
-1. After completing the mapping definitions for the containers you want to sample, in the **Schema Editor** window, click **Sample**.
-     For each column, you can modify the column SQL name, the SQL type, SQL length (if applicable), Scale (if applicable), Precision (if applicable) and Nullable.
-    - You can set **Hide Column** to **true** if you want to exclude that column from query results. Columns marked Hide Column = true are not returned for selection and projection, although they are still part of the schema. For example, you can hide all the Azure Cosmos DB system required properties starting with `_`.
-    - The **id** column is the only field that cannot be hidden as it is used as the primary key in the normalized schema. 
+1. To use the *container mapping* method, select **Sample**.
 
-1. Once you have finished defining the schema, click **File** | **Save**, navigate to the directory to save the schema, and then click **Save**.
+   Or, to use *table-delimiter* mapping, take the following steps to define attributes and values for scoping the sample.
 
-1. Back in the **Azure Cosmos DB ODBC Driver DSN Setup** window, click **Advanced Options**. Then, in the **Schema File** box, navigate to the saved schema file and click **OK**. Click **OK** again to save the DSN. This saves the schema you created to the DSN. 
+   1. Select **Edit** in the **Mapping Definition** column for your DSN.
 
-## (Optional) Set up linked server connection
+   1. In the **Mapping Definition** window, under **Mapping Method**, select **Table Delimiters**.
 
-You can query Azure Cosmos DB from SQL Server Management Studio (SSMS) by setting up a linked server connection.
+   1. In the **Attributes** box, type the name of a delimiter property in your document that you want to scope the sampling to, for instance, *City*. Press Enter.
 
-1. Create a system data source as described in [Step 2](#connect), named for example `SDS Name`.
+   1. If you want to scope the sampling to certain values for the attribute you entered, select the attribute, and then enter a value in the **Value** box, such as *Seattle*, and press Enter. You can add multiple values for attributes. Just make sure that the correct attribute is selected when you enter values.
 
-1. [Install SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and connect to the server. 
+   1. When you're done entering attributes and values, select **OK**. 
 
-1. In the SSMS query editor, create a linked server object `DEMOCOSMOS` for the data source with the following commands. Replace `DEMOCOSMOS` with the name for your linked server, and `SDS Name` with the name of your system data source.
+   1. In the **Generate Schema** window, select **Sample**.
+
+1. In the **Design View** tab, refine your schema. The **Design View** represents the database, schema, and table. The table view displays the set of properties associated with the column names, such as **SQL Name** and **Source Name**.
+
+   For each column, you can modify the **SQL name**, the **SQL type**, **SQL length**, **Scale**, **Precision**, and **Nullable** as applicable.
+
+   You can set **Hide Column** to **true** if you want to exclude that column from query results. Columns marked **Hide Column = true** aren't returned for selection and projection, although they're still part of the schema. For example, you can hide all of the Azure Cosmos DB system required properties that start with **_**. The **id** column is the only field you can't hide, because it's the primary key in the normalized schema.
+
+1. Once you finish defining the schema, select **File** > **Save**, navigate to the directory to save in, and select **Save**.
+
+1. To use this schema with a DSN, in the **DocumentDB ODBC Driver DSN Setup** window, select **Advanced Options**. Select the **Schema File** box, navigate to the saved schema, select **OK** and then select **OK** again. Saving the schema file modifies the DSN connection to scope to the schema-defined data and structure.
+
+### Create views
+
+Optionally, you can define and create views in the **Schema Editor** as part of the sampling process. These views are equivalent to SQL views. The views are read-only, and scope to the selections and projections of the defined Azure Cosmos DB SQL query.
+
+Follow these steps to create a view for your data:
+
+1. On the **Sample View** tab of the **Schema Editor** window, select the containers you want to sample, and then select **Add** in the **View Definition** column.
+
+   :::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Screenshot that shows creating a view.":::
+
+1. In the **View Definitions** window, select **New**. Enter a name for the view, for example *EmployeesfromSeattleView*, and then select **OK**.
+
+1. In the **Edit view** window, enter an [Azure Cosmos DB query](./sql-query-getting-started.md), for example:
+
+   `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`
+
+1. Select **OK**.
+
+   :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Screenshot of adding a query when creating a view.":::
+
+You can create as many views as you like. Once you're done defining the views, select **Sample** to sample the data.
+
+## Query with SQL Server Management Studio
+
+Once you set up an Azure Cosmos DB ODBC Driver User DSN, you can query Azure Cosmos DB from SQL Server Management Studio (SSMS) by setting up a linked server connection.
+
+1. [Install SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and connect to the server.
+
+1. In the SSMS query editor, create a linked server object for the data source by running the following commands. Replace `DEMOCOSMOS` with the name for your linked server, and `SDS Name` with your data source name.
 
     ```sql
     USE [master]
@@ -168,11 +194,9 @@ You can query Azure Cosmos DB from SQL Server Management Studio (SSMS) by settin
     GO
     ```
     
-To see the new linked server name, refresh the Linked Servers list.
+To see the new linked server name, refresh the linked servers list.
 
-:::image type="content" source="./media/odbc-driver/odbc-driver-linked-server-ssms.png" alt-text="Linked Server in SSMS":::
-
-### Query linked database
+:::image type="content" source="./media/odbc-driver/odbc-driver-linked-server-ssms.png" alt-text="Screenshot showing a linked server in S S M S.":::
 
 To query the linked database, enter an SSMS query. In this example, the query selects from the table in the container named `customers`:
 
@@ -180,9 +204,9 @@ To query the linked database, enter an SSMS query. In this example, the query se
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
 ```
 
-Execute the query. The result should be similar to this:
+Execute the query. The results should look similar to the following output:
 
-```
+```output
 attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
 attachments/  1507476156    167 Nassau Street, Tuskahoma, Illinois, 5998   "2602bd56-0000-0000-0000-59da42bc0000"   2015-06-16T08:54:17 +04:00 f75f949ea8de466a9ef2bdb7ce065ac8
 attachments/  1507476156    885 Strong Place, Cassel, Montana, 2069       "2602be56-0000-0000-0000-59da42bc0000"   2015-03-20T07:21:47 +04:00 ef0365fb40c04bb6a3ffc4bc77c905fd
@@ -190,73 +214,55 @@ attachments/  1507476156    515 Barwell Terrace, Defiance, Tennessee, 6439     "
 attachments/  1507476156    570 Ruby Street, Spokane, Idaho, 9025       "2602c156-0000-0000-0000-59da42bc0000"   2014-10-30T05:49:33 +04:00 e53072057d314bc9b36c89a8350048f3
 ```
 
-> [!NOTE]
-> The linked Cosmos DB server does not support four-part naming. An error is returned similar to the following message:
+## View your data in Power BI Desktop
 
-```
-Msg 7312, Level 16, State 1, Line 44
+You can use your DSN to connect to Azure Cosmos DB with any ODBC-compliant tools. This procedure shows you how to connect to Power BI Desktop to create a Power BI visualization.
 
-Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server "DEMOCOSMOS". A four-part name was supplied, but the provider does not expose the necessary interfaces to use a catalog or schema.
-``` 
+1. In Power BI Desktop, select **Get Data**.
 
-## (Optional) Creating views
-You can define and create views as part of the sampling process. These views are equivalent to SQL views. They are read-only and are scope the selections and projections of the Azure Cosmos DB SQL query defined. 
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Screenshot showing Get Data in Power B I Desktop.":::
 
-To create a view for your data, in the **Schema Editor** window, in the **View Definitions** column, click **Add** on the row of the container to sample. 
+1. In the **Get Data** window, select **Other** > **ODBC**, and then select **Connect**.
 
-:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Create a view of data":::
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Screenshot that shows choosing O D B C data source in Power B I Get Data.":::
 
+1. In the **From ODBC** window, select the DSN you created, and then select **OK**.
 
-Then in the **View Definitions** window, do the following:
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Screenshot that shows choosing the D S N in Power B I Get Data.":::
 
-1. Click **New**, enter a name for the view, for example, EmployeesfromSeattleView and then click **OK**.
+1. In the **Access a data source using an ODBC driver** window, select **Default or Custom** and then select **Connect**.
 
-1. In the **Edit view** window, enter an Azure Cosmos DB query. This must be an [Azure Cosmos DB SQL query](./sql-query-getting-started.md), for example `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`, and then click **OK**.
+1. In the **Navigator** window, in the left pane, expand the database and schema, and select the table. The results pane includes the data that uses the schema you created.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Add query when creating a view":::
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Screenshot of selecting the table in Power B I Get Data.":::
 
+1. To visualize the data in Power BI desktop, select the checkbox next to the table name, and then select **Load**.
 
-You can create a many views as you like. Once you are done defining the views, you can then sample the data. 
+1. In Power BI Desktop, select the **Data** tab on the left of the screen to confirm your data was imported.
 
-## Step 5: View your data in BI tools such as Power BI Desktop
-
-You can use your new DSN to connect to Azure Cosmos DB with any ODBC-compliant tools - this step simply shows you how to connect to Power BI Desktop and create a Power BI visualization.
-
-1. Open Power BI Desktop.
-
-1. Click **Get Data**.
-
-    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Get Data in Power BI Desktop":::
-
-1. In the **Get Data** window, click **Other** | **ODBC** | **Connect**.
-
-    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Choose ODBC Data source in Power BI Get Data":::
-
-1. In the **From ODBC** window, select the data source name you created, and then click **OK**. You can leave the **Advanced Options** entries blank.
-
-   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Choose Data source name (DSN) in Power BI Get Data":::
-
-1. In the **Access a data source using an ODBC driver** window, select **Default or Custom** and then click **Connect**. You do not need to include the **Credential connection string properties**.
-
-1. In the **Navigator** window, in the left pane, expand the database, the schema, and then select the table. The results pane includes the data using the schema you created.
-
-    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Select Table in Power BI Get Data":::
-
-1. To visualize the data in Power BI desktop, check the box in front of the table name, and then click **Load**.
-
-1. In Power BI Desktop, on the far left, select the Data tab :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: to confirm your data was imported. 
-
-1. You can now create visuals using Power BI by clicking on the Report tab :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png":::, clicking **New Visual**, and then customizing your tile. For more information about creating visualizations in Power BI Desktop, see [Visualization types in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
+1. Select the **Report** tab on the left of the screen, select **New visual** from the ribbon, and then customize the visual.
 
 ## Troubleshooting
 
-If you receive the following error, ensure the **Host** and **Access Key** values you copied the Azure portal in [Step 2](#connect) are correct and then retry. Use the copy buttons to the right of the **Host** and **Access Key** values in the Azure portal to copy the values error free.
+- **Problem**: You get the following error when trying to connect:
 
-```output
-[HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}
-```
+  ```output
+  [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}
+  ```
 
+  **Solution:** Make sure the **Host** and **Access Key** values you copied from the Azure portal are correct, and retry.
+
+- **Problem**: You get the following error in SSMS when trying to create a linked Azure Cosmos DB server:
+
+  ```output
+  Msg 7312, Level 16, State 1, Line 44
+  
+  Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server "DEMOCOSMOS". A four-part name was supplied, but the provider does not expose the necessary interfaces to use a catalog or schema.
+  ``` 
+
+  **Solution**: A linked Azure Cosmos DB server doesn't support four-part naming.
 
 ## Next steps
 
-To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](../introduction.md).
+- To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](../introduction.md).
+- For more information about creating visualizations in Power BI Desktop, see [Visualization types in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).

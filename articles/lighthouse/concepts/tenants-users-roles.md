@@ -1,7 +1,7 @@
 ---
 title: Tenants, users, and roles in Azure Lighthouse scenarios
 description: Understand how Azure Active Directory tenants, users, and roles can be used in Azure Lighthouse scenarios.
-ms.date: 12/16/2021
+ms.date: 06/09/2022
 ms.topic: conceptual
 ---
 
@@ -37,7 +37,7 @@ When defining an authorization, each user account must be assigned one of the [A
 All [built-in roles](../../role-based-access-control/built-in-roles.md) are currently supported with Azure Lighthouse, with the following exceptions:
 
 - The [Owner](../../role-based-access-control/built-in-roles.md#owner) role is not supported.
-- Any built-in roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions) permission are not supported.
+- Any built-in roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission are not supported.
 - The [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) built-in role is supported, but only for the limited purpose of [assigning roles to a managed identity in the customer tenant](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). No other permissions typically granted by this role will apply. If you define a user with this role, you must also specify the built-in role(s) that this user can assign to managed identities.
 
 > [!NOTE]

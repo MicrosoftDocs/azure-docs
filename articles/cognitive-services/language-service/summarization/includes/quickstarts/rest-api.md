@@ -5,17 +5,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/11/2022
+ms.date: 07/11/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
+
+
+# [Document summarization](#tab/document-summarization)
+
+[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze)
+
+# [Conversation summarization](#tab/conversation-summarization)
+
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178) 
+
+---
+
+Use this quickstart to send text summarization requests using the REST API. In the following example, you will use cURL to summarize documents or text-based customer service conversations.
 
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
+
+[!INCLUDE [availability](../regional-availability.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Example request
 
@@ -51,9 +69,9 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST https://your-text-analytics-endpoint-here/text/analytics/v3.2-preview.1/analyze \
+curl -i -X POST https://<your-language-resource-endpoint>/text/analytics/v3.2-preview.1/analyze \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-key-here" \
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
 ' 
 {
@@ -90,10 +108,13 @@ https://your-resource.cognitiveservices.azure.com/text/analytics/v3.2-preview.1/
 To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET    https://your-text-analytics-endpoint-here/text/analytics/v3.2-preview.1/analyze/jobs/my-job-id \
+curl -X GET    https://<your-language-resource-endpoint>/text/analytics/v3.2-preview.1/analyze/jobs/my-job-id \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-key-here"
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Document-summarization" target="_target">I ran into an issue</a>
 
 
 ### JSON response
@@ -177,9 +198,9 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
+curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-key-here" \
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
 ' 
 {
@@ -257,16 +278,20 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
 Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
-https://your-language-endpoint-here/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
+https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
 ```
 
 To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET    https://your-language-endpoint-here/language/analyze-conversations/jobs/my-job-id \
+curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/my-job-id \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-key-here"
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Conversation-summarization" target="_target">I ran into an issue</a>
+
 
 
 ### JSON response

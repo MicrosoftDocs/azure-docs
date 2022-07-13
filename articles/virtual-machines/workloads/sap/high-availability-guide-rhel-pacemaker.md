@@ -224,7 +224,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
 
-1. Go to <https://portal.azure.com>
+1. Go to the [Azure portal](https://portal.azure.com).
 1. Open the Azure Active Directory blade  
    Go to Properties and make a note of the Directory ID. This is the **tenant ID**.
 1. Click App registrations
@@ -239,7 +239,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/role-assignments-powershell.md) or [Azure CLI](../../../role-based-access-control/role-assignments-cli.md)
+The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 

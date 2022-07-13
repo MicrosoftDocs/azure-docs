@@ -103,17 +103,14 @@ HVCI is a powerful system mitigation that protects Windows kernel-mode processes
 With trusted launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 
-## Azure Defender for Cloud integration
+## Microsoft Defender for Cloud integration
 
 Trusted launch is integrated with Azure Defender for Cloud to ensure your VMs are properly configured. Azure Defender for Cloud will continually assess compatible VMs and issue relevant recommendations.
 
 - **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Azure Defender for Cloud will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
 - **Recommendation to enable vTPM** - If your VM has vTPM enabled, Azure Defender for Cloud can use it to perform Guest Attestation and identify advanced threat patterns. If Azure Defender for Cloud identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it.
 - **Recommendation to install guest attestation extension** - If your VM has secure boot and vTPM enabled but it doesn't have the guest attestation extension installed, Azure Defender for Cloud will issue a low severity recommendation to install the guest attestation extension on it. This extension allows Azure Defender for Cloud to proactively attest and monitor the boot integrity of your VMs. Boot integrity is attested via remote attestation.
-- **Attestation health assessment or Boot Integrity Monitoring** - If your VM has Secure Boot and vTPM enabled and attestation extension installed, Azure Defender for Cloud can remotely validate that your VM booted in a healthy way. This is known as boot integrity monitoring. Azure Defender for Cloud issues an assessment, indicating the status of remote attestation. Currently boot integrity monitoring is supported for both Windows and Linux singe virtual machines and uniform scale sets.
-
-
-## Microsoft Defender for Cloud integration
+- **Attestation health assessment or Boot Integrity Monitoring** - If your VM has Secure Boot and vTPM enabled and attestation extension installed, Azure Defender for Cloud can remotely validate that your VM booted in a healthy way. This is known as boot integrity monitoring. Azure Defender for Cloud issues an assessment, indicating the status of remote attestation. Currently boot integrity monitoring is supported for both Windows and Linux single virtual machines and uniform scale sets.
 
 If your VMs are properly set up with trusted launch, Microsoft Defender for Cloud can detect and alert you of VM health problems.
 
@@ -172,7 +169,7 @@ Trusted launch now supports Azure Backup. For more information, see  [Support ma
 
 ### Does trusted launch support ephemeral OS disks?
 
-Trusted launch now supports ephemeral OS disks in preview. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
+Trusted launch supports ephemeral OS disks. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
 
 ### How can I find VM sizes that support Trusted launch?
 

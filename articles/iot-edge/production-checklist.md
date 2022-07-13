@@ -222,6 +222,8 @@ This checklist is a starting point for firewall rules:
    | FQDN (\* = wildcard) | Outbound TCP Ports | Usage |
    | ----- | ----- | ----- |
    | `mcr.microsoft.com`  | 443 | Microsoft Container Registry |
+   | `\*.data.mcr.microsoft.com` | 443 | Data endpoint providing content delivery |
+   | `*.cdn.azcr.io` | 443 | Deploy modules from the Marketplace to devices |
    | `global.azure-devices-provisioning.net`  | 443 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) access (optional) |
    | `\*.azurecr.io` | 443 | Personal and third-party container registries |
    | `\*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
@@ -266,7 +268,7 @@ On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog
 :::moniker-end
 <!-- end 1.1 -->
 
-<!--1.2-->
+<!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 
 Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemon's logs can be individually queried with `journalctl`, the `iotedge system` commands provide a convenient way to query the combined logs.
@@ -323,13 +325,13 @@ Add (or append) this information to a file named `daemon.json` and place it in t
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 * `/etc/docker/`
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 The container engine must be restarted for the changes to take effect.
 

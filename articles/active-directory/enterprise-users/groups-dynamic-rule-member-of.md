@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/02/2022
+ms.date: 06/23/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Group membership in a dynamic group (preview) in Azure Active Directory
 
-This feature preview enables admins to create dynamic groups in Azure Active Directory (Azure AD) that populate by adding members of other groups using the memberOf attribute. Apps that couldn't read group-based membership previously in Azure AD can now read the entire membership of these new memberOf groups. Not only can these groups be used for apps, they can also be used for licensing assignment and role-based access control. The following diagram illustrates how you could create Dynamic-Group-A with members of Security-Group-X and Security-Group-Y. Members of the groups inside of Security-Group-X and Security-Group-Y don't become members of Dynamic-Group-A.
+This feature preview in Azure Active Directory (Azure AD), part of Microsoft Entra, enables admins to create dynamic groups that populate by adding members of other groups using the memberOf attribute. Apps that couldn't read group-based membership previously in Azure AD can now read the entire membership of these new memberOf groups. Not only can these groups be used for apps, they can also be used for licensing assignment and role-based access control. The following diagram illustrates how you could create Dynamic-Group-A with members of Security-Group-X and Security-Group-Y. Members of the groups inside of Security-Group-X and Security-Group-Y don't become members of Dynamic-Group-A.
  
 :::image type="content" source="./media/groups-dynamic-rule-member-of/member-of-diagram.png" alt-text="Diagram showing how the memberOf attribute works.":::
 
@@ -53,7 +53,3 @@ This feature can be used in the Azure AD portal, Microsoft Graph, and in PowerSh
     1. Example device rule: `device.memberof -any (group.objectId -in ['groupId', 'groupId'])`
 1. Select **OK**.
 1. Select **Create group**.
-
-## Next steps
-
-To report an issue, contact us in the [Teams channel](https://teams.microsoft.com/l/channel/19%3a39Q7HFuexXXE3Vh90woJRNQQBbZl1YyesJHIEquuQCw1%40thread.tacv2/General?groupId=bfd3bfb8-e0db-4e9e-9008-5d7ba8c996b0&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47).

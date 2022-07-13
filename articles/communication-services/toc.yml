@@ -35,7 +35,7 @@ items:
         href: quickstarts/chat/react-native.md
   - name: Email
     items:
-      - name: Create a Email Communication Services resource
+      - name: Create an Email Communication Services resource
         href: quickstarts/email/create-email-communication-resource.md
       - name: Add Azure Managed domain
         href: quickstarts/email/add-azure-managed-domains.md
@@ -238,7 +238,7 @@ items:
         href: concepts/teams-interop.md
       - name: Join a Teams meeting
         href: concepts/join-teams-meeting.md
-      - name: Custom Teams endpoint
+      - name: Communication for Teams identities
         items:
           - name: Overview
             href: concepts/teams-endpoint.md
@@ -248,12 +248,16 @@ items:
             href: concepts/interop/custom-teams-endpoint-authentication-overview.md
           - name: Calling capabilities
             href: concepts/interop/teams-user-calling.md
+          - name: Teams license requirements
+            href: quickstarts/eligible-teams-licenses.md
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
   - name: Data residency and user privacy
     href: concepts/privacy.md
+  - name: Azure Government
+    href: concepts/government.md
   - name: Pricing
     href: concepts/pricing.md
   - name: Email Pricing
@@ -294,13 +298,15 @@ items:
         href: how-tos/calling-sdk/teams-interoperability.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+      - name: Check if user is running supported browser
+        href: how-tos/calling-sdk/browser-support.md
   - name: Using the UI Library
     items: 
     - name: Setup Localization
       href: how-tos/ui-library-sdk/localization.md
     - name: Setup Theming
       href: how-tos/ui-library-sdk/theming.md
-    - name: Custom Data Model Injection 
+    - name: Participant View Data Injection
       href: how-tos/ui-library-sdk/data-model.md
 - name: Samples
   items:
@@ -327,7 +333,7 @@ items:
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
     - name: Calling (Android/Java)
-      href: /java/api/com.azure.android.communication.calling?view=communication-services-java-android
+      href: /java/api/com.azure.android.communication.calling
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
   - name: Chat libraries
@@ -375,7 +381,7 @@ items:
   - name: UI Library
     items:
     - name: UI Library (JavaScript)
-      href: /javascript/api/@azure/communication-react/?view=azure-node-latest
+      href: /javascript/api/@azure/communication-react/
     - name: UI Library (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
     - name: UI Library (Android)

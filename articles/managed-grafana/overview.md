@@ -35,4 +35,5 @@ You can create dashboards instantaneously by importing existing charts directly 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a workspace in Azure Managed Grafana Preview using the Azure portal](./quickstart-managed-grafana-portal.md).
+> [Create an Azure Managed Grafana Preview instance using the Azure portal](./quickstart-managed-grafana-portal.md)
+

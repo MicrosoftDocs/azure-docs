@@ -4,6 +4,7 @@ description: Cost details for data stored in a Log Analytics workspace in Azure 
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 03/24/2022
+ms.reviwer: dalek git 
 ---
  
 # Azure Monitor Logs pricing details
@@ -20,7 +21,7 @@ The default pricing for Log Analytics is a Pay-As-You-Go model that's based on i
 Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). The data size of a single record is calculated from a string representation of the columns that are stored in the Log Analytics workspace for that record, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [custom logs API](custom-logs-overview.md), [ingestion-time transformations](ingestion-time-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
 
 >[!NOTE]
->The billable data volume calculation is substantially smaller than the size of the entire incoming JSON-packaged event, often less than 50% for small events. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
+>The billable data volume calculation is substantially smaller than the size of the entire incoming JSON-packaged event. On average across all event types, the billed size is about 25% less than the incoming data size. This can be up to 50% for small events. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
 
 ### Excluded columns
 The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the record size. All other columns stored in Log Analytics are included in the calculation of the record size. 
@@ -81,7 +82,7 @@ The charge for searching against Basic Logs is based on the GB of data scanned i
 See [Configure Basic Logs in Azure Monitor](basic-logs-configure.md) for details on Basic Logs including how to configure them and query their data.
 
 ## Log data retention and archive
-In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, and there is a charge search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
+In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, and there is a charge to search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
 
 See [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md) for details on data retention and archiving including how to configure these settings and access archived data. 
 

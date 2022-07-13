@@ -2,11 +2,11 @@
 title: Overview of the Azure monitoring agents| Microsoft Docs
 description: This article provides a detailed overview of the Azure agents available which support monitoring virtual machines hosted in Azure or hybrid environment.
 services: azure-monitor
-
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/24/2022
+ms.date: 7/11/2022
+ms.reviewer: shseth
 ---
 
 # Overview of Azure Monitor agents
@@ -175,13 +175,14 @@ The following tables list the operating systems that are supported by the Azure 
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Dependency agent | Diagnostics extension <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
-| AlmaLinux                                                   | X |   |   |   |
+| AlmaLinux                                                   | X | X |   |   |
 | Amazon Linux 2017.09                                        |   | X |   |   |
 | Amazon Linux 2                                              |   | X |   |   |
 | CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
 | CentOS Linux 6.5+                                           |   | X | X | X |
+| Debian 11 <sup>1</sup>                                      | X |   |   |   |
 | Debian 10 <sup>1</sup>                                      | X |   |   |   |
 | Debian 9                                                    | X | X | x | X |
 | Debian 8                                                    |   | X | X |   |
@@ -191,12 +192,12 @@ The following tables list the operating systems that are supported by the Azure 
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8.1, 8.2, 8.3, 8.4          | X <sup>3</sup> | X | X |   |
-| Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
+| Red Hat Enterprise Linux Server 8.5, 8.6                         | X |  |  |   |
+| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
-| Rocky Linux                                                 | X |   |   |   |
+| Rocky Linux                                                 | X | X |   |   |
 | SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
 | SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X | X |   |
@@ -221,7 +222,8 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 
 | Distribution | OS version | Kernel version |
 |:---|:---|:---|
-|  Red Hat Linux 8   | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
+|  Red Hat Linux 8   | 8.5     | 4.18.0-348.\*el8_5.x86_644.18.0-348.\*el8.x86_64 |
+|                    | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
 |                    | 8.3     |  4.18.0-240.\*el8_3.x86_64 |
 |                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
 |                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
@@ -234,7 +236,8 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
-| CentOS Linux 8     | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
+| CentOS Linux 8     | 8.5     | 4.18.0-348.\*el8_5.x86_644.18.0-348.\*el8.x86_64  |
+|                    | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
 |                    | 8.3     | 4.18.0-240.\*el8_3.x86_64 |
 |                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
 |                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |

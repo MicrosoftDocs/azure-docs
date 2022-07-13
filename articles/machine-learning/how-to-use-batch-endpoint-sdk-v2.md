@@ -39,8 +39,19 @@ In this article, you'll learn to:
 * An Azure ML workspace with computer cluster to run your batch scoring job.
 * The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 
+### Clone examples repository
 
-## 1. Connect to Azure Machine Learning workspace
+To run the examples, first clone the examples repository and change into the `sdk` directory:
+
+```bash
+git clone --depth 1 https://github.com/Azure/azureml-examples
+cd azureml-examples/sdk
+```
+
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
+
+## Connect to Azure Machine Learning workspace
 
 The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which the job will be run.
 
@@ -50,6 +61,7 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     # import required libraries
     from azure.ai.ml import MLClient, Input
     from azure.ai.ml.entities import (
+        AmlCompute,
         BatchEndpoint,
         BatchDeployment,
         Model,
@@ -66,10 +78,10 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
     ```python
-    # enter details of your AML workspace
+    # enter details of your AzureML workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
-    workspace = "<AML_WORKSPACE_NAME>"
+    workspace = "<AZUREML_WORKSPACE_NAME>"
     ```
 
     ```python
@@ -118,6 +130,16 @@ To create an online endpoint, we'll use `BatchEndpoint`. This class allows user 
     ml_client.begin_create_or_update(endpoint)
     ```
 
+## Create batch compute
+
+Batch endpoint runs only on cloud computing resources, not locally. The cloud computing resource is a reusable virtual computer cluster. Run the following code to create an Azure Machine Learning compute cluster. The following examples in this article use the compute created here named `cpu-cluster`.
+
+```python
+compute_name = "cpu-cluster"
+compute_cluster = AmlCompute(name=compute_name, description="amlcompute", min_instances=0, max_instances=5)
+ml_client.begin_create_or_update(compute_cluster)
+```
+
 ## Create a deployment
 
 A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `BatchDeployment` class. This class allows user to configure the following key aspects.
@@ -157,7 +179,7 @@ A deployment is a set of resources required for hosting the model that does the 
         code_path="./mnist/code/",
         scoring_script="digit_identification.py",
         environment=env,
-        compute="cpu-cluster",
+        compute=compute_name,
         instance_count=2,
         max_concurrency_per_instance=2,
         mini_batch_size=10,
@@ -193,7 +215,7 @@ Using the `MLClient` created earlier, we'll get a handle to the endpoint. The en
     # invoke the endpoint for batch scoring job
     job = ml_client.batch_endpoints.invoke(
         endpoint_name=batch_endpoint_name,
-        input_data=input,
+        input=input,
         deployment_name="non-mlflow-deployment",  # name is required as default deployment is not set
         params_override=[{"mini_batch_size": "20"}, {"compute.instance_count": "4"}],
     )

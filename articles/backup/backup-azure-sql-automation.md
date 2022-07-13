@@ -102,7 +102,7 @@ The Recovery Services vault is a Resource Manager resource, so you must place it
 3. Specify the type of redundancy to use for the vault storage.
 
     * You can use [locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage), [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) or [zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) .
-    * The following example sets the **-BackupStorageRedundancy** option for the[Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for **testvault** set to **GeoRedundant**.
+    * The following example sets the **-BackupStorageRedundancy** option for the [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for **testvault** set to **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -667,6 +667,14 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $testVault.ID
 #### Disable auto protection
 
 If autoprotection was configured on an SQLInstance, you can disable it using the [Disable-AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) PowerShell cmdlet.
+
+Find the instances where auto-protection is enabled using the following PowerShell command.
+
+```azurepowershell
+Get-AzRecoveryServicesBackupProtectableItem -WorkloadType MSSQL -VaultId $testVault.ID | Where-Object {$_.IsAutoProtected -eq $true}
+```
+
+Then pick the relevant protectable item name and server name from the output and disable auto-protection for those instances.
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $testVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"

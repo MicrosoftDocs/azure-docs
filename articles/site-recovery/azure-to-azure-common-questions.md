@@ -1,7 +1,7 @@
 ---
 title: Common questions about Azure VM disaster recovery with Azure Site Recovery
 description: This article answers common questions about Azure VM disaster recovery when you use Azure Site Recovery.
-author: sideeksh
+author: v-pgaddala
 manager: rochakm
 ms.date: 04/28/2022
 ms.topic: conceptual
@@ -98,9 +98,9 @@ Site Recovery doesn't support "hot remove" of disks from a replicated VM. If you
 
 Replication is continuous when replicating Azure VMs to another Azure region. [Learn more](./azure-to-azure-architecture.md#replication-process) about the replication process.
 
-### Can I replicate virtual machines within a region?
+### Can I replicate non-zoned virtual machines within a region?
 
-You can't use Site Recovery to replicate disks within a region.
+You can't use Site Recovery to replicate non-zoned virtual machines within a region. But you can replicate zoned machines to a different zone in the same region.
 
 ### Can I replicate VM instances to any Azure region?
 
