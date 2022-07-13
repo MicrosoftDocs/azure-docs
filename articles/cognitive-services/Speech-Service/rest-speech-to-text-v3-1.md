@@ -43,7 +43,7 @@ Use the REST API v3.1 to:
     It also now supports uploading data in multiple blocks for which the following new operations were added:
     - **Upload Data Block** - Upload a block of data for the dataset. The maximum size of the block is 8MiB.
     - **Get Uploaded Blocks** - Get the list of uploaded blocks for this dataset.
-    - **Commit Block List** - Commit block list to complete the upload of the dataset.
+    - **Commit Block List** - Commit block list to complete the upload of the dataset. 
 - **Get Base Models** and **Get Base Model** now provide information on the type of adaptation supported by a base model:
  ```json 
  "features": {
