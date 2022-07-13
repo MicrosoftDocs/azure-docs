@@ -45,17 +45,17 @@ When you configure virtual network peering, either open or close the network sec
 
 ## Resize the address space of Azure virtual networks that are peered
 
-You can resize the address space of Azure virtual networks that are peered without incurring any downtime on the currently peered address space. This feature is useful when you need resize the virtual network's address space after scaling your workloads. After resizing the address space, existing peerings on the virtual network don't need to be deleted before adding or deleting an address prefix on the virtual network. All that is required is for peers to be re-synced with the new changes. works for both IPv4 and IPv6 address spaces. 
+You can resize the address space of Azure virtual networks that are peered without incurring any downtime on the currently peered address space. This feature is useful when you need to resize the virtual network's address space after scaling your workloads. After resizing the address space, all that is required is for peers to be synced with the new address space changes. Resizing works for both IPv4 and IPv6 address spaces. 
 
 Addresses can be resized in the following ways:
 
-- Modifying the address range prefix of an existing address range (ie 10.1.0.0/16 to 10.1.0.0/18)
+- Modifying the address range prefix of an existing address range (For example changing 10.1.0.0/16 to 10.1.0.0/18)
 - Adding address ranges to a virtual network
 - Deleting address ranges from a virtual network
 
-Re-synching virtual network peers can be performed through the Azure portal or with Azure PowerShell. 
+Synching of virtual network peers can be performed through the Azure portal or with Azure PowerShell. 
 
-> [!Important]
+> [!IMPORTANT]
 > This feature doesn't support scenarios where the virtual network to be updated is peered with: 
 > * A classic virtual network
 > * A managed virtual network such as the Azure VWAN hub
