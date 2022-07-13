@@ -16,15 +16,15 @@ Let's say you're running a web performance test. You'll need traces to understan
 > - View the Profiler traces after your load test or Profiler session.
 > - Learn how to read the Profiler performance data and call stack.
 
-## Generate traffic to your application
+## Generate traffic to your Azure service
 
-For Profiler to upload traces, your application must be actively handling requests. 
+For Profiler to upload traces, your service must be actively handling requests. 
 
 If you've newly enabled Profiler, run a short [load test](/vsts/load-test/app-service-web-app-performance-test). 
 
-If your web app already has incoming traffic or if you just want to manually generate traffic, skip the load test and start a **Profiler on-demand session**:
+If your Azure service already has incoming traffic or if you just want to manually generate traffic, skip the load test and start a **Profiler on-demand session**:
 
-1. From the Application Insights overview page, select **Performance** from the left menu. 
+1. From the Application Insights overview page for your Azure service, select **Performance** from the left menu. 
 1. On the **Performance** pane, select **Profiler** from the top menu for Profiler settings.
 
    :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade" lightbox="media/profiler-settings/profiler-button.png":::
@@ -149,11 +149,9 @@ The **When** column is a visualization of the variety of _inclusive_ samples col
 For these metrics, you can get a value of greater than 100% by consuming multiple resources. For example, if you use two CPUs during an interval on average, you get 200%.
 
 ## Next steps
-Enable Application Insights Profiler for your Azure application:
-- [App Services](profiler.md)
-- [Azure Cloud Services](profiler-cloudservice.md)
-- [Azure Service Fabric](profiler-servicefabric.md)
-- [Azure Virtual Machines and virtual machine scale sets](profiler-vm.md)
+Learn how to...
+> [!div class="nextstepaction"]
+> [Configure Profiler settings](./profiler-settings.md)
 
 
 [performance-blade]: ./media/profiler-overview/performance-blade-v2-examples.png

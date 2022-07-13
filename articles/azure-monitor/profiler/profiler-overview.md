@@ -53,6 +53,11 @@ If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting 
 - **Profiling web apps**: While you can use the Profiler at no extra cost, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
 
 ## Next steps
-Learn how to...
-> [!div class="nextstepaction"]
-> [Generate load and view Profiler data](profiler-data.md)
+Learn how to enable Profiler on your Azure service:
+- [Azure App Service](./profiler.md)
+- [Azure Functions app](./profiler-azure-functions.md)
+- [Cloud Service](./profiler-cloudservice.md)
+- [Service Fabric app](./profiler-servicefabric.md)
+- [Azure Virtual Machine](./profiler-vm.md)
+- [ASP.NET Core application hosted in Linux on Azure App Service](./profiler-aspnetcore-linux.md)
+- [ASP.NET Core application running in containers](./profiler-containers.md)

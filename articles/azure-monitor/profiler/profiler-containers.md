@@ -178,6 +178,6 @@ docker rm -f testapp
 ```
 
 ## Next Steps
-
-- Learn more about [Application Insights Profiler](./profiler-overview.md).
-- Learn how to enable Profiler in your [ASP.NET Core applications run on Linux](./profiler-aspnetcore-linux.md).
+Learn how to...
+> [!div class="nextstepaction"]
+> [Generate load and view Profiler traces](./profiler-data.md)
