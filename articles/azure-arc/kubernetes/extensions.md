@@ -69,7 +69,7 @@ The following extensions are currently available.
 
 Extension installations on the Arc-enabled Kubernetes cluster are either *cluster-scoped* or *namespace-scoped*. 
 
-A cluster-scoped extension will be installed in the `release-namespace` specified during extension creation. Typically, only one instance of the cluster-scoped extension and its components such pods, operators, Custom Resource Definitions (CRDs)) are installed in the release namespace on the cluster.
+A cluster-scoped extension will be installed in the `release-namespace` specified during extension creation. Typically, only one instance of the cluster-scoped extension and its components, such as pods, operators, and Custom Resource Definitions (CRDs), are installed in the release namespace on the cluster.
 
 A namespace-scoped extension can be installed in a given namespace provided using the `–namespace` property. Since the extension can be deployed at a namespace scope, multiple instances of the namespace-scoped extension and its components can run on the cluster.  Each extension instance has permissions on the namespace where it is deployed to. All the above extensions are cluster-scoped except Event Grid on Kubernetes.
 
