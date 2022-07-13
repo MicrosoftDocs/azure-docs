@@ -47,7 +47,7 @@ Describes the process of scanning resources in the cloud environment to determin
 ## Event
 An incident or outcome when something changes in Azure Policy, available for integration with Event Grid. Example events include instances in which a policy state is created, changed, or deleted. See [available event types for Azure Policy](../../event-grid/event-schema-policy.md).
 ## Exclusion
-Also referred to as _NotScopes_; A property in the policy assignment which eliminates child resource containers or child resources from the assignment so they are not considered for compliance evaluation. Excluded scopes do not appear on the the Azure portal Compliance blade. Learn more about [excluded scopes](./concepts/assignment-structure.md#excluded-scopes).
+Also referred to as _NotScopes_; A property in the policy assignment which eliminates child resource containers or child resources from the assignment so they are not considered for compliance evaluation. Excluded scopes do not appear on the Azure portal Compliance blade. Learn more about [excluded scopes](./concepts/assignment-structure.md#excluded-scopes).
 ## Exempt
 A compliance state which indicates that a resource is covered by an exemption.
 ## Exemption
@@ -63,7 +63,7 @@ Abbreviation for JavaScript Object Notation (JSON). Used by Azure Policy to defi
 ## Mode
 Property on the policy definition that determines which resource types are evaluated for a policy definition. It is configured depending on whether the policy is targeting an Azure Resource Manager (ARM) property defined in an ARM template or a Resource Provider (RP) property.
 ## Non-compliant
-A compliance state which indicates that a resource did not conformed to the policy rule in the policy definition.
+A compliance state which indicates that a resource did not conform to the policy rule in the policy definition.
 ## Policy rule
 The component of a policy definition that describes resource compliance requirements through logic-based conditional statements, as well as the effect taken if those conditions are not met. It is composed of an `if` block and `then` block.
 ## Policy state
