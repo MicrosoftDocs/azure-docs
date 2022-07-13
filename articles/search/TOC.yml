@@ -468,7 +468,7 @@
       href: search-performance-tips.md
     - name: Monitoring Cognitive Search
       href: monitor-azure-cognitive-search.md
-    - name: Visualize diagnostic logs
+    - name: Visualize resource logs
       href: search-monitor-logs-powerbi.md
     - name: Monitor queries
       href: search-monitor-queries.md

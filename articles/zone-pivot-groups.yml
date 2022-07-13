@@ -862,7 +862,7 @@ groups:
   prompt: Choose a hosting platform
   pivots:
   - id: container-linux
-    title: Linux container
+    title: Linux code and container
   - id: container-windows
     title: Windows container
   - id: code-windows

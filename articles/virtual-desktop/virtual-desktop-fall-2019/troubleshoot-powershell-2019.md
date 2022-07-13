@@ -78,7 +78,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
 > [!NOTE]
-> New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
+> New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (Azure AD).
 
 ## Error: SessionHostPool could not be deleted
 
