@@ -14,6 +14,10 @@ To start using Azure Video Indexer, you'll need to create an Azure Video Indexer
 
 ## Prerequisites
 
+### Account types
+
+Before creating a new account, review [Account types](accounts-overview.md).
+
 ### Azure level
 
 * This user should be a member of your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](../role-based-access-control/check-access.md).

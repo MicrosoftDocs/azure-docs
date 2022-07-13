@@ -18,11 +18,6 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on P
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
-## View a training video on configuring and onboarding a GCP account
-
-To view a video on how to configure and onboard GCP accounts in Permissions Management, select [Configure and onboard GCP accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
-
-
 ## Onboard a GCP project
 
 1. If the **Data Collectors** dashboard isn't displayed when Permissions Management launches:
