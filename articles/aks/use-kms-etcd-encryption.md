@@ -34,7 +34,7 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * Bring your own (BYO) Azure Key Vault from another tenant.
 * Change Azure Key Vault model (public, private) if KMS is enabled. For changing key vault mode, you need to disable and enable KMS again.
 
-KMS supports [public key vault](Enable KMS with public key vault) and [private key vault](Enable KMS with private key vault) now. 
+KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private key vault][Enable-KMS-with-private-key-vault] now. 
 
 ## Enable KMS with public key vault
 
@@ -269,5 +269,5 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[Enable KMS with public key vault]:use-kms-etcd-encryption.md#enable-kms-with-public-key-vault
-[Enable KMS with private key vault]:use-kms-etcd-encryption.md#enable-kms-with-private-key-vault
+[Enable-KMS-with-public-key-vault]: use-kms-etcd-encryption.md#enable-kms-with-public-key-vault
+[Enable-KMS-with-private-key-vault]: use-kms-etcd-encryption.md#enable-kms-with-private-key-vault
