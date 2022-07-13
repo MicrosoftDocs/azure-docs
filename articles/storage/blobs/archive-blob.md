@@ -20,13 +20,13 @@ The Archive tier is an offline tier for storing blob data that is rarely accesse
 While a blob is in the Archive tier, it can't be read or modified. To read or download a blob in the Archive tier, you must first rehydrate it to an online tier, either Hot or Cool. Data in the Archive tier can take up to 15 hours to rehydrate, depending on the priority you specify for the rehydration operation. For more information about blob rehydration, see [Overview of blob rehydration from the Archive tier](archive-rehydrate-overview.md).
 
 > [!CAUTION]
-> A blob in the Archive tier is offline &mdash; that is, it cannot be read or modified &mdash; until it is rehydrated. The rehydration process can take several hours and has associated costs. Before you move data to the Archive tier, consider whether taking blob data offline may affect your workflows.
+> A blob in the Archive tier is offline. That is, it cannot be read or modified until it is rehydrated. The rehydration process can take several hours and has associated costs. Before you move data to the Archive tier, consider whether taking blob data offline may affect your workflows.
 
 You can use the Azure portal, PowerShell, Azure CLI, or one of the Azure Storage client libraries to manage data archiving.
 
 ## Archive blobs on upload
 
-To archive one ore more blobs on upload, create the blob directly in the Archive tier.
+To archive one ore more blob on upload, create the blob directly in the Archive tier.
 
 ### [Portal](#tab/azure-portal)
 
@@ -105,7 +105,7 @@ To archive a single blob on upload with AzCopy, call the [azcopy copy](../common
 azcopy copy 'C:\temp\myTextFile.txt' 'https://<storage-account>.blob.core.windows.net/<container>/myTextFile-archived.txt' --blob-type BlockBlob --block-blob-tier Archive
 ```
 
-For additional examples, see [Upload files to Azure Blob storage by using AzCopy](../common/storage-use-azcopy-blobs-upload.md).
+For other examples, see [Upload files to Azure Blob storage by using AzCopy](../common/storage-use-azcopy-blobs-upload.md).
 
 ---
 
@@ -115,13 +115,13 @@ You can move an existing blob to the Archive tier in one of two ways:
 
 - You can change a blob's tier with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. **Set Blob Tier** moves a single blob from one tier to another.
 
-    Keep in mind that when you move a blob to the Archive tier with **Set Blob Tier**, then you cannot read or modify the blob's data until you rehydrate the blob. If you may need to read or modify the blob's data before the early deletion interval has elapsed, then consider using a **Copy Blob** operation to create a copy of the blob in the Archive tier.
+    Keep in mind that when you move a blob to the Archive tier with **Set Blob Tier**, then you can't read or modify the blob's data until you rehydrate the blob. If you may need to read or modify the blob's data before the early deletion interval has elapsed, then consider using a **Copy Blob** operation to create a copy of the blob in the Archive tier.
 
 - You can copy a blob in an online tier to the Archive tier with the [Copy Blob](/rest/api/storageservices/copy-blob) operation. You can call the **Copy Blob** operation to copy a blob from an online tier (Hot or Cool) to the Archive tier. The source blob remains in the online tier, and you can continue to read or modify its data in the online tier.
 
 ### Archive an existing blob by changing its tier
 
-Use the **Set Blob Tier** operation to move a blob from the Hot or Cool tier to the Archive tier. The **Set Blob Tier** operation is best for scenarios where you will not need to access the archived data before the early deletion interval has elapsed.
+Use the **Set Blob Tier** operation to move a blob from the Hot or Cool tier to the Archive tier. The **Set Blob Tier** operation is best for scenarios where you won't need to access the archived data before the early deletion interval has elapsed.
 
 The **Set Blob Tier** operation changes the tier of a single blob. To move a set of blobs to the Archive tier with optimum performance, Microsoft recommends performing a bulk archive operation. The bulk archive operation sends a batch of **Set Blob Tier** calls to the service in a single transaction. For more information, see [Bulk archive](#bulk-archive).  
 
@@ -249,7 +249,7 @@ az storage blob copy start \
 
 #### [AzCopy](#tab/azcopy)
 
-To copy a blob from an online tier to the Archive tier with AzCopy, specify the URI for the source blob and the URI for the destination blob. The destination blob should have a different name from the source blob, and should not already exist.
+To copy a blob from an online tier to the Archive tier with AzCopy, specify the URI for the source blob and the URI for the destination blob. The destination blob should have a different name from the source blob, and shouldn't already exist.
 
 > [!NOTE]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
@@ -264,7 +264,7 @@ azcopy copy 'https://<source-account>.blob.core.windows.net/sample-container/blo
 
 ## Bulk archive
 
-When moving a large number of blobs to the Archive tier, use a batch operation for optimal performance. A batch operation sends multiple API calls to the service with a single request. The sub-operations supported by the [Blob Batch](/rest/api/storageservices/blob-batch) operation include [Delete Blob](/rest/api/storageservices/delete-blob) and [Set Blob Tier](/rest/api/storageservices/set-blob-tier).
+When moving a large number of blobs to the Archive tier, use a batch operation for optimal performance. A batch operation sends multiple API calls to the service with a single request. The suboperations supported by the [Blob Batch](/rest/api/storageservices/blob-batch) operation include [Delete Blob](/rest/api/storageservices/delete-blob) and [Set Blob Tier](/rest/api/storageservices/set-blob-tier).
 
 To archive blobs with a batch operation, use one of the Azure Storage client libraries. The following code example shows how to perform a basic batch operation with the .NET client library:
 
@@ -274,9 +274,9 @@ For an in-depth sample application that shows how to change tiers with a batch o
 
 ## Use lifecycle management policies to archive blobs
 
-You can optimize costs for blob data that is rarely accessed by creating lifecycle management policies that automatically move blobs to the Archive tier when they have not been accessed or modified for a specified period of time. After you configure a lifecycle management policy, Azure Storage runs it once per day. For more information about lifecycle management policies, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md).
+You can optimize costs for blob data that is rarely accessed by creating lifecycle management policies that automatically move blobs to the Archive tier when they haven't been accessed or modified for a specified period of time. After you configure a lifecycle management policy, Azure Storage runs it once per day. For more information about lifecycle management policies, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md).
 
-You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template to create a lifecycle management policy. For simplicity, this section shows how to create a lifecycle management policy in the Azure portal only. For additional examples showing how to create lifecycle management policies, see [Configure a lifecycle management policy](lifecycle-management-policy-configure.md).
+You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template to create a lifecycle management policy. For simplicity, this section shows how to create a lifecycle management policy in the Azure portal only. For more examples showing how to create lifecycle management policies, see [Configure a lifecycle management policy](lifecycle-management-policy-configure.md).
 
 > [!CAUTION]
 > Before you use a lifecycle management policy to move data to the Archive tier, verify that that data does not need to be deleted or moved to another tier for at least 180 days. Data that is deleted or moved to a different tier before the 180 day period has elapsed is subject to an early deletion fee.
@@ -299,7 +299,7 @@ To create a lifecycle management policy to archive blobs in the Azure portal, fo
     - Objects were last modified some number of days ago.
     - Objects were last accessed some number of days ago.
 
-    Only one of these conditions can be applied to move a particular type of object to the Archive tier per rule. For example, if you define an action that archives base blobs if they have not been modified for 90 days, then you cannot also define an action that archives base blobs if they have not been accessed for 90 days. Similarly, you can define one action per rule with either of these conditions to archive previous versions, and one to archive snapshots.
+    Only one of these conditions can be applied to move a particular type of object to the Archive tier per rule. For example, if you define an action that archives base blobs if they haven't been modified for 90 days, then you can't also define an action that archives base blobs if they haven't been accessed for 90 days. Similarly, you can define one action per rule with either of these conditions to archive previous versions, and one to archive snapshots.
 
 1. Next, specify the number of days to elapse after the object is modified or accessed.
 1. Specify that the object is to be moved to the Archive tier after the interval has elapsed.

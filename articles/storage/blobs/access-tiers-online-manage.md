@@ -23,7 +23,7 @@ You can set a blob's access tier in any of the following ways:
 - By changing an existing blob's tier with a Set Blob Tier operation, typically to move from a hotter tier to a cooler one.
 - By copying a blob with a Copy Blob operation, typically to move from a cooler tier to a hotter one.
 
-This article describes how manage a blob in an online access tier (Hot or Cool). For more information about how to move a blob to the Archive tier, see [Archive a blob](archive-blob.md). For more information about how to rehydrate a blob from the Archive tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
+This article describes how to manage a blob in an online access tier (Hot or Cool). For more information about how to move a blob to the Archive tier, see [Archive a blob](archive-blob.md). For more information about how to rehydrate a blob from the Archive tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 
 For more information about access tiers for blobs, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
@@ -31,7 +31,7 @@ For more information about access tiers for blobs, see [Hot, Cool, and Archive a
 
 The default access tier setting for a general-purpose v2 storage account determines in which online tier a new blob is created by default. You can set the default access tier for a general-purpose v2 storage account at the time that you create the account or by updating an existing account's configuration.
 
-When you change the default access tier setting for an existing general-purpose v2 storage account, the change applies to all blobs in the account for which an access tier has not been explicitly set. Changing the default access tier may have a billing impact. For details, see [Default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting).
+When you change the default access tier setting for an existing general-purpose v2 storage account, the change applies to all blobs in the account for which an access tier hasn't been explicitly set. Changing the default access tier may have a billing impact. For details, see [Default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting).
 
 #### [Portal](#tab/azure-portal)
 
@@ -92,7 +92,7 @@ The following sections describe how to specify that a blob is uploaded to either
 
 ### Upload a blob to a specific online tier
 
-To create a blob in the Hot or Cool tier tier, specify that tier when you create the blob. The access tier specified on upload overrides the default access tier for the storage account.
+To create a blob in the Hot or Cool tier, specify that tier when you create the blob. The access tier specified on upload overrides the default access tier for the storage account.
 
 ### [Portal](#tab/azure-portal)
 
@@ -192,8 +192,8 @@ azcopy copy 'azcopy copy '<local-directory-path>\*' 'https://<storage-account-na
 
 Storage accounts have a default access tier setting that indicates in which online tier a new blob is created. The default access tier setting can be set to either hot or cool. The behavior of this setting is slightly different depending on the type of storage account:
 
-- The default access tier for a new general-purpose v2 storage account is set to the Hot tier by default. You can change the default access tier setting when you create a storage account or after it is created.
-- When you create a legacy Blob Storage account, you must specify the default access tier setting as Hot or Cool when you create the storage account. You can change the default access tier setting for the storage account after it is created.
+- The default access tier for a new general-purpose v2 storage account is set to the Hot tier by default. You can change the default access tier setting when you create a storage account or after it's created.
+- When you create a legacy Blob Storage account, you must specify the default access tier setting as Hot or Cool when you create the storage account. You can change the default access tier setting for the storage account after it's created.
 
 A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. You can determine whether a blob's access tier is inferred by using the Azure portal, PowerShell, or Azure CLI.
 
@@ -205,7 +205,7 @@ If a blob's access tier is inferred from the default account access tier setting
 
 #### [PowerShell](#tab/azure-powershell)
 
-To determine a blob's access tier and whether it is inferred from Azure PowerShell, retrieve the blob, then check its **AccessTier** and **AccessTierInferred** properties.
+To determine a blob's access tier and whether it's inferred from Azure PowerShell, retrieve the blob, then check its **AccessTier** and **AccessTierInferred** properties.
 
 ```azurepowershell
 $rgName = "<resource-group>"
@@ -227,7 +227,7 @@ $blob.BlobProperties.AccessTierInferred
 
 #### [Azure CLI](#tab/azure-cli)
 
-To determine a blob's access tier and whether it is inferred from Azure CLI, retrieve the blob, then check its **blobTier** and **blobTierInferred** properties.
+To determine a blob's access tier and whether it's inferred from Azure CLI, retrieve the blob, then check its **blobTier** and **blobTierInferred** properties.
 
 ```azurecli
 az storage blob show \
@@ -258,7 +258,7 @@ Use PowerShell, Azure CLI, AzCopy v10, or one of the Azure Storage client librar
 
 ### Change a blob's tier
 
-When you change a blob's tier, you move that blob and all of its data to the target tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation (either directly or via a [lifecycle management](access-tiers-overview.md#blob-lifecycle-management) policy), or by using the [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md) command with AzCopy. This option is typically the best when you are changing a blob's tier from a hotter tier to a cooler one.
+When you change a blob's tier, you move that blob and all of its data to the target tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation (either directly or via a [lifecycle management](access-tiers-overview.md#blob-lifecycle-management) policy), or by using the [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md) command with AzCopy. This option is typically the best when you're changing a blob's tier from a hotter tier to a cooler one.
 
 #### [Portal](#tab/azure-portal)
 
@@ -330,7 +330,7 @@ azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<con
 
 ### Copy a blob to a different online tier
 
-Call [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blob from one tier to another. When you copy a blob to a different tier, you move that blob and all of its data to the target tier. The source blob remains in the original tier, and a new blob is created in the target tier. Calling [Copy Blob](/rest/api/storageservices/copy-blob) is recommended for most scenarios where you are moving a blob from Cool to Hot, or rehydrating a blob from the Archive tier.
+Call [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blob from one tier to another. When you copy a blob to a different tier, you move that blob and all of its data to the target tier. The source blob remains in the original tier, and a new blob is created in the target tier. Calling [Copy Blob](/rest/api/storageservices/copy-blob) is recommended for most scenarios where you're moving a blob from Cool to Hot, or rehydrating a blob from the Archive tier.
 
 #### [Portal](#tab/azure-portal)
 

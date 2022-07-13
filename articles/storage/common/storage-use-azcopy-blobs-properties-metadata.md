@@ -12,7 +12,7 @@ ms.subservice: common
 
 # Replace blob properties and metadata by using AzCopy v10 (preview)
 
-You can use AzCopy to change the [access tier](../blobs/access-tiers-overview.md) of one or more blobs as well as replace (_overwrite_) the metadata, and index tags of one or more blobs. 
+You can use AzCopy to change the [access tier](../blobs/access-tiers-overview.md) of one or more blobs and replace (_overwrite_) the metadata, and index tags of one or more blobs. 
 
 > [!IMPORTANT]
 > This capability is currently in PREVIEW.
@@ -111,7 +111,7 @@ To replace the index tags of a blob, use the [azcopy set-properties](storage-ref
 azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags=mytag1=mytag1value;mytag2=mytag2value
 ```
 
-To replace the index tags for all blobs in a virtual directory, , refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
+To replace the index tags for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
 
 **Example**
 

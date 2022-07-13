@@ -89,7 +89,7 @@ az storage blob copy start \
 
 #### [AzCopy](#tab/azcopy)
 
-To copy an archived blob to an online tier with with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to the target tier.
+To copy an archived blob to an online tier with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to the target tier.
 
 > [!NOTE]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example also contains no SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
@@ -98,7 +98,7 @@ To copy an archived blob to an online tier with with AzCopy, use [azcopy copy](.
 azcopy copy 'https://mystorageeaccount.blob.core.windows.net/mysourcecontainer/myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mydestinationcontainer/myTextFile.txt' --block-blob-tier=hot
 ```
 
-The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
+The copy operation is synchronous so when the command returns, it indicates that all files have been copied.
 
 ---
 
@@ -112,7 +112,7 @@ N/A
 
 #### [PowerShell](#tab/azure-powershell)
 
-To copy an archived blob to a blob in an online tier in a different storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) module, version 4.4.0 or higher. Next, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target online tier and the rehydration priority. You must specify a shared access signature (SAS) with read permissions for the archived source blob.
+To copy an archived blob to a blob in an online tier in a different storage account with PowerShell, make sure you've installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) module, version 4.4.0 or higher. Next, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target online tier and the rehydration priority. You must specify a shared access signature (SAS) with read permissions for the archived source blob.
 
 The following example shows how to copy an archived blob to the Hot tier in a different storage account. Remember to replace placeholders in angle brackets with your own values:
 
@@ -183,7 +183,7 @@ az storage blob copy start \
 
 #### [AzCopy](#tab/azcopy)
 
-To copy an archived blob to a blob in an online tier in a different storage account with with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to the target tier.
+To copy an archived blob to a blob in an online tier in a different storage account with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to the target tier.
 
 > [!NOTE]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example also contains no SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
@@ -192,7 +192,7 @@ To copy an archived blob to a blob in an online tier in a different storage acco
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --block-blob-tier=hot
 ```
 
-The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
+The copy operation is synchronous so when the command returns, it indicates that all files have been copied.
 
 ---
 
@@ -251,7 +251,7 @@ az storage blob set-tier \
 
 ### [AzCopy](#tab/azcopy)
 
-To change a blob's tier from Archive to Hot or Cool with AzCopy, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter to the desired tier, and the the `--rehydrate-priority` to `standard` or `high`. By default, this parameter is set to `standard`. To learn more about the trade offs of each option, see [Rehydration priority](archive-rehydrate-overview.md#rehydration-priority). 
+To change a blob's tier from Archive to Hot or Cool with AzCopy, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter to the desired tier, and the `--rehydrate-priority` to `standard` or `high`. By default, this parameter is set to `standard`. To learn more about the trade offs of each option, see [Rehydration priority](archive-rehydrate-overview.md#rehydration-priority). 
 
 > [!IMPORTANT]
 > The ability to change a blob's tier by using AzCopy is currently in PREVIEW.
@@ -320,7 +320,7 @@ N/A
 
 While a standard-priority rehydration operation is pending, you can change the rehydration priority setting for a blob from *Standard* to *High* to rehydrate that blob more quickly.
 
-Note that the rehydration priority setting cannot be lowered from *High* to *Standard* for a pending operation. Also keep in mind that changing the rehydration priority may have a billing impact. For more information, see [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+The rehydration priority setting can't be lowered from *High* to *Standard* for a pending operation. Also keep in mind that changing the rehydration priority may have a billing impact. For more information, see [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
 
 ### Change the rehydration priority for a pending Set Blob Tier operation
 
@@ -340,7 +340,7 @@ To change the rehydration priority for a pending operation with the Azure portal
 
 #### [PowerShell](#tab/azure-powershell)
 
-To change the rehydration priority for a pending operation with PowerShell, make sure that you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 3.12.0 or later. Next, get the blob's properties from the service. This step is necessary to ensure that you have an object with the most recent property settings. Finally, use the blob's **BlobClient** property to return a .NET reference to the blob, then call the **SetAccessTier** method on that reference.
+To change the rehydration priority for a pending operation with PowerShell, make sure that you've installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 3.12.0 or later. Next, get the blob's properties from the service. This step is necessary to ensure that you have an object with the most recent property settings. Finally, use the blob's **BlobClient** property to return a .NET reference to the blob, then call the **SetAccessTier** method on that reference.
 
 ```azurepowershell
 # Get the blob from the service.
@@ -366,7 +366,7 @@ if ($rehydratingBlob.BlobProperties.RehydratePriority -eq "Standard")
 
 #### [Azure CLI](#tab/azure-cli)
 
-To change the rehydration priority for a pending operation with Azure CLI, first make sure that you have installed the Azure CLI, version 2.29.2 or later. For more information about installing the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+To change the rehydration priority for a pending operation with Azure CLI, first make sure that you've installed the Azure CLI, version 2.29.2 or later. For more information about installing the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command with the `--rehydrate-priority` parameter set to *High*. The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Remember to replace placeholders in angle brackets with your own values:
 
@@ -404,7 +404,7 @@ To perform the copy operation from the Archive tier to an online tier with Stand
 
 #### [Portal](#tab/azure-portal)
 
-After you have initiated the copy operation, you'll see in the Azure portal that both the source and destination blob are in the Archive tier. The destination blob is rehydrating with Standard priority.
+After you've initiated the copy operation, you'll see in the Azure portal, that both the source and destination blob are in the Archive tier. The destination blob is rehydrating with Standard priority.
 
 :::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-properties-portal-standard-priority.png" alt-text="Screenshot showing destination blob in Archive tier and rehydrating with Standard priority":::
 
@@ -416,13 +416,13 @@ To change the rehydration priority for the destination blob, follow these steps:
 1. In the **Rehydrate priority** dropdown, set the priority to *High*.
 1. Select **Save**.
 
-The destination blob's properties page now shows that it is rehydrating with High priority.
+The destination blob's properties page now shows that it's rehydrating with High priority.
 
 :::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-properties-portal-high-priority.png" alt-text="Screenshot showing destination blob in Archive tier and rehydrating with High priority":::
 
 #### [PowerShell](#tab/azure-powershell)
 
-After you have initiated the copy operation, check the properties of the destination blob. You'll see that the destination blob is in the Archive tier and is rehydrating with Standard priority.
+After you've initiated the copy operation, check the properties of the destination blob. You'll see that the destination blob is in the Archive tier and is rehydrating with Standard priority.
 
 ```azurepowershell
 # Initialize these variables with your values.
@@ -450,7 +450,7 @@ Next, call the **SetAccessTier** method via PowerShell to change the rehydration
 
 #### [Azure CLI](#tab/azure-cli)
 
-After you have initiated the copy operation, check the properties of the destination blob. You'll see that the destination blob is in the Archive tier and is rehydrating with Standard priority.
+After you've initiated the copy operation, check the properties of the destination blob. You'll see that the destination blob is in the Archive tier and is rehydrating with Standard priority.
 
 ```azurecli
 az storage blob show \
