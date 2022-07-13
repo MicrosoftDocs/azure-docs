@@ -52,6 +52,7 @@ The following SAP system configurations aren't supported in ACSS:
 
 - Windows operating system
 - HANA Large Instance (HLI)
+- Systems with HANA Scale-out configuration
 - Java stack
 - Dual stack (ABAP and Java)
 - Systems distributed across peered virtual networks
