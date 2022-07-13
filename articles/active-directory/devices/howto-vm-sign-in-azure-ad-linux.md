@@ -231,7 +231,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> If your Azure AD domain and logon username domain don't match, you must specify the object ID of your user account by using `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account by using [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+> If your Azure AD domain and login username domain don't match, you must specify the object ID of your user account by using `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account by using [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
 For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
 
@@ -262,7 +262,7 @@ You can enforce Conditional Access policies that are enabled with Azure AD login
 The application that appears in the Conditional Access policy is called *Azure Linux VM Sign-In*.
 
 > [!NOTE]
-> Conditional Access policy enforcement that requires device compliance or hybrid Azure AD join on the device running the SSH client works only with the Azure CLI running on Windows and macOS. It's not supported when you're using the Azure CLI on Linux or Azure Cloud Shell.
+> Conditional Access policy enforcement that requires device compliance or hybrid Azure AD join on the device that's running the SSH client works only with the Azure CLI that's running on Windows and macOS. It's not supported when you're using the Azure CLI on Linux or Azure Cloud Shell.
 
 ### Missing application
 
@@ -326,7 +326,7 @@ az ssh vm -n myVM -g AzureADLinuxVM
 
 ## Log in by using the Azure AD service principal to SSH into the Linux VM
 
-The Azure CLI supports authenticating with a service principal instead of a user account. Because service principals are account not tied to any particular user, customers can use them to SSH into a VM to support any automation scenarios they might have. The service principal must have VM Administrator or VM User rights assigned. Assign permissions at the subscription or resource group level. 
+The Azure CLI supports authenticating with a service principal instead of a user account. Because service principals aren't tied to any particular user, customers can use them to SSH into a VM to support any automation scenarios they might have. The service principal must have VM Administrator or VM User rights assigned. Assign permissions at the subscription or resource group level. 
 
 The following example will assign VM Administrator rights to the service principal at the resource group level. Replace the placeholders for service principal object ID, subscription ID, and resource group name.
 
@@ -508,7 +508,7 @@ Upgrading scale set instances to the latest model might resolve the problem, esp
 
 ### AllowGroups or DenyGroups statements in sshd_config cause the first login to fail for Azure AD users
 
-If *sshd_config* contains either `AllowGroups` or `DenyGroups` statements, the first login fails for Azure AD users. If the statement was added after users already has a successful login, they can log in.
+If *sshd_config* contains either `AllowGroups` or `DenyGroups` statements, the first login fails for Azure AD users. If the statement was added after users have already had a successful login, they can log in.
 
 One solution is to remove `AllowGroups` and `DenyGroups` statements from *sshd_config*.
 
