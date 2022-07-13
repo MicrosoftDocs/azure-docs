@@ -133,7 +133,7 @@ To restore an application from the Azure portal, select **App registrations** > 
 
 [![Screenshot that shows the app registration restore process in the azure portal.](./media/recoverability/deletion-restore-application.png)](./media/recoverability/deletion-restore-application.png#lightbox)
 
-To restore applications using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](https://docs.microsoft.com/graph/api/directory-deleteditems-restore)
+To restore applications using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](/graph/api/directory-deleteditems-restore?tabs=http)
 
 ## Hard deletions
 
@@ -176,7 +176,7 @@ Ensure you have a process to frequently review items in the soft-delete state an
 * Ensure that you have specific roles or users assigned to evaluate and restore items as appropriate.
 * Develop and test a continuity management plan. For more information, see [Considerations for your Enterprise Business Continuity Management Plan](/compliance/assurance/assurance-developing-your-ebcm-plan).
 
-For more information on how to avoid unwanted deletions, see the following topics in [Recoverability best practices](recoverability-overview.md):
+For more information on how to avoid unwanted deletions, see the following articles in [Recoverability best practices](recoverability-overview.md):
 
 * Business continuity and disaster planning
 * Document known good states
