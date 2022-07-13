@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to explore preview features and provides a list of the recent previews you might be interested in.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/23/2022
+ms.date: 07/11/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -73,7 +73,7 @@ Understanding what you're being charged for can be complicated. The best place t
 
 Many Azure services use nested or child resources. SQL servers have databases, storage accounts have containers, and virtual networks have subnets. Most of the child resources are only used to configure services, but sometimes the resources have their own usage and charges. SQL databases are perhaps the most common example.
 
-SQL databases are deployed as part of a SQL server instance, but usage is tracked at the database level. Additionally, you might also have charges on the parent server, like for Microsoft Defender for Cloud. To get the total cost for your SQL deployment in classic cost analysis, you need to find the server and each database and then manually sum up their total cost. As an example, you can see the **aepool**  elastic pool at the top of the list below and the **treyanalyticsengine** server lower down on the first page. What you don't see is another database even lower in the list. You can imagine how troubling this situation would be when you need the total cost of a large server instance with many databases.
+SQL databases are deployed as part of a SQL server instance, but usage is tracked at the database level. Additionally, you might also have charges on the parent server, like for Microsoft Defender for Cloud. To get the total cost for your SQL deployment in classic cost analysis, you need to manually sum up the cost of the server and each individual database. As an example, you can see the **aepool** elastic pool at the top of the list below and the **treyanalyticsengine** server lower down on the first page. What you don't see is another database even lower in the list. You can imagine how troubling this situation would be when you need the total cost of a large server instance with many databases.
 
 Here's an example showing classic cost analysis where multiple related resource costs aren't grouped.
 
@@ -125,9 +125,9 @@ If you don't have a budget yet, you'll see a link to create a new budget. Budget
 Group related resources, like disks under VMs or web apps under App Service plans, by adding a “cm-resource-parent” tag to the child resources with a value of the parent resource ID. Wait 24 hours for tags to be available in usage and your resources will be grouped. Leave feedback to let us know how we can improve this experience further for you.
 
 
-Some resources have related dependencies that aren't explicit children or nested under the logical parent in Azure Resource Manager. Examples include disks used by a virtual machine or web apps assigned to an App Service plan. Unfortunately, Cost Management isn't aware of these relationships and cannot group them automatically. This experimental feature uses tags to summarize the total cost of your related resources together. You'll see a single row with the parent resource. When you expand the parent resource, you'll see each linked resource listed individually with their respective cost.
+Some resources have related dependencies that aren't explicit children or nested under the logical parent in Azure Resource Manager. Examples include disks used by a virtual machine or web apps assigned to an App Service plan. Unfortunately, Cost Management isn't aware of these relationships and can't group them automatically. This experimental feature uses tags to summarize the total cost of your related resources together. You'll see a single row with the parent resource. When you expand the parent resource, you'll see each linked resource listed individually with their respective cost.
  
-As an example, let's say you have an Azure Virtual Desktop host pool configured with two VMs. Tagging the VMs and corresponding network/disk resources groups them under the host pool, giving you the total cost of the session host VMs in your host pool deployment. This gets even more interesting if you want to also include the cost of any cloud solutions made available via your host pool.
+As an example, let's say you have an Azure Virtual Desktop host pool configured with two VMs. Tagging the VMs and corresponding network/disk resources groups them under the host pool, giving you the total cost of the session host VMs in your host pool deployment. This example gets even more interesting if you want to also include the cost of any cloud solutions made available via your host pool.
 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-resource-parent-virtual-desktop.png" alt-text="Screenshot of the cost analysis preview showing VMs and disks grouped under an Azure Virtual Desktop host pool." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-resource-parent-virtual-desktop.png" :::
 
@@ -140,7 +140,7 @@ Once you know which resources you'd like to group, use the following steps to ta
 3.	Find the **Resource ID** property and copy its value.
 4.	Open **All resources** or the resource group that has the resources you want to link.
 5.	Select the checkboxes for every resource you want to link and click the **Assign tags** command.
-6.	Specify a tag key of "cm-resource-parent" (make sure it is typed correctly) and paste the resource ID from step 3.
+6.	Specify a tag key of "cm-resource-parent" (make sure it's typed correctly) and paste the resource ID from step 3.
 7.	Wait 24 hours for new usage to be sent to Cost Management with the tags. (Keep in mind resources must be actively running with charges for tags to be updated in Cost Management.)
 8.	Open the [Resources view](https://aka.ms/costanalysis/resources) in the cost analysis preview.
  
@@ -158,6 +158,51 @@ Charts in the cost analysis preview include a chart of daily or monthly charges 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-charts.png" alt-text="Screenshot showing a chart in cost analysis preview." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-charts.png" :::
 
 Charts are enabled on the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** Option at the bottom of the page to share feedback about the preview.
+
+
+<a name="cav3forecast"></a>
+
+## Forecast in the cost analysis preview
+
+Show the forecast for the current period at the top of the cost analysis preview.
+
+Charts can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** Option at the bottom of the page to share feedback about the preview.
+
+
+<a name="productscolumn"></a>
+
+## Product column in the cost analysis preview
+
+Every service tracks different usage attributes of the resources you've deployed. Each of these usage attributes is tracked via a "meter" in your cost data. Meters are grouped into categories and include other metadata to help you understand the charges. We’re testing new columns in the Resources and Services views in the cost analysis preview for Microsoft Customer Agreement. You may see a single Product column instead of the Service, Tier, and Meter columns.
+
+You can also enable this preview from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Note this preview is only applicable for Microsoft Customer Agreement accounts.
+
+
+<a name="recommendationinsights"></a>
+
+## Cost savings insights in the cost analysis preview
+
+Cost insights surface important details about your subscriptions, like potential anomalies or top cost contributors. To support your cost optimization goals, cost insights now include the total cost savings available from Azure Advisor for your subscription.
+
+You can enable cost savings insights for subscriptions from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
+
+
+<a name="resourceessentials"></a>
+
+## View cost for your resources
+
+Cost analysis is available from every management group, subscription, resource group, and billing scope in the Azure portal and the Microsoft 365 admin center.  To make cost data more readily accessible for resource owners, you can now find a **View cost** link at the top-right of every resource overview screen, in **Essentials**. Clicking the link will open classic cost analysis with a resource filter applied.
+
+The view cost link is enabled by default in the [Azure preview portal](https://preview.portal.azure.com).
+
+
+<a name="whatsnew"></a>
+
+## What's new in Cost Management
+
+Learn about new and updated features or other announcements directly from within the Cost Management experience in the Azure portal. You can also follow along using the [Cost Management updates on the Azure blog](https://aka.ms/costmgmt/blog).
+
+What's new can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
 
 
 <a name="onlyinconfig"></a>
@@ -192,7 +237,7 @@ You can enable **Open config items in the menu** on the [Try preview](https://ak
 
 ## Change scope from menu
 
-If you manage many subscriptions and need to switch between subscriptions or resource groups often, you might want to include the **Change scope from menu** option.
+If you manage many subscriptions, resource groups, or management groups and need to switch between them often, you might want to include the **Change scope from menu** option.
 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-change-scope-menu.png" alt-text="Screenshot showing the Change scope option added to the menu after selecting the Change menu from scope preview option." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-change-scope-menu.png" :::
 
