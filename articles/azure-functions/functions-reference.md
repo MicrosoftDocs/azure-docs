@@ -105,7 +105,7 @@ For example, the `connection` property for an Azure Blob trigger definition migh
 > [!NOTE]
 > When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../articles/key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
 > 
-> E.g.  `Storage1:blobServiceUri`
+> For example, `Storage1:blobServiceUri`.
 
 ### Configure an identity-based connection
 
