@@ -36,6 +36,25 @@ This can happen either when:
                 Or </br> 
     - Delete the Automation Account User Assigned Managed Identity.
 
+## Scenario: Unable to find the user assigned managed identity to add it to the Automation account
+
+### Issue
+
+You want to add a user-assigned managed identity to the Automation account. However, you can't find the account in the Automation blade.
+
+### Cause
+
+This issue occurs when you don't have the following permissions for the user-assigned managed identity to view it in the Automation blade.
+
+- `Microsoft.ManagedIdentity/userAssignedIdentities/*/read`
+- `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action`
+
+>[!NOTE]
+> The above permissions are granted by default to Managed Identity Operator and Managed Identity Contributor.
+
+### Resolution
+Ensure that you have [Identity Operator role permission](/azure/role-based-access-control/built-in-roles#managed-identity-operator) to add the user-assigned managed identity to your Automation account.
+
 
 ## Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message
 

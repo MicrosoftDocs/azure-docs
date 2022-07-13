@@ -2,7 +2,7 @@
 title: Monitor Azure Backup protected workloads
 description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 07/13/2022
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 author: v-amallick
 ms.service: backup
@@ -44,7 +44,8 @@ Jobs from the following Azure Backup solutions are shown here:
 Jobs from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) aren't displayed.
 
 > [!NOTE]
-> Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. So for such DB workloads, only user triggered operations are displayed. Scheduled backup operations aren't displayed.
+>- Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. So for such DB workloads, only user triggered operations are displayed. Scheduled backup operations aren't displayed.
+>- In Backup center you can view jobs for upto last 14 days. If you want to view jobs for a large duration, you can go to the individual Recovery Services vaults and select the **Backup Jobs** tab. For jobs older than 6 months, we recommend you to use Log Analytics and/or [Backup Reports](configure-reports.md) to reliably and efficiently query older jobs.
 
 ## Backup Alerts in Recovery Services vault
 
@@ -130,7 +131,7 @@ The following table summarizes the different backup alerts currently available (
 
 | **Alert Category** | **Alert Name** | **Supported workload types / vault types** | **Description** | 
 | ------------------ | -------------  | ------------------------------------------ | -------- |
-| Security | Delete Backup Data | - Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM <br><br> - Azure Backup Agent <br><br> - DPM <br><br> - Azure Backup Server <br><br> - Azure Database for PostgreSQL Server <br><br> - Azure Blobs <br><br> - Azure Managed Disks  | This alert is fired when a user stops backup and deletes backup data (Note – If soft-delete feature is disabled for the vault, Delete Backup Data alert is not received) |
+| Security | Delete Backup Data | - Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM <br><br> - Azure Backup Agent <br><br> - DPM <br><br> - Azure Backup Server <br><br> - Azure Database for PostgreSQL Server <br><br> - Azure Blobs <br><br> - Azure Managed Disks  | Stop protection with delete data alert is only generated if soft-delete functionality is enabled for the vault, that is, if soft-delete feature is disabled for a vault, then a single alert is sent to notify the user that soft-delete has been disabled. Subsequent deletion of backup data of any item does not raise an alert. |
 | Security | Upcoming Purge | - Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM | For all workloads which support soft-delete, this alert is fired when the backup data for an item is 2 days away from being permanently purged by the Azure Backup service | 
 | Security | Purge Complete | - Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM | Delete Backup Data |
 | Security | Soft Delete Disabled for Vault | Recovery Services vaults | This alert is fired when the soft-deleted backup data for an item has been permanently deleted by the Azure Backup service | 

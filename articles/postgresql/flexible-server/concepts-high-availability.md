@@ -45,8 +45,6 @@ This model of high availability deployment enables Flexible server to be highly 
 Automatic backups are performed periodically from the primary database server, while the transaction logs are continuously archived to the backup storage from the standby replica. If the region supports availability zones, then backup data is stored on zone-redundant storage (ZRS). In regions that doesn't support availability zones, backup data is stored on local redundant storage (LRS).   
 :::image type="content" source="./media/business-continuity/concepts-same-zone-high-availability-architecture.png" alt-text="Same-zone high availability"::: 
 
->[!NOTE]
-> See the [HA limitation section](#high-availability---limitations) for a current restriction with same-zone HA deployment.
 
 ## Components and workflow
 
@@ -219,9 +217,6 @@ Flexible servers that are configured with high availability, log data is replica
 * Periodic maintenance activities such as minor version upgrades happen at the standby first and the service is failed over to reduce downtime.  
 
 ## High availability - limitations
-
->[!NOTE]
-> New server creates with **Same-zone HA** are currently restricted when you choose the primary server's AZ.  Workarounds are to (a) create your same-zone HA server without choosing the primary AZ, or (b) create as a single instance (non-HA) server and then enable same-zone HA after the server is created. 
 
 * High availability is not supported with burstable compute tier.
 * High availability is supported only in regions where multiple zones are available.

@@ -33,7 +33,9 @@
         href: create-front-door-powershell.md
       - name: Create a Front Door - CLI
         href: create-front-door-cli.md
-      - name: Create a Front Door - ARM
+      - name: Create a Front Door - Bicep
+        href: create-front-door-bicep.md
+      - name: Create a Front Door - ARM template
         href: create-front-door-template.md
     - name: Classic
       items:

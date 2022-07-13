@@ -1,7 +1,7 @@
 ---
 title: Manage Defender for IoT plans on Azure subscriptions
 description: Manage Defender for IoT plans on your Azure subscriptions.
-ms.date: 11/09/2021
+ms.date: 07/06/2022
 ms.topic: how-to
 ---
 
@@ -27,10 +27,6 @@ Before you add a plan or services, we recommend that you have a sense of how man
 
 Users can also work with a trial commitment, which supports monitoring a limited number of devices for 30 days. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-### What's a device?
-
-[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
-
 ## Prerequisites
 
 Before you onboard a plan, verify that:
@@ -50,27 +46,27 @@ If you already have access to an Azure subscription, but it isn't listed when ad
 
 Azure **Security admin**, **Subscription owners** and **Subscription contributors** can onboard, update, and remove Defender for IoT. For more information on user permissions, see [Defender for IoT user permissions](getting-started.md#permissions).
 
-### Calculate the number of devices you need to monitor
+### Defender for IoT committed devices
 
 When onboarding or editing your Defender for IoT plan, you'll need to know how many devices you want to monitor.
 
+[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
+
 **To calculate the number of devices you need to monitor**:
 
-Collect the total number of devices in your network and remove:
+We recommend making an initial estimate of your committed devices when onboarding your Defender for IoT plan.
 
-- **Duplicate devices that have the same IP or MAC address**. When detected, the duplicates are automatically removed by Defender for IoT.
+1. Collect the total number of devices in your network.
 
-- **Duplicate devices that have the same ID**. These are the same devices, seen by the same sensor, with different field values. For such devices, check the last time each device had activity and use the latest device only.
+1. Remove any devices that are *not* considered as committed devices by Defender for IoT.
 
-- **Inactive devices**, with no traffic for more than 60 days.
+    If you are also a Defender for Endpoint customer, you can identify devices managed by Defender for Endpoint in the Defender for Endpoint **Device inventory** page. In the **Endpoints** tab, filter for devices by **Onboarding status**. For more information, see [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
-- **Broadcast / multicast devices**. These represent unique addresses but not unique devices.
-
-For more information, see [What's a device?](#whats-a-device)
+After you've set up your network sensor and have full visibility into all devices, you can [edit your plan](#edit-a-plan) to update the number of committed devices as needed.
 
 ## Onboard a Defender for IoT plan to a subscription
 
-This procedure describes how to add a Defender for IoT plan to an Azure subscription. 
+This procedure describes how to add a Defender for IoT plan to an Azure subscription.
 
 **To onboard a Defender for IoT plan to a subscription:**
 
@@ -142,7 +138,7 @@ Changes to your plan will take effect one hour after confirming the change. Bill
 You may need to cancel a Defender for IoT plan from your Azure subscription, for example, if you need to work with a new payment entity. Your changes take effect one hour after confirmation. Your upcoming monthly bill will reflect this change.
 This option removes all Defender for IoT services from the subscription, including both OT and Enterprise IOT services.
 
-Remove all sensors that are associated with the subscription prior to removing the plan. For more information on how to delete a sensor, see [Delete a sensor](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+Delete all sensors that are associated with the subscription prior to removing the plan. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
 **To cancel Defender for IoT from a subscription:**
 
@@ -159,15 +155,15 @@ Remove all sensors that are associated with the subscription prior to removing t
 
 Business considerations may require that you apply your existing IoT sensors to a different subscription than the one you’re currently using. To do this, you'll need to onboard a new plan and register the sensors under the new subscription, and then remove them from the old subscription. This process may include some downtime, and historic data isn't migrated.
 
-**To switch to a new subscription**: 
+**To switch to a new subscription**:
 
 1. [Onboard a new plan to the new subscription you want to use](#onboard-a-defender-for-iot-plan-to-a-subscription). To avoid double billing, onboard the new plan as a [trial](#about-defender-for-iot-trials) until you've removed the sensors from the legacy subscription.
- 
+
 1. Register your sensors under the new subscription. For more information, see [Set up an Enterprise IoT sensor](tutorial-getting-started-eiot-sensor.md#set-up-an-enterprise-iot-sensor).
 
 1. [Upload a new activation](how-to-manage-individual-sensors.md#upload-new-activation-files) file for your sensors.
 
-1. Remove the sensor identities from the legacy subscription. For more information, see [Manage on-boarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+1. Delete the sensor identities from the legacy subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal)..
 
 1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the legacy subscription.
 

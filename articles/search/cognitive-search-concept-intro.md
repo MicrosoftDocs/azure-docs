@@ -17,7 +17,7 @@ ms.custom: references_regions
 
 Because Azure Cognitive Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
 
-+ Machine translation and language detection, in support of multi-lingual search
++ Translation and language detection for multi-lingual search
 + Entity recognition extracts people, places, and other entities from large chunks of text
 + Key phrase extraction identifies and then outputs important terms
 + Optical Character Recognition (OCR) recognizes printed and handwritten text in binary files
