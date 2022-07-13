@@ -169,12 +169,12 @@ namespace ConsoleApp
             // before exit, flush the remaining data
             telemetryClient.Flush();
 
-            // As noted at the beginning of this article, Console apps should use the WorkerService package.
-            // WorkerService uses ServerTelemetryChannel and does not have synchronous flushing.
+            // Console apps should use the WorkerService package, which uses ServerTelemetryChannel and does not have synchronous flushing.
+            // For this reason we add a short 5s delay in this sample.
             
             Task.Delay(5000).Wait();
 
-            // Flush() is synchronous when using InMemoryChannel, in which case the short delay is not required.
+            // If you are using InMemoryChannel, Flush() is synchronous and the short delay is not required.
 
         }
 
