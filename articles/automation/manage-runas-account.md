@@ -109,7 +109,7 @@ To check the role assigned to the Automation Run As account Azure AD, follow the
     :::image type="content" source="media/manage-runas-account/automation-runas-app-id.png" alt-text="Screenshot that describes on how to copy application ID.":::
 
 1. Go to Azure portal and search for **Azure Active Directory**.
-1. On the **Active Directory Overview** page, **Overview** tab, in search box, enter the Application id.  
+1. On the **Active Directory Overview** page, **Overview** tab, in the search box, enter the Application ID.  
 
     :::image type="content" source="media/manage-runas-account/active-directory-app-id-inline.png" alt-text="Screenshot that describes application ID copied in the Overview tab." lightbox="media/manage-runas-account/active-directory-app-id-expanded.png":::
 
