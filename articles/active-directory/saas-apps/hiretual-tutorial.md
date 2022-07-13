@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click the **Properties** tab on the left menu bar, copy the value of **User access URL**,and save it on your computer.
 
-    ![Screenshot shows the User access URL.](./media/hiretual-tutorial/access-url.png " SSO Configuration")
+    ![Screenshot shows the User access URL.](./media/hiretual-tutorial/access-url.png "SSO Configuration")
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -123,7 +123,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **SAML2.0 Authentication** page, perform the following steps:
 
-    ![Screenshot shows the SSO Configuration.](./media/hiretual-tutorial/configuration.png " SSO Configuration")
+    ![Screenshot shows the SSO Configuration.](./media/hiretual-tutorial/configuration.png "SSO Configuration")
 
     1. In the **SAML2.O SSO URL** textbox, paste the **User access URL** which you have copied from the Azure portal.
 

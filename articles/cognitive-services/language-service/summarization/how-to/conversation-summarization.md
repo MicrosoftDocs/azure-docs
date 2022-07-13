@@ -32,6 +32,16 @@ There's another feature in Azure Cognitive Service for Language named [document 
 
 ## Submitting data
 
+> [!NOTE]
+> * To use conversation summarization, you must [submit an online request and have it approved](https://aka.ms/applyforconversationsummarization/).
+> * Conversation summarization is only available through Language resources in the following regions:
+>     * North Europe
+>     * East US
+>     * UK South
+> * Conversation summarization is only available using:
+>     * REST API
+>     * Python
+
 You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
 
 When you use this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.

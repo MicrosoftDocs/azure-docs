@@ -4,7 +4,7 @@ description: Frequently asked questions about managed identities
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 editor: 
 ms.service: active-directory
 ms.subservice: msi

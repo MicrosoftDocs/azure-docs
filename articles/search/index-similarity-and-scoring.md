@@ -1,7 +1,7 @@
 ---
-title: Similarity and scoring
+title: Relevance and scoring
 titleSuffix: Azure Cognitive Search
-description: Explains the concepts of similarity and scoring in Azure Cognitive Search, and what a developer can do to customize the scoring result.
+description: Explains the concepts of relevance and scoring in Azure Cognitive Search, and what a developer can do to customize the scoring result.
 
 author: HeidiSteen
 ms.author: heidist
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 06/22/2022
 ---
 
-# Similarity and scoring in Azure Cognitive Search
+# Relevance and scoring in Azure Cognitive Search
 
-This article describes relevance scoring and the similarity ranking algorithms used to compute search scores in Azure Cognitive Search. A relevance score applies to matches returned in [full text search](search-lucene-query-architecture.md), where the most relevant matches appear first. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
+This article describes relevance and the scoring algorithms used to compute search scores in Azure Cognitive Search. A relevance score applies to matches returned in [full text search](search-lucene-query-architecture.md), where the most relevant matches appear first. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
 
 In Azure Cognitive Search, you can tune search relevance and boost search scores through these mechanisms:
 
-+ Similarity ranking configuration
++ Scoring algorithm configuration
 + Semantic ranking (in preview, described in [this article](semantic-ranking.md))
 + Scoring profiles
 + Custom scoring logic enabled through the *featuresMode* parameter
@@ -37,16 +37,16 @@ If you want to break the tie among repeating scores, you can add an **$orderby**
 > [!NOTE]
 > A `@search.score = 1` indicates an un-scored or un-ranked result set. The score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`, sometimes paired with filters, where the filter is the primary means for returning a match).
 
-## Similarity ranking algorithms
+## Scoring algorithms in Search
 
 Azure Cognitive Search provides the `BM25Similarity` ranking algorithm. On older search services, you might be using `ClassicSimilarity`.
 
 Both BM25 and Classic are TF-IDF-like retrieval functions that use the term frequency (TF) and the inverse document frequency (IDF) as variables to calculate relevance scores for each document-query pair, which is then used for ranking results. While conceptually similar to classic, BM25 is rooted in probabilistic information retrieval that produces more intuitive matches, as measured by user research. 
 
-BM25 offers advanced customization options, such as allowing the user to decide how the relevance score scales with the term frequency of matched terms. For more information, see [Configure the similarity ranking algorithm](index-ranking-similarity.md).
+BM25 offers advanced customization options, such as allowing the user to decide how the relevance score scales with the term frequency of matched terms. For more information, see [Configure the scoring  algorithm](index-ranking-similarity.md).
 
 > [!NOTE]
-> If you're using a search service that was created before July 2020, the similarity algorithm is most likely the previous default, `ClassicSimilarity`, which you an upgrade on a per-index basis. See [Enable BM25 scoring on older services](index-ranking-similarity.md#enable-bm25-scoring-on-older-services) for details.
+> If you're using a search service that was created before July 2020, the scoring algorithm is most likely the previous default, `ClassicSimilarity`, which you an upgrade on a per-index basis. See [Enable BM25 scoring on older services](index-ranking-similarity.md#enable-bm25-scoring-on-older-services) for details.
 
 The following video segment fast-forwards to an explanation of the generally available ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
 
