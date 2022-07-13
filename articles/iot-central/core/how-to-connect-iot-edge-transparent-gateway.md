@@ -35,7 +35,7 @@ To complete the steps in this article, you need:
 To follow the steps in this article, download the following files to your computer:
 
 - [Thermostat device model (thermostat-1.json)](https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main/dtmi/com/example/thermostat-1.json) - this file is the device model for the downstream devices.
-- [Transparent gateway manifest (EdgeTransparentGatewayManifest.json)](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/transparent-gateway-1-1/EdgeTransparentGatewayManifest.json) - this file is the IoT Edge deployment manifest for the gateway device.
+- [Transparent gateway manifest (EdgeTransparentGatewayManifest.json)](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/transparent-gateway-1-1/EdgeTransparentGatewayManifest.json) - this file is the IoT Edge deployment manifest for the gateway device.
 
 # [IoT Edge 1.2](#tab/edge1-2)
 To complete the steps in this article, you need:
@@ -47,7 +47,7 @@ To complete the steps in this article, you need:
 To follow the steps in this article, download the following files to your computer:
 
 - [Thermostat device model (thermostat-1.json)](https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main/dtmi/com/example/thermostat-1.json) - this file is the device model for the downstream devices.
-- [Transparent gateway manifest (EdgeTransparentGatewayManifest.json)](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/transparent-gateway-1-2/EdgeTransparentGatewayManifest.json) - this file is the IoT Edge deployment manifest for the gateway device.
+- [Transparent gateway manifest (EdgeTransparentGatewayManifest.json)](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/transparent-gateway-1-2/EdgeTransparentGatewayManifest.json) - this file is the IoT Edge deployment manifest for the gateway device.
 
 ---
 
@@ -299,7 +299,7 @@ IoT Central relies on the Device Provisioning Service (DPS) to provision devices
 1. Run the following command to download the Python script that does the device provisioning:
 
     ```bash
-    wget https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/transparent-gateway-1-1/provision_device.py
+    wget https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/transparent-gateway-1-1/provision_device.py
     ```
 
 1. To provision the `thermostat1` downstream device in your IoT Central application, run the following commands, replacing `{your application id scope}` and `{your device primary key}`. You made a note of these values when you added the devices to your IoT Central application:
@@ -333,7 +333,7 @@ To run the thermostat simulator on the `leafdevice` virtual machine:
 
     ```bash
     cd ~
-    wget https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/transparent-gateway-1-1/simple_thermostat.py
+    wget https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/transparent-gateway-1-1/simple_thermostat.py
     ```
 
 1. Install the Azure IoT device Python module:
