@@ -9,9 +9,9 @@ metadata:
   ms.service: virtual-machines
   ms.subservice: confidential-computing
   ms.topic: landing-page
-  author: stempesta 
+  author: stempesta, ananyagarg 
   ms.author: stempesta
-  ms.date: 09/22/2020 
+  ms.date: 09/22/2020, 07/13/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -25,7 +25,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Confidential Computing?
+          - text: What is Azure confidential computing?
             url: overview.md
           - text: Choose your Confidential Computing offering
             url: use-cases-scenarios.md 
@@ -33,7 +33,7 @@ landingContent:
         links:
           - text: Microsoft Azure Attestation
             url: ../attestation/overview.md
-           - text: Azure Confidential Ledger
+          - text: Azure Confidential Ledger
             url: ../confidential-ledger/overview.md
           - text: Trusted launch
             url: ../virtual-machines/trusted-launch.md
@@ -44,9 +44,9 @@ landingContent:
   # Card (optional)
   - title: Confidential Virtual machines
     linkLists:
-      - linkListType: About
+      - linkListType: overview
         links:
-        - text: Azure Confidential VM options on AMD
+          - text: Azure Confidential VM options on AMD
             url: virtual-machine-solutions-amd.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: confidential-vm-overview.md
@@ -70,7 +70,7 @@ landingContent:
   # Card
   - title: Confidential Containers
     linkLists:
-      - linkListType: About
+      - linkListType: overview
         links: 
          -  text: Confidential containers
             url: confidential-containers.md
@@ -100,11 +100,11 @@ landingContent:
 # Card
   - title: Virtual Machines with App Enclaves
     linkLists:
-      - linkListType: About
+      - linkListType: overview
         links: 
           - text: App Enclave Development
             url: application-development.md
-         - text: Intel SGX App Enclaves
+          - text: Intel SGX App Enclaves
             url: confidential-computing-enclaves.md
       - linkListType: quickstart
         links:
