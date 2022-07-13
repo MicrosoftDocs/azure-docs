@@ -16,7 +16,13 @@ With Application Insights Profiler, you can capture and view performance traces 
 - The median, fastest, and slowest response times for each web request made by your customers.
 - Helps you identify the “hot” code path spending the most time handling a particular web request. 
 
-Enable the Profiler on all of your Azure applications to catch issues early and prevent your customers from being widely impacted.
+Enable the Profiler on all of your Azure applications to catch issues early and prevent your customers from being widely impacted. When you enable the Profiler, it will gather data with these triggers:
+
+- **Sampling Trigger**: starts the Profiler randomly about once an hour for 2 minutes.
+- **CPU Trigger**: starts the Profiler when the CPU usage percentage is over 80%.
+- **Memory Trigger**: starts the Profiler when memory usage is above 80%.
+
+Each of these triggers can be configured, enabled, or disabled on the [Configure Profiler page](./profiler-settings.md#trigger-settings).
 
 ## Overhead and sampling algorithm
 
