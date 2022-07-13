@@ -1,12 +1,12 @@
 ---
 title: Access control lists in Azure Data Lake Storage Gen2
 description: Understand how POSIX-like ACLs access control lists work in Azure Data Lake Storage Gen2.
-author: jammart
+author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.author: jammart
+ms.author: jimmart-dev
 ms.reviewer: jamesbak
 ms.devlang: python
 ---

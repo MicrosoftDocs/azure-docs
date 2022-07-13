@@ -3,11 +3,11 @@ title: Configure network routing preference
 titleSuffix: Azure Storage
 description: Configure network routing preference for your Azure storage account to specify how network traffic is routed to your account from clients over the Internet.
 services: storage
-author: jammart
+author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/17/2021
-ms.author: jammart
+ms.author: jimmart-dev
 ms.reviewer: santoshc
 ms.subservice: common
 

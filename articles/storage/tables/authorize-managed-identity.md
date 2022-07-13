@@ -3,12 +3,12 @@ title: Authorize access to table data with a managed identity
 titleSuffix: Azure Storage
 description: Use managed identities for Azure resources to authorize table data access from applications running in Azure VMs, function apps, and others.
 services: storage
-author: jammart
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/15/2022
-ms.author: jammart
+ms.author: jimmart-dev
 ms.reviewer: nachakra
 ms.subservice: common
 ms.devlang: csharp

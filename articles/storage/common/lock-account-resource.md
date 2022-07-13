@@ -3,12 +3,12 @@ title: Apply an Azure Resource Manager lock to a storage account
 titleSuffix: Azure Storage
 description: Learn how to apply an Azure Resource Manager lock to a storage account.
 services: storage
-author: jammart
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.author: jammart
+ms.author: jimmart-dev
 ms.subservice: common 
 ---
 

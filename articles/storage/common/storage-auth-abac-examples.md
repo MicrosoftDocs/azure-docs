@@ -3,10 +3,10 @@ title: Example Azure role assignment conditions (preview) - Azure RBAC
 titleSuffix: Azure Storage
 description: Example Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
 services: storage
-author: jammart
+author: jimmart-dev
 ms.service: storage
 ms.topic: conceptual
-ms.author: jammart
+ms.author: jimmart-dev
 ms.reviewer: 
 ms.subservice: common
 ms.date: 05/24/2022

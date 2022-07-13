@@ -3,12 +3,12 @@ title: Use PowerShell to create a user delegation SAS for a container or blob
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using PowerShell.
 services: storage
-author: jammart
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.author: jammart
+ms.author: jimmart-dev
 ms.reviewer: dineshm
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell

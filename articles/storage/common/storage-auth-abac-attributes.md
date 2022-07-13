@@ -3,12 +3,12 @@ title: Actions and attributes for Azure role assignment conditions in Azure Stor
 titleSuffix: Azure Storage
 description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) in Azure Storage. 
 services: storage
-author: jammart
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 05/24/2022
-ms.author: jammart
+ms.author: jimmart-dev
 ms.reviewer: jiacfan
 ms.subservice: common
 ---
