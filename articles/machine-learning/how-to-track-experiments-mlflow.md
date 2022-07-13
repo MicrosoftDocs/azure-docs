@@ -252,7 +252,7 @@ MLflow also allows you to both operations at once and download and load the mode
   ```
 
 > [!TIP]
-> For loading models from the registry view [loading MLflow models with MLflow](how-to-manage-models-mlflow.md#loading-mlflow-models).
+> For loading models from the registry view [loading MLflow models with MLflow](how-to-manage-models-mlflow.md##loading-models-from-registry).
 
 ## Getting child (nested) runs
 
