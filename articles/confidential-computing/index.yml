@@ -25,11 +25,13 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Confidential Computing?
+          - text: What is Confidential Computing?
             url: overview.md
+          - text: What is Azure Confidential Computing?
+            url: overview-azure-products.md
           - text: Choose your Confidential Computing offering
             url: use-cases-scenarios.md 
-      - linkListType: Foundations of Confidential Computing
+      - linkListType: reference
         links:
           - text: Microsoft Azure Attestation
             url: ../attestation/overview.md
@@ -44,7 +46,7 @@ landingContent:
   # Card (optional)
   - title: Confidential Virtual machines
     linkLists:
-      - linkListType: About
+      - linkListType: overview
         links:
           - text: Azure Confidential VM options on AMD
             url: virtual-machine-solutions-amd.md
@@ -70,7 +72,7 @@ landingContent:
   # Card
   - title: Confidential Containers
     linkLists:
-      - linkListType: About
+      - linkListType: overview
         links: 
           -  text: Confidential containers
              url: confidential-containers.md
@@ -95,12 +97,12 @@ landingContent:
           - text: Confidential nodes on AKS FAQ 
             url: confidential-nodes-aks-faq.yml
           - text: Confidential Node Pools on AKS
-            url: SNP on AKS blog post
+#             url: https://aka.ms/AKS-AMD-ACC-Preview-Inspire-2022
 ## Row 2
 # Card
   - title: Virtual Machines with App Enclaves
     linkLists:
-      - linkListType: About
+      - linkListType: overview
         links: 
           - text: App Enclave Development
             url: application-development.md
