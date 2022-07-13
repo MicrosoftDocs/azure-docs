@@ -123,7 +123,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
 ### Rotate the existing keys 
-After changing the key ID (including key name and key version), you could use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms` and `--azure-keyvault-kms-key-id` parameters to rotate the exitsing keys of KMS.
+After changing the key ID (including key name and key version), you could use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-vault-network-access` and `--azure-keyvault-kms-key-id` parameters to rotate the exitsing keys of KMS.
 
 > [!WARNING]
 > Remember to update all secrets after key rotation. Otheriwse, the secrets will be unaccessable if the old keys are not existing or working.
