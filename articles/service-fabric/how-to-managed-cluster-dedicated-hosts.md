@@ -106,9 +106,9 @@ $parameterFilePath = "<full path to azuredeploy.parameters.json>"
 
 2) Provide your own values for the following template parameters:
 
-  * Subscription: Select the Azure subscription same as that of the host group.
+  * Subscription: Select the same Azure subscription as that of the host group.
   * Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
-  * Location: Select the location same as that of the host group.
+  * Location: Select the same location as that of the host group.
   * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
   * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
   * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
@@ -129,18 +129,18 @@ New-AzResourceGroupDeployment `
   * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template)
   * ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
    
-It takes a few minutes for your Service Fabric managed cluster to deploy. Wait for the deployment to be completed successfully.
+Wait for the deployment to be completed successfully.
 
 ## Troubleshooting
 
-1) The following error is thrown when SFRP does not have access to the host group:
+1) The following error is thrown when SFRP does not have access to the host group. Review the role assignment steps above and ensure the assignment is done correctly.
 
             {  
                   "code": "LinkedAuthorizationFailed",  
                   "message": "The client '[<clientId>]' with object id '[<objectId>]' has permission to perform action 'Microsoft.Compute/virtualMachineScaleSets/write' on scope '/subscriptions/[<Subs-Id>]/resourcegroups/[<ResGrp-Id>]/providers/Microsoft.Compute/virtualMachineScaleSets/pnt'; however, it does not have permission to perform action 'write' on the linked scope(s) '/subscriptions/[<Subs-Id>]/resourceGroups/[<ResGrp-Id>]/providers/Microsoft.Compute/hostGroups/HostGroupscu0' or the linked scope(s) are invalid."
                 }
     
-2) If Host Group is in a different subscription than the clusters, then the following error is reported:
+2) If host group is in a different subscription than the clusters, then the following error is reported. Ensure they both are in the same subscription.
 
             {  
                   "code": "BadRequest",  
