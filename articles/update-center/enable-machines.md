@@ -31,9 +31,11 @@ Register the periodic assessment and scheduled patching feature resource provide
 
 - Ensure that you meet all [prerequisites for update management center](overview.md#prerequisites)
 
-## From the Azure portal
+## Periodic assessment
 
-### [Periodic assessment](#tab/portal-periodic)
+The following section describes how to enable periodic assessment feature for your subscription using Azure portal, PowerShell, CLI and REST API:
+
+### [Azure portal](#tab/portal-periodic)
 
 **For Arc-enabled servers**, no onboarding is required for using periodic assessment feature.
 
@@ -51,37 +53,10 @@ Follow the steps below to register for the *InGuestAutoAssessmentVMPreview* feat
 
 1. In the **Virtual Machine Guest Automatic Patch Assessment Preview** pane, select **Register** to register the provider with your subscription.
 
-
-### [Scheduled patching](#tab/portal-scheduled-patching)
-
-To use scheduled patching functionality for Azure VMs as well as Arc-enabled servers, your subscriptions for both machine and maintenance configurations must be allowlisted for **InGuestScheduledPatchVMPreview**.
-
-Follow the steps below to register for preview *InGuestScheduledPatchVMPreview* feature:
-
-1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**.
-
-1. In the Azure portal menu, search for **Preview features** and select it from the available options.
-
-1. In the **Preview features** page, search for **InGuestScheduledPatchVMPreview** and select **Allows subscription to enable automatic VM guest patching on schedule** from the list.
-
-1. In the **Allows subscription to enable automatic VM guest patching on schedule** pane, select **Register** to register the provider with your subscription.
-
-For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
-
----
-
->[!NOTE]
-> This preview feature will be auto-approved.
-
 After your register for the above feature, go to update management center (preview) portal link: **https://aka.ms/umc-preview**.
 
 
- 
-## Using the Azure PowerShell
-
-The following section describes how to enable periodic assessment and scheduled patching features for your subscription using Azure PowerShell:
-
-### [Periodic assessment](#tab/ps-periodic-assessment)
+### [PowerShell](#tab/ps-periodic)
 
 **Arc-enabled servers** - No onboarding is required to use periodic assessment feature.
 
@@ -91,58 +66,22 @@ For Azure VMs, to register the resource provider, use:
 ```azurepowershell
 Register-AzResourceProvider -FeatureName InGuestAutoAssessmentVMPreview -ProviderNamespace Microsoft.Compute
 ```
- 
-### [Scheduled patching](#tab/ps-scheduled-patching)
 
+### [CLI](#tab/cli-periodic)
 
-To register the resource provider for both Azure VMs and Arc-enabled servers, use:
-
-```azurepowershell
-Register-AzResourceProvider -FeatureName InGuestScheduledPatchVMPreview -ProviderNamespace Microsoft.Compute
-```
-
-For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
-
----
-
->[!NOTE]
-> This preview feature will be auto-approved.
-
-
- ## Using the Azure CLI
-
-The following section describes how to enable periodic assessment and scheduled patching features in Azure for your subscription using the Azure CLI [az feature register](/cli/azure/feature#az_feature_register) command.
-
-### [Periodic assessment](#tab/cli-periodic-assessment)
+To enable periodic assessment feature in Azure for your subscription use the Azure CLI [az feature register](/cli/azure/feature#az_feature_register) command.
 
 **Arc-enabled servers** - No onboarding is required for using Periodic assessment feature.
+
 **Azure machines** - To register the resource provider, use:
 
 ```azurecli
 az feature register --namespace Microsoft.Compute --name InGuestAutoAssessmentVMPreview
 ```
 
-### [Scheduled patching](#tab/cli-scheduled-patching)
+### [REST API](#tab/rest-periodic-assessment)
 
-**Azure VMs and Arc-enabled servers** - To register a resource provider, use:
-
-```azurecli
-az feature register --namespace Microsoft.Compute --name InGuestScheduledPatchVMPreview
-```
-For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
-
----
-
->[!NOTE]
-> This preview feature will be auto-approved.
-
-
-
-## Using the Azure REST API
-
-The following section describes how to enable periodic assessment and scheduled patching features in Azure for your subscription using the [Azure REST API](/rest/api/azure).
-
-### [Periodic Assessment](#tab/rest-periodic-assessment)
+To enable periodic assessment feature in Azure for your subscription use the [Azure REST API](/rest/api/azure).
 
 >[!NOTE]
 > This option is only applicable to Azure VMs.
@@ -155,26 +94,11 @@ POST on `/subscriptions/subscriptionId/providers/Microsoft.Features/providers/Mi
 
 Replace the value `subscriptionId` with the ID of the target subscription.
 
-
-### [Scheduled patching](#tab/rest-scheduled-patching)
-
->[!NOTE]
-> This option is only applicable to Azure VMs.
-
-To register a resource provider, use:
-
-```rest
-POST on `/subscriptions/subscriptionId/providers/Microsoft.Features/providers/Microsoft.Compute/features/InGuestScheduledPatchVMPreview/register?api-version=2015-12-01`
-```
-
-Replace the value `subscriptionId` with the ID of the target subscription.
-
-For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
-
 ---
 
 >[!NOTE]
 > This preview feature will be auto-approved.
+
 
 ## Next steps
 
