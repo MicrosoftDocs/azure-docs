@@ -1,19 +1,19 @@
 ---
-title: 'Collect and process Aqua satellite payload'
-description: 'An end-to-end walk-through of using the Azure Orbital Ground Station as-a-Service (GSaaS) to capture and process satellite imagery'
+title: Collect and process Aqua satellite payload
+description: An end-to-end walk-through of using the Azure Orbital Ground Station (AOGS) to capture and process satellite imagery.
 ms.service: orbital
 author: EliotSeattle
 ms.author: eliotgra
-ms.topic: overview 
-ms.date: 07/06/2022
+ms.topic: tutorial 
+ms.date: 07/13/2022
 ms.custom: template-overview 
 ---
 
-# Collect and process Aqua satellite payload using Azure Orbital Ground Station as-a-Service (GSaaS)
+# Collect and process Aqua satellite payload using Azure Orbital Ground Station (AOGS)
 
-This topic is a comprehensive walk-through showing how to use the [Azure Orbital Ground Station as-a-Service (GSaaS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the Azure Orbital GSaaS and its core concepts and shows how to schedule contacts. The topic also steps through an example in which we collect and process NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
+This topic is a comprehensive walk-through showing how to use the [Azure Orbital Ground Station (AOGS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the AOGS and its core concepts and shows how to schedule contacts. The topic also steps through an example in which we collect and process NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
 
-Aqua is a polar-orbiting spacecraft launched by NASA in 2002. Data from all science instruments aboard Aqua is downlinked to the Earth using direct broadcast over the X-band in near real-time. More information about Aqua can be found on the [Aqua Project Science](https://aqua.nasa.gov/) website. With Azure Orbital Ground Station as-a-Service (GSaaS), we can capture the Aqua broadcast when the satellite is within line of sight of a ground station.
+Aqua is a polar-orbiting spacecraft launched by NASA in 2002. Data from all science instruments aboard Aqua is downlinked to the Earth using direct broadcast over the X-band in near real-time. More information about Aqua can be found on the [Aqua Project Science](https://aqua.nasa.gov/) website. With Azure Orbital Ground Station (AOGS), we can capture the Aqua broadcast when the satellite is within line of sight of a ground station.
 
 A *contact* is time reserved at an orbital ground station to communicate with a satellite. During the contact, the ground station orients its antenna towards Aqua and captures the broadcast payload. The captured data is sent to an Azure VM as a data stream that is processed using the [RT-STPS](http://directreadout.sci.gsfc.nasa.gov/index.cfm?section=technology&page=NISGS&subpage=NISFES&sub2page=RT-STPS&sub3Page=overview) (Real-Time Software Telemetry Processing System) provided by [Direct Readout Laboratory](http://directreadout.sci.gsfc.nasa.gov/) at NASA to generate a level 0 product. Further processing of level 0 data is done using IPOPP (International Planetary Observation Processing Package) tool, also provided by DRL.
 

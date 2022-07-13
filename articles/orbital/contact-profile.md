@@ -1,11 +1,11 @@
 ---
-title: 'Configure a contact profile on Azure Orbital Earth Observation service' 
-description: 'Quickstart: Configure a contact profile'
+title: Configure a contact profile on Azure Orbital Ground Station service 
+description: Learn how to configure a contact profile
 author: apoorvanori
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
-ms.date: 06/01/2022
+ms.date: 07/13/2022
 ms.author: wamota
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
@@ -75,5 +75,5 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 ## Next steps
 
 - [How-to Receive real-time telemetry](receive-real-time-telemetry.md)
-- [Quickstart: Schedule a contact](schedule-contact.md)
-- [Tutorial: Cancel a contact](delete-contact.md)
+- [Schedule a contact](schedule-contact.md)
+- [Cancel a contact](delete-contact.md)
