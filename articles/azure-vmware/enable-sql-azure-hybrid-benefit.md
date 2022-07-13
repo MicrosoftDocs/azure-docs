@@ -41,7 +41,7 @@ By checking the Azure hybrid benefit checkbox in the configuration setting, you 
 :::image type="content" source="media/sql-azure-hybrid-benefit/placement-policies.png" alt-text="Diagram that shows how to configure virtual machine placement policies.":::
 
 ## Next steps
-[Azure Hybrid Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/)
+[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
 [Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
 
