@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - To add the user assigned managed identity you must have the ```Microsoft.ManagedIdentity/userAssignedIdentities/*/read``` and ```Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action``` permissions over the user assigned managed identity, which are granted to [Managed Identity Operator](../role-based-access-control/built-in-roles#managed-identity-operator) and [Managed Identity Contributor](../role-based-access-control/built-in-roles#managed-identity-contributor)
 
-- To assign an Azure role to the managed identity, you must have ```Microsoft.Authorization/roleAssignments/write``` permission, which is granted either to [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner)
+- To assign an Azure role to the managed identity, you must have ```Microsoft.Authorization/roleAssignments/write``` permission, which is granted either to [User Access Administrator](./role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](./role-based-access-control/built-in-roles.md#owner)
 
 ## Add user-assigned managed identity for Azure Automation account
 
