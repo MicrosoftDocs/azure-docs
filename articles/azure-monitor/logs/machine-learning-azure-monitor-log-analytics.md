@@ -57,7 +57,7 @@ Let's use `make-series` to chart the total amount of billable data ingested by e
     | render timechart // Renders results in a timechart
     ``` 
 
-    :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="/.media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
+    :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
 
     Looking at the chart, we can see anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types. However, not all anomalies are easy to detect visually on a chart. 
 
@@ -72,6 +72,11 @@ Let's use `make-series` to chart the total amount of billable data ingested by e
     | project TimeGenerated, ActualCount, expectedCount,DataType,anomalyScore,anomalies // TODO check casing of column names
     | sort by abs(anomalyScore) desc;
     ```
+
+    This query returns all usage anomalies for all tables:
+
+    :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" lightbox="/.media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
+
 1. Filter the `DataType` column for `AzureDiagnostics` 
 
     We see only two anomalies - on June 14 and June 15 - while in the time series, we also saw deviations on May 27 and May 28.
