@@ -12,7 +12,7 @@ In this article, you’ll learn how to apply SQL Azure hybrid benefits to an Azu
 >[!IMPORTANT]
 > It is important to note that SQL benefits are applied at the host level. 
 
-For example, if each host in AVS has 36 cores and you signal that two hosts run SQL. Then SQL Azure hybrid benefit will apply to 72 cores.
+For example, if each host in AVS has 36 cores and you signal that two hosts run SQL, then SQL Azure hybrid benefit will apply to 72 cores.
 
 ## Configure host-VM placement policy
 1.	From your Azure VMware Solution private cloud, select Azure hybrid benefit, then Create host-VM placement policy.
@@ -29,13 +29,19 @@ For example, if each host in AVS has 36 cores and you signal that two hosts run 
 3.	Select the hosts and VMs that will be applied to the VM-Host affinity policy.
      1.	**Add Hosts** – Select the hosts that will be running SQL.
      2.	**Add VMs** – Select the VMs that should run on the selected hosts.
-     3. **Review and Create** the policy
+     3. **Review and Create** the policy.
      :::image type="content" source="media/sql-azure-hybrid-benefit/select-policy-host.png" alt-text="Diagram that shows how to create a host virtual machine affinity.":::
 
 ## Manage placement policies
 
 After creating the placement policy, you can review, manage, or edit the policy by way of the Placement policies menu in the Azure VMware Solution private cloud. 
 
-By checking the Azure hybrid benefit checkbox in the configuration setting, you can also enable existing host-VM affinity policies with the SQL Azure hybrid benefit.
+By checking the Azure hybrid benefit checkbox in the configuration setting, you can enable existing host-VM affinity policies with the SQL Azure hybrid benefit.
 
 :::image type="content" source="media/sql-azure-hybrid-benefit/placement-policies.png" alt-text="Diagram that shows how to configure virtual machine placement policies.":::
+
+## Next steps
+[Azure Hybrid Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/)
+
+[Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
+
