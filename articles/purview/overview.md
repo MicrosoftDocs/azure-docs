@@ -16,7 +16,7 @@ Microsoft Purview's solutions in the governance portal provide a unified data go
 - Enable data curators to manage and secure your data estate. 
 - Empower data consumers to find valuable, trustworthy data.
 
-:::image type="content" source="./media/overview/high-level-overview.png" alt-text="High-level architecture of Microsoft Purview, showing multi-cloud and on premises sources flowing into Microsoft Purview, and Microsoft Purview's apps (Data Catalog, Map, and Data Estate Insights) allowing data consumers and data curators to view and manage metadata. This metadata is also being ported to external analytics services from Microsoft Purview for more processing." lightbox="./media/overview/high-level-overview-large.png":::
+:::image type="content" source="./media/overview/high-level-overview.png" alt-text="High-level architecture of Microsoft Purview, showing multi-cloud and on premises sources flowing into Microsoft Purview, and Microsoft Purview's apps (Data Catalog, Map, Data Estate Insights, Policy, and Data Sharing) allowing data consumers and data curators to view and manage metadata, share data, and protect assets. This metadata is also being ported to external analytics services from Microsoft Purview for more processing." lightbox="./media/overview/high-level-overview-large.png":::
 
 >[!TIP]
 > Looking to govern your data in Microsoft 365 by keeping what you need and deleting what you don't? Use [Microsoft Purview Data Lifecycle Management](/microsoft-365/compliance/data-lifecycle-management).
