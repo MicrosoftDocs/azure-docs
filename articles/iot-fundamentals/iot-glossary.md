@@ -586,7 +586,7 @@ Applies to: Iot Hub, Device Provisioning Service
 
 ### Industry 4.0
 
-Industry 4.0 describes the fourth revolution that's occurred in manufacturing. Companies can build connected solutions to manage the manufacturing facility and equipment more efficiently by enabling manufacturing equipment to be cloud connected, allow remote access and management from the cloud, and enable OT personnel to have a single pane view of their entire facility.
+Refers to the fourth revolution that's occurred in manufacturing. Companies can build connected [solutions](#solution) to manage the manufacturing facility and equipment more efficiently by enabling manufacturing equipment to be cloud connected, allowing remote access and management from the cloud, and enabling OT personnel to have a single pane view of their entire facility.
 
 Applies to: Iot Hub, IoT Central
 
@@ -856,13 +856,13 @@ Applies to: Digital Twins
 
 ### Operational technology
 
-In industrial facilities, operational technology is the hardware and software that monitors and controls equipment, processes, and infrastructure.
+That hardware and software in an industrial facility that monitors and controls equipment, processes, and infrastructure.
 
 Casing rules: Always lowercase.
 
 Abbreviation: OT
 
-Applies to: Iot Hub, IoT Central
+Applies to: Iot Hub, IoT Central, IoT Edge
 
 ### Operations monitoring
 

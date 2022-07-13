@@ -1,10 +1,11 @@
 ---
 title: Data-in replication - Azure Database for MySQL Flexible
 description: Learn about using Data-in replication to synchronize from an external server into the Azure Database for MySQL Flexible service.
-author: SudheeshGH
-ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
+author: VandhanaMehta
+ms.author: vamehta
 ms.date: 06/08/2021
 ---
 
@@ -47,7 +48,7 @@ Modifying the parameter `replicate_wild_ignore_table` used to create replication
 
 - The source server version must be at least MySQL version 5.7.
 - Our recommendation is to have the same version for source and replica server versions. For example, both must be MySQL version 5.7 or both must be MySQL version 8.0.
-- Our recommendation is to have a primary key in each table. If we have table without primary key, you might face slowness in replication.
+- Our recommendation is to have a primary key in each table. If we have table without primary key, you might face slowness in replication. 
 - The source server should use the MySQL InnoDB engine.
 - User must have permissions to configure binary logging and create new users on the source server.
 - Binary log files on the source server shouldn't be purged before the replica applies those changes. If the source is Azure Database for MySQL refer how to configure binlog_expire_logs_seconds for [Flexible server](./concepts-server-parameters.md#binlog_expire_logs_seconds) or [Single server](../concepts-server-parameters.md#binlog_expire_logs_seconds)

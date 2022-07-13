@@ -5,13 +5,13 @@ ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# YS-techsystems YS-FIT2
+# YS-techsystems YS-FIT2 (Rugged)
 
 This article describes the **YS-techsystems YS-FIT2** appliance deployment and installation for OT sensors.
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | Office|
+|**Hardware profile** | L100|
 |**Performance** | 	Max bandwidth: 10Mbp/s<br>Max devices: 100|
 |**Physical specifications** | Mounting: DIN/VESA<br>Ports: 2x RJ45|
 |**Status** | Supported; Available as pre-configured |
@@ -155,6 +155,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

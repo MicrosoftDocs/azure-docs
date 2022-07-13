@@ -2,11 +2,11 @@
 title: Configure Redis clustering - Premium Azure Cache for Redis
 description: Learn how to create and manage Redis clustering for your Premium tier Azure Cache for Redis instances
 author: flang-msft
-
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/28/2022
+
 ---
 # Configure Redis clustering for a Premium Azure Cache for Redis instance
 
@@ -59,7 +59,7 @@ Clustering is enabled  **New Azure Cache for Redis** on the left during cache cr
 
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png" alt-text="Clustering toggle selected.":::
 
-    Once the cache is created, you connect to it and use it just like a non-clustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#enable-cache-diagnostics), metrics are captured separately for each shard and can be [viewed](cache-how-to-monitor.md) in Azure Cache for Redis on the left.
+    Once the cache is created, you connect to it and use it just like a non-clustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics), metrics are captured separately for each shard and can be [viewed](cache-how-to-monitor.md) in Azure Cache for Redis on the left.
 
 1. Select the **Next: Tags** tab or select the **Next: Tags** button at the bottom of the page.
 

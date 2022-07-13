@@ -33,6 +33,18 @@
     items:
     - name: Azure AD architecture
       href: active-directory-architecture.md
+    - name: Road to the cloud
+      items:
+      - name: Introduction
+        href: road-to-the-cloud-introduction.md
+      - name: Cloud transformation posture
+        href: road-to-the-cloud-posture.md
+      - name: Establish an Azure AD footprint
+        href: road-to-the-cloud-establish.md
+      - name: Implement a cloud-first approach
+        href: road-to-the-cloud-implement.md
+      - name: Transition to the cloud
+        href: road-to-the-cloud-migrate.md
     - name: Integrating all your apps with Azure AD
       href: five-steps-to-full-application-integration-with-azure-ad.md
     - name: Parallel identity options
@@ -307,3 +319,5 @@
       href: active-directory-data-storage-eu.md
     - name: Identity data storage for Australia and New Zealand
       href: active-directory-data-storage-australia-newzealand.md
+    - name: Identity data storage for Japan
+      href: active-directory-data-storage-japan.md

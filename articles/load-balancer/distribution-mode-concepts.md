@@ -1,11 +1,11 @@
 ---
 title: Azure Load Balancer distribution modes
 description: Get started learning about the different distribution modes of Azure Load Balancer.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: article 
-ms.date: 12/27/2021
+ms.date: 05/24/2022
 ms.custom: template-concept 
 #Customer intent: As a administrator, I want to learn about the different distribution modes of Azure Load Balancer so that I can configure the distribution mode for my application.
 ---
@@ -21,13 +21,13 @@ Azure Load Balancer supports the following distribution modes for routing connec
 | Azure portal configuration | Session persistence: **None** | Session persistence: **Client IP** | Session persistence: **Client IP and protocol** |
 | [REST API](/rest/api/load-balancer/load-balancers/create-or-update#loaddistribution) |  ```"loadDistribution":"Default"```| ```"loadDistribution":SourceIP```    | ```"loadDistribution":SourceIPProtocol```    |
 
-There is no downtime when switching from one distribution mode to another on a Load Balancer.
+There's no downtime when switching from one distribution mode to another on a load balancer.
 
 ## Hash based
 
 Azure Load Balancer uses a five tuple hash based distribution mode by default.  
 
-The five tuple is consists of:
+The five tuple consists of:
 * **Source IP**
 * **Source port**
 * **Destination IP**

@@ -48,8 +48,8 @@ items:
     href: how-to-guides/use-prebuilt-read.md
   - name: Use SDKs and the REST API (v2.1)
     href: how-to-guides/try-sdk-rest-api.md
-  - name: Generate SAS tokens for Azure Blob containers
-    href:  generate-sas-tokens.md
+  - name: Create SAS tokens for storage containers
+    href:  create-sas-tokens.md
   - name: Custom models
     items:
     - name: Build a custom model (v2.1)
@@ -90,6 +90,8 @@ items:
       href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
     - name: Create and use managed identities
       href: managed-identities.md
+    - name: Configure managed identities with private endpoints
+      href: managed-identities-secured-access.md
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
@@ -180,17 +182,17 @@ items:
   - name: Azure Form Recognizer REST API v3.0 (preview)
     items:
     - name: REST API v3.0 reference
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument
     - name: Client libraries and SDKs
       items:
       - name: .NET
-        href: https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.3/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.4/index.html
       - name: Python
-        href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b3/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b5/index.html
       - name: Java
-        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.5/index.html
       - name: JavaScript
-        href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.3/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.4/index.html
   - name: Azure Form Recognizer REST API v2.1
     items:
     - name: REST API v2.1 reference

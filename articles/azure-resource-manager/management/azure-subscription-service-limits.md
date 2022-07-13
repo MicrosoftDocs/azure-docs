@@ -141,6 +141,10 @@ For more information, see [Functions Hosting plans comparison](../../azure-funct
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
 
+## Azure Load Testing limits
+
+For Azure Load Testing limits, see [Service limits in Azure Load Testing](../../load-testing/resource-limits-quotas-capacity.md).
+
 ## Azure Machine Learning limits
 
 The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../../machine-learning/how-to-manage-quotas.md)
@@ -303,7 +307,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/media-services/previous/media-services-quotas-and-limitations)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/azure/media-services/previous/media-services-quotas-and-limitations)
 
 ## Mobile Services limits
 
@@ -495,11 +499,11 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../../../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
-### Shared Image Gallery limits
+### Compute Gallery limits
 
-There are limits, per subscription, for deploying resources using Shared Image Galleries:
+There are limits, per subscription, for deploying resources using Compute Galleries:
 
-- 100 shared image galleries, per subscription, per region
+- 100 compute galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 

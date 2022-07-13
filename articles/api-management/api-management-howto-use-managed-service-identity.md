@@ -21,6 +21,9 @@ You can grant two types of identities to an API Management instance:
 - A *system-assigned identity* is tied to your service and is deleted if your service is deleted. The service can have only one system-assigned identity.
 - A *user-assigned identity* is a standalone Azure resource that can be assigned to your service. The service can have multiple user-assigned identities.
 
+> [!NOTE]
+> Managed identities are specific to the Azure AD tenant where your Azure subscription is hosted. They don't get updated if a subscription is moved to a different directory. If a subscription is moved, you'll need to recreate and configure the identities.  
+
 ## Create a system-assigned managed identity
 
 ### Azure portal
@@ -136,81 +139,95 @@ To configure an access policy using the portal:
 ### <a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtain a custom TLS/SSL certificate for the API Management instance from Azure Key Vault
 You can use the system-assigned identity of an API Management instance to retrieve custom TLS/SSL certificates stored in Azure Key Vault. You can then assign these certificates to custom domains in the API Management instance. Keep these considerations in mind:
 
-- The content type of the secret must be *application/x-pkcs12*.
+- The content type of the secret must be *application/x-pkcs12*. Learn more about custom domain [certificate requirements](configure-custom-domain.md?tabs=key-vault#domain-certificate-options).
 - Use the Key Vault certificate secret endpoint, which contains the secret.
 
 > [!Important]
 > If you don't provide the object version of the certificate, API Management will automatically obtain the newer version of the certificate within four hours after it's updated in Key Vault.
 
-The following example shows an Azure Resource Manager template that contains the following steps:
+The following example shows an Azure Resource Manager template that uses the system-assigned managed identity of an API Management service instance to retrieve a custom domain certificate from Key Vault.
 
-1. Create an API Management instance with a managed identity.
-2. Update the access policies of an Azure Key Vault instance and allow the API Management instance to obtain secrets from it.
-3. Update the API Management instance by setting a custom domain name through a certificate from the Key Vault instance.
+#### Prerequisites
+
+* An API Management service instance configured with a system-assigned managed identity. To create the instance, you can use an [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/api-management-create-with-msi/).
+* An Azure Key Vault instance in the same resource group, hosting a certificate that will be used as a custom domain certificate in API Management.
+
+The following template contains the following steps. 
+
+1. Update the access policies of the Azure Key Vault instance and allow the API Management instance to obtain secrets from it.
+1. Update the API Management instance by setting a custom domain name through the certificate from the Key Vault instance.
+
+When you run the template, provide parameter values appropriate for your environment.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "publisherEmail": {
+	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+        "apiManagementServiceName": {
             "type": "string",
-            "minLength": 1,
-            "metadata": {
-                "description": "The email address of the owner of the service"
+            "minLength": 8,
+            "metadata":{
+                "description": "The name of the API Management service"
             }
         },
-        "publisherName": {
-            "type": "string",
-            "defaultValue": "Contoso",
-            "minLength": 1,
-            "metadata": {
-                "description": "The name of the owner of the service"
-            }
-        },
-        "sku": {
-            "type": "string",
-            "allowedValues": ["Developer",
-            "Standard",
-            "Premium"],
-            "defaultValue": "Developer",
-            "metadata": {
-                "description": "The pricing tier of this API Management instance"
-            }
-        },
-        "skuCount": {
-            "type": "int",
-            "defaultValue": 1,
-            "metadata": {
-                "description": "The instance size of this API Management instance."
-            }
-        },
+		"publisherEmail": {
+			"type": "string",
+			"minLength": 1,
+			"metadata": {
+				"description": "The email address of the owner of the service"
+			}
+		},
+		"publisherName": {
+			"type": "string",
+			"minLength": 1,
+			"metadata": {
+				"description": "The name of the owner of the service"
+			}
+		},
+		"sku": {
+			"type": "string",
+			"allowedValues": ["Developer",
+			"Standard",
+			"Premium"],
+			"defaultValue": "Developer",
+			"metadata": {
+				"description": "The pricing tier of this API Management service"
+			}
+		},
+		"skuCount": {
+			"type": "int",
+			"defaultValue": 1,
+			"metadata": {
+				"description": "The instance size of this API Management service."
+			}
+		},
         "keyVaultName": {
             "type": "string",
             "metadata": {
-                "description": "Name of the vault"
+                "description": "Name of the key vault"
             }
         },
-        "proxyCustomHostname1": {
-            "type": "string",
-            "metadata": {
-                "description": "Gateway custom hostname."
-            }
-        },
-        "keyVaultIdToCertificate": {
-            "type": "string",
-            "metadata": {
-                "description": "Reference to the Key Vault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
-            }
-        }
-    },
-    "variables": {
-        "apiManagementServiceName": "[concat('apiservice', uniqueString(resourceGroup().id))]",
-        "apimServiceIdentityResourceId": "[concat(resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName')),'/providers/Microsoft.ManagedIdentity/Identities/default')]"
-    },
-    "resources": [{
+		"proxyCustomHostname1": {
+			"type": "string",
+			"metadata": {
+				"description": "Gateway custom hostname 1. Example: api.contoso.com"
+			}
+		},
+		"keyVaultIdToCertificate": {
+			"type": "string",
+			"metadata": {
+				"description": "Reference to the key vault certificate. Example: https://contoso.vault.azure.net/secrets/contosogatewaycertificate"
+			}
+		}
+	},
+	 "variables": {
+        "apimServiceIdentityResourceId": "[concat(resourceId('Microsoft.ApiManagement/service', parameters('apiManagementServiceName')),'/providers/Microsoft.ManagedIdentity/Identities/default')]"
+		    },
+	"resources": [ 
+   {
         "apiVersion": "2021-08-01",
-        "name": "[variables('apiManagementServiceName')]",
+        "name": "[parameters('apiManagementServiceName')]",
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
         "tags": {
@@ -230,43 +247,58 @@ The following example shows an Azure Resource Manager template that contains the
     {
         "type": "Microsoft.KeyVault/vaults/accessPolicies",
         "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2015-06-01",
-        "dependsOn": [
-            "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-        ],
+        "apiVersion": "2018-02-14",
         "properties": {
             "accessPolicies": [{
-                "tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
-                "objectId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').principalId]",
+                "tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2018-11-30').tenantId]",
+                "objectId": "[reference(variables('apimServiceIdentityResourceId'), '2018-11-30').principalId]",
                 "permissions": {
                      "secrets": ["get", "list"]
                 }
             }]
         }
     },
-    {
-        "apiVersion": "2017-05-10",
+	{
+        "apiVersion": "2021-04-01",
+		"type": "Microsoft.Resources/deployments",
         "name": "apimWithKeyVault",
-        "type": "Microsoft.Resources/deployments",
-        "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+		 "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service', parameters('apiManagementServiceName'))]"
         ],
         "properties": {
             "mode": "incremental",
-            "templateLink": {
-                "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
-                "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-                "publisherEmail": { "value": "[parameters('publisherEmail')]"},
-                "publisherName": { "value": "[parameters('publisherName')]"},
-                "sku": { "value": "[parameters('sku')]"},
-                "skuCount": { "value": "[parameters('skuCount')]"},
-                "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
-                "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
-            }
-        }
-    }]
+            "template": {
+                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+				"contentVersion": "1.0.0.0",
+				"parameters": {},			
+				"resources": [{
+					"apiVersion": "2021-08-01",
+					"name": "[parameters('apiManagementServiceName')]",
+					"type": "Microsoft.ApiManagement/service",
+					"location": "[resourceGroup().location]",
+					"tags": {
+					},
+					"sku": {
+						"name": "[parameters('sku')]",
+						"capacity": "[parameters('skuCount')]"
+					},
+					"properties": {
+						"publisherEmail": "[parameters('publisherEmail')]",
+						"publisherName": "[parameters('publisherName')]",
+						"hostnameConfigurations": [{
+							"type": "Proxy",
+							"hostName": "[parameters('proxyCustomHostname1')]",
+							"keyVaultId": "[parameters('keyVaultIdToCertificate')]"
+						}]
+					},
+					"identity": {
+						"type": "systemAssigned"
+					}
+				}]
+		}
+		}
+	}
+]
 }
 ```
 
@@ -289,7 +321,7 @@ API Management is a trusted Microsoft service to the following resources. This a
 |Azure Key Vault | [Trusted-access-to-azure-key-vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)|
 |Azure Storage | [Trusted-access-to-azure-storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
 |Azure Service Bus | [Trusted-access-to-azure-service-bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
-|Azure Event Hub | [Trused-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+|Azure Event Hubs | [Trused-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
 
 ## Create a user-assigned managed identity
 
@@ -429,13 +461,13 @@ Keep these considerations in mind:
 
 For the complete template, see [API Management with Key Vault based SSL using User Assigned Identity](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.apimanagement/api-management-key-vault-create/azuredeploy.json).
 
-In this template, you will deploy:
+In this template, you'll deploy:
 
 * Azure API Management instance
 * Azure user-assigned managed identity
 * Azure Key Vault for storing the SSL/TLS certificate
 
-To run the deployment automatically, click the following button:
+To run the deployment automatically, select the following button:
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-key-vault-create%2Fazuredeploy.json)
 

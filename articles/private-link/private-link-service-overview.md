@@ -130,6 +130,7 @@ The following are the known limitations when using the Private Link service:
 - Supported only on Standard Load Balancer where backend pool is configured by NIC when using VM/VMSS.
 - Supports IPv4 traffic only
 - Supports TCP and UDP traffic only
+- Private Link Service has an idle timeout of ~5 minutes (300 seconds). To avoid hitting this limit, applications connecting through Private Link Service must leverage TCP Keep Alives lower than that time.
 
 
 ## Next steps

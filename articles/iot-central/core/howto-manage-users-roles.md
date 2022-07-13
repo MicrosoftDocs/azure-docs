@@ -3,7 +3,7 @@ title: Manage users and roles in Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to manage users and roles in your Azure IoT Central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/22/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -270,6 +270,16 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Create | View, Update   |
 | Delete | View   |
 | Full Control | View, Update, Create, Delete |
+
+**Data explorer permissions**
+
+| Name | Dependencies |
+| ---- | -------- |
+| View | None <br/> Other dependencies: View device groups, device templates, device instances |
+| Update | View <br/> Other dependencies: View device groups, device templates, device instances |
+| Create | View, Update <br/> Other dependencies: View device groups, device templates, device instances |
+| Delete | View <br/> Other dependencies: View device groups, device templates, device instances |
+| Full Control | View, Update, Create, Delete <br/> Other dependencies: View device groups, device templates, device instances |
 
 **Branding, favicon, and colors permissions**
 

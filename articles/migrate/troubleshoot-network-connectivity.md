@@ -58,7 +58,7 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
--  Enter ```nslookup_<storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
+-  Enter ```nslookup <storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
 
     You'll receive a message like this:  
 
@@ -242,9 +242,10 @@ If you have enabled the appliance for private endpoint connectivity, use the fol
 
 |**DNS mappings containing Private endpoint URLs**  | **Details** |
 |--- | ---|
-|*.disc.privatelink.test.migration.windowsazure.com | Azure Migrate Discovery service endpoint
-|*.asm.privatelink.test.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
-|*.hub.privatelink.test.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings
+|*.disc.privatelink.prod.migration.windowsazure.com | Azure Migrate Discovery service endpoint
+|*.asm.privatelink.prod.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
+|*.hub.privatelink.prod.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings
+|*.privatelink.siterecovery.windowsazure.com | Azure Site Recovery service endpoint to orchestrate replications
 |*.vault.azure.net | Key Vault endpoint
 |*.blob.core.windows.net | Storage account endpoint for dependency and performance data  
 
@@ -343,3 +344,17 @@ This issue can occur if the services running on the appliance are not running on
 
     :::image type="content" source="./media/troubleshoot-network-connectivity/view-appliance-services.png" alt-text="Snapshot of View appliance services.":::
 
+### Failed to save configuration: 504 gateway timeout
+
+#### Possible causes:
+This issue can occur if the Azure Migrate appliance cannot reach the service endpoint provided in the error message.
+
+#### Remediation:
+
+To validate the private link connection, perform a DNS resolution of the Azure Migrate service endpoints (private link resource FQDNs) from the on-premises server hosting the Migrate appliance and ensure that they resolve to private IP addresses.
+
+**To obtain the private endpoint details to verify DNS resolution:**
+
+The private endpoint details and private link resource FQDN information are available in the Discovery and Assessment and Server Migration properties pages. Select **Download DNS settings** on both the properties pages to view the full list. 
+
+Next, refer to [this guidance](#verify-dns-resolution) to verify the DNS resolution.

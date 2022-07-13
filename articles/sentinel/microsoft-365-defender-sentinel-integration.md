@@ -32,7 +32,11 @@ This integration gives Microsoft 365 security incidents the visibility to be man
 - **Microsoft Defender for Office 365** (formerly Office 365 ATP)
 - **Microsoft Defender for Cloud Apps** (formerly Microsoft Cloud App Security)
 
-In addition to collecting alerts from these components, Microsoft 365 Defender generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
+Other services whose alerts are collected by Microsoft 365 Defender include:
+
+- **Microsoft Purview Data Loss Prevention (DLP)** ([Learn more](/microsoft-365/security/defender/investigate-dlp))
+
+In addition to collecting alerts from these components and other services, Microsoft 365 Defender generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
 
 ### Common use cases and scenarios
 

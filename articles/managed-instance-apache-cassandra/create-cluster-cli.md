@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
+ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -18,7 +18,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premise environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
+* [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premises environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -78,14 +78,14 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    delegatedManagementSubnetId='/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>'
    initialCassandraAdminPassword='myPassword'
    cassandraVersion='3.11' # set to 4.0 for a Cassandra 4.0 cluster
-    
+
    az managed-cassandra cluster create \
      --cluster-name $clusterName \
      --resource-group $resourceGroupName \
      --location $location \
      --delegated-management-subnet-id $delegatedManagementSubnetId \
      --initial-cassandra-admin-password $initialCassandraAdminPassword \
-     ----cassandra-version $cassandraVersion \
+     --cassandra-version $cassandraVersion \
      --debug
    ```
 
@@ -96,7 +96,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    dataCenterLocation='eastus2'
    virtualMachineSKU='Standard_D8s_v4'
    noOfDisksPerNode=4
-     
+
    az managed-cassandra datacenter create \
      --resource-group $resourceGroupName \
      --cluster-name $clusterName \
@@ -113,19 +113,19 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    > The value for `--sku` can be chosen from the following available SKUs:
    >
    > - Standard_E8s_v4
-   > - Standard_E16s_v4 
+   > - Standard_E16s_v4
    > - Standard_E20s_v4
-   > - Standard_E32s_v4 
+   > - Standard_E32s_v4
    > - Standard_DS13_v2
    > - Standard_DS14_v2
    > - Standard_D8s_v4
    > - Standard_D16s_v4
-   > - Standard_D32s_v4 
-   > 
+   > - Standard_D32s_v4
+   >
    > Note also that `--availability-zone` is set to `false`. To enable availability zones, set this to `true`. Availability zones increase the availability SLA of the service. For more details, review the full SLA details [here](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/).
 
    > [!WARNING]
-   > Availability zones are not supported in all regions. Deployments will fail if you select a region where Availability zones are not supported. See [here](../availability-zones/az-overview.md#azure-regions-with-availability-zones) for supported regions. The successful deployment of availability zones is also subject to the availability of compute resources in all of the zones in the given region. Deployments may fail if the SKU you have selected, or capacity, is not available across all zones. 
+   > Availability zones are not supported in all regions. Deployments will fail if you select a region where Availability zones are not supported. See [here](../availability-zones/az-overview.md#azure-regions-with-availability-zones) for supported regions. The successful deployment of availability zones is also subject to the availability of compute resources in all of the zones in the given region. Deployments may fail if the SKU you have selected, or capacity, is not available across all zones.
 
 1. Once the datacenter is created, if you want to scale up, or scale down the nodes in the datacenter, run the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-update) command. Change the value of `node-count` parameter to the desired value:
 
@@ -134,12 +134,12 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    clusterName='<Cluster Name>'
    dataCenterName='dc1'
    dataCenterLocation='eastus2'
-    
+
    az managed-cassandra datacenter update \
      --resource-group $resourceGroupName \
      --cluster-name $clusterName \
      --data-center-name $dataCenterName \
-     --node-count 9 
+     --node-count 9
    ```
 
 ## Connect to your cluster
@@ -171,8 +171,8 @@ cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 
 If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
 
-> [!NOTE] 
-> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.  
+> [!NOTE]
+> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.
 
 ## Clean up resources
 
