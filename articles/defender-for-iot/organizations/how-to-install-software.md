@@ -104,69 +104,89 @@ This procedure describes how to install OT sensor software on a physical or virt
 
 1. When the installation boots, you're first prompted to select the hardware profile you want to install.
 
-    :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's hardware profile options.":::
+    :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's hardware profile options." lightbox="media/tutorial-install-components/sensor-architecture.png":::
 
     For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
 
     System files are installed, the sensor reboots, and then sensor files are installed. This process can take a few minutes.
 
-    When the installation steps are complete, the **Package configuration** screen appears, with a prompt to **Select monitor interfaces**. For example:
+    When the installation steps are complete, the Ubuntu **Package configuration** screen is displayed, with the `Configuring iot-sensor` wizard, showing a prompt to to select your monitor interfaces.
+
+    In this wizard, use the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
+
+1. In the `Select monitor interfaces` screen, select the interfaces you want to monitor.
+
+    By default, eno1 is reserved for the management interface. and we recommend that you leave this option unselected.
+
+    For example:
 
     :::image type="content" source="media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
 
-1. Select the interfaces you want to monitor. Press the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
+1. In the `Select erspan monitor interfaces` screen, select any ERSPAN monitoring ports that you have. The wizard lists available interfaces, even if you don't have any ERSPAN monitoring ports in your system. If you have no ERSPAN monitoring ports, leave all options unselected.
 
-    By default, eno1 is reserved for the management interface. We recommend that you leave this option unselected.
-
-1. If you have any ERSPAN monitoring ports, select them. For example:
+    For example:
 
     :::image type="content" source="media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
 
-    Note - you'll still have interfaces listed, even if you don't actually have any in your system. you'll need to know this or not.
+1. In the `Select management interface` screen, we recommend keeping the default `eno1` value selected as the management interface.
 
-1. Keep the default - eno1. Select the interface to be used as the management interface. For example:
+    For example:
 
     :::image type="content" source="media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::
 
-1. Enter the sensor's IP address. For example:
+1. In the `Enter sensor IP address` screen, enter the IP address for the sensor appliance you're installing.
 
     :::image type="content" source="media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
 
-1. Enter the path of the mounted backups folder. We recommend using the default path. For example:
+1. In the `Enter path to the mounted backups folder` screen, enter the path to the sensor's mounted backups. We recommend using the default path of `/opt/sensor/persist/backups`. For example:
 
     :::image type="content" source="media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
 
-1. Enter the Subnet Mask IP address. For example:
+1. In the `Enter Subnet Mask` screen, enter the IP address for the sensor's subnet mask. For example:
 
-1. Enter the default gateway IP address. For example:
+    :::image type="content" source="media/tutorial-install-components/sensor-subnet-ip.png" alt-text="Screenshot of the Enter Subnet Mask screen.":::
 
-1. Enter the DNS Server IP address. For example:
+1. In the `Enter Gateway` screen, enter the sensor's default gateway IP address. For example:
 
-1. Enter the sensor hostname. For example:
+    :::image type="content" source="media/tutorial-install-components/sensor-gateway-ip.png" alt-text="Screenshot of the Enter Gateway screen.":::
 
-    :::image type="content" source="media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the screen where you enter a hostname for your sensor.":::
+1. In the `Enter DNS server` screen, enter the sensor's DNS server IP address. For example:
 
-1. If you want to configure a proxy, select yes when prompted. The default is to select `No`. For example:
+    :::image type="content" source="media/tutorial-install-components/sensor-dns-ip.png" alt-text="Screenshot of the Enter DNS server screen.":::
 
-    For more information, see our squid procedure. 
+1. In the `Enter hostname` screen, enter the sensor hostname. For example:
 
-1. The installation process starts running and then shows the credentials screen.
+    :::image type="content" source="media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the Enter hostname screen.":::
 
-When the installation process completes, save the appliance ID, and passwords. Copy these credentials to a safe place as you'll need them to access the platform the first time you use it. For example:
+1. In the `Run this sensor as a proxy server (Preview)` screen, select `<Yes>` only if you want to configure a proxy, and then enter the proxy credentials as prompted.
+
+    The default configuration is without a proxy.
+
+    For more information, see [Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy (legacy)](how-to-connect-sensor-by-proxy.md).
+
+
+1. <a name=credentials></a>The installation process starts running and then shows the credentials screen. For example:
 
     :::image type="content" source="media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
 
-The installation continues running again, and then reboots when the installation is complete.
+    Save the usernames and passwords listed, as they are unique and this is the only the credentials are listed. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
 
-When prompted, enter your username and password. If the prompt dissapears, enter to have it shown again. When entering your password, the password will not display on the screen.
+    Select `<Ok>` when you're ready to continue.
 
-After logging in, and the sensor is ready to access, the following screen appears:
+    The installation continues running again, and then reboots when the installation is complete. Upon reboot, you're prompted to enter credentials to sign in. For example:
 
-microsoft screen
+    :::image type="content" source="media/tutorial-install-components/sensor-sign-in.png" alt-text="Screenshot of a sensor sign in screen after installation.":::
 
-Make sure that your sensor is connected to the network, and then you can log in via a browser. For more information, see
+1. Enter the credentials for one of the users that you'd copied down in the [previous step](#credentials).
 
-Change system passwords
+    - If the `iot-sensor login:` prompt disappears, press **ENTER** to have it shown again.
+    - When entering your password, the password characters do not display on the screen. Make sure you enter them carefully.
+
+    When you've successfully signed in, the following confirmation screen appears:
+
+    :::image type="content" source="media/tutorial-install-components/install-complete.png" alt-text="Screenshot of the sign-in confirmation.":::
+
+Make sure that your sensor is connected to your network, and then you can sign in to your sensor via a network-connected browser. For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor).
 
 # [On-premises management console](#tab/on-prem)
 
