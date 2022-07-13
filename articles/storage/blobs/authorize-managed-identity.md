@@ -8,7 +8,7 @@ author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/11/2021
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common
 ms.devlang: csharp

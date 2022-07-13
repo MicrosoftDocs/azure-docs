@@ -8,7 +8,7 @@ author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/12/2022
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: blobs
 ---

@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: PowerShell supports signing in with Azure AD credentials to run commands on Azure Queue Storage data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Azure AD security principal.
 author: jimmart-dev
 services: storage
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: ozgun
 ms.date: 02/10/2021
 ms.topic: how-to

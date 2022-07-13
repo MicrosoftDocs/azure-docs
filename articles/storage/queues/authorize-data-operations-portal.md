@@ -5,7 +5,7 @@ description: When you access queue data using the Azure portal, the portal makes
 author: jimmart-dev
 services: storage
 
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: ozguns
 ms.date: 12/13/2021
 ms.topic: how-to

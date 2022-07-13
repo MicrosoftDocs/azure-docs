@@ -8,7 +8,7 @@ author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
 ms.date: 12/10/2021
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1

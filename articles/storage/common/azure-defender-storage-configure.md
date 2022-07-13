@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 05/31/2022
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: ozgun 
 ms.custom: devx-track-azurepowershell
 ---

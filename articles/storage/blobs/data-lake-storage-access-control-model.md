@@ -6,7 +6,7 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.author: jimmart-dev
+ms.author: jammart
 ---
 
 # Access control model in Azure Data Lake Storage Gen2

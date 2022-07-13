@@ -6,7 +6,7 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: jamesbak
 ms.devlang: python
 ---
