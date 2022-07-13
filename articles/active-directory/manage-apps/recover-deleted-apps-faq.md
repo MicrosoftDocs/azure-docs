@@ -18,6 +18,8 @@ ms.collection: M365-identity-device-management
 
 # Recover deleted applications in Azure Active Directory FAQs
 
+This page answers frequently asked questions about deleting and restoring deleted application registrations and service principals.
+
 ## When I create applications, I'm getting Directory_QuotaExceeded error. How can I avoid this problem?
 A non-admin user can create no more than 250 Azure AD resources that include applications and service principals. Both active resources and deleted resources that are available to restore count toward this quota. Even if you delete more applications that you don't need, they'll still add count to the quota. Hence, to free up the quota, you need to [permanently delete](/graph/api/directory-deleteditems-delete?tabs=http) objects in the deleted items container. You can learn more about the service limits through [this link](/azure/azure-resource-manager/management/azure-subscription-service-limits?msclkid=6cb6cc54c68711ec93eb9539fce3cc28#active-directory-limits).
 
