@@ -25,7 +25,7 @@ Before you enable your machines for update management center (preview), make sur
 > [!IMPORTANT]
 > Update management center (preview) can manage machines that are currently managed by Azure Automation [Update management](/azure/automation/update-management/overview) feature without interrupting your update management process. However, we don't recommend migrating from Automation Update Management since this preview gives you a chance to evaluate and provide feedback on features before it's generally available (GA). 
 >
-> While update management center is in **preview**, the [Supplemental Terms of Use for Microsoft Azure Previews](/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> While update management center is in **preview**, the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Key benefits
 
