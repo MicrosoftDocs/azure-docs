@@ -146,7 +146,7 @@ ACSS enables you to analyze important SAP infrastructure metrics from the Azure 
 
 1. On the overview page for the VIS, select the **Monitoring** tab.
 
-    :::image type="content" source="media/monitor-portal/vis-resource-overview-monitoring.png" lightbox="media/monitor-portal/vis-resource-overview-monitoring.png" alt-text="Screenshot of the Monitoring tab for a VIS resource in the Azure portal, showing monitoring charts for CPU utlization and IOPS.":::
+    :::image type="content" source="media/monitor-portal/vis-resource-overview-monitoring.png" lightbox="media/monitor-portal/vis-resource-overview-monitoring.png" alt-text="Screenshot of the Monitoring tab for a VIS resource in the Azure portal, showing monitoring charts for CPU utilization and IOPS.":::
 
 1. Review the monitoring charts, which include: 
 
