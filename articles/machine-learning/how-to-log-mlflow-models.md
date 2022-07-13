@@ -42,14 +42,13 @@ import mlflow
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
 
-with mlflow.start_run():
-    mlflow.autolog()
+mlflow.autolog()
 
-    model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-    model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
-    y_pred = model.predict(X_test)
+model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
 
-    accuracy = accuracy_score(y_test, y_pred)
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
 ```
 
 > [!TIP]
@@ -76,34 +75,33 @@ from sklearn.metrics import accuracy_score
 from mlflow.models import infer_signature
 from mlflow.utils.environment import _mlflow_conda_env
 
-with mlflow.start_run():
-    mlflow.autolog(log_models=False)
+mlflow.autolog(log_models=False)
 
-    model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-    model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
-    y_pred = model.predict(X_test)
+model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
+y_pred = model.predict(X_test)
 
-    accuracy = accuracy_score(y_test, y_pred)
-    
-    # Signature
-    signature = infer_signature(X_test, y_test)
-    
-    # Conda environment
-    custom_env =_mlflow_conda_env(
-        additional_conda_deps=None,
-        additional_pip_deps=["xgboost==1.5.2"],
-        additional_conda_channels=None,
-    )
-    
-    # Sample
-    input_example = X_train.sample(n=1)
+accuracy = accuracy_score(y_test, y_pred)
 
-    # Log the model manually
-    mlflow.xgboost.log_model(model, 
-                             artifact_path="classifier", 
-                             conda_env=custom_env,
-                             signature=signature,
-                             input_example=input_example)
+# Signature
+signature = infer_signature(X_test, y_test)
+
+# Conda environment
+custom_env =_mlflow_conda_env(
+    additional_conda_deps=None,
+    additional_pip_deps=["xgboost==1.5.2"],
+    additional_conda_channels=None,
+)
+
+# Sample
+input_example = X_train.sample(n=1)
+
+# Log the model manually
+mlflow.xgboost.log_model(model, 
+                         artifact_path="classifier", 
+                         conda_env=custom_env,
+                         signature=signature,
+                         input_example=input_example)
 ```
 
 > [!NOTE]
@@ -166,20 +164,19 @@ from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
 from mlflow.models import infer_signature
 
-with mlflow.start_run():
-    mlflow.xgboost.autolog(log_models=False)
+mlflow.xgboost.autolog(log_models=False)
 
-    model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-    model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
-    y_probs = model.predict_proba(X_test)
+model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
+y_probs = model.predict_proba(X_test)
 
-    accuracy = accuracy_score(y_test, y_probs.argmax(axis=1))
-    mlflow.log_metric("accuracy", accuracy)
+accuracy = accuracy_score(y_test, y_probs.argmax(axis=1))
+mlflow.log_metric("accuracy", accuracy)
 
-    signature = infer_signature(X_test, y_probs)
-    mlflow.pyfunc.log_model("classifier", 
-                            python_model=ModelWrapper(model),
-                            signature=signature)
+signature = infer_signature(X_test, y_probs)
+mlflow.pyfunc.log_model("classifier", 
+                        python_model=ModelWrapper(model),
+                        signature=signature)
 ```
 
 > [!TIP]
@@ -248,33 +245,32 @@ from sklearn.preprocessing import OrdinalEncoder
 from sklearn.metrics import accuracy_score
 from mlflow.models import infer_signature
 
-with mlflow.start_run():
-    mlflow.xgboost.autolog(log_models=False)
-    
-    encoder = OrdinalEncoder(handle_unknown='ignore')
-    X_train['thal'] = enc.fit_transform(X_train['thal'])
-    X_test['thal'] = enc.transform(X_test['thal'])
-    
-    model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-    model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
-    y_probs = model.predict_proba(X_test)
+mlflow.xgboost.autolog(log_models=False)
 
-    accuracy = accuracy_score(y_test, y_probs.argmax(axis=1))
-    mlflow.log_metric("accuracy", accuracy)
+encoder = OrdinalEncoder(handle_unknown='ignore')
+X_train['thal'] = enc.fit_transform(X_train['thal'])
+X_test['thal'] = enc.transform(X_test['thal'])
 
-    encoder_path = 'encoder.pkl'
-    joblib.dump(encoder, encoder_path)
-    model_path = "xgb.model"
-    model.save_model(model_path)
+model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
+y_probs = model.predict_proba(X_test)
 
-    signature = infer_signature(X, y_probs)
-    mlflow.pyfunc.log_model("classifier", 
-                            python_model=ModelWrapper(),
-                            artifacts={ 
-                                'encoder': encoder_path,
-                                'model': model_path 
-                            },
-                            signature=signature)
+accuracy = accuracy_score(y_test, y_probs.argmax(axis=1))
+mlflow.log_metric("accuracy", accuracy)
+
+encoder_path = 'encoder.pkl'
+joblib.dump(encoder, encoder_path)
+model_path = "xgb.model"
+model.save_model(model_path)
+
+signature = infer_signature(X, y_probs)
+mlflow.pyfunc.log_model("classifier", 
+                        python_model=ModelWrapper(),
+                        artifacts={ 
+                            'encoder': encoder_path,
+                            'model': model_path 
+                        },
+                        signature=signature)
 ```
 
 # [Using a model loader](#tab/loader)
@@ -340,25 +336,24 @@ from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
 from mlflow.models import infer_signature
 
-with mlflow.start_run():
-    mlflow.xgboost.autolog(log_models=False)
+mlflow.xgboost.autolog(log_models=False)
 
-    model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-    model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
-    y_probs = model.predict_proba(X_test)
+model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
+y_probs = model.predict_proba(X_test)
 
-    accuracy = accuracy_score(y_test, y_probs.argmax(axis=1))
-    mlflow.log_metric("accuracy", accuracy)
+accuracy = accuracy_score(y_test, y_probs.argmax(axis=1))
+mlflow.log_metric("accuracy", accuracy)
 
-    model_path = "xgb.model"
-    model.save_model(model_path)
+model_path = "xgb.model"
+model.save_model(model_path)
 
-    signature = infer_signature(X_test, y_probs)
-    mlflow.pyfunc.log_model("classifier",
-                            data_path=model_path,
-                            code_path=["loader_module.py"],
-                            loader_module="loader_module",
-                            signature=signature)
+signature = infer_signature(X_test, y_probs)
+mlflow.pyfunc.log_model("classifier",
+                        data_path=model_path,
+                        code_path=["loader_module.py"],
+                        loader_module="loader_module",
+                        signature=signature)
 ```
 
 ---
