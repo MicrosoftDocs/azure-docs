@@ -20,6 +20,7 @@ In this tutorial, you learn how to:
 > * Create a data collection rule
 > * Verify the Azure Monitor agent is running
 > * Enable log reception on port 514
+> * Verify event logs are forwarded to Microsoft Sentinel
 
 <!-- 4. Prerequisites 
 Required. First prerequisite is a link to a free trial account if one exists. If there 
@@ -33,9 +34,12 @@ To complete the steps in this tutorial, you must have the following resources an
 - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Log Analytics workspace associated to Microsoft Sentinel
 - Linux server that's running an operating system that supports Azure Monitor agent.
+
+   - [Supported Linux operating systems for Azure Monitor agent](/azure/azure-monitor/agents/agents-overview#linux)  
    - [Create a Linux VM with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm) or
    - Onboard an on-premises Linux server to Azure Arc. See [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm)
-   - [Overview of Azure Monitor agents - Supported operating systems](/azure/azure-monitor/agents/agents-overview#linux).
+
+- Device that generates event log data like a firewall network device
 - Roles to deploy the agent and create the data collection rules.
 
 
@@ -85,20 +89,48 @@ A data collection rule (DCR) is an Azure resource that allows you to define the 
 
 1. Select **Add data source**.
 1. Select **Next: Review + create** > **Create**.
+1. Wait 20 minutes before moving on to the next section.
 
-
+If your VM doesn't have the Azure Monitor agent installed, the data collection rule deployment triggers the installation of the agent on the VM.
 
 ## Verify Azure Monitor agent is running
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+
+In Microsoft Sentinel, verify that the Azure Monitor agent is running on your VM.
+1. In the Azure portal, search for and open **Microsoft Sentinel** and select the appropriate workspace.
+1. Under **General**, select **Logs**.
+1. Close the **Queries** page so that the **New Query** tab is displayed.
+1. Run the following query where you replace the computer value with the name of your Linux virtual machine.
+
+   ```kusto
+   Heartbeat
+   | where Computer == "vm-ubuntu"
+   | take 10
+   ```
 
 ## Enable log reception on port 514
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+
+Verify that the device you're collecting data from, like a network firewall, allows reception on port 514 TCP and/or UDP. Then configure your build-in Linux Syslog daemon (rsyslog.d/syslog-ng) to listen for Syslog messages from your security solutions.
+
+On your Linux VM, run the following command to configure the Linux Syslog daemon:
+
+```bash
+sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
+```
+
+## Verify event logs are forwarded to Microsoft Sentinel
+
+In Microsoft Sentinel, verify that the Azure Monitor agent is forwarding event log data to your workspace in Microsoft Sentinel.
+
+1. In the Azure portal, search for and open **Microsoft Sentinel** and select the appropriate workspace.
+1. Under **General**, select **Logs**.
+1. Close the **Queries** page so that the **New Query** tab is displayed.
+1. Run the following query where you replace the computer value with the name of your Linux virtual machine.
+
+   ```kusto
+   Syslog
+   | where computer == "vm-ubuntu"
+   | take 10
+   ```
 
 <!-- 6. Clean up resources
 Required. If resources were created during the tutorial. If no resources were created, 
@@ -121,6 +153,3 @@ customer can do.
 
 ## Next steps
 
-For more information, see:
-
-- [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview)
