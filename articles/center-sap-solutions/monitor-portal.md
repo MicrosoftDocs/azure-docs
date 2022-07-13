@@ -17,7 +17,7 @@ In this how-to guide, you'll learn how to monitor the health and status of your 
 
 - Monitor your SAP system, along with its instances and VMs.
 - Analyze important SAP infrastructure metrics.
-- Create and/or register an instance of Azure Monitor for SAP solutions to monitor SAP platform metrics.
+- Create and/or register an instance of Azure Monitor for SAP solutions (AMS) to monitor SAP platform metrics.
 
 ## System health
 
@@ -100,17 +100,17 @@ To check basic health and status settings:
 
 1. On the page for the VIS, review the table of instances. There is an overview of health and status information for each VIS.
 
+    :::image type="content" source="media/monitor-portal/all-vis-statuses.png" lightbox="media/monitor-portal/all-vis-statuses.png" alt-text="Screenshot of the ACSS service in the Azure portal, showing a page of all VIS resources with their health and status information.":::
+
 1. Select the VIS you want to check.
 
-1. On the overview page for the VIS, review basic health and status information.
+1. On the **Overview** page for the VIS resource, select the **Properties** tab.
 
-1. In the sidebar menu, under **Settings**, select **Properties**.
+    :::image type="content" source="media/monitor-portal/vis-resource-overview.png" lightbox="media/monitor-portal/vis-resource-overview.png" alt-text="Screenshot of the VIS resource overview in the Azure portal, showing health and status information and the Properties tab highlighted.":::
 
-1. On the properties page for the VIS, review the health properties. 
+1. On the properties page for the VIS, review the **SAP status** section to see the health of SAP instances. Review the **Virtual machines** section to see the health of VMs inside the VIS.
 
-    1. Review the **SAP status** section to see the health of SAP instances. 
-
-    1. Review the **Virtual machines** section to see the health of VMs inside the VIS.
+    :::image type="content" source="media/monitor-portal/properties-tab.png" lightbox="media/monitor-portal/properties-tab.png" alt-text="Screenshot of the Properties tab for the VIS resource overview, showing the SAP status and Virtual machines details.":::
 
 To see information about ASCS instances:
 
@@ -118,9 +118,9 @@ To see information about ASCS instances:
 
 1. In the sidebar menu, under **SAP resources**, select **Central service instances**.
 
-1. On the page for ASCS instances, select the instance from the table.
+1. Select an instance from the table to see its properties.
 
-1. On the instance's page, select **Virtual machines** to see the status of underlying VMs.
+    :::image type="content" source="media/monitor-portal/ascs-vm-details.png" lightbox="media/monitor-portal/ascs-vm-details.png" alt-text="Screenshot of an ASCS instance in the Azure portal, showing health and status information for the VM.":::
 
 To see information about SAP application server instances:
 
@@ -128,8 +128,9 @@ To see information about SAP application server instances:
 
 1. In the sidebar menu, under **SAP resources**, select **App server instances**.
 
-1. Select a server instance from the table to see its properties.
+1. Select an instance from the table to see its properties.
     
+    :::image type="content" source="media/monitor-portal/app-server-vm-details.png" lightbox="media/monitor-portal/app-server-vm-details.png" alt-text="Screenshot of an Application Server instance in the Azure portal, showing health and status information for the VM.":::
 
 ## Monitor SAP infrastructure
 
@@ -145,6 +146,7 @@ ACSS enables you to analyze important SAP infrastructure metrics from the Azure 
 
 1. On the overview page for the VIS, select the **Monitoring** tab.
 
+    :::image type="content" source="media/monitor-portal/vis-resource-overview-monitoring.png" lightbox="media/monitor-portal/vis-resource-overview-monitoring.png" alt-text="Screenshot of the Monitoring tab for a VIS resource in the Azure portal, showing monitoring charts for CPU utlization and IOPS.":::
 
 1. Review the monitoring charts, which include: 
 
@@ -158,7 +160,7 @@ ACSS enables you to analyze important SAP infrastructure metrics from the Azure 
 
 ## Configure Azure Monitor
 
-You can also set up or register Azure Monitor for SAP solutions to monitor SAP platform-level metrics.
+You can also set up or register AMS to monitor SAP platform-level metrics.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -170,8 +172,9 @@ You can also set up or register Azure Monitor for SAP solutions to monitor SAP p
 
 1. In the sidebar menu for the VIS, under **Monitoring**, select **Azure Monitor for SAP**.
 
+1. Select whether you want to [create a new AMS instance](#create-new-ams-resource), or [register an existing AMS instance](#register-existing-ams-resource). If you don't see this option, you've already configured this setting.
 
-1. Select whether you want to [create a new Azure Monitor for SAP (AMS) instance](#create-new-ams-resource), or [register an existing AMS instance](#register-existing-ams-resource). If you don't see this option, you've already configured this setting.
+    :::image type="content" source="media/monitor-portal/monitoring-setup.png" lightbox="media/monitor-portal/monitoring-setup.png" alt-text="Screenshot of AMS page inside a VIS resource in the Azure portal, showing the option to create or register a new instance.":::
 
 1. After you create or register your AMS instance, you are redirected to the AMS instance.
 
@@ -180,6 +183,8 @@ You can also set up or register Azure Monitor for SAP solutions to monitor SAP p
 To configure a new AMS resource:
 
 1. On the **Create new AMS resource** page, select the **Basics** tab.
+
+    :::image type="content" source="media/monitor-portal/ams-creation.png" lightbox="media/monitor-portal/ams-creation.png" alt-text="Screenshot of AMS creation page, showing the Basics tab and required fields.":::
 
 1. Under **Project details**, configure your resource.
 
@@ -204,7 +209,6 @@ To configure a new AMS resource:
 
     1. For **Route All**, choose to enable or disable the option. When you enable this setting, all outbound traffic from the app is affected by your networking configuration.
 
-
 1. Select the **Review + Create** tab.
 
 ### Register existing AMS resource
@@ -212,7 +216,9 @@ To configure a new AMS resource:
 To register an existing **AMS resource**, select the instance from the drop-down menu on the **Register AMS** page.
 
 > [!NOTE]
-> You can only view and select new AMS 2.0 resources. Previous versions aren't available.
+> You can only view and select the current version of AMS resources. AMS (classic) resources aren't available.
+
+   :::image type="content" source="media/monitor-portal/ams-registration.png" lightbox="media/monitor-portal/ams-registration.png" alt-text="Screenshot of AMS registration page, showing the selection of an existing AMS resource.":::
 
 ## Unregister AMS from VIS
 
@@ -225,7 +231,7 @@ To remove the link between your AMS resource and your VIS:
 
 1. In the sidebar menu, under **Monitoring**, select **Azure Monitor for SAP**.
 
-1. On the AMS resource page, select **Delete** to delete the resource.
+1. On the AMS page, select **Delete** to unregister the resource.
 
 1. Wait for the confirmation message, **Azure Monitor for SAP Solutions has been unregistered successfully**.
 
