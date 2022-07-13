@@ -37,7 +37,7 @@ Because terminology can be confusing, it's worth noting that [Cosmos DB indexing
 
 These are the limitations of this feature:
 
-+ Custom queries are not supported for specifying the data set.
++ Custom queries aren't supported for specifying the data set.
 
 + The column name `_ts` is a reserved word. If you need this field, consider alternative solutions for populating an index. You could use the [push API](search-what-is-data-import.md). Or, you could use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) with an Azure Cognitive Search index as the sink.
 
