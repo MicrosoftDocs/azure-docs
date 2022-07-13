@@ -72,7 +72,7 @@ To create a service in Azure Spring Apps with zone redundancy enabled using the 
 ```azurecli
 az spring create \
     --resource-group <your-resource-group-name> \
-    --name <your-Azure-Spring-Cloud-instance-name> \
+    --name <your-Azure-Spring-Apps-instance-name> \
     --location <location> \
     --zone-redundant true
 ```
@@ -96,7 +96,7 @@ To verify the zone redundancy property setting using the Azure CLI, use the foll
 ```azurecli
 az spring show \
     --resource-group <your-resource-group-name> \
-    --name <your-Azure-Spring-Cloud-instance-name>
+    --name <your-Azure-Spring-Apps-instance-name>
 ```
 
 ### [Azure portal](#tab/portal)
@@ -144,11 +144,11 @@ Use the following steps to create an Azure Traffic Manager instance for Azure Sp
 
 1. Create Azure Spring Apps instances in two different regions. For example, create service instances in East US and West Europe, as shown in the following table. Each instance serves as a primary and fail-over endpoint for traffic.
 
-   | Service name | Location | Application |
-   |--|--|--|
-   | service-sample-a | East US | gateway / auth-service / account-service |
+   | Service name     | Location    | Application                              |
+   |------------------|-------------|------------------------------------------|
+   | service-sample-a | East US     | gateway / auth-service / account-service |
    | service-sample-b | West Europe | gateway / auth-service / account-service |
- 
+
 1. Set up a custom domain for the service instances. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md). After successful set up, both service instances will bind to the same custom domain, such as `bcdr-test.contoso.com`.
 
 1. Create a traffic manager and two endpoints. For instructions, see [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md), which produces the following Traffic Manager profile:
@@ -156,10 +156,10 @@ Use the following steps to create an Azure Traffic Manager instance for Azure Sp
    - Traffic Manager DNS Name: `http://asa-bcdr.trafficmanager.net`
    - Endpoint Profiles:
 
-     | Profile | Type | Target | Priority | Custom header settings |
-     |--|--|--|--|--|
-     | Endpoint A Profile | External Endpoint | `service-sample-a.azuremicroservices.io` | 1 | `host: bcdr-test.contoso.com` |
-     | Endpoint B Profile | External Endpoint | `service-sample-b.azuremicroservices.io` | 2 | `host: bcdr-test.contoso.com` |
+   | Profile            | Type              | Target                                   | Priority | Custom header settings        |
+   |--------------------|-------------------|------------------------------------------|----------|-------------------------------|
+   | Endpoint A Profile | External Endpoint | `service-sample-a.azuremicroservices.io` | 1        | `host: bcdr-test.contoso.com` |
+   | Endpoint B Profile | External Endpoint | `service-sample-b.azuremicroservices.io` | 2        | `host: bcdr-test.contoso.com` |
 
 1. Create a CNAME record in a DNS Zone similar to the following example: `bcdr-test.contoso.com CNAME asa-bcdr.trafficmanager.net`.
 
