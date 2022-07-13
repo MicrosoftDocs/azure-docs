@@ -208,8 +208,8 @@ Dynatrace:
 
 AppDynamics:
 
-* Python: [Install the Python Agent](https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/python-agent/install-the-python-agent)
-* Node.js: [Installing the Node.js Agent](https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/node-js-agent/install-the-node-js-agent#InstalltheNode.jsAgent-install_nodejsInstallingtheNode.jsAgent)
+* Python: [Install the Python Agent](https://docs.appdynamics.com/appd/21.x/21.12/en/application-monitoring/install-app-server-agents/python-agent/install-the-python-agent)
+* Node.js: [Installing the Node.js Agent](https://docs.appdynamics.com/appd/21.x/21.12/en/application-monitoring/install-app-server-agents/node-js-agent/install-the-node-js-agent#InstalltheNode.jsAgent-install_nodejsInstallingtheNode.jsAgent)
 
 ### View the container logs
 

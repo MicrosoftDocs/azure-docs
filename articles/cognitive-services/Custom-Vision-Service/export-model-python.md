@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 07/05/2022
 ms.author: pafarley
 ms.devlang: python
 ms.custom: devx-track-python
@@ -17,7 +17,7 @@ ms.custom: devx-track-python
 
 # Tutorial: Run a TensorFlow model in Python
 
-After you have [exported your TensorFlow model](./export-your-model.md) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
+After you've [exported your TensorFlow model](./export-your-model.md) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
 > [!NOTE]
 > This tutorial applies only to models exported from "General (compact)" image classification projects. If you exported other models, please visit our [sample code repository](https://github.com/Azure-Samples/customvision-export-samples).

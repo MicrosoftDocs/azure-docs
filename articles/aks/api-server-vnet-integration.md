@@ -69,7 +69,7 @@ When the feature has been registered, refresh the registration of the *Microsoft
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Create an AKS cluster with API Server VNet Integration using Managed VNet
+## Create an AKS Private cluster with API Server VNet Integration using Managed VNet
 
 AKS clusters with API Server VNet Integration can be configured in either managed VNet or bring-your-own VNet mode. 
 
@@ -94,7 +94,7 @@ az aks create -n <cluster-name> \
 
 Where `--enable-private-cluster` is a mandatory flag for a private cluster, and `--enable-apiserver-vnet-integration` configures API Server VNet integration for Managed VNet mode.
 
-## Create an AKS cluster with API Server VNet Integration using bring-your-own VNet
+## Create an AKS Private cluster with API Server VNet Integration using bring-your-own VNet
 
 When using bring-your-own VNet, an API server subnet must be created and delegated to `Microsoft.ContainerService/managedClusters`. This grants the AKS service permissions to inject the API server pods and internal load balancer into that subnet. The subnet may not be used for any other workloads, but may be used for multiple AKS clusters located in the same virtual network. An AKS cluster will require from 2-7 IP addresses depending on cluster scale. The minimum supported API server subnet size is a /28.
 

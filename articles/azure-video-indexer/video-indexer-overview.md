@@ -18,7 +18,7 @@ Azure Video Indexer is a cloud application, part of Azure Applied AI Services, b
 Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Below is an illustration of the audio and video analysis performed by Azure Video Indexer in the background.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Azure Video Indexer flow diagram":::
+> :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow.":::
 
 To start extracting insights with Azure Video Indexer, you need to [create an account](connect-to-azure.md) and upload videos, see the [how can i get started](#how-can-i-get-started-with-azure-video-indexer) section below.
 
@@ -62,7 +62,7 @@ The following list shows the insights you can retrieve from your videos using Az
 * **Animated characters detection** (preview): Detection, grouping, and recognition of characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). For more information, see [Animated character detection](animated-characters-recognition.md).
 * **Editorial shot type detection**: Tagging shots based on their type (like wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, and so on). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * **Observed People Tracking** (preview): detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
-    * **People's detected clothing**: detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing are associated with the people wearing it and the exact timestamp (start,end) along with a confidence level for the detection are provided.
+    * **People's detected clothing**: detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing is associated with the people wearing it and the exact timestamp (start,end) along with a confidence level for the detection are provided.
 * **Matched person**: matches between people that were observed in the video with the corresponding faces detected. The matching between the observed people and the faces contain a confidence level.
 
 ### Audio insights
@@ -98,9 +98,15 @@ When indexing by one channel, partial result for those models will be available.
 
 ## How can I get started with Azure Video Indexer?
 
+### Prerequisite
+
+Before creating a new account, review [Account types](accounts-overview.md).
+
+### Start using Azure Video Indexer
+
 You can access Azure Video Indexer capabilities in three ways:
 
-* Azure Video Indexer portal: An easy to use solution that lets you evaluate the product, manage the account, and customize models.
+* Azure Video Indexer portal: An easy-to-use solution that lets you evaluate the product, manage the account, and customize models.
 
     For more information about the portal, see [Get started with the Azure Video Indexer website](video-indexer-get-started.md).  
 
