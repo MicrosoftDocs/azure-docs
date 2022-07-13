@@ -18,7 +18,7 @@ You can use this procedure to set up a Defender for IoT trial. The trial provide
 
 Before you start, make sure that you have:
 
-- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
 
 - Access to an Azure subscription with the subscription **Owner** or **Contributor** role.
 
@@ -70,9 +70,9 @@ For more information, see:
 - [Predeployment checklist](pre-deployment-checklist.md)
 - [Identify required appliances](how-to-identify-required-appliances.md)
 
-## Add a Defender for IoT plan to an Azure subscription 
+## Add a Defender for IoT plan to an Azure subscription
 
-This procedure describes how to add a Defender for IoT plan to an Azure subscription. 
+This procedure describes how to add a Defender for IoT plan to an Azure subscription.
 
 **To add a Defender for IoT plan to an Azure subscription:**
 
@@ -85,22 +85,22 @@ This procedure describes how to add a Defender for IoT plan to an Azure subscrip
     - **Subscription**. Select the subscription where you would like to add a plan.
     - Toggle on the **OT - Operational / ICS networks** and/or **EIoT - Enterprise IoT for corporate networks**  options as needed for your network types.
     - **Price plan**. Select a monthly or annual commitment, or a [trial](how-to-manage-subscriptions.md#about-defender-for-iot-trials). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
-    
+
         For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
     - **Committed sites** (for OT annual commitment only). Enter the number of committed sites.
 
     - **Number of devices**. If you selected a monthly or annual commitment, enter the number of devices you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
 
-    :::image type="content" source="media/how-to-manage-subscriptions/onboard-plan.png" alt-text="Screenshot of adding a plan to your subscription.":::
+    :::image type="content" source="media/how-to-manage-subscriptions/onboard-plan.png" alt-text="Screenshot of adding a plan to your subscription." lightbox="media/how-to-manage-subscriptions/onboard-plan.png":::
 
 1. Select **Next**.
 
-1. **Review & purchase**. Review the listed charges for your selections and **accept the terms and conditions**. 
+1. **Review & purchase**. Review the listed charges for your selections and **accept the terms and conditions**.
 
 1. Select **Purchase**.
 
-Your plan will be shown under the associated subscription in the **Plans and pricing** grid. 
+Your plan will be shown under the associated subscription in the **Plans and pricing** grid.
 
 For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
