@@ -133,6 +133,8 @@ To restore an application from the Azure portal, select **App registrations** > 
 
 [![Screenshot that shows the app registration restore process in the azure portal.](./media/recoverability/deletion-restore-application.png)](./media/recoverability/deletion-restore-application.png#lightbox)
 
+To restore applications using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](https://docs.microsoft.com/graph/api/directory-deleteditems-restore)
+
 ## Hard deletions
 
 A hard deletion is the permanent removal of an object from your Azure AD tenant. Objects that don't support soft delete are removed in this way. Similarly, soft-deleted objects are hard deleted after a deletion time of 30 days. The only object types that support a soft delete are:
