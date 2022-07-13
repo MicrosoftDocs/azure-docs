@@ -3,7 +3,7 @@ title: Enable Profiler for Azure Cloud Services | Microsoft Docs
 description: Profile live Azure Cloud Services with Application Insights Profiler.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 05/25/2022
+ms.date: 07/13/2022
 ---
 
 # Enable Profiler for Azure Cloud Services
@@ -77,7 +77,7 @@ Select **Profile now** to start a profiling session. This process will take a fe
 
 :::image type="content" source="./media/profiler-cloudservice/profile-now.png" alt-text="Screenshot of selecting Profile Now to start a profiling session.":::
 
-For more instructions on profiling sessions, see the [Profiler overview](./profiler-data.md#start-a-profiler-on-demand-session).
+For more instructions on profiling sessions, see the [Profiler overview](./profiler-data.md#generate-traffic-to-your-application).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
  
