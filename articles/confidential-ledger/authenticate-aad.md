@@ -74,7 +74,10 @@ If your application is intended to serve as front-end and authenticate users for
 
 ## Application authentication
 
-Applications that use Azure confidential ledger authenticate by using a token from Azure Active Directory. The owner of the application must first register it in Azure Active Directory. Registration also creates a second application object that identifies the app across all tenants. For detailed steps on registering an application with Azure Active Directory you should review these articles:
+Applications that use Azure confidential ledger authenticate by using a token from Azure Active Directory. The owner of the application must first register it in Azure Active Directory. Registration also creates a second application object that identifies the app across all tenants.
+
+For detailed steps on registering an application with Azure Active Directory, review these articles:
+
 - [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md)
 - [Use portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md), and 
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
