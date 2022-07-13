@@ -28,27 +28,43 @@ A typical migration workstream has the following stages:
 
 ## Users and Groups
 
-### Enable password self-service
+### Move password self-service
 
 We recommend a [passwordless environment](../authentication/concept-authentication-passwordless.md). Until then, you can migrate password self-service workflows from on-premises systems to Azure AD to simplify your environment. Azure AD [self-service password reset (SSPR)](../authentication/concept-sspr-howitworks.md) gives users the ability to change or reset their password, with no administrator or help desk involvement.
 
-To enable self-service capabilities, your authentication methods must be updated to a [level that supported by self-service capabilities](../authentication/tutorial-enable-sspr.md). Once authentication methods are updated, you'll want to enable user self-service password capability for your Azure AD authentication environment. For deployment guidance, see Deployment considerations for Azure Active Directory self-service password reset - Microsoft Entra | Microsoft Docs.
+To enable self-service capabilities, your authentication methods must be updated to a [level that supported by self-service capabilities](../authentication/tutorial-enable-sspr.md). Once authentication methods are updated, you'll want to enable user self-service password capability for your Azure AD authentication environment.
 
-**Additional considerations include**:
+### To evaluate and pilot SSPR
+
+* Enable [combined registration (multi-factor authentication (MFA) +SSPR)](../authentication/concept-registration-mfa-sspr-combined.md) for a target group of users
+
+* Deploy [SSPR](../authentication/tutorial-enable-sspr.md) for a target group of users
+
+* For that group of users with Azure AD and Hybrid Azure AD joined devices (Windows devices - 7, 8, 8.1 and 10), enable [Windows password reset](../authentication/howto-sspr-windows.md) for those users.
 
 * Deploy [Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md) in a subset of DCs with *Audit Mode* to gather information about impact of modern policies. For more guidance, see [Enable on-premises Azure Active Directory Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md).
-* Gradually register and enable Combined registration for [SSPR and Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md). This enables both MFA and SSPR. For example, roll out by region, subsidiary, department, etc. for all users. 
 
-*	Go through a cycle of password change for all users to flush out weak passwords.
+### To scale out
 
-*	Once the cycle is complete, implement the policy expiration time.
+Gradually register and enable SSPR. For example, roll out by region, subsidiary, department, etc. for all users. This enables both MFA and SSPR. Refer to [Sample SSPR rollout materials](https://www.microsoft.com/download/details.aspx?id=56768) to assist with required end-user communications and evangelizing.
 
-*	Switch the "Password Protection" configuration in the DCs that have "Audit Mode" set to [Enforced mode](../authentication/howto-password-ban-bad-on-premises-operations.md). 
+**Key points:**
 
+* Use Azure AD password policies on the domain.
 
->[!NOTE]
->* End-user communications and evangelizing are recommended for a smooth deployment. See [Sample SSPR rollout materials](/download/details.aspx?id=56768) to guide you.
->* For customers with Azure AD Identity Protection, enable [password reset as a control in Conditional Access policies](../identity-protection/howto-identity-protection-configure-risk-policies.md)for risky users (users marked as risky through Identity Protection). 
+* Go through a cycle of password change for all users to flush out weak passwords.
+
+* Once the cycle is complete, implement the policy expiration time.
+
+* Enable Windows 10 password reset ([Self-service password reset for Windows devices - Azure Active Directory](../authentication/howto-sspr-windows.md)) for all users
+
+For Windows down-level devices, follow [these instructions](../authentication/howto-sspr-windows.md)
+
+* Add monitoring information like workbooks, for reset activity ([Self-service password reset reports - Azure Active Directory](../authentication/howto-sspr-reporting.md)) - Authentication Methods Insights and reporting ([Authentication Methods Activity - Azure Active Directory](../authentication/howto-authentication-methods-activity.md))
+
+* Switch the "Password Protection" configuration in the DCs that have "Audit Mode" set to "Enforced mode" ([Enable on-premises Azure AD Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md))
+
+* For customers with Azure AD Identity Protection, enable [password reset as a control in Conditional Access policies](../identity-protection/howto-identity-protection-configure-risk-policies.md)for risky users (users marked as risky through Identity Protection). [Investigate risk Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md)
 
 ### Move groups management
 
@@ -62,7 +78,7 @@ To transform groups and distribution lists:
 
 * Upgrade your [distribution lists to Microsoft 365 groups in Outlook](https://support.microsoft.com/office/7fb3d880-593b-4909-aafa-950dd50ce188) and [decommission your on-premises Exchange server](/exchange/decommission-on-premises-exchange).
 
-### Move application provisioning
+### Move provisioning of users and groups to applications
 
 This workstream will help you to simplify your environment by removing application provisioning flows from on-premises IDM systems such as Microsoft Identity Manager. Based on your application discovery, categorize your application based on the following:
 
@@ -132,7 +148,7 @@ This project has two primary initiatives. The first is to plan and implement a V
 
 For more information, see:
 
-* [Deploy Azure AD joined VMs in Azure Virtual Desktop - Azure](/virtual-desktop/deploy-azure-ad-joined-vm)
+* [Deploy Azure AD joined VMs in Azure Virtual Desktop - Azure](/azure/virtual-desktop/deploy-azure-ad-joined-vm)
 
 * [Windows 365 planning guide](/windows-365/enterprise/planning-guide)
 
@@ -184,7 +200,7 @@ The following tools can help you to discover applications that use LDAP.
 
 * [Event1644Reader](/troubleshoot/windows-server/identity/event1644reader-analyze-ldap-query-performance) : Sample tool for collecting data on LDAP Queries made to Domain Controllers using Field Engineering Logs.
 
-* [Microsoft Microsoft 365 Defender for Identity](/ATPDocs/monitored-activities.md): Utilize the sign in Operations monitoring capability (note captures binds using LDAP, but not Secure LDAP.
+* [Microsoft Microsoft 365 Defender for Identity](/defender-for-identity/monitored-activities): Utilize the sign in Operations monitoring capability (note captures binds using LDAP, but not Secure LDAP.
 
 * [PSLDAPQueryLogging](https://github.com/RamblingCookieMonster/PSLDAPQueryLogging) : GitHub tool for reporting on LDAP queries.
 
@@ -246,23 +262,15 @@ Legacy applications have different areas of dependencies to AD:
 
 To reduce or eliminate the dependencies above, there are three main approaches, listed below in order of preference:
 
-**Approach 1** Replace with SaaS alternatives that use modern authentication. In this approach, undertake projects to migrate from legacy applications to SaaS alternatives that use modern authentication. Have the SaaS alternatives authenticate to Azure AD directly.
+* **Approach 1** Replace with SaaS alternatives that use modern authentication. In this approach, undertake projects to migrate from legacy applications to SaaS alternatives that use modern authentication. Have the SaaS alternatives authenticate to Azure AD directly.
 
-**Approach 2** Replatform (for example, adopt serverless/PaaS) to support modern hosting without servers and/or update the code to support modern authentication. In this approach, undertake projects to update authentication code for applications that will be modernized or replatform on serverless/PaaS to eliminate the need for underlying server management. Enable the app to use modern authentication and integrate to Azure AD directly. [Learn about MSAL - Microsoft identity platform](../develop/msal-overview.md).
+* **Approach 2** Replatform (for example, adopt serverless/PaaS) to support modern hosting without servers and/or update the code to support modern authentication. In this approach, undertake projects to update authentication code for applications that will be modernized or replatform on serverless/PaaS to eliminate the need for underlying server management. Enable the app to use modern authentication and integrate to Azure AD directly. [Learn about MSAL - Microsoft identity platform](../develop/msal-overview.md).
 
-**Approach 3** Leave the applications as legacy applications for the foreseeable future or sunset the applications and opportunity arises. We recommend that this is considered as a last resort.
+* **Approach 3** Leave the applications as legacy applications for the foreseeable future or sunset the applications and opportunity arises. We recommend that this is considered as a last resort.
 
 Based on the app dependencies, you have three migration options:
 
-#### Migration option #1
-
-* Utilize Azure AD Domain Services if the dependencies are aligned with [Common deployment scenarios for Azure AD Domain Services](../../active-directory-domain-services/scenarios.md). 
-
-* To validate if Azure AD DS is a good fit, you might use tools like Service Map [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [Automatic Dependency Mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
-
-* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
-
-##### Option 1 steps
+#### Implement approach #1
 
 1. Deploy Azure AD Domain Services into an Azure virtual network
 
@@ -272,11 +280,14 @@ Based on the app dependencies, you have three migration options:
 
 4. As legacy apps retire through attrition, eventually decommission Azure AD Domain Services running in the Azure virtual network
 
-#### Migration option #2
+>[!NOTE]
+>* Utilize Azure AD Domain Services if the dependencies are aligned with [Common deployment scenarios for Azure AD Domain Services](../../active-directory-domain-services/scenarios.md). 
+>* To validate if Azure AD DS is a good fit, you might use tools like Service Map [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [Automatic Dependency Mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
+>* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
+
+#### Implement approach #2
 
 Extend on-premises AD to Azure IaaS. If #1 isn't possible and an application has a strong dependency on AD
-
-##### Option 2 steps
 
 1. Connect an Azure virtual network to the on-premises network via VPN or ExpressRoute
 
@@ -290,11 +301,9 @@ Extend on-premises AD to Azure IaaS. If #1 isn't possible and an application has
 
 6. As legacy apps retire through attrition, eventually decommission the Active Directory running in the Azure virtual network
 
-#### Migration option #3
+#### Implement approach #3
 
 Deploy a new AD to Azure IaaS. If migration option #1 isn't possible and an application has a strong dependency on AD. This approach enables you to decouple the app from the existing AD to reduce surface area.
-
-##### Option 3 steps
 
 1. Deploy a new Active Directory as virtual machines into an Azure virtual network
 

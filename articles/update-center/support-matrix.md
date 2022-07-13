@@ -1,7 +1,8 @@
 ---
 title: Update management center (preview) support matrix
 description: Provides a summary of supported regions and operating system settings
-ms.service: update-management-center
+ms.service: automation
+ms.subservice: update-management
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022
@@ -83,14 +84,12 @@ The following table lists the supported operating systems for Azure VMs and Azur
    | OpenLogic | CentOS-LVM | 7-LVM, 8-LVM |
    | SUSE | SLES-12-SP5 | Gen1, Gen2 |
    | SUSE | SLES-15-SP2 | Gen1, Gen2 |
+   | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter </br> 2022-datacenter-g2 </br> 2022-datacenter-azure-edition</br> 2022-datacenter-azure-edition-smalldisk </br> 2022-datacenter-core-g2 </br> |
+   | MicrosoftWindowsServer	 | WindowsServer | 2019-Datacenter</br> 2019-Datacenter-Core</br> 2019-datacenter-gensecond </br> 2019-Datacenter-smalldisk </br> 2019-Datacenter-with-Containers </br> 2019-datacenter-with-Containers </br> 2019-Datacenter-Server-Core |
+   | MicrosoftWindowsServer	 | WindowsServer | 2016-Datacenter</br> 2016-datacenter-gensecond</br> 2016-Datacenter-smalldisk </br> 2016-Datacenter-Server-Core </br> 2016-Datacenter-Server-Containers |
+   | MicrosoftWindowsServer | MicrosoftServerOperatingSystems-Previews | Windows-Server-2022-Azure-Edition-Preview, Windows-Server-2019-Azure-Edition-Preview |
    | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
-   | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter |
-   | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-Server-Core |   
-   | MicrosoftWindowsServer | WindowsServer | 2019-Datacenter |
-   | MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-Core |
    | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
-   | MicrosoftWindowsServer | MicrosoftServerOperatingSystems-Previews | Windows-Server-2019-Azure-Edition-Preview |
-   | MicrosoftWindowsServer | MicrosoftServerOperatingSystems-Previews | Windows-Server-2022-Azure-Edition-Preview |
    | MicrosoftVisualStudio | VisualStudio | VS-2017-ENT-Latest-WS2016 | 
    
    >[!NOTE]

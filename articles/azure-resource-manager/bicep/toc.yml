@@ -40,6 +40,8 @@
   items:
   - name: Microsoft Learn - Bicep
     href: learn-bicep.md
+  - name: Learn live - Bicep
+    href: /events/learntv/learnlive-iac-and-bicep/
 - name: Samples - Azure Services
   items:
   - name: Advisor

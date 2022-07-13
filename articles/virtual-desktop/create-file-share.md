@@ -68,7 +68,7 @@ Next, you'll need to enable Active Directory (AD) authentication. To enable this
 3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Active Directory (AD)** is set to **Enabled**.
 
      > [!div class="mx-imgBorder"]
-     > ![A screenshot of the Configuration page with Azure Active Directory (AD) enabled.](media/active-directory-enabled.png)
+     > ![A screenshot of the Configuration page with Active Directory (AD) enabled.](media/active-directory-enabled.png)
 
 ## Assign Azure RBAC permissions to Azure Virtual Desktop users
 
