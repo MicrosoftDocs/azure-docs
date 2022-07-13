@@ -199,15 +199,15 @@ For more information, see [Understand usage details fields](understand-usage-det
 | servicePeriodEndDate | servicePeriodEndDate |
 | servicePeriodStartDate | servicePeriodStartDate |
 | date | date |
-| | serviceFamily |
+| serviceFamily | serviceFamily |
 | productOrderId | productOrderId |
 | productOrderName | productOrderName |
 | consumedService | consumedService |
 | meterId | meterId |
-| | meterName |
-| | meterCategory |
-| | meterSubCategory |
-| | meterRegion |
+| meterName| meterName |
+| meterCategory | meterCategory |
+| meterSubCategory | meterSubCategory |
+| meterRegion | meterRegion |
 | **productIdentifier** | **ProductId** |
 | **product** | **ProductName** |
 | **subscriptionGuid** | **SubscriptionId** |
@@ -217,11 +217,11 @@ For more information, see [Understand usage details fields](understand-usage-det
 | publisherName | publisherName |
 | **resourceGroup** | **resourceGroupName** |
 | instanceName | ResourceId |
-| **resourceLocationNormalized** |  |
+| **resourceLocationNormalized** | **location** |
 | **resourceLocation** | **location** |
-| | effectivePrice |
+| effectivePrice | effectivePrice |
 | quantity | quantity |
-| | unitOfMeasure |
+| unitOfMeasure | unitOfMeasure |
 | chargeType | chargeType |
 | **billingCurrencyCode** | **billingCurrency** |
 | **pricingCurrencyCode** | **pricingCurrency** |
@@ -236,7 +236,7 @@ For more information, see [Understand usage details fields](understand-usage-det
 | serviceInfo1 | serviceInfo1 |
 | serviceInfo2 | serviceInfo2 |
 | additionalInfo | additionalInfo |
-| | tags |
+| tags | tags |
 | partnerEarnedCreditRate | partnerEarnedCreditRate |
 | partnerEarnedCreditApplied | partnerEarnedCreditApplied |
 | **marketPrice** | **PayGPrice** |
@@ -244,9 +244,9 @@ For more information, see [Understand usage details fields](understand-usage-det
 | term | term |
 | reservationId | reservationId |
 | reservationName | reservationName |
-| | pricingModel |
-| unitPrice | |
-| exchangeRate |  |
+| pricingModel | pricingModel |
+| unitPrice | unitPrice |
+| exchangeRatePricingToBilling | exchangeRatePricingToBilling |
 
 ## Next steps
 
