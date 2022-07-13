@@ -39,19 +39,21 @@ You can use the [Azure CLI](/cli/azure/install-azure-cli) with your confidential
 To see a list of confidential VM sizes, run the following command. Replace `<vm-series>` with the series you want to use. For example, `DCASv5`, `ECASv5`, `DCADSv5`, or `ECADSv5`. The output shows information about available regions and availability zones.
 
 ```azurecli-interactive
-az vm list-skus `
-    --size dc `
-    --query "[?family=='standard<vm-series>Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" `
-    --all `
+vm_series='DCASv5'
+az vm list-skus \
+    --size dc \
+    --query "[?family=='standard${vm_series}Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" \
+    --all \
     --output table
 ```
 
 For a more detailed list, run the following command instead:
 
 ```azurecli-interactive
-az vm list-skus `
-    --size dc `
-    --query "[?family=='standard<vm-series>Family']" 
+vm_series='DCASv5'
+az vm list-skus \
+    --size dc \
+    --query "[?family=='standard${vm_series}Family']" 
 ```
 
 ## Deployment considerations

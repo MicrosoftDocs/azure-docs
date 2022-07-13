@@ -43,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Before you begin this tutorial, you should:
 
 - [Review](./agent-based-migration-architecture.md) the migration architecture.
-- [Review](/site-recovery/migrate-tutorial-windows-server-2008.md#limitations-and-known-issues) the limitations related to migrating Windows Server 2008 servers to Azure.
+- [Review](/azure/site-recovery/migrate-tutorial-windows-server-2008#limitations-and-known-issues) the limitations related to migrating Windows Server 2008 servers to Azure.
 
 ## Prepare Azure
 
