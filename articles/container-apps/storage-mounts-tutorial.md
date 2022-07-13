@@ -28,6 +28,8 @@ In this tutorial, you learn how to:
 
 ## Set up
 
+The following commands help you define  variables and ensure your Container Apps extension is up to date.
+
 1. Log in to the Azure CLI.
 
     ```azurecli
@@ -50,7 +52,7 @@ In this tutorial, you learn how to:
 
 ## Create an environment
 
-TODO
+The following steps create a resource group and a Container Apps environment.
 
 1. Create a resource group.
 
@@ -80,6 +82,8 @@ TODO
     Storage mounts are associated with a Container Apps environment and configured within individual container apps.
 
 ## Set up a storage account
+
+Next, create a storage account and establish a file share to mount to the container app.
 
 1. Define a storage account name.
 
@@ -139,6 +143,8 @@ TODO
     This value is the name used to define the storage mount link from your Container Apps environment to your Azure Storage account.
 
 ## Create the storage mount
+
+Now you can update the container app configuration to support the storage mount.
 
 1. Create the storage link in the environment.
 
@@ -250,6 +256,8 @@ TODO
     ```
 
 ## Verify the storage mount
+
+Use the following commands to observe the storage mount at work.
 
 1. Open an interactive shell inside the container app to test the storage mount.
 
