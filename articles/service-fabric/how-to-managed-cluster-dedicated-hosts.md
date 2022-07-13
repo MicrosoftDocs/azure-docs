@@ -19,7 +19,7 @@ The following will take you step by step for how to add an Azure Dedicated Host 
 
 
 ## Prerequisites
-This guide builds upon the managed cluster quick start guide: Deploy a Service Fabric managed cluster using Azure Resource Manager(../service-fabric/quickstart-managed-cluster-template)
+This guide builds upon the managed cluster quick start guide: [Deploy a Service Fabric managed cluster using Azure Resource Manager](../service-fabric/quickstart-managed-cluster-template)
 
 Before you begin:
 
