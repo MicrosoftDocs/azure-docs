@@ -11,12 +11,20 @@ ms.author: cshoe
 
 # Tutorial: Use storage mounts in Azure Container Apps
 
-create a storage mount
-manage secrets
+Learn to link together a container app and storage account using an Azure File storage mount.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a Container Apps environment
+> * Create an Azure Storage account
+> * Define a file share in the storage account
+> * Link the environment to the storage file share
+> * Mount the storage share in an individual container
 
 ## Prerequisites
 
-- Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli)
+- Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Set up
 
@@ -39,6 +47,10 @@ manage secrets
     ```azurecli
     az extension add -n containerapp --upgrade
     ```
+
+## Create an environment
+
+TODO
 
 1. Create a resource group.
 
@@ -66,6 +78,8 @@ manage secrets
     Once created, the command returns a "Succeeded" message.
 
     Storage mounts are associated with a Container Apps environment and configured within individual container apps.
+
+## Set up a storage account
 
 1. Define a storage account name.
 
@@ -123,6 +137,8 @@ manage secrets
     ```
 
     This value is the name used to define the storage mount link from your Container Apps environment to your Azure Storage account.
+
+## Create the storage mount
 
 1. Create the storage link in the environment.
 
@@ -232,6 +248,8 @@ manage secrets
       --yaml app.yaml \
       --output table
     ```
+
+## Verify the storage mount
 
 1. Open an interactive shell inside the container app to test the storage mount.
 
