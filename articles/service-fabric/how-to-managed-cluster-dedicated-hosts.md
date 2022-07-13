@@ -25,8 +25,7 @@ Before you begin:
 
 * If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 * Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. For the sake of this guide, we will be using a six-node Standard SKU cluster.
-* At least five dedicated hosts should be present in each dedicated host group.
-* The user needs to have admin access to the host group to do role assignments in a host group. Please see [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites) for more information.
+* The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) to do role assignments in a host group. Please see [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites) for more information.
 
 ## Review the template
 The template used in this guide is from [Azure Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-ADH).
@@ -44,7 +43,8 @@ New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $R
 ```
 
 >[!NOTE] 
-> Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. See [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/) for more information.
+> 1) Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. See [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/) for more information.
+> 2) Each dedicated host needs to be placed in a fault domain and Service Fabric managed clusters require five fault domains. Therefore, at least five dedicated hosts should be present in each dedicated host group.
 
 
 ## Configure access for the Host group to Service Fabric Resource Provider
@@ -106,9 +106,9 @@ $parameterFilePath = "<full path to azuredeploy.parameters.json>"
 
 2) Provide your own values for the following template parameters:
 
-  * Subscription: Select an Azure subscription.
+  * Subscription: Select the Azure subscription same as that of the host group.
   * Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
-  * Location: Select a location.
+  * Location: Select the location same as that of the host group.
   * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
   * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
   * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
