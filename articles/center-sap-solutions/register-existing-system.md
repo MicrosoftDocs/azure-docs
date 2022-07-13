@@ -187,4 +187,4 @@ If your registration fails:
 ## Next steps
 
 - [Monitor SAP system from Azure portal](monitor-portal.md)
-- [Configure a Virtual Instance for SAP solutions](configure-virtual-instance.md)
+- [Manage a VIS](manage-virtual-instance.md)

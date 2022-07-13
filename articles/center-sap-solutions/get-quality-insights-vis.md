@@ -184,5 +184,5 @@ The **Load Balancer Monitor** tab shows monitoring information for the load bala
 
 ## Next steps
 
-- [Configure a VIS](configure-virtual-instance.md)
+- [Manage a VIS](manage-virtual-instance.md)
 - [Monitor SAP system from the Azure portal](monitor-portal.md)
