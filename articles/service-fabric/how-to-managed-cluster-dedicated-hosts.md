@@ -106,23 +106,23 @@ $parameterFilePath = "<full path to azuredeploy.parameters.json>"
 
 2) Provide your own values for the following template parameters:
 
-  * Subscription: Select the same Azure subscription as that of the host group.
-  * Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
-  * Location: Select the same location as that of the host group.
-  * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
-  * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
-  * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-  * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow set and retrieve a certificate to create a self-signed certificate.
-  * Node Type Name: Enter a unique name for your node type, such as nt1.
-   
-```powershell
-New-AzResourceGroupDeployment ` 
-    -Name $DeploymentName ` 
-    -ResourceGroupName $resourceGroupName ` 
-    -TemplateFile $templateFilePath ` 
-    -TemplateParameterFile $parameterFilePath ` 
-    -Verbose
-```
+     * Subscription: Select the same Azure subscription as that of the host group.
+     * Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
+     * Location: Select the same location as that of the host group.
+     * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
+     * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
+     * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
+     * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow set and retrieve a certificate to create a self-signed certificate.
+     * Node Type Name: Enter a unique name for your node type, such as nt1.
+
+   ```powershell
+   New-AzResourceGroupDeployment ` 
+       -Name $DeploymentName ` 
+       -ResourceGroupName $resourceGroupName ` 
+       -TemplateFile $templateFilePath ` 
+       -TemplateParameterFile $parameterFilePath ` 
+       -Verbose
+   ```
 
 3) Deploy an ARM template through one of the methods below:
 
