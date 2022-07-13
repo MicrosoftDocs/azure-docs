@@ -161,6 +161,8 @@
           href: virtual-wan-point-to-site-azure-ad.md
         - name: Configure Azure AD tenant
           href: openvpn-azure-ad-tenant.md
+        - name: Multi-Factor Authentication(MFA)
+          href: openvpn-azure-ad-mfa.md   
       - name: Generate certificates
         href: certificates-point-to-site.md
     - name: Client configuration
@@ -173,8 +175,6 @@
           href: openvpn-azure-ad-client-mac.md
         - name: Multi-application Azure AD authentication
           href: openvpn-azure-ad-tenant-multi-app.md
-      - name: Multi-Factor Authentication(MFA)
-        href: openvpn-azure-ad-mfa.md   
       - name: Install client certificates
         href: install-client-certificates.md
       - name: VPN client profiles
