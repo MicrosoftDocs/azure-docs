@@ -52,12 +52,12 @@ Let's use `make-series` to chart the total amount of billable data ingested by e
     let timeframe = 1d; // How often to sample data
     Usage // The table we’re analyzing
     | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 am of the first day and ending at 11:59 of the last day in the time range
-    | where IsBillable == "true" // IsBillable is a standard column in Log Analytics, indicating billable events
+    | where IsBillable == "true" // Include only billable data in the result set
     | make-series ActualCount=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
     | render timechart // Renders results in a timechart
     ``` 
 
-    :::image type="content" source="/media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="/media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
+    :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="/.media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
 
     Looking at the chart, we can see anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types. However, not all anomalies are easy to detect visually on a chart. 
 
