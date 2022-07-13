@@ -238,7 +238,7 @@ items:
         href: concepts/teams-interop.md
       - name: Join a Teams meeting
         href: concepts/join-teams-meeting.md
-      - name: Custom Teams endpoint
+      - name: Azure Communication Services support Teams identities
         items:
           - name: Overview
             href: concepts/teams-endpoint.md

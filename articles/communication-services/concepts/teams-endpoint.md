@@ -1,7 +1,7 @@
 ---
-title: Build a custom Teams endpoint
+title: Build Azure Communication Services support Teams identities
 titleSuffix: An Azure Communication Services concept document
-description: This article discusses how to build a custom Teams endpoint.
+description: This article discusses how to build Azure Communication Services support Teams identities.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -12,25 +12,25 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
-# Build a custom Teams endpoint
+# Build Azure Communication Services support Teams identities
 
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
-You can use Azure Communication Services and Graph API to build custom Teams endpoints to communicate with the Microsoft Teams client or other custom Teams endpoints. With a custom Teams endpoint, you can customize a voice, video, chat, and screen-sharing experience for Teams users.
+You can use Azure Communication Services and Graph API to build Azure Communication Services support Teams identities to communicate with the Microsoft Teams client or other Azure Communication Services support Teams identities. With Azure Communication Services support Teams identities, you can customize a voice, video, chat, and screen-sharing experience for Teams users.
 
 You can use the Azure Communication Services Identity SDK to exchange Azure Active Directory (Azure AD) access tokens of Teams users for Communication Identity access tokens. The diagrams in the next sections demonstrate multitenant use cases, where fictional company Fabrikam is the customer of fictional company Contoso.
 
 ## Calling 
 
-Voice, video, and screen-sharing capabilities are provided via Azure Communication Services Calling SDKs. The following diagram shows an overview of the process you'll follow as you integrate your calling experiences with custom Teams endpoints.
+Voice, video, and screen-sharing capabilities are provided via Azure Communication Services Calling SDKs. The following diagram shows an overview of the process you'll follow as you integrate your calling experiences with Azure Communication Services support Teams identities.
 
-![Diagram of the process of enabling the calling feature for a custom Teams endpoint experience.](./media/teams-identities/teams-identity-calling-overview.svg)
+![Diagram of the process of enabling the calling feature for Azure Communication Services support Teams identities experience.](./media/teams-identities/teams-identity-calling-overview.svg)
 
 ## Chat
 
-Optionally, you can also use custom Teams endpoints to integrate chat capabilities by using Graph APIs. For more information about the Graph API, see the [chat resource type](/graph/api/channel-post-messages) documentation. 
+Optionally, you can also use Azure Communication Services support Teams identities to integrate chat capabilities by using Graph APIs. For more information about the Graph API, see the [chat resource type](/graph/api/channel-post-messages) documentation. 
 
-![Diagram of the process of enabling the chat feature for a custom Teams endpoint experience.](./media/teams-identities/teams-identity-chat-overview.png)
+![Diagram of the process of enabling the chat feature for Azure Communication Services support Teams identities experience.](./media/teams-identities/teams-identity-chat-overview.png)
 
 ## Azure Communication Services permissions
 
