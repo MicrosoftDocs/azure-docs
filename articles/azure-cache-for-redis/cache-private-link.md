@@ -1,7 +1,8 @@
 ---
 title: Azure Cache for Redis with Azure Private Link
-description: Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link. In this article, you'll learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
+description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
@@ -344,7 +345,12 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 
 ### What features aren't supported with private endpoints?
 
-Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
+- Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
+- Private links cannot be added to caches that are already geo-replicated. 
+    To add a private link to a geo-replicated cache:
+      1. Unlink the geo-replication.
+      1. Add a Private Link.
+      1. Relink the geo-replication.
 
 ### How do I verify if my private endpoint is configured correctly?
 
