@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/12/2022
+ms.date: 07/13/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -68,38 +68,38 @@ It's important that you have the following prerequisites completed before you be
 * [Workspace deployed in Azure Health Data Services](../healthcare-apis-quickstart.md)  
 * [FHIR service deployed in Azure Health Data Services](../fhir/fhir-portal-quickstart.md)
 
-1. Sign into the [Azure portal](https://portal.azure.com), and then enter your Health Data Services workspace resource name in the **Search** bar field located at the middle top of your screen. For this example deployment of the MedTech service, we'll be using a workspace named `azuredocsdemo`. The name of the workspace you'll be deploying into will be of your own choosing.
+1. Sign into the [Azure portal](https://portal.azure.com), and then enter your Health Data Services workspace resource name in the **Search** bar field located at the middle top of your screen. The name of the workspace you'll be deploying into will be of your own choosing. For this example deployment of the MedTech service, we'll be using a workspace named `azuredocsdemo`. 
  
    :::image type="content" source="media\iot-deploy-manual-in-portal\find-workspace-in-portal.png" alt-text="Screenshot of Azure portal and entering the workspace that will be used for the MedTech service deployment." lightbox="media\iot-deploy-manual-in-portal\find-workspace-in-portal.png":::
 
-2. Select the **Deploy MedTech service** button in the lower right hand corner of the workspace.
+2. Select the **Deploy MedTech service** button.
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-deploy-medtech-service-button.png" alt-text="Screenshot of Azure Health Data Services workspace with a red box around the Deploy MedTech service button." lightbox="media\iot-deploy-manual-in-portal\select-deploy-medtech-service-button.png":::
 
-3. Select the **Add MedTech service** button in the upper left hand corner of the workspace.
+3. Select the **Add MedTech service**.
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-add-medtech-service-button.png" alt-text="Screenshot of workspace and red box round the Add MedTech service button." lightbox="media\iot-deploy-manual-in-portal\select-add-medtech-service-button.png":::
 
 ## Configure the MedTech service to ingest data
 
-Under the **Basics** tab, complete the required fields under **MedTech service details** page section.
+1. Under the **Basics** tab, complete the required fields under **MedTech service details** page section.
 
 :::image type="content" source="media\iot-deploy-manual-in-portal\deploy-medtech-service-basics.png" alt-text="Screenshot of create MedTech services basics information with red boxes around the required information." lightbox="media\iot-deploy-manual-in-portal\deploy-medtech-service-basics.png":::
 
-1. Enter the **MedTech service name**.
+2. Enter the **MedTech service name**.
 
    The **MedTech service name** is a friendly, unique name for your MedTech service. For this example, we'll name the MedTech service `mt-azuredocsdemo`.
 
-2. Enter the **Event Hubs Namespace**.
+3. Enter the **Event Hubs Namespace**.
 
-   The Event Hubs Namespace is the name of the **Event Hubs Namespace** that you've previously deployed. For this example, we'll use `eh-azuredocsdemo` for use with our MedTech service. 
+   The Event Hubs Namespace is the name of the **Event Hubs Namespace** that you've previously deployed. For this example, we'll use `eh-azuredocsdemo` for use with our MedTech service device messages. 
 
    > [!TIP]
    > For information about deploying an Azure Event Hubs Namespace, see [Create an Event Hubs Namespace](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
    >
    > For more information about Azure Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
 
-3. Enter the **Events Hubs name**.
+4. Enter the **Events Hubs name**.
 
    The Event Hubs name is the event hub that you previously deployed within the Event Hubs Namespace. For this example, we'll use `devicedata` for use with our MedTech service device messages.  
    
@@ -107,17 +107,17 @@ Under the **Basics** tab, complete the required fields under **MedTech service d
    >
    > For information about deploying an Azure event hub, see [Create an event hub](../../event-hubs/event-hubs-create.md#create-an-event-hub).
 
-4. Enter the **Consumer group**.
+5. Enter the **Consumer group**.
 
    The Consumer group name is located by going to the **Overview** page of the Event Hubs Namespace and selecting the event hub to be used for the MedTech service device messages. In this example, the event hub is named `devicedata`.
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-medtech-service-event-hub.png" alt-text="Screenshot of Event Hubs overview and red box around the event hub to be used for the MedTech service device messages." lightbox="media\iot-deploy-manual-in-portal\select-medtech-service-event-hub.png":::
 
-5. Once inside of the event hub, select the **Consumer groups** button on the middle right hand side of the screen under **Entities** to display the name of the consumer group to be used by your MedTech service. 
+6. Once inside of the event hub, select the **Consumer groups** button on the middle right hand side of the screen under **Entities** to display the name of the consumer group to be used by your MedTech service. 
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-consumer-groups.png" alt-text="Screenshot of event hub overview and red box around the consumer groups button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-consumer-groups.png":::
 
-6. By default, a consumer group named **$Default** is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
+7. By default, a consumer group named **$Default** is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\display-event-hub-consumer-group.png" alt-text="Screenshot of event hub consumer groups with red box around the consumer group to be used with the MedTech service." lightbox="media\iot-deploy-manual-in-portal\display-event-hub-consumer-group.png":::
 
@@ -130,7 +130,7 @@ Under the **Basics** tab, complete the required fields under **MedTech service d
    > * Two MedTech services accessing the same device message event hub.
    > * A MedTech service and a storage writer application accessing the same device message event hub. 
     
-7. Select **Next: Device mapping**. 
+8. Select **Next: Device mapping**. 
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-device-mapping-button.png" alt-text="Screenshot of MedTech services basics information filled out and a red box around the Device mapping button." lightbox="media\iot-deploy-manual-in-portal\select-device-mapping-button.png":::
   
@@ -139,7 +139,7 @@ Under the **Basics** tab, complete the required fields under **MedTech service d
 > [!TIP]
 > The IoMT Connector Data Mapper is an open source tool to visualize the mapping configuration for normalizing a device's input data, and then transforming it into FHIR resources. You can use this tool to edit and test Device and FHIR destination mappings, and to export the mappings to be uploaded to a MedTech service in the Azure portal. This tool also helps you understand your device's Device and FHIR destination mapping configurations.
 >
-> For more information, see our GitHub open source and Azure Docs documentation:
+> For more information regarding Device mappings, see our GitHub open source and Azure Docs documentation:
 >
 > [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)
 >
@@ -186,7 +186,11 @@ Under the **Basics** tab, complete the required fields under **MedTech service d
 
    > [!TIP]
    > 
-   > For more information, see the open source documentation [FHIR destination mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
+   > For more information regarding Destination mappings, see our GitHub and Azure Docs documentation:
+   >
+   > [FHIR mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
+   >
+   > [How to us FHIR destination mappings](how-to-use-fhir-mappings.md)
 
 2. Under **Destination Mapping**, enter the JSON code inside the code editor.
 
@@ -208,9 +212,10 @@ Tags are name and value pairs used for categorizing resources. For more informat
  
    1. Enter a **Name**.
    2. Enter a **Value**.
-   3. Once you've entered your tag(s), select the **Review + create** button in the lower left hand side of the screen.
 
-2. You should notice a **Validation success** message like what's shown in the image below. 
+2. Once you've entered your tag(s), select the **Review + create** button in the lower left hand side of the screen.
+
+3. You should notice a **Validation success** message like what's shown in the image below. 
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success and a red box around the Create button." lightbox="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png"::: 
 
@@ -285,33 +290,33 @@ To ensure that your MedTech service works properly, it's system-assigned managed
 
 10. When the **Select managed identities** box opens, under the **Managed identity** box, select **MedTech service,** and find your MedTech service system-assigned managed identity under the **Select** box. Once the system-assigned managed identity for your MedTech service is found, select it, and then select the **Select** button located at the bottom of the page.
 
-   > [!TIP]
-   >   
-   > The system-assigned managed identify name for your MedTech service is a concatenation of the workspace name and the name of your MedTech service.
-   >
-   > **"your workspace name"/"your MedTech service name"** or **"your workspace name"/iotconnectors/"your MedTech service name"**
-   >
-   > For example:
-   >
-   > **azuredocsdemo/mt-azuredocsdemo** or **azuredocsdemo/iotconnectors/mt-azuredocsdemo**
+    > [!TIP]
+    >   
+    > The system-assigned managed identify name for your MedTech service is a concatenation of the workspace name and the name of your MedTech service.
+    >
+    > **"your workspace name"/"your MedTech service name"** or **"your workspace name"/iotconnectors/"your MedTech service name"**
+    >
+    > For example:
+    >
+    > **azuredocsdemo/mt-azuredocsdemo** or **azuredocsdemo/iotconnectors/mt-azuredocsdemo**
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\select-medtech-service-mi-for-event-hub-access.png" alt-text="Screenshot of the Select managed identities page with a red box around the Managed identity drop-down box, the selected managed identity and the Select button." lightbox="media\iot-deploy-manual-in-portal\select-medtech-service-mi-for-event-hub-access.png":::
+    :::image type="content" source="media\iot-deploy-manual-in-portal\select-medtech-service-mi-for-event-hub-access.png" alt-text="Screenshot of the Select managed identities page with a red box around the Managed identity drop-down box, the selected managed identity and the Select button." lightbox="media\iot-deploy-manual-in-portal\select-medtech-service-mi-for-event-hub-access.png":::
 
 11. On the **Add role assignment** page, select the **Review + assign** button in the lower left hand side of your screen.
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-add.png" alt-text="Screenshot of the Add role assignment page with a red box around the Review + assign button." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-add.png":::
+    :::image type="content" source="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-add.png" alt-text="Screenshot of the Add role assignment page with a red box around the Review + assign button." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-add.png":::
 
 12. On the **Add role assignment** confirmation page, select the **Review + assign** button in the lower left hand side of your screen.
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png" alt-text="Screenshot of the Add role assignment confirmation page with a red box around the Review + assign button." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png":::
+    :::image type="content" source="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png" alt-text="Screenshot of the Add role assignment confirmation page with a red box around the Review + assign button." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png":::
 
-   After the role assignment has been successfully added to the event hub, a notification will display in the upper right hand corner of your screen with a green check mark. This indicates that your MedTech service can now read from your device message event hub.
+    After the role assignment has been successfully added to the event hub, a notification will display in the upper right hand corner of your screen with a green check mark. This indicates that your MedTech service can now read from your device message event hub.
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\validate-medtech-service-managed-identity-added-to-event-hub.png" alt-text="Screenshot of the MedTech service system-assigned managed identity being successfully granted access to the event hub with a red box around the message." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png":::
+    :::image type="content" source="media\iot-deploy-manual-in-portal\validate-medtech-service-managed-identity-added-to-event-hub.png" alt-text="Screenshot of the MedTech service system-assigned managed identity being successfully granted access to the event hub with a red box around the message." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png":::
 
-   > [!TIP]
-   >
-   > For more information about authorizing access to Event Hubs resources, see [Authorize access with Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).  
+    > [!TIP]
+    >
+    > For more information about authorizing access to Event Hubs resources, see [Authorize access with Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).  
 
 ### Granting access to the FHIR service
 
