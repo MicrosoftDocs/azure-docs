@@ -273,7 +273,7 @@ Microsoft Defender for Containers brings threat detection, and advanced defenses
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#plan-2-formerly-defender-for-servers)|
 |Required roles and permissions:|**Owner** or **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
