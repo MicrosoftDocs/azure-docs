@@ -117,7 +117,7 @@ When you select **Failures** at the top of the page, the **Failures** table of t
 
 ### Metric definitions
 
-For a full list of the metric definitions that form these workbooks, check out the [article on available metrics and reporting intervals](../../azure-cache-for-redis/cache-how-to-monitor.md#create-your-own-metrics).
+For a full list of the metric definitions that form these workbooks, check out the [article on available metrics and reporting intervals](./cache-how-to-monitor.md#create-your-own-metrics).
 
 ## View from an Azure Cache for Redis resource
 
@@ -153,7 +153,7 @@ Selecting any of the other tabs for **Performance** or **Operations** opens the 
 
 ## Pin, export, and expand
 
-To pin any metric section to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md), select the pushpin symbol in the section's upper right.
+To pin any metric section to an [Azure dashboard](../azure-portal/azure-portal-dashboards.md), select the pushpin symbol in the section's upper right.
 
 ![A metric section with the pushpin symbol highlighted](./media/cosmosdb-insights-overview/pin.png)
 
