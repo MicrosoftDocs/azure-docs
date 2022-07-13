@@ -25,36 +25,36 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
  * An Azure Health Data Services FHIR service.
  * An Azure Health Data Services MedTech service including the necessary system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) permissions to the device message event hub (**Azure Events Hubs Receiver**) and FHIR service (**FHIR Data Writer**).
 
-When the Azure portal launches, the following fields must be filled out:
- * **Subscription** - Choose the Azure subscription you would like to use for the deployment.
- * **Resource Group** - Choose an existing Resource Group or create a new Resource Group.
- * **Region** - The Azure region of the Resource Group used for the deployment. This field will auto-fill based on the Resource Group region.
- * **Basename** - Will be used to append the name the Azure services to be deployed.
- * **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (could be the same or different region than your Resource Group). 
+1. When the Azure portal launches, the following fields must be filled out:
+   * **Subscription** - Choose the Azure subscription you would like to use for the deployment.
+   * **Resource Group** - Choose an existing Resource Group or create a new Resource Group.
+   * **Region** - The Azure region of the Resource Group used for the deployment. This field will auto-fill based on the Resource Group region.
+   * **Basename** - Will be used to append the name the Azure services to be deployed.
+   * **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (could be the same or different region than your Resource Group). 
 
-Leave the **Device Mapping** and **Destination Mapping** fields with their default values.
+2. Leave the **Device Mapping** and **Destination Mapping** fields with their default values.
 
-Select the **Review + create** button once the fields are filled out.
+3. Select the **Review + create** button once the fields are filled out.
 
-:::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png"::: 
+   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png"::: 
 
-After the validation has passed, select the **Create** button to begin the deployment.
+4. After the validation has passed, select the **Create** button to begin the deployment.
 
-:::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-create.png" alt-text="Screenshot of Azure portal page displaying validation box and Create button for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-create.png"::: 
+   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-create.png" alt-text="Screenshot of Azure portal page displaying validation box and Create button for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-create.png"::: 
 
-After a successful deployment, there will be remaining configurations that will need to be completed by you for a fully functional MedTech service:
- * Provide a working device mapping file. For more information, see [How to use device mappings](how-to-use-device-mappings.md).
- * Provide a working destination mapping file. For more information, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
- * Use the Shared access policies (SAS) key (**devicedatasender**) for connecting your device or application to the MedTech service device message event hub (**devicedata**). For more information, see [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace).
+5. After a successful deployment, there will be remaining configurations that will need to be completed by you for a fully functional MedTech service:
+   * Provide a working device mapping file. For more information, see [How to use device mappings](how-to-use-device-mappings.md).
+   * Provide a working destination mapping file. For more information, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
+   * Use the Shared access policies (SAS) key (**devicedatasender**) for connecting your device or application to the MedTech service device message event hub (**devicedata**). For more information, see [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace).
 
-> [!IMPORTANT]
-> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
->
-> Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
->
-> Examples: 
->* Two MedTech services accessing the same device message event hub.
->* A MedTech service and a storage writer application accessing the same device message event hub. 
+  > [!IMPORTANT]
+  > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
+  >
+  > Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
+  >
+  > Examples: 
+  > * Two MedTech services accessing the same device message event hub.
+  > * A MedTech service and a storage writer application accessing the same device message event hub. 
 
 ## Deploy the MedTech service manually
 
