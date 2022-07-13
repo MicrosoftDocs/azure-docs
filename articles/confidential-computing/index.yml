@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure confidential computing documentation
+title: Azure confidential computing
 summary: Azure confidential computing offers solutions to enable the isolation your sensitive data while it's being processed in the cloud. Learn how to create and deploy applications based on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. Use Microsoft products built on confidential computing to keep your workloads as secure as possible. 
 
 metadata:
@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: What is Confidential Computing?
             url: overview.md
-          - text: What is Azure Confidential Computing?
+          - text: What is Azure confidential computing?
             url: overview-azure-products.md
           - text: Choose your Confidential Computing offering
             url: use-cases-scenarios.md 
