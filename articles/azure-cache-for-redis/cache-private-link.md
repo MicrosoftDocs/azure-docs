@@ -30,7 +30,6 @@ You can restrict public access to the private endpoint of your cache by disablin
 > [!IMPORTANT]
 > Currently, portal console support, and persistence to firewall storage accounts are not supported.
 >
->
 
 ## Create a private endpoint with a new Azure Cache for Redis instance
 
@@ -346,11 +345,7 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 ### What features aren't supported with private endpoints?
 
 - Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
-- Private links cannot be added to caches that are already geo-replicated. 
-    To add a private link to a geo-replicated cache:
-      1. Unlink the geo-replication.
-      1. Add a Private Link.
-      1. Relink the geo-replication.
+- Private links can't be added to caches that are already geo-replicated. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
 
 ### How do I verify if my private endpoint is configured correctly?
 
