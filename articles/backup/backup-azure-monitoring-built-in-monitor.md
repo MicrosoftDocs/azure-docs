@@ -2,7 +2,7 @@
 title: Monitor Azure Backup protected workloads
 description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 07/13/2022
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 author: v-amallick
 ms.service: backup
@@ -44,7 +44,8 @@ Jobs from the following Azure Backup solutions are shown here:
 Jobs from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) aren't displayed.
 
 > [!NOTE]
-> Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. So for such DB workloads, only user triggered operations are displayed. Scheduled backup operations aren't displayed.
+>- Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. So for such DB workloads, only user triggered operations are displayed. Scheduled backup operations aren't displayed.
+>- In Backup center you can view jobs for upto last 14 days. If you want to view jobs for a large duration, you can go to the individual Recovery Services vaults and select the **Backup Jobs** tab. For jobs older than 6 months, we recommend you to use Log Analytics and/or [Backup Reports](configure-reports.md) to reliably and efficiently query older jobs.
 
 ## Azure Monitor alerts for Azure Backup (preview)
 

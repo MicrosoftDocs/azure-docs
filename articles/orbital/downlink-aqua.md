@@ -4,8 +4,8 @@ description: How to schedule a contact with NASA's AQUA public satellite using A
 author: wamota
 ms.service: orbital
 ms.topic: how-to
-ms.custom: public-preview
-ms.date: 04/14/2022
+ms.custom: ga
+ms.date: 07/12/2022
 ms.author: wamota
 # Customer intent: As a satellite operator, I want to ingest data from NASA's AQUA public satellite into Azure.
 ---
