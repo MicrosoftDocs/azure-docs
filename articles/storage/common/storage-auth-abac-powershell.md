@@ -50,8 +50,8 @@ Here is what the condition looks like in code:
 (
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
-        AND
-        SubOperationMatches{'Blob.Read.WithTagConditions'})
+        AND NOT
+        SubOperationMatches{'Blob.List'})
     )
     OR
     (
@@ -205,8 +205,8 @@ Here is what the condition looks like in code:
     CanDelegate        : False
     Description        : Read access to blobs with the tag Project=Cascade
     ConditionVersion   : 2.0
-    Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND
-                         SubOperationMatches{'Blob.Read.WithTagConditions'})) OR
+    Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT
+                         SubOperationMatches{'Blob.List'})) OR
                          (@Resource[Microsoft.Storage/storageAccounts/blobServices/co
                          ntainers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'))
     ```
@@ -330,8 +330,8 @@ Here is what the condition looks like in code:
     CanDelegate        : False
     Description        : Read access to blobs with the tag Project=Cascade or Project=Baker
     ConditionVersion   : 2.0
-    Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND
-                         SubOperationMatches{'Blob.Read.WithTagConditions'})) OR
+    Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT
+                         SubOperationMatches{'Blob.List'})) OR
                          (@Resource[Microsoft.Storage/storageAccounts/blobServices/co
                          ntainers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade' OR @Resource[Microsoft.S
                          torage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
