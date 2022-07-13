@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure Managed Grafana Preview documentation
-summary: Learn how to use Azure Managed Grafana. Access quickstarts and how-to guides to learn how to create, configure and share your Azure Managed Grafana Preview dashboards.
+title: Azure Managed Grafana documentation
+summary: Learn how to use Azure Managed Grafana. Access quickstarts and how-to guides to learn how to create, configure and share your Azure Managed Grafana dashboards.
 
 metadata:
   title: Azure Managed Grafana
@@ -13,7 +13,7 @@ metadata:
   ms.date: 03/31/2022
 
 landingContent:
-  - title: About Azure Managed Grafana Preview
+  - title: About Azure Managed Grafana
     linkLists:
       - linkListType: overview
         links:
