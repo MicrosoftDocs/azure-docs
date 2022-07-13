@@ -14,11 +14,9 @@ ms.date: 07/01/2022
 
 # Tutorial: Analyze log data with machine learning in Azure Monitor Log Analytics 
 
-Azure Monitor provides advanced machine learning capabilities, powered by Kusto, Microsoft's big data analytics cloud platform.
+Azure Monitor provides advanced data analysis capabilities, powered by Kusto, Microsoft's big data analytics cloud platform. The Kusto Query Language (KQL) includes a set of machine learning operators and plugins for time series analysis, anomaly detection and forecasting, and pattern recognition for root cause analysis. 
 
-The Kusto Query Language (KQL) lets you analyze logs in Azure Monitor and includes a set of machine learning operators and plugins for time series analysis, anomaly detection and forecasting, and pattern recognition for root cause analysis. 
-
-Using the KQL machine learning operators with Log Anayltic's native tools for extracting insights from logs - including queries, workbooks and dashboards, and integration with Excel - provides you with: 
+Using KQL's machine learning operators in the various Log Anayltics tools for extracting insights from logs - including queries, workbooks and dashboards, and integration with Excel - provides you with: 
 
 - Savings on the costs and overhead of exporting data to external machine learning tools.
 - The power of Kusto’s distributed database, running at high scales.
@@ -27,7 +25,7 @@ Using the KQL machine learning operators with Log Anayltic's native tools for ex
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Conduct time series analysis using the `make-series` operator
+> * Conduct time series analysis on the Usage table using the `make-series` operator
 > * Identify usage anomalies using the `series_decompose_anomalies()` function
 > * Analyze the root cause of anomalies
 
@@ -43,11 +41,15 @@ Required. Give each H2 a heading that sets expectations for the content that fol
 Follow the H2 headings with a sentence about how the section contributes to the whole.
 -->
 
-## Analyze usage anomalies using the make-series operator
+## Create a time series of data from the Usage table 
 
-We'll start by running a query using the time series operator on all billable data types in the `Usage` table. We'll be able to see major anomalies just by looking at the chart. 
+The KQL operator for creating a time series is `make-series`. Use the `make-series` operator to create a sequence of data points indexed over a specific interval of time.
 
-1. Create a time series chart for all billable data types:
+The `Usage` table holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data ingestion.
+
+Let's use `make-series` to chart the total amount of billable data ingested by each table in the workspace each day, over 21 days:
+ 
+1. Create a time series chart for all billable data:
 
     ```kusto
     let starttime = 21d; // # of days back from the current date to start the time series
@@ -59,6 +61,10 @@ We'll start by running a query using the time series operator on all billable da
     | make-series ActualCount=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
     | render timechart // Renders results in a timechart
     ``` 
+
+ [](./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png)
+
+    :::image type="content" source="/media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
 
     We can see anomalies in the resulting chart - for example, in the `AzureDiagnostics` and `SecurityEvent` data types.
 
