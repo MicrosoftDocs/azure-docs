@@ -126,7 +126,7 @@ To minimize issues related to throttling, it's a good idea to use the following 
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually. For example, let's say your application is using text-to-speech, and your current workload is 5 TPS. The next second, you increase the load to 20 TPS (that is, four times more). Speech service immediately starts scaling up to fulfill the new load, but is unable to scale as needed within one second. Some of the requests will get response code 429 (too many requests).
 - Test different load increase patterns. For more information, see the [workload pattern example](#example-of-a-workload-pattern-best-practice).
-- Create additional Speech service resources in the same or different regions, and distribute the workload among them. This is especially important for the text-to-speech TPS) parameter, which is set to 200 per resource, and can't be adjusted.
+- Increase the quota of your speech resource if your TPS will be above 200 TPS following [Create and submit a support request](#create-and-submit-a-support-request). Or you can create additional Speech service resources in different regions, and distribute the workload among them if the traffic is from multiple regions in the world.  
 
 The next sections describe specific cases of adjusting quotas.
 
