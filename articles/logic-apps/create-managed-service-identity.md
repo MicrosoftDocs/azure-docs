@@ -47,7 +47,7 @@ The following table lists the operations where you can use either the system-ass
 | Operation type | Supported operations |
 |----------------|----------------------|
 | Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <p>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, they don't support the user-assigned managed identity for authenticating the same connections. |
-| Managed connector | Single-authentication: <br>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- SQL Server |
+| Managed connector | - Azure Automation <br>- Azure Blob Storage <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure Key Vault <br>- Azure Resource Manager <br>- Azure Service Bus <br>- HTTP with Azure AD <br>- SQL Server |
 |||
 
 ### [Standard](#tab/standard)
@@ -57,7 +57,7 @@ The following table lists the operations where you can use both the system-assig
 | Operation type | Supported operations |
 |----------------|----------------------|
 | Built-in | - HTTP <br>- HTTP + Webhook <p>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
-| Managed connector | Single-authentication: <br>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- SQL Server |
+| Managed connector | - Azure Automation <br>- Azure Blob Storage <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure Key Vault <br>- Azure Resource Manager <br>- Azure Service Bus <br>- HTTP with Azure AD  <br>- SQL Server |
 |||
 
 ---
