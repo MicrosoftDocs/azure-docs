@@ -17,7 +17,7 @@ HCX cloud manager in Azure VMware solutions can now be accessible over a public 
 
 HCX with public IP is especially useful in cases where On-premises sites are not connected to Azure via Express Route or VPN. HCX service mesh appliances can be configured with public IPs to avoid lower tunnel MTUs due to double encapsulation if a VPN is used for on-premises to cloud connections.
 
-For more information, please see [Enable HCX over the internet](https://docs.microsoft.com/en-us/azure/azure-vmware/enable-hcx-access-over-internet)
+For more information, please see [Enable HCX over the internet](/azure/azure-vmware/enable-hcx-access-over-internet)
 
 
 ## July 7, 2022
