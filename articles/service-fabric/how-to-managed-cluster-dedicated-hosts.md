@@ -13,11 +13,13 @@ Using Azure Dedicated Hosts for nodes with your SFMC cluster has the following b
 * Host-level hardware isolation at the physical server level. No other VMs will be placed on your hosts. hardware isolation helps Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts. 
 * Control over maintenance events initiated by the Azure platform. While most maintenance events have little to no impact on virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt into a maintenance window to reduce the impact on service.
 
-You can choose the SKU for Dedicated Hosts Virtual Machines based on your workload requirements. For information on pricing, see [Pricing - Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/). The following will take you step by step for how to add an Azure Dedicated Host to a Service Fabric managed cluster with an Azure Resource Manager template.
+You can choose the SKU for Dedicated Hosts Virtual Machines based on your workload requirements. For information on pricing, see [Pricing - Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/). 
+
+The following will take you step by step for how to add an Azure Dedicated Host to a Service Fabric managed cluster with an Azure Resource Manager template.
 
 
 ## Prerequisites
-This guide builds upon the managed cluster quick start guide: Deploy a Service Fabric managed cluster using Azure Resource Manager(../service-fabric/quickstart-managed-cluster-template.md)
+This guide builds upon the managed cluster quick start guide: Deploy a Service Fabric managed cluster using Azure Resource Manager(../service-fabric/quickstart-managed-cluster-template)
 
 Before you begin:
 
