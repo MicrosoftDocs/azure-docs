@@ -21,7 +21,7 @@ The load balancer always keeps track of which Grafana servers are available. In 
 Normally the network load balancer, VMs and database that underpin a Managed Grafana instance are located within one Azure datacenter. The Managed Grafana Standard tier supports *zone redundancy*, which provides protection against zonal outages. When the zone redundancy option is selected, the VMs are spread across [availability zones](../availability-zones/az-overview.md#availability-zones) and other resources with availability zone enabled.
 
 > [!NOTE]
-> Zone redundancy can be enabled only during Managed Grafana instance creation and can't be modified subsequently. There is also an additional charge for using the zone redundancy option. See [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
+> Zone redundancy can only be enabled when creating the Managed Grafana instance, and can't be modified subsequently. There's also an additional charge for using the zone redundancy option. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
 
 In a zone-wide outage, no user action is required. An impacted Managed Grafana instance will rebalance itself to take advantage of the healthy zone automatically. The Managed Grafana service will attempt to heal the affected instances during zone recovery.
 
