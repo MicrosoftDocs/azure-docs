@@ -39,7 +39,7 @@ Assume you already have a command component defined in `train.yaml`. A two-step 
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/pipeline.yml" highlight="7-48":::
 
-The `sweep_step` is the step for hyperparameter tuning. Its type needs to be `sweep`.  And `trial` refers to the command component defined in `train.yaml`. From the `search sapce` field we can see three hyparmeters (`c_value`, `kernel`, and `coef`) are added to the search space. After you submit this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hyperparameters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](reference-yaml-job-sweep.md) for full schema of sweep job.
+The `sweep_step` is the step for hyperparameter tuning. Its type needs to be `sweep`.  And `trial` refers to the command component defined in `train.yaml`. From the `search space` field we can see three hyparmeters (`c_value`, `kernel`, and `coef`) are added to the search space. After you submit this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hyperparameters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](reference-yaml-job-sweep.md) for full schema of sweep job.
 
 Below is the trial component definition (train.yml file). 
 
