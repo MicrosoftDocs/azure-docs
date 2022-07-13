@@ -40,7 +40,7 @@ The payload for method requests and responses is a JSON document up to 128 KB.
 
 ## Invoke a direct method from a back-end app
 
-To invoke a direct method from a back-end app use the [Invoke device method](/rest/api/iothub/service/devices/invoke-method) REST API or its equivalent in one of the IoT Hub service SDKs.
+To invoke a direct method from a back-end app use the [Invoke device method](/rest/api/iothub/service/devices/invoke-method) REST API or its equivalent in one of the [IoT Hub service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 ### Method invocation
 
@@ -76,7 +76,7 @@ The value provided as `connectTimeoutInSeconds` in the request is the amount of 
 
 #### Example
 
-This example will allow you to securely initiate a request to invoke a Direct Method on an IoT device registered to an Azure IoT Hub.
+This example will allow you to securely initiate a request to invoke a direct method on an IoT device registered to an Azure IoT hub.
 
 To begin, use the [Microsoft Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to create a SharedAccessSignature.
 
@@ -101,10 +101,10 @@ curl -X POST \
 }'
 ```
 
-Execute the modified command to invoke the specified Direct Method. Successful requests will return an HTTP 200 status code.
+Execute the modified command to invoke the specified direct method. Successful requests will return an HTTP 200 status code.
 
 > [!NOTE]
-> The example above demonstrates invoking a Direct Method on a device.  If you wish to invoke a Direct Method in an IoT Edge Module, you would need to modify the url request as shown below:
+> The example above demonstrates invoking a direct method on a device.  If you want to invoke a direct method in an IoT Edge Module, you would need to modify the url request as shown below:
 >
 > ```bash
 > https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2021-04-12
@@ -134,9 +134,9 @@ The back-end app receives a response that is made up of the following items:
 
 ### Method invocation for IoT Edge modules
 
-Invoking direct methods on a module is supported by the [Invoke Module Method](/rest/api/iothub/service/modules/invoke-method) REST API its equivalent in one of the IoT Hub service SDKs.
+Invoking direct methods on a module is supported by the [Invoke module method](/rest/api/iothub/service/modules/invoke-method) REST API or its equivalent in one of the IoT Hub service SDKs.
 
-The `moduleId` is passed along with the `deviceId` in the request URI when using the REST API or as a parameter when using a service SDK. For example, `https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2021-04-12`.
+The `moduleId` is passed along with the `deviceId` in the request URI when using the REST API or as a parameter when using a service SDK. For example, `https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2021-04-12`. The request body and response is similar to that of direct methods invoked on the device.
 
 ## Handle a direct method on a device
 
