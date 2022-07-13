@@ -604,7 +604,10 @@ This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named
 
 | Name | Type |
 |------|------|
-| **Body** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
+| **File metadata File name** | `string` |
+| **File metadata File path** | `string` |
+| **File metadata File size** | `string` |
+| **File metadata** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
 |||
 
 <a name="delete-file"></a>
@@ -667,11 +670,15 @@ This action gets the metadata or properties of a file using the specified file p
 
 #### Returns
 
-This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named **Body**.
+This action returns the following outputs:
 
 | Name | Type |
 |------|------|
-| **Body** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
+| **File name** | `string` |
+| **File path** | `string` |
+| **File size** | `string` |
+| **Last updated time** | `string` |
+| **File metadata** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
 |||
 
 <a name="list-files-subfolders-folder"></a>
