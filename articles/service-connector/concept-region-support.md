@@ -18,9 +18,13 @@ When you create a service connection with Service Connector, the conceptual conn
 If your compute service instance is located in one of the regions that Service Connector supports below, you can use Service Connector to create and manage service connections.
 
 - Australia East
+- Canada Central
+- East Asia
 - East US
 - East US 2 EUAP
+- Germany West Central
 - Japan East
+- Korea Central
 - North Europe
 - UK South
 - West Central US
