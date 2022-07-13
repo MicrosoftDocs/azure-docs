@@ -25,7 +25,6 @@ This article helps you connect your virtual network to your virtual hub using th
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
-
 ## Next steps
 
 For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).
