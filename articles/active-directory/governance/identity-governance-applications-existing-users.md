@@ -107,7 +107,7 @@ This section applies to applications that use an LDAP directory as the underlyin
    csvde -f $out_filename -l userPrincipalName,cn -r "(objectclass=person)"
    ```
 1. If needed, transfer the CSV file that contains the list of users to a system with the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) installed.
-1. Continue reading at the [Confirm Azure AD has users for each user from the application](#confirm-azure-ad-has-users-for-each-user-from-the-application) section later in this article.
+1. Continue reading at the [Confirm Azure AD has users that match users from the application](#confirm-azure-ad-has-users-that-match-users-from-the-application) section later in this article.
 
 ### Collect existing users from an application's database table by using a SQL Server wizard
 
@@ -122,7 +122,7 @@ First, get a list of the users from the tables. Most databases provide a way to 
 1. Complete the wizard, and select the option to run immediately.
 1. Wait for the execution to finish.
 1. If needed, transfer the CSV file that contains the list of users to a system with the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) installed.
-1. Continue reading at the [Confirm Azure AD has users for each user from the application](#confirm-azure-ad-has-users-for-each-user-from-the-application) section later in this article.
+1. Continue reading at the [Confirm Azure AD has users that match users from the application](#confirm-azure-ad-has-users-that-match-users-from-the-application) section later in this article.
 
 ### Collect existing users from an application's database table by using PowerShell
 
