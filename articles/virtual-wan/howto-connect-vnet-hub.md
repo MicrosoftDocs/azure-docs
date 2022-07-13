@@ -18,9 +18,13 @@ This article helps you connect your virtual network to your virtual hub using th
 > * A virtual network can only be connected to one virtual hub at a time.
 > * In order to connect it to a virtual hub, the remote virtual network can't have a gateway.
 
+> [!IMPORTANT]
+> If VPN gateways are present in the virtual hub, this operation can cause disconnection to point-to-site clients as well as reconnection of site-to-site tunnels and BGP sessions.
+
 ## Add a connection
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+
 
 ## Next steps
 
