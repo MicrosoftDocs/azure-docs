@@ -83,9 +83,9 @@ For sample code on working with clustering with the StackExchange.Redis client, 
 
 ## Change the cluster size on a running premium cache
 
-To change the cluster size on a premium cache that you created earlier and is already running with clustering enabled, select **Cluster Size** from the **Resource menu**.
+To change the cluster size on a premium cache that you created earlier, and is already running with clustering enabled, select **Cluster size** from the Resource menu.
 
-:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Redis cluster size":::
+:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Screenshot of Resource manager with Cluster size selected. ":::
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box. Then, select **OK** to save.
 
