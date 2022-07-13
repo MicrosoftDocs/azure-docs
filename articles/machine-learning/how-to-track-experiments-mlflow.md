@@ -251,6 +251,9 @@ MLflow also allows you to both operations at once and download and load the mode
   model = mlflow.xgboost.load_model(f"runs:/{last_run.info.run_id}/{artifact_path}")
   ```
 
+> [!TIP]
+> For loading models from the registry view [loading MLflow models with MLflow](how-to-manage-models-mlflow.md#loading-mlflow-models).
+
 ## Getting child (nested) runs
 
 MLflow supports the concept of child (nested) runs. They are useful when you need to spin off training routines requiring being tracked independently from the main training process. This is the typical case of hyper-parameter tuning for instance. You can query all the child runs of a specific run using the property tag `mlflow.parentRunId`, which contains the run ID of the parent run.
