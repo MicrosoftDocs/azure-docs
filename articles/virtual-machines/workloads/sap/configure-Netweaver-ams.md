@@ -213,7 +213,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
    
    ```RestartService
    sapcontrol -nr <NN> -function RestartService
-```
+   ```
 9. Once the SAP service is restarted, check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
 
 **Logged as \<sidadm\>** 
