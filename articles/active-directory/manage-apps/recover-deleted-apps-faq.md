@@ -94,3 +94,8 @@ App proxy configurations can't be recovered through the portal UI. Use the API t
 ## I can’t see the policies I set on the service principal object after the recovery. How can I recover them?
 
 Policies can't be recovered currently. When you restore a service principal, you'll have to configure the policies again.
+
+## Next steps
+
+- [Delete a service principal](delete-application-portal.md)
+- [Delete an application registration](../develop/howto-restore-app.md)

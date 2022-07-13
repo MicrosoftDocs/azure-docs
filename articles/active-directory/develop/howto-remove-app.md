@@ -50,7 +50,7 @@ To delete an application, be listed as an owner of the application or have admin
 
 If you are viewing **App registrations** in the context of a tenant, a subset of the applications that appear under the **All apps** tab are from another tenant and were registered into your tenant during the consent process. More specifically, they are represented by only a service principal object in your tenant, with no corresponding application object. For more information on the differences between application and service principal objects, see [Application and service principal objects in Azure AD](./app-objects-and-service-principals.md).
 
-In order to remove an application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have Global Admininstrator access, and can remove the application through the Azure portal or use the [Azure AD PowerShell Cmdlets](/previous-versions/azure/jj151815(v=azure.100)) to remove access.
+In order to remove an application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have Global Administrator access, and can remove the application through the Azure portal or use the [Azure AD PowerShell Cmdlets](/previous-versions/azure/jj151815(v=azure.100)) to remove access.
 
 ## Next steps
 
