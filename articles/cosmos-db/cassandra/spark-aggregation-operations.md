@@ -20,7 +20,7 @@ This article describes basic aggregation operations against Azure Cosmos DB Cass
 > Server-side filtering, and server-side aggregation is currently not supported in Azure Cosmos DB Cassandra API.
 
 ## Cassandra API configuration
-Set these spark configuration in your notebook cluster. This is a one time activity.
+Set below spark configuration in your notebook cluster. It's one time activity.
 ```scala
 //Connection-related
  spark.cassandra.connection.host  YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com  
@@ -95,11 +95,11 @@ Count against dataframes is currently not supported.  The sample below shows how
 
 Choose a [storage option]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose) from the following available options, to avoid running into "out of memory" issues:
 
-* MEMORY_ONLY: This is the default storage option. Stores RDD as deserialized Java objects in the JVM. If the RDD does not fit in memory, some partitions will not be cached and they are recomputed on the fly each time they're needed.
+* MEMORY_ONLY: It's the default storage option. Stores RDD as deserialized Java objects in the JVM. If the RDD doesn't fit in memory, some partitions won't be cached, and they're recomputed on the fly each time they're needed.
 
-* MEMORY_AND_DISK: Stores RDD as deserialized Java objects in the JVM. If the RDD does not fit in memory, store the partitions that don't fit on disk, and whenever required, read them from the location they are stored.
+* MEMORY_AND_DISK: Stores RDD as deserialized Java objects in the JVM. If the RDD doesn't fit in memory, store the partitions that don't fit on disk, and whenever required, read them from the location they're stored.
 
-* MEMORY_ONLY_SER (Java/Scala): Stores RDD as serialized Java objects- one-byte array per partition. This option is space-efficient when compared to deserialized objects, especially when using a fast serializer, but more CPU-intensive to read.
+* MEMORY_ONLY_SER (Java/Scala): Stores RDD as serialized Java objects- 1-byte array per partition. This option is space-efficient when compared to deserialized objects, especially when using a fast serializer, but more CPU-intensive to read.
 
 * MEMORY_AND_DISK_SER (Java/Scala): This storage option is like MEMORY_ONLY_SER, the only difference is that it spills partitions that don't fit in the disk memory instead of recomputing them when they're needed.
 

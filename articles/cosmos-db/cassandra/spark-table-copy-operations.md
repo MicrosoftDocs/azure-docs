@@ -17,7 +17,7 @@ ms.devlang: scala
 This article describes how to copy data between tables in Azure Cosmos DB Cassandra API from Spark. The commands described in this article can also be used to copy data from Apache Cassandra tables to Azure Cosmos DB Cassandra API tables.
 
 ## Cassandra API configuration
-Set these spark configuration in your notebook cluster. This is a one time activity.
+Set below spark configuration in your notebook cluster. It's one time activity.
 ```scala
 //Connection-related
  spark.cassandra.connection.host  YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com  

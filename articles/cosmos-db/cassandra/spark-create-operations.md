@@ -17,7 +17,7 @@ ms.date: 09/24/2018
 This article describes how to insert sample data into a table in Azure Cosmos DB Cassandra API from Spark.
 
 ## Cassandra API configuration
-Set these spark configuration in your notebook cluster. This is a one time activity.
+Set below spark configuration in your notebook cluster. It's one time activity.
 
 ```scala
 //Connection-related
