@@ -16,6 +16,35 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## July 12, 2022
+
+This release is published July 12, 2022
+
+### Image tag
+
+`v1.9.0_2022-07-12`
+
+For complete release version information, see [Version log](version-log.md#july-12-2022).
+
+### Miscellaneous
+
+- Extended the disk metrics reported in monitoring dashboards to include more queue length stats and more counters for IOPS. All disks are in scope for data collection that start with `vd` or `sd` now.
+
+### Arc-enabled SQL Managed Instance
+
+- Added buffer cache hit ratio to `collectd` and surface it in monitoring dashboards.
+- Improvements to the formatting of the legends on some dashboards.
+- Added process level CPU  and memory metrics to the monitoring dashboards for the SQL managed instance process.
+- `syncSecondaryToCommit` property is now available to be viewed and edited in Azure portal and Azure Data Studio.
+- Added ability to set the DNS name for the readableSecondaries service in Azure CLI and Azure portal.
+- Now collecting the `agent.log`, `security.log` and `sqlagentstartup.log` for Arc-enabled SQL Managed instance to ElasticSearch so they're searchable via Kibana and optionally uploading them to Azure Log Analytics.
+- There are more additional notifications when provisioning new SQL managed instances is blocked due to not exporting/uploading billing data to Azure.
+
+### Data controller
+
+- Permissions required to deploy the Arc data controller have been reduced to a least-privilege level.
+- When deployed via the Azure CLI, the Arc data controller is now installed via a K8s job that uses a helm chart to do the installation. There's no change to the user experience.
+
 ## June 14, 2022
 
 This release is published June 14, 2022.
@@ -739,8 +768,6 @@ Both custom resource definitions (CRD) for PostgreSQL have been consolidated int
 |-----|-----|
 |February 2021 and prior| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
 |Beginning March 2021 | postgresqls.arcdata.microsoft.com
-
-You will delete the previous CRDs as you cleanup past installations. See [Cleanup from past installations](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations).
 
 ### Azure Arc-enabled SQL Managed Instance
 
