@@ -3,19 +3,26 @@ title: Profile production apps in Azure with Application Insights Profiler
 description: Identify the hot path in your web server code with a low-footprint profiler
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 07/06/2022
+ms.date: 07/13/2022
 ms.reviewer: jogrima
 ---
 
-# Profile production applications in Azure with Application Insights
+# Profile production applications in Azure with Application Insights Profiler
 
-Azure Application Insights Profiler provides performance traces for applications running in production in Azure. Profiler:
-- Captures the data automatically at scale without negatively affecting your users. 
+Diagnosing performance issues can prove difficult, especially when your application is running on production environment in the cloud. The cloud is very dynamic, with machines coming and going, user input and other conditions constantly changing, and the potential for high scale. Slow responses in your application could be caused by infrastructure, framework, or application code handling the request in the pipeline.
+
+With Application Insights Profiler, you can capture and view performance traces for your application in all these dynamic situations, automatically at-scale, without negatively affecting your end users. The Profiler captures the following information so you can easily identify performance issues while your app is running in Azure:
+
+- The median, fastest, and slowest response times for each web request made by your customers.
 - Helps you identify the “hot” code path spending the most time handling a particular web request. 
 
-## Enable Application Insights Profiler for your application
+Enable the Profiler on all of your Azure applications to catch issues early and prevent your customers from being widely impacted.
 
-### Supported in Profiler
+## Overhead and sampling algorithm
+
+Profiler randomly runs two minutes/hour on each virtual machine hosting the application with Profiler enabled for capturing traces. When Profiler is running, it adds from 5-15% CPU overhead to the server.
+
+## Supported in Profiler
 
 Profiler works with .NET applications deployed on the following Azure services. View specific instructions for enabling Profiler for each service type in the links below.
 
@@ -28,28 +35,18 @@ Profiler works with .NET applications deployed on the following Azure services. 
 | [Azure Container Instances for Windows](profiler-containers.md) | No | Yes | No |
 | [Azure Container Instances for Linux](profiler-containers.md) | No | Yes | No |
 | Kubernetes | No | Yes | No |
-| Azure Functions | Yes | Yes | No |
+| [Azure Functions](./profiler-azure-functions.md) | Yes | Yes | No |
 | Azure Spring Cloud | N/A | No | No |
 | [Azure Service Fabric](profiler-servicefabric.md) | Yes | Yes | No |
 
-If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting guide](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting guide](profiler-troubleshooting.md).
 
 ## Limitations
 
-The default data retention period is five days. 
-
-There are no charges for using the Profiler service. To use it, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
-
-## Overhead and sampling algorithm
-
-Profiler randomly runs two minutes/hour on each virtual machine hosting the application with Profiler enabled for capturing traces. When Profiler is running, it adds from 5-15% CPU overhead to the server.
+- **Data retention**: The default data retention period is five days. 
+- **Profiling web apps**: While you can use the Profiler at no additional cost, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
 
 ## Next steps
-Enable Application Insights Profiler for your Azure application. Also see:
-* [App Services](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Virtual Machines and virtual machine scale sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-
-[performance-blade]: ./media/profiler-overview/performance-blade-v2-examples.png
-[trace-explorer]: ./media/profiler-overview/trace-explorer.png
+Learn how to...
+> [!div class="nextstepaction"]
+> [Generate load and view Profiler data](profiler-data.md)

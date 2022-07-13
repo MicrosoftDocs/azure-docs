@@ -1,25 +1,28 @@
 ---
-title: View Application Insights Profiler data
-description: Generate load to view the Profiler data
+title: Generate load and view Application Insights Profiler data
+description: Generate load to your Azure service to view the Profiler data
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 07/06/2022
+ms.date: 07/13/2022
 ms.reviewer: jogrima
 ---
 
 # View Application Insights Profiler data
 
-For Profiler to upload traces, your application must be actively handling requests. You can trigger Profiler manually with a single click. 
+Let's say you're running a web performance test. You'll need traces to understand how your web app is running under load. In this article, you'll:
 
-Suppose you're running a web performance test. You'll need traces to help you understand how your web app is running under load. By controlling when traces are captured, you'll know when the load test will be running, while the random sampling interval might miss it.
+> [!div class="checklist"]
+> - Generate traffic to your web app by starting a web performance test or starting a Profiler on-demand session.
+> - View the Profiler traces after your load test or Profiler session.
+> - Learn how to read the Profiler performance data and call stack.
 
-## Generate traffic to your web app by starting a web performance test
+## Generate traffic to your application
 
-If you've newly enabled Profiler, you can run a short [load test](/vsts/load-test/app-service-web-app-performance-test). 
+For Profiler to upload traces, your application must be actively handling requests. 
 
-If your web app already has incoming traffic or if you just want to manually generate traffic, skip the load test and start a Profiler on-demand session.
+If you've newly enabled Profiler, run a short [load test](/vsts/load-test/app-service-web-app-performance-test). 
 
-## Start a Profiler on-demand session
+If your web app already has incoming traffic or if you just want to manually generate traffic, skip the load test and start a **Profiler on-demand session**:
 
 1. From the Application Insights overview page, select **Performance** from the left menu. 
 1. On the **Performance** pane, select **Profiler** from the top menu for Profiler settings.
@@ -52,9 +55,16 @@ The trace explorer displays the following information:
 
 ## How to read performance data
 
-Profiler uses a combination of sampling methods and instrumentation to analyze the performance of your application. When detailed collection is in progress, the service profiler samples the instruction pointer of each machine CPU every millisecond. Each sample captures the complete call stack of the thread that's currently executing. It gives detailed information about what that thread was doing, at both a high level and a low level of abstraction. The service profiler also collects other events to track activity correlation and causality, including context switching events, Task Parallel Library (TPL) events, and thread pool events.
+Profiler uses a combination of sampling methods and instrumentation to analyze your application's performance. While performing detailed collection, the Profiler:
 
-The call stack displayed in the timeline view is the result of the sampling and instrumentation. Because each sample captures the complete call stack of the thread, it includes code from Microsoft .NET Framework and other frameworks that you reference.
+- Samples the instruction pointer of each machine CPU every millisecond. 
+  - Each sample captures the complete call stack of the currently executing thread, giving detailed information about that thread, at both high and low levels of abstraction. 
+- Collects events to track activity correlation and causality, including:
+  - Context switching events
+  - Task Parallel Library (TPL) events
+  - Thread pool events
+
+The call stack displayed in the timeline view is the result of the sampling and instrumentation. Because each sample captures the complete call stack of the thread, it includes code from Microsoft .NET Framework and any other frameworks that you reference.
 
 ### <a id="jitnewobj"></a>Object allocation (clr!JIT\_New or clr!JIT\_Newarr1)
 
@@ -139,11 +149,11 @@ The **When** column is a visualization of the variety of _inclusive_ samples col
 For these metrics, you can get a value of greater than 100% by consuming multiple resources. For example, if you use two CPUs during an interval on average, you get 200%.
 
 ## Next steps
-Enable Application Insights Profiler for your Azure application. Also see:
-* [App Services](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Virtual Machines and virtual machine scale sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+Enable Application Insights Profiler for your Azure application:
+- [App Services](profiler.md)
+- [Azure Cloud Services](profiler-cloudservice.md)
+- [Azure Service Fabric](profiler-servicefabric.md)
+- [Azure Virtual Machines and virtual machine scale sets](profiler-vm.md)
 
 
 [performance-blade]: ./media/profiler-overview/performance-blade-v2-examples.png
