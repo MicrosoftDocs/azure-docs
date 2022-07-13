@@ -15,8 +15,6 @@ ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event
 
 # Tutorial: Get started with a Python script in Azure Machine Learning (part 1 of 3)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is _part 1 of a three-part tutorial series_.
 
 This tutorial avoids the complexity of training a machine learning model. You will run a "Hello World" Python script in the cloud. You will learn how a control script is used to configure and create a run in Azure Machine Learning.
