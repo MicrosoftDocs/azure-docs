@@ -104,14 +104,14 @@ $parameterFilePath = "<full path to azuredeploy.parameters.json>"
 
 2) Provide your own values for the following template parameters:
 
-* Subscription: Select an Azure subscription.
-* Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
-* Location: Select a location.
-* Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
-* Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
-* Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-* Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow set and retrieve a certificate to create a self-signed certificate.
-* Node Type Name: Enter a unique name for your node type, such as nt1.
+   * Subscription: Select an Azure subscription.
+   * Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
+   * Location: Select a location.
+   * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
+   * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
+   * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
+   * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow set and retrieve a certificate to create a self-signed certificate.
+   * Node Type Name: Enter a unique name for your node type, such as nt1.
    
 ```powershell
 New-AzResourceGroupDeployment ` 
@@ -124,8 +124,8 @@ New-AzResourceGroupDeployment `
 
 3) Deploy an ARM template through one of the methods below:
 
-* ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template)
-* ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
+   * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template)
+   * ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
    
 It takes a few minutes for your managed Service Fabric cluster to deploy. Wait for the deployment to be completed successfully.
 
