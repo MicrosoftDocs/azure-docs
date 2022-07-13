@@ -1,51 +1,28 @@
 ---
 title: Microsoft Defender for Servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Servers.
-ms.date: 06/29/2022
+ms.date: 07/13/2022
 ms.topic: overview
 ---
 # Overview of Microsoft Defender for Servers
 
-Microsoft Defender for Servers is one of the enhanced security features of Microsoft Defender for Cloud. Use it to add threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, and on-premises environment.
+Defender for Servers is one of the enhanced security features available in Microsoft Defender for Cloud. You can use it to add threat detection and advanced defenses to your Windows and Linux machines that exist in hybrid and multicloud environments.
 
-To protect machines in hybrid and multicloud environments, Defender for Cloud uses [Azure Arc](../azure-arc/index.yml). Connect your hybrid and multicloud machines as explained in the relevant quickstart:
-- [Connect your non-Azure machines to Microsoft Defender for Cloud](quickstart-onboard-machines.md)
-- [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
+To protect your machines, Defender for Cloud uses [Azure Arc](../azure-arc/index.yml). You can [Connect your non-Azure machines to Microsoft Defender for Cloud](quickstart-onboard-machines.md), [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md) or [Connect your GCP projects to Microsoft Defender for Cloud](quickstart-onboard-gcp.md).
 
 > [!TIP]
-> For details of which Defender for Servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers).
+> You can check out the [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers) for details on which Defender for Servers features are relevant for machines running on other cloud environments.
 
 You can learn more by watching these videos from the Defender for Cloud in the Field video series:
 - [Microsoft Defender for Servers](episode-five.md)
 - [Enhanced workload protection features in Defender for Servers](episode-twelve.md)
 - [Deploy in Defender for Servers in AWS and GCP](episode-fourteen.md)
 
-## What are the Microsoft Defender for server plans?
+## Available Defender for Server plans
 
-Microsoft Defender for Servers provides threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, or on-premises. Microsoft Defender for Servers is available in two plans:
+Defender for Servers offers you a choice between 2 paid plans:
 
-- **Microsoft Defender for Servers Plan 1** - deploys Microsoft Defender for Endpoint to your servers and provides these capabilities:
-    - Microsoft Defender for Endpoint licenses are charged per hour instead of per seat, lowering costs for protecting virtual machines only when they are in use.
-    - Microsoft Defender for Endpoint deploys automatically to all cloud workloads so that you know they're protected when they spin up.
-    - Alerts and vulnerability data from Microsoft Defender for Endpoint is shown in Microsoft Defender for Cloud
-
-- **Microsoft Defender for Servers Plan 2** (formerly Defender for Servers) - includes the benefits of Plan 1 and support for all of the other Microsoft Defender for Servers features.
-
-For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
-
-To enable the Microsoft Defender for Servers plans:
-
-1. Go to **Environment settings** and select your subscription.
-2. If Microsoft Defender for Servers isn't enabled, set it to **On**.
-    Plan 2 is selected by default.
-
-    If you want to change the Defender for Servers plan:
-   1. In the **Plan/Pricing** column, select **Change plan**.
-   2. Select the plan that you want and select **Confirm**.
-
-The following table describes what's included in each plan at a high level.
-
-| Feature | Defender for Servers Plan 1 | Defender for Servers Plan 2 |
+| Feature | [Defender for Servers Plan 1](#plan-1) | [Defender for Servers Plan 2](#plan-2-formerly-defender-for-servers) |
 |:---|:---:|:---:|
 | Automatic onboarding for resources in Azure, AWS, GCP | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Microsoft threat and vulnerability management | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
@@ -59,8 +36,42 @@ The following table describes what's included in each plan at a high level.
 | File integrity monitoring | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Just-in time VM access | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Adaptive network hardening | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-<!-- | Future – TVM P2 | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Future – disk scanning insights | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
+
+### Plan 1
+
+Plan 1 includes the following benefits:
+
+- Automatic onboarding for resources in Azure, AWS, GCP
+- Microsoft threat and vulnerability management
+- Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal
+- A Microsoft Defender for Endpoint subscription which includes access to alerts, software inventory, Vulnerability Assessment and an automatic integration with Microsoft Defender for Cloud.
+
+The subscription to Microsoft Defender for Endpoint allows you to deploy Defender for Endpoint to your servers. Defender for Endpoint includes the following capabilities:
+
+- Licenses are charged per hour instead of per seat, lowering your costs to protect virtual machines only when they are in use.
+- Microsoft Defender for Endpoint deploys automatically to all cloud workloads so that you know that they're protected when they spin up.
+- Alerts and vulnerability data is shown in Microsoft Defender for Cloud.
+
+### Plan 2 (formerly Defender for Servers)
+
+Plan 2 includes all of the benefits included with Plan 1. However, plan 2 also includes all of the other Microsoft Defender for Servers features listed in the [table above](#available-defender-for-server-plans).
+
+For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
+
+
+
+
+
+To enable the Microsoft Defender for Servers plans:
+
+1. Go to **Environment settings** and select your subscription.
+2. If Microsoft Defender for Servers isn't enabled, set it to **On**.
+    Plan 2 is selected by default.
+
+    If you want to change the Defender for Servers plan:
+   1. In the **Plan/Pricing** column, select **Change plan**.
+   2. Select the plan that you want and select **Confirm**.
 
 ## What are the benefits of Defender for Servers?
 
