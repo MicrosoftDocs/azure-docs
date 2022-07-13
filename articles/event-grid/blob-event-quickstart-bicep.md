@@ -1,6 +1,6 @@
 ---
-title: 'Send Blob storage events to web endpoint - Bicep'
-description: Use Azure Event Grid and an Bicep file to create Blob storage account, and subscribe its events. Send the events to a Webhook.'
+title: Send Blob storage events to web endpoint - Bicep
+description: Use Azure Event Grid and a Bicep file to create Blob storage account, subscribe to events, and send events to a Webhook.
 ms.date: 07/13/2022
 ms.topic: quickstart
 ---
@@ -27,7 +27,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
 1. You see the site but no events have been posted to it yet.
 
-   ![View new site](./media/blob-event-quickstart-portal/view-site.png)
+   ![Screenshot that shows how to view the new site.](./media/blob-event-quickstart-portal/view-site.png)
 
 ## Review the Bicep file
 
@@ -74,7 +74,7 @@ Two Azure resources are defined in the Bicep file:
 
 View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
-![View subscription event](./media/blob-event-quickstart-portal/view-subscription-event.png)
+![Screenshot that shows how to view a subscription event.](./media/blob-event-quickstart-portal/view-subscription-event.png)
 
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint.
 
@@ -82,7 +82,7 @@ You trigger an event for the Blob storage by uploading a file. The file doesn't 
 
 When you upload the file to the Azure Blob storage, Event Grid sends a message to the endpoint you configured when subscribing. The message is in the JSON format and it contains an array with one or more events. In the following example, the JSON message contains an array with one event. View your web app and notice that a blob created event was received.
 
-![View results](./media/blob-event-quickstart-portal/view-results.png)
+![Screenshot that shows how to view the results.](./media/blob-event-quickstart-portal/view-results.png)
 
 ## Clean up resources
 
@@ -95,5 +95,5 @@ For more information about Azure Resource Manager templates and Bicep, see the f
 
 * [Azure Resource Manager documentation](../azure-resource-manager/index.yml)
 * [Define resources in Azure Resource Manager templates](/azure/templates/)
-* [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
+* [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/)
 * [Azure Event Grid templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
