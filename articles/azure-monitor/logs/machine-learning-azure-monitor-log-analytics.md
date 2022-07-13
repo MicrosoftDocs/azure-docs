@@ -1,6 +1,6 @@
 ---
 title: Analyze log data with machine learning in Azure Monitor Log Analytics
-description: #Required; article description that is displayed in search results. 
+description: Learn how to conduct time series analysis and anomaly detection on data in Azure Monitor Log Analytics. 
 ms.service: azure-monitor
 ms.topic: tutorial 
 author: guywild
