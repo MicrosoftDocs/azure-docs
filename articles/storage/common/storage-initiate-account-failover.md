@@ -3,12 +3,12 @@ title: Initiate a storage account failover
 titleSuffix: Azure Storage
 description: Learn how to initiate an account failover in the event that the primary endpoint for your storage account becomes unavailable. The failover updates the secondary region to become the primary region for your storage account.
 services: storage
-author: tamram
+author: jammart
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/07/2021
-ms.author: tamram
+ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
 ---

@@ -3,12 +3,12 @@ title: Disaster recovery and storage account failover
 titleSuffix: Azure Storage
 description: Azure Storage supports account failover for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable.
 services: storage
-author: tamram
+author: jammart
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/01/2022
-ms.author: tamram
+ms.author: jammart
 ms.subservice: common
 ---
 
