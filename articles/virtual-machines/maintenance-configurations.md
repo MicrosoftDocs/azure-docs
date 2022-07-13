@@ -13,7 +13,7 @@ ms.author: cynthn
 
 # Managing VM updates with Maintenance Configurations
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets :heavy_check_mark: Azure Arc Enabled Servers
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Maintenance Configurations give you the ability to control and manage updates for many Azure virtual machine resources since Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users, but some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance configurations is integrated with Azure Resource Graph (ARG) for low latency and high scale customer experience. 
 
@@ -22,7 +22,7 @@ Maintenance Configurations give you the ability to control and manage updates fo
 
 ## Scopes
 
-Maintenance Configurations currently supports three (3) scopes: Host, OS image and Guest. While each scope allows scheduling and managing updates, the major difference lies in the resource they each support. This section outlines the details on the various scopes and their supported types:
+Maintenance Configurations currently supports three (3) scopes: Host, OS image, and Guest. While each scope allows scheduling and managing updates, the major difference lies in the resource they each support. This section outlines the details on the various scopes and their supported types:
 
 
 | Scope    | Support Resources          |
@@ -48,13 +48,13 @@ Using this scope with maintenance configurations lets you decide when to apply u
 - A minimum of 5 hours is required for the maintenance window
 
 ### Guest
-This scope is integrated with [Azure Update Management Center](https://github.com/Azure/update-center-docs/blob/main/Docs/overview.md) which allows you to save recurring deployment schedules to install operating system updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
+This scope is integrated with [update management center](https://docs.microsoft.com/en-us/azure/update-center/overview) which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
 
 - [Patch orchestration](automatic-vm-guest-patching.md#patch-orchestration-modes) for virtual machines need to be set to AutomaticByPlatform
-- A minimum of 3 hours and 55 minutes is required for the maintenance window
+- A minimum of 1 hour and 10 minutes is required for the maintenance window.
 - There is no limit to the recurrence of your schedule 
 
-[Learn more about update management center and scheduled patching](https://github.com/Azure/update-center-docs/blob/main/Docs/scheduled-patching.md)
+To learn more about this topic, checkout [update management center and scheduled patching](https://docs.microsoft.com/en-us/azure/update-center/scheduled-patching?tabs=schedule-updates-single-overview%2Cschedule-updates-scale-overview)
  
 ## Management options
 
