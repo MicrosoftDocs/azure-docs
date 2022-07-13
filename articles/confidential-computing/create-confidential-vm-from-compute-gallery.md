@@ -108,22 +108,31 @@ This image can be replicated within the source region and to different target re
 2.	Search for **VM Image Versions** and select **Create**
 3.	Provide the subscription, resource group, region and image version number
 4.	Select the source as either **Storage Blobs (VHD)** or **Managed Image**
-5.	If **Storage Blobs (VHD)** is selected, provide an OS disk VHD (without VM Guest state) as input. Ensure that the OS Disk VHD is a Gen2 VHD.
-6.	If **Managed Image** is selected, provide an existing managed image of an Azure Gen2 VM as input.
-7.	Select a **Target Azure Compute Gallery** to create and share the image. If no gallery exists, create a new gallery.
-9.	Select the **Operating system state** as either **Generalized** or **Specialized**. If Storage blob (VHD) is chosen as the source and the OS state is set to generalized, ensure that the VHD is generalized to remove machine specific information before uploading to Azure. Use these steps to [Generalize a Linux VHD](../virtual-machines/linux/create-upload-generic.md). Alternatively, use the following steps to [Generalize a Windows VHD](../virtual-machines/windows/upload-generalized-managed.md). If Managed Image is chosen as the source, the operating system state should always be set to Generalized.   
-10.	For the **Target VM Image Definition** select Create new. In the window that opens, select an image definition name and ensure that the **Security type** is set to **Confidential supported**. Provide the publisher, offer and SKU information and select **OK**.
-11.	The **Replication** tab can be used to set the replica count and target regions for image replication, if required.
-12.	The **Encryption** tab can also be used to provide SSE encryption related information. if required.
-13.	Select **Create** in the **Review + create** tab to create the image
-14.	Once the image version is successfully created, select the **+ Create VM** to land on the Create a virtual machine page.
-14.	In the Create a virtual machine page, under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-15.	Under **Instance details**, type a name for the virtual machine name and choose a region that supports Confidential virtual machines, if Confidential VMs need to be created. If not, any region can be chosen.
-    > [!NOTE]
-    > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
-16.	The image should already be populated. The **Security type** can either be set to **Standard** or **Confidential virtual machines**. Let’s select Confidential virtual machines. 
-17. **vTPM** is always turned ON while Secure Boot can be turned ON by using **Configure security** features. If confidential compute encryption with platform managed key or customer managed key is used to encrypt the OS disk, Secure Boot is required and will also be turned ON.
-18.	Under **Disks**, select **Confidential compute encryption** if required and select either confidential disk encryption with platform managed keys or customer managed keys and provide the disk encryption set information in case customer managed keys is selected.
-19.	Fill in the **Administrator account** information and then **Inbound port rules**.
-20.	At the bottom of the page, select **Review + Create**
-21.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.	
+5.	If you selected **Storage Blobs (VHD)**, enter an OS disk VHD (without the VM Guest state). Make sure to use a Gen 2 VHD.
+6.	If you selected **Managed Image**, select an existing managed image of a Gen 2 VM.
+7.	For **Target Azure compute gallery**, select or create a gallery to share the image.
+9.	For **Operating system state**, select either **Generalized** or **Specialized** depending on your use case. If you're using a managed image as the source, always select **Generalized**. If you're using a storage blob (VHD) and want to select **Generalized**, follow the steps to [generalize a Linux VHD](../virtual-machines/linux/create-upload-generic.md) or [generalize a Windows VHD](../virtual-machines/windows/upload-generalized-managed.md) before you continue. 
+10.	For **Target VM Image Definition**, select **Create new**.
+11.	In the **Create a VM image definition** pane, enter a name for the definition. Make sure the security type is set to **Confidential supported**. Enter publisher, offer, and SKU information. Then, select **Ok**.
+12.	On the **Replication** tab, enter the replica count and target regions for image replication, if required.
+13.	On the **Encryption** tab, enter SSE encryption-related information, if required.
+14.	Select **Review + Create**.
+15.	After the configuration is successfully validated, select **Create** to finish creating the image.
+16.	After the image version is created, select **Create VM**.
+17.	Now, you can [create a VM from your custom image](#create-vm-from-image).
+
+## Create VM from image
+1. On the **Create a virtual machine** page, configure the **Basics** tab:
+      1. Under **Project details**, for **Resource group**, create a new resource group or select an existing resource group.
+      1.  Under **Instance details**, enter a VM name and select a region that supports confidential VMs. For more information, find the confidential VM series in the table of [VM products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+      1. If you're using a *Confidential* image, the security type is set to **Confidential virtual machines** and can't be modified. If you're using a *Confidential Supported* image, you have to select the security type as **Confidential virtual machines** from **Standard** to create the setting.
+      1. vTPM is enabled by default and can't be modified.
+      1. Secure Boot is enabled by default. To modify the setting, use ***Configure Security features***. Secure Boot is required to use confidential compute encryption.
+1. On the **Disks** tab, configure your encryption settings if necessary.
+      1. If you're using a *Confidential* image, the confidential compute encryption and the confidential disk encryption set (if you're using customer-managed keys) are populated based on the selected image version and can't be modified.
+      1. If you're a *Confidential supported* image, you can select confidential compute encryption, if required. Then, provide a confidential disk encryption set, if you want to use customer-managed keys.
+1. Enter the administrator account information.
+1. Configure any inbound port rules.
+1. Select **Review + Create**.
+1. On the validation page, review the details of the VM.
+1. After the validation succeeds, select **Create** to finish creating the VM.
