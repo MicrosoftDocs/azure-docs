@@ -402,7 +402,13 @@ To upgrade your cache, select **Upgrade now** to change the pricing tier and [sc
 
 Organize your metrics into groups so that you display metric information in a coherent and effective way.
 
+## Automation
 
+### Tasks
+
+<!-- need content -->
+
+### Export template
 
 Select **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
