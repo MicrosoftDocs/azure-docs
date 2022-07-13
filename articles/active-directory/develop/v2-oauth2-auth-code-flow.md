@@ -1,15 +1,13 @@
 ---
 title: Microsoft identity platform and OAuth 2.0 authorization code flow
 description: Build web applications using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
-services: active-directory
 author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 07/13/2022
 ms.author: davidmu
 ms.reviewer: ludwignick
 ms.custom: aaddev, identityplatformtop40
@@ -17,25 +15,29 @@ ms.custom: aaddev, identityplatformtop40
 
 # Microsoft identity platform and OAuth 2.0 authorization code flow
 
-The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. Using the Microsoft identity platform implementation of OAuth 2.0 and Open ID Connect (OIDC), you can add sign in and API access to your mobile and desktop apps.
+The OAuth 2.0 authorization code grant flow, or _auth code flow_, is used by applications to access protected resources like web APIs. Paired with OpenID Connect (OIDC) and Proof Key for Code Exchange (PKCE), you can use the authorization code grant flow to support user sign-in and protected resource access in:
 
-This article describes how to program directly against the protocol in your application using any language. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). For more information, look at [sample apps that use MSAL](sample-v2-code.md).
+- [Single-page applications (SPAs)](v2-app-types.md#single-page-apps-javascript)
+- [Web apps](v2-app-types.md#web-apps)
+- [Desktop and mobile apps](v2-app-types.md#mobile-and-native-apps)
 
-The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). With OIDC, this flow does authentication and authorization for most app types. These types include [single page apps](v2-app-types.md#single-page-apps-javascript), [web apps](v2-app-types.md#web-apps), and [natively installed apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire an `access_token` that can be used to access resources secured by the Microsoft identity platform. Apps can refresh tokens to get other access tokens and ID tokens for the signed in user.
+This article describes low-level protocol details usually required only when manually crafting and issuing raw HTTP requests to execute the flow, which we do **not** recommend. Instead, use a [Microsoft-built and supported authentication library](reference-v2-libraries.md) to get security tokens and call protected web APIs in your apps.
+
+## Protocol details
+
+The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). Apps using the OAuth 2.0 authorization code flow acquire an `access_token` to include in requests to resources protected by the Microsoft identity platform (typically APIs). Apps can also request new ID and access tokens for previously authenticated entities by using a refresh mechanism.
 
 [!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
-## Protocol diagram
-
-This diagram provides a high-level overview of the authentication flow for an application:
+This diagram shows a high-level view of the authentication flow:
 
 ![Diagram shows OAuth authorization code flow. Native app and Web A P I interact by using tokens as described in this article.](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
-## Redirect URI setup required for single-page apps
+## Redirect URI requirements for single-page apps (SPAs)
 
-The authorization code flow for single page applications requires additional setup. Follow the instructions for [creating your single-page application](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) to correctly mark your redirect URI as enabled for Cross-Origin Resource Sharing (CORS). To update an existing redirect URI to enable CORS, open the manifest editor and set the `type` field for your redirect URI to `spa` in the `replyUrlsWithType` section. Or, you can select the redirect URI in **Authentication** > **Web** and select URIs to migrate to using the authorization code flow.
+Redirect URIs for SPAs that use the auth code flow require special configuration. To add a new redirect URI that supports PKCE and Cross-Origin Resource Sharing (CORS) with the auth code flow, follow the steps in [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow). To configure an existing redirect URI, navigate to the application manifest editor in the Azure portal, locate the `replyUrlsWithType` section, and set the redirect URI's `type` to `spa`.
 
-The `spa` redirect type is backwards compatible with the implicit flow. Apps currently using the implicit flow to get tokens can move to the `spa` redirect URI type without issues and continue using the implicit flow.
+The `spa` redirect type is backward-compatible with the implicit flow. Apps currently using the implicit flow to get tokens can move to the `spa` redirect URI type without issues and continue using the implicit flow.
 
 If you attempt to use the authorization code flow without setting up CORS for your redirect URI, you will see this error in the console:
 
