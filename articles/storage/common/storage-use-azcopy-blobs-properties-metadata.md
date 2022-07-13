@@ -1,5 +1,5 @@
 ---
-title: Replace Azure Blob Storage properties & metadata with AzCopy | Microsoft Docs
+title: Replace Azure Blob Storage properties & metadata with AzCopy (preview) | Microsoft Docs
 description: This article contains a collection of AzCopy example commands that help you set properties and metadata. 
 author: normesta
 ms.service: storage
@@ -10,9 +10,13 @@ ms.subservice: common
 
 ---
 
-# Replace blob properties and metadata by using AzCopy v10
+# Replace blob properties and metadata by using AzCopy v10 (preview)
 
 You can use AzCopy to change the [access tier](../blobs/access-tiers-overview.md) of one or more blobs as well as replace (_overwrite_) the metadata, and index tags of one or more blobs. 
+
+> [!IMPORTANT]
+> This capability is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Get started
 
