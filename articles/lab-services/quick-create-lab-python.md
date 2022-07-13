@@ -1,5 +1,5 @@
 ---
-title: Azure Lab Services Quickstart - Create a lab using Python
+title: Azure Lab Services quickstart - Create a lab using Python
 description: In this quickstart, you learn how to create an Azure Lab Services lab using Python and the Azure Python libraries (SDK).
 author: RogerBestMSFT
 ms.topic: quickstart
@@ -201,6 +201,6 @@ if __name__ == "__main__":
     main()
 ```
 
-## More information
+## Next steps
 
 As an admin, you can learn more about [Azure PowerShell module](/powershell/azure) and [Az.LabServices cmdlets](/powershell/module/az.labservices/).

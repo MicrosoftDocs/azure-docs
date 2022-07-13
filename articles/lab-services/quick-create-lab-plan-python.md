@@ -1,5 +1,5 @@
 ---
-title: Azure Lab Services Quickstart - Create a lab plan using Python
+title: Azure Lab Services quickstart - Create a lab plan using Python
 description: In this quickstart, you learn how to create an Azure Lab Services lab plan using Python and the Azure Python SDK. 
 author: RogerBestMSFT
 ms.topic: quickstart
