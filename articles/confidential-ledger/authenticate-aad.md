@@ -36,33 +36,33 @@ The main authenticating scenarios are:
 
 ## Azure AD parameters
 
-## The Azure AD resource for Azure confidential ledger
+## Azure AD resource for Azure confidential ledger
 
-When acquiring an access token from Azure AD, the client must indicate which *Azure AD resource* the token should be issued to. The Azure AD resource of an Azure confidential ledger endpoint is the URI of the endpoint, barring the port information and the path. For example:
+When acquiring an access token from Azure AD, the client must indicate which *Azure AD resource* the token should be issued to. The Azure AD resource of an Azure confidential ledger endpoint is the URI of the endpoint, barring the port information and the path.
+
+For example, if you had an Azure confidential ledger called "myACL", the URI would be:
 
 ```txt
 https://myACL.confidential-ledger.azure.com
 ```
 
-## The Azure AD tenant ID
+## Azure AD tenant ID
 
 Azure AD is a multi-tenant service, and every organization can create an object called **directory** in Azure AD. The directory object holds security-related objects such as user accounts, applications, and groups. Azure AD often refers to the directory as a **tenant**. Azure AD tenants are identified by a GUID (**tenant ID**). In many cases, Azure AD tenants can also be identified by the domain name of the organization.
 
 For example, an organization called "Contoso" might have the tenant ID `4da81d62-e0a8-4899-adad-4349ca6bfe24` and the domain name `contoso.com`.
 
-## The Azure AD authority endpoint
+## Azure AD authority endpoint
 
 Azure AD has many endpoints for authentication:
 
 - When the tenant hosting the principal being authenticated is known (in other words, when one knows which Azure AD directory the user or application are in), the Azure AD endpoint is `https://login.microsoftonline.com/{tenantId}`. Here, `{tenantId}` is either the organization's tenant ID in Azure AD, or its domain name (for example, `contoso.com`).
-
 - When the tenant hosting the principal being authenticated isn't known, the "common" endpoint can be used by replacing the `{tenantId}` above with the value `common`.
 
-> [!NOTE]
-> The Azure AD service endpoint used for authentication is also called *Azure AD authority URL* or simply **Azure AD authority**.
->
-> The Azure AD service endpoint changes in national clouds. When working with an Azure confidential ledger service deployed in a national cloud, please set the corresponding national cloud Azure AD service endpoint. To change the endpoint, set an environment variable `AadAuthorityUri` to the required URI.
+The Azure AD service endpoint used for authentication is also called *Azure AD authority URL* or simply **Azure AD authority**.
 
+> [!NOTE]
+> The Azure AD service endpoint changes in national clouds. When working with an Azure confidential ledger service deployed in a national cloud, please set the corresponding national cloud Azure AD service endpoint. To change the endpoint, set an environment variable `AadAuthorityUri` to the required URI.
 
 ## User authentication
 
@@ -74,21 +74,23 @@ If your application is intended to serve as front-end and authenticate users for
 
 ## Application authentication
 
-Applications that use Azure confidential ledger authenticate by using a token from Azure Active Directory. The owner of the application must first register it in Azure Active Directory. At the end of registration, the application owner gets the following values:
+Applications that use Azure confidential ledger authenticate by using a token from Azure Active Directory. The owner of the application must first register it in Azure Active Directory. Registration also creates a second application object that identifies the app across all tenants. For detailed steps on registering an application with Azure Active Directory you should review these articles:
+- [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md)
+- [Use portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md), and 
+- [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+
+At the end of registration, the application owner gets the following values:
 
 - An **Application ID** (also known as the AAD Client ID or appID)
 - An **authentication key** (also known as the shared secret).
 
-The application must present both these values to Azure Active Directory to get a token. 
+The application must present both these values to Azure Active Directory to get a token.
 
-For detailed steps on registering an application with Azure Active Directory you should review the articles titled [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md), [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+The Azure confidential ledger SDKs use Azure Identity client library, which allows seamless authentication to Azure confidential ledger across environments with same code.
 
-To register an application in Azure Active Directory:
-
-```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "<secure-password>" --role Contributor --scopes /subscriptions/<subscription id>
-# If you don't specify a password, one will be created for you.
-```
+| .NET | Python | Java | JavaScript |
+|--|--|--|--|
+|[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](/javascript/api/overview/azure/identity-readme)|
 
 ## On-behalf-of authentication
 
@@ -100,6 +102,6 @@ This flow is called the[OAuth2 token exchange flow](https://tools.ietf.org/html/
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
 - [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md)
-- [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md)
+- [Use portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md)
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)
