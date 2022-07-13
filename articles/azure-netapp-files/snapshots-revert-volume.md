@@ -22,9 +22,7 @@ The [snapshot](snapshots-introduction.md) revert functionality enables you to qu
 
 You can find the Revert Volume option in the Snapshots menu of a volume. After you select a snapshot for reversion, Azure NetApp Files reverts the volume to the data and timestamps that it contained when the selected snapshot was taken. 
 
-The revert functionality is also available in cross-region replication configurations, allowing you to revert to volumes that have not been yet been replicated to the destination side. This feature is currently in public preview, and you must register the feature before using it. 
-
-<!-- Register the feature section -->
+The revert functionality is also available in configurations with volume replication relationships.
 
 > [!IMPORTANT]
 > Active filesystem data and snapshots that were taken after the selected snapshot will be lost. The snapshot revert operation will replace *all* the data in the targeted volume with the data in the selected snapshot. You should pay attention to the snapshot contents and creation date when you select a snapshot. You cannot undo the snapshot revert operation.
@@ -32,7 +30,7 @@ The revert functionality is also available in cross-region replication configura
 ## Considerations
 
 * Reverting a volume using snapshot revert is not supported on [Azure NetApp Files volumes that have backups](backup-requirements-considerations.md). 
-* If you are reverting a volume in a cross-region replication setting, you can only revert to snapshots that are more recent than the SnapMirror snapshot. Alternately, you can also revert to the SnapMirror snapshot. 
+* In configurations with a volume replication relationship, a SnapMirror snapshot is created to synchronize between the source and destination volumes. This snapshot is created in addition to any user-created snapshots. **When reverting a source volume with an active volume replication relationship, only snapshots that are more recent than this SnapMirror snapshot can be used in the revert operation.** 
 
 ## Steps
 
