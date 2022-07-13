@@ -104,7 +104,8 @@ To issue commands against your cache instance, type the command you want into th
 
 > [!NOTE]
 >
-> Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
+> Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. 
+> For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
 >
 
 ### Using the Redis Console with a premium clustered cache
@@ -168,7 +169,7 @@ The following settings are configured on the **Advanced settings** on the left.
 By default, non-TLS/SSL access is disabled for new caches. To enable the non-TLS port, Select **No** for **Allow access only via SSL** on the **Advanced settings** on the left and then Select **Save**.
 
 > [!NOTE]
-> TLS access to Azure Cache for Redis supports TLS 1.0, 1.1 and 1.2 currently, but versions 1.0 and 1.1 are being retired soon.  Please read our [Remove TLS 1.0 and 1.1 page](cache-remove-tls-10-11.md) for more details.
+> TLS access to Azure Cache for Redis supports TLS 1.0, 1.1 and 1.2 currently, but versions 1.0 and 1.1 are being retired soon. Please read our [Remove TLS 1.0 and 1.1 page](cache-remove-tls-10-11.md) for more details.
 
 :::image type="content" source="media/cache-configure/redis-cache-access-ports.png" alt-text="Azure Cache for Redis Access Ports":::
 
@@ -401,13 +402,7 @@ To upgrade your cache, select **Upgrade now** to change the pricing tier and [sc
 
 Organize your metrics into groups so that you display metric information in a coherent and effective way.
 
-## Automation
 
-### Tasks
-
-<!-- need content -->
-
-### Export template
 
 Select **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
