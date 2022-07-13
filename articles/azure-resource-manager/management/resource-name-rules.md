@@ -78,7 +78,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | containerApps | resource group | 2-32 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | containerApps | resource group | 2-32 | 	Lowercase letters, numbers, and hyphens..<br><br>Start with letter and end with alphanumeric. |
 
 ## Microsoft.AppConfiguration
 
