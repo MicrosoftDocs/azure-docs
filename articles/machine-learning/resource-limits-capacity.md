@@ -9,7 +9,7 @@ ms.reviewer: mldocs
 ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 12/21/2020
+ms.date: 07/13/2022
 ---
 
 # Service limits in Azure Machine Learning
