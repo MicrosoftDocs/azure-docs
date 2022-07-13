@@ -13,9 +13,9 @@ Azure VMware Solution will apply important updates starting in March 2021. You'l
 
 ## July 8, 2022
 
-HCX cloud manager in Azure VMware solutions can now be accessible over a public IP address. You can also pair HCX sites, and create service mesh from on-premises to Azure VMware Solutions private cloud using Public IP
+HCX cloud manager in Azure VMware solutions can now be accessible over a public IP address. You can pair HCX sites and create a service mesh from on-premises to Azure VMware Solutions private cloud using Public IP.
 
-This is especially useful in cases where On-premises sites are not connected to Azure via Express Route or VPN. HCX service mesh appliances can be configured with public IPs to avoid lower tunnel MTUs due to double encapsulation if a VPN is used for on-premises to cloud connections.
+HCX with public IP is especially useful in cases where On-premises sites are not connected to Azure via Express Route or VPN. HCX service mesh appliances can be configured with public IPs to avoid lower tunnel MTUs due to double encapsulation if a VPN is used for on-premises to cloud connections.
 
 For more information, please see [Enable HCX over the internet](https://docs.microsoft.com/en-us/azure/azure-vmware/enable-hcx-access-over-internet)
 
