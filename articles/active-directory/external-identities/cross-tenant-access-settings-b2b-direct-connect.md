@@ -229,7 +229,7 @@ With outbound settings, you select which of your users and groups will be able t
    - When you're done selecting users and groups, choose **Select**.
 
    > [!NOTE]
-   > When targeting your users and groups, users who have configured [SMS-based authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-sms-signin) may not be able to be selected. This is because users who have a 'federated credential' on their user object are blocked to prevent external users from being added to outbound access settings. To work around this, you can use the [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-1.0) to add the user's object ID directly or target a group that the user is a part of.
+   > When targeting your users and groups, you won't be able to select users who have configured [SMS-based authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-sms-signin). This is because users who have a "federated credential" on their user object are blocked to prevent external users from being added to outbound access settings. As a workaround, you can use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-1.0) to add the user's object ID directly or target a group the user belongs to.
 
 1. Select **Save**.
 1. Select the **External applications** tab.
