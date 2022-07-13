@@ -24,7 +24,7 @@ In this article, you learn how to:
 > * Create a function that responds to HTTP requests. 
 > * Run your code locally to verify function behavior.
 > * Deploy your code project to Azure Functions.
- 
+
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Prerequisites
