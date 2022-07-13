@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Deploy a Premium SSD v2 (preview)
 
-Azure premium SSD v2 (preview) is designed for a broad range of IO-Intensive enterprise production workloads that require sub-millisecond disk latencies as well as high IOPS and throughput at a low cost. General purpose transaction-sensitive workloads such as SQL server, Oracle, Cassandra, and Mongo DB and high-throughput Big-Data applications like Cloudera/Hadoop can advantage of Premium SSD v2. For conceptual information on Premium SSD v2, see [Premium SSD v2 (preview)](disks-types.md#premium-ssd-v2-preview).
+Azure premium SSD v2 (preview) is designed for IO-Intensive enterprise production workloads that require sub-millisecond disk latencies as well as high IOPS and throughput at a low cost. You can take advantage of Premium SSD v2 for a broad range of production workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2 (preview)](disks-types.md#premium-ssd-v2-preview).
 
 ## Limitations
 
@@ -28,33 +28,32 @@ Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size
 
 ## Prerequisites
 
-Sign up for the preview.
+Please [sign-up](https://aka.ms/PremiumSSDv2PreviewForm) to the public preview to get started. 
 
-## Determine VM size and region availability
+## Determine region availability
 
 ### VMs using availability zones
 
-To use a premium SSD v2, you need to determine which availability zone you are in. Not every region supports every VM size with premium SSD v2. To determine if your region, zone, and VM size support premium SSD v2, run either of the following commands, make sure to replace the **region**, **vmSize**, and **subscription** values first:
+To use a Premium SSD v2, you need to determine the regions and zones where it is supported. Not every region and zones support Premium SSD v2. To determine if your region, and zone support premium SSD v2, run either of the following commands, make sure to replace **subscription** values first:
 
 #### CLI
 
 ```azurecli
-subscription="<yourSubID>"
-# example value is southeastasia
-region="<yourLocation>"
-# example value is Standard_E64s_v3
-vmSize="<yourVMSize>"
+subscriptionId="<yourSubID>"
 
-az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
+az vm list-skus --resource-type disks --query "[?name=='PremiumV2_LRS'].{Region:locationInfo[0].location, Zones:locationInfo[0].zones}" 
 ```
 
 #### PowerShell
 
 ```powershell
-$region = "southeastasia"
-$vmSize = "Standard_E64s_v3"
-$sku = (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})
-if($sku){$sku[0].LocationInfo[0].ZoneDetails} Else {Write-host "$vmSize is not supported with premium SSD v2 in $region region"}
+Connect-AzAccount
+
+$subscriptionId="yourSubscriptionId"
+
+Set-AzContext -Subscription $subscriptionId
+
+Get-AzComputeResourceSku | where {$_.ResourceType -eq 'disks' -and $_.Name -eq 'Premiumv2_LRS'} 
 ```
 
 The response will be similar to the form below, where X is the zone to use for deploying in your chosen region. X could be either 1, 2, or 3.
@@ -63,7 +62,7 @@ Preserve the **Zones** value, it represents your availability zone and you'll ne
 
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
-|disks     |premium_SKU_Name         |eastus2         |X         |         |         |         |
+|disks     |Premiumv2_LRS         |eastus         | X       |         |         |         |
 
 > [!NOTE]
 > If there was no response from the command, then the selected VM size is not supported with premium SSD v2 in the selected region.
@@ -76,18 +75,39 @@ Portal, PowerShell, CLI, ARM, steps here.
 
 # [Azure CLI](#tab/azure-cli)
 
-You must create a VM that is capable of using premium SSD v2, to attach one.
+You must create a VM of a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
 
-Replace or set the **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variables with your own values. Set **$zone**  to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following CLI command:
 
 ```azurecli-interactive
-az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku Premium_SKU_NAME --disk-iops-read-write 400 --disk-mbps-read-write 400
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
+diskName="yourDiskName"
+resourceGroupName="yourResourceGroupName"
+region="yourRegionName"
+vmName="yourVMName"
+vmImage="Win2016Datacenter"
+adminPassword="yourAdminPassword"
+adminUserName="yourAdminUserName"
+vmSize="Standard_D4s_v3"
+zone="yourZoneNumber"
+
+az disk create -n $diskName -g $resourceGroupName \
+--size-gb 100 \
+--disk-iops-read-write 5000 \
+--disk-mbps-read-write 150 \
+--location $region \
+--zone $zone \
+--sku PremiumV2_LRS
+az vm create -n $vmName -g $resourceGroupName \
+--image $vmImage \
+--zone $zone \
+--authentication-type password --admin-password $adminPassword --admin-username $adminUserName \
+--size $vmSize \
+--location $region \
+--attach-data-disks $diskName
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
-To use a premium SSD v2, you must create a VM that is capable of using it. Set values for **$resourcegroup** and **$vmName**, then set **$zone** to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command:
+You must create a VM of a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
 
 ```powershell
 # Set parameters and select subscription
@@ -96,7 +116,7 @@ $resourceGroup = "<yourResourceGroup>"
 $vmName = "<yourVMName>"
 $diskName = "<yourDiskName>"
 $lun = 1
-
+$region = "eastus"
 Connect-AzAccount -SubscriptionId $subscription
 
 New-AzVm `
@@ -106,14 +126,15 @@ New-AzVm `
     -Image "Win2016Datacenter" `
     -size "Standard_D4s_v3" `
     -zone $zone
+    -Location $region
 
 # Create the disk
 $diskconfig = New-AzDiskConfig `
--Location 'EastUS2' `
--DiskSizeGB 8 `
--DiskIOPSReadWrite 400 `
--DiskMBpsReadWrite 100 `
--AccountType PremiumV2SKU `
+-Location $region `
+-DiskSizeGB 10 `
+-DiskIOPSReadWrite 5000 `
+-DiskMBpsReadWrite 150 `
+-AccountType Premiumv2_LRS `
 -CreateOption Empty `
 -zone $zone;
 
@@ -137,8 +158,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 ```azurecli
 #Define variables
-location="eastus2"
-subscription="xxx"
+region="eastus"
 rgName="<yourResourceGroupName>"
 diskName="<yourDiskName>"
 vmName="<yourVMName>"
@@ -147,13 +167,13 @@ subscriptionId="<yourSubscriptionID>"
 
 #Create an ultra disk
 az disk create `
---subscription $subscription `
+--subscription $subscriptionId `
 -n $diskname `
 -g $rgname `
 --size-gb 100 `
---location $location `
+--location $region`
 --zone $zone `
---sku PremiumV2SKU `
+--sku Premiumv2_LRS `
 --disk-iops-read-write 400 `
 --disk-mbps-read-write 50
 
