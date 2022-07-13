@@ -1,7 +1,8 @@
 ---
 title: Update management center (preview) support matrix
 description: Provides a summary of supported regions and operating system settings
-ms.service: update-management-center
+ms.service: automation
+ms.subservice: update-management
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022
