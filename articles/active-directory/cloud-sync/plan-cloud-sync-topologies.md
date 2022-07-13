@@ -28,10 +28,10 @@ For more information, see the following video.
 The information below should be kept in mind, when selecting a solution.
 
 - Users and groups must be uniquely identified across all forests
-- Matching across forests does not occur with cloud sync
+- Matching across forests doesn't occur with cloud sync
 - A user or group must be represented only once across all forests
 - The source anchor for objects is chosen automatically.  It uses ms-DS-ConsistencyGuid if present, otherwise ObjectGUID is used.
-- You cannot change the attribute that is used for source anchor.
+- You can't change the attribute that is used for source anchor.
 
 ## Single forest, single Azure AD tenant
 ![Diagram that shows the topology for a single forest and a single tenant.](media/tutorial-single-forest/diagram-2.png)
@@ -65,17 +65,17 @@ An example would be:
  - one forest (1) contains most of the attributes
  - a second forest (2) contains a few attributes
 
- Since the second forest does not have network connectivity to the Azure AD Connect server, the object cannot be merged through Azure AD Connect. Cloud Sync in the second forest allows the attribute value to be retrieved from the second forest. The value can then be merged with the object in Azure AD that is synced by Azure AD Connect. 
+ Since the second forest doesn't have network connectivity to the Azure AD Connect server, the object can't be merged through Azure AD Connect. Cloud Sync in the second forest allows the attribute value to be retrieved from the second forest. The value can then be merged with the object in Azure AD that is synced by Azure AD Connect. 
 
 This configuration is advanced and there are a few caveats to this topology: 
 
  1. You must use `msdsConsistencyGuid` as the source anchor in the Cloud Sync configuration.
  2. The `msdsConsistencyGuid` of the user object in the second forest must match that of the corresponding object in Azure AD.
  3. You must populate the `UserPrincipalName` attribute and the `Alias` attribute in the second forest and it must match the ones that are synced from the first forest. 
- 4. You must remove all attributes from the attribute mapping in the Cloud Sync configuration that do not have a value or may have a different value in the second forest – you cannot have overlapping attribute mappings between the first forest and the second one. 
- 5. If there is no matching object in the first forest, for an object that is synced from the second forest, then Cloud Sync will still create the object in Azure AD. The object will only have the attributes that are defined in the mapping configuration of Cloud Sync for the second forest. 
+ 4. You must remove all attributes from the attribute mapping in the Cloud Sync configuration that don't have a value or may have a different value in the second forest – you can't have overlapping attribute mappings between the first forest and the second one. 
+ 5. If there's no matching object in the first forest, for an object that is synced from the second forest, then Cloud Sync will still create the object in Azure AD. The object will only have the attributes that are defined in the mapping configuration of Cloud Sync for the second forest. 
  6. If you delete the object from the second forest, it will be temporarily soft deleted in Azure AD. It will be restored automatically after the next Azure AD Connect sync cycle.  
- 7. If you delete the object from the first forest, it will be soft deleted from Azure AD.  The object will not be restored unless a change is made to the object in the second forest. After 30 days the object will be hard deleted from Azure AD and if a change is made to the object in the second forest it will be created as a new object in Azure AD. 
+ 7. If you delete the object from the first forest, it will be soft deleted from Azure AD.  The object won't be restored unless a change is made to the object in the second forest. After 30 days the object will be hard deleted from Azure AD and if a change is made to the object in the second forest it will be created as a new object in Azure AD. 
 
  
 
