@@ -44,6 +44,8 @@ These links provide additional information on this topic but are not specific to
 
 * [Provide optional claims to Azure AD apps - Microsoft identity platform](../develop/active-directory-optional-claims.md)
 
+These links provide additional information relevant to groups:
+
 * [Create or edit a dynamic group and get status - Azure AD](../enterprise-users/groups-create-rule.md)
 
 * Use dynamic groups for automated group management
