@@ -28,7 +28,8 @@ Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size
 
 ## Prerequisites
 
-Please [sign-up](https://aka.ms/PremiumSSDv2PreviewForm) to the public preview to get started. 
+- [Sign-up](https://aka.ms/PremiumSSDv2PreviewForm) for the public preview.
+- Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-8.1.0). 
 
 ## Determine region availability
 
