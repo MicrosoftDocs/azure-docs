@@ -1,5 +1,5 @@
 ---
-title: Data-driven debugging with the job diagram (preview) in Azure portal
+title: Debugging with the job diagram (preview) in Azure portal
 description: This article describes how to troubleshoot your Azure Stream Analytics job with job diagram and metrics in the Azure portal.
 author: xujiang1
 ms.author: xujiang1
@@ -8,20 +8,20 @@ ms.topic: how-to
 ms.date: 07/01/2022
 ---
 
-# Data-driven debugging with the job diagram (preview) in Azure portal
+# Debugging with the job diagram (preview) in Azure portal
 
-The job diagram (preview) on the blade in the Azure portal can help you visualize your job's query steps with its input source, output destination, and metrics. You can use the job diagram (preview) to examine the metrics data for each step and to more quickly isolate the source of a problem when you troubleshoot issues.
+The job diagram in the Azure portal can help you visualize your job's query steps with its input source, output destination, and metrics. You can use the job diagram to examine the metrics for each step and quickly identify the source of a problem when you troubleshoot issues.
 
-The job diagram (preview) is also available in VScode ASA extension. It provides the similar functions with more metrics data when you debug your job with local run service. To learn more details, see [Debug Azure Stream Analytics queries locally using job diagram](./debug-locally-using-job-diagram-vs-code.md).
+The job diagram is also available in Stream Analytics extension for VS Code. It provides the similar functions with more metrics when you debug your job that runs locally on your device. To learn more details, see [Debug Azure Stream Analytics queries locally using job diagram](./debug-locally-using-job-diagram-vs-code.md).
 
-## Using the job diagram (preview)
+## Using the job diagram
 
 In the Azure portal, while in a Stream Analytics job, under **Support + troubleshooting**, select **Job diagram (preview)**:
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/1-stream-analytics-job-diagram-with-metrics-portal.png" alt-text="Job diagram with metrics - location":::
 
 
-The job level default metrics data (Watermark delay, Input events, Output Events, and Backlogged Input Events) are shown in the chart section for the latest 30 minutes if you don't select any steps in diagram section. Of course, you can choose other metrics in the left side. 
+The job level default metrics such as Watermark delay, Input events, Output Events, and Backlogged Input Events are shown in the chart section for the latest 30 minutes. You can visualize other metrics in a chart by selecting them in the left pane. 
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/2-job-logical-diagram-overview.png" alt-text="Job logical diagram overview" lightbox="./media/stream-analytics-job-diagram-with-metrics-new/2-job-logical-diagram-overview.png":::
 
@@ -43,11 +43,11 @@ It also provides the job operation actions in the menu section. You can use them
 
 ## Troubleshoot with metrics
 
-Job metrics data provides lots of insights to your job's health. You can check these metrics data through the job diagram (preview) in its chart section in job level or in the step level. To learn about Stream Analytics job metrics definition, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). Job diagram integrates these metrics into the query steps (diagram). You can use these metrics within steps to monitor and analyze your job.
+A job's metrics provides lots of insights to your job's health. You can view these metrics through the job diagram in its chart section in job level or in the step level. To learn about Stream Analytics job metrics definition, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). Job diagram integrates these metrics into the query steps (diagram). You can use these metrics within steps to monitor and analyze your job.
 
 ### Is the job running well with its computation resource?
 
-*   **SU % utilization** is the percentage of memory utilized by your job. If SU % utilization is consistently over 80%, it shows the job is approaching to the maximum allocated memory.
+*   **SU (Memory) % utilization** is the percentage of memory utilized by your job. If SU (Memory) % utilization is consistently over 80%, it shows the job is approaching to the maximum allocated memory.
 *   **CPU % utilization** is the percentage of CPU utilized by your job. There might be spikes intermittently for this metric. Thus, we often check its average percentage data. High CPU utilization indicates that there might be CPU bottleneck if the number of backlogged input events or watermark delay increases at the same time.
 
  
@@ -68,9 +68,9 @@ The input data related metrics can be viewed under **Input** category in the cha
 
 *   **Out of order events** is the number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the **"Out of order events"** setting under **Event ordering** section in Azure portal.
  
-### Are we falling behind in data processing?
+### Is the job falling behind in processing input data streams?
 
-*   **Backlogged input events** tells you how many more messages from the input need to be processed. When this number is greater than 0, it means your job can't process the data as fast as it's coming in. In this case you may need to increase the number of Streaming Units and/or make sure your job can be parallelized. You can see more info on this in the [query parallelization page](./stream-analytics-parallelization.md). 
+*   **Backlogged input events** tells you how many more messages from the input need to be processed. When this number is consistently greater than 0, it means your job can't process the data as fast as it's coming in. In this case you may need to increase the number of Streaming Units and/or make sure your job can be parallelized. You can see more info on this in the [query parallelization page](./stream-analytics-parallelization.md). 
 
 
 ## Get help
