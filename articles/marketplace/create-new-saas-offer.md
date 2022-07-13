@@ -1,6 +1,6 @@
 ---
 title: Create an SaaS offer in the commercial marketplace. 
-description: Create a new software as a service (SaaS) offer to list or sell in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program in Azure Marketplace. 
+description: Create a new software as a service (SaaS) offer to list or sell in Microsoft AppSource, in Azure Marketplace, or through the Cloud Solution Provider (CSP) program in Azure Marketplace. 
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -23,7 +23,7 @@ If you haven't already, read [Plan a SaaS offer](plan-saas-offer.md). It will ex
 
 ## Create an SaaS offer
 
-Follow these steps to create an Saas offer:
+Follow these steps to create an SaaS offer:
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -35,12 +35,12 @@ Follow these steps to create an Saas offer:
 
     [ ![Screenshot that illustrates the SaaS offer option in the New offer list.](./media/new-offer-saas-workspaces.png) ](./media/new-offer-saas-workspaces.png#lightbox)
 
-1. In the **New Software as a Service** dialog, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing and in Azure Resource Manager templates, if applicable. For example, if you enter **test-offer-1** in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. In the **New Software as a Service** dialog, enter an **Offer ID** value. This ID is visible in the URL of the commercial marketplace listing and in Azure Resource Manager templates, if applicable. For example, if you enter **test-offer-1** in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
    + Each offer in your account must have a unique offer ID.
    + Limit the offer ID to 50 characters. Use only numbers and lowercase letters. You can include hyphens and underscores, but no spaces.
    + The offer ID can't be changed after you select **Create**.
 
-1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+1. Enter an **Offer alias**; this is the name used for the offer in Partner Center.
 
    + This name isn't visible in the commercial marketplace and is different from the offer name and other values shown to customers.
    + The offer alias can't be changed after you select **Create**.
@@ -59,11 +59,11 @@ On the **Offer setup** tab, under **Setup details**, choose whether to sell your
 1. To sell through Microsoft and have Microsoft facilitate transactions for you, select **Yes**. Continue to [Enable a test drive](#enable-a-test-drive-optional).
 1. To list your offer through the commercial marketplace and process transactions independently, select **No** and then do one of the following:
    + To provide a free subscription for your offer, select **Get it now (Free)**. In the **Offer URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](azure-ad-saas.md). For example: https://contoso.com/saas-app`.
-   + To provide a 30-day free trial, select **Free trial**. In the **Trial URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can access your free trial through [one-click authentication by using Azure AD](azure-ad-saas.md). For example: `https://contoso.com/trial/saas-app`.
+   + To provide a 30-day free trial, select **Free trial**. In the **Trial URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can access your free trial through [one-click authentication by using Azure AD](azure-ad-saas.md). For example `https://contoso.com/trial/saas-app`.
    + To have potential customers contact you to purchase your offer, select **Contact me**.
 
     > [!NOTE]
-    > You can convert a published listing-only offer to sell through the commercial marketplace offer if your circumstances change, but you cannot convert a published transactable offer to a listing-only offer. Instead, you must create a new listing-only offer and stop distribution of the published transactable offer.
+    > You can convert a published listing-only offer to sell through the commercial marketplace offer if your circumstances change, but you can't convert a published transactable offer to a listing-only offer. Instead, you must create a new listing-only offer and stop distribution of the published transactable offer.
 
 ## Enable a test drive (optional)
 
@@ -113,7 +113,7 @@ You can light up [unified discovery and delivery](plan-SaaS-offer.md) of your Sa
 
 ### Integrate with the Microsoft Graph API
 
-- If your SaaS offer does not integrate with the Microsoft Graph API, select **No**. Continue to link published Microsoft 365 app consumption clients.  
+- If your SaaS offer doesn't integrate with the Microsoft Graph API, select **No**. Continue to link published Microsoft 365 app consumption clients.  
 - If your SaaS offer integrates with the Microsoft Graph API, select **Yes**. Next, provide the Azure AD app ID you created and registered to integrate with the Microsoft Graph API.
 
 ### Link published Microsoft 365 App consumption clients
@@ -123,7 +123,7 @@ You can light up [unified discovery and delivery](plan-SaaS-offer.md) of your Sa
    If you have a published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **Yes**. You can then select **+Add another AppSource link** to add new links.  
 1. Provide a valid AppSource link.
 1. Continue adding all the links by selecting **+Add another AppSource link**.
-1. The Rank value on the SaaS offer listing page indicates the order of the linked products. To change the order, select, hold, and move the **=** icon up and down the list.
+1. The **Rank** value on the SaaS offer listing page indicates the order of the linked products. To change the order, select, hold, and move the **=** icon up and down the list.
 1. To delete a linked product, select **Delete** in the product row.  
 
 > [!IMPORTANT]
