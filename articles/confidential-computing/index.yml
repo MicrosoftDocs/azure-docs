@@ -21,7 +21,7 @@ landingContent:
 ##ROW 1
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Confidential Computing
+  - title: Azure Confidential Computing
     linkLists:
       - linkListType: overview
         links:
@@ -44,7 +44,7 @@ landingContent:
           - text: Azure IoT Edge
             url: ../iot-edge/deploy-confidential-applications.md
   # Card (optional)
-  - title: Confidential Virtual machines
+  - title: Confidential Virtual Machines
     linkLists:
       - linkListType: overview
         links:
@@ -100,7 +100,7 @@ landingContent:
             url: https://aka.ms/AKS-AMD-ACC-Preview-Inspire-2022
 ## Row 2
 # Card
-  - title: Virtual Machines with App Enclaves
+  - title: Virtual Machines with Confidential App Enclaves
     linkLists:
       - linkListType: overview
         links: 
