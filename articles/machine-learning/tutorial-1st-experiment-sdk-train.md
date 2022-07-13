@@ -159,7 +159,7 @@ First you'll create a file with the package dependencies.
      - defaults
      - pytorch
    dependencies:
-     - python=3.7.2
+     - python=3.8.5
      - pytorch
      - torchvision
    ```
@@ -229,23 +229,24 @@ Adds the environment to [command](/python/api/azure-ai-ml/azure.ai.ml?view=azure
 :::column-end:::
 :::row-end:::
 
-## <a name="submit"></a> Submit the run to Azure Machine Learning
+## <a name="submit"></a> Submit the job to Azure Machine Learning
 
 1. Select **Save and run script in terminal** to run the _run-pytorch.py_ script.
 
-1. You'll see a link in the terminal window that opens. Select the link to view the run.
+1. You'll see a link in the terminal window that opens. Select the link to view the job.
 
    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
 
 ### View the output
 
-1. In the page that opens, you'll see the run status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might around 10 minutes to complete. This image will be reused in future runs to make them run much quicker.
+1. In the page that opens, you'll see the job status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole job might around 10 minutes to complete. This image will be reused in future jobs to make them job much quicker.
 1. You can see view Docker build logs in the Azure Machine Learning studio. Select the **Outputs + logs** tab, and then select **20_image_build_log.txt**.
-1. When the status of the run is **Completed**, select **Output + logs**.
-1. Select **std_log.txt** to view the output of your run.
+1. When the status of the job is **Completed**, select **Output + logs**.
+1. Select **70_driver_log.txt** to view the output of your job.
 
 ```txt
 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ../data/cifar-10-python.tar.gz
+...
 Extracting ../data/cifar-10-python.tar.gz to ../data
 epoch=1, batch= 2000: loss 2.19
 epoch=1, batch= 4000: loss 1.82
@@ -263,9 +264,9 @@ Select the **...** at the end of the folder, then select **Move** to move **data
 
 ## <a name="log"></a> Log training metrics
 
-Now that you have a model training in Azure Machine Learning, start tracking some performance metrics.
+Now that you have a model training script in Azure Machine Learning, let's start tracking some performance metrics.
 
-The current training script prints metrics to the terminal. Azure Machine Learning provides a mechanism for logging metrics with more functionality. By adding a few lines of code, you gain the ability to visualize metrics in the studio and to compare metrics between multiple runs.
+The current training script prints metrics to the terminal. Azure Machine Learning supports logging and tracking experiments using [MLflow tracking](https://www.mlflow.org/docs/latest/tracking.html). By adding a few lines of code, you gain the ability to visualize metrics in the studio and to compare metrics between multiple jobs.
 
 ### Modify _train.py_ to include logging
 
@@ -277,11 +278,11 @@ The current training script prints metrics to the terminal. Azure Machine Learni
    import torchvision
    import torchvision.transforms as transforms
    from model import Net
-   from azureml.core import Run
+   import mlflow
 
 
-   # ADDITIONAL CODE: get run from the current context
-   run = Run.get_context()
+   # ADDITIONAL CODE: OPTIONAL: turn on autolog
+   # mlflow.autolog()
 
    # download CIFAR 10 data
    trainset = torchvision.datasets.CIFAR10(
@@ -322,7 +323,7 @@ The current training script prints metrics to the terminal. Azure Machine Learni
                if i % 2000 == 1999:
                    loss = running_loss / 2000
                    # ADDITIONAL CODE: log loss metric to AML
-                   run.log('loss', loss)
+                   mlflow.log_metric('loss', loss)
                    print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
                    running_loss = 0.0
        print('Finished Training')
@@ -332,20 +333,23 @@ The current training script prints metrics to the terminal. Azure Machine Learni
 
 #### Understand the additional two lines of code
 
-In _train.py_, you access the run object from _within_ the training script itself by using the `Run.get_context()` method and use it to log metrics:
+```python
+# ADDITIONAL CODE: OPTIONAL: turn on autolog
+mlflow.autolog()
+```
+
+With Azure Machine Learning and MLFlow, users can log metrics, model parameters and model artifacts automatically when training a model.
 
 ```python
-# ADDITIONAL CODE: get run from the current context
-run = Run.get_context()
-
-...
 # ADDITIONAL CODE: log loss metric to AML
-run.log('loss', loss)
+mlflow.log_metric('loss', loss)
 ```
+
+You can log individual metrics as well.
 
 Metrics in Azure Machine Learning are:
 
-- Organized by experiment and run, so it's easy to keep track of and
+- Organized by experiment and job, so it's easy to keep track of and
   compare metrics.
 - Equipped with a UI so you can visualize training performance in the studio.
 - Designed to scale, so you keep these benefits even as you run hundreds of experiments.
@@ -360,17 +364,18 @@ channels:
   - defaults
   - pytorch
 dependencies:
-  - python=3.6.2
+  - python=3.8.5
   - pytorch
   - torchvision
   - pip
   - pip:
-      - azureml-sdk
+      - mlflow
+      - azureml-mlflow
 ```
 
-Make sure you save this file before you submit the run.
+Make sure you save this file before you submit the job.
 
-### <a name="submit-again"></a> Submit the run to Azure Machine Learning
+### <a name="submit-again"></a> Submit the job to Azure Machine Learning
 
 Select the tab for the _run-pytorch.py_ script, then select **Save and run script in terminal** to re-run the _run-pytorch.py_ script. Make sure you've saved your changes to `pytorch-env.yml` first.
 
