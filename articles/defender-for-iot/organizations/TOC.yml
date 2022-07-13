@@ -206,6 +206,8 @@
   items:
   - name: OT monitoring appliances
     items:
+    - name: Overview
+      href: appliance-catalog/appliance-catalog-overview.md
     - name: Corporate environments
       items:
       - name: HPE ProLiant DL360
