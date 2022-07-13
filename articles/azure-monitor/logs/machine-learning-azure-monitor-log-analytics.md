@@ -31,19 +31,14 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- <!-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F). -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
-
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
-
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A workspace with log data.
 ## Create a time series of data from the Usage table 
 
-The KQL operator for creating a time series is `make-series`. Use the `make-series` operator to create a sequence of data points indexed over a specific interval of time.
+The KQL operator for creating a time series is `make-series`. You can use the `make-series` operator to create a sequence of data points indexed over a specific interval of time.
+
+> [!NOTE]
+> For more information about `make-series` syntax and usage, see [make-series operator](/azure/data-explorer/kusto/query/make-seriesoperator).
 
 The `Usage` table holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data ingestion.
 
@@ -52,8 +47,8 @@ Let's use `make-series` to chart the total amount of billable data ingested by e
 1. Create a time series chart for all billable data:
 
     ```kusto
-    let starttime = 21d; // # of days back from the current date to start the time series
-    let endtime = 0d; // # of days back from the current date to end the time series
+    let starttime = 21d; // The start date of the time series, counting back from the current date
+    let endtime = 0d; // The end date of the time series, counting back from the current date
     let timeframe = 1d; // How often to sample data
     Usage // The table we’re analyzing
     | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 am of the first day and ending at 11:59 of the last day in the time range
@@ -62,11 +57,9 @@ Let's use `make-series` to chart the total amount of billable data ingested by e
     | render timechart // Renders results in a timechart
     ``` 
 
- [](./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png)
+    :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="m./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
 
-    :::image type="content" source="/media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
-
-    We can see anomalies in the resulting chart - for example, in the `AzureDiagnostics` and `SecurityEvent` data types.
+    Looking at the chart, we can see anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types. However, not all anomalies are easy to detect visually on a chart. 
 
 2. Let's modify our query to return all anomalies for all data types. 
     
