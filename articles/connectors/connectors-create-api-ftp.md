@@ -33,7 +33,7 @@ The FTP connector has different versions, based on [logic app type and host envi
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string and doesn't need the on-premises data gateway. For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [FTP built-in connector operations](#built-in-operations) section later in this article <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string. For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [FTP built-in connector operations](#built-in-operations) section later in this article <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 ||||
 
 ## Limitations
@@ -47,12 +47,6 @@ The FTP connector has different versions, based on [logic app type and host envi
   * Managed connector for Consumption and Standard workflows
 
     By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
-
-* If you have an on-premises FTP server, consider the following options:
-
-  * Consumption workflows: Create a [Standard logic app workflow](../logic-apps/single-tenant-overview-compare.md) instead, or use [Azure App Service Hybrid connections](../app-service/app-service-hybrid-connections.md), which both let you access on-premises data sources without an on-premises data gateway.
-
-  * Standard workflows: Use the FTP built-in connector operations, which work without an on-premises data gateway.
 
 * For more limitations that apply to both the FTP managed connector and built-in connector, review the [FTP managed connector reference - Limitations](/connectors/ftp/#limitations).
 
@@ -168,17 +162,9 @@ This section shows the steps for the following FTP connector triggers:
 
 1. When you're done, select **Create**.
 
-1. When the trigger information box appears, find the folder that you want to monitor for new or edited files.
+1. When the trigger information box appears, in the **Folder path** box, specify the path to the folder that you want to monitor.
 
-   1. In the **Folder** box, select the folder icon to view the folder directory.
-
-   1. Select the right angle arrow (**>**). Browse to the folder that you want, and then select the folder.
-
-   ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-built-in-select-folder-standard.png)
-
-   Your selected folder appears in the **Folder** box.
-
-   ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-built-in-selected-folder-standard.png)
+   ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder path" with the specific folder path to monitor.](./media/connectors-create-api-ftp/ftp-trigger-built-in-folder-path-standard.png)
 
 1. When you're done, save your logic app workflow.
 
