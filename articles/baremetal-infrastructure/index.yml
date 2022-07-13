@@ -169,7 +169,7 @@ landingContent:
          - text: Requirements
            url: workloads/nc2-public-preview/requirements.md
          - text: Supported instances and regions
-           url: /nc2-public-preview/supported-instances-and-regions.md
+           url: /azure/baremetal-infrastructure/workloads/nc2-public-preview/supported-instances-and-regions
          - text: SKUs
            url: workloads/nc2-public-preview/skus.md
       - linkListType: architecture
@@ -180,5 +180,3 @@ landingContent:
         links:
          - text: Solution design
            url: workloads/nc2-public-preview/solution-design.md
-
-

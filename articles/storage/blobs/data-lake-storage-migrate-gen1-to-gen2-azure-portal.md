@@ -56,7 +56,7 @@ As you create the account, make sure to configure settings with the following va
 > The migration tool in the Azure portal doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection.
 
 > [!IMPORTANT]
-> Ensure that you use a newly created Gen2 account that's empty. It's important that you don't migrate to a previously used Gen2 account.
+> Ensure that you use a fresh, newly created Gen2 account that has no history of any usage. **Don't** migrate to a previously used Gen2 account or use a Gen2 account in which containers have been deleted to make the Gen2 account empty.
 
 ## Verify RBAC role assignments
 

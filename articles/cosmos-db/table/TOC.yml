@@ -35,7 +35,7 @@
 - name: Samples
   items:
     - name: .NET
-      href: https://github.com/Azure-Samples/msdocs-azure-tables-sdk-dotnet.git
+      href: samples-dotnet.md
     - name: Java
       href: how-to-use-java.md
     - name: Node.js
@@ -108,7 +108,6 @@
     - name: Azure Resource Graph queries
       href: ../resource-graph-samples.md?toc=/azure/cosmos-db/table/toc.json
 - name: Concepts
-  expanded: true
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
@@ -262,6 +261,22 @@
       href: table-api-faq.yml
 - name: How to
   items:
+    - name: Develop applications
+      items:
+        - name: .NET
+          items:
+            - name: Get started
+              href: how-to-dotnet-get-started.md
+            - name: Work with tables
+              items:
+                - name: Create a table
+                  href: how-to-dotnet-create-table.md
+            - name: Work with items
+              items:
+                - name: Create an item
+                  href: how-to-dotnet-create-item.md
+                - name: Read an item
+                  href: how-to-dotnet-read-item.md
     - name: Build apps with Table API
       href: table-support.md
     - name: Create a container - Table API

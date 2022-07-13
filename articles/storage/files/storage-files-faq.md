@@ -150,6 +150,15 @@ ms.topic: conceptual
     
        net use <drive-letter/share-path> /delete
 
+* <a id="ad-sid-to-upn"></a>
+**Is it possible to view the userPrincipalName (UPN) of a file/directory owner in Windows Explorer instead of the security identifier (SID)?**
+
+    In Windows Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, you can use the following PowerShell command to view all items in a directory and their owner, including UPN:
+
+    ```PowerShell
+    Get-ChildItem <Path> | Get-ACL | Select Path, Owner
+    ```
+
 ## Network File System (NFS v4.1)
 
 * <a id="when-to-use-nfs"></a>
