@@ -7,16 +7,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 07/13/2022
 ---
 
 # Skillset concepts in Azure Cognitive Search
 
 This article is for developers who need a deeper understanding of skillset concepts and composition, and assumes familiarity with the high-level concepts of [AI enrichment](cognitive-search-concept-intro.md).
 
-A skillset is a reusable resource in Azure Cognitive Search that is attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
+A skillset is a reusable resource in Azure Cognitive Search that's attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
 
-The following diagram illustrates the basic data flow of skillset execution. From the onset of skillset processing to its conclusion, skills read from and write to an *enriched document*. An enriched document is initially just the raw content extracted from a data source (`/document`), but with each skill execution, it gains structure and substance as each new output creates new nodes in the document. The output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred directly from source to an index is defined through *field mappings*.
+The following diagram illustrates the basic data flow of skillset execution. From the onset of skillset processing to its conclusion, skills read from and write to an *enriched document*. Initially, an enriched document is just the raw content extracted from a data source (articulated as the root `/document` node). With each skill execution, the enriched document gains structure and substance as each skill writes its output as nodes in the graph. After skillset execution is finished the output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred intact, from source to an index, is defined through *field mappings*.
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-1.png" alt-text="Diagram showing skillset data flows, with focus on inputs, outputs, and mappings." border="true":::
 
@@ -42,9 +42,9 @@ An indexer has properties and parameters used to configure indexer execution. Am
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" alt-text="Diagram showing which properties of indexers establish the data path to fields in an index." lightbox="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" border="true":::
 
-+ Output field mappings get content out of the enriched document and into fields in a search index.
-
 + Field mappings assign the content of a given source field to a field in a search index.
+
++ Output field mappings get content out of the enriched document and into fields in a search index.
 
 ### Working with multiple skills
 
