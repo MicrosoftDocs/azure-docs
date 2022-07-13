@@ -20,6 +20,8 @@
   items:
   - name: Architecture
     href: architecture.md
+  - name: Authentication with Azure AD
+    href: authenticate-aad.md  
   - name: Authenticating ledger nodes
     href: authenticate-ledger-nodes.md
 - name: How To Guides
