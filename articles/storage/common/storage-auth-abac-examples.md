@@ -29,6 +29,13 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Blob index tags
 
+> [!IMPORTANT]
+> Although “Read content from a blob with tag conditions” is currently supported for compatibility with conditions implemented during the ABAC feature preview, that suboperation has been deprecated and Microsoft recommends using the “Read a blob” suboperation instead.
+>
+> When configuring ABAC conditions in the Azure portal, you might see "DEPRECATED: Read content from a blob with tag conditions". Remove the operation and replace it with the “Read a blob” suboperation instead.
+>
+> If you are authoring your own condition where you want to restrict read access by tag conditions, please refer to [Example: Read blobs with a blob index tag](#example-read-blobs-with-a-blob-index-tag).
+
 ### Example: Read blobs with a blob index tag
 
 This condition allows users to read blobs with a [blob index tag](../blobs/storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
