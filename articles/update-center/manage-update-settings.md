@@ -69,7 +69,7 @@ To configure update settings on your machines on a single VM, follow these steps
 1. Under **Operations**, select **Updates**.
 1. In **Updates**, select **Go to Updates using Update Center**.
 1. In **Updates preview**, select **Update Settings**.
-1. In **Change update settings**, you can select the update settings that you want to change for your machine and and follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
+1. In **Change update settings**, you can select the update settings that you want to change for your machine and follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
 
 ---
 
