@@ -44,7 +44,7 @@ In this preview, storage accounts support the following suboperations:
 > | :--- | :--- | :--- |
 > | [List blobs](#list-blobs) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.List` |
 > | [Read a blob](#read-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | **NOT** `Blob.List` |
-> | [Read content from a blob with tag conditions](#read-content-from-a-blob-with-tag-conditions) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.Read.WithTagConditions` |
+> | [Read content from a blob with tag conditions](#read-content-from-a-blob-with-tag-conditions) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.Read.WithTagConditions (deprecated)` |
 > | [Sets the access tier on a blob](#sets-the-access-tier-on-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blob.Write.Tier` |
 > | [Write to a blob with blob index tags](#write-to-a-blob-with-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` |
 
@@ -95,7 +95,7 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Display name** | Read content from a blob with tag conditions |
 > | **Description** | Read blobs with tags. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-> | **Suboperation** | `Blob.Read.WithTagConditions` |
+> | **Suboperation** | `Blob.Read.WithTagConditions` (deprecated) |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
