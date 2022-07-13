@@ -22,7 +22,7 @@ Setting up the USB/IP project on your Windows machine will enable common develop
 - A machine with an x64/x86 processor is required. (Arm64 is currently not supported with usbipd-win).
 
 > [!NOTE]
->  To check your Azure IoT Edge for Linux on Windows version, go to _Add or Remove Programs_ and then search for _Azure IoT Edge_. You should see the installed version under _Azure IoT Edge_. If you need to update to the latest version, see [Azure IoT Edge for Linux on Windows udpates](./iot-edge-for-linux-on-windows-updates.md).
+>  To check your Azure IoT Edge for Linux on Windows version, go to _Add or Remove Programs_ and then search for _Azure IoT Edge_. You should see the installed version under _Azure IoT Edge_. If you need to update to the latest version, see [Azure IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows-updates.md).
 
 ## Install the UsbIp-Win project
 
@@ -50,18 +50,18 @@ The following steps in this section provide sample EFLOW PowerShell cmdlet to at
 > [!IMPORTANT]
 The following PowerShell cmdlets are a sample code that are not meant to be used in production deployments. Furthermore, cmdlets are subject to change and deletion. Make sure you create your own functions based on these samples.
 
-1. Go to [EFLOW-Util](https://github.com/Azure/iotedge-eflow/tree/main/eflow-util) and download the EFLOW-USBIP sample PowerShell module.
+1. Go to [EFLOW-Util](https://github.com/Azure/iotedge-eflow/tree/main/eflow-util/eflow-usbip) and download the EFLOW-USBIP sample PowerShell module.
 
 1. Open PowerShell in an elevated session. You can do so by opening the **Start** pane on Windows and typing in "PowerShell". Right-click the **Windows PowerShell** app that shows up and select **Run as administrator**.
 
 1. Import the downloaded EFLOW-USBIP module
     ```powershell
-    Import-Module "<path-to-module>/EFLOW-USBIP.psm1"
+    Import-Module "<path-to-module>/EflowUtil-Usbip.psm1"
     ```
 
 1. List all of the USB devices connected to Windows using the following command:
     ```powershell
-    List-EflowUSBDevices
+    Get-EflowUSBDevices
     ```
 
 1. Select the bus ID of the device you’d like to attach to the EFLOW and use the following command:
@@ -81,5 +81,7 @@ The following PowerShell cmdlets are a sample code that are not meant to be used
 > [!IMPORTANT]
 > The attachment from the EFLOW VM side will not persist across reboots. In order to keep the USB device attached across reboots, you may need to create a bash script that runs during startup and connects the device using the `usbip` bash command. For more information about how to attach the device on the EFLOW VM side, see [Add-EflowUSBDevices](https://github.com/Azure/iotedge-eflow/blob/main/eflow-util/EflowUtil.psm1).
 
+To learn more about how this works, see the [Connecting USB devices to WSL](https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/#how-it-works) and the [usbipd-win repo on GitHub](https://github.com/dorssel/usbipd-win/wiki).
+
 ## Next steps
-Follow the steps in [Install and provision Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md) to set up a device with IoT Edge for Linux on Windows.
+Follow the steps in [How to develop IoT Edge modules with Linux containers using IoT Edge for Linux on Windows.](./tutorial-develop-for-linux-on-windows.md) to develop and debug a module with IoT Edge for Linux on Windows.
