@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/resource-limits-quotas-capacity.md",
+        "redirect_url": "/azure/machine-learning/resource-limits-capacity.md",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-models-with-aml.md",
         "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
         "redirect_document_id": true
