@@ -58,13 +58,13 @@ The trace explorer displays the following information:
 Profiler uses a combination of sampling methods and instrumentation to analyze your application's performance. While performing detailed collection, the Profiler:
 
 - Samples the instruction pointer of each machine CPU every millisecond. 
-  - Each sample captures the complete call stack of the currently executing thread, giving detailed information about that thread, at both high and low levels of abstraction. 
+  - Each sample captures the complete call stack of the thread, giving detailed information at both high and low levels of abstraction. 
 - Collects events to track activity correlation and causality, including:
   - Context switching events
   - Task Parallel Library (TPL) events
   - Thread pool events
 
-The call stack displayed in the timeline view is the result of the sampling and instrumentation. Because each sample captures the complete call stack of the thread, it includes code from Microsoft .NET Framework and any other frameworks that you reference.
+The call stack displayed in the timeline view is the result of the sampling and instrumentation. Because each sample captures the complete call stack of the thread, it includes code from Microsoft .NET Framework, and any other frameworks that you reference.
 
 ### <a id="jitnewobj"></a>Object allocation (clr!JIT\_New or clr!JIT\_Newarr1)
 
@@ -126,7 +126,7 @@ However, logically, the thread that did the **AWAIT** is "blocked", waiting for 
 
 ### Unmanaged Async
 
-In order for async calls to be tracked across threads, .NET Framework emits ETW events and passes activity ids between threads. Since unmanaged (native) code and some older styles of asynchronous code lack these events and activity ids, the Profiler can't track the thread and functions running on the thread. This is labeled **Unmanaged Async** in the call stack. Download the ETW file to use [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) for more insight.
+In order for async calls to be tracked across threads, .NET Framework emits ETW events and passes activity IDs between threads. Since unmanaged (native) code and some older styles of asynchronous code lack these events and activity IDs, the Profiler can't track the thread and functions running on the thread. This is labeled **Unmanaged Async** in the call stack. Download the ETW file to use [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) for more insight.
 
 ### <a id="cpu"></a>CPU time
 

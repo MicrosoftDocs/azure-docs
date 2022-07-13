@@ -9,7 +9,7 @@ ms.reviewer: jogrima
 
 # Profile production applications in Azure with Application Insights Profiler
 
-Diagnosing performance issues can prove difficult, especially when your application is running on production environment in the cloud. The cloud is very dynamic, with machines coming and going, user input and other conditions constantly changing, and the potential for high scale. Slow responses in your application could be caused by infrastructure, framework, or application code handling the request in the pipeline.
+Diagnosing performance issues can prove difficult, especially when your application is running on production environment in the cloud. The cloud is dynamic, with machines coming and going, user input and other conditions constantly changing, and the potential for high scale. Slow responses in your application could be caused by infrastructure, framework, or application code handling the request in the pipeline.
 
 With Application Insights Profiler, you can capture and view performance traces for your application in all these dynamic situations, automatically at-scale, without negatively affecting your end users. The Profiler captures the following information so you can easily identify performance issues while your app is running in Azure:
 
@@ -44,7 +44,7 @@ If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting 
 ## Limitations
 
 - **Data retention**: The default data retention period is five days. 
-- **Profiling web apps**: While you can use the Profiler at no additional cost, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
+- **Profiling web apps**: While you can use the Profiler at no extra cost, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
 
 ## Next steps
 Learn how to...
