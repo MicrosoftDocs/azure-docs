@@ -69,20 +69,20 @@ Use the quickstarts linked above to see examples of updated REST API calls for t
 
 To use the latest version of the client library, you will need to download the latest software package in the `Azure.AI.TextAnalytics` namespace. See the quickstart articles linked above for example code and instructions for using the client library in your preferred language.
 
-[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]
+<!--[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]-->
 
 
 ## Migrate from version v2.1 features
 
-If you're migrating an application fro v2.1 of the API, there are several changes to feature functionality you should be aware of.
+If you're migrating an application from v2.1 of the API, there are several changes to feature functionality you should be aware of.
 
-## Migrate from sentiment analysis v2.1
+### Migrate from sentiment analysis v2.1
 
-Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1 for each document sent to the API, with scores closer to 1 indicating more positive sentiment. The current version of this feature returns sentiment labels (such as "positive" or "negative")  for both the sentences and the document as a whole, and their associated confidence scores.
+[Sentiment Analysis](../sentiment-opinion-mining/quickstart.md) in version 2.1 returns sentiment scores between 0 and 1 for each document sent to the API, with scores closer to 1 indicating more positive sentiment. The current version of this feature returns sentiment labels (such as "positive" or "negative")  for both the sentences and the document as a whole, and their associated confidence scores.
 
-## Migrate from NER, PII, and entity linking v2.1
+### Migrate from NER, PII, and entity linking v2.1
 
-In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. The current version of this feature provides expanded named entity detection, and uses separate endpoints for [NER](../named-entity-recognition/quickstart.md?pivots=rest-api) and [entity linking](../entity-linking/quickstart.md?pivots=rest-api) requests. Additionally, you can use another feature offered in the Language service that lets you detect [detect personal (pii) and health (phi) information](../personally-identifiable-information/overview.md).
+In version 2.1, the Text Analytics API used one endpoint for Named Entity Recognition (NER) and entity linking. The current version of this feature provides expanded named entity detection, and has separate endpoints for [NER](../named-entity-recognition/quickstart.md?pivots=rest-api) and [entity linking](../entity-linking/quickstart.md?pivots=rest-api) requests. Additionally, you can use another feature offered in the Language service that lets you detect [detect personal (pii) and health (phi) information](../personally-identifiable-information/overview.md).
 
 You will also need to update your application to use the [entity categories](../named-entity-recognition/concepts/named-entity-categories.md) returned in the [API's response](../named-entity-recognition/how-to-call.md).
 
@@ -117,7 +117,7 @@ The following table lists the entity categories returned for NER v2.1.
 
 ## Migrate from Language detection v2.1
 
-The language detection feature output has changed in the current version. The JSON response will contain `ConfidenceScore` instead of `score`. The current version also only returns one language in a  `detectedLanguage` attribute for each document.
+The [language detection](../language-detection/quickstart.md) feature output has changed in the current version. The JSON response will contain `ConfidenceScore` instead of `score`. The current version also only returns one language in a  `detectedLanguage` attribute for each document.
 
 ## Migrate from Key phrase extraction v2.1
 
