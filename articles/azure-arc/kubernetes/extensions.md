@@ -25,8 +25,6 @@ In this article, you learn:
 
 A conceptual overview of this feature is available in [Cluster extensions - Azure Arc-enabled Kubernetes](conceptual-extensions.md).
 
-[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
-
 ## Prerequisites
 
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
