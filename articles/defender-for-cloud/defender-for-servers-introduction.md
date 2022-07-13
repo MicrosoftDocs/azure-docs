@@ -101,11 +101,11 @@ Defender for Servers offers both threat detection and protection capabilities th
 
   With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime, and extracts insights directly from the memory of processes. Specific insights include the identification of: 
 
-      - Well-known toolkits and crypto mining software 
+    - Well-known toolkits and crypto mining software 
 
-      - Shellcode - a small piece of code typically used as the payload in the exploitation of a software vulnerability.
+    - Shellcode - a small piece of code typically used as the payload in the exploitation of a software vulnerability.
 
-      - Injected malicious executable in process memory
+    - Injected malicious executable in process memory
 
   Fileless attack detection generates detailed security alerts that include descriptions with process metadata such as network activity. These details accelerate alert triage, correlation, and downstream response time. This approach complements event-based EDR solutions, and provides increased detection coverage.
 
