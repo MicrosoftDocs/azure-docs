@@ -97,7 +97,7 @@ landingContent:
           - text: Confidential nodes on AKS FAQ 
             url: confidential-nodes-aks-faq.yml
           - text: Confidential Node Pools on AKS
-#             url: https://aka.ms/AKS-AMD-ACC-Preview-Inspire-2022
+            url: https://aka.ms/AKS-AMD-ACC-Preview-Inspire-2022
 ## Row 2
 # Card
   - title: Virtual Machines with App Enclaves
