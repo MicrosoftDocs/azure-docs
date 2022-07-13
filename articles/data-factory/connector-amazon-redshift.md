@@ -31,7 +31,7 @@ This Amazon Redshift connector is supported for the following capabilities:
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
- For a list of data stores that are supported as sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Amazon Redshift connector supports retrieving data from Redshift using query or built-in Redshift UNLOAD support.
 

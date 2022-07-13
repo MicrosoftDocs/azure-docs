@@ -27,7 +27,7 @@ This Drill connector is supported for the following capabilities:
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
-For a list of data stores that are supported as sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 

@@ -28,7 +28,7 @@ This Amazon RDS for SQL Server connector is supported for the following capabili
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
-For a list of data stores that are supported as sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Amazon RDS for SQL Server connector supports:
 

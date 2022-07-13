@@ -30,7 +30,7 @@ This DB2 connector is supported for the following capabilities:
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
-For a list of data stores that are supported as sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this DB2 connector supports the following IBM DB2 platforms and versions with Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 9, 10 and 11.  It utilizes the DDM/DRDA protocol.
 
