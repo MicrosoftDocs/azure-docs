@@ -90,7 +90,7 @@ The following Azure resources are defined in the template.
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
     - **Region:** select **East US**.
-    - **Location:** set this to **eastus**.
+    - **Location:** leave this field unchanged.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
     - **SIM Group Name:** enter the name of the SIM group.
     - **SIM Resources:** paste in the array you prepared in [Prepare an array for your SIMs](#prepare-an-array-for-your-sims).
@@ -110,9 +110,13 @@ The following Azure resources are defined in the template.
 
     :::image type="content" source="media/template-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing a deployment confirmation for the ARM template.":::
 
-1. Confirm that your SIMs and SIM group have been created in the resource group.
+1. Confirm that the **SIM Group** resource has been created in the resource group.
 
-    :::image type="content" source="media/provision-sims-arm-template/sims-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing newly provisioned SIMs.":::
+    :::image type="content" source="media/provision-sims-arm-template/sims-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing a newly created SIM group.":::
+
+1. Select the **SIM Group** resource and confirm that all of your SIMs have been provisioned correctly.
+
+    :::image type="content" source="media/provision-sims-arm-template/sim-group-resource-inline.png" alt-text="Screenshot of the Azure portal showing a SIM group resource containing SIMs." lightbox="media/provision-sims-arm-template/sim-group-resource-enlarged.png":::
 
 ## Next steps
 

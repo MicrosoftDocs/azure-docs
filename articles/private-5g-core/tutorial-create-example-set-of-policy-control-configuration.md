@@ -513,7 +513,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 1. Once the deployment is complete, select **Go to Resource**.
 1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-1** has been successfully assigned.
 
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy.png" alt-text="Screenshot of the Azure portal showing a SIM resource. The SIM policy field is highlighted in the Management section." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy.png":::
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy.png" alt-text="Screenshot of the Azure portal showing a SIM resource. The SIM policy field is highlighted in the Management section." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sim-with-sim-policy-enlarged.png":::
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
 1. In the **Resource** menu, select **SIMs**.

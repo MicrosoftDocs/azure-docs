@@ -30,7 +30,7 @@ You can view your existing SIMs in the Azure portal.
 1. In the **Resource** menu, select **SIMs**. You'll be shown a list of existing SIMs in the private mobile network.
 
 
-    :::image type="content" source="media/provision-sims-azure-portal/sims-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently provisioned SIMs for a private mobile network." lightbox="media/provision-sims-azure-portal/sims-list.png":::
+    :::image type="content" source="media/manage-existing-sims/sims-list-inline.png" alt-text="Screenshot of the Azure portal. It shows a list of currently provisioned SIMs for a private mobile network." lightbox="media/manage-existing-sims/sims-list-enlarged.png":::
 
 ## Assign SIM policies
 
@@ -47,7 +47,7 @@ To assign a SIM policy to one or more SIMs:
     1. In **Assign SIM policy** on the right, select your chosen SIM policy from the **SIM policy** drop-down menu.
     1. Select **Assign SIM policy**.
     
-        :::image type="content" source="media/provision-sims-azure-portal/assign-sim-policy.png" alt-text="Screenshot of the Azure portal. It shows a list of provisioned SIMs and fields to assign a SIM policy." lightbox="media/provision-sims-azure-portal/assign-sim-policy.png":::
+        :::image type="content" source="media/manage-existing-sims/assign-sim-policy-inline.png" alt-text="Screenshot of the Azure portal. It shows a list of provisioned SIMs and fields to assign a SIM policy." lightbox="media/manage-existing-sims/assign-sim-policy-enlarged.png":::
 
 1. The Azure portal will now begin deploying the configuration change. When the deployment is complete, select **Go to resource** (if you have assigned a SIM policy to a single SIM) or **Go to resource group** (if you have assigned a SIM policy to multiple SIMs).
 
@@ -76,7 +76,7 @@ To assign static IP addresses to SIMs:
 1. In the resource menu, select **SIMs**.
 1. You'll see a list of provisioned SIMs in the private mobile network. Select each SIM to which you want to assign a static IP address, and then select **Assign Static IPs**.
 
-    :::image type="content" source="media/provision-sims-azure-portal/assign-static-ips.png" alt-text="Screenshot of the Azure portal showing a list of provisioned SIMs. Selected SIMs and the Assign Static I Ps button are highlighted.":::
+    :::image type="content" source="media/manage-existing-sims/assign-static-ips.png" alt-text="Screenshot of the Azure portal showing a list of provisioned SIMs. Selected SIMs and the Assign Static I Ps button are highlighted.":::
 
 1. In **Assign static IP configurations** on the right, run the following steps for each SIM in turn. If your private mobile network has multiple sites and you want to assign a different static IP address for each site to the same SIM, you'll need to repeat these steps on the same SIM for each IP address.
 
@@ -88,7 +88,7 @@ To assign static IP addresses to SIMs:
     1. Set **Static IP** to your chosen IP address.
     1. Select **Save static IP configuration**. The SIM will then appear in the list under **Number of pending changes**.
 
-    :::image type="content" source="media/provision-sims-azure-portal/assign-static-ip-configurations.png" alt-text="Screenshot of the Azure portal showing the Assign static I P configurations screen.":::
+    :::image type="content" source="media/manage-existing-sims/assign-static-ip-configurations.png" alt-text="Screenshot of the Azure portal showing the Assign static I P configurations screen.":::
 
 1. Once you have assigned static IP addresses to all of your chosen SIMs, select **Assign static IP configurations**.
 1. The Azure portal will now begin deploying the configuration change. When the deployment is complete, select **Go to resource** (if you have assigned a static IP address to a single SIM) or **Go to resource group** (if you have assigned static IP addresses to multiple SIMs).

@@ -28,9 +28,9 @@ You can view your existing SIM groups in the Azure portal.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-1. In the **Resource** menu, select **SIM groups**.
+1. In the **Resource** menu, select **SIM groups** to see a list of existing SIM groups.
 
-<!-- needs a screenshot of SIM groups in the resource menu -->
+    :::image type="content" source="media/manage-sim-groups/sim-groups-list.png" alt-text="Screenshot of the Azure portal showing a list of SIM groups. The SIM groups resource menu option is highlighted.":::
 
 ## Create a SIM group
 
@@ -40,24 +40,37 @@ To create a new SIM group:
 
 1. Navigate to the list of SIM groups in your private mobile network, as described in [View existing SIM groups](#view-existing-sim-groups).
 1. Select **Create**.
-1. Do the following on the **Basics** configuration tab. <!-- needs a screenshot of the Create SIM group screen -->
+1. Do the following on the **Basics** configuration tab.
 
    - Enter a name for the new SIM group into the **SIM group name** field.
+   - Set **Region** to **East US**.
    - Select your private mobile network from the **Mobile network** drop down menu.
+
+    :::image type="content" source="media/manage-sim-groups/create-sim-group-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab.":::
 
 1. Select **Next: SIMs**.
 1. On the **SIMs** configuration tab, select your chosen input method by selecting the appropriate option next to **How would you like to input the SIMs information?**. You can then input the information you collected for your SIMs.
  
-    - If you select **Upload JSON file**, the **Upload SIM profile configurations** field will appear. Use this field to upload your chosen JSON file.
-    - If you select **Add manually**, a new set of fields will appear under **Enter SIM profile configurations**. Fill out the first row of these fields with the correct settings for the first SIM you want to provision. If you've got more SIMs you want to provision, add the settings for each of these SIMs to a new row.
     - If you decided that you don't want to provision any SIMs at this point, select **Add SIMs later**.
+    - If you select **Add manually**, a new set of fields will appear under **Enter SIM profile configurations**. Fill out the first row of these fields with the correct settings for the first SIM you want to provision. If you've got more SIMs you want to provision, add the settings for each of these SIMs to a new row.
+    - If you select **Upload JSON file**, the **Upload SIM profile configurations** field will appear. Use this field to upload your chosen JSON file.
+
+    :::image type="content" source="media/manage-sim-groups/create-sim-group-sims-tab.png" alt-text="Screenshot of the Azure portal showing the SIMs configuration tab.":::
 
 1. Select **Review + create**.
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation. <!-- needs a screenshot showing config validation -->
+1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation. 
+
+    :::image type="content" source="media/manage-sim-groups/create-sim-group-review-create-tab.png" alt-text="Screenshot of the Azure portal showing validated configuration for a SIM group.":::
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to create the SIM group. The Azure portal will display the following confirmation screen when the SIM group has been created. <!-- needs a screenshot showing successful deployment -->
+1. Once your configuration has been validated, you can select **Create** to create the SIM group. The Azure portal will display the following confirmation screen when the SIM group has been created. 
+
+    :::image type="content" source="media/manage-sim-groups/sim-group-deployment-complete.png" alt-text="Screenshot of the Azure portal. It shows confirmation of the successful creation of a SIM group.":::
+
+1. Click **Go to resource group** and then select your new SIM group from the list of resources. You'll be shown your new SIM group and any SIMs you've provisioned.
+
+    :::image type="content" source="media/manage-sim-groups/sim-group-resource.png" alt-text="Screenshot of the Azure portal showing a SIM group containing SIMs.":::
 
 1. At this point, your SIMs will not have any assigned SIM policies and so will not be brought into service. If you want to begin using the SIMs, [assign a SIM policy to them](manage-existing-sims.md#assign-sim-policies). If you've configured static IP address allocation for your packet core instance(s), you may also want to [assign static IP addresses](manage-existing-sims.md#assign-static-ip-addresses) to the SIMs you've provisioned.
 
@@ -66,9 +79,9 @@ To create a new SIM group:
 Deleting a SIM group removes both the SIM group and all the SIMs it contains. 
 
 1. Navigate to the list of SIM groups in your private mobile network, as described in [View existing SIM groups](#view-existing-sim-groups).
-1. Select the SIM group you want to delete.
+1. Tick the checkboxes next to the SIM group(s) you want to delete.
 1. Select **Delete**.
-1. Select **Delete** to confirm you want to delete the SIM group.
+1. In the pop-up that appears, select **Delete** to confirm you want to delete the SIM group(s).
 
 ## Next steps
 Learn more about how to manage the SIMs in your SIM groups. 
