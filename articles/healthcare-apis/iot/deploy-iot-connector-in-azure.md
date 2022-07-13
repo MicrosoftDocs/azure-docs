@@ -84,7 +84,7 @@ It's important that you have the following prerequisites completed before you be
 
 1. Under the **Basics** tab, complete the required fields under **MedTech service details** page section.
 
-:::image type="content" source="media\iot-deploy-manual-in-portal\deploy-medtech-service-basics.png" alt-text="Screenshot of create MedTech services basics information with red boxes around the required information." lightbox="media\iot-deploy-manual-in-portal\deploy-medtech-service-basics.png":::
+   :::image type="content" source="media\iot-deploy-manual-in-portal\deploy-medtech-service-basics.png" alt-text="Screenshot of create MedTech services basics information with red boxes around the required information." lightbox="media\iot-deploy-manual-in-portal\deploy-medtech-service-basics.png":::
 
 2. Enter the **MedTech service name**.
 
@@ -310,7 +310,7 @@ To ensure that your MedTech service works properly, it's system-assigned managed
 
     :::image type="content" source="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png" alt-text="Screenshot of the Add role assignment confirmation page with a red box around the Review + assign button." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png":::
 
-    After the role assignment has been successfully added to the event hub, a notification will display in the upper right hand corner of your screen with a green check mark. This indicates that your MedTech service can now read from your device message event hub.
+13. After the role assignment has been successfully added to the event hub, a notification will display in the upper right hand corner of your screen with a green check mark. This notification indicates that your MedTech service can now read from your device message event hub.
 
     :::image type="content" source="media\iot-deploy-manual-in-portal\validate-medtech-service-managed-identity-added-to-event-hub.png" alt-text="Screenshot of the MedTech service system-assigned managed identity being successfully granted access to the event hub with a red box around the message." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png":::
 
@@ -322,7 +322,7 @@ To ensure that your MedTech service works properly, it's system-assigned managed
 
 The steps for granting your MedTech service system-assigned managed identity access to your FHIR service are the same steps that you took to grant access to your device message event hub. The only exception will be that your MedTech service system-assigned managed identity will require **FHIR Data Writer** access versus **Azure Event Hubs Data Receiver**.
 
-The **FHIR Data Writer** role provides read and write access to your FHIR service which your MedTech service uses to access or persist data. Because the MedTech service is deployed as a separate resource, the FHIR service will receive requests from the MedTech service. If the FHIR service doesn’t know who's making the request, it will deny the request as unauthorized.
+The **FHIR Data Writer** role provides read and write access to your FHIR service, which your MedTech service uses to access or persist data. Because the MedTech service is deployed as a separate resource, the FHIR service will receive requests from the MedTech service. If the FHIR service doesn’t know who's making the request, it will deny the request as unauthorized.
 
 :::image type="content" source="media\iot-deploy-manual-in-portal\select-fhir-data-writer-for-medtech-service-access-to-fhir-service.png" alt-text="Screenshot of Add role assignment page for your FHIR service and a red box around the FHIR Data Reader role and View button." lightbox="media\iot-deploy-manual-in-portal\select-fhir-data-writer-for-medtech-service-access-to-fhir-service.png":::
 
