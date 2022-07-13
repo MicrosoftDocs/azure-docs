@@ -2,7 +2,7 @@
     "redirections": [
     {
         "source_path_from_root": "/articles/machine-learning/resource-limits-quotas-capacity.md",
-        "redirect_url": "/azure/machine-learning/resource-limits-capacity.md",
+        "redirect_url": "/azure/machine-learning/resource-limits-capacity",
         "redirect_document_id": true
     },
     {
