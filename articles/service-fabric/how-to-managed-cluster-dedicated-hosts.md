@@ -13,7 +13,7 @@ Using Azure Dedicated Hosts for nodes with your SFMC cluster has the following b
 * Host-level hardware isolation at the physical server level. No other VMs will be placed on your hosts. hardware isolation helps Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts. 
 * Control over maintenance events initiated by the Azure platform. While most maintenance events have little to no impact on virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt into a maintenance window to reduce the impact on service.
 
-You can choose the SKU for Dedicated Hosts Virtual Machines based on your workload requirements. For information on pricing, see [Pricing - Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/). 
+You can choose the SKU for Dedicated Hosts Virtual Machines based on your workload requirements. For information on pricing, see [Pricing - Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/). 
 
 The following will take you step by step for how to add an Azure Dedicated Host to a Service Fabric managed cluster with an Azure Resource Manager template.
 
@@ -26,7 +26,7 @@ Before you begin:
 * If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 * Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. For the sake of this guide, we will be using a six-node Standard SKU cluster.
 * At least five dedicated hosts should be present in each dedicated host group.
-* The user needs to have admin access to the host group to do role assignments in a host group. Please see [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites) for more information.
+* The user needs to have admin access to the host group to do role assignments in a host group. Please see [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites) for more information.
 
 ## Review the template
 The template used in this guide is from [Azure Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-ADH).
@@ -34,7 +34,7 @@ The template used in this guide is from [Azure Samples - Service Fabric cluster 
 ## Create a client certificate
 Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step. 
 
-If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal). Note the certificate thumbprint as this will be required to deploy the template in the next step. 
+If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal). Note the certificate thumbprint as this will be required to deploy the template in the next step. 
 
 ## Deploy Dedicated Host Resources
 Create a dedicated host group pinned to one Availability Zone and five Fault Domains using the provided sample ARM deployment template. The sample will ensure there    is at least one dedicated host per Fault Domain.
@@ -44,7 +44,7 @@ New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $R
 ```
 
 >[!NOTE] 
-> Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. See [Azure Dedicated Host pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/) for more information.
+> Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. See [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/) for more information.
 
 
 ## Configure access for the Host group to Service Fabric Resource Provider
@@ -57,6 +57,10 @@ Add a role assignment to the host group with the Service Fabric Resource Provide
    Select-AzSubscription -SubscriptionId <SubId>  
    Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
    ```
+   
+>[!NOTE] 
+> Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
+
 
 2) Add role assignment to host group with contributor access. This role assignment can be created via PowerShell using the Id of the previous output as principal ID    and role definition name as "Contributor" where applicable. Please see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles.
 
@@ -86,11 +90,9 @@ Alternatively, you can also use a template. This role assignment can be defined 
              } 
    ```
 
->[!NOTE] 
-> Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
 
 
-## Deploy Service Fabric managed cluster with Dedicated Host
+## Deploy Service Fabric managed cluster
 
 Create an Azure Service Fabric managed cluster with node type(s) configured to reference the Dedicated Host group ResourceId. The node type needs to be pinned to the same availability zone as the host group. 
 The template used in this guide is from [Azure-Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates).
@@ -125,9 +127,9 @@ New-AzResourceGroupDeployment `
 3) Deploy an ARM template through one of the methods below:
 
   * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template)
-  * ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
+  * ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
    
-It takes a few minutes for your managed Service Fabric cluster to deploy. Wait for the deployment to be completed successfully.
+It takes a few minutes for your Service Fabric managed cluster to deploy. Wait for the deployment to be completed successfully.
 
 ## Troubleshooting
 
@@ -150,7 +152,7 @@ It takes a few minutes for your managed Service Fabric cluster to deploy. Wait f
             {  
                   "code": "QuotaExceeded",  
                   "message": "Operation could not be completed as it results in exceeding approved standardDSv3Family Cores quota.  
-            Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase [here](https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/). Please read more about quota limits [here](https://docs.microsoft.com/en-us/azure/azure-supportability/per-vm-quota-requests)” 
+            Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase [here](https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/). Please read more about quota limits [here](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests)” 
                 }
 
 ## Next steps
