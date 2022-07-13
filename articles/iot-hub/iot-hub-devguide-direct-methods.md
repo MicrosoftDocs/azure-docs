@@ -140,7 +140,7 @@ The `moduleId` is passed along with the `deviceId` in the request URI when using
 
 ## Handle a direct method on a device
 
-On an IoT device, a direct method can be received either over MQTT, AMQP, or either of these protocols over Websockets.
+On an IoT device, direct methods can be received over MQTT, AMQP, or either of these protocols over WebSockets.
 
 ### MQTT
 
