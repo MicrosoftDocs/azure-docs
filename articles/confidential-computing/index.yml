@@ -9,9 +9,9 @@ metadata:
   ms.service: virtual-machines
   ms.subservice: confidential-computing
   ms.topic: landing-page
-  author: stempesta 
+  author: stempesta, ananyagarg 
   ms.author: stempesta
-  ms.date: 09/22/2020 
+  ms.date: 09/22/2020, 07/13/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
