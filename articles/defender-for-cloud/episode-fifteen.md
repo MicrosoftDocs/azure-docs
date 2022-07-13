@@ -14,17 +14,17 @@ ms.date: 07/03/2022
 <br>
 <iframe src="https://aka.ms/docs/player?id=ceb3ef0e-257a-466a-9e90-dcfb08f54f8e" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [01:14](/shows/mdc-in-the-field/#time=01m14s) - What is the Governance feature?
+- [01:14](/shows/mdc-in-the-field/remediate-security-with-governance#time=01m14s) - What is the Governance feature?
 
-- [05:54](/shows/mdc-in-the-field/#time=05m54s) - What are the permissions required to configure Governance rules?
+- [05:54](/shows/mdc-in-the-field/remediate-security-with-governance#time=05m54s) - What are the permissions required to configure Governance rules?
 
-- [06:51](/shows/mdc-in-the-field/#time=06m51s) - How workload owners receive notifications
+- [06:51](/shows/mdc-in-the-field/remediate-security-with-governance#time=06m51s) - How workload owners receive notifications
 
-- [10:13](/shows/mdc-in-the-field/#time=10m13s) - Understanding grace period
+- [10:13](/shows/mdc-in-the-field/remediate-security-with-governance#time=10m13s) - Understanding grace period
 
-- [15:20](/shows/mdc-in-the-field/#time=15m20s) - Enabling Governance at scale
+- [15:20](/shows/mdc-in-the-field/remediate-security-with-governance#time=15m20s) - Enabling Governance at scale
 
-- [16:25](/shows/mdc-in-the-field/=16m25s) - Demonstration
+- [16:25](/shows/mdc-in-the-field/remediate-security-with-governance#time=16m25s) - Demonstration
 
 ## Recommended resources
   
