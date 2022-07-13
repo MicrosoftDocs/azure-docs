@@ -2,12 +2,12 @@
 title: Azure Synapse Spark Common Data Model (CDM) connector
 description: Learn how to use the Azure Synapse Spark CDM connector to read and write CDM entities in a CDM folder on ADLS.
 services: synapse-analytics 
-ms.author: jasonh
+ms.author: avinadac
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/10/2022
-author: JasonWHowell
+author: avinadams
 ---
 
 # Common Data Model (CDM) Connector for Azure Synapse Spark
