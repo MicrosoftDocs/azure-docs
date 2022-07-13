@@ -1,7 +1,6 @@
 ---
 title: Customize a Person model with Azure Video Indexer website
 description: Learn how to customize a Person model with the Azure Video Indexer website.
-services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article

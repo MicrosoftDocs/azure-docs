@@ -1,7 +1,6 @@
 ---
 title: Animated character detection with Azure Video Indexer how to
 description: This how to demonstrates how to use animated character detection with Azure Video Indexer.
-services: azure-video-analyzer
 author: Juliako
 manager: femila
 
