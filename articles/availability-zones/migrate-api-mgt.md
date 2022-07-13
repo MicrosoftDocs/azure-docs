@@ -81,7 +81,7 @@ Use this option to migrate an existing location of your API Management instance 
 
 1.	Select **Apply**, and then select **Save**.
 
-     :::image type="content" alt-text="Screenshot of how to migrate existing location of API Management instance not injected in VNet" source ="media/migrate-api-mgt/option-one-not-injected-in-vnet.png":::
+     :::image type="content" alt-text="Screenshot of how to migrate existing location of API Management instance not injected in VNet." source ="media/migrate-api-mgt/option-one-not-injected-in-vnet.png":::
     
 
 
@@ -104,7 +104,7 @@ Use this option to migrate an existing location of your API Management instance 
 1.	Select **Apply**, and then select **Save**.
 
 
-     :::image type="content" alt-text="Screenshot of how to migrate existing location of API Management instance injected in VNet" source ="media/migrate-api-mgt/option-two-injected-in-vnet.png":::
+     :::image type="content" alt-text="Screenshot of how to migrate existing location of API Management instance injected in VNet." source ="media/migrate-api-mgt/option-two-injected-in-vnet.png":::
 
 ## Option 3: Migrate existing location of API Management instance (stv2 platform), injected in VNet
 
@@ -124,7 +124,7 @@ Use this option to migrate an existing location of your API Management instance 
 
 1.	Select **Apply**, and then select **Save**.
 
-     :::image type="content" alt-text="Screenshot of how to migrate existing location of API Management instance (stv2 platform) injected in VNet" source ="media/migrate-api-mgt/option-three-stv2-injected-in-vnet.png":::
+     :::image type="content" alt-text="Screenshot of how to migrate existing location of API Management instance (stv2 platform) injected in VNet." source ="media/migrate-api-mgt/option-three-stv2-injected-in-vnet.png":::
 
 ## Option 4. Add new location for API Management instance (with or without VNet) with availability zones
 
@@ -144,7 +144,7 @@ If your API Management instance is deployed in a virtual network in the primary 
 
 1. Select **Add**, and then select **Save**.
 
-     :::image type="content" alt-text="Screenshot of how to add new location for API Management instance with or without VNet" source ="media/migrate-api-mgt/option-four-add-new-location.png":::
+     :::image type="content" alt-text="Screenshot of how to add new location for API Management instance with or without VNet." source ="media/migrate-api-mgt/option-four-add-new-location.png":::
 
 ## Next steps
 
