@@ -74,6 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Identifier (Entity ID)** textbox, type a URL using one of the following patterns:
 
 	| **Identifier** |
+    |-------------|
     |`https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>`|
     |`https://login.freshgrade.com:443/saml/metadata/alias/<instancename>`|
 
