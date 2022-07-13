@@ -4,9 +4,9 @@ description: Set plan availability for an Azure Container offer in Microsoft App
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
-ms.date: 04/21/2021
+author: AarathiN
+ms.author: aarathin
+ms.date: 6/20/2022
 ---
 
 # Set plan availability for an Azure Container offer

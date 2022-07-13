@@ -3,7 +3,7 @@ title: Analyze device data in your Azure IoT Central application | Microsoft Doc
 description: Analyze device data in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -15,6 +15,9 @@ ms.custom: [iot-central-frontdoor]
 # How to use data explorer to analyze device data
 
 Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate telemetry from your devices. To get started, select **Data explorer** on the left pane.
+
+> [!NOTE]
+> Only users in a role that have the necessary permissions can view, create, edit, and delete queries. To learn more, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
 
 ## Understand the data explorer UI
 

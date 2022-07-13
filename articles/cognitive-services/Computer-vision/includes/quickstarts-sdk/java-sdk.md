@@ -24,7 +24,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The current version of the [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
@@ -88,7 +88,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
     [!INCLUDE [find key and endpoint](../find-key.md)]
 
-1. Replace the contents of the file with the following code. This code defines a method, `ReadFromFile`, that takes a local file path and prints the image's text to the console.
+1. Replace the contents of the file with the following code. This code defines a method, `ReadFromUrl`, that takes a remote image path and prints the image's text to the console.
 
    [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart-single.java?name=snippet_single)]
 
@@ -96,8 +96,6 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
    > [!IMPORTANT]
    > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
-
-1. Change the value of the `localFilePath` to match the image file you downloaded. 
 
 1. Build the app with the following command:
 

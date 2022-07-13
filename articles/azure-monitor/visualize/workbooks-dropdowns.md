@@ -7,7 +7,7 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/05/2022
 ---
 
 # Workbook drop down parameters
@@ -150,5 +150,4 @@ Here is an example for multi-select drop-down at work:
 
 ## Next steps
 
-* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](./workbooks-access-control.md) and share access to your workbook resources.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).

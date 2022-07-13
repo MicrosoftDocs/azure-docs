@@ -35,7 +35,7 @@
 - name: Samples
   items:
     - name: .NET
-      href: https://github.com/Azure-Samples/msdocs-azure-tables-sdk-dotnet.git
+      href: samples-dotnet.md
     - name: Java
       href: how-to-use-java.md
     - name: Node.js
@@ -55,20 +55,59 @@
       maintainContext: true
     - name: Azure CLI
       items:
-      - name: Overview Table API samples
-        href: cli-samples.md
-      - name: Create account, keyspace, and table
-        href: ../scripts/cli/table/create.md
-      - name: Create serverless
-        href: ../scripts/cli/table/serverless.md
-      - name: Create with autoscale
-        href: ../scripts/cli/table/autoscale.md
-      - name: Perform throughput operations
-        href: ../scripts/cli/table/throughput.md
-      - name: Lock resources from deletion
-        href: ../scripts/cli/table/lock.md
+        - name: Overview Table API samples
+          href: cli-samples.md
+        - name: Create account and table
+          href: ../scripts/cli/table/create.md
+        - name: Create serverless
+          href: ../scripts/cli/table/serverless.md
+        - name: Create with autoscale
+          href: ../scripts/cli/table/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/cli/table/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/cli/table/lock.md
+        - name: Overview common API samples
+          href: ../common-cli-samples.md?toc=/azure/cosmos-db/table/toc.json
+        - name: Add or fail over regions
+          href: ../scripts/cli/common/regions.md?toc=/azure/cosmos-db/table/toc.json
+        - name: Perform account key operations
+          href: ../scripts/cli/common/keys.md?toc=/azure/cosmos-db/table/toc.json
+        - name: Secure with IP firewall
+          href: ../scripts/cli/common/ipfirewall.md?toc=/azure/cosmos-db/table/toc.json
+        - name: Secure new account with service endpoints
+          href: ../scripts/cli/common/service-endpoints.md?toc=/azure/cosmos-db/table/toc.json
+        - name: Secure existing account with service endpoints
+          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=/azure/cosmos-db/table/toc.json
+    - name: Azure PowerShell
+      items:
+        - name: Overview Table API samples
+          href: powershell-samples.md
+        - name: Create account and table
+          href: ../scripts/powershell/table/create.md
+        - name: Create with autoscale
+          href: ../scripts/powershell/table/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/powershell/table/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/powershell/table/lock.md
+        - name: List and get tables
+          href: ../scripts/powershell/table/list-get.md
+        - name: Overview common API samples
+          href: ../common-powershell-samples.md?toc=/azure/cosmos-db/table/toc.json
+        - name: Account keys or connection strings
+          href: ../scripts/powershell/common/keys-connection-strings.md?toc=/azure/cosmos-db/table/toc.json
+        - name: Change failover priority or trigger failover
+          href: ../scripts/powershell/common/failover-priority-update.md?toc=/azure/cosmos-db/table/toc.json
+        - name: Create an account with IP Firewall
+          href: ../scripts/powershell/common/firewall-create.md?toc=/azure/cosmos-db/table/toc.json
+        - name: Update account
+          href: ../scripts/powershell/common/account-update.md?toc=/azure/cosmos-db/table/toc.json
+        - name: Update an account's regions
+          href: ../scripts/powershell/common/update-region.md?toc=/azure/cosmos-db/table/toc.json
+    - name: Azure Resource Graph queries
+      href: ../resource-graph-samples.md?toc=/azure/cosmos-db/table/toc.json
 - name: Concepts
-  expanded: true
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
@@ -222,6 +261,22 @@
       href: table-api-faq.yml
 - name: How to
   items:
+    - name: Develop applications
+      items:
+        - name: .NET
+          items:
+            - name: Get started
+              href: how-to-dotnet-get-started.md
+            - name: Work with tables
+              items:
+                - name: Create a table
+                  href: how-to-dotnet-create-table.md
+            - name: Work with items
+              items:
+                - name: Create an item
+                  href: how-to-dotnet-create-item.md
+                - name: Read an item
+                  href: how-to-dotnet-read-item.md
     - name: Build apps with Table API
       href: table-support.md
     - name: Create a container - Table API

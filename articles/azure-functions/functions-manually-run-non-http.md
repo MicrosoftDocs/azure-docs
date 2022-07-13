@@ -1,11 +1,9 @@
 ---
 title: Manually run a non HTTP-triggered Azure Functions
 description: Use an HTTP request to run a non-HTTP triggered Azure Functions
-author: craigshoemaker
 
 ms.topic: article
 ms.date: 04/23/2020
-ms.author: cshoe
 ---
 
 # Manually run a non HTTP-triggered function
@@ -64,6 +62,9 @@ Open Postman and follow these steps:
 1. Type **{ "input": "test" }** as the body for the request.
 
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body settings." border="true":::
+
+   > [!NOTE]
+   > If you don't want to pass data into the function, you must still pass an empty dictionary `{}` as the body of the POST request.
 
 1. Select **Send**.
         

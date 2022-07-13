@@ -94,7 +94,7 @@ To create a custom Windows 10 Enterprise multi-session image manually:
 1. Make sure your VM has all the latest Windows Updates. Download the updates and restart the VM, if necessary.
 
    > [!IMPORTANT]
-   > After you install a language pack, you have to reinstall the latest cumulative update that is installed on your image. If you do not reinstall the latest cumulative update, you may encounter errors. If the latest cumulative update is already installed, Windows Update does not offer it again; you have to manually reinstall it. For more information, see [Languages overview](/windows-hardware/manufacture/desktop/languages-overview.md?view=windows-10&preserve-view=true#considerations).
+   > After you install a language pack, you have to reinstall the latest cumulative update that is installed on your image. If you do not reinstall the latest cumulative update, you may encounter errors. If the latest cumulative update is already installed, Windows Update does not offer it again; you have to manually reinstall it. For more information, see [Languages overview](/windows-hardware/manufacture/desktop/languages-overview?view=windows-10&preserve-view=true#considerations).
 
 1. Connect to the language package, FOD, and Inbox Apps file share repository and mount it to a letter drive (for example, drive E).
 

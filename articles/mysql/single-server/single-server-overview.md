@@ -7,8 +7,9 @@ ms.subservice: single-server
 ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
-ms.date: 6/19/2021
+ms.date: 06/20/2022
 ---
+
 # Azure Database for MySQL Single Server
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

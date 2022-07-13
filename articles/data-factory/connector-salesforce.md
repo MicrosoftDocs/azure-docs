@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/26/2022
+ms.date: 06/23/2022
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
@@ -36,7 +36,7 @@ Specifically, this Salesforce connector supports:
 - Copying data from and to Salesforce production, sandbox, and custom domain.
 
 >[!NOTE]
->This function supports copy of any schema from the above mentioned Salesforce environments, including the [Nonprofit Success Pack](https://www.salesforce.org/products/nonprofit-success-pack/) (NPSP). This allows you to bring your Salesforce nonprofit data into Azure, work with it in Azure data services, unify it with other data sets, and visualize it in Power BI for rapid insights.
+>This function supports copy of any schema from the above mentioned Salesforce environments, including the [Nonprofit Success Pack](https://www.salesforce.org/products/nonprofit-success-pack/) (NPSP). 
 
 The Salesforce connector is built on top of the Salesforce REST/Bulk API. When copying data from Salesforce, the connector automatically chooses between REST and Bulk APIs based on the data size – when the result set is large, Bulk API is used for better performance; You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce, the connector uses BULK API v1.
 
@@ -257,6 +257,9 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 >[!NOTE]
 >For backward compatibility: When you copy data from Salesforce, if you use the previous "RelationalSource" type copy, the source keeps working while you see a suggestion to switch to the new "SalesforceSource" type.
 
+> [!Note]
+> Salesforce source doesn't support proxy settings in the self-hosted integration runtime, but sink does.
+
 ### Salesforce as a sink type
 
 To copy data to Salesforce, set the sink type in the copy activity to **SalesforceSink**. The following properties are supported in the copy activity **sink** section.
@@ -364,6 +367,9 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 | Text Area (Rich) |String |
 | Text (Encrypted) |String |
 | URL |String |
+
+> [!Note]
+> Salesforce Number type is mapping to Decimal type in Azure Data Factory and Azure Synapse pipelines as a service interim data type. Decimal type honors the defined precision and scale. For data whose decimal places exceeds the defined scale, its value will be rounded off in preview data and copy. To avoid getting such precision loss in Azure Data Factory and Azure Synapse pipelines, consider increasing the decimal places to a reasonably large value in **Custom Field Definition Edit** page of Salesforce. 
 
 ## Lookup activity properties
 

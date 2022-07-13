@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 07/11/2022
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-summarization, ignite-fall-2021, mode-api
@@ -16,8 +16,6 @@ zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: using document summarization and conversation summarization (preview)
-
-Use this article to get started with document summarization and conversation summarization using the client library and REST API. Follow these steps to try out examples code for mining text:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -62,4 +60,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-* [Summarization overview](overview.md)
+* [How to call document summarization](./how-to/document-summarization.md)
+* [How to call conversation summarization](./how-to/conversation-summarization.md)

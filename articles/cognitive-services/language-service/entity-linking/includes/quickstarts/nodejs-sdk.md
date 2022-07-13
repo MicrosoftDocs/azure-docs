@@ -6,12 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/07/2022
+ms.date: 07/11/2022
 ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 
-[Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples)
+[Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics)
+
+Use this quickstart to create an entity linking application with the client library for Node.js. In the following example, you will create a Javascript application that can identify and disambiguate entities found in text.
+
 
 ## Prerequisites
 
@@ -19,7 +22,7 @@ ms.custom: devx-track-js, ignite-fall-2021
 * The current version of [Node.js](https://nodejs.org/).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
 
 > [!div class="nextstepaction"]
@@ -45,7 +48,7 @@ npm init
 
 ### Install the client library
 
-Install the NPM package:
+Install the npm package:
 
 ```console
 npm install @azure/ai-text-analytics@5.1.0
@@ -64,12 +67,12 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 "use strict";
 
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
-const key = '<paste-your-key-here>';
 const endpoint = '<paste-your-endpoint-here>';
-// Authenticate the client with your key and endpoint
+const key = '<paste-your-key-here>';
+// Authenticate the client with your key and endpoint.
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 
-// Example method for recognizing entities and providing a link to an online data source
+// Example method for recognizing entities and providing a link to an online data source.
 async function linkedEntityRecognition(client){
 
     const linkedEntityInput = [

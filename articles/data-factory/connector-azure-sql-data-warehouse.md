@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/22/2022
+ms.date: 07/04/2022
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -24,12 +24,18 @@ This article outlines how to use Copy Activity in Azure Data Factory or Synapse 
 
 ## Supported capabilities
 
-This Azure Synapse Analytics connector is supported for the following activities:
+This Azure Synapse Analytics connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md) table
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ |
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
+|[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 For Copy activity, this Azure Synapse Analytics connector supports these functions:
 
@@ -959,7 +965,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 - Recreate: The table will get dropped and recreated. Required if creating a new table dynamically.
 - Truncate: All rows from the target table will get removed.
 
-**Enable staging:** This enables loading into Azure Synapse Analytics SQL Pools using the copy command and is recommended for most Synpase sinks. The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). 
+**Enable staging:** This enables loading into Azure Synapse Analytics SQL Pools using the copy command and is recommended for most Synapse sinks. The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). 
 
 - When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
 - If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).

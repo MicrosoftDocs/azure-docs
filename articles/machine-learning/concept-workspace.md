@@ -86,7 +86,7 @@ You can also perform the following workspace management tasks:
 
 There are multiple ways to create a workspace:  
 
-* Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface to walk you through each step.
+* Use the [Azure portal](quickstart-create-resources.md) for a point-and-click interface to walk you through each step.
 * Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
 * If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
@@ -96,9 +96,9 @@ There are multiple ways to create a workspace:
 
 ## <a name="sub-resources"></a> Sub resources
 
-These sub resources are the main resources that are made in the AML workspace.
+These sub resources are the main resources that are made in the AzureML workspace.
 
-* VMs: provide computing power for your AML workspace and are an integral part in deploying and training models.
+* VMs: provide computing power for your AzureML workspace and are an integral part in deploying and training models.
 * Load Balancer: a network load balancer is created for each compute instance and compute cluster to manage traffic even while the compute instance/cluster is stopped.
 * Virtual Network: these help Azure resources communicate with one another, the internet, and other on-premises networks.
 * Bandwidth: encapsulates all outbound data transfers across regions.

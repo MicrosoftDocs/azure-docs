@@ -3,12 +3,12 @@ title: Storage account overview
 titleSuffix: Azure Storage
 description: Learn about the different types of storage accounts in Azure Storage. Review account naming, performance tiers, access tiers, redundancy, encryption, endpoints, and more.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2022
-ms.author: tamram
+ms.date: 06/28/2022
+ms.author: jimmart-dev
 ms.subservice: common
 ---
 
@@ -97,12 +97,12 @@ The following table lists the format for Azure DNS Zone endpoints for each of th
 
 | Storage service | Endpoint |
 |--|--|
-| Blob Storage | `https://<storage-account>.z[00-99].blob.core.windows.net` |
-| Static website (Blob Storage) | `https://<storage-account>.z[00-99].web.core.windows.net` |
-| Data Lake Storage Gen2 | `https://<storage-account>.z[00-99].dfs.core.windows.net` |
-| Azure Files | `https://<storage-account>.z[00-99].file.core.windows.net` |
-| Queue Storage | `https://<storage-account>.z[00-99].queue.core.windows.net` |
-| Table Storage | `https://<storage-account>.z[00-99].table.core.windows.net` |
+| Blob Storage | `https://<storage-account>.z[00-99].blob.storage.azure.net` |
+| Static website (Blob Storage) | `https://<storage-account>.z[00-99].web.storage.azure.net` |
+| Data Lake Storage Gen2 | `https://<storage-account>.z[00-99].dfs.storage.azure.net` |
+| Azure Files | `https://<storage-account>.z[00-99].file.storage.azure.net` |
+| Queue Storage | `https://<storage-account>.z[00-99].queue.storage.azure.net` |
+| Table Storage | `https://<storage-account>.z[00-99].table.storage.azure.net` |
 
 > [!IMPORTANT]
 > You can create up to 5000 accounts with Azure DNS Zone endpoints per subscription. However, you may need to update your application code to query for the account endpoint at runtime. You can call the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
@@ -159,8 +159,10 @@ The following table describes the legacy storage account types. These account ty
 
 | Type of legacy storage account | Supported storage services | Redundancy options | Deployment model | Usage |
 |--|--|--|--|--|
-| Standard general-purpose v1 | Blob Storage, Queue Storage, Table Storage, and Azure Files | LRS/GRS/RA-GRS | Resource Manager, classic | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using it for these scenarios:<br /><ul><li>Your applications require the Azure [classic deployment model](../../azure-portal/supportability/classic-deployment-model-quota-increase-requests.md).</li><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don’t require large capacity. In this case, a general-purpose v1 account may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than February 14, 2014, or a client library with a version lower than 4.x, and you can’t upgrade your application.</li><li>You're selecting a storage account to use as a cache for Azure Site Recovery. Because Site Recovery is transaction-intensive, a general-purpose v1 account may be more cost-effective. For more information, see [Support matrix for Azure VM disaster recovery between Azure regions](../../site-recovery/azure-to-azure-support-matrix.md#cache-storage).</li></ul> |
+| Standard general-purpose v1 | Blob Storage, Queue Storage, Table Storage, and Azure Files | LRS/GRS/RA-GRS | Resource Manager, classic<sup>1</sup> | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using it for these scenarios:<br /><ul><li>Your applications require the Azure [classic deployment model](../../azure-portal/supportability/classic-deployment-model-quota-increase-requests.md)<sup>1</sup>.</li><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don’t require large capacity. In this case, a general-purpose v1 account may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than February 14, 2014, or a client library with a version lower than 4.x, and you can’t upgrade your application.</li><li>You're selecting a storage account to use as a cache for Azure Site Recovery. Because Site Recovery is transaction-intensive, a general-purpose v1 account may be more cost-effective. For more information, see [Support matrix for Azure VM disaster recovery between Azure regions](../../site-recovery/azure-to-azure-support-matrix.md#cache-storage).</li></ul> |
 | Standard Blob Storage | Blob Storage (block blobs and append blobs only) | LRS/GRS/RA-GRS | Resource Manager | Microsoft recommends using standard general-purpose v2 accounts instead when possible. |
+
+<sup>1</sup> Beginning August 1, 2022, you'll no longer be able to create new storage accounts with the classic deployment model. Resources created prior to that date will continue to be supported through August 31, 2024. For more information, see [Azure classic storage accounts will be retired on 31 August 2024](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024).
 
 ## Scalability targets for standard storage accounts
 
