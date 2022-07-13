@@ -44,5 +44,5 @@ The following articles might be of interest to you:
 
 - Try [quickstart for authentication of Teams users](./manage-teams-identity.md).
 - Try [quickstart for calling to a Teams user](./voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md).
-- Learn more about [Custom Teams endpoint](../concepts/teams-endpoint.md)
+- Learn more about [Azure Communication Services support Teams identities](../concepts/teams-endpoint.md)
 - Learn more about [Teams interoperability](../concepts/teams-interop.md)
