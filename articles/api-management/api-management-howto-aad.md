@@ -18,8 +18,8 @@ In this article, you'll learn how to:
 > * Manage groups of Azure AD users by adding external groups that contain the users.
 
 > [!IMPORTANT]
-> * This article has been updated with steps to configure an Azure AD app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)) v2.0. 
-> * If you previously configured an Azure AD app for user sign-in using the Azure AD Authentication Library, we recommend that you [migrate to MSAL v2.0](#migrate-to-msal-v2.0).
+> * This article has been updated with steps to configure an Azure AD app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)). 
+> * If you previously configured an Azure AD app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ After the Azure AD provider is enabled:
 1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
 1. Select **+Add** from the top to open the **Add identity provider** pane to the right.
 1. Under **Type**, select **Azure Active Directory** from the drop-down menu. Once selected, you'll be able to enter other necessary information. 
-    * In the **Client library** dropdown, select **MSAL v2**.
+    * In the **Client library** dropdown, select **MSAL**.
     * To add **Client ID** and **Client secret**, see steps later in the article.
 1. Save the **Redirect URL** for later.
     
@@ -125,15 +125,21 @@ After the Azure AD provider is enabled:
 * Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
 * Republish the developer portal after any configuration change.
 
-## Migrate to MSAL v2.0
+## Migrate to MSAL
 
-If you previously configured an Azure AD app for user sign-in using the Azure AD Authentication Library, you can use the portal to migrate the app to MSAL v2.0.
+If you previously configured an Azure AD app for user sign-in using the ADAL, you can use the portal to migrate the app to MSAL and update the identity provider in API Management.
+
+### Update Azure AD app for MSAL compatibility
+
+For steps, see [Switch redirect URIs to the single-page application type](../active-directory/develop/migrate-spa-implicit-to-auth-code.md#switch-redirect-uris-to-spa-platform).
+
+### Update identity provider configuration
 
 1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
 1. Select **Azure Active Directory** from the list.
-4. In the **Client library** dropdown, select **MSAL v2**.
-5. Select **Update**.
-6. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+1. In the **Client library** dropdown, select **MSAL**.
+1. Select **Update**.
+1. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
 
 
 ## Add an external Azure AD group
@@ -225,7 +231,7 @@ Your user is now signed in to the developer portal for your API Management servi
 ## Next Steps
 
 - Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
-- Learn more about [MSAL](../active-directory/develop/msal-overview.md) and [migrating to MSAL v2](../active-directory/develop/msal-migration.md).
+- Learn more about [MSAL](../active-directory/develop/msal-overview.md) and [migrating to MSAL](../active-directory/develop/msal-migration.md).
 - [Create an API Management service instance](./get-started-create-service-instance.md).
 - [Manage your first API](./import-and-publish.md).
 

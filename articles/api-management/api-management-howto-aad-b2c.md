@@ -20,7 +20,7 @@ In this tutorial, you'll learn the configuration required in your API Management
 
 > [!IMPORTANT]
 > * This article has been updated with steps to configure an Azure AD B2C app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)) v2.0. 
-> * If you previously configured an Azure AD B2C app for user sign-in using the Azure AD Authentication Library, we recommend that you [migrate to MSAL v2.0](#migrate-to-msal-v2.0).
+> * If you previously configured an Azure AD B2C app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
 
 For information about enabling access to the developer portal by using classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory](api-management-howto-aad.md).
 
@@ -52,7 +52,7 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
 1. In a separate [Azure portal](https://portal.azure.com) tab, navigate to your API Management instance.
 1. Under **Developer portal**, select **Identities** > **+ Add**.
 1. In the **Add identity provider** page, select **Azure Active Directory B2C**. Once selected, you'll be able to enter other necessary information. 
-    * In the **Client library** dropdown, select **MSAL v2**.
+    * In the **Client library** dropdown, select **MSAL**.
     * To add other settings, see steps later in the article.
 1. In the **Add identity provider** window, copy the **Redirect URL**.
 
@@ -92,15 +92,21 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
 
 After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.
 
-## Migrate to MSAL v2.0
+## Migrate to MSAL
 
-If you previously configured an Azure AD B2C app for user sign-in using the Azure AD Authentication Library, you can use the portal to migrate the app to MSAL v2.0.
+If you previously configured an Azure AD B2C app for user sign-in using the ADAL, you can use the portal to migrate the app to MSAL and update the identity provider in API Management.
+
+### Update Azure AD B2C app for MSAL compatibility
+
+For steps, see [Switch redirect URIs to the single-page application type](../active-directory/develop/migrate-spa-implicit-to-auth-code.md#switch-redirect-uris-to-spa-platform).
+
+### Update identity provider configuration
 
 1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
 1. Select **Azure Active Directory B2C** from the list.
-4. In the **Client library** dropdown, select **MSAL v2**.
-5. Select **Update**.
-6. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+1. In the **Client library** dropdown, select **MSAL**.
+1. Select **Update**.
+1. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
 
 
 ## Developer portal - add Azure Active Directory B2C account authentication
