@@ -100,3 +100,10 @@ In this scenario, an application was sent an Azure AD access token for some arbi
 
 This flow is called the[OAuth2 token exchange flow](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-04). It generally requires multiple configuration steps with Azure AD, and in some cases(depending on the Azure AD tenant configuration) might require special consent from the administrator of the Azure AD tenant.
 
+## Next Steps
+
+- [Overview of Microsoft Azure confidential ledger](overview.md)
+- [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md)
+- [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md)
+- [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+- [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)
