@@ -16,7 +16,7 @@ ms.date: 07/13/2022
 |Classification|	Manual|	Purview|		All types|	Yes|	N/A|
 |Sensitivity Labels|	Automatic|	Purview|		All types|	No|See notes|
 |Glossary terms|	Manual|	Purview|		All types|	Yes|N/A|
-|Collection|	Automatic|	Purview|	N/A|	All types|	|	N/A|
+|Collection|	Automatic|	Purview|	N/A|	All types|	N/A|
 |Hierarchy|	Automatic|	Purview|		All types|	No|	N/A|
 |qualifiedName|	Automatic|	Purview|		All types|	No|N/A|
 |Asset Description|	Automatic/Manual*|	Purview|		All types|	Yes|N/A|
