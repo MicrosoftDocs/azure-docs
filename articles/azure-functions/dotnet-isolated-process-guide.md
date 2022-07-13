@@ -270,6 +270,10 @@ This section describes the current state of the functional and behavioral differ
 | ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ | 
 | Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | Not Supported |
 
+
+## Remote Debugging using Visual Studio
+
+Because your isolated process app runs outside the Functions runtime, you need to attach the remote debugger to a separate process. To learn more about debugging using Visual Studio, see [Remote Debugging](functions-develop-vs.md?tabs=isolated-process#remote-debugging).
 ## Next steps
 
 + [Learn more about triggers and bindings](functions-triggers-bindings.md)

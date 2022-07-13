@@ -17,7 +17,7 @@ ms.custom: mode-other
 
 [!INCLUDE [Public Preview](../../communication-services/includes/public-preview-include-document.md)]
 
-In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving a Microsoft Azure Active Directory (Azure AD) user token. You'll then exchange that token for an access token of Teams user with the Azure Communication Services Identity SDK. The access token for Teams user can then be used by the Communication Services Calling SDK to build a custom Teams endpoint.
+In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving a Microsoft Azure Active Directory (Azure AD) user token. You'll then exchange that token for an access token of Teams user with the Azure Communication Services Identity SDK. The access token for Teams user can then be used by the Communication Services Calling SDK to integrate calling capability as Teams user.
 
 > [!NOTE]
 > When you're in a production environment, we recommend that you implement this exchange mechanism in back-end services, because requests for an exchange are signed with a secret.
@@ -37,7 +37,7 @@ The following sections will guide you through the steps for administrators, deve
 
 The Administrator role has extended permissions in Azure AD. Members of this role can set up resources and can read information from the Azure portal. In the following diagram, you can see all actions that have to be executed by Administrators.
 
-![Administrator actions to enable custom Teams endpoint experience](./media/teams-identities/teams-identity-admin-overview.svg)
+![Administrator actions to enable Azure Communication Services support for Teams identities.](./media/teams-identities/teams-identity-admin-overview.svg)
 
 1. The Contoso Administrator creates or selects an existing *application* in Azure Active Directory. The property *Supported account types* defines whether users from various tenants can authenticate to the application. The property *Redirect URI* redirects a successful authentication request to the Contoso *server*.
 1. The Contoso Administrator adds API permissions to `Teams.ManageCalls` and `Teams.ManageChats` from Communication Services. 
@@ -112,7 +112,7 @@ The Contoso developer needs to set up the *client application* to authenticate u
 
 The developer's required actions are shown in following diagram:
 
-![Diagram of developer actions to enable the custom Teams endpoint experience.](./media/teams-identities/teams-identity-developer-overview.svg)
+![Diagram of developer actions to enable Azure Communication Services support for Teams identities.](./media/teams-identities/teams-identity-developer-overview.svg)
 
 1. The Contoso developer configures the Microsoft Authentication Library (MSAL) to authenticate the user for the application that was created earlier by the Administrator for Communication Services Teams.ManageCalls and Teams.ManageChats permissions.
 1. The Contoso developer initializes the Communication Services Identity SDK and exchanges the incoming Azure AD user token for the access token of Teams user via the identity SDK. The access token of Teams user is then returned to the *client application*.
@@ -145,14 +145,14 @@ For more information about setting up environments in public documentation, see 
 
 The user represents the Fabrikam users of the Contoso application. The user experience is shown in the following diagram:
 
-![Diagram of user actions to enable the custom Teams endpoint experience.](./media/teams-identities/teams-identity-user-overview.svg)
+![Diagram of user actions to enable Azure Communication Services support for Teams identities.](./media/teams-identities/teams-identity-user-overview.svg)
 
 1. The Fabrikam user uses the Contoso *client application* and is prompted to authenticate.
 1. The Contoso *client application* uses the MSAL to authenticate the user against the Fabrikam Azure AD tenant for the Contoso application with Communication Services Teams.ManageCalls and Teams.ManageChats permissions. 
 1. Authentication is redirected to the *server*, as defined in the property *Redirect URI* in the MSAL and the Contoso application.
 1. The Contoso *server* exchanges the Azure AD user token for the access token of Teams user by using the Communication Services Identity SDK and returns the access token of Teams user to the *client application*.
 
-With a valid access token for Teams user in the *client application*, developers can integrate the Communication Services Calling SDK and build a custom Teams endpoint.
+With a valid access token for Teams user in the *client application*, developers can integrate the Communication Services Calling SDK and manage calls as Teams user.
 
 ## Next steps
 
@@ -165,5 +165,5 @@ In this quickstart, you learned how to:
 
 Learn about the following concepts:
 
-- [Custom Teams endpoint](../concepts/teams-endpoint.md)
+- [Azure Communication Services support Teams identities](../concepts/teams-endpoint.md)
 - [Teams interoperability](../concepts/teams-interop.md)
