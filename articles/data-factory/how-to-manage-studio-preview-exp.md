@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 07/08/2022
+ms.date: 07/13/2022
 ---
 
 # Manage Azure Data Factory studio preview experience
@@ -56,6 +56,9 @@ There are two ways to enable preview experiences.
    [**Pipeline experimental view**](#pipeline-experimental-view)
    * [Adding activities](#adding-activities)
    * [Iteration & conditionals container view](#iteration-and-conditionals-container-view)
+
+   [**Monitoring experimental view**](#monitoring-experimental-view)
+   * [Simplified default monitoring view](#simplified-default-monitoring-view)
 
 ### Dataflow data first experimental view
 
@@ -137,7 +140,41 @@ You have two options to add activities to your iteration and conditional activit
     :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-18.png" alt-text="Screenshot of the drop-down list of activities in the right-most activity.":::
     
     Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the container.
-    
+   
+
+### Monitoring experimental view
+
+UI (user interfaces) changes have been made to the monitoring page. These changes were made to simplify and streamline your monitoring experience.
+The monitoring experience remains the same as detailed [here]([https://docs.microsoft.com/en-us/azure/data-factory/monitor-visually]), except for items detailed below. 
+
+#### Simplified default monitoring view
+
+The default monitoring view has been simplified with fewer default columns. You can add/remove columns if you’d like to personalize your monitoring view. Changes to the default will be cached. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-20.png" alt-text="Screenshot of the new default column view on the monitoring page.":::
+
+**Default columns**
+| **Column name** | **Description** |
+| --- | --- |
+| Pipeline Name | Name of the pipeline |
+| Run Start | Start date and time for the pipeline run (MM/DD/YYYY, HH:MM:SS AM/PM) |
+| Duration | Run duration (HH:MM:SS) |
+| Triggered By | The name of the trigger that started the pipeline |
+| Status | **Failed**, **Succeeded**, **In Progress**, **Cancelled**, or **Queued** |
+| Parameters | Parameters for the pipeline run (name/value pairs) |
+| Error | If the pipeline failed, the run error |
+| Run ID | ID of the pipeline run |
+
+
+You can edit your default view by clicking **Edit Columns**. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-21.png" alt-text="Screenshot of the Edit Columns button in the center of the top row.":::
+
+Add columns by clicking **Add column** or remove columns by clicking the trashcan icon. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-22.png" alt-text="Screenshot of the Add column button and trashcan icon to edit column view.":::
+
+   
 ## Provide feedback
 
 We want to hear from you! If you see this pop-up, please let us know your thoughts by providing feedback on the updates you've tested.  
