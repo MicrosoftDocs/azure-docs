@@ -81,7 +81,7 @@
       - name: Attach Azure NetApp Files to Azure VMware Solution VMs
         href: netapp-files-with-azure-vmware-solution.md
       - name: Install Cloud Backup for Virtual Machines
-        href: install-cloud-backup.md
+        href: install-cloud-backup-virtual-machines.md
       - name: Backup Azure NetApp Files datastores and VMs
         href: backup-azure-netapp-files-datastores-vms.md
       - name: Restore VMs
