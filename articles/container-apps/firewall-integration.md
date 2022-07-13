@@ -43,4 +43,4 @@ The following tables describe how to configure a collection of NSG allow rules.
 |--|--|--|--|
 | TCP | `443` | \* | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. |
 | UDP | `123` | \* | NTP server. |
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |![image](https://user-images.githubusercontent.com/40045869/178787760-ab4525ee-bb76-4bd5-8fbe-d123736e92aa.png)
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |
