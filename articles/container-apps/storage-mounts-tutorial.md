@@ -119,7 +119,7 @@ manage secrets
 1. Define the storage mount name.
 
     ```bash
-    STORAGE_MOUNT_NAME="my-storage-mount"
+    STORAGE_MOUNT_NAME="mystoragemount"
     ```
 
     This value is the name used to define the storage mount link from your Container Apps environment to your Azure Storage account.
@@ -191,14 +191,8 @@ manage secrets
     template:
       volumes:
       - name: my-azure-file-volume
-        storageName: my-storage-mount
+        storageName: mystoragemount
         storageType: AzureFile
-      containers:
-      - image: nginx
-        name: my-container-app
-        volumeMounts:
-        - volumeName: my-azure-file-volume
-          mountPath: /usr/share/nginx/html
     ```
 
     The new `template.volumes` section includes the following properties.
@@ -211,9 +205,21 @@ manage secrets
 
     The `volumes` section defines volumes at the app level that your application container or sidecar containers can reference via a `volumeMounts` section associated with a container.
 
+1. Add a `volumeMounts` section.
+
+    ```yml
+    containers:
+      - image: nginx
+        name: my-container-app
+        volumeMounts:
+        - volumeName: my-azure-file-volume
+          mountPath: /usr/share/nginx/html
+    ```
+
     The new `volumeMounts` section under the *nginx* container includes the following properties:
 
     | Property | Description |
+    |--|--|
     | `volumeName` | This value must match the name defined in the `volumes` definition. |
     | `mountPath` | This value defines the path in your container where the storage is mounted. |
 
@@ -252,6 +258,8 @@ manage secrets
 1. Return to your browser and navigate to the *file-mount.html* file from the nginx website.
 
     Verify you see the *hello* message in the browser.
+
+    You can now run the `exit` command to return to your native terminal environment.
 
 ## Clean up resources
 
