@@ -76,7 +76,9 @@ If you select this option, customers are not charged for the first month of use.
 
 ### Choose who can see your plan
 
-You can configure each plan to be visible to everyone or to only a specific audience.
+You can configure each plan to be visible to everyone (public) or to only a specific audience (private).
+
+Private plans restrict the discovery and deployment of your solution to a specific set of customers you choose and offer customized software, terms, and pricing. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software.
 
 Private plans are good for testing your visual or making a special plan available only to a select group of customers. However, it’s important to remember that if you only configure private plans for a visual:
 
@@ -87,8 +89,6 @@ Private plans are good for testing your visual or making a special plan availabl
 > If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private.
 
 You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID you assign. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file.
-
-For more information, see [Private plans in the Microsoft commercial marketplace](private-plans.md).
 
 #### Make your plan public
 
