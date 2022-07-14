@@ -26,7 +26,7 @@ Any file generated (and captured) from an experiment's run or job is an artifact
 
 You may have been logging artifacts already:
 
-# [Using MLflow](#tab/mlflow)
+# [Using MLflow SDK](#tab/mlflow)
 
 ```python
 filename = 'model.pkl'
@@ -72,6 +72,32 @@ Logging models has the following advantages:
 > * Swagger is enabled in endpoints automatically and the __Test__ feature can be used in Azure ML studio.
 > * Models can be used as pipelines inputs directly.
 > * You can use the Responsable AI dashbord.
+
+Models can get logged by:
+
+# [Using MLflow SDK](#tab/mlflow)
+
+```python
+mlflow..sklearn.log_model(sklearn_estimator, "classifier")
+```
+
+# [Using Azure ML SDK v1](#tab/sdkv1)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+Logging models using Azure ML SDK v1 is not possible. We recommend to use MLflow SDK.
+
+# [Using the outputs folder](#tab/outputs)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+```python
+os.mkdirs("outputs/classifier", exists_ok=True)
+
+mlflow..sklearn.save_model(sklearn_estimator, "outputs/classifier")
+```
+
+---
 
 ## The MLModel format
 
