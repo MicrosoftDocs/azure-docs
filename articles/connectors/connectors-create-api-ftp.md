@@ -11,14 +11,14 @@ tags: connectors
 
 # Connect to an FTP server from workflows in Azure Logic Apps
 
-This article shows how to access your FTP server from a workflow in Azure Logic Apps with the FTP connector. You can then create automated workflows that run when triggered by events in your FTP server or in other systems and run actions to manage your FTP server data, content, and resources.
+This article shows how to access your FTP server from a workflow in Azure Logic Apps with the FTP connector. You can then create automated workflows that run when triggered by events in your FTP server or in other systems and run actions to manage files on your FTP server.
 
 For example, your workflow can start with an FTP trigger that monitors and responds to events on your FTP server. The trigger makes the outputs available to subsequent actions in your workflow. Your workflow can run FTP actions that create, send, receive, and manage files through your FTP server account using the following specific tasks:
 
 * Monitor when files are added or changed.
-* Get, create, copy, update, list, and delete files.
-* Get file content and metadata.
-* Extract archives to folders.
+* Create, copy, delete, list, and update files.
+* Get file metadata and content.
+* Manage folders.
 
 If you're new to Azure Logic Apps, review the following get started documentation:
 
@@ -567,7 +567,7 @@ When the trigger's **Split On** setting is enabled, the trigger returns the meta
 
 Operation ID: `createFile`
 
-This action creates a file using the specified file path and file content.
+This action creates a file using the specified file path and file content. If the file already exists, this action overwrites that file.
 
 > [!IMPORTANT]
 >
@@ -581,7 +581,7 @@ This action creates a file using the specified file path and file content.
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **File path** | `filePath` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
-| **File content** | `fileContent` | True | `string` | The content for the file |
+| **File content** | `fileContent` | True | `string` | The file content. |
 ||||||
 
 #### Returns
