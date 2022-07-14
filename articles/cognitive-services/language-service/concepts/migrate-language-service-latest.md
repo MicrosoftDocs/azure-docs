@@ -30,12 +30,13 @@ https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/<vers
 
 If your application uses the above endpoint format, the REST API endpoint for the following Language service features has changed:
 
-* [Entity linking](../entity-linking/quickstart.md)
-* [Key phrase extraction](../key-phrase-extraction/quickstart.md)
-* [Named entity recognition (NER)](../named-entity-recognition/quickstart.md)
-* [Personally Identifying Information (PII) detection](../personally-identifiable-information/quickstart.md)
-* [Sentiment analysis and opinion mining](../sentiment-opinion-mining/quickstart.md)
-* [Text analytics for health](../text-analytics-for-health/quickstart.md)
+* [Entity linking](../entity-linking/quickstart.md?pivots=rest-api)
+* [Key phrase extraction](../key-phrase-extraction/quickstart.md?pivots=rest-api)
+* [Language detection](../language-detection/quickstart.md?pivots=rest-api)
+* [Named entity recognition (NER)](../named-entity-recognition/quickstart.md?pivots=rest-api)
+* [Personally Identifying Information (PII) detection](../personally-identifiable-information/quickstart.md?pivots=rest-api)
+* [Sentiment analysis and opinion mining](../sentiment-opinion-mining/quickstart.md?pivots=rest-api)
+* [Text analytics for health](../text-analytics-for-health/quickstart.md?pivots=rest-api)
 
 The Language service now provides a unified endpoint for sending REST API requests to these features. If your application uses the REST API, update its request endpoint to use the current endpoint:
 
@@ -72,17 +73,17 @@ To use the latest version of the client library, you will need to download the l
 <!--[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]-->
 
 
-## Migrate from version v2.1 features
+## Version 2.1 functionality changes
 
 If you're migrating an application from v2.1 of the API, there are several changes to feature functionality you should be aware of.
 
-### Migrate from sentiment analysis v2.1
+### Sentiment analysis v2.1
 
 [Sentiment Analysis](../sentiment-opinion-mining/quickstart.md) in version 2.1 returns sentiment scores between 0 and 1 for each document sent to the API, with scores closer to 1 indicating more positive sentiment. The current version of this feature returns sentiment labels (such as "positive" or "negative")  for both the sentences and the document as a whole, and their associated confidence scores.
 
-### Migrate from NER, PII, and entity linking v2.1
+### NER, PII, and entity linking v2.1
 
-In version 2.1, the Text Analytics API used one endpoint for Named Entity Recognition (NER) and entity linking. The current version of this feature provides expanded named entity detection, and has separate endpoints for [NER](../named-entity-recognition/quickstart.md?pivots=rest-api) and [entity linking](../entity-linking/quickstart.md?pivots=rest-api) requests. Additionally, you can use another feature offered in the Language service that lets you detect [detect personal (pii) and health (phi) information](../personally-identifiable-information/overview.md).
+In version 2.1, the Text Analytics API used one endpoint for Named Entity Recognition (NER) and entity linking. The current version of this feature provides expanded named entity detection, and has separate endpoints for [NER](../named-entity-recognition/quickstart.md?pivots=rest-api) and [entity linking](../entity-linking/quickstart.md?pivots=rest-api) requests. Additionally, you can use another feature offered in the Language service that lets you detect [detect personal (PII) and health (PHI) information](../personally-identifiable-information/overview.md).
 
 You will also need to update your application to use the [entity categories](../named-entity-recognition/concepts/named-entity-categories.md) returned in the [API's response](../named-entity-recognition/how-to-call.md).
 
@@ -115,18 +116,19 @@ The following table lists the entity categories returned for NER v2.1.
 | Dimension | Dimensions and measurements. |
 | Temperature | Temperatures. |
 
-## Migrate from Language detection v2.1
+### Language detection v2.1
 
 The [language detection](../language-detection/quickstart.md) feature output has changed in the current version. The JSON response will contain `ConfidenceScore` instead of `score`. The current version also only returns one language in a  `detectedLanguage` attribute for each document.
 
-## Migrate from Key phrase extraction v2.1
+### Key phrase extraction v2.1
 
 The key phrase extraction feature functionality currently has not changed outside of the endpoint and request format.
 
 ## See also
 
-* [What is Azure Cognitive Service for language?](../overview.md)
-* See the following reference documentation for information on previous versions of these features.
+* [What is Azure Cognitive Service for Language?](../overview.md)
+* [Language service developer guide](developer-guide.md)
+* See the following reference documentation for information on previous API versions.
     * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
     * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
     * [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
@@ -134,6 +136,7 @@ The key phrase extraction feature functionality currently has not changed outsid
     * [Entity linking](../entity-linking/quickstart.md)
     * [Key phrase extraction](../key-phrase-extraction/quickstart.md)
     * [Named entity recognition (NER)](../named-entity-recognition/quickstart.md)
+    * [Language detection](../language-detection/quickstart.md)
     * [Personally Identifying Information (PII) detection](../personally-identifiable-information/quickstart.md)
     * [Sentiment analysis and opinion mining](../sentiment-opinion-mining/quickstart.md)
     * [Text analytics for health](../text-analytics-for-health/quickstart.md)
