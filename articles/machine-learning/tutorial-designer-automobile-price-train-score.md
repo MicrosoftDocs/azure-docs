@@ -75,7 +75,7 @@ You can set a **Default compute target** for the entire pipeline, which will tel
 
 1. Select **Create Azure ML compute instance**.
 
-    If you already have an available compute target, you can select it from the **Select Azure ML compute instance** drop-down to run this pipeline .
+    If you already have an available compute target, you can select it from the **Select Azure ML compute instance** drop-down to run this pipeline.
 
 1. Enter a name for the compute resource.
 
