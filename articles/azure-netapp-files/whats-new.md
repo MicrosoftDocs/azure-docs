@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 04/12/2022
+ms.date: 07/14/2022
 ms.author: anfdocs
 ---
 
@@ -20,12 +20,37 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-* [File access logs](manage-file-access-logs.md) (Preview)
-
+* [File access logs](file-access-logs.md) (Preview)
     The Azure NetApp Files file access logs feature will provide Azure NetApp Files customers with access logs for their files accessed (data plane logging) on SMB, NFSv4.1, and dual-protocol (SMB/NFSv4.1) volumes. With this feature administrators can enable logging, and view and report on file access operations sent to a variety of logging destinations. Standard file system operations will be captured in the logs. This feature is supports SMB and NFSv4.1 enabled volumes.
 
-## April 2022
+## June 2022
 
+* [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](../azure-vmware/deploy-disaster-recovery-using-jetstream.md#disaster-recovery-with-azure-netapp-files-jetstream-dr-and-azure-vmware-solution)
+
+    Disaster Recovery to cloud is a resilient and cost-effective way of protecting the workloads against site outages and data corruption events like ransomware. Leveraging the VMware VAIO framework, on-premise VMware workloads can be replicated to Azure Blob storage and recovered with minimal or close to no data loss and near-zero Recovery Time Objective (RTO). JetStream DR can now seamlessly recover workloads replicated from on-premises to Azure VMware Solution to Azure NetApp Files. JetStream DR enables cost-effective disaster recovery by consuming minimal resources at the DR site and using cost-effective cloud storage. JetStream DR automates recovery to Azure NetApp Files datastores using Azure Blob Storage. It can recover independent VMs or groups of related VMs into the recovery site infrastructure according to runbook settings. It also provides point-in-time recovery for ransomware protection.
+
+* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) (Preview)
+
+    [Azure NetApp Files datastores for Azure VMware Solution](https://azure.microsoft.com/blog/power-your-file-storageintensive-workloads-with-azure-vmware-solution) is now in public preview. This new integration between Azure VMware Solution and Azure NetApp Files will enable you to [create datastores via the Azure VMware Solution resource provider with Azure NetApp Files NFS volumes](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) and mount the datastores on your private cloud clusters of choice. Along with the integration of Azure disk pools for Azure VMware Solution, this will provide more choice to scale storage needs independently of compute resources. For your storage-intensive workloads running on Azure VMware Solution, the integration with Azure NetApp Files helps to easily scale storage capacity beyond the limits of the local instance storage for AVS provided by vSAN and lower your overall total cost of ownership for storage-intensive workloads.
+
+    Regional Coverage: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East US, France Central, Germany West Central, Japan West, North Central US, North Europe, South Central US, Southeast Asia, Switzerland West, UK South, UK West, West Europe, West US. Regional coverage will expand as the preview progresses.
+
+* [Azure Policy built-in definitions for Azure NetApp Files](azure-policy-definitions.md#built-in-policy-definitions)  
+
+    Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to the per-resource, per-policy granularity. It also helps to bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources. Azure NetApp Files already supports Azure Policy via custom policy definitions. Azure NetApp Files now also provides built-in policy to enable organization admins to restrict creation of unsecure NFS volumes or audit existing volumes more easily. 
+
+## May 2022
+
+* [LDAP signing](create-active-directory-connections.md#ldap-signing) now generally available (GA)   
+
+    The LDAP signing feature is now generally available. You no longer need to register the feature before using it.
+
+* [SMB Continuous Availability (CA) shares support for Citrix App Layering](enable-continuous-availability-existing-smb.md) (Preview)
+
+    [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html) radically reduces the time it takes to manage Windows applications and images. App Layering separates the management of your OS and apps from your infrastructure. You can install each app and OS patch once, update the associated templates, and redeploy your images. You can publish layered images as open standard virtual disks, usable in any environment. App Layering can be used to provide dynamic access application layer virtual disks stored on SMB shared networked storage, including Azure NetApp Files. To enhance App Layering resiliency to events of storage service maintenance, Azure NetApp Files has extended support for [SMB Transparent Failover via SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#continuous-availability) for App Layering virtual disks. For more information, see [Azure NetApp Files Azure Virtual Desktop Infrastructure solutions | Citrix](azure-netapp-files-solution-architectures.md#citrix).
+
+
+## April 2022
 * Features that are now generally available (GA)   
 
     The following features are now GA. You no longer need to register the features before using them.   

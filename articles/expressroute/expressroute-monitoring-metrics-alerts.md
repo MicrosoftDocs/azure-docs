@@ -4,7 +4,7 @@ description: Learn about Azure ExpressRoute monitoring, metrics, and alerts usin
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/14/2021
+ms.date: 05/10/2022
 ms.author: duau
 ---
 # ExpressRoute monitoring, metrics, and alerts
@@ -17,7 +17,7 @@ This article helps you understand ExpressRoute monitoring, metrics, and alerts u
 
 ## ExpressRoute metrics
 
-To view **Metrics**, navigate to the *Azure Monitor* page and select *Metrics*. To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
+To view **Metrics**, go to the *Azure Monitor* page and select *Metrics*. To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
@@ -40,10 +40,10 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 | Metric | Category | Unit | Aggregation Type | Description | Dimensions |  Exportable via Diagnostic Settings? | 
 | --- | --- | --- | --- | --- | --- | --- | 
-| [Arp Availability](#arp) | Availability | Percent | Average | ARP Availability from MSEE towards all peers. | PeeringType, Peer |  Yes | 
-| [Bgp Availability](#bgp) | Availability | Percent | Average | BGP Availability from MSEE towards all peers. | PeeringType, Peer |  Yes | 
-| [BitsInPerSecond](#circuitbandwidth) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | PeeringType | No | 
-| [BitsOutPerSecond](#circuitbandwidth) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | PeeringType | No | 
+| [Arp Availability](#arp) | Availability | Percent | Average | ARP Availability from MSEE towards all peers. | Peering Type, Peer |  Yes | 
+| [Bgp Availability](#bgp) | Availability | Percent | Average | BGP Availability from MSEE towards all peers. | Peering Type, Peer |  Yes | 
+| [BitsInPerSecond](#circuitbandwidth) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | Peering Type | No | 
+| [BitsOutPerSecond](#circuitbandwidth) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | Peering Type | No | 
 | DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Peering Type | Yes | 
 | DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | Peering Type | Yes | 
 | GlobalReachBitsInPerSecond | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | PeeredCircuitSKey | No | 
@@ -167,6 +167,10 @@ You can view the Rx light level (the light level that the ExpressRoute Direct po
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="ER Direct line Rx Light Level":::
 
+>[!NOTE]
+> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Rx light levels by lane. However, this is not supported on all deployments.
+>
+
 ### <a name = "txlight"></a>Tx Light Level - Split by link
 
 Aggregation type: *Avg*
@@ -174,6 +178,10 @@ Aggregation type: *Avg*
 You can view the Tx light level (the light level that the ExpressRoute Direct port is **transmitting**) for each port. Healthy Tx light levels generally fall within a range of -10 dBm to 0 dBm. Set alerts to be notified if the Tx light level falls outside of the healthy range.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="ER Direct line Tx Light Level":::
+
+>[!NOTE]
+> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Tx light levels by lane. However, this is not supported on all deployments.
+>
 
 ## ExpressRoute Virtual Network Gateway Metrics
 
@@ -189,7 +197,7 @@ When you deploy an ExpressRoute gateway, Azure manages the compute and functions
 * Frequency of routes changed
 * Number of VMs in the virtual network  
 
-It's highly recommended you set alerts for each of these metrics so that you are aware of when your gateway could be seeing performance issues.
+It's highly recommended you set alerts for each of these metrics so that you're aware of when your gateway could be seeing performance issues.
 
 ### <a name = "gwbits"></a>Bits received per second - Split by instance
 
@@ -217,9 +225,9 @@ This metric captures the number of inbound packets traversing the ExpressRoute g
 
 ### <a name = "advertisedroutes"></a>Count of Routes Advertised to Peer - Split by instance
 
-Aggregation type: *Count*
+Aggregation type: *Max*
 
-This metric is the count for the number of routes the ExpressRoute gateway is advertising to the circuit. The address spaces may include virtual networks that are connected using VNet peering and uses remote ExpressRoute gateway. You should expect the number of routes to remain consistent unless there are frequent changes to the virtual network address spaces. Set an alert for when the number of advertised routes drop below the threshold for the number of virtual network address spaces you're aware of.
+This metric shows the number of routes the ExpressRoute gateway is advertising to the circuit. The address spaces may include virtual networks that are connected using VNet peering and uses remote ExpressRoute gateway. You should expect the number of routes to remain consistent unless there are frequent changes to the virtual network address spaces. Set an alert for when the number of advertised routes drop below the threshold for the number of virtual network address spaces you're aware of.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Screenshot of count of routes advertised to peer.":::
 
@@ -247,6 +255,10 @@ This metric shows the number of virtual machines that are using the ExpressRoute
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Screenshot of number of virtual machines in the virtual network metric.":::
 
+>[!NOTE]
+> To maintain reliability of the service, Microsoft often performs platform or OS maintenance on the gateway service. During this time, this metric may fluctuate and report inaccurately.
+>
+
 ## <a name = "connectionbandwidth"></a>ExpressRoute gateway connections in bits/seconds
 
 Aggregation type: *Avg*
@@ -257,7 +269,7 @@ This metric shows the bits per second for ingress and egress to Azure through th
 
 ## Alerts for ExpressRoute gateway connections
 
-1. To configure alerts, navigate to **Azure Monitor**, then select **Alerts**.
+1. To set up alerts, go to **Azure Monitor**, then select **Alerts**.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="alerts":::
 2. Select **+Select Target** and select the ExpressRoute gateway connection resource.
@@ -274,7 +286,7 @@ This metric shows the bits per second for ingress and egress to Azure through th
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg" alt-text="each peering":::
 
-## Configure alerts for activity logs on circuits
+## Set up alerts for activity logs on circuits
 
 In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
 
@@ -282,7 +294,7 @@ In the **Alert Criteria**, you can select **Activity Log** for the Signal Type a
 
 ## More metrics in Log Analytics
 
-You can also view ExpressRoute metrics by navigating to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output will contain the columns below.
+You can also view ExpressRoute metrics by going to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output will contain the columns below.
 
 | **Column** | **Type** | **Description** | 
 |  ---  |  ---  |  ---  | 
@@ -295,7 +307,7 @@ You can also view ExpressRoute metrics by navigating to your ExpressRoute circui
   
 ## Next steps
 
-Configure your ExpressRoute connection.
+Set up your ExpressRoute connection.
   
 * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
 * [Create and modify peering configuration](expressroute-howto-routing-arm.md)

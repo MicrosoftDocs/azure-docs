@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting online endpoints deployment (preview)
+title: Troubleshooting online endpoints deployment
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author:  petrodeg
 ms.reviewer: larryfr
 ms.date: 04/12/2022
 ms.topic: troubleshooting
-ms.custom: devplatv2, devx-track-azurecli, cliv2
+ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
-# Troubleshooting online endpoints deployment and scoring (preview)
+# Troubleshooting online endpoints deployment and scoring
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints (preview).
+Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints.
 
 This document is structured in the way you should approach troubleshooting:
 
@@ -28,13 +28,11 @@ This document is structured in the way you should approach troubleshooting:
 
 The section [HTTP status codes](#http-status-codes) explains how invocation and prediction errors map to HTTP status codes when scoring endpoints with REST requests.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 ## Prerequisites
 
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
+* The [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
 ## Deploy locally
 
@@ -54,7 +52,7 @@ As a part of local deployment the following steps take place:
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
 - Docker starts a new container with mounted local artifacts such as model and code files.
 
-For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
 
 ## Conda installation
  
@@ -115,7 +113,7 @@ There are three supported tracing headers:
    > [!Note]
    > When you create a support ticket for a failed request, attach the failed request ID to expedite investigation.
    
-- `x-ms-request-id` and `x-ms-client-request-id` are available for client tracing scenarios. We sanitize these headers to remove non-alphanumeric symbols. These headers are truncated to 72 characters.
+- `x-ms-client-request-id` is available for client tracing scenarios. We sanitize this header to remove non-alphanumeric symbols. This header is truncated to 72 characters.
 
 ## Common deployment errors
 
@@ -202,6 +200,7 @@ Below is a list of reasons you might run into this error:
 * [Startup task failed due to incorrect role assignments on resource](#authorization-error)
 * [Unable to download user container image](#unable-to-download-user-container-image)
 * [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
+* [azureml-fe for kubernetes online endpoint is not ready](#azureml-fe-not-ready)
 
 #### Resource requests greater than limits
 
@@ -247,6 +246,14 @@ Make sure model and code artifacts are registered to the same workspace as the d
 
   `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
 
+#### azureml-fe not ready
+The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
+
+This component should be healthy on cluster, at least one healthy replica. You will get this error message if it's not avaliable when you trigger kubernetes online endpoint and deployment creation/update request.
+
+Please check the pod status and logs to fix this issue, you can also try to update the k8s-extension intalled on the cluster.
+
+
 ### ERROR: ResourceNotReady
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container. The error in this scenario is that this container is crashing when running, which means scoring can't happen. This error happens when:
@@ -279,7 +286,7 @@ If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale
 
 ## Bandwidth limit issues
 
-Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
+Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
 
 - Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 - There are two response trailers will be returned if the bandwidth limit enforced: 
@@ -296,14 +303,17 @@ When you access online endpoints with REST requests, the returned status codes a
 | 401 | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
 | 404 | Not found | Your URL isn't correct. |
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
-| 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
+| 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](/azure/azure-monitor/essentials/metrics-getting-started). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
 | 429 | Rate-limiting | You attempted to send more than 100 requests per second to your endpoint. |
 | 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you are using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
 
+## Common network isolation issues
+
+[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
+
 ## Next steps
 
-- [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
-- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md)
-
+- [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Online endpoint YAML reference](reference-yaml-endpoint-online.md)

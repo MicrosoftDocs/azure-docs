@@ -1,14 +1,13 @@
 ---
-title: Defender for IoT installation
-description: Learn how to install a sensor and the on-premises management console for Microsoft Defender for IoT.
-ms.date: 01/06/2022
+title: Install OT network monitoring software - Microsoft Defender for IoT
+description: Learn how to install agentless monitoring software for an OT sensor and an on-premises management console for Microsoft Defender for IoT. Use this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
+ms.date: 07/11/2022
 ms.topic: how-to
 ---
 
-# Defender for IoT software installation
+# Install OT agentless monitoring software
 
-This article describes how to install software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
-
+This article describes how to install agentless monitoring software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
 
 ## Pre-installation configuration
 
@@ -26,7 +25,7 @@ For more information, see:
 
 Make sure that you've downloaded the relevant software file for the sensor or on-premises management console.
 
-You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal, on the Defender for IoT > **Getting started** page. Select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
+You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal. On the Defender for IoT > **Getting started** page, select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
 
 Mount the ISO file using one of the following options:
 
@@ -34,7 +33,13 @@ Mount the ISO file using one of the following options:
 
 - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-## Install OT sensor software
+## Install OT monitoring software
+
+This section provides generic procedures for installing OT monitoring software on sensors or an on-premises management console.
+
+Select one of the following tabs, depending on which type of software you're installing.
+
+# [OT sensor](#tab/sensor)
 
 This procedure describes how to install OT sensor software on a physical or virtual appliance.
 
@@ -47,39 +52,39 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     :::image type="content" source="media/tutorial-install-components/language-select.png" alt-text="Screenshot of the sensor's language select screen.":::
 
-1. Select the sensor's architecture.
+1. Select the sensor's architecture. For example:
 
     :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's architecture select screen.":::
 
 1. The sensor will reboot, and the **Package configuration** screen will appear. Press the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
 
-1. Select the monitor interface and press the **ENTER** key.
+1. Select the monitor interface. For example:
 
     :::image type="content" source="media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
 
-1. If one of the monitoring ports is for ERSPAN, select it, and press the **ENTER** key.
+1. If one of the monitoring ports is for ERSPAN, select it. For example:
 
     :::image type="content" source="media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
 
-1. Select the interface to be used as the management interface, and press the **ENTER** key.
+1. Select the interface to be used as the management interface. For example:
 
     :::image type="content" source="media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::
 
-1. Enter the sensor's IP address, and press the **ENTER** key.
+1. Enter the sensor's IP address. For example:
 
     :::image type="content" source="media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
 
-1. Enter the path of the mounted logs folder. We recommend using the default path, and press the **ENTER** key.
+1. Enter the path of the mounted logs folder. We recommend using the default path. For example:
 
     :::image type="content" source="media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
 
-1. Enter the Subnet Mask IP address, and press the **ENTER** key.
+1. Enter the Subnet Mask IP address. For example:
 
-1. Enter the default gateway IP address, and press the **ENTER** key.
+1. Enter the default gateway IP address.
 
-1. Enter the DNS Server IP address, and press the **ENTER** key.
+1. Enter the DNS Server IP address.
 
-1. Enter the sensor hostname and press the **ENTER** key.
+1. Enter the sensor hostname. For example:
 
     :::image type="content" source="media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the screen where you enter a hostname for your sensor.":::
 
@@ -89,7 +94,8 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     :::image type="content" source="media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
 
-## Install on-premises management console software
+# [On-premises management console](#tab/on-prem)
+
 
 This procedure describes how to install on-premises management console software on a physical or virtual appliance.
 
@@ -143,9 +149,9 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 ### Add a secondary NIC (optional)
 
-You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. By adding a secondary NIC, the first will be dedicated for end-users, and the secondary will support the configuration of a gateway for routed networks.
+You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. When you use a secondary NIC, the first is dedicated for end-users, and the secondary supports the configuration of a gateway for routed networks.
 
-:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
+:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="Diagram that shows the overall architecture of the secondary NIC." border="false":::
 
 Both NICs will support the user interface (UI). If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
 
@@ -178,7 +184,7 @@ This procedure describes how to add a secondary NIC if you've already installed 
 
 ### Find your port
 
-If you are having trouble locating the physical port on your device, you can use the following command to find your port:
+If you're having trouble locating the physical port on your device, you can use the following command to find your port:
 
 ```bash
 sudo ethtool -p <port value> <time-in-seconds>
@@ -186,14 +192,15 @@ sudo ethtool -p <port value> <time-in-seconds>
 
 This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes, allowing you to find the port on the back of your appliance.
 
+---
 
 ## Post-installation validation
 
-To validate the installation of a physical appliance, you need to perform many tests. The same validation process applies to all the appliance types.
+After you've finished installing OT monitoring software on your appliance, test your system to make sure that processes are running correctly. The same validation process applies to all appliance types.
 
-Perform the validation by using the GUI or the CLI. The validation is available to both the **Support** and **CyberX** users.
+System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the **Support** and **CyberX** users.
 
-Post-installation validation must include the following tests:
+After installing OT monitoring software, make sure to run the following tests:
 
 - **Sanity test**: Verify that the system is running.
 
@@ -201,182 +208,23 @@ Post-installation validation must include the following tests:
 
 - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
-### Check system health
+For more information, see [Check system health](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) in our sensor and on-premises management console troubleshooting article.
 
-Check your system health from the sensor or on-premises management console. For example:
+## Configure tunneling access for sensors through the on-premises management console
 
-:::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
+Enhance system security by preventing direct user access to the sensor.
 
-#### Sanity
+Instead of direct access, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
 
-- **Appliance**: Runs the appliance sanity check. You can perform the same check by using the CLI command `system-sanity`.
+When tunneling access is configured, users use the following URL syntax to access their sensor consoles: `https://<on-premises management console address>/<sensor address>/<page URL>`
 
-- **Version**: Displays the appliance version.
+For example, the following image shows a sample architecture where users access the sensor consoles via the on-premises management console.
 
-- **Network Properties**: Displays the sensor network parameters.
+:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor." border="false":::
 
-#### Redis
+The interface between the IT firewall, on-premises management console, and the OT firewall is done using a reverse proxy with URL rewrites. The interface between the OT firewall and the sensors is done using reverse SSH tunnels.
 
-- **Memory**: Provides the overall picture of memory usage, such as how much memory was used and how much remained.
-
-- **Longest Key**: Displays the longest keys that might cause extensive memory usage.
-
-#### System
-
-- **Core Log**: Provides the last 500 rows of the core log, so that you can view the recent log rows without exporting the entire system log.
-
-- **Task Manager**: Translates the tasks that appear in the table of processes to the following layers:
-  
-  - Persistent layer (Redis)
-
-  - Cash layer (SQL)
-
-- **Network Statistics**: Displays your network statistics.
-
-- **TOP**: Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.
-
-- **Backup Memory Check**: Provides the status of the backup memory, checking the following:
-
-  - The location of the backup folder
-
-  - The size of the backup folder
-
-  - The limitations of the backup folder
-
-  - When the last backup happened
-
-  - How much space there are for the extra backup files
-
-- **ifconfig**: Displays the parameters for the appliance's physical interfaces.
-
-- **CyberX nload**: Displays network traffic and bandwidth by using the six-second tests.
-
-- **Errors from Core, log**: Displays errors from the core log file.
-
-**To access the tool**:
-
-1. Sign in to the sensor with the **Support** user credentials.
-
-1. Select **System Statistics** from the **System Settings** window.
-
-    :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
-
-### Check system health by using the CLI
-
-Verify that the system is up and running prior to testing the system's sanity.
-
-**To test the system's sanity**:
-
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
-
-1. Enter `system sanity`.
-
-1. Check that all the services are green (running).
-
-    :::image type="content" source="media/tutorial-install-components/support-screen.png" alt-text="Screenshot that shows running services.":::
-
-1. Verify that **System is UP! (prod)** appears at the bottom.
-
-Verify that the correct version is used:
-
-**To check the system's version**:
-
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
-
-1. Enter `system version`.
-
-1. Check that the correct version appears.
-
-Verify that all the input interfaces configured during the installation process are running:
-
-**To validate the system's network status**:
-
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the **Support** user.
-
-1. Enter `network list` (the equivalent of the Linux command `ifconfig`).
-
-1. Validate that the required input interfaces appear. For example, if two quad Copper NICs are installed, there should be 10 interfaces in the list.
-
-    :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="Screenshot that shows the list of interfaces.":::
-
-Verify that you can access the console web GUI:
-
-**To check that management has access to the UI**:
-
-1. Connect a laptop with an Ethernet cable to the management port (**Gb1**).
-
-1. Define the laptop NIC address to be in the same range as the appliance.
-
-    :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Screenshot that shows management access to the UI.":::
-
-1. Ping the appliance's IP address from the laptop to verify connectivity (default: 10.100.10.1).
-
-1. Open the Chrome browser in the laptop and enter the appliance's IP address.
-
-1. In the **Your connection is not private** window, select **Advanced** and proceed.
-
-1. The test is successful when the Defender for IoT sign-in screen appears.
-
-   :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to management console.":::
-
-## Troubleshooting
-
-### You can't connect by using a web interface
-
-1. Verify that the computer that you're trying to connect is on the same network as the appliance.
-
-1. Verify that the GUI network is connected to the management port.
-
-1. Ping the appliance's IP address. If there is no ping:
-
-   1. Connect a monitor and a keyboard to the appliance.
-
-   1. Use the **Support** user and password to sign in.
-
-   1. Use the command `network list` to see the current IP address.
-
-      :::image type="content" source="media/tutorial-install-components/network-list.png" alt-text="Screenshot that shows the network list.":::
-
-1. If the network parameters are misconfigured, use the following procedure to change them:
-
-   1. Use the command `network edit-settings`.
-
-   1. To change the management network IP address, select **Y**.
-
-   1. To change the subnet mask, select **Y**.
-
-   1. To change the DNS, select **Y**.
-
-   1. To change the default gateway IP address, select **Y**.
-
-   1. For the input interface change (sensor only), select **N**.
-
-   1. To apply the settings, select **Y**.
-
-1. After restart, connect with the **Support** user credentials and use the `network list` command to verify that the parameters were changed.
-
-1. Try to ping and connect from the GUI again.
-
-### The appliance isn't responding
-
-1. Connect a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
-
-1. Use the **Support** user credentials to sign in.
-
-1. Use the `system sanity` command and check that all processes are running.
-
-    :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="Screenshot that shows the system sanity command.":::
-
-For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
-
-
-## Access sensors from the on-premises management console
-
-You can enhance system security by preventing direct user access to the sensor. Instead, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
-
-:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor.":::
-
-**To enable tunneling**:
+**To enable tunneling access for sensors**:
 
 1. Sign in to the on-premises management console's CLI with the **CyberX** or the **Support** user credentials.
 
@@ -388,4 +236,7 @@ You can enhance system security by preventing direct user access to the sensor. 
 
 ## Next steps
 
-For more information, see [Set up your network](how-to-set-up-your-network.md).
+For more information, see:
+
+- [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
+- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

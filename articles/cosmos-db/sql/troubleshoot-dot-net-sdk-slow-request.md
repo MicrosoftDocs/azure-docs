@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot slow requests in Azure Cosmos DB .NET SDK
 description: Learn how to diagnose and fix slow requests when you use Azure Cosmos DB .NET SDK.
-author: j82w
+author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/09/2022
-ms.author: jawilley
+ms.date: 07/08/2022
+ms.author: maquaran
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot slow requests in Azure Cosmos DB .NET SDK
@@ -43,7 +43,7 @@ If you need to verify that a database or container exists, don't do so by callin
 * You are not measuring latency while debugging the application (no debuggers attached).
 * The volume of operations is high, don't use bulk for less than 1000 operations. Your provisioned throughput dictates how many operations per second you can process, your goal with bulk would be to utilize as much of it as possible.
 * Monitor the container for [throttling scenarios](troubleshoot-request-rate-too-large.md). If the container is getting heavily throttled it means the volume of data is larger than your provisioned throughput, you need to either scale up the container or reduce the volume of data (maybe create smaller batches of data at a time).
-* You are correctly using the `async/await` pattern to process all concurrent Tasks and not [blocking any async operation](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait).
+* You are correctly using the `async/await` pattern to [process all concurrent Tasks](tutorial-sql-api-dotnet-bulk-import.md#step-6-populate-a-list-of-concurrent-tasks) and not [blocking any async operation](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait).
 
 ## <a name="capture-diagnostics"></a>Capture the diagnostics
 
@@ -57,24 +57,21 @@ try
     ItemResponse<Book> response = await this.Container.CreateItemAsync<Book>(item: testItem);
     if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpan)
     {
-        // Log the diagnostics and add any additional info necessary to correlate to other logs 
-        Console.Write(response.Diagnostics.ToString());
+        // Log the response.Diagnostics.ToString() and add any additional info necessary to correlate to other logs 
     }
 }
 catch (CosmosException cosmosException)
 {
-    // Log the full exception including the stack trace 
-    Console.Write(cosmosException.ToString());
-    // The Diagnostics can be logged separately if required.
-    Console.Write(cosmosException.Diagnostics.ToString());
+    // Log the full exception including the stack trace with: cosmosException.ToString()
+    
+    // The Diagnostics can be logged separately if required with: cosmosException.Diagnostics.ToString()
 }
 
 // When using Stream APIs
 ResponseMessage response = await this.Container.CreateItemStreamAsync(partitionKey, stream);
 if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpan || !response.IsSuccessStatusCode)
 {
-    // Log the diagnostics and add any additional info necessary to correlate to other logs 
-    Console.Write(response.Diagnostics.ToString());
+    // Log the diagnostics and add any additional info necessary to correlate to other logs with: response.Diagnostics.ToString()
 }
 ```
 
@@ -202,58 +199,94 @@ Show the time for the different stages of sending and receiving a request in the
 * *Transit time is large*, which leads to a networking problem. Compare this number to the `BELatencyInMs`. If `BELatencyInMs` is small, then the time was spent on the network, and not on the Azure Cosmos DB service.
 * *Received time is large* might be caused by a thread starvation problem. This is the time between having the response and returning the result.
 
+### <a name="ServiceEndpointStatistics"></a>ServiceEndpointStatistics 
+Information about a particular backend server. The SDK can open multiple connections to a single backend server depending upon the number of pending requests and the MaxConcurrentRequestsPerConnection.
+
+* `inflightRequests` The number of pending requests to a backend server (maybe from different partitions). A high number may to lead to more traffic and higher latencies.
+* `openConnections` is the total Number of connections open to a single backend server. This can be useful to show SNAT port exhausion if this number is very high.
+
+### <a name="ConnectionStatistics"></a>ConnectionStatistics 
+Information about the particular connection (new or old) the request get's assigned to.
+
+* `waitforConnectionInit`: The current request was waiting for new connection initialization to complete. This will lead to higher latencies.
+* `callsPendingReceive`: Number of calls that was pending receive before this call was sent. A high number can show us that there were a lot of calls before this call and it may lead to higher latencies. If this number is high it points to a head of line blocking issue possibly caused by another request like query or feed operation that is taking a long time to process. Try lowering the CosmosClientOptions.MaxRequestsPerTcpConnection to increase the number of channels. 
+* `LastSentTime`:  Time of last request that was sent to this server. This along with LastReceivedTime can be used to see connectivity or endpoint issues. For example if there are a lot of receive timeouts, Sent time will be much larger than the Receive time.
+* `lastReceive`: Time of last request that was received from this server
+* `lastSendAttempt`: Time of the last send attempt
+
+### <a name="Request and response sizes"></a>Request and response sizes 
+* `requestSizeInBytes`: The total size of the request sent to Cosmos DB
+* `responseMetadataSizeInBytes`: The size of headers returned from Cosmos DB 
+* `responseBodySizeInBytes`: The size of content returned from Cosmos DB 
+
 ```json
 "StoreResult": {
-    "ActivityId": "a3d325c1-f4e9-405b-820c-bab4d329ee4c",
-    "StatusCode": "Created",
+    "ActivityId": "bab6ade1-b8de-407f-b89d-fa2138a91284",
+    "StatusCode": "Ok",
     "SubStatusCode": "Unknown",
-    "LSN": 1766,
-    "PartitionKeyRangeId": "0",
-    "GlobalCommittedLSN": -1,
-    "ItemLSN": -1,
-    "UsingLocalLSN": false,
-    "QuorumAckedLSN": 1765,
-    "SessionToken": "-1#1766",
-    "CurrentWriteQuorum": 1,
-    "CurrentReplicaSetSize": 1,
+    "LSN": 453362,
+    "PartitionKeyRangeId": "1",
+    "GlobalCommittedLSN": 0,
+    "ItemLSN": 453358,
+    "UsingLocalLSN": true,
+    "QuorumAckedLSN": -1,
+    "SessionToken": "-1#453362",
+    "CurrentWriteQuorum": -1,
+    "CurrentReplicaSetSize": -1,
     "NumberOfReadRegions": 0,
-    "IsClientCpuOverloaded": false,
     "IsValid": true,
-    "StorePhysicalAddress": "rntbd://127.0.0.1:10253/apps/DocDbApp/services/DocDbServer92/partitions/a4cb49a8-38c8-11e6-8106-8cdcd42c33be/replicas/1p/",
-    "RequestCharge": 11.05,
-    "BELatencyInMs": "7.954",
-    "RntbdRequestStats": [
-        {
-            "EventName": "Created",
-            "StartTime": "2021-06-15T13:53:10.1302477Z",
-            "DurationInMicroSec": "6383"
+    "StorePhysicalAddress": "rntbd://127.0.0.1:10253/apps/DocDbApp/services/DocDbServer92/partitions/a4cb49a8-38c8-11e6-8106-8cdcd42c33be/replicas/1s/",
+    "RequestCharge": 1,
+    "RetryAfterInMs": null,
+    "BELatencyInMs": "0.304",
+    "transportRequestTimeline": {
+        "requestTimeline": [
+            {
+                "event": "Created",
+                "startTimeUtc": "2022-05-25T12:03:36.3081190Z",
+                "durationInMs": 0.0024
+            },
+            {
+                "event": "ChannelAcquisitionStarted",
+                "startTimeUtc": "2022-05-25T12:03:36.3081214Z",
+                "durationInMs": 0.0132
+            },
+            {
+                "event": "Pipelined",
+                "startTimeUtc": "2022-05-25T12:03:36.3081346Z",
+                "durationInMs": 0.0865
+            },
+            {
+                "event": "Transit Time",
+                "startTimeUtc": "2022-05-25T12:03:36.3082211Z",
+                "durationInMs": 1.3324
+            },
+            {
+                "event": "Received",
+                "startTimeUtc": "2022-05-25T12:03:36.3095535Z",
+                "durationInMs": 12.6128
+            },
+            {
+                "event": "Completed",
+                "startTimeUtc": "2022-05-25T12:03:36.8621663Z",
+                "durationInMs": 0
+            }
+        ],
+        "serviceEndpointStats": {
+            "inflightRequests": 1,
+            "openConnections": 1
         },
-        {
-            "EventName": "ChannelAcquisitionStarted",
-            "StartTime": "2021-06-15T13:53:10.1366314Z",
-            "DurationInMicroSec": "96511"
+        "connectionStats": {
+            "waitforConnectionInit": "False",
+            "callsPendingReceive": 0,
+            "lastSendAttempt": "2022-05-25T12:03:34.0222760Z",
+            "lastSend": "2022-05-25T12:03:34.0223280Z",
+            "lastReceive": "2022-05-25T12:03:34.0257728Z"
         },
-        {
-            "EventName": "Pipelined",
-            "StartTime": "2021-06-15T13:53:10.2331431Z",
-            "DurationInMicroSec": "50834"
-        },
-        {
-            "EventName": "Transit Time",
-            "StartTime": "2021-06-15T13:53:10.2839774Z",
-            "DurationInMicroSec": "17677"
-        },
-        {
-            "EventName": "Received",
-            "StartTime": "2021-06-15T13:53:10.3016546Z",
-            "DurationInMicroSec": "7079"
-        },
-        {
-            "EventName": "Completed",
-            "StartTime": "2021-06-15T13:53:10.3087338Z",
-            "DurationInMicroSec": "0"
-        }
-    ],
+        "requestSizeInBytes": 447,
+        "responseMetadataSizeInBytes": 438,
+        "responseBodySizeInBytes": 604
+    },
     "TransportException": null
 }
 ```

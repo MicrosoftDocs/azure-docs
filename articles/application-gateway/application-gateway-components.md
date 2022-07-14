@@ -39,7 +39,12 @@ Listeners support the following ports and protocols.
 
 ### Ports
 
-A port is where a listener listens for the client request. You can configure ports ranging from 1 to 65502 for the v1 SKU and 1 to 65199 for the v2 SKU.
+A port is where a listener listens for the client request. You can configure ports for v1 and v2 SKUs as per below.
+
+| SKU | Supported port range | Exception(s) |
+| ---------- | ---------- | ---------- |
+| V2 | 1 to 64999 | 22 |
+| V1 | 1 to 65502 | 3389 |
 
 ### Protocols
 

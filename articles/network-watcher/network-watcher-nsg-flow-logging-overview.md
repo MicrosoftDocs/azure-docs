@@ -59,8 +59,8 @@ Flow logs are the source of truth for all network activity in your cloud environ
 - All traffic flows in your network are evaluated using the rules in the applicable NSG.
 - The result of these evaluations is NSG Flow Logs. Flow logs are collected through the Azure platform and don't require any change to the customer resources.
 - Note: Rules are of two types - terminating & non-terminating, each with different logging behaviors.
-- - NSG Deny rules are terminating. The NSG denying the traffic will log it in Flow logs and processing in this case would stop after any NSG denies traffic. 
-- - NSG Allow rules are non-terminating, which means even if one NSG allows it, processing will continue to the next NSG. The last NSG allowing traffic will log the traffic to Flow logs.
+  - NSG Deny rules are terminating. The NSG denying the traffic will log it in Flow logs and processing in this case would stop after any NSG denies traffic. 
+  - NSG Allow rules are non-terminating, which means even if one NSG allows it, processing will continue to the next NSG. The last NSG allowing traffic will log the traffic to Flow logs.
 - NSG Flow Logs are written to storage accounts from where they can be accessed.
 - You can export, process, analyze, and visualize Flow Logs using tools like Traffic Analytics, Splunk, Grafana, Stealthwatch, etc.
 
@@ -381,6 +381,9 @@ Also, when a NSG is deleted, by default the associated flow log resource is dele
 **Incompatible Services**: Due to current platform limitations, a small set of Azure services are not supported by NSG Flow Logs. The current list of incompatible services is
 - [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+
+> [!NOTE]
+> App services deployed under App Service Plan do not support NSG Flow Logs. Please refer [this documentaion](/azure/app-service/overview-vnet-integration#how-regional-virtual-network-integration-works.md) for additional details.
 
 ## Best practices
 

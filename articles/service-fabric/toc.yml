@@ -15,6 +15,9 @@
     href: quickstart-managed-cluster-template.md
   - name: Service Fabric cluster with Azure portal
     href: quickstart-classic-cluster-portal.md
+  - name: Service Fabric cluster with Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-cluster-bicep.md
   - name: Service Fabric cluster with ARM template
     displayName: Resource Manager
     href: quickstart-cluster-template.md
@@ -445,6 +448,8 @@
       href: how-to-managed-cluster-large-virtual-machine-scale-sets.md
     - name: Use managed identity for managed cluster nodes
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
+    - name: Use managed identity with an application
+      href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md
   - name: Set up your development environment
     items:
     - name: Windows
@@ -876,7 +881,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.servicefabric/
   - name: PowerShell
-    href: /powershell/module/servicefabric/?view=azureservicefabricps
+    href: /powershell/module/servicefabric/
   - name: Azure CLI (az sf)
     href: /cli/azure/sf
   - name: Service Fabric CLI (sfctl)

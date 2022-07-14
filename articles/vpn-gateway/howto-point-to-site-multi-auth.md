@@ -115,8 +115,7 @@ VPN clients must be configured with client configuration settings. The VPN clien
 
 For instructions to generate and install VPN client configuration files, use the article that pertains to your configuration:
 
-* [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md).
-* [Azure Active Directory authentication: Configure a VPN client for P2S OpenVPN protocol connections](openvpn-azure-ad-client.md).
+[!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
 ## <a name="faq"></a>Point-to-Site FAQ
 

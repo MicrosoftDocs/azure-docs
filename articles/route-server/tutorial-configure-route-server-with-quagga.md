@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Configure peering between Azure Route Server and Quagga network virtual appliance"
 description: This tutorial shows you how to configure an Azure Route Server and peer it with a Quagga network virtual appliance.
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: tutorial
 ms.date: 08/23/2021
@@ -22,15 +22,15 @@ In this tutorial, you learn how to:
 > * Configure Route Server peering
 > * Check learned routes
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* An Azure subscription 
 
 ## Create a virtual network
 
 You'll need a virtual network to deploy both the Azure Route Server and the Quagga NVA into. Each deployment will have its own dedicated subnet.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the top left-hand side of the screen, select **Create a resource** and search for **Virtual Network**. Then select **Create**.
 

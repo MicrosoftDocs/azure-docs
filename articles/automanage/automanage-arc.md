@@ -5,7 +5,7 @@ ms.service: automanage
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 05/12/2022
 ---
 
 # Azure Automanage for Machines Best Practices - Azure Arc-enabled servers
@@ -18,12 +18,10 @@ For all of these services, we will auto-onboard, auto-configure, monitor for dri
 
 Automanage supports the following operating systems for Azure Arc-enabled servers
 
-- Windows Server 2012/R2
-- Windows Server 2016
-- Windows Server 2019
+- Windows Server 2012 R2, 2016, 2019, 2022 
 - CentOS 7.3+, 8
 - RHEL 7.4+, 8
-- Ubuntu 16.04 and 18.04
+- Ubuntu 16.04, 18.04, 20.04
 - SLES 12 (SP3-SP5 only)
 
 ## Participating services
@@ -32,6 +30,7 @@ Automanage supports the following operating systems for Azure Arc-enabled server
 |-----------|---------------|----------------------|
 |[Machines Insights Monitoring](../azure-monitor/vm/vminsights-overview.md)    |Azure Monitor for machines monitors the performance and health of your virtual machines, including their running processes and dependencies on other resources.    |Production    |
 |[Update Management](../automation/update-management/overview.md)    |You can use Update Management in Azure Automation to manage operating system updates for your machines. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.    |Production, Dev/Test    |
+|[Microsoft Antimalware](../security/fundamentals/antimalware.md)    |Microsoft Antimalware for Azure is a free real-time protection that helps identify and remove viruses, spyware, and other malicious software. It generates alerts when known malicious or unwanted software tries to install itself or run on your Azure systems. **Note:** Microsoft Antimalware requires that there be no other antimalware software installed, or it may fail to work. This is also only supported for Windows Server 2016 and above. |Production, Dev/Test    |
 |[Change Tracking & Inventory](../automation/change-tracking/overview.md) |Change Tracking and Inventory combines change tracking and inventory functions to allow you to track virtual machine and server infrastructure changes. The service supports change tracking across services, daemons software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items.    |Production, Dev/Test    |
 |[Azure Guest Configuration](../governance/policy/concepts/guest-configuration.md)  | Guest Configuration policy is used to monitor the configuration and report on the compliance of the machine. The Automanage service will install the Azure security baseline using the Guest Configuration extension. For Arc machines, the guest configuration service will install the baseline in audit-only mode. You will be able to see where your VM is out of compliance with the baseline, but noncompliance won't be automatically remediated.    |Production, Dev/Test    |
 |[Azure Automation Account](../automation/automation-create-standalone-account.md)    |Azure Automation supports management throughout the lifecycle of your infrastructure and applications.    |Production, Dev/Test    |

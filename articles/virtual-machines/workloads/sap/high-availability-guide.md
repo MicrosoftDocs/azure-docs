@@ -401,7 +401,6 @@ ms.custom: H1Hack27Feb2017, ignite-fall-2021
 [virtual-machines-manage-availability]:../../windows/manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines-windows-ps-create.md
 [virtual-machines-sizes]:../../virtual-machines-windows-sizes.md
-[virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
 [virtual-machines-windows-portal-sql-alwayson-int-listener]:/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
@@ -618,7 +617,7 @@ _**Figure 7:** Example of a high-availability SAP DBMS, with SQL Server Always O
 
 For more information about clustering SQL Server in Azure by using the Azure Resource Manager deployment model, see these articles:
 
-* [Configure Always On availability group in Azure Virtual Machines manually by using Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Configure Always On availability group in Azure Virtual Machines manually by using Resource Manager](/azure/azure-sql/virtual-machines/windows/availability-group-overview)
 * [Configure an Azure internal load balancer for an Always On availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
 ## <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> End-to-end high-availability deployment scenarios
