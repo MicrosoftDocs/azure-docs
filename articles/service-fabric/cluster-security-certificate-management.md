@@ -279,7 +279,7 @@ Next, let's set up the additional resources that are needed to ensure the autoro
 
 ### Set up the prerequisite resources
 
-As mentioned earlier, a certificate that's provisioned as a virtual machine scale set secret is retrieved from the key vault by the Microsoft. Compute Resource Provider service. It does so by using its first-party identity on behalf of the deployment operator. For autorollover, that will change. You'll switch to using a managed identity that's assigned to the virtual machine scale set and that has been granted GET permissions on the secrets in that vault.
+As mentioned earlier, a certificate that's provisioned as a virtual machine scale set secret is retrieved from the key vault by the Microsoft Compute Resource Provider service. It does so by using its first-party identity on behalf of the deployment operator. That process will change for autorollover. You'll switch to using a managed identity that's assigned to the virtual machine scale set and that has been granted GET permissions on the secrets in that vault.
 
 You should deploy the next excerpts at the same time. They're listed individually only for play-by-play analysis and explanation.
 
