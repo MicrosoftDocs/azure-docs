@@ -47,7 +47,7 @@ Our training script is currently set to download the CIFAR10 dataset on each run
 > [!NOTE]
 > The use of `argparse` parameterizes the script.
 
-1. Open _train.py_ and replace it with this code:
+1. Open *train.py* and replace it with this code:
 
    ```python
     import os
@@ -242,7 +242,7 @@ command="python train.py --data_path ${{inputs.data_path}}",
 
 ## <a name="submit-to-cloud"></a> Submit the job to Azure Machine Learning
 
-Select **Save and run script in terminal** to run the _run-pytorch-data.py_ script. This job will train the model on the compute cluster using the data you uploaded.
+Select **Save and run script in terminal** to run the *run-pytorch-data.py* script. This job will train the model on the compute cluster using the data you uploaded.
 
 This code will print a URL to the experiment in the Azure Machine Learning studio. If you go to that link, you'll be able to see your code running.
 

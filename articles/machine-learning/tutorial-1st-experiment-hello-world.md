@@ -15,7 +15,7 @@ ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event
 
 # Tutorial: Get started with a Python script in Azure Machine Learning (part 1 of 3)
 
-In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is _part 1 of a three-part tutorial series_.
+In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
 This tutorial avoids the complexity of training a machine learning model. You will run a "Hello World" Python script in the cloud. You will learn how a control script is used to configure and create a run in Azure Machine Learning.
 
@@ -23,11 +23,11 @@ In this tutorial, you will:
 
 > [!div class="checklist"]
 >
-> - Create and run a "Hello world!" Python script.
-> - Create a Python control script to submit "Hello world!" to Azure Machine Learning.
-> - Understand the Azure Machine Learning concepts in the control script.
-> - Submit and run the "Hello world!" script.
-> - View your code output in the cloud.
+> * Create and run a "Hello world!" Python script.
+> * Create a Python control script to submit "Hello world!" to Azure Machine Learning.
+> * Understand the Azure Machine Learning concepts in the control script.
+> * Submit and run the "Hello world!" script.
+> * View your code output in the cloud.
 
 ## Prerequisites
 
@@ -40,13 +40,13 @@ This tutorial will use the compute instance as your development computer. First 
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com) and select your workspace if prompted.
 1. On the left, select **Notebooks**
 1. In the **Files** toolbar, select **+**, then select **Create new folder**.
-   :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-folder.png" alt-text="Screenshot shows create a new folder tool in toolbar.":::
+  :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-folder.png" alt-text="Screenshot shows create a new folder tool in toolbar.":::
 1. Name the folder **get-started**.
 1. To the right of the folder name, use the **...** to create another folder under **get-started**.
-   :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-sub-folder.png" alt-text="Screenshot shows create a subfolder menu.":::
+  :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-sub-folder.png" alt-text="Screenshot shows create a subfolder menu.":::
 1. Name the new folder **src**. Use the **Edit location** link if the file location is not correct.
 1. To the right of the **src** folder, use the **...** to create a new file in the **src** folder.
-1. Name your file _hello.py_. Switch the **File type** to _Python (_.py)\*.
+1. Name your file *hello.py*.  Switch the **File type** to *Python (*.py)*.
 
 Copy this code into your file:
 
@@ -63,7 +63,7 @@ Your project folder structure will now look like:
 
 You can run your code locally, which in this case means on the compute instance. Running code locally has the benefit of interactive debugging of code.
 
-If you have previously stopped your compute instance, start it now with the **Start compute** tool to the right of the compute dropdown. Wait about a minute for state to change to _Running_.
+If you have previously stopped your compute instance, start it now with the **Start compute** tool to the right of the compute dropdown. Wait about a minute for state to change to *Running*.
 
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/start-compute.png" alt-text="Screenshot shows starting the compute instance if it is stopped":::
 
@@ -75,9 +75,9 @@ You'll see the output of the script in the terminal window that opens. Close the
 
 ## <a name="control-script"></a> Create a control script
 
-A _control script_ allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.
+A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.
 
-Select the **...** at the end of **get-started** folder to create a new file. Create a Python file called _run-hello.py_ and copy/paste the following code into that file:
+Select the **...** at the end of **get-started** folder to create a new file. Create a Python file called *run-hello.py* and copy/paste the following code into that file:
 
 ```python
 # get-started/run-hello.py
@@ -111,36 +111,36 @@ print(aml_url)
 Here's a description of how the control script works:
 
 :::row:::
-:::column span="":::
-`ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)`
-:::column-end:::
-:::column span="2":::
-[MlClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and it's assets and resources
-:::column-end:::
+   :::column span="":::
+      `ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)`
+   :::column-end:::
+   :::column span="2":::
+      [MlClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and it's assets and resources
+   :::column-end:::
 :::row-end:::
 :::row:::
-:::column span="":::
-`job = command(...)`
-:::column-end:::
-:::column span="2":::
-[command](/python/api/azure-ai-ml/azure.ai.ml?view=azure-python-preview#azure-ai-ml-command) provides a simple way to construct a standalone command job or one as part of a dsl.pipeline.
-:::column-end:::
+   :::column span="":::
+      `job = command(...)`
+   :::column-end:::
+   :::column span="2":::
+      [command](/python/api/azure-ai-ml/azure.ai.ml?view=azure-python-preview#azure-ai-ml-command) provides a simple way to construct a standalone command job or one as part of a dsl.pipeline.
+   :::column-end:::
 :::row-end:::
 :::row:::
-:::column span="":::
-`returned_job = ml_client.create_or_update(job)`
-:::column-end:::
-:::column span="2":::
-Submits your script. This submission is called a [job](/python/api/azure-ai-ml/azure.ai.ml.entities.job). A job encapsulates a single execution of your code. Use a job to monitor the script progress, capture the output, analyze the results, visualize metrics, and more.
-:::column-end:::
+   :::column span="":::
+      `returned_job = ml_client.create_or_update(job)`
+   :::column-end:::
+   :::column span="2":::
+      Submits your script. This submission is called a [job](/python/api/azure-ai-ml/azure.ai.ml.entities.job). A job encapsulates a single execution of your code. Use a job to monitor the script progress, capture the output, analyze the results, visualize metrics, and more.
+   :::column-end:::
 :::row-end:::
 :::row:::
-:::column span="":::
-`aml_url = returned_job.studio_url`
-:::column-end:::
-:::column span="2":::
-The `job` object provides a handle on the execution of your code. Monitor its progress from the Azure Machine Learning studio with the URL that's printed from the Python script.  
- :::column-end:::
+   :::column span="":::
+      `aml_url = returned_job.studio_url`
+   :::column-end:::
+   :::column span="2":::
+      The `job` object provides a handle on the execution of your code. Monitor its progress from the Azure Machine Learning studio with the URL that's printed from the Python script.  
+   :::column-end:::
 :::row-end:::
 
 ## <a name="submit"></a> Submit and run your code in the cloud
@@ -166,9 +166,9 @@ The output from your script will contain a link to the studio that looks somethi
 
 Follow the link. At first, you'll see a status of **Queued** or **Preparing**. The very first run will take 5-10 minutes to complete. This is because the following occurs:
 
-- A docker image is built in the cloud
-- The compute cluster is resized from 0 to 1 node
-- The docker image is downloaded to the compute.
+* A docker image is built in the cloud
+* The compute cluster is resized from 0 to 1 node
+* The docker image is downloaded to the compute.
 
 Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
 
@@ -186,7 +186,8 @@ In this tutorial, you took a simple "Hello world!" script and ran it on Azure. Y
 
 In the next tutorial, you build on these learnings by running something more interesting than `print("Hello world!")`.
 
-> [!div class="nextstepaction"] > [Tutorial: Train a model](tutorial-1st-experiment-sdk-train.md)
+> [!div class="nextstepaction"]
+> [Tutorial: Train a model](tutorial-1st-experiment-sdk-train.md)
 
 > [!NOTE]
 > If you want to finish the tutorial series here and not progress to the next step, remember to [clean up your resources](tutorial-1st-experiment-bring-data.md#clean-up-resources).
