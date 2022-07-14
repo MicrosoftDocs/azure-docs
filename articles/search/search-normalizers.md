@@ -16,7 +16,7 @@ ms.date: 07/14/2022
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-In Azure Cognitive Search, a *normalizer* is a component that pre-processes text for keyword matching over fields marked as "filterable", "facetable", or "sortable". In contrast with "searchable" fields that are paired with [text analyzers](search-analyzers.md), filterable-facetable-sortable content does not undergo analysis or tokenization, which can sometimes yield unexpected results. 
+In Azure Cognitive Search, a *normalizer* is a component that pre-processes text for keyword matching over fields marked as "filterable", "facetable", or "sortable". In contrast with "searchable" fields that are paired with [text analyzers](search-analyzers.md), filterable-facetable-sortable content doesn't undergo analysis or tokenization, which can yield unexpected results. 
 
 Some of the text transformations that can be achieved using normalizers are:
 
@@ -35,7 +35,7 @@ Searching and retrieving documents from a search index requires matching the que
 
 Because non-tokenized content is also not analyzed, small differences in the content are evaluated as distinctly different values. Consider the following examples:
 
-+ `$filter=City eq 'Las Vegas'` will only return documents that contain the exact text "Las Vegas" and exclude documents with "LAS VEGAS" and "las vegas" which is inadequate when the use-case requires all documents regardless of the casing.
++ `$filter=City eq 'Las Vegas'` will only return documents that contain the exact text "Las Vegas" and exclude documents with "LAS VEGAS" and "las vegas", which is inadequate when the use-case requires all documents regardless of the casing.
 
 + `search=*&facet=City,count:5` will return "Las Vegas", "LAS VEGAS" and "las vegas" as distinct values despite being the same city.
 
@@ -60,7 +60,7 @@ Normalizers are specified in an index definition, on a per-field basis, on text 
 
 Normalizers can only be specified when a new field is added to the index. Try to assess the normalization needs upfront and assign normalizers in the initial stages of development when dropping and recreating indexes is routine. Normalizers can't be specified on a field that has already been created.
 
-1. When creating a field definition in the [index](/rest/api/searchservice/create-index), set the  "normalizer" property to one of the following: a [predefined normalizer](#predefined-normalizers) such as "lowercase", or a custom normalizer (defined in the same index schema).  
+1. When creating a field definition in the [index](/rest/api/searchservice/create-index), set the  "normalizer" property to one of the following values: a [predefined normalizer](#predefined-normalizers) such as "lowercase", or a custom normalizer (defined in the same index schema).  
  
    ```json
    "fields": [
