@@ -81,6 +81,9 @@
 
 - name: Concepts
   items:
+  - name: The Defender for Cloud multicloud solution
+    href: multicloud.yml
+
   - name: Cloud Security Posture Management concepts
     items:
     - name: Policies, initiatives, and recommendations
@@ -98,9 +101,6 @@
       href: alerts-overview.md
     - name: Reference list of alerts
       href: alerts-reference.md
-
-  - name: The Defender for Cloud multicloud solution
-    href: multicloud.yml
 
 - name: How-to guides
   items:
