@@ -93,7 +93,7 @@ Remove-RdsHostPool -TenantName <TenantName> -Name <HostPoolName>
 **Fix:** Run the following command to delete the session host. 
 
 ```powershell
-Get-RdsSessionHost-TenantName <TenantName> -Hostpook <HostPoolName> | remove-RdsSessionhost -Force
+Get-RdsSessionHost-TenantName <TenantName> -Hostpook <HostPoolName> | Remove-RdsSessionHost -Force
 ```
 
 Using the force command will let you delete the session host even if it has assigned users.
