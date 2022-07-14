@@ -9,6 +9,18 @@ ms.topic: how-to
 
 This article describes how to install agentless monitoring software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
 
+## Download software files from the Azure portal
+
+Make sure that you've downloaded the relevant software file for the sensor or on-premises management console.
+
+You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal. On the Defender for IoT > **Getting started** page, select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
+
+Mount the ISO file using one of the following options:
+
+- **Physical media** – burn the ISO file to a DVD or USB, and boot from the media.
+
+- **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
+
 ## Pre-installation configuration
 
 Each appliance type comes with its own set of instructions that are required before installing Defender for IoT software.
@@ -21,71 +33,6 @@ For more information, see:
 - [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), including the catalog of available appliances
 - [OT monitoring with virtual appliances](ot-virtual-appliances.md)
 
-## Download software files from the Azure portal
-
-Make sure that you've downloaded the relevant software file for the sensor or on-premises management console.
-
-You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal. On the Defender for IoT > **Getting started** page, select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
-
-Mount the ISO file using one of the following options:
-
-- **Physical media** – burn the ISO file to a DVD or USB, and boot from the media. TBD find this in old cyberx docs. From the boot screen, select the interface where you've connected the media, such as a specific USB port.
-
-- **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
-
-https://microsoft.sharepoint.com/:w:/r/teams/CyberXDefenderforIoTProductSpace/_layouts/15/Doc.aspx?sourcedoc=%7BDB28A582-A678-47A2-863A-E19B3B810988%7D&file=CyberX_Install_Guide%20_3.1.docm&action=default&mobileredirect=true&share=IQGCpSjbeKaiR4Y64Zs7gQmIAZDpwCgBCSTJBBO5jwqeZWY
-
-Before the Image Installation 
-
-The installation image is provided by CyberX on a DVD or Disk on Key. 
-
-Before the installation, ensure you have: 
-
-a portable DVD drive with the USB connector, or a USB drive for Preparing a Disk-on-Key. 
-
-Notes: 
-
-For the portable DVD, burn the CyberX sensor software to a DVD as “Image”: Insert a portable CD drive into your computer and right click on the CyberX image ISO file and choose “Burn to disk”. 
-
-For the USB drive, use software for creating a bootable Disk on Key, for example, RUFUS. To copy the image to the Disk on Key. Refer to Preparing a Disk-on-Key for instructions on how to prepare your Disk on Key. 
-
-a Disk on Key with the USB version 3.0 and later, min size 4GB 
-
-appliance software provided by CyberX 
-
-Before the installation, perform the following: 
-
-Burn the image to a DVD/prepare a Disk on Key. 
-
-Connect the DVD/Disk on Key and configure the appliance to boot from DVD/Disk on Key. 
-
-Preparing a Disk-on-Key 
-
-You can keep the installation image on a Disk on Key. This appendix explains how to prepare a Disk on Key before you use it for the install process. 
-
-Before you begin: 
-
-Download RUFUS. 
-
-Download XSENSE/CM ISO image. 
-
-A USB Disk on Key that you want to use, size 4GB. 
-
-Note: The Disk on Key will be erased in this process. 
-
- 
-
- 
-
-To prepare a Disk on Key: 
-
-Run Rufus and select XSENSE ISO. 
-
- 
-
-Connect the Disk on Key to the to the front panel. 
-
-Set the BIOS of the server to boot from the USB. 
 
 ## Install OT monitoring software
 

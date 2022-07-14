@@ -134,7 +134,7 @@
       - name: Deploy OT certificates
         href: how-to-deploy-certificates.md
       - name: Install OT system software
-        href: how-to-install-software.md
+          href: how-to-install-software.md
       - name: Connect OT sensors to the cloud
         items:
         - name: Connect OT sensors to Defender for IoT
