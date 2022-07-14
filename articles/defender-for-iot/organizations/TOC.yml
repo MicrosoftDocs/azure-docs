@@ -62,7 +62,7 @@
       items:
       - name: Manage device inventory from the Azure portal
         href: how-to-manage-device-inventory-for-organizations.md
-      - name: Manage device inventory from a sensor console
+      - name: Manage device inventory from an OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
       - name: Manage device inventory from an on-premises management console
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
