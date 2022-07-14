@@ -96,7 +96,6 @@
         href: how-to-fortanix-confidential-computing-manager.md
       - name: Fortanix Confidential Computing Manager Node Agent
         href: how-to-fortanix-confidential-computing-manager-node-agent.md
-    items: 
     - name: Azure confidential VM
       items:
       - name: Key rotation for Azure confidential VMs
