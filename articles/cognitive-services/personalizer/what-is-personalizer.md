@@ -14,26 +14,32 @@ keywords: personalizer, Azure personalizer, machine learning
 
 # What is Personalizer?
 
-Azure Personalizer is cloud-based **reinforcement learning** service that helps your applications to make smarter decisions based on the current context (environment). Personalizer can determine the best action (or content) to take in a broad range of scenarios:
-* What product to suggest to customers that maximizes the likelihood of a purchase
-* Where to place a a website advertisement to optimize engagement
-* When to send notifications to maximize likelihood of response
+Azure Personalizer helps your applications make smarter decisions quickly and at scale using **reinforcement learning**. Personalizer can determine the best actions to take in a variety of scenarios:
+* E-commerce: What product to suggest to customers that maximizes the likelihood of a purchase?
+* Content recommendation: What article should be shown to website visitors to increase click-through rate?
+* Content design: Where to place a a website advertisement to optimize engagement
+* Communication: When to send notifications to maximize likelihood of response
 
-After making a decision, your application provides feedback to Personalizer in the form of a reward score. This enables Personalizer to continuously improve the underlying model and adapt to the dynamics of your business.
+Personalizer processes information about the state of an application or scenario (*context*) and a list of possible decisions  and related information (*actions*) to determine the best decision to make. 
 
-This documentation contains the following article types:  
+When your application receives feedback indicating the value of that decision (for example, whether a user clicked on an article or purchased a suggested product), your applications sends that to PErsonalizer to train the RL model. 
+
+To get started with the Personalizer REST API, follow the [**quickstart guide**](quickstart-personalizer-sdk.md), or try Personalizer with this [interactive demo](https://personalizerdevdemo.azurewebsites.net/).
+
+
+
+This documentation contains the following types of articles:
 
 * [**Quickstarts**](quickstart-personalizer-sdk.md) provide step-by-step instructions to guide you through setup and making sample API requests to the service.  
-* [**How-to guides**](how-to-settings.md) contain instructions for using additional capabilities  of the service and further customization to your scenario. 
 * [**Concepts**](how-personalizer-works.md) give detailed explanations of the service functionalities and features.  
+* [**How-to guides**](how-to-settings.md) contain instructions for using additional capabilities  of the service and further customization to your scenario. 
+* [**Code samples**](https://github.com/Azure-Samples/cognitive-services-personalizer-samples) provide code snippets and modules that demonstrate how to use Personalizer and help you to easily interface your application with the service.
 * [**Tutorials**](tutorial-use-personalizer-web-app.md) are longer guides that walk you through implementation of Personalizer as a part of a broader business solution.  
-
-You can also try Personalizer with this [interactive demo](https://personalizerdevdemo.azurewebsites.net/).
 
 
 ## How does Personalizer work?
 
-Personalizer uses reinforcement learning to select the best action based on the behavior and reward scores given across all users. Actions can be any discrete decision that Personalizer can make such as news articles, movies, products.
+Personalizer uses reinforcement learning (RL) to select the best action based on the behavior and reward scores given across all users. Actions can be any discrete decision that Personalizer can make such as news articles, movies, products.
 
 Personalizer consists of two primary APIs:
 
@@ -70,7 +76,7 @@ Use Personalizer when your scenario has:
 * Has information describing the _context_, that is, state of your applications and/or users: _context features_
 * Has a sufficient data/traffic to enable Personalizer to learn. A rule-of-thumb is a minimum of ~1k/day events for Personalizer to be learn effectively. If Personalizer doesn't receive the minimum traffic required, the service takes longer to determine the best actions. 
 
-Note that since Personalizer uses collective information across all users to learn best actions in near real-time, the service does not:
+Note that since Personalizer uses collective information across all users to learn the best contextually dependent actions in near real-time, the service does not:
 * Persist and manage user profile information
 * Log individual users' preferences or history
 * Require cleaned and labeled content
