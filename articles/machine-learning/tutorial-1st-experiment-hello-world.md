@@ -174,32 +174,11 @@ Subsequent runs are much quicker (~15 seconds) as the docker image is cached on 
 
 Wait about 10 minutes. You'll see a message that the run has completed. Then use **Refresh** to see the status change to _Completed_. Once the job completes, go to the **Outputs + logs** tab.
 
-The `70_driver_log.txt` file contains the standard output from a run. This file can be useful when you're debugging remote runs in the cloud.
+The `std_log.txt` file contains the standard output from a run. This file can be useful when you're debugging remote runs in the cloud.
 
 ```txt
-1. [2022-07-11T03:20:54.156522] Entering context manager injector.
-2. [2022-07-11T03:20:54.676601] context_manager_injector.py Command line Options: Namespace(inject=['ProjectPythonPath:context_managers.ProjectPythonPath', 'RunHistory:context_managers.RunHistory', 'TrackUserError:context_managers.TrackUserError', 'UserExceptions:context_managers.UserExceptions'], invocation=['python hello.py'])
-3. Script type = COMMAND
-4. [2022-07-11T03:20:54.680010] Command=python hello.py
-5. [2022-07-11T03:20:54.680285] Entering Run History Context Manager.
-6. [2022-07-11T03:20:58.157586] Command Working Directory=
-7. [2022-07-11T03:20:58.157871] Starting Linux command : python hello.py
-8. hello world
-9. [2022-07-11T03:20:58.189470] Command finished with return code 0
-10.
-11.
-12. [2022-07-11T03:20:58.189935] The experiment completed successfully. Finalizing run...
-13. Cleaning up all outstanding Run operations, waiting 900.0 seconds
-14. 1 items cleaning up...
-15. 2022/07/11 03:20:59 Not exporting to RunHistory as the exporter is either stopped or there is no data.
-16. Stopped: false
-17. OriginalData: 1
-18. FilteredData: 0.
-19. Cleanup took 0.34975385665893555 seconds
-20. [2022-07-11T03:20:59.156192] Finished context manager injector.
+hello world
 ```
-
-On line 8, you see the "Hello world!" output.
 
 ## Next steps
 

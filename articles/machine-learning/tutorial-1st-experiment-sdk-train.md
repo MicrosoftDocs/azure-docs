@@ -242,20 +242,25 @@ Adds the environment to [command](/python/api/azure-ai-ml/azure.ai.ml?view=azure
 1. In the page that opens, you'll see the job status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole job might around 10 minutes to complete. This image will be reused in future jobs to make them job much quicker.
 1. You can see view Docker build logs in the Azure Machine Learning studio. Select the **Outputs + logs** tab, and then select **20_image_build_log.txt**.
 1. When the status of the job is **Completed**, select **Output + logs**.
-1. Select **70_driver_log.txt** to view the output of your job.
+1. Select **std_log.txt** to view the output of your job.
 
 ```txt
 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ../data/cifar-10-python.tar.gz
-...
 Extracting ../data/cifar-10-python.tar.gz to ../data
-epoch=1, batch= 2000: loss 2.19
-epoch=1, batch= 4000: loss 1.82
-epoch=1, batch= 6000: loss 1.66
-...
-epoch=2, batch= 8000: loss 1.51
-epoch=2, batch=10000: loss 1.49
-epoch=2, batch=12000: loss 1.46
+epoch=1, batch= 2000: loss 2.30
+epoch=1, batch= 4000: loss 2.17
+epoch=1, batch= 6000: loss 1.99
+epoch=1, batch= 8000: loss 1.87
+epoch=1, batch=10000: loss 1.72
+epoch=1, batch=12000: loss 1.63
+epoch=2, batch= 2000: loss 1.54
+epoch=2, batch= 4000: loss 1.53
+epoch=2, batch= 6000: loss 1.50
+epoch=2, batch= 8000: loss 1.46
+epoch=2, batch=10000: loss 1.44
+epoch=2, batch=12000: loss 1.41
 Finished Training
+
 ```
 
 If you see an error `Your total snapshot size exceeds the limit`, the **data** folder is located in the `source_directory` value used in `ScriptRunConfig`.
