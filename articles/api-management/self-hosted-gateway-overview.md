@@ -291,3 +291,4 @@ As of v2.1.1 and above, you can manage the ciphers that are being used through t
 -   [Deploy self-hosted gateway to Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
 -   [Self-hosted gateway configuration settings](self-hosted-gateway-settings-reference.md)
 -   Learn about [observability capabilities](observability.md) in API Management
+-   Learn about [Dapr integration with the self-hosted gateway](https://github.com/dapr/samples/tree/master/dapr-apim-integration)
