@@ -7,7 +7,7 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: faq
-  ms.date: 06/06/2022
+  ms.date: 07/14/2022
   ms.author: lajanuar
 
 title: Form Recognizer frequently asked questions
@@ -248,7 +248,7 @@ sections:
           - In addition, if your Microsoft Word, Excel, and PowerPoint documents have embedded images, each image will be analyzed for text extraction and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total text pages and total images analyzed. In the previous example if the document contains two embedded images, the total page count in the service output will be three + two = five pages.
 
           - When analyzing Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
-          
+
           - Training a custom model is always free with Form Recognizer. You’re only charged when a model is used to analyze a document.
 
           - Container pricing is the same as cloud service pricing.
@@ -258,12 +258,12 @@ sections:
           - Form Recognizer has a commitment-based pricing model for large workloads.
 
          Learn more about [Azure Form Recognizer pricing options](https://azure.microsoft.com/pricing/details/form-recognizer/#pricing).
-      
+
       - question: |
-         How to check my Form Recognizer usage and estimate the price?
+         How can I check my Form Recognizer usage and estimate the price?
         answer: |
-          You need to sign in to Azure portal and use pricing calculator to check how many pages are processed by Azure Form Recognizer and estimate the price spent on the resource. Follow [this document](/how-to-guides/estimate-cost.md) for detaild instructions. 
-      
+          You need to sign in to Azure portal and use the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to check how many pages were processed by Azure Form Recognizer and estimate the cost spent on the resource. For detailed instructions, *see* [Check my usage and estimate the cost](how-to-guides/estimate-cost.md).
+
       - question: |
           What are best practices to mitigate throttling?
         answer: |
