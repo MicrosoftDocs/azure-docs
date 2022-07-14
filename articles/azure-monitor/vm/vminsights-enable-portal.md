@@ -116,6 +116,14 @@ Use this procedure to add the Azure Monitor agent to machines that are already e
 
     :::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot showing warning message for both agents installed":::
 
+    > [!WARNING]
+    > Collecting duplicate data from a single machine with both the Azure Monitor agent and Log Analytics agent can result in the following consequences:
+    >
+    > - Additional ingestion cost from sending duplicate data to the Log Analytics workspace.
+    > - The map feature of VM insights may be inaccurate since it does not check for duplicate data.
+    > 
+    > See [Migrate from Log Analytics agent](vminsights-enable-overview.md#migrate-from-log-analytics-agent).
+
 4. Once you've verified that the Azure Monitor agent has been enabled, remove the Log Analytics agent from the machine to prevent duplicate data collection. 
 
 ## Next steps

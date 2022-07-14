@@ -19,6 +19,12 @@ To enable the map feature in VM insights, the virtual machine requires one of th
 - Azure Monitor agent with **processes and dependencies** enabled.
 - Log Analytics agent enabled for VM insights. 
 
+
+> [!WARNING]
+> Collecting duplicate data from a single machine with both the Azure Monitor agent and Log Analytics agent can result in the map feature of VM insights being inaccurate since it does not check for duplicate data.
+> 
+> See [Migrate from Log Analytics agent](vminsights-enable-overview.md#migrate-from-log-analytics-agent).
+
 ## Introduction to the Map experience
 Before diving into the Map experience, you should understand how it presents and visualizes information. Whether you select the Map feature directly from a VM or from Azure Monitor, the Map feature presents a consistent experience. The only difference is that from Azure Monitor, one map shows all the members of a multiple-tier application or cluster.
 
