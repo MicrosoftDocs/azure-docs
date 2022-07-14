@@ -20,7 +20,7 @@ The following diagram illustrates the basic data flow of skillset execution.
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-1.png" alt-text="Diagram showing skillset data flows, with focus on inputs, outputs, and mappings." border="true":::
 
-From the onset of skillset processing to its conclusion, skills read from and write to an [*enriched document*](#enrichment-tree). Initially, an enriched document is just the raw content extracted from a data source (articulated as the root `/document` node),. With each skill execution, the enriched document gains structure and substance as skill writes its output as nodes in the graph. 
+From the onset of skillset processing to its conclusion, skills read from and write to an [*enriched document*](#enrichment-tree). Initially, an enriched document is just the raw content extracted from a data source (articulated as the `"/document"` root node). With each skill execution, the enriched document gains structure and substance as skill writes its output as nodes in the graph. 
 
 After skillset execution is done, the output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred intact, from source to an index, is defined through *field mappings*.
 
@@ -123,7 +123,7 @@ Notice how the output of the first skill ("pages") is used in sentiment analysis
 
 ## Enrichment tree
 
-An enriched document is a temporary, tree-like data structure created during skillset execution that collects all of the changes introduced through skills. Collectively, enrichments are represented as a hierarchy of addressable nodes. Nodes also include any un-enriched fields that are passed in verbatim from the external data source. 
+An enriched document is a temporary, tree-like data structure created during skillset execution that collects all of the changes introduced through skills. Collectively, enrichments are represented as a hierarchy of addressable nodes. Nodes also include any unenriched fields that are passed in verbatim from the external data source. 
 
 An enriched document exists for the duration of skillset execution, but can be [cached](cognitive-search-incremental-indexing-conceptual.md) or sent to a [knowledge store](knowledge-store-concept-intro.md). 
 
@@ -249,7 +249,7 @@ The colors of the connectors in the tree above indicate that the enrichments wer
 
 If output includes a [knowledge store](knowledge-store-concept-intro.md), add a [Shaper skill](cognitive-search-skill-shaper.md) as a last step. The Shaper skill creates data shapes out of nodes in an enrichment tree. For example, you might want to consolidate multiple nodes into a single shape. You can then project this shape as a table (nodes become the columns in a table), passing the shape by name to a table projection.
 
-The Shaper skill is easy to work with because it focuses shaping under one skill. Alternatively, you can opt for in-line shaping within individual projections. The Shaper Skill doesn't add or detract from an enrichment tree, so it's not visualized. Instead, you can think of a Shaper skill as the means by which you re-articulate the enrichment tree you already have. Conceptually, this is similar to creating views out of tables in a database.
+The Shaper skill is easy to work with because it focuses shaping under one skill. Alternatively, you can opt for in-line shaping within individual projections. The Shaper Skill doesn't add or detract from an enrichment tree, so it's not visualized. Instead, you can think of a Shaper skill as the means by which you rearticulate the enrichment tree you already have. Conceptually, this is similar to creating views out of tables in a database.
 
 ```json
 {
