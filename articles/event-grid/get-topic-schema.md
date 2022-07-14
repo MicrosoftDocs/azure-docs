@@ -1,18 +1,18 @@
 ---
 title: Get schema supported by an Azure Event Grid topic
-description: This article describes how to get the type of schema (Event Grid event schema, cloud event schema, or custom input schema) supported an Azure Event Grid topic. 
+description: This article describes how to get the type of schema (Event Grid event schema, cloud event schema, or custom input schema) supported by an Azure Event Grid topic. 
 ms.topic: how-to
 ms.date: 07/14/2022 
 ---
 
 # Get the type of schema supported by an Azure Event Grid topic
-This article describes how to get the type of schema (Event Grid event schema, cloud event schema, or custom input schema) supported an Azure Event Grid topic. 
+This article describes how to get the type of schema (Event Grid event schema, cloud event schema, or custom input schema) supported by an Azure Event Grid topic. 
 
 
 [!INCLUDE [Get topic's endpoint and access key](./includes/get-topic-endpoint-access-key.md)]
  
 ## Get the schema type
-Here's a sample Curl command that sends an HTTP OPTIONS message to the topic. The response would contain the schema type supported by the topic in the `aeg-input-event-schema` header property. 
+Here's a sample Curl command that sends an **HTTP OPTIONS** message to the topic. The response would contain the header property `aeg-input-event-schema` header that gives you the schema type supported by the topic.
 
 ```bash
 curl -X OPTIONS "<TOPIC ENDPOINT>" -H "aeg-sas-key: <ACCESS KEY>"
@@ -31,7 +31,7 @@ aeg-input-event-schema: EventGridEvent
 Date: Wed, 13 Jul 2022 20:04:06 GMT
 ```
 
-The value of the `aeg-input-event-schema` header property gives you the type of the schema supported by the topic. The value for this property is set to one of these values: `EventGridEvent`, `CustomInputEvent`, `CloudEventV10`.
+The value of the `aeg-input-event-schema` header property gives you the type of the schema supported by the topic. In this example, it's the Event Grid event schema. The value for this property is set to one of these values: `EventGridEvent`, `CustomInputEvent`, `CloudEventV10`.
 
 
 ## Next steps
