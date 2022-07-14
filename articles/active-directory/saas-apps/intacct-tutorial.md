@@ -123,7 +123,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Edit** to open the dialog. Click **...** next to the Active certificate and select **PEM certificate download** to download the certificate and save it to your local drive.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![The Certificate download link](common/certificate-base64-download.png)
 
 1. On the **Set up Sage Intacct** section, copy the Login URL as you will use it within Sage Intacct configuration.
 
