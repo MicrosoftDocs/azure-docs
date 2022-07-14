@@ -47,7 +47,7 @@ Your app would check for:
   - an "error" parameter with the value "insufficient_claims"
   - a "claims" parameter
 
-# [C#](#tab/C#)
+# [.NET](#tab/dotnet)
 
 When these conditions are met, the app can extract and decode the claims challenge using MSAL.NET `WwwAuthenticateParameters` class.
 
@@ -98,11 +98,6 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
 ```
 
 You can test your application by signing in a user to the application then using the Azure portal to Revoke the user's sessions. The next time the app calls the CAE enabled API, the user will be asked to reauthenticate.
-
-## Next steps
-
-- [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md) conceptual overview
-- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
 
 # [JavaScript](#tab/JavaScript)
 

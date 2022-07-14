@@ -96,7 +96,7 @@ Claims: {"access_token":{"xms_cc":{"values":["cp1"]}}}
 
 Those using MSAL library will use the following code:
 
-# [C#](#tab/C#)
+# [.NET](#tab/dotnet)
 
 ```c#
 _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
@@ -201,7 +201,7 @@ This is how the app's manifest looks like after the **xms_cc** [optional claim](
 
 The API can then customize their responses based on whether the client is capable of handling claims challenge or not.
 
-# [C#](#tab/C#)
+# [.NET](#tab/dotnet)
 
 ```c#
 Claim ccClaim = context.User.FindAll(clientCapabilitiesClaim).FirstOrDefault(x => x.Type == "xms_cc");
