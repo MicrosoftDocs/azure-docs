@@ -25,9 +25,7 @@ This article describes various tools that are useful for troubleshooting Java me
 
 For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](monitor-app-lifecycle-events.md).
 
-Resource health sends alerts about app restart events due to [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#how-to-fix-app-restart-issues-due-to-oom).
-
-For more information, see [How to fix app restart issues caused by out of memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
+Resource health sends alerts about app restart events due to container OOM. For more information, see [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
 
 :::image type="content" source="media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Resource Health page with OOM message highlighted." lightbox="media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png":::
 
@@ -53,9 +51,9 @@ App Memory Usage is a percentage = app memory used / app memory limit. It shows 
 
 #### jvm.memory.used/committed/max
 
-On JVM memory, there are three metrics: `jvm.memory.used`, `jvm.memory.committed`, `jvm.memory.max`.
+For JVM memory, there are three metrics: `jvm.memory.used`, `jvm.memory.committed`, `jvm.memory.max`.
 
-"JVM memory" isn't a clearly defined concept. Here "jvm.memory" is the sum of [heap memory](concepts-for-java-memory-management.md#heap-memory), [former permGen](concepts-for-java-memory-management.md#non-heap-memory). It doesn't include direct memory or other memory like thread stack. These three metrics are gathered by spring-boot actuator, and the scope of jvm.memory is also determined by spring-boot actuator.
+"JVM memory" isn't a clearly defined concept. Here `jvm.memory` is the sum of [heap memory](concepts-for-java-memory-management.md#heap-memory) and [former permGen](concepts-for-java-memory-management.md#non-heap-memory). It doesn't include direct memory or other memory like thread stack. These three metrics are gathered by Spring Boot Actuator, and the scope of `jvm.memory` is also determined by Spring Boot Actuator.
 
 - `jvm.memory.used`
 
@@ -63,7 +61,7 @@ On JVM memory, there are three metrics: `jvm.memory.used`, `jvm.memory.committed
 
   jvm.memory.used majorly reflects the change of heap memory, because the former permGen part is usually stable.
 
-  If you find jvm.memory.used too large, consider to set a smaller max heap memory size.
+  If you find jvm.memory.used too large, consider to set a smaller maximum heap memory size.
 
 - `jvm.memory.committed`
 
@@ -75,11 +73,11 @@ On JVM memory, there are three metrics: `jvm.memory.used`, `jvm.memory.committed
 
   The value of `jvm.memory.max` can sometimes be confusing because it can be much higher than the available app memory. To clarify, `jvm.memory.max` is the sum of all maximum sizes of heap memory and [former permGen](concepts-for-java-memory-management.md#non-heap-memory), regardless of the real available memory. For example, if an app is set with 1 GB memory in the Azure Spring Apps portal, then the default heap memory size will be 0.5 GB
 
-(refer to [the doc for default heap size](concepts-for-java-memory-management.md#default-max-heap-size)), the default Compressed Class Space size is 1 GB (refer to [an oracle doc](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.oracle.com%2Fjavase%2F9%2Fgctuning%2Fother-considerations.htm%23JSGCT-GUID-B29C9153-3530-4C15-9154-E74F44E3DAD9&data=04%7C01%7Ckaiqianyang%40microsoft.com%7C38fc180b69244f235bc808d9d5957de2%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637775660327124610%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=qRyPF%2BviieEO0lVtOKUoIPy5Ejx7hgM5RMQGaDEVm7A%3D&reserved=0)), then the value of jvm.memory.max will be larger than 1.5 GB regardless of the app memory size 1 GB.
+(refer to [the doc for default heap size](concepts-for-java-memory-management.md#default-maximum-heap-size)), the default Compressed Class Space size is 1 GB (refer to [an oracle doc](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.oracle.com%2Fjavase%2F9%2Fgctuning%2Fother-considerations.htm%23JSGCT-GUID-B29C9153-3530-4C15-9154-E74F44E3DAD9&data=04%7C01%7Ckaiqianyang%40microsoft.com%7C38fc180b69244f235bc808d9d5957de2%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637775660327124610%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=qRyPF%2BviieEO0lVtOKUoIPy5Ejx7hgM5RMQGaDEVm7A%3D&reserved=0)), then the value of `jvm.memory.max` will be larger than 1.5 GB regardless of the app memory size 1 GB.
 
 #### jvm.gc.memory.allocated/promoted
 
-These two metrics are for observing [Java garbage collection](concepts-for-java-memory-management.md#java-garbage-collection). Max heap size influences the frequency of minor GC and full GC. Max metaspace and max direct memory size influence full GC. If you want to adjust the frequency of garbage collection, consider to modify max memory sizes.
+These two metrics are for observing [Java garbage collection](concepts-for-java-memory-management.md#java-garbage-collection). The maximum heap size influences the frequency of minor GC and full GC. The maximum metaspace and maximum direct memory size influence full GC. If you want to adjust the frequency of garbage collection, consider modifying the maximum memory sizes.
 
 - `jvm.gc.memory.allocated`
 
@@ -110,7 +108,7 @@ Heap dump records the state of the Java heap memory. Thread dump records the sta
 
 ### Configure memory settings in JVM options
 
-If you identify issues including [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#how-to-fix-app-restart-issues-due-to-oom), heap memory too large, garbage collection abnormal, you may need to configure max memory size in JVM options.
+If you identify issues including [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#how-to-fix-app-restart-issues-due-to-oom), heap memory too large, garbage collection abnormal, you may need to configure the maximum memory size in the JVM options.
 
 For more information, see [related JVM Options](concepts-for-java-memory-management.md#important-jvm-options).
 
