@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 07/19/2022
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -36,15 +36,19 @@ The transact publishing option is currently supported for the following offer ty
 | ------------ | ------------- | ------------- | ------------- |
 | Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
 | Azure Virtual Machine | Monthly<sup>1</sup> | No | Usage-based, BYOL |
-| Software as a service (SaaS) | Monthly and annual | Yes | Flat rate, per user, usage-based. |
-| Dynamics 365 apps on Dataverse and Power Apps<sup>2</sup> | Monthly and annual | No | Per user |
-| Power BI visual<sup>3</sup> | Monthly and annual | No | Per user |
+| Software as a service (SaaS) | One-time upfront monthly, annual<sup>2, 3</sup> | Yes | Flat rate, per user, usage-based. |
+| Dynamics 365 apps on Dataverse and Power Apps<sup>4</sup> | Monthly and annual | No | Per user |
+| Power BI visual<sup>5</sup> | Monthly and annual | No | Per user |
 
 <sup>1</sup> Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
 
-<sup>2</sup> Dynamics 365 apps on Dataverse and Power Apps offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Dynamics 365 apps on Dataverse and Power Apps](isv-app-license.md).
+<sup>2</sup> SaaS plans support monthly, 1-year, 2-year, and 3-year terms that can be billed either monthly or for the entire term upfront. See [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
 
-<sup>3</sup> Power BI visual offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Power BI visual offers](isv-app-license-power-bi-visual.md).
+<sup>3</sup>If you choose to configure a 2-year or 3-year billing term, or a 1-year billing term with a monthly payment option, your offer will be published to Azure Marketplace only. If you update an offer that is currently published live on AppSource with a multi-year billing term, the offer will be delisted from AppSource and published to Azure Marketplace only.
+
+<sup>4</sup>Dynamics 365 apps on Dataverse and Power Apps offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Dynamics 365 apps on Dataverse and Power Apps](isv-app-license.md).
+
+<sup>5</sup>Power BI visual offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Power BI visual offers](isv-app-license-power-bi-visual.md).
 
 ### Metered billing
 
@@ -60,9 +64,14 @@ For **SaaS Apps**, the publisher must account for Azure infrastructure usage fee
 
 Depending on the transaction option used, subscription charges are as follows:
 
-- **Subscription pricing**: Software license fees are presented as a monthly or annual, recurring subscription fee billed as a flat rate or per-seat. Recurrent subscription fees are not prorated for mid-term customer cancellations, or unused services. Recurrent subscription fees may be prorated if the customer upgrades or downgrades their subscription in the middle of the subscription term.
+- **Subscription pricing**: Software license fees are presented as a recurring subscription fee billed as a flat rate or per-seat:
+    - SaaS plans support monthly, 1-year, 2-year, and 3-year terms that can be billed either monthly or for the entire term upfront. See [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
+    - Azure virtual machine plans support monthly, 1-year, and 3-year plans that are billed monthly. See [Plan a virtual machine offer](marketplace-virtual-machines.md#plans-pricing-and-trials).
+    - Azure application (Managed application) plans are billed monthly. See [Plan a managed application](plan-azure-app-managed-app.md#define-pricing).
+    
+    Recurrent subscription fees are not prorated for mid-term customer cancellations, or unused services. Recurrent subscription fees may be prorated if the customer upgrades or downgrades their subscription in the middle of the subscription term.
 - **Usage-based pricing**: For Azure Virtual Machine offers, customers are charged based on the extent of their use of the offer. For Virtual Machine images, customers are charged an hourly Azure Marketplace fee, as set by the publisher, for use of virtual machines deployed from the VM images. The hourly fee may be uniform or varied across virtual machine sizes. Partial hours are charged by the minute. Plans are billed monthly.
-- **Metered pricing**: For Azure Application offers and SaaS offers, publishers can use the [Marketplace metering service](marketplace-metering-service-apis.md) to bill for consumption based on the custom meter dimensions they configure. These changes are in addition to monthly or annual charges included in the contract (entitlement). Examples of custom meter dimensions are bandwidth, tickets, or emails processed. Publishers can define one or more metered dimensions for each plan but a maximum of 30 per offer. Publishers are responsible for tracking individual customer usage, with each meter defined in the offer. Events should be reported to Microsoft within an hour of occurrence. Microsoft charges customers based on the usage information reported by publishers for the applicable billing period.
+- **Metered pricing**: For Azure Application offers and SaaS offers, publishers can use the [Marketplace metering service](marketplace-metering-service-apis.md) to bill for consumption based on the custom meter dimensions they configure. These changes are in addition to the flat rate charges included in the contract (entitlement). Examples of custom meter dimensions are bandwidth, tickets, or emails processed. Publishers can define one or more metered dimensions for each plan but a maximum of 30 per offer. Publishers are responsible for tracking individual customer usage, with each meter defined in the offer. Events should be reported to Microsoft within an hour of occurrence. Microsoft charges customers based on the usage information reported by publishers for the applicable billing period.
 
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
@@ -129,7 +138,7 @@ In this scenario, Microsoft bills $0.14 per hour for use of your published VM im
 
 **SaaS app subscription**
 
-SaaS subscriptions can be priced at a flat rate or per user on a monthly or annual basis. If you enable the  **Sell through Microsoft** option for a SaaS offer, you have the following cost structure:
+SaaS subscriptions can be priced at a flat rate or per user. If you enable the  **Sell through Microsoft** option for a SaaS offer, you have the following cost structure:
 
 | **Your license cost** | **$100.00 per month** |
 |--------------|---------|
@@ -197,7 +206,7 @@ The ability to transact through Microsoft is available for the following commerc
 
 - **Dynamics 365 Dataverse apps and Power Apps**: Select “Per user” pricing to enable Dynamics 365 Dataverse apps and Power Apps to be sold in AppSource marketplace. Customers can manage licenses of these offers in Microsoft Admin Center.
 
-- **Power BI visual**: Select "Managing license and selling with Microsoft" to enable your offer to be transactable in Microsoft AppSource and get license management. Customers can manage licenses of these offers in Microsoft Admin Center.
+- **Power BI visual**: Select Managing license and selling with Microsoft to enable your offer to be transactable in Microsoft AppSource and get license management. Customers can manage licenses of these offers in Microsoft Admin Center.
 
 ## Private plans
 
