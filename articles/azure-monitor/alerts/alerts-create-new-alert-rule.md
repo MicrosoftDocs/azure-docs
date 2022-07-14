@@ -54,13 +54,13 @@ And then defining these elements for the resulting alert actions using:
      :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
   1. In the **Measurement** section, select values for these fields:
    
-        |Field  |Description  |
-        |---------|---------|
-        |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.      |
-        |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value using the aggregation granularity. For example: Total, Average, Minimum, or Maximum.    |
-        |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
+   |Field  |Description  |
+   |---------|---------|
+   |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.      |
+   |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value using the aggregation granularity. For example: Total, Average, Minimum, or Maximum.    |
+   |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
  
-       :::image type="content" source="media/alerts-log/alerts-log-measurements.png" alt-text="Measurements.":::
+   :::image type="content" source="media/alerts-log/alerts-log-measurements.png" alt-text="Measurements.":::
 
   1. (Optional) In the **Split by dimensions** section, you can create resource-centric alerts at scale for a subscription or resource group. Splitting by dimensions groups combinations of numerical or string columns to monitor for the same condition on multiple Azure resources.
 
@@ -72,39 +72,39 @@ And then defining these elements for the resulting alert actions using:
 
    Select values for these fields:
 
-        |Field  |Description  |
-        |---------|---------|
-        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the Azure Resource ID column makes the specified resource into the alert target. If a Resource ID column is detected, it is selected automatically and changes the context of the fired alert to the record's resource.  |
-        |Operator|The operator used on the dimension name and value.  |
-        |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
+   |Field  |Description  |
+   |---------|---------|
+   |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the Azure Resource ID column makes the specified resource into the alert target. If a Resource ID column is detected, it is selected automatically and changes the context of the fired alert to the record's resource.  |
+   |Operator|The operator used on the dimension name and value.  |
+   |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
 
-       :::image type="content" source="media/alerts-log/alerts-create-log-rule-dimensions.png" alt-text="Screenshot of the splitting by dimensions section of a new log alert rule.":::
+   :::image type="content" source="media/alerts-log/alerts-create-log-rule-dimensions.png" alt-text="Screenshot of the splitting by dimensions section of a new log alert rule.":::
     
   1. In the **Alert logic** section, select values for these fields:
 
-         |Field  |Description  |
-         |---------|---------|
-         |Operator| The query results are transformed into a number. In this field, select the operator to use to compare the number against the threshold.|
-         |Threshold value| A number value for the threshold. |
-         |Frequency of evaluation|The interval in which the query is run. Can be set from a minute to a day. | 
+   |Field  |Description  |
+   |---------|---------|
+   |Operator| The query results are transformed into a number. In this field, select the operator to use to compare the number against the threshold.|
+   |Threshold value| A number value for the threshold. |
+   |Frequency of evaluation|The interval in which the query is run. Can be set from a minute to a day. | 
       
-       :::image type="content" source="media/alerts-log/alerts-create-log-rule-logic.png" alt-text="Screenshot of alert logic section of a new log alert rule.":::
+   :::image type="content" source="media/alerts-log/alerts-create-log-rule-logic.png" alt-text="Screenshot of alert logic section of a new log alert rule.":::
 
   1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy. 
    
    Select values for these fields under **Number of violations to trigger the alert**:
     
-       |Field  |Description  |
-       |---------|---------|
-       |Number of violations|The number of violations that have to occur to trigger the alert.|
-       |Evaluation period|The amount of time within which those violations have to occur. |
-       |Override query time range| Enter a value in this field if the alert evaluation period is different than the query time range.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than 2 days, the 2 day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to 2 days of data.<br> If the query requires more data than the alert evaluation, and there is no **ago** command in the query, you can change the time range manually.| 
+   |Field  |Description  |
+   |---------|---------|
+   |Number of violations|The number of violations that have to occur to trigger the alert.|
+   |Evaluation period|The amount of time within which those violations have to occur. |
+   |Override query time range| Enter a value in this field if the alert evaluation period is different than the query time range.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than 2 days, the 2 day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to 2 days of data.<br> If the query requires more data than the alert evaluation, and there is no **ago** command in the query, you can change the time range manually.| 
 
-       :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
+   :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
 
   1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
-    :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
+   :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
 
  1. From this point on, you can select the **Review + create** button at any time.
     
@@ -113,26 +113,26 @@ And then defining these elements for the resulting alert actions using:
    
    1. Configure the signal logic, and then select **Done**.
    
-        |Setting |Description |
-        |---------|---------|
-        |Select time series|Select the time series to include in the results. |
-        |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
-        |Threshold| Select if threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold uses a user-defined threshold value to evaluate rule.<br>Dynamic Thresholds use machine learning algorithms to continuously learn the metric behavior pattern and calculate the appropriate threshold for unexpected behavior. Click here for more information about using dynamic thresholds for metric alerts.|
-        |Operator|Select the operator for comparing the metric value against the threshold.|
-        |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.          |
-        |Threshold value| If you selected a **static** threshold, enter the threshold value for the condition logic.        |
-        |Unit| If you selected a **static** threshold, enter the unit for the condition logic.        |
-        |Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
-        |Aggregation granularity|Select the interval over which data points are grouped using the aggregation type function.         |
-        |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.         |
-    1. (Optional.) Configure the advanced settings:
-         
-        
-        |Setting  |Description  |
-        |---------|---------|
-        |Number of violations     |Select the minimum number of violations required within the selected lookback time window required to raise an alert.         |
-        |Evaluation period    |         |
-        |Ignore data before     |         | 
+   |Setting |Description |
+   |---------|---------|
+   |Select time series|Select the time series to include in the results. |
+   |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
+   |Threshold| Select if threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold uses a user-defined threshold value to evaluate rule.<br>Dynamic Thresholds use machine learning algorithms to continuously learn the metric behavior pattern and calculate the appropriate threshold for unexpected behavior. Click here for more information about using dynamic thresholds for metric alerts.|
+   |Operator|Select the operator for comparing the metric value against the threshold.|
+   |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.          |
+   |Threshold value| If you selected a **static** threshold, enter the threshold value for the condition logic.        |
+   |Unit| If you selected a **static** threshold, enter the unit for the condition logic.        |
+   |Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
+   |Aggregation granularity|Select the interval over which data points are grouped using the aggregation type function.         |
+   |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.         |
+   
+ 1. (Optional.) Configure the advanced settings:
+          
+   |Setting  |Description  |
+   |---------|---------|
+   |Number of violations     |Select the minimum number of violations required within the selected lookback time window required to raise an alert.         |
+   |Evaluation period    |         |
+   |Ignore data before     |         | 
    
 # [Activity Log alerts](#tab/activity-log)
    1.  In the **Conditions** pane.
