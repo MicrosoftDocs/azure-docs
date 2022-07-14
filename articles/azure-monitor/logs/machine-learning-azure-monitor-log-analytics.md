@@ -103,9 +103,9 @@ Filter the results of the `series_decompose_anomalies()` query for anomalies in 
 
 The results show two anomalies on June 14 and June 15.
 
-Compare these results with the chart from our first `make-series` query, where you can see more anomalies on May 26, 27, and 28:
+Compare these results with the chart from our first `make-series` query, where you can see other anomalies on May 26, 27, and 28:
 
-:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with five anomalies highlighted."::: 
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with five anomalies highlighted."::: 
 
 The difference in results occurs because the `series_decompose_anomalies()` function scores anomalies relative to an the expected usage value, which the function calculates based on the full range of values in the input series.
 
