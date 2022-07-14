@@ -54,8 +54,8 @@ The target of the metric alert rule can be:
 When you create an alert rule for a single resource, you can apply multiple conditions. For example, you could create an alert rule to monitor an Azure virtual machine and alert when both "Percentage CPU is higher than 90%" and "Queue length is over 300 items". When an alert rule has multiple conditions, the alert fires when all the conditions in the alert rule are true and is resolved when at least one of the conditions is no longer true for three consecutive checks.
 ### Narrow the target using Dimensions
 
-Dimensions are name-value pairs that contain additional data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. 
-For example, the Transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there is a high number of transactions in any API name (which is the aggregated data), or you can use dimensions to further break it down to alert only when the number of transactions is high for specific API names.
+Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. 
+For example, the Transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in any API name (which is the aggregated data), or you can use dimensions to further break it down to alert only when the number of transactions is high for specific API names.
 If you use more than one dimension, the metric alert rule can monitor multiple dimension values from different dimensions of a metric. 
 The alert rule separately monitors all the dimensions value combinations.
 See [this article](alerts-metric-multiple-time-series-single-rule.md) for detailed instructions on using dimensions in metric alert rules.
@@ -106,7 +106,7 @@ Dynamic thresholds use advanced machine learning (ML) to:
 Machine Learning continuously uses new data to learn more and make the threshold more accurate. Because the system adapts to the metrics’ behavior over time, and alerts based on deviations from its pattern, you don't have to know the "right" threshold for each metric. 
 
 Dynamic thresholds help you:
-- Create scalable alerts for hundreds of metric series with one alert rule. Fewer alert rules leads to to less time that you have to spend on creating and managing alerts rules.
+- Create scalable alerts for hundreds of metric series with one alert rule. If you have fewer alert rules, you spend less time creating and managing alerts rules.
 - Create rules without having to know what threshold to configure
 - Configure up metric alerts using high-level concepts without extensive domain knowledge about the metric
 - Prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern
@@ -115,7 +115,7 @@ Dynamic thresholds help you:
 See [this article](alerts-dynamic-thresholds.md) for detailed instructions on using dynamic thresholds in metric alert rules.
 
 ## Log alerts
-A log alert rule monitors a resource by using a Log Analytics query to evaluate resource logs at a set frequency. If the conditions are met, an alert is fired. Because you can use Log Analytics queries, log alerts allow you to perform advanced logic operations on your data and to use the robust features of KQL for data manipulation of log data.
+A log alert rule monitors a resource by using a Log Analytics query to evaluate resource logs at a set frequency. If the conditions are met, an alert is fired. Because you can use Log Analytics queries, you can perform advanced logic operations on your data and use the robust KQL features to manipulate log data.
 
 The target of the log alert rule can be:
 - A single resource, such as a VM. 
@@ -170,7 +170,7 @@ An activity log alert only monitors events in the subscription in which the aler
 ## Smart Detection alerts
 After setting up Application Insights for your project, when your app generates a certain minimum amount of data, Smart Detection takes 24 hours to learn the normal behavior of your app. Your app's performance has a typical pattern of behavior. Some requests or dependency calls will be more prone to failure than others; and the overall failure rate may go up as load increases. Smart Detection uses machine learning to find these anomalies. Smart Detection monitors the data received from your app, and in particular the failure rates. Application Insights automatically alerts you in near real time if your web app experiences an abnormal rise in the rate of failed requests.
 
-As data comes into Application Insights from your web app, Smart Detection compares the current behavior with the patterns seen over the past few days. If there is an abnormal rise in failure rate compared to previous performance, an analysis is triggered. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related application data is provided in the alert details. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
+As data comes into Application Insights from your web app, Smart Detection compares the current behavior with the patterns seen over the past few days. If there's an abnormal rise in failure rate compared to previous performance, an analysis is triggered. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related application data is provided in the alert details. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
 While metric alerts tell you there might be a problem, Smart Detection starts the diagnostic work for you, performing much of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
