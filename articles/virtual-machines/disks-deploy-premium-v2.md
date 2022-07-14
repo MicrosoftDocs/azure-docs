@@ -3,7 +3,7 @@ title: Deploy a Premium SSD v2 (preview) managed disk
 description: Learn how to deploy a Premium SSD v2 (preview).
 author: roygara
 ms.author: rogarana
-ms.date: 07/13/2022
+ms.date: 07/14/2022
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Deploy a Premium SSD v2 (preview)
 
-Azure Premium SSD v2 (preview) is designed for IO-Intensive enterprise production workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. You can take advantage of Premium SSD v2 for a broad range of production workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2 (preview)](disks-types.md#Premium-ssd-v2-preview).
+Azure Premium SSD v2 (preview) is designed for IO-Intensive enterprise production workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. You can take advantage of Premium SSD v2 for a broad range of production workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2 (preview)](disks-types.md#premium-ssd-v2-preview).
 
 ## Limitations
 
@@ -55,6 +55,10 @@ Set-AzContext -Subscription $subscriptionId
 Get-AzComputeResourceSku | where {$_.ResourceType -eq 'disks' -and $_.Name -eq 'Premiumv2_LRS'} 
 ```
 
+# [Azure portal](#tab/portal)
+
+To programmatically determine the regions and zones you can deploy to, use either the Azure CLI or Azure PowerShell Module.
+
 ---
 
 Now that you know the region and zone to deploy to, follow the deployment steps in this article to create a Premium SSD v2 disk and attach it to a VM.
@@ -63,9 +67,10 @@ Now that you know the region and zone to deploy to, follow the deployment steps 
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a Premium SSD v2 disk in a zone 
+Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it.
 
 ```azurecli-interactive
+## Create a Premium SSD v2 disk
 diskName="yourDiskName"
 resourceGroupName="yourResourceGroupName"
 region="yourRegionName"
@@ -81,13 +86,28 @@ az disk create -n $diskName -g $resourceGroupName \
 --sku PremiumV2_LRS \
 --logical-sector-size $logicalSectorSize
 
+## Create the VM
+vmName="yourVMName"
+vmImage="Win2016Datacenter"
+adminPassword="yourAdminPassword"
+adminUserName="yourAdminUserName"
+vmSize="Standard_D4s_v3"
+
+az vm create -n $vmName -g $resourceGroupName \
+--image $vmImage \
+--zone $zone \
+--authentication-type password --admin-password $adminPassword --admin-username $adminUserName \
+--size $vmSize \
+--location $region \
+--attach-data-disks $diskName
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
-Create a Premium SSD v2 disk in a zone 
+Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it.
 
 ```powershell
+# Create a Premium SSD v2
 $resourceGroupName = "yourResourceGroupName"
 $region = "useast"
 $zone = "yourZoneNumber"
@@ -113,35 +133,7 @@ New-AzDisk `
 -DiskName $diskName `
 -Disk $diskconfig
 
-
-## Create a VM and attach a Premium SSD v2 data disk
-
-# [Azure CLI](#tab/azure-cli)
-
-You must create a VM using a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
-
-```azurecli-interactive
-vmName="yourVMName"
-vmImage="Win2016Datacenter"
-adminPassword="yourAdminPassword"
-adminUserName="yourAdminUserName"
-vmSize="Standard_D4s_v3"
-
-az vm create -n $vmName -g $resourceGroupName \
---image $vmImage \
---zone $zone \
---authentication-type password --admin-password $adminPassword --admin-username $adminUserName \
---size $vmSize \
---location $region \
---attach-data-disks $diskName
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-You must create a VM using a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
-
-```powershell
-
+# Create the VM
 $vmName = "yourVMName"
 $vmImage = "Win2016Datacenter"
 $vmSize = "Standard_D4s_v3"
@@ -164,6 +156,30 @@ $disk = Get-AzDisk -ResourceGroupName $resourceGroupName -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 ```
+
+# [Azure portal](#tab/portal)
+
+1. Sign in to the Azure portal.
+1. Navigate to **Virtual machines** and follow the normal VM creation process.
+1. On the **Basics** page, select a [supported region](#regional-availability) and set **Availability options** to **Availability zone**.
+1. Select one of the zones.
+1. Fill in the rest of the values on the page as you like.
+
+    :::image type="content" source="media/disks-deploy-premium-v2/premv2-portal-deploy.png" alt-text="Screenshot of the basics page, region and availabilty options and zones highlighted." lightbox="media/disks-deploy-premium-v2/premv2-portal-deploy.png":::
+
+1. Proceed to the **Disks** page.
+1. Under **Data disks** select **Create and attach a new disk**.
+
+    :::image type="content" source="media/disks-deploy-premium-v2/premv2-create-data-disk.png" alt-text="Screenshot highlighting create and attach a new disk on the disk page." lightbox="media/disks-deploy-premium-v2/premv2-create-data-disk.png":::
+
+1. Select the **Disk SKU** and select **Premium SSD v2 (Preview)**.
+
+    :::image type="content" source="media/disks-deploy-premium-v2/premv2-select.png" alt-text="Screenshot selecting premium ssd v2 (preview) SKU." lightbox="media/disks-deploy-premium-v2/premv2-select.png":::
+
+1. Proceed through the rest of the VM deployment, making any choices that you desire.
+
+You've now deployed a VM with a premium SSD v2.
+
 ---
 
 ## Adjust disk performance
@@ -185,6 +201,15 @@ az disk update `
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
 Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
 ```
+
+# [Azure portal](#tab/portal)
+
+1. Navigate to your disk and select **Size + Performance**.
+1. Change the values to your desire.
+1. Select **Resize**.
+
+    :::image type="content" source="media/disks-deploy-premium-v2/premv2-performance.png" alt-text="Screenshot showing the Size+performance page of a premium v2 SSD." lightbox="media/disks-deploy-premium-v2/premv2-performance.png":::
+
 ---
 
 ## Next steps
