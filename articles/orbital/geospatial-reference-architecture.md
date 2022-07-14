@@ -1,5 +1,5 @@
 ---
-title: End-to-end geospatial reference architecture
+title: Geospatial reference architecture - Azure Orbital
 description: Show how to architect end-to-end geospatial data on Azure.
 author: rovin-ms
 ms.service: orbital

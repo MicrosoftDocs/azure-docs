@@ -1,5 +1,5 @@
 ---
-title: What is the Space Partner Community?
+title: What is the Azure Orbital Space Partner Community?
 description: Overview of the Azure Space Partner Community
 author: wamota
 ms.service: orbital
