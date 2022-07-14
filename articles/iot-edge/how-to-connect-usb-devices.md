@@ -14,7 +14,10 @@ ms.author: patricka
 
 In some scenarios, your workloads need to get data or communicate with USB devices. Because Azure IoT Edge for Linux on Windows (EFLOW) runs as a virtual machine, you need to connect these devices to the virtual machine. This guide will walk through the steps necessary to connect a USB device to the EFLOW virtual machine  using the USB/IP open-source project, [usbipd-win](https://github.com/dorssel/usbipd-win).
 
-Setting up the USB/IP project on your Windows machine will enable common developer USB scenarios like flashing an Arduino or accessing a smartcard reader directly from the EFLOW virtual machine. 
+Setting up the USB/IP project on your Windows machine will enable common developer USB scenarios like flashing an Arduino, connecting a USB serial device or accessing a smartcard reader directly from the EFLOW virtual machine. 
+
+> [!WARNING]
+> USB over IP provides a generic mechanism for redirecting USB devices using the network between the Windows host OS and the EFLOW virtual machine. Some devices that are sensitive to network latency might experience issues. Additionally, some devices might not function as expected due to driver compatibility issues. Ensure that your devices work as expected before deploying to production. For more information about USBIP tested devices, see [USBIP-Win - Wiki - Tested Devices](https://github.com/dorssel/usbipd-win/wiki/Tested-Devices).
 
 ## Prerequisites
 
@@ -48,11 +51,11 @@ At this point a service is running on Windows to share USB devices, and the nece
 The following steps in this section provide sample EFLOW PowerShell cmdlet to attach a USB device to the EFLOW VM. If you want to manually execute the needed commands, check [How to use usbip-win](https://github.com/dorssel/usbipd-win).
 
 > [!IMPORTANT]
-The following PowerShell cmdlets are a sample code that are not meant to be used in production deployments. Furthermore, cmdlets are subject to change and deletion. Make sure you create your own functions based on these samples.
+> The following functions are sample codes that are not meant to be used in production deployments. For production use, ensure you validate the functionality and create your own functions based on these samples. Furthermore, functions are subject to change and deletion.
 
 1. Go to [EFLOW-Util](https://github.com/Azure/iotedge-eflow/tree/main/eflow-util/eflow-usbip) and download the EFLOW-USBIP sample PowerShell module.
 
-1. Open PowerShell in an elevated session. You can do so by opening the **Start** pane on Windows and typing in "PowerShell". Right-click the **Windows PowerShell** app that shows up and select **Run as administrator**.
+1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
 
 1. Import the downloaded EFLOW-USBIP module
     ```powershell
