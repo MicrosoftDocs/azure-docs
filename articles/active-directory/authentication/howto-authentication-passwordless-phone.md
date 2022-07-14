@@ -38,19 +38,19 @@ You can enable passwordless phone sign-in for multiple accounts in Microsoft Aut
 
 Previously, admins might not require passwordless sign-in for users with multiple accounts because it requires them to carry more devices for sign-in. By removing the limitation of one user sign-in from a device, admins can more confidently encourage users to register passwordless phone sign-in and use it as their default sign-in method.
 
-The Azure AD accounts can be in the same tenant or different tenants. Guest accounts are not supported for multiple account sign-in from one device.
+The Azure AD accounts can be in the same tenant or different tenants. Guest accounts aren't supported for multiple account sign-in from one device.
 
 >[!NOTE]
 >Multiple accounts on iOS is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Prerequisites
 
-To use passwordless phone sign in with Microsoft Authenticator, the following prerequisites must be met:
+To use passwordless phone sign-in with Microsoft Authenticator, the following prerequisites must be met:
 
 - Recommended: Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method. Push notifications to your smartphone or tablet help the Authenticator app to prevent unauthorized access to accounts and stop fraudulent transactions. The Authenticator app automatically generates codes when set up to do push notifications so a user has a backup sign-in method even if their device doesn't have connectivity. 
 - Latest version of Microsoft Authenticator installed on devices running iOS 12.0 or greater, or Android 6.0 or greater.
-- For Android, the device that runs Microsoft Authenticator must be registered to an individual user. We are actively working to enable multiple accounts on Android. 
-- For iOS, the device must be registered with each tenant where it is used to sign in. For example, the following device must be registered with Contoso and Wingtiptoys to allow all accounts to sign in:
+- For Android, the device that runs Microsoft Authenticator must be registered to an individual user. We're actively working to enable multiple accounts on Android. 
+- For iOS, the device must be registered with each tenant where it's used to sign in. For example, the following device must be registered with Contoso and Wingtiptoys to allow all accounts to sign in:
   - balas@contoso.com
   - balas@wingtiptoys.com and bsandhu@wingtiptoys
 - For iOS, the option in Microsoft Authenticator to allow Microsoft to gather usage data must be enabled. It's not enabled by default. To enable it in Microsoft Authenticator, go to **Settings** > **Usage Data**.
