@@ -9,7 +9,7 @@ ms.date: 07/13/2022
 ms.custom: template-overview 
 ---
 
-# Collect and process Aqua satellite payload using Azure Orbital Ground Station (AOGS)
+# Tutorial: Collect and process Aqua satellite payload using Azure Orbital Ground Station (AOGS)
 
 This topic is a comprehensive walk-through showing how to use the [Azure Orbital Ground Station (AOGS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the AOGS and its core concepts and shows how to schedule contacts. The topic also steps through an example in which we collect and process NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
 
@@ -19,10 +19,11 @@ A *contact* is time reserved at an orbital ground station to communicate with a 
 
 Processing the Aqua data stream involves the following steps in order:
 
-1. [Prerequisites](#step-1-prerequisites).
-2. [Process RAW data using RT-STPS](#step-2-process-raw-data-using-rt-stps).
-3. [Prepare a virtual machine (processor-vm) to process higher level products](#step-3-prepare-a-virtual-machine-processor-vm-to-create-higher-level-products).
-4. [Create higher level products using IPOPP](#step-4-create-higher-level-products-using-ipopp).
+> [!div class="checklist"]
+> 1. [Prerequisites](#step-1-prerequisites).
+> 2. [Process RAW data using RT-STPS](#step-2-process-raw-data-using-rt-stps).
+> 3. [Prepare a virtual machine (processor-vm) to process higher level products](#step-3-prepare-a-virtual-machine-processor-vm-to-create-higher-level-products).
+> 4. [Create higher level products using IPOPP](#step-4-create-higher-level-products-using-ipopp).
 
 Optional setup for capturing the ground station telemetry are included in the [Appendix](#appendix)
 
