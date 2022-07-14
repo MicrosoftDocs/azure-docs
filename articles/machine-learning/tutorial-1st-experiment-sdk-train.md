@@ -211,20 +211,20 @@ if __name__ == "__main__":
 ### Understand the code changes
 
 :::row:::
-    :::column span="":::
-        `env_docker_image = ...`
-    :::column-end:::
-    :::column span="2":::
-        Creates the custom environment against the pytorch base image, with additional conda file to install.
-    :::column-end:::
+   :::column span="":::
+      `env_docker_image = ...`
+   :::column-end:::
+   :::column span="2":::
+      Creates the custom environment against the pytorch base image, with additional conda file to install.
+   :::column-end:::
 :::row-end:::
 :::row:::
-    :::column span="":::
-        environment=f"{env_name}@latest",
-    :::column-end:::
-    :::column span="2":::
-        Adds the environment to [command](/python/api/azure-ai-ml/azure.ai.ml?view=azure-python-preview#azure-ai-ml-command).
-    :::column-end:::
+   :::column span="":::
+      environment=f"{env_name}@latest",
+   :::column-end:::
+   :::column span="2":::
+      Adds the environment to [command](/python/api/azure-ai-ml/azure.ai.ml?view=azure-python-preview#azure-ai-ml-command).
+   :::column-end:::
 :::row-end:::
 
 ## <a name="submit"></a> Submit the job to Azure Machine Learning

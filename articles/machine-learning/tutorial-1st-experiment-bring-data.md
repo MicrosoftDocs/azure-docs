@@ -222,20 +222,20 @@ if __name__ == "__main__":
 The control script is similar to the one from [part 2 of this series](tutorial-1st-experiment-sdk-train.md), with the following new lines:
 
 :::row:::
-:::column span="":::
-`my_job_inputs = { "data_path": Input(type=AssetTypes.URI_FOLDER, path="./data")}`
-:::column-end:::
-:::column span="2":::
-An [Input](/python/api/azure-ai-ml/azure.ai.ml.input) is used to reference inputs to your job. These can encompass data, either uploaded as part of the job or references to previously registered data assets. URI\*FOLDER tells that the reference points to a folder of data. The data will be mounted by default to the compute for the job.
-:::column-end:::
+   :::column span="":::
+      `my_job_inputs = { "data_path": Input(type=AssetTypes.URI_FOLDER, path="./data")}`
+   :::column-end:::
+   :::column span="2":::
+      An [Input](/python/api/azure-ai-ml/azure.ai.ml.input) is used to reference inputs to your job. These can encompass data, either uploaded as part of the job or references to previously registered data assets. URI\*FOLDER tells that the reference points to a folder of data. The data will be mounted by default to the compute for the job.
+   :::column-end:::
 :::row-end:::
 :::row:::
-:::column span="":::
-command="python train.py --data_path ${{inputs.data_path}}",
-:::column-end:::
-:::column span="2":::
-`--data_path` matches the argument defined in the updated training script. `${{inputs.data_path}}` passes the input defined by the input dictionary, and the keys must match.
-:::column-end:::
+   :::column span="":::
+      command="python train.py --data_path ${{inputs.data_path}}",
+   :::column-end:::
+   :::column span="2":::
+      `--data_path` matches the argument defined in the updated training script. `${{inputs.data_path}}` passes the input defined by the input dictionary, and the keys must match.
+   :::column-end:::
 :::row-end:::
 
 ## <a name="submit-to-cloud"></a> Submit the job to Azure Machine Learning
