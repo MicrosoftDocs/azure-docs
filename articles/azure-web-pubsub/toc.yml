@@ -18,6 +18,8 @@
       href: howto-develop-create-instance.md
     - name: The Azure CLI
       href: quickstart-cli-create.md
+    - name: By using a Bicep template
+      href: quickstart-bicep-template.md
   - name: Connect to the instance
     expanded: true
     items:
