@@ -1,7 +1,7 @@
 ---
 title: Create an index alias
 titleSuffix: Azure Cognitive Search
-description: Create an Azure Cognitive Search index alias to define a static secondary name that can be used for referencing a search index for querying and indexing.
+description: Create an alias to define a secondary name that can be used to refer to an index for querying, indexing, and other operations.
 
 author: dereklegenzoff
 ms.author: delegenz
@@ -57,7 +57,7 @@ To create an alias in Visual Studio Code:
 
 ## Send requests to an index alias
 
-Once you've created your alias, you're ready to start using it. Aliases can be used for [querying](/rest/api/searchservice/search-documents) and [indexing](/rest/api/searchservice/addupdate-or-delete-documents).
+Once you've created your alias, you're ready to start using it. Aliases can be used for all [document operations](/rest/api/searchservice/document-operations) including querying, indexing, suggestions, and autocomplete.
 
 In the query below, instead of sending the request to `hotel-samples-index`, you can instead send the request to `my-alias` and it will be routed accordingly. 
 
@@ -75,7 +75,7 @@ POST /indexes/my-alias/docs/search?api-version=2021-04-30-preview
 If you expect that you may need to make updates to your index definition for your production indexes, you should use an alias rather than the index name for requests in your client-side application. Scenarios that require you to create a new index are outlined under these [rebuild conditions](search-howto-reindex.md#rebuild-conditions).
 
 > [!NOTE]
-> You can only use an alias for [querying](/rest/api/searchservice/search-documents) and [indexing](/rest/api/searchservice/addupdate-or-delete-documents). Aliases can't be used to get or update an index definition, can't be used with the Analyze Text API, and can't be used as the `targetIndexName` on an indexer.
+> You can only use an alias with [document operations](/rest/api/searchservice/document-operations). Aliases can't be used to get or update an index definition, can't be used with the Analyze Text API, and can't be used as the `targetIndexName` on an indexer.
 
 ## Swap indexes
 

@@ -6,7 +6,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 07/05/2022
 ---
 
 # Workbook text parameters
@@ -15,7 +15,7 @@ Textbox parameters provide a simple way to collect text input from workbook user
 
 A common use of textboxes is as internal variables used by other workbook controls. This is done by using a query for default values, and making the input control invisible in read-mode. For example, a user may want a threshold to come from a formula (not a user) and then use the threshold in subsequent queries.
 
-## Creating a text parameter
+## Create a text parameter
 1. Start with an empty workbook in edit mode.
 2. Choose _Add parameters_ from the links within the workbook.
 3. Select on the blue _Add Parameter_ button.
@@ -56,7 +56,7 @@ Text parameter supports following field style:
 
      :::image type="content" source="./media/workbooks-text/kql-text.png" alt-text="Screenshot showing multiline text field.":::
 
-## Referencing a text parameter
+## Reference a text parameter
 1. Add a query control to the workbook by selecting the blue `Add query` link and select an Application Insights resource.
 2. In the KQL box, add this snippet:
     ```kusto
@@ -79,7 +79,7 @@ Text parameter supports following field style:
 > [!NOTE]
 > In the example above, `{SlowRequestThreshold}` represents an integer value. If you were querying for a string like `{ComputerName}` you would need to modify your Kusto query to add quotes `"{ComputerName}"` in order for the parameter field to an accept input without quotes.
 
-## Setting default values using queries
+## Set the default values using queries
 1. Start with an empty workbook in edit mode.
 2. Choose _Add parameters_ from the links within the workbook.
 3. Select on the blue _Add Parameter_ button.
@@ -102,7 +102,7 @@ Text parameter supports following field style:
 > [!NOTE]
 > While this example queries Application Insights data, the approach can be used for any log based data source - Log Analytics, Azure Resource Graph, etc.
 
-## Adding validations 
+## Add validations 
 
 For standard and password text parameters, user can add validation rules that are applied to the text field. Add a valid regex with error message. If message is set, it's shown as error when field is invalid.
 

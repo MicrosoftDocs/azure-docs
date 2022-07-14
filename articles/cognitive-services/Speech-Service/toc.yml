@@ -194,12 +194,14 @@ items:
         href: call-center-transcription.md
       - name: Ingestion Client
         href: ingestion-client.md
-    - name: Pronunciation Assessment
+    - name: Language learning
       items:
-        - name: Pronunciation Assessment in Speech Studio
-          href: pronunciation-assessment-tool.md
-        - name: How to use Pronunciation Assessment
-          href: how-to-pronunciation-assessment.md
+        - name: Pronunciation Assessment
+          items:
+            - name: Pronunciation Assessment in Speech Studio
+              href: pronunciation-assessment-tool.md
+            - name: How to use Pronunciation Assessment
+              href: how-to-pronunciation-assessment.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
@@ -324,6 +326,8 @@ items:
       items:
         - name: Enable logs in SDK
           href: how-to-use-logging.md
+        - name: Troubleshoot the Speech SDK
+          href: troubleshooting.md
         - name: Get Speech-to-text Session ID
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
@@ -422,12 +426,15 @@ items:
         - name: Speech-to-text REST API v3.0
           href: rest-speech-to-text.md
           displayName: reference 
+        - name: Speech-to-text REST API v3.1 (preview) 
+          href: rest-speech-to-text-v3-1.md
+          displayName: reference 
         - name: Speech-to-text REST API for short audio
           href: rest-speech-to-text-short.md    
           displayName: reference       
         - name: Text-to-speech REST API
           href: rest-text-to-speech.md
-          displayName: reference 
+          displayName: reference, tts output, output format
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 

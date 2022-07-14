@@ -8,7 +8,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli, mode-api
-ms.date: 01/26/2022 
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL server by using the Azure CLI

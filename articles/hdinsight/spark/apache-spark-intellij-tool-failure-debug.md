@@ -6,7 +6,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight   
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 06/23/2022
 ---
 
 # Failure spark job debugging with Azure Toolkit for IntelliJ (preview)

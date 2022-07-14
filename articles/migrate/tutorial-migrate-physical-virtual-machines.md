@@ -1,7 +1,7 @@
 ---
 title: Migrate machines as physical server to Azure with Azure Migrate.
 description: This article describes how to migrate physical machines to Azure with Azure Migrate.
-author: rahulg1190
+author: rahug1190
 ms.author: rahugup
 ms.manager: bsiva
 ms.topic: tutorial
@@ -42,7 +42,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-[Review](./agent-based-migration-architecture.md) the migration architecture.
+- [Review](./agent-based-migration-architecture.md) the migration architecture.
+- [Review](/azure/site-recovery/migrate-tutorial-windows-server-2008#limitations-and-known-issues) the limitations related to migrating Windows Server 2008 servers to Azure.
 
 ## Prepare Azure
 
@@ -72,6 +73,8 @@ Assign the Virtual Machine Contributor role to the Azure account. This provides 
 - Write to an Azure managed disk.
 
 ### Create an Azure network
+> [!IMPORTANT]
+> Virtual Networks (VNets) are a regional service, so make sure you create your VNet in the desired target Azure Region. For example: if you are planning on replicating and migrating Virtual Machines from your on-premises environment to the East US Azure Region, then your target VNet **must be created** in the East US Region. To connect VNets in different regions refer to the [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) guide.
 
 [Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.
 

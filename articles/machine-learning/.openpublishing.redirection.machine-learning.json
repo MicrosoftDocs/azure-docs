@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/resource-limits-quotas-capacity.md",
+        "redirect_url": "/azure/machine-learning/resource-limits-capacity",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-models-with-aml.md",
         "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
         "redirect_document_id": true
@@ -2268,11 +2273,6 @@
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-no-code-deployment.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/machine-learning/how-to-deploy-mlflow-models.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-mlflow-models",
         "redirect_document_id": false
     },
     {
