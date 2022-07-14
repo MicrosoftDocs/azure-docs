@@ -1,5 +1,6 @@
 ---
 title: Defender for Servers deployment in AWS and GCP
+titleSuffix: Microsoft Defender for Cloud
 description: Learn about the capabilities available for Defender for Servers deployment within AWS and GCP.
 ms.topic: reference
 ms.date: 06/26/2022

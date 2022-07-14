@@ -1,13 +1,14 @@
 ---
-title: Remediate Security Recommendations with Governance
-description: Learn about the new governance feature in defender for Cloud, and how to drive security posture improvement.
+title: Remediate security recommendations with governance
+titleSuffix: Microsoft Defender for Cloud
+description: Learn about the new governance feature in Defender for Cloud, and how to drive security posture improvement.
 ms.topic: reference
-ms.date: 07/03/2022
+ms.date: 07/14/2022
 ---
 
-# Remediate Security Recommendations with Governance
+# Remediate security recommendations with governance
 
-**Episode description**: In this episode of Defender for Cloud in the Field, Amit Biton joins Yuri Diogenes to talk about the new governance feature in Defender for Cloud. Amit explains the rationale behind this feature, why it is important to have governance in place in order to drive security posture improvement and how this feature can help with that. Amit demonstrates how to create governance rules, how to monitor and take action to improve the secure score. 
+**Episode description**: In this episode of Defender for Cloud in the Field, Amit Biton joins Yuri Diogenes to talk about the new governance feature in Defender for Cloud. Amit explains the rationale behind this feature. Amit explains why it's important to have governance in place in order to drive security posture improvement and how this feature can help with that. Amit demonstrates how to create governance rules, how to monitor and take action to improve the secure score. 
 
 
 <br>
