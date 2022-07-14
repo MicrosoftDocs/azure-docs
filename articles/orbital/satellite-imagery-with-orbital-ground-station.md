@@ -28,10 +28,10 @@ Optional setup for capturing the ground station telemetry are included in the [A
 
 ## Step 1: Prerequisites
 
-You must first follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](howto-downlink-aqua.md). 
+You must first follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](downlink-aqua.md). 
 
 > [!NOTE]
-> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](howto-downlink-aqua.md#prepare-a-virtual-machine-vm-to-receive-the-downlinked-aqua-data), use the following values:
+> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-a-virtual-machine-vm-to-receive-the-downlinked-aqua-data), use the following values:
 >
 >   - **Name:** receiver-vm
 >   - **Operating System:** Linux (CentOS Linux 7 or higher)
@@ -316,5 +316,5 @@ Other helpful resources: 
 
 For an end-to-end implementation that involves extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics, see: 
 
-- [Spaceborne data analysis with Azure Synapse Analytics](https://docs.microsoft.com/azure/architecture/industries/aerospace/geospatial-processing-analytics)
+- [Spaceborne data analysis with Azure Synapse Analytics](/azure/architecture/industries/aerospace/geospatial-processing-analytics)
 
