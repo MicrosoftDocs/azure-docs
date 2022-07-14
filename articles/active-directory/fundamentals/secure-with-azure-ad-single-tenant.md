@@ -35,7 +35,7 @@ Global administrators can discover and obtain full access to any trusting resour
 
 You can also use administrative units (AU) in Azure AD to provide some level of administrative separation. Administrative units restrict permissions in a role to any portion of your organization that you define. You could, for example, use administrative units to delegate the [Helpdesk Administrator](../roles/permissions-reference.md) role to regional support specialists, so they can manage users only in the region that they support.
 
-![Diagram that shows administrative units.](media/secure-with-azure-ad-single-tenant/aad-administrative-units.png)
+![Diagram that shows administrative units.](media/secure-with-azure-ad-single-tenant/azure-ad-administrative-units.png)
 
 Administrative Units can be used to separate [user, groups and device objects](../roles/administrative-units.md). Assignments of those units can be managed by [dynamic membership rules](../roles/admin-units-members-dynamic.md).
 
@@ -52,7 +52,7 @@ One of the most common uses for multiple environments in a single tenant is to s
 
 The following diagram illustrates the non-production environments and the production environment.
 
-![Diagram that shows Azure AD tenant boundary.](media/secure-with-azure-ad-single-tenant/aad-tenant-boundary.png)
+![Diagram that shows Azure AD tenant boundary.](media/secure-with-azure-ad-single-tenant/azure-ad-tenant-boundary.png)
 
 In this diagram, there are non-production Azure resources and non-production instances Azure AD integrated applications with equivalent non-production directory objects. In this example, the non-production resources in the directory are used for testing purposes.
 
@@ -74,7 +74,7 @@ Azure RBAC allows you to design an administration model with granular scopes and
 >[!NOTE]
 >There are multiple ways to define the management hierarchy based on an organization's individual requirements, constraints, and goals. For more information, consult the Cloud Adoption Framework guidance on how to [Organize Azure Resources](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources)).
 
-![Diagram that shows resource isolation in a single tenant.](media/secure-with-azure-ad-single-tenant/aad-resource-hierarchy.png)
+![Diagram that shows resource isolation in a single tenant.](media/secure-with-azure-ad-single-tenant/azure-ad-resource-hierarchy.png)
 
 * **Management group** - You can assign roles to specific management groups so that they don't impact any other management groups. In the scenario above, the HR team can define an Azure Policy to audit the regions where resources are deployed across all HR subscriptions.
 
@@ -98,7 +98,7 @@ Consider isolating sensitive or test resources according to [Azure landing zone 
 
 ### Scoped management for Azure AD trusting applications
 
-The pattern to scope management of Azure AD trusting applications is outlined in the diagram below.
+The pattern to scope management of Azure AD trusting applications is outlined in the following section. 
 
 Azure AD supports configuring multiple instances of custom and SaaS apps, but not most Microsoft services, against the same directory with [independent user assignments](../manage-apps/assign-user-or-group-access-portal.md). The above example contains both a production and a test version of the travel app. You can deploy pre-production versions against the corporate tenant to achieve app-specific configuration and policy separation that enables workload owners to perform testing with their corporate credentials. Non-production directory objects such as test users and test groups are associated to the non-production application with separate [ownership](https://aka.ms/AzureADSecuredAzure/14a) of those objects.
 
