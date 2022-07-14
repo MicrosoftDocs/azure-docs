@@ -90,7 +90,7 @@
       href: security-policy-concept.md
     - name: Security posture
       href: secure-score-security-controls.md
-    - name: Reference list of recommendations
+    - name: Reference list of Azure recommendations
       href: recommendations-reference.md
     - name: Reference list of AWS recommendations
       href: recommendations-reference-aws.md
