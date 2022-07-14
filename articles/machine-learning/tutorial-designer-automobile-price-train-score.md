@@ -59,7 +59,7 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 
 1. Select **Easy-to-use prebuilt components**.
 
-1. At the top of the canvas, select the default pipeline name **Pipeline-Created-on**. Rename it to *Automobile price prediction*. The name doesn't need to be unique.
+1. Open the ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) **Settings** pane to the right of the canvas, and scroll to **Draft name** text box. Rename it to *Automobile price prediction*. The name doesn't need to be unique.
 
 ## Set the default compute target
 
@@ -71,15 +71,15 @@ A pipeline runs on a compute target, which is a compute resource that's attached
 
 You can set a **Default compute target** for the entire pipeline, which will tell every component to use the same compute target by default. However, you can specify compute targets on a per-module basis.
 
-1. Next to the pipeline name, select the **Gear icon** ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) at the top of the canvas to open the **Settings** pane.
+1. Select ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png)**Settings** to the right of the canvas to open the **Settings** pane.
 
-1. In the **Settings** pane to the right of the canvas, select **Select compute target**.
+1. Select **Create Azure ML compute instance**.
 
-    If you already have an available compute target, you can select it to run this pipeline.
+    If you already have an available compute target, you can select it from the **Select Azure ML compute instance** drop-down to run this pipeline.
 
 1. Enter a name for the compute resource.
 
-1. Select **Save**.
+1. Select **Create**.
 
     > [!NOTE]
     > It takes approximately five minutes to create a compute resource. After the resource is created, you can reuse it and skip this wait time for future runs.
@@ -90,7 +90,7 @@ You can set a **Default compute target** for the entire pipeline, which will tel
 
 There are several sample datasets included in the designer for you to experiment with. For this tutorial, use **Automobile price data (Raw)**.
 
-1. To the left of the pipeline canvas is a palette of datasets and components. Select **Sample datasets** to view the available sample datasets.
+1. To the left of the pipeline canvas is a palette of datasets and components. Select **Data**.
 
 1. Select the dataset **Automobile price data (Raw)**, and drag it onto the canvas.
 
@@ -114,7 +114,7 @@ Datasets typically require some preprocessing before analysis. You might have no
 
 When you train a model, you have to do something about the data that's missing. In this dataset, the **normalized-losses** column is missing many values, so you'll exclude that column from the model altogether.
 
-1. In the component palette to the left of the canvas, expand the **Component** section and find the **Select Columns in Dataset** component.
+1. In the datasets and component palette to the left of the canvas, click **Component** and search for the **Select Columns in Dataset** component.
 
 1. Drag the **Select Columns in Dataset** component onto the canvas. Drop the component below the dataset component.
 
@@ -127,7 +127,9 @@ When you train a model, you have to do something about the data that's missing. 
 
 1. Select the **Select Columns in Dataset** component.
 
-1. In the component details pane to the right of the canvas, select **Edit column**.
+1. Click on the arrow icon under Settings to the right of the canvas to open the component details pane. Alternatively, you can double-click the **Select Columns in Dataset** component to open the details pane.
+
+1. Select **Edit column** to the right of the pane.
 
 1. Expand the **Column names** drop down next to **Include**, and select  **All columns**.
 
@@ -141,9 +143,9 @@ When you train a model, you have to do something about the data that's missing. 
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/exclude-column.png" alt-text="Screenshot of select columns with exclude highlighted.":::
 
-1. Select the **Select Columns in Dataset** component.
+1. In the **Select Columns in Dataset** component details pane, expand **Node info**.
 
-1. In the component details pane to the right of the canvas, select the **Comment** text box and enter *Exclude normalized losses*.
+1. Select the **Comment** text box and enter *Exclude normalized losses*.
 
     Comments will appear on the graph to help you organize your pipeline.
 
@@ -154,21 +156,25 @@ Your dataset still has missing values after you remove the **normalized-losses**
 > [!TIP]
 > Cleaning the missing values from input data is a prerequisite for using most of the components in the designer.
 
-1. In the component palette to the left of the canvas, expand the section **Component**, and find the **Clean Missing Data** component.
+1. In the datasets and component palette to the left of the canvas, click **Component** and search for the **Clean Missing Data** component.
 
 1. Drag the **Clean Missing Data** component to the pipeline canvas. Connect it to the **Select Columns in Dataset** component.
 
 1. Select the **Clean Missing Data** component.
 
-1. In the component details pane to the right of the canvas, select **Edit Column**.
+1. Click on the arrow icon under Settings to the right of the canvas to open the component details pane. Alternatively, you can double-click the **Clean Missing Data** component to open the details pane.
+
+1. Select **Edit column** to the right of the pane.
 
 1. In the **Columns to be cleaned** window that appears, expand the drop-down menu next to **Include**. Select, **All columns**
 
 1. Select **Save**
 
-1. In the component details pane to the right of the canvas, select **Remove entire row** under **Cleaning mode**.
+1. In the **Clean Missing Data** component details pane, under **Cleaning mode**, select **Remove entire row**.
 
-1. In the component details pane to the right of the canvas, select the **Comment** box, and enter *Remove missing value rows*.
+1. In the **Clean Missing Data** component details pane, expand **Node info**. 
+
+1. Select the **Comment** text box and enter *Remove missing value rows*.
 
     Your pipeline should now look something like this:
 
@@ -184,49 +190,55 @@ Because you want to predict price, which is a number, you can use a regression a
 
 Splitting data is a common task in machine learning. You'll split your data into two separate datasets. One dataset will train the model and the other will test how well the model performed.
 
-1. In the component palette, expand the section **Component** and find the **Split Data** component.
+1. In the datasets and component palette to the left of the canvas, click **Component** and search for the **Split Data** component.
 
 1. Drag the **Split Data** component to the pipeline canvas.
 
 1. Connect the left port of the **Clean Missing Data** component to the **Split Data** component.
 
     > [!IMPORTANT]
-    > Be sure that the left output ports of **Clean Missing Data** connects to **Split Data**. The left port contains the cleaned data. The right port contains the discarded data.
+    > Make sure that the left output port of **Clean Missing Data** connects to **Split Data**. The left port contains the cleaned data. The right port contains the discarded data.
 
 1. Select the **Split Data** component.
 
-1. In the component details pane to the right of the canvas, set the **Fraction of rows in the first output dataset** to 0.7.
+1. Click on the arrow icon under Settings to the right of the canvas to open the component details pane. Alternatively, you can double-click the **Split Data** component to open the details pane.
+
+1. In the **Split Data** details pane, set the **Fraction of rows in the first output dataset** to 0.7.
 
     This option splits 70 percent of the data to train the model and 30 percent for testing it. The 70 percent dataset will be accessible through the left output port. The remaining data will be available through the right output port.
 
-1. In the component details pane to the right of the canvas, select the **Comment** box, and enter *Split the dataset into training set (0.7) and test set (0.3)*.
+1. In the **Split Data** details pane, expand **Node info**.
+
+1. Select the **Comment** text box and enter *Split the dataset into training set (0.7) and test set (0.3)*.
 
 ### Train the model
 
 Train the model by giving it a dataset that includes the price. The algorithm constructs a model that explains the relationship between the features and the price as presented by the training data.
 
-1. In the component palette, expand **Components**.
+1. In the datasets and component palette to the left of the canvas, click **Component** and search for the **Linear Regression** component.
 
-    This option displays several categories of components that you can use to initialize learning algorithms.
+1. Drag the **Linear Regression** component to the pipeline canvas.
 
-1. Select **Regression** > **Linear Regression**, and drag it to the pipeline canvas.
+1. In the datasets and component palette to the left of the canvas, click **Component** and search for the **Train Model** component.
 
-1. In the component palette, expand the section **Module training**, and drag the **Train Model** component to the canvas.
+1. Drag the **Train Model** component to the pipeline canvas.
 
 1. Connect the output of the **Linear Regression** component to the left input of the **Train Model** component.
 
 1. Connect the training data output (left port) of the **Split Data** component to the right input of the **Train Model** component.
 
     > [!IMPORTANT]
-    > Be sure that the left output ports of **Split Data** connects to **Train Model**. The left port contains the training set. The right port contains the test set.
+    > Make sure that the left output port of **Split Data** connects to **Train Model**. The left port contains the training set. The right port contains the test set.
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Screenshot showing the Linear Regression  connects to left port of Train Model  and the Split Data connects to right port of Train Model.":::
 
 1. Select the **Train Model** component.
 
-1. Double click to open the component details, select **Edit column** selector.
+1. Click on the arrow icon under Settings to the right of the canvas to open the component details pane. Alternatively, you can double-click the **Train Model** component to open the details pane.
 
-1. In the **Label column** dialog box, expand the drop-down menu and select **Column names**.
+1. Select **Edit column** to the right of the pane.
+
+1. In the **Label column** window that appears, expand the drop-down menu and select **Column names**.
 
 1. In the text box, enter *price* to specify the value that your model is going to predict.
 
@@ -241,7 +253,9 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 
 After you train your model by using 70 percent of the data, you can use it to score the other 30 percent to see how well your model functions.
 
-1. Enter *score model* in the search box to find the **Score Model** component. Drag the component to the pipeline canvas.
+1. In the datasets and component palette to the left of the canvas, click **Component** and search for the **Score Model** component.
+
+1. Drag the **Score Model** component to the pipeline canvas.
 
 1. Connect the output of the **Train Model** component to the left input port of **Score Model**. Connect the test data output (right port) of the **Split Data** component to the right input port of **Score Model**.
 
@@ -249,7 +263,9 @@ After you train your model by using 70 percent of the data, you can use it to sc
 
 Use the **Evaluate Model** component to evaluate how well your model scored the test dataset.
 
-1. Enter *evaluate* in the search box to find the **Evaluate Model** component. Drag the component to the pipeline canvas.
+1. In the datasets and component palette to the left of the canvas, click **Component** and search for the **Evaluate Model** component.
+
+1. Drag the **Evaluate Model** component to the pipeline canvas.
 
 1. Connect the output of the **Score Model** component to the left input of **Evaluate Model**.
 
