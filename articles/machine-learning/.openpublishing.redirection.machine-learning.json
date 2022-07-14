@@ -2142,7 +2142,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-mlflow.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-use-mlflow",
+        "redirect_url": "/azure/machine-learning/how-to-use-mlflow-cli-runs",
         "redirect_document_id": false
     },
     {
