@@ -83,5 +83,5 @@ The template used in this guide is from [Azure-Samples - Service Fabric cluster 
 
 * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template)
 * ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
-   
-  Wait for the deployment to be completed successfully.
+
+Wait for the deployment to be completed successfully.
