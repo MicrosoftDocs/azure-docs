@@ -220,7 +220,7 @@
     - name: Configure networking
       href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
     - name: Develop read TPM secrets sample code
-      href: how-to-access-dtpm
+      href: how-to-access-dtpm.md
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2022

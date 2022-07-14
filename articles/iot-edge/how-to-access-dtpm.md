@@ -78,7 +78,7 @@ If everything was successfully, you should see the new files created under your 
 ## Copy and run the executable
 Once the executable file and dependency files were created, you need to copy the folder to the EFLOW virtual machine. The following steps in this section show how to copy all the necessary files and how to run the executable inside the EFLOW virtual machine.
 
-1. Open PowerShell in an elevated session. You can do so by opening the **Start** pane on Windows and typing in "PowerShell". Right-click the **Windows PowerShell** app that shows up and select **Run as administrator**.
+1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
 
 1. Move to the parent folder that contains all the created files. 
     For example, if you have all your files under the folder _TPM_ in the directory `C:\Users\User`. you can use the following command to move to that parent folder.
