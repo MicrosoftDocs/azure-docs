@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 07/14/2022
 ---
 
 # Hyperscale (Citus) server group
@@ -40,6 +40,21 @@ values:
 * **Disabled**: The server group's Azure subscription turned into Disabled
   states. For more information about subscription states, see [this
   page](../../cost-management-billing/manage/subscription-states.md).
+
+### Node availability zone
+
+Hyperscale (Citus) displays the [availability
+zone](../../availability-zones/az-overview.md#availability-zones) of each node
+in a server group on the Overview page in the Azure portal. The **Availability
+zone** column contains either the name of the zone, or `N/A` if the node isn't
+assigned to a zone. (Only [certain
+regions](https://azure.microsoft.com/global-infrastructure/geographies/#geographies)
+support availability zones.)
+
+If a node [fails over](concepts-high-availability.md) to a standby, you may see
+its availability zone differ from the other nodes. In this case, the nodes will
+be moved back into the same availability zone together during the next
+[maintenance window](concepts-maintenance.md).
 
 ## Tiers
 
