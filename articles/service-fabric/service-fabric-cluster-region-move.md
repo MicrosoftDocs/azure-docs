@@ -1,9 +1,12 @@
 ---
 title: Move an Azure Service Fabric cluster to a new region
 description: How to migrate an Azure Service Fabric cluster and applications to another region.
-ms.topic: conceptual
-ms.date: 07/20/2021
-ms.author: micraft
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Move an Azure Service Fabric cluster to a new region

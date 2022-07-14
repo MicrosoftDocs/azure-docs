@@ -1,11 +1,14 @@
 ---
 title: Manage certificates in an Azure Service Fabric cluster 
 description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
-
-ms.topic: conceptual
-ms.date: 11/13/2018 
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Add or remove certificates for a Service Fabric cluster in Azure
 It is recommended that you familiarize yourself with how Service Fabric uses X.509 certificates and be familiar with the [Cluster security scenarios](service-fabric-cluster-security.md). You must understand what a cluster certificate is and what is used for, before you proceed further.
 

@@ -1,12 +1,14 @@
 ---
 title: Balance your Azure Service Fabric cluster 
 description: An introduction to balancing your cluster with the Service Fabric Cluster Resource Manager.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Balancing your service fabric cluster
 The Service Fabric Cluster Resource Manager supports dynamic load changes, reacting to additions or removals of nodes or services. It also automatically corrects constraint violations, and proactively rebalances the cluster. But how often are these actions taken, and what triggers them?
 

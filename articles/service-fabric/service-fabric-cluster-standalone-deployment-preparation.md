@@ -1,9 +1,14 @@
 ---
 title: Standalone Cluster Deployment Preparation 
 description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload.
-ms.topic: conceptual
-ms.date: 5/19/2022
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Plan and prepare your Service Fabric Standalone cluster deployment
 
 <a id="preparemachines"></a>Perform the following steps before you create your cluster.

@@ -1,12 +1,14 @@
 ---
 title: Cluster Resource Manager - Management Integration 
 description: An overview of the integration points between the Cluster Resource Manager and Service Fabric Management.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Cluster resource manager integration with Service Fabric cluster management
 The Service Fabric Cluster Resource Manager doesn't drive upgrades in Service Fabric, but it is involved. The first way that the Cluster Resource Manager helps with management is by tracking the desired state of the cluster and the services inside it. The Cluster Resource Manager sends out health reports when it cannot put the cluster into the desired configuration. For example, if there is insufficient capacity the Cluster Resource Manager sends out health warnings and errors indicating the problem. Another piece of integration has to do with how upgrades work. The Cluster Resource Manager alters its behavior slightly during upgrades.  
 

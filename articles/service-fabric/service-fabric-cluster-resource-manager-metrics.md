@@ -1,13 +1,14 @@
 ---
 title: Manage Azure Service Fabric app load using metrics 
 description: Learn about how to configure and use metrics in Service Fabric to manage service resource consumption.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Managing resource consumption and load in Service Fabric with metrics
 *Metrics* are the resources that your services care about and which are provided by the nodes in the cluster. A metric is anything that you want to manage in order to improve or monitor the performance of your services. For example, you might watch memory consumption to know if your service is overloaded. Another use is to figure out whether the service could move elsewhere where memory is less constrained in order to get better performance.
 

@@ -1,13 +1,14 @@
 ---
 title: Service Fabric Cluster Resource Manager - Placement Policies 
 description: Overview of additional placement policies and rules for Service Fabric Services
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Placement policies for service fabric services
 Placement policies are additional rules that can be used to govern service placement in some specific, less-common scenarios. Some examples of those scenarios are:
 

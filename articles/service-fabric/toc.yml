@@ -633,6 +633,8 @@
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Cluster Diagnostics
         href: service-fabric-diagnostics-oms-syslog.md
+      - name: Linux Cluster Event Aggregation
+        href: service-fabric-diagnostics-event-aggregation-lad.md
     - name: Monitor infrastructure
       items:
       - name: Collect performance counters with the Log Analytics Agent
