@@ -37,7 +37,7 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 :::image type="content" source="media/self-hosted-gateway-overview/with-gateways.png" alt-text="API traffic flow with self-hosted gateways":::
 
-## Feature comparison of managed and self-hosted gateways
+## Feature comparison: Managed versus self-hosted gateways
 
 > [!NOTE]
 > * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](#packaging) for self-hosted gateways.

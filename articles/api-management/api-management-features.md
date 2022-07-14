@@ -43,6 +43,6 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [GraphQL resolvers (preview)](graphql-schema-resolve-api.md)                                                            | Yes          | Yes       | Yes   | Yes      | Yes     |
 
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
-<sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>
-<sup>3</sup> In the Developer tier self-hosted gateways are limited to single gateway node.<br/>
+<sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>
+<sup>3</sup> See [Self-hosted gateway overview](self-hosted-gateway-overview.md#feature-comparison-managed-versus-self-hosted-gateways) for a feature comparison of managed versus self-hosted gateways. In the Developer tier self-hosted gateways are limited to a single gateway node. <br/>
 <sup>4</sup>The following policies aren't available in the Consumption tier: rate limit by key and quota by key.
