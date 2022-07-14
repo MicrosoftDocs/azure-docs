@@ -141,7 +141,6 @@ For Azure Communication Services direct routing there is a flat rate regardless 
 |Number type   |To make calls |To receive calls|
 |--------------|-----------|------------|
 |Direct routing|USD 0.0040/min|USD 0.0040/min        |
-|
 
 ## Next steps
 
