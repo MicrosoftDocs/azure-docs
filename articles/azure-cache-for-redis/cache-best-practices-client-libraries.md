@@ -1,5 +1,5 @@
 ---
-title: Best practices using Client Libraries
+title: Best practices using client libraries
 titleSuffix: Azure Cache for Redis
 description: Learn about client libraries for Azure Cache for Redis.
 author: flang-msft
@@ -18,7 +18,7 @@ Each client maintains its own reference documentation for its library. The clien
 
 Although we don't own or support any client libraries, we do recommend some libraries. Recommendations are based on popularity and whether there's an active online community to support and answer your questions. We only recommend using the latest available version, and upgrading regularly as new versions become available. These libraries are under active development and often release new versions with improvements to reliability and performance.
 
-| **Client Library**  | **Language** |  **GitHub** **repo**                                  |          **Documentation**|
+| **Client library**  | **Language** |  **GitHub** **repo**                                  |          **Documentation**|
 | --------------------|------------- |-------------------------------------------------------| --------------------------|
 | StackExchange.Redis | C#/.NET |  [Link](https://github.com/StackExchange/StackExchange.Redis)| [More information here](https://stackexchange.github.io/StackExchange.Redis/) |
 | Lettuce             | Java    |  [Link](https://github.com/lettuce-io/)                       | [More information here](https://lettuce.io/) |
@@ -32,7 +32,7 @@ Although we don't own or support any client libraries, we do recommend some libr
 
 ## Client library-specific guidance
 
-For information on Client library-specific guidance best practices, see the following links:
+For information on client library-specific guidance best practices, see the following links:
 
 - [StackExchange.Redis (.NET)](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
 - [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
