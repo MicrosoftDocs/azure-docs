@@ -57,6 +57,22 @@ You can configure organization-specific settings by adding an organization and m
 
 - You can use external collaboration settings to limit who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.
 
+## Tenant restrictions
+
+With **Tenant Restrictions** settings, you can control the types of external accounts your users can use on the devices you manage. There are two types of external accounts you can restrict:
+
+- Accounts your users have created in unknown tenants.
+- Accounts that external organizations have given to your users so they can access that organization's resources.  
+
+We recommend configuring your tenant restrictions to disallow both of these types of external accounts and use B2B collaboration instead. B2B collaboration gives you the ability to:
+
+- Use Conditional Access and force multi-factor authentication for B2B collaboration users.
+- Manage inbound and outbound access.
+- Terminate sessions and credentials when a B2B collaboration user's employment status changes or their credentials are breached.
+- Use sign-in logs to view details about the B2B collaboration user.
+
+Tenant restrictions are independent of other cross-tenant access settings, so any inbound, outbound, or trust settings you've configured won't impact tenant restrictions. For details about configuring tenant restrictions, see [Set up tenant restrictions V2](tenant-restrictions-v2.md).
+
 ## Microsoft cloud settings
 
 > [!NOTE]
