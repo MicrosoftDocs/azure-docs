@@ -63,7 +63,7 @@ https://management.azure.com/subscriptions/{{subscription}}/resourcegroups/{{res
 }
 ```
 
-### Limitations:
+## Limitations
 
 - Resource sync rule does not hydrate Azure Arc Data controller. The Azure Arc Data controller must be deployed via ARM API. 
 - Resource sync only applies to the data services such as Arc enabled SQL managed instance, post deployment of Data controller. 
