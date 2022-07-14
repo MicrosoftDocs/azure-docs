@@ -59,7 +59,7 @@ The instance and audience can be concatenated and provided as the authority URL.
 
 ## Cloud instance
 
-The _instance_ is used to specify if your app is signing users from the Azure public cloud or from national clouds. Using MSAL in your code, you can set the Azure cloud instance by using an enumeration or by passing the URL to the [national cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
+The _instance_ is used to specify if your app is signing users from the Azure public cloud or from national clouds. Using MSAL in your code, you can set the Azure cloud instance by using an enumeration or by passing the URL to the [national cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member.
 
 MSAL.NET will throw an explicit exception if both `Instance` and `AzureCloudInstance` are specified.
 
@@ -110,15 +110,15 @@ The redirect URI is the URI the identity provider will send the security tokens 
 
 If you're a public client app developer who's using MSAL:
 
-- You'd want to use `.WithDefaultRedirectUri()` in desktop or Universal Windows Platform (UWP) applications (MSAL.NET 4.1+). This method will set the public client application's redirect URI property to the default recommended redirect URI for public client applications.
+- You'd want to use `.WithDefaultRedirectUri()` in desktop or Universal Windows Platform (UWP) applications (MSAL.NET 4.1+). The `.WithDefaultRedirectUri()` method will set the public client application's redirect URI property to the default recommended redirect URI for public client applications.
 
   | Platform              | Redirect URI                                                                                                                                                                                                                         |
   | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
   | Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`                                                                                                                                                                       |
-  | UWP                   | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. This enables SSO with the browser by setting the value to the result of WebAuthenticationBroker.GetCurrentApplicationCallbackUri() which you need to register |
-  | .NET Core             | `https://localhost`. This enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment.                                                       |
+  | UWP                   | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. This enables single sign-on (SSO) with the browser by setting the value to the result of WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), which you need to register |
+  | .NET Core             | `https://localhost` enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment.                                                       |
 
-- You don't need to add a redirect URI if you're building a Xamarin Android and iOS application that doesn't support the broker redirect URI. It is automatically set to `msal{ClientId}://auth` for Xamarin Android and iOS.
+- You don't need to add a redirect URI if you're building a Xamarin Android and iOS application that doesn't support the broker redirect URI. It's automatically set to `msal{ClientId}://auth` for Xamarin Android and iOS.
 
 - Configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
 
@@ -129,18 +129,18 @@ You can override the redirect URI by using the `RedirectUri` property (for examp
 - `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
 - `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
 
-For additional iOS details, see [Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET](msal-net-migration-ios-broker.md) and [Leveraging the broker on iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
-For additional Android details, see [Brokered auth in Android](msal-android-single-sign-on.md).
+For more iOS details, see [Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET](msal-net-migration-ios-broker.md) and [Leveraging the broker on iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
+For more Android details, see [Brokered auth in Android](msal-android-single-sign-on.md).
 
 ### Redirect URI for confidential client apps
 
-For web apps, the redirect URI (or reply URL) is the URI that Azure AD will use to send the token back to the application. This URI can be the URL of the web app/web API if the confidential app is one of these. The redirect URI needs to be registered in app registration. This registration is especially important when you deploy an app that you've initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
+For web apps, the redirect URI (or reply URL) is the URI that Azure AD will use to send the token back to the application. The URI can be the URL of the web app/web API if the confidential app is one of them. The redirect URI needs to be registered in app registration. The registration is especially important when you deploy an app that you've initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
 
 For daemon apps, you don't need to specify a redirect URI.
 
 ## Client secret
 
-This option specifies the client secret for the confidential client app. This secret (app password) is provided by the application registration portal or provided to Azure AD during app registration with PowerShell AzureAD, PowerShell AzureRM, or Azure CLI.
+This option specifies the client secret for the confidential client app. The client secret (app password) is provided by the application registration portal or provided to Azure AD during app registration with PowerShell AzureAD, PowerShell AzureRM, or Azure CLI.
 
 ## Logging
 
