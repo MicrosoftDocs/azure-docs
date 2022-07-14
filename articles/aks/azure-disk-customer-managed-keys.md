@@ -53,6 +53,9 @@ $keyVaultKeyUrl=az keyvault key show --vault-name myKeyVaultName  --name myKeyNa
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
 ```
 
+> [!IMPORTANT]
+> Ensure your AKS cluster identity has read permission of DiskEncryptionSet
+
 ## Grant the DiskEncryptionSet access to key vault
 
 Use the DiskEncryptionSet and resource groups you created on the prior steps, and grant the DiskEncryptionSet resource access to the Azure Key Vault.

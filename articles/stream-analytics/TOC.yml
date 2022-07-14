@@ -393,8 +393,8 @@
       href: app-insights-export-stream-analytics.md
     - name: Export to SQL using Stream Analytics
       href: app-insights-export-sql-stream-analytics.md
-  - name: Debug using job diagram
-    href: stream-analytics-job-diagram-with-metrics.md
+  - name: Debug using job diagram (preview)
+    href: stream-analytics-job-diagram-with-metrics-new.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics Query Language

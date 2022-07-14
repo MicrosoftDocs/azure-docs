@@ -994,6 +994,8 @@
         href: harness-tutorial.md
       - name: hCaptcha Enterprise
         href: hcaptcha-enterprise-tutorial.md
+      - name: Headspace
+        href: headspace-tutorial.md
       - name: Helper Helper
         href: helper-helper-tutorial.md
       - name: Help Scout
@@ -1716,6 +1718,8 @@
         href: planmyleave-tutorial.md
       - name: Planview Enterprise One
         href: planview-enterprise-one-tutorial.md
+      - name: Planview ID
+        href: planview-id-tutorial.md
       - name: Planview LeanKit
         href: planview-leankit-tutorial.md
       - name: Pluralsight
@@ -1944,7 +1948,7 @@
         href: sap-customer-cloud-tutorial.md
       - name: SAP Cloud Platform
         href: sap-hana-cloud-platform-tutorial.md
-      - name: SAP Cloud Platform Identity Authentication
+      - name: SAP Cloud Identity Services
         href: sap-hana-cloud-platform-identity-authentication-tutorial.md
       - name: SAP Fiori
         href: sap-fiori-tutorial.md
@@ -1996,6 +2000,8 @@
         href: securitystudio-tutorial.md  
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: SeekOut
+        href: seekout-tutorial.md
       - name: Segment
         href: segment-tutorial.md
       - name: Seismic
@@ -2154,6 +2160,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: Stackby
+        href: stackby-tutorial.md
       - name: Standard for Success Accreditation
         href: standard-for-success-accreditation-tutorial.md
       - name: Standard for Success K-12
