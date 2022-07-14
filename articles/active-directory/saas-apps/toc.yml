@@ -922,7 +922,7 @@
         href: fuze-tutorial.md  
       - name: gamba!
         href: gamba-tutorial.md
-      - name: G Suite
+      - name: Google Cloud / G Suite Connector
         href: google-apps-tutorial.md
       - name: GaggleAMP
         href: gaggleamp-tutorial.md
@@ -1496,6 +1496,8 @@
         href: mural-identity-tutorial.md  
       - name: MVISION Cloud Azure AD SSO Configuration
         href: skyhighnetworks-tutorial.md
+      - name: myAOS
+        href: myaos-tutorial.md
       - name: MyAryaka
         href: myaryaka-tutorial.md
       - name: My Award Points Top Sub/Top Team
