@@ -25,7 +25,7 @@ For conceptual information on ZRS, see [Zone-redundant storage for managed disks
 
 ### Create a VM with a ZRS OS disk
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. Select a supported region and set **Availability options** to **No infrastructure redundancy required**.
 

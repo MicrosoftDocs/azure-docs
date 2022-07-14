@@ -1,6 +1,6 @@
 ---
 title: Select a disk type for Azure IaaS VMs - managed disks
-description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs, standard SSDs, and Standard HDDs.
+description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2 (preview), Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
 ms.date: 07/13/2022
@@ -91,7 +91,7 @@ If you would like to start using ultra disks, see the article on [using Azure ul
 
 ## Premium SSD v2 (preview)
 
-Azure premium SSD v2 (preview) is designed for IO-Intensive enterprise production workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. Premium SSD v2 can be used for a broad range of production workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
+Azure Premium SSD v2 (preview) is designed for IO-intense enterprise workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
 
 ### Premium SSD v2 limitations
 

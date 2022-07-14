@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Deploy a Premium SSD v2 (preview)
 
-Azure Premium SSD v2 (preview) is designed for IO-Intensive enterprise production workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. You can take advantage of Premium SSD v2 for a broad range of production workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2 (preview)](disks-types.md#premium-ssd-v2-preview).
+Azure Premium SSD v2 (preview) is designed for IO-intense enterprise workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2 (preview)](disks-types.md#premium-ssd-v2-preview).
 
 ## Limitations
 
@@ -159,7 +159,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 
 # [Azure portal](#tab/portal)
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. On the **Basics** page, select a [supported region](#regional-availability) and set **Availability options** to **Availability zone**.
 1. Select one of the zones.
@@ -186,6 +186,8 @@ You've now deployed a VM with a premium SSD v2.
 
 # [Azure CLI](#tab/azure-cli)
 
+The following command changes the performance of your disk, update the values as you like, then run the command:
+
 ```azurecli
 az disk update `
 --subscription $subscription `
@@ -196,6 +198,8 @@ az disk update `
 ```
 
 # [PowerShell](#tab/azure-powershell)
+
+The following command changes the performance of your disk, update the values as you like, then run the command:
 
 ```azurepowershell
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
