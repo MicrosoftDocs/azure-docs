@@ -25,9 +25,9 @@ Using KQL's machine learning operators in the various Log Anayltics tools for ex
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Conduct time series analysis on the Usage table using the `make-series` operator
-> * Identify usage anomalies using the `series_decompose_anomalies()` function
-> * Analyze the root cause of anomalies
+> * Conduct time series analysis on the Usage table
+> * Identify usage anomalies 
+> * Analyze the root cause of anomalies you find
 
 ## Prerequisites
 
@@ -35,47 +35,54 @@ In this tutorial, you learn how to:
 - A workspace with log data.
 ## Create a time series based on data in the Usage table 
 
-The KQL operator for creating a time series is `make-series`. You can use the `make-series` operator to create a sequence of data points indexed over a specific interval of time.
+The KQL operator for creating a time series is `make-series`. The `Usage` table holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data ingestion.
+
+Let's use `make-series` to chart the total amount of billable data ingested by each table in the workspace each day, over the past 21 days.
+ 
+To create a time series chart for all billable data, run:
+
+```kusto
+let starttime = 21d; // The start date of the time series, counting back from the current date
+let endtime = 0d; // The end date of the time series, counting back from the current date
+let timeframe = 1d; // How often to sample data
+Usage // The table we’re analyzing
+| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 am of the first day and ending at 11:59 of the last day in the time range
+| where IsBillable == "true" // Include only billable data in the result set
+| make-series ActualCount=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
+| render timechart // Renders results in a timechart
+``` 
+
+Looking at the resulting chart, we can see anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types. However, not all anomalies are easy to detect visually on a chart. We can use a KQL anomaly detection function to list all anomalies in our time series. 
+
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
 
 > [!NOTE]
 > For more information about `make-series` syntax and usage, see [make-series operator](/azure/data-explorer/kusto/query/make-seriesoperator).
 
-The `Usage` table holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data ingestion.
+## Find anomalies in the time series
 
-Let's use `make-series` to chart the total amount of billable data ingested by each table in the workspace each day, over the past 21 days:
- 
-1. Create a time series chart for all billable data:
+The `series_decompose_anomalies()` function takes a series of values as input and extracts anomalies.
 
-    ```kusto
-    let starttime = 21d; // The start date of the time series, counting back from the current date
-    let endtime = 0d; // The end date of the time series, counting back from the current date
-    let timeframe = 1d; // How often to sample data
-    Usage // The table we’re analyzing
-    | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 am of the first day and ending at 11:59 of the last day in the time range
-    | where IsBillable == "true" // Include only billable data in the result set
-    | make-series ActualCount=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
-    | render timechart // Renders results in a timechart
-    ``` 
+For each value
 
-    :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
+> [!NOTE]
+> For more information about `series_decompose_anomalies()` syntax and usage, see [`series_decompose_anomalies()`](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction).
 
-    Looking at the chart, we can see anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types. However, not all anomalies are easy to detect visually on a chart. 
-
-2. Not all anomalies are easy to detect visually on a chart, so let's modify our query to return all anomalies for all data types using the `anomalies` operator. 
+Let's give the result set of our time series query as input to the `series_decompose_anomalies()` function.  
     
-    Replace the `render` operator in the last line of our previous query with the following lines of KQL:
+Replace the `render` operator in the last line of our previous query with the following lines of KQL:
 
-    ```kusto
-    | extend(anomalies, anomalyScore, expectedCount) = series_decompose_anomalies(ActualCount) // Extracts anomalous points with scores, the only parameter we pass here is the output of make-series, other parameters are default 
-    | mv-expand ActualCount to typeof(double), TimeGenerated to typeof(datetime), anomalies to typeof(double),anomalyScore to typeof(double), expectedCount to typeof(long) // TODO
-    | where anomalies != 0  // Return all positive and negative usage deviations from the expected count
-    | project TimeGenerated, ActualCount, expectedCount,DataType,anomalyScore,anomalies // TODO check casing of column names
-    | sort by abs(anomalyScore) desc;
-    ```
+```kusto
+| extend(anomalies, anomalyScore, expectedCount) = series_decompose_anomalies(ActualCount) // Extracts anomalous points with scores, the only parameter we pass here is the output of make-series, other parameters are default 
+| mv-expand ActualCount to typeof(double), TimeGenerated to typeof(datetime), anomalies to typeof(double),anomalyScore to typeof(double), expectedCount to typeof(long) // TODO
+| where anomalies != 0  // Return all positive and negative usage deviations from the expected count
+| project TimeGenerated, ActualCount, expectedCount,DataType,anomalyScore,anomalies // TODO check casing of column names
+| sort by abs(anomalyScore) desc;
+```
 
-    This query returns all usage anomalies for all tables:
+This query returns all usage anomalies for all tables:
 
-    :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" lightbox="/.media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
 
 1. Filter the `DataType` column for `AzureDiagnostics` 
 
