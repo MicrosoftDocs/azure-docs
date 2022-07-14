@@ -66,4 +66,5 @@ Q. Are third party ground stations such as KSAT included in this process?
 A. No, the process on this page applies to Microsoft sites only. For more information, see (to add link to third party page).
 
 ## Next steps
-- [Integrate partner network ground stations](./partner-network-integration.md)- [Receive real-time telemetry](receive-real-time-telemetry.md)
+- [Integrate partner network ground stations](./partner-network-integration.md)
+- [Receive real-time telemetry](receive-real-time-telemetry.md)
