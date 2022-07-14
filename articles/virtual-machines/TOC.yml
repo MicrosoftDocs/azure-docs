@@ -1987,8 +1987,6 @@
     items:
     - name: Overview
       href: virtual-machines-create-restore-points.md
-    - name: Support matrix
-      href: concepts-restore-points.md
     - name: Quickstarts
       items:
       - name: Create VM restore points
@@ -2003,6 +2001,10 @@
         href: virtual-machines-create-restore-points-powershell.md
       - name: Portal
         href: virtual-machines-create-restore-points-portal.md
+    - name: Support matrix
+      href: concepts-restore-points.md
+    - name: Troubleshooting
+      href: restore-point-troubleshooting.md  
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group

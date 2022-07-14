@@ -21,24 +21,22 @@ The following table summarizes the support matrix for VM restore points.
 **Scenarios** | **Supported by VM restore points**
 --- | ---
 **VMs using Managed disks** | Yes
-**VMs using unmanaged disks** | No. Exclude these disks and create a VM restore point.
+**VMs using unmanaged disks** | No
 **VMs using Ultra Disks** | No. Exclude these disks and create a VM restore point.
 **VMs using Ephemeral OS Disks** | No. Exclude these disks and create a VM restore point.
 **VMs using shared disks** | No. Exclude these disks and create a VM restore point.
 **VMs with extensions** | Yes
-**VMs with trusted enabled** | Yes
+**VMs with trusted launch** | Yes
 **Confidential VMs** | Yes
 **Generation 2 VMs (UEFI boot)** | Yes
 **VMs with NVMe disks (Storage optimized - Lsv2-series)** | Yes
 **VMs in Proximity placement groups** | Yes
 **VMs in an availability set** | Yes. You can create VM restore points for individual VMs within an availability set. You need to create restore points for all the VMs within an availability set to protect an entire availability set instance.
-**Reserved VM instances (Azure reservations)** | Yes
-**VMs inside VMSS unified** | No
-**VMs inside VMSS Flex** | Yes. You can create VM restore points for individual VMs within the virtual machine scale set flex. However, you need to create restore points for all the VMs within the virtual machine scale set flex to protect an entire virtual machine scale set flex instance.
+**VMs inside VMSS with uniform orchestration** | No
+**VMs inside VMSS with flexible orchestration** | Yes. You can create VM restore points for individual VMs within the virtual machine scale set flex. However, you need to create restore points for all the VMs within the virtual machine scale set flex to protect an entire virtual machine scale set flex instance.
 **Spot VMs (Low priority VMs)** | Yes
 **VMs with dedicated hosts** | Yes
 **VMs with Host caching enabled** | Yes
-**VMs with pinned nodes** | Yes
 **VMs created from marketplace images** | Yes
 **VMs created from custom images** | Yes
 **VM with HUB (Hybrid Use Benefit) license** | Yes
@@ -55,8 +53,6 @@ The following table summarizes the support matrix for VM restore points.
 **VMs with Host based encryption enabled with PMK/CMK/Double encryption** | Yes
 **VMs with ADE (Azure Disk Encryption)** | Yes
 **VMs using Accelerated Networking** | Yes
-**VMs that are live migrated** | Yes
-**VMs that are service healed** | Yes
 **Frequency supported** | 3 hours for app consistent restore points. 1 hour for [crash consistent restore points (preview)](https://github.com/Azure/Virtual-Machine-Restore-Points/tree/main/Crash%20consistent%20VM%20restore%20points%20(preview))
 
 ## Operating system support
