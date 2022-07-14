@@ -64,8 +64,8 @@ If you use the Azure CLI extension:
 If you use the Azure Data Studio extension to install:
 
 - Uninstall the Azure Data Studio extension. Select the Extensions panel and select on the **Azure Arc** extension, select **Uninstall**.
-- Download the latest pre-release Azure Data Studio extension .vsix file from [https://aka.ms/ads-arcdata-ext](https://aka.ms/ads-arcdata-ext).
-- Install the extension by choosing File -> Install Extension from VSIX package and then browsing to the download location of the .vsix file.
+- Download the latest pre-release Azure Data Studio extension .vsix files from [https://aka.ms/ads-arcdata-ext](https://aka.ms/ads-arcdata-ext) and [https://aka.ms/ads-azcli-ext](https://aka.ms/ads-azcli-ext).
+- Install the extensions by choosing File -> Install Extension from VSIX package and then browsing to the download location of the .vsix files. Install the `azcli` extension first and then `arc`.
 
 ### Install using Azure CLI
 

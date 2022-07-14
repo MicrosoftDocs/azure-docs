@@ -9,18 +9,18 @@ ms.reviewer: mldocs
 ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 12/21/2020
+ms.date: 07/13/2022
 ---
 
 # Service limits in Azure Machine Learning
 
-This section lists basic quotas and throttling thresholds in Azure Machine Learning. 
+This section lists basic limits and throttling thresholds in Azure Machine Learning. 
 
 To learn how increase resource quotas, see ["Manage and increase quotas for resources"](how-to-manage-quotas.md)
 
 > [!Important]
 > Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
->
+
 
 ## Workspaces
 | Limit | Value |

@@ -8,7 +8,7 @@ author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: artek
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
