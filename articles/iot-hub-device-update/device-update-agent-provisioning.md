@@ -108,7 +108,7 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
     - For any 'rc' i.e. release candidate agent versions from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) : Download the .dep file to the machine you want to install the Device Update agent on, then:
    
         ```shell
-        sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
+        sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEB FILE NAME>"
         ```
 	
 1. You are now ready to start the Device Update agent on your IoT Edge device. 
