@@ -19,13 +19,13 @@ To open a ticket when you do not have an active cache, use the main Help + suppo
 > [!TIP]
 > If you need a quota increase, most requests can be handled automatically. Follow the instructions below in [Request a quota increase](#request-a-quota-increase).
 
-Choose **New support request** and select **Technical** for help specific to Azure HPC Cache.
+Choose **Create a support request**. On the support request form, write a summary of the issue, and select **Technical** as the **Issue type**.
 
 Select your subscription from the list.
 
-To find the Azure HPC Cache service, click the **All services** button and search for HPC.
+If you can't find the Azure HPC Cache service, click the **All services** button and search for HPC.
 
-![Screenshot of the support request - Basics tab, partly filled out as described](media/hpc-cache-support-request.png)
+![Screenshot of the support request - Basics tab, filled out as described](media/hpc-cache-support-request.png)
 
 Fill out the rest of the fields with your information and preferences, then submit the ticket when you are ready.
 
@@ -41,14 +41,26 @@ Use the support request form described above to request a quota increase.
 
 * For **Issue type**, select **Service and subscription limits (quotas)**.
 
-  ![Select an issue type](media/select-quota-issue-type.png)
+  ![Portal "issue type" menu with the option "Service and subscription limits (quotas)" highlighted.](media/support-request-quota.png)
 
-* For **Subscription**, select the subscription for the quota increase.
+* Select the **Subscription** for the quota increase.
 
-  ![Select a subscription for an increased quota](media/select-subscription-support-request.png)
+* Select the **Quota type** "HPC Cache".
 
-* Select the **Quota type** "Cache".
+  ![Portal "quota type" field with "hpc" typed in the search box and a matching result "HPC Cache" showing on the menu to be selected.](media/quota-type-search-hpc.png)
 
-  ![Quota type storage cache](media/hpc-cache-quota-draft.png)
+  Click **Next** to go to the **Additional details** page.
 
-Enter any additional details required and create the request.
+* In **Request details**, click the link that says **Enter details**. An additional form opens to the right.
+
+  ![Azure portal details form for HPC Cache, with options to select region and new limit.](media/quota-details.png)
+
+* For **Quota type** select **HPC Cache count**.
+
+* Select the **Region** where your cache is located.
+
+  The form shows your HPC Cache limit and current usage in this region.
+
+* Type the limit you're requesting in the **New limit** field. Click **Save and continue**.
+
+  Fill in the additional details required and create the request.
