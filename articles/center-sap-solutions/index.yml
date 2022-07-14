@@ -18,6 +18,8 @@ landingContent:
         links:
           - text: What is Azure Center for SAP solutions?
             url: overview.md
+          - text: Frequently asked questions (FAQ)
+            url: faq.yml
 
   - title: Deploy
     linkLists:
