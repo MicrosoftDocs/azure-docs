@@ -113,7 +113,7 @@ If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and 
 
 ### Proxy configuration
 
-The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to Azure Monitor by using the HTTPS protocol. Both anonymous and basic authentication (username/password) are supported. 
+The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to Azure Monitor by using the HTTPS protocol. Both anonymous and basic authentication (username/password) are supported.
 
 For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](../agents/agent-manage.md#update-proxy-settings) from Control Panel or with PowerShell. Log Analytics Agent (MMA) doesn't use the system proxy settings. As a result, the user has to pass the proxy setting while installing MMA. These settings will be stored under MMA configuration (registry) on the virtual machine.
 

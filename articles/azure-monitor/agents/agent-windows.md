@@ -45,7 +45,7 @@ The change doesn't require any customer action unless you're running the agent o
 
 For the network requirements for the Windows agent, see [Log Analytics agent overview](./log-analytics-agent.md#network-requirements).
 
-## Configure Agent to use TLS 1.2
+## Configure agent to use TLS 1.2
 
 [TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) protocol ensures the security of data in transit for communication between the Windows agent and the Log Analytics service. If you're installing on an [operating system without TLS 1.2 enabled by default](../logs/data-security.md#sending-data-securely-using-tls-12), configure TLS 1.2 by following these steps:
 
