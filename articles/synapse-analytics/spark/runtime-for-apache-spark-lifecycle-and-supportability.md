@@ -38,7 +38,7 @@ The following diagram captures expected lifecycle paths for a Synapse runtime fo
 
 > [!IMPORTANT]
 >
-> * The expected timelines are provided as best effort based on current Apache Spark releases. If the Apache Spark project changes lifecycle of a specific version affecting a Synapse runtime, changes to the stage dates will be noted on the [release notes](../apache-spark-version-support.md).
+> * The expected timelines are provided as best effort based on current Apache Spark releases. If the Apache Spark project changes lifecycle of a specific version affecting a Synapse runtime, changes to the stage dates will be noted on the [release notes](./apache-spark-version-support.md).
 > * Both GA and LTS runtimes may be moved into EOL stage faster based on outstanding security risks and usage rates criteria at Microsoft discretion. Proper notification will be performed based on current Azure service policies, please refer to [Lifecycle FAQ - Microsoft Azure](https://docs.microsoft.com/lifecycle/faq/azure) for information.
 >
 
@@ -62,16 +62,16 @@ If not eligible for LTS stage, the GA runtime will move into the retirement cycl
 Long term support (LTS) runtimes are open to all customers and are ready for production use, yet customers are encouraged to expedite validation and migration of code base and workloads to the latest GA runtimes. Customers should preferably not onboard new workloads using a LTS runtime. Security fixes and stability improvements may be backported. Yet, no new components or features will be introduced into the runtime at this stage.
 
 ### End of life announcement
-At the end of the runtime lifecycle at any stage, an End of life announcement is performed. Proper notification will be performed based on current Azure service policies, please refer to [Lifecycle FAQ - Microsoft Azure](https://docs.microsoft.com/lifecycle/faq/azure) for information.
+At the end of the runtime lifecycle at any stage, an end of life announcement (EOLA) is performed. Proper notification will be performed based on current Azure service policies, please refer to [Lifecycle FAQ - Microsoft Azure](https://docs.microsoft.com/lifecycle/faq/azure) for information.
 
-Support SLAs are applicable for EOL announced runtimes yet all customers must migrate to a GA stage runtime. During the retirement period, no security fixes and stability improvements will be backported. 
+Support SLAs are applicable for EOLA runtimes yet all customers must migrate to a GA stage runtime. During the retirement period, no security fixes and stability improvements will be backported. 
 
 Existing pools will work as expected, yet __no new Synapse Spark pools of such a version can be created, as the runtime version will not be listed on Azure Synapse Studio, Synapse API and Azure Portal.__ 
 
 Based on outstanding security issues and runtime usage, Microsoft reserves its right to expedite moving a runtime into the final EOL stage.
 
 ### End of life and retirement
-After the period of End of life Announcement (EOLA), runtimes are considered retired.
+After the period of end of life announcement (EOLA), runtimes are considered retired.
 * Existing Spark Pools definitions and metadata will still exist in the workspace for a defined period, yet __all pipelines, jobs and notebooks will not be able to execute__. 
 * For runtimes coming from GA or LTS stages, Spark Pools definitions will be deleted in 60 days.
 * For runtimes coming from a Preview stage, Spark Pools definitions will be deleted in 15 days.
