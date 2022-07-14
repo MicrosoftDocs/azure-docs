@@ -19,7 +19,7 @@ There are three different categories of work that the Cluster Resource Manager p
 3. Balancing – this stage checks to see if rebalancing is necessary based on the configured desired level of balance for different metrics. If so it attempts to find an arrangement in the cluster that is more balanced.
 
 ## Configuring Cluster Resource Manager Timers
-The first set of controls around balancing are a set of timers. These timers govern how often the Cluster Resource Manager examines the cluster and takes corrective actions.
+The first set of controls around balancing is a set of timers. These timers govern how often the Cluster Resource Manager examines the cluster and takes corrective actions.
 
 Each of these different types of corrections the Cluster Resource Manager can make is controlled by a different timer that governs its frequency. When each timer fires, the task is scheduled. By default the Resource Manager:
 
@@ -165,7 +165,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ]
 ```
 
-Balancing and activity thresholds are both tied to a specific metric - balancing is triggered only if both the Balancing Threshold and Activity Threshold is exceeded for the same metric.
+Balancing and activity thresholds are both tied to a specific metric - balancing is triggered only if both the Balancing Threshold and Activity Threshold are exceeded for the same metric.
 
 > [!NOTE]
 > When not specified, the Balancing Threshold for a metric is 1, and the Activity Threshold is 0. This means that the Cluster Resource Manager will try to keep that metric perfectly balanced for any given load. If you are using custom metrics it is recommended that you explicitly define your own balancing and activity thresholds for your metrics. 

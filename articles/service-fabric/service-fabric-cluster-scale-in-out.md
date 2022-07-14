@@ -35,7 +35,7 @@ Virtual machine scale sets are an Azure compute resource that you can use to dep
 ## Choose the node type/Virtual Machine scale set to scale
 Currently, you are not able to specify the auto-scale rules for virtual machine scale sets using the portal to create a Service Fabric Cluster, so let us use Azure PowerShell (1.0+) to list the node types and then add auto-scale rules to them.
 
-To get the list of virtual machine scale set that make up your cluster, run the following cmdlets:
+To get the list of virtual machine scale sets that make up your cluster, run the following cmdlets:
 
 ```powershell
 Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
@@ -239,11 +239,11 @@ When you scale out a cluster the Service Fabric Explorer will reflect the number
 
 Here is the explanation for this behavior.
 
-The nodes listed in Service Fabric Explorer are a reflection of what the Service Fabric system services (FM specifically) knows about the number of nodes the cluster had/has. When you scale the virtual machine scale set in, the VM was deleted but FM system service still thinks that the node (that was mapped to the VM that was deleted) will come back. So Service Fabric Explorer continues to display that node (though the health state may be error or unknown).
+The nodes listed in Service Fabric Explorer are a reflection of what the Service Fabric system services (FM specifically) know about the number of nodes the cluster had/has. When you scale the virtual machine scale set in, the VM was deleted but FM system service still thinks that the node (that was mapped to the VM that was deleted) will come back. So Service Fabric Explorer continues to display that node (though the health state may be error or unknown).
 
 In order to make sure that a node is removed when a VM is removed, you have two options:
 
-1. Choose a durability level of Gold or Silver for the node types in your cluster, which gives you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale in.
+1. Choose a durability level of Gold or Silver for the node types in your cluster, which gives you the infrastructure integration. When you scale in, nodes will be automatically removed from our system services (FM) state.
 Refer to [the details on durability levels here](service-fabric-cluster-capacity.md)
 
 > [!NOTE]

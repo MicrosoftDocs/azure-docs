@@ -786,6 +786,9 @@
       href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
     - name: Migrate old Java Application to support Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
+    - name: Use the Service Fabric Java client API
+      href: service-fabric-java-rest-api-usage.md
+      
   - name: Manage application lifecycle
     items:
     - name: Package an application

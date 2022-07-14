@@ -14,7 +14,7 @@ It is recommended that you familiarize yourself with how Service Fabric uses X.5
 
 Azure Service Fabrics SDK's default certificate load behavior is to deploy and use the defined certificate with expiry date furthest into the future; regardless of their primary or secondary configuration definition. Falling back to the classic behavior is a not recommended advanced action, and requires setting the "UseSecondaryIfNewer" setting parameter value to false within your `Fabric.Code` configuration.
 
-Service fabric lets you specify two cluster certificates, a primary and a secondary, when you configure certificate security during cluster creation, in addition to client certificates. Refer to [creating an azure cluster via portal](service-fabric-cluster-creation-via-portal.md) or [creating an azure cluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) for details on setting them up at create time. If you specify only one cluster certificate at create time, then that is used as the primary certificate. After cluster creation, you can add a new certificate as a secondary.
+Service fabric lets you specify two cluster certificates, a primary and a secondary, when you configure certificate security during cluster creation, in addition to client certificates. Refer to [creating an Azure cluster via portal](service-fabric-cluster-creation-via-portal.md) or [creating an Azure cluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) for details on setting them up at create time. If you specify only one cluster certificate at create time, then that is used as the primary certificate. After cluster creation, you can add a new certificate as a secondary.
 
 > [!NOTE]
 > For a secure cluster, you will always need at least one valid (not revoked and not expired) cluster certificate (primary or secondary) deployed (if not, the cluster stops functioning). 90 days before all valid certificates reach expiration, the system generates a warning trace and a warning health event on the node. These are currently the only notifications Service Fabric sends regarding certificate expiration.
@@ -283,7 +283,7 @@ Read these articles for more information on cluster management:
 
 * [Certificate management in Service Fabric clusters](cluster-security-certificate-management.md)
 
-* [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
+* [Service Fabric Cluster upgrade process and expectations](service-fabric-cluster-upgrade.md)
 * [Setup role-based access for clients](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->

@@ -18,7 +18,7 @@ Suddenly managing your environment is not so simple as managing a few machines d
 
 Because your app is no longer a series of monoliths spread across several tiers, you now have many more combinations to deal with. Who decides what types of workloads can run on which hardware, or how many? Which workloads work well on the same hardware, and which conflict? When a machine goes down how do you know what was running there on that machine? Who is in charge of making sure that workload starts running again? Do you wait for the (virtual?) machine to come back or do your workloads automatically fail over to other machines and keep running? Is human intervention required? What about upgrades in this environment?
 
-As developers and operators dealing in this environment, we’re going to want help managing this complexity. A hiring binge and trying to hide the complexity with people is probably not the right answer, so what do we do?
+As developers and operators dealing in this environment, we’re going to want help with managing this complexity. A hiring binge and trying to hide the complexity with people is probably not the right answer, so what do we do?
 
 ## Introducing orchestrators
 An “Orchestrator” is the general term for a piece of software that helps administrators manage these types of environments. Orchestrators are the components that take in requests like “I would like five copies of this service running in my environment." They try to make the environment match the desired state, no matter what happens.

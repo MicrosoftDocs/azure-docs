@@ -148,7 +148,7 @@ The whole point of defining metrics is to represent some load. *Load* is how muc
 All of these strategies can be used within the same service over its lifetime.
 
 ## Default load
-*Default load* is how much of the metric each service object (stateless instance or stateful replica) of this service consumes. The Cluster Resource Manager uses this number for the load of the service object until it receives other information, such as a dynamic load report. For simpler services, the default load is a static definition. The default load is never updated and is used for the lifetime of the service. Default loads works great for simple capacity planning scenarios where certain amounts of resources are dedicated to different workloads and do not change.
+*Default load* is how much of the metric each service object (stateless instance or stateful replica) of this service consumes. The Cluster Resource Manager uses this number for the load of the service object until it receives other information, such as a dynamic load report. For simpler services, the default load is a static definition. The default load is never updated and is used for the lifetime of the service. Default loads work great for simple capacity planning scenarios where certain amounts of resources are dedicated to different workloads and do not change.
 
 > [!NOTE]
 > For more information on capacity management and defining capacities for the nodes in your cluster, please see [this article](service-fabric-cluster-resource-manager-cluster-description.md#capacity).

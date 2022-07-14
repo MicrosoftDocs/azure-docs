@@ -70,7 +70,7 @@ Create a new node type with the resources you need.  Update the placement constr
 ### Scaling the primary node type
 Deploy a new primary node type with updated VM SKU, then disable the original primary node type instances one at a time so that the system services migrate to the new scale set. Verify the cluster and new nodes are healthy, then remove the original scale set and node state for the deleted nodes.
 
-If that not possible, you can create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore.
+If that's not possible, you can create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore.
 
 ## Next steps
 * Learn about [application scalability](service-fabric-concepts-scalability.md).
