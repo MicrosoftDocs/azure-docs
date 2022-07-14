@@ -5907,6 +5907,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/manage-runas-account.md",
+      "redirect_url": "/azure/automation/manage-run-as-account",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
       "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
       "redirect_document_id": true
