@@ -81,6 +81,9 @@
 
 - name: Concepts
   items:
+  - name: The Defender for Cloud multicloud solution
+    href: multicloud.yml
+
   - name: Cloud Security Posture Management concepts
     items:
     - name: Policies, initiatives, and recommendations
@@ -98,9 +101,6 @@
       href: alerts-overview.md
     - name: Reference list of alerts
       href: alerts-reference.md
-
-  - name: The Defender for Cloud multicloud solution
-    href: multicloud.yml
 
 - name: How-to guides
   items:
@@ -437,6 +437,8 @@
       href: episode-thirteen.md
     - name: Defender for Servers deployment in AWS and GCP
       href: episode-fourteen.md
+    - name: Remediate security recommendations with governance
+      href: episode-fifteen.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
