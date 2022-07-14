@@ -14,7 +14,7 @@ ms.date: 04/07/2022
 This article shows you how to deploy the SAP Change Requests (CRs) necessary to prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
 
 > [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Deployment milestones
 
@@ -30,6 +30,8 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy SAP security content](deploy-sap-security-content.md)
 
+1. [Configure Threat Monitoring for SAP solution](deployment-solution-configuration.md)
+
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
    - [Configure SAP data connector to use SNC](configure-snc.md)
@@ -41,7 +43,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 > [!NOTE]
 > 
-> It is *strongly recommended* that the deployment of SAP CRs is carried out by an experienced SAP system administrator.
+> It is *strongly recommended* that the deployment of SAP CRs be carried out by an experienced SAP system administrator.
 >
 > The steps below may differ according to the version of the SAP system and should be considered for demonstration purposes only.
 > 
@@ -55,7 +57,7 @@ Track your SAP solution deployment journey through this series of articles:
 > - **IP address:** `192.168.136.4`
 > - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
 
-The deployment of Microsoft Sentinel's Continuous Threat Monitoring for SAP solution requires the installation of several CRs. More details about the required CRs can be found in the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of this guide.
+The deployment of Microsoft Sentinel's Threat Monitoring for SAP solution requires the installation of several CRs. More details about the required CRs can be found in the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of this guide.
 
 To deploy the CRs, follow the steps outlined below:
 
@@ -137,9 +139,13 @@ To deploy the CRs, follow the steps outlined below:
 
 1. Repeat the procedure in the preceding 5 steps to add the remaining Change Requests to be deployed.
 
-1. In the **Import Queue** window, select the **Import All Requests** icon:
+1. In the **Import Queue** window, select the relevant Transport Request once, and then select **F9** or **Select/Deselect Request** icon.
 
-    :::image type="content" source="media/preparing-sap/import-all-requests.png" alt-text="Screenshot of importing all requests." lightbox="media/preparing-sap/import-all-requests-lightbox.png":::
+1. To add the remaining Transport Requests to the deployment, repeat step 9.
+
+1. Select the Import Requests icon:
+
+    :::image type="content" source="media/preparing-sap/import-requests.png" alt-text="Screenshot of importing all requests." lightbox="media/preparing-sap/import-requests-lightbox.png":::
 
 1. In **Start Import** window, select the **Target Client** field.
 
@@ -201,7 +207,7 @@ The next step is to generate an active role profile for Microsoft Sentinel to us
 
 ### Create a user
 
-Microsoft Sentinel's Continuous Threat Monitoring solution for SAP requires a user account to connect to your SAP system. Use the following instructions to create a user account and assign it to the role that you created in the previous step.
+Microsoft Sentinel's Threat Monitoring solution for SAP requires a user account to connect to your SAP system. Use the following instructions to create a user account and assign it to the role that you created in the previous step.
 
 In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNECTOR**.
 
@@ -290,6 +296,10 @@ The required authorizations are listed here by log type. Only the authorizations
 | S_RFC | FUNC | RFC_READ_TABLE |
 | | |
 
+
+## Remove the user role and the optional CR installed on your ABAP system
+
+To remove the user role and optional CR imported to your system, import the deletion CR *NPLK900259* into your ABAP system.
 
 ## Next steps
 

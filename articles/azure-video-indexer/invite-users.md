@@ -1,6 +1,6 @@
 ---
-title: Invite users to Azure Video Indexer (former Azure Video Indexer) - Azure
-description: This article shows how to invite users to Azure Video Indexer (former Azure Video Indexer).
+title: Invite users to Azure Video Indexer
+description: This article shows how to invite users to Azure Video Indexer.
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.custom: mode-other
@@ -8,7 +8,7 @@ ms.custom: mode-other
 
 # Quickstart: Invite users to Azure Video Indexer
 
-To collaborate with your colleagues, you can invite them to your Azure Video Indexer (formerly Azure Video Analyzer for Media) account. 
+To collaborate with your colleagues, you can invite them to your Azure Video Indexer account. 
 
 > [!NOTE]
 > Only the account’s admin can add or remove users.</br>

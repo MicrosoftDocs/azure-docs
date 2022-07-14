@@ -8,7 +8,7 @@ ms.reviewer: vkann
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 06/24/2022
 ---
 
 # Add users to your data labeling project
@@ -18,7 +18,7 @@ This article shows how to add users to your data labeling project so that they c
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription [create a free account](https://azure.microsoft.com/free) before you begin.
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 
 You'll need certain permission levels to follow the steps in this article. If you can't follow one of the steps, contact your administrator to get the appropriate permissions.
 
@@ -102,7 +102,8 @@ To add a guest user, your organization's external collaboration settings must be
     :::image type="content" source="media/how-to-add-users/menu-active-directory.png" alt-text="Select Azure Active Directory from the menu.":::
 
 1. On the left, select **Users**.
-1. At the top, select **New guest user**.
+1. At the top, select **New user**.
+1. Select **Invite external user**.
 1. Fill in the name and email address for the user.
 1. Add a message for the new user.
 1. At the bottom of the page, select **Invite**.

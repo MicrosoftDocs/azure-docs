@@ -280,7 +280,10 @@ Management Groups.
 
 The guest configuration extension writes log files to the following locations:
 
-Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+Windows
+
+- Azure VM: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+- Arc-enabled server: `C:\ProgramData\GuestConfig\arc_policy_logs\gc_agent.log`
 
 Linux
 
@@ -338,6 +341,7 @@ locations:
 - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
 - [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+- [Sample DSC resource modules](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules)
 
 ## Next steps
 

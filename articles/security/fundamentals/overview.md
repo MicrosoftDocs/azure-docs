@@ -92,17 +92,13 @@ Azure Monitor logs can be a useful tool in forensic and other security analysis,
 
 The section provides additional information regarding key features in application security and summary information about these capabilities.
 
-### Web Application vulnerability scanning
-
-One of the easiest ways to get started with testing for vulnerabilities on your [App Service app](../../app-service/overview.md) is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report, and learn how to fix each vulnerability with step-by-step instructions.
-
 ### Penetration Testing
 
 We don’t perform [penetration testing](./pen-testing.md) of your application for you, but we do understand that you want and need to perform testing on your own applications. That’s a good thing, because when you enhance the security of your applications you help make the entire Azure ecosystem more secure. While notifying Microsoft of pen testing activities is no longer required customers must still comply with the [Microsoft Cloud Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
 
 ### Web Application firewall
 
-The web application firewall (WAF) in [Azure Application Gateway](../../application-gateway/features.md#web-application-firewall) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+The web application firewall (WAF) in [Azure Application Gateway](../../application-gateway/features.md#web-application-firewall) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://owasp.org/www-project-top-ten/).
 
 ### Authentication and authorization in Azure App Service
 

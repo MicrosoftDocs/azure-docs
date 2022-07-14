@@ -1,114 +1,71 @@
 ---
-title: Security recommendations in Microsoft Defender for Cloud
-description: This document walks you through how recommendations in Microsoft Defender for Cloud help you protect your Azure resources and stay in compliance with security policies.
-ms.topic: conceptual
-ms.date: 04/03/2022
+title: Improving your security posture with recommendations in Microsoft Defender for Cloud
+description: This document walks you through how to identify security recommendations that will help you improve your security posture.
+ms.topic: how-to
+ms.date: 06/29/2022
 ---
-# Review your security recommendations
+# Find recommendations that can improve your security posture
 
-This article explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your multi-cloud resources.
+To improve your [secure score](secure-score-security-controls.md), you have to implement the security recommendations for your environment. From the list of recommendations, you can use filters to find the recommendations that have the most impact on your score, or the ones that you were assigned to implement.
 
-## View your recommendations <a name="monitor-recommendations"></a>
+To get to the list of recommendations:
 
-Defender for Cloud analyzes the security state of your resources to identify potential vulnerabilities. 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Either:
+    - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment that you want to improve.
+    - Go to **Recommendations** in the Defender for Cloud menu.
 
-**To view your Secure score recommendations**:
+You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations, and look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+You can learn more by watching this video from the Defender for Cloud in the Field video series:
+- [Security posture management improvements](episode-four.md)
 
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
+## Finding recommendations with high impact on your secure score<a name="monitor-recommendations"></a>
 
-    :::image type="content" source="media/review-security-recommendations/recommendations-view.png" alt-text="Screenshot of the recommendations page.":::
+Your [secure score is calculated](secure-score-security-controls.md?branch=main#how-your-secure-score-is-calculated) based on the security recommendations that you have implemented. In order to increase your score and improve your security posture, you have to find recommendations with unhealthy resources and [remediate those recommendations](implement-security-recommendations.md).
 
-    Here you'll see the recommendations applicable to your environment(s). Recommendations are grouped into security controls.
+The list of recommendations shows the **Potential score increase** that you can achieve when you remediate all of the recommendations in the security control.
 
-1. Select **Secure score recommendations**.
+To find recommendations that can improve your secure score:
 
-    :::image type="content" source="media/review-security-recommendations/secure-score-recommendations.png" alt-text="Screenshot showing the location of the secure score recommendations tab.":::
+1. In the list of recommendations, use the **Potential score increase** to identify the security control that contains recommendations that will increase your secure score.
+    - You can also use the search box and filters above the list of recommendations to find specific recommendations.
+1. Open a security control to see the recommendations that have unhealthy resources.
 
-    > [!NOTE]
-    > Custom recommendations can be found under the All recommendations tab. Learn how to [Create custom security initiatives and policies](custom-security-policies.md).
+When you [remediate](implement-security-recommendations.md) all of the recommendations in the security control, your secure score increases by the percentage points listed for the control.
 
-    Secure score recommendations affect the secure score and are mapped to the various security controls. The All recommendations tab, allows you to see all of the recommendations including recommendations that are part of different regulatory compliance standards.
+## Manage the owner and ETA of recommendations that are assigned to you
 
-1.  (Optional) Select a relevant environment(s).
+[Security teams can assign a recommendation](governance-rules.md) to a specific person and assign a due date to drive your organization towards increased security. If you have recommendations assigned to you, you are accountable to remediate the resources affected by the recommendations to help your organization be compliant with the security policy.
 
-    :::image type="content" source="media/review-security-recommendations/environment-filter.png" alt-text="Screenshot of the environment filter, to select your filters.":::
+Recommendations are listed as **On time** until their due date is passed, when they are changed to **Overdue**. Before the recommendation is overdue, the recommendation does not impact the secure score. The security team can also apply a grace period during which overdue recommendations continue to not impact the secure score.
 
-1. Select the :::image type="icon" source="media/review-security-recommendations/drop-down-arrow.png" border="false"::: to expand the control, and view a list of recommendations.
+To help you plan your work and report on progress, you can set an ETA for the specific resources to show when you plan to have the recommendation resolved by for those resources. You can also change the owner of the recommendation for specific resources so that the person responsible for remediation is assigned to the resource.
 
-    :::image type="content" source="media/review-security-recommendations/list-recommendations.png" alt-text="Screenshot showing how to see the full list of recommendations by selecting the drop-down menu icon." lightbox="media/review-security-recommendations/list-recommendations-expanded.png":::
+:::image type="content" source="./media/governance-rules/change-governance-owner-eta.png" alt-text="Screenshot of fields required to add a governance rule." lightbox="media/governance-rules/change-governance-owner-eta.png":::
 
-1. Select a specific recommendation to view the recommendation details page.
+To change the owner of resources and set the ETA for remediation of recommendations that are assigned to you:
 
-    :::image type="content" source="./media/review-security-recommendations/recommendation-details-page.png" alt-text="Screenshot of the recommendation details page." lightbox="./media/review-security-recommendations/recommendation-details-page-expanded.png":::
+1. In the filters for list of recommendations, select **Show my items only**.
 
-    1. For supported recommendations, the top toolbar shows any or all of the following buttons:
-        - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
-        - **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
-        - **Open query** - All recommendations have the option to view the detailed information about the affected resources using Azure Resource Graph Explorer.
-    1. **Severity indicator**.
-    1. **Freshness interval** (where relevant).
-    1. **Count of exempted resources** if exemptions exist for a recommendation, this shows the number of resources that have been exempted with a link to view the specific resources.
-    1. **Mapping to MITRE ATT&CK ® tactics and techniques** if a recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. This applies only to Azure scored recommendations.
+    - The status column indicates the recommendations that are on time, overdue, or completed.
+    - The insights column indicates the recommendations that are in a grace period, so they currently do not impact your secure score until they become overdue.
 
-        :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
+1. Select an on time or overdue recommendation.
+1. For the resources that are assigned to you, set the owner of the resource:
+    1. Select the resources that are owned by another person, and select **Change owner and set ETA**.
+    1. Select **Change owner**, enter the email address of the owner of the resource, and select **Save**.
+    The owner of the resource gets a weekly email listing the recommendations that they are assigned to.
+1. For resources that you own, set an ETA for remediation:
+    1. Select resources that you plan to remediate by the same date, and select **Change owner and set ETA**.
+    1. Select **Change ETA** and set the date by which you plan to remediate the recommendation for those resources.
+    1. Enter a justification for the remediation by that date, and select **Save**.
 
-    1. **Description** - A short description of the security issue.
-    1. When relevant, the details page also includes a table of **related recommendations**:
-
-        The relationship types are:
-
-        - **Prerequisite** - A recommendation that must be completed before the selected recommendation
-        - **Alternative** - A different recommendation, which provides another way of achieving the goals of the selected recommendation
-        - **Dependent** - A recommendation for which the selected recommendation is a prerequisite
-
-        For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
-
-        > [!TIP]
-        > If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
-
-    1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option**, you can select **View remediation logic** before applying the suggested fix to your resources.
-
-    1. **Affected resources** - Your resources are grouped into tabs:
-        - **Healthy resources** – Relevant resources, which either aren't impacted or on which you've already  remediated the issue.
-        - **Unhealthy resources** – Resources that are still impacted by the identified issue.
-        - **Not applicable resources** – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource. 
-
-            :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::
-    1. Action buttons to remediate the recommendation or trigger a logic app.
-
-## Search for a recommendation
-
-You can search for specific recommendations by name. The search box and filters above the list of recommendations can be used to help locate a specific recommendation. 
-
-Custom recommendations only appear under the All recommendations tab.
-
-**To search for recommendations**:
-
-1. On the recommendation page, select an environment from the environment filter.
-
-    :::image type="content" source="media/review-security-recommendations/environment-filter.png" alt-text="Screenshot of the environmental filter on the recommendation page.":::
-
-    You can select 1, 2, or all options at a time. The page's results will automatically reflect your choice.
-
-1. Enter a name in the search box, or select one of the available filters.
-
-    :::image type="content" source="media/review-security-recommendations/search-filters.png" alt-text="Screenshot of the search box and filter list.":::
-
-1. Select :::image type="icon" source="media/review-security-recommendations/add-filter.png" border="false"::: to add more filter(s).
-
-1. Select a filter from the drop-down menu.
-
-    :::image type="content" source="media/review-security-recommendations/filter-drop-down.png" alt-text="Screenshot of the available filters to select.":::
-
-1. Select a value from the drop-down menu.
-
-1. Select **OK**.
+The due date for the recommendation does not change, but the security team can see that you plan to update the resources by the specified ETA date.
 
 ## Review recommendation data in Azure Resource Graph Explorer (ARG)
 
-You can review recommendations in ARG both on the recommendations page or on an individual recommendation. 
+You can review recommendations in ARG both on the recommendations page or on an individual recommendation.
 
 The toolbar on the recommendation details page includes an **Open query** button to explore the details in [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that gives you the ability to query - across multiple subscriptions - Defender for Cloud's security posture data.
 
@@ -120,7 +77,7 @@ For example, this recommendation details page shows 15 affected resources:
 
 :::image type="content" source="./media/review-security-recommendations/open-query.png" alt-text="The **Open Query** button on the recommendation details page.":::
 
-When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same 15 resources and their health status for this recommendation: 
+When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same 15 resources and their health status for this recommendation:
 
 :::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot.":::
 
@@ -130,7 +87,7 @@ The Insights column of the page gives you more details for each recommendation. 
 
 | Icon | Name | Description |
 |--|--|--|
-| :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::  | *Preview recommendation** | This recommendation won't affect your secure score until it's GA. |
+| :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::  | **Preview recommendation** | This recommendation won't affect your secure score until it's GA. |
 | :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: | **Fix** | From within the recommendation details page, you can use 'Fix' to resolve this issue. |
 | :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: | **Enforce** | From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource. |
 | :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: | **Deny** | From within the recommendation details page, you can prevent new resources from being created with this issue. |
@@ -141,12 +98,10 @@ Recommendations that aren't included in the calculations of your secure score, s
 
 Recommendations can be downloaded to a CSV report from the Recommendations page.
 
-**To download a CSV report of your recommendations**:
+To download a CSV report of your recommendations:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
-
 1. Select **Download CSV report**.
 
     :::image type="content" source="media/review-security-recommendations/download-csv.png" alt-text="Screenshot showing you where to select the Download C S V report from.":::
@@ -158,6 +113,14 @@ You'll know the report is being prepared by the pop-up.
 When the report is ready, you'll be notified by a second pop-up.
 
 :::image type="content" source="media/review-security-recommendations/downloaded-csv.png" alt-text="Screenshot letting you know your downloaded completed.":::
+
+## Learn more
+
+You can check out the following blogs:
+
+- [Security posture management and server protection for AWS and GCP are now generally available](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
+- [Custom assessments and standards in Microsoft Defender for Cloud for AWS workloads (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3066575)
+- [New enhancements added to network security dashboard](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/new-enhancements-added-to-network-security-dashboard/ba-p/2896021)
 
 ## Next steps
 

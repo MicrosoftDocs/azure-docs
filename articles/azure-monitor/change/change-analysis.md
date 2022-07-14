@@ -5,9 +5,10 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 04/18/2022 
+ms.date: 06/29/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
+
 ---
 
 # Use Change Analysis in Azure Monitor (preview)
@@ -30,7 +31,10 @@ Building on the power of [Azure Resource Graph](../../governance/resource-graph/
 >
 > For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Overview
+> [!NOTE]
+> Change Analysis is currently only available in Public Azure Cloud.
+
+## Change Analysis architecture 
 
 Change Analysis detects various types of changes, from the infrastructure layer through application deployment. Change Analysis is a subscription-level Azure resource provider that:
 - Checks resource changes in the subscription. 
@@ -132,99 +136,9 @@ Network resources are usually provisioned in the same resource group as the reso
 
 :::image type="content" source="./media/change-analysis/network-changes.png" alt-text="Screenshot of Networking changes":::   
 
-## Azure Monitor's Change Analysis service enablement
-
-The Change Analysis service:
-- Computes and aggregates change data from the data sources mentioned earlier. 
-- Provides a set of analytics for users to:
-    - Easily navigate through all resource changes.
-    - Identify relevant changes in the troubleshooting or monitoring context.
-
-### Enable Change Analysis
-
-You'll need to register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription to make the tracked properties and proxied settings change data available. The `Microsoft.ChangeAnalysis` resource is automatically registered as you either: 
-- Enter the Web App **Diagnose and Solve Problems** tool, or 
-- Bring up the Change Analysis standalone tab.
-
-### Enable Change Analysis for web app in-guest changes
-
-For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#diagnose-and-solve-problems-tool) section.
-
-> [!NOTE]
-> You may not immediately see web app in-guest file changes and configuration changes. Restart your web app and you should be able to view changes within 30 minutes. If not, refer to [the troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app).
-
-1. Select **Availability and Performance**.
-
-   :::image type="content" source="./media/change-analysis/availability-and-performance.png" alt-text="Screenshot of the Availability and Performance troubleshooting options":::
-    
-2. Select **Application Changes (Preview)**.
-
-   :::image type="content" source="./media/change-analysis/application-changes.png" alt-text="Screenshot of the Application Changes button":::
-
-   The link leads to Azure Monitor's Change Analysis UI scoped to the web app. 
-
-3. Enable web app in-guest change tracking by either:
-
-   - Selecting **Enable Now** in the banner, or
-
-     :::image type="content" source="./media/change-analysis/enable-changeanalysis.png" alt-text="Screenshot of the Application Changes options from the banner":::   
-
-   - Selecting **Configure** from the top menu.
-   
-     :::image type="content" source="./media/change-analysis/configure-button.png" alt-text="Screenshot of the Application Changes options from the top menu"::: 
-
-4. Toggle on **Change Analysis** status and select **Save**.
-
-   :::image type="content" source="./media/change-analysis/change-analysis-on.png" alt-text="Screenshot of the Enable Change Analysis user interface":::   
-  
-    - The tool displays all web apps under an App Service plan, which you can toggle on and off individually. 
-
-      :::image type="content" source="./media/change-analysis/change-analysis-on-2.png" alt-text="Screenshot of the Enable Change Analysis user interface expanded":::   
-
-You can also view change data via the **Web App Down** and **Application Crashes** detectors. The graph summarizes:
-- The change types over time.
-- Details on those changes. 
-
-By default, the graph displays changes from within the past 24 hours help with immediate problems.
-
-:::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view":::   
-
-### Enable Change Analysis at scale for Web App in-guest file and environment variable changes
-
-If your subscription includes several web apps, enabling the service at the web app level would be inefficient. Instead, run the following script to enable all web apps in your subscription.
-
-#### Pre-requisites
-
-PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
-
-#### Run the following script:
-
-```PowerShell
-# Log in to your Azure subscription
-Connect-AzAccount
-
-# Get subscription Id
-$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
-
-# Make Feature Flag visible to the subscription
-Set-AzContext -SubscriptionId $SubscriptionId
-
-# Register resource provider
-Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
-
-# Enable each web app
-$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
-foreach ($webapp in $webapp_list)
-{
-    $tags = $webapp.Tags
-    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
-}
-
-```
-
 ## Next steps
 
+- Learn about [enabling Change Analysis](change-analysis-enable.md)
 - Learn about [visualizations in Change Analysis](change-analysis-visualizations.md)
 - Learn how to [troubleshoot problems in Change Analysis](change-analysis-troubleshoot.md)
 - Enable Application Insights for [Azure App Services apps](../../azure-monitor/app/azure-web-apps.md).

@@ -5,7 +5,7 @@ ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
+ms.date: 05/27/2019
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture best practices

@@ -217,7 +217,7 @@ In this tutorial, you learned about using Defender for Cloud’s regulatory comp
 > * View and monitor your compliance posture regarding the standards and regulations that are important to you.
 > * Improve your compliance status by resolving relevant recommendations and watching the compliance score improve.
 
-The regulatory compliance dashboard can greatly simplify the compliance process, and significantly cut the time required for gathering compliance evidence for your Azure, hybrid, and multi-cloud environment.
+The regulatory compliance dashboard can greatly simplify the compliance process, and significantly cut the time required for gathering compliance evidence for your Azure, hybrid, and multicloud environment.
 
 To learn more, see these related pages:
 

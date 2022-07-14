@@ -1,10 +1,8 @@
 ---
 title: Shifting from Express.js to Azure Functions
 description: Learn to refactor Express.js endpoints to Azure Functions.
-author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.author: cshoe
 ms.devlang: javascript
 ---
 

@@ -5,6 +5,8 @@ ms.topic: conceptual
 ms.date: 04/22/2022
 ms.subservice: autoscale 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: riroloff
+
 ---
 
 # Azure Monitor autoscaling common metrics
