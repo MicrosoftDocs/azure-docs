@@ -437,6 +437,8 @@
       href: episode-thirteen.md
     - name: Defender for Servers deployment in AWS and GCP
       href: episode-fourteen.md
+    - name: Remediate security recommendations with governance
+      href: episode-fifteen.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
