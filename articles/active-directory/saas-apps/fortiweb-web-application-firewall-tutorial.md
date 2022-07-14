@@ -126,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the following page.
 
-    ![SAML server page](./media/fortiweb-web-application-firewall-tutorial/configure-sso.png)
+    ![Screenshot for SAML server page](./media/fortiweb-web-application-firewall-tutorial/configure-sso.png)
 
     a.	In the left-hand menu, click **User**.
 
@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment.
 1. Perform the following steps in the following page.
 
-    ![Site Publishing Rule](./media/fortiweb-web-application-firewall-tutorial/site-publish-rule.png)
+    ![Screenshot for Site Publishing Rule](./media/fortiweb-web-application-firewall-tutorial/site-publish-rule.png)
 
     a.	In the left-hand menu, click **Application Delivery**.
     
@@ -186,7 +186,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the following page.
 
-    ![Site Publishing Policy](./media/fortiweb-web-application-firewall-tutorial/site-publish-policy.png)
+    ![Screenshot for Site Publishing Policy](./media/fortiweb-web-application-firewall-tutorial/site-publish-policy.png)
 
     a.	In the left-hand menu, click **Application Delivery**.
 
@@ -221,7 +221,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 8.	Next to **Site Publish**, select the site publishing policy you created earlier.
 9.	Click **OK**.
  
-    ![site publish](./media/fortiweb-web-application-firewall-tutorial/web-protection.png)
+    ![Screenshot for site publish](./media/fortiweb-web-application-firewall-tutorial/web-protection.png)
 
 10.	In the left-hand menu, click **Policy**.
 11.	Under **Policy**, click **Server Policy**.
