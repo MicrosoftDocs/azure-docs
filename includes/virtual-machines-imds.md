@@ -1181,7 +1181,7 @@ The `nonce` in the signed document can be compared if you provided a `nonce` par
 
 In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Azure rolls over the certificates, which is standard PKI practice. You must update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. 
 
-You can find the intermediate certificates in the [PKI repository](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
+You can find the intermediate certificates on [this page](../articles/security/fundamentals/azure-CA-details.md). The intermediate certificates for each of the regions can be different.
 
 > [!NOTE]
 > The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
@@ -1189,9 +1189,6 @@ If you pinned the intermediate certificates for Azure China as part of a root ch
 
 > [!NOTE]
 > Starting February 2022, our Attested Data certificates will be impacted by a TLS change. Due to this, the root CA will change from Baltimore CyberTrust to DigiCert Global G2 only for Public and US Government clouds. If you have the Baltimore CyberTrust cert or other intermediate certificates listed in **[this post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953)** pinned, please follow the instructions listed there **immediately** to prevent any disruptions from using the Attested Data endpoint.
-
-> [!NOTE]
-> For a list of intermediate certificates, please reference **[this page](../articles/security/fundamentals/azure-CA-details.md)**.
 
 ## Managed identity
 
