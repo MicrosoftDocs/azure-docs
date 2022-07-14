@@ -28,7 +28,7 @@
     items:
       - name: Create Intel SGX AKS with CLI
         href: confidential-enclave-nodes-aks-get-started.md
-- name: Concepts
+- name: Concept
   expanded: true
   items:
   - name: Building confidential computing solutions
