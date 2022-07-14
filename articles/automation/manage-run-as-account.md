@@ -98,7 +98,7 @@ For detailed steps for how to add role assignments, check out the following arti
 
 After assigning the Run As account to the role, in your runbook specify `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` to set the subscription context to use. For more information, see [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
-## Check role assignment for the Run As account
+## Check role assignment for Azure Automation Run As account
 
 To check the role assigned to the Automation Run As account Azure AD, follow these steps:
 
@@ -109,7 +109,7 @@ To check the role assigned to the Automation Run As account Azure AD, follow the
     :::image type="content" source="media/manage-run-as-account/automation-runas-app-id.png" alt-text="Screenshot that describes on how to copy application ID.":::
 
 1. Go to Azure portal and search for **Azure Active Directory**.
-1. On the **Active Directory Overview** page, **Overview** tab, in search box, enter the Application id.  
+1. On the **Active Directory Overview** page, **Overview** tab, in the search box, enter the Application ID.  
 
     :::image type="content" source="media/manage-run-as-account/active-directory-app-id-inline.png" alt-text="Screenshot that describes application ID copied in the Overview tab." lightbox="media/manage-run-as-account/active-directory-app-id-expanded.png":::
 
