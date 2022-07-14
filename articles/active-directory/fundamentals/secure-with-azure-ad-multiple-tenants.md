@@ -25,7 +25,8 @@ A separate tenant is useful for an organization's IT department to validate tena
 
 Deploying a non-production environment in a separate tenant might be necessary during development of custom applications that can change data of production user objects with MS Graph or similar APIs (for example, applications that are granted Directory.ReadWrite.All, or similar wide scope).
 
-Note: Azure AD Connect synchronization to multiple tenants, which might be useful when deploying a non-production environment in a separate tenant. For more information, see [Azure AD Connect: Supported topologies](../hybrid/plan-connect-topologies.md).
+>[!Note]
+>Azure AD Connect synchronization to multiple tenants, which might be useful when deploying a non-production environment in a separate tenant. For more information, see [Azure AD Connect: Supported topologies](../hybrid/plan-connect-topologies.md).
 
 ## Outcomes
 
@@ -51,7 +52,7 @@ A new tenant boundary involves a separate set of Azure AD directory roles, which
 
 The following diagram illustrates a common usage for resource isolation in multiple tenants: a pre-production or "sandbox" environment that requires more separation than can be achieved with delegated administration in a single tenant.
 
-![Image shows common usage scenario](media/secure-with-azure-ad-multiple-tenants/multiple-tenant-common-scenario.png)
+![Diagram that shows common usage scenario.](media/secure-with-azure-ad-multiple-tenants/multiple-tenant-common-scenario.png)
 
 Contoso is an organization that augmented their corporate tenant architecture with a pre-production tenant called ContosoSandbox.com. The sandbox tenant is used to support ongoing development of enterprise solutions that write to Azure AD and Microsoft 365 using Microsoft Graph. These solutions will later be deployed in the corporate tenant.
 
@@ -61,9 +62,9 @@ Developers require access to the sandbox tenant during the development lifecycle
 
 In this example, Contoso uses [Azure AD B2B Collaboration](../external-identities/what-is-b2b.md) to provision users from the corporate tenant to enable users that can manage and access resources in applications in the sandbox tenant without managing multiple credentials. This capability is primarily oriented to cross-organization collaboration scenarios. However, enterprises with multiple tenants like Contoso can use this capability to avoid additional credential lifecycle administration and user experience complexities.
 
-Use [External Identities cross-tenant access](../external-identities/cross-tenant-access-settings-b2b-collaboration.md) settings to manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of inbound access users in external Azure AD organizations have to your resources, and the level of outbound access your users have to external organizations. They also let you trust multi-factor authentication (MFA) and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations. For details and planning considerations, see [Cross-tenant access in Azure AD External Identities](../external-identities/cross-tenant-access-overview.md).
+Use [External Identities cross-tenant access](../external-identities/cross-tenant-access-settings-b2b-collaboration.md) settings to manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of inbound access users in external Azure AD organizations have to your resources, and the level of outbound access your users have to external organizations. They also let you trust multifactor authentication (MFA) and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations. For details and planning considerations, see [Cross-tenant access in Azure AD External Identities](../external-identities/cross-tenant-access-overview.md).
 
-Another approach could have been to utilize the capabilities of Azure AD Connect to sync the same on-prem AD credentials to multiple tenants, keeping the same password but differentiating on the users UPN domain.
+Another approach could have been to utilize the capabilities of Azure AD Connect to sync the same on-premises AD credentials to multiple tenants, keeping the same password but differentiating on the users UPN domain.
 
 ## Multi-tenant resource isolation
 
@@ -71,9 +72,10 @@ A new tenant provides the ability to have a separate set of administrators. Orga
 
 This will allow users to continue to use their corporate credentials, while achieving the benefits of separation as described above.
 
-Azure AD B2B collaboration in sandbox tenants should be configured to allow only identities from the corporate environment to be onboarded using Azure B2B [allow/deny lists](../external-identities/allow-deny-list.md). For tenants that you do want to allow for B2B consider using External Identities cross-tenant access settings for cross tenant MFA\Device trust.
+Azure AD B2B collaboration in sandbox tenants should be configured to allow only identities from the corporate environment to be onboarded using Azure B2B [allow/deny lists](../external-identities/allow-deny-list.md). For tenants that you do want to allow for B2B consider using External Identities cross-tenant access settings for cross tenant multifactor authentication\Device trust.
 
-IMPORTANT: Multi-tenant architectures with external identity access enabled provide only resource isolation, but don't enable identity isolation. Resource isolation using Azure AD B2B collaboration and Azure Lighthouse don't mitigate risks related to identities.
+>[!IMPORTANT]
+>Multi-tenant architectures with external identity access enabled provide only resource isolation, but don't enable identity isolation. Resource isolation using Azure AD B2B collaboration and Azure Lighthouse don't mitigate risks related to identities.
 
 If the sandbox environment shares identities with the corporate environment, the following scenarios are applicable to the sandbox tenant:
 
