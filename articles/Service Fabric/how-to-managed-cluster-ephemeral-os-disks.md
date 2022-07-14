@@ -26,7 +26,7 @@ Before you begin:
 
 * If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 * Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.
-* Ephemeral OS disks are supported both for primary and secondary Node Type. For the sake of this guide, we will be using a Standard SKU cluster with two node types and a secondary node type that uses Ephemeral OS disk.
+* Ephemeral OS disks are supported both for primary and secondary node type. For the sake of this guide, we will be using a Standard SKU cluster with two node types and a secondary node type that uses Ephemeral OS disk.
 * A node type can only be configured to use Ephemeral OS disk at the time of creation. To migrate using Ephemeral OS Disks, add a new node type to the cluster and migrate your services to that node type. 
 * Ephemeral OS disks are not supported for every SKU. VM sizes such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M, Mdsv2, Bs, Dav4, Eav4 supports Ephemeral OS disks. Please ensure the SKU with which you want to deploy supports Ephemeral OS disk. For more information on individual SKU, see [supported VM SKU](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) and navigate to the desired SKU on left side pane.
 * Ephemeral OS disks in Service Fabric are placed in the space for temporary disks for the VM SKU. Ensure the VM SKU you are using has more than 127 GiB of temporary disk space to place Ephemeral OS disk.
@@ -85,3 +85,7 @@ The template used in this guide is from [Azure-Samples - Service Fabric cluster 
 * ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
 
 Wait for the deployment to be completed successfully.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Read about Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
