@@ -33,7 +33,7 @@ Maintenance Configurations currently supports three (3) scopes: Host, OS image, 
 
 
 ### Host
-With this scope, you can manage platform updates that do not require a reboot on your *isolated VMs*, *isolated VM Scale Set instances* and *dedicated hosts*. Some features and limitations unique to the host scope are:
+With this scope, you can manage platform updates that do not require a reboot on your *isolated VMs*, *isolated Virtual Machine Scale Set instances* and *dedicated hosts*. Some features and limitations unique to the host scope are:
 
 - Schedules can be set anytime within 35 days. After 35 days, updates are automatically applied.
 - A minimum of a 2 hour maintenance window is required for this scope.
