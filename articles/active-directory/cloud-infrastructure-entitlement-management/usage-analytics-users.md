@@ -108,7 +108,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Identity Subtype**, select the type of user: **All**, **ED**, **Local**, or **Cross Account**.
+1. From the **Identity Subtype**, select the type of user: **All**, **ED** (Enterprise Directory), **Local**, or **Cross Account**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset filter** to discard your changes.
