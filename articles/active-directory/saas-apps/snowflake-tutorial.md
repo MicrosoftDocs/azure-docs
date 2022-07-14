@@ -135,9 +135,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open the **downloaded Base 64 certificate** in notepad. Copy the value between “-----BEGIN CERTIFICATE-----” and “-----END CERTIFICATE-----" and paste this content into the **SAML2_X509_CERT**.
 
-1. In the **SAML2_ISSUER**, paste **Identifier** value which you have copied from the Azure portal.
+1. In the **SAML2_ISSUER**, paste **Identifier** value, which you have copied from the Azure portal.
 
-1. In the **SAML2_SSO_URL**, paste **Login URL** value which you have copied from the Azure portal.
+1. In the **SAML2_SSO_URL**, paste **Login URL** value, which you have copied from the Azure portal.
 
 1. In the **SAML2_PROVIDER**, give the value like `CUSTOM`.
 
@@ -212,7 +212,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Snowflake Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Snowflake Sign on URL where you can initiate the login flow.  
 
 * Go to Snowflake Sign on URL directly and initiate the login flow from there.
 
