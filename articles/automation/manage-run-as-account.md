@@ -44,7 +44,7 @@ Use the following steps to renew the self-signed certificate.
 
 1. On the **Properties** page for the selected account, select **Renew certificate**.
 
-    :::image type="content" source="media/manage-run-as-account/automation-account-renew-runas-certificate.png" alt-text="Renew certificate for Run As account.":::
+    :::image type="content" source="media/manage-run-as-account/automation-account-renew-run-as-certificate.png" alt-text="Renew certificate for Run As account.":::
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
@@ -106,7 +106,7 @@ To check the role assigned to the Automation Run As account Azure AD, follow the
 1. Go to your Automation account and in **Account Settings**, select **Run as accounts**.
 1. Select **Azure Run as Account** to view the **Application ID**.
 
-    :::image type="content" source="media/manage-run-as-account/automation-runas-app-id.png" alt-text="Screenshot that describes on how to copy application ID.":::
+    :::image type="content" source="media/manage-run-as-account/automation-run-as-app-id.png" alt-text="Screenshot that describes on how to copy application ID.":::
 
 1. Go to Azure portal and search for **Azure Active Directory**.
 1. On the **Active Directory Overview** page, **Overview** tab, in the search box, enter the Application ID.  
