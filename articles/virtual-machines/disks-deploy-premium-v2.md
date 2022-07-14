@@ -155,45 +155,6 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 ---
 
-### Create a Premium SSD - 512 byte sector size
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-#Define variables
-region="eastus"
-rgName="<yourResourceGroupName>"
-diskName="<yourDiskName>"
-vmName="<yourVMName>"
-zone=123
-subscriptionId="<yourSubscriptionID>"
-
-#Create an ultra disk
-az disk create `
---subscription $subscriptionId `
--n $diskname `
--g $rgname `
---size-gb 100 `
---location $region`
---zone $zone `
---sku Premiumv2_LRS `
---disk-iops-read-write 400 `
---disk-mbps-read-write 50
-
-#Attach the disk
-az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-Optionally, you can deploy a Premium SSD v2 that has a 512 byte sector size.
-
-```azurepowershell
-#create a Premium SSD v2 with 512 sector size
-az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 100 --location $location --sku premiumV2SKU --disk-iops-read-write 400 --disk-mbps-read-write 400 --logical-sector-size 512
-```
----
-
 ## Adjust disk performance
 
 # [Azure CLI](#tab/azure-cli)
