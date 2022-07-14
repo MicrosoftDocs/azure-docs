@@ -40,7 +40,7 @@ Deploying self-hosted gateways into the same environments where the backend API 
 ## Feature comparison of managed and self-hosted gateways
 
 > [!NOTE]
-> * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md). 
+> * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](#packaging) for self-hosted gateways.
 > * See [Limitations](#limitations) for other limitations of self-hosted gateways.
 
 
@@ -55,7 +55,8 @@ Deploying self-hosted gateways into the same environments where the backend API 
 | [Private endpoints](private-endpoint.md)  |  ✔️ |  ❌ |
 | [Availability zones](zone-redundancy.md)  |  ✔️ |  ❌ |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  ✔️ |  ❌ |
-| [CA root certificates](api-management-howto-ca-certificates.md) |  ✔️ |  ❌ |
+| [CA root certificates](api-management-howto-ca-certificates.md) for certficated validation |  ✔️ |  ❌ |
+| [Managed domain certificated](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ |  ❌ |
 
 <sup>1</sup>Self-hosted gateways can use an [external Redis-compatible cache](api-management-howto-cache-external.md).
 
@@ -66,6 +67,7 @@ Managed and self-hosted gateways can host the same API types with the following 
 | Feature | Managed   | Self-hosted  |
 | --- | ----- | ---------- |
 | [Service Fabric integration](../service-fabric/service-fabric-api-management-overview.md) |  ✔️ |  ❌ |
+| [Passthrough GraphQL APIs](graphql-api.md) |  ✔️ |  ❌ |
 | [Synthetic GraphQL APIs](graphql-schema-resolve-api.md) |  ✔️ |  ❌ |
 | [Websocket APIs](websocket-api.md) |  ✔️ |  ❌ |
 
@@ -85,11 +87,15 @@ Managed and self-hosted gateways support the same policies in policy definitions
 
 ### Monitoring
 
+For details about monitoring options, see [Observability in Azure API Management](observability.md).
+
 | Feature | Managed   | Self-hosted  |
 | --- | ----- | ---------- |
 | [API analytics](howto-use-analytics.md) | ✔️ |  ❌ |
 | [Application Insights](api-management-howto-app-insights.md) | ✔️ |  ✔️ |
+| [Logging through Event Hubs](api-management-howto-log-event-hubs.md) | ✔️ |  ✔️ |
 | [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ |  ✔️ |
+| [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ |  ✔️ |
 | [Request logs in Azure Monitor](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ |  ❌<sup>1</sup> |
 | [Request tracing](api-management-howto-api-inspector.md) | ✔️ |  ✔️ |
 
@@ -218,7 +224,7 @@ The following functionality found in the managed gateways is **not available** i
 - Upstream (backend side) TLS version and cipher management.
 - Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. You can configure [custom certificate authorities](api-management-howto-ca-certificates.md#create-custom-ca-for-self-hosted-gateway) for your self-hosted gateways and [client certificate validation](api-management-access-restriction-policies.md#validate-client-certificate) policies to enforce them.
 - TLS session resumption.
-- Client certificate renegotiation. To use [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md), API consumers must present their certificates as part of the initial TLS handshake. To ensure this behavior, enable the Negotiate Client Certificate setting when configuring a self-hosted gateway custom hostname.
+- Client certificate renegotiation. To use [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md), API consumers must present their certificates as part of the initial TLS handshake. To ensure this behavior, enable the Negotiate Client Certificate setting when configuring a self-hosted gateway custom hostname (domain name).
 
 ### Transport Layer Security (TLS)
 
