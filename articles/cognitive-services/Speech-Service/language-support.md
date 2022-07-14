@@ -128,6 +128,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Sinhala (Sri Lanka)               | `si-LK`         |
 | Slovak (Slovakia)                 | `sk-SK`         |
 | Slovenian (Slovenia)              | `sl-SI`         |
+| Somali (Somalia)                  | `so-SO`         |
 | Spanish (Argentina)               | `es-AR`         |
 | Spanish (Bolivia)                 | `es-BO`         |
 | Spanish (Chile)                   | `es-CL`         |
@@ -160,6 +161,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Ukrainian (Ukraine)               | `uk-UA`         |
 | Uzbek (Uzbekistan)                | `uz-UZ`         |
 | Vietnamese (Vietnam)              | `vi-VN`         |
+| Welsh (United Kingdom)          | `cy-GB`         |
 | Zulu (South Africa)               | `zu-ZA`         |
 
 ### [Plain text](#tab/plaintext)
