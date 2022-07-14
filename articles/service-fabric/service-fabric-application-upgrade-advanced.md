@@ -1,10 +1,14 @@
 ---
 title: Advanced Application Upgrade Topics
 description: This article covers some advanced topics pertaining to upgrading a Service Fabric application.
-
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric application upgrade: Advanced topics
 
 ## Add or remove service types during an application upgrade

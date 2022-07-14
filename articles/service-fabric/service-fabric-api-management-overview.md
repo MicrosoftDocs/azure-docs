@@ -2,7 +2,11 @@
 title: Azure Service Fabric with API Management overview 
 description: This article is an introduction to using Azure API Management as a gateway to your Service Fabric applications. 
 ms.topic: conceptual
-ms.date: 06/22/2017
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Service Fabric with Azure API Management overview

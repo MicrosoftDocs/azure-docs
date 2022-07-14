@@ -2,8 +2,11 @@
 title: Deploy a Service Fabric managed cluster using Azure Resource Manager
 description: Learn how to create a Service Fabric managed cluster with an Azure Resource Manager template
 ms.topic: quickstart
-ms.date: 5/10/2021
-ms.custom: mode-other
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Quickstart: Deploy a Service Fabric managed cluster with an Azure Resource Manager template

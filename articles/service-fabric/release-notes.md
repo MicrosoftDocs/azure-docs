@@ -1,8 +1,12 @@
 ---
 title: Azure Service Fabric releases
 description: Release notes for Azure Service Fabric. Includes information on the latest features and improvements in Service Fabric.
-ms.date: 04/13/2021
-ms.topic: conceptual
+ms.date: 07/14/2022
+ms.topic: reference
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
 hide_comments: true
 hideEdit: true
 ---

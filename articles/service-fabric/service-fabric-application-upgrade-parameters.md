@@ -1,10 +1,14 @@
 ---
 title: 'Application upgrade: upgrade parameters' 
 description: Describes parameters related to upgrading a Service Fabric application, including health checks to perform and policies to automatically undo the upgrade.
-
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Application upgrade parameters
 This article describes the various parameters that apply during the upgrade of an Azure Service Fabric application. Application upgrade parameters control the time-outs and health checks that are applied during the upgrade, and they specify the policies that must be applied when an upgrade fails. Application parameters apply to upgrades using:
 - PowerShell
