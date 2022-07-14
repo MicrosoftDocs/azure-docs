@@ -115,42 +115,55 @@ az vm create -n $vmName -g $resourceGroupName \
 You must create a VM using a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
 
 ```powershell
-$subscriptionId = "<yourSubscriptionId>"
-$resourceGroupName = "<yourResourceGroupName>"
-$vmName = "<yourVMName>"
-$diskName = "<yourDiskName>"
-$lun = 1
-$region = "eastus"
+# Create a VM using a VM size that supports Premium Storage
+$resourceGroupName = "PremiumV2Testing"
+$vmName = "myVmWithPV2D2"
+$region = "swedencentral"
+$vmImage = "Win2016Datacenter"
+$vmSize = "Standard_D4s_v3"
+$zone = "1"
+$vmAdminUser = "cptadmin"
+$vmAdminPassword = ConvertTo-SecureString "" -AsPlainText -Force
+
+$credential = New-Object System.Management.Automation.PSCredential ($vmAdminUser, $vmAdminPassword);
 
 New-AzVm `
-    -ResourceGroupName $resourcegroup `
+    -ResourceGroupName $resourceGroupName `
     -Name $vmName `
-    -Location "eastus2" `
-    -Image "Win2016Datacenter" `
-    -size "Standard_D4s_v3" `
-    -zone $zone
-    -Location $region
+    -Location $region `
+    -Zone $zone `
+    -Image $vmImage `
+    -Size $vmSize `
+    -Credential $credential
 
-# Create the disk
+# Create a Premium SSD v2 disk
+$diskName = "myPremiumv2Disk2"
+$diskSizeInGiB = 100
+$diskIOPS = 5000
+$diskThroughputInMBPS = 150
+$logicalSectorSize=4096
+$lun = 1
+
 $diskconfig = New-AzDiskConfig `
 -Location $region `
--DiskSizeGB 10 `
--DiskIOPSReadWrite 5000 `
--DiskMBpsReadWrite 150 `
--AccountType Premiumv2_LRS `
--CreateOption Empty `
--zone $zone;
+-Zone $zone `
+-DiskSizeGB $diskSizeInGiB `
+-DiskIOPSReadWrite $diskIOPS `
+-DiskMBpsReadWrite $diskThroughputInMBPS `
+-AccountType PremiumV2_LRS `
+-LogicalSectorSize $logicalSectorSize `
+-CreateOption Empty
 
 New-AzDisk `
--ResourceGroupName $resourceGroup `
+-ResourceGroupName $resourceGroupName `
 -DiskName $diskName `
--Disk $diskconfig;
+-Disk $diskconfig
 
-# add disk to VM
-$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
-$disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
+# Attach the disk to the VM
+$vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
-Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 ```
 
 ---
