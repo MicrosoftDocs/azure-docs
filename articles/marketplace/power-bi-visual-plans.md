@@ -78,7 +78,7 @@ If you select this option, customers are not charged for the first month of use.
 
 You can configure each plan to be visible to everyone (public) or to only a specific audience (private).
 
-Private plans restrict the discovery and deployment of your solution to a specific set of customers you choose and offer customized software, terms, and pricing. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software.
+Private plans restrict the discovery and deployment of your solution to a specific set of customers you choose and offer customized software and pricing. You can provide specialized pricing and support custom scenarios, as well as early access to limited release software to such customers.
 
 Private plans are good for testing your visual or making a special plan available only to a select group of customers. However, it’s important to remember that if you only configure private plans for a visual:
 
