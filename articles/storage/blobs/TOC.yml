@@ -635,7 +635,7 @@ items:
         - name: Availability
           href: ../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Client errors
-        href: ../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Monitor (classic)
         items:
         - name: Enable and manage metrics (classic)
