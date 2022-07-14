@@ -27,14 +27,14 @@ Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft
 
 If you come across an error saying **Your account is configured to prevent you from using this device. For more information, contact your system administrator**, ensure the user account was given the [Virtual Machine User Login role](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#azure-role-not-assigned) on the VMs. 
 
-### I can't sign in, even though I'm using the right credentials
+### The user name or password is incorrect
 
-If you can't sign in and keep receiving an error message that says your credentials are incorrect, first make sure you're using the right credentials. If you keep seeing error messages, ask yourself the following questions:
+If you can't sign in and keep receiving an error message that says your credentials are incorrect, first make sure you're using the right credentials. If you keep seeing error messages, verify that:
 
-- Does your Conditional Access policy exclude multi-factor authentication requirements for the Azure Windows VM sign-in cloud application?
-- Have you assigned the **Virtual Machine User Login** role-based access control (RBAC) permission to the VM or resource group for each user? 
+- Your Conditional Access policy excludes multi-factor authentication requirements for the Azure Windows VM sign-in cloud application
+- You assigned the **Virtual Machine User Login** role-based access control (RBAC) permission to the VM or resource group for each user 
 
-If you answered "no" to either of these questions, follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md#azure-ad-joined-session-host-vms) to reconfigure your multi-factor authentication.
+To reconfigure your multi-factor authentication, follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md#azure-ad-joined-session-host-vms).
 
 > [!WARNING] 
 > VM sign-ins don't support per-user enabled or enforced Azure AD Multi-Factor Authentication. If you try to sign in with multi-factor authentication on a VM, you won't be able to sign in and will receive an error message.

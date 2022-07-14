@@ -31,7 +31,7 @@ Single sign-on is only available on the following operating systems:
   - Windows Server, version 2022 with the [2022-09 Cumulative Update for Microsoft server operating system]() or later installed.
   - Windows Server, version 2019 with the [2022-09 Cumulative Update for Microsoft server operating system]() or later installed.
 
-Single sign-on can be enabled for connections to Azure AD-joined VMs. SSO can also be used to access Hybrid Azure AD-joined VMs, but only after [creating a Kerberos Server object](#create-a-kerberos-server-object-for-hybrid-azure-ad-joined-vms). This solution is not supported with VMs joined to Azure AD Domain Services.
+Single sign-on can be enabled for connections to Azure AD-joined VMs. SSO can also be used to access Hybrid Azure AD-joined VMs, but only after creating a Kerberos Server object. This solution is not supported with VMs joined to Azure AD Domain Services.
 
 > [!NOTE]
 > SSO is not supported with Hybrid Azure AD-joined Windows Server 2019 VMs.
