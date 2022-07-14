@@ -93,7 +93,6 @@ The table below provides a summary of the old fields available in the solutions 
 | offerId | OfferId |  |
 | cost | CostInBillingCurrency |  |
 | accountId | AccountId |  |
-| productId |  | **WHAT IS EQUIVALENT????** |
 | resourceLocationId |  | Not available. |
 | consumedServiceId | ConsumedService |  |
 | departmentId | InvoiceSectionId |  |
