@@ -31,6 +31,11 @@ In this tutorial, you will:
 ## Prerequisites
 
 - Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](quickstart-create-resources.md) to create a workspace, compute instance, and compute cluster to use in this tutorial series.
+- If an older compute instance is used, install `azure-ai-ml` by running the below command in a notebook cell. New compute instances will have this package pre-installed.
+
+   ```python
+   pip install azure-ai-ml
+   ```
 
 ## Create and run a Python script
 
