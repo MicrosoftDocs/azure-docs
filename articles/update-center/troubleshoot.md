@@ -39,7 +39,7 @@ To review the logs related to all actions performed by the extension, check for 
 
 ### Arc-enabled servers
 
-For Arc-enabled servers, review the [troubleshoot VM extensions](/azure-arc/servers/troubleshoot-vm-extensions) article for general troubleshooting steps.
+For Arc-enabled servers, review the [troubleshoot VM extensions](/azure/azure-arc/servers/troubleshoot-vm-extensions) article for general troubleshooting steps.
 
 To review the logs related to all actions performed by the extension, on Windows check for more details in `C:\ProgramData\GuestConfig\extension_Logs\Microsoft.SoftwareUpdateManagement\WindowsOsUpdateExtension`. It includes the following two log files of interest:
 
@@ -65,9 +65,6 @@ During an update deployment, it checks for maintenance window utilization at mul
 For  Windows service pack updates, we check for 20 minutes + 10 minutes for reboot (that is, 30 minutes). If the deployment doesn't have the sufficient left, it skips the scan/download/install of updates. The deployment run then checks if a reboot is needed and if there is ten minutes left in the maintenance window. If there is, the deployment triggers a reboot, otherwise the reboot is skipped. In such cases, the status is updated to **Failed**, and the Maintenance window exceeded property is updated to ***true**. For cases where the time left is less than 25 minutes, updates are not scanned or attempted for installation. 
 
 More details can be found by reviewing the logs in the file path provided in the error message of the deployment run.
-
->[!NOTE]
-> For [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), it can take up to five minutes to trigger a deployment job on the machine. If you have configured 30 minutes as the maximum duration, there is a high chance that the scan for missing updates will not occur. At least 25 minutes is required in the maintenance window to start the operation. 
 
 #### Resolution
 
