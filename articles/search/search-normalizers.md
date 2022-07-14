@@ -18,16 +18,16 @@ ms.date: 07/14/2022
 
 In Azure Cognitive Search, a *normalizer* is a component that pre-processes text for keyword matching over fields marked as "filterable", "facetable", or "sortable". In contrast with "searchable" fields that are paired with [text analyzers](search-analyzers.md), filterable-facetable-sortable content doesn't undergo analysis or tokenization, which can yield unexpected results. 
 
-Some of the text transformations that can be achieved using normalizers are:
+By applying a normalizer, you can achieve text transformations that improve results:
 
-+ Case conversion (lowercase or upper-case)
++ Consistent casing (such as all lowercase or uppercase)
 + Normalize accents and diacritics like ö or ê to ASCII equivalent characters "o" and "e"
 + Map characters like `-` and whitespace into a user-specified character
 
-Normalizers are specified on string fields in the index and are applied during indexing and query execution. 
+Normalizers are specified on string fields in the index and applied during indexing and query execution. 
 
 > [!NOTE]
-> If fields are both searchable and filterable (or facetable or sortable), both analyzers and normalizers can be used. Analyzers are always used as a requirement of tokenization. Normalizers are optional and used only if you specify them. 
+> If fields are both searchable and filterable (or facetable or sortable), both analyzers and normalizers can be used. Analyzers are ways used on searchable fields as a requirement of tokenization. Normalizers are optional. 
 
 ## Benefits of normalizers
 
