@@ -47,22 +47,33 @@ To learn more about Marketplace orders (also known as external services), see [U
 
 Azure resource providers emit usage and charges to the billing system and populate the Additional Info field of the usage records. Occasionally, resource providers might emit usage for a given day and stamp the records with different datacenters in the Additional Info field of the cost records. It can cause multiple records for a meter or resource to be present in your cost file for a single day. In that situation, you aren't overcharged. The multiple records represent the full cost of the meter for the resource on that day.
 
-### Notes about pricing
+### Pricing behavior in cost details
 
-If you want to reconcile costs with your price sheet or invoice, note the following information.
+The cost details file exposes multiple price points today. These are outlined below.
 
-**Price Sheet price behavior** - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. Unfortunately, the unit of measure doesn't always align to the unit of measure where the actual resource usage and charges are emitted.
+- **PAYGPrice:** This is the list price for a given product or service that is determined based on the customer agreement. For customers who have an Enterprise Agreement, the pay-as-you-go price represents the EA baseline price.
 
-**Cost details price behavior** - Usage files show scaled information that may not match precisely with the price sheet. Specifically:
+- **UnitPrice:** This is the price for a given product or service inclusive of any negotiated discounts on top of the pay-as-you-go price.
 
-- Unit Price - The price is scaled to match the unit of measure where the charges are actually emitted by Azure resources. If scaling occurs, then the price won't match the price seen in the Price Sheet.
-- Unit of Measure - Represents the unit of measure where charges are actually emitted by Azure resources.
-- Effective Price / Resource Rate - The price represents the actual rate that you end up paying per unit, after discounts are taken into account. It's the price that should be used with the Quantity to do Price \* Quantity calculations to reconcile charges. The price takes into account the following scenarios and the scaled unit price that's also present in the files. As a result, it might differ from the scaled unit price.
-  - Tiered pricing - For example: $10 for the first 100 units, $8 for the next 100 units.
-  - Included quantity - For example: The first 100 units are free and then $10 for each unit.
-  - Reservations
-  - Rounding that occurs during calculation – Rounding takes into account the consumed quantity, tiered/included quantity pricing, and the scaled unit price.
+- **EffectivePrice** This is the price for a given product or service that represents the actual rate that you end up paying per unit. It's the price that should be used with the Quantity to do Price \* Quantity calculations to reconcile charges. The price takes into account the following scenarios:
+  - *Tiered pricing:* For example: $10 for the first 100 units, $8 for the next 100 units.
+  - *Included quantity:* For example: The first 100 units are free and then $10 for each unit.
+  - *Reservations:* For example, a VM that got a reservation benefit on a given day. To learn more about how to interpret the effective price in reservation scenarios, please see [reservation charges in Azure usage data - LINK NEEDED]().
+  - *Rounding that occurs during calculation:* Rounding takes into account the consumed quantity, tiered/included quantity pricing, and the scaled unit price.
 
+- **Quantity:** This is the number of units used by the given product or service for a given day and is aligned to the unit of measure used in actual resource usage.
+
+If you want to reconcile costs with your price sheet or invoice, note the following information about unit of measure.
+
+**Price Sheet unit of measure behavior** - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. 
+
+**Cost details unit of measure behavior** - The unit of measure associated with the usage quantities and pricing seen in cost details aligns with actual resource usage.
+
+#### Example pricing scenarios seen in cost details for a resource
+
+| **MeterId** | **Quantity** | **PAYGPrice** | **UnitPrice** | **EffectivePrice** | **UnitOfMeasure** | **Notes** |
+| --- | --- | --- | --- | --- | --- | --- |
+| 00000000-0000-0000-0000-00000000000 | 24 | 1 | 0.8 | 0.76 | 1 hour | Manual calculation of the actual charge: multiply 24 * 0.76 * 1 hour. |
 
 ## Unexpected charges
 

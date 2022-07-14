@@ -46,9 +46,9 @@ Usage records can be identified as marketplace records in the combined dataset t
 | --- | --- | --- |
 | | PublisherType | Used to identify a marketplace usage record |
 | accountName | AccountName | |
-| additionalProperties | AdditionalInfo | Is this correct? |
+| additionalProperties | AdditionalInfo |  |
 | costCenter | CostCenter | |
-| departmentName | BillingProfileName | Is this correct? |
+| departmentName | BillingProfileName |  |
 | billingPeriodId | | Use BillingPeriodStartDate / BillingPeriodEndDate |
 | usageStart |  | Use Date |
 | usageEnd |  | Use Date |
@@ -57,18 +57,18 @@ Usage records can be identified as marketplace records in the combined dataset t
 | currency | BillingCurrencyCode |  |
 | consumedQuantity | Quantity |  |
 | pretaxCost | CostInBillingCurrency |  |
-| isEstimated |  | Is this available?? |
+| isEstimated |  | Not available |
 | meterId | MeterId |  |
 | offerName | OfferId |  |
 | resourceGroup | ResourceGroup |  |
-| orderNumber |  | Is this available?? |
+| orderNumber |  | Not available |
 | publisherName | PublisherName |  |
 | planName | PlanName |  |
 | resourceRate | EffectivePrice |  |
 | subscriptionGuid | SubscriptionId |  |
 | subscriptionName | SubscriptionName |  |
 | unitOfMeasure | UnitOfMeasure |  |
-| isRecurringCharge | ChargeType | Will have info on if the charge is recurring |
+| isRecurringCharge |  | Where applicable, use the Frequency and Term fields moving forward. |
 
 ## Next steps
 

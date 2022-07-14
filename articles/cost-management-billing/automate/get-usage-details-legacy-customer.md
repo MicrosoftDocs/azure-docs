@@ -14,7 +14,9 @@ ms.reviewer: adwise
 
 If you have an MSDN, pay-as-you-go, or Visual Studio Azure subscription, we recommend that you use [Exports](../costs/tutorial-export-acm-data.md) or the [Exports API](../costs/ingest-azure-usage-at-scale.md) to get cost details data (formerly known as usage details). The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml)  isn't supported for your subscription type yet.
 
-If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. Instructions about how to use the API are below. The API is deprecated. The date that the API will be turned off is still being determined.
+If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. Instructions about how to use the API are below. Please note that API is deprecated for all customers except those with MSDN, pay-as-you-go and Visual Studio subscriptions. If you are an EA or MCA customer do not use this API. 
+
+The date that the API will be turned off is still being determined. The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) will be updated to support MSDN, pay-as-you-go and Visual studio subscriptions prior to the deprecation of the Consumption Usage Details API.
 
 ## Example Consumption Usage Details API requests
 
