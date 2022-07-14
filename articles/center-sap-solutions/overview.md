@@ -46,5 +46,5 @@ After you create a VIS, you can:
 
 ## Next steps
 
-- [Create a network for a new VIS deployment](create-network.md)
+- [Create a network for a new VIS deployment](prepare-network.md)
 - [Register an existing SAP system in ACSS](register-existing-system.md)
