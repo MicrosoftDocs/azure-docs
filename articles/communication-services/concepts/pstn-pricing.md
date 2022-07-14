@@ -138,6 +138,7 @@ Note: Pricing for all countries is subject to change as pricing is market-based 
 ***
 ## Direct routing pricing
 For Azure Communication Services direct routing there is a flat rate regardless of the geography:
+
 |Number type   |To make calls |To receive calls|
 |--------------|-----------|------------|
 |Direct routing|USD 0.0040/min|USD 0.0040/min        |
