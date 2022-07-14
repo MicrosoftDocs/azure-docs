@@ -587,7 +587,11 @@ items:
           - name: Get started
             href: storage-blob-javascript-get-started.md
           - name: Work with SAS tokens
-            href: storage-blob-account-delegation-sas-create-javascript.md
+            items: 
+            - name: Account delegation
+              href: storage-blob-account-delegation-sas-create-javascript.md
+            - name: User delegation
+              href: storage-blob-create-container-sas-javascript.md
           - name: Work with containers
             items:
             - name: Create a container
