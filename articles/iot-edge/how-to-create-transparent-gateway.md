@@ -74,10 +74,10 @@ If you don't have a device ready, you can create one in an Azure virtual machine
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
-A Windows device with IoT Edge for Linux on Windows installed.
-
 >[!WARNING]
-> Because the EFLOW virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an External virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md)
+> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an External virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md)
+
+A Windows device with IoT Edge for Linux on Windows installed.
 
 If you don't have a device ready, you should create one before continuing with this guide. Follow the steps in [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](./how-to-provision-single-device-linux-on-windows-symmetric.md) to create an IoT Hub, create an EFLOW virtual machine, and configure the IoT Edge runtime.
 
@@ -159,7 +159,7 @@ Now you need to copy the certificates to the Azure IoT Edge for Linux on Windows
 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
-   * Edge for Linux on Windows: `/etc/iotedge/config.yaml`
+   * IoT Edge for Linux on Windows: `/etc/iotedge/config.yaml`
 
 >[!TIP]
 > If you are using IoT Edge for Linux on Windows (EFLOW) you'll have to connect to the EFLOW virtual machine and change the file inside the VM. You can connect to the EFLOW VM using the PowerShell cmdlet `Connect-EflowVm` and then use your preferred editor.
@@ -176,7 +176,7 @@ Now you need to copy the certificates to the Azure IoT Edge for Linux on Windows
 1. Restart IoT Edge.
    * Windows: `Restart-Service iotedge`
    * Linux: `sudo systemctl restart iotedge`
-   * Edge for Linux on Windows: `sudo systemctl restart iotedge`
+   * IoT Edge for Linux on Windows: `sudo systemctl restart iotedge`
 
 :::moniker-end
 <!-- end 1.1 -->
@@ -252,6 +252,8 @@ To deploy the IoT Edge hub module and configure it with routes to handle incomin
 
 Standard IoT Edge devices don't need any inbound connectivity to function, because all communication with IoT Hub is done through outbound connections. Gateway devices are different because they need to receive messages from their downstream devices. If a firewall is between the downstream devices and the gateway device, then communication needs to be possible through the firewall as well.
 
+# [IoT Edge](#tab/iotedge)
+
 For a gateway scenario to work, at least one of the IoT Edge hub's supported protocols must be open for inbound traffic from downstream devices. The supported protocols are MQTT, AMQP, HTTPS, MQTT over WebSockets, and AMQP over WebSockets.
 
 | Port | Protocol |
@@ -260,8 +262,18 @@ For a gateway scenario to work, at least one of the IoT Edge hub's supported pro
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT+WS <br> AMQP+WS |
 
+# [IoT Edge for Linux on Windows](#tab/eflow)
 
-If you are using IoT Edge for Linux on Windows, you must open the EFLOW virtual machine ports. You can open the three ports mentioned above using the following PowerShell cmdlets
+For a gateway scenario to work, at least one of the IoT Edge hub's supported protocols must be open for inbound traffic from downstream devices. The supported protocols are MQTT, AMQP, HTTPS, MQTT over WebSockets, and AMQP over WebSockets.
+
+| Port | Protocol |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT+WS <br> AMQP+WS |
+
+Finally, you must open the EFLOW virtual machine ports. You can open the three ports mentioned above using the following PowerShell cmdlet
+
    ```powershell
    # Open MQTT port
    Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 8883 -j ACCEPT"
@@ -275,6 +287,7 @@ If you are using IoT Edge for Linux on Windows, you must open the EFLOW virtual 
    # Save the iptables rules
    Invoke-EflowVmCommand "sudo iptables-save | sudo tee /etc/systemd/scripts/ip4save"
    ```
+---
 
 ## Next steps
 
