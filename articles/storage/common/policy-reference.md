@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure Storage. T
 ms.date: 07/06/2022
 ms.topic: reference
 author: jimmart-dev
-ms.author: jimmart-dev
+ms.author: jammart
 ms.service: storage
 ms.custom: subject-policy-reference
 ---
