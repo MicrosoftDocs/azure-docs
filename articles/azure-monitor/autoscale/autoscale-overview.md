@@ -11,7 +11,7 @@ ms.reviewer: riroloff
 # Overview of autoscale in Microsoft Azure
 This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
 
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [API Management services](../../api-management/api-management-key-concepts.md), and [Azure Data Explorer Clusters](/azure/data-explorer/).
+The list of supported resource types for Azure autoscale can be found here: [Supported services for autoscale](#supported-services-for-autoscale)
 
 > [!NOTE]
 > Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to virtual machine scale sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
