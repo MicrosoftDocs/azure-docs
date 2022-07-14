@@ -34,7 +34,7 @@ Skills have a context, inputs, and an output:
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-2.png" alt-text="Diagram showing which properties of skillsets establish the data path." border="true":::
 
-+ context refers to the scope of the operation, which could be once per document or once for each item in a collection.
++ [Context](#skill-context) refers to the scope of the operation, which could be once per document or once for each item in a collection.
 
 + Inputs originate from nodes in an enriched document, where a "source" and "name" identify a given node.
 
@@ -50,18 +50,20 @@ Each skill has a context, which can be the entire document (`/document`) or a no
 
 + Shape of the inputs. For multi-level collections, setting the context to the parent collection will affect the shape of the input for the skill. For example if you have an enrichment tree with a list of countries/regions, each enriched with a list of states containing a list of ZIP codes, how you set the context will determine how the input is interpreted.
 
-|Context|Input|Shape of Input|Skill Invocation|
-|-------|-----|--------------|----------------|
-|`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |A list of all ZIP codes in the country/region |Once per country/region |
-|`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*` |A list of ZIP codes in the state | Once per combination of country/region and state|
+  |Context|Input|Shape of Input|Skill Invocation|
+  |-------|-----|--------------|----------------|
+  |`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |A list of all ZIP codes in the country/region |Once per country/region |
+  |`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*` |A list of ZIP codes in the state | Once per combination of country/region and state|
 
 ### Skill dependencies
 
-Skills can execute independently and in parallel, or with dependencies if you feed the output of one skill into another skill. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together. 
+Skills can execute independently and in parallel, or with sequentially if you feed the output of one skill into another skill. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that execute in sequence:
 
 + Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" source field as input, and splits that content into "pages" of 5000 characters as output. Splitting large text into smaller chunks can produce better outcomes for skills like sentiment detection.
 
 + Skill #2 is a [Sentiment Detection skill](cognitive-search-skill-sentiment.md) accepts "pages" as input, and produces a new field called "Sentiment" as output that contains the results of sentiment analysis.
+
+Notice how the output of the first skill ("pages") is used in sentiment analysis, where "/document/reviews_text/pages/*" is both the context and input. For more information about path formulation, see [How to reference annotations](cognitive-search-concept-annotations-syntax.md).
 
 ```json
 {
@@ -101,26 +103,29 @@ Skills can execute independently and in parallel, or with dependencies if you fe
             ],
             "outputs": [
                 {
-                    "name": "score",
-                    "targetName": "Sentiment"
+                    "name": "sentiment",
+                    "targetName": "sentiment"
+                },
+                {
+                    "name": "confidenceScores",
+                    "targetName": "confidenceScores"
+                },
+                {
+                    "name": "sentences",
+                    "targetName": "sentences"
                 }
             ]
         }
-. . . 
+      . . .
+  ]
 }
 ```
 
-Key points to notice about the above example are:
-
-+ Inputs and outputs are name-value pairs
-+ You can match the outputs of one skill to the inputs of downstream skills
-+ All skills have context that determines where in the enrichment tree the processing occurs
-
-For more detail about how inputs and outputs are formulated, see [How to reference annotations](cognitive-search-concept-annotations-syntax.md).
-
 ## Enrichment tree
 
-An enriched document is a temporary, tree-like data structure created during skillset execution that collects all of the changes introduced through skills. Collectively, enrichments are represented as a hierarchy of addressable nodes. Nodes also include any un-enriched fields that are passed in verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be [cached](cognitive-search-incremental-indexing-conceptual.md) or persisted to a [knowledge store](knowledge-store-concept-intro.md). 
+An enriched document is a temporary, tree-like data structure created during skillset execution that collects all of the changes introduced through skills. Collectively, enrichments are represented as a hierarchy of addressable nodes. Nodes also include any un-enriched fields that are passed in verbatim from the external data source. 
+
+An enriched document exists for the duration of skillset execution, but can be [cached](cognitive-search-incremental-indexing-conceptual.md) or sent to a [knowledge store](knowledge-store-concept-intro.md). 
 
 Initially, an enriched document is simply the content extracted from a data source during [*document cracking*](search-indexer-overview.md#document-cracking), where text and images are extracted from the source and made available for language or image analysis. 
 
@@ -138,7 +143,7 @@ Nodes can be used as inputs for downstream skills. For example, skills that crea
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Skills read and write from enrichment tree" border="false":::
 
-Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. 
+Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through the Debug Sessions visual editor, it's mostly an internal structure. 
 
 Enrichments are immutable: once created, nodes can't be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist just a subset of the enrichment outputs so that you're only keeping what you intend to use. The [output field mappings](cognitive-search-output-field-mapping.md) in your indexer definition will determine what content actually gets ingested in the search index. Likewise, if you're creating a knowledge store, you can map outputs into [shapes](knowledge-store-projection-shape.md) that are assigned to projections.
 
@@ -147,13 +152,15 @@ Enrichments are immutable: once created, nodes can't be edited. As your skillset
 
 ## Indexer definition
 
-An indexer has properties and parameters used to configure indexer execution. Among those properties are mappings that set the path to fields in an index.
+An indexer has properties and parameters used to configure indexer execution. Among those properties are mappings that set the data path to fields in a search index.
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" alt-text="Diagram showing which properties of indexers establish the data path to fields in an index." lightbox="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" border="true":::
 
-+ Field mappings assign the content of a given source field to a field in a search index.
+There are two sets of mappings:
 
-+ Output field mappings get content out of the enriched document and into fields in a search index.
++ ["fieldMappings"](search-indexer-field-mappings.md) map a source field to a search field.
+
++ ["outputFieldMappings"](cognitive-search-output-field-mapping.md) map a skill output to a search field. 
 
 ## Enrichment example
 
