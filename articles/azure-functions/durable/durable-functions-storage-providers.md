@@ -18,7 +18,7 @@ Durable Functions automatically persists function parameters, return values, and
 Two alternate DTFx storage providers were developed for use with Durable Functions, the _Netherite_ storage provider and the _Microsoft SQL Server (MSSQL)_ storage provider. This article describes all three supported providers, compares them against each other, and provides basic information about how to get started using them.
 
 > [!NOTE]
-> It is not currently possible to migrate data from one storage provider to another. If you want to use a new storage provider, you should create a new app configured with the new storage provider.
+> It's not currently possible to migrate data from one storage provider to another. If you want to use a new storage provider, you should create a new app configured with the new storage provider.
 
 Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.5.0**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
 
@@ -38,7 +38,7 @@ The source code for the DTFx components of the Azure Storage storage provider ca
 > [!NOTE]
 > Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types are not supported. We highly recommend using legacy v1 general purpose storage accounts because the newer v2 storage accounts can be significantly more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
 
-## <a name="netherite"></a>Netherite
+## <a name="netherite"></a>Netherite (preview)
 
 The Netherite storage backend was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) and the [FASTER](https://www.microsoft.com/research/project/faster/) database technology on top of [Azure Page Blobs](../../storage/blobs/storage-blob-pageblob-overview.md). The design of Netherite enables significantly higher-throughput processing of orchestrations and entities compared to other providers. In some benchmark scenarios, throughput was shown to increase by more than an order of magnitude when compared to the default Azure Storage provider.
 
@@ -142,8 +142,8 @@ There are many significant tradeoffs between the various supported storage provi
 | Maximum throughput | Moderate | Very high | Moderate |
 | Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A |
 | Maximum activity scale-out (nodes) | N/A | 32 | N/A |
-| Consumption plan support | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |
-| Elastic Premium plan support | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |
+| Consumption plan support | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
+| Elastic Premium plan support | ✅ Fully supported | ⚠️ Requires runtime-driven scaling | ⚠️ Requires runtime-driven scaling |
 | [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) |
 | Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ❌ Not supported |
 | Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) |

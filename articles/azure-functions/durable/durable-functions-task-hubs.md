@@ -9,20 +9,102 @@ ms.author: azfuncdf
 
 # Task hubs in Durable Functions (Azure Functions)
 
-A *task hub* in [Durable Functions](durable-functions-overview.md) is a logical collection of storage resources that hold the current state of the application. While a function app is running, the progress of orchestration, activity, and entity functions is automatically persisted in the task hub. This ensures that the application can resume processing where it left off, should it require to be restarted after being temporarily stopped or interrupted for some reason. Also, it allows the function app to scale the compute workers dynamically.
+A *task hub* in [Durable Functions](durable-functions-overview.md) is a representation of the current state of the application in storage, including all the pending work. While a function app is running, the progress of orchestration, activity, and entity functions is continually stored in the task hub.  This ensures that the application can resume processing where it left off, should it require to be restarted after being temporarily stopped or interrupted for some reason. Also, it allows the function app to scale the compute workers dynamically.
 
 ![Diagram showing concept of function app and task hub concept.](./media/durable-functions-task-hubs/taskhub.png)
 
-Conceptually, a task hub comprises the following data:
+Conceptually, a task hub stores the following information:
 
-* An **instance store** that contains the current state of all orchestration and entity instances. For each instance, it stores status information, as well as the orchestration history or entity state.
-* A **task queue** that contains pending activity function invocations.
-* A **message queue** that contains pending messages that will be delivered to orchestration or entity instances. It may include timer messages that are scheduled for delivery at a certain time.
+* The **instance states** of all orchestration and entity instances.
+* The messages to be processed, including
+  * any **activity messages** that represent activities waiting to be run.
+  * any **instance messages** that are waiting to be delivered to instances.
 
-Collectively, the two queues contain the *work* that the function app needs to process. While the function app is running, it continuously fetches work items (messages or tasks) from the queues in the task hub. Depending on the type of the work item, the function app then executes an activity function, orchestration function, or entity function. When it finishes executing the work item, it atomically commits the results (state updates and/or enqueue operations) to the task hub.
+The difference between activity and instance messages is that activity messages are stateless, and can thus be processed anywhere, while instance messages need to be delivered to a particular stateful instance (orchestration or entity), identified by its instance ID.
 
-Internally, each storage provider uses a different organization to represent task hubs in storage.
-These differences do not matter as far as the design of the application is concerned, but they can influence the performance characteristics. We discuss them in more detail in the section [Representation in storage](durable-functions-task-hubs.md#representation-in-storage).
+Internally, each storage provider may use a different organization to represent instance states and messages. For example, messages are stored in Azure Storage Queues by the Azure Storage provider, but in relational tables by the MSSQL provider. These differences don't matter as far as the design of the application is concerned, but some of them may influence the performance characteristics. We discuss them in the section [Representation in storage](durable-functions-task-hubs.md#representation-in-storage) below.
+
+## Work items
+
+While the function app is running, it continuously fetches *work items* from the task hub. Each work item is processing one or more messages. Depending on the message to be processed, the function app executes an activity function, orchestration function, or entity function.
+When it finishes executing the work item, the runtime atomically commits the effects back to the task hub.
+
+There are two types of work items:
+
+* An activity work item consumes a single activity message containing an input, and produces an instance message containing the output.
+* an orchestration work item consumes one or more instance messages for the same instance, updates the instance state, and may also produce new messages.
+
+### Execution example
+
+Consider a fan-out-fan-in orchestration that starts two activities in parallel, and waits for both of them to complete:
+
+# [C#](#tab/csharp)
+
+```csharp
+[FunctionName("Example")]
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    Task t1 = context.CallActivityAsync<int>("MyActivity", 1);
+    Task t2 = context.CallActivityAsync<int>("MyActivity", 2);
+    await Task.WhenAll(t1, t2);
+}
+```
+
+# [JavaScript](#tab/javascript)
+
+```JavaScript
+module.exports = df.orchestrator(function*(context){
+    const tasks = [];
+    tasks.push(context.df.callActivity("MyActivity", 1));
+    tasks.push(context.df.callActivity("MyActivity", 2));
+    yield context.df.Task.all(tasks);
+});
+```
+
+# [Python](#tab/python)
+
+```python
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    tasks = []
+    tasks.append(context.call_activity("MyActivity", 1))
+    tasks.append(context.call_activity("MyActivity", 2))
+    yield context.task_all(tasks)
+```
+
+---
+
+After this orchestration is initiated by a client, it's processed by the function app as a sequence of work items. Each completed work item updates the task hub state:
+
+1. After a client requests to start a new orchestration with instance-id "123", the task hub contains
+   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-1.png)
+
+
+2. After the `ExecutionStarted` message is processed, the task hub contains
+   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-2.png)
+
+   The runtime state is now `Running`, two new `TaskScheduled` messages were added, and the history now contains the five events `OrchestratorStarted`, `ExecutionStarted`, `TaskScheduled`, `TaskScheduled`, `OrchestratorCompleted`.
+
+3. After one of the two activity messages is processed, the task hub contains
+   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-3.png)
+
+   A new `TaskCompleted` message was added, containing the result.
+
+4. After the `TaskCompleted` message is processed, the task hub contains
+   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-4.png)
+
+   The history now contains three more events `OrchestratorStarted`, `TaskCompleted`, `OrchestratorCompleted`.
+
+5. After the remaining activity message is processed, the task hub contains
+   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-5.png)
+
+   A new `TaskCompleted` message was added, containing the result.
+
+6. After the last instance message is processed, the task hub contains
+   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-6.png)
+
+   The runtime state is now `Completed`, and the history now contains four more events `OrchestratorStarted`, `TaskCompleted`, `ExecutionCompleted`, `OrchestratorCompleted`.
+
+The schedule shown isn't the only one: there are many slightly different possible schedules. For example, if the second activity completes earlier, both `TaskCompleted` instance messages may be processed by a single work item. In that case, the execution history is a bit shorter, containing the following sequence of 10 events: `OrchestratorStarted`, `ExecutionStarted`, `TaskScheduled`, `TaskScheduled`, `OrchestratorCompleted`, `OrchestratorStarted`, `TaskCompleted`, `TaskCompleted`, `ExecutionCompleted`, `OrchestratorCompleted`.
 
 ## Task hub management
 
@@ -38,7 +120,7 @@ If using the default Azure Storage provider, no extra configuration is required.
 > The task hub is *not* automatically deleted when you stop or delete the function app. You must delete the taskhub, its contents, or the containing storage account manually if you no longer want to keep that data.
 
 > [!TIP]
-> In a development scenario, you may need to restart from a clean state often. To do so quickly, you can just [change the configured task hub name](durable-functions-task-hubs.md#task-hub-names). This will force the creation of a new, empty task hub when you restart the application.
+> In a development scenario, you may need to restart from a clean state often. To do so quickly, you can just [change the configured task hub name](durable-functions-task-hubs.md#task-hub-names). This will force the creation of a new, empty task hub when you restart the application. Be aware that the old data is not deleted in this case.
 
 ### Multiple function apps
 
@@ -59,10 +141,10 @@ There are several common ways to inspect the contents of a task hub:
 2. Similarly, The [HTTP API](durable-functions-http-features.md) offers REST requests to query the state of orchestrations and entities. See the [HTTP API Reference](durable-functions-http-api.md) for more details.
 3. The [Durable Functions Monitor](https://github.com/microsoft/DurableFunctionsMonitor) tool can inspect task hubs and offers various options for visual display.
 
-For some of the storage providers, it is also possible to inspect the taskhub by going directly to the underlying storage:
+For some of the storage providers, it is also possible to inspect the task hub by going directly to the underlying storage:
 
-1. If using the Azure Storage provider, the instance store is represented by an [Instance Table](durable-functions-azure-storage-provider.md#instances-table) and a [History Table](durable-functions-azure-storage-provider.md#history-table) that can be inspected using tools such as Azure Storage Explorer.
-2. If using the MSSQL storage provider, SQL queries and tools can be used to inspect the task hub contents inside the database.
+* If using the Azure Storage provider, the instance states are stored in the [Instance Table](durable-functions-azure-storage-provider.md#instances-table) and the [History Table](durable-functions-azure-storage-provider.md#history-table) that can be inspected using tools such as Azure Storage Explorer.
+* If using the MSSQL storage provider, SQL queries and tools can be used to inspect the task hub contents inside the database.
 
 ## Representation in storage
 
@@ -70,29 +152,22 @@ Each storage provider uses a different internal organization to represent task h
 
 ### Azure Storage provider
 
-For this storage provider, a task hub consists of the following components:
+[!INCLUDE [durable-functions-azure-storage-task-hubs](durable-functions-azure-storage-task-hubs.md)]
 
-* Two Azure Tables that represent the instance store.
-* One Azure Queue that stores the tasks.
-* One or more Azure Queues that store the messages.
-* Three extra blob containers for storing large messages and blob leases.
-
-For example, for a taskhub named `x` with `PartitionCount = 4`, the queues and tables are named as follows:
-
-![Diagram showing Azure Storage provider storage storage organization for 4 control queues.](./media/durable-functions-task-hubs/azure-storage.png)
+Next, we describe these components and the role they play in more detail.
 
 For more information how task hubs are represented by the Azure Storage provider, see the [Azure Storage provider](durable-functions-azure-storage-provider.md) documentation.
 
 ### Netherite storage provider
 
-Netherite partitions all of the taskhub state into a specified number of partitions.
+Netherite partitions all of the task hub state into a specified number of partitions.
 In storage, the following resources are used:
 
 * One blob container that contains all the blobs, grouped by partition.
 * One Azure Table that contains published metrics about the partitions.
 * An EventHubs namespace for delivering messages between partitions.
 
-For example, a taskhub named `x` with `PartitionCount = 32` is represented in storage as follows:
+For example, a task hub named `x` with `PartitionCount = 32` is represented in storage as follows:
 
 ![Diagram showing Netherite storage organization for 32 partitions.](./media/durable-functions-task-hubs/netherite-storage.png)
 
@@ -101,21 +176,21 @@ For example, a taskhub named `x` with `PartitionCount = 32` is represented in st
 
 Netherite uses an event-sourcing mechanism, based on a log and checkpoints, to represent the current state of a partition. Both block blobs and page blobs are used. It is not possible to read this format from storage directly, so the function app has to be running when querying the instance store.
 
-For more details on task hubs for the Netherite storage provider, see [Task Hub information for the Netherite storage provider](https://microsoft.github.io/durabletask-netherite/#/storage).
+For more information on task hubs for the Netherite storage provider, see [Task Hub information for the Netherite storage provider](https://microsoft.github.io/durabletask-netherite/#/storage).
 
 ### MSSQL storage provider
 
-All taskhub data is stored in a single relational database, using several tables:
+All task hub data is stored in a single relational database, using several tables:
 
-* The `t.Instances` and `dt.History` tables represent the instance store.
-* The `dt.NewEvents` table represents the message queue.
-* The `dt.NewTasks` table represents the task queue.
+* The `t.Instances` and `dt.History` tables store the instance states.
+* The `dt.NewEvents` table stores the instance messages.
+* The `dt.NewTasks` table stores the activity tasks.
 
 ![Diagram showing MSSQL storage organization.](./media/durable-functions-task-hubs/mssql-storage.png)
 
 To enable multiple task hubs to coexist independently in the same database, each table includes a TaskHub column as part of its primary key.
 
-For more details on task hubs for the MSSQL storage provider, see [Task Hub information for the Microsoft SQL (MSSQL) storage provider](https://microsoft.github.io/durabletask-mssql/#/taskhubs).
+For more information on task hubs for the MSSQL storage provider, see [Task Hub information for the Microsoft SQL (MSSQL) storage provider](https://microsoft.github.io/durabletask-mssql/#/taskhubs).
 
 ## Task hub names
 

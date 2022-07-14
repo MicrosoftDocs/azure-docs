@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Azure Storage provider (Azure Functions)
 
-This document describes the characteristics of the Durable Functions Azure Storage provider, with a focus on performance and scalability aspects. The Azure Storage provider is the default provider. It stores instance states and queues in in an Azure Storage (classic) account. 
+This document describes the characteristics of the Durable Functions Azure Storage provider, with a focus on performance and scalability aspects. The Azure Storage provider is the default provider. It stores instance states and queues in in an Azure Storage (classic) account.
 
 > [!NOTE]
 > For more information on the supported storage providers for Durable Functions and how they compare, see the [Durable Functions storage providers](durable-functions-storage-providers.md) documentation.
@@ -18,16 +18,9 @@ In the Azure Storage provider, all function execution is driven by Azure Storage
 
 ## Storage representation
 
-The Azure Storage provider represents a [logical task hub](durable-functions-task-hubs.md) in storage using the following components:
+A [task hub](durable-functions-task-hubs.md) durably persists all instance states and all messages. For a quick overview of how these are used to track the progress of an orchestration, see the [task hub execution example](durable-functions-task-hubs.md#execution-example).
 
-* Two Azure Tables that represent the instance store.
-* One Azure Queue that stores the tasks.
-* One or more Azure Queues that store the messages. Each of these so-called *control queues* represents a [partition](durable-functions-perf-and-scale.md#partition-count) that is assigned a subset of all instance messages, based on the hash of the instance id.
-* A few extra blob containers for lease blobs and/or large messages.
-
-For example, a taskhub named `x` with `partitionCount = 4` contains the following queues and tables:
-
-![Diagram showing Azure Storage provider storage storage organization for 4 control queues.](./media/durable-functions-task-hubs/azure-storage.png)
+[!INCLUDE [durable-functions-azure-storage-task-hubs](durable-functions-azure-storage-task-hubs.md)]
 
 Next, we describe these components and the role they play in more detail.
 

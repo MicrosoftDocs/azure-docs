@@ -11,21 +11,20 @@ ms.devlang: csharp, javascript, python
 
 # Data persistence and serialization in Durable Functions (Azure Functions)
 
-Durable Functions automatically persists function parameters, return values, and other state to a durable backend in order to provide reliable execution. However, the amount and frequency of data persisted to durable storage can impact application performance and storage transaction costs. Depending on the type of data your application stores, data retention and privacy policies may also need to be considered.
+The Durable Functions runtime automatically persists function parameters, return values, and other state to the [task hub](durable-functions-task-hubs.md) in order to provide reliable execution. However, the amount and frequency of data persisted to durable storage can impact application performance and storage transaction costs. Depending on the type of data your application stores, data retention and privacy policies may also need to be considered.
 
-## Azure Storage
+## Task Hub Contents
 
-By default, Durable Functions persists data to queues, tables, and blobs in an [Azure Storage](https://azure.microsoft.com/services/storage/) account that you specify.
+[Task hubs](durable-functions-task-hubs.md) store the current state of instances, and any pending messages:
 
-### Queues
+* *Instance states* store the current status and history of an instance. For orchestration instances, this includes the runtime state, the orchestration history, inputs, outputs, and custom status. For entity instances, it includes the entity state.
+* *Messages* store function inputs or outputs, event payloads, and metadata that Durable Functions uses for internal purposes, like routing and end-to-end correlation.
 
-Durable Functions uses Azure Storage queues to reliably schedule all function executions. These queue messages contain function inputs or outputs, depending on whether the message is being used to schedule an execution or return a value back to a calling function. These queue messages also include additional metadata that Durable Functions uses for internal purposes, like routing and end-to-end correlation. After a function has finished executing in response to a received message, that message is deleted and the result of the execution may also be persisted to either Azure Storage Tables or Azure Storage Blobs.
+Messages are deleted after being processed, but instance states persist unless they're explicitly deleted by the application or an operator. In particular, an orchestration history remains in storage even after the orchestration completes.
 
-Within a single [task hub](durable-functions-task-hubs.md), Durable Functions creates and adds work items to one of two conceptual queues: A *task queue* for scheduling activity functions, and a *message queue* to schedule or resume orchestrator and entity functions. The storage provider may further partition these queues to handle scale out. For more information about queues, scaling, and partitions, see the [Performance and Scalability documentation](durable-functions-perf-and-scale.md).
+For an example of how states and messages represent the progress of an orchestration, see the [task hub execution example](durable-functions-task-hubs.md#execution-example).
 
-### Tables
-
-Once orchestrations process messages successfully, records of their resulting actions are persisted to the *History* table named `<taskhub>History`. Orchestration inputs, outputs, and custom status data is also persisted to the *Instances* table named `<taskhub>Instances`.
+Where and how states and messages are represented in storage [depends on the storage provider](durable-functions-task-hubs.md#representation-in-storage). By default, Durable Functions uses the [Azure Storage provider](durable-functions-azure-storage-provider.md) which persists data to queues, tables, and blobs in an [Azure Storage](https://azure.microsoft.com/services/storage/) account that you specify.
 
 ### Types of data that is serialized and persisted
 The following is a list of the different types of data that will be serialized and persisted when using features of Durable Functions:
