@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 07/05/2022
 ---
 
-# Workbook Configuration Options
+# Workbook configuration options
 There are several ways you can configure Workbooks to suit your needs using the settings in the **Settings** tab. When query or metrics steps are displaying time based data, more settings are available in the **Advanced settings** tab.
 
 ## Workbook settings
@@ -43,7 +43,7 @@ Enable trusted source or mark this workbook as trusted in this browser.
 | Mark Workbook as trusted      | If enabled, this Workbook will be able to call any endpoint, whether the host is marked as trusted or not. A workbook is trusted if it's a new workbook, an existing workbook is saved, or it's explicitly marked as a trusted workbook   |
 | URL grid   | A grid to explicitly add trusted hosts.        |
 
-## Time Brushing
+## Time brushing
 
 Time range brushing allows a user to "brush" or "scrub" a range on a chart, and have that range be output as a parameter value.
 
@@ -103,11 +103,11 @@ There are several ways that you can create interactive reports and experiences i
     - **Field to export**: `Request`
     - **Parameter name**: `SelectedRequest`
     - **Default value**: `All requests`
-1. [Optional.]If you want to export the entire contents of the selected row instead of just a particular column, leave the `Field to export` property unset. The entire row contents is exported as json to the parameter. On the referencing KQL control, use the `todynamic` function to parse the json and access the individual columns.
-1. Select **Save**.
-   
-   :::image type="content" source="media/workbooks-configurations/workbooks-export-parameters-add.png" alt-text="Screenshot showing the advanced workbooks editor with settings for exporting fields as parameters.":::
     
+     :::image type="content" source="media/workbooks-configurations/workbooks-export-parameters-add.png" alt-text="Screenshot showing the advanced workbooks editor with settings for exporting fields as parameters.":::
+
+1. (Optional.) If you want to export the entire contents of the selected row instead of just a particular column, leave the `Field to export` property unset. The entire row contents is exported as json to the parameter. On the referencing KQL control, use the `todynamic` function to parse the json and access the individual columns.
+1. Select **Save**.   
 1. Select **Done Editing**.
 1. Add another query control as in the steps above.
 1. Use the Query editor to enter the KQL for your analysis.
@@ -156,19 +156,7 @@ The following image shows a more elaborate interactive report in read mode based
     :::image type="content" source="media/workbooks-configurations/workbooks-grid-link-details.png" alt-text="Screenshot showing the detail pane of the sampled request in workbooks.":::
 
 ### Link Renderer Actions
-
-| Link action | Action on click |
-|:------------- |:-------------|
-|Generic Details| Shows the row values in a property grid context tab |
-|Cell Details| Shows the cell value in a property grid context tab. Useful when the cell contains a dynamic type with information (for example, json with request properties like location, role instance, etc.). |
-|Cell Details| Shows the cell value in a property grid context tab. Useful when the cell contains a dynamic type with information (for example, json with request properties like location, role instance, etc.). |
-|Custom Event Details| Opens the Application Insights search details with the custom event ID (`itemId`) in the cell |
-|Details| Similar to Custom Event Details, except for dependencies, exceptions, page views, requests, and traces. |
-|Custom Event User Flows| Opens the Application Insights User Flows experience pivoted on the custom event name in the cell |
-|User Flows| Similar to Custom Event User Flows except for exceptions, page views and requests |
-|User Timeline| Opens the user timeline with the user ID (user_Id) in the cell |
-|Session Timeline| Opens the Application Insights search experience for the value in the cell (for example, search for text 'abc' where abc is the value in the cell) |
-|Resource overview| Open the resource's overview in the portal based on the resource ID value in the cell |
+Learn about how [Link actions](workbooks-link-actions.md) work to enhance workbook interactivity.
 
 ### Set conditional visibility
 

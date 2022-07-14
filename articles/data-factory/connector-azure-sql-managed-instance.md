@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 03/22/2022
+ms.date: 07/04/2022
 ---
 
 # Copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics
@@ -19,12 +19,18 @@ This article outlines how to use Copy Activity to copy data from and to Azure SQ
 
 ## Supported capabilities
 
-This SQL Managed Instance connector is supported for the following activities:
+This Azure SQL Managed Instance connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ <small> Public preview |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ <small> Public preview |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ <small> Public preview |
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Public preview |
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ <small> Public preview |
+|[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ <small> Public preview |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 For Copy activity, this Azure SQL Database connector supports these functions:
 

@@ -255,6 +255,10 @@ This metric shows the number of virtual machines that are using the ExpressRoute
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Screenshot of number of virtual machines in the virtual network metric.":::
 
+>[!NOTE]
+> To maintain reliability of the service, Microsoft often performs platform or OS maintenance on the gateway service. During this time, this metric may fluctuate and report inaccurately.
+>
+
 ## <a name = "connectionbandwidth"></a>ExpressRoute gateway connections in bits/seconds
 
 Aggregation type: *Avg*
