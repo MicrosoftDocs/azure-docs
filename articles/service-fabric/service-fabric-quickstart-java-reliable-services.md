@@ -89,7 +89,7 @@ In this quickstart, you learned how to:
 
 * Use Eclipse as a tool for your Service Fabric Java applications
 * Deploy Java applications to your local cluster
-* Scale-out the application across multiple nodes
+* Scale out the application across multiple nodes
 
 To learn more about working with Java apps in Service Fabric, continue to the tutorial for Java apps.
 

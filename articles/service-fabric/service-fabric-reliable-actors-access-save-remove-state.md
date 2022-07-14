@@ -314,6 +314,6 @@ class MyActorImpl extends FabricActor implements  MyActor
 
 ## Next steps
 
-State that's stored in Reliable Actors must be serialized before its written to disk and replicated for high availability. Learn more about [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+State that's stored in Reliable Actors must be serialized before it's written to disk and replicated for high availability. Learn more about [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 Next, learn more about [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md).

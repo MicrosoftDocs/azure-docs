@@ -22,7 +22,7 @@ Using this application you learn how to:
 * Use ASP.NET core as a web front end
 * Store application data in a stateful service
 * Debug your application locally
-* Scale-out the application across multiple nodes
+* Scale out the application across multiple nodes
 * Perform a rolling application upgrade
 
 ## Prerequisites
@@ -182,7 +182,7 @@ In this quickstart, you learned how to:
 * Use ASP.NET core as a web front end
 * Store application data in a stateful service
 * Debug your application locally
-* Scale-out the application across multiple nodes
+* Scale out the application across multiple nodes
 * Perform a rolling application upgrade
 
 To learn more about Service Fabric and .NET, take a look at this tutorial:

@@ -10,7 +10,7 @@ ms.date: 07/11/2022
 ---
 # Quickstart: Deploy a Java Spring Boot app on Azure Service Fabric
 
-In this quickstart, you deploy a Java Spring Boot application to Azure Service Fabric by using familiar command-line tools on Linux or MacOS. Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
+In this quickstart, you deploy a Java Spring Boot application to Azure Service Fabric by using familiar command-line tools on Linux or macOS. Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ In this quickstart, you deploy a Java Spring Boot application to Azure Service F
 - [Service Fabric SDK & Service Fabric Command Line Interface (CLI)](./service-fabric-get-started-linux.md#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
-#### [MacOS](#tab/macos)
+#### [macOS](#tab/macos)
 
 - [Java environment and Yeoman](./service-fabric-get-started-mac.md#create-your-application-on-your-mac-by-using-yeoman)
 - [Service Fabric SDK & Service Fabric Command Line Interface (CLI)](./service-fabric-cli.md#cli-mac)
@@ -191,7 +191,7 @@ In this quickstart, you learned how to:
 
 * Deploy a Spring Boot application to Service Fabric
 * Deploy the application to your local cluster
-* Scale-out the application across multiple nodes
+* Scale out the application across multiple nodes
 * Perform failover of your service with no hit to availability
 
 To learn more about working with Java apps in Service Fabric, continue to the tutorial for Java apps.

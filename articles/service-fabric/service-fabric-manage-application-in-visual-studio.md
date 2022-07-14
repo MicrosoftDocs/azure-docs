@@ -24,7 +24,7 @@ By default, deploying an application combines the following steps into one simpl
 In Visual Studio, pressing **F5** deploys your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile.
 
 ### Application Debug Mode
-Visual Studio provide a property called **Application Debug Mode**, which controls how you want Visual Studios to handle Application deployment as part of debugging.
+Visual Studio provides a property called **Application Debug Mode**, which controls how you want Visual Studios to handle Application deployment as part of debugging.
 
 #### To set the Application Debug Mode property
 1. On the Service Fabric application project's (*.sfproj) shortcut menu, choose **Properties** (or press the **F4** key).

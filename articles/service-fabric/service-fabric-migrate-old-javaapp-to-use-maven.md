@@ -1,6 +1,6 @@
 ---
 title: Migrate from Java SDK to Maven
-description: Update the older Java applications which used to use the Service Fabric Java SDK, to fetch Service Fabric Java dependencies from Maven. After completing this setup, your older Java applications would be able to build .
+description: Update the older Java applications which used to use the Service Fabric Java SDK, to fetch Service Fabric Java dependencies from Maven. After completing this setup, your older Java applications would be able to build.
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy

@@ -118,7 +118,7 @@ If the client is not running as part of a service, you can create a "&lt;Client 
   </Section>
    ```
   * Configuring FabricTransport  Settings for Securing Actor Service/Client Using Subject Name.
-	User needs to provide findType as FindBySubjectName,add CertificateIssuerThumbprints and CertificateRemoteCommonNames values.
+	User needs to provide findType as FindBySubjectName, add CertificateIssuerThumbprints and CertificateRemoteCommonNames values.
     Below is the example for the Listener TransportSettings.
 
     ```xml

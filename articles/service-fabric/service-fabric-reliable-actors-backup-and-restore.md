@@ -1,6 +1,6 @@
 ---
-title: Backup and restore Azure Service Fabric actors 
-description: Learn how to implement backup and restore in your Azure Service Fabric actors.
+title: Back up and restore Azure Service Fabric actors 
+description: Learn how to implement back up and restore in your Azure Service Fabric actors.
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
@@ -10,10 +10,10 @@ ms.date: 07/11/2022
 ---
 
 
-# Implement Reliable Actors backup and restore
+# Implement Reliable Actors back up and restore
 
 > [!NOTE]
-> Microsoft recommends to use [Periodic backup and restore](service-fabric-backuprestoreservice-quickstart-azurecluster.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
+> Microsoft recommends to use [Periodic back up and restore](service-fabric-backuprestoreservice-quickstart-azurecluster.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
 > 
 
 In the following example, a custom actor service exposes a method to back up actor data by taking advantage of the remoting listener already present in `ActorService`:
