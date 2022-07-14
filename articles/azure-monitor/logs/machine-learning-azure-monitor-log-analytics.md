@@ -88,8 +88,8 @@ This query returns all usage anomalies for all tables in the last three weeks:
 Looking at the query results, you can see that the function: 
 
 - Calculates an expected daily usage for each table.
-- Compares actual daily usage day to expected usage.
-- Gives an anomaly score at each data point, indicating the extent of the deviation of actual usage from expected usage.
+- Compares actual daily usage to expected usage.
+- Assigns an anomaly score to each data point, indicating the extent of the deviation of actual usage from expected usage.
 - Identifies positive (`1`) and negative (`-1`) anomalies in each table.    
 
 > [!NOTE]
@@ -101,9 +101,7 @@ Filter the results of the `series_decompose_anomalies()` query for anomalies in 
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" alt-text="A table showing the results of the anomaly detection query, filtered for results from the Azure Diagnostics data type."::: 
 
-The results show two anomalies on June 14 and June 15.
-
-Compare these results with the chart from our first `make-series` query, where you can see other anomalies on May 26, 27, and 28:
+The results show two anomalies on June 14 and June 15. Compare these results with the chart from our first `make-series` query, where you can see other anomalies on May 26, 27, and 28:
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with five anomalies highlighted."::: 
 
