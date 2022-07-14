@@ -16,8 +16,8 @@ ms.devlang: azurecli
 
 [Azure confidential virtual machines (confidential VMs)](confidential-vm-overview.md) supports the creation and sharing of custom images using Azure Compute Gallery. There are two types of images that you can create, based on the security types of the image:
 
-- [Confidential VM (**ConfidentialVM**) images](#create-confidential-vm-image), where the source already has [VM Guest state information](confidential-vm-faq-amd.yml#is-there-an-extra-cost-for-using-confidential-vms-), which might also have confidential disk encryption enabled.
-- [Confidential VM supported (**ConfidentialVMSupported**) images](#create-confidential-vm---supported-image) where the source doesn't have VM Guest state information and confidential disk encryption.
+- [Confidential VM (**ConfidentialVM**) images](create-confidential-vm-image), where the source already has [VM Guest state information](confidential-vm-faq-amd.yml#is-there-an-extra-cost-for-using-confidential-vms-), which might also have confidential disk encryption enabled.
+- [Confidential VM supported (**ConfidentialVMSupported**) images](create-confidential-vm---supported-image) where the source doesn't have VM Guest state information and confidential disk encryption.
 
 ## Security Type on Image Definition: ConfidentialVM
 
