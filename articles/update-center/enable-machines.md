@@ -1,7 +1,8 @@
 ---
 title: Enable update management center (preview) for periodic assessment and scheduled patching
 description: This article describes how to enable the periodic assessment and scheduled patching features using update management center (preview) for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers.
-ms.service: update-management-center
+ms.service: automation
+ms.subservice: update-management
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022
@@ -23,7 +24,7 @@ Register the periodic assessment and scheduled patching feature resource provide
 
 ## Prerequisites
 
-- Azure subscription - if you don't have one yet, you can [activate your MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](/free/?WT.mc_id=A261C142F).
+- Azure subscription - if you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Your account must be a member of the Azure [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in the subscription.
 
