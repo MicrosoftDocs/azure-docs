@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 07/07/2022
+ms.date: 07/14/2022
 ---
 
 ## Enable the plan
