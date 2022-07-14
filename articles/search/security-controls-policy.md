@@ -19,7 +19,7 @@ appropriate solutions for well-understood best practices.
 For Azure Cognitive Search, there is currently one built-definition, listed below, that you can use
 in a policy assignment. The built-in is for logging and monitoring. By using this built-in
 definition in a [policy that you create](../governance/policy/assign-policy-portal.md), the system
-will scan for search services that do not have [diagnostic logging](monitor-azure-cognitive-search.md), and
+will scan for search services that do not have [resource logging](monitor-azure-cognitive-search.md), and
 then enable it accordingly.
 
 [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)
