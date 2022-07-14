@@ -11,7 +11,7 @@ ms.date: 07/13/2022
 
 # Available Metadata for Power BI in the Microsoft Purview governance portal
 
-|Metadata|Population method|Source of truth||Asset type|Editable|Upstream metadata|
+|Metadata|Population method|Source of truth|Asset type|Editable|Upstream metadata|
 |--------------|------|---------|-----------------|----------|------|-----------------|
 |Classification|	Manual|	Purview|		All types|	Yes|	N/A|
 |Sensitivity Labels|	Automatic|	Purview|		All types|	No|See notes|
