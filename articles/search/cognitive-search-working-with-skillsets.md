@@ -20,9 +20,9 @@ The following diagram illustrates the basic data flow of skillset execution.
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-1.png" alt-text="Diagram showing skillset data flows, with focus on inputs, outputs, and mappings." border="true":::
 
-From the onset of skillset processing to its conclusion, skills read from and write to an [*enriched document*](#enrichment-tree). Initially, an enriched document is just the raw content extracted from a data source (articulated as the root `/document` node). With each skill execution, the enriched document gains structure and substance as each skill writes its output as nodes in the graph. 
+From the onset of skillset processing to its conclusion, skills read from and write to an [*enriched document*](#enrichment-tree). Initially, an enriched document is just the raw content extracted from a data source (articulated as the root `/document` node),. With each skill execution, the enriched document gains structure and substance as skill writes its output as nodes in the graph. 
 
-After skillset execution is finished, the output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred intact, from source to an index, is defined through *field mappings*.
+After skillset execution is done, the output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred intact, from source to an index, is defined through *field mappings*.
 
 To configure enrichment, you'll specify settings in a skillset and indexer.
 
@@ -30,7 +30,7 @@ To configure enrichment, you'll specify settings in a skillset and indexer.
 
 A skillset is an array of one or more *skills* that perform an enrichment, such as translating text or OCR on an image file. Skills can be the [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or [custom skills](cognitive-search-create-custom-skill-example.md) for processing logic that you host externally. A skillset produces enriched documents that are either consumed during indexing or projected to a knowledge store.
 
-Skills have a context, inputs, and an output:
+Skills have a context, inputs, and outputs:
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-2.png" alt-text="Diagram showing which properties of skillsets establish the data path." border="true":::
 
@@ -57,7 +57,7 @@ Each skill has a context, which can be the entire document (`/document`) or a no
 
 ### Skill dependencies
 
-Skills can execute independently and in parallel, or with sequentially if you feed the output of one skill into another skill. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that execute in sequence:
+Skills can execute independently and in parallel, or sequentially if you feed the output of one skill into another skill. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that execute in sequence:
 
 + Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" source field as input, and splits that content into "pages" of 5000 characters as output. Splitting large text into smaller chunks can produce better outcomes for skills like sentiment detection.
 
@@ -143,9 +143,11 @@ Nodes can be used as inputs for downstream skills. For example, skills that crea
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Skills read and write from enrichment tree" border="false":::
 
-Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through the Debug Sessions visual editor, it's mostly an internal structure. 
+Although you can visualize and work with an enrichment tree through the [Debug Sessions visual editor](cognitive-search-debug-session.md), it's mostly an internal structure. 
 
-Enrichments are immutable: once created, nodes can't be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist just a subset of the enrichment outputs so that you're only keeping what you intend to use. The [output field mappings](cognitive-search-output-field-mapping.md) in your indexer definition will determine what content actually gets ingested in the search index. Likewise, if you're creating a knowledge store, you can map outputs into [shapes](knowledge-store-projection-shape.md) that are assigned to projections.
+Enrichments are immutable: once created, nodes can't be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. 
+
+You can selectively persist just a subset of the enrichment outputs so that you're only keeping what you intend to use. The [output field mappings](cognitive-search-output-field-mapping.md) in your indexer definition will determine what content actually gets ingested in the search index. Likewise, if you're creating a knowledge store, you can map outputs into [shapes](knowledge-store-projection-shape.md) that are assigned to projections.
 
 > [!NOTE]
 > The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types. The metadata won't be a valid JSON object, but can be projected into a valid JSON format in projection definitions in a knowledge store. For more information, see [Shaper skill](cognitive-search-skill-shaper.md).
@@ -161,6 +163,10 @@ There are two sets of mappings:
 + ["fieldMappings"](search-indexer-field-mappings.md) map a source field to a search field.
 
 + ["outputFieldMappings"](cognitive-search-output-field-mapping.md) map a skill output to a search field. 
+
+The "sourceFieldName" property specifies either a field in your data source or a node in an enrichment tree.
+
+The "targetFieldName" property specifies the search field in an index that receives the content.
 
 ## Enrichment example
 
