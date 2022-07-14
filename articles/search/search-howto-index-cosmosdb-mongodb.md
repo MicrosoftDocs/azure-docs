@@ -132,7 +132,13 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
     }
     ```
 
-1. Create a document key field ("key": true). For a search index based on a MongoDB collection, the document key can be "doc_id", "rid", or some other string field that contains unique values. Your search index should specify the key field name exactly as it's defined in the collection (as "doc_id" or "rid"). As long as field names and data types are the same on both sides, no field mappings are required.
+1. Create a document key field ("key": true). For a search index based on a MongoDB collection, the document key can be "doc_id", "rid", or some other string field that contains unique values. As long as field names and data types are the same on both sides, no field mappings are required.
+
+   + "doc_id" represents "_id" for the object identifier. If you specify a field of "doc_id" in the index, the indexer populates it with the values of the object identifier.
+
+   + "rid" is a system property in Cosmos DB. If you specify a field of "rid" in the index, the indexer populates it with the base64-encoded value of the "rid" property. 
+
+   + For any other field, your search field should have the same name as defined in the collection. 
 
 1. Create additional fields for more searchable content. See [Create an index](search-how-to-create-search-index.md) for details.
 
