@@ -1,11 +1,14 @@
 ---
 title: Service Fabric cluster capacity planning considerations
 description: Node types, durability, reliability, and other things to consider when planning your Service Fabric cluster.
-
-ms.topic: conceptual
-ms.date: 06/23/2022
-ms.author: pepogors
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric cluster capacity planning considerations
 
 Cluster capacity planning is important for every Service Fabric production environment. Key considerations include:

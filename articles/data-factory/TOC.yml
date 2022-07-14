@@ -733,6 +733,8 @@ items:
       href: data-flow-assert.md   
     - name: Conditional split
       href: data-flow-conditional-split.md
+    - name: Cast
+      href: data-flow-cast.md
       displayName: split
     - name: Derived column
       href: data-flow-derived-column.md
