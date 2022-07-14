@@ -44,7 +44,7 @@ The Language service now provides a unified endpoint for sending REST API reques
 https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01
 ```
 
-Additionally, the format of the the JSON request body has changed. You'll need to update the request structure that your application sends to the API. For example the following entity recognition JSON body:
+Additionally, the format of the JSON request body has changed. You'll need to update the request structure that your application sends to the API, for example the following entity recognition JSON body:
 
 ```json
 {
@@ -64,7 +64,7 @@ Additionally, the format of the the JSON request body has changed. You'll need t
 }
 ```
 
-Use the quickstarts linked above to see examples of updated REST API calls for the feature(s) your're using, and the associated API output.
+Use the quickstarts linked above to see current example REST API calls for the feature(s) you're using, and the associated API output.
 
 ## Client libraries
 
