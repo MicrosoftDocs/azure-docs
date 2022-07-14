@@ -86,13 +86,13 @@ Azure RBAC allows you to design an administration model with granular scopes and
 
 For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) and [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
-This is a hierarchical structure, so the higher up in the hierarchy, the more scope, visibility, and impact there is to lower levels. Top-level scopes affect all Azure resources in the Azure AD tenant boundary. This also means that permissions can be applied at multiple levels. The risk this introduces is that assigning roles higher up the hierarchy could provide more access lower down the scope than intended. [Microsoft Entra](/security/business/identity-access/microsoft-entra-permissions-management?rtc=1) (formally CloudKnox) is a Microsoft product that provides visibility and remediation to help reduce the risk. A few details to note:
+This is a hierarchical structure, so the higher up in the hierarchy, the more scope, visibility, and impact there is to lower levels. Top-level scopes affect all Azure resources in the Azure AD tenant boundary. This also means that permissions can be applied at multiple levels. The risk this introduces is that assigning roles higher up the hierarchy could provide more access lower down the scope than intended. [Microsoft Entra](/security/business/identity-access/microsoft-entra-permissions-management?rtc=1) (formally CloudKnox) is a Microsoft product that provides visibility and remediation to help reduce the risk. A few details are as follows:
 
 * The root management group defines Azure Policies and RBAC role assignments that will be applied to all subscriptions and resources.
 
 * Global Administrators can [elevate access](https://aka.ms/AzureADSecuredAzure/12a) to all subscriptions and management groups.
 
-Both top-level scopes should be strictly monitored It is important to plan for other dimensions of resource isolation such as networking. For general guidance on Azure networking, see [Azure best practices for network security](../../security/fundamentals/network-best-practices.md). Infrastructure as a Service (IaaS) workloads have special scenarios where both identity and resource isolation need to be part of the overall design and strategy.
+Both top-level scopes should be strictly monitored. It is important to plan for other dimensions of resource isolation such as networking. For general guidance on Azure networking, see [Azure best practices for network security](../../security/fundamentals/network-best-practices.md). Infrastructure as a Service (IaaS) workloads have special scenarios where both identity and resource isolation need to be part of the overall design and strategy.
 
 Consider isolating sensitive or test resources according to [Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/). For example, Identity subscription should be assigned to separated management group and all subscriptions for development purposes could be separated in "Sandbox" management group. More details can be found in the [Enterprise-Scale documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/faq). Separation for testing purposes within a single tenant is also considered in the [management group hierarchy of the reference architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/testing-approach).
 
@@ -108,7 +108,10 @@ There are tenant-wide aspects that affect all trusting applications in the Azure
 
 * Other [directory roles](https://aka.ms/AzureADSecuredAzure/14b) such as User Administrator, Administrator, and Conditional Access Administrators can manage tenant-wide configuration within the scope of the role.
 
-Configuration settings such authentication methods allowed, hybrid configurations, B2B collaboration allow-listing of domains, and named locations are tenant wide. Note: Microsoft Graph API Permissions and consent permissions can not be scoped to a group or members of Administrative Units. Those permissions will be assigned on directory-level, only resource-specific consent allows scope on resource-level (currently limited to [Microsoft Teams Chat permissions](/microsoftteams/platform/graph-api/rsc/resource-specific-consent))
+Configuration settings such authentication methods allowed, hybrid configurations, B2B collaboration allow-listing of domains, and named locations are tenant wide.
+
+>[!Note]
+>Microsoft Graph API Permissions and consent permissions cannot be scoped to a group or members of Administrative Units. Those permissions will be assigned on directory-level, only resource-specific consent allows scope on resource-level (currently limited to [Microsoft Teams Chat permissions](/microsoftteams/platform/graph-api/rsc/resource-specific-consent))
 
 >[!IMPORTANT]
 >The lifecycle of Microsoft SaaS services such as Office 365, Microsoft Dynamics, and Microsoft Exchange are bound to the Azure AD tenant. As a result, multiple instances of these services necessarily require multiple Azure AD tenants. Check the documentation for individual services to learn more about specific management scoping capabilities.
