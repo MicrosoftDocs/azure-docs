@@ -126,7 +126,7 @@ Each skill is unique in terms of its input values and the parameters that it tak
 
 ## Set skill context
 
-Each skill has a [context property](cognitive-search-working-with-skillsets.md#context) that determines the level at which operations take place. If the "context" property isn't explicitly set, the default is `"/document"`, where the context is the whole document (the skill is called once per document).
+Each skill has a [context property](cognitive-search-working-with-skillsets.md#skill-context) that determines the level at which operations take place. If the "context" property isn't explicitly set, the default is `"/document"`, where the context is the whole document (the skill is called once per document).
 
 ```json
 "skills":[
