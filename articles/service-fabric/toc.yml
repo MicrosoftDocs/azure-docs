@@ -448,6 +448,8 @@
       href: how-to-managed-cluster-large-virtual-machine-scale-sets.md
     - name: Use managed identity for managed cluster nodes
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
+    - name: Use managed identity with an application
+      href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md
   - name: Set up your development environment
     items:
     - name: Windows
