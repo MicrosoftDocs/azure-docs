@@ -16,11 +16,11 @@ ms.custom: references_regions
 
 Azure managed disks currently offers five disk types, each intended to address a specific customer scenario:
 
-- Ultra disks
-- Premium SSD v2 (solid-state drives)
-- Premium SSDs
-- Standard SSDs
-- Standard HDDs (hard disk drives)
+- [Ultra disks](#ultra-disks)
+- [Premium SSD v2 (preview)](#premium-ssd-v2-preview)
+- [Premium SSDs (solid-state drives)](#premium-ssds)
+- [Standard SSDs](#standard-ssds)
+- [Standard HDDs (hard disk drives)](#standard-hdds)
 
 ## Disk type comparison
 
@@ -43,7 +43,7 @@ Ultra disks must be used as data disks and can only be created as empty disks. Y
 
 ### Ultra disk size
 
-Azure ultra disks offer up to 32 TiB per region per subscription by default, but ultra disks support higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+Azure ultra disks offer up to 32-TiB per region per subscription by default, but ultra disks support higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
 The following table provides a comparison of disk sizes and performance caps to help you decide which to use.
 
@@ -77,7 +77,7 @@ For more information about IOPS, see [Virtual machine and disk performance](disk
 
 ### Ultra disk throughput
 
-The throughput limit of a single ultra disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 4000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps.
+The throughput limit of a single ultra disk is 256-KiB/s for each provisioned IOPS, up to a maximum of 4000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps.
 
 You can adjust ultra disk IOPS and throughput performance at runtime without detaching the disk from the virtual machine. After a performance resize operation has been issued on a disk, it can take up to an hour for the change to take effect. Up to four performance resize operations are permitted during a 24-hour window.
 
@@ -107,7 +107,7 @@ With Premium SSD v2 disks, you can individually set the capacity, throughput, an
 
 #### Premium SSD v2 capacities
 
-Premium SSD v2 capacities range from 1 GiB to 64 TiB, in 1-GiB increments. You're billed on a per GiB ratio, see the pricing page for details.
+Premium SSD v2 capacities range from 1 GiB to 64 TiB, in 1-GiB increments. You're billed on a per GiB ratio, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
 Premium SSD v2 offers up to 32 TiB per region per subscription by default in the public preview, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
@@ -194,7 +194,7 @@ When using managed disks, the following billing considerations apply:
 - Outbound data transfers
 - Number of transactions
 
-**Managed disk size**: Managed disks are billed according to their provisioned size. Azure maps the provisioned size (rounded up) to the nearest offered disk size. For details of the disk sizes offered, see the previous tables. Each disk maps to a supported provisioned disk-size offering and is billed accordingly. For example, if you provisioned a 200 GiB standard SSD, it maps to the disk size offer of E15 (256 GiB). Billing for any provisioned disk is prorated hourly by using the monthly price for the storage offering. For example, you provision an E10 disk and delete it after 20 hours of use. In this case, you're billed for the E10 offering prorated to 20 hours, regardless of the amount of data written to the disk.
+**Managed disk size**: Managed disks are billed according to their provisioned size. Azure maps the provisioned size (rounded up) to the nearest offered disk size. For details of the disk sizes offered, see the previous tables. Each disk maps to a supported provisioned disk-size offering and is billed accordingly. For example, if you provisioned a 200-GiB standard SSD, it maps to the disk size offer of E15 (256 GiB). Billing for any provisioned disk is prorated hourly by using the monthly price for the storage offering. For example, you provision an E10 disk and delete it after 20 hours of use. In this case, you're billed for the E10 offering prorated to 20 hours, regardless of the amount of data written to the disk.
 
 **Snapshots**: Snapshots are billed based on the size used. For example, you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB. In this case, the snapshot is billed only for the used data size of 10 GiB.
 

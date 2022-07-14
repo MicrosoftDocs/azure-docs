@@ -9,6 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---
+1. Premium SSD v2 disks can't be used as an OS disk.
 1. Currently, Premium SSD v2 disks can only be attached to zonal VMs.
 1. Currently, Premium SSD v2 disks can't be attached to VMs in virtual machine scale sets.
 1. Currently, snapshots and Azure Backup aren't supported.
