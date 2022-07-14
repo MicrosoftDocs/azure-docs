@@ -3,7 +3,7 @@ title: Deploy a Premium SSD v2 (preview) managed disk
 description: Learn how to deploy a Premium SSD v2 (preview).
 author: roygara
 ms.author: rogarana
-ms.date: 07/14/2022
+ms.date: 07/18/2022
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
@@ -29,7 +29,7 @@ Azure Premium SSD v2 (preview) is designed for IO-intense enterprise workloads t
 
 ## Determine region availability programmatically
 
-To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. To determine regions, and zones support premium SSD v2, run the following command:
+To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. To determine regions, and zones support premium SSD v2, replace `yourSubscriptionId` then run the following command:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -63,20 +63,26 @@ To programmatically determine the regions and zones you can deploy to, use eithe
 
 Now that you know the region and zone to deploy to, follow the deployment steps in this article to create a Premium SSD v2 disk and attach it to a VM.
 
-## Create a Premium SSD v2 disk
+## Use a Premium SSD v2
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it.
+Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it. Replace the values of all the variables with your own, then run the following script:
 
 ```azurecli-interactive
-## Create a Premium SSD v2 disk
+## Initialize variables
 diskName="yourDiskName"
 resourceGroupName="yourResourceGroupName"
 region="yourRegionName"
 zone="yourZoneNumber"
 logicalSectorSize=4096
+vmName="yourVMName"
+vmImage="Win2016Datacenter"
+adminPassword="yourAdminPassword"
+adminUserName="yourAdminUserName"
+vmSize="Standard_D4s_v3"
 
+## Create a Premium SSD v2 disk
 az disk create -n $diskName -g $resourceGroupName \
 --size-gb 100 \
 --disk-iops-read-write 5000 \
@@ -87,12 +93,6 @@ az disk create -n $diskName -g $resourceGroupName \
 --logical-sector-size $logicalSectorSize
 
 ## Create the VM
-vmName="yourVMName"
-vmImage="Win2016Datacenter"
-adminPassword="yourAdminPassword"
-adminUserName="yourAdminUserName"
-vmSize="Standard_D4s_v3"
-
 az vm create -n $vmName -g $resourceGroupName \
 --image $vmImage \
 --zone $zone \
@@ -104,10 +104,10 @@ az vm create -n $vmName -g $resourceGroupName \
 
 # [PowerShell](#tab/azure-powershell)
 
-Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it.
+Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it. Replace the values of all the variables with your own, then run the following script:
 
 ```powershell
-# Create a Premium SSD v2
+# Initialize variables
 $resourceGroupName = "yourResourceGroupName"
 $region = "useast"
 $zone = "yourZoneNumber"
@@ -117,7 +117,14 @@ $diskIOPS = 5000
 $diskThroughputInMBPS = 150
 $logicalSectorSize=4096
 $lun = 1
+$vmName = "yourVMName"
+$vmImage = "Win2016Datacenter"
+$vmSize = "Standard_D4s_v3"
+$vmAdminUser = "yourAdminUserName"
+$vmAdminPassword = ConvertTo-SecureString "yourAdminUserPassword" -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential ($vmAdminUser, $vmAdminPassword);
 
+# Create a Premium SSD v2
 $diskconfig = New-AzDiskConfig `
 -Location $region `
 -Zone $zone `
@@ -134,13 +141,6 @@ New-AzDisk `
 -Disk $diskconfig
 
 # Create the VM
-$vmName = "yourVMName"
-$vmImage = "Win2016Datacenter"
-$vmSize = "Standard_D4s_v3"
-$vmAdminUser = "yourAdminUserName"
-$vmAdminPassword = ConvertTo-SecureString "yourAdminUserPassword" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential ($vmAdminUser, $vmAdminPassword);
-
 New-AzVm `
     -ResourceGroupName $resourceGroupName `
     -Name $vmName `
