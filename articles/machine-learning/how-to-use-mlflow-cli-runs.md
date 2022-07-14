@@ -70,7 +70,7 @@ You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning S
     from azure.identity import DefaultAzureCredential
     import mlflow
 
-    ml_client = MLClient.from_config(credential=DefaultAzureCredential()
+    ml_client = MLClient.from_config(credential=DefaultAzureCredential())
     azureml_mlflow_uri = ml_client.workspaces.get(ml_client.workspace_name).mlflow_tracking_uri
     mlflow.set_tracking_uri(azureml_mlflow_uri)
     ```
