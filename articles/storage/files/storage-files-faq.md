@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage
-ms.date: 06/06/2022
+ms.date: 07/12/2022
 ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
@@ -85,10 +85,22 @@ ms.topic: conceptual
   - If users are accessing the Azure file share via a Windows Server that has the Azure File Sync agent installed, use an [audit policy](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) or third-party product to track file changes and user access on the Windows Server. 
 
 * <a id="access-based-enumeration"></a>
-**Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares?**
+**Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares? Can I use DFS Namespaces (DFS-N) as a workaround to use ABE with Azure Files?**
 
-  No, this scenario isn't supported.
+  Using ABE with Azure Files isn't currently a supported scenario, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md). ABE is a feature of DFS-N, so it's possible to configure identity-based authentication and enable the ABE feature. However, this only applies to the DFS-N folder targets; it doesn't retroactively apply to the targeted file shares themselves. This is because DFS-N works by referral, rather than as a proxy in front of the folder target.
 
+  For example, if the user types in the path \\mydfsnserver\share, the SMB client gets the referral of \\mydfsnserver\share => \\server123\share and makes the mount against the latter.
+
+  Because of this, ABE will only work in cases where the DFS-N server is hosting the list of usernames before the redirection:
+
+  \\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\contosouser1
+  \\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\users\contosouser1
+
+  (Where **contosouser1** is a subfolder of the **users** share)
+
+  If each user is a subfolder *after* the redirection, ABE won't work:
+
+  \\DFSServer\SomePath\users --> \\SA.file.core.windows.net\users
    
 ### AD DS & Azure AD DS Authentication
 * <a id="ad-support-devices"></a>
