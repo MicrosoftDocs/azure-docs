@@ -13,7 +13,9 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-In this how-to guide, you'll learn how to create a virtual network to deploy S/4 HANA infrastructure using *Azure Center for SAP solutions (ACSS)*.
+In this how-to guide, you'll learn how to prepare a virtual network to deploy S/4 HANA infrastructure using *Azure Center for SAP solutions (ACSS)*. This article provides general guidance about creating a virtual network. Your individual environment and use case will determine how you need to configure your own network settings for use with a *Virtual Instance for SAP (VIS)* resource.
+
+If you have an existing network that you're ready to use with ACSS, [go to the deployment guide](deploy-s4hana.md) instead of following this guide.
 
 ## Prerequisites
 
