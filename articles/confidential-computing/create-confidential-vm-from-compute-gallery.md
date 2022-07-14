@@ -54,7 +54,7 @@ This image version can be replicated within the source region **but cannot be re
 1. Select the image version to go to the resource directly. Or, you can go to the image version through the image definition. The image definition also shows the encryption type, so you can check that the image and source VM match.
 1. On the image version page, select **Create VM**.
 
-Now, you can [create a Confidential VM from your custom image](#create-vm-from-image).
+Now, you can [create a Confidential VM from your custom image](#create-confidential-vm-from-gallery-image).
 
 ### To create a **ConfidentialVM** type image from managed disk or snapshot
 
@@ -78,7 +78,7 @@ Now, you can [create a Confidential VM from your custom image](#create-vm-from-i
 1. After the settings are validated, select **Create** to finish creating the image version.
 1. After the image version is successfully created, select **Create VM**.
 
-Now, you can [create a Confidential VM from your custom image](#create-vm-from-image).
+Now, you can [create a Confidential VM from your custom image](#create-confidential-vm-from-gallery-image).
 
 ## Create a gallery image with ConfidentialVM-Supported Security type
 
@@ -118,9 +118,9 @@ This image can be replicated within the source region and to different target re
 1. After the configuration is successfully validated, select **Create** to finish creating the image.
 1. After the image version is created, select **Create VM**.
 
-Now, you can [create a Confidential VM from your custom image](#create-vm-from-image)
+Now, you can [create a Confidential VM from your custom image](#create-confidential-vm-from-gallery-image)
 
-## Create Confidential VM from an Azure Compute Gallery image
+## Create Confidential VM from gallery image
 
 ### [Portal](#tab/portal3)
 
