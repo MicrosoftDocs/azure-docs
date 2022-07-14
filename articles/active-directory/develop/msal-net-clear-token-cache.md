@@ -27,7 +27,7 @@ When you [acquire an access token](msal-acquire-cache-tokens.md) using the Micro
 
 Public client apps and web sites clear the cache, which use `AcquireTokenSilent`, by removing the accounts from the cache. This does not remove the session cookie which is in the browser.
 
-Web APIs and service principals cannot clear the cache. To control the cache size, see https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=aspnet. To bypass the cache in certain circumstances, use the `WithForceRefresh` method on the `AcquireTokenOnBehalfOf` or `AcquireTokenForClient` APIs. It is not recommended to always bypass the cache, because AAD will throttle the application on excessive use.
+Web APIs and service principals cannot clear the cache. To control the cache size, see [Token cache serialization in MSAL.NET](/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=aspnet). To bypass the cache in certain circumstances, use the `WithForceRefresh` method on the `AcquireTokenOnBehalfOf` or `AcquireTokenForClient` APIs. It is not recommended to always bypass the cache, because Azure AD will throttle the application on excessive use.
 
 The following example instantiates a public client application, gets the accounts for the application, and removes the accounts.
 
