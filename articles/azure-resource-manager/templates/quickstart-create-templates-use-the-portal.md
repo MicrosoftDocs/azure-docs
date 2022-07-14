@@ -17,190 +17,75 @@ ARM templates are JSON files that define the resources you need to deploy for yo
 
 After completing the tutorial, you deploy an Azure Storage account. The same process can be used to deploy other Azure resources.
 
-![Resource Manager template quickstart portal diagram](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
+  ![Resource Manager template quickstart portal diagram](./media/quickstart-create-templates-use-the-portal/arm-custom-template-diagram.jpg)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Generate a template using the portal
+## Generate a Custom Template from the Portal
 
 Although using Visual Studio Code is the recommended option, if you're new to Azure deployment, it may be more challenging to create an ARM template (especially in the beginning). To get around this, you can start by generating a template using the Azure portal option. You will be able to configure your deployment in the Azure portal and download the corresponding ARM template. This template can be saved and reused in the future, and will serve as a good starting point.
 
 Many experienced template developers use this method to generate templates when they try to deploy Azure resources that they aren't familiar with. For more information about exporting templates by using the portal, see [Export resource groups to templates](../management/manage-resource-groups-portal.md#export-resource-groups-to-templates). The other way to find a working template is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/).
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com) and sign in.
-1. From the Azure portal menu, select **Create a resource**.
+2. From the Azure portal search bar, search for **Deploy a Custom Template** and then select it.
+![Search for Custom Template](./media/quickstart-create-templates-use-the-portal/arm-search-custom-template.jpg)
 
-    ![Select Create a resource from Azure portal menu](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
+3. On the Custom Deployment page, select **Quickstart Template** under the Template Source section. Here, you can search for many kinds of templates, but for the purpose of this quickstart, we will be using `quickstarts/microsoft.storage/storage-account-create` in order to create a simple storage account. There are many other [collections of custom templates](https://github.com/Azure/azure-quickstart-templates) that others have created, (which also follow best practices guidelines) that you can also select to use for specific scenarios. Finally, you can also select to **edit template**, which will allow you to edit the template manually. 
 
-1. In the search box, type **storage account**, and then press **[ENTER]**.
-1. Select the down arrow next to **Create**, and then select **Storage account**.
+    ![Select Quickstart Template](./media/quickstart-create-templates-use-the-portal/arm-select-custom-template.jpg)
 
-    ![Create an Azure storage account](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+4. After moving to the next step, Enter the following information on the following page:
 
-1. Enter the following information:
+    For the **Resource group** field, select **Create new**, and specify a resource group name of your choice. On the screenshot, the resource group name is *armtest1*, and you are also able to access the **edit template** page here as well.
 
-    |Name|Value|
-    |----|----|
-    |**Resource group**|Select **Create new**, and specify a resource group name of your choice. On the screenshot, the resource group name is *mystorage1016rg*. Resource group is a container for Azure resources. Resource group makes it easier to manage Azure resources. |
-    |**Name**|Give your storage account a unique name. The storage account name must be unique across all of Azure, and it contain only lowercase letters and numbers. Name must be between 3 and 24 characters. If you get an error message saying "The storage account name 'mystorage1016' is already taken", try using **&lt;your name>storage&lt;Today's date in MMDD>**, for example **johndolestorage1016**. For more information, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming).|
+    ![Input Fields for Template](./media/quickstart-create-templates-use-the-portal/arm-input-fields-template.jpg)
 
-    You can use the default values for the rest of the properties.
+    A Resource group is a container for Azure resources that makes Azure resource management much easier. 
 
-    ![Create an Azure storage account configuration using the Azure portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account.png)
+5. Select **Review + create** on the bottom of the screen. After validation has passed (which may take a couple minutes), proceed to select **Create** in order to create your storage account.
 
-    > [!NOTE]
-    > Some of the exported templates require some edits before you can deploy them.
+6. Once you're validation has passed, you will receive a notification that says the deployment succeeded, and the notification will provide a link for the user to view their deployment. In this case, we are viewing the storage account we created. 
 
-1. Select **Review + create** on the bottom of the screen. Don't select **Create** in the next step.
-1. Select **Download a template for automation** on the bottom of the screen. The portal shows the generated template:
+    ![Deployment Succeeded Notification](./media/quickstart-create-templates-use-the-portal/arm-deploy-success.jpg)
 
-    ![Generate a template from the portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
+7. From this screen, you can view all the details for your selected resource group, as well as your created storage account. Select **the link for the succeeded deployments.**
 
-    The main pane shows the template. It's a JSON file with six top-level elements - `schema`, `contentVersion`, `parameters`, `variables`, `resources`, and `output`. For more information, see [Understand the structure and syntax of ARM templates](./syntax.md)
+    ![View Deployment Page](./media/quickstart-create-templates-use-the-portal/arm-see-deployment.jpg)
 
-    There are nine parameters defined. One of them is called **storageAccountName**. The second highlighted part on the previous screenshot shows how to reference this parameter in the template. In the next section, you edit the template to use a generated name for the storage account.
+8. Select the **link for the number of deployments** you have that have succeeded. Here you can choose the template you deployed.
 
-    In the template, one Azure resource is defined. The type is `Microsoft.Storage/storageAccounts`. Take a look of how the resource is defined, and the definition structure.
-1. Select **Download** from the top of the screen.
-1. Open the downloaded zip file, and then save **template.json** to your computer. In the next section, you use a template deployment tool to edit the template.
-1. Select the **Parameter** tab to see the values you provided for the parameters. Write down these values, you need them in the next section when you deploy the template.
+    ![View Template Page](./media/quickstart-create-templates-use-the-portal/arm-view-template.jpg)
 
-    ![Screenshot that highlights the Parameter tab that shows the values you provided.](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
+    Select the **template** you wish to view.
 
-    Using both the template file and the parameters file, you can create a resource, in this tutorial, an Azure storage account.
+    ![Select Template](./media/quickstart-create-templates-use-the-portal/arm-select-template.jpg)
 
-## Edit and deploy the template
+9. After selecting the template you wish to view, you will be brought to the template overview page. From here, select **templates** from the left hand side bar. 
 
-The Azure portal can be used to perform some basic template editing. In this quickstart, you use a portal tool called *Template Deployment*. *Template Deployment* is used in this tutorial so you can complete the whole tutorial using one interface - the Azure portal. To edit a more complex template, consider using [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md),  which provides richer edit functionalities.
+    ![Review Template](./media/quickstart-create-templates-use-the-portal/arm-view-template.jpg)
 
-> [!IMPORTANT]
-> Template Deployment provides an interface for testing simple templates. It is not recommended to use this feature in production. Instead, store your templates in an Azure storage account, or a source code repository like GitHub.
+    From here, you will be able to see the custom template you deployed as well as its details.
 
-Azure requires that each Azure service has a unique name. The deployment could fail if you entered a storage account name that already exists. To avoid this issue, you modify the template to use a template function call `uniquestring()` to generate a unique storage account name.
+  
+    ![Template Details Page](./media/quickstart-create-templates-use-the-portal/arm-review-custom-template.jpg)
 
-1. From the Azure portal menu, in the search box, type **deploy**, and then select **Deploy a custom template**.
+## Export your Custom Template from the Azure Portal
 
-    ![Azure Resource Manager templates library](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
+1. After the storage account has been created, navigate to the Azure Portal to the resource group you deployed to.
+2. Once you have selected the resource group, select **Export Template** from the left bottom pane. 
+3. Here, you can see what your exported template would look like if it were deployed. You can see the whole template, or by selecting the **Parameters** link, you can view only the parameters section. Here, you will be able to see and download the template to edit any resources, parameters, or additional fields as needed. This is a good way to get a starting template, however it is important to note that the template generated may need additional modifications based on the specific scenario. 
 
-1. Select **Build your own template in the editor**.
-1. Select **Load file**, and then follow the instructions to load template.json you downloaded in the last section.
-
-   After the file is loaded, you may notice a warning that the template schema wasn't loaded. You can ignore this warning. The schema is valid.
-
-1. Make the following three changes to the template:
-
-    ![Azure Resource Manager templates](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
-
-   - Remove the **storageAccountName** parameter as shown in the previous screenshot.
-   - Add one variable called **storageAccountName** as shown in the previous screenshot:
-
-      ```json
-      "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
-      ```
-
-      Two template functions are used here: `concat()` and `uniqueString()`.
-   - Update the name element of the **Microsoft.Storage/storageAccounts** resource to use the newly defined variable instead of the parameter:
-
-      ```json
-      "name": "[variables('storageAccountName')]",
-      ```
-
-      The final template shall look like:
-
-      ```json
-      {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "location": {
-            "type": "string"
-          },
-          "accountType": {
-            "type": "string"
-          },
-          "kind": {
-            "type": "string"
-          },
-          "accessTier": {
-            "type": "string"
-          },
-          "minimumTlsVersion": {
-            "type": "string"
-          },
-          "supportsHttpsTrafficOnly": {
-            "type": "bool"
-          },
-          "allowBlobPublicAccess": {
-            "type": "bool"
-          },
-          "allowSharedKeyAccess": {
-            "type": "bool"
-          }
-        },
-        "variables": {
-          "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
-        },
-        "resources": [
-          {
-            "name": "[variables('storageAccountName')]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "location": "[parameters('location')]",
-            "properties": {
-              "accessTier": "[parameters('accessTier')]",
-              "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
-              "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
-              "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]",
-              "allowSharedKeyAccess": "[parameters('allowSharedKeyAccess')]"
-            },
-            "dependsOn": [],
-            "sku": {
-              "name": "[parameters('accountType')]"
-            },
-            "kind": "[parameters('kind')]",
-            "tags": {}
-          }
-        ],
-        "outputs": {}
-      }
-      ```
-
-1. Select **Save**.
-1. Enter the following values:
-
-    |Name|Value|
-    |----|----|
-    |**Resource group**|Select the resource group name you created in the last section. |
-    |**Region**|Select a location for the resource group. For example, **Central US**. |
-    |**Location**|Select a location for the storage account. For example, **Central US**. |
-    |**Account Type**|Enter **Standard_LRS** for this quickstart. |
-    |**Kind**|Enter **StorageV2** for this quickstart. |
-    |**Access Tier**|Enter **Hot** for this quickstart. |
-    |**Minimum TLS Version**|Enter **TLS1_0**. |
-    |**Supports Https Traffic Only**| Select **true** for this quickstart. |
-    |**Allow Blob Public Access**| Select **false** for this quickstart. |
-    |**Allow Shared Key Access**| Select **true** for this quickstart. |
-
-1. Select **Review + create**.
-1. Select **Create**.
-1. Select the bell icon (notifications) from the top of the screen to see the deployment status. You shall see **Deployment in progress**. Wait until the deployment is completed.
-
-    ![Azure Resource Manager templates deployment notification](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
-
-1. Select **Go to resource group** from the notification pane. You shall see a screen similar to:
-
-    ![Azure Resource Manager templates deployment resource group](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
-
-    You can see the deployment status was successful, and there's only one storage account in the resource group. The storage account name is a unique string generated by the template. To learn more about using Azure storage accounts, see [Quickstart: Upload, download, and list blobs using the Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md).
+![Export Template](./media/quickstart-create-templates-use-the-portal/arm-export-template.jpg)
 
 ## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
 1. In the Azure portal, select **Resource group** on the left menu.
-1. Enter the resource group name in the **Filter by name** field.
-1. Select the resource group name.  You shall see the storage account in the resource group.
-1. Select **Delete resource group** in the top menu.
+2. Enter the resource group name in the **Filter by name** field.
+3. Select the resource group name.  You shall see the storage account in the resource group.
+4. Select **Delete resource group** in the top menu.
 
 ## Next steps
 
