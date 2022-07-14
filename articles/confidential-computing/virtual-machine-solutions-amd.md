@@ -62,7 +62,7 @@ Consider the following settings and choices before deploying confidential VMs.
 
 ### Azure subscription
 
-To deploy a confidential VM instance, consider a pay-as-you-go subscription or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate amount of Azure compute cores.
+To deploy a confidential VM instance, consider a pay-as-you-go subscription or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate number of Azure compute cores.
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 
@@ -96,7 +96,7 @@ For more information about supported and unsupported VM scenarios, see [support 
 
 ### High availability and disaster recovery
 
-You're responsible for creating high availability and disaster recovery solutions for your confidential VMs. Planning for these scenarios helps minimize avoid prolonged downtime.
+You're responsible for creating high availability and disaster recovery solutions for your confidential VMs. Planning for these scenarios helps minimize and avoid prolonged downtime.
 
 ### Deployment with ARM templates
 
