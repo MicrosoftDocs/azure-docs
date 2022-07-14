@@ -154,6 +154,8 @@ const msalConfig = {
 const msalInstance = new PublicClientApplication(msalConfig);
 ```
 
+---
+
 You can test your application by signing in a user to the application and then using the Azure portal to Revoke the user's sessions. The next time the app calls the CAE-enabled API, the user will be asked to reauthenticate.
 
 ## Next steps

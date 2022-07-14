@@ -94,7 +94,7 @@ The following example claims parameter shows how a client application communicat
 Claims: {"access_token":{"xms_cc":{"values":["cp1"]}}}
 ```
 
-# [.NET](#tab/dotnet)
+#### [.NET](#tab/dotnet)
 
 Those using MSAL library will use the following code:
 
@@ -117,7 +117,7 @@ Those using Microsoft.Identity.Web can add the following code to the configurati
     "ClientCapabilities": [ "cp1" ]
 },
 ```
-# [JavaScript](#tab/JavaScript)
+#### [JavaScript](#tab/JavaScript)
 
 Those using MSAL.js can add `clientCapabilities` property to the configuration object.
 
@@ -203,7 +203,7 @@ This is how the app's manifest looks like after the **xms_cc** [optional claim](
 
 The API can then customize their responses based on whether the client is capable of handling claims challenge or not.
 
-# [.NET](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 ```c#
 Claim ccClaim = context.User.FindAll(clientCapabilitiesClaim).FirstOrDefault(x => x.Type == "xms_cc");
@@ -218,7 +218,7 @@ else
 }
 ```
 
-# [JavaScript](#tab/JavaScript)
+### [JavaScript](#tab/JavaScript)
 
 ```javascript
     const checkForRequiredAuthContext = (req, res, next, authContextId) => {
