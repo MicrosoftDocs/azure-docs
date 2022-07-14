@@ -378,7 +378,7 @@ The 'status code' field of the HTTP response header indicates the success status
 | Status Code | Error Reason | How To Handle |
 | ----------- | ------------ | ------------- |
 | 404 Not found. | Unknown authentication code, or the application was not assigned a managed identity. | Rectify the application setup or token acquisition code. |
-| 429 Too many requests. |  Throttle limit reached, imposed by AAD or SF. | Retry with Exponential Backoff. See guidance below. |
+| 429 Too many requests. |  Throttle limit reached, imposed by Azure AD or SF. | Retry with Exponential Backoff. See guidance below. |
 | 4xx Error in request. | One or more of the request parameters was incorrect. | Do not retry.  Examine the error details for more information.  4xx errors are design-time errors.|
 | 5xx Error from service. | The managed identity subsystem or Azure Active Directory returned a transient error. | It is safe to retry after a short while. You may hit a throttling condition (429) upon retrying.|
 

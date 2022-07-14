@@ -116,14 +116,14 @@ Continuing with Azure as the context, and using Key Vault as the secret-manageme
   - Under `{vaultUri}/secrets/{name}`: The certificate, including its private key, available for downloading as an unprotected PFX or PEM file.
 	
 Recall that a certificate in the key vault contains a chronological list of certificate instances that share a policy. Certificate versions will be created according to the lifetime and renewal attributes of this policy. We highly recommend that vault certificates not share subjects or domains or DNS names, because it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages, and so on.
-
+s
 At this point, a certificate exists in the key vault, ready for consumption. Now let's explore the rest of the process.
 
 ### Certificate provisioning
 
-We mentioned a *provisioning agent*, which is the entity that retrieves the certificate, including its private key, from the key vault and installs it on each of the hosts of the cluster. (Recall that Service Fabric doesn't provision certificates.) 
+We mentioned a *provisioning agent*, which is the entity that retrieves the certificate, including its private key, from the key vault and installs it on each of the hosts of the cluster. (Recall that Service Fabric doesn't provision certificates.)
 
-In the context of this article, the cluster will be hosted on a collection of Azure virtual machines (VMs) or virtual machine scale sets (VMSS). In Azure, you can provision a certificate from a vault to a VM/VMSS by using the following mechanisms. This assumes, as before, that the provisioning agent was previously granted *secret get* permissions on the key vault by the key vault owner. 
+In the context of this article, the cluster will be hosted on a collection of Azure virtual machines (VMs) or virtual machine scale sets. In Azure, you can provision a certificate from a vault to a VM/VMSS by using the following mechanisms. This assumes, as before, that the provisioning agent was previously granted *secret get* permissions on the key vault by the key vault owner.
 
 - Ad-hoc: An operator retrieves the certificate from the key vault (as PFX/PKCS #12 or PEM) and installs it on each node.
 
