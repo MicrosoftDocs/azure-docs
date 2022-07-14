@@ -90,17 +90,32 @@ az login
 az account set --subscription <your subscription ID>
 ```
 7. Enable the RBAC capability on your existing API for MongoDB database account.
+Get your existing capabilities. Capabilities are account features. Some are optional and some can't be changed.
 ```powershell
-az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongoRoleBasedAccessControl
+az cosmosdb show -n <account_name> -g <azure_resource_group>
 ```
-or create a new database account with the RBAC capability set to true. Your subscription must be allow-listed in order to create an account with the EnableMongoRoleBasedAccessControl capability. 
+You should see a capability section similar to this
+```powershell
+"capabilities": [
+    {
+      "name": "EnableMongo"
+    },
+    {
+      "name": "DisableRateLimitingResponses"
+    }
+```
+Copy the existing capabilities and add the RBAC capability (EnableMongoRoleBasedAccessControl) to the list:
+```powershell
+az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongoRoleBasedAccessControl, EnableMongo, DisableRateLimitingResponses
+```
+If you prefer a new database account instead, create a new database account with the RBAC capability set to true. Your subscription must be allow-listed in order to create an account with the EnableMongoRoleBasedAccessControl capability. 
 ```powershell
 az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --capabilities EnableMongoRoleBasedAccessControl
 ```
 8. Create a database for users to connect to in the Azure portal.
 9. Create an RBAC user with built-in read role.
 ```powershell
-az cosmosdb mongodb user definition create --account-name <YOUR_DB_ACCOUNT> --resource-group <YOUR_RG> --body {\"Id\":\"testdb.read\",\"UserName\":\"<YOUR_USERNAME>\",\"Password\":\"<YOUR_PASSWORD>\",\"DatabaseName\":\"<YOUR_DB_NAME>\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"read\",\"Db\":\"<YOUR_DB_NAME>\"}]}
+az cosmosdb mongodb user definition create --account-name <YOUR_DB_ACCOUNT> --resource-group <YOUR_RG> --body {\"Id\":\"<YOUR_DB_NAME>.<YOUR_USERNAME>\",\"UserName\":\"<YOUR_USERNAME>\",\"Password\":\"<YOUR_PASSWORD>\",\"DatabaseName\":\"<YOUR_DB_NAME>\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"read\",\"Db\":\"<YOUR_DB_NAME>\"}]}
 ```
 
 

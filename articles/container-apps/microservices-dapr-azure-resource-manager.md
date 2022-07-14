@@ -5,9 +5,9 @@ services: container-apps
 author: asw101
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 06/23/2022
 ms.author: keroden
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: container-apps
 ---
 
@@ -19,17 +19,17 @@ You learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Blob Storage for use as a Dapr state store
-> * Deploy a container apps environment to host container apps
+> * Deploy a Container Apps environment to host container apps
 > * Deploy two dapr-enabled container apps: one that produces orders and one that consumes orders and stores them
 > * Verify the interaction between the two microservices.
 
-With Azure Container Apps, you get a fully managed version of the Dapr APIs when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
+With Azure Container Apps, you get a [fully managed version of the Dapr APIs](./dapr-overview.md) when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
 
 In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-world) quickstart.
 
 The application consists of:
 
-- A client (Python) container app to generates messages.
+- A client (Python) container app to generate messages.
 - A service (Node) container app to consume and persist those messages in a state store
 
 The following architecture diagram illustrates the components that make up this tutorial:
@@ -141,7 +141,7 @@ az extension add --name containerapp --upgrade
 Now that the extension is installed, register the `Microsoft.App` namespace.
 
 > [!NOTE]
-> Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
+> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 
@@ -203,19 +203,23 @@ New-AzStorageAccount -ResourceGroupName $RESOURCE_GROUP `
 
 ---
 
-Once your Azure Blob Storage account is created, the following values are needed for subsequent steps in this tutorial.
+Once your Azure Blob Storage account is created, you'll create a template where these storage parameters will use environment variable values.  The values are passed in via the `parameters` argument when you deploy your apps with the `az deployment group create` command.
 
-- `storage_account_name` is the value of the `STORAGE_ACCOUNT` variable.
+- `storage_account_name` uses the value of the `STORAGE_ACCOUNT` variable.
 
-- `storage_container_name` is the value of the `STORAGE_ACCOUNT_CONTAINER` variable.
-
-Dapr creates a container with this name when it doesn't already exist in your Azure Storage account.
+- `storage_container_name` uses the value of the `STORAGE_ACCOUNT_CONTAINER` variable.  Dapr creates a container with this name when it doesn't already exist in your Azure Storage account.
 
 ::: zone pivot="container-apps-arm"
 
 ### Create Azure Resource Manager (ARM) template
 
-Create an ARM template to deploy a Container Apps environment including the associated Log Analytics workspace and Application Insights resource for distributed tracing, a dapr component for the state store and the two dapr-enabled container apps.
+Create an ARM template to deploy a Container Apps environment that includes:
+
+* the associated Log Analytics workspace
+* the Application Insights resource for distributed tracing
+* a dapr component for the state store
+* the two dapr-enabled container apps: [hello-k8s-node](https://hub.docker.com/r/dapriosamples/hello-k8s-node) and [hello-k8s-python](https://hub.docker.com/r/dapriosamples/hello-k8s-python)
+  
 
 Save the following file as _hello-world.json_:
 
@@ -245,7 +249,7 @@ Save the following file as _hello-world.json_:
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2021-06-01",
       "name": "[variables('logAnalyticsWorkspaceName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -274,7 +278,7 @@ Save the following file as _hello-world.json_:
     },
     {
       "type": "Microsoft.App/managedEnvironments",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-03-01",
       "name": "[parameters('environment_name')]",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -285,8 +289,8 @@ Save the following file as _hello-world.json_:
         "appLogsConfiguration": {
           "destination": "log-analytics",
           "logAnalyticsConfiguration": {
-            "customerId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces/', variables('logAnalyticsWorkspaceName')), '2020-03-01-preview').customerId]",
-            "sharedKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', variables('logAnalyticsWorkspaceName')), '2020-03-01-preview').primarySharedKey]"
+            "customerId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces/', variables('logAnalyticsWorkspaceName')), '2021-06-01').customerId]",
+            "sharedKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', variables('logAnalyticsWorkspaceName')), '2021-06-01').primarySharedKey]"
           }
         }
       },
@@ -294,7 +298,7 @@ Save the following file as _hello-world.json_:
         {
           "type": "daprComponents",
           "name": "statestore",
-          "apiVersion": "2022-01-01-preview",
+          "apiVersion": "2022-03-01",
           "dependsOn": [
             "[resourceId('Microsoft.App/managedEnvironments/', parameters('environment_name'))]"
           ],
@@ -330,7 +334,7 @@ Save the following file as _hello-world.json_:
     },
     {
       "type": "Microsoft.App/containerApps",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-03-01",
       "name": "nodeapp",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -340,7 +344,7 @@ Save the following file as _hello-world.json_:
         "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments/', parameters('environment_name'))]",
         "configuration": {
           "ingress": {
-            "external": true,
+            "external": false,
             "targetPort": 3000
           },
           "dapr": {
@@ -355,6 +359,12 @@ Save the following file as _hello-world.json_:
             {
               "image": "dapriosamples/hello-k8s-node:latest",
               "name": "hello-k8s-node",
+              "env": [
+                { 
+                   "name": "APP_PORT",
+                   "value": "3000"
+                }
+              ],  
               "resources": {
                 "cpu": 0.5,
                 "memory": "1.0Gi"
@@ -370,7 +380,7 @@ Save the following file as _hello-world.json_:
     },
     {
       "type": "Microsoft.App/containerApps",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-03-01",
       "name": "pythonapp",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -413,7 +423,12 @@ Save the following file as _hello-world.json_:
 
 ### Create Azure Bicep templates
 
-Create a bicep template to deploy a Container Apps environment including the associated Log Analytics workspace and Application Insights resource for distributed tracing, a dapr component for the state store and the two dapr-enabled container apps.
+Create a bicep template to deploy a Container Apps environment that includes:
+
+* the associated Log Analytics workspace
+* the Application Insights resource for distributed tracing
+* a dapr component for the state store
+* the two dapr-enabled container apps: [hello-k8s-node](https://hub.docker.com/r/dapriosamples/hello-k8s-node) and [hello-k8s-python](https://hub.docker.com/r/dapriosamples/hello-k8s-python)
 
 Save the following file as _hello-world.bicep_:
 
@@ -426,7 +441,7 @@ param storage_container_name string
 var logAnalyticsWorkspaceName = 'logs-${environment_name}'
 var appInsightsName = 'appins-${environment_name}'
 
-resource logAnalyticsWorkspace'Microsoft.OperationalInsights/workspaces@2020-03-01-preview' = {
+resource logAnalyticsWorkspace'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
   name: logAnalyticsWorkspaceName
   location: location
   properties: any({
@@ -450,7 +465,7 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   }
 }
 
-resource environment 'Microsoft.App/managedEnvironments@2022-01-01-preview' = {
+resource environment 'Microsoft.App/managedEnvironments@2022-03-01' = {
   name: environment_name
   location: location
   properties: {
@@ -458,12 +473,12 @@ resource environment 'Microsoft.App/managedEnvironments@2022-01-01-preview' = {
     appLogsConfiguration: {
       destination: 'log-analytics'
       logAnalyticsConfiguration: {
-        customerId: reference(logAnalyticsWorkspace.id, '2020-03-01-preview').customerId
-        sharedKey: listKeys(logAnalyticsWorkspace.id, '2020-03-01-preview').primarySharedKey
+        customerId: reference(logAnalyticsWorkspace.id, '2021-06-01').customerId
+        sharedKey: listKeys(logAnalyticsWorkspace.id, '2021-06-01').primarySharedKey
       }
     }
   }
-  resource daprComponent 'daprComponents@2022-01-01-preview' = {
+  resource daprComponent 'daprComponents@2022-03-01' = {
     name: 'statestore'
     properties: {
       componentType: 'state.azure.blobstorage'
@@ -497,14 +512,14 @@ resource environment 'Microsoft.App/managedEnvironments@2022-01-01-preview' = {
   }
 }
 
-resource nodeapp 'Microsoft.App/containerApps@2022-01-01-preview' = {
+resource nodeapp 'Microsoft.App/containerApps@2022-03-01' = {
   name: 'nodeapp'
   location: location
   properties: {
     managedEnvironmentId: environment.id
     configuration: {
       ingress: {
-        external: true
+        external: false
         targetPort: 3000
       }
       dapr: {
@@ -519,8 +534,14 @@ resource nodeapp 'Microsoft.App/containerApps@2022-01-01-preview' = {
         {
           image: 'dapriosamples/hello-k8s-node:latest'
           name: 'hello-k8s-node'
+          env: [
+            {
+              name: 'APP_PORT'
+              value: '3000'
+            }
+          ]
           resources: {
-            cpu: '0.5'
+            cpu: json('0.5')
             memory: '1.0Gi'
           }
         }
@@ -533,7 +554,7 @@ resource nodeapp 'Microsoft.App/containerApps@2022-01-01-preview' = {
   }
 }
 
-resource pythonapp 'Microsoft.App/containerApps@2022-01-01-preview' = {
+resource pythonapp 'Microsoft.App/containerApps@2022-03-01' = {
   name: 'pythonapp'
   location: location
   properties: {
@@ -550,7 +571,7 @@ resource pythonapp 'Microsoft.App/containerApps@2022-01-01-preview' = {
           image: 'dapriosamples/hello-k8s-python:latest'
           name: 'hello-k8s-python'
           resources: {
-            cpu: '0.5'
+            cpu: json('0.5')
             memory: '1.0Gi'
           }
         }
@@ -652,7 +673,7 @@ New-AzResourceGroupDeployment `
 
 This command deploys:
 
-- the container apps environment and associated Log Analytics workspace for hosting the hello world dapr solution
+- the Container Apps environment and associated Log Analytics workspace for hosting the hello world dapr solution
 - an Application Insights instance for Dapr distributed tracing
 - the `nodeapp` app server running on `targetPort: 3000` with dapr enabled and configured using: `"appId": "nodeapp"` and `"appPort": 3000`
 - the `daprComponents` object of `"type": "state.azure.blobstorage"` scoped for use by the `nodeapp` for storing state
@@ -726,7 +747,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## Clean up resources
 
-Once you are done, run the following command to delete your resource group along with all the resources you created in this tutorial.
+Once you're done, run the following command to delete your resource group along with all the resources you created in this tutorial.
 
 # [Bash](#tab/bash)
 

@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.devlang: csharp, java, javascript, python
 ms.custom: "devx-track-python, devx-track-csharp"
+ms.reviewer: rijolly
 ---
 
 # Telemetry correlation in Application Insights
@@ -145,7 +146,7 @@ Add the following configuration:
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT]
-> To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-correlation).
+> To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ## Telemetry correlation in OpenCensus Python
 
@@ -205,6 +206,12 @@ The `operation_ParentId` field is in the format `<trace-id>.<parent-id>`, where 
 ### Log correlation
 
 OpenCensus Python enables you to correlate logs by adding a trace ID, a span ID, and a sampling flag to log records. You add these attributes by installing OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). The following attributes will be added to Python `LogRecord` objects: `traceId`, `spanId`, and `traceSampled`. (applicable only for loggers that are created after the integration)
+
+Install the OpenCensus logging integration:
+
+```console
+python -m pip install opencensus-ext-logging
+```
 
 **Sample application**
 
@@ -283,6 +290,12 @@ def function_1(parent_tracer=None):
 ```
 
 ## Telemetry correlation in .NET
+
+Correlation is handled by default when onboarding an app. No special actions are required.
+
+* [Application Insights for ASP.NET Core applications](asp-net-core.md#application-insights-for-aspnet-core-applications)
+* [Configure Application Insights for your ASP.NET website](asp-net.md#configure-application-insights-for-your-aspnet-website)
+* [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md#application-insights-for-worker-service-applications-non-http-applications)
 
 .NET runtime supports distributed with the help of [Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [DiagnosticSource](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)
 

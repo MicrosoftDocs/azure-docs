@@ -29,6 +29,7 @@ or numeric ticks whose value is the number of 100 nanosecond ticks which have el
 The following functions allow you to easily manipulate DateTime, timestamp, and tick values:
 
 * [DateTimeAdd](sql-query-datetimeadd.md)
+* [DateTimeBin](sql-query-datetimebin.md)
 * [DateTimeDiff](sql-query-datetimediff.md)
 * [DateTimeFromParts](sql-query-datetimefromparts.md)
 * [DateTimePart](sql-query-datetimepart.md)

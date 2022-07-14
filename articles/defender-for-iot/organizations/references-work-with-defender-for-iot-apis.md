@@ -7,7 +7,7 @@ ms.topic: reference
 
 # Defender for IoT sensor and management console APIs
 
-Defender for IoT APIs are governed by [Microsoft API License and Terms of use](/legal/microsoft-apis/terms-of-use).
+Defender for IoT APIs is governed by [Microsoft API License and Terms of use](/legal/microsoft-apis/terms-of-use).
 
 Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
 
@@ -56,10 +56,6 @@ After generating the token, add an HTTP header titled **Authorization** to your 
 - [Retrieve security vulnerabilities - /api/v1/reports/vulnerabilities/security](#retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity)
 
 - [Retrieve operational vulnerabilities - /api/v1/reports/vulnerabilities/operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
-
-### Version 2
-
-- [Retrieve alert PCAP - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
 
 ### Validate user credentials - /api/external/authentication/validation
 
@@ -239,11 +235,11 @@ Message string with the operation status details:
 
 - **Failure – error**: User authentication failure
 
-- **Failure – error**: User does not exist
+- **Failure – error**: User doesn't exist
 
 - **Failure – error**: Password doesn't match security policy
 
-- **Failure – error**: User does not have the permissions to change password
+- **Failure – error**: User doesn't have the permissions to change password
 
 #### Response example
 
@@ -1527,47 +1523,6 @@ JSON object that represents assessed results. Each key contains a JSON array of 
 |--|--|--|
 | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational` |
 
-### Retrieve alert PCAP - /api/v2/alerts/pcap
-
-Use this API to retrieve a PCAP file related to an alert.
-
-This endpoint does not use a regular access token for authorization. Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
-
-#### Method
-
-- **GET**
-
-#### Query Parameters
-
-- id: Xsense Alert ID  
-Example:  
-`/api/v2/alerts/pcap/<id>`
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-- **Success**: Binary file containing PCAP data
-- **Failure**: JSON object that contains error message
-
-#### Response example
-
-#### Error
-
-```json
-{
-  "error": "PCAP file is not available"
-}
-```
-
-#### Curl command
-
-|Type|APIs|Example|
-|-|-|-|
-|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
-
 ## Management console API
 
 This section describes on-premises management console APIs for:
@@ -2501,13 +2456,15 @@ Define conditions under which alerts won't be sent. For example, define and upda
 
 The APIs that you define here appear in the on-premises management console's Alert Exclusions window as a read-only exclusion rule.
 
+This API is supported for maintenance purposes only and is not meant to be used instead of [alert exclusion rules](./how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules). Use this API for one-time maintenance operations only.
+
 #### Method - POST
 
 #### Query parameters
 
 - **ticketId**: Defines the maintenance ticket ID in the user's systems.
 
-- **ttl**: Defines the TTL (time to live), which is the duration of the maintenance window in minutes. After the period of time that this parameter defines, the system automatically starts sending alerts.
+- **ttl**: Required. Defines the TTL (time to live), which is the duration of the maintenance window in minutes. After the period of time that this parameter defines, the system automatically starts sending alerts.
 
 - **engines**: Defines from which security engine to suppress alerts during the maintenance process:
 
@@ -2777,7 +2734,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 
 - Type: JSON
 - Structure:
-    - “**u_id**” - the internal id of the device.
+    - “**u_id**” - the internal ID of the device.
     - “**u_vendor**” - the name of the vendor.
     - “**u_mac_address_objects**” - array of
         - “**u_mac_address**” - mac address of the device.
@@ -2804,7 +2761,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
         - “**u_protocol**” - protocol the device uses.
     - “**u_purdue_layer**” - the purdue layer that was manually set by the user.
     - “**u_sensor_ids**” - array of
-        - “**u_sensor_id**” - the id of the sensor that saw the device.
+        - “**u_sensor_id**” - the ID of the sensor that saw the device.
     - “**u_device_urls**” - array of
         - “**u_device_url**” the URL to view the device in the sensor.
     - “**u_firmwares**” - array of
@@ -2829,7 +2786,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Type: JSON
 - Structure:
     - Array of
-        - “**u_id**” - the id of the deleted device.
+        - “**u_id**” - the ID of the deleted device.
 
 ### Sensors
 
@@ -2843,7 +2800,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Type: JSON
 - Structure:
     - Array of
-        - “**u_id**” - internal sensor id, to be used in the devices API.
+        - “**u_id**” - internal sensor ID, to be used in the devices API.
         - “**u_name**” - the name of the appliance.
         - “**u_connection_state**” - connectivity with the CM state. One of the following:
             - “**SYNCED**” - Connection is successful.

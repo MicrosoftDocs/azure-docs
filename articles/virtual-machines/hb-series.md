@@ -2,7 +2,7 @@
 title: HB-series 
 description: Specifications for the HB-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.reviewer: jushiman

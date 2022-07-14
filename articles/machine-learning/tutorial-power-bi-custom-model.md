@@ -10,9 +10,12 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/22/2021
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Tutorial: Power BI integration - Create the predictive model with a Jupyter Notebook (part 1 of 2)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. You also create a scoring script to define the input and output schema of the model for integration into Power BI.  In part 2, you use the model to predict outcomes in Microsoft Power BI.
 
@@ -25,25 +28,18 @@ In this tutorial, you:
 > * Write a scoring script that defines the input and output for easy integration into Microsoft Power BI.
 > * Deploy the model to a real-time scoring endpoint.
 
-There are three ways to create and deploy the model that you'll use in Power BI.  This article covers "Option A: Train and deploy models by using notebooks."  This option is a code-first authoring experience. It uses Jupyter notebooks that are hosted in Azure Machine Learning Studio. 
-
-But you could instead use one of the other options:
-
-* [Option B: Train and deploy models by using the Azure Machine Learning designer](tutorial-power-bi-designer-model.md). This low-code authoring experience uses a drag-and-drop user interface.
-* [Option C: Train and deploy models by using automated machine learning](tutorial-power-bi-automated-model.md). This no-code authoring experience fully automates data preparation and model training.
-
 
 ## Prerequisites
 
 - An Azure subscription. If you don't already have a subscription, you can use a [free trial](https://azure.microsoft.com/free/). 
-- An Azure Machine Learning workspace. If you don't already have a workspace, see [Create and manage Azure Machine Learning workspaces](./how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning workspace. If you don't already have a workspace, see [Create workspace resources](quickstart-create-resources.md).
 - Introductory knowledge of the Python language and machine learning workflows.
 
 ## Create a notebook and compute
 
 On the [**Azure Machine Learning Studio**](https://ml.azure.com) home page, select **Create new** > **Notebook**:
 
-:::image type="content" source="media/tutorial-power-bi/create-new-notebook.png" alt-text="Screenshot showing how to create a notebook.":::
+:::image type="content" source="media/tutorial-powerbi-custom-model/create-new-notebook.png" alt-text="Screenshot showing how to create a notebook.":::
  
 On the **Create a new file** page:
 
@@ -53,7 +49,7 @@ On the **Create a new file** page:
  
 Next, to run code cells, create a compute instance and attach it to your notebook. Start by selecting the plus icon at the top of the notebook:
 
-:::image type="content" source="media/tutorial-power-bi/create-compute.png" alt-text="Screenshot showing how to create a compute instance.":::
+:::image type="content" source="media/tutorial-powerbi-custom-model/create-compute.png" alt-text="Screenshot showing how to create a compute instance.":::
 
 On the **Create compute instance** page:
 
@@ -64,7 +60,7 @@ On the **Create compute instance** page:
 
 In the notebook, you might notice the circle next to **Compute** turned cyan. This color change indicates that the compute instance is being created:
 
-:::image type="content" source="media/tutorial-power-bi/creating.png" alt-text="Screenshot showing a compute being created.":::
+:::image type="content" source="media/tutorial-powerbi-custom-model/creating.png" alt-text="Screenshot showing a compute being created.":::
 
 > [!NOTE]
 > The compute instance can take 2 to 4 minutes to be provisioned.
@@ -79,7 +75,7 @@ np.sin(3)
 
 Then select Shift + Enter (or select Control + Enter or select the **Play** button next to the cell). You should see the following output:
 
-:::image type="content" source="media/tutorial-power-bi/simple-sin.png" alt-text="Screenshot showing the output of a cell.":::
+:::image type="content" source="media/tutorial-powerbi-custom-model/simple-sin.png" alt-text="Screenshot showing the output of a cell.":::
 
 Now you're ready to build a machine learning model.
 
@@ -151,7 +147,7 @@ print('Version:', model.version)
 
 You can also view the model in Azure Machine Learning Studio. In the menu on the left, select **Models**:
 
-:::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Screenshot showing how to view a model.":::
+:::image type="content" source="media/tutorial-powerbi-custom-model/model.png" alt-text="Screenshot showing how to view a model.":::
 
 ## Define the scoring script
 
@@ -274,7 +270,7 @@ ACI service creation operation finished, operation "Succeeded"
 
 You can also view the service in Azure Machine Learning Studio. In the menu on the left, select **Endpoints**:
 
-:::image type="content" source="media/tutorial-power-bi/endpoint.png" alt-text="Screenshot showing how to view the service.":::
+:::image type="content" source="media/tutorial-powerbi-custom-model/endpoint.png" alt-text="Screenshot showing how to view the service.":::
 
 We recommend that you test the web service to ensure it works as expected. To return your notebook, in Azure Machine Learning Studio, in the menu on the left, select **Notebooks**. Then copy the following code and paste it into a new *code cell* in your notebook to test the service.
 

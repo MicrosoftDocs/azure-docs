@@ -12,6 +12,9 @@ zone_pivot_groups: client-operating-system
 
 This article will discuss how to download the OSM client library to be used to operate and configure the OSM add-on for AKS, and how to configure the binary for your environment.
 
+> [!WARNING]
+> If you are using a Kubernetes version below 1.23.5, the OSM add-on installs version *1.0.0.* of OSM on your cluster, and you must use the OSM client library version *1.0.0* with the following commands.
+
 ::: zone pivot="client-operating-system-linux"
 
 [!INCLUDE [Linux - download and install client binary](includes/servicemesh/osm/open-service-mesh-binary-install-linux.md)]

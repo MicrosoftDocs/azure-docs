@@ -80,7 +80,7 @@ The [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycreden
 
 This means that you may use `ManagedIdentityCredential` in the same project as `DefaultAzureCredential` or `InteractiveBrowserCredential`, to authenticate a different part of the project.
 
-To use the default Azure credentials, you'll need the Azure Digital Twins instance's URL ([instructions to find](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)). You may also need an [app registration](./how-to-create-app-registration-portal.md) and the registration's [Application (client) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id).
+To use the default Azure credentials, you'll need the Azure Digital Twins instance's URL ([instructions to find](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)). You may also need an [app registration](./how-to-create-app-registration.md) and the registration's [Application (client) ID](./how-to-create-app-registration.md#collect-client-id-and-tenant-id).
 
 In an Azure function, you can use the managed identity credentials like this:
 
@@ -90,9 +90,9 @@ In an Azure function, you can use the managed identity credentials like this:
 
 The [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method is intended for interactive applications and will bring up a web browser for authentication. You can use this method instead of `DefaultAzureCredential` in cases where you require interactive authentication.
 
-To use the interactive browser credentials, you'll need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [Create an app registration with Azure Digital Twins access](./how-to-create-app-registration-portal.md). Once the app registration is set up, you'll need...
-* [the app registration's Application (client) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
-* [the app registration's Directory (tenant) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
+To use the interactive browser credentials, you'll need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [Create an app registration with Azure Digital Twins access](./how-to-create-app-registration.md). Once the app registration is set up, you'll need...
+* [the app registration's Application (client) ID](./how-to-create-app-registration.md#collect-client-id-and-tenant-id)
+* [the app registration's Directory (tenant) ID](./how-to-create-app-registration.md#collect-client-id-and-tenant-id)
 * [the Azure Digital Twins instance's URL](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
 Here's an example of the code to create an authenticated SDK client using `InteractiveBrowserCredential`.
@@ -125,7 +125,7 @@ When writing the Azure function, consider adding these variables and code to you
 
     Later, after publishing the function, you'll make sure the function's identity has permission to access the Azure Digital Twins APIs. For instructions on how to do so, skip ahead to [Assign an access role](#assign-an-access-role).    
 
-* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. *Don't* make this variable static inside your class.
+* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. _Don't_ make this variable static inside your class.
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
 
 * **A null check for _adtInstanceUrl_.** Add the null check and then wrap your function logic in a try/catch block to catch any exceptions.

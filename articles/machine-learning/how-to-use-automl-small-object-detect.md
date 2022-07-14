@@ -7,10 +7,12 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/13/2021
-
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Train a small object detection model with AutoML (preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -27,7 +29,7 @@ When tiling, each image is divided into a grid of tiles. Adjacent tiles overlap 
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
 * This article assumes some familiarity with how to configure an [automated machine learning experiment for computer vision tasks](how-to-auto-train-image-models.md). 
 
