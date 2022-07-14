@@ -54,7 +54,7 @@ Usage // The table we’re analyzing
 
 Looking at the resulting chart, we can see anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types. However, not all anomalies are easy to detect visually on a chart. We can use a KQL anomaly detection function to list all anomalies in our time series. 
 
-:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.gif" alt-text="An animated GIF showing a chart of the total data ingested by each table in the workspace each day, over 21 days. The cursor moves to highlight three usage anomalies on the chart."::: 
 
 > [!NOTE]
 > For more information about `make-series` syntax and usage, see [make-series operator](/azure/data-explorer/kusto/query/make-seriesoperator).
@@ -63,16 +63,16 @@ Looking at the resulting chart, we can see anomalies - for example, in the `Azur
 
 The `series_decompose_anomalies()` function takes a series of values as input and extracts anomalies.
 
-For each value
-
-> [!NOTE]
-> For more information about `series_decompose_anomalies()` syntax and usage, see [`series_decompose_anomalies()`](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction).
-
-Let's give the result set of our time series query as input to the `series_decompose_anomalies()` function.  
-    
-Replace the `render` operator in the last line of our previous query with the following lines of KQL:
+Let's give the result set of our time series query as input to the `series_decompose_anomalies()` function:  
 
 ```kusto
+let starttime = 21d; // The start date of the time series, counting back from the current date
+let endtime = 0d; // The end date of the time series, counting back from the current date
+let timeframe = 1d; // How often to sample data
+Usage // The table we’re analyzing
+| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 am of the first day and ending at 11:59 of the last day in the time range
+| where IsBillable == "true" // Include only billable data in the result set
+| make-series ActualCount=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
 | extend(anomalies, anomalyScore, expectedCount) = series_decompose_anomalies(ActualCount) // Extracts anomalous points with scores, the only parameter we pass here is the output of make-series, other parameters are default 
 | mv-expand ActualCount to typeof(double), TimeGenerated to typeof(datetime), anomalies to typeof(double),anomalyScore to typeof(double), expectedCount to typeof(long) // TODO
 | where anomalies != 0  // Return all positive and negative usage deviations from the expected count
@@ -80,9 +80,19 @@ Replace the `render` operator in the last line of our previous query with the fo
 | sort by abs(anomalyScore) desc;
 ```
 
-This query returns all usage anomalies for all tables:
+> [!NOTE]
+> For more information about `series_decompose_anomalies()` syntax and usage, see [`series_decompose_anomalies()`](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction).
+
+This query returns all usage anomalies for all tables in the last three weeks:
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
+
+Looking at the query results, you can see that the function: 
+
+- Calculates an expected daily usage for each table.
+- Compares actual daily usage day to expected usage.
+- Gives an anomaly score at each data point, indicating the extent of the deviation of actual usage from expected usage.
+- Identifies positive (`1`) and negative (`-1`) anomalies in each table.    
 
 1. Filter the `DataType` column for `AzureDiagnostics` 
 
