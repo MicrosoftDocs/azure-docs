@@ -76,10 +76,19 @@ If you select this option, customers are not charged for the first month of use.
 
 ### Choose who can see your plan
 
-You can configure each plan to be visible to everyone or to only a specific audience. You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID you assign. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file.
+You can configure each plan to be visible to everyone or to only a specific audience. 
+
+Private plans are good for testing your visual or making a special plan available only to a select group of customers. However, it’s important to remember that if you only configure  private plans for a visual:
+
+- They'll be hidden from everyone else. Therefore, if a visual is already available to the public, you can’t change it to private plan only.
+- They won’t be auto-updated, won’t appear in the store, and can’t be marked with a certification badge.
 
 > [!NOTE]
-> If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private.
+> If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private. 
+
+You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID you assign. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file.
+
+For more information, see [Plans and pricing for commercial marketplace offers](plans-pricing.md) and [Private offers in the Microsoft commercial marketplace](private-offers-api.md).
 
 #### Make your plan public
 
