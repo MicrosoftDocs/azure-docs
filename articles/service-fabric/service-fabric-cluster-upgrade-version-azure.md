@@ -2,8 +2,13 @@
 title: Manage Service Fabric cluster upgrades
 description: Manage when and how your Service Fabric cluster runtime is updated
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Manage Service Fabric cluster upgrades
 
 An Azure Service Fabric cluster is a resource you own, but it's partly managed by Microsoft. Here's how to manage when and how Microsoft updates your Azure Service Fabric cluster.
