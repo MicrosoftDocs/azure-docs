@@ -69,7 +69,7 @@ Add a role assignment to the host group with the Service Fabric Resource Provide
    New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Contributor" -Scope "<Host Group Id>"  
    ```
 
-or this role assignment can be defined in the resources section template using the Principal ID and role definition ID: 
+   or this role assignment can be defined in the resources section template using the Principal ID and role definition ID: 
 
    ```JSON
       "variables": {  
