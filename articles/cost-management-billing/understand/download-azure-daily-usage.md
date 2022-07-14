@@ -1,6 +1,6 @@
 ---
 title: View and download Azure usage and charges
-description: Learn how to download or view your Azure daily usage and charges, and see additional available resources.
+description: Learn how to download or view your Azure daily usage and charges, and see other available resources.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
 ms.author: banders
@@ -66,15 +66,15 @@ To view and download usage data for a billing profile, you must be a billing pro
 
 ### Download usage for open charges
 
-You can also download month-to-date usage for the current billing period, meaning the charges have not been billed yet.
+You can also download month-to-date usage for the current billing period, meaning the charges haven't been billed yet.
 
 1. Search for **Cost Management + Billing**.
 2. Select a billing profile.
-3. In the **Overview** blade, select **Download Azure usage and charges**.
+3. In the **Overview** area, select **Download Azure usage and charges**.
 
 ### Download usage for pending charges
 
-If you have a Microsoft Customer Agreement, you can download month-to-date usage for the current billing period. These usage charges that have not been billed yet.
+If you have a Microsoft Customer Agreement, you can download month-to-date usage for the current billing period. These usage charges that haven't been billed yet.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for *Cost Management + Billing*.

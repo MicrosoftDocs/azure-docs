@@ -33,7 +33,7 @@ If you want to get the latest cost data, we recommend you query at most once per
 
 Chunk your calls into small date ranges to get more manageable files that you can download over the network. For example, we recommend chunking by day or by week if you have a large Azure cost file month-to-month. If you have scopes with a large amount of cost data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download. For more information about Cost Management scopes, see [Understand and work with scopes](../costs/understand-work-scopes.md). After you download the data, use Excel to analyze data further with filters and pivot tables.
 
-If your dataset is more than two GB (or roughly two million rows) month-to-month, consider using [Exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
+If your dataset is more than 2 GB (or roughly 2 million rows) month-to-month, consider using [Exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
 
 ### Latency and rate limits
 
@@ -84,10 +84,10 @@ An example request for an ActualCost dataset for a specified date range is provi
 
 The available fields you can provide in the report request body are summarized below.
 
-- **metric** - The type of report requested. This can be either ActualCost or AmortizedCost. Not required. If the field is not specified the API will default to an ActualCost report.
-- **timePeriod** - The requested date range for your data. Not required. This parameter cannot be used alongside either the invoiceId or billingPeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter is not provided in the request body the API will return the current month's cost.
-- **invoiceId** - The requested invoice for your data. This parameter can only be used by Microsoft Customer Agreement customers. Additionally, it can only be used at the Billing Profile or Customer scope. This parameter cannot be used alongside either the billingPeriod or timePeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter is not provided in the request body the API will return the current month's cost.
-- **billingPeriod** - The requested billing period for your data. This parameter can be used only by Enterprise Agreement customers. Use the YearMonth(e.g. 202008) format. This parameter cannot be used alongside either the invoiceId or timePeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter is not provided in the request body the API will return the current month's cost.
+- **metric** - The type of report requested. It can be either ActualCost or AmortizedCost. Not required. If the field isn't specified, the API will default to an ActualCost report.
+- **timePeriod** - The requested date range for your data. Not required. This parameter can't be used alongside either the invoiceId or billingPeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter isn't provided in the request body the API will return the current month's cost.
+- **invoiceId** - The requested invoice for your data. This parameter can only be used by Microsoft Customer Agreement customers. Additionally, it can only be used at the Billing Profile or Customer scope. This parameter can't be used alongside either the billingPeriod or timePeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter isn't provided in the request body the API will return the current month's cost.
+- **billingPeriod** - The requested billing period for your data. This parameter can be used only by Enterprise Agreement customers. Use the YearMonth format. For example, 202008. This parameter can't be used alongside either the invoiceId or timePeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter isn't provided in the request body the API will return the current month's cost.
 
 **API response:**
 
