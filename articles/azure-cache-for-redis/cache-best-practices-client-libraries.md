@@ -18,14 +18,14 @@ Each client maintains its own reference documentation for its library. The clien
 
 Although we don't own or support any client libraries, we do recommend some libraries. Recommendations are based on popularity and whether there's an active online community to support and answer your questions. We only recommend using the latest available version, and upgrading regularly as new versions become available. These libraries are under active development and often release new versions with improvements to reliability and performance.
 
-|  **Client Library**  | **Language** |  **GitHub** **repo**                                  |          **Documentation**|
-| ---------------------|------------- |-------------------------------------------------------| --------------------------|
-|  StackExchange.Redis | C#/.NET     |  [Link](https://github.com/StackExchange/StackExchange.Redis) |  [More information here](https://stackexchange.github.io/StackExchange.Redis/) |
-|  Lettuce             |   Java      |  [Link](https://github.com/lettuce-io/)                       | [More information here](https://lettuce.io/) |
-|  Jedis               |  Java       |  [Link](https://github.com/redis/jedis)                       |                                              |
-|  node_redis          |   Node.js   |  [Link](https://github.com/redis/node-redi                    |                                              |
-|  Redisson            |  Java       |  [Link](https://github.com/redisson/redisson)                 | [More information here](https://redisson.org/) |
-|  ioredis             |  Node.js    |  [Link](https://github.com/luin/ioredis)                      |[More information here](https://ioredis.readthedocs.io/en/stable/API/) |
+| **Client Library**  | **Language** |  **GitHub** **repo**                                  |          **Documentation**|
+| --------------------|------------- |-------------------------------------------------------| --------------------------|
+| StackExchange.Redis | C#/.NET |  [https://github.com/StackExchange/StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)| [More information here](https://stackexchange.github.io/StackExchange.Redis/) |
+| Lettuce             | Java    |  [https://github.com/lettuce-io/](https://github.com/lettuce-io/)                       | [More information here](https://lettuce.io/) |
+| Jedis               | Java    |  [https://github.com/redis/jedis](https://github.com/redis/jedis)                       |                                              |
+| node_redis          | Node.js |   [https://github.com/redis/node-redis](https://github.com/redis/node-redis)            |                                              |
+| Redisson            | Java    |  [https://github.com/redisson/redisson](https://github.com/redisson/redisson)           | [More information here](https://redisson.org/) |
+| ioredis             | Node.js |  [https://github.com/luin/ioredis](https://github.com/luin/ioredis)                     | [More information here](https://ioredis.readthedocs.io/en/stable/API/) |
 
 > [!NOTE]
 > Your application can to connect and use your Azure Cache for Redis instance with any client library that can also communicate with open-source Redis.
