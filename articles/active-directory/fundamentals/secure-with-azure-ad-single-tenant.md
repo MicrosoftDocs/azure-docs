@@ -35,7 +35,7 @@ Global administrators can discover and obtain full access to any trusting resour
 
 You can also use administrative units (AU) in Azure AD to provide some level of administrative separation. Administrative units restrict permissions in a role to any portion of your organization that you define. You could, for example, use administrative units to delegate the [Helpdesk Administrator](../roles/permissions-reference.md) role to regional support specialists, so they can manage users only in the region that they support.
 
-![Image shows administrative units](media/secure-with-azure-ad-single-tenant/aad-administrative-units.png)
+![Diagram that shows administrative units.](media/secure-with-azure-ad-single-tenant/aad-administrative-units.png)
 
 Administrative Units can be used to separate [user, groups and device objects](../roles/administrative-units.md). Assignments of those units can be managed by [dynamic membership rules](../roles/admin-units-members-dynamic.md).
 
@@ -52,7 +52,7 @@ One of the most common uses for multiple environments in a single tenant is to s
 
 The following diagram illustrates the non-production environments and the production environment.
 
-![Image shows Azure AD tenant boundary](media/secure-with-azure-ad-single-tenant/aad-tenant-boundary.png)
+![Diagram that shows Azure AD tenant boundary.](media/secure-with-azure-ad-single-tenant/aad-tenant-boundary.png)
 
 In this diagram, there are non-production Azure resources and non-production instances Azure AD integrated applications with equivalent non-production directory objects. In this example, the non-production resources in the directory are used for testing purposes.
 
@@ -74,7 +74,7 @@ Azure RBAC allows you to design an administration model with granular scopes and
 >[!NOTE]
 >There are multiple ways to define the management hierarchy based on an organization's individual requirements, constraints, and goals. For more information, consult the Cloud Adoption Framework guidance on how to [Organize Azure Resources](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources)).
 
-![Image shows resource isolation in a single tenant](media/secure-with-azure-ad-single-tenant/aad-resource-hierarchy.png)
+![Diagram that shows resource isolation in a single tenant.](media/secure-with-azure-ad-single-tenant/aad-resource-hierarchy.png)
 
 * **Management group** - You can assign roles to specific management groups so that they don't impact any other management groups. In the scenario above, the HR team can define an Azure Policy to audit the regions where resources are deployed across all HR subscriptions.
 
