@@ -140,6 +140,10 @@ To continue to pin intermediate certificates, add the following to the pinned in
 
 If your application validates certificate in code, you need to modify it to recognize the properties --- for example, Issuers, Thumbprint --- of the newly pinned certificates. This extra verification should cover all pinned certificates to be more future-proof.
 
+## Client library-specific guidance
+
+For more information, see [Client libraries](cache-best-practices-client-libraries.md#client-libraries).
+
 ## Next steps
 
 - [Performance testing](cache-best-practices-performance.md)
