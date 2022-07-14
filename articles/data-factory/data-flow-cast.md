@@ -24,15 +24,15 @@ Use the cast transformation to easily modify the data types of individual column
 
 :::image type="content" source="media/data-flow/cast-transformation-001.png" alt-text="Rank settings":::
 
-**Column name:** If a sort column is of type string, case will be factored into the ranking. 
+To modify the data type for columns in your data flow, add columns to "Cast settings" using the plus (+) sign.
 
-**Type:** If enabled, the rank column will be dense ranked. Each rank count will be a consecutive number and rank values won't be skipped after a tie.
+**Column name:** Pick the column you wish to cast from your list of metadata columns.
 
-**Format:** The name of the rank column generated. This column will be of type long.
+**Type:** Choose the data type to cast your column to. If you pick "complex", you can then select "Define complex type" and define structures, arrays, and maps inside the expression builder.
 
-**Assert type check:** Choose which columns you're sorting by and in which order the sort happens. The order determines sorting priority.
+**Format:** Some data types, like decimal and dates, will allow for additional formatting options.
 
-The above configuration takes incoming basketball data and creates a rank column called 'pointsRanking'. The row with the highest value of the column *PTS* will have a *pointsRanking* value of 1.
+**Assert type check:** The cast transformation allows for type checking. If the casting fails, the row will be marked as an assertion error that you can trap later in the stream.
 
 ## Data flow script
 
