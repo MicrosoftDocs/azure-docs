@@ -57,7 +57,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
-    Under **Configure virtual network**, select **Create new** to create a new virtual network . In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
+    Under **Configure virtual network**, select **Create new** to create a new virtual network. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
@@ -217,9 +217,9 @@ Wait for the deployment to complete before proceeding to the next step.
 
 ## Edit your hosts file for name resolution
 
-After the application gateway is created with its public IP address, you can get the IP address and use it to edit your hosts file to resolve `www.contoso.com` and `www.fabrikam.com`. In a production environment, you could create a `CNAME` in DNS for name resolution.
+After the application gateway is created with its public IP address, you can get the IP address, and use it to edit your hosts file to resolve `www.contoso.com` and `www.fabrikam.com`. In a production environment, you could create a `CNAME` in DNS for name resolution.
 
-1. Click **All resources**, and then click **myAGPublicIPAddress**.
+1. Select **All resources**, and then select **myAGPublicIPAddress**.
 
     ![Record application gateway DNS address](./media/create-multiple-sites-portal/public-ip.png)
 
@@ -285,5 +285,14 @@ To restore the hosts file:
 
 ## Next steps
 
+In this tutorial, you:
+
+- Created an application gateway with listeners and rules based on two domains
+- Tested the application gateway after editing the host files of backend servers
+
+To learn more about hosting multiple sites, see [Application Gateway multiple site hosting](multiple-site-overview.md).
+
+To learn how to create and configure an Application Gateway with path-based routing rules using the Azure portal, advance to the next tutorial.
+
 > [!div class="nextstepaction"]
-> [Learn more about what you can do with Azure Application Gateway](./overview.md)
+> [Route by URL](create-url-route-portal.md)
