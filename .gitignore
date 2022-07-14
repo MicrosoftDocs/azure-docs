@@ -24,4 +24,4 @@ AzureMigration.ps1
 .gitignore
 **/.vscode/settings.json
 *.pdn
-.whatsnew/.azure-monitor.json
+articles/azure-monitor/.whatsnew
