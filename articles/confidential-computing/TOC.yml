@@ -1,4 +1,4 @@
-- name: Azure confidential computing
+- name: Azure Confidential Computing
   href: ./index.yml
 - name: Overview 
   expanded: true
