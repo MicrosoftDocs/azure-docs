@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/20/2020
+ms.date: 07/14/2022
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
@@ -33,12 +33,12 @@ The authority is a URL that indicates a directory that MSAL can request tokens f
 
 Common authorities are:
 
-| Common authority URLs | When to use |
-|--|--|
-| `https://login.microsoftonline.com/<tenant>/` | Sign in users of a specific organization only. The `<tenant>` in the URL is the tenant ID of the Azure Active Directory (Azure AD) tenant (a GUID), or its tenant domain. |
-| `https://login.microsoftonline.com/common/` | Sign in users with work and school accounts or personal Microsoft accounts. |
-| `https://login.microsoftonline.com/organizations/` | Sign in users with work and school accounts. |
-| `https://login.microsoftonline.com/consumers/` | Sign in users with personal Microsoft accounts (MSA) only. |
+| Common authority URLs                              | When to use                                                                                                                                                               |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `https://login.microsoftonline.com/<tenant>/`      | Sign in users of a specific organization only. The `<tenant>` in the URL is the tenant ID of the Azure Active Directory (Azure AD) tenant (a GUID), or its tenant domain. |
+| `https://login.microsoftonline.com/common/`        | Sign in users with work and school accounts or personal Microsoft accounts.                                                                                               |
+| `https://login.microsoftonline.com/organizations/` | Sign in users with work and school accounts.                                                                                                                              |
+| `https://login.microsoftonline.com/consumers/`     | Sign in users with personal Microsoft accounts (MSA) only.                                                                                                                |
 
 The authority you specify in your code needs to be consistent with the **Supported account types** you specified for the app in **App registrations** in the Azure portal.
 
@@ -50,8 +50,8 @@ The authority can be:
 
 Azure AD cloud authorities have two parts:
 
-- The identity provider *instance*
-- The sign-in *audience* for the app
+- The identity provider _instance_
+- The sign-in _audience_ for the app
 
 The instance and audience can be concatenated and provided as the authority URL. This diagram shows how the authority URL is composed:
 
@@ -59,7 +59,7 @@ The instance and audience can be concatenated and provided as the authority URL.
 
 ## Cloud instance
 
-The *instance* is used to specify if your app is signing users from the Azure public cloud or from national clouds. Using MSAL in your code, you can set the Azure cloud instance by using an enumeration or by passing the URL to the [national cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
+The _instance_ is used to specify if your app is signing users from the Azure public cloud or from national clouds. Using MSAL in your code, you can set the Azure cloud instance by using an enumeration or by passing the URL to the [national cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
 
 MSAL.NET will throw an explicit exception if both `Instance` and `AzureCloudInstance` are specified.
 
@@ -100,7 +100,7 @@ Currently, the only way to get an app to sign in users with only personal Micros
 
 ## Client ID
 
-The client ID is the unique application (client) ID assigned to your app by Azure AD when the app was registered.
+The client ID is the unique **Application (client) ID** assigned to your app by Azure AD when the app was registered.
 
 ## Redirect URI
 
@@ -110,19 +110,19 @@ The redirect URI is the URI the identity provider will send the security tokens 
 
 If you're a public client app developer who's using MSAL:
 
-- You'd want to use `.WithDefaultRedirectUri()` in desktop or UWP applications (MSAL.NET 4.1+). This method will set the public client application's redirect URI property to the default recommended redirect URI for public client applications.
+- You'd want to use `.WithDefaultRedirectUri()` in desktop or Universal Windows Platform (UWP) applications (MSAL.NET 4.1+). This method will set the public client application's redirect URI property to the default recommended redirect URI for public client applications.
 
-  | Platform | Redirect URI |
-  |--|--|
-  | Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` |
-  | UWP | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. This enables SSO with the browser by setting the value to the result of WebAuthenticationBroker.GetCurrentApplicationCallbackUri() which you need to register |
-  | .NET Core | `https://localhost`. This enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment. |
+  | Platform              | Redirect URI                                                                                                                                                                                                                         |
+  | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`                                                                                                                                                                       |
+  | UWP                   | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. This enables SSO with the browser by setting the value to the result of WebAuthenticationBroker.GetCurrentApplicationCallbackUri() which you need to register |
+  | .NET Core             | `https://localhost`. This enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment.                                                       |
 
 - You don't need to add a redirect URI if you're building a Xamarin Android and iOS application that doesn't support the broker redirect URI. It is automatically set to `msal{ClientId}://auth` for Xamarin Android and iOS.
 
 - Configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
 
-   ![Redirect URI in App registrations](media/msal-client-application-configuration/redirect-uri.png)
+  ![Redirect URI in App registrations](media/msal-client-application-configuration/redirect-uri.png)
 
 You can override the redirect URI by using the `RedirectUri` property (for example, if you use brokers). Here are some examples of redirect URIs for that scenario:
 
@@ -143,19 +143,14 @@ For daemon apps, you don't need to specify a redirect URI.
 This option specifies the client secret for the confidential client app. This secret (app password) is provided by the application registration portal or provided to Azure AD during app registration with PowerShell AzureAD, PowerShell AzureRM, or Azure CLI.
 
 ## Logging
+
 To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging is each library is covered in the following articles:
 
 :::row:::
-    :::column:::
-        - [Logging in MSAL.NET](msal-logging-dotnet.md)
-        - [Logging in MSAL for Android](msal-logging-android.md)
-        - [Logging in MSAL.js](msal-logging-js.md)
-    :::column-end:::
-    :::column:::
-        - [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
-        - [Logging in MSAL for Java](msal-logging-java.md)
-        - [Logging in MSAL for Python](msal-logging-python.md)
-    :::column-end:::
+:::column::: - [Logging in MSAL.NET](msal-logging-dotnet.md) - [Logging in MSAL for Android](msal-logging-android.md) - [Logging in MSAL.js](msal-logging-js.md)
+:::column-end:::
+:::column::: - [Logging in MSAL for iOS/macOS](msal-logging-ios.md) - [Logging in MSAL for Java](msal-logging-java.md) - [Logging in MSAL for Python](msal-logging-python.md)
+:::column-end:::
 :::row-end:::
 
 ## Next steps
