@@ -1,9 +1,9 @@
 ---
 title: Select a disk type for Azure IaaS VMs - managed disks
-description: Learn about the available Azure disk types for virtual machines, including ultra disks, premium SSDs, standard SSDs, and Standard HDDs.
+description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 07/08/2022
+ms.date: 07/13/2022
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
@@ -39,7 +39,7 @@ The following table provides a comparison of the five disk types to help you dec
 
 Azure ultra disks are the highest-performing storage option for Azure virtual machines (VMs). You can change the performance parameters of an ultra disk without having to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top-tier databases, and transaction-heavy workloads.
 
-Ultra disks must be used as data disks and can only be created as empty disks. You should use premium solid-state drives (SSDs) as operating system (OS) disks.
+Ultra disks must be used as data disks and can only be created as empty disks. You should use Premium solid-state drives (SSDs) as operating system (OS) disks.
 
 ### Ultra disk size
 
@@ -91,13 +91,13 @@ If you would like to start using ultra disks, see the article on [using Azure ul
 
 ## Premium SSD v2 (preview)
 
-Azure premium SSD v2 (preview) is designed for performance-sensitive workloads that consistently require less than 1 ms average read and write latency, high IOPS, and throughput. The IOPS and throughput of a premium SSD v2 A few example workloads that premium SSD v2 is suitable for are SQL server, Oracle, Cassandra, and Mongo DB.
+Azure Premium SSD v2 (preview) is designed for performance-sensitive workloads that consistently require less than 1 ms average read and write latency, high IOPS, and throughput. The IOPS and throughput of a Premium SSD v2 A few example workloads that Premium SSD v2 is suitable for are SQL server, Oracle, Cassandra, and Mongo DB.
 
 ### Premium SSD v2 limitations
 
-Premium SSD v2 can't be used as an OS disk, they can only be created as empty data disks. Premium SSD v2 also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery don't support premium SSD v2. In addition, only un-cached reads and un-cached writes are supported.
+Premium SSD v2 can't be used as an OS disk, they can only be created as empty data disks. Premium SSD v2 also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery don't support Premium SSD v2. In addition, only un-cached reads and un-cached writes are supported.
 
-The only infrastructure redundancy options currently available to premium SSD v2 are availability zones. VMs using any other redundancy options can't attach a premium SSD v2.
+The only infrastructure redundancy options currently available to Premium SSD v2 are availability zones. VMs using any other redundancy options can't attach a Premium SSD v2.
 
 Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 
@@ -107,21 +107,21 @@ Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size
 
 ### Premium SSD v2 performance
 
-Unlike other disk types, you can individually set the capacity, throughput, and IOPS of a premium SSD v2. Each of these values determine the cost of your disk. There is no dedicated sizes with premium SSD v2, but there are some limitations with how much performance is available to a disk of a particular capacity.
+Unlike other disk types, you can individually set the capacity, throughput, and IOPS of a Premium SSD v2. Each of these values determine the cost of your disk. There is no dedicated sizes with Premium SSD v2, but there are some limitations with how much performance is available to a disk of a particular capacity.
 
 #### Premium SSD v2 capacities
 
 Premium SSD v2 can have a capacity ranging from 1 GiB to 64 TiB. You're billed on a per GiB ratio, see the pricing page for details.
 
-Premium SSD v2 offers up to 32 TiB per region per subscription by default, but premium SSD v2 supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+Premium SSD v2 offers up to 32 TiB per region per subscription by default, but Premium SSD v2 supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
 #### Premium SSD v2 IOPS
 
-Each premium SSD v2 has 3,000 IOPS as an initial maximum. The capacity of a disk determines the maximum IOPS you can configure for your disk. For disks that are 1-6 GiB, the maximum you can set the IOPS to is 3,000 IOPS. After 6 GiB, the maximum you can set the IOPS to increases at a ratio of 500 IOPS per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on an disk, that disk must have at least 160 GiB.
+Each Premium SSD v2 has 3,000 IOPS as an initial maximum. The capacity of a disk determines the maximum IOPS you can configure for your disk. For disks that are 1-6 GiB, the maximum you can set the IOPS to is 3,000 IOPS. After 6 GiB, the maximum you can set the IOPS to increases at a ratio of 500 IOPS per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on an disk, that disk must have at least 160 GiB.
 
 #### Premium SSD v2 throughput
 
-Each premium SSD v2 must have at least 125 MBps throughput. The disk's IOPS determines the maximum throughput that can be set on a disk. The IOPS to throughput ratio is .25 MiB/s per IOPS. The maximium throughput a 6 GiB disk can set is 750 MB/s, whereas the maximum throughput an 8 GiB disk can set is 1,000 MB/s. The maximum throughput a 10 GiB disk can set is 1,200 MB/s, 1,200 is the maximum throughput supported for disks 10 GiB or larger.
+Each Premium SSD v2 must have at least 125 MBps throughput. The disk's IOPS determines the maximum throughput that can be set on a disk. The IOPS to throughput ratio is .25 MiB/s per IOPS. The maximium throughput a 6 GiB disk can set is 750 MB/s, whereas the maximum throughput an 8 GiB disk can set is 1,000 MB/s. The maximum throughput a 10 GiB disk can set is 1,200 MB/s, 1,200 is the maximum throughput supported for disks 10 GiB or larger.
 
 #### Summary
 
@@ -135,11 +135,11 @@ The following table provides a comparison of disk capacities and performance max
 |9     |4,500         |1,125         |
 |10 GiB - 62 TiB     |The maximum available IOPS increases by 500 per GiB, up to 80,000         |1200         |
 
-To deploy a premium SSD v2, see [Deploy a Premium SSD v2 (preview)](disks-deploy-premium-v2.md).
+To deploy a Premium SSD v2, see [Deploy a Premium SSD v2 (preview)](disks-deploy-premium-v2.md).
 
 ## Premium SSDs
 
-Azure premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads. To take advantage of the speed and performance of premium SSDs, you can migrate existing VM disks to premium SSDs. Premium SSDs are suitable for mission-critical production applications, but you can use them only with compatible VM series.
+Azure Premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads. To take advantage of the speed and performance of Premium SSDs, you can migrate existing VM disks to Premium SSDs. Premium SSDs are suitable for mission-critical production applications, but you can use them only with compatible VM series.
 
 To learn more about individual Azure VM types and sizes for Windows or Linux, including size compatibility for premium storage, see [Sizes for virtual machines in Azure](sizes.md). You'll need to check each individual VM size article to determine if it is premium storage-compatible.
 
@@ -154,7 +154,7 @@ Premium SSDs offer disk bursting, which provides better tolerance on unpredictab
 
 ### Premium SSD transactions
 
-For premium SSDs, each I/O operation less than or equal to 256 KiB of throughput is considered a single I/O operation. I/O operations larger than 256 KiB of throughput are considered multiple I/Os of size 256 KiB.
+For Premium SSDs, each I/O operation less than or equal to 256 KiB of throughput is considered a single I/O operation. I/O operations larger than 256 KiB of throughput are considered multiple I/Os of size 256 KiB.
 
 ## Standard SSDs
 
@@ -218,7 +218,7 @@ Refer to the [Azure Disks pricing page](https://azure.microsoft.com/pricing/deta
 
 ### Azure disk reservation
 
-Disk reservation provides you a discount on the advance purchase of one year's of disk storage, reducing your total cost. When you purchase a disk reservation, you select a specific disk SKU in a target region. For example, you may choose five P30 (1 TiB) premium SSDs in the Central US region for a one year term. The disk reservation experience is similar to Azure reserved VM instances. You can bundle VM and Disk reservations to maximize your savings. For now, Azure Disks Reservation offers one year commitment plan for premium SSD SKUs from P30 (1 TiB) to P80 (32 TiB) in all production regions. For more details about reserved disks pricing, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
+Disk reservation provides you a discount on the advance purchase of one year's of disk storage, reducing your total cost. When you purchase a disk reservation, you select a specific disk SKU in a target region. For example, you may choose five P30 (1 TiB) Premium SSDs in the Central US region for a one year term. The disk reservation experience is similar to Azure reserved VM instances. You can bundle VM and Disk reservations to maximize your savings. For now, Azure Disks Reservation offers one year commitment plan for Premium SSD SKUs from P30 (1 TiB) to P80 (32 TiB) in all production regions. For more details about reserved disks pricing, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Next steps
 
