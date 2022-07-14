@@ -41,8 +41,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | summarize by Computer, VMUUID
    ```
 
-   ---
-
 ### To remove the identified Azure or Non-Azure machine
 
 1. In the Azure portal, navigate to **Log Analytics workspaces**. Select your workspace from the list.
@@ -72,8 +70,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
     * **Save as computer Group** is selected
     * **Legacy category**: Updates
 
->[!NOTE]
->Machines are still shown after you have unenrolled them because we report on all machines assessed in the last 24 hours. After removing the machine, you need to wait 24 hours before they are no longer listed.
+> [!NOTE]
+> Machines are still shown after you have unenrolled them because we report on all machines assessed in the last 24 hours. After removing the machine, you need to wait 24 hours before they are no longer listed.
 
 ## Next steps
 
