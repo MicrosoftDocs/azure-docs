@@ -40,3 +40,4 @@ New for this release:
   - Permissions required to deploy the Arc data controller have been reduced to a least-privilege level.
   - When deployed via the Azure CLI, the Arc data controller is now installed via a K8s job that uses a helm chart to do the installation. There's no change to the user experience.
 
+---!>
