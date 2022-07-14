@@ -80,7 +80,7 @@ You can configure each plan to be visible to everyone (public) or to only a spec
 
 Private plans restrict the discovery and deployment of your solution to a specific set of customers you choose and offer customized software and pricing. You can provide specialized pricing and support custom scenarios, as well as early access to limited release software to such customers.
 
-Private plans are good for testing your visual or making a special plan available only to a select group of customers. However, it’s important to remember that if you only configure private plans for a visual:
+If you only configure private plans for a visual:
 
 - They'll be hidden from everyone else. Therefore, if a visual is already available to the public, you can’t change it to private plan only.
 - They won’t be auto-updated, won’t appear in the store, and can’t be marked with a certification badge.
