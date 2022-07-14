@@ -111,11 +111,11 @@ To get more refined results from the function, exclude the usage on the June 15 
 
 The [syntax of the `series_decompose_anomalies()` function](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) is:
 
-`series_decompose_anomalies (`*Series* `[, ` *Threshold*`,` *Seasonality*`,` *Trend*`, ` *Test_points*`, ` *AD_method*`,` *Seasonality_threshold* `])`
+`series_decompose_anomalies (Series[Threshold,Seasonality,Trend,Test_points,AD_method,Seasonality_threshold])`
 
-` *Test_points*` specifies the number of points at the end of the series to exclude from the learning (regression) process. 
+`Test_points ` specifies the number of points at the end of the series to exclude from the learning (regression) process. 
 
-To exclude the last data point, set ` *Test_points*` to `1`: 
+To exclude the last data point, set `Test_points` to `1`: 
 
 ```kusto
 let starttime = 21d; // Start date for the time series, counting back from the current date
