@@ -30,7 +30,7 @@ az sql mi-arc create --name <name> --resource-group <group>  --location <Azure l
 
 In this scenario, first the Azure ARM APIs are called and the mapped Azure resource is created. Once this mapped resource is created successfully, then the Kubernetes API is called to create the SQL managed instance on the Kubernetes cluster. 
 
-:::image type="content" source="media/resource-sync/resource-sync.png" alt-text="A flowchart demonstrate resource sync from Azure Data Studio or Azure CLI passes information to the Kubernetes API. Then the resource sync operator passes the information to the Azure ARM API.":::
+:::image type="content" source="media/resource-sync/resource-sync.png" alt-text="A flowchart demonstrating resource sync from Azure Data Studio or Azure CLI passing information to the Kubernetes API. Then the resource sync operator passes the information to the Azure ARM API.":::
 
 With the resource sync rule, you can use the Kubernetes API to create the Arc-enabled SQL managed instance, as follows:
 
