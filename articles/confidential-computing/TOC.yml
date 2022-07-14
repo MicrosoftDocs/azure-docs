@@ -86,6 +86,7 @@
       - name: Confidential enclave nodes FAQ
         href: confidential-nodes-aks-faq.yml
 - name: How To
+  expanded: true
   items:
   - name: Partner Solutions
     items:
