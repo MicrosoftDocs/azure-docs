@@ -59,7 +59,7 @@ Non-production environments are commonly referred to as sandbox environments.
 
 * Devices
 
-**Human identities** are user objects that generally represent people in an organization. These identities are either created and managed directly in Azure AD or are synchronized from an on-premises Active Directory to Azure AD for a given organization. These types of identities are referred to as **local identities**. There can also be user objects invited from a partner organization or a social identity provider using [Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b). In this content, we refer these types of identity as **external identities**.
+**Human identities** are user objects that generally represent people in an organization. These identities are either created and managed directly in Azure AD or are synchronized from an on-premises Active Directory to Azure AD for a given organization. These types of identities are referred to as **local identities**. There can also be user objects invited from a partner organization or a social identity provider using [Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b). In this content, we refer to these types of identity as **external identities**.
 
 **Non-human identities** include any identity not associated with a human. This type of identity is an object such as an application that requires an identity to run. In this content, we refer to this type of identity as a **workload identity**. Various terms are used to describe this type of identity, including [application objects and service principals](https://docs.microsoft.com/azure/marketplace/manage-aad-apps).
 
@@ -145,13 +145,13 @@ Azure AD also provides a portal and the Microsoft Graph API to allow organizatio
 
 **Reporting and analytics**. An important aspect of identity governance is visibility into user actions. Azure AD provides insights into your environment's security and usage patterns. These insights include detailed information on:
 
-* what your users access
+* What your users access
 
-* where they access it from
+* Where they access it from
 
-* the devices they use
+* The devices they use
 
-* applications used to access
+* Applications used to access
 
 Azure AD also provides information on the actions that are being performed within Azure AD, and reports on security risks. For more information, see [Azure Active Directory reports and monitoring](https://docs.microsoft.com/azure/active-directory/reports-monitoring/).
 
