@@ -7,6 +7,8 @@ items:
   items:
   - name: What is Azure Center for SAP solutions?
     href: overview.md
+  - name: Frequently asked questions (FAQ)
+    href: faq.yml
 
 
 - name: How-to guides
