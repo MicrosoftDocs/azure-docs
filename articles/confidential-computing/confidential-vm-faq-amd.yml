@@ -45,13 +45,25 @@ sections:
           With built-in [Azure Attestation](https://azure.microsoft.com/services/azure-attestation/) capabilities, you can independently establish trust in the security health and underlying infrastructure of your confidential VMs.
 
       - question: |
-          How do Azure confidential VMs (DCasv5/ECasv5) protect against host environments? 
+          How do Azure confidential VMs (DCasv5/ECasv5) offer better protection against threats originating from both within and outside Azure cloud infrastructure? 
         answer: |
-          Azure offers a best-in-class VM experience with security and protection. Azure confidential VMs offer a hardware-based TEE (Trusted Execution Environment) leveraging SEV-SNP to isolate and protect data in use. This feature means that both host admins and services (including the hypervisor) can't directly see the memory or CPU state of a VM. 
-          You can use the attestation capability, full OS disk encryption, and vTPM to protect a confidential VM's persistent state so that keys and data aren't exposed in clear to the hosting environment.
-          Customers can delete Azure VM agents to minimize exposure to potential malicious agent attack, and only opt-in to trusted agents needed for specific workloads or features. 
-          It is also recommended to customers to turn off serial console to limit the exposure. Today serial console is disabled by default for Azure confidential VMs created from Portal. Recommend only to enable serial console when it is needed. The state of serial console is reflected in platform attestation. 
+          Azure VMs already offer industry leading security and protection against other tenants and malicious intruders. 
+          Azure confidential VMs augment these protections by using hardware-based TEEs (Trusted Execution Environment) which leverage AMD’s SEV-SNP to cryptographically isolate and protect your data confidentiality and integrity even when they are in use. 
+          This means neither host admins, nor services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
+          Moreover, with full attestation capability, full OS disk ecnryption and hardeware-protected virtual Trusted Platform Modules, confidential VM persistent state is protected such that neither your private keys, nor are the contents of your memory are ever exposed to the hosting environment.
 
+      - question: |
+          Are the virtual disks attached to confidential VMs automatically protected?
+        answer: |
+        Currently OS disks for confidential VMs can be encrypted and secured. 
+        For additional security, you can enable guest level encryption (such as bitlocker or dm-crypt) for all data drives.
+        
+      - question: |
+          Does memory written to the Windows swap file (pagefile.sys) get protected by the TEE?
+        answer: |
+          Yes, but only if the pagefile.sys is located on the encrypted OS disk.
+          On confidential VMs with a temp desk, the pagefile.sys file can be moved to the encrypted OS [Tips for moving pagefile.sys to the c:\ drive](../virtual-machines/windows/change-drive-letter.md).
+                  
       - question: |
           How can I deploy Azure confidential VMs?
         answer: |
