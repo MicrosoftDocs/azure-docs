@@ -17,7 +17,7 @@ ms.custom: references_regions
 Azure managed disks currently offers five disk types, each intended to address a specific customer scenario:
 
 - Ultra disks
-- Premium SSD v2 (solid-state drives)
+- Premium SSD v2
 - Premium SSDs
 - Standard SSDs
 - Standard HDDs (hard disk drives)
@@ -29,7 +29,7 @@ The following table provides a comparison of the five disk types to help you dec
 |         | Ultra disk | Premium SSD v2 | Premium SSD | Standard SSD | <nobr>Standard HDD</nobr> |
 | ------- | ---------- | ----------- | ------------ | ------------ | ------------ |
 | **Disk type** | SSD | SSD |SSD | SSD | HDD |
-| **Scenario**  | IO-intensive workloads such as [SAP HANA](workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Prem V2 text | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
+| **Scenario**  | IO-intensive workloads such as [SAP HANA](workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
 | **Max disk size** | 65,536 gibibyte (GiB) | 65,536 GiB |32,767 GiB | 32,767 GiB | 32,767 GiB |
 | **Max throughput** | 4,000 MB/s | 1,200 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
 | **Max IOPS** | 160,000 | 80,000 | 20,000 | 6,000 | 2,000 |
@@ -91,15 +91,18 @@ If you would like to start using ultra disks, see the article on [using Azure ul
 
 ## Premium SSD v2 (preview)
 
-Azure premium SSD v2 (preview) is designed for performance-sensitive workloads that consistently require less than 1 ms average read and write latency, high IOPS, and throughput. The IOPS and throughput of a premium SSD v2 A few example workloads that premium SSD v2 is suitable for are SQL server, Oracle, Cassandra, and Mongo DB.
+Azure premium SSD v2 (preview) is designed for IO-Intensive enterprise production workloads that require sub-millisecond disk latencies as well as high IOPS and throughput at a low cost. You can take advantage of Premium SSD v2 for a broad range of production workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers.
 
 ### Premium SSD v2 limitations
 
-Premium SSD v2 can't be used as an OS disk, they can only be created as empty data disks. Premium SSD v2 also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery don't support premium SSD v2. In addition, only un-cached reads and un-cached writes are supported.
-
-The only infrastructure redundancy options currently available to premium SSD v2 are availability zones. VMs using any other redundancy options can't attach a premium SSD v2.
-
-Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
+1. Premium SSD v2 disks can be attached to zonal VMs only. Non-zonal VM configuration will be supported soon. 
+2. Premium SSD v2 disks cannot be attached to VMs in VM Scale Sets. It will be supported soon. 
+3. Snapshots and Azure Backup are not supported. It will be supported soon. 
+4. Premium SSD v2 disks cannot be attached to VMs with encryption at host enabled. It will be supported soon. 
+5. Premium SSD v2 disks cannot be attached to VMs in Availability Sets.
+6. Azure Disks Encryption is not supported for VMs with Premium SSD v2 disks. 
+7. Only un-cached reads and un-cached writes are supported.
+8. Azure Site Recovery is not supported for VMs with Premium SSD v2 disks. 
 
 #### Regional availability
 
@@ -107,21 +110,24 @@ Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size
 
 ### Premium SSD v2 performance
 
-Unlike other disk types, you can individually set the capacity, throughput, and IOPS of a premium SSD v2. Each of these values determine the cost of your disk. There is no dedicated sizes with premium SSD v2, but there are some limitations with how much performance is available to a disk of a particular capacity.
+With Premium SSD v2 disks, you can individually set the capacity, throughput, and IOPS of a disk based on your workload needs, providing you more flexibility and reduced costs. Each of these values determine the cost of your disk.  
 
 #### Premium SSD v2 capacities
 
-Premium SSD v2 can have a capacity ranging from 1 GiB to 64 TiB. You're billed on a per GiB ratio, see the pricing page for details.
+Premium SSD v2 can have a capacity ranging from 1 GiB to 64 TiB with 1 GiB increments. You're billed on a per GiB ratio, see the pricing page for details.
 
-Premium SSD v2 offers up to 32 TiB per region per subscription by default, but premium SSD v2 supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+Premium SSD v2 offers up to 32 TiB per region per subscription by default in the public preview, but premium SSD v2 supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
 #### Premium SSD v2 IOPS
 
-Each premium SSD v2 has 3,000 IOPS as an initial maximum. The capacity of a disk determines the maximum IOPS you can configure for your disk. For disks that are 1-6 GiB, the maximum you can set the IOPS to is 3,000 IOPS. After 6 GiB, the maximum you can set the IOPS to increases at a ratio of 500 IOPS per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on an disk, that disk must have at least 160 GiB.
+Each premium SSD v2 has a baseline IOPS of 3000 by default free of cost. The capacity of a disk determines the maximum IOPS you can configure for your disk. For disks that are 1-6 GiB, the maximum you can set the IOPS to is 3,000 IOPS. After 6 GiB, the maximum you can set the IOPS to increases at a ratio of 500 IOPS per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on an disk, that disk must have at least 160 GiB.
 
 #### Premium SSD v2 throughput
 
-Each premium SSD v2 must have at least 125 MBps throughput. The disk's IOPS determines the maximum throughput that can be set on a disk. The IOPS to throughput ratio is .25 MiB/s per IOPS. The maximium throughput a 6 GiB disk can set is 750 MB/s, whereas the maximum throughput an 8 GiB disk can set is 1,000 MB/s. The maximum throughput a 10 GiB disk can set is 1,200 MB/s, 1,200 is the maximum throughput supported for disks 10 GiB or larger.
+Each premium SSD v2 has a baseline throughput of 125 MBps by default free of cost. The disk's IOPS determines the maximum throughput that can be set on a disk. The IOPS to throughput ratio is .25 MiB/s per IOPS. The maximium throughput a 6 GiB disk can set is 750 MB/s, whereas the maximum throughput an 8 GiB disk can set is 1,000 MB/s. The maximum throughput a 10 GiB disk can set is 1,200 MB/s, 1,200 is the maximum throughput supported for disks 10 GiB or larger.
+
+### Premium SSD v2 Sector Sizes
+Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is also supported. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 
 #### Summary
 
