@@ -85,7 +85,7 @@ If there are technical constraints that don't make this possible and the same ac
 
 ## Resource assignment
 
-An enterprise solution may comprise of multiple Azure resources and its access should be managed and governed as a logical unit of assignment - a resource group. In that scenario, Azure AD security groups can be created and associated with the proper permissions and role assignment across all solution resources, so that adding or removing users from those groups results in allowing or denying access to the entire solution.
+An enterprise solution may be comprised of multiple Azure resources and its access should be managed and governed as a logical unit of assignment - a resource group. In that scenario, Azure AD security groups can be created and associated with the proper permissions and role assignment across all solution resources, so that adding or removing users from those groups results in allowing or denying access to the entire solution.
 
 We recommend you use security groups to grant access to Microsoft services that rely on licensing to provide access (for example, Dynamics 365, Power BI).
 
@@ -103,7 +103,7 @@ This section describes the checks to perform and actions to take for credential 
 
 #### Strong credentials
 
-All human identities (local accounts and external identities provisioned through B2B collaboration) in the isolated environment must be provisioned with strong authentication credentials such as Azure Multi-Factor Authentication or a FIDO key. Environments with an underlying on-premises infrastructure with strong authentication such as smart card authentication can continue using smart card authentication in the cloud.
+All human identities (local accounts and external identities provisioned through B2B collaboration) in the isolated environment must be provisioned with strong authentication credentials such as multi-factor authentication or a FIDO key. Environments with an underlying on-premises infrastructure with strong authentication such as smart card authentication can continue using smart card authentication in the cloud.
 
 #### Passwordless credentials
 
@@ -119,7 +119,10 @@ Users needing to change or reset their passwords is one of the biggest sources o
 
 #### External identities passwords
 
-By using Azure AD B2B collaboration, an [invitation and redemption process](../external-identities/what-is-b2b.md) lets external users such as partners, developers, and subcontractors use their own credentials to access your company's resources. This mitigates the need to introduce more passwords into the isolated tenants. Note, some applications, infrastructure, or workflows might require a local credential. Evaluate this on a case-by-case basis.
+By using Azure AD B2B collaboration, an [invitation and redemption process](../external-identities/what-is-b2b.md) lets external users such as partners, developers, and subcontractors use their own credentials to access your company's resources. This mitigates the need to introduce more passwords into the isolated tenants.
+
+>[!Note]
+>Some applications, infrastructure, or workflows might require a local credential. Evaluate this on a case-by-case basis.
 
 #### Service principals credentials
 
@@ -360,7 +363,7 @@ Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-acti
 
 The following diagram shows the different data sources that need to be incorporated as part of the monitoring strategy:
 
-![Monitoring strategy](media/secure-with-azure-ad-best-practices/human-identity-provisioning.png)
+![Screenshot shows monitoring strategy](media/secure-with-azure-ad-best-practices/human-identity-provisioning.png)
 
 Azure AD B2C tenants can be [integrated with Azure Monitor](../../active-directory-b2c/azure-monitor.md). We recommend monitoring of Azure AD B2C using the same criteria discussed above for Azure AD.
 
