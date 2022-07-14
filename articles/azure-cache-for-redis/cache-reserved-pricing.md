@@ -29,7 +29,7 @@ The size of reservation should be based on the total amount of memory size that 
 
 For example, let's suppose that you're running two caches - one at 13 GB and the other at 26 GB. You'll need both for at least one year. Further, let's suppose that you plan to scale the existing 13-GB caches to 26 GB for a month to meet your seasonal demand, and then scale back. In this case, you can purchase either one P2-cache and one P3-cache or three P2-caches on a one-year reservation to maximize savings. You'll receive discount on the total amount of cache memory you reserve, independent of how that amount is allocated across your caches.
 
-Reserved capacity is sold in increments of nodes. Each shard contains 2 nodes by default, so to buy reserved capacity for a shard buy 2 reserved capacity. For the number of nodes calculation, see "View Cost Calculation" on [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
+Reserved capacity is sold in increments of nodes. Each shard contains 2 nodes by default. To buy reserved capacity for a shard, you buy 2 reserved capacity. For the number of nodes calculation, see "View Cost Calculation" on [Pricing calculator](https://azure.microsoft.com/pricing/calculator/). For an explanation of the architecture of a cache, see [A quick summary of cache architecture](cache-failover.md#a-quick-summary-of-cache-architecture).
 
 ## Buy Azure Cache for Redis reserved capacity
 
