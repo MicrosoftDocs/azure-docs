@@ -31,7 +31,7 @@ landingContent:
             url: overview-azure-products.md
           - text: Choose your Confidential Computing offering
             url: use-cases-scenarios.md 
-      - linkListType: reference
+      - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
             url: ../attestation/overview.md
@@ -43,6 +43,10 @@ landingContent:
             url: ../key-vault/managed-hsm/index.yml
           - text: Azure IoT Edge
             url: ../iot-edge/deploy-confidential-applications.md
+      - linkListType: whats-new
+        links:
+          - text: What's new?
+            url: https://techcommunity.microsoft.com/t5/azure-confidential-computing/bg-p/AzureConfidentialComputingBlog
   # Card (optional)
   - title: Confidential Virtual Machines
     linkLists:
@@ -70,16 +74,19 @@ landingContent:
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
 
   # Card
-  - title: Confidential Containers
+  - title: Container compute
     linkLists:
       - linkListType: overview
         links: 
-          -  text: Confidential containers
-             url: confidential-containers.md
-          -  text: App enclave-aware containers
-             url: enclave-aware-containers.md
-          -  text: Confidential Node Pools on AKS
-             url: confidential-nodes-aks-addon.md
+          - text: App enclave nodes in AKS
+            url: confidential-nodes-aks-overview.md
+          - text: Confidential Containers 
+            url: confidential-containers.md
+
+          # -  text: App enclave-aware containers
+          #    url: enclave-aware-containers.md
+          # -  text: Confidential Node Pools on AKS
+          #    url: confidential-nodes-aks-addon.md
           # - text: Confidential computing nodes on AKS (Azure Kubernetes Service)
           #   url: confidential-nodes-aks-overview.md
       - linkListType: quickstart
