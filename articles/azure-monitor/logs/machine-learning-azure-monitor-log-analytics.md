@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a time series 
 > * Identify anomalies in a time series 
-> * Configure the anomaly detection function to refine results
+> * Provide the anomaly detection function additional input to refine results
 > * Analyze the root cause of anomalies
 
 ## Prerequisites
@@ -95,7 +95,7 @@ Looking at the query results, you can see that the function:
 > [!NOTE]
 > For more information about `series_decompose_anomalies()` syntax and usage, see [`series_decompose_anomalies()`](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction).
 
-## Configure the anomaly detection function to refine results
+## Provide the anomaly detection function additional input to refine results
 
 Filter the results of the `series_decompose_anomalies()` query for anomalies in the `AzureDiagnostics` data type:
 
@@ -107,18 +107,13 @@ Compare these results with the chart from our first `make-series` query, where y
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with five anomalies highlighted."::: 
 
+The difference in results occurs because the `series_decompose_anomalies()` function scores anomalies relative to an the expected usage value, which the function calculates based on the full range of values in the input series.
 
+To get more refined results from the function, exclude the usage on the June 15 - which is an outlier compared to the other values in the series - from the function's learning process:
 
- 
-## Teach the Log Analytics machine learning algorithm to identify anomalies using the series_decompose_anomalies() function
-
-To get more accurate results, exclude the last day of June 15 with major outlier from the learning (training) process.
-
-For that replace series_decompose_anomalies(ActualUsage) in the query with the following:
-
+```kusto
 series_decompose_anomalies(ActualUsage,1.5,-1,'avg',1) // 1.5 is the threshold (anomalyscore threshold) [default], -1 is Autodetect seasonality [default], avg -  Define trend component as average of the series [default], 1 – number of points  at the end of the series to exclude from the learning process [default]
-
-
+```
 Get all usage anomalies for all data types.
 3.	Focus in on analyzing anomalies of the Azure Diagnostics data type. We’ll run anomaly detection and pattern recognition functions on Azure Diagnostics table to find out which resource caused anomalous usage. 
 
@@ -133,8 +128,3 @@ state that there are no resources to clean up in this section.
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
 > [Next steps button](contribute-how-to-mvc-tutorial.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
