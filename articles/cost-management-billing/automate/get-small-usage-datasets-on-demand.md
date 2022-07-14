@@ -64,7 +64,7 @@ Because of the change in how costs are represented, it's important to note that 
 ### Initial request to create report
 
 ```http
-POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/costdetails?api-version=2022-05-01
+POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/generateCostDetailsReport?api-version=2022-05-01
 ```
 
 **Request body:**
