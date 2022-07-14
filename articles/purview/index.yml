@@ -201,8 +201,8 @@ landingContent:
   - title: Master Data Management - MDM
     linkLists:
     - linkListType: how-to-guide
-    links:
-      - text: Profisee MDM Master Data Management
-        url: how-to-deploy-profisee-purview-integration.md
+      links:
+        - text: Profisee MDM Master Data Management
+          url: how-to-deploy-profisee-purview-integration.md
         
  
