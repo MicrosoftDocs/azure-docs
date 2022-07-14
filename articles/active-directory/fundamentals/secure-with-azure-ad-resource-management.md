@@ -55,7 +55,7 @@ Before any resource management request can be executed by Resource Manager, a se
 
 The following diagram summarizes the resource model we just described.
 
-![Image shows Azure resource management with ARM and Azure AD](media/secure-with-azure-ad-resource-management/resource-model.png)
+![Screenshot shows Azure resource management with ARM and Azure AD.](media/secure-with-azure-ad-resource-management/resource-model.png)
 
 **Azure Lighthouse** - [Azure Lighthouse](../../lighthouse/overview.md) enables resource management across tenants. Organizations can delegate roles at the subscription or resource group level to identities in another tenant.
 
