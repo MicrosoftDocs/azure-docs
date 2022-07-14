@@ -94,9 +94,9 @@ The following example claims parameter shows how a client application communicat
 Claims: {"access_token":{"xms_cc":{"values":["cp1"]}}}
 ```
 
-Those using MSAL library will use the following code:
-
 # [.NET](#tab/dotnet)
+
+Those using MSAL library will use the following code:
 
 ```c#
 _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
@@ -131,6 +131,8 @@ const msalConfig = {
     }
 }
 ```
+
+---
 
 An example of how the request to Azure AD will look like:
 
@@ -241,6 +243,8 @@ const isClientCapableOfClaimsChallenge = (accessTokenClaims) => {
     return false;
 }
 ```
+
+---
 
 ## Next steps
 
