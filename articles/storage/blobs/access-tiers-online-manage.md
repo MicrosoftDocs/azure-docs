@@ -84,6 +84,8 @@ When you upload a blob to Azure Storage, you have two options for setting the bl
 - You can explicitly specify the tier in which the blob will be created. This setting overrides the default access tier for the storage account. You can set the tier for a blob or set of blobs on upload to Hot, Cool, or Archive.
 - You can upload a blob without specifying a tier. In this case, the blob will be created in the default access tier specified for the storage account (either Hot or Cool).
 
+If you are uploading a new blob that uses an encryption scope, you cannot change the access tier for that blob.
+
 The following sections describe how to specify that a blob is uploaded to either the Hot or Cool tier. For more information about archiving a blob on upload, see [Archive blobs on upload](archive-blob.md#archive-blobs-on-upload).
 
 ### Upload a blob to a specific online tier
@@ -225,6 +227,8 @@ Use PowerShell, Azure CLI, or one of the Azure Storage client libraries to move 
 ### Change a blob's tier
 
 When you change a blob's tier, you move that blob and all of its data to the target tier. Calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is typically the best option when you are changing a blob's tier from a hotter tier to a cooler one.
+
+You cannot change the access tier for an existing blob that uses an encryption scope. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
 
 # [Portal](#tab/azure-portal)
 
