@@ -11,16 +11,21 @@ ms.date: 01/26/2022
 ms.topic: include
 ms.custom: include file
 ms.author: radubulboaca
+zone_pivot_groups: acs-web-ios-android
 ---
 
-## Join a room call
+# Quickstart: Join a room call
 
-To join a room call, set up your web application using the [Add voice calling to your client app](../../voice-video-calling/getting-started-with-calling.md) guide. Once you have an initialized and authenticated `callAgent`, you may specify a context object with the `roomId` property as the `room` identifier. To join the call, use the `join` method and pass the context instance.
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-```js
+::: zone pivot="platform-web"
+[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-call-web.md)]
+::: zone-end
 
-const context = { roomId: '<RoomId>' }
+::: zone pivot="platform-ios"
+[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-call-ios.md)]
+::: zone-end
 
-const call = callAgent.join(context);
-
-```
+::: zone pivot="platform-android"
+[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-call-android.md)]
+::: zone-end
