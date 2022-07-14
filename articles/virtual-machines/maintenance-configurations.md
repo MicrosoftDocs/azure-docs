@@ -48,13 +48,13 @@ Using this scope with maintenance configurations lets you decide when to apply u
 - A minimum of 5 hours is required for the maintenance window
 
 ### Guest
-This scope is integrated with [update management center](https://docs.microsoft.com/en-us/azure/update-center/overview) which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
+This scope is integrated with [update management center](../update-center/overview.md) which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
 
 - [Patch orchestration](automatic-vm-guest-patching.md#patch-orchestration-modes) for virtual machines need to be set to AutomaticByPlatform
 - A minimum of 1 hour and 10 minutes is required for the maintenance window.
 - There is no limit to the recurrence of your schedule 
 
-To learn more about this topic, checkout [update management center and scheduled patching](https://docs.microsoft.com/en-us/azure/update-center/scheduled-patching?tabs=schedule-updates-single-overview%2Cschedule-updates-scale-overview)
+To learn more about this topic, checkout [update management center and scheduled patching](../update-center/scheduled-patching.md)
  
 ## Management options
 
