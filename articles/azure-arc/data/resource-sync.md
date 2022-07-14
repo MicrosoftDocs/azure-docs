@@ -35,7 +35,7 @@ In this scenario, first the Azure ARM APIs are called and the mapped Azure resou
 With the resource sync rule, you can use the Kubernetes API to create the Arc-enabled SQL managed instance, as follows:
 
 ```azurecli
-az sql mi-arc create --name <name> -k <namespace> --use-k8s --storage-class-backups <RWX capable storageclass>
+az sql mi-arc create --name <name> --k8s-namespace <namespace> --use-k8s --storage-class-backups <RWX capable storageclass>
 ```
 
 In this scenario, the SQL managed instance is directly created in the Kubernetes cluster. The resource sync rule ensures that the equivalent resource in Azure is created as well. 
