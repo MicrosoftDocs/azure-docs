@@ -1,11 +1,14 @@
 ---
 title: Set up a Windows development environment
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Windows.
-author: peterpogorski
-ms.topic: conceptual
-ms.date: 06/16/2020
-ms.custom: sfrev, devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Prepare your development environment on Windows
 
 > [!div class="op_single_selector"]

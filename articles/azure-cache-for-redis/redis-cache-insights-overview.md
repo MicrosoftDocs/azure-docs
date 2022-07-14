@@ -1,9 +1,13 @@
 ---
 title: Azure Monitor for Azure Cache for Redis | Microsoft Docs
 description: This article describes the Azure Monitor for Azure Redis Cache feature, which provides cache owners with a quick understanding of performance and utilization problems.
+author: flang-msft
+ms.author: franlanglois
 ms.topic: conceptual
+ms.service: cache
 ms.date: 09/10/2020
 ms.reviewer: shijain
+ms.custom: subject-monitoring
 
 ---
 
@@ -43,7 +47,7 @@ To view the utilization and performance of your storage accounts across all of y
 
 1. Search for **Monitor**, and select **Monitor**.
 
-    ![Search box with the word "Monitor" and the Services search result that shows "Monitor" with a speedometer symbol](./media/cosmosdb-insights-overview/search-monitor.png)
+    ![Search box with the word "Monitor" and the Services search result that shows "Monitor" with a speedometer symbol](../azure-monitor/insights/media/cosmosdb-insights-overview/search-monitor.png)
 
 1. Select **Azure Cache for Redis**. If this option isn't present, select **More** > **Azure Cache for Redis**.
 
@@ -115,7 +119,7 @@ When you select **Failures** at the top of the page, the **Failures** table of t
 
 ### Metric definitions
 
-For a full list of the metric definitions that form these workbooks, check out the [article on available metrics and reporting intervals](../../azure-cache-for-redis/cache-how-to-monitor.md#create-your-own-metrics).
+For a full list of the metric definitions that form these workbooks, check out the [article on available metrics and reporting intervals](./cache-how-to-monitor.md#create-your-own-metrics).
 
 ## View from an Azure Cache for Redis resource
 
@@ -151,36 +155,36 @@ Selecting any of the other tabs for **Performance** or **Operations** opens the 
 
 ## Pin, export, and expand
 
-To pin any metric section to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md), select the pushpin symbol in the section's upper right.
+To pin any metric section to an [Azure dashboard](../azure-portal/azure-portal-dashboards.md), select the pushpin symbol in the section's upper right.
 
-![A metric section with the pushpin symbol highlighted](./media/cosmosdb-insights-overview/pin.png)
+![A metric section with the pushpin symbol highlighted](../azure-monitor/insights/media/cosmosdb-insights-overview/pin.png)
 
 To export your data into an Excel format, select the down arrow symbol to the left of the pushpin symbol.
 
-![A highlighted export-workbook symbol](./media/cosmosdb-insights-overview/export.png)
+![A highlighted export-workbook symbol](../azure-monitor/insights/media/cosmosdb-insights-overview/export.png)
 
 To expand or collapse all views in a workbook, select the expand symbol to the left of the export symbol.
 
-![A highlighted expand-workbook symbol](./media/cosmosdb-insights-overview/expand.png)
+![A highlighted expand-workbook symbol](../azure-monitor/insights/media/cosmosdb-insights-overview/expand.png)
 
 ## Customize Azure Monitor for Azure Cache for Redis
 
 Because this experience is built atop Azure Monitor workbook templates, you can select **Customize** > **Edit** > **Save** to save a copy of your modified version into a custom workbook.
 
-![A command bar with Customize highlighted](./media/cosmosdb-insights-overview/customize.png)
+![A command bar with Customize highlighted](../azure-monitor/insights/media/cosmosdb-insights-overview/customize.png)
 
 Workbooks are saved within a resource group in either the **My Reports** section or the **Shared Reports** section. **My Reports** is available only to you. **Shared Reports** is available to everyone with access to the resource group.
 
 After you save a custom workbook, go to the workbook gallery to open it.
 
-![A command bar with Gallery highlighted](./media/cosmosdb-insights-overview/gallery.png)
+![A command bar with Gallery highlighted](../azure-monitor/insights/media/cosmosdb-insights-overview/gallery.png)
 
 ## Troubleshooting
 
-For troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+For troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
 
 ## Next steps
 
-* Configure [metric alerts](../alerts/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerts that aid in detecting problems.
+* Configure [metric alerts](../azure-monitor/alerts/alerts-metric.md) and [service health notifications](../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerts that aid in detecting problems.
 
-* Learn the scenarios that workbooks support, how to author or customize reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md).
+* Learn the scenarios that workbooks support, how to author or customize reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).
