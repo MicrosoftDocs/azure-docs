@@ -84,17 +84,17 @@ To manage monitoring settings for a Backup vault, follow these steps:
 
 1. Go to the vault and click **Properties**.
 
-2. Locate the **Monitoring Settings** vault property and click **Update**.
+2. Locate the **Monitoring Settings** vault property and select **Update**.
 
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/rs-vault-monitoring-settings.png" alt-text="Screenshot for monitoring settings in Recovery Services vault.":::
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/rs-vault-monitoring-settings.png" alt-text="Screenshot showing to update monitoring settings in Recovery Services vault.":::
 
 3. In the context pane, select the appropriate options to enable/disable built-in Azure Monitor alerts for job failures depending on your requirement.
 
-	:::image type="content" source="./media/backup-azure-monitoring-laworkspace/rs-vault-job-failure-alert-setting.png" alt-text="Screenshot for monitoring settings in Recovery Services vault.":::
+	:::image type="content" source="./media/backup-azure-monitoring-laworkspace/rs-vault-job-failure-alert-setting.png" alt-text="Screenshot showing options to enable or disable built-in Azure Monitoring alerts.":::
 
 4. We also recommend you to select the checkbox **Use only Azure Monitor alerts**. By selecting this option, you are consenting to receive backup alerts only via Azure Monitor and you will stop receiving alerts from the older classic alerts solution. [Review the key differences between classic alerts and built-in Azure Monitor alerts](./move-to-azure-monitor-alerts.md).
 
-	:::image type="content" source="./media/backup-azure-monitoring-laworkspace/rs-vault-opt-out-classic-alerts.png" alt-text="Screenshot for monitoring settings in Recovery Services vault.":::
+	:::image type="content" source="./media/backup-azure-monitoring-laworkspace/rs-vault-opt-out-classic-alerts.png" alt-text="Screenshot showing the option to enable receiving backup alerts.":::
 
 5. Select **Update** to save the setting for the vault.
 
