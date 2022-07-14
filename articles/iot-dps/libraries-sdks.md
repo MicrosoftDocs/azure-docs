@@ -42,7 +42,20 @@ The DPS device SDKs provide implementations of the [Register](/rest/api/iot-dps/
 | Node.js|[npm](https://www.npmjs.com/package/azure-iot-provisioning-device) |[GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning)|[Samples](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples)|[Quickstart](./quick-create-simulated-device-x509.md?pivots=programming-language-nodejs&tabs=windows)|[Reference](/javascript/api/overview/azure/iothubdeviceprovisioning) |
 | Python|[pip](https://pypi.org/project/azure-iot-device/) |[GitHub](https://github.com/Azure/azure-iot-sdk-python)|[Samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-hub-scenarios)|[Quickstart](./quick-create-simulated-device-x509.md?pivots=programming-language-python&tabs=windows)|[Reference](/python/api/azure-iot-device/azure.iot.device.provisioningdeviceclient) |
 
-For resource-constrained devices, that is, devices with limited compute and memory resources, Microsoft provides embedded device SDKs implemented in C. To learn more, see the [IoT Device Development Documentation](../iot-develop/about-iot-sdks.md#embedded-device-sdks).
+> [!WARNING]
+> The **C SDK** listed above is **not** suitable for embedded applications due to its memory management and threading model. For embedded devices, refer to the [Embedded device SDKs](#embedded-device-sdks).
+
+### Embedded device SDKs
+
+These SDKs were designed and created to run on devices with limited compute and memory resources and are implemented using the C language.
+
+| RTOS | SDK | Source | Samples | Reference |
+| :-- | :-- | :-- | :-- | :-- | 
+| **Azure RTOS** | Azure RTOS Middleware | [GitHub](https://github.com/azure-rtos/netxduo) | [Quickstarts](quickstart-devkit-mxchip-az3166.md) | [Reference](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot) | 
+| **FreeRTOS** | FreeRTOS Middleware | [GitHub](https://github.com/Azure/azure-iot-middleware-freertos) | [Samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples) | [Reference](https://azure.github.io/azure-iot-middleware-freertos) |
+| **Bare Metal** | Azure SDK for Embedded C | [GitHub](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot) | [Samples](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/README.md) | [Reference](https://azure.github.io/azure-sdk-for-c) |
+
+Learn more about the IoT Hub device SDKs in the [IoT Device Development documentation](../iot-develop/about-iot-sdks.md).
 
 ## Service SDKs
 
