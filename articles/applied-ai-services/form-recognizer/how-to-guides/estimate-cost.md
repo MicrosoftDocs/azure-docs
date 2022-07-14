@@ -34,7 +34,7 @@ We'll start by looking at the page processing data for a given time period:
 
 ### Examine analyzed pages
 
-You can now take a dive deeper to see each model's analyzed pages:
+We can now take a deeper dive to see each model's analyzed pages:
 
 1. Under the **Monitoring** section, select **Metrics** from the left navigation menu.
 
@@ -64,7 +64,7 @@ You can now take a dive deeper to see each model's analyzed pages:
 
 ## Estimate price
 
-Now that we have the number of page processed data from the portal, we can use the Azure pricing calculator to estimate the cost:
+Now that we have the page processed data from the portal, we can use the Azure pricing calculator to estimate the cost:
 
 1. Sign in to [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) with the same credentials you use for the Azure portal.
 
