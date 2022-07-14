@@ -1348,17 +1348,17 @@ items:
     items:
     - name: Overview
       href: visualize/workbooks-overview.md 
-    - name: Getting started with workbooks
+    - name: Get started with workbooks
       href: visualize/workbooks-getting-started.md    
-    - name: Creating a workbook
+    - name: Create a new workbook
       items:
-        - name: Using workbook templates
+        - name: Create a workbook with a template
           href: visualize/workbooks-templates.md
-        - name: Creating a new workbook
+        - name: Create a new workbook
           href: visualize/workbooks-create-workbook.md
-        - name: Working with data sources
+        - name: Data sources
           href: visualize/workbooks-data-sources.md         
-        - name: Working with visualizations
+        - name: Visualizations
           items:
           - name: Overview
             href: visualize/workbooks-visualizations.md         
@@ -1384,7 +1384,7 @@ items:
             href: visualize/workbooks-renderers.md
           - name: Link actions
             href: visualize/workbooks-link-actions.md  
-        - name: Working with parameters
+        - name: Parameters
           items:
           - name: Workbook parameters
             href: visualize/workbooks-parameters.md
@@ -1408,7 +1408,7 @@ items:
           href: visualize/workbooks-commonly-used-components.md
         - name: Workbook result limits
           href: visualize/workbooks-limits.md   
-    - name: Integrating with other Azure services
+    - name: Integrate with other Azure services
       items:
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md
