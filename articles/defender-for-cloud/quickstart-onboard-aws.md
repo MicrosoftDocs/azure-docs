@@ -105,6 +105,10 @@ The native cloud connector requires:
 
 **To connect your AWS account to Defender for Cloud with a native connector**:
 
+1. If you have any classic connectors, [remove them](#remove-classic-connectors).
+
+    Using both the classic and native connectors can produce duplicate recommendations.
+
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. Navigate to **Defender for Cloud** > **Environment settings**.
