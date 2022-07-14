@@ -134,7 +134,7 @@ You must remove the Log Analytics agent yourself from any machines that are usin
 After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, you can [remove the VMInsights solution from the workspace](vminsights-configure-workspace.md#remove-vminsights-solution-from-workspace) which is no longer needed.
 
 > [!NOTE]
-> To check if you have any machines with both agents sending data to your Log Analytics workspace, run the following [log query](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md):
+> To check if you have any machines with both agents sending data to your Log Analytics workspace, run the following [log query](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md). This will show the last heartbeat for each computer. If a computer has both agents, then it will return two records each with a different `category`.  The Azure Monitor agent will have a `category` of *Azure Monitor Agent*. The Log Analytics agent will have a `category` of *Direct Agent*.
 >
 > ```KQL
 > Heartbeat
