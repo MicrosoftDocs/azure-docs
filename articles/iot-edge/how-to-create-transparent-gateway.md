@@ -75,7 +75,7 @@ If you don't have a device ready, you can create one in an Azure virtual machine
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
 >[!WARNING]
-> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an External virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md)
+> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an External virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
 
 A Windows device with IoT Edge for Linux on Windows installed.
 
@@ -120,10 +120,11 @@ If you created the certificates on a different machine, copy them over to your I
 Now you need to copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine to proceed with the next steps.
 
 1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
-1. Connect to the EFLOW virtual machine
+1. Connect to the EFLOW virtual machine.
     ```powershell
     Connect-EflowVm
     ```
+
 1. Create the certificates directory - You can select any of the writeable directories. For this tutorial, we'll use the _iotedge-user_ home folder.
     ```bash
     cd ~
@@ -132,11 +133,13 @@ Now you need to copy the certificates to the Azure IoT Edge for Linux on Windows
     mkdir certs
     mkdir private
     ```
-1. Exit the EFLOW VM connection
+
+1. Exit the EFLOW VM connection.
     ```bash
     exit
     ```
-1. Copy the certificates to the EFLOW virtual machine
+
+1. Copy the certificates to the EFLOW virtual machine.
     ```powershell
     # Copy the IoT Edge device CA certificates
     Copy-EflowVMFile -fromFile <path>\certs\iot-edge-device-ca-<cert name>-full-chain.cert.pem -toFile /home/iotedge-user/certs/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem -pushFile
@@ -145,6 +148,7 @@ Now you need to copy the certificates to the Azure IoT Edge for Linux on Windows
     # Copy the root CA certificate
     Copy-EflowVMFile -fromFile <path>\certs\azure-iot-test-only.root.ca.cert.pem -toFile /home/iotedge-user/certs/certs/azure-iot-test-only.root.ca.cert.pem -pushFile
     ```
+
 1. Connect to the EFLOW VM and change the permissions of the certificate files as the commands above copies the certificates with root only access permissions.
     ```powershell
     Invoke-EflowVmCommand "sudo chown -R iotedge /home/iotedge-user/certs/"
