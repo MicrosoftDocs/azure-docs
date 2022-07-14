@@ -96,6 +96,8 @@ Claims: {"access_token":{"xms_cc":{"values":["cp1"]}}}
 
 Those using MSAL library will use the following code:
 
+# [C#](#tab/C#)
+
 ```c#
 _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
  .WithDefaultRedirectUri()
@@ -114,6 +116,20 @@ Those using Microsoft.Identity.Web can add the following code to the configurati
     // ... 
     "ClientCapabilities": [ "cp1" ]
 },
+```
+# [JavaScript](#tab/JavaScript)
+
+Those using MSAL.js can add `clientCapabilities` property to the configuration object.
+
+```javascript
+const msalConfig = {
+    auth: {
+        clientId: 'Enter_the_Application_Id_Here', 
+        clientCapabilities: ["CP1"] // this lets the resource owner know that this client is capable of handling claims challenge.
+        // the remaining settings
+        // ... 
+    }
+}
 ```
 
 An example of how the request to Azure AD will look like:
@@ -185,7 +201,7 @@ This is how the app's manifest looks like after the **xms_cc** [optional claim](
 
 The API can then customize their responses based on whether the client is capable of handling claims challenge or not.
 
-An example in C#
+# [C#](#tab/C#)
 
 ```c#
 Claim ccClaim = context.User.FindAll(clientCapabilitiesClaim).FirstOrDefault(x => x.Type == "xms_cc");
@@ -197,6 +213,32 @@ else
 {
     // Throw generic exception
     throw new UnauthorizedAccessException("The caller does not meet the authentication bar to carry our this operation. The service cannot allow this operation");
+}
+```
+
+# [JavaScript](#tab/JavaScript)
+
+```javascript
+    const checkForRequiredAuthContext = (req, res, next, authContextId) => {
+    if (!req.authInfo['acrs'] || !req.authInfo['acrs'].includes(authContextId)) {
+        if (isClientCapableOfClaimsChallenge(req.authInfo)) {
+            
+          // Return formatted claims challenge as this client understands this
+
+        } else {
+            return res.status(403).json({ error: 'Client is not capable' });
+        }
+    } else {
+        next();
+    }
+}
+
+const isClientCapableOfClaimsChallenge = (accessTokenClaims) => {
+    if (accessTokenClaims['xms_cc'] && accessTokenClaims['xms_cc'].includes('CP1')) {
+        return true;
+    }
+
+    return false;
 }
 ```
 

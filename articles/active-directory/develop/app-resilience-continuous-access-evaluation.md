@@ -47,6 +47,8 @@ Your app would check for:
   - an "error" parameter with the value "insufficient_claims"
   - a "claims" parameter
 
+# [C#](#tab/C#)
+
 When these conditions are met, the app can extract and decode the claims challenge using MSAL.NET `WwwAuthenticateParameters` class.
 
 ```csharp
@@ -96,6 +98,68 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
 ```
 
 You can test your application by signing in a user to the application then using the Azure portal to Revoke the user's sessions. The next time the app calls the CAE enabled API, the user will be asked to reauthenticate.
+
+## Next steps
+
+- [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md) conceptual overview
+- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
+
+# [JavaScript](#tab/JavaScript)
+
+When these conditions are met, the app can extract the claims challenge from the API response header as follows: 
+
+```javascript
+const authenticateHeader = response.headers.get('www-authenticate');
+const claimsChallenge = authenticateHeader
+        .split(' ')
+        .find((entry) => entry.includes('claims='))
+        .split('claims="')[1]
+        .split('",')[0];
+```
+
+Your app would then use the claims challenge to acquire a new access token for the resource.
+
+```javascript
+let tokenResponse;
+
+try {
+
+    tokenResponse = await msalInstance.acquireTokenPopup({
+                    claims: window.atob(claimsChallenge), // decode the base64 string
+                    scopes: scopes,  // e.g ['User.Read', 'Contacts.Read']
+                    account: account, // current active account
+                });
+
+} catch (error) {
+
+    if (error instanceof BrowserAuthError) {
+
+        tokenResponse = await msalInstance.acquireTokenRedirect({
+                        claims: window.atob(claimsChallenge), // decode the base64 string
+                        scopes: scopes, // e.g ['User.Read', 'Contacts.Read']
+                        account: account, // current active account
+                    });
+    }
+
+}
+```
+
+Once your application is ready to handle the claim challenge returned by a CAE-enabled resource, you can tell Microsoft Identity your app is CAE-ready by adding a `clientCapabilities` property in the MSAL configuration.
+
+```javascript
+const msalConfig = {
+    auth: {
+        clientId: 'Enter_the_Application_Id_Here', 
+        clientCapabilities: ["CP1"] // this lets the resource owner know that this client is capable of handling claims challenge.
+        // the remaining settings
+        // ... 
+    }
+}
+
+const msalInstance = new PublicClientApplication(msalConfig);
+```
+
+You can test your application by signing in a user to the application and then using the Azure portal to Revoke the user's sessions. The next time the app calls the CAE-enabled API, the user will be asked to reauthenticate.
 
 ## Next steps
 
