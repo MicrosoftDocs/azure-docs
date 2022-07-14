@@ -3,8 +3,7 @@ title: Troubleshoot restore point failures
 description: Symptoms, causes, and resolutions of restore point failures related to agent, extension, and disks.
 ms.topic: troubleshooting
 ms.date: 07/13/2022
-ms.service: compute
-ms.reviewer: 
+ms.service: virtual-machines
 author: dikethir
 ms.author: dikethir
 ---
@@ -22,18 +21,18 @@ Most common restore point failures can be resolved by following the troubleshoot
 ### Step 1: Check the health of Azure VM
 
 - **Ensure Azure VM provisioning state is 'Running'**:
-  If the [VM provisioning state](states-billing.md) is in the **Stopped/Deallocated/Updating** state, then it will interfere with the restore point operation. In the Azure portal, go to **Virtual Machines** > **Overview** and check the VM status to ensure it's **Running**  and retry the restore point operation.
+  If the [VM provisioning state](states-billing.md) is in the **Stopped/Deallocated/Updating** state, it interferes with the restore point operation. In the Azure portal, go to **Virtual Machines** > **Overview** and ensure the VM status is **Running**  and retry the restore point operation.
 - **Review pending OS updates or reboots**: Ensure there are no pending OS updates or pending reboots on the VM.
 
 ### Step 2: Check the health of Azure VM Guest Agent service
 
 - **Ensure Azure VM Guest Agent service is started and up-to-date**:
   - On a Windows VM:
-    - Navigate to **services.msc** and ensure **Windows Azure VM Guest Agent service** is up and running. Also, ensure the [latest version](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) is installed. [Learn more](restore-point-troubleshooting-guide.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
+    - Navigate to **services.msc** and ensure **Windows Azure VM Guest Agent service** is up and running. Also, ensure the [latest version](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) is installed. [Learn more](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
     - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that's deployed to Azure.
     - Review the support matrix to check if VM runs on the [supported Windows operating system](concepts-restore-points.md#operating-system-support).
   - On Linux VM,
-    - Ensure the Azure VM Guest Agent service is running by executing the command `ps -e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. [Learn more](restore-point-troubleshooting-guide.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+    - Ensure the Azure VM Guest Agent service is running by executing the command `ps -e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. [Learn more](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
     - Ensure the [Linux VM agent dependencies on system packages](../virtual-machines/extensions/agent-linux.md#requirements) have the supported configuration. For example: Supported Python version is 2.6 and above.
     - Review the support matrix to check if VM runs on the [supported Linux operating system.](concepts-restore-points.md#operating-system-support).
 
@@ -49,7 +48,7 @@ Most common restore point failures can be resolved by following the troubleshoot
 
 Restore points use the VM Snapshot Extension to take an application consistent snapshot of the Azure virtual machine. Restore points install the extension as part of the first restore point creation operation.
 
-- **Ensure VMSnapshot extension isn't in a failed state**: Follow the steps in [Troubleshooting](restore-point-troubleshooting-guide.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to verify and ensure the Azure VM snapshot extension is healthy.
+- **Ensure VMSnapshot extension isn't in a failed state**: Follow the steps in [Troubleshooting](/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to verify and ensure the Azure VM snapshot extension is healthy.
 
 - **Check if antivirus is blocking the extension**: Certain antivirus software can prevent extensions from executing.
   
@@ -61,9 +60,9 @@ Restore points use the VM Snapshot Extension to take an application consistent s
   - If you're on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
   - If you've blocked access to `168.63.129.16` using the guest firewall or with a proxy, extensions will fail regardless of the above. Ports 80, 443, and 32526 are required, [Learn more](../virtual-machines/extensions/features-windows.md#network-access).
 
-- **Ensure DHCP is enabled inside the guest VM**: This is required to get the host or fabric address from DHCP for the restore point to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell and make sure the DHCP option inside the VM is enabled, [Learn more](restore-point-troubleshooting-guide.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
+- **Ensure DHCP is enabled inside the guest VM**: This is required to get the host or fabric address from DHCP for the restore point to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell and make sure the DHCP option inside the VM is enabled, [Learn more](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
 
-- **Ensure the VSS writer service is up and running**: Follow these steps To [Troubleshoot VSS writer issues](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
+- **Ensure the VSS writer service is up and running**: Follow these steps To [Troubleshoot VSS writer issues](/azure/backup/backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 
 ## DiskRestorePointUsedByCustomer - There is an active shared access signature outstanding for disk restore point
 
@@ -89,7 +88,7 @@ The Azure VM agent might be stopped, outdated, in an inconsistent state, or not 
 - In the Azure portal, go to **Virtual Machines** > **Settings** > **Properties** and ensure that the VM **Status** is **Running** and **Agent status** is **Ready**. If the VM agent is stopped or is in an inconsistent state, restart the agent.
   - For Windows VMs, [restart](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) the Guest Agent.
   - For Linux VMs, [restart](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) the Guest Agent.
-- In the Azure portal, go to **Virtual Machines** > **Settings** > **Extensions** and ensure all extensions are in **provisioning succeeded** state. If not, follow these [steps](#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
+- In the Azure portal, go to **Virtual Machines** > **Settings** > **Extensions** and ensure all extensions are in **provisioning succeeded** state. If not, follow these [steps](/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
 
 ## VMRestorePointInternalError/FailedToVerifyPowerStateFromFabric - Restore Point creation failed as power state of the VM was unavailable. Please retry the operation after some time.
 
@@ -158,35 +157,35 @@ If you are creating restore point for VM that has encrypted disks, you need to m
 **Error code**: OperationNotAllowed/OperationNotAllowedDisksNotAllocated <br>
 **Error message**: Operation 'Create Restore Point' is not allowed as disk(s) have not been allocated successfully. Please exclude these disk(s) using excludeDisks property and retry. <br>
 
-If anyone of the disks attached to the VM is not allocated properly the restore point will fail. You need to exclude these disks before triggering creation of restore point for the VM. If you are using ARM API to create restore point, to exclude a disk, add its identifier to the excludeDisks property in the request body. If you are using [CLI](../virtual-machines/virtual-machines-create-restore-points-cli?branch=release-restorepoints-ga#exclude-disks-when-creating-a-restore-point) or [PS](../virtual-machines/virtual-machines-create-restore-points-powershell?branch=release-restorepoints-ga#exclude-disks-from-the-restore-point) or [portal](../virtual-machines/virtual-machines-create-restore-points-portal?branch=release-restorepoints-ga#step-2-create-a-vm-restore-point) please set the respective parameters.
+If any one of the disks attached to the VM is not allocated properly, the restore point will fail. You need to exclude these disks before triggering creation of restore point for the VM. If you are using ARM API to create restore point, to exclude a disk, add its identifier to the excludeDisks property in the request body. If you are using [CLI](virtual-machines-create-restore-points-cli.md#exclude-disks-when-creating-a-restore-point), [PowerShell](virtual-machines-create-restore-points-powershell.md#exclude-disks-from-the-restore-point), or [Portal](virtual-machines-create-restore-points-portal#step-2-create-a-vm-restore-point), set the respective parameters.
 
 ## VMRestorePointClientError - Restore Point creation failed due to inadequate VM resources.
 
 **Error code**: VMRestorePointClientError <br>
-**Error message**: Restore Point creation failed due to inadequate VM resources. Increase VM resources by changing the VM size and retry the operation. To resize the virtual machine, refer https://azure.microsoft.com/blog/resize-virtual-machines/ <br>
+**Error message**: Restore Point creation failed due to inadequate VM resources. Increase VM resources by changing the VM size and retry the operation. To resize the virtual machine, see https://azure.microsoft.com/blog/resize-virtual-machines/. <br>
 
-Creating restore point requires enough compute resource to be available. If restore point creation with the above error you need resize the VM and choose a higher VM size. You follow the steps documented on [how to resize your VM](https://azure.microsoft.com/blog/resize-virtual-machines/). Once the VM is resized please retry the restore point operation.
+Creating restore point requires enough compute resource to be available. If the restore point was created with the above error you need resize the VM and choose a higher VM size. You follow the steps documented on [how to resize your VM](https://azure.microsoft.com/blog/resize-virtual-machines/). Once the VM is resized please retry the restore point operation.
 
 ## BadRequest/MinApiVersionRequired - This request can be made with api-version '2021-03-01' or newer
 
 **Error code**: BadRequest/MinApiVersionRequired <br>
 **Error message**: This request can be made with api-version '2022-03-01' or newer. <br>
 
-Restore points are supported only with API version 2022-03-01 or newer. If you are using REST APIs to create and manage restore points, please use the specified API version when calling the restore point API
+Restore points are supported only with the API version 2022-03-01 or newer. If you are using REST APIs to create and manage restore points, please use the specified API version when calling the restore point API
 
 ## OperationNotAllowed/RPCV2RestorePointForDiskTypeNotSupported - Creation of Restore Point of a Virtual Machine with Shared disks is not supported.
 
 **Error code**: VMRestorePointClientError <br>
 **Error message**: Creation of Restore Point of a Virtual Machine with Shared disks is not supported. You may exclude this disk from the restore point via excludeDisks property. <br>
 
-Restore points are currently not supported for shared disks. You need to exclude these disks before triggering creation of restore point for the VM. If you are using ARM API to create restore point, to exclude a disk, add its identifier to the excludeDisks property in the request body. If you are using [CLI](../virtual-machines/virtual-machines-create-restore-points-cli#exclude-disks-when-creating-a-restore-point) or [PS](../virtual-machines/virtual-machines-create-restore-points-powershell#exclude-disks-from-the-restore-point) or [portal](../virtual-machines/virtual-machines-create-restore-points-portal#step-2-create-a-vm-restore-point) please follow the respective steps.
+Restore points are currently not supported for shared disks. You need to exclude these disks before triggering creation of restore point for the VM. If you are using ARM API to create restore point, to exclude a disk, add its identifier to the excludeDisks property in the request body. If you are using [CLI](virtual-machines-create-restore-points-cli.md#exclude-disks-when-creating-a-restore-point), [PowerShell](virtual-machines-create-restore-points-powershell.md#exclude-disks-from-the-restore-point), or [Portal](virtual-machines-create-restore-points-portal.md#step-2-create-a-vm-restore-point), follow the respective steps.
 
 ## VMRestorePointClientError - Restore point creation failed due to no network connectivity on the virtual machine.
 
 **Error code**: VMRestorePointClientError<br>
-**Error message**: Restore Point creation failed due to no network connectivity on the virtual machine. Ensure that VM has network access. Either whitelist Azure datacenter IP ranges or setup a proxy server for network access. For more details, refer to  http://go.microsoft.com/fwlink/?LinkId=800034 . If you are already using proxy server, make sure that proxy server settings are configured correctly.<br>
+**Error message**: Restore Point creation failed due to no network connectivity on the virtual machine. Ensure that VM has network access. Either safelist Azure datacenter IP ranges or setup a proxy server for network access. For more details, see  https://go.microsoft.com/fwlink/?LinkId=800034 . If you are already using proxy server, make sure that proxy server settings are configured correctly.<br>
 
-After you trigger creation of restore point, compute service starts communicating with the VM snapshot extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a restore point failure might occur. Complete the following troubleshooting step, and then retry your operation:
+After you trigger creation of restore point, the compute service starts communicating with the VM snapshot extension to take a point-in-time snapshot. The following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a restore point failure might occur. Complete the following troubleshooting steps and retry your operation:
 
 ## InternalError / InternalExecutionError / InternalOperationError - An internal execution error occurred. Please retry later.
 
@@ -231,14 +230,7 @@ This error is reported from the IaaS VM. Take necessary actions as described in 
 ## AllocationFailed/ComputeAllocationFailureOnUpdateTenant - Restore points operation due to an error. For details, see restore point provisioning error Message details
 
 **Error code**: AllocationFailed/ComputeAllocationFailureOnUpdateTenant <br>
-**Error message**: Allocation failed. If you are trying to add a new VM to an Availability Set or update/resize an existing VM in an Availability Set, please note that such Availability Set allocation is scoped to a single cluster, and it is possible that the cluster is out of capacity. Please read more about improving likelihood of allocation success at http://aka.ms/allocation-guidance.
-
-This error is reported from the IaaS VM. Take necessary actions as described in the error message and retry the operation.
-
-## AllocationFailed/ComputeAllocationFailureOnUpdateTenant - Restore points operation due to an error. For details, see restore point provisioning error Message details
-
-**Error code**: AllocationFailed/ComputeAllocationFailureOnUpdateTenant <br>
-**Error message**: Allocation failed. If you are trying to add a new VM to an Availability Set or update/resize an existing VM in an Availability Set, please note that such Availability Set allocation is scoped to a single cluster, and it is possible that the cluster is out of capacity. Please read more about improving likelihood of allocation success at http://aka.ms/allocation-guidance.
+**Error message**: Allocation failed. If you are trying to add a new VM to an Availability Set or update/resize an existing VM in an Availability Set, please note that such Availability Set allocation is scoped to a single cluster, and it is possible that the cluster is out of capacity. Please read more about improving likelihood of allocation success at https://aka.ms/allocation-guidance.
 
 This error is reported from the IaaS VM. Take necessary actions as described in the error message and retry the operation.
 
