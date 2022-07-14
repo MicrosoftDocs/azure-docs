@@ -10,7 +10,47 @@ ms.date: 07/15/2022
 ms.custom: template-how-to
 ---
 
-Profisee-Purview Integration Deployment How-To Guide
+# Microsoft Purview - Profisee Integration
+Master Data Management (MDM) is a key pillar of any world class industry leading Unified Data Governance solution. Microsoft Purview now supports Master Data Management MDM with Partners such as Profisee, CluedIn, Tamr, Semarchy. This tutorial compiles reference and integration deployment materials at one place to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
+
+## What, why and how of MDM - Master Data Management ?
+Master data management (MDM) arose out of the necessity for businesses to improve the consistency and quality of their key data assets, such as product data, asset data, customer data, location data, etc. Many businesses today, especially global enterprises have hundreds of separate applications and systems (ie ERP, CRM) where data that crosses organizational departments or divisions can easily become fragmented, duplicated and most commonly out of date. When this occurs, answering even the most basic, but critical questions about any type of performance metric or KPI for a business accurately becomes a pain.
+Getting answers to basic questions such as “who are our most profitable customers?”, “what product(s) have the best margins?” or in some cases, “how many employees do we have”? become tough to answer – or at least with any degree of accuracy.
+Basically, the need for accurate, timely information is acute and as sources of data increase, managing it consistently and keeping data definitions up to date so all parts of a business use the same information is a never ending challenge.
+To meet this challenges, businesses turn to master data management (MDM).
+More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/)
+
+## Why Profisee?
+PROFISEE MDM SAAS: TRUE SAAS EXPERIENCE
+Fully managed instance of Profisee MDM hosted in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.
+
+- Platform and Management in One
+Leverage a true, end-to-end SaaS platform with one agreement and no third parties
+
+- Industry-leading Cloud Service
+Hosted on Azure for industry-leading scalability and availability
+
+- The Fastest Path to Trusted Data
+Leave the networking, firewalls and storage to us so you can deploy in minutes
+
+PROFISEE MDM: ULTIMATE PAAS FLEXIBILITY
+Complete deployment flexibility and control, using the most efficient and low-maintenance option — in any cloud-or on-prem.
+
+Modern Cloud Architecture
+Platform available as a containerized Kubernetes service
+
+Complete Flexibility & Autonomy
+Available in Azure, AWS, Google Cloud or on-premises
+
+Fast to Deploy, Easy to Maintain
+Fully containerized configuration streamlines patches and upgrades
+
+More Details on [Profisee MDM Benefits On Modern Cloud Architecture]([https://profisee.com/master-data-management-what-why-how-who/](https://profisee.com/our-technology/modern-cloud-architecture/)) and [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
+
+
+## Business & Technical Use Case 
+
+# Microsoft Purview - Profisee Integration SaaS Deployment on AKS Azure Kubernetes Infrastructure How-To Guide
 1. Create a managed identity in Azure.
 	You must have a Managed Identity created to run the deployment. This Managed Identity must have the following permissions when running a deployment. After it is done, the Managed Identity can be deleted. Based on your ARM template choices, you will need some or all of the following permissions assigned to your Managed Identity:
 		○ Contributor role to the Resource Group where AKS will be deployed. This can either be assigned directly to the Resource Group OR at Subscription level down.
