@@ -53,11 +53,7 @@
   - name: Capacity limits
     href: capacity-limits.md  
   - name: Cost management for labs
-    href: cost-management-guide.md
-  - name: Resiliency
-    items:
-    - name: Resiliency in Azure Lab Services
-      href: resiliency-in-azure-lab-services.md      
+    href: cost-management-guide.md  
 - name: Scenarios
   items:  
   - name: Use Lab Services for conducting classes
