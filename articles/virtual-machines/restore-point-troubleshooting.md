@@ -62,7 +62,7 @@ Restore points use the VM Snapshot Extension to take an application consistent s
   - If you're on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
   - If you've blocked access to `168.63.129.16` using the guest firewall or with a proxy, extensions will fail regardless of the above. Ports 80, 443, and 32526 are required, [Learn more](../virtual-machines/extensions/features-windows.md#network-access).
 
-- **Ensure DHCP is enabled inside the guest VM**: This is required to get the host or fabric address from DHCP for the restore point to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell and make sure the DHCP option inside the VM is enabled, [Learn more](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
+- **Ensure DHCP is enabled inside the guest VM**: This is required to get the host or fabric address from DHCP for the restore point to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell and make sure the DHCP option inside the VM is enabled. [Learn more](#the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken).
 
 - **Ensure the VSS writer service is up and running**: 
 
@@ -74,7 +74,7 @@ Restore points use the VM Snapshot Extension to take an application consistent s
 
 **Error message**: There is an active shared access signature outstanding for disk restore point. Call EndGetAccess before deleting the restore point.
 
-You cannot delete a restore point if there are active Shared Access Signatures (SAS) on any of the underlying disk restore points. Please end the shared access on the disk restore points and retry the operation.
+You can't delete a restore point if there are active Shared Access Signatures (SAS) on any of the underlying disk restore points. End the shared access on the disk restore points and retry the operation.
 
 ## OperationNotAllowed - Changes were made to the Virtual Machine while the operation 'Create Restore Point' was in progress.
 
@@ -90,7 +90,7 @@ Restore point creation will fail if there are changes being made in parallel to 
 
 **Error message**: Operation 'Create Restore Point' is not allowed as disk(s) have not been allocated successfully. Please exclude these disk(s) using excludeDisks property and retry. 
 
-If any one of the disks attached to the VM is not allocated properly, the restore point will fail. You need to exclude these disks before triggering creation of restore points for the VM. If you are using ARM API to create restore point, to exclude a disk, add its identifier to the excludeDisks property in the request body. If you are using [CLI](virtual-machines-create-restore-points-cli.md#exclude-disks-when-creating-a-restore-point), [PowerShell](virtual-machines-create-restore-points-powershell.md#exclude-disks-from-the-restore-point), or [Portal](virtual-machines-create-restore-points-portal.md#step-2-create-a-vm-restore-point), please set the respective parameters.
+If any one of the disks attached to the VM isn't allocated properly, the restore point will fail. You need to exclude these disks before triggering creation of restore points for the VM. If you're using ARM API to create a restore point, to exclude a disk, add its identifier to the excludeDisks property in the request body. If you're using [CLI](virtual-machines-create-restore-points-cli.md#exclude-disks-when-creating-a-restore-point), [PowerShell](virtual-machines-create-restore-points-powershell.md#exclude-disks-from-the-restore-point), or [Portal](virtual-machines-create-restore-points-portal.md#step-2-create-a-vm-restore-point), set the respective parameters.
 
 ## OperationNotAllowed - Creation of Restore Point of a Virtual Machine with Shared disks is not supported.
 
@@ -125,13 +125,13 @@ After you trigger a restore point operation, the compute service starts the job 
 
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
-**Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
+**Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken)**
 
-**Cause 4: [VM-Agent configuration options are not set (for Linux VMs)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+**Cause 4: [VM-Agent configuration options aren't set (for Linux VMs)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
 **Cause 5: [Application control solution is blocking IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
-This error could also occur when one of the extension failures puts the VM into provisioning failed state. If the above steps did not resolve your issue, then do the following:
+This error could also occur when one of the extension failures puts the VM into provisioning failed state. If the above steps didn't resolve your issue, then do the following:
  
  In the Azure portal, go to **Virtual Machines** > **Settings** > **Extensions** and ensure all extensions are in **provisioning succeeded** state. [Learn more](states-billing.md) about Provisioning states.
 
@@ -152,7 +152,7 @@ Restore point operations fail if the COM+ service is not running or if there are
 
 **Error message**: Restore Point creation failed due to insufficient memory available in COM+ memory quota. Please restart windows service "COM+ System Application" (COMSysApp). If the issue persists, restart the VM. 
 
-Restore point operations fail if there is insufficent memory in the COM+ service. Restarting the COM+ System Application service and the VM usually frees up the memory. Once restarted, retry the restore point operation.
+Restore point operations fail if there's insufficient memory in the COM+ service. Restarting the COM+ System Application service and the VM usually frees up the memory. Once restarted, retry the restore point operation.
 
 ## VMRestorePointClientError - Restore Point creation failed due to VSS Writers in bad state.
 
@@ -168,7 +168,7 @@ Restore point creation invokes VSS writers to flush in-memory IOs to the disk be
 
 **Error message**: Restore Point creation failed due to failure in installation of Visual C++ Redistributable for Visual Studio 2012. Please install Visual C++ Redistributable for Visual Studio 2012. If you are observing issues with installation or if it is already installed and you are observing this error, please restart the VM to clean installation issues. 
 
-Restore point operations require Visual C++ redistributable for Visual Studio 2021. Download Visual C++ Redistributable for Visual Studio 2012 and restart the VM before retrying the restore point operation.
+Restore point operations require Visual C++ Redistributable for Visual Studio 2021. Download Visual C++ Redistributable for Visual Studio 2012 and restart the VM before retrying the restore point operation.
 
 ## VMRestorePointClientError - Restore Point creation failed as the maximum allowed snapshot limit of one or more disk blobs has been reached. Please delete some existing restore points of this VM and then retry.
 
@@ -184,7 +184,7 @@ The number of restore points across the restore point collections and resource g
 
 **Error message**: Restore Point creation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator". 
 
-Please follow these steps to resolve this error:  
+Follow these steps to resolve this error:  
  - Open services.msc from an elevated command prompt
  - Make sure that **Log On As** value for **Distributed Transaction Coordinator** service is set to **Network Service** and the service is running. 
  - If this service fails to start, reinstall this service.
@@ -202,17 +202,17 @@ Creating a restore point requires enough compute resource to be available. If yo
 
 **Error code**: VMRestorePointClientError
 
-**Error message**: Restore Point creation failed due to no network connectivity on the virtual machine. Ensure that VM has network access. Either whitelist Azure datacenter IP ranges or setup a proxy server for network access. For more details, refer to  http://go.microsoft.com/fwlink/?LinkId=800034 . If you are already using proxy server, make sure that proxy server settings are configured correctly.
+**Error message**: Restore Point creation failed due to no network connectivity on the virtual machine. Ensure that VM has network access. Either allowlist the Azure datacenter IP ranges or setup a proxy server for network access. For more information, see https://go.microsoft.com/fwlink/?LinkId=800034. If you are already using proxy server, make sure that proxy server settings are configured correctly.
 
 After you trigger creation of restore point, the compute service starts communicating with the VM snapshot extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a restore point failure might occur. Complete the following troubleshooting step, and then retry your operation:
 
-**[The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**[The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken)**  
 
-## VMRestorePointClientError - RestorePoint creation failed since a concurrent 'Create RestorePoint' operation was trigerred on the VM.
+## VMRestorePointClientError - RestorePoint creation failed since a concurrent 'Create RestorePoint' operation was triggered on the VM.
 
 **Error code**: VMRestorePointClientError
 
-**Error message**: RestorePoint creation failed since a concurrent 'Create RestorePoint' operation was trigerred on the VM.
+**Error message**: RestorePoint creation failed since a concurrent 'Create RestorePoint' operation was triggered on the VM.
 
 Your recent restore point creation failed because there's already an existing restore point being created. You can't create a new restore point until the current restore point is fully created. Ensure the restore point creation operation currently in progress is completed before triggering another restore point creation operation.
  
@@ -249,7 +249,7 @@ After you trigger creation of restore point, the compute service starts communic
 
 - **Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).**  
 - **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).**  
-- **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).**  
+- **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken).**  
 - **Cause 4: [Compute service does not have permission to delete the old restore points because of a resource group lock](#remove_lock_from_the_recovery_point_resource_group).**
 - **Cause 5**: There's an extension version/bits mismatch with the Windows version you're running, or the following module is corrupt:
 
@@ -264,7 +264,7 @@ After you trigger creation of restore point, the compute service starts communic
      1. Search and run the **vcredist2013_x64** file to install.
   1. Retry the restore point operation.
 
-## OSProvisioningClientError - Restore points operation due to an error. For details, see restore point provisioning error Message details
+## OSProvisioningClientError - Restore points operation failed due to an error. For details, see restore point provisioning error Message details
 
 **Error code**: OSProvisioningClientError 
 
@@ -272,7 +272,7 @@ After you trigger creation of restore point, the compute service starts communic
 
 This error is reported from the IaaS VM. Take necessary actions as described in the error message and retry the operation.
 
-## AllocationFailed - Restore points operation due to an error. For details, see restore point provisioning error Message details
+## AllocationFailed - Restore points operation failed due to an error. For details, see restore point provisioning error Message details
 
 **Error code**: AllocationFailed
 
@@ -289,11 +289,11 @@ This error is reported from the IaaS VM. Take necessary actions as described in 
 
 The VM agent might have been corrupted, or the service might have been stopped. Reinstalling the VM agent helps get the latest version. It also helps restart communication with the service.
 
-1. Determine whether the Windows Azure Guest Agent service is running in the VM services (services.msc). Try to restart the Windows Azure Guest Agent service and initiate the restore point operation.
-2. If the Windows Azure Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Windows Azure Guest Agent service is installed.
-3. If the Windows Azure Guest Agent appears in **Programs and Features**, uninstall the Windows Azure Guest Agent.
+1. Determine whether the Microsoft Azure Guest Agent service is running in the VM services (services.msc). Try to restart the Microsoft Azure Guest Agent service and initiate the restore point operation.
+2. If the Microsoft Azure Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Microsoft Azure Guest Agent service is installed.
+3. If the Microsoft Azure Guest Agent appears in **Programs and Features**, uninstall the Microsoft Azure Guest Agent.
 4. Download and install the [latest version of the agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
-5. Verify that the Windows Azure Guest Agent services appear in services.
+5. Verify that the Microsoft Azure Guest Agent services appear in services.
 6. Retry the restore point operation.
 
 
@@ -354,7 +354,7 @@ The following conditions might cause the snapshot task to fail:
 | Cause | Solution |
 | --- | --- |
 | The VM status is reported incorrectly because the VM is shut down in Remote Desktop Protocol (RDP). | If you shut down the VM in RDP, check the portal to determine whether the VM status is correct. If it's not correct, shut down the VM in the portal by using the **Shutdown** option on the VM dashboard. |
-| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for restore point to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, you should configure it through the **Azure portal** or **PowerShell** and make sure the DHCP option inside the VM is enabled. [Learn more](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md) about setting up a static IP address with PowerShell.
+| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for restore point to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, you should configure it through the **Azure portal**, or **PowerShell** and make sure the DHCP option inside the VM is enabled. [Learn more](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md) about setting up a static IP address with PowerShell.
 
 ### Remove lock from the recovery point resource group
 
