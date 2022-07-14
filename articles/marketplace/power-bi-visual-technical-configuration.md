@@ -44,5 +44,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu.
 
 ## Next steps
 
-- If you enabled the “Managing license and selling with Microsoft” option on the _Offer setup_ page, go to [Create Power Bi visual plans](power-bi-visual-plans.md)
+- If you enabled the “Managing license and selling with Microsoft” option on the [Offer setup](power-bi-visual-offer-setup.md) page, go to [Create Power Bi visual plans](power-bi-visual-plans.md)
 - Otherwise, go to [Manage Power BI visual offer names](power-bi-visual-manage-names.md)
