@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: Man-MSFT
-ms.author: mafong
+author: aminsaied
+ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 07/10/2022
 ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1, event-tier1-build-2022

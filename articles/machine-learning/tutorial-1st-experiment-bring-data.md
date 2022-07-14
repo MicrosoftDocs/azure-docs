@@ -1,4 +1,4 @@
----
+tutorial-1st-experiment-hello-world.md---
 title: "Tutorial: Upload data and train a model"
 titleSuffix: Azure Machine Learning
 description: How to upload and use your own data in a remote training run. This is part 3 of a three-part getting-started series.
@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: Man-MSFT
-ms.author: mafong
+author: aminsaied
+ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 07/10/2022
 ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
