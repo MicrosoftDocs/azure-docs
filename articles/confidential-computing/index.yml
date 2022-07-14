@@ -31,6 +31,12 @@ landingContent:
             url: overview-azure-products.md
           - text: Choose your Confidential Computing offering
             url: use-cases-scenarios.md 
+      - linkListType: quickstart
+        links:
+          - text: Building confidential computing solutions
+            url: confidential-computing-solutions.md
+          - text: Deploying confidential computing solutions
+            url: confidential-computing-deployment-models
       - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
@@ -53,9 +59,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Confidential VM options on AMD
-            url: virtual-machine-solutions-amd.md
-          - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: confidential-vm-overview.md
+          - text: Virtual Machines based on AMD processors with SEV-SNP technology
+            url: virtual-machine-solutions-amd.md
       - linkListType: quickstart
         links:
           - text: Create an AMD confidential VM in the Azure portal
@@ -78,10 +84,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links: 
-          - text: App enclave nodes in AKS
-            url: confidential-nodes-aks-overview.md
-          - text: Confidential Containers 
-            url: confidential-containers.md
+        - text: Confidential Containers 
+          url: confidential-containers.md
+        - text: App enclave nodes in AKS
+          url: confidential-nodes-aks-overview.md
       - linkListType: quickstart
         links:
           - text: Choose your container offering
@@ -90,9 +96,9 @@ landingContent:
             url: confidential-enclave-nodes-aks-get-started.md
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
-          -  text: Confidential Node Pools on AKS
+          - text: Confidential Node Pools on AKS
             url: confidential-nodes-aks-addon.md
-     - linkListType: reference
+      - linkListType: reference
         links:
           - text: About Azure Kubernetes Service (AKS) 
             url: ..\aks\intro-kubernetes.md
