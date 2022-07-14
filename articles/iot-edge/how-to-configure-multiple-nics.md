@@ -14,7 +14,7 @@ ms.author: patricka
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-By default, the Azure IoT Edge for Linux on Windows (EFLOW) virtual machine has a single network interface card assigned. However, you can configure the EFLOW VM with multiple network interfaces. EFLOW supports attaching multiple network interfaces to the virtual machine. In some scenarios, you may have a networking division or separation into different network/zones. In order to connect the EFLOW virtual machine to the different networks, you may need to attach different network interface cards to the EFLOW virtual machine. 
+By default, the Azure IoT Edge for Linux on Windows (EFLOW) virtual machine has a single network interface card assigned. However, you can configure the EFLOW VM with multiple network interfaces. EFLOW supports attaching multiple network interfaces to the virtual machine. In some scenarios, you may have a networking division or separation into different network or zones. In order to connect the EFLOW virtual machine to the different networks, you may need to attach different network interface cards to the EFLOW virtual machine. 
 
 This article describes how to configure the Azure IoT Edge for Linux on Windows VM to support multiple NICs and connect to multiple networks. This process is divided into the following steps:
 
@@ -22,7 +22,7 @@ This article describes how to configure the Azure IoT Edge for Linux on Windows 
 - Create and assign a network endpoint
 - Check the VM network configurations
 
-For more information about 
+For more information about networking concepts and configurations, see [Azure IoT Edge for Linux on Windows Networking](./iot-edge-for-linux-on-windows-networking.md) and [How to configure Azure IoT Edge for Linux on Windows networking](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
 
 ## Prerequisites
 - A Windows device with EFLOW already set up. For more information on EFLOW installation and configuration, see [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](./how-to-provision-single-device-linux-on-windows-symmetric.md).
@@ -33,7 +33,7 @@ During the EFLOW VM deployment, the VM had a switched assigned for all the commu
 
 The following steps in this section show how to assign a network interface to the EFLOW virtual machine. Ensure that the virtual switch being used and the networking configuration aligns with your networking environment. For more information about networking concepts like type of switches, DHCP and DNS, see [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md).
 
-1. Open PowerShell in an elevated session. You can do so by opening the **Start** pane on Windows and typing in "PowerShell". Right-click the **Windows PowerShell** app that shows up and select **Run as administrator**.
+1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
 
 1. Check the virtual switch to be assigned to the EFLOW VM is available.
     ```powershell
@@ -47,8 +47,7 @@ The following steps in this section show how to assign a network interface to th
     ```powershell
     Add-EflowNetwork -Name "OnlineOPCUA" -SwitchType "External"
     ```
-
-    ![EFLOW attach virtual switch](./media/how-to-configure-multiple-nics/ps-cmdlet-add-eflow-network.png)
+    :::image type="content" source="./media/how-to-configure-multiple-nics/ps-cmdlet-add-eflow-network.png" alt-text="EFLOW attach virtual switch":::
 
 1. Check that the virtual switch was correctly assigned to the EFLOW VM.
     ```powershell
@@ -61,7 +60,7 @@ For more information about attaching a virtual switch to the EFLOW VM, see [Powe
 ## Create and assign a network endpoint
 Once the virtual switch was successfully assigned to the EFLOW VM, you need to create a networking endpoint assigned to virtual switch to finalize the network interface creation. If you're using Static IP, ensure to use the appropriate parameters: _ip4Address_, _ip4GatewayAddress_ and _ip4PrefixLength_.
 
-1. Open PowerShell in an elevated session. You can do so by opening the **Start** pane on Windows and typing in "PowerShell". Right-click the **Windows PowerShell** app that shows up and select **Run as administrator**.
+1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
 
 1. Create the EFLOW VM network endpoint
 
@@ -80,7 +79,7 @@ Once the virtual switch was successfully assigned to the EFLOW VM, you need to c
          Add-EflowEndpoint -Name "OnlineOPCUA" -SwitchType "External" -vEndpointName "OnlineOPCUA" -ip4Address "192.168.0.103" -ip4GatewayAddress "192.168.0.1" -ip4PrefixLength "24"
         ```
 
-        ![EFLOW attach network endpoint](./media/how-to-configure-multiple-nics/ps-cmdlet-add-eflow-endpoint.png)
+        :::image type="content" source="./media/how-to-configure-multiple-nics/ps-cmdlet-add-eflow-endpoint.png" alt-text="EFLOW attach network endpoint":::
 
 1. Check that the network endpoint was correctly created and assigned to the EFLOW VM.
     ```powershell
@@ -104,9 +103,9 @@ The final step is to make sure the networking configurations were applied correc
     ifconfig
     ``` 
     
-    The default interface _eth0_ it's the one used for all the VM management. You should see another interface, like _eth1, which is the new interface that was assigned to the VM. Following the examples above, if you previously assigned a new endpoint with the static IP 192.168.0.103 and
+    The default interface _eth0_ is the one used for all the VM management. You should see another interface, like _eth1, which is the new interface that was assigned to the VM. Following the examples above, if you previously assigned a new endpoint with the static IP 192.168.0.103 and
 
    ![EFLOW VM network interfaces](./media/how-to-configure-multiple-nics/ps-cmdlet-eflow-ifconfig.png)
 
 ## Next steps
-Follow the steps in [How to configure networking for Azure IoT Edge for Linux on Windows ](./how-to-configure-iot-edge-for-linux-on-windows-networking.md) to make sure all the networking configurations were applied correctly.
+Follow the steps in [How to configure networking for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md) to make sure all the networking configurations were applied correctly.
