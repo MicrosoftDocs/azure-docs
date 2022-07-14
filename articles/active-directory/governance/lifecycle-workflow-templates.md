@@ -13,7 +13,7 @@ ms.custom: template-concept
 # Lifecycle Workflow templates
 
 
-Lifecycle Workflows allows you to automate the lifecycle management process for your organization by creating workflows that contain both built-in tasks, and custom task extensions. These workflows, and the tasks within them, all fall into categories based on the Joiner-Mover-Leaver(JML) model of lifecycle management. To make this process even more efficient, Lifecycle Workflows also provide you templates, which you can use to quickly automate common parts of the lifecycle management process. These templates can be run out of the box as is, or you can customize them even further to match the requirements for users within your organization. In this article you'll get the complete list of workflow templates, common template parameters, default template parameters, and the list of compatible tasks for each template. For full task definitions, see [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md).
+Lifecycle Workflows allows you to automate the lifecycle management process for your organization by creating workflows that contain both built-in tasks, and custom task extensions. These workflows, and the tasks within them, all fall into categories based on the Joiner-Mover-Leaver(JML) model of lifecycle management. To make this process even more efficient, Lifecycle Workflows also provide you templates, which you can use to quickly automate common parts of the lifecycle management process. These templates can be run out of the box as is, or you can customize them even further to match the requirements for users within your organization. In this article you'll get the complete list of workflow templates, common template parameters, default template parameters for specific templates, and the list of compatible tasks for each template. For full task definitions, see [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md).
 
 
 ## Lifecycle Workflow Templates
@@ -49,7 +49,7 @@ The default specific parameters for the **Onboard pre-hire employee** template a
 |Category     | Joiner. **Can not be customized**.        |
 |Trigger Type     | Trigger and Scope Based. **Can not be customized**         |
 |Days from event     |  -7. **Customizable**       |
-|Row2     |  Before. **Can not be customized**       |
+|Event timing     |  Before. **Can not be customized**       |
 |Event User attribute     | EmployeeHireDate. **Can not be customized**       |
 |Scope type     | Rule based. **Can not be customized**        |
 |Rule    | (department eq 'Marketing'). **Customizable**        |
@@ -82,7 +82,7 @@ The default specific parameters for the **Onboard new hire employee** template a
 |Category     | Joiner. **Can not be customized**.        |
 |Trigger Type     | Trigger and Scope Based. **Can not be customized**         |
 |Days from event     |  0. **Customizable**       |
-|Row2     |  Before. **Can not be customized**       |
+|Event timing     |  Before. **Can not be customized**       |
 |Event User attribute     | EmployeeHireDate. **Can not be customized**       |
 |Scope type     | Rule based. **Can not be customized**        |
 |Rule    | (department eq 'Marketing'). **Customizable**        |
@@ -119,11 +119,11 @@ The current tasks are supported with the **Real-time employee termination** temp
 - Disable User Account
 - Enable User Account
 - Remove user from selected groups
-- Remove user from all groups
-- Delete User Account
+- **Remove user from all groups**
+- **Delete User Account**
 - Add User To Team
 - Remove user from selected Teams
-- Remove user from all Teams
+- **Remove user from all Teams**
 - Remove all licenses for a user
 - Run a Custom Task Extension
 

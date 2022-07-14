@@ -14,7 +14,6 @@ ms.custom: template-concept
 # Lifecycle workflow extensibility (Preview)
 
 
-
 Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of the built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to an external system as part of a Lifecycle workflow. By calling out to the external systems, you're able to create custom tasks for workflows. Lifecycle workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](/azure/logic-apps/logic-apps-overview).
 
 
@@ -40,7 +39,7 @@ The high-level steps for the Azure Logic Apps integration are as follows:
 - **Create a lifecycle workflow customTaskExtension which holds necessary information about the Azure Logic App**: Creating a custom task extension that references the configured Azure Logic App.
 - **Update or create a Lifecycle workflow with the “Run a custom task extension” task, referencing your created customTaskExtension**: Adding the newly created custom task extension to a new workflow, or updating the information to an existing workflow.
 
-For a complete guide on completing these steps, see: [Trigger Logic Apps based on custom task extensions](trigger-custom-task.md).
+For a complete guide on these steps, see: [Trigger Logic Apps based on custom task extensions](trigger-custom-task.md).
 
 ## Logic App parameters required for integration with the custom task extension
 
@@ -71,7 +70,7 @@ The parameters of the custom extension are:
 |resourceId     |  A string that is the application ID of your Logic Apps Managed Identity.        |
 
 
-Some of the parameters are dependent on what type of custom task extension you're running. For example, the **callbackConfiguration** argument isn't required if your custom task extension is a fire and forget custom task as a reply wouldn't be required for the workflow to continue.
+Some of the parameters are dependent on what type of custom task extension you're running. For example, the **callbackConfiguration** argument isn't required if your custom task extension is a fire and forget based scenario as the custom task needing a reply wouldn't be required for the workflow to continue.
 
 For an example of the custom task extension API, see [Linking Lifecycle Workflows with Logic Apps using Microsoft Graph](trigger-custom-task.md#linking-lifecycle-workflows-with-logic-apps-using-microsoft-graph).
 
