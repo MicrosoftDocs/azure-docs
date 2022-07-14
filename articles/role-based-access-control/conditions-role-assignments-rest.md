@@ -87,8 +87,8 @@ The following shows an example of the output:
         "scope": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
         "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'))",
         "conditionVersion": "2.0",
-        "createdOn": "2021-04-20T06:20:44.0205560Z",
-        "updatedOn": "2021-04-20T06:20:44.2955371Z",
+        "createdOn": "2022-07-20T06:20:44.0205560Z",
+        "updatedOn": "2022-07-20T06:20:44.2955371Z",
         "createdBy": null,
         "updatedBy": "{updatedById}",
         "delegatedManagedIdentityResourceId": null,
@@ -119,7 +119,6 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     }
 }
 ```
-
 
 ## List a condition
 

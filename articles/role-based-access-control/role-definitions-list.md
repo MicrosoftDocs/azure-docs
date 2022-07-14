@@ -400,11 +400,13 @@ The following shows an example of the output:
                         ],
                         "notActions": [
                             "Microsoft.CostManagement/exports/delete"
-                        ]
+                        ],
+                        "dataActions": [],
+                        "notDataActions": []
                     }
                 ],
-                "createdOn": "2020-02-21T04:49:13.7679452Z",
-                "updatedOn": "2020-02-21T04:49:13.7679452Z",
+                "createdOn": "2021-05-22T21:57:23.5764138Z",
+                "updatedOn": "2021-05-22T21:57:23.5764138Z",
                 "createdBy": "{createdByObjectId1}",
                 "updatedBy": "{updatedByObjectId1}"
             },
@@ -457,7 +459,7 @@ The following shows an example of the output:
     "properties": {
         "roleName": "Reader",
         "type": "BuiltInRole",
-        "description": "Lets you view everything, but not make any changes.",
+        "description": "View all resources, but does not allow you to make any changes.",
         "assignableScopes": [
             "/"
         ],
@@ -466,11 +468,13 @@ The following shows an example of the output:
                 "actions": [
                     "*/read"
                 ],
-                "notActions": []
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
             }
         ],
         "createdOn": "2015-02-02T21:55:09.8806423Z",
-        "updatedOn": "2019-02-05T21:24:35.7424745Z",
+        "updatedOn": "2021-11-11T20:13:47.8628684Z",
         "createdBy": null,
         "updatedBy": null
     },

@@ -77,11 +77,16 @@ The following shows an example of the output:
             "properties": {
                 "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
                 "principalId": "{objectId1}",
+                "principalType": "User",
                 "scope": "/subscriptions/{subscriptionId1}",
-                "createdOn": "2019-01-15T21:08:45.4904312Z",
-                "updatedOn": "2019-01-15T21:08:45.4904312Z",
+                "condition": null,
+                "conditionVersion": null,
+                "createdOn": "2022-01-15T21:08:45.4904312Z",
+                "updatedOn": "2022-01-15T21:08:45.4904312Z",
                 "createdBy": "{createdByObjectId1}",
-                "updatedBy": "{updatedByObjectId1}"
+                "updatedBy": "{updatedByObjectId1}",
+                "delegatedManagedIdentityResourceId": null,
+                "description": null
             },
             "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
             "type": "Microsoft.Authorization/roleAssignments",
