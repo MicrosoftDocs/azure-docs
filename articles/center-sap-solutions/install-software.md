@@ -327,4 +327,5 @@ If you encounter this problem, follow these steps:
 
 ## Next steps
 
-- [Create network for infrastructure deployment](prepare-network.md)
+- [Monitor SAP system from Azure portal](monitor-portal.md)
+- [Manage a VIS](manage-virtual-instance.md)

@@ -184,4 +184,4 @@ The configuration process for an example network might include:
     
 ## Next steps
 
-- [Learn more about ACSS and VIS resources](overview.md)
+- [Deploy S/4HANA infrastructure](deploy-s4hana.md)
