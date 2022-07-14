@@ -38,13 +38,13 @@ Use the following steps to renew the self-signed certificate.
 
 1. Go to your Automation account and select **Run As Accounts** in the account settings section.
 
-    :::image type="content" source="media/manage-runas-account/automation-account-properties-pane.png" alt-text="Automation account properties pane.":::
+    :::image type="content" source="media/manage-run-as-account/automation-account-properties-pane.png" alt-text="Automation account properties pane.":::
 
 1. On the **Run As Accounts** properties page, select either **Run As Account** or **Classic Run As Account** depending on which account you need to renew the certificate for.
 
 1. On the **Properties** page for the selected account, select **Renew certificate**.
 
-    :::image type="content" source="media/manage-runas-account/automation-account-renew-runas-certificate.png" alt-text="Renew certificate for Run As account.":::
+    :::image type="content" source="media/manage-run-as-account/automation-account-renew-run-as-certificate.png" alt-text="Renew certificate for Run As account.":::
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
@@ -98,6 +98,31 @@ For detailed steps for how to add role assignments, check out the following arti
 
 After assigning the Run As account to the role, in your runbook specify `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` to set the subscription context to use. For more information, see [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
+## Check role assignment for Azure Automation Run As account
+
+To check the role assigned to the Automation Run As account Azure AD, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Go to your Automation account and in **Account Settings**, select **Run as accounts**.
+1. Select **Azure Run as Account** to view the **Application ID**.
+
+    :::image type="content" source="media/manage-run-as-account/automation-run-as-app-id.png" alt-text="Screenshot that describes on how to copy application ID.":::
+
+1. Go to Azure portal and search for **Azure Active Directory**.
+1. On the **Active Directory Overview** page, **Overview** tab, in the search box, enter the Application ID.  
+
+    :::image type="content" source="media/manage-run-as-account/active-directory-app-id-inline.png" alt-text="Screenshot that describes application ID copied in the Overview tab." lightbox="media/manage-run-as-account/active-directory-app-id-expanded.png":::
+
+    In the **Enterprise applications** section, you will see the display name of your Run As Account.
+
+1. Select the application ID and in the properties page of that ID, go to **Overview** blade, **Properties**, and copy the name of the Enterprise application.
+1. Go to Azure portal and search for your **Subscription** and select your subscription.
+1. Go to **Access Control (IAM)**, **Role Assignment** and paste the name of the Enterprise application in the search box to view the App along with the role and scope assigned to it. 
+For example: in the screenshot below, the Run As Account Azure AD App has the Contributor access at the subscription level.
+
+    :::image type="content" source="media/manage-run-as-account/check-role-assignments-inline.png" alt-text="Screenshot that describes how to view the role and scope assigned to the enterprise application."  lightbox="media/manage-run-as-account/check-role-assignments-expanded.png":::
+
+
 ## Limit Run As account permissions
 
 To control the targeting of Automation against resources in Azure, you can run the [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) script. This script changes your existing Run As account service principal to create and use a custom role definition. The role has permissions for all resources except [Key Vault](../key-vault/index.yml).
@@ -120,7 +145,7 @@ You can determine if the service principal used by your Run As account assigned 
 1. Select **Azure Run As Account**.
 1. Select **Role** to locate the role definition that is being used.
 
-:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verify the Run As Account role." lightbox="media/manage-runas-account/verify-role-expanded.png":::
+:::image type="content" source="media/manage-run-as-account/verify-role.png" alt-text="Verify the Run As Account role." lightbox="media/manage-run-as-account/verify-role-expanded.png":::
 
 You can also determine the role definition used by the Run As accounts for multiple subscriptions or Automation accounts. Do this by using the [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) script in the PowerShell Gallery.
 
@@ -144,7 +169,7 @@ Some configuration items necessary for a Run As or Classic Run As account might 
 
 For such misconfiguration instances, the Automation account detects the changes and displays a status of *Incomplete* on the Run As Accounts properties pane for the account.
 
-:::image type="content" source="media/manage-runas-account/automation-account-runas-config-incomplete.png" alt-text="Incomplete Run As account configuration.":::
+:::image type="content" source="media/manage-run-as-account/automation-account-run-as-config-incomplete.png" alt-text="Incomplete Run As account configuration.":::
 
 When you select the Run As account, the account properties pane displays the following error message:
 
