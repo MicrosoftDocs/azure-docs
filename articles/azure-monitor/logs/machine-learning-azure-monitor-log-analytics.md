@@ -12,7 +12,7 @@ ms.date: 07/01/2022
 
 ---
 
-# Tutorial: Analyze log data with machine learning in Azure Monitor Log Analytics 
+# Tutorial: Analyze log data with machine learning in Log Analytics 
 
 Azure Monitor provides advanced data analysis capabilities, powered by Kusto, Microsoft's big data analytics cloud platform. The Kusto Query Language (KQL) includes a set of machine learning operators and plugins for time series analysis, anomaly detection and forecasting, and root cause analysis. 
 
@@ -60,7 +60,7 @@ Looking at the resulting chart, we can see anomalies - for example, in the `Azur
 > [!NOTE]
 > For more information about `make-series` syntax and usage, see [make-series operator](/azure/data-explorer/kusto/query/make-seriesoperator).
 
-## Find anomalies in the time series
+## Find anomalies in a time series
 
 The `series_decompose_anomalies()` function takes a series of values as input and extracts anomalies.
 
