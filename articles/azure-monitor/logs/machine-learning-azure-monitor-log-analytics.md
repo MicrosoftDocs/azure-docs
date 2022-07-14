@@ -110,7 +110,7 @@ The difference in results occurs because the `series_decompose_anomalies()` func
 To get more refined results from the function, exclude the usage on the June 15 - which is an outlier compared to the other values in the series - from the function's learning process:
 
 ```kusto
-series_decompose_anomalies(ActualUsage,1.5,-1,'avg',1) // 1.5 is the threshold (anomalyscore threshold) [default], -1 is Autodetect seasonality [default], avg -  Define trend component as average of the series [default], 1 – number of points  at the end of the series to exclude from the learning process [default]
+series_decompose_anomalies(ActualUsage,1.5,-1,'avg',1) // 1.5 is the threshold (AnomalyScore threshold) [default], -1 is Autodetect seasonality [default], avg -  Define trend component as average of the series [default], 1 – number of points  at the end of the series to exclude from the learning process [default]
 ```
 Get all usage anomalies for all data types.
 3.	Focus in on analyzing anomalies of the Azure Diagnostics data type. We’ll run anomaly detection and pattern recognition functions on Azure Diagnostics table to find out which resource caused anomalous usage. 
@@ -125,4 +125,4 @@ state that there are no resources to clean up in this section.
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
+> [Next steps button]()
