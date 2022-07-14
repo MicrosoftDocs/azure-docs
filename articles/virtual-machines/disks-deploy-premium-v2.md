@@ -27,11 +27,9 @@ Azure Premium SSD v2 (preview) is designed for IO-Intensive enterprise productio
 - [Sign-up](https://aka.ms/PremiumSSDv2PreviewForm) for the public preview.
 - Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-8.1.0). 
 
-## Determine region availability
+## Determine region availability programmatically
 
-### VMs using availability zones
-
-To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. To determine if your region, and zone support premium SSD v2, run the following command:
+To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. To determine regions, and zones support premium SSD v2, run the following command:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -59,36 +57,18 @@ Get-AzComputeResourceSku | where {$_.ResourceType -eq 'disks' -and $_.Name -eq '
 
 ---
 
-The response will be similar to the form below, where X is the zone to use for deploying in your chosen region. X could be either 1, 2, or 3.
+Now that you know the region and zone to deploy to, follow the deployment steps in this article to create a Premium SSD v2 disk and attach it to a VM.
 
-Preserve the **Zones** value, it represents your availability zone and you'll need it in order to deploy a Premium SSD v2.
-
-|ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
-|---------|---------|---------|---------|---------|---------|---------|
-|disks     |Premiumv2_LRS         |eastus         | X       |         |         |         |
-
-> [!NOTE]
-> If there was no response from the command, then the selected VM size is not supported with Premium SSD v2 in the selected region.
-
-Now that you know the region and zone to deploy to, follow the deployment steps in this article to either deploy a VM with a premium SSD v2 attached or attach a premium SSD v2 to an existing VM.
-
-## Create a Premium SSD v2
-
+## Create a Premium SSD v2 disk
 
 # [Azure CLI](#tab/azure-cli)
 
-You must create a VM using a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
-
+Create a Premium SSD v2 disk in a zone 
 
 ```azurecli-interactive
 diskName="yourDiskName"
 resourceGroupName="yourResourceGroupName"
 region="yourRegionName"
-vmName="yourVMName"
-vmImage="Win2016Datacenter"
-adminPassword="yourAdminPassword"
-adminUserName="yourAdminUserName"
-vmSize="Standard_D4s_v3"
 zone="yourZoneNumber"
 logicalSectorSize=4096
 
@@ -101,43 +81,17 @@ az disk create -n $diskName -g $resourceGroupName \
 --sku PremiumV2_LRS \
 --logical-sector-size $logicalSectorSize
 
-az vm create -n $vmName -g $resourceGroupName \
---image $vmImage \
---zone $zone \
---authentication-type password --admin-password $adminPassword --admin-username $adminUserName \
---size $vmSize \
---location $region \
---attach-data-disks $diskName
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
-You must create a VM using a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
+Create a Premium SSD v2 disk in a zone 
 
 ```powershell
-# Create a VM using a VM size that supports Premium Storage
-$resourceGroupName = "PremiumV2Testing"
-$vmName = "myVmWithPV2D2"
-$region = "swedencentral"
-$vmImage = "Win2016Datacenter"
-$vmSize = "Standard_D4s_v3"
-$zone = "1"
-$vmAdminUser = "cptadmin"
-$vmAdminPassword = ConvertTo-SecureString "" -AsPlainText -Force
-
-$credential = New-Object System.Management.Automation.PSCredential ($vmAdminUser, $vmAdminPassword);
-
-New-AzVm `
-    -ResourceGroupName $resourceGroupName `
-    -Name $vmName `
-    -Location $region `
-    -Zone $zone `
-    -Image $vmImage `
-    -Size $vmSize `
-    -Credential $credential
-
-# Create a Premium SSD v2 disk
-$diskName = "myPremiumv2Disk2"
+$resourceGroupName = "yourResourceGroupName"
+$region = "useast"
+$zone = "yourZoneNumber"
+$diskName = "yourDiskName"
 $diskSizeInGiB = 100
 $diskIOPS = 5000
 $diskThroughputInMBPS = 150
@@ -159,13 +113,57 @@ New-AzDisk `
 -DiskName $diskName `
 -Disk $diskconfig
 
+
+## Create a VM and attach a Premium SSD v2 data disk
+
+# [Azure CLI](#tab/azure-cli)
+
+You must create a VM using a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
+
+```azurecli-interactive
+vmName="yourVMName"
+vmImage="Win2016Datacenter"
+adminPassword="yourAdminPassword"
+adminUserName="yourAdminUserName"
+vmSize="Standard_D4s_v3"
+
+az vm create -n $vmName -g $resourceGroupName \
+--image $vmImage \
+--zone $zone \
+--authentication-type password --admin-password $adminPassword --admin-username $adminUserName \
+--size $vmSize \
+--location $region \
+--attach-data-disks $diskName
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+You must create a VM using a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
+
+```powershell
+
+$vmName = "yourVMName"
+$vmImage = "Win2016Datacenter"
+$vmSize = "Standard_D4s_v3"
+$vmAdminUser = "yourAdminUserName"
+$vmAdminPassword = ConvertTo-SecureString "yourAdminUserPassword" -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential ($vmAdminUser, $vmAdminPassword);
+
+New-AzVm `
+    -ResourceGroupName $resourceGroupName `
+    -Name $vmName `
+    -Location $region `
+    -Zone $zone `
+    -Image $vmImage `
+    -Size $vmSize `
+    -Credential $credential
+
 # Attach the disk to the VM
 $vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName
 $disk = Get-AzDisk -ResourceGroupName $resourceGroupName -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 ```
-
 ---
 
 ## Adjust disk performance
