@@ -99,7 +99,7 @@
     - name: Azure confidential VM
       items:
       - name: Key rotation for Azure confidential VMs
-        href: confidential-vm-cmk-keyrotation.md
+        href: key-rotation.ms.md
 
 - name: Resources
   items:
