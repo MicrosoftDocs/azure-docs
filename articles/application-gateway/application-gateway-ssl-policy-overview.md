@@ -76,7 +76,7 @@ If a TLS policy needs to be configured for your requirements, you can use a Cust
 > [!IMPORTANT]
 > - If you are using a custom SSL policy in Application Gateway v1 SKU (Standard or WAF), make sure that you add the mandatory cipher "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" to the list. This cipher is required to enable metrics and logging in the Application Gateway v1 SKU.
 > This is not mandatory for Application Gateway v2 SKU (Standard_v2 or WAF_v2).
-> - The cipher suites “TLS_AES_128_GCM_SHA256” and “TLS_AES_256_GCM_SHA384” with TLSv1.3 are not customizable. Hence, these are included by default when choosing a CustomV2 policy with minimum protocol version 1.2 or 1.3.
+> - The cipher suites “TLS_AES_128_GCM_SHA256” and “TLS_AES_256_GCM_SHA384” are mandatory for TLSv1.3. You need NOT mention these explicity when setting a CustomV2 policy with minimum protocol version 1.2 or 1.3 through [PowerShell](application-gateway-configure-ssl-policy-powershell.md) or CLI. Accordingly, these ciphers suites will not appear in the Get Details output, with an exception of Portal.
  
 
 ### Cipher suites
