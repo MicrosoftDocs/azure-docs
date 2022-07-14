@@ -78,11 +78,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 5. Click **set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type the URL:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.workable.com/signin`
 
 	> [!NOTE]
-	> The Reply URL value is not real. Update Reply URL value with the actual Reply URL. Contact [Workable Client support team](mailto:support@workable.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign on URL. Contact [Workable Client support team](mailto:support@workable.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
