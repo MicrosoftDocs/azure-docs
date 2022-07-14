@@ -36,7 +36,7 @@ To change the access tier of a blob, use the [azcopy set-properties](storage-ref
 
 **Syntax**
 
-`azcopy make 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=<access-tier>`
+`azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=<access-tier>`
 
 **Example**
 

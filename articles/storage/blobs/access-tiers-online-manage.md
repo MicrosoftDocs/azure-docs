@@ -5,7 +5,7 @@ description: Learn how to specify a blob's access tier when you upload it, or ho
 author: normesta
 
 ms.author: normesta
-ms.date: 03/02/2022
+ms.date: 07/13/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -88,6 +88,8 @@ When you upload a blob to Azure Storage, you have two options for setting the bl
 - You can explicitly specify the tier in which the blob will be created. This setting overrides the default access tier for the storage account. You can set the tier for a blob or set of blobs on upload to Hot, Cool, or Archive.
 - You can upload a blob without specifying a tier. In this case, the blob will be created in the default access tier specified for the storage account (either Hot or Cool).
 
+If you are uploading a new blob that uses an encryption scope, you cannot change the access tier for that blob.
+
 The following sections describe how to specify that a blob is uploaded to either the Hot or Cool tier. For more information about archiving a blob on upload, see [Archive blobs on upload](archive-blob.md#archive-blobs-on-upload).
 
 ### Upload a blob to a specific online tier
@@ -169,7 +171,7 @@ To upload a blob to a specific tier by using AzCopy, use the [azcopy copy](../co
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
 
 ```azcopy
-azcopy copy 'azcopy copy '<local-file-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier <blob-tier>
+azcopy copy '<local-file-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier <blob-tier>
 ```
 
 To upload a set of blobs to a specific tier by using AzCopy, refer to the local directory or local directory contents, and then append `--recursive=true` to the command.
@@ -177,13 +179,13 @@ To upload a set of blobs to a specific tier by using AzCopy, refer to the local 
 **Local directory example**
 
 ```azcopy
-azcopy copy 'azcopy copy '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier <blob-tier> --recursive=true
+azcopy copy '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier <blob-tier> --recursive=true
 ```
 
 **Local directory contents example**
 
 ```azcopy
-azcopy copy 'azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier <blob-tier> --recursive=true
+azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier <blob-tier> --recursive=true
 ```
 
 ---
@@ -250,7 +252,7 @@ N/A
 You can move a blob to a different online tier in one of two ways:
 
 - By changing the access tier.
-- By copying the blob from to a different online tier.
+- By copying the blob to a different online tier.
 
 For more information about each of these options, see [Setting or changing a blob's tier](access-tiers-overview.md#setting-or-changing-a-blobs-tier).
 
@@ -317,7 +319,7 @@ To change a blob's tier from Hot to Cool, use the [azcopy set-properties](..\com
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS tokenn because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
 
 ```azcopy
-azcopy make 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=cool
+azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=cool
 ```
 
 To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
