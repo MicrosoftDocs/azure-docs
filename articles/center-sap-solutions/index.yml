@@ -19,20 +19,20 @@ landingContent:
           - text: What is Azure Center for SAP solutions?
             url: overview.md
 
-  - title: Deploy and register
+  - title: Deploy
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Prepare network for deployment
             url: prepare-network.md
-          - text: Install SAP software in ACSS
-            url: install-software.md
           - text: Deploy S/4HANA infrastructure
             url: deploy-s4hana.md
+          - text: Install SAP software in ACSS
+            url: install-software.md
           - text: Register existing SAP system
             url: register-existing-system.md
 
-  - title: Configure
+  - title: Manage
     linkLists:
       - linkListType: how-to-guide
         links:
