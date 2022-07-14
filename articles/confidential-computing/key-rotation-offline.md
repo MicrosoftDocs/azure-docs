@@ -34,7 +34,7 @@ You can change the key that you're using for confidential VMs at any time. To ro
 
 In rare cases, the customer-managed key might not be rotated for all confidential VMs, even when all the VMs were stopped. If the customer-managed key isn't rotated, the Disk Encryption Set resource still contains a reference to the old key. In this state, some confidential VMs can have the new key and some can have the old key.
 
-To resolve this issue, repeat the steps to [update the Disk Encryption Set](#change-customer--managed-key).
+To resolve this issue, repeat the steps to [update the Disk Encryption Set](#change-customer-managed-key).
 
 ## Limitations
 
