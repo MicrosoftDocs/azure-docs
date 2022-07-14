@@ -49,7 +49,7 @@ To complete this quickstart you need:
     ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/java-docs-spring-hello-world.](../../media/quickstart-java/fork-details-java-docs-spring-hello-world-repo.png)
 
     >[!NOTE]
-    > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world
+    > This should take you to the new fork. Your fork URL will look something like this: `https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world`
 
 # [Tomcat](#tab/tomcat)
 
@@ -64,7 +64,7 @@ To complete this quickstart you need:
     ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/java-docs-spring-hello-world.](../../media/quickstart-java/fork-details-java-docs-spring-hello-world-repo.png)
 
     >[!NOTE]
-    > This should take you to the new fork. Your fork URL will look something like this: <`https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world`>
+    > This should take you to the new fork. Your fork URL will look something like this: `https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world`
 
 
 # [JBoss EAP](#tab/jbosseap)
@@ -80,7 +80,7 @@ To complete this quickstart you need:
     ![Screenshot of the Create a new fork page in GitHub for creating a new fork of agoncal/agoncal-application-petstore-ee7.](../../media/quickstart-java/fork-details-jboss-eap-sample-repo-agoncal-application-petstore-ee7.png)
 
     >[!NOTE]
-    > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/agoncal-application-petstore-ee7
+    > This should take you to the new fork. Your fork URL will look something like this: `https://github.com/YOUR_GITHUB_ACCOUNT_NAME/agoncal-application-petstore-ee7`
 
 ---
 
