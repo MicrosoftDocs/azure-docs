@@ -46,7 +46,7 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
     
 1. Select **Enable all** to enable all of the plans for Defender for Cloud.
 
-    :::image type="content" source="./media/enhanced-security-features-overview/pricing-tier-page.png" alt-text="Defender for Cloud's pricing page in the portal" lightbox="media/enhanced-security-features-overview/pricing-tier-page.png":::
+    :::image type="content" source="./media/enhanced-security-features-overview/pricing-tier-page.png" alt-text="Screenshot of the Defender for Cloud's pricing page in the Azure portal." lightbox="media/enhanced-security-features-overview/pricing-tier-page.png":::
     
 1. Select **Save**.
 
@@ -60,7 +60,7 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
 
     The Upgrade tab lists subscriptions and workspaces eligible for onboarding.
 
-    :::image type="content" source="./media/enable-enhanced-security/get-started-upgrade-tab.png" alt-text="Upgrade tab of the getting started page." lightbox="media/enable-enhanced-security/get-started-upgrade-tab.png"::: 
+    :::image type="content" source="./media/enable-enhanced-security/get-started-upgrade-tab.png" alt-text="Screenshot of the upgrade tab of the getting started page." lightbox="media/enable-enhanced-security/get-started-upgrade-tab.png"::: 
 
 1. Select the desired subscriptions and workspace from the list.
 
@@ -98,7 +98,7 @@ If you need to disable the enhanced security features for a subscription, you wi
 
 1. Find the plan you wish to turn off and select **Off**.
 
-    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Enable or disable Defender for Cloud's enhanced security features." lightbox="media/enable-enhanced-security/disable-plans.png":::
+    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Screenshot that shows you how to enable or disable Defender for Cloud's enhanced security features." lightbox="media/enable-enhanced-security/disable-plans.png":::
 
     > [!NOTE]
     > After you disable enhanced security features - whether you disable a single plan or all plans at once - data collection may continue for a short period of time. 
