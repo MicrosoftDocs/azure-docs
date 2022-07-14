@@ -18,7 +18,7 @@ ms.date: 07/13/2022
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-Use the cast transformation to easily modify the data types of individual columns in a data flow.
+Use the cast transformation to easily modify the data types of individual columns in a data flow. The cast transformation also enables an easy way to check for casting errors.
 
 ## Configuration
 
