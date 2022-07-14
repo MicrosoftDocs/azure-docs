@@ -22,7 +22,6 @@ This tutorial avoids the complexity of training a machine learning model. You wi
 In this tutorial, you will:
 
 > [!div class="checklist"]
->
 > * Create and run a "Hello world!" Python script.
 > * Create a Python control script to submit "Hello world!" to Azure Machine Learning.
 > * Understand the Azure Machine Learning concepts in the control script.
