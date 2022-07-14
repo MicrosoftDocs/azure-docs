@@ -383,7 +383,7 @@ The following IAM permissions are needed to discover AWS resources:
 | Simple notification service – SNS | `sns:Check*` <br> `sns:List*` |
 | SSM | `ssm:Describe*` <br> `ssm:List*` |
 | SQS | `sqs:List*` <br> `sqs:Receive*` |
-| STS | sts:GetCallerIdentity |
+| STS | `sts:GetCallerIdentity` |
 | WAF | `waf-regional:Get*` <br> `waf-regional:List*` <br> `waf:List*` <br> `wafv2:CheckCapacity` <br> `wafv2:Describe*` <br> `wafv2:List*` |
 
 ## Learn more
