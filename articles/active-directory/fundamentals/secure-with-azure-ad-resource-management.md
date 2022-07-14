@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 It's important to understand the structure and terms that are specific to Azure resources. The following image shows an example of the four levels of scope that are provided by Azure:
 
-![Image shows Azure resource management model](media/secure-with-azure-ad-resource-management/resource-management-terminology.png)
+![Diagram that shows Azure resource management model.](media/secure-with-azure-ad-resource-management/resource-management-terminology.png)
 
 ## Terminology
 
@@ -28,7 +28,10 @@ The following are some of the terms you should be familiar with:
 
 **Resource group** - A container that holds related resources for an Azure solution such as a collection of virtual machines, associated VNets, and load balancers that require management by specific teams. The [resource group](../../azure-resource-manager/management/overview.md) includes those resources that you want to manage as a group. You decide which resources belong in a resource group based on what makes the most sense for your organization. Resource groups can also be used to help with life-cycle management by deleting all resources that have the same lifespan at one time. This approach also provides security benefit by leaving no fragments that might be exploited.
 
-**Subscription** - From an organizational hierarchy perspective, a subscription is a billing and management container of resources and resource groups. An Azure subscription has a trust relationship with Azure AD. A subscription trusts Azure AD to authenticate users, services, and devices. Note, a subscription may trust only one Azure AD tenant. However, each tenant may trust multiple subscriptions and subscriptions can be moved between tenants.
+**Subscription** - From an organizational hierarchy perspective, a subscription is a billing and management container of resources and resource groups. An Azure subscription has a trust relationship with Azure AD. A subscription trusts Azure AD to authenticate users, services, and devices.
+
+>[!Note]
+>A subscription may trust only one Azure AD tenant. However, each tenant may trust multiple subscriptions and subscriptions can be moved between tenants.
 
 **Management group** - [Azure management groups](../../governance/management-groups/overview.md) provide a hierarchical method of applying policies and compliance at different scopes above subscriptions. It can be at the tenant root management group (highest scope) or at lower levels in the hierarchy. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Note, policy definitions can be applied to a management group or subscription.
 
@@ -55,7 +58,7 @@ Before any resource management request can be executed by Resource Manager, a se
 
 The following diagram summarizes the resource model we just described.
 
-![Screenshot shows Azure resource management with ARM and Azure AD.](media/secure-with-azure-ad-resource-management/resource-model.png)
+![Diagram that shows Azure resource management with ARM and Azure AD.](media/secure-with-azure-ad-resource-management/resource-model.png)
 
 **Azure Lighthouse** - [Azure Lighthouse](../../lighthouse/overview.md) enables resource management across tenants. Organizations can delegate roles at the subscription or resource group level to identities in another tenant.
 
@@ -75,7 +78,7 @@ Billing is important to resource management because some billing roles interact 
 
 #### Azure Enterprise Agreements
 
-Azure Enterprise Agreement (Azure EA) customers are onboarded to the Azure EA Portal upon execution of their commercial contract with Microsoft. Upon onboarding an identity is associated to a "root" Enterprise Administrator billing role. The portal provides a hierarchy of management functions:
+Azure Enterprise Agreement (Azure EA) customers are onboarded to the Azure EA Portal upon execution of their commercial contract with Microsoft. Upon onboarding, an identity is associated to a "root" Enterprise Administrator billing role. The portal provides a hierarchy of management functions:
 
 * Departments help you segment costs into logical groupings and enable you to set a budget or quota at the department level.
 
@@ -92,7 +95,7 @@ When an Account Owner creates an Azure subscription within an enterprise agreeme
 
 An enterprise agreement can be configured to support multiple tenants by setting the authentication type of "Work or school account cross-tenant" in the Azure EA Portal. Given the above, organizations can set multiple accounts for each tenant, and multiple subscriptions for each account, as shown in the diagram below.
 
-![Enterprise Agreement billing structure](media/secure-with-azure-ad-resource-management/billing-tenant-relationship.png)
+![Diagram that shows Enterprise Agreement billing structure.](media/secure-with-azure-ad-resource-management/billing-tenant-relationship.png)
 
 It's important to note that the default configuration described above grants the Azure EA Account Owner privileges to manage the resources in any subscriptions they created. For subscriptions holding production workloads, consider decoupling billing and resource management by changing the service administrator of the subscription right after creation.
 
@@ -108,7 +111,7 @@ A [billing account](../../cost-management-billing/manage/understand-mca-roles.md
 
 In a Microsoft Customer Agreement, billing roles come from a single Azure AD tenant. To provision subscriptions for multiple tenants, the subscriptions must be initially created in the same Azure AD Tenant as the MCA, and then changed. In the diagram below, the subscriptions for the Corporate IT pre-production environment were moved to the ContosoSandbox tenant after creation.
 
- ![MCA billing structure](media/secure-with-azure-ad-resource-management/microsoft-customer-agreement.png)
+ ![Diagram that shows MCA billing structure.](media/secure-with-azure-ad-resource-management/microsoft-customer-agreement.png)
 
 ## RBAC and role assignments in Azure
 
@@ -138,9 +141,9 @@ Azure AD [Conditional Access](../../role-based-access-control/conditional-access
 
 * Azure portal
 
-![Conditional Access policy](media/secure-with-azure-ad-resource-management/conditional-access.jpeg)
+![Diagram that shows the Conditional Access policy.](media/secure-with-azure-ad-resource-management/conditional-access.jpeg)
 
-For example, an administrator may configure a Conditional Access policy, which allows a user to sign into the Azure portal only from approved locations, and also requires either Azure Multi-Factor Authentication (MFA) or a hybrid Azure AD domain-joined device.
+For example, an administrator may configure a Conditional Access policy, which allows a user to sign into the Azure portal only from approved locations, and also requires either multifactor authentication (MFA) or a hybrid Azure AD domain-joined device.
 
 ## Azure Managed Identities
 
@@ -188,7 +191,7 @@ A key concept to address with the first two options is that there are two identi
 
 AD DS is the Windows Server based directory service that organizations have largely adopted for on-premises identity services. AD DS can be deployed when a requirement exists to deploy IaaS workloads to Azure that require identity isolation from AD DS administrators and users in another forest.
 
-![AD DS virtual machine management](media/secure-with-azure-ad-resource-management/vm-to-standalone-adds.jpeg)
+![Diagram that shows AD DS virtual machine management](media/secure-with-azure-ad-resource-management/vm-to-standalone-active-directory-domain-controller.jpeg)
 
 The following considerations need to be made in this scenario:
 
@@ -243,7 +246,7 @@ AD DS domain controllers: a minimum of two AD DS domain controllers must be depl
 
 When a requirement exists to deploy IaaS workloads to Azure that require identity isolation from AD DS administrators and users in another forest, then an Azure AD Domain Services (Azure AD DS) managed domain can be deployed. Azure AD DS is a service that provides a managed domain to facilitate authentication for Azure workloads using legacy protocols. This provides an isolated domain without the technical complexities of building and managing your own AD DS. The following considerations need to be made.
 
-![Azure AD DS virtual machine management](media/secure-with-azure-ad-resource-management/vm-to-aadds.jpeg)
+![Diagram that shows Azure AD DS virtual machine management](media/secure-with-azure-ad-resource-management/vm-to-azure-ad-domain-services.png)
 
 **Azure AD DS managed domain** - Only one Azure AD DS managed domain can be deployed per Azure AD tenant and this is bound to a single VNet. It's recommended that this VNet forms the "hub" for Azure AD DS authentication. From this hub, "spokes" can be created and linked to allow legacy authentication for servers and applications. The spokes are additional VNets on which Azure AD DS joined servers are located and are linked to the hub using Azure network gateways or VNet peering.
 
@@ -273,7 +276,7 @@ It's worth noting that if you need to change the type of synchronization from Al
 
 **Secure LDAP** - Azure AD DS provides a secure LDAP service that can be used by applications that require it. This setting is disabled by default and to enable secure LDAP a certificate needs to be uploaded, in addition, the NSG that secures the VNet that Azure AD DS is deployed on to must allow port 636 connectivity to the Azure AD DS managed domains. For more information, see [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
-**Administration** - To perform administration duties on Azure AD DS (for example, domain join machines or edit GPO), the account used for this task needs to be part of the AAD DC Administrators group. Accounts that are members of this group can't directly sign-in to domain controllers to perform management tasks. Instead, you create a management VM that is joined to the Azure AD DS managed domain, then install your regular AD DS management tools. For more information, see [Management concepts for user accounts, passwords, and administration in Azure Active Directory Domain Services](../../active-directory-domain-services/administration-concepts.md).
+**Administration** - To perform administration duties on Azure AD DS (for example, domain join machines or edit GPO), the account used for this task needs to be part of the Azure AD DC Administrators group. Accounts that are members of this group can't directly sign-in to domain controllers to perform management tasks. Instead, you create a management VM that is joined to the Azure AD DS managed domain, then install your regular AD DS management tools. For more information, see [Management concepts for user accounts, passwords, and administration in Azure Active Directory Domain Services](../../active-directory-domain-services/administration-concepts.md).
 
 **Password hashes** - For authentication with Azure AD DS to work, password hashes for all users need to be in a format that is suitable for NT LAN Manager (NTLM) and Kerberos authentication. To ensure authentication with Azure AD DS works as expected, the following prerequisites need to be performed.
 
@@ -305,7 +308,7 @@ For this isolated model, it's assumed that there's no connectivity to the VNet t
 
 When a requirement exists to deploy IaaS workloads to Azure that require identity isolation, then the final option is to use Azure AD for logon to servers in this scenario. This provides the ability to make Azure AD the identity realm for authentication purposes and identity isolation can be achieved by provisioning the servers into the relevant subscription, which is linked to the required Azure AD tenant. The following considerations need to be made.
 
-![Azure AD authentication to Azure VMs](media/secure-with-azure-ad-resource-management/sign-into-vm.jpeg)
+![Diagram that shows Azure AD authentication to Azure VMs](media/secure-with-azure-ad-resource-management/sign-into-vm.jpeg)
 
 **Supported operating systems**: Signing into virtual machines in Azure using Azure AD authentication is currently supported in Windows and Linux. For more specifics on supported operating systems, refer to the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](../../virtual-machines/linux/login-using-aad.md).
 
@@ -322,7 +325,7 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 * **Virtual machine user logon**: Users with this role assigned to them can log into an Azure virtual machine with regular user privileges.
 
-Conditional Access: A key benefit of using Azure AD for signing into Azure virtual machines is the ability to enforce Conditional Access as part of the sign-in process. This provides the ability for organizations to require conditions to be met before allowing access to the virtual machine and to use Azure Multi-Factor Authentication to provide strong authentication. For more information, see [Using Conditional Access](../devices/howto-vm-sign-in-azure-ad-windows.md).
+Conditional Access: A key benefit of using Azure AD for signing into Azure virtual machines is the ability to enforce Conditional Access as part of the sign-in process. This provides the ability for organizations to require conditions to be met before allowing access to the virtual machine and to use multifactor authentication to provide strong authentication. For more information, see [Using Conditional Access](../devices/howto-vm-sign-in-azure-ad-windows.md).
 
 >[!NOTE]
 >Remote connection to virtual machines joined to Azure AD is only allowed from Windows 10, Windows 11, and Cloud PC PCs that are Azure AD joined or hybrid Azure AD joined to the same directory as the virtual machine.
