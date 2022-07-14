@@ -70,3 +70,7 @@ https://management.azure.com/subscriptions/{{subscription}}/resourcegroups/{{res
 - Resource sync rule does not hydrate Azure Arc enabled PostgreSQL
 - Resource sync rule does not hydrate Azure Arc Active Directory connector
 - Resource sync rule does not hydrate Azure Arc Instance Failover Groups
+
+## Next steps
+
+[Create Azure Arc-enabled data controller using Kubernetes tools](create-data-controller-using-kubernetes-native-tools.md)
