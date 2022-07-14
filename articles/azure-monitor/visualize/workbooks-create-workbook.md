@@ -11,7 +11,7 @@ ms.reviewer: gardnerjr
 
 # Create an Azure workbook
 
-This article describes how to create a new workbook and how to add components to it.
+This article describes how to create a new workbook and how to add elements to your Azure workbook.
 
 This video walks you through creating workbooks.
 

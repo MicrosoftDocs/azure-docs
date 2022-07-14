@@ -60,6 +60,8 @@ items:
             href: create-data-controller-direct-cli.md
         - name: Configure monitor certificates
           href: monitor-certificates.md
+        - name: Resource sync
+          href: resource-sync.md
     - name: Common experiences across Azure Arc-enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)
@@ -72,6 +74,8 @@ items:
           href: delete-azure-resources.md
         - name: Uninstall Azure Arc data controller
           href: uninstall-azure-arc-data-controller.md
+        - name: Clean up past installations
+          href: clean-up-past-installation.md
     - name: Manage
       items:
         - name: Upload usage data

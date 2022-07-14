@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 07/14/2022
 ms.author: victorh
 ---
 
@@ -39,6 +39,7 @@ You will need to create an Azure Firewall Policy and create Rule Collections for
 | Rule Name | IP Address  | VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
 | Rule Name | IP Address  | VNet or Subnet IP Address | TCP      | 443               | Service Tag      | AzureCloud, WindowsVirtualDesktop, AzureFrontDoor.Frontend |
 | Rule Name | IP Address  | VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
+|Rule name  | IP Address  | VNet or Subnet IP Address | TCP      | 1688              | IP address       | 20.118.99.244, 40.83.235.53 (azkms.core.windows.net)|
 |Rule name  | IP Address  | VNet or Subnet IP Address | TCP      | 1688              | IP address       | 23.102.135.246 (kms.core.windows.net)|
 
 > [!NOTE]
