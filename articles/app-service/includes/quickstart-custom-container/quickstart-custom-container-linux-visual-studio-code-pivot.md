@@ -10,7 +10,7 @@ ms.author: cephalin
 [Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from an [Azure Container Registry](../../../container-registry/index.yml) (ACR) to App Service.
 
 > [!NOTE]
-> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../container-apps/overview.md).
+> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
 >
 
 To complete this quickstart, you need:
