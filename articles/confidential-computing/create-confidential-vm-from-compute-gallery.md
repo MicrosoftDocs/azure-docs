@@ -33,7 +33,7 @@ This image version can be replicated within the source region **but cannot be re
 > [!NOTE]
 > If you want to create an image from a Windows confidential VM that has confidential compute disk encryption enabled with a platform-managed key or a customer-managed key, you can only create a specialized image. This limitation exists because the generalization tool (**sysprep**), might not be able to generalized the encrypted image source. This limitation applies to the OS disk, which is implicitly created along with the Windows confidential VM, and the snapshot created from this OS disk.
 
-### [Portal](#tab/portal)
+### [Portal]
 
 ### To create a **ConfidentialVM** type image using Confidential VM capture
 
@@ -93,7 +93,7 @@ This image can be replicated within the source region and to different target re
 > [!NOTE]
 > The OS disk VHD or Managed Image should be created from an image that is compatible with confidential VM. The size of the VHD or managed image should be less than 32 GB
 
-### [Portal](#tab/portal2)
+### [Portal]
 
 ### To create a **Confidential Supported** type image
 
@@ -122,7 +122,7 @@ Now, you can [create a Confidential VM from your custom image](#create-confident
 
 ## Create Confidential VM from gallery image
 
-### [Portal](#tab/portal3)
+### [Portal]
 
 1. On the **Create a virtual machine** page, configure the **Basics** tab:
       1. Under **Project details**, for **Resource group**, create a new resource group or select an existing resource group.
