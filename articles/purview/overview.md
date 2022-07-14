@@ -17,7 +17,7 @@ Microsoft Purview's solutions in the governance portal provide a unified data go
 - Empower data consumers to find valuable, trustworthy data.
 
 :::image type="complex" source="./media/overview/high-level-overview.png" alt-text="Graphic showing Microsoft Purview's high-level architecture." lightbox="./media/overview/high-level-overview-large.png":::
-   Chart showing the high-level architecture of Microsoft Purview. Multi-cloud and on premises sources flow into Microsoft Purview, and Microsoft Purview's apps (Data Catalog, Map, Data Estate Insights, Policy, and Data Sharing) allow data consumers and data curators to view and manage metadata, share data, and protect assets. This metadata is also being ported to external analytics services from Microsoft Purview for more processing.
+   Chart showing the high-level architecture of Microsoft Purview. Multi-cloud and on-premises sources flow into Microsoft Purview, and Microsoft Purview's apps (Data Catalog, Map, Data Estate Insights, Policy, and Data Sharing) allow data consumers and data curators to view and manage metadata, share data, and protect assets. This metadata is also being ported to external analytics services from Microsoft Purview for more processing.
 :::image-end:::
 
 >[!TIP]
