@@ -21,7 +21,7 @@ This article explains how the self-hosted gateway feature of Azure API Managemen
 
 The self-hosted gateway feature expands API Management support for hybrid and multi-cloud environments and enables organizations to efficiently and securely manage APIs hosted on-premises and across clouds from a single API Management service in Azure.
 
-With the self-hosted gateway, customers have the flexibility to deploy a containerized version of the API Management gateway component to the same environments where they host their APIs. All self-hosted gateways are managed from the API Management service they're federated with, thus providing customers with the visibility and unified management experience across all internal and external APIs. Placing the gateways close to the APIs allows customers to optimize API traffic flows and address security and compliance requirements.
+With the self-hosted gateway, customers have the flexibility to deploy a containerized version of the API Management gateway component to the same environments where they host their APIs. All self-hosted gateways are managed from the API Management service they're federated with, thus providing customers with the visibility and unified management experience across all internal and external APIs.
 
 Each API Management service is composed of the following key components:
 
@@ -39,13 +39,14 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 ## Feature comparison of managed and self-hosted gateways
 
-* Some features of managed gateways are supported only in certain [service tiers](api-management-features.md). 
-* See [Limitations](#limitations) for other limitations of self-hosted gateways.
+> [!NOTE]
+> * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md). 
+> * See [Limitations](#limitations) for other limitations of self-hosted gateways.
 
 
 ### Infrastructure
 
-|  | Managed   | Self-hosted  |
+| Feature  | Managed   | Self-hosted  |
 | --- | ----- | ---------- |
 | [Service tiers](api-management-features.md) | All | Developer, Premium |
 | [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ |
@@ -62,7 +63,7 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 Managed and self-hosted gateways can host the same API types with the following differences.
 
-|  | Managed   | Self-hosted  |
+| Feature | Managed   | Self-hosted  |
 | --- | ----- | ---------- |
 | [Service Fabric integration](../service-fabric/service-fabric-api-management-overview.md) |  ✔️ |  ❌ |
 | [Synthetic GraphQL APIs](graphql-schema-resolve-api.md) |  ✔️ |  ❌ |
@@ -73,7 +74,7 @@ Managed and self-hosted gateways can host the same API types with the following 
 
 Managed and self-hosted gateways support the same policies in policy definitions with the following differences.
 
-|  | Managed   | Self-hosted  |
+| Feature | Managed   | Self-hosted  |
 | --- | ----- | ---------- |
 | [Dapr integration policies](api-management-dapr-policies.md) |  ❌ |  ✔️ |
 | [get-authorization-context](api-management-access-restriction-policies.md#GetAuthorizationContext) |  ✔️ |  ❌ |
@@ -84,7 +85,7 @@ Managed and self-hosted gateways support the same policies in policy definitions
 
 ### Monitoring
 
-|  | Managed   | Self-hosted  |
+| Feature | Managed   | Self-hosted  |
 | --- | ----- | ---------- |
 | [API analytics](howto-use-analytics.md) | ✔️ |  ❌ |
 | [Application Insights](api-management-howto-app-insights.md) | ✔️ |  ✔️ |
@@ -96,14 +97,14 @@ Managed and self-hosted gateways support the same policies in policy definitions
 
 ### Authentication and authorization
 
-|  | Managed   | Self-hosted  |
+| Feature | Managed   | Self-hosted  |
 | --- | ----- | ---------- |
 | [Authorizations](authorizations-overview.md) |  ✔️ |  ❌ |
 
 
 ## Packaging
 
- The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
+The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
 
 ### Container images
 
@@ -217,7 +218,7 @@ The following functionality found in the managed gateways is **not available** i
 - Upstream (backend side) TLS version and cipher management.
 - Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. You can configure [custom certificate authorities](api-management-howto-ca-certificates.md#create-custom-ca-for-self-hosted-gateway) for your self-hosted gateways and [client certificate validation](api-management-access-restriction-policies.md#validate-client-certificate) policies to enforce them.
 - TLS session resumption.
-- Client certificate renegotiation. This means that for [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) to work, API consumers must present their certificates as part of the initial TLS handshake. To ensure this behavior, enable the Negotiate Client Certificate setting when configuring a self-hosted gateway custom hostname.
+- Client certificate renegotiation. To use [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md), API consumers must present their certificates as part of the initial TLS handshake. To ensure this behavior, enable the Negotiate Client Certificate setting when configuring a self-hosted gateway custom hostname.
 
 ### Transport Layer Security (TLS)
 
