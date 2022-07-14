@@ -84,7 +84,7 @@ Defender for Containers is available on hybrid and multicloud environments. You 
 
 ## Disable enhanced security features
 
-If you need to disable the enhanced security features for a subscription, you will just need to change the plan to **Off**.
+If you choose to disable the enhanced security features for a subscription, you will just need to change the plan to **Off**.
  
 **To disable enhanced security features**:
 
