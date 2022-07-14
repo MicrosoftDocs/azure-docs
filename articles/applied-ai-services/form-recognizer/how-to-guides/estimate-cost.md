@@ -14,11 +14,11 @@ recommendations: false
 
 # Check my Form Recognizer usage and estimate the price
 
- In this guide, you'll learn how to use the Azure portal metrics dashboard to view how many pages were processed by Azure Form Recognizer. You'll also learn how to use the number of processed pages to estimate the cost using the Azure pricing calculator.
+ In this guide, you'll learn how to use the metrics dashboard in the Azure portal to view how many pages were processed by Azure Form Recognizer. You'll also learn how to estimate the cost of processing those pages using the Azure pricing calculator.
 
 ## Check how many pages were processed
 
-First, we will look at the page processing data for a given time period:
+We'll start by looking at the page processing data for a given time period:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -34,7 +34,7 @@ First, we will look at the page processing data for a given time period:
 
 ### Examine analyzed pages
 
-You can take a dive deeper in order to see each model's analyzed pages:
+You can now take a dive deeper to see each model's analyzed pages:
 
 1. Under the **Monitoring** section, select **Metrics** from the left navigation menu.
 
@@ -58,7 +58,7 @@ You can take a dive deeper in order to see each model's analyzed pages:
 
     :::image type="content" source="../media/azure-portal-splitting-on-feature-name.png" alt-text="Screenshot of the Apply splitting values dropdown menu.":::
 
-1. Next, you'll see a breakdown of the pages analyzed by each model.
+1. You'll see a breakdown of the pages analyzed by each model.
 
     :::image type="content" source="../media/azure-portal-metrics-drill-down.png" alt-text="Screenshot demonstrating how to drill down to check analyzed pages by model." lightbox="../media/azure-portal-drill-down-closeup.png":::
 
@@ -68,7 +68,7 @@ Now that we have the number of page processed data from the portal, we can use t
 
 1. Sign in to [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) with the same credentials you use for the Azure portal.
 
-> Press Ctrl + right-click to open in a new tab!
+    > Press Ctrl + right-click to open in a new tab!
 
 1. Search for **Azure Form Recognizer** in the **Search products** search box.
 
@@ -76,9 +76,9 @@ Now that we have the number of page processed data from the portal, we can use t
 
 1. Under **Your Estimate**, select the relevant **Region**, **Payment Option** and **Instance** for your Form Recognizer resource. For more information, *see* [Azure Form Recognizer pricing options](https://azure.microsoft.com/pricing/details/form-recognizer/#pricing).
 
-1. Enter the number of pages processed from the Azure portal metrics dashboard using the steps in sections [Check how many pages are processed](#check-how-many-pages-were-processed) or [Examine analyzed pages](#examine-analyzed-pages), above.
+1. Enter the number of pages processed from the Azure portal metrics dashboard. That data can be found using the steps in sections [Check how many pages are processed](#check-how-many-pages-were-processed) or [Examine analyzed pages](#examine-analyzed-pages), above.
 
-* The estimated price is on the right, after the equal (**=**) sign.
+1. The estimated price is on the right, after the equal (**=**) sign.
 
     :::image type="content" source="../media/price-calculation.png" alt-text="Screenshot that shows how to estimate the price based on processed pages":::
 
