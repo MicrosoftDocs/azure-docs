@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 12/13/2021
 ms.devlang: csharp, python
 ms.custom: "H1Hack27Feb2017, devx-track-python, devx-track-csharp"
-zone_pivot_groups: programming-languages-speech-services-nomore-variant
+zone_pivot_groups: programming-languages-batch-linux-nodes
 ---
 # Provision Linux compute nodes in Batch pools
 
