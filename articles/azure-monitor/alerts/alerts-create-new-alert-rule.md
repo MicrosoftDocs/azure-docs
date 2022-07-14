@@ -65,20 +65,20 @@ And then defining these elements for the resulting alert actions using:
 
 1. (Optional) In the **Split by dimensions** section, you can create resource-centric alerts at scale for a subscription or resource group. Splitting by dimensions groups combinations of numerical or string columns to monitor for the same condition on multiple Azure resources.
 
-If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
-
-You can select up to six more splittings for any number or text columns types.
-   
-You can also decide **not** to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.  
-
-Select values for these fields:
-
+    If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
+    
+    You can select up to six more splittings for any number or text columns types.
+       
+    You can also decide **not** to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.  
+    
+    Select values for these fields:
+    
     |Field  |Description  |
     |---------|---------|
     |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
     |Operator|The operator used on the dimension name and value.  |
     |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
-
+    
     :::image type="content" source="media/alerts-log/alerts-create-log-rule-dimensions.png" alt-text="Screenshot of the splitting by dimensions section of a new log alert rule.":::
     
 1. In the **Alert logic** section, select values for these fields:
@@ -93,7 +93,7 @@ Select values for these fields:
 
 1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy. 
    
-  Select values for these fields under **Number of violations to trigger the alert**:
+   Select values for these fields under **Number of violations to trigger the alert**:
     
     |Field  |Description  |
     |---------|---------|
@@ -109,38 +109,36 @@ Select values for these fields:
 
 1. From this point on, you can select the **Review + create** button at any time.
     
-
 ## [Metric alerts](#tab/metric)
    
 1. Configure the signal logic, and then select **Done**.
    
-|Setting |Description |
-|---------|---------|
-|Select time series|Select the time series to include in the results. |
-|Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
-|Threshold| Select if threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold uses a user-defined threshold value to evaluate rule.<br>Dynamic Thresholds use machine learning algorithms to continuously learn the metric behavior pattern and calculate the appropriate threshold for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds).|
-|Operator|Select the operator for comparing the metric value against the threshold.|
-|Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.          |
-|Threshold value| If you selected a **static** threshold, enter the threshold value for the condition logic.        |
-|Unit| If you selected a **static** threshold, enter the unit for the condition logic.        |
-|Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
-|Aggregation granularity|Select the interval over which data points are grouped using the aggregation type function.         |
-|Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.         |
+ |Setting |Description |
+ |---------|---------|
+ |Select time series|Select the time series to include in the results. |
+ |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
+ |Threshold| Select if threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold uses a user-defined threshold value to evaluate rule.<br>Dynamic Thresholds use machine learning algorithms to continuously learn the metric behavior pattern and calculate the appropriate threshold for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds).|
+ |Operator|Select the operator for comparing the metric value against the threshold.|
+ |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.          |
+ |Threshold value| If you selected a **static** threshold, enter the threshold value for the condition logic.        |
+ |Unit| If you selected a **static** threshold, enter the unit for the condition logic.        |
+ |Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
+ |Aggregation granularity|Select the interval over which data points are grouped using the aggregation type function.         |
+ |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.         |
    
 1. (Optional.) Configure the advanced settings:
           
-|Setting  |Description  |
-|---------|---------|
-|Number of violations     |Select the minimum number of violations required within the selected look-back time window required to raise an alert.         |
-|Evaluation period    |         |
-|Ignore data before     |         | 
+ |Setting  |Description  |
+ |---------|---------|
+ |Number of violations     |Select the minimum number of violations required within the selected look-back time window required to raise an alert.         |
+ |Evaluation period    |         |
+ |Ignore data before     |         | 
 
 ## [Activity Log alerts](#tab/activity-log)
 1.  In the **Conditions** pane.
     
 ---
 
- 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
     :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
@@ -163,7 +161,7 @@ Select values for these fields:
     :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 
 > [!NOTE]
-> This section above describes creating alert rules using the new alert rule wizard. 
+> This article describes creating alert rules using the alert rule wizard. 
 > The new alert rule experience is a little different than the old experience. Please note these changes:
 > - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited solution, since the email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results.
 >    To get detailed context information about the alert so that you can decide on the appropriate action :
@@ -177,5 +175,4 @@ Select values for these fields:
 >     - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to trigger an alert of the desired resource using the resource id column.
 >     - For more advanced customizations, use Logic Apps.
   
-
 ## Next Steps
