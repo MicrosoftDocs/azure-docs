@@ -48,7 +48,7 @@ let timeframe = 1d; // How often to sample data
 Usage // The table we’re analyzing
 | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 am of the first day and ending at 11:59 of the last day in the time range
 | where IsBillable == "true" // Include only billable data in the result set
-| make-series ActualCount=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
+| make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
 | render timechart // Renders results in a timechart
 ``` 
 
@@ -72,12 +72,12 @@ let timeframe = 1d; // How often to sample data
 Usage // The table we’re analyzing
 | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 am of the first day and ending at 11:59 of the last day in the time range
 | where IsBillable == "true" // Include only billable data in the result set
-| make-series ActualCount=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
-| extend(anomalies, anomalyScore, expectedCount) = series_decompose_anomalies(ActualCount) // Extracts anomalous points with scores, the only parameter we pass here is the output of make-series, other parameters are default 
-| mv-expand ActualCount to typeof(double), TimeGenerated to typeof(datetime), anomalies to typeof(double),anomalyScore to typeof(double), expectedCount to typeof(long) // TODO
-| where anomalies != 0  // Return all positive and negative usage deviations from the expected count
-| project TimeGenerated, ActualCount, expectedCount,DataType,anomalyScore,anomalies // TODO check casing of column names
-| sort by abs(anomalyScore) desc;
+| make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
+| extend(Anomalies, AnomalyScore, ExpectedUsage) = series_decompose_anomalies(ActualUsage) // Extracts anomalous points with scores, the only parameter we pass here is the output of make-series, other parameters are default 
+| mv-expand ActualUsage to typeof(double), TimeGenerated to typeof(datetime), Anomalies to typeof(double),AnomalyScore to typeof(double), ExpectedUsage to typeof(long) // TODO
+| where Anomalies != 0  // Return all positive and negative usage deviations from the expected count
+| project TimeGenerated, ActualUsage, ExpectedUsage,AnomalyScore,Anomalies,DataType // TODO check casing of column names
+| sort by abs(AnomalyScore) desc
 ```
 
 > [!NOTE]
@@ -85,7 +85,7 @@ Usage // The table we’re analyzing
 
 This query returns all usage anomalies for all tables in the last three weeks:
 
-:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
 
 Looking at the query results, you can see that the function: 
 
@@ -103,9 +103,9 @@ Looking at the query results, you can see that the function:
 
 To get more accurate results, exclude the last day of June 15 with major outlier from the learning (training) process.
 
-For that replace series_decompose_anomalies(ActualCount) in the query with the following:
+For that replace series_decompose_anomalies(ActualUsage) in the query with the following:
 
-series_decompose_anomalies(ActualCount,1.5,-1,'avg',1) // 1.5 is the threshold (anomalyscore threshold) [default], -1 is Autodetect seasonality [default], avg -  Define trend component as average of the series [default], 1 – number of points  at the end of the series to exclude from the learning process [default]
+series_decompose_anomalies(ActualUsage,1.5,-1,'avg',1) // 1.5 is the threshold (anomalyscore threshold) [default], -1 is Autodetect seasonality [default], avg -  Define trend component as average of the series [default], 1 – number of points  at the end of the series to exclude from the learning process [default]
 
 
 Get all usage anomalies for all data types.
