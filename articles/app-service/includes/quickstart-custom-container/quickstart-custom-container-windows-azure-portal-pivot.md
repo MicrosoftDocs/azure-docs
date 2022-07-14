@@ -9,6 +9,10 @@ ms.author: cephalin
 
 [Azure App Service](../../overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
+> [!NOTE]
+> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../container-apps/overview.md).
+>
+
 This quickstart shows you how to deploy an ASP.NET app in a Windows image from Azure Container Registry to Azure App Service. 
 
 To complete this quickstart, you need:
