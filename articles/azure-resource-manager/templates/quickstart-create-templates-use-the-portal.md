@@ -41,7 +41,7 @@ Many experienced template developers use this method to generate templates when 
 
     ![Input Fields for Template](./media/quickstart-create-templates-use-the-portal/arm-input-fields-template.jpg)
 
-    A Resource group is a container for Azure resources that makes Azure resource management much easier. 
+    A Resource group is a container for Azure resources that makes Azure resource management much easier.
 
 5. Select **Review + create** on the bottom of the screen. After validation has passed (which may take a couple minutes), proceed to select **Create** in order to create your storage account.
 
