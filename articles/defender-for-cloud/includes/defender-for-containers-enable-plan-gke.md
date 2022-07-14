@@ -1,7 +1,7 @@
 ---
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 03/01/2022
+ms.date: 07/14/2022
 author: elazark
 ms.author: elazarK
 ---
@@ -9,7 +9,7 @@ ms.author: elazarK
 ## Protect Google Kubernetes Engine (GKE) clusters
 
 > [!IMPORTANT]
-> If you haven't already connected a GCP project, do so now using the instructions in [Connect your GCP projects to Microsoft Defender for Cloud](../quickstart-onboard-gcp.md).
+> If you haven't already connected a GCP project, [connect your GCP projects to Microsoft Defender for Cloud](../quickstart-onboard-gcp.md).
 
 To protect your GKE clusters, you will need to enable the Containers plan on the relevant GCP project.
 
@@ -90,8 +90,8 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 
 1. Select the :::image type="icon" source="../media/defender-for-containers-enable-plan-gke/add-filter.png" border="false"::: button.
 
-1. In the Filter drop-down menu, select **Resource type.**
+1. In the Filter dropdown menu, select **Resource type.**
 
-1. In the Value drop-down menu, select **GCP GKE Cluster**.
+1. In the Value dropdown menu, select **GCP GKE Cluster**.
 
 1. Select **Ok**.

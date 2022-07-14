@@ -2,13 +2,13 @@
 author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 02/27/2022
+ms.date: 07/14/2022
 ms.author: elkrieger
 ---
 ## Protect Amazon Elastic Kubernetes Service clusters
 
 > [!IMPORTANT]
-> If you haven't already connected an AWS account, do so now using the instructions in [Connect your AWS accounts to Microsoft Defender for Cloud](../quickstart-onboard-aws.md).
+> If you haven't already connected an AWS account, [connect your AWS accounts to Microsoft Defender for Cloud](../quickstart-onboard-aws.md).
 
 To protect your EKS clusters, enable the Containers plan on the relevant account connector:
 
