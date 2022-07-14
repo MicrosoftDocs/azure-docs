@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.date: 04/28/2022
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: twooley
 ---
 

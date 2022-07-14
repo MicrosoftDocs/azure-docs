@@ -53,7 +53,6 @@ Use the Defender for IoT **Workbooks** page to create custom Azure Monitor workb
     |**Query**     |  Add a query to use when creating your workbook graphs and charts.   <br><br>- Make sure to select **Azure Resource Graph** as your **Data source** and select all of your relevant subscriptions. <br>- Add a graphical representation for your data by selecting a type from the **Visualization** options.  |
     |**Metric**     | Add metrics to use when creating workbook graphs and charts.       |
     |**Group**     |  Add groups to organize your workbooks into sub-areas.       |
-    |     |         |
 
     For each option, after you've defined all available settings, select the **Add...** or **Run...** button to create that workbook element. For example, **Add parameter** or **Run Query**.
 
