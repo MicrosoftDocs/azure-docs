@@ -14,7 +14,7 @@ ms.date: 07/01/2022
 
 # Tutorial: Analyze log data with machine learning in Azure Monitor Log Analytics 
 
-Azure Monitor provides advanced data analysis capabilities, powered by Kusto, Microsoft's big data analytics cloud platform. The Kusto Query Language (KQL) includes a set of machine learning operators and plugins for time series analysis, anomaly detection and forecasting, and pattern recognition for root cause analysis. 
+Azure Monitor provides advanced data analysis capabilities, powered by Kusto, Microsoft's big data analytics cloud platform. The Kusto Query Language (KQL) includes a set of machine learning operators and plugins for time series analysis, anomaly detection and forecasting, and root cause analysis. 
 
 Using KQL's machine learning operators in the various Log Anayltics tools for extracting insights from logs - including queries, workbooks and dashboards, and integration with Excel - provides you with: 
 
@@ -25,21 +25,22 @@ Using KQL's machine learning operators in the various Log Anayltics tools for ex
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Conduct time series analysis on the Usage table
-> * Identify usage anomalies 
-> * Analyze the root cause of anomalies you find
+> * Create a time series 
+> * Identify anomalies in a time series 
+> * Configure the anomaly detection function to refine results
+> * Analyze the root cause of anomalies
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A workspace with log data.
-## Create a time series based on data in the Usage table 
+## Create a time series 
 
-The KQL operator for creating a time series is `make-series`. The `Usage` table holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data ingestion.
+Use the KQL `make-series` to create a time series. 
 
-Let's use `make-series` to chart the total amount of billable data ingested by each table in the workspace each day, over the past 21 days.
- 
-To create a time series chart for all billable data, run:
+Let's create a time series based on logs in the `Usage` table, which holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data ingestion.
+
+This query uses `make-series` to chart the total amount of billable data ingested by each table in the workspace each day, over the past 21 days:
 
 ```kusto
 let starttime = 21d; // The start date of the time series, counting back from the current date
@@ -52,7 +53,7 @@ Usage // The table we’re analyzing
 | render timechart // Renders results in a timechart
 ``` 
 
-Looking at the resulting chart, we can see anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types. However, not all anomalies are easy to detect visually on a chart. We can use a KQL anomaly detection function to list all anomalies in our time series. 
+Looking at the resulting chart, we can see anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types: 
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.gif" alt-text="An animated GIF showing a chart of the total data ingested by each table in the workspace each day, over 21 days. The cursor moves to highlight three usage anomalies on the chart."::: 
 
@@ -66,22 +67,19 @@ The `series_decompose_anomalies()` function takes a series of values as input an
 Let's give the result set of our time series query as input to the `series_decompose_anomalies()` function:  
 
 ```kusto
-let starttime = 21d; // The start date of the time series, counting back from the current date
-let endtime = 0d; // The end date of the time series, counting back from the current date
+let starttime = 21d; // Start date for the time series, counting back from the current date
+let endtime = 0d; // End date for the time series, counting back from the current date
 let timeframe = 1d; // How often to sample data
 Usage // The table we’re analyzing
-| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 am of the first day and ending at 11:59 of the last day in the time range
-| where IsBillable == "true" // Include only billable data in the result set
+| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 AM of the first day and ending at 11:59 PM of the last day in the time range
+| where IsBillable == "true" // Includes only billable data in the result set
 | make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
-| extend(Anomalies, AnomalyScore, ExpectedUsage) = series_decompose_anomalies(ActualUsage) // Extracts anomalous points with scores, the only parameter we pass here is the output of make-series, other parameters are default 
-| mv-expand ActualUsage to typeof(double), TimeGenerated to typeof(datetime), Anomalies to typeof(double),AnomalyScore to typeof(double), ExpectedUsage to typeof(long) // TODO
-| where Anomalies != 0  // Return all positive and negative usage deviations from the expected count
-| project TimeGenerated, ActualUsage, ExpectedUsage,AnomalyScore,Anomalies,DataType // TODO check casing of column names
-| sort by abs(AnomalyScore) desc
+| extend(Anomalies, AnomalyScore, ExpectedUsage) = series_decompose_anomalies(ActualUsage) // Scores and extracts anomalies based on the output of make-series 
+| mv-expand ActualUsage to typeof(double), TimeGenerated to typeof(datetime), Anomalies to typeof(double),AnomalyScore to typeof(double), ExpectedUsage to typeof(long) // Expands the array created by series_decompose_anomalies()
+| where Anomalies != 0  // Returns all positive and negative deviations from expected usage
+| project TimeGenerated,ActualUsage,ExpectedUsage,AnomalyScore,Anomalies,DataType // Defines which columns to return 
+| sort by abs(AnomalyScore) desc // Sorts results by anomaly score in descending ordering
 ```
-
-> [!NOTE]
-> For more information about `series_decompose_anomalies()` syntax and usage, see [`series_decompose_anomalies()`](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction).
 
 This query returns all usage anomalies for all tables in the last three weeks:
 
@@ -94,9 +92,24 @@ Looking at the query results, you can see that the function:
 - Gives an anomaly score at each data point, indicating the extent of the deviation of actual usage from expected usage.
 - Identifies positive (`1`) and negative (`-1`) anomalies in each table.    
 
-1. Filter the `DataType` column for `AzureDiagnostics` 
+> [!NOTE]
+> For more information about `series_decompose_anomalies()` syntax and usage, see [`series_decompose_anomalies()`](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction).
 
-    We see only two anomalies - on June 14 and June 15 - while in the time series, we also saw deviations on May 27 and May 28.
+## Configure the anomaly detection function to refine results
+
+Filter the results of the `series_decompose_anomalies()` query for anomalies in the `AzureDiagnostics` data type:
+
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analyticsanomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" alt-text="A table showing the results of the anomaly detection query, filtered for results from the Azure Diagnostics data type."::: 
+
+we look for the anomalies we saw in the `AzureDiagnostics` datatype in our chart, we find only two anomalies - on June 14 and June 15:
+
+compare the chart in the `make-series` query with the results of the `series_decompose_anomalies()` query, you'll see the results for the 
+
+
+
+
+
+ - while in the time series, we also saw deviations on May 27 and May 28.
 
  
 ## Teach the Log Analytics machine learning algorithm to identify anomalies using the series_decompose_anomalies() function
