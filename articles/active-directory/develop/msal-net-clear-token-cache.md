@@ -18,9 +18,18 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # Clear the token cache using MSAL.NET
 
-When you [acquire an access token](msal-acquire-cache-tokens.md) using the Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token, it should first call the `AcquireTokenSilent` method to verify if an acceptable token is in the cache. 
+When you [acquire an access token](msal-acquire-cache-tokens.md) using the Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token:
 
-Clearing the cache is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.  The following example instantiates a public client application, gets the accounts for the application, and removes the accounts.
+- public client applications - desktop apps and mobile apps - should call the `AcquireTokenSilent` method 
+- web sites, which use the `AcquireTokenByAuthorizationCode` should also call the `AcquireTokenSilent` method 
+- web apis, which use the `AcquireTokenOnBehalfOf` method, do not need to do anything. MSAL will look in the cache on its own. 
+- service principals and daemon apps, which use the `AcquireTokenForClient` method, do not need to do anything. MSAL will look in the cache on its own.
+
+Public client apps and web sites clear the cache, which use `AcquireTokenSilent`, by removing the accounts from the cache. This does not remove the session cookie which is in the browser.
+
+Web APIs and service principals cannot clear the cache. To control the cache size, see https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=aspnet. To bypass the cache in certain circumstances, use the `WithForceRefresh` method on the `AcquireTokenOnBehalfOf` or `AcquireTokenForClient` APIs. It is not recommended to always bypass the cache, because AAD will throttle the application on excessive use.
+
+The following example instantiates a public client application, gets the accounts for the application, and removes the accounts.
 
 ```csharp
 private readonly IPublicClientApplication _app;
