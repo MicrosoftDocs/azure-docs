@@ -116,7 +116,6 @@ Continuing with Azure as the context, and using Key Vault as the secret-manageme
   - Under `{vaultUri}/secrets/{name}`: The certificate, including its private key, available for downloading as an unprotected PFX or PEM file.
 	
 Recall that a certificate in the key vault contains a chronological list of certificate instances that share a policy. Certificate versions will be created according to the lifetime and renewal attributes of this policy. We highly recommend that vault certificates not share subjects or domains or DNS names, because it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages, and so on.
-s
 At this point, a certificate exists in the key vault, ready for consumption. Now let's explore the rest of the process.
 
 ### Certificate provisioning
