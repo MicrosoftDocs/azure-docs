@@ -89,7 +89,7 @@ For step-by-step instructions for granting tenant-wide admin consent from the Az
 
 ## Revoke tenant wide admin consent
 
-To revoke tenant-wide admin consent, you can review and revoke the permissions previously granted to the application. For more information, see [review permissions granted to applications](manage-application-permissions.md). You can also remove user’s access to the application by [disabling user sign-in to application](disable-user-sign-in-portal) or by [hiding the application](hide-application-from-user-portal.md) so that it doesn’t appear in the My apps portal.
+To revoke tenant-wide admin consent, you can review and revoke the permissions previously granted to the application. For more information, see [review permissions granted to applications](manage-application-permissions.md). You can also remove user’s access to the application by [disabling user sign-in to application](disable-user-sign-in-portal.md) or by [hiding the application](hide-application-from-user-portal.md) so that it doesn’t appear in the My apps portal.
 
 ### Grant consent on behalf of a specific user
 
