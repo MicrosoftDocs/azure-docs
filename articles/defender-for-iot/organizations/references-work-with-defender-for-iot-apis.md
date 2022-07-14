@@ -57,10 +57,6 @@ After generating the token, add an HTTP header titled **Authorization** to your 
 
 - [Retrieve operational vulnerabilities - /api/v1/reports/vulnerabilities/operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
 
-### Version 2
-
-- [Retrieve alert PCAP - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
-
 ### Validate user credentials - /api/external/authentication/validation
 
 Use this API to validate a Defender for IoT username and password. All Defender for IoT user roles can work with the API.
@@ -1527,47 +1523,6 @@ JSON object that represents assessed results. Each key contains a JSON array of 
 |--|--|--|
 | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational` |
 
-### Retrieve alert PCAP - /api/v2/alerts/pcap
-
-Use this API to retrieve a PCAP file related to an alert.
-
-This endpoint does not use a regular access token for authorization. Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
-
-#### Method
-
-- **GET**
-
-#### Query Parameters
-
-- id: Xsense Alert ID  
-Example:  
-`/api/v2/alerts/pcap/<id>`
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-- **Success**: Binary file containing PCAP data
-- **Failure**: JSON object that contains error message
-
-#### Response example
-
-#### Error
-
-```json
-{
-  "error": "PCAP file is not available"
-}
-```
-
-#### Curl command
-
-|Type|APIs|Example|
-|-|-|-|
-|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
-
 ## Management console API
 
 This section describes on-premises management console APIs for:
@@ -2501,7 +2456,7 @@ Define conditions under which alerts won't be sent. For example, define and upda
 
 The APIs that you define here appear in the on-premises management console's Alert Exclusions window as a read-only exclusion rule.
 
-This API is supported for maintenance purposes only and is not meant to be used instead of [alert exclusion rules](/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-premises-management-console#create-alert-exclusion-rules). Use this API for one-time maintenance operations only.
+This API is supported for maintenance purposes only and is not meant to be used instead of [alert exclusion rules](./how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules). Use this API for one-time maintenance operations only.
 
 #### Method - POST
 

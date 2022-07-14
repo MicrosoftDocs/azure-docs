@@ -2,11 +2,11 @@
 title: What's new in Azure Load Balancer
 description: Learn what's new with Azure Load Balancer, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: load-balancer
-author: anavinahar
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 11/17/2021
-ms.author: anavin
+ms.author: mbender
 ---
 # What's new in Azure Load Balancer?
 

@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-ms.author: seramasu
-author: rsethur
+author: dem108
+ms.author: sehan
 ms.reviewer: larryfr
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022
 ms.date: 05/24/2022
@@ -225,6 +225,12 @@ Specify the storage output location to any datastore and path. By default, batch
 - Authentication: Azure Active Directory Tokens
 - SSL: enabled by default for endpoint invocation
 - VNET support: Batch endpoints support ingress protection. A batch endpoint with ingress protection will accept scoring requests only from hosts inside a virtual network but not from the public internet. A batch endpoint that is created in a private-link enabled workspace will have ingress protection. To create a private-link enabled workspace, see [Create a secure workspace](tutorial-create-secure-workspace.md).
+
+> [!NOTE]
+Creating batch endpoints in a private-link enabled workspace is only supported in the following versions.
+> - CLI - version 2.15.1 or higher.
+> - REST API - version 2022-05-01 or higher.
+> - SDK V2 - version 0.1.0b3 or higher.
 
 ## Next steps
 

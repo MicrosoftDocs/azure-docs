@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 06/15/2022
 ms.author: v-erinkelly
 ---
 
@@ -45,6 +45,7 @@ These network-related prerequisites need to be set up before you can use your ca
 The Azure HPC Cache needs a dedicated subnet with these qualities:
 
 * The subnet must have at least 64 IP addresses available.
+* Communication inside the subnet must be unrestricted. If you use a network security group for the cache subnet, make sure that it permits all services between internal IP addresses.
 * The subnet can't host any other VMs, even for related services like client machines.
 * If you use multiple Azure HPC Cache instances, each one needs its own subnet.
 

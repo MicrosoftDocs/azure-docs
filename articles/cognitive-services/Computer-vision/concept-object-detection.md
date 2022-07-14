@@ -20,6 +20,11 @@ Object detection is similar to [tagging](concept-tagging-images.md), but the API
 
 The Detect API applies tags based on the objects or living things identified in the image. There is currently no formal relationship between the tagging taxonomy and the object detection taxonomy. At a conceptual level, the Detect API only finds objects and living things, while the Tag API can also include contextual terms like "indoor", which can't be localized with bounding boxes.
 
+Try out the capabilities of object detection quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
+
 ## Object detection example
 
 The following JSON response illustrates what the Analyze API returns when detecting objects in the example image.

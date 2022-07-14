@@ -15,7 +15,7 @@ This article describes how to contact support when working with a Dynatrace for 
 
 ## Contact support
 
-To contact support about the Azure Datadog integration, select **New Support request** in the left pane. Select the link to the Dynatrace support website.
+To contact support about the Azure Dynatrace integration, select **New Support request** in the left pane. Select the link to the Dynatrace support website.
 
 :::image type="content" source="media/dynatrace-troubleshoot/dynatrace-support.png" alt-text="Screenshot showing new support request selected in resource menu.":::
 
@@ -27,10 +27,10 @@ This document contains information about troubleshooting your solutions that use
 
 - Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
 
-  - Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](/azure/cost-management-billing/manage/change-credit-card).
+  - Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
 
 - The EA subscription doesn't allow _Marketplace_ purchases.
-  - Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Dynatrace support](https://support.dynatrace.com/).
+  - Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Dynatrace support](https://support.dynatrace.com/).
 
 ### Unable to create Dynatrace resource
 

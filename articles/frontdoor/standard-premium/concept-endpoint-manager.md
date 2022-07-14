@@ -15,7 +15,7 @@ ms.author: qixwang
 > [!NOTE]
 > * This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
 
-Endpoint Manager provides an overview of endpoints you've configured for your Azure Front Door. An endpoint is a logical grouping of a domains and their associated configurations. Endpoint Manager helps you manage your collection of endpoints for CRUD (create, read, update, and delete) operation. You can manage the following elements for your endpoints through Endpoint Manager:
+Endpoint Manager provides an overview of endpoints you've configured for your Azure Front Door. An endpoint is a logical grouping of domains and their associated configuration. Endpoint Manager helps you manage your collection of endpoints for CRUD (create, read, update, and delete) operation. You can manage the following elements for your endpoints through Endpoint Manager:
 
 * Domains
 * Origin Groups

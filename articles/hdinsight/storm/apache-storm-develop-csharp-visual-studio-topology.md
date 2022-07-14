@@ -4,7 +4,7 @@ description: Learn how to create Storm topologies in C#. Create a word count top
 ROBOTS: NOINDEX
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 12/31/2019
+ms.date: 06/22/2022
 ms.custom: devx-track-csharp
 ---
 
