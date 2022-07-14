@@ -1944,7 +1944,7 @@
         href: sap-customer-cloud-tutorial.md
       - name: SAP Cloud Platform
         href: sap-hana-cloud-platform-tutorial.md
-      - name: SAP Cloud Platform Identity Authentication
+      - name: SAP Cloud Identity Services
         href: sap-hana-cloud-platform-identity-authentication-tutorial.md
       - name: SAP Fiori
         href: sap-fiori-tutorial.md
