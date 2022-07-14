@@ -27,7 +27,6 @@ Before you begin:
 * If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 * Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.
 * Ephemeral OS disks are supported both for primary and secondary node type. For the sake of this guide, we will be using a Standard SKU cluster with two node types and a secondary node type that uses Ephemeral OS disk.
-* A node type can only be configured to use Ephemeral OS disk at the time of creation. To migrate using Ephemeral OS Disks, add a new node type to the cluster and migrate your services to that node type. 
 * Ephemeral OS disks are not supported for every SKU. VM sizes such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M, Mdsv2, Bs, Dav4, Eav4 supports Ephemeral OS disks. Please ensure the SKU with which you want to deploy supports Ephemeral OS disk. For more information on individual SKU, see [supported VM SKU](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) and navigate to the desired SKU on left side pane.
 * Ephemeral OS disks in Service Fabric are placed in the space for temporary disks for the VM SKU. Ensure the VM SKU you are using has more than 127 GiB of temporary disk space to place Ephemeral OS disk.
 
@@ -42,7 +41,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
 
 ## Deploy Template
 
-The template used in this guide is from [Azure-Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Ephemeral).
+The template used in this guide is from [Azure-Sample - Service Fabric cluster template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Ephemeral).
 
 1) Store the paths of your ARM template and parameter files in variables, then deploy the template.
 
@@ -79,12 +78,20 @@ The template used in this guide is from [Azure-Samples - Service Fabric cluster 
     "useEphemeralOSDisk": true 
     }
    ```
+   Sample template is available that includes this specification: [Azure-Sample - Service Fabric cluster template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Ephemeral).
 4) Deploy an ARM template through one of the methods below:
 
 * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template)
 * ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
 
 Wait for the deployment to be completed successfully.
+
+## Migrate to using Ephemeral OS disks for Service Fabric managed cluster node types
+A node type can only be configured to use Ephemeral OS disk at the time of creation. Existing node types cannot be converted to use Ephemeral OS disks. For all migration scenarios, add a new node type with Ephemeral OS disk to the cluster and migrate your services to that node type. 
+
+1) Add a new node type that's configured to use Ephemeral OS disk as specified earlier.
+2) Migrate any required workloads to the new node type.
+3) Disable and remove the old node type from the cluster.
 
 ## Next steps
 > [!div class="nextstepaction"]
