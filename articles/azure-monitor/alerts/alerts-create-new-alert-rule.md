@@ -23,11 +23,11 @@ And then defining these elements for the resulting alert actions using:
 ## Create a new alert rule in the Azure portal
 
 1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
-1. Expand the **+ Create** menu, and select **Alert rule**.
+2. Expand the **+ Create** menu, and select **Alert rule**.
 
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot showing steps to create new alert rule.":::
 
-1. In the **Select a resource** pane, set the scope for your alert rule, and then select **Done**. 
+3. In the **Select a resource** pane, set the scope for your alert rule, and then select **Done**. 
    You can see the alert rule types available for the selected resource at the bottom right of the pane. 
    
    You can filter by:
@@ -38,11 +38,11 @@ And then defining these elements for the resulting alert actions using:
 
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot showing select resource pane for creating new alert rule."::: 
 
-1. Select **Next: Condition>** at the bottom of the page.
-1. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. Select any filters to narrow the resource list.
-1. You can see the **Available signal types** for your selected resource(s) at the bottom right of the pane. 
-1. Select **Include all future resources** to include any future resources added to the selected scope.
-1. Select **Done**.
+4. Select **Next: Condition>** at the bottom of the page.
+5. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. Select any filters to narrow the resource list.
+6. You can see the **Available signal types** for your selected resource(s) at the bottom right of the pane. 
+7. Select **Include all future resources** to include any future resources added to the selected scope.
+8. Select **Done**.
    
  ## [Log alerts](#tab/logs)
     
@@ -139,24 +139,24 @@ And then defining these elements for the resulting alert actions using:
     
 ---
 
-2. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
+9. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
     :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
 
-3. In the **Details** tab, define the **Project details** and the **Alert rule details**.
-4. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **Mute actions** for a period of time after the alert rule fires.
+10. In the **Details** tab, define the **Project details** and the **Alert rule details**.
+11. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **Mute actions** for a period of time after the alert rule fires.
     
     :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
     > [!NOTE]
     > If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
 
-5. In the **Tags** tab, set any required tags on the alert rule resource.
+12. In the **Tags** tab, set any required tags on the alert rule resource.
 
     :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
 
-6. In the **Review + create** tab, a validation will run and inform you of any issues.
-7. When validation passes and you've reviewed the settings, select the **Create** button.    
+13. In the **Review + create** tab, a validation will run and inform you of any issues.
+14. When validation passes and you've reviewed the settings, select the **Create** button.    
     
     :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 
