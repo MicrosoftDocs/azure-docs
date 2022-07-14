@@ -262,7 +262,7 @@ sections:
       - question: |
          How can I check my Form Recognizer usage and estimate the price?
         answer: |
-          You need to sign in to Azure portal and use the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to check how many pages were processed by Azure Form Recognizer and estimate the cost spent on the resource. For detailed instructions, *see* [Check my usage and estimate the cost](how-to-guides/estimate-cost.md).
+          You can find usage metrics in the Azure portal metrics dashboard. The dashboard displays the number of pages processed by Azure Form Recognizer. You can check the estimated cost spent on the resource using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For detailed instructions, *see* [Check my usage and estimate the cost](how-to-guides/estimate-cost.md).
 
       - question: |
           What are best practices to mitigate throttling?

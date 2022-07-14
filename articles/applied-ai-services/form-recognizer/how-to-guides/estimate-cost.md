@@ -46,7 +46,7 @@ You can dive deeper to see each model's analyzed pages:
 
 1. From the upper right corner, configure the time range and select the **Apply** button.
 
-    :::image type="content" source="../media/azure-portal-processed-pages-timeline.png" alt-text="{alt-text}" lightbox="azure-portal-metrics-timeline.png":::
+    :::image type="content" source="../media/azure-portal-processed-pages-timeline.png" alt-text="{alt-text}" lightbox="../media/azure-portal-metrics-timeline.png":::
 
 1. Select **Apply splitting**.
 
@@ -66,11 +66,11 @@ You can dive deeper to see each model's analyzed pages:
 
 1. Search for **Azure Form Recognizer** in the **Search products** search box.
 
-1. Select **Azure Form Recognizer** and you will see that it has been added to the page.
+1. Select **Azure Form Recognizer** and you'll see that it has been added to the page.
 
 1. Under **Your Estimate**, select the relevant **Region**, **Payment Option** and **Instance** for your Form Recognizer instance. For more information, *see* [Azure Form Recognizer pricing options](https://azure.microsoft.com/pricing/details/form-recognizer/#pricing).
 
-1. Enter the number of pages you from the metrics dashboard on Azure portal using the steps in the above [Check how many pages are processed](#check-how-many-pages-are-processed) or [Examine analyzed pages](#examine-analyzed-pages) sections.
+1. Enter the number of pages processed from the Azure portal metrics dashboard using the steps the above in [Check how many pages are processed](#check-how-many-pages-are-processed) or [Examine analyzed pages](#examine-analyzed-pages) sections.
 
 * The price you'll pay is on the right, after the equal (**=**) sign.
 
