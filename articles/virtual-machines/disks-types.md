@@ -108,9 +108,6 @@ Azure premium SSD v2 (preview) is designed for IO-Intensive enterprise productio
 
 [!INCLUDE [disks-premv2-regions](../../includes/disks-premv2-regions.md)]
 
-### Premium SSD v2 Sector Sizes
-Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is also supported. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
-
 ### Premium SSD v2 performance
 
 With Premium SSD v2 disks, you can individually set the capacity, throughput, and IOPS of a disk based on your workload needs, providing you more flexibility and reduced costs. Each of these values determine the cost of your disk.  
@@ -128,6 +125,9 @@ Each premium SSD v2 has a baseline IOPS of 3000 by default free of cost. The cap
 #### Premium SSD v2 throughput
 
 Each premium SSD v2 has a baseline throughput of 125 MBps by default free of cost. The disk's IOPS determines the maximum throughput that can be set on a disk. The IOPS to throughput ratio is .25 MiB/s per IOPS. The maximium throughput a 6 GiB disk can set is 750 MB/s, whereas the maximum throughput an 8 GiB disk can set is 1,000 MB/s. The maximum throughput a 10 GiB disk can set is 1,200 MB/s, 1,200 is the maximum throughput supported for disks 10 GiB or larger.
+
+### Premium SSD v2 Sector Sizes
+Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is also supported. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 
 #### Summary
 
