@@ -29,7 +29,7 @@ We are excited to announce that 9.0 release of the Service Fabric runtime has st
 ### Key announcements
 - **General Availability** Support for .NET 6.0
 - **General Availability** Support for Ubuntu 20.04
-- **General Availability** Support for Multi-AZ within a single VM Scale Set (VMSS)
+- **General Availability** Support for Multi-AZ within a single virtual machine scale set
 - Added support for IHost, IHostBuilder and Minimal Hosting Model
 - Enabling opt-in option for Data Contract Serialization (DCS) based remoting exception
 - Support creation of End-to-End Developer Experience for Linux development on Windows using WSL2

@@ -46,7 +46,7 @@ In the simplest case, traffic is forwarded to a stateless service instance. To a
 
 **Example**
 
-In the following scenario, a Service Fabric application contains a stateless service named `fabric:/app/fooservice`, that exposes an internal HTTP API. The service instance name is well known and can be hard-coded directly in the API Management inbound processing policy. 
+In the following scenario, a Service Fabric application contains a stateless service named `fabric:/app/fooservice` that exposes an internal HTTP API. The service instance name is well known and can be hard-coded directly in the API Management inbound processing policy. 
 
 ![Diagram that shows a Service Fabric application contains a stateless service that exposes an internal HTTP API.][sf-apim-static-stateless]
 
