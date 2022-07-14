@@ -17,13 +17,13 @@ Aqua is a polar-orbiting spacecraft launched by NASA in 2002. Data from all scie
 
 A *contact* is time reserved at an orbital ground station to communicate with a satellite. During the contact, the ground station orients its antenna towards Aqua and captures the broadcast payload. The captured data is sent to an Azure VM as a data stream that is processed using the [RT-STPS](http://directreadout.sci.gsfc.nasa.gov/index.cfm?section=technology&page=NISGS&subpage=NISFES&sub2page=RT-STPS&sub3Page=overview) (Real-Time Software Telemetry Processing System) provided by [Direct Readout Laboratory](http://directreadout.sci.gsfc.nasa.gov/) at NASA to generate a level 0 product. Further processing of level 0 data is done using IPOPP (International Planetary Observation Processing Package) tool, also provided by DRL.
 
-Processing the Aqua data stream involves the following steps in order:
+In this tutorial, you'll follow these steps to process the Aqua data stream:
 
 > [!div class="checklist"]
-> 1. [Prerequisites](#step-1-prerequisites).
-> 2. [Process RAW data using RT-STPS](#step-2-process-raw-data-using-rt-stps).
-> 3. [Prepare a virtual machine (processor-vm) to process higher level products](#step-3-prepare-a-virtual-machine-processor-vm-to-create-higher-level-products).
-> 4. [Create higher level products using IPOPP](#step-4-create-higher-level-products-using-ipopp).
+> * [Prerequisites](#step-1-prerequisites).
+> * [Process RAW data using RT-STPS](#step-2-process-raw-data-using-rt-stps).
+> * [Prepare a virtual machine (processor-vm) to process higher level products](#step-3-prepare-a-virtual-machine-processor-vm-to-create-higher-level-products).
+> * [Create higher level products using IPOPP](#step-4-create-higher-level-products-using-ipopp).
 
 Optional setup for capturing the ground station telemetry are included in the [Appendix](#appendix)
 
