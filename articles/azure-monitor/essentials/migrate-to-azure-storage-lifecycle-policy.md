@@ -45,7 +45,7 @@ To migrate your diagnostics settings retention rules, follow the steps below:
 For example, for all Function App logs, you could use the container *insights-logs-functionapplogs* to set the retention for all Function App logs.
 To set the rule for a specific subscription, resource group, and function app name, use *insights-logs-functionapplogs/resourceId=/SUBSCRIPTIONS/\<your subscription Id\>/RESOURCEGROUPS/\<your resource group\>/PROVIDERS/MICROSOFT.WEB/SITES/\<your function app name\>*.  
 
-1. Select **Add* to save the rule.
+1. Select **Add** to save the rule.
 1. :::image type="content" source="./media/retention-migration/lifecycle-management-add-rule-filter-set.png" alt-text="A screenshot showing the filters tab for adding a lifecycle rule.":::
 
 ## Next steps
