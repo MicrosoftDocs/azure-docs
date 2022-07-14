@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Workable | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Workable'
 description: Learn how to configure single sign-on between Azure Active Directory and Workable.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/09/2021
+ms.date: 07/14/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Workable
+# Tutorial: Azure AD SSO integration with Workable
 
 In this tutorial, you'll learn how to integrate Workable with Azure Active Directory (Azure AD). When you integrate Workable with Azure AD, you can:
 
@@ -74,12 +74,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
 
 	In the **Reply URL** text box, type a URL using the following pattern:
-    `https://www.workable.com/auth/saml/<SUBDOMAIN>/callback`
+    `https://id.workable.com/auth/saml/ats_server/<SUBDOMAIN>/callback`
 
 5. Click **set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type the URL:
-    `https://www.workable.com/sso/signin`
+    `https://<SUBDOMAIN>.workable.com/signin`
 
 	> [!NOTE]
 	> The Reply URL value is not real. Update Reply URL value with the actual Reply URL. Contact [Workable Client support team](mailto:support@workable.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
