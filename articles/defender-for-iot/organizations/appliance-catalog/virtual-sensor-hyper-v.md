@@ -35,15 +35,13 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 **To create the virtual machine using Hyper-V**:
 
-1. Create a virtual disk in Hyper-V Manager.
+1. Create a virtual disk in Hyper-V Manager (Fixed size, as required by the hardware profile).
 
 1. Select **format = VHDX**.
 
-1. Select **type = Dynamic Expanding**.
-
 1. Enter the name and location for the VHD.
 
-1. Enter the required size [according to your organization's needs](../ot-appliance-sizing.md).
+1. Enter the required size [according to your organization's needs](../ot-appliance-sizing.md) (select Fixed Size disk type).
 
 1. Review the summary, and select **Finish**.
 
@@ -53,9 +51,9 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Select **Specify Generation** > **Generation 1**.
 
-1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), and select the check box for dynamic memory.
+1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), in standard RAM denomination (eg. 8192, 16384, 32768). Do not enable **Dyanmic Memory**.
 
-1. Configure the network adaptor according to your server network topology.
+1. Configure the network adaptor according to your server network topology. Under the "Hardware Acceleration" blade, disable "Virtual Machine Queue" for the monitoring (SPAN) network interface.
 
 1. Connect the VHDX created previously to the virtual machine.
 
@@ -156,9 +154,9 @@ These commands set the name of the newly added adapter hardware to be `Monitor`.
 
     :::image type="content" source="../media/tutorial-install-components/vswitch-span.png" alt-text="Screenshot of selecting the following options on the virtual switch screen.":::
 
-1. In the Hardware list, under the Network Adapter drop-down list, select **Advanced Features**.
+1. In the Hardware list, under the Network Adapter drop-down list, select **Hardware Acceleration** and disable "Virtual Machine Queue" for the monitoring (SPAN) network interface.
 
-1. In the Port Mirroring section, select **Destination** as the mirroring mode for the new virtual interface.
+1. In the Hardware list, under the Network Adapter drop-down list, select **Advanced Features**. Under the Port Mirroring section, select **Destination** as the mirroring mode for the new virtual interface.
 
     :::image type="content" source="../media/tutorial-install-components/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
 

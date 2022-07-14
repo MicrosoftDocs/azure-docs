@@ -2,9 +2,13 @@
 title: Partitioning Service Fabric services 
 description: Learn how to partition Service Fabric stateless and stateful services
 ms.topic: conceptual
-ms.date: 06/16/2022
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Partition Service Fabric reliable services
 This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. Partitioning enables data storage on the local machines so data and compute can be scaled together.
 
