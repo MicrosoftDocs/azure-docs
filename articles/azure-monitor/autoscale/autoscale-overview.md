@@ -110,6 +110,10 @@ You can set up autoscale via
 | Media Services | [Autoscaling in Media Services](https://docs.microsoft.com/azure/media-services/latest/release-notes#autoscaling) |
 | Logic Apps - Integration Service Environment(ISE) | [Add ISE Environment](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity) |
 | Azure App Service Environment | [Autoscaling and App Service Environment v1](../../app-service/environment/app-service-environment-auto-scale.md) |
+| Service Fabric Managed Clusters | [Introduction to Autoscaling on Service Fabric managed clusters](../../service-fabric/how-to-managed-cluster-autoscale.md) |
+| Azure Stream Analytics | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md) |
+| Azure Machine Learning Workspace | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md) |
+
 
 ## Next steps
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:
