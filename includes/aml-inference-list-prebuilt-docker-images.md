@@ -19,6 +19,7 @@ Framework version | CPU/GPU | Pre-installed packages | MCR Path
  --- | --- | --- | --- |
 NA | CPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu18.04-py37-cpu-inference:latest`
 NA | GPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu18.04-py37-cuda11.0.3-gpu-inference:latest`
+NA | CPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu20.04-py38-cpu-inference:latest`
 
 ### TensorFlow
 
