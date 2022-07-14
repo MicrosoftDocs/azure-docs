@@ -18,13 +18,13 @@ ms.author: jodowns
 
 ### Avoid combining Traffic Manager and Front Door
 
-For most solutions, you should use *either* Azure Front Door *or* [Azure Traffic Manager](TODO).
+For most solutions, you should use *either* Azure Front Door *or* [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
 
 Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work very differently and are intended for different use cases.
 
 If you combine both Front Door and Traffic Manager together, it's unlikely that you'll increase the resiliency or performance of your solution. Also, if you have health probes configured on both services, you might accidentally overload your servers with the volume of health probe traffic.
 
-If you need TLS termination, advanced routing capabilities, or a web application firewall (WAF), consider using Front Door. For simple global load balancing with direct connections from your client to your endpoints, consider using Traffic Manager. For more information about selecting a load balancing option, see [TODO](TODO).
+If you need TLS termination, advanced routing capabilities, or a web application firewall (WAF), consider using Front Door. For simple global load balancing with direct connections from your client to your endpoints, consider using Traffic Manager. For more information about selecting a load balancing option, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ### Use the latest API version and SDK version
 
@@ -60,21 +60,30 @@ For more information, see [Select the certificate for Azure Front Door to deploy
 
 ### Use the same domain name on Front Door and your origin
 
-Avoid host header rewrites.
+Front Door can rewrite the `Host` header of incoming requests. This feature can be helpful when you manage a set of customer-facing custom domain names that route to a single origin. The feature can also help when you want to avoid configuring custom domain names in Front Door and at your origin. However, when you rewrite the `Host` header, request cookies and URL redirections might break. In particular, when you use platforms like Azure App Service, features like [session affinity](/azure/app-service/configure-common#configure-general-settings) and [authentication and authorization](/azure/app-service/overview-authentication-authorization) might not work correctly.
+
+Before you rewrite the `Host` header of your requests, carefully consider whether your application and platform are going to work correctly.
+
+For more information, see [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation).
 
 ## Web application firewall (WAF)
 
 ### Enable the WAF
 
-TODO
+For internet-facing applications, we recommend you enable the Front Door web application firewall (WAF) and configure it to use managed rules. By using a WAF and Microsoft-managed rules, your application is protected from a range of attacks.
+
+For more information, see [Web Application Firewall (WAF) on Azure Front Door](web-application-firewall.md).
 
 ### Follow WAF best practices
+
+The WAF for Front Door has its own set of best practices for its configuration and use. For more information, see [Best practices for Web Application Firewall on Azure Front Door](../web-application-firewall/afds/waf-front-door-best-practices.md).
 
 ## Health probe best practices
 
 ### Select good health probe endpoints
 
 Point health probes to something that tells you whether the origin is healthy and ready to accept traffic.
+TODO
 
 ### Disable health probes when there’s only one origin
 
