@@ -81,6 +81,9 @@
 
 - name: Concepts
   items:
+  - name: The Defender for Cloud multicloud solution
+    href: multicloud.yml
+
   - name: Cloud Security Posture Management concepts
     items:
     - name: Policies, initiatives, and recommendations
@@ -98,9 +101,6 @@
       href: alerts-overview.md
     - name: Reference list of alerts
       href: alerts-reference.md
-
-  - name: The Defender for Cloud multicloud solution
-    href: multicloud.yml
 
 - name: How-to guides
   items:
@@ -206,7 +206,7 @@
     displayName: hybrid, arc, Defender for Servers
     items:
     - name: Overview
-      displayName: VM
+      displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
       href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
@@ -265,7 +265,7 @@
   - name: Defender for Containers
     items:
     - name: Overview
-      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
+      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud, Hardening, Vulnerability assessment, Run-time protection
       href: defender-for-containers-introduction.md
     - name: How does Defender for Containers work?
       href: defender-for-containers-architecture.md
@@ -437,6 +437,8 @@
       href: episode-thirteen.md
     - name: Defender for Servers deployment in AWS and GCP
       href: episode-fourteen.md
+    - name: Remediate security recommendations with governance
+      href: episode-fifteen.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

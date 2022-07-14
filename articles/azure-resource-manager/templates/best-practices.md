@@ -154,7 +154,7 @@ When your template works as expected, we recommend you continue using the same A
 
 Don't use a parameter for the API version. Resource properties and values can vary by API version. IntelliSense in a code editor can't determine the correct schema when the API version is set to a parameter. If you pass in an API version that doesn't match the properties in your template, the deployment will fail.
 
-Don't use variables for the API version. 
+Don't use variables for the API version.
 
 ## Resource dependencies
 
@@ -227,8 +227,8 @@ The following information can be helpful when you work with [resources](./syntax
      For more information about connecting to virtual machines, see:
 
    * [What is Azure Bastion?](../../bastion/bastion-overview.md)
-   * [How to connect and sign on to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md)
-   * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](../../virtual-machines/windows/winrm.md)
+   * [How to connect and sign on to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-rdp.md)
+   * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](../../virtual-machines/windows/connect-winrm.md)
    * [Connect to a Linux VM](../../virtual-machines/linux-vm-connect.md)
 
 * The `domainNameLabel` property for public IP addresses must be unique. The `domainNameLabel` value must be between 3 and 63 characters long, and follow the rules specified by this regular expression: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Because the `uniqueString` function generates a string that is 13 characters long, the `dnsPrefixString` parameter is limited to 50 characters.
