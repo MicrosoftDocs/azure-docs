@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a time series 
 > * Identify anomalies in a time series 
-> * Provide the anomaly detection function additional input to refine results
+> * Modify anomaly detection function input to refine results
 > * Analyze the root cause of anomalies
 
 ## Prerequisites
@@ -95,7 +95,7 @@ Looking at the query results, you can see that the function:
 > [!NOTE]
 > For more information about `series_decompose_anomalies()` syntax and usage, see [`series_decompose_anomalies()`](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction).
 
-## Provide the anomaly detection function additional input to refine results
+## Modify anomaly detection function input to refine results
 
 Filter the results of the `series_decompose_anomalies()` query for anomalies in the `AzureDiagnostics` data type:
 
@@ -132,7 +132,7 @@ Usage // The table we’re analyzing
 | sort by abs(AnomalyScore) desc // Sorts results by anomaly score in descending ordering
 ```
 
-Filtering the results for the `AzureDiagnostics` data type now shows the expected results:
+Filtering the results for the `AzureDiagnostics` data type now produces the expected results:
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/refined-anomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/refined-anomalies-filtered-kql.png" alt-text="A table showing the results of the modified anomaly detection query, filtered for results from the Azure Diagnostics data type. The results now show the same anomalies as the chart created at the beginning of the tutorial."::: 
 
