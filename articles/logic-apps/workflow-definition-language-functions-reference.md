@@ -131,7 +131,9 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Return a string that has *all* the items from an array, separated by the specified character. |
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Return the last item from a collection. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
+| [reverse](../logic-apps/workflow-definition-language-functions-reference.md#reverse) | Reverse the order of items in an array |
 | [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Remove items from the front of a collection, and return *all the other* items. |
+| [sort](../logic-apps/workflow-definition-language-functions-reference.md#sort) | Sort items in a collection. |
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Return items from the front of a collection. |
 | [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Return a collection that has *all* the items from the specified collections. |
 |||
@@ -1883,7 +1885,7 @@ decodeUriComponent('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*decoded-uri*> | String | The upd string with the decoded escape characters |
+| <*decoded-uri*> | String | The updated string with the decoded escape characters |
 ||||
 
 *Example*
@@ -3996,6 +3998,36 @@ Here's how the example returned array might look where the outer `outputs` objec
 ]
 ```
 
+<a name="reverse"></a>
+
+### reverse
+
+Reverse the order of items in a colleciton. When used with [sort()](#sort), this function allows a collection to be sorted in descending order.
+
+```
+reverse([<collection>])
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*collection*> | Yes | Array | The collection to reverse |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| [<*updated-collection*>] | Array | The reversed collection |
+||||
+
+*Example*
+
+This example reverses an array of integers:
+
+```
+reverse(createArray(0, 1, 2, 3))
+```
+
+And returns this array: `[3,2,1,0]`
+
 ## S
 
 <a name="setProperty"></a>
@@ -4157,6 +4189,47 @@ slice('Hello World', -2) // Returns 'ld'.
 slice('Hello World', 3, -1) // Returns 'lo Worl'.
 slice('Hello World', 3, 3) // Returns ''.
 ```
+
+<a name="sort"></a>
+
+### sort
+
+Sort items in a collection. Objects in a collection may be sorted by any key that contains a simple type.
+
+```
+sort([<collection>], <sortBy>?)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*collection*> | Yes | Array | The collection whose items you want to sort |
+| <*sortBy*> | No | String | A key to use for sorting objects in a collection |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| [<*updated-collection*>] | Array | The sorted collection |
+||||
+
+*Example 1*
+
+This example sorts an array of integers:
+
+```
+sort(createArray(2, 1, 0, 3))
+```
+
+And returns this array: `[0,1,2,3]`
+
+*Example 2*
+
+This example sorts an array of objects by key:
+
+```
+sort(createArray(json('{ "first": "Amalie", "last": "Rose" }'), json('{ "first": "Elise", "last": "Renee" }'), "last")
+```
+
+And returns this array: `[{ "first": "Elise", "last": "Renee" }, {"first": "Amalie", "last": "Rose" }')]`
 
 <a name="split"></a>
 
