@@ -35,29 +35,64 @@ The following commands help you define  variables and ensure your Container Apps
 
 1. Log in to the Azure CLI.
 
+    # [Bash](#tab/bash)
+
     ```azurecli
     az login
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az login
+    ```
+
+    ---
+
 1. Set up environment variables used in various commands to follow.
 
-    ```bash
+    # [Bash](#tab/bash)
+
+    ```azurecli
     RESOURCE_GROUP="my-container-apps-group"
     ENVIRONMENT_NAME="my-storage-environment"
     LOCATION="canadacentral"
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    $RESOURCE_GROUP="my-container-apps-group"
+    $ENVIRONMENT_NAME="my-storage-environment"
+    $LOCATION="canadacentral"
+    ```
+
+    ---
+
 1. Ensure you have the latest version of the Container Apps Azure CLI extension.
+
+    # [Bash](#tab/bash)
 
     ```azurecli
     az extension add -n containerapp --upgrade
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az extension add -n containerapp --upgrade
+    ```
+
+    ---
 
 ## Create an environment
 
 The following steps create a resource group and a Container Apps environment.
 
 1. Create a resource group.
+
+    # [Bash](#tab/bash)
+
 
     ```azurecli
     az group create \
@@ -66,19 +101,44 @@ The following steps create a resource group and a Container Apps environment.
       --query "properties.provisioningState"
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az group create `
+      --name $RESOURCE_GROUP `
+      --location $LOCATION `
+      --query "properties.provisioningState"
+    ```
+
+    ---
+
     Once created, the command returns a "Succeeded" message.
 
     At the end of this tutorial, you can delete the resource group to remove all the services created during this article.
 
 1. Create a Container Apps environment.
 
+    # [Bash](#tab/bash)
+
     ```azurecli
     az containerapp env create \
       --name $ENVIRONMENT_NAME \
       --resource-group $RESOURCE_GROUP \
-      --location $LOCATION \
+      --location "$LOCATION" \
       --query "properties.provisioningState"
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az containerapp env create `
+      --name $ENVIRONMENT_NAME `
+      --resource-group $RESOURCE_GROUP `
+      --location "$LOCATION" `
+      --query "properties.provisioningState"
+    ```
+
+    ---
 
     Once created, the command returns a "Succeeded" message.
 
@@ -91,33 +151,77 @@ Next, create a storage account and establish a file share to mount to the contai
 1. Define a storage account name.
 
     ```bash
+    
+    ```
+
+    # [Bash](#tab/bash)
+
+    ```azurecli
     STORAGE_ACCOUNT_NAME="myacastorageaccount$RANDOM"
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    $STORAGE_ACCOUNT_NAME="myacastorageaccount$(Get-Random)"
+    ```
+
+    ---
 
     This value is used with a few different commands in this procedure.
 
 1. Create an Azure Storage account.
 
+    # [Bash](#tab/bash)
+
     ```azurecli
     az storage account create \
       --resource-group $RESOURCE_GROUP \
       --name $STORAGE_ACCOUNT_NAME \
-      --location $LOCATION \
+      --location "$LOCATION" \
       --kind StorageV2 \
       --sku Standard_LRS \
       --enable-large-file-share \
       --query provisioningState
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az storage account create `
+      --resource-group $RESOURCE_GROUP `
+      --name $STORAGE_ACCOUNT_NAME `
+      --location "$LOCATION" `
+      --kind StorageV2 `
+      --sku Standard_LRS `
+      --enable-large-file-share `
+      --query provisioningState
+    ```
+
+    ---
+
     Once created, the command returns a "Succeeded" message.
 
 1. Define a file share name.
+
+    # [Bash](#tab/bash)
 
     ```bash
     STORAGE_SHARE_NAME="myfileshare"
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    $STORAGE_SHARE_NAME="myfileshare"
+    ```
+
+    ---
+
 1. Create the Azure Storage file share.
+
+    # [Bash](#tab/bash)
+
 
     ```azurecli
     az storage share-rm create \
@@ -129,19 +233,53 @@ Next, create a storage account and establish a file share to mount to the contai
       --output table
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az storage share-rm create `
+      --resource-group $RESOURCE_GROUP `
+      --storage-account $STORAGE_ACCOUNT_NAME `
+      --name $STORAGE_SHARE_NAME `
+      --quota 1024 `
+      --enabled-protocols SMB `
+      --output table
+    ```
+
+    ---
+
 1. Get the storage account key.
+
+    # [Bash](#tab/bash)
 
     ```bash
     STORAGE_ACCOUNT_KEY=`az storage account keys list -n $STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv`
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    $STORAGE_ACCOUNT_KEY=$(az storage account keys list -n $STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
+    ```
+
+    ---
+
     The storage account key is required to create the storage link in your Container Apps environment.
 
 1. Define the storage mount name.
 
+    # [Bash](#tab/bash)
+
     ```bash
     STORAGE_MOUNT_NAME="mystoragemount"
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    $STORAGE_MOUNT_NAME="mystoragemount"
+    ```
+
+    ---
 
     This value is the name used to define the storage mount link from your Container Apps environment to your Azure Storage account.
 
@@ -150,6 +288,9 @@ Next, create a storage account and establish a file share to mount to the contai
 Now you can update the container app configuration to support the storage mount.
 
 1. Create the storage link in the environment.
+
+    # [Bash](#tab/bash)
+
 
     ```azurecli
     az containerapp env storage set \
@@ -163,17 +304,46 @@ Now you can update the container app configuration to support the storage mount.
       --output table
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az containerapp env storage set `
+      --access-mode ReadWrite `
+      --azure-file-account-name $STORAGE_ACCOUNT_NAME `
+      --azure-file-account-key $STORAGE_ACCOUNT_KEY `
+      --azure-file-share-name $STORAGE_SHARE_NAME `
+      --storage-name $STORAGE_MOUNT_NAME `
+      --name $ENVIRONMENT_NAME `
+      --resource-group $RESOURCE_GROUP `
+      --output table
+    ```
+
+    ---
+
     This command creates a link between container app environment and the file share created with the `az storage share-rm` command.
 
     Now that the storage account and environment are linked, you can create a container app that uses the storage mount.
 
 1. Define the container app name.
 
+    # [Bash](#tab/bash)
+
     ```bash
     CONTAINER_APP_NAME="my-container-app"
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    $CONTAINER_APP_NAME="my-container-app"
+    ```
+
+    ---
+
 1. Create the container app.
+
+    # [Bash](#tab/bash)
+
 
     ```azurecli
     az containerapp create \
@@ -186,6 +356,21 @@ Now you can update the container app configuration to support the storage mount.
       --query properties.configuration.ingress.fqdn
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az containerapp create `
+      --name $CONTAINER_APP_NAME `
+      --resource-group $RESOURCE_GROUP `
+      --environment $ENVIRONMENT_NAME `
+      --image nginx `
+      --target-port 80 `
+      --ingress external `
+      --query properties.configuration.ingress.fqdn
+    ```
+
+    ---
+
     This command displays the URL of your new container app.
 
 1. Copy the URL and paste into your web browser to navigate to the website.
@@ -196,12 +381,25 @@ Now you can update the container app configuration to support the storage mount.
 
 1. Export the container app's configuration.
 
+    # [Bash](#tab/bash)
+
     ```azurecli
     az containerapp show \
       --name $CONTAINER_APP_NAME \
       --resource-group $RESOURCE_GROUP \
       --output yaml > app.yaml
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az containerapp show `
+      --name $CONTAINER_APP_NAME `
+      --resource-group $RESOURCE_GROUP `
+      --output yaml > app.yaml
+    ```
+
+    ---
 
     > [!NOTE]
     > While this application doesn't have secrets, many apps do feature secrets. By default, when you export an app's configuration, the values for secrets aren't included in the generated YAML.
@@ -250,6 +448,8 @@ Now you can update the container app configuration to support the storage mount.
 
 1. Update the container app with the new storage mount configuration.
 
+    # [Bash](#tab/bash)
+
     ```azurecli
     az containerapp update \
       --name $CONTAINER_APP_NAME \
@@ -258,11 +458,25 @@ Now you can update the container app configuration to support the storage mount.
       --output table
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az containerapp update \
+      --name $CONTAINER_APP_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --yaml app.yaml \
+      --output table
+    ```
+
+    ---
+
 ## Verify the storage mount
 
 Use the following commands to observe the storage mount at work.
 
 1. Open an interactive shell inside the container app to test the storage mount.
+
+    # [Bash](#tab/bash)
 
     ```azurecli
     az containerapp exec \
@@ -270,19 +484,49 @@ Use the following commands to observe the storage mount at work.
       --resource-group $RESOURCE_GROUP
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az containerapp exec `
+      --name $CONTAINER_APP_NAME `
+      --resource-group $RESOURCE_GROUP
+    ```
+
+    ---
+
     This command may take a moment to open the shell. Once the shell is ready, then you can interact with the storage mount via file system commands.
 
 1. Change into the nginx *html* folder.
+
+    # [Bash](#tab/bash)
 
     ```bash
     cd /usr/share/nginx/html
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    cd /usr/share/nginx/html
+    ```
+
+    ---
+
 1. Create a test file.
+
+    # [Bash](#tab/bash)
 
     ```bash
     echo "hello" > file-mount.html
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    echo "hello" > file-mount.html
+    ```
+
+    ---
 
 1. Return to your browser and navigate to the *file-mount.html* file from the nginx website.
 
