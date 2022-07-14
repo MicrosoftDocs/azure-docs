@@ -43,7 +43,7 @@ First you define the neural network architecture in a *model.py* file. All your 
 
 The training code is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch. Note that the Azure Machine Learning concepts apply to any machine learning code, not just PyTorch.
 
-. Create a *model.py* file in the **src** subfolder. Copy this code into the file:
+1. Create a *model.py* file in the **src** subfolder. Copy this code into the file:
 
     ```python
     import torch.nn as nn
@@ -223,7 +223,7 @@ if __name__ == "__main__":
       environment=f"{env_name}@latest",
    :::column-end:::
    :::column span="2":::
-      Adds the environment to [command](/python/api/azure-ai-ml/azure.ai.ml?view=azure-python-preview#azure-ai-ml-command).
+      Adds the environment to [command](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command).
    :::column-end:::
 :::row-end:::
 

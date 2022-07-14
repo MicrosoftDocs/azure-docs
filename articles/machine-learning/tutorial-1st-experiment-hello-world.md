@@ -122,7 +122,7 @@ Here's a description of how the control script works:
       `job = command(...)`
    :::column-end:::
    :::column span="2":::
-      [command](/python/api/azure-ai-ml/azure.ai.ml?view=azure-python-preview#azure-ai-ml-command) provides a simple way to construct a standalone command job or one as part of a dsl.pipeline.
+      [command](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command) provides a simple way to construct a standalone command job or one as part of a dsl.pipeline.
    :::column-end:::
 :::row-end:::
 :::row:::
