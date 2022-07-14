@@ -1,19 +1,20 @@
 ---
-title: 'Tutorial: Hosts multiple web sites using the Azure portal'
+title: 'Tutorial: Create and configure an application gateway to host multiple web sites using the Azure portal'
 titleSuffix: Azure Application Gateway
 description: In this tutorial, you learn how to create an application gateway that hosts multiple web sites using the Azure portal.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 03/19/2021
+ms.date: 07/14/2022
 ms.author: greglin
+ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
 ---
 
 # Tutorial: Create and configure an application gateway to host multiple web sites using the Azure portal
 
-You can use the Azure portal to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define backend address pools using virtual machines. You then configure listeners and rules based on two domains to make sure web traffic arrives at the appropriate servers in the pools. This tutorial uses examples of *www.contoso.com* and *www.fabrikam.com*.
+You can use the Azure portal to configure [the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define backend address pools using virtual machines. You then configure listeners and rules based on two domains to make sure web traffic arrives at the appropriate servers in the pools. This tutorial uses examples of `www.contoso.com` and `www.fabrikam.com`.
 
 In this tutorial, you learn how to:
 
@@ -23,30 +24,36 @@ In this tutorial, you learn how to:
 > * Create backend pools with the backend servers
 > * Create listeners
 > * Create routing rules
-> * Edit Hosts file for name resolution
+> * Edit hosts file for name resolution
 
-:::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Multi-site Application Gateway":::
+:::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Diagram showing multi-site Application Gateway.":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- An Azure subscription
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an application gateway
 
-1. Select **Create a resource** on the left menu of the Azure portal. The **New** window appears.
+1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Application Gateway**, or search for *Application Gateway* in the portal search box.
 
-2. Select **Networking** and then select **Application Gateway** in the **Featured** list.
+2. Select **Create**.
 
 ### Basics tab
 
-1. On the **Basics** tab, enter these values for the following application gateway settings:
+1. On the **Basics** tab, enter these values:
 
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Create Application Gateway":::
+     :::image type="content" source="./media/create-multiple-sites-portal/application-gateway-create-basics.png" alt-text="Screenshot showing Create Application Gateway page.":::
 
 2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
@@ -113,7 +120,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pools you 
 
    Under **Additional settings**:
    - **Listener type**: Multiple sites
-   - **Host name**: **www.contoso.com**
+   - **Host name**: `www.contoso.com`
 
    Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
