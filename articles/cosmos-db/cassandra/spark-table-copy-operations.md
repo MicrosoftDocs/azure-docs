@@ -99,7 +99,7 @@ sqlContext
   .show
 ```
 
-### Copy data between tables (destination table does not exist)
+### Copy data between tables (destination table doesn't exist)
 
 ```scala
 import com.datastax.spark.connector._

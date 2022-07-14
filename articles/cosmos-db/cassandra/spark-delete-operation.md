@@ -45,7 +45,7 @@ Set below spark configuration in your notebook cluster. It's one time activity.
 > The Spark 3 samples shown in this article have been tested with Spark **version 3.2.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.2.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
 
 ## Sample data generator
-We will use this code fragment to generate sample data:
+We'll use this code fragment to generate sample data:
 
 ```scala
 import org.apache.spark.sql.cassandra._

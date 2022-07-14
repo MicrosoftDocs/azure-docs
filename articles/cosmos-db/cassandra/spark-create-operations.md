@@ -102,7 +102,7 @@ select * from books;
 
 ## Resilient Distributed Database (RDD) API
 
-### Create a RDD with sample data
+### Create an RDD with sample data
 ```scala
 //Drop and re-create table to delete records created in the previous section 
 val cdbConnector = CassandraConnector(sc)
