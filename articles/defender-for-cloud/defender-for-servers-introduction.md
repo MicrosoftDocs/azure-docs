@@ -71,7 +71,7 @@ For pricing details in your currency of choice and according to your region, see
 
 ## Select a plan
 
-You can select your plan when you [Enable enhanced security features on your subscriptions and workspaces](enable-enhanced-security.md#enable-enhanced-security-features-on-your-subscriptions-and-workspaces). By default, plan 2 is selected when you set the Defender for Servers plan to **On**.
+You can select your plan when you [Enable enhanced security features on your subscriptions and workspaces](enable-enhanced-security.md#enable-enhanced-security-features-from-the-azure-portal). By default, plan 2 is selected when you set the Defender for Servers plan to **On**.
 
 If at any point, you want to change the Defender for Servers plan, you can change it on the Defender plans page by selecting **Change plan**.
 
