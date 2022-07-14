@@ -24,7 +24,7 @@ If you are not familiar with MLflow, you may not be aware of the difference betw
 
 Any file generated (and captured) from an experiment's run or job is an artifact. It may represent a model serialized as a Pickle file, the weights of a PyTorch or TensorFlow model, or even a text file containing the coefficients of a linear regression. Other artifacts can have nothing to do with the model itself, but they can contain configuration to run the model, pre-processing information, sample data, etc. As you can see, an artifact can come in any format. 
 
-You can log artifacts using MLflow, the Azure ML SDK v1 or even using the outputs folder you may use to:
+You may have been logging artifacts already:
 
 # [Using MLflow](#tab/mlflow)
 
@@ -36,7 +36,7 @@ with open(filename, 'wb') as f:
 mlflow.log_artifact(filename)
 ```
 
-# [Using Azure ML SDK v1](#tab/mlflow)
+# [Using Azure ML SDK v1](#tab/sdkv1)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
@@ -48,7 +48,7 @@ with open(filename, 'wb') as f:
 mlflow.log_file(filename)
 ```
 
-# [Using the outputs folder](#tab/mlflow)
+# [Using the outputs folder](#tab/outputs)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
