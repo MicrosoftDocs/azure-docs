@@ -221,7 +221,7 @@ else
 ### [JavaScript](#tab/JavaScript)
 
 ```javascript
-    const checkForRequiredAuthContext = (req, res, next, authContextId) => {
+const checkForRequiredAuthContext = (req, res, next, authContextId) => {
     if (!req.authInfo['acrs'] || !req.authInfo['acrs'].includes(authContextId)) {
         if (isClientCapableOfClaimsChallenge(req.authInfo)) {
             
