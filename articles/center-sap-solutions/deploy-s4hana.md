@@ -19,7 +19,7 @@ In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azur
 
 - An Azure subscription.
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource. 
-- A [network set up for your infrastructure deployment](create-network.md).
+- A [network set up for your infrastructure deployment](prepare-network.md).
 
 ## Deployment types
 
@@ -60,7 +60,7 @@ There are three deployment options that you can select for your infrastructure, 
 
     1. For **Deployment type**, [select and configure your deployment type](#deployment-types).
 
-    1. For **Network**, create the [network you created previously with subnets](create-network.md).
+    1. For **Network**, create the [network you created previously with subnets](prepare-network.md).
 
     1. For **Application subnet** and **Database subnet**, map the IP address ranges as required. It's recommended to use a different subnet for each deployment.
 
@@ -132,4 +132,4 @@ If the deployment fails, delete the VIS resource in the Azure portal, then recre
 
 ## Next steps
 
-- [Create network for infrastructure deployment](create-network.md)
+- [Create network for infrastructure deployment](prepare-network.md)

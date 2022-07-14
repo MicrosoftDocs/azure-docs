@@ -21,7 +21,7 @@ In this how-to guide, you'll learn how to upload and install all the required co
 
 - An Azure subscription.
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which the VIS exists.
-- A [network set up for your infrastructure deployment](create-network.md).
+- A [network set up for your infrastructure deployment](prepare-network.md).
 - A deployment of S/4HANA infrastructure.
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
 - An [installation of the Azure Command-Line Interface (Azure CLI)](/cli/azure/install-azure-cli) on your local computer.
@@ -327,4 +327,4 @@ If you encounter this problem, follow these steps:
 
 ## Next steps
 
-- [Create network for infrastructure deployment](create-network.md)
+- [Create network for infrastructure deployment](prepare-network.md)
