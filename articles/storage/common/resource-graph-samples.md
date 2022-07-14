@@ -4,7 +4,7 @@ description: Sample Azure Resource Graph queries for Azure Storage showing use o
 ms.date: 07/07/2022
 ms.topic: sample
 author: jimmart-dev
-ms.author: jimmart-dev
+ms.author: jammart
 ms.service: storage
 ms.custom: subject-resourcegraph-sample
 ---
