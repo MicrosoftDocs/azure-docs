@@ -238,7 +238,7 @@ items:
         href: concepts/teams-interop.md
       - name: Join a Teams meeting
         href: concepts/join-teams-meeting.md
-      - name: Custom Teams endpoint
+      - name: Communication for Teams identities
         items:
           - name: Overview
             href: concepts/teams-endpoint.md
@@ -248,6 +248,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-authentication-overview.md
           - name: Calling capabilities
             href: concepts/interop/teams-user-calling.md
+          - name: Teams license requirements
+            href: quickstarts/eligible-teams-licenses.md
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
   - name: Network Traversal (TURN)
