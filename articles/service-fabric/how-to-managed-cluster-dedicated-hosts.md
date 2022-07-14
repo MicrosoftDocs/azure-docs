@@ -38,10 +38,10 @@ If you need to create a new client certificate, follow the steps in [set and ret
 
 ## Deploy Dedicated Host Resources
 Create a dedicated host group pinned to one Availability Zone and five Fault Domains using the provided sample ARM deployment template. The sample will ensure there    is at least one dedicated host per Fault Domain.
-```powershell
-New-AzResourceGroup -Name $ResourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\hostTemplate_sample.json" -hostGroupName $hostGroupName -dedicatedHostNamePrefix $dedicatedHostNamePrefix -dedicatedHostSKU $dedicatedHostSKU -Debug –Verbose 
-```
+   ```powershell
+   New-AzResourceGroup -Name $ResourceGroupName -Location $location
+   New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\hostTemplate_sample.json" -hostGroupName $hostGroupName -dedicatedHostNamePrefix $dedicatedHostNamePrefix -dedicatedHostSKU $dedicatedHostSKU -Debug –Verbose 
+   ```
 
 >[!NOTE] 
 > 1) Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. See [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/) for more information.
@@ -72,12 +72,12 @@ Add a role assignment to the host group with the Service Fabric Resource Provide
 or this role assignment can be defined in the resources section template using the Principal ID and role definition ID: 
 
    ```JSON
-   "variables": {  
+      "variables": {  
            "authorizationApiVersion": "2018-01-01-preview",
            "contributorRoleId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
            "SFRPAadServicePrincipalId": " <Service Fabric Resource Provider ID> -"
-       },
-   {  
+         },
+      {  
                "apiVersion": "[variables('authorizationApiVersion')]",  
                "type": "Microsoft.Compute/Hostgroups/providers/roleAssignments",  
                "name": "[concat(concat(parameters('dhgNamePrefix'), '0'), '/Microsoft.Authorization/', parameters('hostGroupRoleAssignmentId'))]",  
@@ -100,10 +100,10 @@ The template used in this guide is from [Azure-Samples - Service Fabric cluster 
 
 1) Store the paths of your ARM template and parameter files in variables, then deploy the template.
 
-```powershell
-$templateFilePath = "<full path to azuredeploy.json>" 
-$parameterFilePath = "<full path to azuredeploy.parameters.json>" 
-```
+   ```powershell
+   $templateFilePath = "<full path to azuredeploy.json>" 
+   $parameterFilePath = "<full path to azuredeploy.parameters.json>" 
+   ```
 
 2) Provide your own values for the following template parameters:
 
@@ -116,14 +116,14 @@ $parameterFilePath = "<full path to azuredeploy.parameters.json>"
 * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow set and retrieve a certificate to create a self-signed certificate.
 * Node Type Name: Enter a unique name for your node type, such as nt1.
 
-```powershell
+   ```powershell
     New-AzResourceGroupDeployment ` 
         -Name $DeploymentName ` 
         -ResourceGroupName $resourceGroupName ` 
         -TemplateFile $templateFilePath ` 
         -TemplateParameterFile $parameterFilePath ` 
         -Verbose
-```
+   ```
 
 3) Deploy an ARM template through one of the methods below:
 
