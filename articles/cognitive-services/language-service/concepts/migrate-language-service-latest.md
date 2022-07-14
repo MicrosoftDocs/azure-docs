@@ -118,7 +118,7 @@ The following table lists the entity categories returned for NER v2.1.
 
 ### Language detection v2.1
 
-The [language detection](../language-detection/quickstart.md) feature output has changed in the current version. The JSON response will contain `ConfidenceScore` instead of `score`. The current version also only returns one language in a  `detectedLanguage` attribute for each document.
+The [language detection](../language-detection/quickstart.md) feature output has changed in the current version. The JSON response will contain `ConfidenceScore` instead of `score`. The current version also only returns one language for each document.
 
 ### Key phrase extraction v2.1
 
