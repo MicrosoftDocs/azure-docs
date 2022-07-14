@@ -22,7 +22,7 @@ Use the cast transformation to easily modify the data types of individual column
 
 ## Configuration
 
-:::image type="content" source="media/data-flow/cast-transformation-001.png" alt-text="Rank settings":::
+:::image type="content" source="media/data-flow/cast-transformation-001.png" alt-text="Cast settings":::
 
 To modify the data type for columns in your data flow, add columns to "Cast settings" using the plus (+) sign.
 
