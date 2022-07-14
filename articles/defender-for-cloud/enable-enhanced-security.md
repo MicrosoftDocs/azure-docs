@@ -28,9 +28,9 @@ To enable all Defender for Cloud features including threat protection capabiliti
 If you only enable Defender for Cloud at the workspace level, Defender for Cloud will not enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for Servers and Microsoft Defender for SQL servers on machines.
 
 > [!NOTE]
-> - You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level
-> - You can enable **Microsoft Defender for SQL** at either the subscription level or resource level
-> - You can enable **Microsoft Defender for open-source relational databases** at the resource level only
+> - You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level.
+> - You can enable **Microsoft Defender for SQL** at either the subscription level or resource level.
+> - You can enable **Microsoft Defender for open-source relational databases** at the resource level only.
 
 You can protect an entire Azure subscription with Defender for Cloud's enhanced security features and the protections will be inherited by all resources within the subscription.
 
@@ -49,7 +49,7 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
     :::image type="content" source="./media/enhanced-security-features-overview/pricing-tier-page.png" alt-text="Defender for Cloud's pricing page in the portal" lightbox="media/enhanced-security-features-overview/pricing-tier-page.png":::
     
 1. Select **Save**.
-    
+
 **To enable enhanced security on multiple subscriptions or workspaces**:
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com).
@@ -71,6 +71,16 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
     > [!NOTE]
     > - If you select subscriptions and workspaces that aren't eligible for trial, the next step will upgrade them and charges will begin.
     > - If you select a workspace that's eligible for a free trial, the next step will begin a trial.   
+
+## Customize plans
+
+Certain plans allow you to customize your protection.
+
+You can learn about the differences between the [Defender for Servers plans](defender-for-servers-introduction.md#available-defender-for-server-plans) to help you choose which one you would like to apply to your subscription.
+
+Defender for Databases allows you to [select which type of resources you want to protect](quickstart-enable-database-protections.md). You can learn about the different types of protections offered.
+
+Defender for Containers is available on hybrid and multicloud environments. You can learn more about the [enablement process](defender-for-containers-enable.md) for Defender for Containers for each environment type.
 
 ## Disable enhanced security features
 
