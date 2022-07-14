@@ -14,7 +14,7 @@ ms.custom: seo-lt-2019, azure-synapse
 
 # Performance tuning with ordered clustered columnstore index  
 
-**Applies to:** Azure Synapse Analytics dedicated SQL pools,  SQL Server 2022 (16.x)
+**Applies to:** Azure Synapse Analytics dedicated SQL pools, SQL Server 2022 (16.x) and later
 
 When users query a columnstore table in dedicated SQL pool, the optimizer checks the minimum and maximum values stored in each segment.  Segments that are outside the bounds of the query predicate aren't read from disk to memory.  A query can get faster performance if the number of segments to read and their total size are small.   
 
@@ -135,6 +135,10 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 > For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REORGANIZE does not re-sort the data. To resort data, use ALTER INDEX REBUILD.
 >
 > For more information on ordered CCI maintenance, see [Optimizing clustered columnstore indexes](sql-data-warehouse-tables-index.md#optimizing-clustered-columnstore-indexes).
+
+## SQL Server 2022 capabilities
+
+Currently, only SQL Server 2022 (16.x) and later support clustered columnstore rowgroup elimination capabilities for string, binary, and guid data types, and the datetimeoffset data type for scale greater than two. Only SQL Server 2022 (16.x) supports clustered columnstore rowgroup elimination for the prefix of LIKE predicates.
 
 ## Examples
 
