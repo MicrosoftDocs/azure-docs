@@ -1807,7 +1807,7 @@ Follow the instructions to obtain the credentials.
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | WatchGuardFirebox |
 | **Kusto function URL:** | https://aka.ms/Sentinel-watchguardfirebox-parser |
-| **Vendor documentation/<br>installation instructions** | [Microsoft Sentinel Integration Guide](https://azure.microsoft.com/services/microsoft-sentinel) |
+| **Vendor documentation/<br>installation instructions** | [Microsoft Sentinel Integration Guide](https://www.watchguard.com/help/docs/help-center/en-us/Content/Integration-Guides/General/Microsoft_Azure_Sentinel.html) |
 | **Supported by** | [WatchGuard Technologies](https://www.watchguard.com/wgrd-support/overview) |
 
 
