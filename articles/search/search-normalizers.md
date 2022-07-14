@@ -8,7 +8,7 @@ manager: jlembicz
 ms.author: ishansri
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/23/2022
+ms.date: 07/14/2022
 ---
 
 # Text normalization for case-insensitive filtering, faceting and sorting
@@ -16,25 +16,32 @@ ms.date: 03/23/2022
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-In Azure Cognitive Search, a *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching in filters, facets, and sorts. Normalizers behave similar to [analyzers](search-analyzers.md) in how they process text, except they don't tokenize the query. Some of the transformations that can be achieved using normalizers are:
+In Azure Cognitive Search, a *normalizer* is a component that pre-processes text for keyword matching over fields marked as "filterable", "facetable", or "sortable". In contrast with "searchable" fields that are paired with [text analyzers](search-analyzers.md), filterable-facetable-sortable content does not undergo analysis or tokenization, which can sometimes yield unexpected results. 
 
-+ Convert to lowercase or upper-case
+Some of the text transformations that can be achieved using normalizers are:
+
++ Case conversion (lowercase or upper-case)
 + Normalize accents and diacritics like ö or ê to ASCII equivalent characters "o" and "e"
 + Map characters like `-` and whitespace into a user-specified character
 
-Normalizers are specified on string fields in the index and are applied during indexing and query execution.
+Normalizers are specified on string fields in the index and are applied during indexing and query execution. 
+
+> [!NOTE]
+> If fields are both searchable and filterable (or facetable or sortable), both analyzers and normalizers can be used. Analyzers are always used as a requirement of tokenization. Normalizers are optional and used only if you specify them. 
 
 ## Benefits of normalizers
 
-Searching and retrieving documents from a search index requires matching the query to the contents of the document. The content can be analyzed to produce tokens for matching as is the case when "search" parameter is used, or can be used as-is for strict keyword matching as seen with "$filter", "facets", and "$orderby". This all-or-nothing approach covers most scenarios but falls short where simple pre-processing like casing, accent removal, asciifolding and so forth is required without undergoing through the entire analysis chain.
+Searching and retrieving documents from a search index requires matching the query input to the contents of the document. Matching is either over tokenized content, as is the case when "search" is invoked, or over non-tokenized content if the request is a $filter, facet, or $orderby operation.
 
-Consider the following examples:
+Because non-tokenized content is also not analyzed, small differences in the content are evaluated as distinctly different values. Consider the following examples:
 
 + `$filter=City eq 'Las Vegas'` will only return documents that contain the exact text "Las Vegas" and exclude documents with "LAS VEGAS" and "las vegas" which is inadequate when the use-case requires all documents regardless of the casing.
 
 + `search=*&facet=City,count:5` will return "Las Vegas", "LAS VEGAS" and "las vegas" as distinct values despite being the same city.
 
-+ `search=usa&$orderby=City` will return the cities in lexicographical order: "Las Vegas", "Seattle", "las vegas", even if the intent is to order the same cities together irrespective of the case. 
++ `search=usa&$orderby=City` will return the cities in lexicographical order: "Las Vegas", "Seattle", "las vegas", even if the intent is to order the same cities together irrespective of the case.
+
+A normalizer, which is invoked during indexing and query execution, adds light transformations that smooth out minor differences in text for filter, facet, and sort scenarios. In the previous examples, the variants of "Las Vegas" would be processed according to the normalizer you select (for example, all text is lower-cased) for more uniform results.
 
 ## Predefined and custom normalizers 
 
@@ -83,7 +90,6 @@ Normalizers can only be specified when a new field is added to the index. Try to
       "normalizer": "my_custom_normalizer"
     },
    ```
- 
 > [!NOTE]
 > To change the normalizer of an existing field, you'll have to rebuild the index entirely (you cannot rebuild individual fields).
 
