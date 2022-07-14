@@ -80,15 +80,20 @@ The WAF for Front Door has its own set of best practices for its configuration a
 
 ## Health probe best practices
 
+### Disable health probes when there’s only one origin in an origin group
+
+Front Door's health probes are designed to detect situations where an origin is unavailable or unhealthy. When a health probe detects a problem with an origin, Front Door can be configured to send traffic to another origin in the origin group.
+
+If you only have a single origin, Front Door always routes traffic to that origin even if its health probe reports an unhealthy status. This means that when you have only one origin in an origin group, the status of the health probe isn't considered, and so the health probe doesn't do anything to change Front Door's behavior. In this scenario, health probes don't provide a benefit and you should disable them to reduce the traffic on your origin.
+
+For more information, see [Health probes](health-probes.md).
+
 ### Select good health probe endpoints
 
-Point health probes to something that tells you whether the origin is healthy and ready to accept traffic.
-TODO
+Consider the location where you tell Front Door's health probe to monitor. It's usually a good idea to monitor a webpage or location that you specifically design for health monitoring. Your application logic can consider the status of all of the critical components required to serve production traffic including application servers, databases, and caches. That way, if any component fails, Front Door can route your traffic to another instance of your service.
 
-### Disable health probes when there’s only one origin
-
-TODO
+For more information, see the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring)
 
 ## Next steps
 
-TODO
+Learn how to [create an Front Door profile](create-front-door-portal.md).
