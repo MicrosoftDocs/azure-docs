@@ -263,3 +263,4 @@ In this approach, Contoso would configure a [direct federation](../external-iden
 - [Setup Inbound provisioning for Azure AD](../app-provisioning/plan-cloud-hr-provision.md)
 - [Setup B2B direct federation](../external-identities/direct-federation.md)
 - [Multi-tenant user management options](multi-tenant-user-management-introduction.md)
+- [What is application provisioning?](../app-provisioning/user-provisioning.md)

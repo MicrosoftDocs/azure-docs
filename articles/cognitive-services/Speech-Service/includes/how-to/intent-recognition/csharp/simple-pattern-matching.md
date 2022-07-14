@@ -9,20 +9,13 @@ ms.author: chschrae
 zone_pivot_groups: programming-languages-set-two
 ---
 
-## Create a speech project in Visual Studio
+## Create a project
 
-[!INCLUDE [Create project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
-
-## Open your project in Visual Studio
-
-Next, open your project in Visual Studio.
-
-1. Launch Visual Studio 2019.
-2. Load your project and open `helloworld.cpp`.
+Create a new C# console application project in Visual Studio 2019 and [install the Speech SDK](../../../../quickstarts/setup-platform.md?pivots=programming-language-csharp).
 
 ## Start with some boilerplate code
 
-Let's add some code that works as a skeleton for our project.
+Let's open `Program.cs` and add some code that works as a skeleton for our project.
 
 ```C#
     using System;
@@ -152,7 +145,7 @@ case ResultReason.Canceled:
     {
         Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
         Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
     }
 }
 default:
@@ -243,7 +236,7 @@ At this point, your code should look like this:
                         {
                             Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                             Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                            Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                            Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                         }
                     }
                     default:
@@ -270,8 +263,3 @@ RECOGNIZED: Text= Take me to floor 7.
   Intent Id= ChangeFloors
   FloorName= 7
 ```
-
-## Next steps
-
-> Improve your pattern matching by using [custom entities](../../../../how-to-use-custom-entity-pattern-matching.md).
-

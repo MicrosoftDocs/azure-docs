@@ -1,9 +1,8 @@
 ---
-title: Microsoft identity platform access tokens | Azure
-titleSuffix: Microsoft identity platform
+title: Microsoft identity platform access tokens
 description: Learn about access tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints.
 services: active-directory
-author: nickludwig
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/28/2021
-ms.author: ludwignick
+ms.author: davidmu
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
@@ -123,18 +122,16 @@ To ensure that the token size doesn't exceed HTTP header size limits, Azure AD l
 
 ```JSON
 {
-  ...
-  "_claim_names": {
-   "groups": "src1"
+    ...
+    "_claim_names": {
+        "groups": "src1"
     },
-    {
-  "_claim_sources": {
-    "src1": {
-        "endpoint":"[Url to get this user's group membership from]"
-        }
-       }
-     }
-  ...
+    "_claim_sources": {
+        "src1": {
+            "endpoint": "[Url to get this user's group membership from]"
+        }   
+    }
+    ...
 }
 ```
 

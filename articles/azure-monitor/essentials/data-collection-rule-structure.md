@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/22/2022
+ms.reviwer: nikeist
 
 ---
 
@@ -53,11 +54,6 @@ Set of destinations where the data should be sent. Examples include Log Analytic
 
 ### Data flows 
 Definition of which streams should be sent to which destinations.
-
-### Endpoint
-HTTPS endpoint for DCR used for custom logs API. The DCR is applied to any data sent to that endpoint. 
-
-
 
 
 

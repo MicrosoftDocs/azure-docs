@@ -67,7 +67,7 @@ with security best practices on Azure:
     application attacks.
 
   - [Secure DevOps Kit for
-    Azure](https://azsk.azurewebsites.net/index.html) is a collection of
+    Azure](https://github.com/azsk/AzTS-docs/#readme) is a collection of
     scripts, tools, extensions, and automations that caters to the
     comprehensive Azure subscription and resource security needs of
     DevOps teams that use extensive automation. The Secure DevOps Kit
@@ -150,7 +150,7 @@ Ask security questions like:
     data.
 
 ### Review OWASP top 10
-Consider reviewing the [<span class="underline">OWASP Top 10 Application Security Risks</span>](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+Consider reviewing the [<span class="underline">OWASP Top 10 Application Security Risks</span>](https://owasp.org/www-project-top-ten/).
 The OWASP Top 10 addresses critical security risks to web applications.
 Awareness of these security risks can help you make requirement and
 design decisions that minimize these risks in your application.
@@ -266,9 +266,9 @@ have an ongoing plan to monitor, triage, and apply updates or
 configuration changes to the libraries and components you use.
 
 See the [Open Web Application Security Project
-(OWASP)](https://www.owasp.org/index.php/Main_Page) page on [using
+(OWASP)](https://www.owasp.org/) page on [using
 components with known
-vulnerabilities](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities)
+vulnerabilities](https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities)
 for tool suggestions. You can also subscribe to email alerts for
 security vulnerabilities that are related to components you use.
 

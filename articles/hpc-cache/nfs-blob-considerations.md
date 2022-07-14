@@ -4,8 +4,8 @@ description: Describes procedures and limitations when using ADLS-NFS blob stora
 author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/12/2021
-ms.author: femila
+ms.date: 03/02/2022
+ms.author: rohogue
 ---
 
 # Use NFS-mounted blob storage with Azure HPC Cache
@@ -16,11 +16,12 @@ Azure HPC Cache uses NFS-enabled blob storage in its ADLS-NFS storage target typ
 
 This article explains strategies and limitations that you should understand when you use ADLS-NFS storage targets.
 
-You should also read the NFS blob documentation, especially these sections that describe compatible and incompatible scenarios:
+You should also read the NFS blob documentation, especially these sections that describe compatible and incompatible scenarios, and give troubleshooting tips:
 
 * [Feature overview](../storage/blobs/network-file-system-protocol-support.md)
 * [Performance considerations](../storage/blobs/network-file-system-protocol-support-performance.md)
 * [Known issues and limitations](../storage/blobs/network-file-system-protocol-known-issues.md)
+* [How-to procedure and troubleshooting guide](../storage/blobs/network-file-system-protocol-support-how-to.md#resolve-common-errors)
 
 ## Understand consistency requirements
 

@@ -29,6 +29,8 @@ To complete this tutorial, you need:
  
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Sign up with App Center
 To begin, create an account and [sign up with App Center](https://appcenter.ms/signup?utm_source=ApplicationInsights&utm_medium=Azure&utm_campaign=docs).
 
@@ -46,7 +48,7 @@ To onboard your app, follow the App Center quickstart for each platform your app
 
 ## Track events in your app
 
-After your app is onboarded to App Center, it needs to be modified to send custom event telemetry using the App Center SDK. Custom events are the only type of App Center telemetry that is exported to Application Insights.
+After your app is onboarded to App Center, it needs to be modified to send custom event telemetry using the App Center SDK.
 
 To send custom events from iOS apps, use the `trackEvent` or `trackEvent:withProperties` methods in the App Center SDK. [Learn more about tracking events from iOS apps.](/mobile-center/sdk/analytics/ios)
 

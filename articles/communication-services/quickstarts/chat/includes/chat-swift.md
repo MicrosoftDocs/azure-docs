@@ -12,17 +12,19 @@ ms.custom: include file
 ms.author: rifox
 ---
 
-
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat).
-
 ## Prerequisites
 Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Xcode](https://developer.apple.com/xcode/) and [CocoaPods](https://cocoapods.org/). You use Xcode to create an iOS application for the quickstart, and CocoaPods to install dependencies.
-- Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). For this quickstart, you need to record your resource endpoint.
-- Create two users in Azure Communication Services, and issue them a [user access token](../../access-tokens.md). Be sure to set the scope to `chat`, and note the `token` string as well as the `userId` string. In this quickstart, you create a thread with an initial participant, and then add a second participant to the thread.
+- Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
+- Create two users in Azure Communication Services, and issue them a [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. In this quickstart, you create a thread with an initial participant, and then add a second participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope chat --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -43,8 +45,8 @@ From the command line, go inside the root directory of the `ChatQuickstart` iOS 
 Open the Podfile, and add the following dependencies to the `ChatQuickstart` target:
 
 ```
-pod 'AzureCommunicationCommon', '~> 1.0.2'
-pod 'AzureCommunicationChat', '~> 1.1.0-beta.2'
+pod 'AzureCommunicationCommon', '~> 1.0.3'
+pod 'AzureCommunicationChat', '~> 1.2.0'
 ```
 
 Install the dependencies with the following command: `pod install`. Note that this also creates an Xcode workspace.
@@ -386,3 +388,6 @@ semaphore.wait()
 In Xcode hit the Run button to build and run the project. In the console you can view the output from the code and the logger output from the ChatClient.
 
 **Note:** Set `Build Settings > Build Options > Enable Bitcode` to `No`. Currently the AzureCommunicationChat SDK for iOS does not support enabling bitcode, the following [GitHub issue](https://github.com/Azure/azure-sdk-for-ios/issues/787) is tracking this.
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat).

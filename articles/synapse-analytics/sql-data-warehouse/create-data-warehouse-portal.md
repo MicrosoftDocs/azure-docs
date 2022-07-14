@@ -4,7 +4,7 @@ description: Create and query a dedicated SQL pool (formerly SQL DW) using the A
 author: pimorano
 ms.author: pimorano
 manager: craigg
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.date: 05/28/2019
 ms.topic: quickstart
 ms.service: synapse-analytics
@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a SQL pool
 
-Data warehouses are created using dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. A dedicated SQL pool (formerly SQL DW) is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in a [logical SQL server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Data warehouses are created using dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. A dedicated SQL pool (formerly SQL DW) is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in a [logical SQL server](/azure/azure-sql/database/logical-servers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Follow these steps to create a dedicated SQL pool (formerly SQL DW) that contains the **AdventureWorksDW** sample data.
 
@@ -76,7 +76,7 @@ Follow these steps to create a dedicated SQL pool (formerly SQL DW) that contain
 
 ## Create a server-level firewall rule
 
-The Azure Synapse service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) for your client's IP address.
+The Azure Synapse service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](/azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) for your client's IP address.
 
 > [!NOTE]
 > Azure Synapse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your server unless your IT department opens port 1433.

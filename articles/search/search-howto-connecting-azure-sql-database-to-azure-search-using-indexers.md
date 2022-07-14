@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 06/09/2022
 ---
 
 # Index data from Azure SQL
@@ -17,13 +17,18 @@ In this article, learn how to configure an [**indexer**](search-indexer-overview
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Azure SQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
+> [!NOTE]
+> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
+
 ## Prerequisites
 
-+ An [Azure SQL database](../azure-sql/database/sql-database-paas-overview.md) with data in a single table or view. Use a table if you want the ability to [index incremental updates](#CaptureChangedRows) using SQL's native change detection capabilities.
++ An [Azure SQL database](/azure/azure-sql/database/sql-database-paas-overview) with data in a single table or view. Use a table if you want the ability to [index incremental updates](#CaptureChangedRows) using SQL's native change detection capabilities. If you use a view, take into consideration that large views are not ideal for SQL indexer. For such cases, it is suggested to change your application to create an additional single table just for ingestion into your Cognitive Search index with integrated change tracking enabled, where each column matches a column in the index, so processing is optimized. This approach will help using SQL integrated change tracking, which is easier to implement than High Water Mark.
 
 + Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md) to omit credentials on the connection.
 
 + A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
+
++ If you're using the [Azure portal](https://portal.azure.com/) to create the data source, make sure that access to all public networks is enabled in the Azure SQL firewall. Alternatively, you can use REST API from a device with an authorized IP in the firewall rules to perform these operations. If the Azure SQL firewall has public networks access disabled, there will be errors when connecting from the portal to it.
 
 <!-- Real-time data synchronization must not be an application requirement. An indexer can reindex your table at most every five minutes. If your data changes frequently, and those changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-get-started-dotnet.md) to push updated rows directly.
 
@@ -288,7 +293,7 @@ If you're using a [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) da
 
 * Uses the rowversion data type for the high water mark column in the indexer SQL query. Using the correct data type improves indexer query performance.
 
-* Subtracts one from the rowversion value before the indexer query runs. Views with one-to-many joins may have rows with duplicate rowversion values. Subtracting 1one ensures the indexer query doesn't miss these rows.
+* Subtracts one from the rowversion value before the indexer query runs. Views with one-to-many joins may have rows with duplicate rowversion values. Subtracting one ensures the indexer query doesn't miss these rows.
 
 To enable this property, create or update the indexer with the following configuration:
 
@@ -359,9 +364,9 @@ Yes. However, you need to allow your search service to connect to your database.
 
 **Q: Can I use Azure SQL indexer with SQL databases running on-premises?**
 
-Not directly. We do not recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
+Not directly. We don't recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
 
-**Q: Can I use a secondary replica in a [failover cluster](../azure-sql/database/auto-failover-group-overview.md) as a data source?**
+**Q: Can I use a secondary replica in a [failover cluster](/azure/azure-sql/database/auto-failover-group-overview) as a data source?**
 
 It depends. For full indexing of a table or view, you can use a secondary replica. 
 

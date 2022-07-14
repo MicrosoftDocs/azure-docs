@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 03/03/2022
 ms.custom: "project-no-code, ignite-fall-2021, b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -143,10 +143,22 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 
 ## Application extension properties
 
+- [Create extension properties](/graph/api/application-post-extensionproperty)
 - [List extension properties](/graph/api/application-list-extensionproperty)
-- [Delete extension property](/graph/api/application-delete-extensionproperty)
+- [Get an extension property](/graph/api/extensionproperty-get)
+- [Delete extension property](/graph/api/extensionproperty-delete)
+- [Get available extension properties](/graph/api/directoryobject-getavailableextensionproperties)
+
+<!--
+#Hiding this note because user flows and extension attributes are different things in Microsoft Graph.
 
 Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](user-flow-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
+-->
+
+Azure AD B2C provides a directory that can hold 100 extension values per user. To manage the extension values for a user, use the following [User APIs](/graph/api/resources/user) in Microsoft Graph.
+
+- [Update user](/graph/api/user-update): To write or remove the extension property value from the user.
+- [Get a user](/graph/api/user-get): To retrieve the extension property value for the user. The extension property will be returned by default through the `beta` endpoint, but only on `$select` through the `v1.0` endpoint.
 
 ## Audit logs
 
@@ -219,6 +231,10 @@ The initialized *GraphServiceClient* is then used in _UserService.cs_ to perform
 :::code language="csharp" source="~/ms-identity-dotnetcore-b2c-account-management/src/Services/UserService.cs" id="ms_docref_get_list_of_user_accounts":::
 
 [Make API calls using the Microsoft Graph SDKs](/graph/sdks/create-requests) includes information on how to read and write information from Microsoft Graph, use `$select` to control the properties returned, provide custom query parameters, and use the `$filter` and `$orderBy` query parameters.
+
+## Next steps
+
+For code samples in JavaScript and Node.js, please see: [Manage B2C user accounts with MSAL.js and Microsoft Graph SDK](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management) 
 
 <!-- LINK -->
 

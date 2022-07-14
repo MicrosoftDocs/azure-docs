@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language JOIN clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/31/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,14 +17,14 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: JOIN clause
 
-This document contains reference information on the **JOIN clause** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the *JOIN clause* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 The `JOIN` clause is used in the Azure Digital Twins query language as part of the [FROM clause](reference-query-clause-from.md) when you want to query to traverse the Azure Digital Twins graph.
 
 This clause is optional while querying.
 
 ## Core syntax: JOIN ... RELATED 
-Because relationships in Azure Digital Twins are part of digital twins, not independent entities, the `RELATED` keyword is used in `JOIN` queries to reference the set of relationships of a certain type from the twin collection (the type is specified using the relationship's **name** field from its [DTDL definition](concepts-models.md#basic-relationship-example)). The set of relationships can be assigned a collection name within the query.
+Because relationships in Azure Digital Twins are part of digital twins, not independent entities, the `RELATED` keyword is used in `JOIN` queries to reference the set of relationships of a certain type from the twin collection (the type is specified using the relationship's `name` field from its [DTDL definition](concepts-models.md#basic-relationship-example)). The set of relationships can be assigned a collection name within the query.
 
 The query must then use the `WHERE` clause to specify which specific twin or twins are being used to support the relationship query, which is done by filtering on either the source or target twin's `$dtId` value.
 
@@ -34,7 +34,7 @@ The query must then use the `WHERE` clause to specify which specific twin or twi
 
 ### Example
 
-The following query selects all digital twins that are related to the twin with an ID of *ABC* through a *contains* relationship.
+The following query selects all digital twins that are related to the twin with an ID of `ABC` through a `contains` relationship.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="JoinExample":::
 

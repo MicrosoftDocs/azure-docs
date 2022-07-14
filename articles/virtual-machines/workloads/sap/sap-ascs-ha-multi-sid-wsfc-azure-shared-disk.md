@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 05/10/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -34,7 +34,9 @@ Currently you can use Azure Premium SSD disks as an Azure shared disk for the SA
    - Locally redundant storage (LRS) for premium shared disk (skuName - Premium_LRS) is supported with deployment in availability set.
    - Zone-redundant storage (ZRS) for premium shared disk (skuName - Premium_ZRS) is supported with deployment in availability zones.
 -  Azure shared disk value [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
--  When using [Azure proximity placement group](../../windows/proximity-placement-groups.md) for SAP system, all virtual machines sharing a disk must be part of the same PPG.
+-  [Azure proximity placement group](../../windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
+   -  If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
+   -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](sap-proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
 
 For further details on limitations for Azure shared disk, please review carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
 

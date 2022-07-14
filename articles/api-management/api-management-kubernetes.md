@@ -61,7 +61,7 @@ Pros:
 * No change on the AKS side if Services are already exposed publicly and authentication logic already exists in microservices
 
 Cons:
-* Potential security risk due to public visibility of Service endpoints
+* Potential security risk due to public visibility of endpoints
 * No single-entry point for inbound cluster traffic
 * Complicates microservices with duplicate authentication logic
 

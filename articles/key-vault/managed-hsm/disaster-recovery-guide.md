@@ -44,11 +44,11 @@ You must provide the following inputs to create a Managed HSM resource:
 - The Azure location.
 - A list of initial administrators.
 
-The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **West US 2** location, with **the current signed in user** as the only administrator.
+The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **West US 3** location, with **the current signed in user** as the only administrator.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "ContosoMHSM2" --resource-group "ContosoResourceGroup" --location "westus2" --administrators $oid
+az keyvault create --hsm-name "ContosoMHSM2" --resource-group "ContosoResourceGroup" --location "westus3" --administrators $oid
 ```
 
 > [!NOTE]

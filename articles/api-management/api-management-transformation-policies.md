@@ -1,54 +1,61 @@
 ---
 title: Azure API Management transformation policies | Microsoft Docs
-description: Learn about the transformation policies available for use in Azure API Management.
+description: Reference for the transformation policies available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-documentationcenter: ''
 author: dlepow
-manager: erikre
-editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 03/11/2019
+ms.topic: reference
+ms.date: 03/07/2022
 ms.author: danlep
 ---
+
 # API Management transformation policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for API Management policies used to transform API requests or responses. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ##  <a name="TransformationPolicies"></a> Transformation policies
 
--   [Convert JSON to XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converts request or response body from JSON to XML.
+-   [Convert JSON to XML](#ConvertJSONtoXML) - Converts request or response body from JSON to XML.
 
--   [Convert XML to JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) - Converts request or response body from XML to JSON.
+-   [Convert XML to JSON](#ConvertXMLtoJSON) - Converts request or response body from XML to JSON.
 
--   [Find and replace string in body](api-management-transformation-policies.md#Findandreplacestringinbody) - Finds a request or response substring and replaces it with a different substring.
+-   [Find and replace string in body](#Findandreplacestringinbody) - Finds a request or response substring and replaces it with a different substring.
 
--   [Mask URLs in content](api-management-transformation-policies.md#MaskURLSContent) - Re-writes (masks) links in the response body so that they point to the equivalent link via the gateway.
+-   [Mask URLs in content](#MaskURLSContent) - Rewrites (masks) links in the response body so that they point to the equivalent link via the gateway.
 
--   [Set backend service](api-management-transformation-policies.md#SetBackendService) - Changes the backend service for an incoming request.
+-   [Set backend service](#SetBackendService) - Changes the backend service for an incoming request.
 
--   [Set body](api-management-transformation-policies.md#SetBody) - Sets the message body for incoming and outgoing requests.
+-   [Set body](#SetBody) - Sets the message body for incoming and outgoing requests.
 
--   [Set HTTP header](api-management-transformation-policies.md#SetHTTPheader) - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
+-   [Set HTTP header](#SetHTTPheader) - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
 
--   [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) - Adds, replaces value of, or deletes request query string parameter.
+-   [Set query string parameter](#SetQueryStringParameter) - Adds, replaces value of, or deletes request query string parameter.
 
--   [Rewrite URL](api-management-transformation-policies.md#RewriteURL) - Converts a request URL from its public form to the form expected by the web service.
+-   [Rewrite URL](#RewriteURL) - Converts a request URL from its public form to the form expected by the web service.
 
--   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) - Applies an XSL transformation to XML in the request or response body.
+-   [Transform XML using an XSLT](#XSLTransform) - Applies an XSL transformation to XML in the request or response body.
 
 ##  <a name="ConvertJSONtoXML"></a> Convert JSON to XML
  The `json-to-xml` policy converts a request or response body from JSON to XML.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
-<json-to-xml apply="always | content-type-json" consider-accept-header="true | false" parse-date="true | false"/>
+<json-to-xml 
+    apply="always | content-type-json" 
+    consider-accept-header="true | false" 
+    parse-date="true | false" 
+    namespace-separator="separator character"
+    attribute-block-name="name" />
 ```
 
 ### Example
+
+Consider the following policy:
 
 ```xml
 <policies>
@@ -57,9 +64,44 @@ This topic provides a reference for the following API Management policies. For i
     </inbound>
     <outbound>
         <base />
-        <json-to-xml apply="always" consider-accept-header="false" parse-date="false"/>
+        <json-to-xml apply="always" consider-accept-header="false" parse-date="false" namespace-separator=":" attribute-block-name="#attrs" />
     </outbound>
 </policies>
+```
+
+If the backend returns the following JSON:
+
+``` json
+{
+  "soapenv:Envelope": {
+    "xmlns:soapenv": "http://schemas.xmlsoap.org/soap/envelope/",
+    "xmlns:v1": "http://localdomain.com/core/v1",
+    "soapenv:Header": {},
+    "soapenv:Body": {
+      "v1:QueryList": {
+        "#attrs": {
+          "queryName": "test"
+        },
+        "v1:QueryItem": {
+          "name": "dummy text"
+        }
+      }
+    }
+  }
+}
+```
+
+The XML response to the client will be:
+
+``` xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://localdomain.com/core/v1">
+  <soapenv:Header />
+  <soapenv:Body>
+    <v1:QueryList queryName="test">
+      <name>dummy text</name>
+    </v1:QueryList>
+  </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Elements
@@ -75,6 +117,8 @@ This topic provides a reference for the following API Management policies. For i
 |apply|The attribute must be set to one of the following values.<br /><br /> -   always - always apply conversion.<br />-   content-type-json - convert only if response Content-Type header indicates presence of JSON.|Yes|N/A|
 |consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 |parse-date|When set to `false` date values are simply copied during transformation|No|true|
+|namespace-separator|The character to use as a namespace separator|No|Underscore|
+|attribute-block-name|When set, properties inside the named object will be added to the element as attributes|No|Not set|
 
 ### Usage
  This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
@@ -85,6 +129,8 @@ This topic provides a reference for the following API Management policies. For i
 
 ##  <a name="ConvertXMLtoJSON"></a> Convert XML to JSON
  The `xml-to-json` policy converts a request or response body from XML to JSON. This policy can be used to modernize APIs based on XML-only backend web services.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -130,6 +176,9 @@ This topic provides a reference for the following API Management policies. For i
 ##  <a name="Findandreplacestringinbody"></a> Find and replace string in body
  The `find-and-replace` policy finds a request or response substring and replaces it with a different substring.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -163,10 +212,12 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy scopes:** all scopes
 
 ##  <a name="MaskURLSContent"></a> Mask URLs in content
- The `redirect-content-urls` policy re-writes (masks) links in the response body so that they point to the equivalent link via the gateway. Use in the outbound section to re-write response body links to make them point to the gateway. Use in the inbound section for an opposite effect.
+ The `redirect-content-urls` policy rewrites (masks) links in the response body so that they point to the equivalent link via the gateway. Use in the outbound section to rewrite response body links to make them point to the gateway. Use in the inbound section for an opposite effect.
 
 > [!NOTE]
 >  This policy does not change any header values such as `Location` headers. To change header values, use the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -195,6 +246,8 @@ This topic provides a reference for the following API Management policies. For i
 
 ##  <a name="SetBackendService"></a> Set backend service
  Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to the one specified in the policy.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -237,7 +290,7 @@ Initially the backend service base URL is derived from the API settings. So the 
 
 When the [<choose\>](api-management-advanced-policies.md#choose) policy statement is applied the backend service base URL may change again either to `http://contoso.com/api/8.2` or `http://contoso.com/api/9.1`, depending on the value of the version request query parameter. For example, if the value is `"2013-15"` the final request URL becomes `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.
 
-If further transformation of the request is desired, other [Transformation policies](api-management-transformation-policies.md#TransformationPolicies) can be used. For example, to remove the version query parameter now that the request is being routed to a version specific backend, the  [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) policy can be used to remove the now redundant version attribute.
+If further transformation of the request is desired, other [Transformation policies](api-management-transformation-policies.md#TransformationPolicies) can be used. For example, to remove the version query parameter now that the request is being routed to a version specific backend, the [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) policy can be used to remove the now redundant version attribute.
 
 ### Example
 
@@ -268,8 +321,8 @@ In this example the policy routes the request to a service fabric backend, using
 |sf-partition-key|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Used to resolve a specific partition from the name resolution service.|No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|
-|sf-service-instance-name|Only applicable when the backend is a Service Fabric service. Allows to change service instances at runtime. |No|N/A|
-|sf-listener-name|Only applicable when the backend is a Service Fabric service and is specified using ‘backend-id’. Service Fabric Reliable Services allows you to create multiple listeners in a service. This attribute is used to select a specific listener when a backend Reliable Service has more than one listener. If this attribute is not specified, API Management will attempt to use a listener without a name. A listener without a name is typical for Reliable Services that have only one listener. |No|N/A|
+|sf-service-instance-name|Only applicable when the backend is a Service Fabric service. Allows changing service instances at runtime. |No|N/A|
+|sf-listener-name|Only applicable when the backend is a Service Fabric service and is specified using ‘backend-id’. Service Fabric Reliable Services allows you to create multiple listeners in a service. This attribute is used to select a specific listener when a backend Reliable Service has more than one listener. If this attribute isn't specified, API Management will attempt to use a listener without a name. A listener without a name is typical for Reliable Services that have only one listener. |No|N/A|
 
 ### Usage
  This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
@@ -293,6 +346,8 @@ In this example the policy routes the request to a service fabric backend, using
 
  For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessage` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -307,7 +362,9 @@ In this example the policy routes the request to a service fabric backend, using
 <set-body>Hello world!</set-body>
 ```
 
-#### Example accessing the body as a string. Note that we are preserving the original request body so that we can access it later in the pipeline.
+#### Example accessing the body as a string
+
+We are preserving the original request body so that we can access it later in the pipeline.
 
 ```xml
 <set-body>
@@ -321,7 +378,9 @@ In this example the policy routes the request to a service fabric backend, using
 </set-body>
 ```
 
-#### Example accessing the body as a JObject. Note that since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
+#### Example accessing the body as a JObject
+
+Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
 
 ```xml
 <set-body> 
@@ -337,15 +396,15 @@ In this example the policy routes the request to a service fabric backend, using
 ```
 
 #### Filter response based on product
- This example shows how to perform content filtering by removing data elements from the response received from the backend service when using the `Starter` product. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 34:30. Start  at 31:50 to see an overview of [The Dark Sky Forecast API](https://developer.forecast.io/) used for this demo.
+ This example shows how to perform content filtering by removing data elements from the response received from a backend service when using the `Starter` product. The example backend response includes root-level properties similar to the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api). 
 
 ```xml
-<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
+<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the product -->
 <choose>
   <when condition="@(context.Response.StatusCode == 200 && context.Product.Name.Equals("Starter"))">
     <set-body>@{
         var response = context.Response.Body.As<JObject>();
-        foreach (var key in new [] {"minutely", "hourly", "daily", "flags"}) {
+        foreach (var key in new [] {"current", "minutely", "hourly", "daily", "alerts"}) {
           response.Property (key).Remove ();
         }
         return response.ToString();
@@ -356,7 +415,7 @@ In this example the policy routes the request to a service fabric backend, using
 ```
 
 ### Using Liquid templates with set body
-The `set-body` policy can be configured to use the [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating language to transform the body of a request or response. This can be very effective if you need to completely reshape the format of your message.
+The `set-body` policy can be configured to use the [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating language to transform the body of a request or response. This can be effective if you need to completely reshape the format of your message.
 
 > [!IMPORTANT]
 > The implementation of Liquid used in the `set-body` policy is configured in 'C# mode'. This is particularly important when doing things such as filtering. As an example, using a date filter requires the use of Pascal casing and C# date formatting e.g.:
@@ -365,6 +424,57 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 
 > [!IMPORTANT]
 > In order to correctly bind to an XML body using the Liquid template, use a `set-header` policy to set Content-Type to either application/xml, text/xml (or any type ending with +xml); for a JSON body, it must be application/json, text/json (or any type ending with +json).
+
+#### Supported Liquid filters
+
+The following Liquid filters are supported in the `set-body` policy. For filter examples, see the [Liquid documentation](https://shopify.github.io/liquid/). 
+
+> [!NOTE]
+> The policy requires Pascal casing for Liquid filter names (for example, "AtLeast" instead of "at_least").
+> 
+* Abs
+* Append
+* AtLeast
+* AtMost
+* Capitalize
+* Compact
+* Currency
+* Date
+* Default
+* DividedBy
+* Downcase
+* Escape
+* First
+* H
+* Join
+* Last
+* Lstrip
+* Map
+* Minus
+* Modulo
+* NewlineToBr
+* Plus
+* Prepend
+* Remove
+* RemoveFirst
+* Replace
+* ReplaceFirst
+* Round
+* Rstrip
+* Size
+* Slice
+* Sort
+* Split
+* Strip
+* StripHtml
+* StripNewlines
+* Times
+* Truncate
+* TruncateWords
+* Uniq
+* Upcase
+* UrlDecode
+* UrlEncode
 
 #### Convert JSON to SOAP using a Liquid template
 ```xml
@@ -393,7 +503,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|set-body|Root element. Contains the body text or an expressions that returns a body.|Yes|
+|set-body|Root element. Contains the body text or an expression that returns a body.|Yes|
 
 ### Properties
 
@@ -451,7 +561,9 @@ OriginalUrl.
 ##  <a name="SetHTTPheader"></a> Set HTTP header
  The `set-header` policy assigns a value to an existing response and/or request header or adds a new response and/or request header.
 
- Inserts a list of HTTP headers into an HTTP message. When placed in an inbound pipeline, this policy sets the HTTP headers for the request being passed to the target service. When placed in an outbound pipeline, this policy sets the HTTP headers for the response being sent to the gateway’s client.
+ Use the policy to insert a list of HTTP headers into an HTTP message. When placed in an inbound pipeline, this policy sets the HTTP headers for the request being passed to the target service. When placed in an outbound pipeline, this policy sets the HTTP headers for the response being sent to the gateway’s client.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 ### Policy statement
 
@@ -479,7 +591,7 @@ OriginalUrl.
 
 
 #### Forward context information to the backend service
- This example shows how to apply policy at the API level to supply context information to the backend service. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. At 12:10 there is a demo of calling an operation in the developer portal where you can see the policy at work.
+ This example shows how to apply policy at the API level to supply context information to the backend service.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -495,7 +607,7 @@ OriginalUrl.
 > Multiple values of a header are concatenated to a CSV string, for example:
 > `headerName: value1,value2,value3`
 >
-> Exceptions include standardized headers, which values:
+> Exceptions include standardized headers whose values:
 > - may contain commas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
 > - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
@@ -529,6 +641,8 @@ OriginalUrl.
 ##  <a name="SetQueryStringParameter"></a> Set query string parameter
  The `set-query-parameter` policy adds, replaces value of, or deletes request query string parameter. Can be used to pass query parameters expected by the backend service which are optional or never present in the request.
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -548,7 +662,7 @@ OriginalUrl.
 ```
 
 #### Forward context information to the backend service
- This example shows how to apply policy at the API level to supply context information to the backend service. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. At 12:10 there is a demo of calling an operation in the developer portal where you can see the policy at work.
+ This example shows how to apply policy at the API level to supply context information to the backend service.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -592,6 +706,8 @@ OriginalUrl.
 
 > [!NOTE]
 >  You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -662,6 +778,8 @@ OriginalUrl.
 ##  <a name="XSLTransform"></a> Transform XML using an XSLT
  The `Transform XML using an XSLT` policy applies an XSL transformation to XML in the request or response body.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -723,10 +841,4 @@ OriginalUrl.
 
 -   **Policy scopes:** all scopes
 
-## Next steps
-
-For more information, see the following topics:
-
-+ [Policies in API Management](api-management-howto-policies.md)
-+ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

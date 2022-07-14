@@ -2,14 +2,14 @@
 title: Azure Active Directory security operations for devices
 description: Learn to establish baselines, and monitor and report on devices to identity potential security risks with devices.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 07/15/2021
-ms.author: baselden
+ms.author: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -65,6 +65,8 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
+* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
+
 Much of what you'll monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, and the results of policies including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user. 
 
  The rest of this article describes what we recommend you monitor and alert on, and is organized by the type of threat. Where there are specific pre-built solutions we link to them or provide samples following the table. Otherwise, you can build alerts using the preceding tools. 
@@ -85,11 +87,11 @@ You can create an alert that notifies appropriate administrators when a device i
 ```
 Sign-in logs
 
-| where ResourceDisplayName == “Device Registration Service”
+| where ResourceDisplayName == "Device Registration Service"
 
-| where conditionalAccessStatus ==”success”
+| where conditionalAccessStatus == "success"
 
-| where AuthenticationRequirement <> “multiFactorAuthentication”
+| where AuthenticationRequirement <> "multiFactorAuthentication"
 ```
 
 You can also use [Microsoft Intune to set and monitor device compliance policies](/mem/intune/protect/device-compliance-get-started).
@@ -102,7 +104,7 @@ It might not be possible to block access to all cloud and software-as-a-service 
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Sign-ins by non-compliant devices| High| Sign-in logs| DeviceDetail.isCompliant ==false| If requiring sign-in from compliant devices, alert when:<br><li> any sign in by non-compliant devices.<li> any access without MFA or a trusted location.<p>If working toward requiring devices, monitor for suspicious sign-ins.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml) |
+| Sign-ins by non-compliant devices| High| Sign-in logs| DeviceDetail.isCompliant == false| If requiring sign-in from compliant devices, alert when:<br><li> any sign in by non-compliant devices.<li> any access without MFA or a trusted location.<p>If working toward requiring devices, monitor for suspicious sign-ins.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml) |
 | Sign-ins by unknown devices| Low| Sign-in logs| <li>DeviceDetail is empty<li>Single factor authentication<li>From a non-trusted location| Look for: <br><li>any access from out of compliance devices.<li>any access without MFA or trusted location |
 
 
@@ -113,9 +115,9 @@ It might not be possible to block access to all cloud and software-as-a-service 
 ```
 SigninLogs
 
-| where DeviceDetail.isCompliant ==false
+| where DeviceDetail.isCompliant == false
 
-| where conditionalAccessStatus == “success”
+| where conditionalAccessStatus == "success"
 ```
  
 
@@ -147,7 +149,7 @@ Attackers who have compromised a user’s device may retrieve the [BitLocker](/w
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Key retrieval| Medium| Audit logs| OperationName == "Read BitLocker key”| Look for <br><li>key retrieval`<li> other anomalous behavior by users retrieving keys. |
+| Key retrieval| Medium| Audit logs| OperationName == "Read BitLocker key"| Look for <br><li>key retrieval`<li> other anomalous behavior by users retrieving keys. |
 
 
 In LogAnalytics create a query such as
@@ -155,7 +157,7 @@ In LogAnalytics create a query such as
 ```
 AuditLogs
 
-| where OperationName == "Read BitLocker key” 
+| where OperationName == "Read BitLocker key" 
 ```
 
 ## Device administrator roles

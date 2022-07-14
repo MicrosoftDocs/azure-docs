@@ -1,9 +1,8 @@
 ---
-title: Microsoft identity platform and OAuth 2.0 authorization code flow | Azure
-titleSuffix: Microsoft identity platform
+title: Microsoft identity platform and OAuth 2.0 authorization code flow
 description: Build web applications using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
-author: nickludwig
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/02/2022
-ms.author: ludwignick
+ms.author: davidmu
 ms.reviewer: ludwignick
 ms.custom: aaddev, identityplatformtop40
 ---
@@ -53,6 +52,8 @@ Applications can't use a `spa` redirect URI with non-SPA flows, for example, nat
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client requests the `openid`, `offline_access`, and `https://graph.microsoft.com/mail.read` permissions from the user.
 
 Some permissions are admin-restricted, for example, writing data to an organization's directory by using `Directory.ReadWrite.All`. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they're not authorized to consent to your app's permissions. To request access to admin-restricted scopes, you should request them directly from a Global Administrator. For more information, see [Admin-restricted permissions](v2-permissions-and-consent.md#admin-restricted-permissions).
+
+Unless specified otherwise, there are no default values for optional parameters. There is, however, default behavior for a request omitting optional parameters. The default behavior is to either sign in the sole current user, show the account picker if there are multiple users, or show the login page if there are no users signed in. 
 
 ```http
 // Line breaks for legibility only

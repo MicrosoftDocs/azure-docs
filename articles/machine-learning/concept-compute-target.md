@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/21/2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
-ms.custom: ignite-fall-2021
 ---
 
 # What are compute targets in Azure Machine Learning?
@@ -27,11 +27,11 @@ The compute resources you use for your compute targets are attached to a [worksp
 
 ## <a name="train"></a> Training compute targets
 
-Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with development or experimentation on a small amount of data. At this stage, use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger datasets or perform [distributed training](how-to-train-distributed-gpu.md), use Azure Machine Learning compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for different scenarios might vary.
+Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with development or experimentation on a small amount of data. At this stage, use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger datasets or perform [distributed training](how-to-train-distributed-gpu.md), use Azure Machine Learning compute to create a single- or multi-node cluster that autoscales each time you submit a job. You can also attach your own compute resource, although support for different scenarios might vary.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Learn more about how to [submit a training run to a compute target](how-to-set-up-training-targets.md).
+Learn more about how to [submit a training job to a compute target](how-to-set-up-training-targets.md).
 
 ## <a name="deploy"></a> Compute targets for inference
 
@@ -53,7 +53,6 @@ You can create Azure Machine Learning compute instances or compute clusters from
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
-* A machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).
 
 When created, these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
 
@@ -61,7 +60,7 @@ When created, these compute resources are automatically part of your workspace, 
 |Capability  |Compute cluster  |Compute instance  |
 |---------|---------|---------|
 |Single- or multi-node cluster     |    **&check;**       |    Single node cluster     |
-|Autoscales each time you submit a run     |     **&check;**      |         |
+|Autoscales each time you submit a job     |     **&check;**      |         |
 |Automatic cluster management and job scheduling     |   **&check;**        |     **&check;**      |
 |Support for both CPU and GPU resources     |  **&check;**         |    **&check;**       |
 
@@ -76,39 +75,38 @@ When you select a node size for a managed compute resource in Azure Machine Lear
 There are a few exceptions and limitations to choosing a VM size:
 
 * Some VM series aren't supported in Azure Machine Learning.
-* Some VM series are restricted. To use a restricted series, contact support and request a quota increase for the series. For information on how to contact support, see [Azure support options](https://azure.microsoft.com/support/options/).
+* There are some VM series, such as GPUs and other special SKUs, which may not initially appear in your list of available VMs.  But you can still use them, once you request a quota change. For more information about requesting quotas, see [Request quota increases](how-to-manage-quotas.md#request-quota-increases).
+See the following table to learn more about supported series.
 
-See the following table to learn more about supported series and restrictions.
-
-| **Supported VM series**  | **Restrictions** | **Category** | **Supported by** |
+| **Supported VM series** | **Category** | **Supported by** |
 |------------|------------|------------|------------|
-| [DDSv4](../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series) | None. | General purpose | Compute clusters and instance |
-| [Dv2](../virtual-machines/dv2-dsv2-series.md#dv2-series) | None. | General purpose | Compute clusters and instance |
-| [Dv3](../virtual-machines/dv3-dsv3-series.md#dv3-series) | None.| General purpose | Compute clusters and instance |
-| [DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) | None. | General purpose | Compute clusters and instance |
-| [DSv3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | None.| General purpose | Compute clusters and instance |
-| [EAv4](../virtual-machines/eav4-easv4-series.md) | None. | Memory optimized | Compute clusters and instance |
-| [Ev3](../virtual-machines/ev3-esv3-series.md) | None. | Memory optimized | Compute clusters and instance |
-| [ESv3](../virtual-machines/ev3-esv3-series.md) | None. | Memory optimized | Compute clusters and instance |
-| [FSv2](../virtual-machines/fsv2-series.md) | None. | Compute optimized | Compute clusters and instance |
-| [FX](../virtual-machines/fx-series.md) | Requires approval. | Compute optimized | Compute clusters |
-| [H](../virtual-machines/h-series.md) | None. | High performance compute | Compute clusters and instance |
-| [HB](../virtual-machines/hb-series.md) | Requires approval. | High performance compute | Compute clusters and instance |
-| [HBv2](../virtual-machines/hbv2-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
-| [HBv3](../virtual-machines/hbv3-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
-| [HC](../virtual-machines/hc-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
-| [LSv2](../virtual-machines/lsv2-series.md) | None. |  Storage optimized | Compute clusters and instance |
-| [M](../virtual-machines/m-series.md) | Requires approval. | Memory optimized | Compute clusters and instance |
-| [NC](../virtual-machines/nc-series.md) | None. |  GPU | Compute clusters and instance |
-| [NC Promo](../virtual-machines/nc-series.md) | None. | GPU | Compute clusters and instance |
-| [NCv2](../virtual-machines/ncv2-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NCv3](../virtual-machines/ncv3-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [ND](../virtual-machines/nd-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NDv2](../virtual-machines/ndv2-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NV](../virtual-machines/nv-series.md) | None. | GPU | Compute clusters and instance |
-| [NVv3](../virtual-machines/nvv3-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NCasT4_v3](../virtual-machines/nct4-v3-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NDasrA100_v4](../virtual-machines/nda100-v4-series.md) | Requires approval. | GPU | Compute clusters and instance |
+| [DDSv4](../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series) | General purpose | Compute clusters and instance |
+| [Dv2](../virtual-machines/dv2-dsv2-series.md#dv2-series) | General purpose | Compute clusters and instance |
+| [Dv3](../virtual-machines/dv3-dsv3-series.md#dv3-series) | General purpose | Compute clusters and instance |
+| [DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) | General purpose | Compute clusters and instance |
+| [DSv3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | General purpose | Compute clusters and instance |
+| [EAv4](../virtual-machines/eav4-easv4-series.md) | Memory optimized | Compute clusters and instance |
+| [Ev3](../virtual-machines/ev3-esv3-series.md) | Memory optimized | Compute clusters and instance |
+| [ESv3](../virtual-machines/ev3-esv3-series.md) | Memory optimized | Compute clusters and instance |
+| [FSv2](../virtual-machines/fsv2-series.md) | Compute optimized | Compute clusters and instance |
+| [FX](../virtual-machines/fx-series.md) | Compute optimized | Compute clusters |
+| [H](../virtual-machines/h-series.md) | High performance compute | Compute clusters and instance |
+| [HB](../virtual-machines/hb-series.md) | High performance compute | Compute clusters and instance |
+| [HBv2](../virtual-machines/hbv2-series.md) | High performance compute | Compute clusters and instance |
+| [HBv3](../virtual-machines/hbv3-series.md) |  High performance compute | Compute clusters and instance |
+| [HC](../virtual-machines/hc-series.md) |  High performance compute | Compute clusters and instance |
+| [LSv2](../virtual-machines/lsv2-series.md) |  Storage optimized | Compute clusters and instance |
+| [M](../virtual-machines/m-series.md) | Memory optimized | Compute clusters and instance |
+| [NC](../virtual-machines/nc-series.md) |  GPU | Compute clusters and instance |
+| [NC Promo](../virtual-machines/nc-series.md) | GPU | Compute clusters and instance |
+| [NCv2](../virtual-machines/ncv2-series.md) | GPU | Compute clusters and instance |
+| [NCv3](../virtual-machines/ncv3-series.md) | GPU | Compute clusters and instance |
+| [ND](../virtual-machines/nd-series.md) | GPU | Compute clusters and instance |
+| [NDv2](../virtual-machines/ndv2-series.md) | GPU | Compute clusters and instance |
+| [NV](../virtual-machines/nv-series.md) | GPU | Compute clusters and instance |
+| [NVv3](../virtual-machines/nvv3-series.md) | GPU | Compute clusters and instance |
+| [NCasT4_v3](../virtual-machines/nct4-v3-series.md) | GPU | Compute clusters and instance |
+| [NDasrA100_v4](../virtual-machines/nda100-v4-series.md) | GPU | Compute clusters and instance |
 
 
 While Azure Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -132,8 +130,8 @@ If using the GPU-enabled compute targets, it is important to ensure that the cor
 
 In addition to ensuring the CUDA version and hardware are compatible, also ensure that the CUDA version is compatible with the version of the machine learning framework you are using: 
 
-- For PyTorch, you can check the compatibility [here](https://pytorch.org/get-started/previous-versions/). 
-- For Tensorflow, you can check the compatibility [here](https://www.tensorflow.org/install/source#gpu).
+- For PyTorch, you can check the compatibility by visiting [Pytorch's previous versions page](https://pytorch.org/get-started/previous-versions/). 
+- For Tensorflow, you can check the compatibility by visiting [Tensorflow's build from source page](https://www.tensorflow.org/install/source#gpu).
 
 ### Compute isolation
 
@@ -163,7 +161,7 @@ Azure Machine Learning supports the following unmanaged compute types:
 * Azure Databricks
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
+* Kubernetes
 
 For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
 

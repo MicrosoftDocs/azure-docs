@@ -28,6 +28,24 @@ For more information on how to set up an Application Gateway resource after VNet
 * [Deployment via Azure CLI](quick-create-cli.md)
 * [Deployment via ARM template](quick-create-template.md)
 
+## Common questions
+
+### What is Azure Service Manager and what does it mean by classic?
+
+The word "classic" in classic networking service refers to networking resources managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations.
+
+### What is Azure Resource Manager?
+
+Azure Resource Manager is the latest control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations.
+
+### Where can I find more information regarding classic to Azure Resource Manager migration?
+
+Please refer to [Frequently asked questions about classic to Azure Resource Manager migration](../virtual-machines/migration-classic-resource-manager-faq.yml)
+
+### How do I report an issue?
+
+Post your issues and questions about migration to our [Microsoft Q&A page](/answers/topics/azure-virtual-network.html). We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+
 ## Next steps
 To get started see: [platform-supported migration of IaaS resources from classic to Resource Manager](../virtual-machines/migration-classic-resource-manager-ps.md)
 

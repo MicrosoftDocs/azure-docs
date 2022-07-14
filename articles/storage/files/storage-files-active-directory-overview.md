@@ -1,12 +1,12 @@
 ---
 title: Overview - Azure Files identity-based authorization
 description: Azure Files supports identity-based authentication over SMB (Server Message Block) through Azure Active Directory Domain Services (AD DS) and Active Directory. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares using Azure AD credentials. 
-author: roygara
+author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
 ms.date: 12/01/2021
-ms.author: rogarana
+ms.author: kendownie
 ---
 
 # Overview of Azure Files identity-based authentication options for SMB access
@@ -91,7 +91,7 @@ Identity-based authentication for Azure Files offers several benefits over using
 -   **Enforce granular access control on Azure file shares**  
     You can grant permissions to a specific identity at the share, directory, or file level. For example, suppose that you have several teams using a single Azure file share for project collaboration. You can grant all teams access to non-sensitive directories, while limiting access to directories containing sensitive financial data to your Finance team only. 
 
--   **Back up Windows ACLs (also known as NTFS) along with your data**  
+-   **Back up Windows ACLs (also known as NTFS permissions) along with your data**  
     You can use Azure file shares to back up your existing on-premises file shares. Azure Files preserves your ACLs along with your data when you back up a file share to Azure file shares over SMB.
 
 ## How it works

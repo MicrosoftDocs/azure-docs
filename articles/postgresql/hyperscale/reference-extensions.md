@@ -1,14 +1,16 @@
 ---
 title: Extensions – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Describes the ability to extend the functionality of your database by using extensions in Azure Database for PostgreSQL - Hyperscale (Citus)
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 02/24/2022
+ms.date: 07/05/2022
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL – Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 PostgreSQL provides the ability to extend the functionality of your database by using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function like built-in features. For more information on PostgreSQL extensions, see [Package related objects into an extension](https://www.postgresql.org/docs/current/static/extend-extensions.html).
 
@@ -37,7 +39,7 @@ The versions of each extension installed in a server group sometimes differ base
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.10 | 10.0.6 | 10.2.4 | 10.2.4 |
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.11 | 10.0.7 | 10.2.6 | 10.2.6 |
 
 ### Data types extensions
 
@@ -77,6 +79,7 @@ The versions of each extension installed in a server group sometimes differ base
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Provides functions and operators for manipulating null-free arrays of integers. | 1.2 | 1.2 | 1.3 | 1.5 |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Functions for tracking last modification time. | 1.0 | 1.0 | 1.0 | 1.0 |
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.6.0 | 4.6.0 | 4.6.0 | 4.6.0 |
+> | [pg\_surgery](https://www.postgresql.org/docs/current/pgsurgery.html) | Functions to perform surgery on a damaged relation. |     |     |     | 1.0 |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. | 1.4 | 1.4 | 1.5 | 1.6 |
 > | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Provides cryptographic functions. | 1.3 | 1.3 | 1.3 | 1.3 |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Functions for implementing referential integrity (obsolete). | 1.0 | 1.0 | 1.0 | 1.0 |
@@ -108,6 +111,7 @@ The versions of each extension installed in a server group sometimes differ base
 > |---|---|---|---|---|
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Functions for verifying relation integrity. | 1.1 | 1.2 | 1.2 | 1.3 |
 > | [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. See the "dblink and postgres_fdw" section for information about this extension. | 1.2 | 1.2 | 1.2 | 1.2 |
+> | [old\_snapshot](https://www.postgresql.org/docs/current/oldsnapshot.html) | Allows inspection of the server state that is used to implement old_snapshot_threshold. |     |     |     | 1.0 |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspect the contents of database pages at a low level. | 1.7 | 1.7 | 1.8 | 1.9 |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. | 1.3 | 1.3 | 1.3 | 1.3 |
 > | [pg\_cron](https://github.com/citusdata/pg_cron) | Job scheduler for PostgreSQL. | 1.4 | 1.4 | 1.4 | 1.4 |
@@ -129,10 +133,10 @@ The versions of each extension installed in a server group sometimes differ base
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
-> | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.4 | 3.0.3 | 3.1.4 |
-> | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.4 | 3.0.4 | 3.1.4 |
-> | postgis\_sfcgal | PostGIS SFCGAL functions. | 2.5.5 | 3.0.4 | 3.0.4 | 3.1.4 |
-> | postgis\_topology | PostGIS topology spatial types and functions. | 2.5.5 | 3.0.4 | 3.0.4 | 3.1.4 |
+> | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 |
+> | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 |
+> | postgis\_sfcgal | PostGIS SFCGAL functions. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 |
+> | postgis\_topology | PostGIS topology spatial types and functions. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 |
 
 
 ## pg_stat_statements

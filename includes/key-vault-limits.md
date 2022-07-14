@@ -1,9 +1,9 @@
 ---
-author: sebansal
+author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
 ms.date: 05/28/2021
-ms.author: ambapat
+ms.author: mbaldwin
 ---
 
 Azure Key Vault service supports two resource types: Vaults and Managed HSMs. The following two sections describe the service limits for each of them respectively.
@@ -44,7 +44,7 @@ This section describes service limits for resource type `vaults`.
 
 For information on how to handle throttling when these limits are exceeded, see [Azure Key Vault throttling guidance](../articles/key-vault/general/overview-throttling.md).
 
-<sup>1</sup> A subscription-wide limit for all transaction types is five times per key vault limit. For example, HSM-other transactions per subscription are limited to 10,000 transactions in 10 seconds per subscription.
+<sup>1</sup> A subscription-wide limit for all transaction types is five times per key vault limit.
 
 #### Backup keys, secrets, certificates
 
@@ -62,16 +62,6 @@ When you back up a key vault object, such as a secret, key, or certificate, the 
 Key Vault does not restrict the number of keys, secrets or certificates that can be stored in a vault. The transaction limits on the vault should be taken into account to ensure that operations are not throttled.
 
 Key Vault does not restrict the number of versions on a secret, key or certificate, but storing a large number of versions (500+) can impact the performance of backup operations. See [Azure Key Vault Backup](../articles/key-vault/general/backup.md).
-
-#### Azure Private Link integration
-
-> [!NOTE]
-> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please create a support request and it will be assessed on a case by case basis.
-
-| Resource | Limit |
-| -------- | -----:|
-| Private endpoints per key vault or managed HSM| 64 |
-| Key vaults with private endpoints per subscription | 400 |
 
 ### Resource type: Managed HSM
 

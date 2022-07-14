@@ -1,14 +1,15 @@
 ---
 title: Enable database protection for your subscription
-description: Learn how to enable Microsoft Defender for Cloud for all of your database types for your entire subscription. 
-titleSuffix: Microsoft Defender for Azure Cosmos DB
-ms.topic: quickstart
-ms.date: 02/28/2022
+description: Learn how to enable Microsoft Defender for Cloud for all of your database types for your entire subscription.
+author: bmansheim
+ms.author: benmansheim
+ms.topic: how-to
+ms.date: 06/15/2022
 ---
 
-# Quickstart: Microsoft Defender for Cloud database protection
+# Enable Microsoft Defender for Cloud database plans
 
-This article explains how to enable Microsoft Defender for Cloud's database (DB) protection for all database types that exist on your subscription.
+This article explains how to enable Microsoft Defender for Cloud's database (DB) protection for the most common database types that exist on your subscription.
 
 Workload protections are provided through the Microsoft Defender plans that are specific to the types of resources in your subscriptions.
 
@@ -19,7 +20,7 @@ The types of protected databases are:
 - Azure SQL Databases 
 - SQL servers on machines 
 - Open-source relational databases (OSS RDB) 
-- Microsoft Defender for Azure Cosmos DB
+- Azure Cosmos DB
 
 Database provides protection to engines, and data types, with different attack surface, and security risks. Security detections are made for the specific attack surface of each DB type.  
 
@@ -29,30 +30,34 @@ You can enable database protection on your subscription, or exclude specific dat
 
 ## Prerequisites
 
-- You must have Subscription Owner access
+You must have:
+
+- [Subscription Owner](../role-based-access-control/built-in-roles.md#owner) access.
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Enable database protection on your subscription
 
-**To enable Defender for Storage for individual storage accounts under a specific subscription**:
+**To enable Defender for Databases on a specific subscription**:
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com).
 
-1. Navigate to **Microsoft Defender fo Cloud** > **Environment settings**.
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 
 1. Select the relevant subscription.
 
-1. If you want to enable specific plans, set the plans toggle to **On**.
+1. To protect all database types toggle the Databases plan to **On**.
 
-1. (Optional) Select **Select types** to and enable specific resource types.
+1. (Optional) Use **Select types** to enable protections for specific database types.
 
     :::image type="content" source="media/quickstart-enable-database-protections/select-type.png" alt-text="Screenshot showing the toggles to enable specific resource types.":::
 
     1. Toggle each desired resource type to **On**.
     
-    :::image type="content" source="media/quickstart-enable-database-protections/resource-type.png" alt-text="Screenshot showing the types of resources available.":::
+        :::image type="content" source="media/quickstart-enable-database-protections/resource-type.png" alt-text="Screenshot showing the types of resources available.":::
 
     1. Select **Continue**.
+
+1. Select :::image type="icon" source="media/quickstart-enable-database-protections/save-icon.png" border="false":::.
 
 ## Next steps
 
@@ -60,5 +65,5 @@ In this article, you learned how to enable Microsoft Defender for Cloud for all 
 
 - [Microsoft Defender for Azure SQL databases](defender-for-sql-introduction.md)
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
-- [Microsoft Defender for Azure Cosmos DB (Preview)](concept-defender-for-cosmos.md)
+- [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
 - [Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md)

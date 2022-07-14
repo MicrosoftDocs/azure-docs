@@ -1,11 +1,11 @@
 ---
 title: 'Configure a contact profile on Azure Orbital Earth Observation service' 
 description: 'Quickstart: Configure a contact profile'
-author: wamota
+author: apoorvanori
 ms.service: orbital
 ms.topic: quickstart
-ms.custom: public-preview
-ms.date: 11/16/2021
+ms.custom: ga
+ms.date: 06/01/2022
 ms.author: wamota
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
@@ -23,7 +23,7 @@ Configure a contact profile with Azure Orbital to save and reuse contact configu
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
+Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
 ## Create a contact profile resource
 
@@ -36,7 +36,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    | Subscription | Select your subscription |
    | Resource group | Select your resource group |
    | Name | Enter contact profile name. Specify the antenna provider and mission information here. Like *Microsoft_Aqua_Uplink+Downlink_1* |
-   | Region | Select **West US 2** |
+   | Region | Select a region |
    | Minimum viable contact duration | Define the minimum duration of the contact as a prerequisite to show you available time slots to communicate with your spacecraft. If an available time window is less than this time, it won't show in the list of available options. Provide minimum contact duration in ISO 8601 format. Like *PT1M* |
    | Minimum elevation | Define minimum elevation of the contact, after acquisition of signal (AOS), as a prerequisite to show you available time slots to communicate with your spacecraft. Using higher value can reduce the duration of the contact. Provide minimum viable elevation in decimal degrees. |
    | Auto track configuration | Select the frequency band to be used for autotracking during the contact. X band, S band, or Disabled. |
@@ -51,6 +51,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
    | **Field** | **Value** |
    | --- | --- |
+   | Direction | Select the link direction |
    | Gain/Temperature (Downlink only) | Enter the gain to noise temperature in db/K |
    | EIRP in dBW (Uplink only) | Enter the effective isotropic radiated power in dBW |
    | Center Frequency | Enter the center frequency in MHz |
@@ -60,6 +61,10 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    | IP Address | Specify the IP Address for data retrieval/delivery |
    | Port | Specify the Port for data retrieval/delivery |
    | Protocol | Select TCP or UDP protocol for data retrieval/delivery |
+   | Demodulation Configuration (Downlink only) | If applicable, paste your modem demodulation configuration |
+   | Decoding Configuration (Downlink only)| If applicable, paste your decoding configuration |
+   | Modulation Configuration (Uplink only) | If applicable, paste your modem modulation configuration |
+   | Encoding Configuration (Uplink only)| If applicable, paste your encoding configuration |
 
    :::image type="content" source="media/orbital-eos-contact-link.png" alt-text="Contact Profile Links Page" lightbox="media/orbital-eos-contact-link.png":::
 
@@ -69,5 +74,6 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Next steps
 
+- [How-to Receive real-time telemetry](receive-real-time-telemetry.md)
 - [Quickstart: Schedule a contact](schedule-contact.md)
-- [How-to: Cancel a contact](delete-contact.md)
+- [Tutorial: Cancel a contact](delete-contact.md)

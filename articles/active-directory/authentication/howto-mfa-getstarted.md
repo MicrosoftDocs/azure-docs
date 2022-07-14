@@ -4,9 +4,9 @@ description: Learn about deployment considerations and strategy for successful i
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/02/2022
-ms.author: v-nisba
-author: NishthaBabith-V
+ms.date: 06/01/2022
+ms.author: mtillman
+author: mtillman
 manager: martinco
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
@@ -158,7 +158,7 @@ A major step in every multifactor authentication deployment is getting users reg
 
 > [!NOTE]
 > Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
-> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration. After this date tenants will be unable to disable the combined registration experience.
+> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration. 
 
 We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
@@ -246,7 +246,7 @@ You can monitor authentication method registration and usage across your organiz
 
 The Azure AD sign in reports include authentication details for events when a user is prompted for MFA, and if any Conditional Access policies were in use. You can also use PowerShell for reporting on users registered for Azure AD Multi-Factor Authentication. 
 
-NPS extension and AD FS logs can be viewed from **Security** > **MFA** > **Activity report**.
+NPS extension and AD FS logs can be viewed from **Security** > **MFA** > **Activity report**. Inclusion of this activity in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md) is currently in Preview.
 
 For more information, and additional Azure AD Multi-Factor Authentication reports, see [Review Azure AD Multi-Factor Authentication events](howto-mfa-reporting.md#view-the-azure-ad-sign-ins-report).
 

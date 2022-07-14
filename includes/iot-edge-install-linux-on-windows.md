@@ -1,8 +1,8 @@
 ---
 ms.topic: include
 ms.date: 01/25/2022
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.service: iot-edge
 services: iot-edge
 ---
@@ -81,17 +81,13 @@ Install IoT Edge for Linux on Windows on your target device.
 # [Windows Admin Center](#tab/windowsadmincenter)
 
 >[!NOTE]
->The Azure IoT Edge extension for Windows Admin Center is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Installation and management processes may be different than for generally available features.
+>The Azure IoT Edge extension for Windows Admin Center is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The management process may be different than for generally available features.
 
-Install Azure IoT Edge for Linux on Windows on your device.
-
-1. Download the [Azure IoT Edge for Linux on Windows installer](https://aka.ms/AzEflowMSI).
-
-1. Once you have installed Azure IoT Edge for Linux on Windows, open Windows Admin Center.
+1. [Install](https://www.microsoft.com/evalcenter/evaluate-windows-admin-center) and open Windows Admin Center.
 
    On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you are running Windows Admin Center. Any additional servers, PCs, or clusters that you manage will also show up here.
 
-   You can use Windows Admin Center to install and manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
+   You can use Windows Admin Center to manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
 
 1. Confirm that your local device is listed under **All connections**, like shown below.
 
@@ -158,7 +154,7 @@ Install Azure IoT Edge for Linux on Windows on your device.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 > [!NOTE]
@@ -197,17 +193,16 @@ Install Azure IoT Edge for Linux on Windows on your device.
    ```
 
    >[!TIP]
-   >By default, the `Deploy-Eflow` command creates your Linux virtual machine with 1 GB of RAM, 1 vCPU core, and 10 GB of data parition. However, the resources your VM needs are highly dependent on the workloads you deploy. If your VM does not have sufficient memory to support your workloads, it will fail to start.
+   >By default, the `Deploy-Eflow` command creates your Linux virtual machine with 1 GB of RAM, 1 vCPU core, and 16 GB of disk space. However, the resources your VM needs are highly dependent on the workloads you deploy. If your VM does not have sufficient memory to support your workloads, it will fail to start.
    >
-   >You can customize the virtual machine's available resources using the `Deploy-Eflow` command's optional parameters.
+   >You can customize the virtual machine's available resources using the `Deploy-Eflow` command's optional parameters. This is required to deploy EFLOW on a device with the minimum hardware requirements.
    >
-   >For example, the command below creates a virtual machine with 4 vCPU cores, 4 GB of RAM (represented in MB), and 20 GB of data partition:
+   >For example, the command below creates a virtual machine with 1 vCPU core, 1 GB of RAM (represented in MB), and 2 GB of disk space:
    >
    >   ```powershell
-   >   Deploy-Eflow -cpuCount 4 -memoryInMB 4096 -vmDataSize 20
+   >   Deploy-Eflow -cpuCount 1 -memoryInMB 1024 -vmDiskSize 2
    >   ```
-   >
-   >**Note:** _vmDataSize_ is a new parameter introduced in EFLOW CR version.  
+   >Note: `vmDataSize` is a new parameter intriduced in the EFLOW CR version.
    >
    >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
@@ -232,4 +227,4 @@ Install Azure IoT Edge for Linux on Windows on your device.
    After a successful deployment, you are ready to provision your device.
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->

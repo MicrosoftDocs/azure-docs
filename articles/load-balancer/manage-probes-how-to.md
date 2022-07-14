@@ -1,8 +1,8 @@
 ---
 title: Manage health probes for Azure Load Balancer - Azure portal
 description: In this article, learn how to manage health probes for Azure Load Balancer using the Azure portal
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/02/2022
@@ -11,7 +11,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Manage health probes for Azure Load Balancer using the Azure portal
 
-Azure Load Balancer supports health probes to monitor the health of backend instances. In this article, you'll learn how to manage health probes for Azure Load Balancer.
+Azure Load Balancer uses health probes to monitor the health of backend instances. In this article, you'll learn how to manage health probes for Azure Load Balancer.
 
 There are three types of health probes:
 
@@ -54,13 +54,13 @@ In this example, you'll create a TCP health probe to monitor port 80.
 
 6. Enter or select the following information in **Add health probe**.
 
-| Setting | Value |
-| ------- | ----- |
-| Name | Enter **myHealthProbe**. |
-| Protocol | Select **TCP**. |
-| Port | Enter the **TCP** port you wish to monitor. For this example, it's **port 80**. |
-| Interval | Enter an interval between probe checks. For this example, it's the default of **5**. |
-| Unhealthy threshold | Enter the threshold number for consecutive failures. For this example, it's the default of **2**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myHealthProbe**. |
+    | Protocol | Select **TCP**. |
+    | Port | Enter the **TCP** port you wish to monitor. For this example, it's **port 80**. |
+    | Interval | Enter an interval between probe checks. For this example, it's the default of **5**. |
+    | Unhealthy threshold | Enter the threshold number for consecutive failures. For this example, it's the default of **2**. |
 
 7. Select **Add**.
 
@@ -106,14 +106,14 @@ In this example, you'll create an HTTP health probe.
 
 6. Enter or select the following information in **Add health probe**.
 
-| Setting | Value |
-| ------- | ----- |
-| Name | Enter **myHealthProbe**. |
-| Protocol | Select **HTTP**. |
-| Port | Enter the **TCP** port you wish to monitor. For this example, it's **port 80**. |
-| Path | Enter a URI used for requesting health status. For this example, it's **/**. |
-| Interval | Enter an interval between probe checks. For this example, it's the default of **5**. |
-| Unhealthy threshold | Enter the threshold number for consecutive failures. For this example, it's the default of **2**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myHealthProbe**. |
+    | Protocol | Select **HTTP**. |
+    | Port | Enter the **TCP** port you wish to monitor. For this example, it's **port 80**. |
+    | Path | Enter a URI used for requesting health status. For this example, it's **/**. |
+    | Interval | Enter an interval between probe checks. For this example, it's the default of **5**. |
+    | Unhealthy threshold | Enter the threshold number for consecutive failures. For this example, it's the default of **2**. |
 
 7. Select **Add**.
 
@@ -159,14 +159,14 @@ In this example, you'll create an HTTPS health probe.
 
 6. Enter or select the following information in **Add health probe**.
 
-| Setting | Value |
-| ------- | ----- |
-| Name | Enter **myHealthProbe**. |
-| Protocol | Select **HTTPS**. |
-| Port | Enter the **TCP** port you wish to monitor. For this example, it's **port 443**. |
-| Path | Enter a URI used for requesting health status. For this example, it's **/**. |
-| Interval | Enter an interval between probe checks. For this example, it's the default of **5**. |
-| Unhealthy threshold | Enter the threshold number for consecutive failures. For this example, it's the default of **2**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myHealthProbe**. |
+    | Protocol | Select **HTTPS**. |
+    | Port | Enter the **TCP** port you wish to monitor. For this example, it's **port 443**. |
+    | Path | Enter a URI used for requesting health status. For this example, it's **/**. |
+    | Interval | Enter an interval between probe checks. For this example, it's the default of **5**. |
+    | Unhealthy threshold | Enter the threshold number for consecutive failures. For this example, it's the default of **2**. |
 
 7. Select **Add**.
 

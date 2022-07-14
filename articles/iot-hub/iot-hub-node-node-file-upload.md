@@ -1,9 +1,9 @@
 ---
 title: Upload files from devices to Azure IoT Hub with Node | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Node.js. Uploaded files are stored in an Azure storage blob container.
-author: wesmc7777
+author: kgremban
 
-ms.author: wesmc
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: javascript
@@ -22,14 +22,14 @@ The tutorial shows you how to:
 
 * Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
-The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-node-node-c2d.md) tutorial show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
-* Large files that contain images
 * Videos
+* Large files that contain images
 * Vibration data sampled at high frequency
 * Some form of pre-processed data.
 
-These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub. This tutorial shows you how.
 
 At the end of this article, you run two Node.js console apps:
 
@@ -62,7 +62,7 @@ At the end of this article, you run two Node.js console apps:
 
 ## Upload a file from a device app
 
-In this section, you create a device app to upload a file to IoT hub. The code is based on code available in the [upload_to_blob_advanced.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/upload_to_blob_advanced.js) sample in the [Azure IoT node.js SDK](https://github.com/Azure/azure-iot-sdk-node) device samples.
+In this section, you create a device app to upload a file to IoT hub. The code is based on code available in the [upload_to_blob_advanced.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/upload_to_blob_advanced.js) sample in the [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) device samples.
 
 1. Create an empty folder called `fileupload`.  In the `fileupload` folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
 
@@ -241,6 +241,8 @@ In this section, you create a Node.js console app that receives file upload noti
       }
     });
     ```
+    > [!NOTE]
+    > If you want to receive disconnect notifications while you are listening to file upload notifications, you need to register `'error'` by using `receiver.on`. To continue to receive file upload notifications, you need to reconect to IoT Hub by using the `serviceClient.open` method.
 
 1. Save and close the **FileUploadNotification.js** file.
 

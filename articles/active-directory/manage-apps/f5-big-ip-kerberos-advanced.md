@@ -2,14 +2,14 @@
 title: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
 description: Learn how to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to Kerberos applications by using F5's BIG-IP advanced configuration.
 services: active-directory
-author: NishthaBabith-V
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 12/13/2021
-ms.author: v-nisba
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
@@ -19,7 +19,7 @@ In this tutorial, you'll learn to implement Secure Hybrid Access (SHA) with sing
 
 Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
+* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 
 * Full SSO between Azure AD and BIG-IP published services.
 
@@ -503,6 +503,6 @@ For help with diagnosing KCD-related problems, see the F5 BIG-IP deployment guid
 
 * [Forget passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
 
-* [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
+* [What is Conditional Access?](../conditional-access/overview.md)
 
 * [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)

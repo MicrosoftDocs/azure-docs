@@ -1,6 +1,6 @@
 ---
 title: Common cost analysis uses in Cost Management
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
 author: bandersmsft
 ms.author: banders
@@ -116,7 +116,7 @@ Dimensions allow you to organize your costs based on various metadata values sho
 1. Select the **Group by** filter.  
     [![Select a Group by item](./media/cost-analysis-common-uses/group-by.png)](./media/cost-analysis-common-uses/group-by.png#lightbox)
 1. Optionally, you save the view for later use.
-1. Click a pie chart below the graph to view more detailed data.  
+1. Select a pie chart below the graph to view more detailed data.  
     [![View cost breakdown by selected dimensions](./media/cost-analysis-common-uses/drill-down.png)](./media/cost-analysis-common-uses/drill-down.png#lightbox)
 
 ## View costs per day or by month
@@ -149,7 +149,7 @@ Reserved instances provide a way for you to save money with Azure. With reservat
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Add a filter for **Pricing Model: Reservation**.
-1. Under **Scope** and next to the cost shown, click the down arrow symbol, select either **Actual cost** or **Amortized cost** metric.
+1. Under **Scope** and next to the cost shown, select the down arrow symbol, select either **Actual cost** or **Amortized cost** metric.
 
 ![Select a cost metric](./media/cost-analysis-common-uses/metric-cost.png)
 
@@ -198,7 +198,7 @@ Support for tags applies to usage reported *after* the tag was applied to the re
 Your usage details report file, in CSV format, provides a breakdown of all the charges that accrued towards an invoice. You can use the report to compare it to, and better understand, your invoice. Each billed charge on your invoice corresponds to broken-down charges in the usage report.
 
 1. In the Azure portal, navigate to the **Usage and Charges** tab for a billing account or subscription. For example: **Cost Management + Billing** > **Billing** > **Usage + charges**.
-1. Select the line item to download from and then click the download symbol.  
+1. Select the line item to download from and then select the download symbol.  
     [![Download usage and charges](./media/cost-analysis-common-uses/download1.png)](./media/cost-analysis-common-uses/download1.png#lightbox)
 1.  Select the usage file to download.  
     ![Choose a usage file to download](./media/cost-analysis-common-uses/download2.png)
@@ -211,9 +211,9 @@ Costs are only shown for your active enrollment. If you transferred an enrollmen
 
 
 1. In the Azure portal, navigate to **Cost Management + Billing** > **Overview**.
-1. Click **Breakdown** for the current month and view your Azure Prepayment (previously called monetary commitment) burn down.  
+1. Select **Breakdown** for the current month and view your Azure Prepayment (previously called monetary commitment) burn down.  
     [![EA costs overview - breakdown summary](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
-1.  Click the **Usage and Charges** tab and view the prior month's breakdown in the chosen timespan.  
+1.  Select the **Usage and Charges** tab and view the prior month's breakdown in the chosen timespan.  
     [![Usage and charges tab](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)
 
 ## View enrollment monthly cost by term

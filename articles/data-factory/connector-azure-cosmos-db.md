@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/17/2022
+ms.date: 07/04/2022
 ---
 
 # Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory
@@ -26,11 +26,15 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 ## Supported capabilities
 
-This Azure Cosmos DB (SQL API) connector is supported for the following activities:
+This Azure Cosmos DB (SQL API) connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 For Copy activity, this Azure Cosmos DB (SQL API) connector supports:
 
@@ -473,9 +477,9 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 
 **Preferred regions:** Choose the preferred read regions for this process.
 
-**Change feed (Preview):** If true, you will get data from [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) which is a persistent record of changes to a container in the order they occur from last run automatically. When you set it true, do not set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more details, see [Azure Cosmos DB change feed (preview)](#azure-cosmos-db-change-feed-preview).
+**Change feed:** If true, you will get data from [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) which is a persistent record of changes to a container in the order they occur from last run automatically. When you set it true, do not set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more details, see [Azure Cosmos DB change feed)](#azure-cosmos-db-change-feed).
 
-**Start from beginning (Preview):** If true, you will get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more details, see [Azure Cosmos DB change feed (preview)](#azure-cosmos-db-change-feed-preview).
+**Start from beginning:** If true, you will get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more details, see [Azure Cosmos DB change feed](#azure-cosmos-db-change-feed).
 
 ### Sink transformation
 
@@ -519,7 +523,7 @@ To achieve schema-agnostic copy:
 
 When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](../cosmos-db/modeling-data.md), for example, to de-normalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](../cosmos-db/migrate-relational-to-cosmos-db-sql-api.md) with a walk-through on how to achieve it using the copy activity.
 
-## Azure Cosmos DB change feed (preview) 
+## Azure Cosmos DB change feed 
 
 Azure Data Factory can get data from [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You do not have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
 

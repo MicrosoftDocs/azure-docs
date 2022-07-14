@@ -52,7 +52,7 @@ The Azure Migrate appliance profiles on-premises servers continuously to measure
 
 ## Can I harden the appliance?
 
-When you use the downloaded template to create the appliance, you can add components (antivirus, for example) to the template. Ensure that you have allowed access to the correct [URLs](migrate-appliance.md#public-cloud-urls) through Azure Firewall and that the *%ProgramData%\MicrosoftAzure* folder is excluded from antivirus scanning.
+When you use the downloaded template to create the appliance, you can add components (antivirus, for example) to the template. Ensure that you have allowed access to the correct [URLs](migrate-appliance.md#public-cloud-urls) through Azure Firewall and that the *%ProgramData%\Microsoft Azure* folder is excluded from antivirus scanning.
 
 ## What network connectivity is required?
 
@@ -62,9 +62,9 @@ The appliance needs access to Azure URLs. [Review](migrate-appliance.md#url-acce
 
 See the following articles for information about data that the Azure Migrate appliance collects on servers:
 
-- **Servers in VMware environment**: [Review](migrate-appliance.md#collected-data---vmware) collected data.
-- **Servers in Hyper-V environment**: [Review](migrate-appliance.md#collected-data---hyper-v) collected data.
-- **Physical or virtual servers**:[Review](migrate-appliance.md#collected-data---physical) collected data.
+- **Servers in VMware environment**: [Review](discovered-metadata.md#collected-metadata-for-vmware-servers) collected data.
+- **Servers in Hyper-V environment**: [Review](discovered-metadata.md#collected-metadata-for-hyper-v-servers) collected data.
+- **Physical or virtual servers**: [Review](discovered-metadata.md#collected-data-for-physical-servers) collected data.
 
 ## How is data stored?
 

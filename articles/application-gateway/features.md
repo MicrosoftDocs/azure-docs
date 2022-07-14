@@ -2,11 +2,11 @@
 title: Azure Application Gateway features
 description: Learn about Azure Application Gateway features
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 01/18/2022
-ms.author: victorh
+ms.author: greglin
 ---
 
 # Azure Application Gateway features
@@ -40,7 +40,7 @@ The application gateway Standard_v2 SKU supports static VIP type exclusively. Th
 
 ## Web Application Firewall
 
-Web Application Firewall (WAF) is a service that provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is based on rules from the [OWASP (Open Web Application Security Project) core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (WAF_v2 only), 3.0, and 2.2.9. 
+Web Application Firewall (WAF) is a service that provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is based on rules from the [OWASP (Open Web Application Security Project) core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1 (WAF_v2 only), 3.0, and 2.2.9. 
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at many layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a Web Application Firewall enabled application gateway easily.
 
@@ -150,4 +150,4 @@ For an Application Gateway v1-v2 feature comparison, see [What is Azure Applicat
 
 ## Next steps
 
-- Learn how Application Gateway works - [How an application gateway works](how-application-gateway-works.md)
+- Learn [how an application gateway works](how-application-gateway-works.md)

@@ -42,6 +42,8 @@
       href: add-service-principal.md 
     - name: Configure Customer-Managed Keys
       href: customer-managed-keys.md  
+    - name: Enable LDAP authentication
+      href: ldap.md        
     - name: Monitor Managed Instance
       href: monitor-clusters.md   
     - name: Manage with Azure CLI
@@ -52,7 +54,9 @@
     - name: Visualize metrics in Prometheus with Grafana
       href: visualize-prometheus-grafana.md
     - name: Enable materialized views
-      href: materialized-views.md      
+      href: materialized-views.md
+    - name: Nodetool commands
+      href: dba-commands.md               
 - name: Reference
   items:
     - name: REST API

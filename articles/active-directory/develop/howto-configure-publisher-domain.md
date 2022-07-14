@@ -1,6 +1,5 @@
 ---
-title: Configure an app's publisher domain | Azure
-titleSuffix: Microsoft identity platform
+title: Configure an app's publisher domain
 description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
 services: active-directory
 author: rwike77
@@ -18,7 +17,7 @@ ms.custom: contperf-fy21q4, aaddev
 
 # Configure an application's publisher domain
 
-An application’s publisher domain is displayed to users on the [application’s consent prompt](application-consent-experience.md) to let users know where their information is being sent. Multi-tenant applications that are registered after May 21, 2019 that don't have a publisher domain show up as **unverified**. Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
+An application’s publisher domain informs the users where their information is being sent and acts as an input/prerequisite for [publisher verification](publisher-verification-overview.md). Depending on whether an app is a [multi-tenant app](/azure/architecture/guide/multitenant/overview), when it was registered and it's verified publisher status, either the publisher domain or the verified publisher status will be displayed to the user on the [application's consent prompt](application-consent-experience.md). Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
 
 ## New applications
 
@@ -34,11 +33,16 @@ The following table summarizes the default behavior of the publisher domain valu
 | *.onmicrosoft.com | *.onmicrosoft.com |
 | - *.onmicrosoft.com<br/>- domain1.com<br/>- domain2.com (primary) | domain2.com |
 
-If a multi-tenant application's publisher domain isn't set, or if it's set to a domain that ends in .onmicrosoft.com, the app's consent prompt will show **unverified** in place of the publisher domain.
-
+1. If your multi-tenant was registered between **May 21, 2019 and November 30, 2020**:  
+   - If the  application's publisher domain isn't set, or if it's set to a domain that ends in .onmicrosoft.com, the app's consent prompt will show **unverified** in place of the publisher domain. 
+   - If the application has a verified app domain, the consent prompt will show the verified domain. 
+   - If the application is publisher verified, it will show a [blue "verified" badge](publisher-verification-overview.md) indicating the same 
+2. If your multi-tenant was registered after **November 30, 2020**:
+   - If the application is not publisher verified, the app will show as "**unverified**" in the consent prompt (i.e, no publisher domain related info is shown) 
+   - If the application is publisher verified, it will show a [blue "verified" badge](publisher-verification-overview.md) indicating the same 
 ## Grandfathered applications
 
-If your app was registered before May 21, 2019, your application's consent prompt will not show **unverified** if you have not set a publisher domain. We recommend that you set the publisher domain value so that users can see this information on your app's consent prompt.
+If your app was registered **before May 21, 2019**, your application's consent prompt will not show **unverified** even if you have not set a publisher domain. We recommend that you set the publisher domain value so that users can see this information on your app's consent prompt.
 
 ## Configure publisher domain using the Azure portal
 
@@ -98,11 +102,15 @@ Configuring the publisher domain has an impact on what users see on the app cons
 
 The following table describes the behavior for applications created before May 21, 2019.
 
-![Consent prompt for apps created before May 21, 2019](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
+![Table that shows consent prompt behavior for apps created before May 21, 2019.](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
 
-The behavior for new applications created after May 21, 2019 will depend on the publisher domain and the type of application. The following table describes the changes you should expect to see with the different combinations of configurations.
+The behavior for applications created between May 21, 2019 and November 30, 2020 will depend on the publisher domain and the type of application. The following table describes what is shown on the consent prompt with the different combinations of configurations.
 
-![Consent prompt for apps created after May 21, 2019](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
+![Table that shows consent prompt behavior for apps created betweeb May 21, 2019 and Nov 30, 2020.](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
+
+For multi-tenant applications created after November 30, 2020, only publisher verification status is surfaced in the consent prompt. The following table describes what is shown on the consent prompt depending on whether an app is verified or not. Consent prompt for single tenant applications will remain the same as above. 
+
+![Table that shows consent prompt behavior for apps created after Nov 30, 2020.](./media/howto-configure-publisher-domain/new-app-behavior-publisher-verification-table.png)
 
 ## Implications on redirect URIs
 

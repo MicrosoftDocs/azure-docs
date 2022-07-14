@@ -138,15 +138,27 @@ dotnet new mvc --no-https --output TestFeatureFlags
     }
     ```
     #### [.NET Core 3.x](#tab/core3x)
-
+    
+    Add the following code:
     ```csharp    
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
+        services.AddAzureAppConfiguration();
         services.AddFeatureManagement();
     }
     ```
 
+    And then add below:
+
+    ```csharp    
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        // ...
+        app.UseAzureAppConfiguration();
+    }
+    ```
+    
     #### [.NET Core 2.x](#tab/core2x)
 
     ```csharp

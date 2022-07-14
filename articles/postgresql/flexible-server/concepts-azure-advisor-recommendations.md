@@ -1,13 +1,19 @@
 ---
 title: Azure Advisor for PostgreSQL - Flexible Server
 description: Learn about Azure Advisor recommendations for PostgreSQL - Flexible Server.
+ms.service: postgresql
+ms.subservice: flexible-server
+ms.topic: conceptual
 author: nathan-wisner-ms
 ms.author: nathanwisner
-ms.service: postgresql
-ms.topic: conceptual
 ms.date: 11/16/2021
 ---
 # Azure Advisor for PostgreSQL - Flexible Server
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 Learn about how Azure Advisor is applied to Azure Database for PostgreSQL and get answers to common questions.
 ## What is Azure Advisor for PostgreSQL?
 The Azure Advisor system uses telemetry to issue performance and reliability recommendations for your PostgreSQL database. 

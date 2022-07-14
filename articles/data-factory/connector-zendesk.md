@@ -17,6 +17,9 @@ ms.date: 02/28/2022
 
 This article outlines how to use Data Flow to transform data in Zendesk (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!IMPORTANT]
+> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
+
 ## Supported capabilities
 
 This Zendesk connector is supported for the following activities:

@@ -1,30 +1,16 @@
 ---
-title: Workload protections for your Kubernetes workloads
-description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
+title: Kubernetes data plane hardening
+description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes data plane hardening security recommendations
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 03/08/2022
 ---
 
-# Protect your Kubernetes workloads
+# Protect your Kubernetes data plane hardening
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes workload protection.
+This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes data plane hardening.
 
 > [!TIP]
 > For a list of the security recommendations that might appear for Kubernetes clusters and nodes, see the [Container recommendations](recommendations-reference.md#container-recommendations) of the recommendations reference table.
-
-## Availability
-
-| Aspect | Details |
-|--|--|
-| Release state: | AKS - General availability (GA) <br> Arc enabled Kubernetes - Preview |
-| Pricing: | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes, it's billed according to the Microsoft Defender for Containers plan |
-| Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations |
-| Environment requirements: | Kubernetes v1.14 (or newer) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
-| Azure Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
-| Non-Azure Clouds, and On-prem: |  supported via Arc enabled Kubernetes. |
-|  |  |
 
 ## Set up your workload protection
 
@@ -35,9 +21,9 @@ Microsoft Defender for Cloud includes a bundle of recommendations that are avail
 -  Add the [Required FQDN/application rules for Azure policy](../aks/limit-egress-traffic.md#azure-policy).
 - (For non AKS clusters) [Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
-## Enable Kubernetes workload protection
+## Enable Kubernetes data plane hardening
 
-When you enable Microsoft Defender for Containers, Azure Kubernetes Service clusters, and Azure Arc enabled Kubernetes clusters (Preview) protection are both enabled by default. You can configure your Kubernetes workload protections, when you enable Microsoft Defender for Containers.
+When you enable Microsoft Defender for Containers, Azure Kubernetes Service clusters, and Azure Arc enabled Kubernetes clusters (Preview) protection are both enabled by default. You can configure your Kubernetes data plane hardening, when you enable Microsoft Defender for Containers.
 
 **To enable Azure Kubernetes Service clusters and Azure Arc enabled Kubernetes clusters (Preview)**:
 
@@ -89,7 +75,7 @@ If you disabled any of the default protections when you enabled Microsoft Defend
 
 ## Deploy the add-on to specified clusters
 
-You can manually configure the Kubernetes workload add-on, or extension protection through the Recommendations page. This can be accomplished by remediating the `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters` recommendation, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters`. 
+You can manually configure the Kubernetes data plane hardening add-on, or extension protection through the Recommendations page. This can be accomplished by remediating the `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters` recommendation, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters`. 
 
 **To Deploy the add-on to specified clusters**:
 
@@ -136,7 +122,7 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
     | Kubernetes clusters should not grant CAPSYSADMIN security capabilities      | Manage access and permissions            | No                     |
     | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
     | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
-    ||||
+
 
 For recommendations with parameters that need to be customized, you will need to set the parameters:
 
@@ -154,7 +140,7 @@ For recommendations with parameters that need to be customized, you will need to
     
 1. Open the **Parameters** tab and modify the values as required.
 
-    :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Modifying the parameters for one of the recommendations in the Kubernetes workload protection bundle.":::
+    :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Modifying the parameters for one of the recommendations in the Kubernetes data plane hardening protection bundle.":::
 
 1. Select **Review + save**.
     
@@ -302,7 +288,7 @@ spec:
 
 ## Next steps
 
-In this article, you learned how to configure Kubernetes workload protection. 
+In this article, you learned how to configure Kubernetes data plane hardening. 
 
 For other related material, see the following pages: 
 

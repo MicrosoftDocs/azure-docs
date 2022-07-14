@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 06/29/2022
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -35,11 +35,13 @@ The transact publishing option is currently supported for the following offer ty
 | Offer type | Billing cadence | Metered billing | Pricing model |
 | ------------ | ------------- | ------------- | ------------- |
 | Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
-| Azure Virtual Machine | Monthly* | No | Usage-based, BYOL |
+| Azure Virtual Machine | Monthly<sup>1</sup> | No | Usage-based, BYOL |
 | Software as a service (SaaS) | Monthly and annual | Yes | Flat rate, per user, usage-based. |
-|||||
+| Dynamics 365 apps on Dataverse and Power Apps<sup>2</sup> | Monthly and annual | No | Per user |
 
-\* Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
+<sup>1</sup> Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
+
+<sup>2</sup> Dynamics 365 apps on Dataverse and Power Apps offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management](isv-app-license.md).
 
 ### Metered billing
 
@@ -62,7 +64,7 @@ Depending on the transaction option used, subscription charges are as follows:
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
 
-Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop distribution of an offer or plan](./update-existing-offer.md#stop-distribution-of-an-offer-or-plan).
+To change the prices associated with an active transactable offer, see [Changing prices in active commercial marketplace offers](price-changes.md).
 
 ### Determine offer type and pricing plan
 
@@ -97,7 +99,6 @@ Usage-based pricing has the following cost structure:
 |---------|---------|
 | Azure usage cost (D1/1-Core) | $0.14 per hour |
 | *Customer is billed by Microsoft* | *$1.14 per hour* |
-||
 
 In this scenario, Microsoft bills $1.14 per hour for use of your published VM image.
 
@@ -106,7 +107,6 @@ In this scenario, Microsoft bills $1.14 per hour for use of your published VM im
 | Microsoft pays you 97% of your license cost | $0.97 per hour |
 | Microsoft keeps 3% of your license cost  |  $0.03 per hour |
 | Microsoft keeps 100% of the Azure usage cost | $0.14 per hour |
-||
 
 **Bring Your Own License (BYOL)**
 
@@ -116,7 +116,6 @@ BYOL has the following cost structure:
 |---------|---------|
 |Azure usage cost (D1/1-Core)    |   $0.14 per hour     |
 | *Customer is billed by Microsoft* | *$0.14 per hour* |
-||
 
 In this scenario, Microsoft bills $0.14 per hour for use of your published VM image.
 
@@ -124,7 +123,6 @@ In this scenario, Microsoft bills $0.14 per hour for use of your published VM im
 |---------|---------|
 | Microsoft keeps the Azure usage cost | $0.14 per hour |
 | Microsoft keeps 0% of your license cost | $0.00 per hour |
-||
 
 **SaaS app subscription**
 
@@ -134,7 +132,6 @@ SaaS subscriptions can be priced at a flat rate or per user on a monthly or annu
 |--------------|---------|
 | Azure usage cost (D1/1-Core) | Billed directly to the publisher, not the customer |
 | *Customer is billed by Microsoft* | *$100.00 per month (publisher must account for any incurred or pass-through infrastructure costs in the license fee)* |
-||
 
 In this scenario, Microsoft bills $100.00 for your software license and pays out $97.00.
 
@@ -194,6 +191,8 @@ The ability to transact through Microsoft is available for the following commerc
 - **Azure Virtual Machine**: Select from free, BYOL, or usage-based pricing models. On the customer's Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher’s software.
 
 - **SaaS application**: Must be a multitenant solution, use [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for authentication, and integrate with the [SaaS Fulfillment APIs](partner-center-portal/pc-saas-fulfillment-apis.md). Azure infrastructure usage is managed and billed directly to you (the publisher), so you must account for Azure infrastructure usage fees and software licensing fees as a single cost item. For detailed guidance, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
+
+- **Dynamics 365 Dataverse apps and Power Apps**: Select “Per user” pricing to enable Dynamics 365 Dataverse apps and Power Apps to be sold in AppSource marketplace. Customers can manage licenses of these offers in Microsoft Admin Center.
 
 ## Private plans
 

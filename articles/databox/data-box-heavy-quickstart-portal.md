@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 11/04/2020
+ms.date: 06/13/2022
 ms.author: alkohli
 ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
@@ -73,19 +73,19 @@ Use these Azure CLI commands to create a Data Box Heavy job.
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-1. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
+1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group or use an existing resource group:
 
    ```azurecli
    az group create --name databox-rg --location westus 
    ```
 
-1. Use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a storage account or use an existing storage account:
+1. Use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a storage account or use an existing storage account:
 
    ```azurecli
    az storage account create --resource-group databox-rg --name databoxtestsa
    ```
 
-1. Run the [az databox job create](/cli/azure/databox/job#az_databox_job_create) command to create a Data Box job with the **--sku** value of `DataBoxHeavy`:
+1. Run the [az databox job create](/cli/azure/databox/job#az-databox-job-create) command to create a Data Box job with the **--sku** value of `DataBoxHeavy`:
 
    ```azurecli
    az databox job create --resource-group databox-rg --name databoxheavy-job \
@@ -98,37 +98,37 @@ Use these Azure CLI commands to create a Data Box Heavy job.
    > [!NOTE]
    > Make sure your subscription supports Data Box Heavy.
 
-1. Run the [az databox job update](/cli/azure/databox/job#az_databox_job_update) to update a job, as in this example, where you change the contact name and email:
+1. Run the [az databox job update](/cli/azure/databox/job#az-databox-job-update) to update a job, as in this example, where you change the contact name and email:
 
    ```azurecli
    az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
    ```
 
-   Run the [az databox job show](/cli/azure/databox/job#az_databox_job_show) command to get information about the job:
+   Run the [az databox job show](/cli/azure/databox/job#az-databox-job-show) command to get information about the job:
 
    ```azurecli
    az databox job show --resource-group databox-rg --name databox-job
    ```
 
-   Use the [az databox job list]( /cli/azure/databox/job#az_databox_job_list) command to see all the Data Box jobs for a resource group:
+   Use the [az databox job list]( /cli/azure/databox/job#az-databox-job-list) command to see all the Data Box jobs for a resource group:
 
    ```azurecli
    az databox job list --resource-group databox-rg
    ```
 
-   Run the [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) command to cancel a job:
+   Run the [az databox job cancel](/cli/azure/databox/job#az-databox-job-cancel) command to cancel a job:
 
    ```azurecli
    az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
-   Run the [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) command to delete a job:
+   Run the [az databox job delete](/cli/azure/databox/job#az-databox-job-delete) command to delete a job:
 
    ```azurecli
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
-1. Use the [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) command to list credentials for a Data Box job:
+1. Use the [az databox job list-credentials]( /cli/azure/databox/job#az-databox-job-list-credentials) command to list credentials for a Data Box job:
 
    ```azurecli
    az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
@@ -211,7 +211,7 @@ This operation takes about 15-20 minutes to complete.
 
 1. Remove the cables and return them to the tray at the back of the device.
 2. Schedule a pickup with your regional carrier.
-3. Reach out to [Data Box Operations](mailto:DataBoxOps@microsoft.com) to inform regarding the pickup and to get the return shipping label.
+3. Reach out to [Data Box Operations](mailto:adbops@microsoft.com) to inform regarding the pickup and to get the return shipping label.
 4. The return shipping label should be visible on the front clear panel of the device.
 
 ## Verify data

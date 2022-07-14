@@ -2,10 +2,10 @@
 title: Set a blob's access tier
 titleSuffix: Azure Storage
 description: Learn how to specify a blob's access tier when you upload it, or how to change the access tier for an existing blob.
-author: tamram
+author: normesta
 
-ms.author: tamram
-ms.date: 03/02/2022
+ms.author: normesta
+ms.date: 07/13/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -84,6 +84,8 @@ When you upload a blob to Azure Storage, you have two options for setting the bl
 - You can explicitly specify the tier in which the blob will be created. This setting overrides the default access tier for the storage account. You can set the tier for a blob or set of blobs on upload to Hot, Cool, or Archive.
 - You can upload a blob without specifying a tier. In this case, the blob will be created in the default access tier specified for the storage account (either Hot or Cool).
 
+If you are uploading a new blob that uses an encryption scope, you cannot change the access tier for that blob.
+
 The following sections describe how to specify that a blob is uploaded to either the Hot or Cool tier. For more information about archiving a blob on upload, see [Archive blobs on upload](archive-blob.md#archive-blobs-on-upload).
 
 ### Upload a blob to a specific online tier
@@ -133,7 +135,7 @@ Get-ChildItem -Path "C:\sample-blobs" -File -Recurse |
 
 ### [Azure CLI](#tab/azure-cli)
 
-To upload a blob to a specific tier with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+To upload a blob to a specific tier with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
 az storage blob upload \
@@ -145,7 +147,7 @@ az storage blob upload \
     --auth-mode login
 ```
 
-To upload a set of blobs to a specific tier with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+To upload a set of blobs to a specific tier with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
 az storage blob upload-batch \
@@ -226,6 +228,8 @@ Use PowerShell, Azure CLI, or one of the Azure Storage client libraries to move 
 
 When you change a blob's tier, you move that blob and all of its data to the target tier. Calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is typically the best option when you are changing a blob's tier from a hotter tier to a cooler one.
 
+You cannot change the access tier for an existing blob that uses an encryption scope. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
+
 # [Portal](#tab/azure-portal)
 
 To change a blob's tier from Hot to Cool in the Azure portal, follow these steps:
@@ -260,7 +264,7 @@ $blob.BlobClient.SetAccessTier("Cool", $null, "Standard")
 
 #### [Azure CLI](#tab/azure-cli)
 
-To change a blob's tier from Hot to Cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command. Remember to replace placeholders in angle brackets with your own values:
+To change a blob's tier from Hot to Cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob set-tier \
@@ -310,7 +314,7 @@ Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
 
 #### [Azure CLI](#tab/azure-cli)
 
-To copy a blob from Cool to Hot with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the target tier. Remember to replace placeholders in angle brackets with your own values:
+To copy a blob from Cool to Hot with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and specify the target tier. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob copy start \

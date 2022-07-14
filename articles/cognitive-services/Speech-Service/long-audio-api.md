@@ -1,5 +1,5 @@
 ---
-title: Long Audio API - Speech service
+title: Synthesize long-form text to speech - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how the Long Audio API is designed for asynchronous synthesis of long-form text to speech.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 01/24/2022
 ms.author: eur
 ---
 
-# Long Audio API
+# Synthesize long-form text to speech
 
 The Long Audio API provides asynchronous synthesis of long-form text to speech. For example: audio books, news articles, and documents. There's no need to deploy a custom voice endpoint. Unlike the Text-to-speech API used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes. This makes it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
 
@@ -34,6 +34,9 @@ When preparing your text file, make sure it:
 * Contains more than 400 characters for plain text or 400 [billable characters](./text-to-speech.md#pricing-note) for SSML text, and less than 10,000 paragraphs.
   * For plain text, each paragraph is separated by hitting **Enter/Return**. See [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
   * For SSML text, each SSML piece is considered a paragraph. Separate SSML pieces by different paragraphs. See [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
+
+> [!NOTE]
+> When using SSML text, be sure to use the [supported SSML elements](speech-synthesis-markup.md?tabs=csharp#supported-ssml-elements) except the `audio` and `mstts:backgroundaudio` elements. The `audio` and `mstts:backgroundaudio` elements are not supported by Long Audio API. The `audio` element will be ignored without any error message. The `mstts:backgroundaudio` element will cause the systhesis task failure. If your synthesis task fails, download the audio result (.zip file) and check the error report with suffix name "err.txt" within the zip file for details.
 
 ## Sample code
 

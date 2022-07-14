@@ -20,7 +20,7 @@ ms.author: eur
 
 ## Set up the environment
 
-Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). Check the [platform-specific installation instructions](/azure/cognitive-services/speech-service/speech-sdk?pivots=programming-language-cpp&tabs=windows%2Cubuntu%2Cios-xcode%2Cmac-xcode%2Candroid-studio#c) for any more requirements.
+Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). 
 
 > [!div class="nextstepaction"]
 > [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)

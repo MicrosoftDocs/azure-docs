@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory B2C integrate with app samples  
+title: Azure Active Directory B2C integrate with app samples
 description: Code samples for integrating Azure AD B2C to mobile, desktop, web, and single-page applications.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
 
 ms.author: kengaderdus
-ms.date: 10/02/2020
+ms.date: 06/21/2022
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
@@ -35,8 +35,8 @@ The following tables provide links to samples for applications including iOS, An
 | [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | A combined sample for a .NET web application that calls a .NET Web API, both secured using Azure AD B2C. |
 | [dotnetcore-webapp-openidconnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) | An ASP.NET Core web application that uses OpenID Connect to sign in users in Azure AD B2C. |
 | [dotnetcore-webapp-msal-api](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C) | An ASP.NET Core web application that can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |
-| [openidconnect-nodejs](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) | A Node.js app that provides a quick and easy way to set up a Web application with Express using OpenID Connect. |
-| [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | A small node.js Web API for Azure AD B2C that shows how to protect your web api and accept B2C access tokens using passport.js. |
+| [auth-code-flow-nodejs](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp) | A Node.js app that shows how to enable authentication (sign in, sign out and profile edit) in a Node.js web application using Azure Active Directory B2C. The web app uses MSAL-node.|
+| [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | A small Node.js Web API for Azure AD B2C that shows how to protect your web api and accept B2C access tokens using passport.js. |
 | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | Demonstrate how to Integrate B2C of Microsoft identity platform with a Python web application.  |
 
 ## Single page apps

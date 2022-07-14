@@ -1,13 +1,10 @@
 ---
 title: Mobile Apps bindings for Azure Functions 
 description: Understand how to use Azure Mobile Apps bindings in Azure Functions.
-author: craigshoemaker
-
 ms.topic: reference
 ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
 ms.date: 11/21/2017
-ms.author: cshoe
 ---
 
 # Mobile Apps bindings for Azure Functions 
@@ -18,8 +15,6 @@ ms.author: cshoe
 This article explains how to work with [Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) bindings in Azure Functions. Azure Functions supports input and output bindings for Mobile Apps.
 
 The Mobile Apps bindings let you read and update data tables in mobile apps.
-
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## Packages - Functions 1.x
 
@@ -137,7 +132,7 @@ The following table explains the binding configuration properties that you set i
 |**tableName** |**TableName**|Name of the mobile app's data table|
 | **id**| **Id** | The identifier of the record to retrieve. Can be static or based on the trigger that invokes the function. For example, if you use a queue trigger for your function, then `"id": "{queueTrigger}"` uses the string value of the queue message as the record ID to retrieve.|
 |**connection**|**Connection**|The name of an app setting that has the mobile app's URL. The function uses this URL to construct the required REST operations against your mobile app. Create an app setting in your function app that contains the mobile app's URL, then specify the name of the app setting in the `connection` property in your input binding. The URL looks like `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKey**|The name of an app setting that has your mobile app's API key. Provide the API key if you implement an API key in your Node.js mobile app, or [implement an API key in your .NET mobile app](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |
+|**apiKey**|**ApiKey**|The name of an app setting that has your mobile app's API key. Provide the API key if you implement an API key in your Node.js mobile app, or implement an API key in your .NET mobile app. To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -291,7 +286,7 @@ The following table explains the binding configuration properties that you set i
 | **name**| n/a | Name of output parameter in function signature.|
 |**tableName** |**TableName**|Name of the mobile app's data table|
 |**connection**|**MobileAppUriSetting**|The name of an app setting that has the mobile app's URL. The function uses this URL to construct the required REST operations against your mobile app. Create an app setting in your function app that contains the mobile app's URL, then specify the name of the app setting in the `connection` property in your input binding. The URL looks like `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKeySetting**|The name of an app setting that has your mobile app's API key. Provide the API key if you implement an API key in your Node.js mobile app backend, or [implement an API key in your .NET mobile app backend](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |
+|**apiKey**|**ApiKeySetting**|The name of an app setting that has your mobile app's API key. Provide the API key if you implement an API key in your Node.js mobile app backend, or implement an API key in your .NET mobile app backend. To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

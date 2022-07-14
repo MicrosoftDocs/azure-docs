@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Learn about our partners who integrate with Azure AD B2C to provide identity proofing and verification solutions 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
@@ -26,6 +27,7 @@ Microsoft partners with the following ISV partners.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
+| ![Screenshot of a eid-me logo](./media/partner-gallery/eid-me-logo.png) | [eID-Me](./partner-eid-me.md) is an identity verification and decentralized digital identity solution for Canadian citizens. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. |
 |![Screenshot of an Experian logo.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an Identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud. |
 |![Screenshot of an IDology logo.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an Identity verification and proofing provider with ID verification solutions, fraud prevention solutions, compliance solutions, and others.|
 |![Screenshot of a Jumio logo.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) is an ID verification service, which enables real-time automated ID verification, safeguarding customer data. |

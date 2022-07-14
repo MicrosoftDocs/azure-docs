@@ -1,6 +1,5 @@
 ---
 title: Workload identity federation 
-titleSuffix: Microsoft identity platform
 description: Use workload identity federation to grant workloads running outside of Azure access to Azure AD protected resources without using secrets or certificates. This eliminates the need for developers to store and maintain long-lived secrets or certificates outside of Azure.
 services: active-directory
 author: rwike77
@@ -10,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 07/13/2022
 ms.author: ryanwi
 ms.reviewer: keyam, udayh, vakarand
 ms.custom: aaddev 
@@ -29,6 +28,8 @@ Typically, a software workload (such as an application, service, script, or cont
 You use workload identity federation to configure an Azure AD app registration to trust tokens from an external identity provider (IdP), such as GitHub.  Once that trust relationship is created, your software workload can exchange trusted tokens from the external IdP for access tokens from Microsoft identity platform.  Your software workload then uses that access token to access the Azure AD protected resources to which the workload has been granted access. This eliminates the maintenance burden of manually managing credentials and eliminates the risk of leaking secrets or having certificates expire.
 
 ## Supported scenarios
+> [!NOTE]
+> Azure AD issued tokens may not be used for federated identity flows. The federated identity credentials flow does not support tokens issued by Azure AD.
 
 The following scenarios are supported for accessing Azure AD protected resources using workload identity federation:
 
@@ -50,6 +51,8 @@ The workflow for exchanging an external token for an access token is the same, h
 1. Microsoft identity platform checks the [trust relationship](workload-identity-federation-create-trust.md) on the app registration and validates the external token against the Open ID Connect (OIDC) issuer URL on the external IdP.
 1. When the checks are satisfied, Microsoft identity platform issues an access token to the external workload.
 1. The external workload accesses Azure AD protected resources using the access token from Microsoft identity platform. A GitHub Actions workflow, for example, uses the access token to publish a web app to Azure App Service.
+
+The Microsoft identity platform stores only the first 25 signing keys when they're downloaded from the external IdP's OIDC endpoint. If the external IdP exposes more than 25 signing keys, you may experience errors when using Workload Identity Federation.
 
 ## Next steps
 Learn more about how workload identity federation works:

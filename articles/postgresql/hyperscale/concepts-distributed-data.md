@@ -1,8 +1,8 @@
 ---
 title: Distributed data – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Learn about distributed tables, reference tables, local tables, and shards in Azure Database for PostgreSQL.
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.date: 05/06/2019
 ---
 
 # Distributed data in Azure Database for PostgreSQL – Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 This article outlines the three table types in Azure Database for PostgreSQL – Hyperscale (Citus).
 It shows how distributed tables are stored as shards, and the way that shards are placed on nodes.

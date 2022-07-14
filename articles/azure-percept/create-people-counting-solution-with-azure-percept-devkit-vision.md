@@ -125,10 +125,10 @@ This section guides users on modifying the cloned people counting repo with thei
 
 3. Now you will build the module image and push it to your container registry. Open Visual Studio Code integrated terminal by selecting `View > Terminal `
 
-4. Sign into Docker with the Azure Container registry (ACR) credentials that you saved after creating the registry using below command in terminal-
+4. Sign into Docker with the Azure Container registry (ACR) credentials that you saved after creating the registry using below command in terminal. Note that this command would give a warning that using --password or -p via CLI is insecure. Therefore, if you want a more secure login for your future solution development, use `--password-stdin` instead by following [this instruction](https://docs.docker.com/engine/reference/commandline/login/).  
 
     `docker login -u <ACR username> -p <ACR password> <ACR login server>`
-
+    
 5. Visual Studio Code now has access to your container registry. In the next steps you will turn the solution code into a container image. In Visual Studio Code explorer, right click the `deployment.template.json` file and select `Build and Push IoT Edge Solution`
 
     ![Build and Push IoT Edge Solution](./media/create-people-counting-solution-with-azure-percept-vision-images/build-and-push.png)
@@ -243,19 +243,13 @@ Step 5 guides users through creating, configuring, and running a Stream Analytic
 3. On the new input pane, enter the following information - 
 
     - `Input alias` - Enter a unique alias for the input 
-
+  
     - `Select IoT Hub from your subscription` - Select this radio button 
-
     - `Subscription` - Select the Azure subscription you are using for this lab 
-
     - `IoT Hub` - Select the IoT Hub you are using for this lab 
-
     - `Consumer group` - Select the consumer group you created previously 
-
     - `Shared access policy name` - Select the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this lab, you can select service 
-
     - `Shared access policy key` - This field is auto filled based on your selection for the shared access policy name 
-
     - `Endpoint` - Select Messaging 
 
     Leave all other fields as default-
@@ -283,15 +277,13 @@ Step 5 guides users through creating, configuring, and running a Stream Analytic
 
 4. Enter the following information-
 
-    a. `Output alias` - A unique alias for the output 
-
-    b. `Group workspace` - Select your target group workspace. 
-
-    c. `Dataset name` - Enter a dataset name 
-
-    d. `Table name` - Enter a table name 
-
-    e. `Authentication mode` - Leave as the default 
+    -  `Output alias` - A unique alias for the output 
+  
+    -  `Select Group workspace from your subscriptions` - Select this radio button 
+    -  `Group workspace` - Select your target group workspace 
+    -  `Dataset name` - Enter a dataset name 
+    -  `Table name` - Enter a table name 
+    -  `Authentication mode` - User token 
 
     :::image type="content" source="./media/create-people-counting-solution-with-azure-percept-vision-images/stream-analytics-output-fields.png" alt-text="Power BI new output fields.":::
 
@@ -353,7 +345,7 @@ This step will guide users on how to create a Power BI report from the People Co
 
 7. This will generate a graph as follows-
 
-    ![graph is generated](./media/create-people-counting-solution-with-azure-percept-vision-images/ power-bi-graph.png)
+    ![graph is generated](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi-graph.png)
 
 8. Click `Refresh` periodically to update the graph
 
