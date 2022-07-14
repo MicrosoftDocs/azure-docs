@@ -271,17 +271,19 @@ After the application gateway is created with its public IP address, you can get
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the application gateway, remove the resource group. When you remove the resource group, you also remove the application gateway and all its related resources.
+When you no longer need the resources that you created with the application gateway, delete the resource group. When you delete the resource group, you also delete the application gateway and all its related resources.
 
 To remove the resource group:
 
 1. On the left menu of the Azure portal, select **Resource groups**.
 2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
-3. On the **Resource group page**, select **Delete resource group**.
+3. On the **myResourceGroupAG**, select **Delete resource group**.
 4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**.
 
 To restore the hosts file:
-1. Delete the `www.contoso.com` and `www.fabrikam.com` lines from the hosts file and run `ipconfig/registerdns` and `ipconfig/flushdns` from the command prompt.
+
+1. Delete the `www.contoso.com` and `www.fabrikam.com` lines from the `hosts` file.
+1. Run `ipconfig/registerdns` and `ipconfig/flushdns` from the command prompt.
 
 ## Next steps
 
