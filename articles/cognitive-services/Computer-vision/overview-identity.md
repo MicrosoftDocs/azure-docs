@@ -32,7 +32,7 @@ You can use the Face service through a client library SDK or by calling the REST
 Or, you can try out the capabilities of Face service quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/identity-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -79,7 +79,7 @@ After you create and train a group, you can do identification against the group 
 
 Try out the capabilities of face identification quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ### Verification
 
@@ -91,7 +91,7 @@ For more information about identity verification, see the [Facial recognition](c
 
 Try out the capabilities of face verification quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Find similar faces
 

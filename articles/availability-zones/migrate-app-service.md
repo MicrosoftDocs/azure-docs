@@ -3,7 +3,7 @@
 title: Migrate Azure App Service to availability zone support
 description: Learn how to migrate Azure App Service to availability zone support.
 author: anaharris-ms
-ms.service: azure
+ms.service: app-service
 ms.topic: conceptual
 ms.date: 06/07/2022
 ms.author: anaharris

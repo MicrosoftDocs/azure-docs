@@ -22,10 +22,10 @@ The targets listed here might be affected by other variables in your deployment.
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Azure Files scale targets
-Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. There are therefore three categories to consider: storage accounts, Azure file shares, and files.
+Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. There are therefore three categories to consider: storage accounts, Azure file shares, and individual files.
 
 ### Storage account scale targets
-There are two main types of storage accounts for Azure Files: 
+Storage account scale targets apply at the storage account level. There are two main types of storage accounts for Azure Files: 
 
 - **General purpose version 2 (GPv2) storage accounts**: GPv2 storage accounts allow you to deploy Azure file shares on standard/hard disk-based (HDD-based) hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, or tables. File shares can be deployed into the transaction optimized (default), hot, or cool tiers.
 
@@ -49,6 +49,8 @@ There are two main types of storage accounts for Azure Files:
 <sup>1</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ### Azure file share scale targets
+Azure file share scale targets apply at the file share level.
+
 | Attribute | Standard file shares<sup>1</sup> | Premium file shares |
 |-|-|-|
 | Minimum size of a file share | No minimum | 100 GiB (provisioned) |
@@ -71,6 +73,8 @@ There are two main types of storage accounts for Azure Files:
 <sup>3</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
 
 ### File scale targets
+File scale targets apply to individual files stored in Azure file shares.
+
 | Attribute | Files in standard file shares  | Files in premium file shares  |
 |-|-|-|
 | Maximum file size | 4 TiB | 4 TiB |

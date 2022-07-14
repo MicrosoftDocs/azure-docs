@@ -92,9 +92,6 @@ There are many differences between these two resource types, some of which affec
 
 See [Resource type and host environment differences](../logic-apps/logic-apps-overview.md#resource-type-and-host-environment-differences) in the Logic Apps documentation for a detailed summary of the two resource types.
 
-> [!IMPORTANT]
-> - While the **Logic App (Standard)** resource type is generally available, Microsoft Sentinel's support for this resource type is in **Preview**.
-
 > [!NOTE]
 > - You'll notice an indicator in Standard workflows that presents as either *stateful* or *stateless*. Microsoft Sentinel does not support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
 > - Logic Apps Standard does not currently support Playbook templates. This means that you can't create a Standard workflow from within Microsoft Sentinel. Rather, you must create it in Logic Apps, and once it's created, you'll see it in Microsoft Sentinel.

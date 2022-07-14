@@ -204,8 +204,7 @@ Once your metrics are uploaded, you can view them from the Azure portal.
 > Please note that it can take a couple of minutes for the uploaded data to be processed before you can view the metrics in the portal.
 
 
-To view your metrics in the portal, use this link to open the portal: <https://portal.azure.com>
-Then, search for your database instance by name in the search bar:
+To view your metrics, navigate to the [Azure portal](https://portal.azure.com). Then, search for your database instance by name in the search bar:
 
 You can view CPU utilization on the Overview page or if you want more detailed metrics you can click on metrics from the left navigation panel
 

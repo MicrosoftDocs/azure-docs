@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 ## Prerequisites
 
-* Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
+* An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 

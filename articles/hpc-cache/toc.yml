@@ -98,6 +98,9 @@ items:
   - name: Load balance client traffic
     href: client-load-balancing.md
 
+  - name: Customize file write-back
+    href: custom-flush-script.md
+
   - name: Prime the cache
     href: prime-cache.md
 

@@ -1,11 +1,11 @@
 ---
-title: Manage your IoT devices with the device inventory for organizations
+title: View your device inventory from the Azure portal
 description: Learn how to manage your IoT devices with the device inventory for organizations.
 ms.date: 03/09/2022
 ms.topic: how-to
 ---
 
-# Manage your IoT devices with the device inventory for organizations
+# View your device inventory from the Azure portal
 
 > [!NOTE]
 > The **Device inventory** page in Defender for IoT on the Azure portal is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -141,7 +141,7 @@ The following device fields are supported for editing in the Device inventory pa
 
 ## Export the device inventory to CSV
 
-You can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
+You can export a maximum of 30,000 devices at a time from your device inventory to a CSV file. If you have filters applied to the table, only the devices shown are exported to the CSV file.
 
 Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
 
@@ -170,8 +170,6 @@ If you are under the impression that certain devices aren't actively communicati
 ## Delete a device
 
 If you have devices no longer in use, delete them from the device inventory so that they're no longer connected to Defender for IoT.
-
-Devices must be inactive for 14 days or more in order for you to be able to delete them.
 
 **To delete a device**:
 

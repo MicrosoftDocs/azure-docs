@@ -16,14 +16,20 @@
     href: az-region.md
   - name: Migration Guidance
     items:
-    - name: App service environment
+    - name: API Management
+      href: migrate-api-mgt.md
+    - name: App Service Environment
       href: migrate-app-service-environment.md
-    - name: App service
+    - name: App Service
       href: migrate-app-service.md
-    - name: Virtual machines and virtual machine scale sets
-      href: migrate-vm.md
+    - name: Cache for Redis
+      href: migrate-cache-redis.md
+    - name: Recovery Services vault
+      href: migrate-recovery-services-vault.md
     - name: Storage accounts
       href: migrate-storage.md
+    - name: Virtual Machines and virtual machine scale sets
+      href: migrate-vm.md
   - name: Terminology
     href: glossary.md
 - name: High Availability

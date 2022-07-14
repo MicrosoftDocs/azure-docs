@@ -2,7 +2,11 @@
 title: Configure your Service Fabric managed cluster
 description: Learn how to configure your Service Fabric managed cluster for automatic OS upgrades, NSG rules, and more.
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Service Fabric managed cluster configuration options

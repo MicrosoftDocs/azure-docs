@@ -15,7 +15,7 @@ ms.custom: cog-serv-seo-aug-2020
 
 # What is Vision Studio?
 
-[Vision Studio](https://vision.cognitive.azure.com/) is a set of UI-based tools that lets you explore, build, and integrate features from Azure Computer Vision.
+[Vision Studio](https://portal.vision.cognitive.azure.com/) is a set of UI-based tools that lets you explore, build, and integrate features from Azure Computer Vision.
 
 Vision Studio provides you with a platform to try several service features and sample their returned data in a quick, straightforward manner. Using Studio, you can start experimenting with the services and learning what they offer without needing to write any code. Then, use the available client libraries and REST APIs to get started embedding these services into your own applications.
 
@@ -25,7 +25,8 @@ To use Vision Studio, you'll need an Azure subscription and a resource for Cogni
 
 1. Create an Azure Subscription if you don't have one already. You can [create one for free](https://azure.microsoft.com/free/ai/).
 
-1. Go to the [Vision Studio website](https://vision.cognitive.azure.com/). If it's your first time logging in, you'll see a popup window appear that prompts you to sign in to Azure and then choose or create a Vision resource. You have the option to skip this step and do it later.
+1. Go to the [Vision Studio website](https://portal.vision.cognitive.azure.com/). If it's your first time logging in, you'll see a popup window appear that prompts you to sign in to Azure and then choose or create a Vision resource. You have the option to skip this step and do it later.
+
     :::image type="content" source="./Images/vision-studio-wizard-1.png" alt-text="Screenshot of Vision Studio startup wizard.":::
 
 1.	Select **Choose resource**, then select an existing resource within your subscription. If you'd like to create a new one, select **Create a new resource**. Then enter information for your new resource, such as a name, location, and resource group. 
@@ -62,5 +63,5 @@ If you want to remove a Cognitive Services resource after using Vision Studio, y
 
 ## Next steps
 
-* Go to [Vision Studio](https://vision.cognitive.azure.com/) to begin using features offered by the service.
+* Go to [Vision Studio](https://portal.vision.cognitive.azure.com/) to begin using features offered by the service.
 * For more information on the features offered, see the [Azure Computer Vision overview](overview.md).

@@ -157,7 +157,7 @@ The following examples illustrate how billing periods could end:
 * Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
 * Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
 
-Once cost and usage data becomes available in Cost Management, it will be retained for at least seven years. Only the last 13 months is available from the portal. For historical data before 13 months, please use <a href="https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data">Exports</a> or the <a href="https://docs.microsoft.com/rest/api/consumption/usage-details/list">UsageDetails API</a>.
+Once cost and usage data becomes available in Cost Management, it will be retained for at least seven years. Only the last 13 months is available from the portal. For historical data before 13 months, please use [Exports](tutorial-export-acm-data.md) or the [UsageDetails API](/rest/api/consumption/usage-details/list).
 
 ### Rerated data
 
