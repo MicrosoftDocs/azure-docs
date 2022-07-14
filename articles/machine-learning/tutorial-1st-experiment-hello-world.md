@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: mafong
+author: Man-MSFT
 ms.author: mafong
 ms.reviewer: sgilley
 ms.date: 07/10/2022

@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: aminsaied
-ms.author: amsaied
+author: Man-MSFT
+ms.author: mafong
 ms.reviewer: sgilley
-ms.date: 12/21/2021
+ms.date: 07/10/2022
 ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
 
@@ -17,7 +17,7 @@ ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
-This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning. This tutorial is _part 3 of a three-part tutorial series_.
+This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning. This tutorial is *part 3 of a three-part tutorial series*.
 
 In [Part 2: Train a model](tutorial-1st-experiment-sdk-train.md), you trained a model in the cloud, using sample data from `PyTorch`. You also downloaded that data through the `torchvision.datasets.CIFAR10` method in the PyTorch API. In this tutorial, you'll use the downloaded data to learn the workflow for working with your own data in Azure Machine Learning.
 
@@ -25,11 +25,11 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 >
-> - Upload data to Azure.
-> - Create a control script.
-> - Understand the new Azure Machine Learning concepts (passing parameters, data inputs).
-> - Submit and run your training script.
-> - View your code output in the cloud.
+> * Upload data to Azure.
+> * Create a control script.
+> * Understand the new Azure Machine Learning concepts (passing parameters, data inputs).
+> * Submit and run your training script.
+> * View your code output in the cloud.
 
 ## Prerequisites
 
@@ -50,87 +50,87 @@ Our training script is currently set to download the CIFAR10 dataset on each run
 1. Open _train.py_ and replace it with this code:
 
    ```python
-   import os
-   import argparse
-   import torch
-   import torch.optim as optim
-   import torchvision
-   import torchvision.transforms as transforms
-   from model import Net
-   import mlflow
+    import os
+    import argparse
+    import torch
+    import torch.optim as optim
+    import torchvision
+    import torchvision.transforms as transforms
+    from model import Net
+    import mlflow
 
-   if __name__ == "__main__":
-       parser = argparse.ArgumentParser()
-       parser.add_argument(
-           '--data_path',
-           type=str,
-           help='Path to the training data'
-       )
-       parser.add_argument(
-           '--learning_rate',
-           type=float,
-           default=0.001,
-           help='Learning rate for SGD'
-       )
-       parser.add_argument(
-           '--momentum',
-           type=float,
-           default=0.9,
+    if __name__ == "__main__":
+        parser = argparse.ArgumentParser()
+        parser.add_argument(
+            '--data_path',
+            type=str,
+            help='Path to the training data'
+        )
+        parser.add_argument(
+            '--learning_rate',
+            type=float,
+            default=0.001,
+            help='Learning rate for SGD'
+        )
+        parser.add_argument(
+            '--momentum',
+            type=float,
+            default=0.9,
            help='Momentum for SGD'
-       )
-       args = parser.parse_args()
-       print("===== DATA =====")
-       print("DATA PATH: " + args.data_path)
-       print("LIST FILES IN DATA PATH...")
-       print(os.listdir(args.data_path))
-       print("================")
-       # prepare DataLoader for CIFAR10 data
-       transform = transforms.Compose([
-           transforms.ToTensor(),
-           transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-       ])
-       trainset = torchvision.datasets.CIFAR10(
-           root=args.data_path,
-           train=True,
-           download=False,
-           transform=transform,
-       )
-       trainloader = torch.utils.data.DataLoader(
-           trainset,
-           batch_size=4,
-           shuffle=True,
-           num_workers=2
-       )
-       # define convolutional network
-       net = Net()
-       # set up pytorch loss /  optimizer
-       criterion = torch.nn.CrossEntropyLoss()
-       optimizer = optim.SGD(
-           net.parameters(),
-           lr=args.learning_rate,
-           momentum=args.momentum,
-       )
-       # train the network
-       for epoch in range(2):
-           running_loss = 0.0
-           for i, data in enumerate(trainloader, 0):
-               # unpack the data
-               inputs, labels = data
-               # zero the parameter gradients
-               optimizer.zero_grad()
-               # forward + backward + optimize
-               outputs = net(inputs)
-               loss = criterion(outputs, labels)
-               loss.backward()
-               optimizer.step()
-               # print statistics
-               running_loss += loss.item()
-               if i % 2000 == 1999:
-                   loss = running_loss / 2000
-                   mlflow.log_metric('loss', loss)
-                   print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
-                   running_loss = 0.0
-       print('Finished Training')
+        )
+        args = parser.parse_args()
+        print("===== DATA =====")
+        print("DATA PATH: " + args.data_path)
+        print("LIST FILES IN DATA PATH...")
+        print(os.listdir(args.data_path))
+        print("================")
+        # prepare DataLoader for CIFAR10 data
+        transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+        ])
+        trainset = torchvision.datasets.CIFAR10(
+            root=args.data_path,
+            train=True,
+            download=False,
+            transform=transform,
+        )
+        trainloader = torch.utils.data.DataLoader(
+            trainset,
+            batch_size=4,
+            shuffle=True,
+            num_workers=2
+        )
+        # define convolutional network
+        net = Net()
+        # set up pytorch loss /  optimizer
+        criterion = torch.nn.CrossEntropyLoss()
+        optimizer = optim.SGD(
+            net.parameters(),
+            lr=args.learning_rate,
+            momentum=args.momentum,
+        )
+        # train the network
+        for epoch in range(2):
+            running_loss = 0.0
+            for i, data in enumerate(trainloader, 0):
+                # unpack the data
+                inputs, labels = data
+                # zero the parameter gradients
+                optimizer.zero_grad()
+                # forward + backward + optimize
+                outputs = net(inputs)
+                loss = criterion(outputs, labels)
+                loss.backward()
+                optimizer.step()
+                # print statistics
+                running_loss += loss.item()
+                if i % 2000 == 1999:
+                    loss = running_loss / 2000
+                    mlflow.log_metric('loss', loss)
+                    print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
+                    running_loss = 0.0
+        print('Finished Training')
    ```
 
 1. **Save** the file. Close the tab if you wish.
@@ -170,7 +170,7 @@ There is no additional step needed for uploading data, the control script will d
 
 ## <a name="control-script"></a> Create a control script
 
-As you've done previously, create a new Python control script called _run-pytorch-data.py_ in the **get-started** folder:
+As you've done previously, create a new Python control script called *run-pytorch-data.py* in the **get-started** folder:
 
 ```python
 # run-pytorch-data.py
@@ -214,7 +214,6 @@ if __name__ == "__main__":
     returned_job = ml_client.create_or_update(job)
     aml_url = returned_job.studio_url
     print(aml_url)
-
 ```
 
 > [!TIP]
@@ -307,4 +306,5 @@ You saw how to modify your training script to accept a data path via the command
 
 Now that you have a model, learn:
 
-> [!div class="nextstepaction"] > [How to deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+> [!div class="nextstepaction"]
+> [How to deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
