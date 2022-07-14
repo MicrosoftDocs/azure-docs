@@ -36,7 +36,7 @@ landingContent:
           - text: Building confidential computing solutions
             url: confidential-computing-solutions.md
           - text: Deploying confidential computing solutions
-            url: confidential-computing-deployment-models
+            url: confidential-computing-deployment-models.md
       - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
