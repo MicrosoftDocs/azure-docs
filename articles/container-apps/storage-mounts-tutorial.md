@@ -39,7 +39,7 @@ The following commands help you define  variables and ensure your Container Apps
 1. Set up environment variables used in various commands to follow.
 
     ```bash
-    RESOURCE_GROUP="my-storage-group"
+    RESOURCE_GROUP="my-container-apps-group"
     ENVIRONMENT_NAME="my-storage-environment"
     LOCATION="canadacentral"
     ```
@@ -223,7 +223,7 @@ Now you can update the container app configuration to support the storage mount.
     |--|--|
     | `name` | This value matches the volume created by calling the `az containerapp env storage set` command. |
     | `storageName` | This value defines the name used by containers in the environment to access the storage volume. |
-    | `storageType` | This value determines the type of storage volume defined for the environment. In this case, Azure Storage file mount is declared. |
+    | `storageType` | This value determines the type of storage volume defined for the environment. In this case, an Azure Files mount is declared. |
 
     The `volumes` section defines volumes at the app level that your application container or sidecar containers can reference via a `volumeMounts` section associated with a container.
 
