@@ -71,9 +71,9 @@ Once your resource and storage container are configured, create a new custom tex
 [!INCLUDE [Language Studio project creation](../includes/language-studio/create-project.md)]
 
 
-### [Rest APIs](#tab/apis)
+### [REST APIs](#tab/apis)
 
-[!INCLUDE [Rest APIs project creation](../includes/rest-api/create-project.md)]
+[!INCLUDE [REST APIs project creation](../includes/rest-api/create-project.md)]
 
 ---
 
@@ -85,7 +85,7 @@ If you have already labeled data, you can use it to get started with the service
 
 [!INCLUDE [Import project](../includes/language-studio/import-project.md)]
 
-### [Rest APIs](#tab/apis)
+### [REST APIs](#tab/apis)
 
 [!INCLUDE [Import project](../includes/rest-api/import-project.md)]
 
@@ -97,9 +97,9 @@ If you have already labeled data, you can use it to get started with the service
 
 [!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
 
-### [Rest APIs](#tab/apis)
+### [REST APIs](#tab/apis)
 
-[!INCLUDE [Rest API project details](../includes/rest-api/project-details.md)]
+[!INCLUDE [REST API project details](../includes/rest-api/project-details.md)]
 
 ---
 
@@ -109,7 +109,7 @@ If you have already labeled data, you can use it to get started with the service
 
 [!INCLUDE [Delete project using Language Studio](../includes/language-studio/delete-project.md)]
 
-### [Rest APIs](#tab/apis)
+### [REST APIs](#tab/apis)
 
 [!INCLUDE [Delete project using the REST API](../includes/rest-api/delete-project.md)]
 

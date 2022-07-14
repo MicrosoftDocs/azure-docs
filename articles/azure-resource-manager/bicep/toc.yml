@@ -19,6 +19,7 @@
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
+    displayname: vscode
     href: quickstart-create-bicep-use-visual-studio-code.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
@@ -39,6 +40,8 @@
   items:
   - name: Microsoft Learn - Bicep
     href: learn-bicep.md
+  - name: Learn live - Bicep
+    href: /events/learntv/learnlive-iac-and-bicep/
 - name: Samples - Azure Services
   items:
   - name: Advisor
@@ -83,6 +86,8 @@
       href: ../../azure-functions/functions-create-first-function-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Linux virtual machine
       href: ../../virtual-machines/linux/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Windows virtual machine scale sets
+      href: ../../virtual-machine-scale-sets/quick-create-bicep-windows.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Windows virtual machine
       href: ../../virtual-machines/windows/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Containers
@@ -129,8 +134,18 @@
       href: ../../iot-hub/quickstart-bicep-route-messages.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Management and Governance
     items:
+    - name: Cost Management + Billing
+      href: ../../cost-management-billing/costs/quick-create-budget-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Microsoft Purview account
+      href: ../../purview/quickstart-bicep-create-azure-purview.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Resource Graph
       href: ../../governance/resource-graph/shared-query-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Role-based access control - custom roles
+      href: ../../role-based-access-control/custom-roles-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Role-based access control - role assignment
+      href: ../../role-based-access-control/quickstart-role-assignments-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Site Recovery
+      href: ../../site-recovery/quickstart-create-vault-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Media Services
     items:
     - name: Media Services account
@@ -149,8 +164,14 @@
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Firewall - Availability Zones
       href: ../../firewall/deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Firewall Manager - policy
+      href: ../../firewall-manager/quick-firewall-policy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Firewall Manager - virtual hub
+      href: ../../firewall-manager/quick-secure-virtual-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Front Door - Standard/Premium
+      href: ../../frontdoor/create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Load Balancer - internal
       href: ../../load-balancer/quickstart-load-balancer-standard-internal-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: NAT gateway
@@ -283,6 +304,7 @@
     - name: Best practices
       href: best-practices.md
     - name: Visual Studio Code
+      displayname: vscode,vs code
       href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
@@ -365,6 +387,9 @@
     - name: What-if check
       href: deploy-what-if.md
       displayName: whatif, what if
+    - name: Deploy - VS Code
+      displayName: visual studio code,vscode
+      href: deploy-vscode.md
     - name: Deploy - CLI
       href: deploy-cli.md
     - name: Deploy - PowerShell

@@ -111,6 +111,8 @@
         href: allocadia-tutorial.md
       - name: Ally.io
         href: ally-tutorial.md
+      - name: Altamira HRM
+        href: altamira-hrm-tutorial.md
       - name: Altoura
         href: altoura-tutorial.md
       - name: Amazing People Schools
@@ -565,7 +567,7 @@
         href: coupa-risk-assess-tutorial.md
       - name: Coverity Static Application Security Testing
         href: coverity-static-application-security-testing-tutorial.md  
-      - name: CPQSync by Cincom
+      - name: Cincom CPQ
         href: cpqsync-by-cincom-tutorial.md
       - name: Creatio
         href: bpmonline-tutorial.md
@@ -779,6 +781,8 @@
         href: excelityglobal-tutorial.md
       - name: Excelity HCM
         href: excelity-hcm-tutorial.md  
+      - name: Exium
+        href: exium-tutorial.md
       - name: ExpenseIn
         href: expensein-tutorial.md
       - name: Expensify
@@ -990,6 +994,8 @@
         href: harness-tutorial.md
       - name: hCaptcha Enterprise
         href: hcaptcha-enterprise-tutorial.md
+      - name: Headspace
+        href: headspace-tutorial.md
       - name: Helper Helper
         href: helper-helper-tutorial.md
       - name: Help Scout
@@ -1238,6 +1244,8 @@
         href: juno-journey-tutorial.md
       - name: JuriBlox
         href: juriblox-tutorial.md  
+      - name: JustLogin
+        href: justlogin-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
       - name: Kanbanize
@@ -1710,6 +1718,8 @@
         href: planmyleave-tutorial.md
       - name: Planview Enterprise One
         href: planview-enterprise-one-tutorial.md
+      - name: Planview ID
+        href: planview-id-tutorial.md
       - name: Planview LeanKit
         href: planview-leankit-tutorial.md
       - name: Pluralsight
@@ -1938,7 +1948,7 @@
         href: sap-customer-cloud-tutorial.md
       - name: SAP Cloud Platform
         href: sap-hana-cloud-platform-tutorial.md
-      - name: SAP Cloud Platform Identity Authentication
+      - name: SAP Cloud Identity Services
         href: sap-hana-cloud-platform-identity-authentication-tutorial.md
       - name: SAP Fiori
         href: sap-fiori-tutorial.md
@@ -1990,6 +2000,8 @@
         href: securitystudio-tutorial.md  
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: SeekOut
+        href: seekout-tutorial.md
       - name: Segment
         href: segment-tutorial.md
       - name: Seismic
@@ -2012,6 +2024,8 @@
         href: servicenow-tutorial.md
       - name: Settling music
         href: settlingmusic-tutorial.md
+      - name: SevOne Network Monitoring System (NMS)
+        href: sevone-network-monitoring-system-tutorial.md
       - name: SharePoint on-premises
         href: sharepoint-on-premises-tutorial.md
       - name: ShareVault
@@ -2146,6 +2160,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: Stackby
+        href: stackby-tutorial.md
       - name: Standard for Success Accreditation
         href: standard-for-success-accreditation-tutorial.md
       - name: Standard for Success K-12

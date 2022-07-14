@@ -17,7 +17,7 @@ ms.custom: devx-track-js
 Use the Image Analysis client library for JavaScript to analyze a remote image for content tags.
 
 
-> [!NOTE]
+> [!TIP]
 > You can also analyze a local image. See the [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) methods, such as **describeImageInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ImageAnalysisQuickstart.js) for scenarios involving local images.
 
 > [!TIP]

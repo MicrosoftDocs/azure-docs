@@ -1,11 +1,11 @@
 ---
 title: Move Azure VMs between government and public regions with Azure Site Recovery 
 description: Use Azure Site Recovery to move Azure VMs between Azure government and public regions.
-author: sideeksh
+author: v-pgaddala
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
-ms.author: sideeksh
+ms.author: v-pgaddala
 ms.custom: MVC
 ---
 # Move Azure VMs between Azure Government and Public regions 

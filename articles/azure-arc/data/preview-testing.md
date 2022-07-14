@@ -64,8 +64,8 @@ If you use the Azure CLI extension:
 If you use the Azure Data Studio extension to install:
 
 - Uninstall the Azure Data Studio extension. Select the Extensions panel and select on the **Azure Arc** extension, select **Uninstall**.
-- Download the latest pre-release Azure Data Studio extension .vsix file from [https://aka.ms/ads-arcdata-ext](https://aka.ms/ads-arcdata-ext).
-- Install the extension by choosing File -> Install Extension from VSIX package and then browsing to the download location of the .vsix file.
+- Download the latest pre-release Azure Data Studio extension .vsix files from [https://aka.ms/ads-arcdata-ext](https://aka.ms/ads-arcdata-ext) and [https://aka.ms/ads-azcli-ext](https://aka.ms/ads-azcli-ext).
+- Install the extensions by choosing File -> Install Extension from VSIX package and then browsing to the download location of the .vsix files. Install the `azcli` extension first and then `arc`.
 
 ### Install using Azure CLI
 
@@ -111,7 +111,7 @@ Run the notebook by clicking **Run All**.
 
 Follow the instructions to [Arc-enabled the Kubernetes cluster](create-data-controller-direct-prerequisites.md) as normal.
 
-Open the Azure portal by using this special URL: [https://portal.azure.com/?Microsoft_Azure_HybridData_Platform=BugBash](https://portal.azure.com/?Microsoft_Azure_HybridData_Platform=BugBash).
+Open the Azure portal by using this special URL: [https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home).
 
 Follow the instructions to [Create the Azure Arc data controller from Azure portal - Direct connectivity mode](create-data-controller-direct-azure-portal.md) except that when choosing a deployment profile, select **Custom template** in the **Kubernetes configuration template** drop-down.  Set the repository to either `arcdata/test` or `arcdata/preview` as appropriate and enter the desired tag in the **Image tag** field.  Fill out the rest of the custom cluster configuration template fields as normal.
 

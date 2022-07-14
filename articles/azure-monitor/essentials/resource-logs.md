@@ -3,10 +3,11 @@ title: Azure resource logs
 description: Learn how to stream Azure resource logs to a Log Analytics workspace in Azure Monitor.
 author: bwren
 services: azure-monitor
-
 ms.topic: conceptual
 ms.date: 05/09/2022
 ms.author: bwren
+ms.reviewer: lualderm
+
 ---
 
 # Azure resource logs
