@@ -23,7 +23,7 @@ The **Overview** page in the Azure portal for each container instance includes a
 
 ## Monitoring data
 
-Azure Container Instances collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-Azure-resources).
+Azure Container Instances collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources).
 
 See [Monitoring *Azure Container Instances* data reference](monitor-azure-container-instances-reference.md) for detailed information on the metrics and logs metrics created by Azure Container Instances.
 
