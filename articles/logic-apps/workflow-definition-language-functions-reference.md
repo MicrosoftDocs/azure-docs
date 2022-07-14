@@ -1648,7 +1648,7 @@ And returns this result: `"hello"`
 
 ### dateDifference
 
-Return the difference between two timestamps as a timespan. `startDate` is subtracted from `endDate`; the result will be negative if `startDate` is more recent than `endDate`.
+Return the difference between two timestamps as a timespan. This function subtracts `startDate` from `endDate`, and returns the result as timestamp in string format.
 
 ```
 dateDifference('<startDate>', '<endDate>')
@@ -1662,12 +1662,12 @@ dateDifference('<startDate>', '<endDate>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*timespan*> | String | The string version of a timestamp that represents a the difference between the two dates. |
+| <*timespan*> | String | The difference between the two timestamps, which is a timestamp in string format. If `startDate` is more recent than `endDate`, the result is a negative value. |
 ||||
 
 *Example*
 
-This example finds the difference between two dates:
+This example subtracts the first value from the second value:
 
 ```
 dateDifference('2015-02-08', '2018-07-30')
