@@ -2,15 +2,15 @@
 title: Sign up for premium editions - Azure Active Directory| Microsoft Docs
 description: Instructions about how to sign up for Azure Active Directory Premium editions.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/07/2017
-ms.author: ajburnle
+ms.author: barclayn
 ms.reviewer: piotrci
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
