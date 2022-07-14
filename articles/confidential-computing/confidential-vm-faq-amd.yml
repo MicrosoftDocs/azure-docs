@@ -55,8 +55,8 @@ sections:
       - question: |
           Are the virtual disks attached to confidential VMs automatically protected?
         answer: |
-        Currently OS disks for confidential VMs can be encrypted and secured. 
-        For additional security, you can enable guest level encryption (such as bitlocker or dm-crypt) for all data drives.
+          Currently OS disks for confidential VMs can be encrypted and secured. 
+          For additional security, you can enable guest level encryption (such as bitlocker or dm-crypt) for all data drives.
         
       - question: |
           Does memory written to the Windows swap file (pagefile.sys) get protected by the TEE?
