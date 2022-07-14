@@ -18,6 +18,7 @@ ms.collection: M365-identity-device-management
 
 > [!NOTE]
 > The **Tenant restrictions** settings, which are included with cross-tenant access settings, are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 For security reasons, you can limit what your users can access when they use an external account to sign in to your networks or devices. With the **Tenant restrictions** settings included with [cross-tenant access settings](cross-tenant-access-overview.md), you can control the external apps that your Windows device users can access when they're using external accounts. For example, let's say a user in your organization has created a separate account in an unknown tenant, or an external organization has given your user an account that lets them sign in to their organization. You can use tenant restrictions to prevent the user from using some or all external apps while they're signed in with the external account on your network or devices.
 
 Tenant restrictions can be scoped to specific users, groups, organizations, or external apps. Apps built on the Windows operating system networking stack are protected, including the following:
@@ -27,17 +28,18 @@ Tenant restrictions can be scoped to specific users, groups, organizations, or e
 - Edge and all websites in Edge
 - Teams (with Federation Controls configured)
 
+This article describes how to configure tenant restrictions V2 using the Azure portal. You can also use the [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta&preserve-view=true) to create these same tenant restrictions policies.
+
 ## Tenant restrictions V2 overview
 
 Azure AD offers two versions of tenant restrictions policies:
 
-- Tenant restrictions V1, described in [Set up tenant restrictions V1 for B2B collaboration](tenant-restrictions-v1.md), lets you restrict access to external tenants by configuring a tenant allow list on your corporate proxy.
-- Tenant restrictions V2, described in this article, lets you apply policies directly to your users' Windows devices instead of through your corporate proxy, reducing overhead and providing more flexible, granular control.
+- Tenant restrictions V1, described in [Set up tenant restrictions V1 for B2B collaboration](../manage-apps/tenant-restrictions.md), lets you restrict access to external tenants by configuring a tenant allow list on your corporate proxy.
+- Tenant restrictions V2, described in this article, lets you apply policies directly to your users' Windows devices instead of through your corporate proxy, reducing overhead and providing more flexible, granular control. 
 
-The following table compares the two versions.
-### Tenant restrictions V1 and V2 comparison
+Both versions can be used simultaneously. In fact, you can use tenant restrictions V2 to manage access for your Windows device users, and use tenant restrictions v1 to manage access for all other clients and apps that aren't supported by V2. The following table compares the features in each version.
 
-|  |V1  |V2  |
+|  |Tenant restrictions V1  |Tenant restrictions V2  |
 |----------------------|---------|---------|
 |**Policy enforcement**    | The corporate proxy enforces the tenant restriction policy in the Azure AD control plane.         |     Windows devices are configured to point Microsoft traffic to the tenant restriction policy, and the policy is enforced in the cloud. Tenant restrictions are enforced on resource access, providing data path coverage and protection against token infiltration. For non-Windows devices, the corporate proxy enforces the policy.    |
 |**Malicious tenant requests** | Azure AD blocks malicious tenant authentication requests to provide authentication plane protection.         |    Azure AD blocks malicious tenant authentication requests to provide authentication plane protection.     |
@@ -48,10 +50,6 @@ The following table compares the two versions.
 |**Platform support**      |Supported on all platforms         |     Supported only on Windows operating systems and Edge.     |
 |**Portal support**        |No user interface in the Azure portal for configuring the policy.         |   User interface available in the Azure portal for setting up the cloud policy.      |
 |**Unsupported apps**      |     N/A    |   block unsupported app use with Microsoft endpoints by using Windows Defender Application Control (WDAC) or Windows Firewall  (for example, for Chrome, Firefox, and so on).      |
-
-Both versions of tenant restrictions can be used simultaneously. In fact, you can use tenant restrictions V2 to manage access for your Windows device users, and use tenant restrictions v1 to manage access for all other clients and apps that aren't supported by V2.
-
-This article describes how to configure tenant restrictions V2 using the Azure portal. You can also use the [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta&preserve-view=true) to create these same tenant restrictions policies.
 
 ### Tenant restrictions vs. inbound and outbound settings
 
@@ -81,8 +79,6 @@ For example, suppose Contoso uses Teams Federation Controls to block the Fabrika
 To enforce tenant restrictions for Teams, you'll need to configure tenant restrictions V2 in your Azure AD cross-tenant access settings, and also set up Federation Controls in the Teams Admin portal and restart Teams. Be aware that tenant restrictions won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
 
 ## Configure tenant restrictions V2
-
-### Prerequisites
 
 To configure tenant restrictions, you'll need the following:
 

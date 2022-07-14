@@ -88,7 +88,7 @@
   - name: Enforce tenant restrictions
     items:
     - name: Tenant restrictions V1
-      href: ../active-directory/manage-apps/tenant-restrictions-v1.md
+      href: ../manage-apps/tenant-restrictions.md
     - name: Tenant restrictions V2
       href: tenant-restrictions-v2.md
   - name: Configure B2B direct connect 
