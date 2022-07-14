@@ -4,6 +4,7 @@ description: Learn about the identity and access concepts of Azure VMware Soluti
 ms.topic: conceptual
 ms.service: azure-vmware
 ms.date: 06/06/2022
+ms.custom: references_regions
 ---
 
 # Azure VMware Solution identity concepts
@@ -25,7 +26,7 @@ You can view the privileges granted to the Azure VMware Solution CloudAdmin role
 1. Under **Access Control**, select **Roles**.
 1. From the list of roles, select **CloudAdmin** and then select **Privileges**.
 
-   :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="Screenshot showing the roles and privileges for CloudAdmin in the vSphere Client.":::
+   :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="Image shows the roles and privileges for CloudAdmin in the vSphere Client.":::
 
 The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter Server. For more information, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
@@ -59,7 +60,7 @@ You'll use the CloudAdmin role to create, modify, or delete custom roles with pr
 To prevent creating roles that can't be assigned or deleted, clone the CloudAdmin role as the basis for creating new custom roles.
 
 #### Create a custom role
-1. Sign in to vCenter Server with cloudadmin\@vsphere.local or a user with the CloudAdmin role.
+1. Sign in to vCenter Server with cloudadmin@vsphere.local or a user with the CloudAdmin role.
 
 1. Navigate to the **Roles** configuration section and select **Menu** > **Administration** > **Access Control** > **Roles**.
 
@@ -80,7 +81,7 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 1. Select the Identity Source in the **User** drop-down where the group or user can be found.
 
-1. Search for the user or group after selecting the Identity Source under the **User** section. 
+1. Search for the user or group after selecting the Identity Source under the **User** section.
 
 1. Select the role that you want to apply to the user or group.
 
@@ -88,17 +89,17 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 ## NSX-T Manager access and identity
 
-When a private cloud is provisioned using Azure portal, Software Defined Data Center (SDDC) management components like vCenter and NSX-T Manager are provisioned for customers. 
+When a private cloud is provisioned using Azure portal, software defined data center (SDDC) management components like vCenter and NSX-T Manager are provisioned for customers.
 
-Microsoft is responsible for the lifecycle management of NSX-T appliances like NSX-T Managers and NSX-T Edges. They're responsible for bootstrapping network configuration, like creating the Tier-0 gateway. 
+Microsoft is responsible for the lifecycle management of NSX-T appliances like NSX-T Managers and NSX-T Edges. They're responsible for bootstrapping network configuration, like creating the Tier-0 gateway.
 
 You're responsible for NSX-T software-defined networking (SDN) configuration, for example:
 
 - Network segments
 - Other Tier-1 gateways
 - Distributed firewall rules
-- Stateful services like gateway firewall 
-- Load balancer on Tier-1 gateways 
+- Stateful services like gateway firewall
+- Load balancer on Tier-1 gateways
 
 You can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. Operations not allowed include editing the configuration of host and edge transport nodes or starting an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
 
@@ -110,6 +111,9 @@ For new private cloud deployments starting **June 2022**, NSX-T access will be p
 ### NSX-T cloud admin user permissions
 
 The following permissions are assigned to the **cloudadmin** user in Azure VMware Solution NSX-T.
+
+> [!NOTE]
+> **NSX-T cloudadmin user** on Azure VMware Solution is not the same as the **cloudadmin user** mentioned in the VMware product documentation.
 
 | Category        | Type                  | Operation                                                            | Permission                                                       |
 |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
@@ -126,9 +130,8 @@ The following permissions are assigned to the **cloudadmin** user in Azure VMwar
 | Troubleshooting | IPFIX                 |                                                                      | Full Access                                                      |
 | Troubleshooting | Port Mirroring        |                                                                      | Full Access                                                      |
 | Troubleshooting | Traceflow        |                                                                      | Full Access                                                      |
-| System          | Configuration<br>Settings<br>Settings<br>Settings              | Identity firewall<br>Users and Roles<br>Certificate Management<br>User Interface Settings   | Full Access<br>Full Access<br>Full Access<br>Full Access                          |
+| System          | Configuration<br>Settings<br>Settings<br>Settings              | Identity firewall<br>Users and Roles<br>Certificate Management (Service Certificate only)<br>User Interface Settings   | Full Access<br>Full Access<br>Full Access<br>Full Access                          |
 | System          | All other    |                                                                      | Read-only                                                        |
-
 
 You can view the permissions granted to the Azure VMware Solution cloudadmin role on your Azure VMware Solution private cloud NSX-T.
 
@@ -139,6 +142,83 @@ You can view the permissions granted to the Azure VMware Solution cloudadmin rol
 
 > [!NOTE]
 > **Private clouds created before June 2022** will switch from **admin** role to **cloudadmin** role. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX-T credentials you've used for other integration.
+
+## NSX-T LDAP Integration for Role Based Access Control (RBAC)
+
+In an Azure VMware Solution deployment, the NSX-T can be integrated with external LDAP directory service to add remote directory users or group, and assign them an NSX-T RBAC role, like on-prem deployment.  For more information on how to enable NSX-T LDAP integration, see the [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).
+
+Unlike on-prem deployment, not all pre-defined NSX-T RBAC roles are supported with Azure VMware solution to keep Azure VMware Solution IaaS control plane config management separate from tenant network and security configuration. Please see the next section, Supported NSX-T RBAC roles, for more details.
+
+> [!NOTE]
+> NSX-T LDAP Integration supported only with SDDC’s with NSX-T “cloudadmin” user.
+
+### Supported NSX-T RBAC roles  
+
+ In an Azure VMware Solution deployment, the following NSX-T predefined RBAC roles are not supported with LDAP integration:
+
+- Enterprise Admin
+- Network AdminSecurity Admin
+- Netx Partner Admin
+- GI Partner Admin
+
+Currently these roles can be assigned to LDAP users on a software defined data center (SDDC) using “admin” user. However, this isn't supported with newer SDDC with “cloudadmin” user, as these roles have higher permissions for some NSX-T features than the “cloudadmin” user. NSX-T only allows users to assign RBAC roles with permissions lesser than or equal to their current role.
+
+We recommend that you not use these RBAC roles with NSX-T to avoid breaking operational workflow for customers. Microsoft plans to swap the “admin” user with more restricted “cloudadmin” user for the existing SDDC. Instead, create and assign the following custom role that matches with the most common NSX RBAC roles requirement: Azure VMware Solution Enterprise Admin, Azure VMware Solution Network Admin, or Azure VMware Solution Security Admin.
+
+#### Create “AVS Enterprise Admin” role
+
+The customer can use a built-in CloudAdmin role or use the following steps to create this custom role.
+
+1. Navigate to **System** > **Users and Roles** > **Roles**.
+1. Clone **Enterprise Admin** and provide the name, **AVS Enterprise Admin**.
+1. **Modify** the permissions as seen in the **Permission** column for some of the features as shown in the following table.
+
+    | Category        | Subcategory                  | Feature                                                            | Permission                                                       |
+    |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
+    | Networking<br><br><br>      | Connectivity<br><br>Network Services          | Tier-0 Gateways<br> Tier-0 Gateways > OSPF<br>Forwarding Policy                      | Read-only<br>None<br>None                         |               |
+    | Security<br><br><br>      | Network Introspection<br>Endpoint Protection<br>Settings              |        <br><br>Service profiles                                                              | None<br>None<br>None     |
+    | System<br><br>     | Backup and Restore<br>Settings         |               <br>License configuration                       | Read-only<br>None                        |
+
+1. **Apply** the changes and **Save** the Role.
+
+#### Create “AVS Network Admin” role
+
+ Use the following steps to create this custom role.
+
+1. Navigate to **System** > **Users and Roles** > **Roles**.
+
+1. Clone **Network Admin** and provide the name, **AVS Network Admin**.
+
+1. **Modify** the permissions as seen in the **Permission** column for some of the features as shown in the following table.
+
+    | Category        | Subcategory                  | Feature                                                            | Permission                                                       |
+    |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
+    | Networking<br><br><br>      | Connectivity<br><br>Network Services          | Tier-0 Gateways<br>Tier-0 Gateways > OSPF<br>Forwarding Policy                       | Read-only<br>None<br>None                          |
+
+1. **Apply** the changes and **Save** the Role.
+
+#### Create “AVS Security Admin” role
+
+ Use the following steps to create this custom role.
+
+1. Navigate to **System** > **Users and Roles** > **Roles**.
+
+1. Clone **Security Admin** and provide the name, “AVS Security Admin”.
+
+1. **Modify** the permissions as seen in the **Permission** column for some of the features as shown in the following table.
+
+| Category        | Subcategory                  | Feature                                                            | Permission                                                       |
+|-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
+| Networking     | Network Services         | Forwarding Policy                                     | None                        |
+| Security<br><br><br>      | Network Introspection<br>Endpoint Protection<br>Settings              |      <br><br>Service profiles                                                                | None<br>None<br>None     |
+
+4. **Apply** the changes and **Save** the Role.
+
+> [!NOTE]
+> The NSX-T **System** > **Identity Firewall AD** configuration option isn't supported by the NSX custom role. The recommendation is to assign the **Security Operator** role to the user with the custom role to allow managing the Identity Firewall (IDFW) feature for that user.
+
+> [!NOTE]
+> The NSX-T Traceflow feature isn't supported by NSX-T custom role. The recommendation is to assign the **Auditor** role to the user along with above custom role to enable Traceflow feature for that user.
 
 ## Next steps
 
