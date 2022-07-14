@@ -103,17 +103,40 @@ Filter the results of the `series_decompose_anomalies()` query for anomalies in 
 
 The results show two anomalies on June 14 and June 15. Compare these results with the chart from our first `make-series` query, where you can see other anomalies on May 26, 27, and 28:
 
-:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with five anomalies highlighted."::: 
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with anomalies highlighted."::: 
 
 The difference in results occurs because the `series_decompose_anomalies()` function scores anomalies relative to an the expected usage value, which the function calculates based on the full range of values in the input series.
 
-To get more refined results from the function, exclude the usage on the June 15 - which is an outlier compared to the other values in the series - from the function's learning process:
+To get more refined results from the function, exclude the usage on the June 15 - which is an outlier compared to the other values in the series - from the function's learning process.
+
+The [syntax of the `series_decompose_anomalies()` function](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) is:
+
+`series_decompose_anomalies (`*Series* `[, ` *Threshold*`,` *Seasonality*`,` *Trend*`, ` *Test_points*`, ` *AD_method*`,` *Seasonality_threshold* `])`
+
+` *Test_points*` specifies the number of points at the end of the series to exclude from the learning (regression) process. 
+
+To exclude the last data point, set ` *Test_points*` to `1`: 
 
 ```kusto
-series_decompose_anomalies(ActualUsage,1.5,-1,'avg',1) // 1.5 is the threshold (AnomalyScore threshold) [default], -1 is Autodetect seasonality [default], avg -  Define trend component as average of the series [default], 1 – number of points  at the end of the series to exclude from the learning process [default]
+let starttime = 21d; // Start date for the time series, counting back from the current date
+let endtime = 0d; // End date for the time series, counting back from the current date
+let timeframe = 1d; // How often to sample data
+Usage // The table we’re analyzing
+| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 AM of the first day and ending at 11:59 PM of the last day in the time range
+| where IsBillable == "true" // Includes only billable data in the result set
+| make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
+| extend(Anomalies, AnomalyScore, ExpectedUsage) = series_decompose_anomalies(ActualUsage,1.5,-1,'avg',1) // Scores and extracts anomalies based on the output of make-series, excluding the last value in the series 
+| mv-expand ActualUsage to typeof(double), TimeGenerated to typeof(datetime), Anomalies to typeof(double),AnomalyScore to typeof(double), ExpectedUsage to typeof(long) // Expands the array created by series_decompose_anomalies()
+| where Anomalies != 0  // Returns all positive and negative deviations from expected usage
+| project TimeGenerated,ActualUsage,ExpectedUsage,AnomalyScore,Anomalies,DataType // Defines which columns to return 
+| sort by abs(AnomalyScore) desc // Sorts results by anomaly score in descending ordering
 ```
-Get all usage anomalies for all data types.
-3.	Focus in on analyzing anomalies of the Azure Diagnostics data type. We’ll run anomaly detection and pattern recognition functions on Azure Diagnostics table to find out which resource caused anomalous usage. 
+
+Filtering the results for the `AzureDiagnostics` data type now shows the expected results:
+
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/refined-anomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/refined-anomalies-filtered-kql.png" alt-text="A table showing the results of the modified anomaly detection query, filtered for results from the Azure Diagnostics data type. The results now show the same anomalies as the chart created at the beginning of the tutorial."::: 
+
+
 
 
 <!-- 6. Clean up resources
