@@ -85,7 +85,7 @@ Usage // The table we’re analyzing
 
 This query returns all usage anomalies for all tables in the last three weeks:
 
-:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" alt-text="A chart showing the total data ingested by each table in the workspace each day, over 21 days."::: 
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-kql.png" alt-text="A screenshot of a table showing a list of anomalies in usage for all tables in the workspace."::: 
 
 Looking at the query results, you can see that the function: 
 
