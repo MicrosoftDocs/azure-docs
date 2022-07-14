@@ -79,7 +79,7 @@ For Linux servers, based on the features you want to perform, you can create a u
 
     :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support.":::
 
-- You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata). Make sure that you have enabled 'NOPASSWD' for the account to run the required commands without prompting for a password every time sudo command is invoked.
+- For the sudo user, you need to provide the bin/bash NOPASSWD permission in the sudoers file in addition to the commands mentioned in the table [here](discovered-metadata.md#linux-server-metadata).
 - The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
 
     Operating system | Versions 
@@ -148,7 +148,7 @@ Support | Details
 **Operating systems** | Servers running all Windows and Linux versions that meet the server requirements and have the required access permissions are supported.
 **Server requirements** | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date
 **Windows server access** | A user account (local or domain) with administrator permissions on servers.
-**Linux server access** | A root user account, or an account that has these permissions on /bin/netstat and /bin/ls files: <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> Set these capabilities by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
+**Linux server access** | A root user account, or an account that has these permissions on /bin/netstat and /bin/ls files: <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> Set these capabilities by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/netstat</code>
 **Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).
 **Discovery method** |  Agentless dependency analysis is performed by directly connecting to the servers using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers using PowerShell remoting and from Linux servers using SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.
 
