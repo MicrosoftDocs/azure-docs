@@ -1,6 +1,6 @@
 ---
-title: "Migrate diagnostic settings storage retention to Azure Storage lifecycle policy"
-description: "How to Migrate from diagnostic settings storage retention to Azure Storage lifecycle policy"
+title: "Migrate diagnostic settings storage retention to Azure Storage lifecycle management"
+description: "How to Migrate from diagnostic settings storage retention to Azure Storage lifecycle management"
 author: EdB-MSFT
 ms.author: edbaynash
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.reviewer: lualderm
 ms.date: 07/10/2022
 
-#Customer intent: As a dev-ops administrator I want to migrate my retention setting from diagnostic setting retention storage to Azure Storage lifecycle policy so that it continues to work after the feature has been deprecated.
+#Customer intent: As a dev-ops administrator I want to migrate my retention setting from diagnostic setting retention storage to Azure Storage lifecycle management so that it continues to work after the feature has been deprecated.
 ---
 
-# Migrate from diagnostic settings storage retention to Azure Storage lifecycle policy
+# Migrate from diagnostic settings storage retention to Azure Storage lifecycle management
 
-This guide walks you through migrating from using Azure diagnostic settings storage retention to using [Azure Storage lifecycle policy](/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal) for retention.
+This guide walks you through migrating from using Azure diagnostic settings storage retention to using [Azure Storage lifecycle management](/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal) for retention.
 
 ## Prerequisites
 
