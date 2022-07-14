@@ -139,24 +139,24 @@ And then defining these elements for the resulting alert actions using:
     
 ---
 
-1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
+2. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
     :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
 
-1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
-1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **Mute actions** for a period of time after the alert rule fires.
+3. In the **Details** tab, define the **Project details** and the **Alert rule details**.
+4. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **Mute actions** for a period of time after the alert rule fires.
     
     :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
     > [!NOTE]
     > If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
 
-1. In the **Tags** tab, set any required tags on the alert rule resource.
+5. In the **Tags** tab, set any required tags on the alert rule resource.
 
     :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
 
-1. In the **Review + create** tab, a validation will run and inform you of any issues.
-1. When validation passes and you've reviewed the settings, select the **Create** button.    
+6. In the **Review + create** tab, a validation will run and inform you of any issues.
+7. When validation passes and you've reviewed the settings, select the **Create** button.    
     
     :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 
