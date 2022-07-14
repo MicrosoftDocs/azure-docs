@@ -57,19 +57,48 @@ The following table summarizes the support matrix for VM restore points.
 **VMs using Accelerated Networking** | Yes
 **VMs that are live migrated** | Yes
 **VMs that are service healed** | Yes
+**Frequency supported** | 3 hours for app consistent restore points. 1 hour for [crash consistent restore points (preview)](https://github.com/Azure/Virtual-Machine-Restore-Points/tree/main/Crash%20consistent%20VM%20restore%20points%20(preview))
 
-## Limitations
+## Operating system support
+
+### Windows
+
+The following Windows operating systems are supported when creating restore points for Azure VMs running on Windows.
+
+- Windows 10 Client (64 bit only)
+- Windows Server 2022 (Datacenter/Datacenter Core/Standard)
+- Windows Server 2019 (Datacenter/Datacenter Core/Standard)
+- Windows Server 2016 (Datacenter/Datacenter Core/Standard)
+- Windows Server 2012 R2 (Datacenter/Standard)
+- Windows Server 2012 (Datacenter/Standard)
+- Windows Server 2008 R2 (RTM and SP1 Standard)
+- Windows Server 2008 (64 bit only)
+
+Restore points don't support 32-bit operating systems.
+
+### Linux
+
+For Azure VM Linux VMs, restore points support the list of Linux [distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md). Note the following:
+
+- Restore points do not support Core OS Linux.
+- Restore points do not support 32-bit operating systems.
+- Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](../virtual-machines/extensions/agent-linux.md) is available on the VM, and as long as Python is supported.
+- Restore points do not support a proxy-configured Linux VM if it doesn't have Python version 2.7 or higher installed.
+- Restore points do not back up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks that are locally attached to the VM.
+
+## Other limitations
 
 - Restore points are supported only for managed disks. 
 - Ultra-disks, Ephemeral OS disks, and Shared disks are not supported. 
 - Restore points APIs require an API of version 2021-03-01 or later. 
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 
 - Concurrent creation of restore points for a VM is not supported. 
-- Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM processor IDs between the actual VM and the restore points. 
+- Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM IDs between the actual VM and the restore points. 
  > [!Note]
  > Public preview of cross-region creation and copying of VM restore points is available, with the following limitations: 
  > - Private links are not supported when copying restore points across regions or creating restore points in a region other than the source VM. 
  > - Customer-managed key encrypted restore points, when copied to a target region or created directly in the target region are created as platform-managed key encrypted restore points.
+ > - No portal support for cross region copy and cross region creation of restore points
 
 ## Next steps
 
