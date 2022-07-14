@@ -1,9 +1,12 @@
 ---
 title: Start and stop cluster nodes
 description: Learn how to use fault injection to test a Service Fabric application by starting and stopping cluster nodes.
-ms.topic: conceptual
-ms.date: 6/12/2017
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Replacing the Start Node and Stop Node APIs with the Node Transition API

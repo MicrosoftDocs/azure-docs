@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric container application manifest examples
 description: Learn how to configure application and service manifest settings for a multi-container Service Fabric application.
-author: peterpogorski
-
 ms.topic: conceptual
-ms.date: 06/08/2018
-ms.author: pepogors
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Multi-container application and service manifest examples

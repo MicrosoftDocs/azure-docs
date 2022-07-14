@@ -2,8 +2,11 @@
 title: Quickly create a .NET app on Service Fabric in Azure
 description: In this quickstart, you create a .NET application for Azure using the Service Fabric reliable services sample application.
 ms.topic: quickstart
-ms.date: 06/26/2019
-ms.custom: mvc, devcenter, vs-azure, mode-other
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Quickstart: Deploy a .NET reliable services application to Service Fabric
 

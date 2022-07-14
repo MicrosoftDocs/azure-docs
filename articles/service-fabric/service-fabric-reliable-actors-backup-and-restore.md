@@ -1,9 +1,12 @@
 ---
 title: Backup and restore Azure Service Fabric actors 
 description: Learn how to implement backup and restore in your Azure Service Fabric actors.
-ms.topic: conceptual
-ms.date: 10/29/2018
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 
