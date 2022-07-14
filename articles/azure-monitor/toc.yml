@@ -424,6 +424,9 @@ items:
       - name: Create with Azure Policy
         displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
         href: essentials/diagnostic-settings-policy.md
+      - name: Migrate retention to Azure Storage lifecycle policy-reference.md
+        href: essentials/migrate-to-azure-storage-lifecycle-policy.md
+
   - name: Data collection
     items:
     - name: Data collection rules
