@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Deploy a Premium SSD v2 (preview)
 
-Azure Premium SSD v2 (preview) is designed for IO-Intensive enterprise production workloads that require sub-millisecond disk latencies as well as high IOPS and throughput at a low cost. You can take advantage of Premium SSD v2 for a broad range of production workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2 (preview)](disks-types.md#Premium-ssd-v2-preview).
+Azure Premium SSD v2 (preview) is designed for IO-Intensive enterprise production workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. You can take advantage of Premium SSD v2 for a broad range of production workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2 (preview)](disks-types.md#Premium-ssd-v2-preview).
 
 ## Limitations
 
@@ -31,7 +31,7 @@ Azure Premium SSD v2 (preview) is designed for IO-Intensive enterprise productio
 
 ### VMs using availability zones
 
-To use a Premium SSD v2, you need to determine the regions and zones where it is supported. Not every region and zones support Premium SSD v2. To determine if your region, and zone support premium SSD v2, run the following command:
+To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. To determine if your region, and zone support premium SSD v2, run the following command:
 
 # [Azure CLI](#tab/azure-cli)
 

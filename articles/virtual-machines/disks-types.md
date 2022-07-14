@@ -71,7 +71,7 @@ Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160,000 IOPS
 
 The current maximum limit for IOPS for a single VM in generally available sizes is 80,000. Ultra disks with greater IOPS can be used as shared disks to support multiple VMs.
 
-The minimum guaranteed IOPS per disk are 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you provisioned a 4 GiB ultra disk, the minimum IOPS for that disk is 100, instead of four.
+The minimum guaranteed IOPS per disk are 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you provisioned a 4-GiB ultra disk, the minimum IOPS for that disk is 100, instead of four.
 
 For more information about IOPS, see [Virtual machine and disk performance](disks-performance.md).
 
@@ -91,7 +91,7 @@ If you would like to start using ultra disks, see the article on [using Azure ul
 
 ## Premium SSD v2 (preview)
 
-Azure premium SSD v2 (preview) is designed for IO-Intensive enterprise production workloads that require sub-millisecond disk latencies as well as high IOPS and throughput at a low cost. You can take advantage of Premium SSD v2 for a broad range of production workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers.
+Azure premium SSD v2 (preview) is designed for IO-Intensive enterprise production workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. Premium SSD v2 can be used for a broad range of production workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
 
 ### Premium SSD v2 limitations
 
@@ -107,20 +107,20 @@ With Premium SSD v2 disks, you can individually set the capacity, throughput, an
 
 #### Premium SSD v2 capacities
 
-Premium SSD v2 can have a capacity ranging from 1 GiB to 64 TiB, with 1 GiB increments. You're billed on a per GiB ratio, see the pricing page for details.
+Premium SSD v2 capacities range from 1 GiB to 64 TiB, in 1-GiB increments. You're billed on a per GiB ratio, see the pricing page for details.
 
 Premium SSD v2 offers up to 32 TiB per region per subscription by default in the public preview, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
 #### Premium SSD v2 IOPS
 
-Each premium SSD v2 has a baseline IOPS of 3000. The capacity of a disk determines the maximum IOPS you can configure for your disk. For disks that are 1-6 GiB, the maximum you can set the IOPS to is 3,000 IOPS. After 6 GiB, the maximum you can set the IOPS to increases at a ratio of 500 IOPS per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on an disk, that disk must have at least 160 GiB.
+Each premium SSD v2 has a baseline IOPS of 3000. The capacity of a disk determines the maximum IOPS you can configure for your disk. For disks that are 1-6 GiB, the maximum you can set the IOPS to is 3,000 IOPS. After 6 GiB, the maximum you can set the IOPS to increases at a ratio of 500 IOPS per GiB, up to 80,000 IOPS. So an 8-GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on a disk, that disk must have at least 160 GiB.
 
 #### Premium SSD v2 throughput
 
-Each premium SSD v2 has a baseline throughput of 125 MBps. The disk's IOPS determines the maximum throughput that can be set on a disk. The IOPS to throughput ratio is .25 MiB/s per IOPS. The maximium throughput a 6 GiB disk can set is 750 MB/s, whereas the maximum throughput an 8 GiB disk can set is 1,000 MB/s. The maximum throughput a 10 GiB disk can set is 1,200 MB/s, 1,200 is the maximum throughput supported for disks 10 GiB or larger.
+Each premium SSD v2 has a baseline throughput of 125 MBps. The disk's IOPS determines the maximum throughput that can be set on a disk. The IOPS to throughput ratio is 0.25 MiB/s per IOPS. The maximum throughput a 6-GiB disk can set is 750 MB/s, whereas the maximum throughput an 8-GiB disk can set is 1,000 MB/s. The maximum throughput a 10-GiB disk can set is 1,200 MB/s, 1,200 is the maximum throughput supported for disks 10 GiB or larger.
 
 #### Premium SSD v2 Sector Sizes
-Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is also supported. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
+Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is also supported. While most applications are compatible with 4k sector sizes, some require 512-byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512-byte sector size is required.
 
 #### Summary
 
@@ -140,7 +140,7 @@ To deploy a Premium SSD v2, see [Deploy a Premium SSD v2 (preview)](disks-deploy
 
 Azure Premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads. To take advantage of the speed and performance of Premium SSDs, you can migrate existing VM disks to Premium SSDs. Premium SSDs are suitable for mission-critical production applications, but you can use them only with compatible VM series.
 
-To learn more about individual Azure VM types and sizes for Windows or Linux, including size compatibility for premium storage, see [Sizes for virtual machines in Azure](sizes.md). You'll need to check each individual VM size article to determine if it is premium storage-compatible.
+To learn more about individual Azure VM types and sizes for Windows or Linux, including size compatibility for premium storage, see [Sizes for virtual machines in Azure](sizes.md). You'll need to check each individual VM size article to determine if it's premium storage-compatible.
 
 ### Premium SSD size
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
@@ -157,7 +157,7 @@ For Premium SSDs, each I/O operation less than or equal to 256 KiB of throughput
 
 ## Standard SSDs
 
-Azure standard SSDs are optimized for workloads that need consistent performance at lower IOPS levels. They're an especially good choice for customers with varying workloads supported by on-premises hard disk drive (HDD) solutions. Compared to standard HDDs, standard SSDs deliver better availability, consistency, reliability, and latency. Standard SSDs are suitable for web servers, low IOPS application servers, lightly-used enterprise applications, and non-production workloads. Like standard HDDs, standard SSDs are available on all Azure VMs.
+Azure standard SSDs are optimized for workloads that need consistent performance at lower IOPS levels. They're an especially good choice for customers with varying workloads supported by on-premises hard disk drive (HDD) solutions. Compared to standard HDDs, standard SSDs deliver better availability, consistency, reliability, and latency. Standard SSDs are suitable for web servers, low IOPS application servers, lightly used enterprise applications, and non-production workloads. Like standard HDDs, standard SSDs are available on all Azure VMs.
 
 ### Standard SSD size
 
@@ -208,7 +208,7 @@ For detailed information on pricing for managed disks (including transaction cos
 
 ### Ultra disks VM reservation fee
 
-Azure VMs have the capability to indicate if they are compatible with ultra disks. An ultra disk-compatible VM allocates dedicated bandwidth capacity between the compute VM instance and the block storage scale unit to optimize the performance and reduce latency. When you add this capability on the VM, it results in a reservation charge. The reservation charge is only imposed if you enabled ultra disk capability on the VM without an attached ultra disk. When an ultra disk is attached to the ultra disk compatible VM, the reservation charge would not be applied. This charge is per vCPU provisioned on the VM.
+Azure VMs have the capability to indicate if they're compatible with ultra disks. An ultra disk-compatible VM allocates dedicated bandwidth capacity between the compute VM instance and the block storage scale unit to optimize the performance and reduce latency. When you add this capability on the VM, it results in a reservation charge. The reservation charge is only imposed if you enabled ultra disk capability on the VM without an attached ultra disk. When an ultra disk is attached to the ultra disk compatible VM, the reservation charge wouldn't be applied. This charge is per vCPU provisioned on the VM.
 
 > [!Note]
 > For [constrained core VM sizes](constrained-vcpu.md), the reservation fee is based on the actual number of vCPUs and not the constrained cores. For Standard_E32-8s_v3, the reservation fee will be based on 32 cores.
@@ -217,7 +217,7 @@ Refer to the [Azure Disks pricing page](https://azure.microsoft.com/pricing/deta
 
 ### Azure disk reservation
 
-Disk reservation provides you a discount on the advance purchase of one year's of disk storage, reducing your total cost. When you purchase a disk reservation, you select a specific disk SKU in a target region. For example, you may choose five P30 (1 TiB) Premium SSDs in the Central US region for a one year term. The disk reservation experience is similar to Azure reserved VM instances. You can bundle VM and Disk reservations to maximize your savings. For now, Azure Disks Reservation offers one year commitment plan for Premium SSD SKUs from P30 (1 TiB) to P80 (32 TiB) in all production regions. For more details about reserved disks pricing, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
+Disk reservation provides you a discount on the advance purchase of one year's of disk storage, reducing your total cost. When you purchase a disk reservation, you select a specific disk SKU in a target region. For example, you may choose five P30 (1 TiB) Premium SSDs in the Central US region for a one year term. The disk reservation experience is similar to Azure reserved VM instances. You can bundle VM and Disk reservations to maximize your savings. For now, Azure Disks Reservation offers one year commitment plan for Premium SSD SKUs from P30 (1 TiB) to P80 (32 TiB) in all production regions. For more information about reserved disks pricing, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Next steps
 
