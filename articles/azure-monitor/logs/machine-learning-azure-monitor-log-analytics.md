@@ -99,17 +99,15 @@ Looking at the query results, you can see that the function:
 
 Filter the results of the `series_decompose_anomalies()` query for anomalies in the `AzureDiagnostics` data type:
 
-:::image type="content" source="./media/machine-learning-azure-monitor-log-analyticsanomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" alt-text="A table showing the results of the anomaly detection query, filtered for results from the Azure Diagnostics data type."::: 
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" alt-text="A table showing the results of the anomaly detection query, filtered for results from the Azure Diagnostics data type."::: 
 
-we look for the anomalies we saw in the `AzureDiagnostics` datatype in our chart, we find only two anomalies - on June 14 and June 15:
+The results show two anomalies on June 14 and June 15.
 
-compare the chart in the `make-series` query with the results of the `series_decompose_anomalies()` query, you'll see the results for the 
+Compare these results with the chart from our first `make-series` query, where you can see more anomalies on May 26, 27, and 28:
+
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with five anomalies highlighted."::: 
 
 
-
-
-
- - while in the time series, we also saw deviations on May 27 and May 28.
 
  
 ## Teach the Log Analytics machine learning algorithm to identify anomalies using the series_decompose_anomalies() function
