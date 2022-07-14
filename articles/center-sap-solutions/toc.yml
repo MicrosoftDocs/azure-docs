@@ -14,8 +14,8 @@ items:
 
   - name: Deployment
     items:
-    - name: Create network infrastructure
-      href: create-network.md
+    - name: Prepare network for deployment
+      href: prepare-network.md
     - name: Install SAP software
       href: install-software.md
     - name: Deploy S/4HANA infrastructure

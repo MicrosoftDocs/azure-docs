@@ -23,8 +23,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create network infrastructure
-            url: create-network.md
+          - text: Prepare network for deployment
+            url: prepare-network.md
           - text: Install SAP software in ACSS
             url: install-software.md
           - text: Deploy S/4HANA infrastructure
