@@ -1,17 +1,17 @@
 ---
 title: Cost details best practices
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article describes best practices recommended by Microsoft when you work with data in cost details files.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/18/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ---
 
-# Picking a cost details solution
+# Choose a cost details solution
 
 There are multiple ways to work with the cost details dataset (formerly referred to as usage details). If your organization has a large Azure presence across many resources or subscriptions, you'll have a large amount of cost details data. Excel often can't load such large files. In this situation, we recommend the options below.
 
@@ -44,7 +44,7 @@ If the Cost Details API be your chosen solution, please find best practices for 
 
 To learn more about how to properly call the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml), see [Get small usage data sets on demand](get-small-usage-datasets-on-demand.md).
 
-The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml); is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, pay-as-you-go or Visual Studio customer, see [Get usage details as a legacy customer](get-usage-details-legacy-customer.md).
+The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, pay-as-you-go or Visual Studio customer, see [Get usage details as a legacy customer](get-usage-details-legacy-customer.md).
 
 ## Power BI
 

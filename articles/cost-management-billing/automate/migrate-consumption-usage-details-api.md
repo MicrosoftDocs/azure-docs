@@ -1,10 +1,10 @@
 ---
 title: Migrate from Consumption Usage Details API
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the Consumption Usage Details API.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/18/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -17,7 +17,7 @@ This article discusses migration away from the [Consumption Usage Details API](/
 
 ## Migration destinations
 
-Read the [Picking a cost details solution](usage-details-best-practices.md) article before you choose which solution is right for your workload. Generally, we recommend [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs and or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
+Read the [Choose a cost details solution](usage-details-best-practices.md) article before you choose which solution is right for your workload. Generally, we recommend [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs and or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
 
 If you have a smaller usage details dataset or a scenario that isn't met by Exports, consider using the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) instead. For more information, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 

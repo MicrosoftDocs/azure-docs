@@ -1,10 +1,10 @@
 ---
 title: Understand usage details fields
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/18/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,7 +13,7 @@ ms.reviewer: adwise
 
 # Understand cost details fields
 
-This document describes the cost details (formely known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml). For more information about cost details best practices, see [Picking a cost details solution](usage-details-best-practices.md).
+This document describes the cost details (formerly known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml). For more information about cost details best practices, see [Choose a cost details solution](usage-details-best-practices.md).
 
 ## Migration to new cost details formats
 
@@ -120,7 +120,7 @@ The following table maps terms used in older APIs to the new terms. Refer to the
 ## Next steps
 
 - Get an overview of how to [ingest cost data](automation-ingest-usage-details-overview.md).
-- Learn more about [Picking a cost details solution](usage-details-best-practices.md).
+- Learn more about [Choose a cost details solution](usage-details-best-practices.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

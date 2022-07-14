@@ -1,10 +1,10 @@
 ---
 title: Get small cost datasets on demand
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: The article explains how you can use the Cost Details API to get raw, unaggregated cost data that corresponds to your Azure bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/19/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -100,7 +100,7 @@ Response headers:
 | Location | String |  | The URL to check the result of the asynchronous operation. |
 | Retry-After | Integer | Int32 | The expected time for your report to be generated. Wait for this duration before polling again. |
 
-### Report Polling and Download
+### Report polling and download
 
 Once you've requested to create a Cost Details report, poll for the report using the endpoint provided in the `location` header of the API response. An example polling request is below.
 
@@ -160,7 +160,7 @@ A summary of the key fields in the API response is below:
 ## Next steps
 
 - Read the [Ingest cost details data](automation-ingest-usage-details-overview.md) article.
-- Learn more about [Picking a cost details solution](usage-details-best-practices.md).
+- Learn more about [Choose a cost details solution](usage-details-best-practices.md).
 - [Understand cost details fields](understand-usage-details-fields.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.

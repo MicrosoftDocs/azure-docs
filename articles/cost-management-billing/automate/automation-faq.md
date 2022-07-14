@@ -1,16 +1,18 @@
 ---
-title: Cost Management + Billing automation FAQ | Azure
-description: This FAQ is a list of frequently asked questions and answers about Cost Management + Billing automation.
+title: Microsoft Cost Management automation FAQ
+description: This FAQ is a list of frequently asked questions and answers about Cost Management automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/26/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ---
 
-# Cost Management + Billing automation FAQ
+# Cost Management automation FAQ
+
+The following sections cover the most commonly asked questions and answers about Cost Management automation.
 
 ### What are Cost Details versus Usage Details?
 
@@ -38,7 +40,7 @@ If you’re an EA customer, we don’t currently support showing pay-as-you-go p
 
 ### Does Cost Details have Reservation charges?
 
-Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost). Or, you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get amortized costs]().
+Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost). Or, you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get Azure consumption and reservation usage data using API](../reservations/reservations/understand-reserved-instance-usage-ea.md#get-azure-consumption-and-reservation-usage-data-using-api).
 
 ### Am I charged for using the Cost Details API?
 

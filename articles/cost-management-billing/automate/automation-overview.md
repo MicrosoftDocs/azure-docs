@@ -1,10 +1,10 @@
 ---
 title: Cost Management automation overview
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article covers common scenarios for Cost Management automation and options available based on your situation.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/18/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,7 +13,7 @@ ms.reviewer: adwise
 
 # Cost Management automation overview
 
-You can use Cost Management + Billing automation and reporting to build a custom set of solutions to retrieve and manage cost data. This article covers what APIs are available for use and common scenarios for Cost Management automation.
+You can use Cost Management automation and reporting to build a custom set of solutions to retrieve and manage cost data. This article covers what APIs are available for use and common scenarios for Cost Management automation.
 
 ## Available APIs
 

@@ -1,10 +1,10 @@
 ---
 title: Cost Management automation for partners
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article explains how Microsoft partners and their customers can use Cost Management APIs for common tasks.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/18/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -120,8 +120,8 @@ DELETE https://management.azure.com/providers/Microsoft.Billing/billingAccounts/
 
 ## Next steps
 
-- Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).
-Automation scenarios 
+- Learn more about Cost Management automation at [Cost Management automation overview](automation-overview.md).
+Automation scenarios.
 - [Get started with Azure Cost Management for partners](../costs/get-started-partners.md#cost-management-rest-apis).
 - [Retrieve large usage datasets with exports](../costs/ingest-azure-usage-at-scale.md).
 - [Understand usage details fields](understand-usage-details-fields.md). 

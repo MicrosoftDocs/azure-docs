@@ -1,9 +1,10 @@
 ---
 title: Get Azure cost details as a legacy customer
+titleSuffix: Microsoft Cost Management
 description: This article explains how you get cost data if you're a legacy customer.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/18/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

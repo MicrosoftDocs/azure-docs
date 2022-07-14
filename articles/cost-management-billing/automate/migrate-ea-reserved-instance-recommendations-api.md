@@ -1,10 +1,10 @@
 ---
 title: Migrate from the EA Reserved Instance Recommendations API
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Reserved Instance Recommendations API.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/19/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -103,6 +103,7 @@ New response:
    ]
 }
 ```
+
 ## Next steps
 
 - Read the [Migrate from EA Reporting to ARM APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.

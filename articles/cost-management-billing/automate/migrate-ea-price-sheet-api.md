@@ -1,10 +1,10 @@
 ---
 title: Migrate from the EA Price Sheet API
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Price Sheet API.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/19/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

@@ -1,10 +1,10 @@
 ---
 title: Ingest cost details data
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article explains how to use cost details records to correlate meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,7 +13,7 @@ ms.reviewer: adwise
 
 # Ingest cost details data
 
-Cost details (formerly referred to as usage details) are the most granular cost records that are available across Microsoft. Cost details records allow you to correlate Azure meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill. The data also includes charges associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure. Currently, only Partners can purchase New Commerce non-Azure products. To learn more, see [Understand cost management data - LINK NEEDED]().
+Cost details (formerly referred to as usage details) are the most granular cost records that are available across Microsoft. Cost details records allow you to correlate Azure meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill. The data also includes charges associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure. Currently, only Partners can purchase New Commerce non-Azure products. To learn more, see [Understand cost management data](../costs/understand-cost-mgt-data.md).
 
 This document outlines the main solutions available to you as you work with cost details data. You might need to download your cost data to merge it with other datasets. Or you might need to integrate cost data into your own systems. There are different options available depending on the amount of data involved.
 
@@ -21,7 +21,7 @@ You must have Cost Management permissions at the appropriate scope to use APIs a
 
 ## How to get cost details
 
-You can use [exports](../costs/tutorial-export-acm-data.md) or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) to get cost details programmatically. To learn more about which solutions are best for your scenarios, see [Picking a cost details solution](usage-details-best-practices.md).
+You can use [exports](../costs/tutorial-export-acm-data.md) or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) to get cost details programmatically. To learn more about which solutions are best for your scenarios, see [Choose a cost details solution](usage-details-best-practices.md).
 
 For Azure portal download instructions, see [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md). If you have a small cost details dataset that you maintain from one month to another, you can open your CSV file in Microsoft Excel or another spreadsheet application.
 
@@ -58,7 +58,7 @@ The cost details file exposes multiple price points today. These are outlined be
 - **EffectivePrice** This is the price for a given product or service that represents the actual rate that you end up paying per unit. It's the price that should be used with the Quantity to do Price \* Quantity calculations to reconcile charges. The price takes into account the following scenarios:
   - *Tiered pricing:* For example: $10 for the first 100 units, $8 for the next 100 units.
   - *Included quantity:* For example: The first 100 units are free and then $10 for each unit.
-  - *Reservations:* For example, a VM that got a reservation benefit on a given day. To learn more about how to interpret the effective price in reservation scenarios, please see [reservation charges in Azure usage data - LINK NEEDED]().
+  - *Reservations:* For example, a VM that got a reservation benefit on a given day. In amortized data for reservations, the effective price is the prorated hourly reservation cost. The cost is the total cost of reservation usage by the resource on that day.
   - *Rounding that occurs during calculation:* Rounding takes into account the consumed quantity, tiered/included quantity pricing, and the scaled unit price.
 
 - **Quantity:** This is the number of units used by the given product or service for a given day and is aligned to the unit of measure used in actual resource usage.
@@ -92,7 +92,7 @@ Azure doesn't log most user actions. Instead, Azure logs resource usage for bill
 
 ## Next steps
 
-- Learn more about [Picking a cost details solution](usage-details-best-practices.md).
+- Learn more about [Choose a cost details solution](usage-details-best-practices.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - [Understand cost details fields](understand-usage-details-fields.md).

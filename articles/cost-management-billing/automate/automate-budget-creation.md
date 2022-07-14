@@ -1,10 +1,10 @@
 ---
 title: Automate budget creation
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article helps you create budgets with the Budget API and a budget template.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/19/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -29,7 +29,7 @@ There are many ways to configure a budget in your Azure environment. Consider yo
 
 After you've identified the budget creation options that meet your needs, create the budget using the API. The example below helps get you started with a common budget configuration.
 
-**Create a budget filtered to multiple resources and tags**
+### Create a budget filtered to multiple resources and tags
 
 Request URL: `PUT https://management.azure.com/subscriptions/{SubscriptionId} /providers/Microsoft.Consumption/budgets/{BudgetName}/?api-version=2019-10-01`
 

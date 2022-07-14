@@ -1,10 +1,10 @@
 ---
 title: Migrate from the EA Usage Details APIs
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Usage Details APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -26,7 +26,7 @@ The following table provides a summary of the migration destinations that are av
 | **Exports** | Recurring data dumps to storage on a schedule | <ul><li>The most scalable solution for your workloads. <li>Can be configured to use file partitioning for bigger datasets.<li>Great for establishing and growing a cost dataset that can be integrated with your own queryable data stores.<li>Requires access to a storage account that can hold the data.</ul> | <ul><li>[Configure in Azure portal](../costs/tutorial-export-acm-data.md)<li>[Automate Export creation with the API](../costs/ingest-azure-usage-at-scale.md)<li>[Export API Reference](/rest/api/cost-management/exports/create-or-update)</ul> |
 | **Cost Details API** | On demand download | <ul><li>Useful for small cost datasets.<li>Useful for scenarios when Exports to Azure storage aren't feasible due to security or manageability concerns.</ul> | <ul><li>[Get small cost datasets on demand](get-small-usage-datasets-on-demand.md)<li>[Cost Details API Reference](../index.yml)</ul> |
 
-Generally we recommend using [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs and/or a large monthly cost details dataset. For more information, see [Ingest cost details data](automation-ingest-usage-details-overview.md). If you need additional information to help you make a decision for your workload, see [Picking a cost details solution](usage-details-best-practices.md).
+Generally we recommend using [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs and/or a large monthly cost details dataset. For more information, see [Ingest cost details data](automation-ingest-usage-details-overview.md). If you need additional information to help you make a decision for your workload, see [Choose a cost details solution](usage-details-best-practices.md).
 
 ### Assign permissions to an SPN to call the APIs
 

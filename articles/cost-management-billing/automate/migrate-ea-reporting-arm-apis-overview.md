@@ -1,9 +1,10 @@
 ---
 title: Migrate from EA Reporting to Azure Resource Manager APIs overview
+titleSuffix: Microsoft Cost Management
 description: This article provides and overview about migrating from EA Reporting to Azure Resource Manager APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/18/2022
+ms.date: 07/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
