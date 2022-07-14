@@ -45,7 +45,7 @@ For best results - for guaranteed unique identification - you should use identif
 
 ## Entity type schemas
 
-The following is a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types - for example, the User account schema includes a link to the Host entity type, as one attribute of a user account is the host it's defined on. These externally-linked entities can't be used as identifiers for entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
+The following is a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types - for example, the User account schema includes a link to the Host entity type, as one attribute of a user account is the host it's defined on. These externally linked entities can't be used as identifiers for entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
 
 > [!NOTE]
 > A question mark following the value in the **Type** column indicates the field is nullable.
@@ -488,7 +488,7 @@ The following list defines identifiers for known cloud applications. The App ID 
 | 23233  | Microsoft Office Online           |
 | 25275  | Microsoft Skype for Business      |
 | 25988  | Google Docs                       |
-| 26055  | Microsoft Office 365 admin center |
+| 26055  | Microsoft 365 admin center |
 | 26060  | OPSWAT Gears                      |
 | 26061  | Microsoft Word Online             |
 | 26062  | Microsoft PowerPoint Online       | 
