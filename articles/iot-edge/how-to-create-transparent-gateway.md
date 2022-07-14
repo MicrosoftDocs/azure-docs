@@ -140,7 +140,6 @@ Now you need to copy the certificates to the Azure IoT Edge for Linux on Windows
     ```powershell
     # Copy the IoT Edge device CA certificates
     Copy-EflowVMFile -fromFile <path>\certs\iot-edge-device-ca-<cert name>-full-chain.cert.pem -toFile /home/iotedge-user/certs/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem -pushFile
-
     Copy-EflowVMFile -fromFile <path>\private\iot-edge-device-ca-<cert name>.key.pem -toFile /home/iotedge-user/certs/private/iot-edge-device-ca-<cert name>.key.pem -pushFile
    
     # Copy the root CA certificate
@@ -263,19 +262,20 @@ For a gateway scenario to work, at least one of the IoT Edge hub's supported pro
 
 
 If you are using IoT Edge for Linux on Windows, you must open the EFLOW virtual machine ports. You can open the three ports mentioned above using the following PowerShell cmdlets
-    ```powershell
-    # Open MQTT port
-    Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 8883 -j ACCEPT
+   ```powershell
+   # Open MQTT port
+   Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 8883 -j ACCEPT"
 
-    # Open AMQP port
-    Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 5671 -j ACCEPT
+   # Open AMQP port
+   Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 5671 -j ACCEPT"
 
-    # Open HTTPS/MQTT+WS/AMQP+WS port
-    Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+   # Open HTTPS/MQTT+WS/AMQP+WS port
+   Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT"
 
-    # Save the iptables rules
-    sudo iptables-save | sudo tee /etc/systemd/scripts/ip4save
-    ```
+   # Save the iptables rules
+   Invoke-EflowVmCommand "sudo iptables-save | sudo tee /etc/systemd/scripts/ip4save"
+   ```
+
 ## Next steps
 
 Now that you have an IoT Edge device set up as a transparent gateway, you need to configure your downstream devices to trust the gateway and send messages to it. Continue on to [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md) for the next steps in setting up your transparent gateway scenario.
