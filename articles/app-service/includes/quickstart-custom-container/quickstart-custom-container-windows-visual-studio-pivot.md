@@ -11,6 +11,10 @@ ms.author: cephalin
 
 This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Azure Container Registry](../../../container-registry/container-registry-intro.md) from Visual Studio. You run the app in a custom container in Azure App Service.
 
+> [!NOTE]
+> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
+>
+
 To complete this quickstart, you need:
 
 - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
