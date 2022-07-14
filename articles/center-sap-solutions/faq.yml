@@ -1,0 +1,109 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Center for SAP solutions (ACSS) FAQ 
+  description: "Get answers to common questions about Azure Center for SAP solutions (ACSS) and Virtual Instance for SAP solutions (VIS) resources."
+  ms.topic: faq 
+
+title: Common questions about the Microsoft commercial marketplace 
+summary: |
+  This article answers commonly asked questions about  Azure Center for SAP solutions (ACSS) and Virtual Instance for SAP solutions (VIS) resources.
+  
+  [!INCLUDE [Preview content notice](./includes/preview.md)]
+
+sections: 
+  - name: General 
+    questions: 
+      - question:  What capabilities do customers gain with Azure Center for SAP solutions?
+        answer: | 
+        Before the availability of the Azure Center for SAP solutions, customers relied on documentation and 
+        frameworks to help them set up system architecture. Then they had to figure out how to access the VMs 
+        to install SAP. With Azure Center for SAP solutions, customers can deploy SAP choosing a guided 
+        experience that streamlines their ability to select and configure resources. When a customer deploys or 
+        registers an existing SAP system, Azure Center for SAP solutions creates a logical representation of the 
+        system, or a Virtual Instance for SAP solutions. The virtual instance unlocks management capabilities, such 
+        as the ability to run quality checks and to manage and monitor the system at the SAP layer as well as the 
+        VM layer
+
+      - question:  Will Azure Center for SAP solutions replace other services such as Azure 
+Monitor for SAP solutions?
+        answer: | 
+        No. Azure Center for SAP solutions brings Azure services together into a unified experience for deploying 
+        and managing SAP workloads on Azure. Customers can choose to use other Azure services, such as Azure 
+        Monitor for SAP Solutions, independently or in an integrated manner with Azure Center for SAP solutions.
+        Azure Monitor for SAP Solutions is an Azure-native monitoring product for customers running SAP 
+        landscapes on Azure. It helps you collect telemetry data from Azure infrastructure and databases in one 
+        central location and visually correlate the data for faster troubleshooting.
+
+      - question:  What are the pricing and licensing implications?
+        answer: | 
+        There is no additional licensing cost for deploying or registering a system and generating a virtual 
+        instance. When you deploy or register SAP systems using Azure Center for SAP solutions, you pay only for 
+        the compute, storage, networking and other Azure resources you deploy or enable. 
+
+      - question:  Which scenarios does Azure Center for SAP solutions support?
+        answer: | 
+        Azure Center for SAP solutions in preview supports the following capabilities and will continue to add 
+        more:
+
+        - Deployment of infrastructure for SAP S4/HANA systems
+        - Software installation of SAP S4/HANA 1909 SPS 03
+        - Registration of an existing Linux based ABAP/NetWeaver SAP system on Azure
+        - Monitoring Health and Status of an SAP system
+        - Creating a new Azure Monitor for SAP solutions provider or integrating an existing one
+        - Start and Stop of an SAP System
+        - Quality Checks and recommendations for an SAP system with Azure Advisor
+
+        Azure Center for SAP solutions in preview does not provide the ability to customize the name of the Azure 
+        resources deployed through it. It follows prescriptive naming convention for all Azure resources deployed.
+        Consider the open-source [SAP deployment automation framework](../../../virtual-machines/workloads/sap/automation-deployment-framework.md) if you need the ability to customize 
+        names for your deployments. Then register your open-source deployments in Azure Center for SAP 
+        solutions to unlock intelligent management capabilities.
+
+      - question:  What is Azure Virtual Instance for SAP solutions?
+        answer: | 
+        Azure Virtual Instance for SAP solutions is an essential component of Azure Center for SAP solutions that 
+        forms the foundation for the new experience. It is a logical representation of your SAP system in Azure
+        that provides SAP awareness in Azure and unlocks new management capabilities. When you deploy a new 
+        SAP system or register an existing SAP system, Azure Center for SAP solutions automatically creates a 
+        virtual instance for you.
+
+      - question:  What existing SAP systems can be registered as a virtual instance?
+        answer: | 
+        You can register any of the following existing systems on Azure to create a virtual instance in Azure Center 
+        for SAP solutions:
+
+        - SAP system running on SAP NetWeaver or ABAP stack.
+        - SAP systems running on SUSE and RHEL Linux Operating Systems.
+        - SAP systems running on HANA, DB2, SQL Server, Oracle, Max DB, SAP ASE databases.
+
+      - question:  What are the prerequisites to deploy a new SAP system using an Azure 
+Virtual Instance for SAP solutions?
+        answer: | 
+        Here are prerequisites to deploy a new SAP system and create an Azure Virtual Instance for SAP solutions. 
+        Further details can be found in the product documentation.
+
+        - Ensure you and the Azure Center for SAP solutions service have contributor role at the 
+        subscription or resource group(s) level.
+        Azure Center for SAP solutions FAQ page 3
+        - Identify an existing virtual network with outbound internet connectivity where you will deploy 
+        your new SAP system.
+        - Register appropriate resource providers.
+        - Ensure sufficient virtual machine quota for the region(s) used for the deployment.
+
+      - question:  What are the prerequisites to register an existing SAP system using an
+Azure Virtual Instance for SAP solutions?
+        answer: | 
+        Azure Center for SAP solutions requires contributor role access on the resource groups that include the 
+        SAP system(s) you are trying to register. Alternatively, you can grant contributor access on the 
+        subscription that includes the SAP systems.
+
+      - question:  What regions support Azure Virtual Instance for SAP solutions as part of 
+Azure Center for SAP solutions?
+        answer: | 
+        Azure Virtual Instance for SAP solutions (preview) is available in West Europe, North Europe, East US, East 
+        US 2, West US 2, West US 3, Central US, South Central US, East Asia, Southeast Asia, Australia East and 
+        Australia Central.
+
+      - question:  What is the SLA for this service?
+        answer: | 
+        Previews are excluded from service level agreements.
