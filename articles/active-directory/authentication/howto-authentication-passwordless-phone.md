@@ -24,7 +24,7 @@ Microsoft Authenticator can be used to sign in to any Azure AD account without u
 
 This authentication technology can be used on any device platform, including mobile. This technology can also be used with any app or website that integrates with Microsoft Authentication Libraries.
 
-:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app-next.png" alt-text="Example of a browser sign-in asking for the user to approve the sign-in.":::
+:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app-next.png" alt-text="Screenshot that shows an example of a browser sign-in asking for the user to approve the sign-in.":::
 
 People who enabled phone sign-in from Microsoft Authenticator see a message that asks them to tap a number in their app. No username or password is asked for. To complete the sign-in process in the app, a user must next take the following actions:
 
@@ -116,7 +116,7 @@ The user is then presented with a number. The app prompts the user to authentica
 
 After the user has utilized passwordless phone sign-in, the app continues to guide the user through this method. However, the user will see the option to choose another method.
 
-:::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/number.png" alt-text="Example of a browser sign-in using the Microsoft Authenticator app.":::
+:::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/number.png" alt-text="Screenshot that shows an example of a browser sign-in using the Microsoft Authenticator app.":::
 
 ## Known Issues
 
