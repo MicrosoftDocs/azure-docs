@@ -557,7 +557,7 @@
             "redirect_document_id": false
           },
           {
-            "source_path": "articles/data-factory/scenario-ssis-migration-ssisdb-mi.md",
+            "source_path": "/articles/data-factory/scenario-ssis-migration-ssisdb-mi.md",
             "redirect_url": "/azure/data-factory/scenario-ssis-migration-overview",
             "redirect_document_id": false
           }
