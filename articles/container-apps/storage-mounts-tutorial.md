@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Tutorial: Use storage mounts in Azure Container Apps
 
-Learn to link together a container app and storage account using an Azure File storage mount.
+Learn to link together a container app and storage account using an Azure Files storage mount.
 
 In this tutorial, you learn how to:
 
@@ -227,7 +227,7 @@ Now you can update the container app configuration to support the storage mount.
 
     The `volumes` section defines volumes at the app level that your application container or sidecar containers can reference via a `volumeMounts` section associated with a container.
 
-1. Add a `volumeMounts` section.
+1. Add a `volumeMounts` section to `containers`.
 
     ```yml
     containers:
