@@ -119,5 +119,5 @@ and run distributed queries.
 
 Now you're ready to learn to build applications with Hyperscale (Citus).
 
-> [!div class="nextstepaction"]
-> [Build a scalable application >](howto-build-scalable-apps-overview.md)
+* Learn how to [build scalable applications](howto-build-scalable-apps-overview.md).
+* Run queries on Hyperscale (Citus) with your [app stack](howto-app-stacks-overview.md).
