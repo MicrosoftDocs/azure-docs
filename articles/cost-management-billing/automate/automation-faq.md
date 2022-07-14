@@ -40,7 +40,7 @@ If you’re an EA customer, we don’t currently support showing pay-as-you-go p
 
 ### Does Cost Details have Reservation charges?
 
-Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost). Or, you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get Azure consumption and reservation usage data using API](../reservations/reservations/understand-reserved-instance-usage-ea.md#get-azure-consumption-and-reservation-usage-data-using-api).
+Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost). Or, you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get Azure consumption and reservation usage data using API](../reservations/understand-reserved-instance-usage-ea.md#get-azure-consumption-and-reservation-usage-data-using-api).
 
 ### Am I charged for using the Cost Details API?
 

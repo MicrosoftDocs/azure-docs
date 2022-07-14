@@ -26,7 +26,7 @@ The APIs below provide you with cost details data (formerly referred to as usage
 
 - [Exports API](/rest/api/cost-management/exports/create-or-update) - Configure a recurring task to export your cost details data to Azure storage on a daily, weekly or monthly basis. Exported data is in CSV format. This is our recommended solution for ingesting cost data and is the most scalable for large enterprises. To learn more, see [Retrieve large cost datasets with exports](../costs/ingest-azure-usage-at-scale.md).
 
-- [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) - Download a cost details csv on demand. This is useful for smaller, date range based datasets. For larger workloads we strongly recommend that you use Exports. To learn more about using this API, see [Get small cost datasets on demand](../costs/get-small-usage-datasets-on-demand.md).
+- [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) - Download a cost details csv on demand. This is useful for smaller, date range based datasets. For larger workloads we strongly recommend that you use Exports. To learn more about using this API, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 
 ### Pricing APIs
 
@@ -38,7 +38,7 @@ The APIs below provide you with cost details data (formerly referred to as usage
 
 - [Budgets API](/rest/api/consumption/budgets) - Create either cost budgets for resources, resource groups, or billing meters. When you've created budgets, you can configure alerts to notify you when you've exceeded defined budget thresholds. You can also configure actions to occur when you've reached budget amounts. For more information, see [Automate budget creation](automate-budget-creation.md) and [Configure budget based actions](../manage/cost-management-budget-scenario.md).
 
-- [Alerts API](rest/api/cost-management/alerts) - Manage all of the alerts that have been created by budgets and other Azure alerting systems.
+- [Alerts API](/rest/api/cost-management/alerts) - Manage all of the alerts that have been created by budgets and other Azure alerting systems.
 
 ### Invoicing APIs
 
@@ -48,13 +48,13 @@ The APIs below provide you with cost details data (formerly referred to as usage
 
 ### Reservation APIs
 
-- [Reservation Details API](rest/api/cost-management/generate-reservation-details-report) - Get the detailed resource consumption associated with your reservation purchases.
+- [Reservation Details API](/rest/api/cost-management/generate-reservation-details-report) - Get the detailed resource consumption associated with your reservation purchases.
 
-- [Reservation Transactions API](rest/api/consumption/reservation-transactions) - Get reservation related purchase and management transactions.
+- [Reservation Transactions API](/rest/api/consumption/reservation-transactions) - Get reservation related purchase and management transactions.
 
-- [Reservation Recommendations API](rest/api/consumption/reservation-recommendations) - Get recommendations for reservation purchases to make in the future along with expected savings information.
+- [Reservation Recommendations API](/rest/api/consumption/reservation-recommendations) - Get recommendations for reservation purchases to make in the future along with expected savings information.
 
-- [Reservation Recommendation Details API](rest/api/consumption/reservation-recommendation-details) - Get detailed information around specific reservation purchases to perform a what-if analysis.
+- [Reservation Recommendation Details API](/rest/api/consumption/reservation-recommendation-details) - Get detailed information around specific reservation purchases to perform a what-if analysis.
 
 ## Common API scenarios
 
