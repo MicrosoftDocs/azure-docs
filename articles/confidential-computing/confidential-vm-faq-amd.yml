@@ -116,7 +116,8 @@ sections:
           
       - question: |
           Can I enable Azure Accelerated Networking on confidential VMs?
-        answer:  No. Confidential VMs don't support Accelerated Networking. You can't enable Accelerated Networking for any confidential VM deployment, or any Azure Kubernetes Service cluster deployment that runs on Confidential Computing.
+        answer: |
+          No. Confidential VMs don't support Accelerated Networking. You can't enable Accelerated Networking for any confidential VM deployment, or any Azure Kubernetes Service cluster deployment that runs on Confidential Computing.
 
       - question: |
           What does this error mean? "Operation could not be completed as it results in exceeding approved standard DCasV5/ECasv5 Family Cores Quota"
