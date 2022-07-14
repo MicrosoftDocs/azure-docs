@@ -28,7 +28,7 @@ Most common restore point failures can be resolved by following the troubleshoot
 
 **Ensure Azure VM Guest Agent service is started and up-to-date**:
 - On a Windows VM:
-  - Navigate to **services.msc** and ensure **Windows Azure VM Guest Agent service** is up and running. Also, ensure the [latest version](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) is installed. [Learn more](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
+  - Navigate to **services.msc** and ensure **Windows Azure VM Guest Agent service** is up and running. Also, ensure the [latest version](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) is installed. [Learn more](#the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms).
   - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that's deployed to Azure.
   - Review the support matrix to check if VM runs on the [supported Windows operating system](concepts-restore-points.md#operating-system-support).
 - On Linux VM,
@@ -109,7 +109,7 @@ Restore points are currently not supported for shared disks. You need to exclude
 The Azure VM agent might be stopped, outdated, in an inconsistent state, or not installed. These states prevent the creation of restore points.
 
 - In the Azure portal, go to **Virtual Machines** > **Settings** > **Properties** and ensure that the VM **Status** is **Running** and **Agent status** is **Ready**. If the VM agent is stopped or is in an inconsistent state, restart the agent.
-  - [Restart](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) the Guest Agent for Windows VMs.
+  - [Restart](#the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms) the Guest Agent for Windows VMs.
   - [Restart](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) the Guest Agent for Linux VMs.
 - In the Azure portal, go to **Virtual Machines** > **Settings** > **Extensions** and ensure all extensions are in **provisioning succeeded** state. If not, follow these [steps](/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
 
@@ -121,7 +121,7 @@ The Azure VM agent might be stopped, outdated, in an inconsistent state, or not 
 
 After you trigger a restore point operation, the compute service starts the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, restore point creation will fail. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 
-**Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms)**  
 
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
@@ -247,10 +247,10 @@ Restore points are supported only with API version 2022-03-01 or later. If you a
 
 After you trigger creation of restore point, the compute service starts communicating with the VM snapshot extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a restore point failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 
-- **Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).**  
+- **Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms).**  
 - **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).**  
 - **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken).**  
-- **Cause 4: [Compute service does not have permission to delete the old restore points because of a resource group lock](#remove_lock_from_the_recovery_point_resource_group).**
+- **Cause 4: [Compute service does not have permission to delete the old restore points because of a resource group lock](#remove-lock-from-the-recovery-point-resource-group).**
 - **Cause 5**: There's an extension version/bits mismatch with the Windows version you're running, or the following module is corrupt:
 
   **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\\<extension version\>\iaasvmprovider.dll**   
