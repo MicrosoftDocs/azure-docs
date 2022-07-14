@@ -16,10 +16,10 @@ items:
     items:
     - name: Prepare network for deployment
       href: prepare-network.md
-    - name: Install SAP software
-      href: install-software.md
     - name: Deploy S/4HANA infrastructure
       href: deploy-s4hana.md
+    - name: Install SAP software
+      href: install-software.md
     - name: Register existing SAP system
       href: register-existing-system.md
 
@@ -44,5 +44,3 @@ items:
     href: ../virtual-machines/workloads/sap/automation-deployment-framework.md
   - name: Azure Monitor for SAP solutions
     href: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md
-  - name: SAP workloads on Azure
-    href: ../virtual-machines/workloads/sap/get-started.md

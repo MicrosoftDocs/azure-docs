@@ -132,4 +132,4 @@ If the deployment fails, delete the VIS resource in the Azure portal, then recre
 
 ## Next steps
 
-- [Create network for infrastructure deployment](prepare-network.md)
+- [Install SAP software on your infrastructure](install-software.md)
