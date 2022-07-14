@@ -1996,6 +1996,8 @@
         href: securitystudio-tutorial.md  
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: SeekOut
+        href: seekout-tutorial.md
       - name: Segment
         href: segment-tutorial.md
       - name: Seismic
