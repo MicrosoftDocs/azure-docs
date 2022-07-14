@@ -219,6 +219,8 @@
       href: gpu-acceleration.md
     - name: Configure networking
       href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
+    - name: Configure virtual machine on a demilitarized zone (DMZ)
+      href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2022
