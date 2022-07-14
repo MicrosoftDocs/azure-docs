@@ -82,22 +82,17 @@ landingContent:
             url: confidential-nodes-aks-overview.md
           - text: Confidential Containers 
             url: confidential-containers.md
-
-          # -  text: App enclave-aware containers
-          #    url: enclave-aware-containers.md
-          # -  text: Confidential Node Pools on AKS
-          #    url: confidential-nodes-aks-addon.md
-          # - text: Confidential computing nodes on AKS (Azure Kubernetes Service)
-          #   url: confidential-nodes-aks-overview.md
       - linkListType: quickstart
         links:
-          - text: Confidential container samples (unmodified containers on SGX)
-            url: https://github.com/Azure-Samples/confidential-container-samples
-          - text: Enclave Aware Container Samples
-            url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
+          - text: Choose your container offering
+            url: choose-confidential-containers-offerings.md
           - text: CLI based provisioning with a simple enclave container app on AKS
             url: confidential-enclave-nodes-aks-get-started.md
-      - linkListType: reference
+          - text: App enclave aware container samples
+            url: enclave-aware-containers.md
+          -  text: Confidential Node Pools on AKS
+            url: confidential-nodes-aks-addon.md
+     - linkListType: reference
         links:
           - text: About Azure Kubernetes Service (AKS) 
             url: ..\aks\intro-kubernetes.md
@@ -107,7 +102,7 @@ landingContent:
             url: https://aka.ms/AKS-AMD-ACC-Preview-Inspire-2022
 ## Row 2
 # Card
-  - title: Virtual Machines with Confidential App Enclaves
+  - title: Virtual Machines with App Enclaves
     linkLists:
       - linkListType: overview
         links: 
