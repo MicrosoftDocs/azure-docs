@@ -16,11 +16,7 @@ Azure Premium SSD v2 (preview) is designed for IO-Intensive enterprise productio
 
 ## Limitations
 
-Premium SSD v2 can't be used as OS disks, they can only be created as empty data disks. Premium SSD v2 also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, or Azure disk encryption. Azure Backup and Azure Site Recovery don't support Premium SSD v2 yet. In addition, only uncached reads and uncached writes are supported.
-
-The only infrastructure redundancy options currently available to Premium SSD v2 are availability zones. VMs using any other redundancy options can't attach a Premium SSD v2.
-
-Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is also available as another option. While most applications are compatible with 4k sector sizes, some require 512-byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512-byte sector size is required.
+[!INCLUDE [disks-prem-v2-limitations](../../includes/disks-prem-v2-limitations.md)]
 
 ### Regional availability
 
@@ -35,12 +31,16 @@ Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size
 
 ### VMs using availability zones
 
-To use a Premium SSD v2, you need to determine the regions and zones where it is supported. Not every region and zones support Premium SSD v2. To determine if your region, and zone support Premium SSD v2, run either of the following commands, make sure to replace **subscription** values first:
+To use a Premium SSD v2, you need to determine the regions and zones where it is supported. Not every region and zones support Premium SSD v2. To determine if your region, and zone support premium SSD v2, run the following command:
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-subscriptionId="<yourSubID>"
+az login
+
+subscriptionId="<yourSubscriptionId>"
+
+az account set --subscription $subscriptionId
 
 az vm list-skus --resource-type disks --query "[?name=='PremiumV2_LRS'].{Region:locationInfo[0].location, Zones:locationInfo[0].zones}" 
 ```
@@ -70,15 +70,14 @@ Preserve the **Zones** value, it represents your availability zone and you'll ne
 > [!NOTE]
 > If there was no response from the command, then the selected VM size is not supported with Premium SSD v2 in the selected region.
 
-Now that you know which zone to deploy to, follow the deployment steps in this article to either deploy a VM with a Premium SSD v2 attached or attach a Premium SSD v2 to an existing VM.
+Now that you know the region and zone to deploy to, follow the deployment steps in this article to either deploy a VM with a premium SSD v2 attached or attach a premium SSD v2 to an existing VM.
 
 ## Create a Premium SSD v2
 
-Portal, PowerShell, CLI, ARM, steps here.
 
 # [Azure CLI](#tab/azure-cli)
 
-You must create a VM of a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
+You must create a VM using a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
 
 
 ```azurecli-interactive
@@ -91,6 +90,7 @@ adminPassword="yourAdminPassword"
 adminUserName="yourAdminUserName"
 vmSize="Standard_D4s_v3"
 zone="yourZoneNumber"
+logicalSectorSize=4096
 
 az disk create -n $diskName -g $resourceGroupName \
 --size-gb 100 \
@@ -98,7 +98,9 @@ az disk create -n $diskName -g $resourceGroupName \
 --disk-mbps-read-write 150 \
 --location $region \
 --zone $zone \
---sku PremiumV2_LRS
+--sku PremiumV2_LRS \
+--logical-sector-size $logicalSectorSize
+
 az vm create -n $vmName -g $resourceGroupName \
 --image $vmImage \
 --zone $zone \
@@ -110,17 +112,15 @@ az vm create -n $vmName -g $resourceGroupName \
 
 # [PowerShell](#tab/azure-powershell)
 
-You must create a VM of a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
+You must create a VM using a VM size that support Premium Storage, to attach a Premium SSD v2 disk.
 
 ```powershell
-# Set parameters and select subscription
-$subscription = "<yourSubscriptionID>"
-$resourceGroup = "<yourResourceGroup>"
+$subscriptionId = "<yourSubscriptionId>"
+$resourceGroupName = "<yourResourceGroupName>"
 $vmName = "<yourVMName>"
 $diskName = "<yourDiskName>"
 $lun = 1
 $region = "eastus"
-Connect-AzAccount -SubscriptionId $subscription
 
 New-AzVm `
     -ResourceGroupName $resourcegroup `
