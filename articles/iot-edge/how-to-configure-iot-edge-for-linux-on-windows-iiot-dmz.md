@@ -73,11 +73,11 @@ Once the External Virtual Switch is created, we need to attach this VM switch to
 
 1. `Add-EflowNetwork -vswitchName "OnlineOPCUA" -vswitchType "External"`
 
-    ![Add-EflowNetwork](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflownetwork.png)
+    ![Add a new network interface to the EFLOW VM](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflownetwork.png)
 
 2. `Add-EflowVmEndpoint -vswitchName "OnlineOPCUA" -vEndpointName "OnlineEndpoint" -ip4Address 192.168.0.103 -ip4PrefixLength 24 -ip4GatewayAddress 192.168.0.1`
 
-    ![Add-EflowNetwork](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflowvmendpoint.png)
+    ![Add a new network endpoint to the EFLOW VM](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflowvmendpoint.png)
 
 If everything is correct, we'll have the _OnlineOPCUA_ switch assigned to the EFLOW VM. To check the multiple NIC attachment, use the following steps:
 
@@ -128,7 +128,7 @@ Every time EFLOW VM starts, the networking services will recreate all routes, an
 
 First, create a bash script that will execute the necessary commands to set the routes. For example, following the tutorial networking scenario, EFLOW VM that has two NICs (offline and online networks). First NIC, _eth0_, is connected using the GW IP xxx.xxx.xxx.xxx. The second NIC, _eth1_, is connected using the GW IP yyy.yyy.yyy.yyy. 
 
-The script below will reset the _default_ routes for both _eth0_ and _eth1_, and set them using a desire <number> metric. _Remember: The lower the metric, the higher the priority._ 
+The script below will reset the _default_ routes for both _eth0_ and _eth1_, and set them using a desire **\<number\>** metric. _Remember: The lower the metric, the higher the priority._ 
 
 ```
 #!/bin/sh
