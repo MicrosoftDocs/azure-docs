@@ -1,19 +1,19 @@
 ---
-title: Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs
-description: Steps that you must perform when migrating from Data Collector API and custom fields-enabled tables to DCR-based custom logs.
+title: Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom log collection
+description: Steps that you must perform when migrating from Data Collector API and custom fields-enabled tables to DCR-based custom log collection.
 ms.topic: conceptual
 ms.date: 01/06/2022
 
 ---
 
-# Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs
-This article describes how to migrate from [Data Collector API](data-collector-api.md) or [custom fields](custom-fields.md) in Azure Monitor to [DCR-based custom logs](logs-ingestion-api-overview.md). It includes configuration required for tables in your Log Analytics workspace and applies to both [direct ingestion](logs-ingestion-api-overview.md) and [transformations](../essentials/data-collection-transformations.md).
+# Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom log collection
+This article describes how to migrate from [Data Collector API](data-collector-api.md) or [custom fields](custom-fields.md) in Azure Monitor to [DCR-based custom log collection](../essentials/data-collection-rule-overview.md). It includes configuration required for custom tables created in your Log Analytics workspace so that they can be used by [Logs collection API](logs-ingestion-api-overview.md) and [workspace transformations](../essentials/data-collection-transformations.md#workspace-transformation-dcr).
 
 > [!IMPORTANT]
-> You do not need to follow this article if you are defining your DCR-based custom logs using the Azure Portal. This article only applies if you are using Resource Manager templates and the logs ingestion API.
+> You do not need to follow this article if you are configuring your DCR-based custom logs [using the Azure Portal](tutorial-workspace-transformations-portal.md) since the configuration will be performed for you. This article only applies if you are using Resource Manager templates and the Logs ingestion API.
 
 ## Background
-To use a table with the [direct ingestion](logs-ingestion-api-overview.md), and [ingestion-time transformations](ingestion-time-transformations.md), it must be configured to support these new features. When you complete the process described in this article, the following actions are taken:
+To use a table with the [Logs ingestion API](logs-ingestion-api-overview.md) or with a [workspace transformation](../essentials/data-collection-transformations.md#workspace-transformation-dcr) in the [ingestion-time transformations](ingestion-time-transformations.md), it must be configured to support the new features. When you complete the process described in this article, the following actions are taken:
 
 - The table will be reconfigured to enable all DCR-based custom logs features. This includes DCR and DCE support and management with the new Tables control plane.
 - Any previously defined custom fields will stop populating.
@@ -23,18 +23,18 @@ To use a table with the [direct ingestion](logs-ingestion-api-overview.md), and 
 ## Applicable scenarios
 This article is only applicable if all of the following criteria apply:  
 
-- You need to use the DCR-based custom logs functionality to send data to an existing table, preserving both schema and historical data in that table.
-- The table in question was either created using the Data Collector API, or has custom fields defined in it  
-- You want to migrate using the logs ingestion API instead of the Azure portal.
+- You need to send data to the table using the [Logs ingestion API](logs-ingestion-api-overview.md) or configure a transformation for the table in the [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr), preserving both schema and historical data in that table.
+- The table in question was either created using the Data Collector API, or has custom fields defined in it. 
+- You want to migrate using the APIs instead of the Azure portal as described in [Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-data-ingestion-portal.md) or [Add transformation in workspace data collection rule using the Azure portal (preview)](tutorial-workspace-transformations-portal.md).
 
-If all of these conditions aren't true, then you can use DCR-based custom logs without following the procedure described here.
+If all of these conditions aren't true, then you can use DCR-based log collection without following the procedure described here.
 
 ## Migration procedure
-If the table that you're targeting with DCR-based custom logs does indeed falls under the criteria described above, the following strategy is required for a graceful migration:
+If the table that you're targeting with DCR-based log collection fits the criteria above, then you must perform the following steps:
 
-1. Configure your data collection rule (DCR) following procedures at [Send custom logs to Azure Monitor Logs using Resource Manager templates (preview)](tutorial-data-ingestion-api.md) or [Add ingestion-time transformation to Azure Monitor Logs using Resource Manager templates (preview)](tutorial-workspace-transformations-api.md).
+1. Configure your data collection rule (DCR) following procedures at [Send custom logs to Azure Monitor Logs using Resource Manager templates (preview)](tutorial-data-ingestion-api.md) or [Add transformation in workspace data collection rule to Azure Monitor using resource manager templates (preview)](tutorial-workspace-transformations-api.md).
 
-1. If using the DCR-based API, also [configure the data collection endpoint (DCE)](tutorial-data-ingestion-api.md#create-data-collection-endpoint) and the agent or component that will be sending data to the API.
+1. If using the Logs ingestion API, also [configure the data collection endpoint (DCE)](tutorial-data-ingestion-api.md#create-data-collection-endpoint) and the agent or component that will be sending data to the API.
 
 1. Issue the following API call against your table. This call is idempotent, so there will be no effect if the table has already been migrated. 
 
@@ -42,7 +42,7 @@ If the table that you're targeting with DCR-based custom logs does indeed falls 
     POST /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.operationalinsights/workspaces/{workspaceName}/tables/{tableName}/migrate?api-version=2021-03-01-privatepreview
     ```
 
-1. Discontinue use of the Data Collector API and start using the new logs ingestion API.
+1. Discontinue use of the Data Collector API and start using the new Logs ingestion API.
 
 ## Next steps
 

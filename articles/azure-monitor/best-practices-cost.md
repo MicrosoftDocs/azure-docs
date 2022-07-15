@@ -98,7 +98,7 @@ There are multiple methods that you can use to limit the amount of data collecte
 ## Resource logs
 The data volume for [resource logs](essentials/resource-logs.md) varies significantly between services, so you should only collect the categories that are required. You may also not want to collect platform metrics from Azure resources since this data is already being collected in Metrics. Only configured your diagnostic data to collect metrics if you need metric data in the workspace for more complex analysis with log queries.
 
-Diagnostic settings do not allow granular filtering of resource logs. You may require certain logs in a particular category but not others. In this case, use [transformations](logs/data-collection-transformations.md) on the workspace to filter logs that you don't require. You can also filter out the value of certain columns that you don't require to save additional cost. 
+Diagnostic settings do not allow granular filtering of resource logs. You may require certain logs in a particular category but not others. In this case, use [transformations](essentials/data-collection-transformations.md) on the workspace to filter logs that you don't require. You can also filter out the value of certain columns that you don't require to save additional cost. 
 
 ## Other insights and services
 See the documentation for other services that store their data in a Log Analytics workspace for recommendations on optimizing their data usage. Following 

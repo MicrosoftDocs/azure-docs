@@ -59,7 +59,7 @@ Another example is data sent from a custom application using the [logs ingestion
 
 :::image type="content" source="media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram of ingestion-time transformation for custom application using logs ingestion API." border="false":::
 
-### Workspace transformation DCR
+## Workspace transformation DCR
 
 To apply a transformation to data that doesn't use a data collection rule, create the transformation in the [workspace transformation DCR](data-collection-rule-overview.md#types-of-data-collection-rules). This DCR can contain a transformation for one more [supported tables](../logs/tables-feature-support.md). Any data sent to these tables not using another DCR will have the transformation applied. 
 

@@ -18,7 +18,7 @@ Workspace transformations are stored together in a single [data collection rule 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Configure [workspace transformation](ingestion-time-transformations.md) for a table in a Log Analytics workspace.
+> * Configure [workspace transformation](../essentials/data-collection-transformations.md#workspace-transformation-dcr) for a table in a Log Analytics workspace.
 > * Write a log query for a workspace transformation.
 
 

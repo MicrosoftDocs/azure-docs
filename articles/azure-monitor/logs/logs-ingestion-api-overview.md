@@ -84,7 +84,7 @@ The body of the call includes the custom data to be sent to Azure Monitor. The s
 For sample data and API call using the logs ingestion API, see either [Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-data-ingestion-portal.md) or [Send custom logs to Azure Monitor Logs using Resource Manager templates](tutorial-data-ingestion-api.md)
 
 ## Limits and restrictions
-For limits related to logs ingestion API, see [Azure Monitor service limits](../service-limits.md#data-ingestion-api).
+For limits related to Logs ingestion API, see [Azure Monitor service limits](../service-limits.md#logs-ingestion-api).
 
  
 

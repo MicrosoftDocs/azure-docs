@@ -21,7 +21,7 @@ Some of these data sources use the [new data ingestion pipeline](data-collection
 Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections. See [Monitoring data locations in Azure](monitor-reference.md) for a description of each data location and how you can access its data.
 
 
-:::image type="content" source="media/data-sources/overview.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/data-sources/overview.png":::
+:::image type="content" source="media/overview/overview.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview.png":::
 
 
 ### Azure
