@@ -32,7 +32,7 @@ Some of the benefits of confidential VMs include:
 
 Azure confidential VMs offer a new and enhanced disk encryption scheme. This scheme protects all critical partitions of the disk. It also binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. These encryption keys can securely bypass Azure components, including the hypervisor and host operating system. To minimize the attack potential, a dedicated and separate cloud service also encrypts the disk during the initial creation of the VM.
 
-If the compute platform is missing critical settings for your VM's isolation then during boot [Azure Attestation](https://azure.microsoft.com/services/azure-attestation/) will not attest to the platform's health. This will prevent the VM from starting. For example, this scenario happens if you haven't enabled SEV-SNP. 
+If the compute platform is missing critical settings for your VM's isolation, then during boot [Azure Attestation](https://azure.microsoft.com/services/azure-attestation/) won't attest to the platform's health. It will prevent the VM from starting. For example, this scenario happens if you haven't enabled SEV-SNP. 
 
 Full-disk encryption is optional, because this process can lengthen the initial VM creation time. You can choose between:
 
