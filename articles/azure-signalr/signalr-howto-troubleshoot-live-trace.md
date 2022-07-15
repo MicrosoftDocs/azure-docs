@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: signalr
 ms.topic: conceptual 
-ms.date: 06/30/2021
+ms.date: 0714/2022
 ---
 
 # How to use live trace tool for Azure SignalR service
