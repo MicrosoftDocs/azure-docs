@@ -133,7 +133,7 @@ System-assigned identity is restricted to one per resource and is tied to the li
 
 Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key Vault using the Principal ID captured in the **Enable MSI** tab.
 
-1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption** and then **Customer-managed keys (CMK)**.
+1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption**, then **Customer-managed keys (CMK)**.
 1. CMK provides two options for **Key Selection** from Azure Key Vault.
     
     **Option 1**
