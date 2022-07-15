@@ -497,9 +497,9 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 #### Syntax Limitations
 
-- "version x.x" always needs to be the first yaml statement in the file
+- "version x.x" always needs to be the first YAML statement in the file
 - ports section must use quoted numbers
-- image > volume section must be quoted and cannot have a permissions definitions
+- image > volume section must be quoted and cannot have permissions definitions
 - volumes section must not have an empty curly brace after the volume name
 
 > [!NOTE]
