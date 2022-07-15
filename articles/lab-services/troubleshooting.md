@@ -33,4 +33,4 @@ Possible issues:
 
 - The administrator only enabled one region for the lab plan. To specify regions, see [Configure regions for labs](create-and-configure-labs-admin.md).
 
-- Lab plan uses advanced networking. The lab plan and all labs must be in the same region as the network. For more information, see [Use advanced networking](how-to-connect-vnet-injection).
+- Lab plan uses advanced networking. The lab plan and all labs must be in the same region as the network. For more information, see [Use advanced networking](how-to-connect-vnet-injection.md).
