@@ -255,24 +255,26 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 
 [PyTorch Lightning](https://pytorch-lightning.readthedocs.io/en/stable/) is a lightweight open-source library that provides a high-level interface for PyTorch. Lightning abstracts away many of the lower-level distributed training configurations required for vanilla PyTorch. Lightning allows you to run your training scripts in single GPU, single-node multi-GPU, and multi-node multi-GPU settings. Behind the scene, it launches multiple processes for you similar to `torch.distributed.launch`.
 
-For single-node training (including single-node multi-GPU), you can run your code on Azure ML without needing to specify a `distributed_job_config`. For multi-node training, Lightning requires the following environment variables to be set on each node of your training cluster:
+For single-node training (including single-node multi-GPU), you can run your code on Azure ML without needing to specify a `distributed_job_config`. 
+To run an experiment using multiple nodes with multiple GPUs, there are 2 options:
 
-- MASTER_ADDR
-- MASTER_PORT
-- NODE_RANK
+- Using PyTorch configuration (recommneded): Define `PyTorchConfiguration` and specify `communication_backend="Nccl"`, `node_count`, and `process_count` (note that this is the total number of processes, ie, `num_nodes * process_count_per_node`). In Lightning Trainer module, specify both `num_nodes` and `gpus` to be consistent with `PyTorchConfiguration`, ie, `num_nodes = node_count` and `gpus = process_count_per_node`.
 
-To run multi-node Lightning training on Azure ML, follow the [per-node-launch](#per-node-launch) guidance, but note that currently, the `ddp` strategy works only when you run an experiment using multiple nodes, with one GPU per node.
+- Using MPI Configuration: 
 
-To run an experiment using multiple nodes with multiple GPUs:
-
-- Define `MpiConfiguration` and specify `node_count`. Don't specify `process_count` because Lightning internally handles launching the worker processes for each node.
-- For PyTorch jobs, manually set the MASTER_ADDR, MASTER_PORT, and NODE_RANK environment variables that Lightning requires in the main training scripts:
+   - Define `MpiConfiguration` and specify both `node_count` and `process_count_per_node`. In Lightning Trainer, specify both `num_nodes` and `gpus` to be respectively the same as `node_count` and `process_count_per_node` from `MpiConfiguration`. 
+   - For multi-node training with MPI, Lightning requires the following environment variables to be set on each node of your training cluster:
+      - MASTER_ADDR
+      - MASTER_PORT
+      - NODE_RANK
+      
+      Manually set these environment variables that Lightning requires in the main training scripts:
 
    ```python
    import os
    from argparse import ArgumentParser
 
-   def set_environment_variables_for_nccl_backend(num_nodes, gpus_per_node, master_port=54965):
+   def set_environment_variables_for_mpi(num_nodes, gpus_per_node, master_port=54965):
        if num_nodes > 1:
            os.environ["MASTER_ADDR"], os.environ["MASTER_PORT"] = os.environ["AZ_BATCH_MASTER_NODE"].split(":")
        else:
@@ -292,20 +294,26 @@ To run an experiment using multiple nodes with multiple GPUs:
    if __name__ == "__main__":
        parser = ArgumentParser()
        parser.add_argument("--num_nodes", type=int, required=True)
-       parser.add_argument("--gpus", type=int, required=True)
+       parser.add_argument("--gpus_per_node", type=int, required=True)
        args = parser.parse_args()
-       set_environment_variables_for_nccl_backend(args.num_nodes, args.gpus)
+       set_environment_variables_for_nccl_backend(args.num_nodes, args.gpus_per_node)
+       
+       trainer = Trainer(
+        num_nodes=args.num_nodes,
+        gpus=args.gpus_per_node
+    )
    ```
 
-- Lightning handles computing the world size from the Trainer flags `--gpus` and `--num_nodes` and manages rank and local rank internally:
+     Lightning handles computing the world size from the Trainer flags `--gpus` and `--num_nodes`.
 
    ```python
    from azureml.core import ScriptRunConfig, Experiment
    from azureml.core.runconfig import MpiConfiguration
 
    nnodes = 2
-   args = ['--max_epochs', 50, '--gpus', 2, '--accelerator', 'ddp_spawn', '--num_nodes', nnodes]
-   distr_config = MpiConfiguration(node_count=nnodes)
+   gpus_per_node = 4
+   args = ['--max_epochs', 50, '--gpus_per_node', gpus_per_node, '--accelerator', 'ddp', '--num_nodes', nnodes]
+   distr_config = MpiConfiguration(node_count=nnodes, process_count_per_node=gpus_per_node)
 
    run_config = ScriptRunConfig(
      source_directory='./src',
