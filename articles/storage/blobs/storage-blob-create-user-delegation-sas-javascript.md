@@ -68,7 +68,7 @@ const containerName = process.env.AZURE_STORAGE_BLOB_CONTAINER_NAME;
 
 With managed identity configured, use the following code to create **User delegation SAS token** for an existing account and container:
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_CreateContainerSas" highlight="14, 21, 36":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_CreateContainerSas" highlight="18, 25, 42":::
 
 The preceding code creates a flow of values in order to create the container SAS token:
 
@@ -84,7 +84,7 @@ Once the container SAS token is created, use the token. As an example of using t
 * Create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-constructor-2) with the container URL.
 * Use the client: in this example, list blobs in the container with [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat).
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_ListBlobs" highlight="11,15, 20":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_ListBlobs" highlight="10, 14, 19":::
 
 ## Blob: add required dependencies to your application
 
@@ -129,7 +129,7 @@ Once the blob SAS token is created, use the token. As an example of using the SA
 * Create a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) with the container URL.
 * Use the client: in this example, upload blob with [upload](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-upload).
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-blob-sas-token.js" id="Snippet_UploadToBlob" highlight="13, 16":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-blob-sas-token.js" id="Snippet_UploadToBlob" highlight="9, 13, 16":::
 
 
 ## See also
