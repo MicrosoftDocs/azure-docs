@@ -13,7 +13,7 @@ author: lauradolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions (ACSS)*. There are [three deployment options](#deployment-types): High Availability (HA), non-HA, and single server. 
+In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions (ACSS)*. There are [three deployment options](#deployment-types): distributed with High Availability (HA), distributed non-HA, and single server. 
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azur
 There are three deployment options that you can select for your infrastructure, depending on your use case.
 
 - **Distributed with High Availability (HA)** creates distributed HA architecture. This option is recommended for production environments. If you choose this option, you need to select a **High Availability SLA**. Select the appropriate SLA for your use case:
-    - **99.99% (Optimize for availability)** shows available zone pairs for VM deployment. The first zone is primary and the next is secondary. Active ASCS and Database servers are deployed in the primary zone. Passive ASCS and Database servers are deployed in the secondary zone. Application servers are deployed evenly across both zones. In regions without availability zones, or without at least one M-series and E-series VM SKU, this option isn't shown.
+    - **99.99% (Optimize for availability)** shows available zone pairs for VM deployment. The first zone is primary and the next is secondary. Active ASCS and Database servers are deployed in the primary zone. Passive ASCS and Database servers are deployed in the secondary zone. Application servers are deployed evenly across both zones. This option isn't shown in regions without availability zones, or without at least one M-series and E-series VM SKU available in the zonal pairs within that region.
     - **99.95% (Optimize for cost)** shows three availability sets for all instances. The HA ASCS cluster is deployed in the first availability set. All Application servers are deployed across the second availability set. The HA Database server is deployed in the third availability set. No availability zone names are shown.
-- **Distributed** creates distributed non-HA architecture. This option isn't recommended for production environments.
+- **Distributed** creates distributed non-HA architecture. 
 - **Single Server** creates architecture with a single server. This option is available for non-production environments only.
 ## Create deployment
 
