@@ -5,7 +5,7 @@
  author: roygara
  ms.service: storage
  ms.topic: include
- ms.date: 07/14/2022
+ ms.date: 07/15/2022
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -15,6 +15,5 @@
 1. Currently, taking snapshots aren't supported, and you can't create a Premium SSD v2 from the snapshot of another disk type.
 1. Currently, Premium SSD v2 disks can't be attached to VMs with encryption at host enabled.
 1. Currently, Premium SSD v2 disks can't be attached to VMs in Availability Sets.
-1. Azure Disks Encryption isn't supported for VMs with Premium SSD v2 disks. 
-1. Only uncached reads and uncached writes are supported.
+1. Azure Disk Encryption isn't supported for VMs with Premium SSD v2 disks.
 1. Azure Backup and Azure Site Recovery aren't supported for VMs with Premium SSD v2 disks. 
