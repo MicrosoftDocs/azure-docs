@@ -248,7 +248,6 @@ client.download_artifacts(run_id, "helloworld.txt", ".")
 
 For more details about how to retrieve information from experiments and runs in Azure Machine Learning using MLflow view [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
 
-
 ## Manage models
 
 Register and track your models with the [Azure Machine Learning model registry](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere), which supports the MLflow model registry. Azure Machine Learning models are aligned with the MLflow model schema making it easy to export and import these models across different workflows. The MLflow-related metadata, such as run ID, is also tracked with the registered model for traceability. Users can submit training runs, register, and deploy models produced from MLflow runs.
@@ -285,7 +284,7 @@ To register and view a model from a run, use the following steps:
 
 ## Example files
 
-[Use MLflow and CLI (v2)](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/basics/hello-mlflow.yml)
+[Using MLflow (Jupyter Notebooks)](https://github.com/Azure/azureml-examples/tree/main/notebooks/using-mlflow)
 
 ## Limitations
 
