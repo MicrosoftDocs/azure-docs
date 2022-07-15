@@ -30,7 +30,7 @@ Use the search bar to find machine learning assets across all workspaces, resour
 ## Free text search
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).  
-1. In the top studio titlebar, select **All workspaces** or **All workspaces** to set the search context.
+1. In the top studio titlebar, select **This workspace** or **All workspaces** to set the search context.
 
     :::image type="content" source="media/how-to-search-assets/search-bar.png" alt-text="Screenshot: Shows search in titlebar.":::
 
