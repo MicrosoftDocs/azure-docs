@@ -30,6 +30,14 @@ The following image illustrates the relationship between restore point collectio
 
 VM restore points are incremental. The first restore point stores a full copy of all disks attached to the VM. For each successive restore point for a VM, only the incremental changes to your disks are backed up. To reduce your costs, you can optionally exclude any disk when creating a restore point for your VM.
 
+## Restore points for VMs inside Virtual Machine Scale Set and Availability Set (AvSet)
+
+Currently, restore points can only be created in one VM at a time, that is, you cannot create a single restore point across multiple VMs. Due to this limitation, we currently support creating restore points for individual VMs with a Virtual Machine Scale Set and Availability Set. If you want to back up your entire Virtual Machine Scale Set instance or your Availability Set instance, you must individually create restore points for all the VMs that are part of the instance.
+
+> [!Note]
+> Virtual Machine Scale Set with Unified orchestration is not supported by restore points. You cannot create restore points of VMs inside a Virtual Machine Scale Set with Unified orchestration.
+
+
 ## Limitations
 
 - Restore points are supported only for managed disks. 
@@ -44,7 +52,7 @@ VM restore points are incremental. The first restore point stores a full copy of
  > - Customer-managed key encrypted restore points, when copied to a target region or created directly in the target region are created as platform-managed key encrypted restore points.
 
 ## Troubleshoot VM restore points
-Most common restore points failures are attributed to the communication with the VM agent and extension, and can be resolved by following the troubleshooting steps listed in the [troubleshooting](/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#step-by-step-guide-to-troubleshoot-backup-failures) article.
+Most common restore points failures are attributed to the communication with the VM agent and extension, and can be resolved by following the troubleshooting steps listed in the [troubleshooting](restore-point-troubleshooting.md) article.
 
 ## Next steps
 

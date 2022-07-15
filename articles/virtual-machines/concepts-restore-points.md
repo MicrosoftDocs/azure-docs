@@ -21,30 +21,28 @@ The following table summarizes the support matrix for VM restore points.
 **Scenarios** | **Supported by VM restore points**
 --- | ---
 **VMs using Managed disks** | Yes
-**VMs using unmanaged disks** | No. Exclude these disks and create a VM restore point.
+**VMs using unmanaged disks** | No
 **VMs using Ultra Disks** | No. Exclude these disks and create a VM restore point.
 **VMs using Ephemeral OS Disks** | No. Exclude these disks and create a VM restore point.
 **VMs using shared disks** | No. Exclude these disks and create a VM restore point.
 **VMs with extensions** | Yes
-**VMs with trusted enabled** | Yes
+**VMs with trusted launch** | Yes
 **Confidential VMs** | Yes
 **Generation 2 VMs (UEFI boot)** | Yes
 **VMs with NVMe disks (Storage optimized - Lsv2-series)** | Yes
 **VMs in Proximity placement groups** | Yes
 **VMs in an availability set** | Yes. You can create VM restore points for individual VMs within an availability set. You need to create restore points for all the VMs within an availability set to protect an entire availability set instance.
-**Reserved VM instances (Azure reservations)** | Yes
-**VMs inside VMSS unified** | No
-**VMs inside VMSS Flex** | Yes. You can create VM restore points for individual VMs within the virtual machine scale set flex. However, you need to create restore points for all the VMs within the virtual machine scale set flex to protect an entire virtual machine scale set flex instance.
+**VMs inside VMSS with uniform orchestration** | No
+**VMs inside VMSS with flexible orchestration** | Yes. You can create VM restore points for individual VMs within the virtual machine scale set flex. However, you need to create restore points for all the VMs within the virtual machine scale set flex to protect an entire virtual machine scale set flex instance.
 **Spot VMs (Low priority VMs)** | Yes
 **VMs with dedicated hosts** | Yes
 **VMs with Host caching enabled** | Yes
-**VMs with pinned nodes** | Yes
 **VMs created from marketplace images** | Yes
 **VMs created from custom images** | Yes
 **VM with HUB (Hybrid Use Benefit) license** | Yes
 **VMs migrated from on-prem using Azure Migrate** | Yes
 **VMs with RBAC policies** | Yes
-**Temporary disk in VMs** | Yes. You can create VM restore point for VMs with temporary disks. However, the restore points created do not contain the data from the temporary disks.
+**Temporary disk in VMs** | Yes. You can create VM restore point for VMs with temporary disks. However, the restore points created don't contain the data from the temporary disks.
 **VMs with standard HDDs** | Yes
 **VMs with standard SSDs** | Yes
 **VMs with premium SSDs** | Yes
@@ -55,21 +53,48 @@ The following table summarizes the support matrix for VM restore points.
 **VMs with Host based encryption enabled with PMK/CMK/Double encryption** | Yes
 **VMs with ADE (Azure Disk Encryption)** | Yes
 **VMs using Accelerated Networking** | Yes
-**VMs that are live migrated** | Yes
-**VMs that are service healed** | Yes
+**Frequency supported** | Three hours for app consistent restore points. One hour for [crash consistent restore points (preview)](https://github.com/Azure/Virtual-Machine-Restore-Points/tree/main/Crash%20consistent%20VM%20restore%20points%20(preview))
 
-## Limitations
+## Operating system support
+
+### Windows
+
+The following Windows operating systems are supported when creating restore points for Azure VMs running on Windows.
+
+- Windows 10 Client (64 bit only)
+- Windows Server 2022 (Datacenter/Datacenter Core/Standard)
+- Windows Server 2019 (Datacenter/Datacenter Core/Standard)
+- Windows Server 2016 (Datacenter/Datacenter Core/Standard)
+- Windows Server 2012 R2 (Datacenter/Standard)
+- Windows Server 2012 (Datacenter/Standard)
+- Windows Server 2008 R2 (RTM and SP1 Standard)
+- Windows Server 2008 (64 bit only)
+
+Restore points don't support 32-bit operating systems.
+
+### Linux
+
+For Azure VM Linux VMs, restore points support the list of Linux [distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md). Note the following:
+
+- Restore points don't support Core OS Linux.
+- Restore points don't support 32-bit operating systems.
+- Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](../virtual-machines/extensions/agent-linux.md) is available on the VM, and as long as Python is supported.
+- Restore points don't support a proxy-configured Linux VM if it doesn't have Python version 2.7 or higher installed.
+- Restore points don't back up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks that are locally attached to the VM.
+
+## Other limitations
 
 - Restore points are supported only for managed disks. 
-- Ultra-disks, Ephemeral OS disks, and Shared disks are not supported. 
+- Ultra-disks, Ephemeral OS disks, and Shared disks aren't supported. 
 - Restore points APIs require an API of version 2021-03-01 or later. 
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 
-- Concurrent creation of restore points for a VM is not supported. 
-- Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM processor IDs between the actual VM and the restore points. 
+- Concurrent creation of restore points for a VM isn't supported. 
+- Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions isn't supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions won't update the source VM reference in the restore point and will cause a mismatch of ARM processor IDs between the actual VM and the restore points. 
  > [!Note]
  > Public preview of cross-region creation and copying of VM restore points is available, with the following limitations: 
- > - Private links are not supported when copying restore points across regions or creating restore points in a region other than the source VM. 
+ > - Private links aren't supported when copying restore points across regions or creating restore points in a region other than the source VM. 
  > - Customer-managed key encrypted restore points, when copied to a target region or created directly in the target region are created as platform-managed key encrypted restore points.
+ > - No portal support for cross region copy and cross region creation of restore points
 
 ## Next steps
 

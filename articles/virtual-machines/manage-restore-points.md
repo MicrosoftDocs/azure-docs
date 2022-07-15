@@ -54,6 +54,7 @@ After you have the list of disk restore point IDs, you can use the [Disks - Crea
 ## Restore a VM with a restore point
 
 To restore a full VM from a VM restore point, you must restore individual disks from each disk restore point. This process is described in the [Create a disk](#create-a-disk-using-disk-restore-points) section. After you restore all the disks, create a new VM and attach the restored disks to the new VM.
+You can also use the [ARM template](https://github.com/Azure/Virtual-Machine-Restore-Points/blob/main/RestoreVMFromRestorePoint.json) to restore a full VM along with all the disks.
 
 ## Get a shared access signature for a disk
 
