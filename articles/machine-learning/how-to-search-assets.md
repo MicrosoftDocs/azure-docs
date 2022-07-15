@@ -42,7 +42,7 @@ A contains search scans across all metadata fields for the given asset and sorts
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).  
 1. In the top studio titlebar, select **All workspaces**.
-1. Click inside the search field to select any number of filters to create more specific search queries.
+1. Click inside the search field to display filters to create more specific search queries.
 
 :::image type="content" source="media/how-to-search-assets/search-filters.gif" alt-text="Screenshot: Display search filters.":::
 
