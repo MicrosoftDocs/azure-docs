@@ -63,4 +63,4 @@ This query contains time consuming join due to "Or" condition within query. We r
 
 ## Next steps
 
-[Apache Spark in Azure Synapse Analytics](synapse-analytics/spark/apache-spark-overview.md)
+For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.
