@@ -127,7 +127,7 @@ For application security recommendations, see [Microsoft identity platform best 
 
 ## Next steps
 
-- [Azure confidential ledger authentication with Azure Active Directory (Azure AD)](authentication-aad.md)
+- [Azure confidential ledger authentication with Azure Active Directory (Azure AD)](authentication-azure-ad.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)
 - [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-register-app.md)
 - [Use portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
