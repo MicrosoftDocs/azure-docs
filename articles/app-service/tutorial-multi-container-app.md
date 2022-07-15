@@ -15,6 +15,9 @@ ms.custom: cli-validate, devx-track-azurecli
 > [!NOTE]
 > Multi-container is in preview.
 
+> [!WARNING]
+> [Azure Managed Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) are not supported in multi-containers at this time.
+
 [Web App for Containers](overview.md#app-service-on-linux) provides a flexible way to use Docker images. In this tutorial, you'll learn how to create a multi-container app using WordPress and MySQL. You'll complete this tutorial in Cloud Shell, but you can also run these commands locally with the [Azure CLI](/cli/azure/install-azure-cli) command-line tool (2.0.32 or later).
 
 In this tutorial, you learn how to:
