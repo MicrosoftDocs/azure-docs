@@ -36,20 +36,28 @@ Create a new file called
 
 Create a new `RoomsClient` object that will be used to create new `rooms` and manage their properties and lifecycle. The connection string of your `Communications Service` will be used to authenticate the request. For more information on connection strings, see [this page](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
-```csharp
-// Find your Communication Services resource in the Azure portal
-var connectionString = "<connection_string>"; 
-RoomsClient roomsClient = new RoomsClient(connectionString);
+```python
+#Find your Communication Services resource in the Azure portal
+self.connection_string = os.getenv("COMMUNICATION_SAMPLES_CONNECTION_STRING")
+self.rooms_client = RoomsClient.from_connection_string(self.connection_string)
 ```
 
 ### Create a room
 
 Create a new `room` with default properties using the code snippet below:
 
-```csharp
-RoomRequest request = new RoomRequest();
-Response<RoomModel> createRoomResponse = await roomsClient.CreateRoomAsync(validFrom, validUntil, RoomJoinPolicy.InviteOnly, participants);
-RoomModel createCommunicationRoom = createRoomResponse.Value;
+```python
+valid_from = datetime.now()
+valid_until = valid_from + relativedelta(months=+1)
+participants = []
+participants.append(RoomParticipant(CommunicationUserIdentifier("<ACS User MRI identity 1>")))
+participants.append(RoomParticipant(CommunicationUserIdentifier("<ACS User MRI identity 2>")))
+participants.append(RoomParticipant(CommunicationUserIdentifier("<ACS User MRI identity 3>")))
+
+try:
+    create_room_response = self.rooms_client.create_room(valid_from=valid_from, valid_until=valid_until, participants=participants)
+except HttpResponseError as ex:
+    print(ex)
 ```
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object. 
@@ -58,25 +66,27 @@ Since `rooms` are server-side entities, you may want to keep track of and persis
 
 Retrieve the details of an existing `room` by referencing the `roomId`:
 
-```csharp
-Response<RoomModel> getRoomResponse = await roomsClient.GetRoomAsync(createdRoomId)
-RoomModel getCommunicationRoom = getRoomResponse.Value;
+```python
+try:
+    get_room_response = self.rooms_client.get_room(room_id=room_id)
+except HttpResponseError as ex:
+    print(ex)
 ```
 
 ### Update the lifetime of a room
 
 The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
 
-```csharp
-var validFrom = new DateTime(2022, 05, 01, 00, 00, 00, DateTimeKind.Utc);
-var validUntil = validFrom.AddDays(1);
+```python
+# set attributes you want to change
+valid_from =  datetime.now()
+valid_until = valid_from + relativedelta(months=+1,days=+20)
 
-UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest();
-updateRoomRequest.ValidFrom = validFrom;
-updateRoomRequest.ValidUntil = validUntil;
-
-Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(roomId, updateRoomRequest);
-CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
+try:
+    update_room_response = self.rooms_client.update_room(room_id=room_id, valid_from=valid_from, valid_until=valid_until)
+    self.printRoom(response=update_room_response)
+except HttpResponseError as ex:
+    print(ex)
 ``` 
 
 ### Add new participants 
@@ -84,17 +94,12 @@ CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 To add new participants to a `room`, issue an update request on the room's `Participants`:
 
 ```csharp
-var communicationUser1 = "<CommunicationUserId1>";
-var communicationUser2 = "<CommunicationUserId2>";
-var communicationUser3 = "<CommunicationUserId3>";
+participants = [RoomParticipant(CommunicationUserIdentifier("<ACS User MRI identity 4>"))]
 
-List<RoomParticipant> toAddCommunicationUsers = new List<RoomParticipant>();
-toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser1), "Presenter"));
-toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser2), "Attendee"));
-toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser3), "Attendee"));
-
-Response<RoomModel> addParticipantResponse = await roomsClient.AddParticipantsAsync(createdRoomId, toAddCommunicationUsers);
-RoomModel addedParticipantsRoom = addParticipantResponse.Value;
+try:
+    add_participants_response = self.rooms_client.add_participants(room_id=room_id, participants=participants)
+except HttpResponseError as ex:
+    print(ex)
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -103,19 +108,18 @@ Participants that have been added to a `room` become eligible to join calls.
 
 To remove a participant from a `room` and revoke their access, update the `Participants` list:
 
-```csharp
-var communicationUser = "<CommunicationUserId1>";
+```python
+participants = [CommunicationUserIdentifier("<ACS User MRI identity 2>")]
 
- List<CommunicationIdentifier> toRemoveCommunicationUsers = new List<CommunicationIdentifier>();
-toRemoveCommunicationUsers.Add(new CommunicationUserIdentifier(communicationUser));
-
-Response<RoomModel> removeParticipantResponse = await roomsClient.RemoveParticipantsAsync(createdRoomId, toRemoveCommunicationUsers);
-RoomModel removeParticipantsRoom = removeParticipantResponse.Value;
+try:
+    remove_participants_response = self.rooms_client.remove_participants(room_id=room_id, communication_identifiers=participants)
+except HttpResponseError as ex:
+    print(ex)
 ```
 
 ### Delete room
 If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period. 
 
-```csharp
-Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(createdRoomId);
+```python
+self.rooms_client.delete_room(room_id=room)
 ```

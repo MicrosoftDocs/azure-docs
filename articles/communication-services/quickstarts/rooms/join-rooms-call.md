@@ -6,8 +6,7 @@ author: radubulboaca
 manager: mariusu
 
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
-ms.date: 01/26/2022
+ms.date: 07/14/2022
 ms.topic: include
 ms.custom: include file
 ms.author: radubulboaca
@@ -18,14 +17,44 @@ zone_pivot_groups: acs-web-ios-android
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+- Two or more Communication User Identities. [Create and manage access tokens](../access-tokens.md) or [Quick-create identities for testing](../identity/quick-create-identity.md).
+- A room resource. [Create and manage rooms](get-started-rooms.md)
+
+## Obtain User Access Token
+
+You'll need to create a User Access Token for each call participant. [Learn how to create and manage user access tokens](../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+```azurecli-interactive
+az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
+```
+
+For details, see [Use Azure CLI to Create and Manage Access Tokens](../access-tokens.md?pivots=platform-azcli).
+
 ::: zone pivot="platform-web"
-[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-call-web.md)]
+[!INCLUDE [Join a room call from web calling SDK](./includes/rooms-quickstart-call-web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-call-ios.md)]
+[!INCLUDE [Join a room call from iOS calling SDK](./includes/rooms-quickstart-call-ios.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-call-android.md)]
+[!INCLUDE [Join a room call from Android calling SDK](./includes/rooms-quickstart-call-android.md)]
 ::: zone-end
+
+## Next Steps 
+
+In this section you learned how to:
+> [!div class="checklist"]
+> - Add video calling to your application
+> - Pass the room identifier to the calling SDK
+> - Join a room call from your application
+
+You may also want to:
+ - Learn about [rooms concept](../../concepts/rooms/room-concept.md)
+ - Learn about [voice and video calling concepts](../../concepts/voice-video-calling/about-call-types.md)
+ - Learn about [authentication concepts](../../concepts/authentication.md)

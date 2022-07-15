@@ -17,7 +17,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-This quickstart will help you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a pre-determined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and potential use cases for `rooms`.
+This quickstart will help you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a pre-determined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-javascript.md)]
@@ -49,14 +49,15 @@ The table below lists the main properties of `room` objects:
 
 ## Next steps
 
+Once you've created the room and configured it, you can learn how to [join a rooms call](join-rooms-call.md). 
+
 In this section you learned how to:
 > [!div class="checklist"]
 > - Create a new room
 > - Get the properties of a room
 > - Update the properties of a room
 > - Delete a room
-  - Join a room call
->
+
 You may also want to:
  - Learn about [rooms concept](../../concepts/rooms/room-concept.md)
  - Learn about [voice and video calling concepts](../../concepts/voice-video-calling/about-call-types.md)
