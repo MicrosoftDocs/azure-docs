@@ -1,6 +1,6 @@
 ---
-title: Migrate Azure Application Gateway deployments to availability zone support 
-description: Learn how to migrate your Azure Application Gateway deployments to availability zone support.
+title: Migrate Azure Application Gateway and WAF deployments to availability zone support 
+description: Learn how to migrate your Azure Application Gateway and WAF deployments to availability zone support.
 author: anaharris-ms
 ms.service: application-gateway
 ms.topic: conceptual
@@ -10,15 +10,16 @@ ms.reviewer: anaharris
 ms.custom: references_regions
 ---
 
-# Migrate Application Gateway deployments to availability zone support
+# Migrate Application Gateway and WAF deployments to availability zone support
  
-Application Gateway Standard v2 or WAF v2 supports zonal and/or zone redundant deployments.  To change your Application Gateway Standard v2 deployments to zonal or to complete zone redundancy, you must redeploy them by using one of the migration options in this article.
+[Application Gateway Standard v2](/azure/application-gateway/overview-v2) or WAF v2 now supports zonal and zone redundant deployments. For more information, see [Regions and availability zones](az-overview.md). 
+
+If you previously deployed Azure Application Gateway Standard v2 or WAF v2 without zonal support, you must redeploy these services to enable zone redundancy. Two migration options are described in this article.
 
 ## Prerequisites
 
 - Your deployment must be Standard v2 or WAF v2 SKU. Earlier SKUs (Standard and WAF) don't support zone awareness. 
-
-- Confirm that your storage account(s) is a general-purpose v2 account. If your storage account is v1, you'll need to upgrade it to v2. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md).
+- Confirm that your storage accounts are general-purpose v2 accounts. If a storage account is v1, you'll need to upgrade it to v2. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md).
 
 ## Downtime requirements
 
@@ -26,54 +27,38 @@ Some migration options described in this article require downtime until new depl
 
 ## Option 1: Create a separate Application Gateway and IP address
 
-This option requires you to create a separate Application Gateway deployment, along with a public IP address. Workloads are then migrated from the non-zone aware Application Gateway setup to the new one. 
+This option requires you to create a separate Application Gateway deployment, using a new public IP address. Workloads are then migrated from the non-zone aware Application Gateway setup to the new one. 
 
-Since you're changing the public IP address, changes to DNS configuration will likely be required.
-
-This option also may require changes to virtual network/subnet configuration.
+Since you're changing the public IP address, changes to DNS configuration are required. This option also requires some changes to virtual networks and subnets.
 
 Use this option to:
 
 - Minimize downtime. If DNS records are updated to the new environment, clients will establish new connections to the new gateway with no interruption.
-
 - Allow for extensive testing or even a blue/green scenario.
 
-To learn how to create and deploy a new Application Gateway and public IP address see [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway).
+To create a separate Application Gateway and IP address:
 
+1. Go to the [Azure portal](https://portal.azure.com).
+2. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to create a new Application Gateway v2 or Application Gateway V2 + WAF v2, respectively. You can reuse your existing Virtual Network or create a new one, but you must create a new frontend Public IP address.
+3. Verify that the application gateway and WAF are working as intended.
+4. Migrate your DNS configuration to the new public IP address.
+5. Delete the old Application gateway and WAF resources.
 
-## Option 2: Delete/Redeploy Application Gateway and IP address
+## Option 2: Delete and redeploy Application Gateway
 
-This option doesn't require you to reconfigure a virtual network/subnet.
+This option doesn't require you to reconfigure a virtual network/subnet. If the public IP address for the Application Gateway is already configured for the desired end state zone awareness, you can choose to delete and redeploy the Application Gateway, and leave the Public IP address unchanged.
 
-Since you're changing the public IP address, changes to DNS configuration will likely be required. However, if the public IP address for the Application Gateway is already configured for the desired end state zone awareness, you can choose to delete and redeploy the Application Gateway, and leave the IP address as is. See [Option 3: Delete/Redeploy Application Gateway and Keep IP address](#option-3-deleteredeploy-application-gateway-and-keep-ip-address) for more information.
+Use this option to:
 
+- Avoid changing IP address, subnet, and DNS configurations.
+- Move workloads that are not sensitive to downtime.
 
 To delete the Application Gateway and public IP address and redeploy new ones:
 
 1. Go to the [Azure portal](https://portal.azure.com). 
-
-1. Select **All resources**, and then select the resource group that contains the Application Gateway.
-
-1. Select **Delete**.
-
-1. After you have deleted the Application Gateway resource, select the public IP address and repeat the process.
-
-1. To learn how to create and deploy a new Application Gateway and public IP address see [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway).
-
-## Option 3: Delete/Redeploy Application Gateway and Keep IP address
-
-This option doesn't require you to reconfigure a virtual network/subnet. Since you aren't changing the public IP address, changes to DNS configuration won't be required.
-
-To delete the Application Gateway and redeploy a new one:
-
-1. Go to the [Azure portal](https://portal.azure.com). 
-
-1. Select **All resources**, and then select the resource group that contains the Application Gateway.
-
-1. Select **Delete**.
-
-1. To learn how to create and deploy a new Application Gateway see [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway).
-
+2. Select **All resources**, and then select the resource group that contains the Application Gateway.
+3. **Delete** the Application Gateway.
+4. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to create a new Application Gateway v2 or Application Gateway V2 + WAF v2, respectively, reusing the same Virtual Network, subnets, and Public IP address that you used previously.
 
 ## Next steps
 
