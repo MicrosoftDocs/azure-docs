@@ -12,13 +12,13 @@ ms.author: mbaldwin
 
 # How to register an Azure confidential ledger application with Azure AD
 
-In this article, you'll learn how to integrate your Azure confidental ledger application with Azure AD by registering it with the Microsoft identity platform.  
+In this article you'll learn how to integrate your Azure confidental ledger application with Azure AD, by registering it with the Microsoft identity platform.  
 
 The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform. [Learn more about the Microsoft identity platform](../active-directory/develop/v2-overview.md).
 
 ## Prerequisites
 
-- An Azure account that has an active subscription, and permission to manage applications in Azure Active Directory (Azure AD). [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription and permission to manage applications in Azure Active Directory (Azure AD). [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure AD tenant. [Learn how to set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 - An application that calls Azure confidental ledger.
 
@@ -129,7 +129,7 @@ For application security recommendations, see [Microsoft identity platform best 
 
 - [Azure confidential ledger authentication with Azure Active Directory (Azure AD)](authenticate-aad.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)
-- [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md)
-- [Use portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md)
+- [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-register-app.md)
+- [Use portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)
