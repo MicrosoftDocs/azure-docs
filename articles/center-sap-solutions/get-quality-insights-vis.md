@@ -55,8 +55,7 @@ Select an instance name to see all recommendations, including which action to ta
 
 The following checks are run for each VIS:
 
-- VMs used for all instances in the VIS should be certified by SAP
-     - For better performance and support, ensure that VM is Certified for SAP on AzureFor better performance and support, ensure that VM is Certified for SAP on Azure. For more details, see [SAP note 1928533] (https://launchpad.support.sap.com/#/notes/1928533)
+- Checks that the VMs used for different instances in the VIS are certified by SAP. For better performance and support, make sure that a VM is certified for SAP on Azure. For more details, see [SAP note 1928533] (https://launchpad.support.sap.com/#/notes/1928533).
 - Accelerated networking should be enabled for the NICs attached to different VMs
      - Network latency between App VMs and DB VMs for SAP workloads is required to be 0.7ms or less. If accelerated networking is not enabled, network latency can increase beyond the threshold of 0.7ms. For more details. see [SAP workloads on Azure: planning and deployment checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist#:~:text=Make%20sure%20that%20Azure%20Accelerated%20Networking%20is%20enabled%20on%20the%20VMs%20used%20in%20the%20SAP%20application%20layer%20and%20the%20SAP%20DBMS%20layer.%20Keep%20in%20mind%20that%20different%20OS%20levels%20are%20needed%20to%20support%20Accelerated%20Networking%20in%20Azure%3A)
 - The Network configuration should be optimized for HANA and the OS  
