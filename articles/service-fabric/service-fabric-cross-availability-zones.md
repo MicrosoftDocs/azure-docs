@@ -1,11 +1,12 @@
 ---
 title: Deploy a cluster across Availability Zones
 description: Learn how to create an Azure Service Fabric cluster across Availability Zones.
-author: peterpogorski
-
-ms.topic: conceptual
-ms.date: 03/16/2022
-ms.author: ashank
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Deploy an Azure Service Fabric cluster across Availability Zones
@@ -206,9 +207,9 @@ You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
 >[!NOTE]
 >
 > * Service Fabric clusters should have at least one primary node type. The durability level of primary node types should be Silver or higher.
-> * The Availability Zone that spans virtual machine scale sets should be configured with at least three Availability Zones, no matter the durability level.
-> * Availability Zones that span virtual machine scale sets with Silver or higher durability should have at least 15 VMs.
-> * Availability Zones that span virtual machine scale sets with Bronze durability should have at least six VMs.
+> * An Availability Zone spanning virtual machine scale set should be configured with at least three Availability Zones, no matter the durability level.
+> * An Availability Zone spanning virtual machine scale set with Silver or higher durability should have at least 15 VMs.
+> * An Availaibility Zone spanning virtual machine scale set with Bronze durability should have at least six VMs.
 
 ### Enable support for multiple zones in the Service Fabric node type
 

@@ -2,14 +2,14 @@
 title: Azure Active Directory security operations for user accounts
 description: Guidance to establish baselines and how to monitor and alert on potential security issues with user accounts.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 07/15/2021
-ms.author: baselden
+ms.author: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---

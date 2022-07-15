@@ -55,9 +55,9 @@ In this section, you'll prepare to recreate your instance by downloading your or
 
 ### Download models, twins, and graph with Azure Digital Twins Explorer
 
-First, open **Azure Digital Twins Explorer** for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com). To do so, navigate to the Azure Digital Twins instance in the portal by searching for its name in the portal search bar. Then, select the **Go to Explorer (Preview)** button. 
+First, open **Azure Digital Twins Explorer** for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com). To do so, navigate to the Azure Digital Twins instance in the portal by searching for its name in the portal search bar. Then, select the **Open Azure Digital Twins Explorer (preview)** button. 
 
-:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing the Overview page for an Azure Digital Twins instance. There's a highlight around the Go to Explorer (Preview) button." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
+:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing the Overview page for an Azure Digital Twins instance. There's a highlight around the Open Azure Digital Twins Explorer (preview) button." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
 
 Selecting this button will open an Azure Digital Twins Explorer window connected to this instance.
 
@@ -126,7 +126,7 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Azure Maps.
 * IoT Hub Device Provisioning Service.
 * Personal or company apps outside of Azure, such as the client app created in [Code a client app](tutorial-code.md), that connect to the instance and call Azure Digital Twins APIs.
-* Azure AD app registrations don't need to be recreated. If you're using an [app registration](./how-to-create-app-registration-portal.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
+* Azure AD app registrations don't need to be recreated. If you're using an [app registration](./how-to-create-app-registration.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
 
 After you finish this step, your new instance in the target region should be a copy of the original instance.
 

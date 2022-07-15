@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 04/05/2022
+ms.date: 06/29/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features
 ---
 
-# Quickstart: Conversational language understanding (preview)
+# Quickstart: Conversational language understanding 
 
-Use this article to get started with Custom text classification using Language Studio and the REST API. Follow these steps to try out an example.
+Use this article to get started with Conversational Language understanding using Language Studio and the REST API. Follow these steps to try out an example.
 
 ::: zone pivot="language-studio"
 

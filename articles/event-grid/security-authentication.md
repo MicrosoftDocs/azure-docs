@@ -2,7 +2,7 @@
 title: Authenticate event delivery to event handlers (Azure Event Grid)
 description: This article describes different ways of authenticating delivery to event handlers in Azure Event Grid. 
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 06/22/2022
 ---
 
 # Authenticate event delivery to event handlers (Azure Event Grid)
@@ -18,13 +18,16 @@ Managed System Identity <br/>&<br/> Role-based access control | <p>Event Hubs</p
 |Bearer token authentication with Azure AD protected webhook | Webhook | See the [Authenticate event delivery to webhook endpoints](#authenticate-event-delivery-to-webhook-endpoints) section for details.. |
 Client secret as a query parameter | Webhook | See the [Using client secret as a query parameter](#using-client-secret-as-a-query-parameter) section for details. |
 
+> [!NOTE]
+> If you protect your Azure function with an Azure Active Directory app, you'll have to take the generic webhook approach using the HTTP trigger. Use the Azure function endpoint as a webhook URL when adding the subscription.
+
 ## Use system-assigned identities for event delivery
 You can enable a system-assigned managed identity for a topic or domain and use the identity to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
 
 Here are the steps: 
 
 1. Create a topic or domain with a system-assigned identity, or update an existing topic or domain to enable identity. For more information, see [Enable managed identity for a system topic](enable-identity-system-topics.md) or [Enable managed identity for a custom topic or a domain](enable-identity-custom-topics-domains.md)
-1. Add the identity to an appropriate role (for example, Service Bus Data Sender) on the destination (for example, a Service Bus queue). For more information, see [Grand identity the access to Event Grid destination](add-identity-roles.md)
+1. Add the identity to an appropriate role (for example, Service Bus Data Sender) on the destination (for example, a Service Bus queue). For more information, see [Grant identity the access to Event Grid destination](add-identity-roles.md)
 1. When you create event subscriptions, enable the usage of the identity to deliver events to the destination. For more information, see [Create an event subscription that uses the identity](managed-service-identity.md). 
 
 For detailed step-by-step instructions, see [Event delivery with a managed identity](managed-service-identity.md).

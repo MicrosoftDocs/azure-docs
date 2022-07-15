@@ -210,7 +210,7 @@ While Azure is responsible for securing the infrastructure and platform that you
 ### Web application firewall
 [Web application firewall (WAF)](../../web-application-firewall/ag/ag-overview.md) is a feature of [Application Gateway](../../application-gateway/overview.md) that provides centralized protection of your web applications from common exploits and vulnerabilities.
 
-Web application firewall is based on rules from the [OWASP core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9. Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
+Web application firewall is based on rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9. Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
 
 Some of the common web vulnerabilities which web application firewall protects against includes:
 
@@ -244,8 +244,6 @@ Azure also provides several easy-to-use features to help secure both inbound and
 - [Restrict access to your app by client's IP address](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
 
 - [Restrict access to your app by client's behavior - request frequency and concurrency](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
-
-- [Scan your web app code for vulnerabilities using Tinfoil Security Scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 
 - [Configure TLS mutual authentication to require client certificates to connect to your web app](../../app-service/app-service-web-configure-tls-mutual-auth.md)
 

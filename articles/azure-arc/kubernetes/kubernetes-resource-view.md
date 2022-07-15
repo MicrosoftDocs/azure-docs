@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 10/31/2021
 ms.topic: article
-author: shashankbarsin
-ms.author: shasb
 description: Learn how to interact with Kubernetes resources to manage an Azure Arc-enabled Kubernetes cluster from the Azure portal.
 ---
 
@@ -18,8 +16,6 @@ The Azure portal includes a Kubernetes resource view for easy access to the Kube
 ## Prerequisites
 
 - An existing Kubernetes cluster [connected](quickstart-connect-cluster.md) to Azure as an Azure Arc-enabled Kubernetes resource.
-
-- [Cluster Connect feature has to be enabled](cluster-connect.md#enable-cluster-connect-feature) on the Azure Arc-enabled Kubernetes cluster.
 
 - [Service account token](cluster-connect.md#service-account-token-authentication-option) for authentication to the cluster.
 

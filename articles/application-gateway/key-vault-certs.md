@@ -78,7 +78,7 @@ As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted serv
 When you're using a restricted Key Vault, use the following steps to configure Application Gateway to use firewalls and virtual networks:
 
 > [!TIP]
-> The following steps are not required if your Key Vault has a Private Endpoint enabled. The application gateway can access the Key Vault using the private IP address.
+> Steps 1-3 are not required if your Key Vault has a Private Endpoint enabled. The application gateway can access the Key Vault using the private IP address.
 
 1. In the Azure portal, in your Key Vault, select **Networking**.
 1. On the **Firewalls and virtual networks** tab, select **Selected networks**.
