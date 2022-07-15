@@ -25,7 +25,7 @@ highlightedContent:
     - title: Build a Zero Trust Foundation
       itemType: concept
       url: ./fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - title: Backup and restore plan to protect against ransomware
+    - title: Back up and restore plan to protect against ransomware
       itemType: concept
       url: ./fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - title: Protect your multicloud environment with unified security management and advanced threat protection
@@ -152,9 +152,9 @@ additionalContent:
         - title: Secure development
           summary: Learn how to develop and deploy secure applications on Azure with our sample apps, best practices, and guidance
           url: ./develop/index.yml
-        - title: Microsoft 365 security guidance
-          summary: Learn about security in Microsoft 365
-          url: /microsoft-365/security/?view=o365-worldwide
+###        - title: Microsoft 365 security guidance
+###          summary: Learn about security in Microsoft 365
+###          url: /microsoft-365/security/?view=o365-worldwide
 
     - title: Security services and capabilities
       items:
