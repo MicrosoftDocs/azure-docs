@@ -27,7 +27,7 @@ Through the Azure portal, you can start and stop:
 ## Prerequisites
 
 - An SAP system that you've [created in ACSS](prepare-network.md) or [registered with ACSS](register-existing-system.md).
-- For the start operation to work, all virtual machines (VM) inside the SAP system must be running. Note: This capability starts or stops the SAP application instances, not the VMs that make up the SAP system resources.
+- For the start operation to work, all virtual machines (VMs) inside the SAP system must be running. This capability starts or stops the SAP application instances, not the VMs that make up the SAP system resources.
 - The `sapstartsrv` service must be running on all VMs related to the SAP system.
 - For HA deployments, the HA interface cluster connector for SAP (`sap_vendor_cluster_connector`) must be installed on the ASCS instance. For more information, see the [SUSE connector specifications](https://www.suse.com/c/sap-netweaver-suse-cluster-integration-new-sap_suse_cluster_connector-version-3-0-0/) and [RHEL connector specifications](https://access.redhat.com/solutions/3606101).
 
