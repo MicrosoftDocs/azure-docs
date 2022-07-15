@@ -1,7 +1,7 @@
 ---
 title: Search for assets  (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to find your Azure Machine Learning assets
+description: Find your Azure Machine Learning assets with search
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,31 +14,35 @@ ms.topic: how-to
 
 # Search for Azure Machine Learning assets (preview)
 
+Use the search bar to find machine learning assets across all workspaces, resource groups, and subscriptions in your organization. Your search text will be used to find assets such as:
+
+* Jobs
+* Models
+* Components
+* Environments
+* Data 
+
 > [!IMPORTANT]
 > The search  functionality is currently in public preview.
 > The preview version is provided without a service level agreement.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can search for machine learning assets such as jobs, models, components, environments, and data across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+## Free text search
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).  
 1. In the top studio titlebar, select **All workspaces** or **All workspaces** to set the search context.
 
+    :::image type="content" source="media/how-to-search-assets/search-bar.png" alt-text="Screenshot: Shows search in titlebar.":::
 
-## Free text search
-
-Type search text into the global search bar on the top of the studio page and hit enter to trigger a 'contains' search.
+1. Type search text into the global search bar on the top of the studio page and hit enter to trigger a 'contains' search.
 A contains search scans across all metadata fields for the given asset and sorts results relevance.
-
-:::image type="content" source="media/how-to-search-assets/search-bar.png" alt-text="Screenshot: Shows search in titlebar.":::
-
-You can use the asset quick links to navigate to search results for jobs, models, components, environments, and datasets that you created.
 
 
 ## Structured search
 
-1. Select **All workspaces**.
-1. Click in the search field to select any number of filters to create more specific search queries.
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).  
+1. In the top studio titlebar, select **All workspaces**.
+1. Click inside the search field to select any number of filters to create more specific search queries.
 
 :::image type="content" source="media/how-to-search-assets/search-filters.gif" alt-text="Screenshot: Display search filters.":::
 
@@ -63,7 +67,7 @@ If an asset filter (job, model, component, environment, dataset) is present, res
 
 ### View search results
 
-You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Data** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
+You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Data** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view aren't displayed.
 
 :::image type="content" source="./media/how-to-search-assets/results.png" alt-text="Results displayed after search":::
 
