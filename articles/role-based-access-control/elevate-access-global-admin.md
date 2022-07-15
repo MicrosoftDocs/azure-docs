@@ -200,9 +200,9 @@ To remove the User Access Administrator role assignment for yourself or another 
 
 You must use the following versions:
 
+- `2015-07-01` or later to list and remove role assignments
 - `2016-07-01` or later to elevate access
 - `2018-07-01-preview` or later to list deny assignments
-- `2015-07-01` or later to list and remove role assignments
 
 For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
