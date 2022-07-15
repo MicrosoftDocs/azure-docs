@@ -162,11 +162,9 @@ There are two sets of mappings:
 
 + ["fieldMappings"](search-indexer-field-mappings.md) map a source field to a search field.
 
-+ ["outputFieldMappings"](cognitive-search-output-field-mapping.md) map a skill output to a search field. 
++ ["outputFieldMappings"](cognitive-search-output-field-mapping.md) map a node in an enriched document to a search field. 
 
-The "sourceFieldName" property specifies either a field in your data source or a node in an enrichment tree.
-
-The "targetFieldName" property specifies the search field in an index that receives the content.
+The "sourceFieldName" property specifies either a field in your data source or a node in an enrichment tree. The "targetFieldName" property specifies the search field in an index that receives the content.
 
 ## Enrichment example
 
