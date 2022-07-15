@@ -54,7 +54,7 @@ On the **Reset virtual machine(s)** dialog box, select **Reset**.
 
 ### Redeploy VMs
 
-In the [April 2022 Update (preview)](lab-services-whats-new.md), redeploying VMs replaces the previous reset VM behavior.  In the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com), the command is named **Troubleshoot** and is available in the student's view of their VMs. For more information, and instructions on how students can redeploy their VMs, see: [Redeploy VMs](how-to-reset-and-redeploy-vm.md#redeploy-vms).
+In the [April 2022 Update (preview)](lab-services-whats-new.md), redeploying VMs replaces the previous reset VM behavior.  In the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com), the command is named **Troubleshoot** and is available in the student's view of their VMs. For more information and instructions on how students can redeploy their VMs, see: [Redeploy VMs](how-to-reset-and-redeploy-vm.md#redeploy-vms).
 
 ## Connect to VMs
 
