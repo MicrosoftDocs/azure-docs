@@ -362,4 +362,4 @@ The following conditions might cause the snapshot task to fail:
 3. In the **Settings** section, select **Locks** to display the locks.
 4. To remove the lock, select **Delete**.
 
-   :::image type="content" source="./media/restore-point-troubleshooting/delete-lock.png" alt-text="Screenshot of Delete lock in Azure portal.":::
+   :::image type="content" source="./media/restore-point-troubleshooting/delete-lock-inline.png" alt-text="Screenshot of Delete lock in Azure portal." lightbox="./media/restore-point-troubleshooting/delete-lock-expanded.png":::
