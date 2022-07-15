@@ -158,6 +158,16 @@ additionalContent:
 
     - title: Security services and capabilities
       items:
+        - title: Microsoft Sentinel
+          summary: See and stop threats before they cause harm
+          links: 
+            - url: ../sentinel/overview.md
+              text: Overview
+            - url: ../sentinel/quickstart-onboard.md
+              text: Onboard Microsoft Sentinel
+            - url: https://docs.microsoft.com/en-us/learn/paths/security-ops-sentinel/
+              text: "Learn: Cloud-native security operations with Microsoft Sentinel"
+
         - title: Microsoft Defender for Cloud
           summary: Unify security management and advanced threat protection across hybrid cloud workloads                 
           links: 
@@ -178,6 +188,16 @@ additionalContent:
             - url: https://docs.microsoft.com/learn/modules/defender-identity-defend-attacks/
               text: "Learn: Defend against attacks"
 
+        - title: Azure Key Vault
+          summary: Create and maintain keys that access and encrypt your cloud resources
+          links: 
+            - url: ../key-vault/general/overview.md
+              text: Overview
+            - url: ../key-vault/secrets/quick-create-cli.md
+              text: Set and retrieve a secret
+            - url: https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/
+              text: "Learn: Manage secrets in your server apps"
+
         - title: Microsoft Defender for Cloud Apps
           summary: Cloud Access Security Broker (CASB) that operates on multiple clouds
           links: 
@@ -197,26 +217,6 @@ additionalContent:
               text: Get started with Defender for IoT
             - url: https://docs.microsoft.com/learn/paths/enhance-iot-solution-security-by-using-azure-defender/
               text: "Learn: Enhance IoT solution security"
-
-        - title: Microsoft Sentinel
-          summary: See and stop threats before they cause harm
-          links: 
-            - url: ../sentinel/overview.md
-              text: Overview
-            - url: ../sentinel/quickstart-onboard.md
-              text: Onboard Microsoft Sentinel
-            - url: https://docs.microsoft.com/en-us/learn/paths/security-ops-sentinel/
-              text: "Learn: Cloud-native security operations with Microsoft Sentinel"
-
-        - title: Azure Key Vault
-          summary: Create and maintain keys that access and encrypt your cloud resources
-          links: 
-            - url: ../key-vault/general/overview.md
-              text: Overview
-            - url: ../key-vault/secrets/quick-create-cli.md
-              text: Set and retrieve a secret
-            - url: https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/
-              text: "Learn: Manage secrets in your server apps"
 
         - title: Azure Information Protection
           summary: Control and secure emails, documents, and sensitive data
