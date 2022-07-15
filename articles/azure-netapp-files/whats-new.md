@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 07/12/2022
+ms.date: 07/15/2022
 ms.author: anfdocs
 ---
 
@@ -20,7 +20,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Snapshot volume revert in cross-region replication](snapshots-revert-volume.md)
+* [Cross region replication enhancement: snapshot revert on replication source volume](snapshots-revert-volume.md)
+
+    When using cross-region replication, reverting a snapshot in a source or destination volume with an active replication configuration was not initially supported. Restoring a snapshot on the source volume from the latest local snapshot was not possible. Instead you had to use either client copy using the .snapshot directory, single file snapshot restore, or needed to break the replication in order to apply a volume revert. With this new feature, a snapshot revert on a replication source volume is possible provided you select a snapshot that is newer than the latest SnapMirror snapshot. This enables data recovery (revert) from a snapshot while cross region replication stays active, improving data protection SLA.
 
 ## June 2022
 
