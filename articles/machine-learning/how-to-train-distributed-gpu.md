@@ -267,6 +267,7 @@ To run an experiment using multiple nodes with multiple GPUs, there are 2 option
       - MASTER_ADDR
       - MASTER_PORT
       - NODE_RANK
+      - LOCAL_RANK
       
       Manually set these environment variables that Lightning requires in the main training scripts:
 
@@ -296,7 +297,7 @@ To run an experiment using multiple nodes with multiple GPUs, there are 2 option
        parser.add_argument("--num_nodes", type=int, required=True)
        parser.add_argument("--gpus_per_node", type=int, required=True)
        args = parser.parse_args()
-       set_environment_variables_for_nccl_backend(args.num_nodes, args.gpus_per_node)
+       set_environment_variables_for_mpi(args.num_nodes, args.gpus_per_node)
        
        trainer = Trainer(
         num_nodes=args.num_nodes,
