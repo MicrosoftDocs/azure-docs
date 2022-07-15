@@ -112,6 +112,12 @@ In this step, you create the verified credential expert card by using Azure AD V
             "required": false
           }
         ]
+      },
+      "validityInterval": 2592000,
+      "vc": {
+        "type": [
+        "VerifiedCredentialExpert"
+        ]
       }
     }
     ```

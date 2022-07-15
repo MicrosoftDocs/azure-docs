@@ -4,14 +4,14 @@ title: Azure confidential computing
 summary: Azure confidential computing offers solutions to enable the isolation your sensitive data while it's being processed in the cloud. Learn how to create and deploy applications based on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. Use Microsoft products built on confidential computing to keep your workloads as secure as possible. 
 
 metadata:
-  title: Azure confidential computing
+  title: Azure Confidential Computing
   description: Learn about how Azure confidential computing protects data in use and learn ways to build confidential workloads in the cloud. 
   ms.service: virtual-machines
   ms.subservice: confidential-computing
   ms.topic: landing-page
-  author: stempesta 
+  author: stempesta, ananyagarg 
   ms.author: stempesta
-  ms.date: 09/22/2020 
+  ms.date: 09/22/2020, 07/13/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -36,7 +36,7 @@ landingContent:
           - text: Building confidential computing solutions
             url: confidential-computing-solutions.md
           - text: Deploying confidential computing solutions
-            url: confidential-computing-deployment-models
+            url: confidential-computing-deployment-models.md
       - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
@@ -62,6 +62,8 @@ landingContent:
             url: confidential-vm-overview.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: virtual-machine-solutions-amd.md
+          - text: Virtual Machines based on AMD processors with SEV-SNP technology
+            url: confidential-vm-overview.md
       - linkListType: quickstart
         links:
           - text: Create an AMD confidential VM in the Azure portal
@@ -80,7 +82,7 @@ landingContent:
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
 
   # Card
-  - title: Container compute
+  - title: Confidential Containers
     linkLists:
       - linkListType: overview
         links: 
