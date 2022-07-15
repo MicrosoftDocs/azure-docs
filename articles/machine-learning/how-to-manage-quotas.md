@@ -22,7 +22,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 > + Viewing your quotas and limits.
 > + Requesting quota increases.
 
-Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md) or learn about the [service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
+Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md) or learn about the [service limits in Azure Machine Learning](resource-limits-capacity.md).
 
 ## Special considerations
 
@@ -46,7 +46,7 @@ In this section, you learn about the default and maximum quota limits for the fo
 + Azure Storage
 
 > [!IMPORTANT]
-> Limits are subject to change. For the latest information, see  [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
+> Limits are subject to change. For the latest information, see  [Service limits in Azure Machine Learning](resource-limits-capacity.md).
 
 
 
@@ -82,8 +82,8 @@ The following table shows additional limits in the platform. Please reach out to
 | **Resource or Action** | **Maximum limit** |
 | --- | --- |
 | Workspaces per resource group | 800 |
-| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** setup as a non communication-enabled pool (i.e. cannot run MPI jobs) | 100 nodes but configurable up to 65000 nodes |
-| Nodes in a single Parallel Run Step **run** on an Azure Machine Learning Compute (AmlCompute) cluster | 100 nodes but configurable up to 65000 nodes if your cluster is setup to scale per above |
+| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** set up as a non communication-enabled pool (i.e. cannot run MPI jobs) | 100 nodes but configurable up to 65000 nodes |
+| Nodes in a single Parallel Run Step **run** on an Azure Machine Learning Compute (AmlCompute) cluster | 100 nodes but configurable up to 65000 nodes if your cluster is set up to scale per above |
 | Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** set up as a communication-enabled pool | 300 nodes but configurable up to 4000 nodes |
 | Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** set up as a communication-enabled pool on an RDMA enabled VM Family | 100 nodes |
 | Nodes in a single MPI **run** on an Azure Machine Learning Compute (AmlCompute) cluster | 100 nodes but can be increased to 300 nodes |
@@ -231,5 +231,5 @@ When you're requesting a quota increase, select the service that you have in min
 ## Next steps
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
-+ [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)
++ [Service limits in Azure Machine Learning](resource-limits-capacity.md)
 + [Troubleshooting managed online endpoints deployment and scoring](./how-to-troubleshoot-online-endpoints.md)

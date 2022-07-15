@@ -3,7 +3,7 @@ title: Manage user-assigned managed identities - Azure AD
 description: Create user-assigned managed identities.
 services: active-directory
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 editor: 
 ms.service: active-directory
 ms.subservice: msi

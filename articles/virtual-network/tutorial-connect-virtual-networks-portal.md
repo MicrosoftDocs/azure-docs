@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Deploy a virtual machine (VM) into each virtual network
 > * Communicate between VMs
 
-This tutorial uses the Azure portal. You can also complete it using the [Azure CLI](tutorial-connect-virtual-networks-cli.md) or [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
+This tutorial uses the Azure portal. You can also complete it using [Azure CLI](tutorial-connect-virtual-networks-cli.md) or [PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

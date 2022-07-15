@@ -111,6 +111,8 @@
         href: allocadia-tutorial.md
       - name: Ally.io
         href: ally-tutorial.md
+      - name: Altamira HRM
+        href: altamira-hrm-tutorial.md
       - name: Altoura
         href: altoura-tutorial.md
       - name: Amazing People Schools
@@ -183,6 +185,8 @@
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
         href: ariba-tutorial.md
+      - name: Articulate 360
+        href: articulate360-tutorial.md
       - name: Aruba User Experience Insight
         href: aruba-user-experience-insight-tutorial.md
       - name: Asana
@@ -563,7 +567,7 @@
         href: coupa-risk-assess-tutorial.md
       - name: Coverity Static Application Security Testing
         href: coverity-static-application-security-testing-tutorial.md  
-      - name: CPQSync by Cincom
+      - name: Cincom CPQ
         href: cpqsync-by-cincom-tutorial.md
       - name: Creatio
         href: bpmonline-tutorial.md
@@ -777,6 +781,8 @@
         href: excelityglobal-tutorial.md
       - name: Excelity HCM
         href: excelity-hcm-tutorial.md  
+      - name: Exium
+        href: exium-tutorial.md
       - name: ExpenseIn
         href: expensein-tutorial.md
       - name: Expensify
@@ -988,6 +994,8 @@
         href: harness-tutorial.md
       - name: hCaptcha Enterprise
         href: hcaptcha-enterprise-tutorial.md
+      - name: Headspace
+        href: headspace-tutorial.md
       - name: Helper Helper
         href: helper-helper-tutorial.md
       - name: Help Scout
@@ -1124,6 +1132,8 @@
         href: informacast-tutorial.md
       - name: Informatica Platform
         href: informatica-platform-tutorial.md  
+      - name: Infrascale Cloud Backup
+        href: infrascale-cloud-backup-tutorial.md
       - name: Inkling
         href: inkling-tutorial.md
       - name: Innotas
@@ -1234,6 +1244,8 @@
         href: juno-journey-tutorial.md
       - name: JuriBlox
         href: juriblox-tutorial.md  
+      - name: JustLogin
+        href: justlogin-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
       - name: Kanbanize
@@ -1346,6 +1358,8 @@
         href: litmus-tutorial.md
       - name: Learnster
         href: learnster-tutorial.md
+      - name: Lines eLibrary Advance
+        href: lines-elibrary-advance-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-tutorial.md
       - name: LinkedIn Learning
@@ -1356,6 +1370,8 @@
         href: liquidfiles-tutorial.md
       - name: SAP Litmos
         href: litmos-tutorial.md
+      - name: LMS and Education Management System Leaf
+        href: lms-and-education-management-system-leaf-tutorial.md
       - name: LockPath Keylight
         href: keylight-tutorial.md
       - name: LogicMonitor
@@ -1702,6 +1718,8 @@
         href: planmyleave-tutorial.md
       - name: Planview Enterprise One
         href: planview-enterprise-one-tutorial.md
+      - name: Planview ID
+        href: planview-id-tutorial.md
       - name: Planview LeanKit
         href: planview-leankit-tutorial.md
       - name: Pluralsight
@@ -1860,6 +1878,8 @@
         href: rightscale-tutorial.md
       - name: RingCentral
         href: ringcentral-tutorial.md
+      - name: Rise.com
+        href: risecom-tutorial.md
       - name: Riskware
         href: riskware-tutorial.md
       - name: Riva
@@ -1878,6 +1898,8 @@
         href: rolepoint-tutorial.md
       - name: Rollbar
         href: rollbar-tutorial.md
+      - name: Rootly
+        href: rootly-tutorial.md
       - name: RunMyProcess
         href: runmyprocess-tutorial.md
     - name: S
@@ -1926,7 +1948,7 @@
         href: sap-customer-cloud-tutorial.md
       - name: SAP Cloud Platform
         href: sap-hana-cloud-platform-tutorial.md
-      - name: SAP Cloud Platform Identity Authentication
+      - name: SAP Cloud Identity Services
         href: sap-hana-cloud-platform-identity-authentication-tutorial.md
       - name: SAP Fiori
         href: sap-fiori-tutorial.md
@@ -1978,6 +2000,8 @@
         href: securitystudio-tutorial.md  
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: SeekOut
+        href: seekout-tutorial.md
       - name: Segment
         href: segment-tutorial.md
       - name: Seismic
@@ -2000,6 +2024,8 @@
         href: servicenow-tutorial.md
       - name: Settling music
         href: settlingmusic-tutorial.md
+      - name: SevOne Network Monitoring System (NMS)
+        href: sevone-network-monitoring-system-tutorial.md
       - name: SharePoint on-premises
         href: sharepoint-on-premises-tutorial.md
       - name: ShareVault
@@ -2134,6 +2160,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: Stackby
+        href: stackby-tutorial.md
       - name: Standard for Success Accreditation
         href: standard-for-success-accreditation-tutorial.md
       - name: Standard for Success K-12
@@ -2520,6 +2548,8 @@
         href: youearnedit-tutorial.md
       - name: Yuhu Property Management Platform
         href: yuhu-property-management-platform-tutorial.md
+      - name: ZDiscovery
+        href: zdiscovery-tutorial.md
       - name: Zendesk
         href: zendesk-tutorial.md
       - name: Zengine
@@ -2993,7 +3023,7 @@
         href: symantec-web-security-service.md
     - name: T - Z
       items:
-      - name: Tableau Online
+      - name: Tableau Cloud
         href: tableau-online-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md

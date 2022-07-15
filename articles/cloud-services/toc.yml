@@ -12,6 +12,8 @@
     href: cloud-services-dotnet-get-started.md
   - name: Example Python for Visual Studio Cloud Service
     href: cloud-services-python-ptvs.md
+  - name: Troubleshoot LocationNotFoundForRoleSize
+    href: cloud-services-troubleshoot-location-not-found-for-role-size.md
 - name: Concepts
   items:
   - name: Security baseline

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/22/2022
+ms.date: 06/23/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # Dynamic membership rules for groups in Azure Active Directory
 
-In Azure Active Directory (Azure AD), you can create attribute-based rules to enable dynamic membership for a group. Dynamic group membership adds and removes group members automatically using membership rules based on member attributes. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
+You can create attribute-based rules to enable dynamic membership for a group in Azure Active Directory (Azure AD), part of Microsoft Entra. Dynamic group membership adds and removes group members automatically using membership rules based on member attributes. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
 
-When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed. You can't manually add or remove a member of a dynamic group.
+When the attributes of a user or a device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they're added as a member of that group. If they no longer satisfy the rule, they're removed. You can't manually add or remove a member of a dynamic group.
 
 - You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
 - You can't create a device group based on the user attributes of the device owner. Device membership rules can reference only device attributes.
@@ -38,7 +38,7 @@ Here are some examples of advanced rules or syntax for which we recommend that y
 - Rule with more than five expressions
 - The Direct reports rule
 - Setting [operator precedence](#operator-precedence)
-- [Rules with complex expressions](#rules-with-complex-expressions); for example `(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Rules with complex expressions](#rules-with-complex-expressions); for example, `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > The rule builder might not be able to display some rules constructed in the text box. You might see a message when the rule builder is not able to display the rule. The rule builder doesn't change the supported syntax, validation, or processing of dynamic group rules in any way.
@@ -49,15 +49,15 @@ For more step-by-step instructions, see [Create or update a dynamic group](group
 
 ### Rule syntax for a single expression
 
-A single expression is the simplest form of a membership rule and only has the three parts mentioned above. A rule with a single expression looks similar to this: `Property Operator Value`, where the syntax for the property is the name of object.property.
+A single expression is the simplest form of a membership rule and only has the three parts mentioned above. A rule with a single expression looks similar to this example: `Property Operator Value`, where the syntax for the property is the name of object.property.
 
-The following is an example of a properly constructed membership rule with a single expression:
+The following example illustrates a properly constructed membership rule with a single expression:
 
 ```
 user.department -eq "Sales"
 ```
 
-Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 3072 characters.
+Parentheses are optional for a single expression. The total length of the body of your membership rule can't exceed 3072 characters.
 
 ## Constructing the body of a membership rule
 
@@ -115,7 +115,7 @@ dirSyncEnabled |true false |user.dirSyncEnabled -eq true
 | streetAddress |Any string value or *null* | user.streetAddress -eq "value" |
 | surname |Any string value or *null* | user.surname -eq "value" |
 | telephoneNumber |Any string value or *null* | user.telephoneNumber -eq "value" |
-| usageLocation |Two lettered country/region code | user.usageLocation -eq "US" |
+| usageLocation |Two letter country or region code | user.usageLocation -eq "US" |
 | userPrincipalName |Any string value | user.userPrincipalName -eq "alias@domain" |
 | userType |member guest *null* | user.userType -eq "Member" |
 
@@ -147,7 +147,7 @@ The following table lists all the supported operators and their syntax for a sin
 
 ### Using the -in and -notIn operators
 
-If you want to compare the value of a user attribute against a number of different values you can use the -in or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values.
+If you want to compare the value of a user attribute against multiple values, you can use the -in or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values.
 
  In the following example, the expression evaluates to true if the value of user.department equals any of the values in the list:
 
@@ -178,10 +178,10 @@ The values used in an expression can consist of several types, including:
 - Numbers
 - Arrays – number array, string array
 
-When specifying a value within an expression it is important to use the correct syntax to avoid errors. Some syntax tips are:
+When specifying a value within an expression, it's important to use the correct syntax to avoid errors. Some syntax tips are:
 
 - Double quotes are optional unless the value is a string.
-- String and regex operations are not case sensitive.
+- String and regex operations aren't case sensitive.
 - When a string value contains double quotes, both quotes should be escaped using the \` character, for example, user.department -eq \`"Sales\`" is the proper syntax when "Sales" is the value. Single quotes should be escaped by using two single quotes instead of one each time.
 - You can also perform Null checks, using null as a value, for example, `user.department -eq null`.
 
@@ -222,13 +222,13 @@ All operators are listed below in order of precedence from highest to lowest. Op
 -any -all
 ```
 
-The following is an example of operator precedence where two expressions are being evaluated for the user:
+The following example illustrates operator precedence where two expressions are being evaluated for the user:
 
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
 
-Parentheses are needed only when precedence does not meet your requirements. For example, if you want department to be evaluated first, the following shows how parentheses can be used to determine order:
+Parentheses are needed only when precedence doesn't meet your requirements. For example, if you want department to be evaluated first, the following shows how parentheses can be used to determine order:
 
 ```
    user.country –eq "US" –and (user.department –eq "Marketing" –or user.department –eq "Sales")
@@ -286,7 +286,7 @@ user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
 
 ### Using the underscore (\_) syntax
 
-The underscore (\_) syntax matches occurrences of a specific value in one of the multivalued string collection properties to add users or devices to a dynamic group. It is used with the -any or -all operators.
+The underscore (\_) syntax matches occurrences of a specific value in one of the multivalued string collection properties to add users or devices to a dynamic group. It's used with the -any or -all operators.
 
 Here's an example of using the underscore (\_) in a rule to add members based on user.proxyAddress (it works the same for user.otherMails). This rule adds any user with proxy address that contains "contoso" to the group.
 
@@ -306,7 +306,7 @@ The direct reports rule is constructed using the following syntax:
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Here's an example of a valid rule where "62e19b97-8b3d-4d4a-a106-4ce66896a863" is the objectID of the manager:
+Here's an example of a valid rule, where "62e19b97-8b3d-4d4a-a106-4ce66896a863" is the objectID of the manager:
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -323,7 +323,7 @@ The following tips can help you use the rule properly.
 
 You can create a group containing all users within an organization using a membership rule. When users are added or removed from the organization in the future, the group's membership is adjusted automatically.
 
-The "All users" rule is constructed using single expression using the -ne operator and the null value. This rule adds B2B guest users as well as member users to the group.
+The "All users" rule is constructed using single expression using the -ne operator and the null value. This rule adds B2B guest users and member users to the group.
 
 ```
 user.objectId -ne null
@@ -415,13 +415,13 @@ The following device attributes can be used.
  managementType | MDM (for mobile devices) | device.managementType -eq "MDM"
  memberOf | Any string value (valid group object ID) | device.memberof -any (group.objectId -in ['value']) 
  objectId | a valid Azure AD object ID | device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d"
- profileType | a valid [profile type](https://docs.microsoft.com/graph/api/resources/device?view=graph-rest-1.0#properties) in Azure AD | device.profileType -eq "RegisteredDevice"
+ profileType | a valid [profile type](/graph/api/resources/device?view=graph-rest-1.0#properties&preserve-view=true) in Azure AD | device.profileType -eq "RegisteredDevice"
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | device.systemLabels -contains "M365Managed"
 
 > [!NOTE]
-> When using deviceOwnership to create Dynamic Groups for devices, you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
+> When using deviceOwnership to create Dynamic Groups for devices, you need to set the value equal to "Company." On Intune the device ownership is represented instead as Corporate. For more information, see [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
 > When using deviceTrustType to create Dynamic Groups for devices, you need to set the value equal to "AzureAD" to represent Azure AD joined devices, "ServerAD" to represent Hybrid Azure AD joined devices or "Workplace" to represent Azure AD registered devices.
-> When using extensionAttribute1-15 to create Dynamic Groups for devices you need to set the value for extensionAttribute1-15 on the device. Learn more on [how to write extensionAttributes on an Azure AD device object](https://docs.microsoft.com/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device)  
+> When using extensionAttribute1-15 to create Dynamic Groups for devices you need to set the value for extensionAttribute1-15 on the device. Learn more on [how to write extensionAttributes on an Azure AD device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device&preserve-view=true)
 
 ## Next steps
 
