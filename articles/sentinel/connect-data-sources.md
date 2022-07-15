@@ -16,7 +16,7 @@ ms.author: yelevin
 
 After onboarding Microsoft Sentinel into your workspace, connect data sources to start ingesting your data into Microsoft Sentinel. Microsoft Sentinel comes with many connectors for Microsoft products, available out of the box and providing real-time integration. For example, service-to-service connectors include Microsoft 365 Defender connectors and Microsoft 365 sources, such as Office 365, Azure Active Directory (Azure AD), Microsoft Defender for Identity, and Microsoft Defender for Cloud Apps.
 
-You can also enable out-of-the-box connectors to the broader security ecosystem for non-Microsoft products. For example, you can use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-format-cef), or [REST APIs](#rest-api-integration) to connect your data sources with Microsoft Sentinel.
+You can also enable built-in connectors to the broader security ecosystem for non-Microsoft products. For example, you can use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-format-cef), or [REST APIs](#rest-api-integration) to connect your data sources with Microsoft Sentinel.
 
 The **Data connectors** page, accessible from the Microsoft Sentinel navigation menu, shows the full list of connectors that Microsoft Sentinel provides, and their status in your workspace. Select the connector you want to connect, and then select **Open connector page**.
 
