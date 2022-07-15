@@ -4194,7 +4194,7 @@ slice('Hello World', 3, 3) // Returns ''.
 
 ### sort
 
-Sort items in a collection. Objects in a collection may be sorted by any key that contains a simple type.
+Sort items in a collection. You can sort the collection objects using any key that contains a simple type.
 
 ```
 sort([<collection>], <sortBy>?)
