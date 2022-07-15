@@ -35,7 +35,7 @@ Get started with the Azure Cosmos DB client library for .NET to create databases
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+* An Azure account with an active subscription. [Create an account for free](https://aka.ms/trycosmosdb).
 * [.NET 6.0 or later](https://dotnet.microsoft.com/download)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
