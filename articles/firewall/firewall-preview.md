@@ -118,25 +118,17 @@ Enabling Policy Analytics on a Firewall Policy associated with a single firewall
 
 #### Key Policy Analytics features
 
-- **Policy insight panel**
-
-   Aggregates insights and highlights relevant policy information.
-- **Rule analytics**
-
-   Analyzes existing DNAT, Network, and Application rules to identify rules with low utilization or rules with low usage in a specific time window.
-- **Traffic flow analysis**
-
-   Maps traffic flow to rules by identifying top traffic flows and enabling an integrated experience.
-- **Single Rule analysis**
-
-   Analyzes a single rule to learn what traffic hits that rule to refine the access it provides and improve the overall security posture.
+- **Policy insight panel**: Aggregates insights and highlights relevant policy information.
+- **Rule analytics**: Analyzes existing DNAT, Network, and Application rules to identify rules with low utilization or rules with low usage in a specific time window.
+- **Traffic flow analysis**: Maps traffic flow to rules by identifying top traffic flows and enabling an integrated experience.
+- **Single Rule analysis**: Analyzes a single rule to learn what traffic hits that rule to refine the access it provides and improve the overall security posture.
 
 ### Prerequisites
 
 - An Azure Firewall Standard or Premium
 - An Azure Firewall Standard or Premium policy attached to the Firewall
-- Network rule name logging preview feature enabled to view network rules analysis
-- Structured logs feature enabled on the Firewall Standard or Premium
+- The [network rule name logging preview feature](#network-rule-name-logging-preview) must be enabled to view network rules analysis
+- The [structured firewall logs feature](#structured-firewall-logs-preview) must be enabled on Firewall Standard or Premium
 
 
 ### Enable Policy Analytics
