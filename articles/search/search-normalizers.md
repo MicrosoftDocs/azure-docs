@@ -26,7 +26,7 @@ By applying a normalizer, you can achieve light text transformations that improv
 
 ## Benefits of normalizers
 
-Searching and retrieving documents from a search index requires matching the query input to the contents of the document. Matching is either over tokenized content, as is the case when "search" is invoked, or over non-tokenized content if the request is a $filter, facet, or $orderby operation.
+Searching and retrieving documents from a search index requires matching the query input to the contents of the document. Matching is either over tokenized content, as is the case when you invoke "search", or over non-tokenized content if the request is a [filter](search-query-odata-filter.md), [facet](search-faceted-navigation.md), or [orderby](search-query-odata-orderby.md) operation.
 
 Because non-tokenized content is also not analyzed, small differences in the content are evaluated as distinctly different values. Consider the following examples:
 
@@ -42,7 +42,7 @@ A normalizer, which is invoked during indexing and query execution, adds light t
 
 Normalizers are specified in an index definition, on a per-field basis, on text fields (`Edm.String` and `Collection(Edm.String)`) that have at least one of "filterable", "sortable", or "facetable" properties set to true. Setting a normalizer is optional and it's null by default. We recommend evaluating predefined normalizers before configuring a custom one.
 
-Normalizers can only be specified when a new field is added to the index, so if possible, try to assess the normalization needs upfront and assign normalizers in the initial stages of development when dropping and recreating indexes is routine. 
+Normalizers can only be specified when you add a new field to the index, so if possible, try to assess the normalization needs upfront and assign normalizers in the initial stages of development when dropping and recreating indexes is routine. 
 
 1. When creating a field definition in the [index](/rest/api/searchservice/create-index), set the  "normalizer" property to one of the following values: a [predefined normalizer](#predefined-normalizers) such as "lowercase", or a custom normalizer (defined in the same index schema).  
  
@@ -128,7 +128,7 @@ The list below shows the token filters supported for normalizers and is a subset
 + [lowercase](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html)
 + [uppercase](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/UpperCaseFilter.html)
 
-## Create a custom normalizer
+## Add custom normalizers
 
 Custom normalizers are [defined within the index schema](/rest/api/searchservice/create-index). The definition includes a name, a type, one or more character filters and token filters. The character filters and token filters are the building blocks for a custom normalizer and responsible for the processing of the text. These filters are applied from left to right.
 
