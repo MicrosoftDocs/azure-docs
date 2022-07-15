@@ -145,29 +145,29 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
 4. In the upper-left corner of the page, select the  app launcher (9 dots), and then select **Admin**.
   
-    ![Go to Admin under Profile](media/docusign-tutorial/docusign-admin.png)
+    ![Screenshot of Go to Admin under Profile](media/docusign-tutorial/docusign-admin.png)
 
 5. On your domain solutions page, select **Domains**.
 
-    ![Select_Domains](media/docusign-tutorial/domains.png)
+    ![Screenshot of Select_Domains](media/docusign-tutorial/domains.png)
 
 
 6. In the **Domains** section, select **CLAIM DOMAIN**.
 
-    ![Claim_domain](media/docusign-tutorial/claim-domain.png)
+    ![Screenshot of Claim_domain](media/docusign-tutorial/claim-domain.png)
 
 
 7. In the **Claim a Domain** dialog box, in the **Domain Name** box, type your company domain, and then select **CLAIM**. Make sure you verify the domain and that its status is active.
 
-    ![Claim a Domain/Domain Name dialog](media/docusign-tutorial/claim-a-domain.png)
+    ![Screenshot of Claim a Domain/Domain Name dialog](media/docusign-tutorial/claim-a-domain.png)
 
 8. In the **Domains** section, select **Get Validation Token** of new domain added in the claim list.
 
-    "![pending_Identity_provider](media/docusign-tutorial/pending-Identity-provider.png)
+    "![Screenshot of pending_Identity_provider](media/docusign-tutorial/pending-Identity-provider.png)
     
 9. Copy the **TXT Token**
 
-    ![TXT_token](media/docusign-tutorial/token.png)
+    ![Screenshot of TXT_token](media/docusign-tutorial/token.png)
 
 10. Configure your DNS provider with the **TXT Token** by following these steps:
 
@@ -180,29 +180,29 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
 11. On the domain solutions page, select **Identity Providers**.
   
-    ![Identity Providers option](media/docusign-tutorial/identity-providers.png)
+    ![Screenshot of Identity Providers option](media/docusign-tutorial/identity-providers.png)
 
 12. In the **Identity Providers** section, select **ADD IDENTITY PROVIDER**.
 
-    ![Add Identity Provider option](media/docusign-tutorial/add-identity-provider-option.png)
+    ![Screenshot of Add Identity Provider option](media/docusign-tutorial/add-identity-provider-option.png)
 
 
 13. On the **Identity Provider Settings** page, follow these steps:
 
     a. In the **Custom Name** box, type a unique name for your configuration. Don't use spaces.
 	
-	![name_Identity_provider](media/docusign-tutorial/add-identity-providers.png)
+	![Screenshot of name_Identity_provider](media/docusign-tutorial/add-identity-providers.png)
 
     b. In the **Identity Provider Issuer box**, paste the **Azure AD Identifier** value, which you copied from the Azure portal.
 
-	![urls_Identity_provider](media/docusign-tutorial/idp-urls.png)
+	![Screenshot of urls_Identity_provider](media/docusign-tutorial/idp-urls.png)
 
 
     c. In the **Identity Provider Login URL** box, paste the **Login URL** value, which you copied from Azure portal.
 
     d. In the **Identity Provider Logout URL** box, paste the value of **Logout URL**, which you  copied from Azure portal.
    
-       ![settings_Identity_provider](media/docusign-tutorial/settings-Identity-provider.png)
+       ![Screenshot of settings_Identity_provider](media/docusign-tutorial/settings-Identity-provider.png)
 
 
     e. For **Send AuthN request by**, select **POST**.
@@ -211,26 +211,26 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
     g. In the **Custom Attribute Mapping** section, select **ADD NEW MAPPING**.
 
-       ![Custom Attribute Mapping UI](media/docusign-tutorial/add-new-mapping.png)
+       ![Screenshot of Custom Attribute Mapping UI](media/docusign-tutorial/add-new-mapping.png)
 
     h. Choose the field you want to map to the Azure AD claim. In this example, the **emailaddress** claim is mapped with the value of `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. That's the default claim name from Azure AD for the email claim. Select **SAVE**.
 
-       ![Custom Attribute Mapping fields](media/docusign-tutorial/email-address.png)
+       ![Screenshot of Custom Attribute Mapping fields](media/docusign-tutorial/email-address.png)
 
        > [!NOTE]
        > Use the appropriate **User identifier** to map the user from Azure AD to DocuSign user mapping. Select the proper field, and enter the appropriate value based on your organization settings. Custom Attribute Mapping setting is not mandatory.
 
     i. In the **Identity Provider Certificates** section, select **ADD CERTIFICATE**, upload the certificate you downloaded from Azure AD portal, and select **SAVE**.
 
-       ![Identity Provider Certificates/Add Certificate](media/docusign-tutorial/certificates.png)
+       ![Screenshot of Identity Provider Certificates/Add Certificate](media/docusign-tutorial/certificates.png)
 
     j. In the **Identity Providers** section, select **ACTIONS**, and then select **Endpoints**.
 
-       ![Identity Providers/Endpoints](media/docusign-tutorial/identity-providers-endpoints.png)
+       ![Screenshot of Identity Providers/Endpoints](media/docusign-tutorial/identity-providers-endpoints.png)
 
     k. In the **View SAML 2.0 Endpoints** section of the DocuSign admin portal, follow these steps:
 
-       ![View SAML 2.0 Endpoints](media/docusign-tutorial/saml-endpoints.png)
+       ![Screenshot of View SAML 2.0 Endpoints](media/docusign-tutorial/saml-endpoints.png)
        
        1. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
        
