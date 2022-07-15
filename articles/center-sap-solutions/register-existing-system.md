@@ -114,7 +114,7 @@ To register an existing SAP system in ACSS:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Make sure to sign in with an Azure account that has **Contributor** role access to the subscription or resource groups where the SAP system exists. For more information, see the [resource permissions explanation](#enable-acss-resource-permissions).
 1. Search for and select **Azure Center for SAP solutions** in the Azure portal's search bar.
-1. On the **Azure Center for SAP solutions** page, select **Register**.
+1. On the **Azure Center for SAP solutions** page, select **Register an existing SAP system**.
 
     :::image type="content" source="media/register-existing-system/register-button.png" alt-text="Screenshot of ACSS service overview page in the Azure portal, showing button to register an existing SAP system." lightbox="media/register-existing-system/register-button.png":::
 
