@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/28/2022
+ms.date: 06/29/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -18,6 +18,15 @@ The Azure Virtual Desktop Agent updates regularly. This article is where you'll 
 - Bug fixes
 
 Make sure to check back here often to keep up with new updates.
+
+## Version 1.0.4574.1600
+
+This update was released in June 2022 and includes the following changes:
+
+- Fixed broker URL cache to address Agent Telemetry calls.
+- Fixed some network-related issues. 
+- Created two new mechanisms to trigger health checks.
+- Additional general bug fixes and agent upgrades.
 
 ## Version 1.0.4230.1600
 

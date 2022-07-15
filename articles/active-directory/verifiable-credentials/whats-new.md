@@ -6,7 +6,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 06/24/2022
+ms.date: 06/27/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -22,11 +22,22 @@ This article lists the latest features, improvements, and changes in the Microso
 
 ## June 2022
 
-In June, we introduced a set of new preview features:
-- Web as a new, default, trust system that users' can choose when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) a tenant. Web means your tenant uses [did:web](https://w3c-ccg.github.io/did-method-web/) as its trust system. ION is still available.
-- [Quickstarts](how-to-use-quickstart.md) as a new way to create Managed Credentials. Managed Credentials no longer use of Azure Storage to store the Display & Rules JSON definitions. You need to migrate your Azure Storage based credentials to become Managed Credentials and we'll provide instructions shortly.
-- Managed Credential [Quickstart for Verifiable Credentials of type VerifiedEmployee](how-to-use-quickstart-verifiedemployee.md) with directory based claims from your tenant.
-- Updated documentation that describes the different ways to use the [Quickstarts](how-to-use-quickstart.md) and a [Rules and Display definition model](rules-and-display-definitions-model.md).  
+- We are adding support for the [did:web](https://w3c-ccg.github.io/did-method-web/) method. Any new tenant that starts using the Verifiable Credentials Service after June 14, 2022 will have Web as a new, default, trust system when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials). VC Administrators can still choose to use ION when setting a tenant. If you want to use did:web instead of ION or viceversa, you will need to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reset-the-azure-ad-verifiable-credentials-service).
+- We are rolling out several features to improve the overall experience of creating verifiable credentials in the Entra Verified ID platform:
+  - Introducing Managed Credentials, Managed Credentials are verifiable credentials that no longer use of Azure Storage to store the [display & rules JSON definitions](rules-and-display-definitions-model.md). Their display and rule definitions are different from earlier versions.
+  - Create Managed Credentials using the [new quickstart experience](how-to-use-quickstart.md).
+  - Administrators can create a Verified Employee Managed Credential using the [new quick start](how-to-use-quickstart-verifiedemployee.md). The Verified Employee is a verifiable credential of type verifiedEmployee that is based on a pre-defined set of claims from your tenant's Azure Active Directory.
+
+>[!IMPORTANT]
+> You need to migrate your Azure Storage based credentials to become Managed Credentials. We'll soon provide migration instructions.
+
+- We made the following updates to our docs:
+  - (new) [Current supported open standards for Microsoft Entra Verified ID](verifiable-credentials-standards.md).
+  - (new) [How to create verifiable credentials for ID token hint](how-to-use-quickstart.md).
+  - (new) [How to create verifiable credentials for ID token](how-to-use-quickstart-idtoken.md).
+  - (new) [How to create verifiable credentials for self-asserted claims](how-to-use-quickstart-selfissued.md). 
+  - (new) [Rules and Display definition model specification](rules-and-display-definitions-model.md).
+  - (new) [Creating an Azure AD tenant for development](how-to-create-a-free-developer-account.md).
 
 ## May 2022
 

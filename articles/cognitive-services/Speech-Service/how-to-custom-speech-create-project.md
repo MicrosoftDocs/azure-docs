@@ -41,7 +41,7 @@ To create a project, use the `spx csr project create` command. Construct the req
 
 Here's an example Speech CLI command that creates a project:
 
-```azurecli-interactive
+```azurecli
 spx csr project create --name "My Project" --description "My Project Description" --language "en-US"
 ```
 
@@ -75,7 +75,7 @@ The top-level `self` property in the response body is the project's URI. Use thi
 
 For Speech CLI help with projects, run the following command:
 
-```azurecli-interactive
+```azurecli
 spx help csr project
 ```
 
