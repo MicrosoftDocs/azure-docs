@@ -43,10 +43,6 @@ When a legal hold is applied to a container, all existing blobs move into an imm
 
 To learn how to configure a legal hold with container-level scope, see [Configure or clear a legal hold](immutable-policy-configure-container-scope.md#configure-or-clear-a-legal-hold).
 
-## Allow protected append blobs writes
-
-[!INCLUDE [allow protected append blobs writes](../../../includes/azure-storage-blobs-immutability-allow-protected-append-blobs.md)]
-
 #### Legal hold tags
 
 A container-level legal hold must be associated with one or more user-defined alphanumeric tags that serve as identifier strings. For example, a tag may include a case ID or event name.
@@ -65,6 +61,14 @@ The following limits apply to container-level legal holds:
 - For a container, the maximum number of legal hold tags is ten.
 - The minimum length of a legal hold tag is three alphanumeric characters. The maximum length is 23 alphanumeric characters.
 - For a container, a maximum of ten legal hold policy audit logs are retained for the duration of the policy.
+
+## Allow protected append blobs writes
+
+Append blobs are comprised of blocks of data and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new blocks to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+
+The **AllowProtectedAppendWritesAll** property setting allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If this setting is enabled, you can create an append blob directly in the policy-protected container and then continue to add new blocks of data to the end of the append blob with the Append Block operation. Only new blocks can be added; any existing blocks cannot be modified or deleted. Enabling this setting does not affect the immutability behavior of block blobs or page blobs. 
+
+This setting also adds the ability to write new blocks to a block blob. While there are no public APIs that enable you to to do this directly, certain Microsoft tools implement append blobs by creating block blobs and then appending blocks to them by using internally available APIs. 
 
 ## Next steps
 
