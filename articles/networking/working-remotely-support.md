@@ -42,8 +42,7 @@ The Microsoft network is designed to meet the requirements and provide optimal p
 
 Azure VPN gateway supports both Point-to-Site (P2S) and Site-to-Site (S2S) VPN connections. Using the Azure VPN gateway you can scale your employee's connections to securely access both your Azure deployed resources and your on-premises resources. For more information, see [How to enable users to work remotely](../vpn-gateway/work-remotely-support.md). 
 
-If you are using Secure Sockets Tunneling Protocol (SSTP), the number of concurrent connections is limited to 128. To get a higher number of connections, we suggest transitioning to OpenVPN or IKEv2. For more information, see [Transition to OpenVPN protocol or IKEv2 from SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md
-).
+If you are using Secure Sockets Tunneling Protocol (SSTP), the number of concurrent connections is limited to 128. To get a higher number of connections, we suggest transitioning to OpenVPN or IKEv2. For more information, see [Transition to OpenVPN protocol or IKEv2 from SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md).
 
 To access your resources deployed in Azure, remote developers could use Azure Bastion solution, instead of VPN connection to get secure shell access (RDP or SSH) without requiring public IPs on the VMs being accessed. For more information, see [Work remotely using Azure Bastion](../bastion/work-remotely-support.md).
 

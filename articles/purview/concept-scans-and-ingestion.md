@@ -1,8 +1,8 @@
 ---
 title: Scans and ingestion
 description: This article explains scans and ingestion in Microsoft Purview.
-author: nayenama
-ms.author: nayenama
+author: heniot
+ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
@@ -22,10 +22,14 @@ For each scan there are customizations you can apply so that you're only scannin
 
 ### Choose an authentication method for your scans
 
-Microsoft Purview is secure by default. No passwords or secrets are stored directly in Microsoft Purview, so you’ll need to choose an authentication method for your sources. There are four possible ways to authenticate your Microsoft Purview account, but not all methods are supported for each data source.
+Microsoft Purview is secure by default. No passwords or secrets are stored directly in Microsoft Purview, so you’ll need to choose an authentication method for your sources. There are several possible ways to authenticate your Microsoft Purview account, but not all methods are supported for each data source.
  - Managed Identity
  - Service Principal
  - SQL Authentication
+ - Windows Authentication
+ - Role ARN
+ - Delegated Authentication
+ - Consumer Key
  - Account Key or Basic Authentication
 
 Whenever possible, a Managed Identity is the preferred authentication method because it eliminates the need for storing and managing credentials for individual data sources. This can greatly reduce the time you and your team spend setting up and troubleshooting authentication for scans. When you enable a managed identity for your Microsoft Purview account, an identity is created in Azure Active Directory and is tied to the lifecycle of your account. 
@@ -48,7 +52,7 @@ Microsoft Purview gives you a choice of scanning weekly or monthly at a specific
 
 ### How scans detect deleted assets
 
-An Microsoft Purview catalog is only aware of the state of a data store when it runs a scan. For the catalog to know if a file, table, or container was deleted, it compares the last scan output against the current scan output. For example, suppose that the last time you scanned an Azure Data Lake Storage Gen2 account, it included a folder named *folder1*. When the same account is scanned again, *folder1* is missing. Therefore, the catalog assumes the folder has been deleted.
+A Microsoft Purview catalog is only aware of the state of a data store when it runs a scan. For the catalog to know if a file, table, or container was deleted, it compares the last scan output against the current scan output. For example, suppose that the last time you scanned an Azure Data Lake Storage Gen2 account, it included a folder named *folder1*. When the same account is scanned again, *folder1* is missing. Therefore, the catalog assumes the folder has been deleted.
 
 #### Detecting deleted files
 

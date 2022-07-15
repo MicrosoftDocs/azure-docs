@@ -64,7 +64,7 @@ For more information on how to use the Python SDK to log values, see [Enable log
 
 After the pipeline run completes, you can see the *Mean_Absolute_Error* in the Experiments page.
 
-1. Navigate to the **Experiments** section.
+1. Navigate to the **Jobs** section.
 1. Select your experiment.
 1. Select the job in your experiment you want to view.
 1. Select **Metrics**.

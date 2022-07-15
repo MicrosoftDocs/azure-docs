@@ -1,5 +1,5 @@
 ---
-title: Track, monitor, and analyze jobs in studio
+title: Monitor and analyze jobs in studio
 titleSuffix: Azure Machine Learning 
 description: Learn how to start, monitor, and track your machine learning experiment jobs with the Azure Machine Learning studio. 
 services: machine-learning
@@ -8,12 +8,13 @@ ms.subservice: mlops
 author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
-ms.date: 04/28/2022
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Start, monitor, and track job history in studio
+# Monitor and analyze jobs in studio
+
 
 You can use [Azure Machine Learning studio](https://ml.azure.com) to monitor, organize, and track your jobs for training and experimentation. Your ML job history is an important part of an explainable and repeatable ML development process.
 
@@ -23,7 +24,7 @@ This article shows how to do the following tasks:
 * Create a custom view. 
 * Add a job description. 
 * Tag and find jobs.
-* Run search over your job history. 
+* Run search over your job history.
 * Cancel or fail jobs.
 * Monitor the job status by email notification.
  
@@ -42,34 +43,35 @@ You'll need the following items:
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
-## Job Display Name 
+## Job display name 
 
 The job display name is an optional and customizable name that you can provide for your job. To edit the job display name:
 
-1. Navigate to the jobs list. 
+1. Navigate to the **Jobs** list. 
 
-2. Select the job to edit the display name in the job details page.
+1. Select the job to edit.
 
-3. Select the **Edit** button to edit the job display name. 
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/select-job.png" alt-text="Screenshot of Jobs list.":::
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: edit the display name":::
+1. Select the **Edit** button to edit the job display name.
+
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot of how to edit the display name.":::
 
 ## Custom View 
     
 To view your jobs in the studio: 
     
-1. Navigate to the **Experiments** tab.
+1. Navigate to the **Jobs** tab.
     
 1. Select either **All experiments** to view all the jobs in an experiment or select **All jobs** to view all the jobs submitted in the Workspace.
     
 In the **All jobs'** page, you can filter the jobs list by tags, experiments, compute target and more to better organize and scope your work.  
     
-1. Make customizations to the page by selecting jobs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit, or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.   
+1. Make customizations to the page by selecting jobs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit, or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.
 
 1. To view the job logs, select a specific job and in the **Outputs + logs** tab, you can find diagnostic and error logs for your job.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="Screenshot: create a custom view":::
-    
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="Screenshot of how to create a custom view.":::   
 
 ## Job description 
 
@@ -77,7 +79,8 @@ A job description can be added to a job to provide more context and information 
 
 Navigate to the **Job Details** page for your job and select the edit or pencil icon to add, edit, or delete descriptions for your job. To persist the changes to the jobs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for job descriptions, which allows images to be embedded and deep linking as shown below.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="Screenshot: create a job description"::: 
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="Screenshot of how to create a job description."::: 
+
 
 ## Tag and find jobs
 
@@ -87,7 +90,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     You can add, edit, or delete job tags from the studio. Navigate to the **Job Details** page for your job and select the edit, or pencil icon to add, edit, or delete tags for your jobs. You can also search and filter on these tags from the jobs list page.
     
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-tags.gif" alt-text="Screenshot: Add, edit, or delete run tags":::
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-tags.gif" alt-text="Screenshot of how to add, edit, or delete job tags.":::
     
 
 * Query properties and tags
@@ -107,7 +110,7 @@ If you notice a mistake or if your job is taking too long to finish, you can can
 
 To cancel a job in the studio, using the following steps:
 
-1. Go to the running pipeline in either the **Experiments** or **Pipelines** section. 
+1. Go to the running pipeline in either the **Jobs** or **Pipelines** section. 
 
 1. Select the pipeline job number you want to cancel.
 

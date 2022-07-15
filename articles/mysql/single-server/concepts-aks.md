@@ -1,14 +1,13 @@
 ---
 title: Connect to Azure Kubernetes Service - Azure Database for MySQL
 description: Learn about connecting Azure Kubernetes Service with Azure Database for MySQL
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 07/14/2020
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
-
 
 # Best practices for Azure Kubernetes Service and Azure Database for MySQL
 
@@ -59,4 +58,4 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## Next steps
 
-Create an AKS cluster [using the Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli), [using Azure PowerShell](/azure/aks/learn/quick-kubernetes-deploy-powershell), or [using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal).
+Create an AKS cluster [using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../../aks/learn/quick-kubernetes-deploy-portal.md).

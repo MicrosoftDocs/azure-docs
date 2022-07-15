@@ -22,24 +22,24 @@ ms.author: radeltch
 [anf-azure-doc]:/azure/azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
 
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[1410736]: https://launchpad.support.sap.com/#/notes/1410736
+[1900823]: https://launchpad.support.sap.com/#/notes/1900823
+[2292690]: https://launchpad.support.sap.com/#/notes/2292690
+[2455582]: https://launchpad.support.sap.com/#/notes/2455582
+[2593824]: https://launchpad.support.sap.com/#/notes/2593824
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[sap-swcenter]: https://support.sap.com/en/my-support/software-downloads.html
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[1410736]:https://launchpad.support.sap.com/#/notes/1410736
-[1900823]:https://launchpad.support.sap.com/#/notes/1900823
-[2292690]:https://launchpad.support.sap.com/#/notes/2292690
-[2455582]:https://launchpad.support.sap.com/#/notes/2455582
-[2593824]:https://launchpad.support.sap.com/#/notes/2593824
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
-
-[sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
+[2447641]: https://access.redhat.com/solutions/2447641
 
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
@@ -369,7 +369,7 @@ Configure and prepare your OS by doing the following steps:
 
 6. **[A]** Red Hat for HANA configuration.
 
-    Configure RHEL as described in SAP Note [2292690], [2455582], [2593824] and <https://access.redhat.com/solutions/2447641>.
+    Configure RHEL as described in SAP Note [2292690], [2455582], [2593824], and Red Hat note [2447641].
 
     > [!NOTE]
     > If installing HANA 2.0 SP04 you will be required to install package `compat-sap-c++-7` as described in SAP note [2593824], before you can install SAP HANA. 

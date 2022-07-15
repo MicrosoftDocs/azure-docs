@@ -23,15 +23,16 @@ The Web Application Routing solution makes it easy to access applications that a
 The add-on deploys four components: an [nginx ingress controller][nginx], [Secrets Store CSI Driver][csi-driver], [Open Service Mesh (OSM)][osm], and [External-DNS][external-dns] controller.
 
 - **Nginx ingress Controller**: The ingress controller exposed to the internet.
-- **External-dns**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
+- **External-DNS controller**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
 - **CSI driver**: Connector used to communicate with keyvault to retrieve SSL certificates for ingress controller.
 - **OSM**: A lightweight, extensible, cloud native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
-- **External-DNS controller**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
+- An Azure Key Vault containing any application certificates.
+- A DNS solution.
 
 ### Install the `aks-preview` Azure CLI extension
 
@@ -66,8 +67,6 @@ You can also enable Web Application Routing on an existing AKS cluster using the
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons web_application_routing 
 ```
 
-After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name.
-
 ## Connect to your AKS cluster
 
 To connect to the Kubernetes cluster from your local computer, you use [kubectl][kubectl], the Kubernetes command-line client.
@@ -78,10 +77,10 @@ If you use the Azure Cloud Shell, `kubectl` is already installed. You can also i
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. The following example gets credentials for the AKS cluster named *MyAKSCluster* in the *MyResourceGroup*:
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*:
 
 ```azurecli
-az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 ## Create the application namespace
@@ -110,6 +109,12 @@ Copy the identity's object ID:
 
 ### Grant access to Azure Key Vault
 
+Obtain the vault URI for your Azure Key Vault:
+
+```azurecli
+az keyvault show --resource-group myResourceGroup --name myapp-contoso
+```
+
 Grant `GET` permissions for Web Application Routing to retrieve certificates from Azure Key Vault:
 
 ```azurecli
@@ -123,12 +128,12 @@ The Web Application Routing solution may only be triggered on service resources 
 ```yaml
 annotations:
   kubernetes.azure.com/ingress-host: myapp.contoso.com
-  kubernetes.azure.com/tls-cert-keyvault-uri: myapp-contoso.vault.azure.net
+  kubernetes.azure.com/tls-cert-keyvault-uri: myapp-contoso.vault.azure.net/certificates/keyvault-certificate-name/keyvault-certificate-name-revision
 ```
 
-These annotations in the service manifest would direct Web Application Routing to create an ingress servicing `myapp.contoso.com` connected to the keyvault `myapp-contoso`.
+These annotations in the service manifest would direct Web Application Routing to create an ingress servicing `myapp.contoso.com` connected to the keyvault `myapp-contoso` and will retrieve the `keyvault-certificate-name` with `keyvault-certificate-name-revision`
 
-Create a file named **samples-web-app-routing.yaml** and copy in the following YAML. On line 29-31, update `<MY_HOSTNAME>` and `<MY_KEYVAULT_URI>` with the DNS zone name collected in the previous step of this article.
+Create a file named **samples-web-app-routing.yaml** and copy in the following YAML. On line 29-31, update `<MY_HOSTNAME>` with your DNS host name and `<MY_KEYVAULT_URI>` with the full certficicate vault URI.
 
 ```yaml
 apiVersion: apps/v1
@@ -158,9 +163,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld
-annotations:
-  kubernetes.azure.com/ingress-host: <MY_HOSTNAME>
-  kubernetes.azure.com/tls-cert-keyvault-uri: <MY_KEYVAULT_URI>
+  annotations:
+    kubernetes.azure.com/ingress-host: <MY_HOSTNAME>
+    kubernetes.azure.com/tls-cert-keyvault-uri: <MY_KEYVAULT_URI>
 spec:
   type: ClusterIP
   ports:
@@ -175,11 +180,9 @@ Use the [kubectl apply][kubectl-apply] command to create the resources.
 kubectl apply -f samples-web-app-routing.yaml -n hello-web-app-routing
 ```
 
-The following example shows the created resources:
+The following example output shows the created resources:
 
 ```bash
-$ kubectl apply -f samples-web-app-routing.yaml -n hello-web-app-routing
-
 deployment.apps/aks-helloworld created
 service/aks-helloworld created
 ```
@@ -187,7 +190,7 @@ service/aks-helloworld created
 ## Verify the managed ingress was created
 
 ```bash
-$ kubectl get ingress -n hello-web-app-routing -n hello-web-app-routing
+$ kubectl get ingress -n hello-web-app-routing
 ```
 
 Open a web browser to *<MY_HOSTNAME>*, for example *myapp.contoso.com* and verify you see the demo application. The application may take a few minutes to appear.
@@ -207,8 +210,6 @@ az aks disable-addons --addons web_application_routing  --name myAKSCluster --re
 ```
 
 When the Web Application Routing add-on is disabled, some Kubernetes resources may remain in the cluster. These resources include *configMaps* and *secrets*, and are created in the *app-routing-system* namespace. To maintain a clean cluster, you may want to remove these resources.
-
-Look for *addon-web-application-routing* resources using the following [kubectl get][kubectl-get] commands:
 
 ## Clean up
 

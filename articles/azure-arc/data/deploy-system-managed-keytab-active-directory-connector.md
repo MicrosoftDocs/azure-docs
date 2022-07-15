@@ -16,6 +16,8 @@ ms.topic: how-to
 
 This article explains how to deploy Active Directory connector in system-managed keytab mode. It is a key component to enable Active Directory authentication on Azure Arc-enabled SQL Managed Instance.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Active Directory connector in system-managed keytab mode
 
 In System-Managed Keytab mode, an Active Directory connector deploys a DNS proxy service that proxies the DNS requests coming from the managed instance to either of the two upstream DNS services:
