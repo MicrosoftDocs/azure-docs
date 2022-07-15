@@ -94,7 +94,7 @@ Logging models using Azure ML SDK v1 is not possible. We recommend to use MLflow
 ```python
 os.mkdirs("outputs/classifier", exists_ok=True)
 
-mlflow..sklearn.save_model(sklearn_estimator, "outputs/classifier")
+mlflow.sklearn.save_model(sklearn_estimator, "outputs/classifier")
 ```
 
 ---
