@@ -113,19 +113,19 @@ If you install using the Azure CLI:
    ```
 1. Set environment variables for:
 
-   - `ARC_DATASERVICES_EXTENSION_VERSION_TAG`: Use the version of the **Arc enabled Kubernetes helm chart extension version** from the release details table below.
+   - `ARC_DATASERVICES_EXTENSION_VERSION_TAG`: Use the version of the **Arc enabled Kubernetes helm chart extension version** from the release details under [Current preview release information](#current-preview-release-information).
    - `ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN`: `preview`
 
-   For example, on the following command sets the environment variables on Linux.
+   For example, the following command sets the environment variables on Linux.
 
-   ```azurecli
+   ```console
    export ARC_DATASERVICES_EXTENSION_VERSION_TAG='1.2.20031002'
    export ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN='preview'
    ```
 
    The following command sets the environment variables on PowerShell
 
-   ```azurecli
+   ```console
    $ENV:ARC_DATASERVICES_EXTENSION_VERSION_TAG="1.2.20031002"
    $ENV:ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN="preview"
    ```
