@@ -200,6 +200,7 @@ For more information about Azure Resource Manager templates, see [Azure Resource
   }
 }
 ```
+---
 
 ## Troubleshooting
 

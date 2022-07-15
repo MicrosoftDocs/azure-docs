@@ -14,7 +14,7 @@ recommendations: false
 
 # Form Recognizer custom template model
 
-Custom template—formerly custom form-are easy-to-train models that accurately extract labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.
+Custom template (formerly custom form) are easy-to-train models that accurately extract labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.
 
 Custom template models share the same labeling format and strategy as custom neural models, with support for more field types and languages.
 

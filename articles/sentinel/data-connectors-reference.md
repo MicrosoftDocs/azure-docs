@@ -352,6 +352,8 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 | **Recommended diagnostics** | DDoSProtectionNotifications<br>DDoSMitigationFlowLogs<br>DDoSMitigationReports |
 | **Supported by** | Microsoft |
 
+> [!NOTE]
+> The **Status** for Azure DDoS Protection Data Connector changes to **Connected** only when the protected resources are under a DDoS attack.
 
 ## Azure Defender
 
@@ -723,7 +725,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Log Analytics table(s)** | ESETEnterpriseInspector_CL​ |
 | **DCR support** | Not currently supported |
 | **API credentials** | <li>EEI Username<li>EEI Password<li>Base URL |
-| **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.5/en-US/api.html) |
+| **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.6/en-US/api.html) |
 | **Connector deployment instructions** | [Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template |
 | **Supported by** | [ESET](https://support.eset.com/en) |
 
@@ -1120,14 +1122,15 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 
 
-## Microsoft 365 Insider Risk Management (IRM) (Preview)
-
+## Microsoft Purview Insider Risk Management (IRM) (Preview)
+<a id="microsoft-365-insider-risk-management-irm-preview"></a>
+        
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)**<br><br>Also available in the [Microsoft 365 Insider Risk Management solution](sentinel-solutions-catalog.md#domain-solutions) |
-| **License and other prerequisites** | <ul><li>Valid subscription for Microsoft 365 E5/A5/G5, or their accompanying Compliance or IRM add-ons.<li>[Microsoft 365 Insider risk management](/microsoft-365/compliance/insider-risk-management) fully onboarded, and [IRM policies](/microsoft-365/compliance/insider-risk-management-policies) defined and producing alerts.<li>[Microsoft 365 IRM configured](/microsoft-365/compliance/insider-risk-management-settings#export-alerts-preview) to enable the export of IRM alerts to the Office 365 Management Activity API in order to receive the alerts through the Microsoft Sentinel connector.)
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)**<br><br>Also available in the [Microsoft Purview Insider Risk Management solution](sentinel-solutions-catalog.md#domain-solutions) |
+| **License and other prerequisites** | <ul><li>Valid subscription for Microsoft 365 E5/A5/G5, or their accompanying Compliance or IRM add-ons.<li>[Microsoft Purview Insider Risk Management](/microsoft-365/compliance/insider-risk-management) fully onboarded, and [IRM policies](/microsoft-365/compliance/insider-risk-management-policies) defined and producing alerts.<li>[Microsoft 365 IRM configured](/microsoft-365/compliance/insider-risk-management-settings#export-alerts-preview) to enable the export of IRM alerts to the Office 365 Management Activity API in order to receive the alerts through the Microsoft Sentinel connector.)
 | **Log Analytics table(s)** | SecurityAlert |
-| **Data query filter** | `SecurityAlert`<br>`| where ProductName == "Microsoft 365 Insider Risk Management"` |
+| **Data query filter** | `SecurityAlert`<br>`| where ProductName == "Microsoft Purview Insider Risk Management"` |
 | **Supported by** | Microsoft |
 
 
@@ -1244,7 +1247,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | Morphisec |
-| **Kusto function URL** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Morphisec/Parsers/Morphisec/Morphisec |
+| **Kusto function URL** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Morphisec/Parsers/Morphisec/ |
 | **Supported by** | [Morphisec](https://support.morphisec.com/support/home) |
 
 

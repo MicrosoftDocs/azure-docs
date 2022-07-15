@@ -174,7 +174,7 @@
         href: traffic-analytics-policy-portal.md
       - name: Schema and Data Aggregation
         href: traffic-analytics-schema.md
-      - name: Schema update (August 2019)
+      - name: Schema update (March 2020)
         href: traffic-analytics-schema-update.md
     - name: View network security groups
       items:

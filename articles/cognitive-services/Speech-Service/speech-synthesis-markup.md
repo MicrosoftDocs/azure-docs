@@ -392,7 +392,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
 
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
 <voice name="en-US-JennyNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
@@ -708,7 +708,39 @@ Pitch changes can be applied at the sentence level.
     </voice>
 </speak>
 ```
-## say-as element
+
+## Adjust emphasis
+
+The optional `emphasis` element is used to add or remove word-level stress for the text. This element can only contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, `sub`, and `voice`.
+
+> [!NOTE]
+> The word-level emphasis tuning is only available for these neural voices: `en-US-GuyNeural`, `en-US-DavisNeural`, and `en-US-JaneNeural`.
+
+**Syntax**
+
+```xml
+<emphasis level="value"></emphasis>
+```
+
+**Attribute**
+
+| Attribute | Description | Required or optional |
+|-----------|-------------|---------------------|
+| `level` | Indicates the strength of emphasis to be applied:<ul><li>`reduced`</li><li>`none`</li><li>`moderate`</li><li>`strong`</li></ul><br>When the `level` attribute is not specified, the default level is `moderate`. For details on each attribute, see [emphasis element](https://www.w3.org/TR/speech-synthesis11/#S3.2.2)| Optional|
+
+**Example**
+
+This SSML snippet demonstrates how the `emphasis` element is used to add moderate level emphasis for the word "meetings". 
+    
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US"> 
+    <voice name="en-US-GuyNeural">   
+    I can help you join your <emphasis level="moderate">meetings</emphasis> fast. 
+    </voice> 
+</speak> 
+```
+
+## Add say-as element
 
 The `say-as` element is optional. It indicates the content type, such as number or date, of the element's text. This element provides guidance to the speech synthesis engine about how to pronounce the text.
 
@@ -726,7 +758,7 @@ The `say-as` element is optional. It indicates the content type, such as number 
 | `format` | Provides additional information about the precise formatting of the element's text for content types that might have ambiguous formats. SSML defines formats for content types that use them. See the following table. | Optional |
 | `detail` | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
 
-The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `interpret-as` is set to date and time.
+The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column is not empty in the table below.
 
 | interpret-as | format | Interpretation |
 |--------------|--------|----------------|
@@ -739,6 +771,7 @@ The following content types are supported for the `interpret-as` and `format` at
 | `ordinal` | | The text is spoken as an ordinal number. The speech synthesis engine pronounces:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />As "Select the third option." |
 | `telephone` | | The text is spoken as a telephone number. The `format` attribute can contain digits that represent a country code. Examples are "1" for the United States or "39" for Italy. The speech synthesis engine can use this information to guide its pronunciation of a phone number. The phone number might also include the country code, and if so, takes precedence over the country code in the `format` attribute. The speech synthesis engine pronounces:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />As "My number is area code eight eight eight five five five one two one two." |
 | `time` | hms12, hms24 | The text is spoken as a time. The `format` attribute specifies whether the time is specified by using a 12-hour clock (hms12) or a 24-hour clock (hms24). Use a colon to separate numbers representing hours, minutes, and seconds. Here are some valid time examples: 12:35, 1:14:32, 08:15, and 02:50:45. The speech synthesis engine pronounces:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />As "The train departs at four A M." |
+| `duration` | hms, hm, ms | The text is spoken as a duration. The `format` attribute specifies the duration's format (*h=hour, m=minute, and s=second*). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="duration">01:18:30</say-as>`<br /><br /> As "one hour eighteen minutes and thirty seconds".<br />Pronounces:<br /><br />`<say-as interpret-as="duration" format="ms">01:18</say-as>`<br /><br /> As "one minute and eighteen seconds".<br />This tag is only supported on English and Spanish.|
 | `name` | | The text is spoken as a person's name. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />As [æd]. <br />In Chinese names, some characters pronounce differently when they appear in a family name. For example, the speech synthesis engine says 仇 in <br /><br />`<say-as interpret-as="name">仇先生</say-as>`<br /><br /> As [qiú] instead of [chóu]. |
 
 **Usage**
@@ -770,6 +803,9 @@ Any audio included in the SSML document must meet these requirements:
 * The audio file must be valid *.mp3, *.wav, *.opus, *.ogg, *.flac, or *.wma files.
 * The combined total time for all text and audio files in a single response can't exceed 600 seconds.
 * The audio must not contain any customer-specific or other sensitive information.
+
+> [!NOTE]
+> The 'audio' element is not supported by the Long Audio API.
 
 **Syntax**
 
@@ -806,6 +842,9 @@ You can use the `mstts:backgroundaudio` element to add background audio to your 
 If the background audio provided is shorter than the text-to-speech or the fade out, it loops. If it's longer than the text-to-speech, it stops when the fade out has finished.
 
 Only one background audio file is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
+
+> [!NOTE]
+> The `mstts:backgroundaudio` element is not supported by the Long Audio API.
 
 **Syntax**
 
