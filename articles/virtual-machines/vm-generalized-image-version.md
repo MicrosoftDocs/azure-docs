@@ -534,6 +534,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 > You can't currently create a Flexible virtual machine scale set from an image shared to you by another tenant.
 
 
+
 ### [CLI](#tab/cli2)
 
 To create a VM using an image shared to your subscription or tenant, you need the unique ID of the image in the following format:
@@ -582,6 +583,9 @@ az vm create\
 
 
 ### [Portal](#tab/portal2)
+
+> [!NOTE]
+> **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image: <region>" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 
 1. Type **virtual machines** in the search.
 1. Under **Services**, select **Virtual machines**.

@@ -296,6 +296,9 @@ az vm create\
 
 ### [Portal](#tab/portal2)
 
+> [!NOTE]
+> **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image: <region>" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
+
 1. Type **virtual machines** in the search.
 1. Under **Services**, select **Virtual machines**.
 1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
