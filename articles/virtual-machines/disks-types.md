@@ -93,6 +93,10 @@ If you would like to start using ultra disks, see the article on [using Azure ul
 
 Azure Premium SSD v2 (preview) is designed for IO-intense enterprise workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
 
+### Differences between Premium SSD and Premium SSD v2
+
+Premium SSD v2 doesn't support host caching but, it's designed not to need it. The lower latency of Premium SSD v2 addresses the core problem associated with host caching.
+
 ### Premium SSD v2 limitations
 
 [!INCLUDE [disks-prem-v2-limitations](../../includes/disks-prem-v2-limitations.md)]
