@@ -16,9 +16,9 @@ ms.date: 07/14/2022
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-In Azure Cognitive Search, a *normalizer* is a component that pre-processes text for keyword matching over fields marked as "filterable", "facetable", or "sortable". In contrast with "searchable" fields that are paired with [text analyzers](search-analyzers.md), filterable-facetable-sortable content doesn't undergo analysis or tokenization, which can yield unexpected results. 
+In Azure Cognitive Search, a *normalizer* is a component that pre-processes text for keyword matching over fields marked as "filterable", "facetable", or "sortable". In contrast with full text "searchable" fields that are paired with [text analyzers](search-analyzers.md), content that's created for filter-facet-sort operations doesn't undergo analysis or tokenization. Omission of text analysis can produce unexpected results when casing and character differences show up.
 
-By applying a normalizer, you can achieve text transformations that improve results:
+By applying a normalizer, you can achieve light text transformations that improve results:
 
 + Consistent casing (such as all lowercase or uppercase)
 + Normalize accents and diacritics like ö or ê to ASCII equivalent characters "o" and "e"
@@ -27,7 +27,7 @@ By applying a normalizer, you can achieve text transformations that improve resu
 Normalizers are specified on string fields in the index and applied during indexing and query execution. 
 
 > [!NOTE]
-> If fields are both searchable and filterable (or facetable or sortable), both analyzers and normalizers can be used. Analyzers are ways used on searchable fields as a requirement of tokenization. Normalizers are optional. 
+> If fields are both searchable and filterable (or facetable or sortable), both analyzers and normalizers can be used. Analyzers are always used on searchable fields because its required for tokenization. Normalizers are optional. 
 
 ## Benefits of normalizers
 
