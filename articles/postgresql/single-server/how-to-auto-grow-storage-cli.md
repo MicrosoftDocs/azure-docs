@@ -7,8 +7,9 @@ ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal 
 ms.custom: devx-track-azurecli
-ms.date: 8/7/2019 
+ms.date: 06/24/2022
 ---
+
 # Auto-grow Azure Database for PostgreSQL storage - Single Server using the Azure CLI
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

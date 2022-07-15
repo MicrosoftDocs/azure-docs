@@ -18,10 +18,15 @@ keywords: computer vision, computer vision applications, computer vision service
 
 The Computer Vision Image Analysis service can extract a wide variety of visual features from your images. For example, it can determine whether an image contains adult content, find specific brands or objects, or find human faces.
 
-You can use Image Analysis through a client library SDK or by calling the [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) directly. Follow the [quickstart](quickstarts-sdk/image-analysis-client-library.md) to get started.
+You can use Image Analysis through a client library SDK or by calling the REST API directly. Follow the quickstart to get started.
 
 > [!div class="nextstepaction"]
-> [Get started](quickstarts-sdk/image-analysis-client-library.md)
+> [Quickstart](quickstarts-sdk/image-analysis-client-library.md)
+
+Or, you can try out the capabilities of Image Analysis quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/image-analysis-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 

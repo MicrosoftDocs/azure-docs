@@ -14,9 +14,9 @@ articles/azure-monitor/* @bwren
 articles/azure-monitor/agents @guywi-ms @bwren
 articles/azure-monitor/alerts @abbyMSFT
 articles/azure-monitor/app @AaronMaxwell 
-articles/azure-monitor/autoscale @rboucher
+articles/azure-monitor/autoscale @EdB-MSFT
 articles/azure-monitor/containers @bwren
-articles/azure-monitor/essentials @bwren @rboucher
+articles/azure-monitor/essentials @bwren @rboucher @EdB-MSFT
 articles/azure-monitor/insights @bwren @rboucher 
 articles/azure-monitor/logs @guywi-ms
 articles/azure-monitor/visualize @abbyMSFT @rboucher

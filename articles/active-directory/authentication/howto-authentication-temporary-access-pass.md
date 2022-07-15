@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 06/17/2022
 
 ms.author: justinha
 author: tilarso 
@@ -35,7 +35,7 @@ A Temporary Access Pass policy defines settings, such as the lifetime of passes 
 Before anyone can sign-in with a Temporary Access Pass, you need to enable Temporary Access Pass in the authentication method policy and choose which users and groups can sign in by using a Temporary Access Pass.
 Although you can create a Temporary Access Pass for any user, only those included in the policy can sign-in with it.
 
-Global administrator and Authentication Method Policy administrator role holders can update the Temporary Access Pass authentication method policy.
+Global administrator and Authentication Policy administrator role holders can update the Temporary Access Pass authentication method policy.
 To configure the Temporary Access Pass authentication method policy:
 
 1. Sign in to the Azure portal as a Global admin or Authentication Policy admin and click **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**.
@@ -82,7 +82,7 @@ These roles can perform the following actions related to a Temporary Access Pass
    
    ![Screenshot of Temporary Access Pass details.](./media/how-to-authentication-temporary-access-pass/details.png)
 
-The following commands show how to create and get a Temporary Access Pass by using PowerShell:
+The following commands show how to create and get a Temporary Access Pass by using PowerShell. 
 
 ```powershell
 # Create a Temporary Access Pass for a user
@@ -105,6 +105,8 @@ Id                                   CreatedDateTime       IsUsable IsUsableOnce
 c5dbd20a-8b8f-4791-a23f-488fcbde3b38 5/22/2022 11:19:17 PM False    True         60                NotYetValid           23/05/2022 6:00:00 AM
 
 ```
+
+For more information, see [New-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/new-mguserauthenticationtemporaryaccesspassmethod?view=graph-powershell-beta) and [Get-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/get-mguserauthenticationtemporaryaccesspassmethod?view=graph-powershell-beta).
 
 ## Use a Temporary Access Pass
 
@@ -170,6 +172,8 @@ You can also use PowerShell:
 Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -TemporaryAccessPassAuthenticationMethodId c5dbd20a-8b8f-4791-a23f-488fcbde3b38
 ```
 
+For more information, see [Remove-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/remove-mguserauthenticationtemporaryaccesspassmethod?view=graph-powershell-beta).
+
 ## Replace a Temporary Access Pass 
 
 - A user can only have one Temporary Access Pass. The passcode can be used during the start and end time of the Temporary Access Pass.
@@ -187,6 +191,7 @@ Keep these limitations in mind:
 - Users in scope for Self Service Password Reset (SSPR) registration policy *or* [Identity Protection Multi-factor authentication registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) will be required to register authentication methods after they have signed in with a Temporary Access Pass. 
 Users in scope for these policies will get redirected to the [Interrupt mode of the combined registration](concept-registration-mfa-sspr-combined.md#combined-registration-modes). This experience does not currently support FIDO2 and Phone Sign-in registration. 
 - A Temporary Access Pass cannot be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter.
+- After a Temporary Access Pass is added to an account or expires, it can take a few minutes for the changes to replicate. Users may still see a prompt for Temporary Access Pass during this time. 
 
 ## Troubleshooting    
 

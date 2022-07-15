@@ -1,12 +1,14 @@
 ---
 title: RunToCompletion semantics and specifications
 description: Learn about Service Fabric RunToCompletion semantics and specifications, and see complete code examples and considerations.
-author: shsha-msft
 ms.topic: conceptual
-ms.date: 06/08/2022
-ms.author: shsha
-ms.custom: kr2b-contr-experiment
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # RunToCompletion
 
 Starting with version 7.1, Service Fabric supports **RunToCompletion** semantics for [containers][containers-introduction-link] and [guest executable applications][guest-executables-introduction-link]. These semantics enable applications and services that complete a task and exit, in contrast to always running applications and services.
