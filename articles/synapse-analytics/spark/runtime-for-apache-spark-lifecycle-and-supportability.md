@@ -27,7 +27,7 @@ The following diagram captures expected lifecycle paths for a Synapse runtime fo
 |  Runtime release stage  | Expected Lifecycle* |  Notes | 
 | ----- | ----- | ----- |
 | Preview | 3 months* | Should be used to evaluate new features and validation of workload migration to newer versions. <br/> Must not be used for production workloads. <br/> A Preview runtime may not be elected to move into a GA stage at Microsoft discretion; moving directly to EOLA stage. |
-| Generally Available (GA) | 12 months* | Generally available (GA) runtimes are open to all customers and are ready for production use. <br/> A GA runtime may not be elected to move into a LTS stage at Microsoft discretion. |
+| Generally Available (GA) | 12 months* | Generally available (GA) runtimes are open to all customers and are ready for production use. <br/> A GA runtime may not be elected to move into an LTS stage at Microsoft discretion. |
 | Long Term Support (LTS) | 12 months* | Long term support (LTS) runtimes are open to all customers and are ready for production use, yet customers are encouraged to expedite validation and workload migration to latest GA runtimes. |
 | End of Life announced (EOLA) | 12 months* for GA or LTS runtimes.<br/>1 month* for Preview runtimes. | At the end of a lifecycle period, given a runtime is chosen to retire; an End-of-Life announcement will be made to all customers per [Azure retirements policy](https://docs.microsoft.com/lifecycle/faq/azure). This additional period serves as the exit ramp for customers to migrate workloads to a GA runtime. |
 | End of Life (EOL) | - | At this stage, the Runtime is retired and no longer supported. |
@@ -59,7 +59,7 @@ At the end of the GA lifecycle for the runtime, Microsoft will assess if the run
 If not eligible for LTS stage, the GA runtime will move into the retirement cycle composed by the end of life announcement (EOLA), a 12 month period, then moving into the EOL stage.
 
 ### Long term support runtimes
-Long term support (LTS) runtimes are open to all customers and are ready for production use, yet customers are encouraged to expedite validation and migration of code base and workloads to the latest GA runtimes. Customers should preferably not onboard new workloads using a LTS runtime. Security fixes and stability improvements may be backported. Yet, no new components or features will be introduced into the runtime at this stage.
+Long term support (LTS) runtimes are open to all customers and are ready for production use, yet customers are encouraged to expedite validation and migration of code base and workloads to the latest GA runtimes. Customers should preferably not onboard new workloads using an LTS runtime. Security fixes and stability improvements may be backported. Yet, no new components or features will be introduced into the runtime at this stage.
 
 ### End of life announcement
 At the end of the runtime lifecycle at any stage, an end of life announcement (EOLA) is performed. Proper notification will be performed based on current Azure service policies, please refer to [Lifecycle FAQ - Microsoft Azure](https://docs.microsoft.com/lifecycle/faq/azure) for information.
