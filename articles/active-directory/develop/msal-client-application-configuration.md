@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2022
+ms.date: 07/15/2022
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
@@ -112,11 +112,11 @@ If you're a public client app developer who's using MSAL:
 
 - You'd want to use `.WithDefaultRedirectUri()` in desktop or Universal Windows Platform (UWP) applications (MSAL.NET 4.1+). The `.WithDefaultRedirectUri()` method will set the public client application's redirect URI property to the default recommended redirect URI for public client applications.
 
-  | Platform              | Redirect URI                                                                                                                                                                                                                         |
-  | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-  | Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`                                                                                                                                                                       |
+  | Platform              | Redirect URI                                                                                                                                                                                                                                           |
+  | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`                                                                                                                                                                                         |
   | UWP                   | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. This enables single sign-on (SSO) with the browser by setting the value to the result of WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), which you need to register |
-  | .NET Core             | `https://localhost` enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment.                                                       |
+  | .NET Core             | `https://localhost` enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment.                                                                               |
 
 - You don't need to add a redirect URI if you're building a Xamarin Android and iOS application that doesn't support the broker redirect URI. It's automatically set to `msal{ClientId}://auth` for Xamarin Android and iOS.
 
@@ -144,7 +144,7 @@ This option specifies the client secret for the confidential client app. The cli
 
 ## Logging
 
-To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging is each library is covered in the following articles:
+To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging in each library is covered in the following articles:
 
 :::row:::
 :::column::: - [Logging in MSAL.NET](msal-logging-dotnet.md) - [Logging in MSAL for Android](msal-logging-android.md) - [Logging in MSAL.js](msal-logging-js.md)
