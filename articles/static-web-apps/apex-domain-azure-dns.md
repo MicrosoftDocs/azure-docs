@@ -25,7 +25,7 @@ The following procedure requires you to copy settings from an Azure DNS zone you
 
 1. Under *Settings*, select **Custom domains**.
 
-1. Select the **+ Add** button.
+1. Select the **+ Add** button, Choose **Custom Domain on Azure DNS** from the drop down.
 
 1. In the *Enter domain* tab, enter your apex domain name.
 
