@@ -28,7 +28,7 @@ To complete this tutorial, you need the following:
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
 - [Permissions to create data collection rule (DCR) objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - The table must already have some data.
-- The table can't be linked to the [workspace transformation DCR](../essentials/data-collection-rule-overview.md#types-of-data-collection-rules).
+- The table can't be linked to the [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr).
 
 
 ## Overview of tutorial
@@ -46,31 +46,31 @@ You need to enable [query auditing](query-audit.md) for your workspace to create
 
 1. From the **Log Analytics workspaces** menu in the Azure portal, select **Diagnostic settings** and then **Add diagnostic setting**.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/diagnostic-settings.png" lightbox="media/media/tutorial-logs-ingestion-portal/diagnostic-settings.png" alt-text="Screenshot of diagnostic settings.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/diagnostic-settings.png" lightbox="media/tutorial-workspace-transformations-portal/diagnostic-settings.png" alt-text="Screenshot of diagnostic settings.":::
 
 2. Provide a name for the diagnostic setting and select the workspace so that the auditing data is stored in the same workspace. Select the **Audit** category and  then click **Save** to save the diagnostic setting and close the diagnostic setting page.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/new-diagnostic-setting.png" lightbox="media/media/tutorial-logs-ingestion-portal/new-diagnostic-setting.png" alt-text="Screenshot of new diagnostic setting.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/new-diagnostic-setting.png" lightbox="media/tutorial-workspace-transformations-portal/new-diagnostic-setting.png" alt-text="Screenshot of new diagnostic setting.":::
 
 3. Select **Logs** and then run some queries to populate `LAQueryLogs` with some data. These queries don't need to return data to be added to the audit log.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/sample-queries.png" lightbox="media/media/tutorial-logs-ingestion-portal/sample-queries.png" alt-text="Screenshot of sample log queries.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/sample-queries.png" lightbox="media/tutorial-workspace-transformations-portal/sample-queries.png" alt-text="Screenshot of sample log queries.":::
 
 ## Add transformation to the table
 Now that the table's created, you can create the transformation for it.
 
 1. From the **Log Analytics workspaces** menu in the Azure portal, select **Tables (preview)**. Locate the `LAQueryLogs` table and select **Create transformation**.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/create-transformation.png" lightbox="media/media/tutorial-logs-ingestion-portal/create-transformation.png" alt-text="Screenshot of creating a new transformation.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/create-transformation.png" lightbox="media/tutorial-workspace-transformations-portal/create-transformation.png" alt-text="Screenshot of creating a new transformation.":::
 
 
 2. Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-rule-overview.md#types-of-data-collection-rules). If you create transformations for other tables in the same workspace, they will be stored in this same DCR. Click **Create a new data collection rule**. The **Subscription** and **Resource group** will already be populated for the workspace. Provide a name for the DCR and click **Done**.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/new-data-collection-rule.png" lightbox="media/media/tutorial-logs-ingestion-portal/new-data-collection-rule.png" alt-text="Screenshot of creating a new data collection rule.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/new-data-collection-rule.png" lightbox="media/tutorial-workspace-transformations-portal/new-data-collection-rule.png" alt-text="Screenshot of creating a new data collection rule.":::
 
 3. Click **Next** to view sample data from the table. As you define the transformation, the result will be applied to the sample data allowing you to evaluate the results before applying it to actual data. Click **Transformation editor** to define the transformation.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/sample-data.png" lightbox="media/media/tutorial-logs-ingestion-portal/sample-data.png" alt-text="Screenshot of sample data from the log table.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/sample-data.png" lightbox="media/tutorial-workspace-transformations-portal/sample-data.png" alt-text="Screenshot of sample data from the log table.":::
 
 4. In the transformation editor, you can see the transformation that will be applied to the data prior to its ingestion into the table. The incoming data is represented by a virtual table named `source`, which has the same set of columns as the destination table itself. The transformation initially contains a simple query returning the `source` table with no changes.
 
@@ -99,11 +99,11 @@ Now that the table's created, you can create the transformation for it.
 
 6. Copy the query into the transformation editor and click **Run** to view results from the sample data. You can verify that the new `Workspace_CF` column is in the query.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/transformation-editor.png" lightbox="media/media/tutorial-logs-ingestion-portal/transformation-editor.png" alt-text="Screenshot of transformation editor.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/transformation-editor.png" lightbox="media/tutorial-workspace-transformations-portal/transformation-editor.png" alt-text="Screenshot of transformation editor.":::
 
 7. Click **Apply** to save the transformation and then **Next** to review the configuration. Click **Create** to update the data collection rule with the new transformation.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/save-transformation.png" lightbox="media/media/tutorial-logs-ingestion-portal/save-transformation.png" alt-text="Screenshot of saving transformation.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/save-transformation.png" lightbox="media/tutorial-workspace-transformations-portal/save-transformation.png" alt-text="Screenshot of saving transformation.":::
 
 ## Test transformation
 Allow about 30 minutes for the transformation to take effect and then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected. 
