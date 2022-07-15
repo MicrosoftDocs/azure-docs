@@ -36,30 +36,30 @@ Start by gathering information that you'll need from your workspace.
 
 1. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
 
-    :::image type="content" source="media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
 
 ## Configure application
 Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) for this tutorial.
 
 1. From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
-    :::image type="content" source="media/tutorial-custom-logs/new-app-registration.png" lightbox="media/tutorial-custom-logs/new-app-registration.png" alt-text="Screenshot showing app registration screen.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-registration.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-registration.png" alt-text="Screenshot showing app registration screen.":::
 
 2. Give the application a name and change the tenancy scope if the default is not appropriate for your environment. A **Redirect URI** isn't required.
 
-    :::image type="content" source="media/tutorial-custom-logs/new-app-name.png" lightbox="media/tutorial-custom-logs/new-app-name.png" alt-text="Screenshot showing app details.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-name.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-name.png" alt-text="Screenshot showing app details.":::
 
 3. Once registered, you can view the details of the application. Note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later in the process.
 
-    :::image type="content" source="media/tutorial-custom-logs/new-app-id.png" lightbox="media/tutorial-custom-logs/new-app-id.png" alt-text="Screenshot showing app ID.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-id.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-id.png" alt-text="Screenshot showing app ID.":::
 
 4. You now need to generate an application client secret, which is similar to creating a password to use with a username. Select **Certificates & secrets** and then **New client secret**. Give the secret a name to identify its purpose and select an **Expires** duration. *1 year* is selected here although for a production implementation, you would follow best practices for a secret rotation procedure or use a more secure authentication mode such a certificate.
 
-    :::image type="content" source="media/tutorial-custom-logs/new-app-secret.png" lightbox="media/tutorial-custom-logs/new-app-secret.png" alt-text="Screenshot showing secret for new app.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret.png" alt-text="Screenshot showing secret for new app.":::
 
 5. Click **Add** to save the secret and then note the **Value**. Ensure that you record this value since You can't recover it once you navigate away from this page. Use the same security measures as you would for safekeeping a password as it's the functional equivalent.
 
-    :::image type="content" source="media/tutorial-custom-logs/new-app-secret-value.png" lightbox="media/tutorial-custom-logs/new-app-secret-value.png" alt-text="Screenshot show secret value for new app.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" alt-text="Screenshot show secret value for new app.":::
 
 ## Create new table in Log Analytics workspace
 The custom table must be created before you can send data to it. The table for this tutorial will include three columns, as described in the schema below. The  `name`, `type`, and `description` properties are mandatory for each column. The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
@@ -177,11 +177,11 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 6. Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion URI** since you'll need this in a later step.
 
-    :::image type="content" source="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" alt-text="Screenshot for data collection endpoint uri.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-logs-ingestion-portal-api/data-collection-endpoint-overview.png" alt-text="Screenshot for data collection endpoint uri.":::
 
 7. Click **JSON View** to view other details for the DCE. Copy the **Resource ID** since you'll need this in a later step.
 
-    :::image type="content" source="media/tutorial-custom-logs-api/data-collection-endpoint-json.png" lightbox="media/tutorial-custom-logs-api/data-collection-endpoint-json.png" alt-text="Screenshot for data collection endpoint resource ID.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-portal-api/data-collection-endpoint-json.png" alt-text="Screenshot for data collection endpoint resource ID.":::
 
 
 ## Create data collection rule
@@ -323,20 +323,20 @@ Once the data collection rule has been created, the application needs to be give
 
 1. From the DCR in the Azure portal, select **Access Control (IAM)** and then **Add role assignment**. 
 
-    :::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR.":::
 
 2. Select **Monitoring Metrics Publisher** and click **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. 
 
-    :::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-role.png" lightbox="media/tutorial-custom-logs/add-role-assignment-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment.":::
 
 3. Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select the application that you created and click **Select**.
 
-    :::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-member.png" lightbox="media/tutorial-custom-logs/add-role-assignment-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment.":::
 
 
 4. Click **Review + assign** and verify the details before saving your role assignment.
 
-    :::image type="content" source="media/tutorial-custom-logs/add-role-assignment-save.png" lightbox="media/tutorial-custom-logs/add-role-assignment-save.png" alt-text="Screenshot for saving DCR role assignment.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" alt-text="Screenshot for saving DCR role assignment.":::
 
 
 ## Send sample data

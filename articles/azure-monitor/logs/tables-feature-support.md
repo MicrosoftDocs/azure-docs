@@ -8,7 +8,7 @@ ms.date: 07/10/2022
 
 # Tables that support transformations in Azure Monitor Logs (preview)
 
-The following list identifies the tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that support [transformations](../essentials/data-collection-transformations.md#transformations.md).
+The following list identifies the tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that support [transformations](../essentials/data-collection-transformations.md).
 
 
 | Table | Limitations |

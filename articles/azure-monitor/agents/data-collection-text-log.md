@@ -52,7 +52,7 @@ Use the **Tables - Update** API to create the table with the PowerShell code bel
 
 1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell in the Azure portal.":::
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell in the Azure portal.":::
 
 2. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it. 
 
@@ -86,15 +86,15 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" alt-text="Screenshot that shows portal blade to deploy custom template.":::
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot that shows portal blade to deploy custom template.":::
 
 2. Click **Build your own template in the editor**.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal blade to build template in the editor.":::
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal blade to build template in the editor.":::
 
 3. Paste the Resource Manager template below into the editor and then click **Save**. You don't need to modify this template since you will provide values for its parameters.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot that shows portal blade to edit Resource Manager template.":::
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot that shows portal blade to edit Resource Manager template.":::
 
     ```json
     {
@@ -139,7 +139,7 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values a **Name** for the data collection endpoint. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection endpoint.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot that shows portal blade to edit custom deployment values for data collection endpoint.":::
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/custom-deployment-values.png" lightbox="../logs/media/tutorial-workspace-transformations-api/custom-deployment-values.png" alt-text="Screenshot that shows portal blade to edit custom deployment values for data collection endpoint.":::
 
 5. Click **Review + create** and then **Create** when you review the details. 
 
@@ -161,11 +161,11 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" alt-text="Screenshot that shows portal blade to deploy custom template.":::
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot that shows portal blade to deploy custom template.":::
 
 2. Click **Build your own template in the editor**.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal blade to build template in the editor.":::
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal blade to build template in the editor.":::
 
 3. Paste one of the Resource Manager templates below into the editor and then change the following values:
 
@@ -176,7 +176,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 
 4. Click **Save**.
 
-    :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot that shows portal blade to edit Resource Manager template.":::
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot that shows portal blade to edit Resource Manager template.":::
 
     **Data collection rule for text log**
     

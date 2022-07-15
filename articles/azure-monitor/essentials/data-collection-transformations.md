@@ -61,7 +61,7 @@ Another example is data sent from a custom application using the [logs ingestion
 
 ## Workspace transformation DCR
 
-To apply a transformation to data that doesn't use a data collection rule, create the transformation in the [workspace transformation DCR](data-collection-rule-overview.md#types-of-data-collection-rules). This DCR can contain a transformation for one more [supported tables](../logs/tables-feature-support.md). Any data sent to these tables not using another DCR will have the transformation applied. 
+To apply a transformation to data that doesn't use a data collection rule, create the transformation in the [workspace transformation DCR](data-collection-rule-overview.md#workspace-transformation-dcr). This DCR can contain a transformation for one more [supported tables](../logs/tables-feature-support.md). Any data sent to these tables not using another DCR will have the transformation applied. 
 
 For example, if you create a transformation in the workspace transformation DCR for the `Event` table, it would be applied to events collected by virtual machines running the [Log Analytics agent](../agents/log-analytics-agent.md) since this agent doesn't use a DCR> The transformation would be ignored by any data sent from the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) though since it uses a DCR.
 
