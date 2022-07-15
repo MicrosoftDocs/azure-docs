@@ -131,7 +131,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Return a string that has *all* the items from an array, separated by the specified character. |
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Return the last item from a collection. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
-| [reverse](../logic-apps/workflow-definition-language-functions-reference.md#reverse) | Reverse the order of items in an array |
+| [reverse](../logic-apps/workflow-definition-language-functions-reference.md#reverse) | Reverse the order of items in an array. |
 | [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Remove items from the front of a collection, and return *all the other* items. |
 | [sort](../logic-apps/workflow-definition-language-functions-reference.md#sort) | Sort items in a collection. |
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Return items from the front of a collection. |
