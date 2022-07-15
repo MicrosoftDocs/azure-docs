@@ -5,7 +5,7 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/12/2022
+ms.date: 07/15/2022
 ms.author: caya
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
@@ -56,7 +56,7 @@ Deploying a new AKS cluster with the AGIC add-on enabled without specifying an e
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.225.0.0/16" --generate-ssh-keys
 ```
 
-To configure more parameters for the above command, got to [az aks create](/cli/azure/aks#az-aks-create). 
+To configure more parameters for the above command, see [az aks create](/cli/azure/aks#az-aks-create). 
 
 > [!NOTE]
 > The AKS cluster that you created will appear in the resource group that you created, **myResourceGroup**. However, the automatically created application gateway instance will be in the node resource group, where the agent pools are. The node resource group is named **MC_resource-group-name_cluster-name_location** by default, but can be modified. 
