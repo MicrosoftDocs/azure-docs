@@ -54,7 +54,7 @@ The following table lists the default configuration for each monitor. This defau
 ## Overrides
 An *override* changes one ore more properties of a monitor. For example, an override could disable a monitor that's enabled by default, define warning criteria for the monitor, or modify the monitor's critical threshold. 
 
-Overrides are defined in a [Data Collection Rule (DCR)](../essentials/data-collection-rule-overview.md). You can create multiple DCRs with different sets of overrides and apply them to multiple virtual machines. You apply a DCR to a virtual machine by creating an association as described in [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations).
+Overrides are defined in a [Data Collection Rule (DCR)](../essentials/data-collection-rule-overview.md). You can create multiple DCRs with different sets of overrides and apply them to multiple virtual machines. You apply a DCR to a virtual machine by creating an association as described in [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association).
 
 
 ## Multiple overrides

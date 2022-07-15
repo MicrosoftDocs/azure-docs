@@ -2,14 +2,14 @@
 title: Security operations for privileged accounts in Azure Active Directory
 description: Learn about baselines, and how to monitor and alert on potential security issues with privileged accounts in Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
 ms.date: 04/29/2022
-ms.author: baselden
+ms.author: gasinh
 ms.custom: kr2b-contr-experiment
 ms.collection: M365-identity-device-management
 ---

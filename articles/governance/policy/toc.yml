@@ -5,6 +5,9 @@
   - name: What is Azure Policy?
     displayName: rbac, assign, initiative, parameters, count
     href: overview.md
+  - name: Azure Policy glossary
+    displayName: policy, terminology, vocabulary, glossary
+    href: policy-glossary.md
 - name: Quickstarts
   expanded: false
   items:
@@ -165,6 +168,8 @@
         href: ./samples/gov-nist-sp-800-171-r2.md
   - name: Compute security baselines
     items:
+    - name: Docker host security baseline
+      href: ./samples/guest-configuration-baseline-docker.md
     - name: Linux security baseline
       href: ./samples/guest-configuration-baseline-linux.md
     - name: Windows security baseline

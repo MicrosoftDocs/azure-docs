@@ -1,12 +1,12 @@
 ---
 title: SSL/TLS connectivity - Azure Database for MySQL
 description: Information for configuring Azure Database for MySQL and associated applications to properly use SSL connections
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
+author: mksuni
+ms.author: sumuth
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 06/20/2022
 ---
 
 # SSL/TLS connectivity in Azure Database for MySQL

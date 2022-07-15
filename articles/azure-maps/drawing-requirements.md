@@ -144,7 +144,7 @@ You can see an example of the Walls layer in the [sample Drawing package](https:
 
 You can include a DWG layer that contains doors. Each door must overlap the edge of a unit from the Unit layer.
 
-Door openings in an Azure Maps dataset are represented as a single-line segment that overlaps multiple unit boundaries. The following images show how to convert geometry in the Door layer to opening features in a dataset.
+Door openings in an Azure Maps dataset are represented as a single-line segment that overlaps multiple unit boundaries. The following images show how Azure Maps converts door layer geometry into opening features in a dataset..
 
 ![Four graphics that show the steps to generate openings](./media/drawing-requirements/opening-steps.png)
 

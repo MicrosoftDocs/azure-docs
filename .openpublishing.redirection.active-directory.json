@@ -26,6 +26,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/bridgelineunbound-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/common-scenarios.md",
       "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
       "redirect_document_id": false
@@ -348,6 +353,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/mimecast-admin-console-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/mimecast-personal-portal-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/carlsonwagonlit-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/cwt-tutorial",
       "redirect_document_id": false
     },
     {
@@ -2780,6 +2790,7 @@
       "redirect_url": "/azure/active-directory/develop/howto-authenticate-service-principal-powershell",
       "redirect_document_id": false
     },
+    
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-devhowto-multi-tenant-overview.md",
       "redirect_url": "/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant",
@@ -4503,6 +4514,11 @@
     {
       "source_path_from_root": "/articles/active-directory/governance/what-is-inter-directory-provisioning.md",
       "redirect_url": "azure/active-directory/hybrid/what-is-inter-directory-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-group-writeback.md",
+      "redirect_url": "/azure/active-directory/hybrid/how-to-connect-group-writeback-v2",
       "redirect_document_id": false
     },
     {
@@ -8777,13 +8793,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-linkedinlearning-provisioning-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/linkedinlearning-provisioning-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/linkedin-learning-provisioning-tutorial",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-linkedin-learning-provisioning-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/linkedin-learning-provisioning-tutorial",
-      "redirect_document_id": true
+      "redirect_url": "/azure",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-linkedinlearning-tutorial.md",
@@ -10789,6 +10805,11 @@
       "source_path": "articles/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on.md",
       "redirect_url": "/azure/active-directory/manage-apps/tutorial-manage-certificates-for-federated-single-sign-on",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/howto-enforce-signed-saml-authentication.md",
+      "redirect_url": "/azure/active-directory/manage-apps/howto-saml-token-encryption",
+      "redirect_document_id": true
     }
 
   ]

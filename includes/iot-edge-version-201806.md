@@ -2,11 +2,11 @@
  title: IoT Edge one supported version - 1.1 (LTS)
  description: include file
  services: iot-edge
- author: kgremban
+ author: PatAltimore
  ms.service: iot-edge
  ms.topic: include
- ms.date: 03/05/2021
- ms.author: kgremban
+ ms.date: 06/02/2022
+ ms.author: patricka
  ms.custom: include file
 ---
 

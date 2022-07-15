@@ -15,7 +15,7 @@ ms.date: 09/01/2021
 > Ensure you create a new and exclusive Recovery Services vault for setting up the preview appliance. Don't use an existing vault.
 
 >[!NOTE]
-> Enabling replication for physical machines is not supported with this preview. 
+> Enabling replication for physical machines is not supported with this preview.
 
 You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs to Azure.
 
@@ -82,7 +82,7 @@ Exclude following folders from Antivirus software for smooth replication and to 
 
 C:\ProgramData\Microsoft Azure <br>
 C:\ProgramData\ASRLogs <br>
-C:\Windows\Temp\MicrosoftAzure 
+C:\Windows\Temp\MicrosoftAzure
 C:\Program Files\Microsoft Azure Appliance Auto Update <br>
 C:\Program Files\Microsoft Azure Appliance Configuration Manager <br>
 C:\Program Files\Microsoft Azure Push Install Agent <br>
@@ -91,7 +91,7 @@ C:\Program Files\Microsoft Azure Recovery Services Agent <br>
 C:\Program Files\Microsoft Azure Server Discovery Service <br>
 C:\Program Files\Microsoft Azure Site Recovery Process Server <br>
 C:\Program Files\Microsoft Azure Site Recovery Provider <br>
-C:\Program Files\Microsoft Azure to On-Premise Reprotect agent <br>
+C:\Program Files\Microsoft Azure to On-Premises Reprotect agent <br>
 C:\Program Files\Microsoft Azure VMware Discovery Service <br>
 C:\Program Files\Microsoft On-Premise to Azure Replication agent <br>
 E:\ <br>
@@ -190,7 +190,7 @@ The OVF template spins up a machine with the required specifications.
 ### Set up the appliance through PowerShell
 
 >[!NOTE]
-> Enabling replication for physical machines is not supported with this preview. 
+> Enabling replication for physical machines is not supported with this preview.
 
 In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
 
@@ -198,7 +198,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 2. After successfully copying the zip folder, unzip and extract the components of the folder.
 3. Go to the path in which the folder is extracted to and execute the following PowerShell script as an administrator:
 
-    **DRInstaller.ps1**  
+    **DRInstaller.ps1**
 
 ## Register appliance
   Once you create the appliance, Microsoft Azure appliance configuration manager is launched automatically. Prerequisites such as internet connectivity, Time sync, system configurations and group policies (listed below) are validated.

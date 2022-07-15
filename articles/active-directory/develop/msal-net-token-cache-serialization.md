@@ -1,6 +1,5 @@
 ---
-title: Token cache serialization (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Token cache serialization (MSAL.NET)
 description: Learn about serialization and custom serialization of the token cache using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
@@ -103,7 +102,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
     options.DisableL1Cache = false;
     
     // Or limit the memory (by default, this is 500 MB)
-    options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024, // 1 GB
+    options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024; // 1 GB
 
     // You can choose if you encrypt or not encrypt the cache
     options.Encrypt = false;
@@ -111,7 +110,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
     // And you can set eviction policies for the distributed
     // cache.
     options.SlidingExpiration = TimeSpan.FromHours(1);
-  }
+  });
 
 // Then, choose your implementation of distributed cache
 // -----------------------------------------------------
@@ -278,7 +277,7 @@ You can also specify options to limit the size of the in-memory token cache:
 
 #### Distributed caches
 
-If you use `app.AddDistributedTokenCache`, the token cache is an adapter against the .NET `IDistributedCache` implementation. So you can choose between a SQL Server cache, a Redis cache, an Azure Cosmos DB cache, or any other cache implementing the [IDistributedCache](https://docs.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache?view=dotnet-plat-ext-6.0) interface. 
+If you use `app.AddDistributedTokenCache`, the token cache is an adapter against the .NET `IDistributedCache` implementation. So you can choose between a SQL Server cache, a Redis cache, an Azure Cosmos DB cache, or any other cache implementing the [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache?view=dotnet-plat-ext-6.0) interface. 
 
 For testing purposes only, you may want to use `services.AddDistributedMemoryCache()`, an in-memory implementation of `IDistributedCache`. 
 

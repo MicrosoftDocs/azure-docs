@@ -2,6 +2,7 @@
 title: Configure VMware syslogs for Azure VMware Solution
 description: Learn how to configure diagnostic settings to collect VMware syslogs for your Azure VMware Solution private cloud.
 ms.topic: how-to 
+ms.service: azure-vmware
 ms.date: 04/11/2022
 
 #Customer intent: As an Azure service administrator, I want to collect VMware syslogs and store it in my storage account so that I can view the vCenter Server logs and analyze for any diagnostic purposes.
