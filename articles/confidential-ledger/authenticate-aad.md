@@ -78,8 +78,8 @@ Applications that use Azure confidential ledger authenticate by using a token fr
 
 For detailed steps on registering an application with Azure Active Directory, review these articles:
 
-- [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md)
-- [Use portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md), and 
+- [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md)
+- [Use portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 At the end of registration, the application owner gets the following values:
