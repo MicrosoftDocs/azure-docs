@@ -14,13 +14,15 @@ ms.author: jodowns
 
 # Best practices for Front Door
 
+This article summarizes best practices for using Azure Front Door.
+
 ## General best practices
 
 ### Avoid combining Traffic Manager and Front Door
 
-For most solutions, you should use *either* Azure Front Door *or* [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
+For most solutions, you should use *either* Front Door *or* [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
 
-Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work very differently and are intended for different use cases.
+Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
 
 If you combine both Front Door and Traffic Manager together, it's unlikely that you'll increase the resiliency or performance of your solution. Also, if you have health probes configured on both services, you might accidentally overload your servers with the volume of health probe traffic.
 
@@ -28,13 +30,13 @@ If you need TLS termination, advanced routing capabilities, or a web application
 
 ### Use the latest API version and SDK version
 
-When you work with Azure Front Door by using APIs, ARM templates, Bicep, or Azure SDKs, it's important to use the latest available API or SDK version. API and SDK updates occur when new functionality is available, and also contain important security patches and bug fixes.
+When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs, it's important to use the latest available API or SDK version. API and SDK updates occur when new functionality is available, and also contain important security patches and bug fixes.
 
 ## TLS best practices
 
 ### Use end-to-end TLS
 
-Azure Front Door terminates TCP and TLS connections from clients. It then establishes new connections from each point of presence (PoP) to the origin. It's a good practice to secure each of these connections with TLS, even for origins that are hosted in Azure. This approach ensures that your data is always encrypted during transit.
+Front Door terminates TCP and TLS connections from clients. It then establishes new connections from each point of presence (PoP) to the origin. It's a good practice to secure each of these connections with TLS, even for origins that are hosted in Azure. This approach ensures that your data is always encrypted during transit.
 
 For more information, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
@@ -46,7 +48,7 @@ You can configure Front Door to automatically redirect HTTP requests to use the 
 
 ### Use managed TLS certificates
 
-By using Front Door to manage your TLS certificates, you reduce your operational costs, and you avoid costly outages caused by forgetting to renew a certificate. Front Door automatically issues and rotates managed TLS certificates.
+When Front Door manages your TLS certificates, it reduces your operational costs, and helps you to avoid costly outages caused by forgetting to renew a certificate. Front Door automatically issues and rotates managed TLS certificates.
 
 For more information, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md).
 
@@ -62,7 +64,7 @@ For more information, see [Select the certificate for Azure Front Door to deploy
 
 Front Door can rewrite the `Host` header of incoming requests. This feature can be helpful when you manage a set of customer-facing custom domain names that route to a single origin. The feature can also help when you want to avoid configuring custom domain names in Front Door and at your origin. However, when you rewrite the `Host` header, request cookies and URL redirections might break. In particular, when you use platforms like Azure App Service, features like [session affinity](/azure/app-service/configure-common#configure-general-settings) and [authentication and authorization](/azure/app-service/overview-authentication-authorization) might not work correctly.
 
-Before you rewrite the `Host` header of your requests, carefully consider whether your application and platform are going to work correctly.
+Before you rewrite the `Host` header of your requests, carefully consider whether your application is going to work correctly.
 
 For more information, see [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation).
 
@@ -84,7 +86,7 @@ The WAF for Front Door has its own set of best practices for its configuration a
 
 Front Door's health probes are designed to detect situations where an origin is unavailable or unhealthy. When a health probe detects a problem with an origin, Front Door can be configured to send traffic to another origin in the origin group.
 
-If you only have a single origin, Front Door always routes traffic to that origin even if its health probe reports an unhealthy status. This means that when you have only one origin in an origin group, the status of the health probe isn't considered, and so the health probe doesn't do anything to change Front Door's behavior. In this scenario, health probes don't provide a benefit and you should disable them to reduce the traffic on your origin.
+If you only have a single origin, Front Door always routes traffic to that origin even if its health probe reports an unhealthy status. The status of the health probe doesn't do anything to change Front Door's behavior. In this scenario, health probes don't provide a benefit and you should disable them to reduce the traffic on your origin.
 
 For more information, see [Health probes](health-probes.md).
 
