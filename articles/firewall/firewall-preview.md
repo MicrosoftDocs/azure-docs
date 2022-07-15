@@ -114,7 +114,7 @@ You can now refine and update Firewall rules and policies with confidence in jus
 
 #### Pricing
 
-Firewall policy associated with a single firewall using Policy Analytics is billed per policy as described on the [Azure Firewall Manager pricing](https://azure.microsoft.com/pricing/details/firewall-manager/) page. Firewall policy associated with more than one firewall is offered Policy Analytics at no additional cost.
+Enabling Policy Analytics on a Firewall Policy associated with a single firewall is billed per policy as described on the [Azure Firewall Manager pricing](https://azure.microsoft.com/pricing/details/firewall-manager/) page. Enabling Policy Analytics on a Firewall Policy associated with more than one firewall is offered at no additional cost.
 
 #### Key Policy Analytics features
 
