@@ -38,7 +38,7 @@ You can also view or modify the list of shared access policies by clicking **Sha
 
 Click **Add shared access policy** to open the **Add shared access policy** blade.  You can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure:
 
-:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png" alt-text="Screenshot showing adding a shared access policy" lightbox="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png":::
+:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png" alt-text="Screenshot showing adding a shared access policy." lightbox="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png":::
 
 * The **Registry Read** and **Registry Write** policies grant read and write access rights to the identity registry. These permissions are used by back-end cloud services to manage device identities. Choosing the write option automatically chooses the read option.
 
