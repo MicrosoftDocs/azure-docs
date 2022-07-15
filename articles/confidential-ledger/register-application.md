@@ -10,9 +10,9 @@ ms.author: mbaldwin
 #Customer intent: As developer, I want to know how to register my Azure confidential ledger application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
 ---
 
-# How to register an Azure confidental ledger application with Azure AD
+# How to register an Azure confidential ledger application with Azure AD
 
-In this article, you'll learn how to registeran Azure confidental ledger application in Azure Active Directory (Azure AD). You can find more information on this scenario at [Register an application with the Microsoft identity platform](../active-directory/develop/active-directory/develop/quickstart-register-app.md).
+In this article, you'll learn how to register an Azure confidental ledger application in Azure Active Directory (Azure AD). You can find more information on this scenario at [Register an application with the Microsoft identity platform](../active-directory/develop/active-directory/develop/quickstart-register-app.md).
 
 The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform.
 
@@ -20,7 +20,7 @@ The Microsoft identity platform performs identity and access management (IAM) on
 
 - An Azure account that has an active subscription, and permission to manage applications in Azure Active Directory (Azure AD). [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure AD tenant. [Learn how to set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
-- An application that calls Azure confidental ledger
+- An application that calls Azure confidental ledger.
 
 ## Register an application
 
@@ -127,5 +127,9 @@ For application security recommendations, see [Microsoft identity platform best 
 
 ## Next steps
 
-Client applications typically need to access resources in a web API. You can protect your client application by using the Microsoft identity platform. You can also use the platform for authorizing scoped, permissions-based access to your web API.
-
+- [Azure confidential ledger authentication with Azure Active Directory (Azure AD)](authenticate-aad.md)
+- [Overview of Microsoft Azure confidential ledger](overview.md)
+- [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md)
+- [Use portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md)
+- [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+- [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)
