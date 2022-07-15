@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 04/06/2022
+ms.date: 07/15/2022
 ---
 
 # Azure for secure worldwide public sector cloud adoption
@@ -162,7 +162,7 @@ Proper protection and management of encryption keys is essential for data securi
 Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are FIPS 140 validated. With Azure Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key* (BYOK) scenarios. **Keys generated inside the Azure Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs.** This binding is enforced by the underlying HSM.
 
 > [!NOTE]
-> Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.
+> Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys. For extra assurances, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys).
 
 For more information, see [Azure Key Vault](./azure-secure-isolation-guidance.md#azure-key-vault).
 
