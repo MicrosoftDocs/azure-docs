@@ -504,3 +504,5 @@ For more information on the Azure CLI extension for machine learning, see the [a
 To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
 
 To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
+
+For information on how to check for security vulnerabilities, see [Vulnerability management](concept-vulnerability-management.md).
