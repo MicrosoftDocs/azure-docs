@@ -26,7 +26,7 @@ For the following image sources, the security type on the image definition shoul
 - Managed OS disk 
 - Managed OS disk snapshot
 
-The resulting image version can be used to only to create confidential VMs.
+The resulting image version can be used only to create confidential VMs.
 
 This image version can be replicated within the source region **but cannot be replicated to a different region** or across subscriptions currently.
 
