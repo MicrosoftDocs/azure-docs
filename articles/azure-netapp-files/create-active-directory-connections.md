@@ -338,7 +338,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege aren't required to have traverse (`x`) permissions to traverse folders or symlinks.  |  
         |  `SeTakeOwnershipPrivilege`  |  Take ownership of files or other objects. |  
         |  `SeSecurityPrivilege`  |  Manage log operations. |  
-        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege aren't required to have traverse (`x`) permissions to traverse folders or symlinks.  |  <!-- tHIS IS REMOVED -->
+        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege aren't required to have traverse (`x`) permissions to traverse folders or symlinks.  |  <!-- tHIS option IS REMOVED -->
 
     * Credentials, including your **username** and **password**
 
