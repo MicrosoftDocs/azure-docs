@@ -36,11 +36,11 @@ The following steps illustrate how to use the Azure portal to create and configu
 
     ![Screenshot of Basics tab of Create a Azure Deployment Environment DevCenter.](https://user-images.githubusercontent.com/68404454/123877585-17103700-d903-11eb-96f0-10100fdee30a.png)
 
-1. In the 'Tags' tab, enter a name and value pair that you want to assign.
+1. In the **Tags** tab, enter a name and value pair that you want to assign.
 
     ![Screenshot of Tags tab.](https://user-images.githubusercontent.com/68404454/123877734-5f2f5980-d903-11eb-932c-ff76918145ff.png)
 
-1. In 'Review' tab, validate all the details and select **Create**.
+1. In **Review** tab, validate all the details and select **Create**.
 
     ![Screenshot of Review tab.](https://user-images.githubusercontent.com/68404454/123877892-ad445d00-d903-11eb-812e-2e401350f930.png)
 
