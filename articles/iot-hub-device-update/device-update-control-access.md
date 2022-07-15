@@ -31,7 +31,7 @@ A combination of roles can be used to provide the right level of access. For exa
 
 Device Update for IoT Hub uses [Automatic Device Management](../iot-hub/iot-hub-automatic-device-management.md) for deployments and uses ADM configs to perform device management operations like updates at scale. In order to enable Device Update to do this, users need to set Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
 
-Below actions will be blocked (after 9/28/22) if these permissions are not set:
+Below actions will be blocked, after 9/28/22, if these permissions are not set:
 * Create Deployment
 * Cancel Deployment
 * Retry Deployment 
