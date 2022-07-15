@@ -1,0 +1,73 @@
+---
+title: Search for assets  (preview)
+titleSuffix: Azure Machine Learning
+description: Learn how to find your Azure Machine Learning assets
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.author: sagopal
+author: saachigopal
+ms.reviewer: sgilley
+ms.date: 07/14/2022
+ms.topic: how-to
+---
+
+# Search for Azure Machine Learning assets (preview)
+
+> [!IMPORTANT]
+> The search  functionality is currently in public preview.
+> The preview version is provided without a service level agreement.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+You can search for machine learning assets such as jobs, models, components, environments, and data across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).  
+1. In the top studio titlebar, select **All workspaces** or **All workspaces** to set the search context.
+
+
+## Free text search
+
+Type search text into the global search bar on the top of the studio page and hit enter to trigger a 'contains' search.
+A contains search scans across all metadata fields for the given asset and sorts results relevance.
+
+:::image type="content" source="media/how-to-search-assets/search-bar.png" alt-text="Screenshot: Shows search in titlebar.":::
+
+You can use the asset quick links to navigate to search results for jobs, models, components, environments, and datasets that you created.
+
+
+## Structured search
+
+1. Select **All workspaces**.
+1. Click in the search field to select any number of filters to create more specific search queries.
+
+:::image type="content" source="media/how-to-search-assets/search-filters.gif" alt-text="Screenshot: Display search filters.":::
+
+The following filters are supported:
+
+* Job:
+* Model:
+* Component:
+* Tags:
+* SubmittedBy:
+* Environment:
+* Dataset:
+
+If an asset filter (job, model, component, environment, dataset) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
+
+> [!TIP]
+> * Filters search for exact matches of text. Use free text queries for a contains search.
+> * Quotations are required around values that include spaces or other special characters.  
+> * If duplicate filters are provided, only the first will be recognized in search results.
+> * Input text of any language is supported but filter strings must match the provided options (ex. submittedBy:).
+> * The tags filter can accept multiple key:value pairs separated by a comma (ex. tags:"key1:value1, key2:value2").
+
+### View search results
+
+You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Data** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
+
+:::image type="content" source="./media/how-to-search-assets/results.png" alt-text="Results displayed after search":::
+
+If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
+
+> [!IMPORTANT]	
+> Search results may be unexpected for multiword terms in other languages (ex. Chinese characters). 	
