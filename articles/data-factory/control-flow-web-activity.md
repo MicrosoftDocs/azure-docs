@@ -139,7 +139,13 @@ Specify base64-encoded contents of a PFX file and the password.
    "password":"****"
 }
 ```
+Certificate needs to be an x509 certificate. For conversion to PFX file, you can use your favorite utility. For base-64 encoding, you may use following PowerShell snippet.
 
+```
+$fileContentBytes = get-content 'enr.dev.webactivity.pfx' -AsByteStream
+
+[System.Convert]::ToBase64String($fileContentBytes) | Out-File ‘pfx-encoded-bytes.txt’
+```
 ### Managed Identity
 
 Specify the resource uri for which the access token will be requested using the managed identity for the data factory or Synapse workspace instance. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities works see the [managed identities for Azure resources overview page](../active-directory/managed-identities-azure-resources/overview.md).
