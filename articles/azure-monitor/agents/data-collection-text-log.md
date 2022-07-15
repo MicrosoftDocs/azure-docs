@@ -145,11 +145,11 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 6. Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion URI** since you'll need this in a later step.
 
-    :::image type="content" source="../logs/media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" lightbox="../logs/media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" alt-text="Screenshot that shows portal blade with details of data collection endpoint uri.":::
+    :::image type="content" source="../logs/media/tutorial-logs-ingestion-api/data-collection-endpoint-overview.png" lightbox="../logs/media/tutorial-logs-ingestion-api/data-collection-endpoint-overview.png" alt-text="Screenshot that shows portal blade with details of data collection endpoint uri.":::
 
 7. Click **JSON View** to view other details for the DCE. Copy the **Resource ID** since you'll need this in a later step.
 
-    :::image type="content" source="../logs/media/tutorial-custom-logs-api/data-collection-endpoint-json.png" lightbox="../logs/media/tutorial-custom-logs-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows JSON view for data collection endpoint with the resource ID.":::
+    :::image type="content" source="../logs/media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="../logs/media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows JSON view for data collection endpoint with the resource ID.":::
 
 
 ## Create data collection rule
@@ -157,7 +157,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 
 1. The data collection rule requires the resource ID of your workspace. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
 
-    :::image type="content" source="../logs/media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="../logs/media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
+    :::image type="content" source="../logs/media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="../logs/media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
