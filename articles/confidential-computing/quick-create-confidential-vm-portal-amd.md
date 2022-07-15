@@ -20,7 +20,7 @@ You can use the Azure portal to create a [confidential VM](confidential-vm-overv
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 - If you're using a Linux-based confidential VM, use a BASH shell for SSH or install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-- If Confidential disk encryption with a customer-managed key is required, please run below command to opt-in service principal `Confidential VM Orchestrator` to your tenant. 
+- If Confidential disk encryption with a customer-managed key is required, please run below command to opt in service principal `Confidential VM Orchestrator` to your tenant. 
 
     ```azurecli
     Connect-AzureAD -Tenant "your tenant ID"

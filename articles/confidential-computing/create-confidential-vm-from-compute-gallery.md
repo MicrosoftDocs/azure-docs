@@ -16,8 +16,8 @@ ms.devlang: azurecli
 
 [Azure confidential virtual machines](confidential-vm-overview.md) supports the creation and sharing of custom images using Azure Compute Gallery. There are two types of images that you can create, based on the security types of the image:
 
-- [Confidential VM (`ConfidentialVM`) images](#create-confidentialvm-image) are images where the source already has the [VM Guest state information](confidential-vm-faq-amd.yml#is-there-an-extra-cost-for-using-confidential-vms-). This image type might also have confidential disk encryption enabled.
-- [Confidential VM supported (`ConfidentialVMSupported`) images](#create-confidentialvmsupported-image) are images where the source doesn't have VM Guest state information and confidential disk encryption is not enabled.
+- [Confidential VM (`ConfidentialVM`) images](#confidential-vm-images) are images where the source already has the [VM Guest state information](confidential-vm-faq-amd.yml). This image type might also have confidential disk encryption enabled.
+- [Confidential VM supported (`ConfidentialVMSupported`) images](#confidential-vm-supported-images) are images where the source doesn't have VM Guest state information and confidential disk encryption is not enabled.
 
 ## Confidential VM images
 
@@ -26,7 +26,7 @@ For the following image sources, the security type on the image definition shoul
 - Managed OS disk 
 - Managed OS disk snapshot
 
-The resulting image version can be used to only to create confidential VMs.
+The resulting image version can be used only to create confidential VMs.
 
 This image version can be replicated within the source region **but cannot be replicated to a different region** or across subscriptions currently.
 
@@ -52,7 +52,7 @@ This image version can be replicated within the source region **but cannot be re
 1. Select the image version to go to the resource directly. Or, you can go to the image version through the image definition. The image definition also shows the encryption type, so you can check that the image and source VM match.
 1. On the image version page, select **Create VM**.
 
-Now, you can [create a Confidential VM from your custom image](#create-confidential-vm-from-gallery-image).
+Now, you can [create a Confidential VM from your custom image](#create-a-confidential-vm-from-gallery-image).
 
 ### Create a Confidential VM type image from managed disk or snapshot
 
@@ -76,7 +76,7 @@ Now, you can [create a Confidential VM from your custom image](#create-confident
 1. After the settings are validated, select **Create** to finish creating the image version.
 1. After the image version is successfully created, select **Create VM**.
 
-Now, you can [create a Confidential VM from your custom image](#create-confidential-vm-from-gallery-image).
+Now, you can [create a Confidential VM from your custom image](#create-a-confidential-vm-from-gallery-image).
 
 ## Confidential VM Supported image
 
