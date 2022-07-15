@@ -232,6 +232,8 @@
         href: application-sign-in-problem-first-party-microsoft.md
   - name: Reference
     items:
+    - name: Deletion and recovery FAQ
+      href: recover-deleted-apps-faq.md
     - name: Admin consent workflow FAQ
       href: admin-consent-workflow-faq.md
     - name: App Management certificates FAQ

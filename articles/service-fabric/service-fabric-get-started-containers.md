@@ -1,10 +1,12 @@
 ---
 title: Create an Azure Service Fabric container application 
 description: Create your first Windows container application on Azure Service Fabric. Build a Docker image with a Python application, push the image to a container registry, then build and deploy the container to Azure Service Fabric.
-
-ms.topic: conceptual
-ms.date: 01/25/2019
-ms.custom: devx-track-python
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Create your first Service Fabric container application on Windows
