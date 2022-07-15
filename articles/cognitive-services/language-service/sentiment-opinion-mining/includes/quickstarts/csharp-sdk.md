@@ -9,7 +9,7 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+[Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.1) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
 
 Use this quickstart to create a sentiment analysis application with the client library for .NET. In the following example, you will create a C# application that can identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
@@ -32,7 +32,7 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
 
-Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.1.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.1.1`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
@@ -140,42 +140,42 @@ namespace Example
 ```console
 Document sentiment: Positive
 
-        Text: "I had the best day of my life."
+        Text: "I had the best day of my life. "
         Sentence sentiment: Positive
-        Positive score: 1.00
+        Positive score: 0.99
         Negative score: 0.00
         Neutral score: 0.00
 
         Text: "I wish you were there with me."
         Sentence sentiment: Neutral
-        Positive score: 0.21
-        Negative score: 0.02
-        Neutral score: 0.77
+        Positive score: 0.25
+        Negative score: 0.03
+        Neutral score: 0.72
 
 Document sentiment: Positive
 
-        Positive score: 0.84
-        Negative score: 0.16
+        Positive score: 0.76
+        Negative score: 0.23
         Neutral score: 0.00
 
         Text: "The food and service were unacceptable, but the concierge were nice."
         Sentence sentiment: Positive
-        Sentence positive score: 0.84
-        Sentence negative score: 0.16
+        Sentence positive score: 0.76
+        Sentence negative score: 0.23
         Sentence neutral score: 0.00
 
         Target: food, Value: Negative
-        Target positive score: 0.01
-        Target negative score: 0.99
+        Target positive score: 0.00
+        Target negative score: 1.00
                 Related Assessment: unacceptable, Value: Negative
-                Related Assessment positive score: 0.01
-                Related Assessment negative score: 0.99
+                Related Assessment positive score: 0.00
+                Related Assessment negative score: 1.00
         Target: service, Value: Negative
-        Target positive score: 0.01
-        Target negative score: 0.99
+        Target positive score: 0.00
+        Target negative score: 1.00
                 Related Assessment: unacceptable, Value: Negative
-                Related Assessment positive score: 0.01
-                Related Assessment negative score: 0.99
+                Related Assessment positive score: 0.00
+                Related Assessment negative score: 1.00
         Target: concierge, Value: Positive
         Target positive score: 1.00
         Target negative score: 0.00

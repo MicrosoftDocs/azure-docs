@@ -2,15 +2,15 @@
 title: Archive for What's new in Azure Active Directory? | Microsoft Docs
 description: The What's new release notes in the Overview section of this content set contains 6 months of activity. After 6 months, the items are removed from the main article and put into this archive article.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 1/31/2022
-ms.author: ajburnle
+ms.author: barclayn
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management

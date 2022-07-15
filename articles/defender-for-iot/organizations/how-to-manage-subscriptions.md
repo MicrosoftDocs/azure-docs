@@ -174,6 +174,6 @@ Business considerations may require that you apply your existing IoT sensors to 
 
 - [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
 
-- [Create an additional Azure subscription](/azure/cost-management-billing/manage/create-subscription)
+- [Create an additional Azure subscription](../../cost-management-billing/manage/create-subscription.md)
 
-- [Upgrade your Azure subscription](/azure/cost-management-billing/manage/upgrade-azure-subscription)
+- [Upgrade your Azure subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md)
