@@ -89,13 +89,11 @@ For example, if you use the ServiceNow ticketing system, use Azure Logic Apps to
 
 - Playbooks work best with single, repeatable tasks, and require no coding knowledge. Playbooks aren't suitable for ad-hoc or complex task chains, or for documenting and sharing evidence.
 
+## Identify the scope and root cause of security threats
 
-## Identify the scope and root cause of a security threat
-
-Microsoft Sentinel [deep investigation](investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
+Microsoft Sentinel [deep investigation](investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat.
 
 ![Investigation](./media/investigate-cases/map-timeline.png)
-
 
 ## Detect threats by using the MITRE framework
 
