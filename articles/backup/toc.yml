@@ -502,7 +502,7 @@
       href: monitoring-and-alerts-overview.md
     - name: Using Backup center
       href: backup-azure-monitoring-built-in-monitor.md
-    - name: Using the Azure Monitor alerts
+    - name: Using Azure Monitor alerts
       href: move-to-azure-monitor-alerts.md
     - name: Using Azure Monitor metrics
       href: metrics-overview.md
