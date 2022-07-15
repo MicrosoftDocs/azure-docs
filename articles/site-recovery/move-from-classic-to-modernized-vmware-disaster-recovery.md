@@ -1,13 +1,9 @@
 ---
-title: How to: Move from classic to modernized VMware disaster recovery.
+title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from classic to modernized protection architecture.
-services: site-recovery
-author: v-pgaddala
-manager: jsuri
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/15/2022
-ms.author: v-pgaddala
 ---
 
 # Move from classic to modernized VMware disaster recovery   
@@ -23,12 +19,12 @@ This article provides information about the architecture, necessary infrastructu
 
 The components involved in the migration of replicated items of a VMware machine are summarized in the following table:  
 
-| Component | Requirement |
+|Component |Requirement|
 |---------  |-------------|
-| Replicated items in a classic Recovery Services vault|One or more replicated items that are protected using the classic architecture and a healthy configuration server.<br></br>The replicated item should be in a non-critical state and must be replicated from on-premises to Azure.|
-| Configuration server used by the replicated items|The configuration server, used by the replicated items, should be in a non-critical state and its components should be upgraded to the latest version (9.50 or later).|  
-| A Recovery Services vault with modernized experience|A Recovery Services vault with modernized experience.|
-| A healthy Azure Site Recovery replication appliance|A non-critical Azure Site Recovery replication appliance, which can discover on-premises machines, with all its components upgraded to the latest version (9.50 or later). The exact required versions are as follows:<br></br>Process server: 9.50<br>Proxy server: 1.33.8226.24123<br>Recovery services agent: 2.0.9372.0<br>Replication service: 1.33.8226.20314|
+|Replicated items in a classic Recovery Services vault|One or more replicated items that are protected using the classic architecture and a healthy configuration server.<br></br>The replicated item should be in a non-critical state and must be replicated from on-premises to Azure.|
+|Configuration server used by the replicated items|The configuration server, used by the replicated items, should be in a non-critical state and its components should be upgraded to the latest version (9.50 or later).|  
+|A Recovery Services vault with modernized experience|A Recovery Services vault with modernized experience.|
+|A healthy Azure Site Recovery replication appliance|A non-critical Azure Site Recovery replication appliance, which can discover on-premises machines, with all its components upgraded to the latest version (9.50 or later). The exact required versions are as follows:<br></br>Process server: 9.50<br>Proxy server: 1.33.8226.24123<br>Recovery services agent: 2.0.9372.0<br>Replication service: 1.33.8226.20314|
 
 ## Required infrastructure  
 
@@ -48,7 +44,7 @@ Ensure the following before you move from classic architecture to modernized arc
 
 - [Create a Recovery Services vault](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#create-a-recovery-services-vault) and ensure the experience has [not been switched to classic](/azure/site-recovery/vmware-azure-common-questions#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-preview-experience). 
 - [Deploy an Azure Site Recovery replication appliance](/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview). 
-- [Add the on-prem machine’s vCenter Server details](azure/site-recovery/deploy-vmware-azure-replication-appliance-preview) to the appliance, so that it successfully performs discovery.   
+- [Add the on-prem machine’s vCenter Server details](/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview) to the appliance, so that it successfully performs discovery.   
 
 ### Prepare classic Recovery Services vault   
 
@@ -123,20 +119,20 @@ Site Recovery will start charging license fee on replicated items in the moderni
 
 Ultimately, the classic architecture will be deprecated, so one must ensure that they are using the latest modernized architecture. The table below shows a comparison of the two architectures to enable you to select the correct option for enabling disaster recovery for your machines:  
 
-| Classic architecture|Modernized architecture [New]|
+|Classic architecture|Modernized architecture [New]|
 |---------------------|-----------------------------|
-| Multiple setups required for discovering on-premises data.|**Central discovery** of on-premises data centers using discovery service.| 
-| Extensive number of steps required for initial onboarding.|**Simplified the onboarding experience** by automating artifact creation and introduced defaults to reduce required inputs.|  
-| Utilizes a manually downloaded file to obtain cloud context.|**Introduced replication key** for obtaining cloud context when setting up the appliance.|
-| Extensive number of steps required for a simple enable replication process.|**Simplified the enable replication experience** by reducing the number of required inputs and redefining each blade.|
+|Multiple setups required for discovering on-premises data.|**Central discovery** of on-premises data centers using discovery service.| 
+|Extensive number of steps required for initial onboarding.|**Simplified the onboarding experience** by automating artifact creation and introduced defaults to reduce required inputs.|  
+|Utilizes a manually downloaded file to obtain cloud context.|**Introduced replication key** for obtaining cloud context when setting up the appliance.|
+|Extensive number of steps required for a simple enable replication process.|**Simplified the enable replication experience** by reducing the number of required inputs and redefining each blade.|
 |Configuration server continues to be an on-premises infrastructure with extensive setup for various components.|Enhanced the appliance by converting all components into Azure hosted microservices. This **simplifies appliance scaling, monitoring, and troubleshooting.**|
-| Need for scale-out process server and master target server in Azure for Linux machines is a hindering requirement.|**Removed** the need to maintain separate **process server and master target server**.| 
-| Used a static passphrase for authentication which interfered with customer’s business requirements of periodic password rotation.|Introduced **certificate-based authentication**, which is more secure and resolves customer’s security concerns.|
-| Upgrading to an updated version should be done manually and is a cumbersome process.|Introduced **automatic upgrades** for both appliance components and Mobility service.|
-| The configuration server does not have high availability and might be at the risk of collapsing.|Implemented **high availability of appliance** to ensure resiliency.|
-| Root credentials should be regularly updated to ensure an error-free upgrade experience.|**Eliminated the requirement to maintain machine’s root credentials** for performing automatic upgrades.|
-| Static IP address should be assigned to configuration server to maintain connectivity.|Introduced **FQDN based connectivity** between appliance and on-premises machines.|
-| Only that virtual network which has Site-to-Site VPN or Express Route enabled, should be used.|Removed the need to maintain a Site-to-Site VPN or Express Route for reverse replication.|
+|Need for scale-out process server and master target server in Azure for Linux machines is a hindering requirement.|**Removed** the need to maintain separate **process server and master target server**.| 
+|Used a static passphrase for authentication which interfered with customer’s business requirements of periodic password rotation.|Introduced **certificate-based authentication**, which is more secure and resolves customer’s security concerns.|
+|Upgrading to an updated version should be done manually and is a cumbersome process.|Introduced **automatic upgrades** for both appliance components and Mobility service.|
+|The configuration server does not have high availability and might be at the risk of collapsing.|Implemented **high availability of appliance** to ensure resiliency.|
+|Root credentials should be regularly updated to ensure an error-free upgrade experience.|**Eliminated the requirement to maintain machine’s root credentials** for performing automatic upgrades.|
+|Static IP address should be assigned to configuration server to maintain connectivity.|Introduced **FQDN based connectivity** between appliance and on-premises machines.|
+|Only that virtual network which has Site-to-Site VPN or Express Route enabled, should be used.|Removed the need to maintain a Site-to-Site VPN or Express Route for reverse replication.|
 
 **What machines should be migrated to the modernized architecture?**
 
