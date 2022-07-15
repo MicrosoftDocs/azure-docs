@@ -857,6 +857,14 @@ groups:
     title: Windows with Maven
   - id: platform-windows-development-environment-azure-portal
     title: Windows with Azure portal
+- id: app-service-containers-windows-linux
+  title: App Service with custom containers
+  prompt: Choose a custom container platform
+  pivots:
+  - id: container-linux
+    title: Linux container
+  - id: container-windows
+    title: Windows container    
 - id: app-service-containers-windows-linux-portal
   title: App Service with custom containers
   prompt: Choose a custom container platform and deployment environment
