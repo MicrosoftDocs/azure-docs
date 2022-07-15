@@ -31,11 +31,11 @@ Select the connector you want to connect, and then select **Open connector page*
 
 - Once you fulfill all the prerequisites listed in the **Instructions** tab, the connector page describes how to ingest the data to Microsoft Sentinel. It may take some time for data to start arriving. After you connect, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.
         
-    :::image type="content" source="media/collect-data/opened-connector-page.png" alt-text="Screenshot showing how to configure data connectors." lightbox="media/collect-data/opened-connector-page.png":::   
+    :::image type="content" source="media/collect-data/opened-connector-page.png" alt-text="Screenshot showing how to configure data connectors." border="false":::   
  
 - In the **Next steps** tab, you'll see more content for the specific data type: Sample queries, visualization workbooks, and analytics rule templates to help you detect and investigate threats.
 
-    :::image type="content" source="media/collect-data/data-insights.png" alt-text="Screenshot showing the data connecter Next steps tab." lightbox="media/collect-data/data-insights.png":::    
+    :::image type="content" source="media/collect-data/data-insights.png" alt-text="Screenshot showing the data connecter Next steps tab." border="false":::    
 
 Learn about your specific data connector in the [data connectors reference](data-connectors-reference.md).
 
