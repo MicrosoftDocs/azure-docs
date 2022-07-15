@@ -1,37 +1,38 @@
 ---
-title: 'Collect and process Aqua satellite payload'
-description: 'An end-to-end walk-through of using the Azure Orbital Ground Station as-a-Service (GSaaS) to capture and process satellite imagery'
+title: Collect and process Aqua satellite payload - Azure Orbital
+description: An end-to-end walk-through of using the Azure Orbital Ground Station (AOGS) to capture and process satellite imagery.
 ms.service: orbital
 author: EliotSeattle
 ms.author: eliotgra
-ms.topic: overview 
-ms.date: 07/06/2022
+ms.topic: tutorial 
+ms.date: 07/13/2022
 ms.custom: template-overview 
 ---
 
-# Collect and process Aqua satellite payload using Azure Orbital Ground Station as-a-Service (GSaaS)
+# Tutorial: Collect and process Aqua satellite payload using Azure Orbital Ground Station (AOGS)
 
-This topic is a comprehensive walk-through showing how to use the [Azure Orbital Ground Station as-a-Service (GSaaS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the Azure Orbital GSaaS and its core concepts and shows how to schedule contacts. The topic also steps through an example in which we collect and process NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
+This article is a comprehensive walk-through showing how to use the [Azure Orbital Ground Station (AOGS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the AOGS and its core concepts and shows how to schedule contacts. The article also steps through an example in which we collect and process NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
 
-Aqua is a polar-orbiting spacecraft launched by NASA in 2002. Data from all science instruments aboard Aqua is downlinked to the Earth using direct broadcast over the X-band in near real-time. More information about Aqua can be found on the [Aqua Project Science](https://aqua.nasa.gov/) website. With Azure Orbital Ground Station as-a-Service (GSaaS), we can capture the Aqua broadcast when the satellite is within line of sight of a ground station.
+Aqua is a polar-orbiting spacecraft launched by NASA in 2002. Data from all science instruments aboard Aqua is downlinked to the Earth using direct broadcast over the X-band in near real-time. More information about Aqua can be found on the [Aqua Project Science](https://aqua.nasa.gov/) website. With AOGS, we can capture the Aqua broadcast when the satellite is within line of sight of a ground station.
 
 A *contact* is time reserved at an orbital ground station to communicate with a satellite. During the contact, the ground station orients its antenna towards Aqua and captures the broadcast payload. The captured data is sent to an Azure VM as a data stream that is processed using the [RT-STPS](http://directreadout.sci.gsfc.nasa.gov/index.cfm?section=technology&page=NISGS&subpage=NISFES&sub2page=RT-STPS&sub3Page=overview) (Real-Time Software Telemetry Processing System) provided by [Direct Readout Laboratory](http://directreadout.sci.gsfc.nasa.gov/) at NASA to generate a level 0 product. Further processing of level 0 data is done using IPOPP (International Planetary Observation Processing Package) tool, also provided by DRL.
 
-Processing the Aqua data stream involves the following steps in order:
+In this tutorial, you'll follow these steps to process the Aqua data stream:
 
-1. [Prerequisites](#step-1-prerequisites).
-2. [Process RAW data using RT-STPS](#step-2-process-raw-data-using-rt-stps).
-3. [Prepare a virtual machine (processor-vm) to process higher level products](#step-3-prepare-a-virtual-machine-processor-vm-to-create-higher-level-products).
-4. [Create higher level products using IPOPP](#step-4-create-higher-level-products-using-ipopp).
+> [!div class="checklist"]
+> * [Prerequisites](#step-1-prerequisites).
+> * [Process RAW data using RT-STPS](#step-2-process-raw-data-using-rt-stps).
+> * [Prepare a virtual machine (processor-vm) to process higher level products](#step-3-prepare-a-virtual-machine-processor-vm-to-create-higher-level-products).
+> * [Create higher level products using IPOPP](#step-4-create-higher-level-products-using-ipopp).
 
-Optional setup for capturing the ground station telemetry are included in the [Appendix](#appendix)
+Optional setup steps for capturing the ground station telemetry are included in the [Appendix](#appendix).
 
 ## Step 1: Prerequisites
 
-You must first follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](howto-downlink-aqua.md). 
+You must first follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](downlink-aqua.md). 
 
 > [!NOTE]
-> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](howto-downlink-aqua.md#prepare-a-virtual-machine-vm-to-receive-the-downlinked-aqua-data), use the following values:
+> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-a-virtual-machine-vm-to-receive-the-downlinked-aqua-data), use the following values:
 >
 >   - **Name:** receiver-vm
 >   - **Operating System:** Linux (CentOS Linux 7 or higher)
@@ -265,10 +266,10 @@ IPOPP will produce output products in the following directories:
 
 ### Capture ground station telemetry
 
-An Azure Orbital Ground station emits telemetry events that can be used to analyze the ground station operation for the duration of the contact. You can configure your contact profile to send such telemetry events to Azure Event Hubs. The steps below describe how to create an Event Hub and grant Azure Orbital access to send events to it. 
+An Azure Orbital Ground station emits telemetry events that can be used to analyze the ground station operation during the contact. You can configure your contact profile to send such telemetry events to Azure Event Hubs. The steps below describe how to create Event Hubs and grant Azure Orbital access to send events to it. 
 
 1. In your subscription, go to **Resource Provider** settings and register Microsoft.Orbital as a provider.  
-2. [Create an Azure Event Hub](../event-hubs/event-hubs-create.md) in your subscription. 
+2. [Create Azure Event Hubs](../event-hubs/event-hubs-create.md) in your subscription. 
 3. From the left menu, select **Access Control (IAM)**. Under **Grant Access to this Resource**, select **Add Role Assignment**.
 4. Select **Azure Event Hubs Data Sender**.  
 5. Assign access to '**User, group, or service principal**'.
@@ -282,17 +283,17 @@ Congrats! Orbital can now communicate with your hub. 
 ### Enable telemetry for a contact profile in the Azure portal 
 
 1. Go to **Contact Profile** resource, and click **Create**. 
-2. Choose a namespace using the **Event Hub Namespace** dropdown. 
-3. Choose an instance using the **Event Hub Instance** dropdown that appears after namespace selection. 
+2. Choose a namespace using the **Event Hubs Namespace** dropdown. 
+3. Choose an instance using the **Event Hubs Instance** dropdown that appears after namespace selection. 
 
 ### Test telemetry on a contact 
 
 1. Schedule a contact using the Contact Profile that you previously configured for Telemetry. 
-2. Once the contact begins, you should begin to see data in your Event Hub soon after. 
+2. Once the contact begins, you should begin to see data in your Event Hubs soon after. 
 
-To verify that events are being received in your Event Hub, you can check the graphs present on the Event Hub namespace **Overview** page. The graphs show data across all Event Hub instances within a namespace. You can navigate to the Overview page of a specific instance to see the graphs for that instance. 
+To verify that events are being received in your Event Hubs, you can check the graphs present on the Event Hubs namespace **Overview** page. The graphs show data across all Event Hubs instances within a namespace. You can navigate to the Overview page of a specific instance to see the graphs for that instance. 
 
-You can enable an Event Hub's [Capture feature](../event-hubs/event-hubs-capture-enable-through-portal.md) that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing. 
+You can enable an Event Hubs [Capture feature](../event-hubs/event-hubs-capture-enable-through-portal.md) that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing. 
 
 Once enabled, you can check your container and view or download the data. 
  
@@ -316,5 +317,5 @@ Other helpful resources: 
 
 For an end-to-end implementation that involves extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics, see: 
 
-- [Spaceborne data analysis with Azure Synapse Analytics](https://docs.microsoft.com/azure/architecture/industries/aerospace/geospatial-processing-analytics)
+- [Spaceborne data analysis with Azure Synapse Analytics](/azure/architecture/industries/aerospace/geospatial-processing-analytics)
 

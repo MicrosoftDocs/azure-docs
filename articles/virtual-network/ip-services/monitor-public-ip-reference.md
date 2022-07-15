@@ -80,4 +80,4 @@ For more information on the schema of Activity Log entries, see [Activity Log sc
 
 - See [Monitoring Azure Public IP Address](monitor-public-ip.md) for a description of monitoring Azure Public IP addresses.
 
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

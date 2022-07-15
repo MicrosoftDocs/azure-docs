@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 06/27/2022
+ms.date: 07/14/2022
 ms.topic: conceptual
 ---
 
@@ -119,6 +119,23 @@ When using the `az arcappliance createConfig` or `az arcappliance run` command, 
 When the appliance is deployed to a host resource pool, there is no high availability if the host hardware fails. Because of this, we recommend that you don't try to deploy the appliance in a host resource pool.
 
 ## Networking issues
+
+### Restricted outbound connectivity
+
+If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked.
+
+URLS:
+
+| Agent resource | Description |
+|---------|---------|
+|`https://mcr.microsoft.com`|Microsoft container registry|
+|`https://*.his.arc.azure.com`|Azure Arc Identity service|
+|`https://*.dp.kubernetesconfiguration.azure.com`|Azure Arc configuration service|
+|`https://*.servicebus.windows.net`|Cluster connect|
+|`https://guestnotificationservice.azure.com` |Guest notification service|
+|`https://*.dp.prod.appliances.azure.com`|Resource bridge data plane service|
+|`https://ecpacr.azurecr.io` |Resource bridge container image download |
+|`.blob.core.windows.net`<br> `*.dl.delivery.mp.microsoft.com`<br> `*.do.dsp.mp.microsoft.com` |Resource bridge image download |
 
 ### Azure Arc resource bridge is unreachable
 
