@@ -10,14 +10,15 @@ ms.reviewer: jogrima
 
 # Enable Profiler for ASP.NET Core web applications hosted in Linux on App Services
 
-Using Profiler, you can track how much time is spent in each method of your live ASP.NET Core web apps that are hosted in Linux on Azure App Service. In this guide, you'll:
+Using Profiler, you can track how much time is spent in each method of your live ASP.NET Core web apps that are hosted in Linux on Azure App Service. While this guide focuses on web apps hosted in Linux, you can experiment using Linux, Windows, and Mac development environments.
+
+In this guide, you'll:
 
 > [!div class="checklist"]
 > - Set up and deploy an ASP.NET Core web application hosted on Linux.
 > - Add Application Insights Profiler to the ASP.NET Core web application.
  
 ## Prerequisites
-The following instructions apply to all Windows, Linux, and Mac development environments:
 
 - Install the [latest and greatest .NET Core SDK](https://dotnet.microsoft.com/download/dotnet).
 - Install Git by following the instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
@@ -40,7 +41,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. Enable Application Insights and Profiler in Program.cs:
+1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -135,7 +136,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
     ...
     ```
 
-## Add Application Insights to monitor your web apps
+## Add Application Insights to monitor your web app
 
 You can add Application Insights to your web app either via:
 
