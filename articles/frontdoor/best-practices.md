@@ -72,7 +72,7 @@ For more information, see [Preserve the original HTTP host name between a revers
 
 ### Enable the WAF
 
-For internet-facing applications, we recommend you enable the Front Door web application firewall (WAF) and configure it to use managed rules. By using a WAF and Microsoft-managed rules, your application is protected from a range of attacks.
+For internet-facing applications, we recommend you enable the Front Door web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a range of attacks.
 
 For more information, see [Web Application Firewall (WAF) on Azure Front Door](web-application-firewall.md).
 

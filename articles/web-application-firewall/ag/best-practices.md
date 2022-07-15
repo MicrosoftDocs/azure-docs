@@ -1,6 +1,6 @@
 ---
 title: Best practices for Web Application Firewall on Application Gateway
-description: In this tutorial, you learn about the best practices for using the web application firewall with Applicatoin Gateway.
+description: In this tutorial, you learn about the best practices for using the web application firewall with Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -69,7 +69,7 @@ For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
 ### Save WAF logs
 
-Application Gateway's WAF integrates with Azure Monitor. It's important to save the WAF logs to a destination like Log Analytics. You should review the WAF logs regularly to understand whether you need to [tune your WAF policies to reduce false-positive detections](#tune-your-waf), and to understand whether your application has been the subject of attacks.
+Application Gateway's WAF integrates with Azure Monitor. It's important to save the WAF logs to a destination like Log Analytics. You should review the WAF logs regularly. Reviewing logs helps you to [tune your WAF policies to reduce false-positive detections](#tune-your-waf), and to understand whether your application has been the subject of attacks.
 
 For more information, see [Azure Web Application Firewall Monitoring and Logging](application-gateway-waf-metrics.md).
 

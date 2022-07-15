@@ -70,13 +70,13 @@ For more information, see [What is geo-filtering on a domain for Azure Front Doo
 
 ### Save WAF logs
 
-Front Door's WAF integrates with Azure Monitor. It's important to save the WAF logs to a destination like Log Analytics. You should review the WAF logs regularly to understand whether you need to [tune your WAF policies to reduce false-positive detections](#tune-your-waf), and to understand whether your application has been the subject of attacks.
+Front Door's WAF integrates with Azure Monitor. It's important to save the WAF logs to a destination like Log Analytics. You should review the WAF logs regularly. Reviewing logs helps you to [tune your WAF policies to reduce false-positive detections](#tune-your-waf), and to understand whether your application has been the subject of attacks.
 
 For more information, see [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md).
 
 ### Send logs to Microsoft Sentinel
 
-Microsoft Sentinel is a security information and event management (SIEM) system, which imports logs and data from a multiple sources to understand the threat landscape for your web application and overall Azure environment. Front Door's WAF logs should be imported into Microsoft Sentinel or another SIEM so that your internet-facing properties are included in its analysis.
+Microsoft Sentinel is a security information and event management (SIEM) system, which imports logs and data from multiple sources to understand the threat landscape for your web application and overall Azure environment. Front Door's WAF logs should be imported into Microsoft Sentinel or another SIEM so that your internet-facing properties are included in its analysis.
 
 For more information, see [Using Microsoft Sentinel with Azure Web Application Firewall](../waf-sentinel.md).
 
