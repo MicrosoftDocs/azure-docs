@@ -10,34 +10,34 @@ ms.date: 06/30/2021
 
 # How to use live trace tool for Azure SignalR service
 
-Live trace tool is a single web application for capturing and displaying live traces in Azure SignalR service. The live traces can be collected in real time without any dependency on other services. You can enable and disable the live trace feature with a single select. You can also choose any log category that you're interested.
+Live trace tool is a single web application for capturing and displaying live traces in Azure SignalR Service. The live traces can be collected in real time without any dependency on other services. You can enable and disable the live trace feature with a single select. You can also choose any log category that you're interested.
 
 > [!NOTE]
 > Note that the live traces will be counted as outbound messages.
-> Azure Active Directory access to live trace tool is not supported, please enable `Access Key` in `Keys` menu.
+> Azure Active Directory access to live trace tool is not supported. You will need to enable **Access Key** in **Keys** settings.
 
 ## Launch the live trace tool
 
-1. Go to the Azure portal and your Azure SignalR Service page.
+1. Go to the Azure portal and your SignalR Service page.
 1. From the menu on the left, under **Monitoring** select **Live trace settings**.
 1. Select **Enable Live Trace**.
 1. Select **Save** button. It will take a moment for the changes to take effect.
-1. On the **Diagnostic Settings** page of your Azure Web PubSub service instance, select **Open Live Trace Tool**. 
+1. When updating is complete, select **Open Live Trace Tool**.
 
     :::image type="content" source="media/signalr-howto-troubleshoot-live-trace/signalr-enable-live-trace.png" alt-text="Screenshot of launching the live trace tool.":::
 
 ## Capture live traces
 
-The live trace tool provides some fundamental functionalities to help you capture the live traces for troubleshooting.
+The live trace tool provides functionality to help you capture the live traces for troubleshooting.
 
-* **Capture**: Begin to capture the real time live traces from Azure Web PubSub instance with live trace tool.
+* **Capture**: Begin to capture the real time live traces from SignalR Service instance with live trace tool.
 * **Clear**: Clear the captured real time live traces.
 * **Export**: Export live traces to a file. The current supported file format is CSV file.
-* **Log filter**: The live trace tool allows you filtering the captured real time live traces with one specific key word. The common separator (for example, space, comma, semicolon, and so on) will be treated as part of the key word.
+* **Log filter**: The live trace tool allows you to filter the captured real time live traces with one specific key word. Separators (for example, space, comma, semicolon, and so on), if present, will be treated as part of the key word.
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-live-trace/live-trace-tool-capture.png" alt-text="Screenshot of capturing live traces with live trace tool.":::
 
-The real time live traces captured by live trace tool contain detailed information for troubleshooting. 
+The real time live traces captured by live trace tool contain detailed information for troubleshooting.
 
 | Name | Description |
 | ------------ |  ------------------------ | 
