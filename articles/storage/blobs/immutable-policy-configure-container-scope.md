@@ -42,7 +42,7 @@ To configure a time-based retention policy on a container with the Azure portal,
 
    The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
 
-   The **Block and append blobs** option extends this support to certain Microsoft tools (such as Azure Data Factory) which implement append blobs by using block blobs.
+   The **Block and append blobs** option provides you with the same permissions as the **Append blobs** option but adds support to certain Microsoft tools which implement append blobs by using block blobs. By using this option, you can minimize errors that can appear when certain Microsoft tools used by your workloads attempt to append blocks.
 
    To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
@@ -67,7 +67,7 @@ To allow protected append writes, set the `-AllowProtectedAppendWrite` or  `-All
 
 The **AllowProtectedAppendWrite** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
 
-The **AllowProtectedAppendWriteAll** option extends this support to certain Microsoft tools (such as Azure Data Factory) which implement append blobs by using block blobs.
+The **AllowProtectedAppendWriteAll** option provides you with the same permissions as the **AllowProtectedAppendWrite** option but adds support to certain Microsoft tools which implement append blobs by using block blobs. By using this option, you can minimize errors that can appear when certain Microsoft tools used by your workloads attempt to append blocks.
 
 To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
@@ -87,7 +87,7 @@ To allow protected append writes, set the `--allow-protected-append-writes` or  
 
 The **--allow-protected-append-writes** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
 
-The **--allow-protected-append-writes-all** option extends this support to certain Microsoft tools (such as Azure Data Factory) which implement append blobs by using block blobs.
+The **--allow-protected-append-writes-all** option provides you with the same permissions as the **--allow-protected-append-writes** option but adds support to certain Microsoft tools which implement append blobs by using block blobs. By using this option, you can minimize errors that can appear when certain Microsoft tools used by your workloads attempt to append blocks.
 
 To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
