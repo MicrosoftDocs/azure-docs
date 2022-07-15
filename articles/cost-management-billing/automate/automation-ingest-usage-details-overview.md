@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to use cost details records to correlate meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2022
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -21,7 +21,7 @@ You must have Cost Management permissions at the appropriate scope to use APIs a
 
 ## How to get cost details
 
-You can use [exports](../costs/tutorial-export-acm-data.md) or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) to get cost details programmatically. To learn more about which solutions are best for your scenarios, see [Choose a cost details solution](usage-details-best-practices.md).
+You can use [exports](../costs/tutorial-export-acm-data.md) or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report to get cost details programmatically. To learn more about which solutions are best for your scenarios, see [Choose a cost details solution](usage-details-best-practices.md).
 
 For Azure portal download instructions, see [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md). If you have a small cost details dataset that you maintain from one month to another, you can open your CSV file in Microsoft Excel or another spreadsheet application.
 

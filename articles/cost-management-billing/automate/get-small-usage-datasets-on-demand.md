@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: The article explains how you can use the Cost Details API to get raw, unaggregated cost data that corresponds to your Azure bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2022
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,13 +13,13 @@ ms.reviewer: adwise
 
 # Get small cost datasets on demand
 
-Use the [Cost Details API-UNPUBLISHED](../index.yml) to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if want to analyze smaller cost data sets of 2 GB (2 million rows) or less. However, you should use Exports for ongoing data ingestion workloads and for the download of larger datasets.
+Use the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if want to analyze smaller cost data sets of 2 GB (2 million rows) or less. However, you should use Exports for ongoing data ingestion workloads and for the download of larger datasets.
 
 If you want to get large amounts of exported data regularly, see [Retrieve large cost datasets recurringly with exports](../costs/ingest-azure-usage-at-scale.md).
 
 To learn more about the data in cost details (formerly referred to as *usage details*), see [Ingest cost details data](automation-ingest-usage-details-overview.md).
 
-The [Cost Details API-UNPUBLISHED](../index.yml) is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, Pay-As-You-Go or Visual Studio customer, see [Get cost details as a legacy customer](get-usage-details-legacy-customer.md).
+The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, Pay-As-You-Go or Visual Studio customer, see [Get cost details as a legacy customer](get-usage-details-legacy-customer.md).
 
 ## Cost Details API best practices
 
@@ -51,7 +51,7 @@ The following example requests are used by Microsoft customers to address common
 
 Use the `retry-after` header in the API response to dictate when to poll the API next. The header provides an estimated minimum time that your report will take to generate.
 
-To learn more about the API contract, see [Cost Details API-UNPUBLISHED](../index.yml).
+To learn more about the API contract, see [Cost Details](/rest/api/cost-management/generate-cost-details-report) API.
 
 ### Actual cost versus amortized cost
 

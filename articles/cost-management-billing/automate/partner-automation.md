@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how Microsoft partners and their customers can use Cost Management APIs for common tasks.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2022
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -76,7 +76,7 @@ We recommend that you configure an Export for these scenarios. For more informat
 
 ### To download a customer's Azure service usage
 
-We recommend that you configure an Export for this scenario as well. If you need to download the data on demand, however, you can use the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml). For more information, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
+We recommend that you configure an Export for this scenario as well. If you need to download the data on demand, however, you can use the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. For more information, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 
 ### To get or download the price sheet for consumed Azure services
 

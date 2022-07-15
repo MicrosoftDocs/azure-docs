@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you create budgets with the Budget API and a budget template.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2022
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -31,7 +31,7 @@ After you've identified the budget creation options that meet your needs, create
 
 ### Create a budget filtered to multiple resources and tags
 
-Request URL: `PUT https://management.azure.com/subscriptions/{SubscriptionId} /providers/Microsoft.Consumption/budgets/{BudgetName}/?api-version=2019-10-01`
+Request URL: `PUT https://management.azure.com/subscriptions/{SubscriptionId}/providers/Microsoft.Consumption/budgets/{BudgetName}/?api-version=2019-10-01`
 
 ```json
 {

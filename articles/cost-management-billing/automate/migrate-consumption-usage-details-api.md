@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the Consumption Usage Details API.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2022
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -19,25 +19,25 @@ This article discusses migration away from the [Consumption Usage Details API](/
 
 Read the [Choose a cost details solution](usage-details-best-practices.md) article before you choose which solution is right for your workload. Generally, we recommend [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs and or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
 
-If you have a smaller usage details dataset or a scenario that isn't met by Exports, consider using the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) instead. For more information, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
+If you have a smaller usage details dataset or a scenario that isn't met by Exports, consider using the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report instead. For more information, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 
 > [!NOTE]
-> The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you have an MSDN, pay-as-you-go, or Visual Studio subscription, you can migrate to Exports or continue using the Consumption Usage Details API.
+> The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you have an MSDN, pay-as-you-go, or Visual Studio subscription, you can migrate to Exports or continue using the Consumption Usage Details API.
 
 ## Migration benefits
 
 New solutions provide many benefits over the Consumption Usage Details API. Here's a summary:
 
 - **Single dataset for all usage details** - Azure and Azure Marketplace usage details were merged into one dataset. It reduces the number of APIs that you need to call to get see all your charges.
-- **Scalability** - The Marketplaces API is deprecated because it promotes a call pattern that isn't able to scale as your Azure usage increases. The usage details dataset can get extremely large as you deploy more resources into the cloud. The Marketplaces API is a paginated synchronous API so it isn't optimized to effectively transfer large volumes of data over a network with high efficiency and reliability. Exports and the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) are asynchronous. They provide you with a CSV file that can be directly downloaded over the network.
-- **API improvements** - Exports and the Cost Details API-UNPUBLISHED are the solutions that Azure supports moving forward. All new features are being integrated into them.
-- **Schema consistency** - The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) and [Exports](../costs/tutorial-export-acm-data.md) provide files with matching fields os you can move from one solution to the other, based on your scenario.
-- **Cost Allocation integration** - Enterprise Agreement and Microsoft Customer Agreement customers using Exports or the Cost Details API-UNPUBLISHED can view charges in relation to the cost allocation rules that they have configured. For more information about cost allocation, see [Allocate costs](../costs/allocate-costs.md).
+- **Scalability** - The Marketplaces API is deprecated because it promotes a call pattern that isn't able to scale as your Azure usage increases. The usage details dataset can get extremely large as you deploy more resources into the cloud. The Marketplaces API is a paginated synchronous API so it isn't optimized to effectively transfer large volumes of data over a network with high efficiency and reliability. Exports and the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API are asynchronous. They provide you with a CSV file that can be directly downloaded over the network.
+- **API improvements** - Exports and the Cost Details API are the solutions that Azure supports moving forward. All new features are being integrated into them.
+- **Schema consistency** - The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report and [Exports](../costs/tutorial-export-acm-data.md) provide files with matching fields os you can move from one solution to the other, based on your scenario.
+- **Cost Allocation integration** - Enterprise Agreement and Microsoft Customer Agreement customers using Exports or the Cost Details API can view charges in relation to the cost allocation rules that they have configured. For more information about cost allocation, see [Allocate costs](../costs/allocate-costs.md).
 
 
 ## Field Differences
 
-The following table summarizes the field differences between the Consumption Usage Details API and Exports and the Cost Details API-UNPUBLISHED. Both solutions provide a CSV file download instead of the paginated JSON response that's provided by the Consumption API.
+The following table summarizes the field differences between the Consumption Usage Details API and Exports/Cost Details API. Exports and the Cost Details API provide a CSV file download instead of the paginated JSON response that's provided by the Consumption API.
 
 ## Enterprise Agreement field mapping
 
@@ -77,7 +77,7 @@ Enterprise Agreement customers who are using the Consumption Usage Details API h
 
 An full example legacy Usage Details record is shown at [Usage Details - List - REST API (Azure Consumption)](/rest/api/consumption/usage-details/list#billingaccountusagedetailslist-legacy)
 
-The following table provides a mapping between the old and new fields . New properties are available in the CSV files produced by Exports and the Cost Details API-UNPUBLISHED. To learn more about the fields, see [Understand usage details fields](understand-usage-details-fields.md).
+The following table provides a mapping between the old and new fields. New properties are available in the CSV files produced by Exports and the Cost Details API. To learn more about the fields, see [Understand usage details fields](understand-usage-details-fields.md).
 
 | **Old Property** | **New Property** |
 | --- | --- |
@@ -173,7 +173,7 @@ Microsoft Customer Agreement customers that use the Consumption Usage Details AP
 
 An full example legacy Usage Details record is shown at [Usage Details - List - REST API (Azure Consumption)](/rest/api/consumption/usage-details/list#billingaccountusagedetailslist-modern)
 
-A mapping between the old and new fields are shown in the following table. New properties are available in the CSV files produced by Exports and the Cost Details API-UNPUBLISHED. Fields that need a mapping due to differences across the solutions are shown in **bold text**.
+A mapping between the old and new fields are shown in the following table. New properties are available in the CSV files produced by Exports and the Cost Details API. Fields that need a mapping due to differences across the solutions are shown in **bold text**.
 
 For more information, see [Understand usage details fields](understand-usage-details-fields.md).
 

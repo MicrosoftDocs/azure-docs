@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article covers common scenarios for Cost Management automation and options available based on your situation.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2022
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -26,11 +26,11 @@ The APIs below provide you with cost details data (formerly referred to as usage
 
 - [Exports API](/rest/api/cost-management/exports/create-or-update) - Configure a recurring task to export your cost details data to Azure storage on a daily, weekly or monthly basis. Exported data is in CSV format. It's our recommended solution for ingesting cost data and is the most scalable for large enterprises. To learn more, see [Retrieve large cost datasets with exports](../costs/ingest-azure-usage-at-scale.md).
 
-- [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) - Download a cost details CSV file on demand. It's useful for smaller, date range based datasets. For larger workloads, we strongly recommend that you use Exports. To learn more about using this API, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
+- [Generate Cost Details](/rest/api/cost-management/generate-cost-details-report) - Download a cost details CSV file on demand. It's useful for smaller, date range based datasets. For larger workloads, we strongly recommend that you use Exports. To learn more about using this API, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 
 ### Pricing APIs
 
-- [Azure Retail Prices](/rest/api/cost-management/retail-prices/azure-retail-prices) - Get meter rates with pay-as-you-go pricing. You can use the returned information with your resource usage information to manually calculate the expected bill. The pricing provided in this API is applicable to Microsoft Customer Agreement customers only.
+- [Azure Retail Prices](/rest/api/cost-management/retail-prices/azure-retail-prices) - Get meter rates with pay-as-you-go pricing. You can use the returned information with your resource usage information to manually calculate the expected bill.
 
 - [Price Sheet API](/rest/api/consumption/pricesheet) - Get custom pricing for all meters. Enterprises can use this data in combination with usage details and marketplace usage information to manually calculate costs by using usage and marketplace data.
 
@@ -71,7 +71,7 @@ To answer these questions, follow the steps below.
 
 1. Call the [Invoices API](/rest/api/billing/2020-05-01/invoices) to get the info needed to download an invoice. If you're a Microsoft Customer Agreement customer and just wish to get the specific line items seen on your invoice automatically, you can also utilize the [Transactions API](/rest/api/billing/2020-05-01/transactions/list-by-invoice) to get those line items in an API-readable format.
 
-2. Use either [Exports](/rest/api/cost-management/exports) or the [Cost Details API-UNPUBLISHED](../index.yml) to download the raw usage file.
+2. Use either [Exports](/rest/api/cost-management/exports) or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API to download the raw usage file.
 
 3. Analyze the data in the raw usage file to compare it against the costs that are present on the invoice. For Azure consumption, the data in your invoice is rolled up based on the meter associated with your usage.
 
@@ -79,12 +79,12 @@ To answer these questions, follow the steps below.
 
 Once there's a good understanding of spending for a given month, organizations next need to determine what teams or divisions need to pay for the various charges accrued. Follow the steps below.
 
-1. Use either [Exports](/rest/api/cost-management/exports) or the [Cost Details API-UNPUBLISHED](../index.yml) to download the raw usage file. 
+1. Use either [Exports](/rest/api/cost-management/exports) or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API to download the raw usage file. 
 
 2. Analyze the data in the raw usage file and allocate it based on the organizational hierarchy that you have in place. Allocation could be based on resource groups, subscriptions, cost allocation rules, tags or other Azure organization hierarchies. 
-   - To learn more about best practices to consider when configuring your Azure environments, see [Cost management best practices-LINK NEEDED](). 
-   - To learn more about the scopes and the organizational structures available to you, see [Understand and work with scopes-LINK NEEDED]().
-   - To set up allocation directly in Azure, see [Allocate costs-LINK NEEDED](). 
+   - To learn more about best practices to consider when configuring your Azure environments, see [Cost management best practices](../costs/cost-mgt-best-practices.md). 
+   - To learn more about the scopes and the organizational structures available to you, see [Understand and work with scopes](../costs/understand-work-scopes.md).
+   - To set up allocation directly in Azure, see [Allocate costs](../costs/allocate-costs.md). 
 
 ### Azure spending prior to invoice closure
 
@@ -96,11 +96,11 @@ Configuring automatic alerting can also ensure that spending doesn't unexpectedl
 
 Often it's useful to understand how much an organization is spending over time. Understanding cost over time helps identify trends and areas for cost optimization improvement. Follow the steps below to set up a cost dataset that can be used for reporting cost over time at scale.
 
-1. Extract the historical costs for prior months. See [Seed a historical cost dataset in Azure storage- LINK NEEDED]() to learn more.
+1. Extract the historical costs for prior months. See [Seed a historical cost dataset with the Exports API](tutorial-seed-historical-cost-dataset-exports-api.md) to learn more.
 2. Ingest your historical data from the Azure storage account associated with your Exports into a queryable store. We recommend SQL or Azure Synapse.
-3. Configure a month-to-date Export to storage at a scope with the costs that need to be analyzed. Export to storage is done in the Azure portal. See [Export costs- LINK NEEDED](). The month-to-date Export will be used to properly extract costs moving forward.
+3. Configure a month-to-date Export to storage at a scope with the costs that need to be analyzed. Export to storage is done in the Azure portal. See [Export costs](../costs/tutorial-export-acm-data.md). The month-to-date Export will be used to properly extract costs moving forward.
 4. Configure a data pipeline to ingest cost data for the open month into your queryable store. This pipeline should be used with the month-to-date Export that you've configured. Azure Data Factory provides good solutions for this kind of ingestion scenario.
-5. Perform reporting as needed using reports built with your queryable store. Power BI can be good for this scenario. If you're looking for a more out of the box solution, see our [Power BI Template App- LINK NEEDED]().
+5. Perform reporting as needed using reports built with your queryable store. Power BI can be good for this scenario. If you're looking for a more out of the box solution, see our [Power BI Template App](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 ### Reservation related investigations
 

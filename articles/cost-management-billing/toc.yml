@@ -34,6 +34,8 @@
   - name: Export data
     displayName: Azure CLI, az costmanagement query, az costmanagement export
     href: costs/tutorial-export-acm-data.md
+  - name: Seed historical cost dataset with Exports API
+    href: automate/tutorial-seed-historical-cost-dataset-exports-api.md
   - name: Act on recommendations
     href: costs/tutorial-acm-opt-recommendations.md
 - name: Concepts

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes best practices recommended by Microsoft when you work with data in cost details files.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2022
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -26,9 +26,9 @@ Exports are recurring data dumps to storage that can be configured to run on a c
 
 To learn more about how to properly call the API and ingest cost details at scale, see [Retrieve large datasets with exports](../costs/ingest-azure-usage-at-scale.md).
 
-## Cost Details API-UNPUBLISHED
+## Cost Details API
 
-The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) is the go to solution for on demand download of the cost details dataset. Review the considerations below to analyze whether this solution is best for your particular data ingestion workload.
+The [Cost Details](/rest/api/cost-management/generate-cost-details-report) API is the go to solution for on demand download of the cost details dataset. Review the considerations below to analyze whether this solution is best for your particular data ingestion workload.
 
 - Useful for small cost datasets. Exports scale better than the API. The API may not be a good solution if you need to ingest many gigabytes worth of cost data month over month. A GB of cost details data is roughly 1 million rows of data.
 - Useful for scenarios when Exports to Azure storage aren't feasible due to security or manageability concerns.
@@ -42,9 +42,9 @@ If the Cost Details API is your chosen solution, review the best practices to ca
 - If you're bound by rate limits at a lower scope, consider calling a higher scope to download data.
 - If your dataset is more than 2 GB month-to-month, consider using [exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
 
-To learn more about how to properly call the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml), see [Get small usage data sets on demand](get-small-usage-datasets-on-demand.md).
+To learn more about how to properly call the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API, see [Get small usage data sets on demand](get-small-usage-datasets-on-demand.md).
 
-The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, pay-as-you-go or Visual Studio customer, see [Get usage details as a legacy customer](get-usage-details-legacy-customer.md).
+The Cost Details API is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, pay-as-you-go or Visual Studio customer, see [Get usage details as a legacy customer](get-usage-details-legacy-customer.md).
 
 ## Power BI
 

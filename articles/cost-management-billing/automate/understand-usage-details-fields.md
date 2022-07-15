@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2022
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,11 +13,11 @@ ms.reviewer: adwise
 
 # Understand cost details fields
 
-This document describes the cost details (formerly known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml). For more information about cost details best practices, see [Choose a cost details solution](usage-details-best-practices.md).
+This document describes the cost details (formerly known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. For more information about cost details best practices, see [Choose a cost details solution](usage-details-best-practices.md).
 
 ## Migration to new cost details formats
 
-If you're using an older cost details solution and want to migrate to Exports or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml), read the following articles.
+If you're using an older cost details solution and want to migrate to Exports or the Cost Details API, read the following articles.
 
 - [Migrate from Enterprise Usage Details APIs](migrate-ea-usage-details-api.md)
 - [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md)
