@@ -57,7 +57,9 @@ To configure more parameters for the above command, see [az aks create](/cli/azu
 
 You'll now deploy a new application gateway, to simulate having an existing application gateway that you want to use to load balance traffic to your AKS cluster, **myCluster**. The name of the application gateway will be **myApplicationGateway**, but you'll need to first create a public IP resource, named **myPublicIp**, and a new virtual network called **myVnet** with address space 10.0.0.0/16, and a subnet with address space 10.0.0.0/24 called **mySubnet**, and deploy your application gateway in **mySubnet** using **myPublicIp**. 
 
-When you use an AKS cluster and application gateway in separate virtual networks, the address spaces of the two virtual networks must not overlap. The default address space that an AKS cluster deploys in is 10.224.0.0/12 (10.224.0.0 - 10.239.255.255), so you'll set the application gateway virtual network address prefix to 10.0.0.0/16 (10.0.0.0 - 10.0.255.255). 
+> [!CAUTION]
+> When you use an AKS cluster and application gateway in separate virtual networks, the address spaces of the two virtual networks must not overlap. The default address space that an AKS cluster deploys in is 10.224.0.0/12.
+
 
 ```azurecli-interactive
 az network public-ip create -n myPublicIp -g myResourceGroup --allocation-method Static --sku Standard
