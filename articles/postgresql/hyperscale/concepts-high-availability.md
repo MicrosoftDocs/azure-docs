@@ -47,7 +47,7 @@ promoted coordinator will be accessible with the same connection string.
 Recovery can be broken into three stages: detection, failover, and full
 recovery.  Hyperscale (Citus) runs periodic health checks on every node, and
 after four failed checks it determines that a node is down. Hyperscale (Citus)
-then promotes a standby to primary node status (failover), and provisions a new
+then promotes a standby to primary node status (failover), and creates a new
 standby-to-be.  Streaming replication begins, bringing the new node up to date.
 When all data has been replicated, the node has reached full recovery.
 

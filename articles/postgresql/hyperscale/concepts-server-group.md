@@ -53,7 +53,7 @@ support availability zones.)
 
 If high availability is enabled for the server group, and a node [fails
 over](concepts-high-availability.md) to a standby, you may see its availability
-zone differ from the other nodes. In this case, the nodes will be moved back
+zone differs from the other nodes. In this case, the nodes will be moved back
 into the same availability zone together during the next [maintenance
 window](concepts-maintenance.md).
 
