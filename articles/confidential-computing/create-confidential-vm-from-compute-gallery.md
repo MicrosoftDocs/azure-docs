@@ -78,7 +78,7 @@ Now, you can [create a Confidential VM from your custom image](#create-a-confide
 
 Now, you can [create a Confidential VM from your custom image](#create-a-confidential-vm-from-gallery-image).
 
-## Confidential VM Supported image
+## Confidential VM Supported images
 
 For the following image sources, the security type on the image definition should be set to `ConfidentialVMSupported` as the image source does not have VM Guest state information and confidential disk encryption:
 - OS Disk VHD
