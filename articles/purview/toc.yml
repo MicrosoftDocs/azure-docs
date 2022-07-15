@@ -24,8 +24,12 @@ items:
       href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
-  - name: Share and receive data
-    href: quickstart-data-share.md
+  - name: Data sharing
+    items:
+    - name: Share and receive data
+      href: quickstart-data-share.md
+    - name: .NET Data Sharing
+      href: quickstart-data-share-dotnet.md
 - name: Tutorials
   items:
   - name: Deployment checklist
