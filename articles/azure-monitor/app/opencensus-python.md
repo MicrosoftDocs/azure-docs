@@ -152,7 +152,7 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
 
 #### Configure logging for Django applications
 
-You can configure logging explicitly in your application code like above for your Django applications, or you can specify it in Django's logging configuration. This code can go into whatever file you use for Django settings configuration. For how to configure Django settings, see [Django settings](https://docs.djangoproject.com/en/3.0/topics/settings/). For more information on configuring logging, see [Django logging](https://docs.djangoproject.com/en/3.0/topics/logging/).
+You can configure logging explicitly in your application code like above for your Django applications, or you can specify it in Django's logging configuration. This code can go into whatever file you use for Django settings configuration. For how to configure Django settings, see [Django settings](https://docs.djangoproject.com/en/4.0/topics/settings/). For more information on configuring logging, see [Django logging](https://docs.djangoproject.com/en/4.0/topics/logging/).
 
 ```json
 LOGGING = {
