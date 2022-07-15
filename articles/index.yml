@@ -1168,7 +1168,6 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/update-center.svg
       azureCategories:
         - management-and-governance
-        - networking
       url: update-center/index.yml
 
     # Card
