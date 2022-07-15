@@ -246,7 +246,7 @@ AD DS domain controllers: a minimum of two AD DS domain controllers must be depl
 
 When a requirement exists to deploy IaaS workloads to Azure that require identity isolation from AD DS administrators and users in another forest, then an Azure AD Domain Services (Azure AD DS) managed domain can be deployed. Azure AD DS is a service that provides a managed domain to facilitate authentication for Azure workloads using legacy protocols. This provides an isolated domain without the technical complexities of building and managing your own AD DS. The following considerations need to be made.
 
-![Diagram that shows Azure AD DS virtual machine management](media/secure-with-azure-ad-resource-management/vm-to-azure-ad-domain-services.png)
+![Diagram that shows Azure AD DS virtual machine management.](media/secure-with-azure-ad-resource-management/vm-to-azure-ad-domain-services.png)
 
 **Azure AD DS managed domain** - Only one Azure AD DS managed domain can be deployed per Azure AD tenant and this is bound to a single VNet. It's recommended that this VNet forms the "hub" for Azure AD DS authentication. From this hub, "spokes" can be created and linked to allow legacy authentication for servers and applications. The spokes are additional VNets on which Azure AD DS joined servers are located and are linked to the hub using Azure network gateways or VNet peering.
 
@@ -308,7 +308,7 @@ For this isolated model, it's assumed that there's no connectivity to the VNet t
 
 When a requirement exists to deploy IaaS workloads to Azure that require identity isolation, then the final option is to use Azure AD for logon to servers in this scenario. This provides the ability to make Azure AD the identity realm for authentication purposes and identity isolation can be achieved by provisioning the servers into the relevant subscription, which is linked to the required Azure AD tenant. The following considerations need to be made.
 
-![Diagram that shows Azure AD authentication to Azure VMs](media/secure-with-azure-ad-resource-management/sign-into-vm.jpeg)
+![Diagram that shows Azure AD authentication to Azure VMs.](media/secure-with-azure-ad-resource-management/sign-into-vm.png)
 
 **Supported operating systems**: Signing into virtual machines in Azure using Azure AD authentication is currently supported in Windows and Linux. For more specifics on supported operating systems, refer to the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](../../virtual-machines/linux/login-using-aad.md).
 
