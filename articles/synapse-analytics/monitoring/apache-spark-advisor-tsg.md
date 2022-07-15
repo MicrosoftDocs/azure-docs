@@ -63,4 +63,4 @@ This query contains time consuming join due to "Or" condition within query. We r
 
 ## Next steps
 
-[Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview)
+[Apache Spark in Azure Synapse Analytics](synapse-analytics/spark/apache-spark-overview.md)
