@@ -277,7 +277,7 @@ To remove the resource group:
 
 1. On the left menu of the Azure portal, select **Resource groups**.
 2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
-3. On the **myResourceGroupAG**, select **Delete resource group**.
+3. On the **myResourceGroupAG** page, select **Delete resource group**.
 4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**.
 
 To restore the hosts file:
