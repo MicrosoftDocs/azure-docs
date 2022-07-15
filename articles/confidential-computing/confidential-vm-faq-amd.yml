@@ -102,7 +102,7 @@ sections:
           Since Azure confidential VMs support virtual TPM, can I seal secrets/keys to my confidential VM virtual TPM?
         answer: | 
           Each Azure confidential VM has its own virtual TPM, where customers can seal their secrets/keys. It is recommended for customers to verify vTPM status (via TPM.msc for Windows VMs).
-          If status is not ready for use, recommend to reboot VMs before sealing secrets/keys to vTPM.
+          If status is not ready for use, we recommend that you reboot your VMs before sealing secrets/keys to vTPM.
      
       - question: |
           Can I enable or disable the new full-disk encryption scheme after VM creation?
