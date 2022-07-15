@@ -90,10 +90,10 @@ The following Azure resources are defined in the template.
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
     - **Region:** select **East US**.
-    - **Location:** leave this field unchanged.
+    - **Location:** enter *eastus*.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
-    - **SIM Group Name:** enter the name of the SIM group.
-    - **SIM Resources:** paste in the array you prepared in [Prepare an array for your SIMs](#prepare-an-array-for-your-sims).
+    - **Sim Group Name:** enter the name of the SIM group.
+    - **Sim Resources:** paste in the array you prepared in [Prepare an array for your SIMs](#prepare-an-array-for-your-sims).
 
     :::image type="content" source="media/provision-sims-arm-template/sims-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the SIMs ARM template.":::
 

@@ -53,7 +53,7 @@ Four Azure resources are defined in the template.
     | **Subscription** | Select the Azure subscription you used to create your private mobile network. |
     | **Resource group** | Select the resource group containing the mobile network resource representing your private mobile network. |
     | **Region** | Select **East US**. |
-    | **Location** | Leave this field unchanged. |
+    | **Location** | Enter *eastus*. |
     | **Existing Mobile Network Name** | Enter the name of the mobile network resource representing your private mobile network. |
     | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
     | **Site Name** | Enter a name for your site. |
@@ -69,7 +69,7 @@ Four Azure resources are defined in the template.
     | **User Plane Data Interface Gateway** | Enter the data subnet default gateway. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
-    | **Core Network Technology** | Enter `5GC` for 5G, or `EPC` for 4G. |
+    | **Core Network Technology** | Enter *5GC* for 5G, or *EPC* for 4G. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
     | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
 
