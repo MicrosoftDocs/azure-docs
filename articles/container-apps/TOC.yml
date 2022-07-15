@@ -52,7 +52,7 @@
         href: vnet-custom.md
       - name: Deploy with an internal environment
         href: vnet-custom-internal.md
-      - name: Firewall integration
+      - name: Securing a custom VNET
         href: firewall-integration.md
     - name: Observability
       href: observability.md
