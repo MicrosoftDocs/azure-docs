@@ -184,6 +184,8 @@ You've now deployed a VM with a premium SSD v2.
 
 ## Adjust disk performance
 
+Unlike other managed disks, the performance of a Premium SSD v2 can be configured independently of its size. For conceptual information on this, see [Premium SSD v2 performance](disks-types.md#premium-ssd-v2-performance).
+
 # [Azure CLI](#tab/azure-cli)
 
 The following command changes the performance of your disk, update the values as you like, then run the command:
