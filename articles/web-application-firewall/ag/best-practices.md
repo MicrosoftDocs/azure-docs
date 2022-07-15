@@ -11,6 +11,8 @@ ms.author: jodowns
 
 # Best practices for Web Application Firewall on Application Gateway
 
+This article summarizes best practices for using the web application firewall (WAF) on Azure Application Gateway.
+
 TODO
 
 ## Application Gateway WAF best practices
