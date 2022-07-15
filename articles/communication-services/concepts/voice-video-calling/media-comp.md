@@ -36,28 +36,31 @@ Media Composition REST APIs (and open-source SDKs) allow you to command the Azur
 
 This functionality is activated through REST APIs and open-source SDKs. Below is an example of the JSON encoded configuration of a presenter layout for the above scenario:
 
-```
+```json
 {
-  layout: {
-    type: ‘presenter’,
-    presenter: {
-      supportPosition: ‘right’,
-      primarySource: ‘1’, // source id
+   "layout": {
+    "presenter": {
+      "presenterId": "presenter",
+      "supportId": "translatorSupport",
+      "supportPosition": "topLeft",
+      "supportAspectRatio": 3/2
     }
-  },
-  sources: [
-    { id: ‘1’ }, { id: ‘2’ }
-  ]
+  }
 }
-
 ```
+
 The presenter layout is one of several layouts available through the media composition capability:
 
-- **Grid** - This is the typical video calling layout, where all media sources are shown on a grid with similar sizes. You can use the grid layout to specify grid positions and size.
-- **Presentation.** Similar to the grid layout but media sources can have different sizes, allowing for emphasis.
-- **Presenter** - This layout overlays two sources on top of each other.
-- **Weather Person** - This layout overlays two sources, but in real-time Azure will remove the background behind people.
-
+- **Grid** - The grid layout shows the specified media sources in a standard grid format. You can specify the number of rows and columns in the grid as well as which media source should be placed in each slot of the grid.
+:::image type="content" source="../media/2x2-grid.png" alt-text="Diagram showing how example of custom layout":::
+- **Auto-Grid** - This layout will automatically display all the sources in the scene in an optimized way. Unlike the grid layout, it does not allow for customizations on the number of rows and columns.
+:::image type="content" source="../media/autogrid.png" alt-text="Diagram showing how example of custom layout":::
+- **Presentation.** - The presentation layout features a fixed media source, the presenter, covering the majority of the scene. The other media sources are arranged in either a row or column in the remaining space of the scene.
+:::image type="content" source="../media/top-presentation.png" alt-text="Diagram showing how example of custom layout":::
+- **Presenter** - This is a picture-in-picture layout composed of two sources. One source is the background of the scene. This represents the content being presented or the main presenter. The secondary source is cropped or resized and positioned at a corner of the scene.
+:::image type="content" source="../media/topLeft-presenter.png" alt-text="Diagram showing how example of presenter layout":::
+- **Custom** - You can customize the layout to fit your specific scenario. Media sources can have different sizes and be placed at any position on the scene.
+:::image type="content" source="../media/custom-2x2GridWithSingleCellOverlayed.png" alt-text="Diagram showing how example of custom layout":::
 <!----To try out media composition, check out following content:----->
 
 <!---- [Quick Start - Applying Media Composition to a video call](../../quickstarts/media-composition/get-started-media-composition.md) ----->
