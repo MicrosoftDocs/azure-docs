@@ -58,7 +58,7 @@ Now, you can [create a Confidential VM from your custom image](#create-confident
 
 ### To create a **ConfidentialVM** type image from managed disk or snapshot
 
-1.Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.md) for the disk or snapshot before you create the image.
 1. Search for and select **VM Image Versions** in the search bar.
 1. Select **Create**
