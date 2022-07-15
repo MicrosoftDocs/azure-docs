@@ -9,7 +9,7 @@ ms.date: 05/30/2022
 ms.reviewer: gardnerjr 
 ---
 
-# Creating an Azure Workbook
+# Create an Azure Workbook
 This article describes how to create a new workbook and how to add elements to your Azure Workbook.
 
 This video walks you through creating workbooks.
