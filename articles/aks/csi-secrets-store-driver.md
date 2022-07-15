@@ -234,6 +234,8 @@ After you've created the Kubernetes secret, you can reference it by setting an e
 > [!NOTE]
 > The example here is incomplete. You'll need to modify it to support the Azure key vault identity access that you've chosen.
 
+> [!NOTE]
+> The example here demonstrates access to a secret through env and through volume/volumeMount. This is for illustrative purposes. These two methods can exist independently from the other. 
 ```yml
 kind: Pod
 apiVersion: v1
