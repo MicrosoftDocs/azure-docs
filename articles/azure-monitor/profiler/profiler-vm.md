@@ -2,7 +2,7 @@
 title: Enable Profiler for web apps on an Azure virtual machine
 description: Profile web apps running on an Azure virtual machine or a virtual machine scale set by using Application Insights Profiler
 ms.topic: conceptual
-ms.date: 06/24/2022
+ms.date: 07/15/2022
 ms.reviewer: jogrima
 ---
 
@@ -93,15 +93,12 @@ You can enable Profiler by any of the following three ways:
 
 1. Deploy your application.
 
-### View Profiler traces
-
-1. After a few minutes, navigate to your Application Insights resource in the Azure portal.
-
-1. Select **Profiler traces** to view the results from deployment.
-
 # [PowerShell](#tab/powershell)
 
 The following PowerShell commands are an approach for existing VMs that touch only the Azure Diagnostics extension.
+
+> [!NOTE]
+> If you deploy the VM again, the sink will be lost. You'll need to update the config you use when deploying the VM to preserve this setting.
 
 ### Install Application Insights via Azure Diagnostics config
 
@@ -153,19 +150,13 @@ If the intended application is running through [IIS](https://www.microsoft.com/w
   Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
   ```
 
-If establishing remote access is a problem, you can use the [Azure CLI](/cli/azure/get-started-with-azure-cli) to run the following command:  
+  If establishing remote access is a problem, you can use the [Azure CLI](/cli/azure/get-started-with-azure-cli) to run the following command:  
 
-```cli
-az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
-```
+  ```cli
+  az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
+  ```
 
 1. Deploy your application.
-
-### View Profiler traces
-
-1. After a few minutes, navigate to your Application Insights resource in the Azure portal.
-
-1. Select **Profiler traces** to view the results from deployment.
 
 # [Azure Resource Explorer](#tab/azure-resource-explorer)
 
@@ -182,7 +173,8 @@ Since the Azure portal doesn't provide a way to set the Application Insights Pro
 
 1. Find the VM Diagnostics extension for your VM:
     1. Go to [https://resources.azure.com](https://resources.azure.com). 
-    1. Expand your resource group, Microsoft.Compute virtualMachines, virtual machine name, and extensions.  
+    1. Expand **subscriptions** and find the subscription holding the resource group with your VM.
+    1. Drill down to your VM extensions by selecting your resource group, followed by **Microsoft.Compute** > **virtualMachines** > **<your virtual machine>** > **extensions**.  
 
        :::image type="content" source="./media/profiler-vm/azure-resource-explorer.png" alt-text="Navigate to WAD config in Azure Resource Explorer":::
 
@@ -194,9 +186,23 @@ Since the Azure portal doesn't provide a way to set the Application Insights Pro
 
      :::image type="content" source="./media/profiler-vm/resource-explorer-sinks-config.png" alt-text="Add Application Insights Profiler sink":::
 
-1. When you're done editing the config, press **Put**. 
+   ```json
+   "WadCfg": {
+     "SinksConfig": {
+       "Sink": [
+         {
+           "name": "MyApplicationInsightsProfilerSink",
+           "ApplicationInsightsProfiler": "YOUR_APPLICATION_INSIGHTS_INSTRUMENTATION_KEY"
+         }
+       ]
+     }
+   }        
+   ```
 
-1. If the put is successful, a green check will appear in the middle of the screen.
+
+1. When you're done editing the config, press **PUT**. 
+
+1. If the `put` is successful, a green check will appear in the middle of the screen.
 
    :::image type="content" source="./media/profiler-vm/resource-explorer-put.png" alt-text="Send put request to apply changes":::
 
@@ -208,6 +214,6 @@ Currently, Application Insights Profiler is not supported for on-premises server
 
 ## Next steps
 
-- Generate traffic to your application (for example, launch an [availability test](../app/monitor-web-app-availability.md)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
-- See [Profiler traces](./profiler-overview.md) in the Azure portal.
-- For help with troubleshooting Profiler issues, see [Profiler troubleshooting](./profiler-troubleshooting.md).
+Learn how to...
+> [!div class="nextstepaction"]
+> [Generate load and view Profiler traces](./profiler-data.md)
