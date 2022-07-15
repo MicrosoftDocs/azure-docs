@@ -83,7 +83,7 @@ Content-Type: application/json
 
 ## Execute the requests in one-month chunks
 
-We recommend creating one-time data exports in one month chunks. If want to seed a one-year historical dataset, then you should execute 12 Exports API requests - one for each month. After you've seeded your historical dataset, you can then create a scheduled export to continue populating your cost data in Azure storage as your charges accrue over time.
+We recommend creating one-time data exports in one month chunks. If you want to seed a one-year historical dataset, then you should execute 12 Exports API requests - one for each month. After you've seeded your historical dataset, you can then create a scheduled export to continue populating your cost data in Azure storage as your charges accrue over time.
 
 ## Next steps
 
