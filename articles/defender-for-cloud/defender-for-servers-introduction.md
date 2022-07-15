@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Servers.
-ms.date: 07/13/2022
+ms.date: 07/14/2022
 ms.topic: overview
 ---
 # Overview of Microsoft Defender for Servers
@@ -37,6 +37,8 @@ Defender for Servers offers you a choice between two paid plans:
 | [Just-in time VM access](#just-in-time-jit-virtual-machine-vm-access) | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | [Adaptive network hardening](#adaptive-network-hardening-anh) | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 
+You can learn more about the different [benefits for each server plan](#benefits-of-the-defender-for-servers-plans) .
+
 ### Plan 1
 
 Plan 1 includes the following benefits:
@@ -46,7 +48,7 @@ Plan 1 includes the following benefits:
 - Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal
 - A Microsoft Defender for Endpoint subscription that includes access to alerts, software inventory, Vulnerability Assessment and an automatic integration with Microsoft Defender for Cloud.
 
-The subscription to Microsoft Defender for Endpoint allows you to deploy Defender for Endpoint to your servers. Defender for Endpoint includes the following capabilities:
+The subscription to [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) allows you to deploy Defender for Endpoint to your servers. Defender for Endpoint includes the following capabilities:
 
 - Licenses are charged per hour instead of per seat, lowering your costs to protect virtual machines only when they are in use.
 - Microsoft Defender for Endpoint deploys automatically to all cloud workloads so that you know that they're protected when they spin up.
@@ -54,13 +56,22 @@ The subscription to Microsoft Defender for Endpoint allows you to deploy Defende
 
 ### Plan 2 (formerly Defender for Servers)
 
-Plan 2 includes all of the benefits included with Plan 1. However, plan 2 also includes all of the other Microsoft Defender for Servers features listed in the [table above](#available-defender-for-server-plans).
+Plan 2 includes all of the benefits included with Plan 1. However, plan 2 also includes all of the following features:
+
+- Security Policy and Regulatory Compliance
+- Log-analytics (500 MB free)
+- [Vulnerability Assessment using Qualys](#vulnerability-scanner-powered-by-qualys)
+- Threat detections: OS level, network layer, control plane
+- [Adaptive application controls](#adaptive-application-controls-aac)
+- [File integrity monitoring](#file-integrity-monitoring-fim)
+- [Just-in time VM access](#just-in-time-jit-virtual-machine-vm-access)
+- [Adaptive network hardening](#adaptive-network-hardening-anh)
 
 For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ## Select a plan
 
-You can select your plan when you [Enable enhanced security features on your subscriptions and workspaces:](enable-enhanced-security.md#enable-enhanced-security-features-on-your-subscriptions-and-workspaces). By default, plan 2 is selected when you set the Defender for Servers plan to On.
+You can select your plan when you [Enable enhanced security features on your subscriptions and workspaces](enable-enhanced-security.md#enable-enhanced-security-features-from-the-azure-portal). By default, plan 2 is selected when you set the Defender for Servers plan to **On**.
 
 If at any point, you want to change the Defender for Servers plan, you can change it on the Defender plans page by selecting **Change plan**.
 
@@ -70,7 +81,7 @@ If at any point, you want to change the Defender for Servers plan, you can chang
 
 Defender for Servers offers both threat detection and protection capabilities that consist of:
 
-### Plan 1 & Plan 2
+### Included in plan 1 & plan 2
 
 #### Microsoft threat and vulnerability management 
 
@@ -84,7 +95,7 @@ Defender for Servers includes [Microsoft Defender for Endpoint](https://www.micr
 
 When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown on Defender for Cloud's Recommendation page. From Defender for Cloud, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack. Learn how to [Protect your endpoints](integration-defender-for-endpoint.md).
 
-### Plan 2 only
+### Included in plan 2 only
 
 #### Vulnerability scanner powered by Qualys
 

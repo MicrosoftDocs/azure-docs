@@ -228,8 +228,6 @@
           href: how-to-assign-roles.md
         - name: Use managed identities for access control
           href: how-to-use-managed-identities.md
-        - name: Use Azure AD identity in AKS deployments
-          href: how-to-use-azure-ad-identity.md
     - name: Network security
       items: 
         - name: Virtual network overview
@@ -766,7 +764,7 @@
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
     - name: Service limits
-      href: resource-limits-quotas-capacity.md
+      href: resource-limits-capacity.md
     - name: Conda licensing
       href: /legal/machine-learning/conda-licensing
     - name: Regional availability

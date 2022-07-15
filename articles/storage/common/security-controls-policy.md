@@ -4,7 +4,7 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 07/06/2022
 ms.topic: sample
 author: jimmart-dev
-ms.author: jimmart-dev
+ms.author: jammart
 ms.service: storage
 ms.custom: subject-policy-compliancecontrols
 ---
