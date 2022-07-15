@@ -1163,8 +1163,8 @@ productDirectory:
         - networking
       url: traffic-manager/index.yml
     # Card
-    - title: Update Management Center
-      summary: Unified service to manage and govern updates for all your machines.
+    - title: Update management center (Preview)
+      summary: Centrally manage updates and compliance at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/update-center.svg
       azureCategories:
         - management-and-governance
