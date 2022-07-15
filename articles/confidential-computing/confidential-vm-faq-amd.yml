@@ -50,7 +50,7 @@ sections:
           Azure VMs already offer industry leading security and protection against other tenants and malicious intruders. 
           Azure confidential VMs augment these protections by using hardware-based TEEs (Trusted Execution Environment) which leverage AMD’s SEV-SNP to cryptographically isolate and protect your data confidentiality and integrity even when they are in use. 
           This means neither host admins, nor services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
-          Moreover, with full attestation capability, full OS disk ecnryption and hardeware-protected virtual Trusted Platform Modules, confidential VM persistent state is protected such that neither your private keys, nor are the contents of your memory are ever exposed to the hosting environment.
+          Moreover, with full attestation capability, full OS disk encryption and hardeware-protected virtual Trusted Platform Modules, confidential VM persistent state is protected such that neither your private keys, nor are the contents of your memory are ever exposed to the hosting environment.
 
       - question: |
           Are the virtual disks attached to confidential VMs automatically protected?
