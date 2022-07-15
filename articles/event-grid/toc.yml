@@ -284,6 +284,8 @@ items:
         href: deliver-events-to-partner-destinations.md
     - name: Get access keys for topics or domains
       href: get-access-keys.md
+    - name: Get schema supported by a topic
+      href: get-topic-schema.md      
     - name: Publish events custom topics using access keys
       href: post-to-custom-topic.md
     - name: Receive events at HTTP endpoint
