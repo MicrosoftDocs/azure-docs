@@ -39,7 +39,7 @@ To learn how to get a bearer token with a service principal, see [Acquire an Acc
 See the following example request and create your own one-time data Export. The following example request creates a one-month Actual Cost dataset in the specified Azure storage account. We recommend that you request no more than one month's of data per report. If you have a large dataset every month, we recommend setting `partitionData = true` for your one-time export to split it into multiple files. For more information, see [File partitioning for large datasets](../costs/tutorial-export-acm-data.md#file-partitioning-for-large-datasets).
 
 ```http
-https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.CostManagement/exports/{ExportName}?api-version=2021-10-01
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.CostManagement/exports/{ExportName}?api-version=2021-10-01
 ```
 
 
@@ -81,9 +81,17 @@ Content-Type: application/json
 }
 ```
 
-## Execute the requests in one-month chunks
+## Create Exports in one-month chunks
 
 We recommend creating one-time data exports in one month chunks. If you want to seed a one-year historical dataset, then you should execute 12 Exports API requests - one for each month. After you've seeded your historical dataset, you can then create a scheduled export to continue populating your cost data in Azure storage as your charges accrue over time.
+
+## Run each Export
+
+Now that you have created the Export for each month, you need to manually run each by calling the [Execute API](https://docs.microsoft.com/en-us/rest/api/cost-management/exports/execute?tabs=HTTP). An example request to the API is below.
+
+```http
+POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/exports/{exportName}/run?api-version=2021-10-01
+```
 
 ## Next steps
 
