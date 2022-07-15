@@ -140,10 +140,11 @@ In this guide, you'll:
 
 You can add Application Insights to your web app either via:
 
-- The Azure portal UI, or 
+- The Enablement blade in the Azure portal,
+- The Configuration blade in the Azure portal, or 
 - Manually adding to your web app settings.
 
-### Via the Azure portal
+### Via the Enablement blade
 
 1. In your web app on the Azure portal, select **Application Insights** in the left side menu. 
 1. Click **Turn on Application Insights**. 
@@ -159,6 +160,30 @@ You can add Application Insights to your web app either via:
    :::image type="content" source="./media/profiler-aspnetcore-linux/app-insights-3.png" alt-text="Link to a new or existing resource":::    
 
 1. Click **Apply** > **Yes** to apply and confirm.
+
+### Via the Configuration blade
+
+1. 1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service.
+1. Navigate to the Application Insights resource.
+1. Copy the **Instrumentation Key** (iKey).
+1. In your web app on the Azure portal, select **Configuration** in the left side menu. 
+1. Click **New application setting**.
+
+   :::image type="content" source="./media/profiler-aspnetcore-linux/configuration-1.png" alt-text="Add new application setting in the configuration blade.":::    
+
+1. Add the following settings in the **Add/Edit application setting** pane, using your saved iKey:
+
+   | Name | Value |
+   | ---- | ----- |
+   | APPINSIGHTS_INSTRUMENTATIONKEY | [YOUR_APPINSIGHTS_KEY] |
+
+   :::image type="content" source="./media/profiler-aspnetcore-linux/configuration-2.png" alt-text="Add iKey to the settings pane.":::    
+
+1. Click **OK**.
+
+   :::image type="content" source="./media/profiler-aspnetcore-linux/configuration-3.png" alt-text="Save the application insights key settings.":::    
+
+1. Click **Save**.
 
 ### Via your web app settings
 
