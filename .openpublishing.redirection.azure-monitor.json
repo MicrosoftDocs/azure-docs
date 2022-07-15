@@ -217,6 +217,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-sample-links.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-samples",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-access.md",
             "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
             "redirect_document_id": false
@@ -359,6 +364,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/logs/ingestion-time-transformations.md" ,
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-transformations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/redis-cache-insights-overview.md" ,
+            "redirect_url": "/azure/azure-cache-for-redis/redis-cache-insights-overview",
             "redirect_document_id": false
         }
     ]

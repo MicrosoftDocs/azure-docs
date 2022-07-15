@@ -72,10 +72,10 @@ First, validate that the new platform update which contains Debian 11 has reache
 Next, create a deployment slot to test that your application works properly with Debian 11 before applying the change to production.
 
 1. [Create a deployment slot](deploy-staging-slots.md#add-a-slot) if you do not already have one, and clone your settings from the production slot. A deployment slot will allow you to safely test changes to your application (such as upgrading to Debian 11) and swap those changes into production after review. 
-1. To upgrade to Debian 11 (Bullseye), create an app setting on your slot named `APPSETTING_DEFAULT_OS` with a value of `bullseye`.
+1. To upgrade to Debian 11 (Bullseye), create an app setting on your slot named `ORYX_DEFAULT_OS` with a value of `bullseye`.
 
     ```bash
-    az webapp config appsettings set -g MyResourceGroup -n MyUniqueApp --settings APPSETTING_DEFAULT_OS=bullseye
+    az webapp config appsettings set -g MyResourceGroup -n MyUniqueApp --settings ORYX_DEFAULT_OS=bullseye
     ```
 1. Deploy your application to the deployment slot using the tool of your choice (VS Code, Azure CLI, GitHub Actions, etc.)
 1. Confirm your application is functioning as expected in the deployment slot.

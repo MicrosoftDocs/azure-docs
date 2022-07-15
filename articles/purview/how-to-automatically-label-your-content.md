@@ -57,7 +57,7 @@ After you've extended labeling to assets in the Microsoft Purview Data Map, all 
 1. Name the label. Then, under **Define the scope for this label**:
 
     - In all cases, select **Schematized data assets**.
-    - To label files, also select **Files & emails**. This option isn't required to label schematized data assets only
+    - To label files, also select **Items**. This option isn't required to label schematized data assets only.
 
     :::image type="content" source="media/how-to-automatically-label-your-content/create-label-scope-small.png" alt-text="Automatically label in the Microsoft Purview compliance center" lightbox="media/how-to-automatically-label-your-content/create-label-scope.png":::
 

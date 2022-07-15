@@ -1,9 +1,9 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Storage
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Storage. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 06/16/2022
+ms.date: 07/06/2022
 ms.topic: sample
-author: jammart
+author: jimmart-dev
 ms.author: jammart
 ms.service: storage
 ms.custom: subject-policy-compliancecontrols

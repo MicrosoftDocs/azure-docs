@@ -1,16 +1,19 @@
 ---
 title: Set up your dev environment on macOS
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on macOS.
-
-ms.topic: conceptual
-ms.date: 10/16/2020
-ms.custom: devx-track-js
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
 # service-fabric-get-started-linux.md
 # service-fabric-get-started-mac.md
 # service-fabric-local-linux-cluster-windows.md
 ---
+
 # Set up your development environment on Mac OS X
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
