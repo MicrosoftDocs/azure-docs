@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.date: 09/06/2021
 ms.service: signalr
-ms.topic: conceptual
+ms.topic: how-to
 ms.devlang: csharp
 ms.custom: subject-rbac-steps
 ---

@@ -4,7 +4,7 @@ description: A guide to show you how to enable Event Grid events for your Signal
 services: signalr
 author: vicancy
 ms.service: signalr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: lianwei
 ---
