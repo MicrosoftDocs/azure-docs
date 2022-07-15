@@ -19,7 +19,7 @@ This quickstart shows how to get started with the Azure Cosmos DB Table API from
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples) are available on GitHub as a .NET project.
 
-[Table API reference documentation](/azure/storage/tables) | [Azure.Data.Tables Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/)
+[Table API reference documentation](../../storage/tables/index.yml) | [Azure.Data.Tables Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/)
 
 ## Prerequisites
 
@@ -143,7 +143,7 @@ You can retrieve a specific item from a table using the [``TableEntity.GetEntity
 After you insert an item, you can also run a query to get all items that match a specific filter by using the `TableClient.Query<T>` method. This example filters products by category using [Linq](/dotnet/standard/linq) syntax, which is a benefit of using strongly typed `ITableEntity` models like the `Product` class.
 
 > [!NOTE]
-> You can also query items using [OData](/rest/api/storageservices/querying-tables-and-entities) syntax. You can see an example of this approach in the [Query Data](/azure/cosmos-db/table/tutorial-query-table) tutorial.
+> You can also query items using [OData](/rest/api/storageservices/querying-tables-and-entities) syntax. You can see an example of this approach in the [Query Data](./tutorial-query-table.md) tutorial.
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="query_items" :::
 
@@ -211,4 +211,4 @@ Remove-AzResourceGroup @parameters
 In this quickstart, you learned how to create an Azure Cosmos DB Table API account, create a table, and manage entries using the .NET SDK. You can now dive deeper into the SDK to learn how to perform more advanced data queries and management tasks in your Azure Cosmos DB Table API resources.
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB Table API and .NET](/azure/cosmos-db/table/how-to-dotnet-get-started)
+> [Get started with Azure Cosmos DB Table API and .NET](./how-to-dotnet-get-started.md)
