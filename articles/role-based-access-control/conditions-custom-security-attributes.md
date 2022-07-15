@@ -124,7 +124,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
     The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition.
  
-1. Click **Read content from a blob with tag conditions** and then click **Select**.
+1. Click **Read a blob** and then click **Select**.
 
 1. In the **Build expression** section, click **Add**.
 
