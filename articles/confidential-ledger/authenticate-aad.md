@@ -105,7 +105,7 @@ This flow is called the[OAuth2 token exchange flow](https://tools.ietf.org/html/
 
 - [How to register an Azure confidential ledger application with Azure AD](register-application.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)
-- [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md)
-- [Use portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md)
+- [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-register-app.md)
+- [Use portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)
