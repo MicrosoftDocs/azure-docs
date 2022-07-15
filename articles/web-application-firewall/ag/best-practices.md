@@ -67,7 +67,7 @@ For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
 ## Logging
 
-### Save WAF logs
+### Add diagnostic settings to save your WAF's logs
 
 Application Gateway's WAF integrates with Azure Monitor. It's important to save the WAF logs to a destination like Log Analytics. You should review the WAF logs regularly. Reviewing logs helps you to [tune your WAF policies to reduce false-positive detections](#tune-your-waf), and to understand whether your application has been the subject of attacks.
 
@@ -75,7 +75,7 @@ For more information, see [Azure Web Application Firewall Monitoring and Logging
 
 ### Send logs to Microsoft Sentinel
 
-Microsoft Sentinel is a security information and event management (SIEM) system, which imports logs and data from multiple sources to understand the threat landscape for your web application and overall Azure environment. Application Gateway's WAF logs should be imported into Microsoft Sentinel or another SIEM so that your internet-facing properties are included in its analysis.
+Microsoft Sentinel is a security information and event management (SIEM) system, which imports logs and data from multiple sources to understand the threat landscape for your web application and overall Azure environment. Application Gateway's WAF logs should be imported into Microsoft Sentinel or another SIEM so that your internet-facing properties are included in its analysis. For Microsoft Sentinel, use the Azure WAF connector to easily import your WAF logs.
 
 For more information, see [Using Microsoft Sentinel with Azure Web Application Firewall](../waf-sentinel.md).
 
