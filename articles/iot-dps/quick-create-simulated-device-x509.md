@@ -202,7 +202,7 @@ In this section, you'll use OpenSSL to create a self-signed X.509 certificate an
 > Use certificates created with OpenSSL in this quickstart for development testing only.
 > Do not use these certificates in production.
 > These certificates expire after 30 days and may contain hard-coded passwords, such as *1234*.
-> To learn about obtaining certificates suitable for use in production, see [How to get an X.509 CA certificate](../iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
+> To learn about obtaining certificates suitable for use in production, see [How to get an X.509 CA certificate](../iot-hub/iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
 >
 
 Perform the steps in this section in your Git Bash prompt.

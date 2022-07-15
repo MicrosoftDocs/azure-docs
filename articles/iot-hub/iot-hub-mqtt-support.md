@@ -259,7 +259,7 @@ client.publish("devices/" + device_id + "/messages/events/", '{"id":123}', qos=1
 client.loop_forever()
 ```
 
-To authenticate using a device certificate, update the code snippet above with the following changes (see [How to get an X.509 CA certificate](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) on how to prepare for certificate-based authentication):
+To authenticate using a device certificate, update the code snippet above with the following changes (see [How to get an X.509 CA certificate](./iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) on how to prepare for certificate-based authentication):
 
 ```python
 # Create the client as before
