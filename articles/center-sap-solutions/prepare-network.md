@@ -29,7 +29,7 @@ If you have an existing network that you're ready to use with ACSS, [go to the d
 
 ## Create network
 
-You must create a network for the infrastructure deployment on Azure. Make sure to create the network in the same resource group that you want to deploy the SAP system. 
+You must create a network for the infrastructure deployment on Azure. Make sure to create the network in the same region that you want to deploy the SAP system. 
 
 Some of the required network components are:
 
