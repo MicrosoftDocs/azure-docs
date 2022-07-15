@@ -6,7 +6,7 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: contperf-fy21q2
-ms.date: 07/08/2022
+ms.date: 07/15/2022
 
 #Customer intent: As an IT admin/developer, I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard.
 ---
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 Before you start, make sure you have completed the following steps:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-* Download the phone call event generator app [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center or get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
+* Download the phone call event generator app [TelcoGenerator.zip](https://aka.ms/asatelcodatagen) from the Microsoft Download Center or get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGeneratorCore).
 * You will need Power BI account.
 
 ## Sign in to Azure
@@ -96,7 +96,7 @@ Before an application can send data to Azure Event Hubs, the event hub must have
 
 Before you start the TelcoGenerator app, you should configure it to send data to the Azure Event Hubs you created earlier.
 
-1. Extract the contents of [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file.
+1. Extract the contents of [TelcoGenerator.zip](https://aka.ms/asatelcodatagen) file.
 2. Open the `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` file in a text editor of your choice There is more than one `.config` file, so be sure that you open the correct one.
 
 3. Update the `<appSettings>` element in the config file with the following details:
