@@ -28,7 +28,7 @@ To enable Permissions Management in your organization:
 > [!NOTE]
 > During public preview, Permissions Management doesn't perform a license check.
 > The public preview environment will only be available until October 7th, 2022. You will be no longer be able view or access your configuration and data in the public preview environment after that date.
-> Once you complete all the steps and confirm to use Microsoft Entra Permissions Management, access to public preview environment will be lost. You can take a note of your configuration before you start. 
+> Once you complete all the steps and confirm to use Microsoft Entra Permissions Management, access to the public preview environment will be lost. You can take a note of your configuration before you start. 
 > To start using generally available Microsoft Entra Permissions Management, you must purchase a license or begin a trial. From the public preview console, initiate the workflow by selecting Start.
 
 
