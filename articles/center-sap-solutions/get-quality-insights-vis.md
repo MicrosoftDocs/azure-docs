@@ -43,7 +43,7 @@ There are multiple sections in the workbook:
 
 ## Get Advisor Recommendations
 
-ACSS runs quality checks for all VIS resources. These quality checks validate the SAP system configurations follow the best practices recommended by SAP and Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
+The **Quality checks** feature in ACSS runs validation checks for all VIS resources. These quality checks validate the SAP system configurations follow the best practices recommended by SAP and Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
 
 The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application and Database instances in the VIS.
 
@@ -55,13 +55,20 @@ Select an instance name to see all recommendations, including which action to ta
 
 The following checks are run for each VIS:
 
-- The VMs used for different instances in the VIS are certified by SAP
-- Accelerated networking is enabled for the NICs attached to different VMs
-- Network configuration is optimized for HANA and the OS  
-- Swap space is set to 2GB in HANA systems
- 
+- VMs used for all instances in the VIS should be certified by SAP
+     - For better performance and support, ensure that VM is Certified for SAP on AzureFor better performance and support, ensure that VM is Certified for SAP on Azure. For more details, see [SAP note 1928533] (https://launchpad.support.sap.com/#/notes/1928533)
+- Accelerated networking should be enabled for the NICs attached to different VMs
+     - Network latency between App VMs and DB VMs for SAP workloads is required to be 0.7ms or less. If accelerated networking is not enabled, network latency can increase beyond the threshold of 0.7ms. For more details. see [SAP workloads on Azure: planning and deployment checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist#:~:text=Make%20sure%20that%20Azure%20Accelerated%20Networking%20is%20enabled%20on%20the%20VMs%20used%20in%20the%20SAP%20application%20layer%20and%20the%20SAP%20DBMS%20layer.%20Keep%20in%20mind%20that%20different%20OS%20levels%20are%20needed%20to%20support%20Accelerated%20Networking%20in%20Azure%3A)
+- The Network configuration should be optimized for HANA and the OS  
+     - Ensure that as many client ports are available as possible for HANA internal communication. You also need to ensure that you explicitly exclude the ports used by processes and applications which bind to specific ports by adjusting parameter net.ipv4.ip_local_reserved_ports with a range 9000-64999. For more details, see [SAP note 2382421](https://launchpad.support.sap.com/#/notes/2382421)
+- Swap space should be set to 2GB in HANA systems
+     - Configure a small swap space, 2 GB for SLES/RHEL to avoid performance regressions at times of high memory utilization in OS. It is usually better if activities terminate with "out of memory" errors. This makes sure that the overall system is still usable and only certain requests are terminated. For more details, see [SAP note 1999997](https://launchpad.support.sap.com/#/notes/1999997)
 
-These quality checks run on all VIS instances at a regular frequency of 12 hours. The corresponding recommendations in Azure Advisor also refresh on the same 12 hour frequency.
+- In SAP systems rnning on SUSE OS, fstrim should be disabled in the OS
+     - Fstrim scans the filesystem and sends 'UNMAP' commands for each unused block it finds; useful in thin-provisioned system if the system is over-provisioned. Running SAP HANA on an over-provisioned storage array is not recommended. Active fstrim can cause XFS metadata corruption See SAP note: 2205917. For more details, see [Disabling fstrim - under which conditions?](https://www.suse.com/support/kb/doc/?id=000019447)
+
+
+**Note:** These quality checks run on all VIS instances at a regular frequency of 12 hours. The corresponding recommendations in Azure Advisor also refresh on the same 12 hour frequency. The number of quality checks being run by ACSS will continue to increase incrementally. The frequency at which these checks are run will also be increased incrementally as more checks are added.
 
 If you take action on one or more recommendations from ACSS, wait for the next refresh to see any new recommendations from Azure Advisor.
 
