@@ -42,8 +42,8 @@ landingContent:
             url: start-stop-sap-systems.md
           - text: Manage Virtual Instance for SAP solutions
             url: manage-virtual-instance.md
-          - text: Get Quality Insights for VIS
-            url: get-quality-insights-vis.md
+          - text: Get quality checks and insights
+            url: get-quality-checks-insights.md
 
   - title: Monitor
     linkLists:

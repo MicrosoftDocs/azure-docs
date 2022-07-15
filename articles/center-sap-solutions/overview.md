@@ -47,7 +47,7 @@ After you create a VIS, you can:
 - View the SAP system metadata. For example, properties of ASCS, database, and Application Server instances; properties of SAP environment details; and properties of associated VM resources.
 - Get the latest status and health check for your SAP system.
 - Start and stop the SAP application tier.
-- Get quality insights about your SAP system.
+- Get quality checks and insights about your SAP system.
 - Monitor your Azure infrastructure metrics for your SAP system resources. For example, the CPU percentage used for ASCS and Application Server VMs, or disk input/output operations per second (IOPS).
 
 ## Next steps

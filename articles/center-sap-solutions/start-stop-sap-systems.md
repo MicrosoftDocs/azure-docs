@@ -86,4 +86,4 @@ If the SAP system takes longer than 300 seconds to complete a start or stop oper
 ## Next steps
 
 - [Monitor SAP system from the Azure portal](monitor-portal.md)
-- [Get Quality Insights for a VIS resource](get-quality-insights-vis.md)
+- [Get quality checks and insights for a VIS resource](get-quality-checks-insights.md)
