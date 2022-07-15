@@ -1,5 +1,5 @@
 ---
-title: Azure services
+title: Available services by category
 description: Learn about Region types and service categories in Azure.
 author: obeling
 ms.service: azure
@@ -10,7 +10,7 @@ ms.reviewer: cynthn
 ms.custom: references_regions
 ---
 
-# Azure services  
+# Available services by category 
 
 Availability of services across Azure regions depends on a region's type. There are two types of regions in Azure: *recommended* and *alternate*.
 

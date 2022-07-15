@@ -119,10 +119,10 @@
     href: glossary.md
 - name: Service availability
   items:
-  - name: Availability of services by region type
+  - name: Availability of services by category
     href: availability-service-by-category.md
   - name: Availability of services by sovereign cloud
-    href: availability-service-by-category.md
+    href: availability-service-by- sovereign-cloud.md
   - name: Availability of service by region
     href: https://azure.microsoft.com/en-us/global-infrastructure/services/
 - name: Resources
