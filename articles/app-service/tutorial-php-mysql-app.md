@@ -7,7 +7,6 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 07/15/2022
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, devdivchpfy22
-zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Tutorial: Build a PHP and MySQL app in Azure App Service
@@ -78,7 +77,7 @@ The creation wizard generated a connection string to the database for you, but n
 
 ## 3 - Deploy sample code
 
-In this step, you will configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository will kick off the build and deploy action. You will make some simple changes to your codebase with Visual Studio Code directly in the browser, then let GitHub Actions deploy automatically for you.
+In this step, you'll configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository will kick off the build and deploy action. You'll make some changes to your codebase with Visual Studio Code directly in the browser, then let GitHub Actions deploy automatically for you.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -87,7 +86,7 @@ In this step, you will configure GitHub deployment using GitHub Actions. It's ju
 | [!INCLUDE [Deploy sample code step 3](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3-240px.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3.png"::: |
 | [!INCLUDE [Deploy sample code step 4](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4-240px.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4.png"::: |
 | [!INCLUDE [Deploy sample code step 5](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5-240px.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5.png"::: |
-| [!INCLUDE [Deploy sample code step 6](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6-240px.png" alt-text="A screenshot showing how to use the SSL certificate for accessing Azure Database for MySQL." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.png"::: |
+| [!INCLUDE [Deploy sample code step 6](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6-240px.png" alt-text="A screenshot showing how to use the certificate for accessing Azure Database for MySQL." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.png"::: |
 | [!INCLUDE [Deploy sample code step 7](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-7.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-7-240px.png" alt-text="A screenshot showing how to commit your changes in the Visual Studio Code browser experience." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-7.png"::: |
 
 ## 4 - Generate database schema
@@ -140,13 +139,13 @@ Pricing for the create resources is as follows:
 
 - The App Service plan is created in **Premium V2** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The MySQL flexible server is created in **B1ms** tier and can be scaled up or down. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
-- The virtual network doesn't incur a charge unless you configure additional functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
+- The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
 ## How do I connect to the MySQL database with command line tools or desktop tools?
 
 - For basic access from a commmand-line tool, you can run `mysql` from the app's SSH terminal.
-- To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network, be it an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
+- To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
 
 <a name="next"></a>

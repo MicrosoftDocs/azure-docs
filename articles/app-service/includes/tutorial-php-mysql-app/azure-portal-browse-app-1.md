@@ -5,9 +5,9 @@ ms.topic: include
 ms.date: 07/07/2022
 ---
 
-In the App Service management page:
+In the App Service page:
 
-1. From the left menu, click **Overview**.
+1. From the left menu, select **Overview**.
 
 1. Select the URL of your app.
 

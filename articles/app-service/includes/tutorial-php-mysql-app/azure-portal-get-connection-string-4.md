@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 07/07/2022
 ---
 
-Repeat the previous step to create the following additional app settings:
+Repeat the previous step to create the following extra app settings:
 
 - *DB_HOST*: Use the *\<database-server-domain-name>* from the copied connection string as the value.
 - *DB_USERNAME*: Use the *\<username>* from the copied connection string as the value.
