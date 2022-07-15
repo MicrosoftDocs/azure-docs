@@ -11,7 +11,7 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | Corporate  |
+|**Hardware profile** | C5600  |
 |**Performance** | Max bandwidth: 3Gbp/s <br> Max devices: 12,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
 |**Status** | Supported, Available preconfigured|
@@ -29,42 +29,43 @@ The following image shows a view of the HPE ProLiant Dl360 back panel:
 
 |Component  |Specifications|
 |---------|---------|
-|Chassis     |1U rack server         |
-|Dimensions   |Four 3.5" chassis: 4.29 x 43.46 x 70.7 cm /  1.69 x 17.11 x 27.83 in         |
-|Weight    | Max 16.72 kg / 35.86 lb        |
-|Chassis |1U rack server|
-|Dimensions| 42.9 x 43.46 x 70.7 cm / 1.69" x 17.11" x 27.83" in|
-|Weight| Max 16.27 kg  / 35.86 lb |
-|Processor | 2x Intel Xeon Silver 4215 R 3.2 GHz 11M cache 8c/16T 130 W|
-|Chipset	| Intel C621|
-|Memory	| 32 GB = Two 16-GB 2666MT/s DDR4 ECC UDIMM|
-|Storage|	Six 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in hot-plug hard drive - RAID 5|
-|Network controller|	On-board: Two  1 Gb <br> On-board: iLO Port Card 1 Gb <br>External: One HPE Ethernet 1-Gb 4-port 366FLR adapter|
-|Management     |HPE iLO Advanced         |
-|Device access     | Two rear USB 3.0        |
-|One front    | USB 2.0        |
-|One internal    |USB 3.0         |
-|Power            |Two HPE 500-W flex slot platinum hot plug low halogen power supply kit
-|Rack support     | HPE 1U Gen10 SFF easy install rail kit        |
+|**Chassis**    |1U rack server         |
+|**Dimensions**   |Four 3.5" chassis: 4.29 x 43.46 x 70.7 cm /  1.69 x 17.11 x 27.83 in         |
+|**Weight**    | Max 16.72 kg / 35.86 lb        |
+|**Chassis** |1U rack server|
+|**Dimensions**| 42.9 x 43.46 x 70.7 cm / 1.69" x 17.11" x 27.83" in|
+|**Weight**| Max 16.27 kg  / 35.86 lb |
+|**Processor** | 2x Intel Xeon Silver 4215 R 3.2 GHz 11M cache 8c/16T 130 W|
+|**Chipset**	| Intel C621|
+|**Memory**	| 32 GB = Two 16-GB 2666MT/s DDR4 ECC UDIMM|
+|**Storage**|	Six 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in hot-plug hard drive - RAID 5|
+|**Network controller**|	On-board: Two  1 Gb <br> On-board: iLO Port Card 1 Gb <br>External: One HPE Ethernet 1-Gb 4-port 366FLR adapter|
+|**Management**     |HPE iLO Advanced         |
+|**Device access**     | Two rear USB 3.0        |
+|**One front**    | USB 2.0        |
+|**One internal**    |USB 3.0         |
+|**Power**            |Two HPE 500-W flex slot platinum hot plug low halogen power supply kit
+|**Rack support**     | HPE 1U Gen10 SFF easy install rail kit        |
+
 
 ## HPE DL360 BOM
 
 |PN	|Description	|Quantity|
 |-------------- | --------------| --------- |
-|P19766-B21 	| HPE DL360 Gen10 8SFF NC CTO Server	|1|
-|P19766-B21 	| Europe - Multilingual Localization	|1|
-|P24479-L21 	| Intel Xeon-S 4215 R FIO Kit for DL360 G10	|1|
-|P24479-B21 	| Intel Xeon-S 4215 R Kit for DL360 Gen10	|1|
-|P00922-B21 	| HPE 16-GB 2Rx8 PC4-2933Y-R Smart Kit	|2|
-|872479-B21 	| HPE 1.2-TB SAS 10K SFF SC DS HDD	|6|
-|811546-B21 	| HPE 1-GbE 4-p BASE-T I350 Adapter	|1|
-|P02377-B21 	| HPE Smart Hybrid Capacitor w_ 145 mm Cable	|1|
-|804331-B21 	| HPE Smart Array P408i-a SR Gen10 Controller	|1|
-|665240-B21 	| HPE 1-GbE 4-p FLR-T I350 Adapter	|1|
-|871244-B21 	| HPE DL360 Gen10 High Performance Fan Kit	|1|
-|865408-B21 	| HPE 500-W FS Plat Hot Plug LH Power Supply Kit	|2|
-|512485-B21 	| HPE iLO Adv 1-Server License 1 Year Support	|1|
-|874543-B21 	| HPE 1U Gen10 SFF Easy Install Rail Kit	|1|
+|**P19766-B21** 	| HPE DL360 Gen10 8SFF NC CTO Server	|1|
+|**P19766-B21** 	| Europe - Multilingual Localization	|1|
+|**P24479-L21** 	| Intel Xeon-S 4215 R FIO Kit for DL360 G10	|1|
+|**P24479-B21** 	| Intel Xeon-S 4215 R Kit for DL360 Gen10	|1|
+|**P00922-B21** 	| HPE 16-GB 2Rx8 PC4-2933Y-R Smart Kit	|2|
+|**872479-B21** 	| HPE 1.2-TB SAS 10K SFF SC DS HDD	|6|
+|**811546-B21** 	| HPE 1-GbE 4-p BASE-T I350 Adapter	|1|
+|**P02377-B21** 	| HPE Smart Hybrid Capacitor w_ 145 mm Cable	|1|
+|**804331-B21** 	| HPE Smart Array P408i-a SR Gen10 Controller	|1|
+|**665240-B21** 	| HPE 1-GbE 4-p FLR-T I350 Adapter	|1|
+|**871244-B21** 	| HPE DL360 Gen10 High Performance Fan Kit	|1|
+|**865408-B21** 	| HPE 500-W FS Plat Hot Plug LH Power Supply Kit	|2|
+|**512485-B21** 	| HPE iLO Adv 1-Server License 1 Year Support	|1|
+|**874543-B21** 	| HPE 1U Gen10 SFF Easy Install Rail Kit	|1|
 
 ## Port expansion
 
@@ -72,17 +73,17 @@ Optional modules for port expansion include:
 
 |Location |Type|Specifications|
 |-------------- | --------------| --------- |
-| PCI Slot 1 (Low profile)| Quad Port Ethernet NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI |
-| PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
-| PCI Slot 2 (High profile)| Quad Port Ethernet NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI|
-| PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
-| PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adapter SI|
-| SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
-| SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
+| **PCI Slot 1 (Low profile)**| Quad Port Ethernet NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI |
+| **PCI Slot 1 (Low profile)**  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
+|**PCI Slot 2 (High profile)**| Quad Port Ethernet NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI|
+| **PCI Slot 2 (High profile)**|DP F/O NIC| 727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
+| **PCI Slot 2 (High profile)**|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adapter SI|
+| **SFPs for Fiber Optic NICs**|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
+|**SFPs for Fiber Optic NICs**|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
 
 ## HPE ProLiant DL360 installation
 
-This section describes how to install OT sensor software on the HPE ProLiant DL360 appliance, and includes adjusting the appliance's BIOS configuration.
+This section describes how to install OT sensor software on the HPE ProLiant DL360 appliance and includes adjusting the appliance's BIOS configuration.
 
 During this procedure, you'll configure the iLO port. We recommend that you also change the default password provided for the administrative user.
 
@@ -136,6 +137,9 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 
 1. In the **Create Array** form, select all the options.
 
+> [!NOTE]
+> For **Data-at-Rest** encryption, see the HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED).
+>
 
 ### Install iLO remotely from a virtual drive
 
@@ -177,6 +181,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

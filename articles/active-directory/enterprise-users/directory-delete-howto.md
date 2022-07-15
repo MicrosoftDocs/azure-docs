@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/23/2021
+ms.date: 06/23/2022
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # Delete a tenant in Azure Active Directory
 
-When an Azure AD organization (tenant) is deleted, all resources that are contained in the organization are also deleted. Prepare your organization by minimizing its associated resources before you delete. Only an Azure Active Directory (Azure AD) global administrator can delete an Azure AD organization from the portal.
+When an organization (tenant) is deleted in Azure Active Directory (Azure AD), part of Microsoft Entra, all resources that are contained in the organization are also deleted. Prepare your organization by minimizing its associated resources before you delete. Only a global administrator in Azure AD can delete an Azure AD organization from the portal.
 
 ## Prepare the organization
 

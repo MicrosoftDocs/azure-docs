@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/30/2021
+ms.date: 06/20/2022
 ms.topic: how-to
 
 ---
@@ -71,31 +71,8 @@ In this section, you configure the scaling settings of your load test.
 
 1. Select **Apply** to modify the test and use the new configuration when you rerun it.
 
-## Service quotas and limits
-
-All Azure services set default limits and quotas for resources and features. The following table describes the maximum limits for Azure Load Testing.
-
-|Resource  |Limit  |
-|---------|---------|
-|Maximum concurrent engine instances that can be utilized per region per subscription     |    100     |
-|Maximum concurrent test runs per region per subscription     |    25     |
-
-You can increase the default limits and quotas by requesting the increase through an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-1. Select **create a support ticket**.
-
-1. Provide a summary of your issue.
-
-1. Select **Issue type** as *Technical*.
-
-1. Select your subscription. Then, select **Service Type** as *Azure Load Testing - Preview*.
-
-1. Select **Problem type** as *Test Execution*.
-
-1. Select **Problem subtype** as *Provisioning stalls or fails*.
-
 ## Next steps
 
 - For more information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
-
 - To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- More information about [service limits and quotas in Azure Load Testing](./resource-limits-quotas-capacity.md).

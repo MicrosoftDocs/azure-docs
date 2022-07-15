@@ -8,7 +8,7 @@ ms.author: judubois
 author: jdubois
 ms.devlang: java
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
-ms.date: 08/17/2020
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Use Java and JDBC with Azure Database for PostgreSQL
@@ -496,5 +496,6 @@ az group delete \
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Migrate your database using Export and Import](./how-to-migrate-using-export-and-import.md)

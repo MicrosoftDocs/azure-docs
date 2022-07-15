@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Private Link connectivity problems
+title: Troubleshoot Azure Private Link Service connectivity problems
 description: Step-by-step guidance to diagnose private link connectivity
 services: private-link
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.author: rdhillon
 
 ---
 
-# Troubleshoot Azure Private Link connectivity problems
+# Troubleshoot Azure Private Link Service connectivity problems
 
 This article provides step-by-step guidance to validate and diagnose connectivity for your Azure Private Link setup.
 
