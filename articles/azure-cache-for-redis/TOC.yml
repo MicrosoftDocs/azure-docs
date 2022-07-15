@@ -94,6 +94,8 @@
          href: cache-best-practices-memory-management.md
        - name: Development
          href: cache-best-practices-development.md
+       - name: Client libraries
+         href: cache-best-practices-client-libraries.md
        - name: Scaling
          href: cache-best-practices-scale.md
        - name: Kubernetes-hosted client applications
