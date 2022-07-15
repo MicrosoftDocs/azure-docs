@@ -68,9 +68,9 @@ The Azure AD service endpoint used for authentication is also called *Azure AD a
 
 The easiest way to access Azure confidential ledger with user authentication is to use the Azure confidential ledger SDK and set the `Federated Authentication` property of the Azure confidential ledger connection string to `true`. The first time the SDK is used to send a request to the service the user will be presented with a sign-in form to enter the Azure AD credentials. Following a successful authentication the request will be sent to Azure confidential ledger.
 
-Applications that don't use the Azure confidential ledger SDK can still use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) instead of implementing the Azure AD service security protocol client. See [Enable your Web Apps to sign-in users and call APIs with the Microsoft identity platform for developers](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2).
+Applications that don't use the Azure confidential ledger SDK can still use the [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md) instead of implementing the Azure AD service security protocol client. See [Enable your Web Apps to sign-in users and call APIs with the Microsoft identity platform for developers](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2).
 
-If your application is intended to serve as front-end and authenticate users for an Azure confidential ledger cluster, the application must be granted delegated permissions on Azure confidential ledger. The full step-by-step process is described in [Configure delegated permissions for the application registration](../../../provision-azure-ad-app.md#configure-delegated-permissions-for-the-application-registration).
+If your application is intended to serve as front-end and authenticate users for an Azure confidential ledger cluster, the application must be granted delegated permissions on Azure confidential ledger.
 
 ## Application authentication
 
