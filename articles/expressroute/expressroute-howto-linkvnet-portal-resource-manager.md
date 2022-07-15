@@ -3,13 +3,11 @@ title: 'Tutorial: Link a VNet to an ExpressRoute circuit - Azure portal'
 description: This tutorial shows you how to create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. 
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 08/10/2021
+ms.date: 07/15/2022
 ms.author: duau
-ms.custom: seodec18
-
+ms.custom: seodec18, template-tutorial
 ---
 # Tutorial: Connect a virtual network to an ExpressRoute circuit using the portal
 
@@ -202,7 +200,9 @@ You can delete a connection and unlink your VNet to an ExpressRoute circuit by s
 
 ## Next steps
 
-In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and a different subscription. For more information about the ExpressRoute gateway, see: 
+In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+
+To learn how to configure route filters for Microsoft peering using the Azure portal, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md)
+> [Configure route filters for Microsoft peering](how-to-routefilter-portal.md)
