@@ -67,9 +67,6 @@ Use the following steps to create an event hub and send call data to that event 
 
    ![Event hub configuration in the Azure portal](media/stream-analytics-real-time-fraud-detection/create-event-hub-portal.png)
 
-7. After the deployment is complete, select **Configuration** under **Settings** in your Event Hubs namespace and change the Minimum TLS version to **Version 1.0**.
-   ![Screenshot of Event hub TLS configuration version 1.0 in the Azure portal.](media/stream-analytics-real-time-fraud-detection/event-hubs-tls-version.png)
-
 ### Grant access to the event hub and get a connection string
 
 Before an application can send data to Azure Event Hubs, the event hub must have a policy that allows access. The access policy produces a connection string that includes authorization information.
