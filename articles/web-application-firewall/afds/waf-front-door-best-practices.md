@@ -48,7 +48,7 @@ For more information, see [Bot protection rule set](afds-overview.md#bot-protect
 
 ### Use the latest ruleset versions
 
-Microsoft regularly updates the managed rules to take account of the current thread landscape. Ensure that you regularly check for updates to Azure-managed rule sets.
+Microsoft regularly updates the managed rules to take account of the current threat landscape. Ensure that you regularly check for updates to Azure-managed rule sets.
 
 For more information, see [Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md).
 
@@ -76,7 +76,7 @@ For more information, see [Azure Web Application Firewall monitoring and logging
 
 ### Send logs to Microsoft Sentinel
 
-Microsoft Sentinel is a security information and event management (SIEM) system, which imports logs and data from a variety of sources to understand the threat landscape for your web application and overall Azure environment. The Front Door WAF logs should be imported into Microsoft Sentinel or another SIEM so that your internet-facing properties are included in its analysis.
+Microsoft Sentinel is a security information and event management (SIEM) system, which imports logs and data from a variety of sources to understand the threat landscape for your web application and overall Azure environment. Front Door's WAF logs should be imported into Microsoft Sentinel or another SIEM so that your internet-facing properties are included in its analysis.
 
 For more information, see [Using Microsoft Sentinel with Azure Web Application Firewall](../waf-sentinel.md).
 
