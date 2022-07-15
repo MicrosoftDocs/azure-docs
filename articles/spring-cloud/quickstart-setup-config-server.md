@@ -66,11 +66,7 @@ The following procedure sets up the Config Server using the Azure portal to depl
 
     :::image type="content" source="media/quickstart-setup-config-server/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted."  lightbox="media/quickstart-setup-config-server/validate-complete.png":::
 
-5. Updating the configuration can take a few minutes.
-
-    :::image type="content" source="media/quickstart-setup-config-server/updating-config.png" alt-text="Screenshot of Azure portal showing Config Server page with Updating status message.":::
-
-6. You should get a notification when the configuration is complete.
+Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
 #### [CLI](#tab/Azure-CLI)
 
