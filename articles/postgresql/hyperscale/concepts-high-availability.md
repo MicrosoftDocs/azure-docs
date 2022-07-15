@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 07/14/2022
+ms.date: 07/15/2022
 ---
 
 # High availability in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -17,7 +17,11 @@ High availability (HA) avoids database downtime by maintaining standby replicas
 of every node in a server group. If a node goes down, Hyperscale (Citus)
 switches incoming connections from the failed node to its standby. Failover
 happens within a few minutes, and promoted nodes always have fresh data through
-PostgreSQL synchronous streaming replication. The Azure portal
+PostgreSQL synchronous streaming replication.
+
+All primary nodes in a server group are provisioned into one availability zone
+for better latency between the nodes. The standby nodes are provisioned into
+another zone. The Azure portal
 [displays](concepts-server-group.md#node-availability-zone) the availability
 zone of each node in a server group.
 
