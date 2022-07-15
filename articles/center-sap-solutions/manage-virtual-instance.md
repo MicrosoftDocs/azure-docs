@@ -19,6 +19,10 @@ In this article, you'll learn how to view the *Virtual Instance for SAP solution
 
 - An Azure subscription. 
 - **Contributor** and **User Access Administrator** role access to the Azure subscription or Azure resource group(s) in which the VIS exists.
+- **Contributor** role access to the subscription or resource groups where you plan to deploy the SAP system.
+- The ACSS application **Azure SAP Workloads Management** also needs  **Contributor** role access to the resource groups for the SAP system. There are two options to grant access:
+    - If your Azure account has **Owner** or **User Access Admin** role access, you can automatically grant access to the application when deploying or registering the SAP system.
+    - If your Azure account doesn't have **Owner** or **User Access Admin** role access, you can [enable access for the ACSS application](#enable-acss-resource-permissions).
 
 ## Open VIS in portal
 
@@ -54,17 +58,17 @@ In the sidebar menu, look under the section **SAP resources**:
 
 ## Connect to HANA database
 
-If you've registered an SAP system and are connecting to a HANA database, you need an SAP username and password.
+If you've deployed an SAP system using ACSS, [find the SAP system's main password and HANA database passwords](#find-sap-and-hana-passwords).
 
-The SAP username is either `system` or `SYSTEM` for:
+The HANA database username is either `system` or `SYSTEM` for:
 
 - Distributed High Availability (HA) SAP systems
 - Distributed non-HA systems
 - Standalone systems
 
-### Find SAP password
+### Find SAP and HANA passwords
 
-To retrieve the SAP password:
+To retrieve the password:
 
 1. [Open the VIS in the Azure portal](#open-vis-in-portal).
 1. On the overview page, select the **Managed resource group**.
@@ -98,7 +102,7 @@ If you get the warning **The operation 'List' is not enabled in this key vault's
 
 ## Delete VIS
 
-When you delete a VIS, you also delete all instances that are attached to the VIS. For example, the VIS, ASCS, Application Server, and Database instances are deleted.
+When you delete a VIS, you also delete the managed resource group and all instances that are attached to the VIS. For example, the VIS, ASCS, Application Server, and Database instances are deleted.
 Any Azure physical resources aren't deleted when you delete a VIS. For example, the VMs, disks, NICs, and other resources aren't deleted.
 
 > [!WARNING]
@@ -119,7 +123,7 @@ To delete a VIS:
 1. Select **Delete** to delete the VIS.
 1. Wait for the deletion operation to complete for the VIS and related resources.
 
-After you delete a VIS, you can register the SAP system again. Open ACSS in the Azure portal, and select **Add**. 
+After you delete a VIS, you can register the SAP system again. Open ACSS in the Azure portal, and select **Register an existing SAP system**. 
 
 ## Next steps
 
