@@ -228,7 +228,7 @@ You can create [SOAP pass-through](import-soap-api.md) and [SOAP-to-REST](restif
 
 ### WS-* specifications
 
-Import of WSDL files incorporating WS-* specifications to SOAP messages is not supported.
+WSDL files incorporating WS-* specifications are not supported.
 
 ### Messages with multiple parts 
 This message type is not supported.
