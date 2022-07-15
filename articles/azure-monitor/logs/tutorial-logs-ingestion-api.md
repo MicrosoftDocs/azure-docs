@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Send custom logs to Azure Monitor Logs using Resource Manager templates
-description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using Resource Manager templates.
+title: Tutorial - Send data to Azure Monitor Logs using REST API (Resource Manager templates)
+description: Tutorial on how to send data to a Log Analytics workspace in Azure Monitor using REST API. Resource Manager template version.
 ms.topic: tutorial
-ms.date: 01/19/2022
+ms.date: 07/15/2022
 ---
 
-# Tutorial: Send custom logs to Azure Monitor Logs using Resource Manager templates (preview)
-[Custom logs](logs-ingestion-api-overview.md) in Azure Monitor allow you to send custom data to tables in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using Resource Manager templates.
+# Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)
+[Logs ingestion API (preview)](logs-ingestion-api-overview.md) in Azure Monitor allow you to send external data to a Log Analytics workspace with a REST API. This tutorial uses Resource Manager templates to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
 
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
 > [!NOTE]
-> This tutorial uses Resource Manager templates and REST API to configure custom logs. See [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-logs-ingestion-portal.md) for a similar tutorial using the Azure portal.
+> This tutorial uses Resource Manager templates and REST API to configure custom logs. See [Tutorial: Send data to Azure Monitor Logs using REST API (Azure portal)](tutorial-logs-ingestion-portal.md) for a similar tutorial using the Azure portal.
 
 In this tutorial, you learn to:
 
@@ -71,7 +71,7 @@ Use the **Tables - Update** API to create the table with the PowerShell code bel
 
 1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell":::
 
 2. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it.
 
@@ -112,15 +112,15 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
 
 2. Click **Build your own template in the editor**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
 
 3. Paste the Resource Manager template below into the editor and then click **Save**. You don't need to modify this template since you will provide values for its parameters.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit Resource Manager template.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot to edit Resource Manager template.":::
 
 
     ```json
@@ -171,7 +171,7 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values a **Name** for the data collection endpoint. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection endpoint.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-workspace-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
 
 5. Click **Review + create** and then **Create** when you review the details. 
 
@@ -189,15 +189,15 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
 
 2. Click **Build your own template in the editor**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
 
 3. Paste the Resource Manager template below into the editor and then click **Save**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit Resource Manager template.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot to edit Resource Manager template.":::
 
     Notice the following details in the DCR defined in this template:
 
@@ -302,17 +302,17 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 
 4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-workspace-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
 
 5. Click **Review + create** and then **Create** when you review the details.
 
 6. When the deployment is complete, expand the **Deployment details** box and click on your data collection rule to view its details. Click **JSON View**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
 
 7. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
 
     > [!NOTE]
     > All of the properties of the DCR, such as the transformation, may not be displayed in the Azure portal even though the DCR was successfully created with those properties.
@@ -432,7 +432,7 @@ Ensure that you have the correct permissions for your application to the DCR. Yo
 The message is too large. The maximum message size is currently 1MB per call.
 
 ### Script returns error code 429
-API limits have been exceeded. Refer to [service limits for custom logs](../service-limits.md#custom-logs) for details on the current limits.
+API limits have been exceeded. Refer to [service limits for Logs ingestion API](../service-limits.md#logs-ingestion-api) for details on the current limits.
 
 ### Script returns error code 503
 Ensure that you have the correct permissions for your application to the DCR. You may also need to wait up to 30 minutes for permissions to propagate.

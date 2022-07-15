@@ -66,7 +66,7 @@ Use the **Tables - Update** API to configure the table with the PowerShell code 
 
 1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell.":::
 
 2. Copy the following PowerShell code and replace the **Path** parameter with the details for your workspace. 
 
@@ -95,7 +95,7 @@ Use the **Tables - Update** API to configure the table with the PowerShell code 
 
 3. Paste the code into the cloud shell prompt to run it.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" alt-text="Screenshot of script in cloud shell.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-workspace-transformations-api/cloud-shell-script.png" alt-text="Screenshot of script in cloud shell.":::
 
 4. You can verify that the column was added by going to the **Log Analytics workspace** menu in the Azure portal. Select **Logs** to open Log Analytics and then expand the `LAQueryLogs` table to view its columns.
 
@@ -151,15 +151,15 @@ Since this is the first transformation in the workspace, you need to create a [w
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
 
 2. Click **Build your own template in the editor**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
 
 3. Paste the resource manager template below into the editor and then click **Save**. This template defines the DCR and contains the transformation query. You don't need to modify this template since it will collect values for its parameters.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template.":::
 
 
     ```json
@@ -233,17 +233,17 @@ Since this is the first transformation in the workspace, you need to create a [w
 
 4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-workspace-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
 
 5. Click **Review + create** and then **Create** when you review the details.
 
 6. When the deployment is complete, expand the **Deployment details** box and click on your data collection rule to view its details. Click **JSON View**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
 
 7. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
 
 ## Link workspace to DCR
 The final step to enable the transformation is to link the DCR to the workspace.
@@ -269,7 +269,7 @@ Use the **Workspaces - Update** API to configure the table with the PowerShell c
 
 2. Paste the code into the cloud shell prompt to run it.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script-link-workspace.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script-link-workspace.png" alt-text="Screenshot of script to link workspace to DCR.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/cloud-shell-script-link-workspace.png" lightbox="media/tutorial-workspace-transformations-api/cloud-shell-script-link-workspace.png" alt-text="Screenshot of script to link workspace to DCR.":::
 
 ## Test transformation
 Allow about 30 minutes for the transformation to take effect, and you can then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected. 

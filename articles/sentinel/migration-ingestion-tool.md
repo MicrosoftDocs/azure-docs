@@ -27,7 +27,7 @@ The [custom log ingestion tool](https://github.com/Azure/Azure-Sentinel/tree/mas
 
 ### Direct API 
 
-With this option, you [ingest your custom logs into Azure Monitor Logs](../azure-monitor/logs/tutorial-data-ingestion-portal.md). You ingest the logs with a PowerShell script that uses a REST API. Alternatively, you can use any other programming language to perform the ingestion, and you can use other Azure services to abstract the compute layer, such as Azure Functions or Azure Logic Apps. 
+With this option, you [ingest your custom logs into Azure Monitor Logs](../azure-monitor/logs/tutorial-logs-ingestion-portal.md). You ingest the logs with a PowerShell script that uses a REST API. Alternatively, you can use any other programming language to perform the ingestion, and you can use other Azure services to abstract the compute layer, such as Azure Functions or Azure Logic Apps. 
 
 ## Azure Data Explorer 
 

@@ -23,7 +23,7 @@ Before you start configuring DCRs for data transformation:
 
     - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
     - [Logs ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/logs-ingestion-api-overview.md)
-    - [Transformations in Azure Monitor Logs (preview)](../azure-monitor/essentials/transformations.md)
+    - [Transformations in Azure Monitor Logs (preview)](../azure-monitor/essentials/data-collection-transformations.md)
     - [Data transformation in Microsoft Sentinel (preview)](data-transformation.md)
 
 - **Verify data connector support**. Make sure that your data connectors are supported for data transformation.
@@ -55,7 +55,7 @@ Use the following procedures from the Log Analytics and Azure Monitor documentat
 
 [More on data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md):
 - [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
-- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
+- [Data collection transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-transformations.md)
 
 
 When you're done, come back to Microsoft Sentinel to verify that your data is being ingested based on your newly-configured transformation. It make take up to 60 minutes for the data transformation configurations to apply.
