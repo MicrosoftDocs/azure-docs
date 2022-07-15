@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 07/06/2022
+ms.date: 06/24/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 | Version | Support level | Description |
 | --- | --- | --- |
-| 4.x | GA | **_Recommended runtime version for functions in all languages._** Use this version to [run C# functions on .NET 6.0, .NET 7.0, and .NET Framework 4.8](functions-dotnet-class-library.md#supported-versions). |
+| 4.x | GA | **_Recommended runtime version for functions in all languages._** Use this version to [run C# functions on .NET 6.0 and .NET Framework 4.8](functions-dotnet-class-library.md#supported-versions). |
 | 3.x | GA | Supports all languages. Use this version to [run C# functions on .NET Core 3.1 and .NET 5.0](functions-dotnet-class-library.md#supported-versions).|
 | 2.x | GA | Supported for [legacy version 2.x apps](#pinning-to-version-20). This version is in maintenance mode, with enhancements provided only in later versions.|
 | 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
@@ -453,7 +453,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-You can also choose `net6.0`, `net7.0`, or `net48` as the target framework if you are using [.NET isolated process functions](dotnet-isolated-process-guide.md). Support for `net7.0` and `net48` is currently in preview.
+You can also choose `net6.0` or `net48` as the target framework if you're using [.NET isolated process functions](dotnet-isolated-process-guide.md). Support for `net48` is currently in preview.
 
 > [!NOTE]
 > Azure Functions 4.x requires the `Microsoft.NET.Sdk.Functions` extension be at least `4.0.0`.
