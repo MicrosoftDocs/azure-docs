@@ -30,7 +30,7 @@ Use the search bar to find machine learning assets across all workspaces, resour
 ## Free text search
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).  
-1. In the top studio titlebar, select **This workspace** or **All workspaces** to set the search context.
+1. In the top studio titlebar, if a workspace is open,select **This workspace** or **All workspaces** to set the search context.
 
     :::image type="content" source="media/how-to-search-assets/search-bar.png" alt-text="Screenshot: Shows search in titlebar.":::
 
@@ -48,13 +48,13 @@ A contains search scans across all metadata fields for the given asset and sorts
 
 The following filters are supported:
 
-* Job:
-* Model:
-* Component:
-* Tags:
-* SubmittedBy:
-* Environment:
-* Dataset:
+* Job
+* Model
+* Component
+* Tags
+* SubmittedBy
+* Environment
+* Data
 
 If an asset filter (job, model, component, environment, dataset) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
 
