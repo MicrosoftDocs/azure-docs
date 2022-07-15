@@ -400,7 +400,7 @@ Now you can update the container app configuration to support the storage mount.
     > [!NOTE]
     > While this application doesn't have secrets, many apps do feature secrets. By default, when you export an app's configuration, the values for secrets aren't included in the generated YAML.
     >
-    > If you don't need to change secret values, then you can remove this section and your secrets are unaltered. Alternatively, if you need to change a secret's value, make sure to provide both the `name` and `value` in the file before attempting to update the app.
+    > If you don't need to change secret values, then you can remove the `secrets` section and your secrets remain unaltered. Alternatively, if you need to change a secret's value, make sure to provide both the `name` and `value` for all secrets in the file before attempting to update the app. Omitting a secret from the `secrets` section deletes the secret.
 
 1. Open *app.yaml* in a code editor.
 
@@ -468,7 +468,7 @@ Now you can update the container app configuration to support the storage mount.
 
 ## Verify the storage mount
 
-Use the following commands to observe the storage mount at work.
+Now that the storage mount is established, you can manipulate files in Azure Storage from your container. Use the following commands to observe the storage mount at work.
 
 1. Open an interactive shell inside the container app to test the storage mount.
 
