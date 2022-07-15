@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Azure Role-based access control (RBAC) and Device Update
 
-Device Update uses Azure RBAC to provide authentication and authorization for users and service APIs. In order for other users and applications to have access to Device Update, users or applications must be granted access to this resource. It is also necessary to [configure access for Azure Device Update service principal](https://docs.microsoft.com/en-us/rest/api/deviceupdate/2021-06-01-preview/device-management) for successfully deploying updates and managing your devices.
+Device Update uses Azure RBAC to provide authentication and authorization for users and service APIs. In order for other users and applications to have access to Device Update, users or applications must be granted access to this resource. It is also necessary to [configure access for Azure Device Update service principal](./device-update-control-access.md#configuring-access-for-azure-device-update-service-principal-in-the-iot-hub) for successfully deploying updates and managing your devices.
 
 ## Configure access control roles
 
@@ -29,7 +29,7 @@ A combination of roles can be used to provide the right level of access. For exa
 
 ## Configuring access for Azure Device Update service principal in the IoT Hub
 
-Device Update for IoT Hub uses [Automatic Device Management](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-automatic-device-management) for deployments and uses ADM configs to perform device management operations like updates at scale. In order to enable Device Update to do this, users need to set Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
+Device Update for IoT Hub uses [Automatic Device Management](../iot-hub/iot-hub-automatic-device-management.md) for deployments and uses ADM configs to perform device management operations like updates at scale. In order to enable Device Update to do this, users need to set Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
 
 Below actions will be blocked (after 9/28/22) if these permissions are not set:
 * Create Deployment
