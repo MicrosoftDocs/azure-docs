@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to set up an automated process to provision and retire IoT devices in Azure Digital Twins using Device Provisioning Service (DPS).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -86,17 +86,19 @@ az iot dps create --name <Device-Provisioning-Service-name> --resource-group <re
 
 Inside your function app project that you created in the [Prerequisites section](#prerequisites), you'll create a new function to use with the Device Provisioning Service. This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device.
 
-Start by opening the function app project in Visual Studio on your machine and follow the steps below.
+Navigate to the function app project on your machine and follow the steps below.
 
-1. First, create a new function of type **HTTP-trigger** in the function app project in Visual Studio. For instructions on how to create this function, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
+1. First, create a new function of type **HTTP-trigger** in the function app project. 
 
 2. Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add more packages to your project as well, if the packages used in the code aren't part of the project already.
 
-3. In the newly created function code file, paste in the following code, rename the function to *DpsAdtAllocationFunc.cs*, and save the file.
+3. In the newly created function code file, paste in the following code, name the function *DpsAdtAllocationFunc.cs*, and save the file.
 
     :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 
-4. Publish the project with the *DpsAdtAllocationFunc.cs* function to a function app in Azure. For instructions on how to publish the project, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+4. Publish the project with the *DpsAdtAllocationFunc.cs* function to a function app in Azure. 
+
+    For instructions on how to publish the function using **Visual Studio**, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure). For instructions on how to publish the function using **Visual Studio Code**, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#publish-the-project-to-azure). For instructions on how to publish the function using the **Azure CLI**, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#deploy-the-function-project-to-azure).
 
 > [!IMPORTANT]
 > When creating the function app for the first time in the [Prerequisites section](#prerequisites), you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [Configure published app](how-to-authenticate-client.md#configure-published-app) section of the *Write app authentication code* article.
@@ -240,17 +242,19 @@ Inside your function app project that you created in the [Prerequisites section]
 
 For more about lifecycle events, see [IoT Hub Non-telemetry events](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [Azure Event Hubs trigger for Azure Functions](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-Start by opening the function app project in Visual Studio on your machine and follow the steps below.
+Navigate to the function app project on your machine and follow the steps below.
 
-1. First, create a new function of type **Event Hub Trigger** in the function app project in Visual Studio. For instructions on how to create this function, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
+1. First, create a new function of type **Event Hub Trigger** in the function app project.
 
 2. Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add more packages to your project as well, if the packages used in the code aren't part of the project already.
 
-3. In the newly created function code file, paste in the following code, rename the function to *DeleteDeviceInTwinFunc.cs*, and save the file.
+3. In the newly created function code file, paste in the following code, name the function *DeleteDeviceInTwinFunc.cs*, and save the file.
 
     :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
-4. Publish the project with the *DeleteDeviceInTwinFunc.cs* function to a function app in Azure. For instructions on how to publish the project, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+4. Publish the project with the *DeleteDeviceInTwinFunc.cs* function to a function app in Azure.
+
+    For instructions on how to publish the function using **Visual Studio**, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure). For instructions on how to publish the function using **Visual Studio Code**, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#publish-the-project-to-azure). For instructions on how to publish the function using the **Azure CLI**, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#deploy-the-function-project-to-azure).
 
 > [!IMPORTANT]
 > When creating the function app for the first time in the [Prerequisites section](#prerequisites), you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [Configure published app](how-to-authenticate-client.md#configure-published-app) section of the *Write app authentication code* article.
@@ -266,7 +270,7 @@ Follow these steps to create an event hub endpoint:
 2. Select the **Custom endpoints** tab.
 3. Select **+ Add** and choose **Event hubs** to add an Event Hubs type endpoint.
 
-    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/event-hub-custom-endpoint.png" alt-text="Screenshot of the Visual Studio window showing how to add an event hub custom endpoint." lightbox="media/how-to-provision-using-device-provisioning-service/event-hub-custom-endpoint.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/event-hub-custom-endpoint.png" alt-text="Screenshot of the Azure portal showing how to add an Event Hubs custom endpoint." lightbox="media/how-to-provision-using-device-provisioning-service/event-hub-custom-endpoint.png":::
 
 4. In the window **Add an event hub endpoint** that opens, choose the following values:
     * **Endpoint name**: Choose an endpoint name.
@@ -274,13 +278,13 @@ Follow these steps to create an event hub endpoint:
     * **Event hub instance**: Choose the event hub name that you created in the previous step.
 5. Select **Create**. Keep this window open to add a route in the next step.
 
-    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-event-hub-endpoint.png" alt-text="Screenshot of the Visual Studio window showing how to add an event hub endpoint." lightbox="media/how-to-provision-using-device-provisioning-service/add-event-hub-endpoint.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-event-hub-endpoint.png" alt-text="Screenshot of the Azure portal showing how to add an event hub endpoint." lightbox="media/how-to-provision-using-device-provisioning-service/add-event-hub-endpoint.png":::
 
 Next, you'll add a route that connects to the endpoint you created in the above step, with a routing query that sends the delete events. Follow these steps to create a route:
 
 1. Navigate to the **Routes** tab and select **Add** to add a route.
 
-    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-message-route.png" alt-text="Screenshot of the Visual Studio window showing how to add a route to send events." lightbox="media/how-to-provision-using-device-provisioning-service/add-message-route.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-message-route.png" alt-text="Screenshot of the Azure portal showing how to add a route to send events." lightbox="media/how-to-provision-using-device-provisioning-service/add-message-route.png":::
 
 2. In the **Add a route** page that opens, choose the following values:
 
@@ -291,7 +295,7 @@ Next, you'll add a route that connects to the endpoint you created in the above 
 
 3. Select **Save**.
 
-    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/lifecycle-route.png" alt-text="Screenshot of the Azure portal window showing how to add a route to send lifecycle events." lightbox="media/how-to-provision-using-device-provisioning-service/lifecycle-route.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/lifecycle-route.png" alt-text="Screenshot of the Azure portal showing how to add a route to send lifecycle events." lightbox="media/how-to-provision-using-device-provisioning-service/lifecycle-route.png":::
 
 Once you've gone through this flow, everything is set to retire devices end-to-end.
 

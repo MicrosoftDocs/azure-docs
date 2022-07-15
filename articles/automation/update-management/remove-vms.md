@@ -2,6 +2,8 @@
 title: Remove machines from Azure Automation Update Management
 description: This article tells how to remove Azure and non-Azure machines managed with Update Management.
 services: automation
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.topic: conceptual
 ms.date: 10/26/2021
 ms.custom: mvc

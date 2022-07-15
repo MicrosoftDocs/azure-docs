@@ -18,7 +18,7 @@ ms.author: eur
 
 The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). It allows you to adjust text-to-speech output attributes in real time or batch synthesis, such as voice characters, voice styles, speaking speed, pronunciation, and prosody.
 
-As of November 2021, you have easy access to more than 270 neural voices across 119 different languages. These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
+You have easy access to a broad portfolio of [languages and voices](language-support.md#text-to-speech). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
 
 To learn more, view the [Audio Content Creation tutorial video](https://youtu.be/ygApYuOOG6w).
 
@@ -45,11 +45,7 @@ It takes a few moments to deploy your new Speech resource. After the deployment 
 
 ### Step 3: Sign in to Audio Content Creation with your Azure account and Speech resource
 
-1. After you get the Azure account and the Speech resource, you can sign in to the [Audio Content Creation tool](https://aka.ms/audiocontentcreation) by selecting **Get started**.
-
-1. The home page lists all the products under Speech Studio. To start, select **Audio Content Creation**.
-
-    The **Welcome to Speech Studio** page opens. 
+1. After you get the Azure account and the Speech resource, sign in to [Speech Studio](https://aka.ms/speechstudio/), and then select **Audio Content Creation**.
     
 1. Select the Azure subscription and the Speech resource you want to work with, and then select **Use resource**. 
 
@@ -59,7 +55,7 @@ It takes a few moments to deploy your new Speech resource. After the deployment 
    
    If you have a user role for a certain Azure subscription, you might not have permissions to create a new Speech resource. To get access, contact your admin. 
 
-   To modify your Speech resource at any time, select **Settings** at the top of the page.
+   To switch your Speech resource at any time, select **Settings** at the top of the page.
 
    To switch directories, select **Settings** or go to your profile. 
 
@@ -73,7 +69,7 @@ Each step in the preceding diagram is described here:
 
 1. Choose the Speech resource you want to work with.
 
-1. [Create an audio tuning file](#create-an-audio-tuning-file) by using plain text or SSML scripts. Type or upload your content in to Audio Content Creation.
+1. [Create an audio tuning file](#create-an-audio-tuning-file) by using plain text or SSML scripts. Enter or upload your content into Audio Content Creation.
 1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [Microsoft text-to-speech voices](language-support.md#text-to-speech). You can use prebuilt neural voices or a custom neural voice.
 
    > [!NOTE]
@@ -97,14 +93,15 @@ You can get your content into the Audio Content Creation tool in either of two w
 
 * **Option 1**
 
-  1. Select **New** > **File** to create a new audio tuning file.
+  1. Select **New** > **Text file** to create a new audio tuning file.
 
-  1. Type or paste your content into the editing window. The allowable number of characters for each file is 20,000 or fewer. If your script contains more than 20,000 characters, you can use Option 2 to automatically split your content into multiple files.
+  1. Enter or paste your content into the editing window. The allowable number of characters for each file is 20,000 or fewer. If your script contains more than 20,000 characters, you can use Option 2 to automatically split your content into multiple files.
+  
   1. Select **Save**.
 
 * **Option 2**
 
-  1. Select **Upload** to import one or more text files. Both plain text and SSML are supported. 
+  1. Select **Upload** > **Text file** to import one or more text files. Both plain text and SSML are supported. 
 
      If your script file is more than 20,000 characters, split the content by paragraphs, by characters, or by regular expressions.
 
@@ -141,8 +138,8 @@ After you've reviewed your audio output and are satisfied with your tuning and a
 
 1. Select **Export** to create an audio creation task. 
 
-   We recommend **Export to Audio Library**, because this option supports the long audio output and the full audio output experience. You can also download the audio to your local disk directly, but only the first 10 minutes are available.
-
+   We recommend **Export to Audio library** to easily store, find, and search audio output in the cloud. You can better integrate with your applications through Azure blob storage. You can also download the audio to your local disk directly.
+   
 1. Choose the output format for your tuned audio. The **supported audio formats and sample rates** are listed in the following table:
 
     | Format | 8 kHz sample rate | 16 kHz sample rate | 24 kHz sample rate | 48 kHz sample rate |
@@ -151,13 +148,15 @@ After you've reviewed your audio output and are satisfied with your tuning and a
     | mp3 | N/A | audio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |audio-48khz-192kbitrate-mono-mp3 |
     
 
-1. To view the status of the task, select the **Export task** tab. 
+1. To view the status of the task, select the **Task list** tab. 
 
    If the task fails, see the detailed information page for a full report.
 
-1. When the task is complete, your audio is available for download on the **Audio Library** pane.
+1. When the task is complete, your audio is available for download on the **Audio library** pane.
 
-1. Select **Download**. Now you're ready to use your custom tuned audio in your apps or products.
+1. Select the file you want to download and **Download**. 
+
+   Now you're ready to use your custom tuned audio in your apps or products.
 
 ## Add or remove Audio Content Creation users
 
@@ -169,11 +168,16 @@ The users you grant access to need to set up a [Microsoft account](https://accou
 
 To add users to a Speech resource so that they can use Audio Content Creation, do the following:
 
-1. In the [Azure portal](https://portal.azure.com/), search for and select **Cognitive Services**, and then  select the Speech resource that you want to add users to.
-1. Select **Access control (IAM)**, select **Add**, and then select **Add role assignment (preview)** to open the **Add role assignment** pane. 
-1. Select the **Role** tab, and then select the **Cognitive Service User** role. If you want to give a user ownership of this Speech resource, select the **Owner** role.
-1. Select the **Members** tab, enter a user's email address and select the user's name in the directory. The email address must be linked to a Microsoft account that's trusted by Azure Active Directory. Users can easily sign up for a [Microsoft account](https://account.microsoft.com/account) by using their personal email address. 
-1. Select the **Review + assign** tab, and then select **Review + assign** to assign the role to a user. 
+
+1. In the [Azure portal](https://portal.azure.com/), select **All services**. 
+1. Then select the **Cognitive Services**, and navigate to your specific Speech resource.
+   > [!NOTE]
+   > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item (for example, selecting **Resource groups** and then clicking through to your wanted resource group).
+1. Select **Access control (IAM)** on the left navigation pane.
+1. Select **Add** -> **Add role assignment**.
+1. On the **Role** tab on the next screen, select a role you want to add (in this case, **Owner**).
+1. On the **Members** tab, enter a user's email address and select the user's name in the directory. The email address must be linked to a Microsoft account that's trusted by Azure Active Directory. Users can easily sign up for a [Microsoft account](https://account.microsoft.com/account) by using their personal email address. 
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 Here is what happens next:
 
@@ -182,8 +186,6 @@ An email invitation is automatically sent to users. They can accept it by select
 Users now visit or refresh the [Audio Content Creation](https://aka.ms/audiocontentcreation) product page, and sign in with their Microsoft account. They select **Audio Content Creation** block among all speech products. They choose the Speech resource in the pop-up window or in the settings at the upper right. 
 
 If they can't find the available Speech resource, they can check to ensure that they're in the right directory. To do so, they select the account profile at the upper right and then select **Switch** next to **Current directory**. If there's more than one directory available, it means they have access to multiple directories. They can switch to different directories and go to **Settings** to see whether the right Speech resource is available. 
-
-:::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Add role dialog":::
 
 Users who are in the same Speech resource will see each other's work in Audio Content Creation studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2-create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
 

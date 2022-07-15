@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
     `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port>/remote/saml/login`.
 
     c. In the **Sign on URL** box, enter a URL in the pattern
-    `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port>/remote/login`.
+    `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port>/remote/saml/login`.
 
     d. In the **Logout URL** box, enter a URL in the pattern
     `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port><FQDN>/remote/saml/logout`.
@@ -109,6 +109,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
    d. For **Source attribute**, select **user.userprincipalname**.
 
    e. Select **Save**.
+
+   > [!NOTE]
+   > **User Attributes & Claims** allow only one group claim. To add a group claim, delete the existing group claim **user.groups [SecurityGroup]** already present in the       claims to add the new claim or edit the existing one to **All groups**.
 
    f. Select **Add a group claim**.
 
@@ -215,6 +218,7 @@ To complete these steps, you'll need the values you recorded earlier:
     		set single-sign-on-url < Reply URL Reply URL>
     		set single-logout-url <Logout URL>
     		set idp-entity-id <Azure AD Identifier>
+		set idp-single-sign-on-url <Azure AD Identifier>
     		set idp-single-logout-url <Azure Logout URL>
     		set idp-cert <Base64 SAML Certificate Name>
     		set user-name username

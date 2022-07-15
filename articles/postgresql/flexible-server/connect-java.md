@@ -14,6 +14,8 @@ ms.date: 11/30/2021
 
 # Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server
 
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for PostgreSQL Flexible Server](./index.yml).
 
 JDBC is the standard Java API to connect to traditional relational databases.
