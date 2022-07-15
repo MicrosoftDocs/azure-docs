@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/21/2022
+ms.date: 06/03/2022
 ms.author: ranku
 ---
 
@@ -210,4 +210,6 @@ In this article, you learned about data conversion for Azure API for FHIR. For m
 
 >[!div class="nextstepaction"]
 >[Related GitHub Projects for Azure API for FHIR](fhir-github-projects.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Call Microsoft Graph in a Node.js console app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Call Microsoft Graph in a Node.js console app"
 description: In this tutorial, you build a console app for calling Microsoft Graph to a Node.js console app.
 services: active-directory
 author: mmacy

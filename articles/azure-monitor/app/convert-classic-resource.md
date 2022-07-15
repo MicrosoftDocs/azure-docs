@@ -1,9 +1,10 @@
 ---
-title: Migrate an Azure Monitor Application Insights classic resource to a workspace-based resource | Microsoft Docs
-description: Learn about the steps required to upgrade your Azure Monitor Application Insights classic resource to the new workspace-based model. 
+title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
+description: Learn about the steps required to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
 ms.date: 09/23/2020 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: cawa
 ---
 
 # Migrate to workspace-based Application Insights resources
@@ -12,11 +13,11 @@ This guide will walk you through migrating a classic Application Insights resour
 
 Workspace-based resources enable common Azure role-based access control (Azure RBAC) across your resources, and eliminate the need for cross-app/workspace queries.
 
-**Workspace-based resources are currently available in all commercial regions and Azure US Government**
+**Workspace-based resources are currently available in all commercial regions and Azure US Government.**
 
 ## New capabilities
 
-Workspace-based Application Insights allows you to take advantage of all the latest capabilities of Azure Monitor and Log Analytics including:
+Workspace-based Application Insights allows you to take advantage of all the latest capabilities of Azure Monitor and Log Analytics, including:
 
 * [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
 * [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
@@ -27,25 +28,23 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 * [Commitment Tiers](../logs/cost-logs.md#commitment-tiers) enable you to save as much as 30% compared to the Pay-As-You-Go price. Otherwise, Pay-as-you-go data ingestion and data retention are billed similarly in Log Analytics as they are in Application Insights. 
 * Faster data ingestion via Log Analytics streaming ingestion.
 
+> [!NOTE]
+> After migrating to a workspace-based Application Insights resource, telemetry from multiple Application Insights resources may be stored in a common Log Analytics workspace. You will still be able to pull data from a specific Application Insights resource, as described under [Understanding log queries](#understanding-log-queries).
+
 ## Migration process
 
-When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate will change the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data. 
+When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate will change the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data.
 
 Your classic resource data will persist and be subject to the retention settings on your classic Application Insights resource. All new data ingested post migration will be subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
 The migration process is **permanent, and cannot be reversed**. Once you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. However, once you migrate you're able to change the target workspace as often as needed. 
 
-<!-- This note duplicates information in pricing.md. Understanding workspace-based usage and costs has been added as a migration prerequisite.
-> [!NOTE]
-> Data ingestion and retention for workspace-based Application Insights resources are [billed through the Log Analytics workspace](../logs/manage-cost-storage.md) where the data is located. Pay-as-you-go data ingestion and data retention are billed similarly in Log Anaytics as they are in Application Insights. If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource until that data exceeds the retention period. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
--->
-
-If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource use the [workspace-based resource creation guide](create-workspace-resource.md).
+If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource, use the [workspace-based resource creation guide](create-workspace-resource.md).
 
 ## Pre-requisites
 
 - A Log Analytics workspace with the access control mode set to the **`use resource or workspace permissions`** setting. 
 
-    - Workspace-based Application Insights resources aren't compatible with workspaces set to the dedicated **`workspace based permissions`** setting. To learn more about Log Analytics workspace access control, consult the [Log Analytics configure access control mode guidance](../logs/manage-access.md#configure-access-control-mode)
+    - Workspace-based Application Insights resources aren't compatible with workspaces set to the dedicated **`workspace based permissions`** setting. To learn more about Log Analytics workspace access control, consult the [access control mode guidance](../logs/manage-access.md#access-control-mode)
 
     - If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
     
@@ -53,7 +52,8 @@ If you don't need to migrate an existing resource, and instead want to create a 
 Once the migration is complete, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hubs.  
 
     > [!CAUTION]
-    > Diagnostics settings uses a different export format/schema than continuous export, migrating will break any existing integrations with Stream Analytics.
+    > * Diagnostics settings uses a different export format/schema than continuous export, migrating will break any existing integrations with Stream Analytics.
+    > * Diagnostic settings export may increase costs. ([more information](export-telemetry.md#diagnostic-settings-based-export))
 
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will affect how long any new ingested data is stored once you migrate your Application Insights resource.
 
@@ -63,7 +63,6 @@ Once the migration is complete, you can use [diagnostic settings](../essentials/
     > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, then use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 
 - Understand [Workspace-based Application Insights](../logs/cost-logs.md#application-insights-billing) usage and costs.
-- Understand [Workspace-based resource changes](#workspace-based-resource-changes).
 
 ## Migrate your resource
 
@@ -71,25 +70,27 @@ This section walks through migrating a classic Application Insights resource to 
 
 1. From your Application Insights resource, select **Properties** under the **Configure** heading in the left-hand menu bar.
 
-    ![Properties highlighted in red box](./media/convert-classic-resource/properties.png)
+![Properties highlighted in red box](./media/convert-classic-resource/properties.png)
 
 2. Select **`Migrate to Workspace-based`**.
     
-     ![Migrate resource button](./media/convert-classic-resource/migrate.png)
+![Migrate resource button](./media/convert-classic-resource/migrate.png)
 
-3. Choose the Log Analytics Workspace where you want all future ingested Application Insights telemetry to be stored.
+3. Choose the Log Analytics workspace where you want all future ingested Application Insights telemetry to be stored. It can either be a Log Analytics workspace in the same subscription, or in a different subscription that shares the same Azure AD tenant. The Log Analytics workspace does not have to be in the same resource group as the Application Insights resource.
 
-     ![Migration wizard UI with option to select targe workspace](./media/convert-classic-resource/migration.png)
+> [!NOTE]
+> Migrating to a workspace-based resource can take up to 24 hours, but is usually faster than that. Please rely on accessing data through your Application Insights resource while waiting for the migration process to complete. Once completed, you will start seeing new data stored in the Log Analytics workspace tables.
+
+![Migration wizard UI with option to select targe workspace](./media/convert-classic-resource/migration.png)
     
-
 Once your resource is migrated, you'll see the corresponding workspace info in the **Overview** pane:
 
 ![Workspace Name](./media/create-workspace-resource/workspace-name.png)
 
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
-> [!NOTE]
-> After migrating to a workspace-based Application Insights resource we recommend using the [workspace's daily cap](../logs/daily-cap.md) to limit ingestion and costs instead of the cap in Application Insights.
+> [!TIP]
+> After migrating to a workspace-based Application Insights resource, we recommend using the [workspace's daily cap](../logs/daily-cap.md) to limit ingestion and costs instead of the cap in Application Insights.
 
 ## Understanding log queries
 
@@ -99,7 +100,12 @@ To write queries against the [new workspace-based table structure/schema](#works
 
 To ensure the queries successfully run, validate that the query's fields align with the [new schema fields](#appmetrics).
 
-When you query directly from the Log Analytics UI within your workspace, you'll only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use the Logs (Analytics) query view from within your migrated Application Insights resource.
+If you have multiple Application Insights resources store telemetry in one Log Analytics workspace, but you only want to query data from one specific Application Insights resource, you have two options:
+
+- Option 1: Go to the desired Application Insights resource and open the **Logs** tab. All queries from this tab will automatically pull data from the selected Application Insights resource.
+- Option 2: Go to the Log Analytics workspace that you configured as the destination for your Application Insights telemetry and open the **Logs** tab. To query data from a specific Application Insights resource, filter for the built-in ```_ResourceId``` property that is available in all application specific tables.
+
+Notice that if you query directly from the Log Analytics workspace, you'll only see data that is ingested post migration. To see both your classic Application Insights data and the new data ingested after migration in a unified query experience, use the **Logs** tab from within your migrated Application Insights resource.
 
 > [!NOTE]
 > If you rename your Application Insights resource after migrating to workspace-based model, the Application Insights Logs tab will no longer show the telemetry collected before renaming. You will be able to see all data (old and new) on the Logs tab of the associated Log Analytics resource.
@@ -229,7 +235,7 @@ From within the Application Insights resource pane, select **Properties** > **Ch
 
 **Error message:** *The selected workspace is configured with workspace-based access mode. Some APM features may be impacted. Select another workspace or allow resource-based access in the workspace settings. You can override this error by using CLI.* 
 
-In order for your workspace-based Application Insights resource to operate properly you need to change the access control mode of your target Log Analytics workspace to the **resource or workspace permissions** setting. This setting is located in the Log Analytics workspace UI under **Properties** > **Access control mode**. For detailed instructions, consult the [Log Analytics configure access control mode guidance](../logs/manage-access.md#configure-access-control-mode). If your access control mode is set to the exclusive **Require workspace permissions** setting, migration via the portal migration experience will remain blocked.
+In order for your workspace-based Application Insights resource to operate properly you need to change the access control mode of your target Log Analytics workspace to the **resource or workspace permissions** setting. This setting is located in the Log Analytics workspace UI under **Properties** > **Access control mode**. For detailed instructions, consult the [Log Analytics configure access control mode guidance](../logs/manage-access.md#access-control-mode). If your access control mode is set to the exclusive **Require workspace permissions** setting, migration via the portal migration experience will remain blocked.
 
 If you can’t change the access control mode for security reasons for your current target workspace, we recommend creating a new Log Analytics workspace to use for the migration. 
 
@@ -261,7 +267,7 @@ You can check your current retention settings for Log Analytics under **General*
 
 ## Workspace-based resource changes
 
-Prior to the introduction of [workspace-based Application Insights resources](create-workspace-resource.md), Application Insights data was stored separate from other log data in Azure Monitor. Both are based on Azure Data Explorer and use the same Kusto Query Language (KQL). With workspace-based Application Insights resources data is stored in a Log Analytics workspace with other monitoring data and application data. This simplifies your configuration by allowing you to more easily analyze data across multiple solutions and to leverage the capabilities of workspaces.
+Prior to the introduction of [workspace-based Application Insights resources](create-workspace-resource.md), Application Insights data was stored separate from other log data in Azure Monitor. Both are based on Azure Data Explorer and use the same Kusto Query Language (KQL). Workspace-based Application Insights resources data is stored in a Log Analytics workspace, together with other monitoring data and application data. This simplifies your configuration by allowing you to analyze data across multiple solutions more easily, and to leverage the capabilities of workspaces.
 
 ### Classic data structure
 The structure of a Log Analytics workspace is described in [Log Analytics workspace overview](../logs/log-analytics-workspace-overview.md). For a classic application, the data is not stored in a Log Analytics workspace. It uses the same query language, and you create and run queries by using the same Log Analytics tool in the Azure portal. Data items for classic applications are stored separately from each other. The general structure is the same as for workspace-based applications, although the table and column names are different. 
@@ -286,6 +292,9 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 | exceptions | AppExceptions | Exceptions thrown by the application runtime, captures both server side and client-side (browsers) exceptions. |
 | traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via TrackTrace(). |
 
+> [!CAUTION]
+> Do not take a production dependency on the Log Analytics tables, until you see new telemetry records show up directly in Log Analytics. This might take up to 24 hours after the migration process started.
+
 ### Table schemas
 
 The following sections show the mapping between the classic property names and the new workspace-based Application Insights property names.  Use this information to convert any queries using legacy tables.
@@ -298,7 +307,7 @@ Legacy table: availability
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -342,7 +351,7 @@ Legacy table: browserTimings
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -386,7 +395,7 @@ Legacy table: dependencies
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -431,7 +440,7 @@ Legacy table: customEvents
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -468,7 +477,7 @@ Legacy table: customMetrics
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -500,8 +509,10 @@ Legacy table: customMetrics
 |valueCount|int|ValueCount|int|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
-|valueStdDev|real|ValueStdDev|real|
 |valueSum|real|ValueSum|real|
+
+> [!NOTE]
+> Older versions of Application Insights SDKs used to report standard deviation (valueStdDev) in the metrics pre-aggregation. Due to little adoption in metrics analysis, the field was removed and is no longer aggregated by the SDKs. If the value is received by the Application Insights data collection end point, it gets dropped during ingestion and is not sent to the Log Analytics workspace. If you are interested in using standard deviation in your analysis, we recommend using queries against Application Insights raw events.
 
 #### AppPageViews
 
@@ -509,7 +520,7 @@ Legacy table: pageViews
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -550,7 +561,7 @@ Legacy table: performanceCounters
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |category|string|Category|string|
@@ -589,7 +600,7 @@ Legacy table: requests
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -633,7 +644,7 @@ Legacy table: exceptions
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |assembly|string|Assembly|string|
@@ -685,7 +696,7 @@ Legacy table: traces
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|

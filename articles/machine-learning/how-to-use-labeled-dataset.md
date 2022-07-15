@@ -7,10 +7,9 @@ ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: data4ml
+ms.custom: data4ml, sdkv1, event-tier1-build-2022
 ms.date: 03/11/2022
-
-# Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
+#Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
 
 # Create and explore Azure Machine Learning dataset with labels
@@ -25,7 +24,7 @@ Azure Machine Learning datasets with labels are referred to as labeled datasets.
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or access to [Azure Machine Learning studio](https://ml.azure.com/).
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 * Access to an Azure Machine Learning data labeling project. If you don't have a labeling project, first create one for [image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md).
 
 ## Export data labels 
@@ -68,6 +67,7 @@ The exported dataset is a [TabularDataset](/python/api/azureml-core/azureml.data
 > [!NOTE]
 > The public preview methods download() and mount() are [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features, and may change at any time.
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```Python
 import azureml.core

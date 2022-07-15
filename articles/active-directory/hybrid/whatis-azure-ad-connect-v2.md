@@ -29,7 +29,7 @@ The previous versions of Azure AD Connect shipped with a SQL Server 2012 LocalDB
 
 ### MSAL authentication library 
 
-The previous versions of Azure AD Connect shipped with the ADAL authentication library. This library will be deprecated in June 2022. The V2 release ships with the newer MSAL library. For more information, see [Overview of the MSAL library](../../active-directory/develop/msal-overview.md).
+The previous versions of Azure AD Connect shipped with the ADAL authentication library. This library will be deprecated after December 2022. The V2 release ships with the newer MSAL library. For more information, see [Overview of the MSAL library](../../active-directory/develop/msal-overview.md).
 
 ### Visual C++ Redist 14 
 

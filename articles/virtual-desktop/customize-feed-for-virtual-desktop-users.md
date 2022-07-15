@@ -96,7 +96,7 @@ Update-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName
 
 You can change the display name for a published remote desktop by setting a friendly name using the Azure portal.
 
-1. Sign in to the Azure portal at <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Azure Virtual Desktop**.
 

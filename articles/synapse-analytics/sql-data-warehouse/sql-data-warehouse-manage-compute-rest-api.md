@@ -8,7 +8,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/09/2022
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -28,9 +28,9 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 Content-Type: application/json; charset=UTF-8
 
 {
-	location: "West Central US",
+    "location": "West Central US",
     "sku": {
-    "name": "DW200c"
+        "name": "DW200c"
     }
 }
 ```

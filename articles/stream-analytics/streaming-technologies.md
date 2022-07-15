@@ -4,8 +4,9 @@ description: Learn about how to choose the right real-time analytics and streami
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 05/10/2022
 ---
 
 # Choose a real-time analytics and streaming processing technology on Azure
@@ -22,7 +23,7 @@ Azure Stream Analytics is the recommended service for stream analytics on Azure.
 * [Event Sourcing pattern](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
-Adding an Azure Stream Analytics job to your application is the fastest way to get streaming analytics up and running in Azure, using the SQL language you already know. Azure Stream Analytics is a job service, so you don't have to spend time managing clusters, and you don't have to worry about downtime with a 99.9% SLA at the job level. Billing is also done at the job level making startup costs low (one Streaming Unit), but scalable (up to 192 Streaming Units). It's much more cost effective to run a few Stream Analytics jobs than it is to run and maintain a cluster.
+Adding an Azure Stream Analytics job to your application is the fastest way to get streaming analytics up and running in Azure, using the SQL language you already know. Azure Stream Analytics is a job service, so you don't have to spend time managing clusters, and you don't have to worry about downtime with a 99.9% SLA at the job level. Billing is also done at the job level making startup costs low (one Streaming Unit), but scalable (up to 396 Streaming Units). It's much more cost effective to run a few Stream Analytics jobs than it is to run and maintain a cluster.
 
 Azure Stream Analytics has a rich out-of-the-box experience. You can immediately take advantage of the following features without any additional setup:
 

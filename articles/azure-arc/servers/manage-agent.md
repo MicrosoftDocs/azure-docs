@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 04/15/2022
+ms.date: 06/29/2022
 ms.topic: conceptual
 ---
 
@@ -18,7 +18,6 @@ The azcmagent tool is used to configure the Azure Connected Machine agent during
 * **disconnect** - Disconnect the machine from Azure Arc.
 * **show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent. Include the `-j` parameter to output the results in JSON format.
 * **config** - View and change settings to enable features and control agent behavior.
-* **check** - Validate network connectivity.
 * **logs** - Create a .zip file in the current directory containing logs to assist you while troubleshooting.
 * **version** - Show the Connected Machine agent version.
 * **-useStderr** - Direct error and verbose output to stderr. Include the `-json` parameter to output the results in JSON format.
@@ -38,9 +37,9 @@ When running a network connectivity check, you must provide the name of the Azur
 
 `azcmagent check --location <regionName> --verbose`
 
-If you expect your server to communicate with Azure through an Azure Arc Private Link Scope, use the `--use-private-link` parameter to run additional tests that verify the hostnames and IP addresses resolved for the Azure Arc services are private endpoints.
+If you expect your server to communicate with Azure through an Azure Arc Private Link Scope, use the `--enable-pls-check` (`--use-private-link` on versions 1.17-1.19) parameter to run additional tests that verify the hostnames and IP addresses resolved for the Azure Arc services are private endpoints.
 
-`azcmagent check --location <regionName> --use-private-link --verbose`
+`azcmagent check --location <regionName> --enable-pls-check --verbose`
 
 ### connect
 
@@ -69,7 +68,7 @@ This parameter specifies a resource in Azure Resource Manager to delete from Azu
 
 To disconnect using a service principal, run the following command:
 
-`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword>`
 
 To disconnect using an access token, run the following command:
 

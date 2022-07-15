@@ -3,7 +3,7 @@ title: Monitor the health of your backups using Azure Backup Metrics (preview)
 description: In this article, learn about the metrics available for Azure Backup to monitor your backup health
 ms.topic: conceptual
 author: v-amallick
-ms.date: 03/21/2022
+ms.date: 07/13/2022
 ms.author: v-amallick
 ms.service: backup
 ---
@@ -160,24 +160,24 @@ You can use the different programmatic clients, such as PowerShell, CLI, or REST
 
 ### Sample alert scenarios
 
-#### Fire a single alert if all backups for a vault were successful in last 24 hours
+#### Fire a single alert if all triggered backups for a vault were successful in last 24 hours
 
 **Alert Rule: Fire an alert if Backup Health Events < 1 in last 24 hours for**:
 
-Dimensions["HealthStatus"]="Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
+Dimensions["HealthStatus"] != "Healthy"
 	 
 #### Fire an alert after every failed backup job
 
 **Alert Rule: Fire an alert if Backup Health Events > 0 in last 5 minutes for**:
  
-- Dimensions["HealthStatus"]= "Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
+- Dimensions["HealthStatus"]!= "Healthy"
 - Dimensions["DatasourceId"]= "All current and future values"
 
 #### Fire an alert if there were consecutive backup failures for the same item in last 24 hours
 
 **Alert Rule: Fire an alert if Backup Health Events > 1 in last 24 hours for**:
 
-- Dimensions["HealthStatus"]= "Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
+- Dimensions["HealthStatus"]!= "Healthy"
 - Dimensions["DatasourceId"]= "All current and future values"
 	 
 #### Fire an alert if no backup job was executed for an item in last 24 hours

@@ -5,6 +5,7 @@ author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 10/27/2021
+ms.reviewer: robb
 ---
 
 # Azure Monitor partner integrations

@@ -79,7 +79,7 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts |
 | Canonical  | 0001-com-ubuntu-pro-focal | pro-20_04-lts |
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
-| Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8-LVM |
+| Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8_5, 8-LVM |
 | Redhat  | RHEL-RAW | 8-raw |
 | OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7-LVM |
 | OpenLogic  | CentOS | 8.0, 8_1, 8_2, 8_3, 8-lvm |

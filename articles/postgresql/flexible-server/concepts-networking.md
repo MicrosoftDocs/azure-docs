@@ -12,6 +12,8 @@ ms.date: 11/30/2021
 
 # Networking overview for Azure Database for PostgreSQL - Flexible Server 
 
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server. 
 
 When you create an Azure Database for PostgreSQL - Flexible Server instance (a *flexible server*), you must choose one of the following networking options: **Private access (VNet integration)** or **Public access (allowed IP addresses)**. 
@@ -85,6 +87,10 @@ If you use an Azure API, an Azure Resource Manager template (ARM template), or T
 When using private network access with Azure virtual network, providing the private DNS zone information is  mandatory across various interfaces, including API, ARM, and Terraform.  Therefore, for new Azure Database for PostgreSQL Flexible Server creation using private network access with API, ARM, or Terraform, create private DNS zones and use them while configuring flexible servers with private access. See more information on [REST API specifications for Microsoft Azure](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2021-06-01/postgresql.json). If you use the [Azure portal](./how-to-manage-virtual-network-portal.md) or [Azure CLI](./how-to-manage-virtual-network-cli.md) for creating flexible servers, you can either provide a private DNS zone name that you had previously created in the same or a different subscription or a default private DNS zone is automatically created in your subscription.
 
 Using Azure Portal, CLI or ARM,  you can also change private DNS Zone from the one you provided when creating your Azure Database for PostgreSQL - Flexible Server to another private DNS zone that exists the same or different subscription. 
+
+  > [!IMPORTANT]
+  > Ability to change private DNS Zone from the one you provided when creating your Azure Database for PostgreSQL - Flexible Server to another private DNS zone is currently disabled for servers with High Availability feature enabled. 
+
 
 ### Integration with a custom DNS server
 

@@ -162,7 +162,7 @@ This tutorial sets up the appliance on a server running in Hyper-V environment, 
 
 ### 1. Generate the project key
 
-1. In **Migration Goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover Servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers. The name should be alphanumeric with 14 characters or fewer.
 1. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover server page during the creation of resources.
@@ -189,13 +189,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  AE53454E448064839AEBFDE1EE6DBF63222686CFB37B7E2E125D44A8B24EB504
+        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848) |  AE53454E448064839AEBFDE1EE6DBF63222686CFB37B7E2E125D44A8B24EB504
 
     - For Azure Government:
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) |  277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
 
 ### 3. Create an appliance
 
