@@ -36,7 +36,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Roles that can be assigned with administrative unit scope
 
-The following Azure AD roles can be assigned with administrative unit scope. Additionally, any [custom role](custom-create.md) can be assigned with administrative unit scope as long as the custom role’s permissions include at least one permission relevant to users, groups, or devices.
+The following Azure AD roles can be assigned with administrative unit scope. Additionally, any [custom role](custom-create.md) can be assigned with administrative unit scope as long as the custom role's permissions include at least one permission relevant to users, groups, or devices.
 
 | Role | Description |
 | -----| ----------- |
