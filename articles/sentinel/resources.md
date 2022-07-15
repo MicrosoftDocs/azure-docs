@@ -52,8 +52,8 @@ We love hearing from our users.
 
 In the TechCommunity space for Microsoft Sentinel:
 
-- [View and comment on recent blog posts](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)
-- [Post your own questions about Microsoft Sentinel](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
+- [View and comment on recent blog posts](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog)
+- [Post your own questions about Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel/bd-p/MicrosoftSentinel)
 
 You can also send suggestions for improvements via our [User Voice](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8) program.
 

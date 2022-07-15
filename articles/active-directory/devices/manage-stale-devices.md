@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 06/01/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -83,7 +83,7 @@ It isn't advisable to immediately delete a device that appears to be stale becau
 
 ### MDM-controlled devices
 
-If your device is under control of Intune or any other MDM solution, retire the device in the management system before disabling or deleting it.
+If your device is under control of Intune or any other MDM solution, retire the device in the management system before disabling or deleting it. For more information see the article [Remove devices by using wipe, retire, or manually unenrolling the device](/mem/intune/remote-actions/devices-wipe).
 
 ### System-managed devices
 
@@ -207,5 +207,7 @@ Any authentication where a device is being used to authenticate to Azure AD are 
 - **Mobile devices** - User can't access Azure AD resources such as Microsoft 365. 
 
 ## Next steps
+
+Devices managed with Intune can be retired or wiped, for more information see the article [Remove devices by using wipe, retire, or manually unenrolling the device](/mem/intune/remote-actions/devices-wipe).
 
 To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](device-management-azure-portal.md)

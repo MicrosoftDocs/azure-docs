@@ -1,14 +1,14 @@
 ---
-title: "Conceptual overview Azure Kubernetes Configuration Management (GitOps)"
+title: "GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes"
 description: "This article provides a conceptual overview of GitOps in Azure for use in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters."
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 5/3/2022
+ms.date: 5/26/2022
 ms.topic: conceptual
 ---
 
-# GitOps in Azure
+# GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes
 
 Azure provides configuration management capability using GitOps in Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes clusters. You can easily enable and use GitOps in these clusters.
 

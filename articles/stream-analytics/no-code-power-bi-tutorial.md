@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 05/25/2022
 ms.custom: seodec18
 ---
 
@@ -28,9 +28,9 @@ In this tutorial, you learn how to:
 Before you start, make sure you've completed the following steps:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-* Deploy the TollApp event generator to Azure, use this link to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json). Set the 'interval' parameter to 1. And use a new resource group for this.
+* Deploy the TollApp event generator to Azure, use this link to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json). Set the 'interval' parameter to 1. And use a new resource group for this step.
 * Create an [Azure Synapse Analytics workspace](../synapse-analytics/get-started-create-workspace.md) with a [Dedicated SQL pool](../synapse-analytics/get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
-* Create a table named **carsummary** using your Dedicated SQL pool. You can do this by running the following SQL script:
+* Create a table named **carsummary** using your Dedicated SQL pool. You can do it by running the following SQL script:
     ```SQL
     CREATE TABLE carsummary   
     (  
@@ -42,36 +42,65 @@ Before you start, make sure you've completed the following steps:
     ``` 
 ## Use no code editor to create a Stream Analytics job
 1. Locate the Resource Group in which the TollApp event generator was deployed. 
-2. Select the Azure Event Hubs namespace. And then under the Event Hubs section, select **entrystream** instance.
-3. Go to **Process data** under Features section and then click **start** on the **Start with blank canvas** template.
-[![Screenshot of real time dashboard template in no code editor.](./media/stream-analytics-no-code/real-time-dashboard-power-bi.png)](./media/stream-analytics-no-code/real-time-dashboard-power-bi.png#lightbox)
-4. Name your job **carsummary** and select **Create**.
-5. Configure your event hub input by specifying 
-    * Consumer Group: Default
-    * Serialization type of your input data: JSON
-    * Authentication mode which the job will use to connect to your event hub: Connection String defaults
-    * Click **Connect**
-6. Within few seconds, you'll see sample input data and the schema. You can choose to drop fields, rename fields or change data type if you want.
-7. Click the **Group by** tile on the canvas and connect it to the event hub tile. Configure the Group By tile by specifying:
-    * Aggregation as **Count**
-    * Field as **Make** which is a nested field inside **CarModel**
-    * Click **Save**
-    * In the **Group by** settings, select **Make** and **Tumbling window** of **3 minutes**
-8. Click the **Manage Fields** tile and connect it to the Group by tile on canvas. Configure the **Manage Fields** tile by specifying:
-    * Clicking on **Add all fields**
-    * Rename the fields by clicking on the fields and changing the names from:
-        * COUNT_make to CarCount
-        * Window_End_Time to times
-9. Click the **Azure Synapse Analytics** tile and connect it to Manage Fields tile on your canvas. Configure Azure Synapse Analytics by specifying:
+2. Select the Azure Event Hubs **namespace**. 
+1. On the **Event Hubs Namespace** page, select **Event Hubs** under **Entities** on the left menu. 
+1. Select **entrystream** instance.
+
+    :::image type="content" source="./media/stream-analytics-no-code/select-event-hub.png" alt-text="Screenshot showing the selection of the event hub." lightbox="./media/stream-analytics-no-code/select-event-hub.png":::    
+1. Go to **Process data** under Features section and then select **start** on the **Start with blank canvas** template.
+
+    :::image type="content" source="./media/stream-analytics-no-code/start-blank-canvas.png" alt-text="Screenshot showing the selection of the Start button on the Start with a blank canvas tile." lightbox="./media/stream-analytics-no-code/start-blank-canvas.png":::    
+1. Name your job **carsummary** and select **Create**.
+
+    :::image type="content" source="./media/stream-analytics-no-code/job-name.png" alt-text="Screenshot of the New Stream Analytics job page." lightbox="./media/stream-analytics-no-code/job-name.png":::    
+1. On the **event hub** configuration page, confirm the following settings, and then select **Connect**.
+    - *Consumer Group*: Default
+    - *Serialization type* of your input data: JSON
+    - *Authentication mode* that the job will use to connect to your event hub: Connection string.
+
+        :::image type="content" source="./media/stream-analytics-no-code/event-hub-configuration.png" alt-text="Screenshot of the configuration page for your event hub." lightbox="./media/stream-analytics-no-code/event-hub-configuration.png":::    
+1. Within few seconds, you'll see sample input data and the schema. You can choose to drop fields, rename fields or change data type if you want.
+
+    :::image type="content" source="./media/stream-analytics-no-code/data-preview-fields.png" alt-text="Screenshot showing the preview of data in the event hub and the fields." lightbox="./media/stream-analytics-no-code/data-preview-fields.png":::        
+1. Select the **Group by** tile on the canvas and connect it to the event hub tile. 
+
+    :::image type="content" source="./media/stream-analytics-no-code/connect-group.png" alt-text="Screenshot showing the Group tile connected to the Event Hubs tile." lightbox="./media/stream-analytics-no-code/connect-group.png":::
+1. Configure the **Group by** tile by specifying:
+    1. Aggregation as **Count**.
+    1. Field as **Make** which is a nested field inside **CarModel**.
+    1. Select **Save**.
+    1. In the **Group by** settings, select **Make** and **Tumbling window** of **3 minutes**
+
+        :::image type="content" source="./media/stream-analytics-no-code/group-settings.png" alt-text="Screenshot of the Group by configuration page." lightbox="./media/stream-analytics-no-code/group-settings.png":::    
+1. Select **Add field** on the **Manage fields** page, and add the **Make** field as shown in the following image, and then select **Save**. 
+
+    :::image type="content" source="./media/stream-analytics-no-code/add-make-field.png" alt-text="Screenshot showing the addition of the Make field." lightbox="./media/stream-analytics-no-code/add-make-field.png":::    
+1. Select **Manage fields** on the command bar. Connect the **Manage Fields** tile to the **Group by tile** on canvas. Select **Add all fields** on the **Manage fields** configuration page. 
+
+    :::image type="content" source="./media/stream-analytics-no-code/manage-fields.png" alt-text="Screenshot of the Manage fields page." lightbox="./media/stream-analytics-no-code/manage-fields.png":::    
+1. Select **...** next to the fields, and select **Edit** to rename them.
+    - **COUNT_make** to **CarCount**
+    - **Window_End_Time** to **times**
+
+        :::image type="content" source="./media/stream-analytics-no-code/rename-fields.png" alt-text="Screenshot of the Manage fields page with the fields renamed." lightbox="./media/stream-analytics-no-code/rename-fields.png":::
+1. The **Manage fields** page should look as shown in the following image.
+    
+    :::image type="content" source="./media/stream-analytics-no-code/manage-fields-page.png" alt-text="Screenshot of the Manage fields page with three fields." lightbox="./media/stream-analytics-no-code/manage-fields-page.png":::    
+1. Select **Synapse** on the command bar. Connect the **Synapse** tile to the **Manage fields** tile on your canvas.
+1.  Configure Azure Synapse Analytics by specifying:
     * Subscription where your Azure Synapse Analytics is located
-    * Database of the Dedicated SQL pool which you used to create the Table in the previous section.
+    * Database of the Dedicated SQL pool that you used to create the **carsummary** table in the previous section.
     * Username and password to authenticate
     * Table name as **carsummary**
-    * Click **Connect**. You'll see sample results that will be written to your Synapse SQL table.
-    [![Screenshot of synapse output in no code editor.](./media/stream-analytics-no-code/synapse-output.png)](./media/stream-analytics-no-code/synapse-output.png#lightbox)
-8. Select **Save** in the top ribbon to save your job and then select **Start**. Set Streaming Unit count to 3 and then click **Start** to run your job. Specify the storage account that will be used by Synapse SQL to load data into your data warehouse.
-9. You'll then see a list of all Stream Analytics jobs created using the no code editor. And within two minutes, your job will go to a **Running** state.
-[![Screenshot of job in running state in no code editor.](./media/stream-analytics-no-code/cosmos-db-running-state.png)](./media/stream-analytics-no-code/cosmos-db-running-state.png#lightbox)
+    * Select **Connect**. You'll see sample results that will be written to your Synapse SQL table.
+
+        :::image type="content" source="./media/stream-analytics-no-code/synapse-settings.png" alt-text="Screenshot of the Synapse tile settings." lightbox="./media/stream-analytics-no-code/synapse-settings.png":::
+1. Select **Save** in the top ribbon to save your job and then select **Start**. Set Streaming Unit count to 3 and then select **Start** to run your job. Specify the storage account that will be used by Synapse SQL to load data into your data warehouse.
+
+    :::image type="content" source="./media/stream-analytics-no-code/start-analytics-job.png" alt-text="Screenshot of the Start Stream Analytics Job page." lightbox="./media/stream-analytics-no-code/start-analytics-job.png":::    
+1. You'll then see a list of all Stream Analytics jobs created using the no code editor. And within two minutes, your job will go to a **Running** state. Select the **Refresh** button on the page to see the status changing from Created -> Starting -> Running.
+
+    :::image type="content" source="./media/stream-analytics-no-code/job-list.png" alt-text="Screenshot showing the list of jobs." lightbox="./media/stream-analytics-no-code/job-list.png":::  
 
 ## Create a Power BI visualization
 1. Download the latest version of [Power BI desktop](https://powerbi.microsoft.com/desktop).

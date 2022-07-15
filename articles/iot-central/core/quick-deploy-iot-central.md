@@ -3,7 +3,7 @@ title: Quickstart - Connect a device to an Azure IoT Central application | Micro
 description: Quickstart - Connect your first device to a new IoT Central application. This quickstart uses a smartphone app from either the Google Play or Apple app store as an IoT device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/13/2022
+ms.date: 06/22/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -74,6 +74,9 @@ To register your device:
     :::image type="content" source="media/quick-deploy-iot-central/device-registration.png" alt-text="Screenshot that shows the QR code you can use to connect the smartphone app.":::
 
 Keep this page open. In the next section, you scan this QR code using the smartphone app to connect it to IoT Central.
+
+> [!TIP]
+> The QR code contains the information, such as the registered device ID, your device needs to establish a connection to your IoT Central application. It saves you from the need to enter the connection information manually.
 
 ## Connect your device
 

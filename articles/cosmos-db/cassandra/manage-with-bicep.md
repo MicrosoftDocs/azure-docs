@@ -1,12 +1,13 @@
 ---
 title: Create and manage Azure Cosmos DB Cassandra API with Bicep
 description: Use Bicep to create and configure Azure Cosmos DB Cassandra API.
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 9/13/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Manage Azure Cosmos DB Cassandra API resources using Bicep

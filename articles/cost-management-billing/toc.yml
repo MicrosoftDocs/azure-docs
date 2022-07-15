@@ -12,8 +12,11 @@
   - name: Start analyzing costs
     displayName: Azure CLI, az costmanagement query, az costmanagement export, azure amortized cost, azure cost dashboard, azure forecast cost
     href: costs/quick-acm-cost-analysis.md
+  - name: Create a budget - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: costs/quick-create-budget-bicep.md
   - name: Create a budget - ARM template
-    displayName: ARM template, resource manager template
+    displayName: Resource Manager
     href: costs/quick-create-budget-template.md
   expanded: true
 - name: Tutorials
@@ -176,10 +179,6 @@
         href: manage/mca-section-invoice.md
       - name: Set up Microsoft Customer Agreement billing account
         href: manage/mca-setup-account.md
-      - name: Sign up with Microsoft 365 account
-        href: manage/microsoft-365-account-for-azure-subscription.md
-      - name: Sign up for Microsoft 365 with Azure account
-        href: manage/azure-account-for-microsoft-365-subscription.md
       - name: Pay using strong customer authentication
         href: manage/open-banking-strong-customer-authentication.md
     - name: Administer subscriptions
@@ -195,8 +194,14 @@
         href: manage/azurestudents-subscription-disabled.md
       - name: Set up and configure AWS integration
         href: costs/aws-integration-set-up-configure.md
-      - name: Create additional subscriptions
+      - name: Create an MCA subscription
         href: manage/create-subscription.md
+      - name: Create an MCA subscription request
+        href: manage/create-subscription-request.md
+      - name: Create an EA subscription
+        href: manage/create-enterprise-subscription.md
+      - name: Create a subscription for a partner's customer
+        href: manage/create-customer-subscription.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Change administrator
@@ -298,6 +303,8 @@
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Use cost analysis for common tasks
       href: costs/cost-analysis-common-uses.md
+    - name: Enable preview features
+      href: costs/enable-preview-features-cost-management-labs.md
     - name: Automate actions with budgets
       href: manage/cost-management-budget-scenario.md
     - name: Save and share customized views
@@ -406,6 +413,8 @@
       href: costs/cost-management-error-codes.md
     - name: Can't view or find invoices
       href: manage/troubleshoot-cant-find-invoice.md
+    - name: View billing account
+      href: manage/troubleshoot-account-not-found.md
     - name: EA billing issues with usage files
       href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
     - name: MCA billing issues with usage files

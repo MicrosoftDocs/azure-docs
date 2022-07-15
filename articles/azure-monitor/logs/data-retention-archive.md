@@ -23,7 +23,7 @@ During the interactive retention period, data is available for monitoring, troub
 > The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
 
 ## Configure the default workspace retention policy
-You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you need to upgrade to the paid tier to change the data retention period.
+You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. You can set a different policy for specific tables by [configuring retention and archive policy at the table level](#set-retention-and-archive-policy-by-table). If you're on the *free* tier, you'll need to upgrade to the paid tier to change the data retention period.
 
 To set the default workspace retention policy:
 
@@ -37,17 +37,25 @@ To set the default workspace retention policy:
 
 ## Set retention and archive policy by table
 
-You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier, using Azure Resource Manager APIs. You can’t currently configure data retention for individual tables in the Azure portal.
+By default, all tables in your workspace inherit the workspace's interactive retention setting and have no archive policy. You can modify the retention and archive policies of individual tables, except for workspaces in the legacy Free Trial pricing tier.
 
 You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,555 days (seven years). 
 
-Each table is a subresource of the workspace it's in. For example, you can address the `SecurityEvent` table in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
+# [Portal](#tab/portal-1)
 
-```
-/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
-```
+To set the retention and archive duration for a table in the Azure portal:
 
-The table name is case-sensitive. 
+1. From the **Log Analytics workspaces** menu, select **Tables (preview)**.
+
+    The **Tables (preview)** screen lists all of the tables in the workspace.
+
+1. Select the context menu for the table you want to configure and select **Manage table**.
+
+    :::image type="content" source="media/basic-logs-configure/log-analytics-table-configuration.png" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
+
+1. Configure the retention and archive duration in **Data retention settings** section of the table configuration screen.
+
+    :::image type="content" source="media/data-retention-configure/log-analytics-configure-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-configure-table-retention-archive.png" alt-text="Screenshot showing the data retention settings on the table configuration screen."::: 
 
 # [API](#tab/api-1)
 
@@ -58,7 +66,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups
 ```
 
 > [!NOTE]
-> You don't explicitly specify the archive duration in the API call. Instead, you set the total retention, which specifies the retention plus the archive duration.
+> You don't explicitly specify the archive duration in the API call. Instead, you set the total retention, which is the sum of the interactive retention plus the archive duration.
 
 
 You can use either PUT or PATCH, with the following difference: 
@@ -133,6 +141,15 @@ az monitor log-analytics workspace table update --subscription ContosoSID --reso
  
 ## Get retention and archive policy by table
 
+# [Portal](#tab/portal-2)
+
+To view the retention and archive duration for a table in the Azure portal, from the **Log Analytics workspaces** menu, select **Tables (preview)**.
+
+The **Tables (preview)** screen shows the interactive retention and archive period for all of the tables in the workspace.
+
+:::image type="content" source="media/data-retention-configure/log-analytics-view-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-view-table-retention-archive.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
+
+
 # [API](#tab/api-2)
 
 To get the retention policy of a particular table (in this example, `SecurityEvent`), call the **Tables - Get** API:
@@ -166,7 +183,7 @@ If you set the data retention policy to 30 days, you can purge older data immedi
  
 Note that workspaces with a 30-day retention policy might actually keep data for 31 days if you don't set the `immediatePurgeDataOn30Days` parameter.
 
-You can also purge data from a workspace using the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which removes personal data. You can’t purge data from archived logs. 
+You can also purge data from a workspace using the [purge feature](personal-data-mgmt.md#exporting-and-deleting-personal-data), which removes personal data. You can’t purge data from archived logs. 
 
 The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing. **To lower retention costs, decrease the retention period for the workspace or for specific tables.** 
 

@@ -48,7 +48,7 @@ You'll need the following items:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](../quickstart-create-resources.md).
 
 * The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](/python/api/overview/azure/ml/install).
 
@@ -441,7 +441,7 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
     1. In the **Destination details**, select the **Send to Log Analytics workspace**  and specify the **Subscription** and **Log Analytics workspace**. 
 
     > [!NOTE]
-    > The **Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, you can [create a Log Analytics Workspace](/azure/azure-monitor/logs/quick-create-workspace). 
+    > The **Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, you can [create a Log Analytics Workspace](../../azure-monitor/logs/quick-create-workspace.md). 
     
     ![Screenshot of configuring the email notification.](./media/how-to-track-monitor-analyze-runs/log-location.png)
 
@@ -449,7 +449,7 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
 
     ![Screeenshot of the new alert rule.](./media/how-to-track-monitor-analyze-runs/new-alert-rule.png)
 
-1. See [how to create and manage log alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-log).
+1. See [how to create and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## Example notebooks
 

@@ -30,10 +30,10 @@ This article covers common considerations when migrating from Estimators to Scri
 Azure Machine Learning documentation and samples have been updated to use [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) for job configuration and submission.
 
 For information on using ScriptRunConfig, refer to the following documentation:
-* [Configure and submit training runs](how-to-set-up-training-targets.md)
-* [Configuring PyTorch training runs](how-to-train-pytorch.md)
-* [Configuring TensorFlow training runs](how-to-train-tensorflow.md)
-* [Configuring scikit-learn training runs](how-to-train-scikit-learn.md)
+* [Configure and submit training jobs](how-to-set-up-training-targets.md)
+* [Configuring PyTorch training jobs](how-to-train-pytorch.md)
+* [Configuring TensorFlow training jobs](how-to-train-tensorflow.md)
+* [Configuring scikit-learn training jobs](how-to-train-scikit-learn.md)
 
 In addition, refer to the following samples & tutorials:
 * [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
@@ -129,4 +129,4 @@ src.run_config
 
 ## Next steps
 
-* [Configure and submit training runs](how-to-set-up-training-targets.md)
+* [Configure and submit training jobs](how-to-set-up-training-targets.md)

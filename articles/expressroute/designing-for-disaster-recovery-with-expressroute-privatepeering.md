@@ -34,7 +34,7 @@ If you rely on ExpressRoute connectivity between your on-premises network and Mi
 - using diverse service provider network(s) for different ExpressRoute circuit
 - designing each of the ExpressRoute circuit for [high availability][HA]
 - terminating the different ExpressRoute circuit in different location on the customer network
-- using [Availability zone aware ExpressRoute Virtual Network Gateways](/articles/vpn-gateway/about-zone-redundant-vnet-gateways.md)
+- using [Availability zone aware ExpressRoute Virtual Network Gateways](../vpn-gateway/about-zone-redundant-vnet-gateways.md)
 
 ## Challenges of using multiple ExpressRoute circuits
 
@@ -136,7 +136,7 @@ The Scenario 2 is illustrated in the following diagram. In the diagram, green li
 The solution is illustrated in the following diagram. As illustrated, you can architect the scenario either using more specific route (Option 1) or AS-path prepend (Option 2) to influence VNet path selection. To influence on-premises network route selection for Azure bound traffic, you need configure the interconnection between the on-premises location as less preferable. How you configure the interconnection link as preferable depends on the routing protocol used within the on-premises network. You can use local preference with iBGP or metric with IGP (OSPF or IS-IS).
 
 
-:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch2.png" alt-text="Diagram of active-active ExpressRoute circuits solution 2.":::
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol2.png" alt-text="Diagram of active-active ExpressRoute circuits solution 2.":::
 
 > [!IMPORTANT]
 > When one or multiple ExpressRoute circuits are connected to multiple virtual networks, virtual network to virtual network traffic can route via ExpressRoute. However, this is not recommended. To enable virtual network to virtual network connectivity, [configure virtual network peering](../virtual-network/virtual-network-manage-peering.md).

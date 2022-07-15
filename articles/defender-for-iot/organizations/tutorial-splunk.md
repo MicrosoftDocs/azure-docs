@@ -16,7 +16,7 @@ To address a lack of visibility into the security and resiliency of OT networks,
 
 The application provides SOC analysts with multidimensional visibility into the specialized OT protocols and IIoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior. The application also enables both IT, and OT incident response from within one corporate SOC. This is an important evolution given the ongoing convergence of IT and OT to support new IIoT initiatives, such as smart machines and real-time intelligence.
 
-The Splunk application can be installed locally or run on a cloud. The Splunk integration along with Defender for IoT supports both deployments.
+The Splunk application can be installed locally ('Splunk Enterprise') or run on a cloud ('Splunk Cloud'). The Splunk integration along with Defender for IoT supports 'Splunk Enterprise' only.
 
 > [!Note]
 > References to CyberX refer to Microsoft Defender for IoT.
