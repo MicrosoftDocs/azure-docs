@@ -209,7 +209,7 @@ For a pop-up window experience, enable the `popUp` configuration option. You can
 
 # [React](#tab/react)
 
-The MSAL React wrapper allows you to protect specific components by wrapping them in the `MsalAuthenticationTemplate` component. This component will invoke login if a user is not already signed in or render child components otherwise.
+The MSAL React wrapper allows you to protect specific components by wrapping them in the `MsalAuthenticationTemplate` component. This component will invoke login if a user isn't already signed in or render child components otherwise.
 
 ```javascript
 import { InteractionType } from "@azure/msal-browser";
@@ -353,7 +353,7 @@ myMsal.loginRedirect(loginRequest);
 
 # [Angular (MSAL.js v2)](#tab/angular2)
 
-The code here is the same as described earlier in the section about sign-in with a pop-up window, except that the `interactionType` is set to `InteractionType.Redirect` for the MsalGuard Configuration, and the `MsalRedirectComponent` is bootstrapped to handle redirects.
+The code here's the same as described earlier in the section about sign-in with a pop-up window, except that the `interactionType` is set to `InteractionType.Redirect` for the MsalGuard Configuration, and the `MsalRedirectComponent` is bootstrapped to handle redirects.
 
 ```javascript
 // In app.module.ts
@@ -388,11 +388,11 @@ export class AppModule {}
 
 # [Angular (MSAL.js v1)](#tab/angular1)
 
-The code here is the same as described earlier in the section about sign-in with a pop-up window. The default flow is redirect.
+The code here's the same as described earlier in the section about sign-in with a pop-up window. The default flow is redirect.
 
 # [React](#tab/react)
 
-The MSAL React wrapper allows you to protect specific components by wrapping them in the `MsalAuthenticationTemplate` component. This component will invoke login if a user is not already signed in or render child components otherwise.
+The MSAL React wrapper allows you to protect specific components by wrapping them in the `MsalAuthenticationTemplate` component. This component will invoke login if a user isn't already signed in or render child components otherwise.
 
 ```javascript
 import { InteractionType } from "@azure/msal-browser";
@@ -495,7 +495,7 @@ await myMsal.logoutPopup(logoutRequest);
 
 # [JavaScript (MSAL.js v1)](#tab/javascript1)
 
-Signing out with a pop-up window is not supported in MSAL.js v1
+Signing out with a pop-up window isn't supported in MSAL.js v1
 
 # [Angular (MSAL.js v2)](#tab/angular2)
 
@@ -522,7 +522,7 @@ logout() {
 
 # [Angular (MSAL.js v1)](#tab/angular1)
 
-Signing out with a pop-up window is not supported in MSAL Angular v1
+Signing out with a pop-up window isn't supported in MSAL Angular v1
 
 # [React](#tab/react)
 
