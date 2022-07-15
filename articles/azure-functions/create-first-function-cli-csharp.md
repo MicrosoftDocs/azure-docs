@@ -81,8 +81,12 @@ In Azure Functions, a function project is a container for one or more individual
 
     ```console
     func init LocalFunctionProj --worker-runtime dotnet-isolated
+
+    func init --worker-runtime dotnet-isolated --target-framework <targetFrameworkMoniker>
+
     ```
     ---
+ 
 
 1. Navigate into the project folder:
 
