@@ -48,7 +48,7 @@ We can now take a deeper dive to see each model's analyzed pages:
 
 1. From the upper right corner, configure the time range and select the **Apply** button.
 
-    :::image type="content" source="../media/azure-portal-processed-pages-timeline.png" alt-text="{alt-text}" lightbox="../media/azure-portal-metrics-timeline.png":::
+    :::image type="content" source="../media/azure-portal-processed-pages-timeline.png" alt-text="Screenshot of time period options for metrics in the Azure portal." lightbox="../media/azure-portal-metrics-timeline.png":::
 
 1. Select **Apply splitting**.
 
@@ -80,11 +80,11 @@ Now that we have the page processed data from the portal, we can use the Azure p
 
 1. The estimated price is on the right, after the equal (**=**) sign.
 
-    :::image type="content" source="../media/azure-portal-pricing.png" alt-text="Screenshot that shows how to estimate the price based on processed pages":::
+    :::image type="content" source="../media/azure-portal-pricing.png" alt-text="Screenshot of how to estimate the price based on processed pages":::
 
 That's it. You now know where to find how many pages you have processed using Form Recognizer and how to estimate the cost.
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 >
