@@ -69,12 +69,14 @@ Let's take an example of a sample manufacturing company working across multiple 
 1. Assign roles and permissions as per the list below and final state should look like this (attach image)
 1. Go to https://github.com/Profisee/kubernetes and click "Azure ARM".
 1. Read all the detailed steps mentioned on the GitHub article and click "Deploy to Azure" which will deploy everything in one-click through Azure Automation.
-	i. Get the license file from Profisee by raising a support ticket on https://support.profisee.com/. Only pre-req for this step is you need to pre-determine the URL your profisee setup on Azure. NOte that this is a load balanced AKS (Azure Kubernetes) deployment using an ingress controller. In other words, keep handy the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com" . Example : DNSHOSTNAME="purviewprofiseeintegration.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to profisee support when you raise the support ticket and Profisee will revert with the license file. You will need to supply this file during the next configuration steps below. 
-1. Once you click "Deploy to Azure" the configurator wizard will ask for the following inputs. Images below.
-1. <Take the content from https://support.profisee.com/wikis/2022_r1_support/deploying_the_AKS_cluster_with_the_arm_template>
-1. Make sure to give the exact same RG (Resource Group) in the deployment as you gave permissions to the managed identity in Step1.
-1. Once deployment completes, click "Go to Resource Group" Attach image as shown in screenshot below.
-1. Populate and hydrate data to the newly installed profisee environment by installing FastApp. Go to the deployment URL and hit "/Profisee/api/client "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client".
+- Get the license file from Profisee by raising a support ticket on https://support.profisee.com/. Only pre-req for this step is you need to pre-determine the URL your profisee setup on Azure. NOte that this is a load balanced AKS (Azure Kubernetes) deployment using an ingress controller. In other words, keep handy the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com" . Example : DNSHOSTNAME="purviewprofiseeintegration.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to profisee support when you raise the support ticket and Profisee will revert with the license file. You will need to supply this file during the next configuration steps below. 
+- Click "Deploy to Azure"
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprofisee%2Fkubernetes%2Fmaster%2FAzure-ARM%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprofisee%2Fkubernetes%2Fmaster%2FAzure-ARM%2FcreateUIDefinition.json)
+- The configurator wizard will ask for the inputs as described here - [Deploying the AKS Cluster using the ARM Template](https://support.profisee.com/wikis/2022_r1_support/deploying_the_AKS_cluster_with_the_arm_template)
+- Make sure to give the exact same RG (Resource Group) in the deployment as you gave permissions to the managed identity in Step1.
+- Once deployment completes, click "Go to Resource Group" and open the Profisee AKS Cluster.
+![image](../media/A.png)
+- Populate and hydrate data to the newly installed profisee environment by installing FastApp. Go to your Profisee SaaS deployment URL and hit "/Profisee/api/client". It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client".
 
 ## Next Steps
 Through this guide we learnt how to set up and deploy Profisee <> Purview Integration on a very detailed level.
