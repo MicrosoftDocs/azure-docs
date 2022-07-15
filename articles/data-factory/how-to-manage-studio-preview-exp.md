@@ -154,6 +154,7 @@ The default monitoring view has been simplified with fewer default columns. You 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-20.png" alt-text="Screenshot of the new default column view on the monitoring page.":::
 
 **Default columns**
+
 | **Column name** | **Description** |
 | --- | --- |
 | Pipeline Name | Name of the pipeline |
