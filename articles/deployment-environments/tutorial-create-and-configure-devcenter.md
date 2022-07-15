@@ -28,7 +28,7 @@ The following steps illustrate how to use the Azure portal to create and configu
 
     ![Screenshot of sign in page.](https://user-images.githubusercontent.com/68404454/123879160-162cd480-d906-11eb-8a9a-0b640b23aeb1.png)
 
-1. Select on '+ Create' and in the **Basics** tab of **Create a Azure Deployment Environment DevCenter** window, do the following actions:
+1. Select on '+ Create' and in the **Basics** tab of **Create an Azure Deployment Environment DevCenter** window, do the following actions:
     1. For **Subscription**, select the subscription in which you want to create the DevCenter.
     1. For **Resource group**, either use an existing resource group or select **Create new**, and enter a name for the resource group.
     1. For **Name**, enter a name for the DevCenter.
@@ -58,7 +58,7 @@ Once you've created a DevCenter, the next step is to create a system assigned id
 
 ### Using a System assigned managed identity
 
-1. Create a System assigned managed identity by switching the status to 'On', select **Save** and confirm 'Yes'. [Learn more about System Assigned managed identities](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-managed-identity.md#types-of-managed-identities)
+1. Create a System assigned managed identity by switching the status to 'On', select **Save** and confirm 'Yes'. [Learn more about System Assigned managed identities.](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-managed-identity.md#types-of-managed-identities)
 
     ![Screenshot of system assigned managed identity tab.](https://user-images.githubusercontent.com/68404454/124187021-c58eb600-da82-11eb-8910-18e6784ab33e.png)
 
