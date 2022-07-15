@@ -54,7 +54,7 @@ Provision accounts in the isolated environment for administrative personnel and 
 
 Cloud-only accounts are the simplest way to provision human identities in an Azure AD tenant and it's a good fit for greenfield environments. However, if there's an existing on-premises infrastructure that corresponds to the isolated environment (for example, pre-production or management Active Directory forest), you could consider synchronizing identities from there. This holds especially true if the on-premises infrastructure described above is also used for IaaS solutions that require server access to manage the solution data plane. For more information on this scenario, see [Protecting Microsoft 365 from on-premises attacks](../fundamentals/protect-m365-from-on-premises-attacks.md). Synchronizing from isolated on-premises environments might also be needed if there are specific regulatory compliance requirements such as smart-card only authentication.
 
-![Screenshot shows synchronizing admin identities from on-premises](media/secure-with-azure-ad-best-practices/admin-id-sync.png)
+![Diagram that shows synchronizing admin identities from on-premises.](media/secure-with-azure-ad-best-practices/admin-id-sync.png)
 
 >[!NOTE]
 >There are no technical controls to do identity proofing for Azure AD B2B accounts. External identities provisioned with Azure AD B2B are bootstrapped with a single factor. The mitigation is for the organization to have a process to proof the required identities prior to a B2B invitation being issued, and regular access reviews of external identities to manage the lifecycle. Consider enabling a Conditional Access policy to control the MFA registration.
@@ -363,7 +363,7 @@ Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-acti
 
 The following diagram shows the different data sources that need to be incorporated as part of the monitoring strategy:
 
-![Screenshot shows monitoring strategy](media/secure-with-azure-ad-best-practices/human-identity-provisioning.png)
+![Diagram that shows monitoring strategy.](media/secure-with-azure-ad-best-practices/human-identity-provisioning.png)
 
 Azure AD B2C tenants can be [integrated with Azure Monitor](../../active-directory-b2c/azure-monitor.md). We recommend monitoring of Azure AD B2C using the same criteria discussed above for Azure AD.
 
