@@ -53,7 +53,7 @@ When the autoscale feature is disabled, the number of nodes set will remain fixe
 
 ## Automatic pause
 
-The automatic pause feature releases resources after a set idle period reducing the overall cost of an Apache Spark pool.  The number of minutes of idle time can be set once this feature is enabled.  The automatic pause feature is independent of the autoscale feature. Resources can be paused whether the autoscale is enabled or disabled.  This setting can be altered after pool creation although active sessions  will need to be restarted.
+The automatic pause feature releases resources after a set idle period, reducing the overall cost of an Apache Spark pool.  The number of minutes of idle time can be set once this feature is enabled.  The automatic pause feature is independent of the autoscale feature. Resources can be paused whether the autoscale is enabled or disabled.  This setting can be altered after pool creation although active sessions  will need to be restarted.
 
 ## Next steps
 
