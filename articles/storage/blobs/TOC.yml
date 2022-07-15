@@ -591,7 +591,7 @@ items:
             - name: Account delegation
               href: storage-blob-account-delegation-sas-create-javascript.md
             - name: User delegation
-              href: storage-blob-create-container-sas-javascript.md
+              href: storage-blob-create-user-delegation-sas-javascript.md
           - name: Work with containers
             items:
             - name: Create a container
