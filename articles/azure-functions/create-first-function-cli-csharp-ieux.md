@@ -76,14 +76,6 @@ In this section, you create a local <abbr title="A logical container for one or 
     func init LocalFunctionProj --dotnet
     ```
 
-    Use the following command to creating an Azure functions in an isolated process and specify the target .NET framework :
-
-    ```csharp
-    func init --worker-runtime dotnet-isolated --target-framework net7.0
-    ```
-
-    The `--target-framework` argument is an optional argument meaning the target framework of your .NET runtime, supported values are  `net6.0`, `net7.0`, and `net48`. It defauts to net6.0 when not being specified. 
-
 1. **Run** 'cd LocalFunctionProj'  to navigate to the <abbr title="This folder contains various files for the project, including configurations files named local.settings.json and host.json. Because local.settings.json can contain secrets downloaded from Azure, the file is excluded from source control by default in the .gitignore file.">project folder</abbr>.
 
     ```console
