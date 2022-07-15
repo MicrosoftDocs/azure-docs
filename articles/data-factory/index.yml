@@ -119,8 +119,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Migrate SSIS packages to Azure SQL Managed Instance
-            url: ./scenario-ssis-migration-ssisdb-mi.md
+          - text: SSIS migration assessment rules
+            url: ./scenario-ssis-migration-rules.md
       - linkListType: concept
         links:
           - text: Integration runtime in Azure Data Factory

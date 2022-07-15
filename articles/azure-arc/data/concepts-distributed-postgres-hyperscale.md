@@ -31,7 +31,7 @@ The key concepts around Azure Arc-enabled PostgreSQL Hyperscale are summarized b
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Nodes and tables
-It is important to know about the following concepts to benefit the most from Azure Arc-enabled Postgres Hyperscale:
+It is important to know about the following concepts to benefit the most from Azure Arc-enabled PostgreSQL Hyperscale:
 - Specialized Postgres nodes in Azure Arc-enabled PostgreSQL Hyperscale: coordinator and workers
 - Types of tables: distributed tables, reference tables and local tables
 - Shards
@@ -41,7 +41,7 @@ See more information at [Nodes and tables in Azure Database for PostgreSQL – H
 ## Determine the application type
 Clearly identifying the type of application you are building is important. Why? 
 Because running efficient queries on a Azure Arc-enabled PostgreSQL Hyperscale server group requires that tables be properly distributed across servers. 
-The recommended distribution varies by the type of application and its query patterns. There are broadly two kinds of applications that work well on Azure Arc-enabled Postgres Hyperscale:
+The recommended distribution varies by the type of application and its query patterns. There are broadly two kinds of applications that work well on Azure Arc-enabled PostgreSQL Hyperscale:
 - Multi-Tenant Applications
 - Real-Time Applications
 
