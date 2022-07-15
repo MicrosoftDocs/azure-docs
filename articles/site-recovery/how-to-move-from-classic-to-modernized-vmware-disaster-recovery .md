@@ -2,11 +2,11 @@
 title: How to: Move from classic to modernized VMware disaster recovery  
 description: Learn How to: Move from classic to modernized VMware disaster recovery .
 author: v-pgaddala
-manager: 
+manager: jsuri
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: v-pgaddala
-ms.date: 07/11/2022
+ms.date: 07/15/2022
 ---
 
 # How to: Move from classic to modernized VMware disaster recovery  
@@ -20,9 +20,9 @@ This article provides information about how you can move/migrate your VMware rep
 
 ## Prerequisites  
 
-1. Prepare the required linfrastructure. [Link to Prepare infra section.] 
-2. Prepare the classic Recovery Services vault. [Link to Prepare classic vault section.] 
-3. Prepare the modernized Recovery Services vault. [Link to Prepare modernized vault section.] 
+1. [Prepare the required linfrastructure](move-from-classic-to-modernized-vmware-disaster-recovery.md#prepare-the-infrastructure).
+2. [Prepare the classic Recovery Services vault](move-from-classic-to-modernized-vmware-disaster-recovery.md#prepare-classic-recovery-services-vault).
+3. [Prepare the modernized Recovery Services vault](move-from-classic-to-modernized-vmware-disaster-recovery.md#prepare-modernized-recovery-services-vault).
 
 ## Move replicated items  
 
@@ -46,7 +46,7 @@ Follow these steps to move the replicated items from classic architecture to mod
 
    :::image type="review" source="media/migrate-tool/review-inline.png" alt-text="Screenshot showing review." lightbox="media/migrate-tool/review-expanded.png":::
   
-6. Click **Migrate**.
+6. Select **Migrate**.
 
 7. You can monitor the migration jobs in the **Site Recovery jobs** section of the vault.  
 

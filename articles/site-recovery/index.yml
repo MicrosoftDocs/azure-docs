@@ -10,9 +10,9 @@ metadata:
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
-  author: rishjai-msft
-  ms.author: rishjai
-  ms.date: 11/19/2019
+  author: v-pgaddala
+  ms.author: v-pgaddala
+  ms.date: 07/15/2022
 
 landingContent:
   - title: About Site Recovery
