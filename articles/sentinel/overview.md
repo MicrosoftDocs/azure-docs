@@ -2,9 +2,10 @@
 title: What is Microsoft Sentinel? | Microsoft Docs
 description: Learn about Microsoft Sentinel, a scalable, cloud-native security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution.
 author: yelevin
-ms.topic: overview
-ms.date: 07/14/2022
 ms.author: yelevin
+ms.topic: overview
+ms.service: microsoft-sentinel
+ms.date: 07/14/2022
 ---
 
 # What is Microsoft Sentinel?
@@ -30,7 +31,7 @@ Microsoft Sentinel is your bird's-eye view across the enterprise alleviating the
 
 Microsoft Sentinel natively incorporates proven Azure services, like Log Analytics, and Logic Apps. Microsoft Sentinel enriches your investigation and detection with AI, and provides Microsoft's threat intelligence stream and enables you to bring your own threat intelligence.
 
-## Connect to all your data
+## Collect data by using data connectors
 
 To on-board Microsoft Sentinel, you first need to [connect to your security sources](connect-data-sources.md).
 
@@ -47,7 +48,7 @@ For more information, see [Find your data connector](data-connectors-reference.m
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
-## Workbooks
+## Create interactive reports by using workbooks
 
 After you [connected your data sources](quickstart-onboard.md) to Microsoft Sentinel, you can monitor the data using the Microsoft Sentinel integration with Azure Monitor Workbooks, which provides versatility in creating custom workbooks.
 
@@ -59,14 +60,13 @@ While Workbooks are displayed differently in Microsoft Sentinel, it may be usefu
 
 - While Workbooks are best used for high-level views of Microsoft Sentinel data, and require no coding knowledge, you can't integrate Workbooks with external data.
 
-## Analytics
+## Correlate alerts into incidents by using analytic rules
 
-To help you reduce noise and minimize the number of alerts you have to review and investigate, Microsoft Sentinel uses [analytics to correlate alerts into incidents](detect-threats-built-in.md). **Incidents** are groups of related alerts that together create an actionable possible-threat that you can investigate and resolve. Use the built-in correlation rules as-is, or use them as a starting point to build your own. Microsoft Sentinel also provides machine learning rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots, by combining low fidelity alerts about different entities into potential high-fidelity security incidents.
+To help you reduce noise and minimize the number of alerts you have to review and investigate, Microsoft Sentinel uses [analytics to correlate alerts into incidents](detect-threats-built-in.md). Incidents are groups of related alerts that together create an actionable possible-threat that you can investigate and resolve. Use the built-in correlation rules as-is, or use them as a starting point to build your own. Microsoft Sentinel also provides machine learning rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots, by combining low fidelity alerts about different entities into potential high-fidelity security incidents.
 
 ![Incidents](./media/investigate-cases/incident-severity.png#lightbox)
 
-
-## Security automation & orchestration
+## Automate and orchestrate common tasks by using playbooks
 
 Automate your common tasks and [simplify security orchestration with playbooks](tutorial-respond-threats-playbook.md) that integrate with Azure services and your existing tools.
 
@@ -90,14 +90,14 @@ For example, if you use the ServiceNow ticketing system, use Azure Logic Apps to
 - Playbooks work best with single, repeatable tasks, and require no coding knowledge. Playbooks aren't suitable for ad-hoc or complex task chains, or for documenting and sharing evidence.
 
 
-## Investigation
+## Identify the scope and root cause of a security threat
 
-Currently in preview, Microsoft Sentinel [deep investigation](investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
+Microsoft Sentinel [deep investigation](investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
 
 ![Investigation](./media/investigate-cases/map-timeline.png)
 
 
-## Hunting
+## Detect threats by using the MITRE framework
 
 Use Microsoft Sentinel's [powerful hunting search-and-query tools](hunting.md), based on the MITRE framework, which enable you to proactively hunt for security threats across your organization’s data sources, before an alert is triggered. Create custom detection rules based on your hunting query. Then, surface those insights as alerts to your security incident responders.
 
@@ -105,7 +105,7 @@ While hunting, create bookmarks to return to  interesting events later. Use a bo
 
 ![Overview of hunting feature](./media/overview/hunting.png)
 
-## Notebooks
+## Hunt for security threats with notebooks
 
 Microsoft Sentinel supports Jupyter notebooks in Azure Machine Learning workspaces, including full libraries for machine learning, visualization, and data analysis.
 
@@ -132,9 +132,9 @@ Notebooks are best for:
 
 Notebooks support rich Python libraries for manipulating and visualizing data. They're useful to document and share analysis evidence.
 
-## Community
+## Download security content from the community
 
-The Microsoft Sentinel community is a powerful resource for threat detection and automation. Our Microsoft security analysts constantly create and add new workbooks, playbooks, hunting queries, and more, posting them to the community for you to use in your environment. You can download sample content from the private community GitHub [repository](https://aka.ms/asicommunity) to create custom workbooks, hunting queries, notebooks, and playbooks for Microsoft Sentinel.
+The Microsoft Sentinel community is a powerful resource for threat detection and automation. Our Microsoft security analysts constantly create and add new workbooks, playbooks, hunting queries, and more. They post these content items to the community for you to use in your environment. Download sample content from the private community GitHub [repository](https://aka.ms/asicommunity) to create custom workbooks, hunting queries, notebooks, and playbooks for Microsoft Sentinel.
 
 ![Explore the user community](./media/overview/community.png)
 
