@@ -165,7 +165,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 1. Select one of the zones.
 1. Fill in the rest of the values on the page as you like.
 
-    :::image type="content" source="media/disks-deploy-premium-v2/premv2-portal-deploy.png" alt-text="Screenshot of the basics page, region and availabilty options and zones highlighted." lightbox="media/disks-deploy-premium-v2/premv2-portal-deploy.png":::
+    :::image type="content" source="media/disks-deploy-premium-v2/premv2-portal-deploy.png" alt-text="Screenshot of the basics page, region and availability options and zones highlighted." lightbox="media/disks-deploy-premium-v2/premv2-portal-deploy.png":::
 
 1. Proceed to the **Disks** page.
 1. Under **Data disks** select **Create and attach a new disk**.
@@ -174,7 +174,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 
 1. Select the **Disk SKU** and select **Premium SSD v2 (Preview)**.
 
-    :::image type="content" source="media/disks-deploy-premium-v2/premv2-select.png" alt-text="Screenshot selecting premium ssd v2 (preview) SKU." lightbox="media/disks-deploy-premium-v2/premv2-select.png":::
+    :::image type="content" source="media/disks-deploy-premium-v2/premv2-select.png" alt-text="Screenshot selecting Premium SSD v2 (preview) SKU." lightbox="media/disks-deploy-premium-v2/premv2-select.png":::
 
 1. Proceed through the rest of the VM deployment, making any choices that you desire.
 
