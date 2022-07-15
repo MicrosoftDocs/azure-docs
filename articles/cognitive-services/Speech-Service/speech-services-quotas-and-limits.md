@@ -69,8 +69,8 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
 | **Max number of transactions per certain time period per Speech service resource** |  |  |
-| Real-time API. Prebuilt neural voices and custom neural voices. | 20 transactions per 60 seconds | 200 transactions per second (TPS) |
-| Adjustable | No<sup>4</sup> | Yes<sup>5</sup> |
+| Real-time API. Prebuilt neural voices and custom neural voices. | 20 transactions per 60 seconds | 200 transactions per second (TPS) (default value) |
+| Adjustable | No<sup>4</sup> | Yes<sup>5</sup>, up to 1000 TPS |
 | **HTTP-specific quotas** |  |  |
 | Max audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
@@ -102,7 +102,7 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 | Default value | N/A | 10 |
 | Adjustable | N/A | Yes<sup>5</sup> |
 
-#### Audio Content Creation tool 
+#### Audio Content Creation tool
 
 | Quota | Free (F0)| Standard (S0) |
 |--|--|--|
@@ -111,7 +111,7 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 
 <sup>3</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>4</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices) and [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).<br/>
-<sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#text-to-speech-increase-concurrent-request-limit-for-custom-neural-voices).<br/>
+<sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#text-to-speech-increase-concurrent-request-limit).<br/>
 
 ## Detailed description, quota adjustment, and best practices
 
@@ -126,7 +126,7 @@ To minimize issues related to throttling, it's a good idea to use the following 
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually. For example, let's say your application is using text-to-speech, and your current workload is 5 TPS. The next second, you increase the load to 20 TPS (that is, four times more). Speech service immediately starts scaling up to fulfill the new load, but is unable to scale as needed within one second. Some of the requests will get response code 429 (too many requests).
 - Test different load increase patterns. For more information, see the [workload pattern example](#example-of-a-workload-pattern-best-practice).
-- Create additional Speech service resources in the same or different regions, and distribute the workload among them. This is especially important for the text-to-speech TPS) parameter, which is set to 200 per resource, and can't be adjusted.
+- Create additional Speech service resources in *different* regions, and distribute the workload among them. (Creating multiple Speech service resources in the same region will not affect the performance, because all resources will be served by the same backend cluster).
 
 The next sections describe specific cases of adjusting quotas.
 
@@ -193,7 +193,7 @@ Initiate the increase of the limit for concurrent requests for your resource, or
    - Choose either the base or custom model.
    - The Azure resource information you [collected previously](#have-the-required-information-ready).
    - Any other required information.
-1. On the **Review + create** tab, select **Create**. 
+1. On the **Review + create** tab, select **Create**.
 1. Note the support request number in Azure portal notifications. You'll be contacted shortly about your request.
 
 ### Example of a workload pattern best practice
@@ -204,9 +204,9 @@ Suppose that a Speech service resource has the concurrent request limit set to 3
 
 Generally, it's a very good idea to test the workload and the workload patterns before going to production.
 
-### Text-to-speech: increase concurrent request limit for custom neural voices
+### Text-to-speech: increase concurrent request limit
 
-By default, the number of concurrent requests for Custom Neural Voice endpoints is limited to 10. For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
+For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
 
 Increasing the limit of concurrent requests doesn't directly affect your costs. Speech service uses a payment model that requires that you pay only for what you use. The limit defines how high the service can scale before it starts throttle your requests.
 
@@ -246,5 +246,5 @@ Initiate the increase of the limit for concurrent requests for your resource, or
    - Choose either the base or custom model.
    - The Azure resource information you [collected previously](#have-the-required-information-ready).
    - Any other required information.
-1. On the **Review + create** tab, select **Create**. 
+1. On the **Review + create** tab, select **Create**.
 1. Note the support request number in Azure portal notifications. You'll be contacted shortly about your request.

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 06/06/2022
 ms.author: victorh
 ---
 
@@ -47,7 +47,7 @@ Azure Firewall can be configured during deployment to span multiple Availability
 
 You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
 
-There's no additional cost for a firewall deployed in an Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
+There's no additional cost for a firewall deployed in more than one Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md)
 

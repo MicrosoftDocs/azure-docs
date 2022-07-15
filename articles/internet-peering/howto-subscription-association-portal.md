@@ -3,11 +3,11 @@ title: Associate peer ASN to Azure subscription using the portal
 titleSuffix: Azure
 description: Associate peer ASN to Azure subscription using the portal
 services: internet-peering
-author: derekolo
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/18/2020
-ms.author: derekol
+ms.author: halkazwini
 ---
 
 # Associate peer ASN to Azure subscription using the portal

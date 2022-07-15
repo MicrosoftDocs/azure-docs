@@ -1,15 +1,19 @@
 ---
 title: Debug Azure Service Fabric apps in Windows 
 description: Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.
-ms.topic: conceptual
-ms.date: 02/25/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Monitor and diagnose services in a local machine development setup
+
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 > * [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-> 
-> 
 
 Monitoring, detecting, diagnosing, and troubleshooting allow for services to continue with minimal disruption to the user experience. While monitoring and diagnostics are critical in an actual deployed production environment, the efficiency will depend on adopting a similar model during development of services to ensure they work when you move to a real-world setup. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across both single-machine local development setups and real-world production cluster setups.
 

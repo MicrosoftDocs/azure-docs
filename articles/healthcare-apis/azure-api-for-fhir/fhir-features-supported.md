@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/05/2022
+ms.date: 06/03/2022
 ms.author: mikaelw
 ---
 
@@ -90,3 +90,5 @@ In this article, you've read about the supported FHIR features in Azure API for 
  
 >[!div class="nextstepaction"]
 >[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -4,14 +4,14 @@ description: Learn how to improve your security posture by blocking legacy authe
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 02/14/2022
+ms.date: 06/21/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb, dawoo, jebeckha, grtaylor
 ms.collection: M365-identity-device-management
 ---
-# How to: Block legacy authentication to Azure AD with Conditional Access   
+# How to: Block legacy authentication access to Azure AD with Conditional Access   
 
 To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. However, legacy authentication doesn't support multifactor authentication (MFA). MFA is in many environments a common requirement to address identity theft. 
 
@@ -22,7 +22,7 @@ Alex Weinert, Director of Identity Security at Microsoft, in his March 12, 2020 
 
 > For MFA to be effective, you also need to block legacy authentication. This is because legacy authentication protocols like POP, SMTP, IMAP, and MAPI can't enforce MFA, making them preferred entry points for adversaries attacking your organization...
 > 
->...The numbers on legacy authentication from an analysis of Azure Active Directory (Azure AD) traffic are stark:
+> ...The numbers on legacy authentication from an analysis of Azure Active Directory (Azure AD) traffic are stark:
 > 
 > - More than 99 percent of password spray attacks use legacy authentication protocols
 > - More than 97 percent of credential stuffing attacks use legacy authentication
@@ -44,7 +44,7 @@ This article assumes that you're familiar with the [basic concepts](overview.md)
 
 ## Scenario description
 
-Azure AD supports several of the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication refers to basic authentication, a widely used industry-standard method for collecting user name and password information. Typically, legacy authentication clients can't enforce any type of second factor authentication. Examples of applications that commonly or only use legacy authentication are:
+Azure AD supports the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication can't prompt users for second factor authentication or other authentication requirements needed to satisfy conditional access policies, directly. This authentication pattern includes basic authentication, a widely used industry-standard method for collecting user name and password information.  Examples of applications that commonly or only use legacy authentication are:
 
 - Microsoft Office 2013 or older.
 - Apps using mail protocols like POP, IMAP, and SMTP AUTH.
@@ -55,11 +55,9 @@ Single factor authentication (for example, username and password) isn't enough t
 
 How can you prevent apps using legacy authentication from accessing your tenant's resources? The recommendation is to just block them with a Conditional Access policy. If necessary, you allow only certain users and specific network locations to use apps that are based on legacy authentication.
 
-Conditional Access policies are enforced after the first-factor authentication has been completed. Therefore, Conditional Access isn't intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (for example, the sign-in risk level, location of the request, and so on) to determine access.
-
 ## Implementation
 
-This section explains how to configure a Conditional Access policy to block legacy authentication. 
+This section explains how to configure a Conditional Access policy to block legacy authentication.
 
 ### Messaging protocols that support legacy authentication
 
@@ -83,7 +81,9 @@ For more information about these authentication protocols and services, see [Sig
 
 ### Identify legacy authentication use
 
-Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if you're using legacy authentication.
+Before you can block legacy authentication in your directory, you need to first understand if your users have clients that use legacy authentication. Below, you'll find useful information to identify and triage where clients are using legacy authentication.
+
+#### Indicators from Azure AD
 
 1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-in logs**.
 1. Add the Client App column if it isn't shown by clicking on **Columns** > **Client App**.
@@ -92,9 +92,33 @@ Before you can block legacy authentication in your directory, you need to first 
 
 Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you more details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
 
-These logs will indicate which users are still depending on legacy authentication and which applications are using legacy protocols to make authentication requests. For users that don't appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy for these users only.
+These logs will indicate where users are using clients that are still depending on legacy authentication. For users that don't appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy for these users only.
 
-## Block legacy authentication 
+Additionally, to help triage legacy authentication within your tenant use the [Sign-ins using legacy authentication workbook](../reports-monitoring/workbook-legacy%20authentication.md).
+
+#### Indicators from client
+
+To determine if a client is using legacy or modern authentication based on the dialog box presented at sign-in, see the article [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online#authentication-dialog).
+
+## Important considerations
+
+Many clients that previously only supported legacy authentication now support modern authentication. Clients that support both legacy and modern authentication may require configuration update to move from legacy to modern authentication. If you see **modern mobile**, **desktop client** or **browser** for a client in the Azure AD logs, it's using modern authentication. If it has a specific client or protocol name, such as **Exchange ActiveSync**, it's using legacy authentication. The client types in Conditional Access, Azure AD Sign-in logs, and the legacy authentication workbook distinguish between modern and legacy authentication clients for you.
+
+- Clients that support modern authentication but aren't configured to use modern authentication should be updated or reconfigured to use modern authentication.
+- All clients that don't support modern authentication should be replaced.
+
+> [!IMPORTANT]
+>
+> **Exchange Active Sync with Certificate-based authentication(CBA)**
+>
+> When implementing Exchange Active Sync (EAS) with CBA, configure clients to use modern authentication. Clients not using modern authentication for EAS with CBA **are not blocked** with [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online). However, these clients **are blocked** by Conditional Access policies configured to block legacy authentication.
+>
+>For more Information on implementing support for CBA with Azure AD and modern authentication See: [How to configure Azure AD certificate-based authentication (Preview)](../authentication/how-to-certificate-based-authentication.md). As another option, CBA performed at a federation server can be used with modern authentication.
+
+
+If you're using Microsoft Intune, you might be able to change the authentication type using the email profile you push or deploy to your devices. If you're using iOS devices (iPhones and iPads), you should take a look at [Add e-mail settings for iOS and iPadOS devices in Microsoft Intune](/mem/intune/configuration/email-settings-ios).
+
+## Block legacy authentication
 
 There are two ways to use Conditional Access policies to block legacy authentication.
 

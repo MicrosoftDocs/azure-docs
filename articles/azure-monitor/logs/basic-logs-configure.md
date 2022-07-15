@@ -14,8 +14,7 @@ Setting a table's [log data plan](log-analytics-workspace-overview.md#log-data-p
 > You can switch a table's plan once a week. The Basic Logs feature is not available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
 ## Which tables support Basic Logs?
-All tables in your Log Analytics are Analytics tables, by default. You can configure particular tables to use Basic Logs. You can't configure a table for Basic Logs if Azure Monitor relies on that table for specific features.
-
+By default, all tables in your Log Analytics are Analytics tables, and available for query and alerts. 
 You can currently configure the following tables for Basic Logs:
 
 - All tables created with the [Data Collection Rule (DCR)-based custom logs API.](custom-logs-overview.md) 
@@ -27,6 +26,27 @@ You can currently configure the following tables for Basic Logs:
 
 
 ## Set table configuration
+
+# [Portal](#tab/portal-1)
+
+To configure a table for Basic Logs or Analytics Logs in the Azure portal:
+
+1. From the **Log Analytics workspaces** menu, select **Tables (preview)**.
+
+    The **Tables (preview)** screen lists all of the tables in the workspace.
+
+1. Select the context menu for the table you want to configure and select **Manage table**.
+
+    :::image type="content" source="media/basic-logs-configure/log-analytics-table-configuration.png" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
+
+1. From the **Table plan** dropdown on the table configuration screen, select **Basic** or **Analytics**.
+
+    The **Table plan** dropdown is enabled only for [tables that support Basic Logs](#which-tables-support-basic-logs).
+
+    :::image type="content" source="media/basic-logs-configure/log-analytics-configure-table-plan.png" lightbox="media/basic-logs-configure/log-analytics-configure-table-plan.png" alt-text="Screenshot showing the Table plan dropdown on the table configuration screen."::: 
+
+1. Select **Save**.
+
 # [API](#tab/api-1)
 
 To configure a table for Basic Logs or Analytics Logs, call the **Tables - Update** API:
@@ -117,9 +137,11 @@ For example:
 ---
 
 ## Check table configuration
-# [Portal](#tab/portal-1)
+# [Portal](#tab/portal-2)
 
-To check the configuration of a table in the Azure portal: 
+To check table configuration in the Azure portal, you can open the table configuration screen, as described in [Set table configuration](#set-table-configuration). 
+
+Alternatively: 
 
 1. From the **Azure Monitor** menu, select **Logs** and select your workspace for the [scope](scope.md). See [Log Analytics tutorial](log-analytics-tutorial.md#view-table-information) for a walkthrough.
 1. Open the **Tables** tab, which lists all tables in the workspace. 
@@ -128,7 +150,7 @@ To check the configuration of a table in the Azure portal:
     
     ![Screenshot of the Basic Logs table icon in the table list.](./media/basic-logs-configure/table-icon.png#lightbox)
 
-    You can also hover over a table name for the table information view. This will specify that the table is configured as Basic Logs:
+    You can also hover over a table name for the table information view, which indicates whether the table is configured as Basic Logs:
     
     ![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs-configure/table-info.png#lightbox)
 

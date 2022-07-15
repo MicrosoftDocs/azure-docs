@@ -16,6 +16,8 @@ ms.topic: how-to
 
 This article explains how to deploy an Active Directory (AD) connector using Azure CLI. The AD connector is a key component to enable Active Directory authentication on Azure Arc-enabled SQL Managed Instance.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Prerequisites
 
 ### Install tools

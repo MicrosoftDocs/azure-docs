@@ -6,12 +6,15 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: srranga
 author: sr-msft
-ms.date: 6/30/2020
+ms.date: 06/24/2022
 ---
 
 # How to backup and restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 ## Backup happens automatically
+
 Azure Database for PostgreSQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
 
 ## Set backup configuration
@@ -35,17 +38,18 @@ The backup retention period of a server can be changed through the following ste
 In the screenshot below it has been increased to 34 days.
 :::image type="content" source="./media/how-to-restore-server-portal/3-increase-backup-days.png" alt-text="Backup retention period increased":::
 
-4. Click **OK** to confirm the change.
+4. Select **OK** to confirm the change.
 
-The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. Point-in-time restore is described further in the following section. 
+The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. Point-in-time restore is described further in the following section.
 
 ## Point-in-time restore
+
 Azure Database for PostgreSQL allows you to restore the server back to a point-in-time and into to a new copy of the server. You can use this new server to recover your data, or have your client applications point to this new server.
 
 For example, if a table was accidentally dropped at noon today, you could restore to the time just before noon and retrieve the missing table and data from that new copy of the server. Point-in-time restore is at the server level, not at the database level.
 
 The following steps restore the sample server to a point-in-time:
-1. In the Azure portal, select your Azure Database for PostgreSQL server. 
+1. In the Azure portal, select your Azure Database for PostgreSQL server.
 
 2. In the toolbar of the server's **Overview** page, select **Restore**.
 
@@ -57,9 +61,9 @@ The following steps restore the sample server to a point-in-time:
    - **Restore point**: Select the point-in-time you want to restore to.
    - **Target server**: Provide a name for the new server.
    - **Location**: You cannot select the region. By default it is same as the source server.
-   - **Pricing tier**: You cannot change these parameters when doing a point-in-time restore. It is same as the source server. 
+   - **Pricing tier**: You cannot change these parameters when doing a point-in-time restore. It is same as the source server.
 
-4. Click **OK** to restore the server to restore to a point-in-time. 
+4. Select **OK** to restore the server to restore to a point-in-time.
 
 5. Once the restore finishes, locate the new server that is created to verify the data was restored as expected.
 
@@ -71,7 +75,7 @@ If your source PostgreSQL server is encrypted with customer-managed keys, please
 
 ## Geo restore
 
-If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.  
+If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the portal. Select **Databases** > **Azure Database for PostgreSQL**.
 
@@ -80,36 +84,36 @@ If you configured your server for geographically redundant backups, a new server
 2. Select the **Single server** deployment option.
 
    :::image type="content" source="./media/how-to-restore-server-portal/2-select-deployment-option.png" alt-text="Select Azure Database for PostgreSQL - Single server deployment option.":::
- 
-3. Provide the subscription, resource group, and name of the new server. 
+
+3. Provide the subscription, resource group, and name of the new server.
 
 4. Select **Backup** as the **Data source**. This action loads a dropdown that provides a list of servers that have geo redundant backups enabled.
-   
+
    :::image type="content" source="./media/how-to-restore-server-portal/4-geo-restore.png" alt-text="Select data source.":::
-    
+
    > [!NOTE]
    > When a server is first created it may not be immediately available for geo restore. It may take a few hours for the necessary metadata to be populated.
    >
 
 5. Select the **Backup** dropdown.
-   
+
    :::image type="content" source="./media/how-to-restore-server-portal/5-geo-restore-backup.png" alt-text="Select backup dropdown.":::
 
 6. Select the source server to restore from.
-   
+
    :::image type="content" source="./media/how-to-restore-server-portal/6-select-backup.png" alt-text="Select backup.":::
 
-7. The server will default to values for number of **vCores**, **Backup Retention Period**, **Backup Redundancy Option**, **Engine version**, and **Admin credentials**. Select **Continue**. 
-   
+7. The server will default to values for number of **vCores**, **Backup Retention Period**, **Backup Redundancy Option**, **Engine version**, and **Admin credentials**. Select **Continue**.
+
    :::image type="content" source="./media/how-to-restore-server-portal/7-accept-backup.png" alt-text="Continue with backup.":::
 
 8. Fill out the rest of the form with your preferences. You can select any **Location**.
 
     After selecting the location, you can select **Configure server** to update the **Compute Generation** (if available in the region you have chosen), number of **vCores**, **Backup Retention Period**, and **Backup Redundancy Option**. Changing **Pricing Tier** (Basic, General Purpose, or Memory Optimized) or **Storage** size during restore is not supported.
 
-   :::image type="content" source="./media/how-to-restore-server-portal/8-create.png" alt-text="Fill form."::: 
+   :::image type="content" source="./media/how-to-restore-server-portal/8-create.png" alt-text="Fill form.":::
 
-9. Select **Review + create** to review your selections. 
+9. Select **Review + create** to review your selections.
 
 10. Select **Create** to provision the server. This operation may take a few minutes.
 
@@ -119,7 +123,7 @@ The new server created during a restore does not have the firewall rules or VNet
 
 If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations.
 
-
 ## Next steps
+
 - Learn more about the service's [backups](concepts-backup.md).
 - Learn more about [business continuity](concepts-business-continuity.md) options.

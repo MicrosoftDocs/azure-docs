@@ -19,6 +19,10 @@
         href: quick-create-lab-plan-template.md
       - name: PowerShell
         href: quick-create-lab-plan-powershell.md
+      - name: Bicep
+        href: quick-create-lab-plan-bicep.md
+      - name: Python
+        href: quick-create-lab-plan-python.md
     - name: Create a lab (educator)
       expanded: true
       items:
@@ -28,6 +32,10 @@
         href: quick-create-lab-template.md
       - name: PowerShell
         href: quick-create-lab-powershell.md
+      - name: Bicep
+        href: quick-create-lab-bicep.md
+      - name: Python
+        href: quick-create-lab-python.md
 - name: Tutorials
   items:
   - name: Set up a lab plan (admin)
@@ -147,6 +155,8 @@
       href: manage-labs.md
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
+    - name: Configure regions for labs
+      href: create-and-configure-labs-admin.md
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs
@@ -186,7 +196,7 @@
     - name: Set and reset passwords 
       href: how-to-set-virtual-machine-passwords.md
     - name: Configure auto-shutdown settings
-      href: how-to-enable-shutdown-disconnect.md       
+      href: how-to-enable-shutdown-disconnect.md      
     - name: View support information
       href: lab-creator-support-information.md
   - name: Connect to VMs in labs (student)
@@ -203,6 +213,8 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
+    - name: How to troubleshoot a VM
+      href: how-to-reset-and-redeploy-vm.md  
     - name: Set or reset passwords for VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
     - name: View support information (student)
@@ -237,6 +249,12 @@
         href: how-to-access-vm-for-students-within-teams.md
   - name: Earlier releases
     items:
+    - name: Labs architecture fundamentals
+      href: classroom-labs-fundamentals-1.md
+    - name: Administrator guide
+      href: administrator-guide-1.md
+    - name: Lab account creation guide
+      href: account-setup-guide.md
     - name: Create & configure lab accounts
       items:
       - name: Create and manage labs
@@ -259,10 +277,8 @@
         href: how-to-add-user-lab-owner.md
       - name: Manage labs in a lab account
         href: manage-labs-1.md
-    - name: Administrator guide
-      href: administrator-guide-1.md
-    - name: Lab account creation guide
-      href: account-setup-guide.md
+    - name: Set up GPU VMs when using lab accounts
+      href: how-to-setup-lab-gpu-1.md
     - name: Az.LabServices PowerShell module for lab accounts
       href: reference-powershell-module.md     
 - name: Reference
@@ -273,6 +289,10 @@
     href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
+  - name: Built-in policies
+    href: /azure/governance/policy/samples/built-in-policies#lab-services
+  - name: Microsoft Azure SDK for Python
+    href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources
   items:
   - name: Azure Lab Services Blog

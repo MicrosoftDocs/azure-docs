@@ -1,6 +1,5 @@
 ---
 title: Workload identity federation 
-titleSuffix: Microsoft identity platform
 description: Use workload identity federation to grant workloads running outside of Azure access to Azure AD protected resources without using secrets or certificates. This eliminates the need for developers to store and maintain long-lived secrets or certificates outside of Azure.
 services: active-directory
 author: rwike77
@@ -10,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 07/13/2022
 ms.author: ryanwi
 ms.reviewer: keyam, udayh, vakarand
 ms.custom: aaddev 
@@ -30,7 +29,7 @@ You use workload identity federation to configure an Azure AD app registration t
 
 ## Supported scenarios
 > [!NOTE]
-> Azure AD-issued tokens might not be used for federated identity flows.
+> Azure AD issued tokens may not be used for federated identity flows. The federated identity credentials flow does not support tokens issued by Azure AD.
 
 The following scenarios are supported for accessing Azure AD protected resources using workload identity federation:
 

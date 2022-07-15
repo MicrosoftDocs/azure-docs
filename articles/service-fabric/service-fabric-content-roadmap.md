@@ -1,10 +1,14 @@
 ---
 title: Learn more about Azure Service Fabric 
 description: Learn about the core concepts and major areas of Azure Service Fabric. Provides an extended overview of Service Fabric and how to create microservices. 
-
 ms.topic: conceptual
-ms.date: 12/08/2017
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # So you want to learn about Service Fabric?
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices.  Service Fabric has a large surface area, however, and there's a lot to learn.  This article provides a synopsis of Service Fabric and describes the core concepts, programming models, application lifecycle, testing, clusters, and health monitoring. Read the [Overview](service-fabric-overview.md) and [What are microservices?](service-fabric-overview-microservices.md) for an introduction and how Service Fabric can be used to create microservices. This article does not contain a comprehensive content list, but does link to overview and getting started articles for every area of Service Fabric. 
 

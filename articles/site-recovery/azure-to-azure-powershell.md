@@ -2,11 +2,11 @@
 title: Disaster recovery for Azure VMs using Azure PowerShell and Azure Site Recovery
 description: Learn how to set up disaster recovery for Azure virtual machines with Azure Site Recovery using Azure PowerShell.
 services: site-recovery
-author: sujayt
+author: v-pgaddala
 manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sutalasi 
+ms.author: v-pgaddala 
 ms.custom: devx-track-azurepowershell
 ---
 

@@ -4,12 +4,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 06/06/2022
 ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 
-[Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples)
+[Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics)
+
+Use this quickstart to create a sentiment analysis application with the client library for Node.js. In the following example, you will create a JavaScript application that can identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
 ## Prerequisites
 
@@ -17,8 +19,11 @@ ms.custom: devx-track-js, ignite-fall-2021
 * The current version of [Node.js](https://nodejs.org/).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Setting up
 
@@ -40,11 +45,14 @@ npm init
 
 ### Install the client library
 
-Install the NPM packages:
+Install the npm packages:
 
 ```console
 npm install @azure/ai-text-analytics@5.1.0
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Code example
 
@@ -58,10 +66,10 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 const key = '<paste-your-key-here>';
 const endpoint = '<paste-your-endpoint-here>';
-// Authenticate the client with your key and endpoint
+// Authenticate the client with your key and endpoint.
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 
-// Example method for detecting sentiment in text
+// Example method for detecting sentiment in text.
 async function sentimentAnalysis(client){
 
     const sentimentInput = [
@@ -84,7 +92,7 @@ async function sentimentAnalysis(client){
 }
 sentimentAnalysis(textAnalyticsClient)
 
-// Example method for detecting opinions in text 
+// Example method for detecting opinions in text.
 async function sentimentAnalysisWithOpinionMining(client){
 
   const sentimentInput = [
@@ -124,8 +132,11 @@ async function sentimentAnalysisWithOpinionMining(client){
     }
   }
 }
-sentimentAnalysisWithOpinionMining(textAnalyticsClient)
+sentimentAnalysisWithOpinionMining(textAnalyticsClient);
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
 
 ## Output
 
