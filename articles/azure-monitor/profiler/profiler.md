@@ -2,7 +2,7 @@
 title: Enable Profiler for Azure App Service apps | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 07/13/2022
+ms.date: 07/15/2022
 ms.reviewer: jogrima
 ---
 
@@ -103,15 +103,15 @@ To enable Azure AD for profiles ingestion:
 
    For System-Assigned Identity:
 
-   |App Setting    | Value    |
-   |---------------|----------|
-   |APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AAD    |
+   | App Setting    | Value    |
+   | -------------- |--------- |
+   | APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD`    |
 
    For User-Assigned Identity:
 
-   |App Setting    | Value    |
-   |---------------|----------|
-   |APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AAD;ClientId={Client id of the User-Assigned Identity}    |
+   | App Setting   | Value    |
+   | ------------- | -------- |
+   | APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD;ClientId={Client id of the User-Assigned Identity}`    |
 
 ## Disable Profiler
 

@@ -3,7 +3,7 @@ title: Profile Azure Containers with Application Insights Profiler
 description: Enable Application Insights Profiler for Azure Containers.
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 06/16/2022
+ms.date: 07/15/2022
 ms.reviewer: jogrima
 ---
 
@@ -101,7 +101,7 @@ In this article, you'll learn the various ways you can:
 
 1. Via your Application Insights resource in the Azure portal, take note of your Application Insights instrumentation key.
 
-   :::image type="content" source="./media/profiler-containerinstances/application-insights-key.png" alt-text="Find instrumentation key in Azure portal":::
+   :::image type="content" source="./media/profiler-containerinstances/application-insights-key.png" alt-text="Screenshot of finding instrumentation key in Azure portal.":::
 
 1. Open `appsettings.json` and add your Application Insights instrumentation key to this code section:
 
@@ -165,7 +165,7 @@ Service Profiler session finished.              # A profiling session is complet
 1. Open the **Performance** blade in your Application Insights resource. 
 1. Once the trace process is complete, you'll see the Profiler Traces button like it below:
 
-      :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Profile traces in the performance blade":::
+      :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Screenshot of Profile traces in the performance blade.":::
 
 
 

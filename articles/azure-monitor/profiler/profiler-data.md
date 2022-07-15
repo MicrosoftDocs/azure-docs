@@ -3,7 +3,7 @@ title: Generate load and view Application Insights Profiler data
 description: Generate load to your Azure service to view the Profiler data
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 07/13/2022
+ms.date: 07/15/2022
 ms.reviewer: jogrima
 ---
 
@@ -27,18 +27,18 @@ If your Azure service already has incoming traffic or if you just want to manual
 1. From the Application Insights overview page for your Azure service, select **Performance** from the left menu. 
 1. On the **Performance** pane, select **Profiler** from the top menu for Profiler settings.
 
-   :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade" lightbox="media/profiler-settings/profiler-button.png":::
+   :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/profiler-settings/profiler-button.png":::
 
 1. Once the Profiler settings page loads, select **Profile Now**. 
 
-   :::image type="content" source="./media/profiler-settings/configure-blade-inline.png" alt-text="Profiler page features and settings" lightbox="media/profiler-settings/configure-blade.png":::
+   :::image type="content" source="./media/profiler-settings/configure-blade-inline.png" alt-text="Screenshot of Profiler page features and settings." lightbox="media/profiler-settings/configure-blade.png":::
 
 ## View traces
 
 1. After the Profiler sessions finish running, return to the **Performance** pane. 
 1. Under **Drill into...**, select **Profiler traces** to view the traces.
 
-   :::image type="content" source="./media/profiler-overview/trace-explorer-inline.png" alt-text="Screenshot of trace explorer page" lightbox="media/profiler-overview/trace-explorer.png":::
+   :::image type="content" source="./media/profiler-overview/trace-explorer-inline.png" alt-text="Screenshot of trace explorer page." lightbox="media/profiler-overview/trace-explorer.png":::
 
 The trace explorer displays the following information:
 
