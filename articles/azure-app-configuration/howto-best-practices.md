@@ -104,7 +104,7 @@ To address these concerns, we recommend that you use a proxy service between you
 
 ## Multitenant applications in App Configuration
 
-A multitenant application is built on an architecture where a shared instance of your application serves multiple customers or tenants. For example, you may have an email service that offers your users separate accounts and customized experiences. Your application usually manages different configurations for each tenant. Here are some architectural considerations for [using App Configuration in a multitenant application](../architecture/guide/multitenant/service/app-configuration.md).
+A multitenant application is built on an architecture where a shared instance of your application serves multiple customers or tenants. For example, you may have an email service that offers your users separate accounts and customized experiences. Your application usually manages different configurations for each tenant. Here are some architectural considerations for [using App Configuration in a multitenant application](/azure/architecture/guide/multitenant/service/app-configuration).
 
 ## Configuration as Code
 
