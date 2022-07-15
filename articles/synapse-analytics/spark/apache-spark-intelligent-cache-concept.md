@@ -36,7 +36,7 @@ When creating a new Spark pool, browse under the **additional settings** tab to 
 
 ### Enabling/Disabling cache for existing Spark pools
 
-For existing Spark pools, browse to the **Scale settings** of your Apache Spark pool of choice to enable, by moving the **slider** to a value more then 0, or disable it, by moving **slider** to 0.
+For existing Spark pools, browse to the **Scale settings** of your Apache Spark pool of choice to enable, by moving the **slider** to a value more than 0, or disable it, by moving **slider** to 0.
 
 ![How to enable or disable Intelligent Cache for existing Spark pools](./media/apache-spark-intelligent-cache-concept/inteligent-cache-setting-config.png)
 
@@ -89,7 +89,7 @@ This feature will benefit you if:
 
 
 You won't see the benefit of this feature if:
-* You're reading a file that exceed the cache size because the beginning of the files could be evicted and subsequent queries will have to refetch the data from the remote storage. In this case, you won't see any benefits from the Intelligent Cache and you may want to increase your cache size and/or node size.  
+* You're reading a file that exceeds the cache size because the beginning of the files could be evicted and subsequent queries will have to refetch the data from the remote storage. In this case, you won't see any benefits from the Intelligent Cache and you may want to increase your cache size and/or node size.  
 
 * Your workload requires large amounts of shuffle, then disabling the Intelligent Cache will free up available space to prevent your job from failing due to insufficient storage space.  
 
