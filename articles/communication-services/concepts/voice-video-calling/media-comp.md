@@ -52,12 +52,12 @@ This functionality is activated through REST APIs and open-source SDKs. Below is
 The presenter layout is one of several layouts available through the media composition capability:
 
 - **Grid** - The grid layout shows the specified media sources in a standard grid format. You can specify the number of rows and columns in the grid as well as which media source should be placed in each slot of the grid.
-:::image type="content" source="../media/2x2-grid.png" alt-text="Diagram showing how example of custom layout":::
-- **Auto-Grid** - This layout will automatically display all the sources in the scene in an optimized way. Unlike the grid layout, it does not allow for customizations on the number of rows and columns.
-:::image type="content" source="../media/autogrid.png" alt-text="Diagram showing how example of custom layout":::
-- **Presentation.** - The presentation layout features a fixed media source, the presenter, covering the majority of the scene. The other media sources are arranged in either a row or column in the remaining space of the scene.
-:::image type="content" source="../media/top-presentation.png" alt-text="Diagram showing how example of custom layout":::
-- **Presenter** - This is a picture-in-picture layout composed of two sources. One source is the background of the scene. This represents the content being presented or the main presenter. The secondary source is cropped or resized and positioned at a corner of the scene.
+:::image type="content" source="../media/2x2-grid.png" alt-text="Diagram showing how example of grid layout":::
+- **Auto-Grid** - This layout automatically displays all the media sources in the scene in an optimized way. Unlike the grid layout, it does not allow for customizations on the number of rows and columns.
+:::image type="content" source="../media/autogrid.png" alt-text="Diagram showing how example of autogrid layout":::
+- **Presentation** - The presentation layout features a fixed media source, the presenter, covering the majority of the scene. The other media sources are arranged in either a row or column in the remaining space of the scene.
+:::image type="content" source="../media/top-presentation.png" alt-text="Diagram showing how example of presentation layout":::
+- **Presenter** - This is a picture-in-picture layout composed of two sources. One source is the background of the scene. This commonly represents the content being presented or the main presenter. The secondary source is cropped and positioned at a corner of the scene.
 :::image type="content" source="../media/topLeft-presenter.png" alt-text="Diagram showing how example of presenter layout":::
 - **Custom** - You can customize the layout to fit your specific scenario. Media sources can have different sizes and be placed at any position on the scene.
 :::image type="content" source="../media/custom-2x2GridWithSingleCellOverlayed.png" alt-text="Diagram showing how example of custom layout":::
