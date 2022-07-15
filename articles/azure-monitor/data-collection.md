@@ -34,7 +34,7 @@ When implementation is complete, all data collected by Azure Monitor will use th
 
 There's no difference between data collected with the new ingestion pipeline and data collected using other methods. The data is all stored together as [Logs](logs/data-platform-logs.md) and [Metrics](essentials/data-platform-metrics.md), supporting Azure Monitor features such as log queries, alerts, and workbooks. The only difference is in the method of collection.
 
-[Transformations](essentials/data-collection-transformations.md) can be applied to data sources that don't yet use data collection rules. In this case, the transformation is included in the [workspace transformation DCR](essentials/data-collection.md#workspace-transformation-dcr) which is associated directly with the Log Analytics workspace receiving the data.
+[Transformations](essentials/data-collection-transformations.md) can be applied to data sources that don't yet use data collection rules. In this case, the transformation is included in the [workspace transformation DCR](essentials/data-collection-transformations.md#workspace-transformation-dcr) which is associated directly with the Log Analytics workspace receiving the data.
 
 ## Data collection examples
 

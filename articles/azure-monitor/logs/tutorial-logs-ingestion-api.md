@@ -177,11 +177,11 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 6. Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion URI** since you'll need this in a later step.
 
-    :::image type="content" source="media/tutorial-logs-ingestion-portal-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-logs-ingestion-portal-api/data-collection-endpoint-overview.png" alt-text="Screenshot for data collection endpoint uri.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-overview.png" alt-text="Screenshot for data collection endpoint uri.":::
 
 7. Click **JSON View** to view other details for the DCE. Copy the **Resource ID** since you'll need this in a later step.
 
-    :::image type="content" source="media/tutorial-logs-ingestion-portal-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-portal-api/data-collection-endpoint-json.png" alt-text="Screenshot for data collection endpoint resource ID.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot for data collection endpoint resource ID.":::
 
 
 ## Create data collection rule

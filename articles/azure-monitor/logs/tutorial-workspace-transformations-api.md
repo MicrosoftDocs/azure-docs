@@ -43,15 +43,15 @@ You need to enable [query auditing](query-audit.md) for your workspace to create
 
 1. From the **Log Analytics workspaces** menu in the Azure portal, select **Diagnostic settings** and then **Add diagnostic setting**.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portaldiagnostic-settings.png" lightbox="media/media/tutorial-logs-ingestion-portaldiagnostic-settings.png" alt-text="Screenshot of diagnostic settings.":::
+    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/diagnostic-settings.png" lightbox="media/media/tutorial-logs-ingestion-portal/diagnostic-settings.png" alt-text="Screenshot of diagnostic settings.":::
 
 2. Provide a name for the diagnostic setting and select the workspace so that the auditing data is stored in the same workspace. Select the **Audit** category and  then click **Save** to save the diagnostic setting and close the diagnostic setting page.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portalnew-diagnostic-setting.png" lightbox="media/media/tutorial-logs-ingestion-portalnew-diagnostic-setting.png" alt-text="Screenshot of new diagnostic setting.":::
+    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/new-diagnostic-setting.png" lightbox="media/media/tutorial-logs-ingestion-portal/new-diagnostic-setting.png" alt-text="Screenshot of new diagnostic setting.":::
 
 3. Select **Logs** and then run some queries to populate `LAQueryLogs` with some data. These queries don't need to actually return any data. 
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portalsample-queries.png" lightbox="media/media/tutorial-logs-ingestion-portalsample-queries.png" alt-text="Screenshot of sample log queries.":::
+    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/sample-queries.png" lightbox="media/media/tutorial-logs-ingestion-portal/sample-queries.png" alt-text="Screenshot of sample log queries.":::
 
 ## Update table schema
 Before you can create the transformation, the following two changes must be made to the table:
@@ -99,7 +99,7 @@ Use the **Tables - Update** API to configure the table with the PowerShell code 
 
 4. You can verify that the column was added by going to the **Log Analytics workspace** menu in the Azure portal. Select **Logs** to open Log Analytics and then expand the `LAQueryLogs` table to view its columns.
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portalverify-table.png" lightbox="media/media/tutorial-logs-ingestion-portalverify-table.png" alt-text="Screenshot of Log Analytics with new column.":::
+    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/verify-table.png" lightbox="media/media/tutorial-logs-ingestion-portal/verify-table.png" alt-text="Screenshot of Log Analytics with new column.":::
 
 ## Define transformation query
 Use Log Analytics to test the transformation query before adding it to a data collection rule. 
@@ -113,7 +113,7 @@ Use Log Analytics to test the transformation query before adding it to a data co
     | take 10
     ```
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portalinitial-query.png" lightbox="media/media/tutorial-logs-ingestion-portalinitial-query.png" alt-text="Screenshot of initial query in Log Analytics.":::
+    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/initial-query.png" lightbox="media/media/tutorial-logs-ingestion-portal/initial-query.png" alt-text="Screenshot of initial query in Log Analytics.":::
 
 3. Modify the query to the following:
 
@@ -131,7 +131,7 @@ Use Log Analytics to test the transformation query before adding it to a data co
    - Remove data from the `RequestContext` column to save space.
 
 
-    :::image type="content" source="media/media/tutorial-logs-ingestion-portalmodified-query.png" lightbox="media/media/tutorial-logs-ingestion-portalmodified-query.png" alt-text="Screenshot of modified query in Log Analytics.":::
+    :::image type="content" source="media/media/tutorial-logs-ingestion-portal/modified-query.png" lightbox="media/media/tutorial-logs-ingestion-portal/modified-query.png" alt-text="Screenshot of modified query in Log Analytics.":::
 
 
 4. Make the following changes to the query to use it in the transformation:
