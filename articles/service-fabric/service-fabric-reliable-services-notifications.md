@@ -17,7 +17,8 @@ Common reasons for using notifications are:
 * Building materialized views, such as secondary indexes or aggregated filtered views of the replica's state. An example is a sorted index of all keys in Reliable Dictionary.
 * Sending monitoring data, such as the number of users added in the last hour.
 
-Notifications are fired as a part of applying operations. On a primary replica operations are applied after quorum acknowledgment as a part of `transaction.CommitAsync()` or `this.StateManager.GetOrAddAsync()`. On secondary replicas operations are applied at replication queue data processing. Because of that, notifications should be handled as fast as possible, and synchronous events shouldn't include any expensive operations. Otherwise it could negatielly impact transaction processing time as well as replica build ups.
+Notifications are fired as a part of applying operations. On a primary replica, operations are applied after quorum acknowledgment as a part of `transaction.CommitAsync()` or `this.StateManager.GetOrAddAsync()`. On secondary replicas, operations are applied at replication queue data processing. Because of that, notifications should be handled as fast as possible, and synchronous events shouldn't include any expensive operations. Otherwise, it could negatively impact transaction processing time as well as replica build-ups.
+
 
 ## Reliable State Manager notifications
 Reliable State Manager provides notifications for the following events:
