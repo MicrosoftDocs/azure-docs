@@ -128,4 +128,4 @@ After you delete a VIS, you can register the SAP system again. Open ACSS in the 
 ## Next steps
 
 - [Monitor SAP system from the Azure portal](monitor-portal.md)
-- [Use Quality Insights Azure workbook for your VIS](get-quality-insights-vis.md)
+- [Get quality checks and insights for your VIS](get-quality-checks-insights.md)

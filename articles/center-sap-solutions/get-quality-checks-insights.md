@@ -1,21 +1,21 @@
 ---
-title: Use Quality Insights for a Virtual Instance for SAP solutions (preview)
-description: Learn how to use the Quality Insights workbook for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
+title: Get quality checks and insights for a Virtual Instance for SAP solutions (preview)
+description: Learn how to get quality checks and insights for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
 ms.date: 07/19/2022
 author: lauradolan
 ms.author: ladolan
-#Customer intent: As a developer, I want to use the Quality Insights feature so that I can learn more about virtual machines within my Virtual Instance for SAP resource.
+#Customer intent: As a developer, I want to use the quality checks feature so that I can learn more insights about virtual machines within my Virtual Instance for SAP resource.
 ---
 
-# Use Quality Insights for a Virtual Instance for SAP solutions (preview)
+# Get quality checks and insights for a Virtual Instance for SAP solutions (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-The *Quality Insights* Azure workbook in *Azure Center for SAP solutions (ACSS)* provides insights about the SAP system resources. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. Quality Insights checks that your SAP system uses Azure and SAP best practices for reliability and performance. 
+The *Quality Insights* Azure workbook in *Azure Center for SAP solutions (ACSS)* provides insights about the SAP system resources. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. These quality checks make sure that your SAP system uses Azure and SAP best practices for reliability and performance. 
 
-In this how-to guide, you'll learn how to use Quality Insights to get more information about virtual machine (VM) configurations within your SAP system.
+In this how-to guide, you'll learn how to use quality checks and insights to get more information about virtual machine (VM) configurations within your SAP system.
 
 ## Prerequisites
 
@@ -23,18 +23,18 @@ In this how-to guide, you'll learn how to use Quality Insights to get more infor
 
 ## Open Quality Insights workbook
 
-To open the Quality Insights workbook:
+To open the workbook:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Azure Center for SAP solutions** in the Azure portal search bar.
 1. On the **Azure Center for SAP solutions** page's sidebar menu, select **Virtual Instances for SAP solutions**.
 1. On the **Virtual Instances for SAP solutions** page, select the VIS that you want to get insights about.
 
-    :::image type="content" source="media/get-quality-insights-vis/select-vis.png" lightbox="media/get-quality-insights-vis/select-vis.png" alt-text="Screenshot of Azure portal, showing the list of available virtual instances for SAP in a subscription.":::
+    :::image type="content" source="media/get-quality-checks-insights/select-vis.png" lightbox="media/get-quality-checks-insights/select-vis.png" alt-text="Screenshot of Azure portal, showing the list of available virtual instances for SAP in a subscription.":::
 
 1. On the sidebar menu for the VIS, under **Monitoring** select **Quality Insights**. 
 
-    :::image type="content" source="media/get-quality-insights-vis/quality-insights.png" lightbox="media/get-quality-insights-vis/quality-insights.png" alt-text="Screenshot of Azure portal, showing the Quality Insights workbook page selected in the sidebar menu for a virtual Instance for SAP solutions.":::
+    :::image type="content" source="media/get-quality-checks-insights/quality-insights.png" lightbox="media/get-quality-checks-insights/quality-insights.png" alt-text="Screenshot of Azure portal, showing the Quality Insights workbook page selected in the sidebar menu for a virtual Instance for SAP solutions.":::
 
 There are multiple sections in the workbook:
 - Select the default **Advisor Recommendations** tab to [see the list of recommendations made by ACSS for the different instances in your VIS](#get-advisor-recommendations)
@@ -47,11 +47,11 @@ The **Quality checks** feature in ACSS runs validation checks for all VIS resour
 
 The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application and Database instances in the VIS.
 
-:::image type="content" source="media/get-quality-insights-vis/advisor-recommendation.png" lightbox="media/get-quality-insights-vis/advisor-recommendation.png" alt-text="Screenshot of the Advisor Recommendations tab, showing overview of recommendations for all instances in the VIS.":::
+:::image type="content" source="media/get-quality-checks-insights/advisor-recommendation.png" lightbox="media/get-quality-checks-insights/advisor-recommendation.png" alt-text="Screenshot of the Advisor Recommendations tab, showing overview of recommendations for all instances in the VIS.":::
 
 Select an instance name to see all recommendations, including which action to take to resolve an issue.
 
-:::image type="content" source="media/get-quality-insights-vis/recommendation-detail.png" lightbox="media/get-quality-insights-vis/recommendation-detail.png" alt-text="Screenshot of detailed advisor recommendations for an instance and which actions to take to resolve each issue.":::
+:::image type="content" source="media/get-quality-checks-insights/recommendation-detail.png" lightbox="media/get-quality-checks-insights/recommendation-detail.png" alt-text="Screenshot of detailed advisor recommendations for an instance and which actions to take to resolve each issue.":::
 
 The following checks are run for each VIS:
 
@@ -81,7 +81,7 @@ The **Virtual Machine** tab provides insights about the VMs in your VIS. There a
 
 The **Azure Compute** tab shows a summary graph of the VMs inside the VIS. 
 
-:::image type="content" source="media/get-quality-insights-vis/azure-compute.png" lightbox="media/get-quality-insights-vis/azure-compute.png" alt-text="Screenshot of Azure Compute tab, showing a pie chart of running virtual machines.":::
+:::image type="content" source="media/get-quality-checks-insights/azure-compute.png" lightbox="media/get-quality-checks-insights/azure-compute.png" alt-text="Screenshot of Azure Compute tab, showing a pie chart of running virtual machines.":::
 
 ### Compute List
 
@@ -91,7 +91,7 @@ You can toggle **Show Help** to see more information about the table data.
 
 Select a VM name to see its overview page, and change settings like **Boot Diagnostic**.
 
-:::image type="content" source="media/get-quality-insights-vis/vm-compute-list.png" lightbox="media/get-quality-insights-vis/vm-compute-list.png" alt-text="Screenshot of Compute List tab, showing a table of details about the virtual machines inside of a virtual Instance for SAP solutions.":::
+:::image type="content" source="media/get-quality-checks-insights/vm-compute-list.png" lightbox="media/get-quality-checks-insights/vm-compute-list.png" alt-text="Screenshot of Compute List tab, showing a table of details about the virtual machines inside of a virtual Instance for SAP solutions.":::
 
 ### Compute Extensions
 
@@ -105,31 +105,31 @@ The **Compute Extensions** tab shows information about your VM extensions. There
 
 **VM+Extensions** shows a summary of any VM extensions installed on the VMs in your VIS.
 
-:::image type="content" source="media/get-quality-insights-vis/vm-plus-extensions.png" lightbox="media/get-quality-insights-vis/vm-plus-extensions.png" alt-text="Screenshot of the VM plus Extensions tab, showing a table of virtual machines with the names of virtual machine extensions installed on each resource.":::
+:::image type="content" source="media/get-quality-checks-insights/vm-plus-extensions.png" lightbox="media/get-quality-checks-insights/vm-plus-extensions.png" alt-text="Screenshot of the VM plus Extensions tab, showing a table of virtual machines with the names of virtual machine extensions installed on each resource.":::
 
 #### VM Extensions Status
 
 **VM Extensions Status** shows details about the VM extensions in each VM. You can see each extension's state, version, and if **AutoUpgrade** is enabled.
 
-:::image type="content" source="media/get-quality-insights-vis/vm-extensions-status.png" lightbox="media/get-quality-insights-vis/vm-extensions-status.png" alt-text="Screenshot of the VM extensions status tab, showing the states of each virtual machine extension per virtual machine.":::
+:::image type="content" source="media/get-quality-checks-insights/vm-extensions-status.png" lightbox="media/get-quality-checks-insights/vm-extensions-status.png" alt-text="Screenshot of the VM extensions status tab, showing the states of each virtual machine extension per virtual machine.":::
 
 #### Failed VM Extensions
 
 **Failed VM Extensions** shows which VM extensions are failing in the selected VIS.
 
-:::image type="content" source="media/get-quality-insights-vis/failed-vm-extensions.png" lightbox="media/get-quality-insights-vis/failed-vm-extensions.png" alt-text="Screenshot of the Failed VM Extensions tab, showing no failed extensions for the selected VIS.":::
+:::image type="content" source="media/get-quality-checks-insights/failed-vm-extensions.png" lightbox="media/get-quality-checks-insights/failed-vm-extensions.png" alt-text="Screenshot of the Failed VM Extensions tab, showing no failed extensions for the selected VIS.":::
 
 ### Compute + OS Disk
 
 The **Compute+OS Disk** tab shows a table with OS disk configurations in the SAP system.
 
-:::image type="content" source="media/get-quality-insights-vis/vm-compute-os-disk.png" lightbox="media/get-quality-insights-vis/vm-compute-os-disk.png" alt-text="Screenshot of the Compute plus O S Disk tab, showing a table with operating system disk configurations within the system.":::
+:::image type="content" source="media/get-quality-checks-insights/vm-compute-os-disk.png" lightbox="media/get-quality-checks-insights/vm-compute-os-disk.png" alt-text="Screenshot of the Compute plus O S Disk tab, showing a table with operating system disk configurations within the system.":::
 
 ### Compute + Data Disks
 
 The **Compute+Data Disks** tab shows a table with data disk configurations in the SAP system. 
 
-:::image type="content" source="media/get-quality-insights-vis/vm-compute-data-disks.png" lightbox="media/get-quality-insights-vis/vm-compute-data-disks.png" alt-text="Screenshot of the Compute plus Data Disks tab, showing a table with data disk configurations within the system.":::
+:::image type="content" source="media/get-quality-checks-insights/vm-compute-data-disks.png" lightbox="media/get-quality-checks-insights/vm-compute-data-disks.png" alt-text="Screenshot of the Compute plus Data Disks tab, showing a table with data disk configurations within the system.":::
 
 ## Run configuration checks
 
@@ -144,19 +144,19 @@ The **Configuration Checks** tab provides configuration checks for the VMs in yo
 
 The **Accelerated Networking** tab shows if **Accelerated Networking State** is enabled for each NIC in the VIS. It's recommended to enable this setting for reliability and performance.
 
-:::image type="content" source="media/get-quality-insights-vis/configuration-accelerated-networking.png" lightbox="media/get-quality-insights-vis/configuration-accelerated-networking.png" alt-text="Screenshot of the Accelerated Networking tab, showing a table of virtual machines with their accelerated networking statuses.":::
+:::image type="content" source="media/get-quality-checks-insights/configuration-accelerated-networking.png" lightbox="media/get-quality-checks-insights/configuration-accelerated-networking.png" alt-text="Screenshot of the Accelerated Networking tab, showing a table of virtual machines with their accelerated networking statuses.":::
 
 ### Public IP
 
 The **Public IP** tab shows any public IP addresses that are associated with the NICs linked to the VMs in the VIS.
 
-:::image type="content" source="media/get-quality-insights-vis/configuration-public-ip.png" lightbox="media/get-quality-insights-vis/configuration-public-ip.png" alt-text="Screenshot of the Public I P tab, showing a notice that there are no public I P addresses associated with the virtual machines in the system.":::
+:::image type="content" source="media/get-quality-checks-insights/configuration-public-ip.png" lightbox="media/get-quality-checks-insights/configuration-public-ip.png" alt-text="Screenshot of the Public I P tab, showing a notice that there are no public I P addresses associated with the virtual machines in the system.":::
 
 ### Backup
 
 The **Backup** tab shows a table of VMs that don't have Azure Backup configured. It's recommended to use Azure Backup with your VMs.
 
-:::image type="content" source="media/get-quality-insights-vis/configuration-azure-backup.png" lightbox="media/get-quality-insights-vis/configuration-azure-backup.png" alt-text="Screenshot of the Backup tab, showing a table of which virtual machines in the system don't have Azure Backup enabled.":::
+:::image type="content" source="media/get-quality-checks-insights/configuration-azure-backup.png" lightbox="media/get-quality-checks-insights/configuration-azure-backup.png" alt-text="Screenshot of the Backup tab, showing a table of which virtual machines in the system don't have Azure Backup enabled.":::
 
 ### Load Balancer
 
@@ -170,7 +170,7 @@ The **Load Balancer Overview** tab shows rules and details for the load balancer
 - If the load balancers have floating IP addresses enabled.
 - If the keep-alive functionality is enabled, with a maximum timeout of 30 minutes.
 
-:::image type="content" source="media/get-quality-insights-vis/configuration-load-balancer.png" lightbox="media/get-quality-insights-vis/configuration-load-balancer.png" alt-text="Screenshot of the Load Balancer tab, showing a table with an overview of information for the standard load balancers in the system.":::
+:::image type="content" source="media/get-quality-checks-insights/configuration-load-balancer.png" lightbox="media/get-quality-checks-insights/configuration-load-balancer.png" alt-text="Screenshot of the Load Balancer tab, showing a table with an overview of information for the standard load balancers in the system.":::
 
 #### Load Balancer Monitor
 
@@ -178,11 +178,11 @@ The **Load Balancer Monitor** tab shows monitoring information for the load bala
 
 **Load Balancer Key Metrics**, which is a table that shows important information about the load balancers in the subscription where the VIS exists.
 
-:::image type="content" source="media/get-quality-insights-vis/configuration-load-balancer-monitor.png" lightbox="media/get-quality-insights-vis/configuration-load-balancer-monitor.png" alt-text="Screenshot of the Load Balancer Key Metrics section, showing a table of basic visualized information about load balancers in the system. ":::
+:::image type="content" source="media/get-quality-checks-insights/configuration-load-balancer-monitor.png" lightbox="media/get-quality-checks-insights/configuration-load-balancer-monitor.png" alt-text="Screenshot of the Load Balancer Key Metrics section, showing a table of basic visualized information about load balancers in the system. ":::
 
 **Backend health probe by Backend IP**, which is a chart that shows the health probe status for each load balancer over time. 
 
-:::image type="content" source="media/get-quality-insights-vis/configuration-load-balancer-health-probe.png" lightbox="media/get-quality-insights-vis/configuration-load-balancer-health-probe.png" alt-text="Screenshot of the Backend health probe section, showing a graph of load balancer statuses over the selected time range.":::
+:::image type="content" source="media/get-quality-checks-insights/configuration-load-balancer-health-probe.png" lightbox="media/get-quality-checks-insights/configuration-load-balancer-health-probe.png" alt-text="Screenshot of the Backend health probe section, showing a graph of load balancer statuses over the selected time range.":::
 
 ## Next steps
 
