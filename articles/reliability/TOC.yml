@@ -4,8 +4,12 @@
   href: overview.md
 - name: Business Continuity and Disaster Recovery
   items:
-  - name: About availability zones
-    href: overview-availability-zones.md
+  - name: Business continuity management in Azure
+    href: business-continuity-management-program.md
+  - name: Cross-region replication in Azure
+    href: cross-region-replication-azure.md
+  - name: Resiliency guides by service
+    href: overview-resiliency.md
   - name: Azure services that support availability zones
     href: availability-zones-region.md
   - name: Availability zone migration guides
@@ -105,12 +109,6 @@
       items:
       - name: Create an Azure Active Directory Domain Services instance
         href: ../active-directory-domain-services/tutorial-create-instance.md
-  - name: Resiliency guides by service
-    href: overview-resiliency.md
-  - name: Business continuity management in Azure
-    href: business-continuity-management-program.md
-  - name: Cross-region replication in Azure
-    href: cross-region-replication-azure.md
   - name: Use Azure Site Recovery
     href: ../site-recovery/index.yml
   - name: Use Azure Backup
