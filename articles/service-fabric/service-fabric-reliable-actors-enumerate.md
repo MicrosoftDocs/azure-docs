@@ -51,7 +51,8 @@ while (continuationToken != null);
 
 While the code above will retrieve all the actors in a given partition, occasionally the need will arise to query the IDs of all actors (active or inactive) across each partition. This should be done by exception as it's quite a heavy task.
 
-The following example demonstrates how to query the partitions of the service and iterate through each in combination with the above exmaple to produce a list of all the active and inactive actors in the service across the Service Fabric application:
+The following example demonstrates how to query the partitions of the service and iterate through each in combination with the above example to produce a list of all the active and inactive actors in the service across the Service Fabric application:
+
 
 ```csharp
 
