@@ -90,7 +90,12 @@ See also: [Regions that require endpoint modification](./custom-endpoints.md#reg
 - [Profiler](./profiler-overview.md): `profiler`
 - [Snapshot](./snapshot-debugger.md): `snapshot`
 
+#### Is Connection String a secret?
 
+Connection String contains iKey which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource.  It is not to be considered a security token or key. The ingestion endpoint provides [AAD based authenticated telemetry ingestion options] if you want to protect your AI resource from misuse.
+
+> [!NOTE]
+> Application Insights JavaScript SDK requires Connection string to be passed in during initialization/configuration.  This is viewable in plain text in client browsers. There is no easy way to use the AAD based authentication for browser telemetry.  It is recommended that customers consider creating a separate Application Insights resource for browser telemetry if they need to secure the service telemetry.
 
 ## Connection string examples
 
