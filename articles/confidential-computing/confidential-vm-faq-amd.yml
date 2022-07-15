@@ -49,14 +49,14 @@ sections:
         answer: |
           Azure VMs already offer industry leading security and protection against other tenants and malicious intruders. 
           Azure confidential VMs augment these protections by using hardware-based TEEs (Trusted Execution Environment) which leverage AMD’s SEV-SNP to cryptographically isolate and protect your data confidentiality and integrity even when they are in use. 
-          This means neither host admins, nor services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
+          This means not host admins, or services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
           Moreover, with full attestation capability, full OS disk encryption and hardeware-protected virtual Trusted Platform Modules, confidential VM persistent state is protected such that neither your private keys, nor are the contents of your memory are ever exposed to the hosting environment.
 
       - question: |
           Are the virtual disks attached to confidential VMs automatically protected?
         answer: |
           Currently OS disks for confidential VMs can be encrypted and secured. 
-          For additional security, you can enable guest level encryption (such as bitlocker or dm-crypt) for all data drives.
+          For additional security, you can enable guest level encryption (such as BitLocker or dm-crypt) for all data drives.
         
       - question: |
           Does memory written to the Windows swap file (pagefile.sys) get protected by the TEE?
@@ -120,7 +120,7 @@ sections:
           No. Confidential VMs don't support Accelerated Networking. You can't enable Accelerated Networking for any confidential VM deployment, or any Azure Kubernetes Service cluster deployment that runs on Confidential Computing.
 
       - question: |
-          What does this error mean? "Operation could not be completed as it results in exceeding approved standard DCasV5/ECasv5 Family Cores Quota"
+          What does this error mean? "Operation couldn't be completed as it results in exceeding approved standard DCasV5/ECasv5 Family Cores Quota"
         answer: |
           You might receive the error **Operation could not be completed as it results in exceeding approved standard DCasv5/ECasv5 Family Cores Quota**.
           This Azure Resource Manager template (ARM template) error means the deployment failed because of a lack of Azure compute cores. 
