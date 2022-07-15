@@ -10,7 +10,7 @@ ms.reviewer: jogrima
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-In this article, you learn how to run Application Insights Profiler on your Azure virtual machine (VM) or Azure VM scale set via three different methods. Using any of these methods, you will: 
+In this article, you learn how to run Application Insights Profiler on your Azure virtual machine (VM) or Azure virtual machine scale set via three different methods. Using any of these methods, you will: 
 
 - Configure the Azure Diagnostics extension to run Profiler.
 - Install the Application Insights SDK onto a VM.
@@ -23,7 +23,7 @@ In this article, you learn how to run Application Insights Profiler on your Azur
 - An [Application Insights resource](../app/create-workspace-resource.md).
 - Review the Azure Resource Manager templates for the Azure Diagnostics extension:
   - [VM](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-  - [VM scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
+  - [Virtual machine scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
 
 ## Add Application Insights SDK to your application
 
@@ -68,13 +68,13 @@ You can enable Profiler by any of the following three ways:
 
 1. Choose which Azure Resource Manager template to use:
    - [VM](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-   - [VM scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json).
+   - [Virtual machine scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json).
 
 1. In the template, locate the resource of type `extension`.
 
 1. In Visual Studio, navigate to the `arm.json` file in your ASP.NET Core application that was added when you installed the Application Insights SDK.
 
-1. Add the resource type `extension` from the template to the `arm.json` file. This will set up a VM or VM scale set with Azure Diagnostics.
+1. Add the resource type `extension` from the template to the `arm.json` file to set up a VM or virtual machine scale set with Azure Diagnostics.
 
 1. Within the `WadCfg` tag, add your Application Insights instrumentation key to the `MyApplicationInsightsProfilerSink`.
     
@@ -136,7 +136,7 @@ The following PowerShell commands are an approach for existing VMs that touch on
    ```
 
    > [!NOTE]
-   > `Set-AzVMDiagnosticsExtension` might require the `-StorageAccountName` argument. If your original diagnostics configuration had the `storageAccountName` property in the `protectedSettings` section (which is not downloadable), be sure to pass the same original value you had in this cmdlet call.
+   > `Set-AzVMDiagnosticsExtension` might require the `-StorageAccountName` argument. If your original diagnostics configuration had the `storageAccountName` property in the `protectedSettings` section (which isn't downloadable), be sure to pass the same original value you had in this cmdlet call.
 
 ### IIS Http Tracing feature
 
@@ -167,7 +167,7 @@ Since the Azure portal doesn't provide a way to set the Application Insights Pro
 > [!NOTE]
 > If you deploy the VM again, the sink will be lost. You'll need to update the config you use when deploying the VM to preserve this setting.
 
-1. Verify the Windows Azure Diagnostics extension is installed by viewing the extensions installed for your virtual machine.  
+1. Verify the Microsoft Azure Diagnostics extension is installed by viewing the extensions installed for your virtual machine.  
 
    :::image type="content" source="./media/profiler-vm/wad-extension.png" alt-text="Check if WAD extension is installed":::
 
