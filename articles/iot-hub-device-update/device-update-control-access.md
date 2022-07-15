@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Azure Role-based access control (RBAC) and Device Update
 
-Device Update uses Azure RBAC to provide authentication and authorization for users and service APIs. In order for other users and applications to have access to Device Update, users or applications must be granted access to this resource. It is also necessary to [configure access for Azure Device Update service principal](./device-update-control-access.md.md) for successfully deploying updates and managing your devices.
+Device Update uses Azure RBAC to provide authentication and authorization for users and service APIs. In order for other users and applications to have access to Device Update, users or applications must be granted access to this resource. It is also necessary to [configure access for Azure Device Update service principal](https://docs.microsoft.com/en-us/rest/api/deviceupdate/2021-06-01-preview/device-management) for successfully deploying updates and managing your devices.
 
 ## Configure access control roles
 
@@ -31,13 +31,13 @@ A combination of roles can be used to provide the right level of access. For exa
 
 Device Update for IoT Hub uses [Automatic Device Management](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-automatic-device-management) for deployments and uses ADM configs to perform device management operations like updates at scale. In order to enable Device Update to do this, users need to set Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
 
-Below actions will be blocked if these permissions are not set:
+Below actions will be blocked (after 9/28/22) if these permissions are not set:
 * Create Deployment
 * Cancel Deployment
 * Retry Deployment 
 * Get Device
 
-1. Go to the **IoT Hub** connected to your Device Update Instance and click **Access Control(IAM)**
+1. Go to the **IoT Hub** connected to your Device Update Instance. Click **Access Control(IAM)**
 2. Click **+ Add** -> **Add role assignment**
 3. Under Role tab, select **Contributor**
 4. Click **Next**. For **Assign access to**, select **User, group, or service principal**. Click **+ Select Members**, search for '**Azure Device Update**'
