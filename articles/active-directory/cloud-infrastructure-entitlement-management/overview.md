@@ -26,7 +26,7 @@ Organizations have to consider permissions management as a central piece of thei
 - IT security teams are under increased pressure to ensure access to their expanding cloud estate is secure and compliant.
 - The inconsistency of cloud providers' native access management models makes it even more complex for Security and Identity to manage permissions and enforce least privilege access policies across their entire environment.
 
-:::image type="content" source="media/cloudknox-overview/cloudknox-key-cases.png" alt-text="CloudKnox Permissions Management.":::
+:::image type="content" source="media/overview/key-use-cases.png" alt-text="Microsoft Entra Permissions Management use cases." lightbox="media/overview/key-use-cases.png":::
 
 ## Key use cases
 
