@@ -56,13 +56,13 @@ The following procedure sets up the Config Server using the Azure portal to depl
 
 1. Go to the service **Overview** page and select **Config Server**.
 
-2. In the **Default repository** section, set **URI** to `https://github.com/azure-samples/spring-petclinic-microservices-config`.
+1. In the **Default repository** section, set **URI** to `https://github.com/azure-samples/spring-petclinic-microservices-config`.
 
-3. Select **Validate**.
+1. Select **Validate**.
 
     :::image type="content" source="media/quickstart-setup-config-server/portal-config.png" alt-text="Screenshot of Azure portal showing Config Server page." lightbox="media/quickstart-setup-config-server/portal-config.png":::
 
-4. When validation is complete, select **Apply** to save your changes.
+1. When validation is complete, select **Apply** to save your changes.
 
     :::image type="content" source="media/quickstart-setup-config-server/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted."  lightbox="media/quickstart-setup-config-server/validate-complete.png":::
 
@@ -81,16 +81,16 @@ az spring config-server git set -n <service instance name> --uri https://github.
 ::: zone-end
 
 > [!TIP]
-> If you are using a private repository for Config Server, please refer to our [tutorial on setting up authentication](./how-to-config-server.md).
+> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](./how-to-config-server.md).
 
 ## Troubleshooting of Azure Spring Apps Config Server
 
-The following procedure explains how to troubleshoot config server settings.
+The following procedure explains how to troubleshoot Config Server settings.
 
 1. In the Azure portal, go to the service **Overview** page and select **Logs**.
 1. Select **Queries** and **Show the application logs that contain the "error" or "exception" terms"**.
 1. Select **Run**.
-1. If you find the error **java.lang.illegalStateException** in logs, this indicates that spring cloud service cannot locate properties from config server.
+1. If you find the error **java.lang.illegalStateException** in logs, this indicates that the Spring Apps service can't locate properties from Config Server.
 
     :::image type="content" source="media/quickstart-setup-config-server/setup-config-server-query.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps query." lightbox="media/quickstart-setup-config-server/setup-config-server-query.png":::
 
@@ -110,7 +110,7 @@ The following procedure explains how to troubleshoot config server settings.
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group, enter the following commands in the Azure CLI:
 
 ```azurecli
 echo "Enter the Resource Group name:" &&
