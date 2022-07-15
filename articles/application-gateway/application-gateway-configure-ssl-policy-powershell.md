@@ -137,7 +137,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 > - If you are using a custom SSL policy in Application Gateway v1 SKU (Standard or WAF), make sure that you add the mandatory cipher &#34;TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34; to the list. This cipher is required to enable metrics and logging in the Application Gateway v1 SKU. This is not mandatory for Application Gateway v2 SKU (Standard_v2 or WAF_v2).
 > - Cipher suites "TLS_AES_128_GCM_SHA256" and "TLS_AES_256_GCM_SHA384" with TLSv1.3 are not customizable and included by default when setting a CustomV2 policy with a minimum TLS version of 1.2 or 1.3. These two cipher suites will not appear in the Get Details output, with an exception of Portal.
 
-To set minimum protocol version to 1.3, you must use the following commands:
+To set minimum protocol version to 1.3, you must use the following command:
 
 ```powershell
 Set-AzApplicationGatewaySslPolicy -ApplicationGateway $AppGW -MinProtocolVersion TLSv1_3 -PolicyType CustomV2 -CipherSuite @()
@@ -145,7 +145,7 @@ Set-AzApplicationGatewaySslPolicy -ApplicationGateway $AppGW -MinProtocolVersion
 
 This illustration further explains the usage of CustomV2 policy with minimum protocol versions 1.2 and 1.3.
 
-:::image type="content" source="media/application-gateway-configure-ssl-policy-powershell/Customv2-PS-commands.png" alt-text="An image showing use of ciphersuite parameter for the CustomV2 policy":::
+:::image type="content" source="media/application-gateway-configure-ssl-policy-powershell/custom-v2-PS-commands.png" alt-text="Diagram that shows use of ciphersuite parameter for the CustomV2 policy.":::
 
 ## Create an application gateway with a pre-defined TLS policy
 
