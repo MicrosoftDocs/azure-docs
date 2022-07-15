@@ -5,7 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 07/18/2022
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
 ---
