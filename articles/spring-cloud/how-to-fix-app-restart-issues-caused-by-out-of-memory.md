@@ -17,7 +17,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This articles describes out-of-memory (OOM) issues for Java applications in Azure Spring Apps. For container OOM
+This article describes out-of-memory (OOM) issues for Java applications in Azure Spring Apps. For container OOM
 
 ## OOM concepts
 
@@ -25,13 +25,13 @@ There are two different OOM concepts, which are described in the following secti
 
 ### Container OOM
 
-Container OOM, also called *system OOM*, means that the available app memory has run out. Container OOM will cause app restart events, which are reported in the **Resource Health** section of the Azure portal. Normally, container OOM it is due to incorrect memory size configurations.
+Container OOM, also called *system OOM*, means that the available app memory has run out. Container OOM will cause app restart events, which are reported in the **Resource Health** section of the Azure portal. Normally, container OOM is due to incorrect memory size configurations.
 
 ### JVM OOM
 
 JVM OOM means that the amount of used memory has reached the maximum size set in JVM options.
 
-JVM OOM will not cause app restart. Normally, JVM OOM is a result of bad code, which you can find by looking for `java.lang.OutOfMemoryError` exceptions in the application log. JVM OOM will make the application and the Java Profiling tools (such as Java Flight Recorder) unhealthy.
+JVM OOM won't cause app restart. Normally, JVM OOM is a result of bad code, which you can find by looking for `java.lang.OutOfMemoryError` exceptions in the application log. JVM OOM will make the application and the Java Profiling tools (such as Java Flight Recorder) unhealthy.
 
 This article focuses on how to fix container OOM. To fix JVM OOM, check tools like heap dump, thread dump, and Java Flight Recorder. For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](how-to-capture-dumps.md).
 
@@ -47,7 +47,7 @@ The **Resource health** page on the Azure portal shows app restart events due to
 
 ### Fix container OOM
 
-The metrics "App memory Usage", `jvm.memory.used`, and `jvm.memory.committed` provide a view of memory usage. For more information see the [Metrics](tools-to-troubleshoot-memory-issues.md#metrics) section of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md). More importantly, you need to configure the maximum memory sizes in the JVM options to ensure that memory is under the limit.
+The metrics "App memory Usage", `jvm.memory.used`, and `jvm.memory.committed` provide a view of memory usage. For more information, see the [Metrics](tools-to-troubleshoot-memory-issues.md#metrics) section of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md). More importantly, you need to configure the maximum memory sizes in the JVM options to ensure that memory is under the limit.
 
 The sum of the maximum memory sizes of all the parts in the [Java memory model](concepts-for-java-memory-management.md#java-memory-model) should be less than the real available app memory. To set your maximum memory sizes, refer to the typical memory layout described in the [Memory usage layout](concepts-for-java-memory-management.md#memory-usage-layout) section.
 

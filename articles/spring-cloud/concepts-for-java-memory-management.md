@@ -58,7 +58,7 @@ Direct memory is native memory allocated by `java.nio.DirectByteBuffer`, which i
 
 Spring Boot Actuator doesn't observe the value of direct memory.
 
-The following diagram summarizes the Java memory model just described.
+The following diagram summarizes the Java memory model described in the previous section.
 
 :::image type="content" source="media/concepts-for-java-memory-management/java-memory-model.png" alt-text="Diagram of the Java memory model." border="false":::
 
@@ -130,9 +130,9 @@ The metaspace size depends on the complexity of your code, such as the number of
 
 The direct memory size depends on your throughput and your use of third party libraries like nio and gzip.
 
-The following diagram shows a typical memory layout sample for 2 GB apps. Numbers in grey are reference values of daily memory usage. You can refer to this image to configure your memory size settings.
+The following diagram shows a typical memory layout sample for 2-GB apps. Numbers in grey are reference values of daily memory usage. You can refer to this image to configure your memory size settings.
 
-:::image type="content" source="media/concepts-for-java-memory-management/2-gb-sample.png" alt-text="Diagram of typical memory layout for 2 GB apps." border="false":::
+:::image type="content" source="media/concepts-for-java-memory-management/2-gb-sample.png" alt-text="Diagram of typical memory layout for 2-GB apps." border="false":::
 
 Overall, when configuring maximum memory sizes, you should consider the usage of each part in memory, and the sum of all maximum sizes shouldn't exceed total available memory.
 

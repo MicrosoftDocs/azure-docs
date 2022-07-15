@@ -77,9 +77,9 @@ For JVM memory, there are three metrics: `jvm.memory.used`, `jvm.memory.committe
 
 These two metrics are for observing Java garbage collection (GC). For more information, see the [Java garbage collection](concepts-for-java-memory-management.md#java-garbage-collection) section of [Java memory management](concepts-for-java-memory-management.md). The maximum heap size influences the frequency of minor GC and full GC. The maximum metaspace and maximum direct memory size influence full GC. If you want to adjust the frequency of garbage collection, consider modifying the following maximum memory sizes.
 
-- `jvm.gc.memory.allocated` is the amount of increase in the size of the young generation memory pool after one GC to before the next. This value reflects minor GC.
+- `jvm.gc.memory.allocated` is the amount of increase in the size of the young generation memory pool after one GC and before the next. This value reflects minor GC.
 
-- `jvm.gc.memory.promoted` is the amount of increase in the size of the old generation memory pool before GC to after GC. This value reflects full GC.
+- `jvm.gc.memory.promoted` is the amount of increase in the size of the old generation memory pool after GC. This value reflects full GC.
 
 You can find this feature on the Azure portal, as shown in the following screenshot. You can choose specific metrics and add filters for a specific app, deployment, or instance. You can also apply splitting.
 
@@ -97,7 +97,7 @@ You can also use third party tools like [Memory Analyzer](https://www.eclipse.or
 
 ## Modify configurations to fix problems
 
-If you identify issues including [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#fix-app-restart-issues-due-to-oom), heap memory that's too large, and abnormal garbage collection, you may need to configure the maximum memory size in the JVM options. For more information, see the [Important JVM options](concepts-for-java-memory-management.md#important-jvm-options) section of [Java memory management](concepts-for-java-memory-management.md#important-jvm-options).
+Some issues you might identify include [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#fix-app-restart-issues-due-to-oom), heap memory that's too large, and abnormal garbage collection. If you identify any of these issues, you may need to configure the maximum memory size in the JVM options. For more information, see the [Important JVM options](concepts-for-java-memory-management.md#important-jvm-options) section of [Java memory management](concepts-for-java-memory-management.md#important-jvm-options).
 
 This feature is available on Azure CLI and on the Azure portal, as shown in the following screenshot:
 
