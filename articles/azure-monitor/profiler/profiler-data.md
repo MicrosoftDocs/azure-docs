@@ -126,7 +126,7 @@ However, logically, the thread that did the **AWAIT** is "blocked", waiting for 
 
 ### Unmanaged Async
 
-In order for async calls to be tracked across threads, .NET Framework emits ETW events and passes activity IDs between threads. Since unmanaged (native) code and some older styles of asynchronous code lack these events and activity IDs, the Profiler can't track the thread and functions running on the thread. This is labeled **Unmanaged Async** in the call stack. Download the ETW file to use [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) for more insight.
+In order for async calls to be tracked across threads, .NET Framework emits ETW events and passes activity IDs between threads. Since unmanaged (native) code and some older styles of asynchronous code lack these events and activity IDs, the Profiler can't track the thread and functions running on the thread. This item is labeled **Unmanaged Async** in the call stack. Download the ETW file to use [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) for more insight.
 
 ### <a id="cpu"></a>CPU time
 
