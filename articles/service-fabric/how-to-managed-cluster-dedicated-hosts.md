@@ -37,7 +37,7 @@ Service Fabric managed clusters use a client certificate as a key for access con
 If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal). Note the certificate thumbprint as this will be required to deploy the template in the next step. 
 
 ## Deploy Dedicated Host Resources
-Create a dedicated host group pinned to one availability zone and five fault domains using the provided sample ARM deployment template. The sample will ensure there    is at least one dedicated host per Fault Domain.
+Create a dedicated host group pinned to one availability zone and five fault domains using the provided [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-ADH). The sample will ensure there is at least one dedicated host per fault domain.
    ```powershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $location
    New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\hostGroupTemplate_sample.json" -hostGroupName $hostGroupName -dedicatedHostNamePrefix $dedicatedHostNamePrefix -dedicatedHostSKU $dedicatedHostSKU -Debug –Verbose 
