@@ -146,6 +146,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Assign VM to a Specific Fault Domain | Yes | No | No |
 | Update Domains | Depreciated (platform maintenance performed FD by FD) | 5 update domains | Up to 20 update domains |
 | Perform Maintenance | Trigger maintenance on each instance using VM API | Yes | N/A |
+| [Capacity Reservation](../virtual-machines/capacity-reservation-overview.md) | Yes | Yes | Yes |
 
 ### Networking 
 
