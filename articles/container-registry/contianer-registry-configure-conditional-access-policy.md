@@ -23,9 +23,7 @@ The policy enables the security to meet the organizations compliance requirement
 
 # Azure Container Registry (ACR) introduces the conditional access policy
 
-You can refer to the container registry's Conditional Access Policy in the Azure built-in policy definitions.
-
-[!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]. 
+You can refer to the ACR's Conditional Access Policy in the[azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)..
 
 *  Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
 * Enable conditional policy using [Azure portal](../governance/policy/assign-policy-portal.md) 
@@ -35,21 +33,12 @@ You can refer to the container registry's Conditional Access Policy in the Azure
 
 You can enable registry's conditional policy in the [Azure portal](https://portal.azure.com). 
 
->* Sign in to the Azure portal as a global administrator, security 
->* Navigate to your **Resource Group**> **Azure Container Registry** > **Security** > **Conditional Access**.
->* Use the filters to limit compliance states or to search for policies.
->* Select **New policy**.
->* Give your policy a meaningful standard name. 
->* Under **Assignments**, select **Users and groups**.
->* Under **Include**, select **All users**.
->* Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
->* Select **Done**.
->* Under Cloud apps or actions > Include, select All Azure services
->* Under Exclude, select any Azure services that don't require multi-factor authentication.
->* Under Access controls > Grant, select Grant access, Require multi-factor authentication, and choose Select.
->* Confirm your settings and set Enable policy to Report-only.
->* Select Create to create to enable your policy.
-
+>* Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, security 
+>* Navigate to your **Azure Container Registry** > **Resource Group** > **Settings** > **Policies** > **Assign policy**
+>* Use filters to confirm and select **Scope**, **Policy definition**, **Assignment name**
+>* Use the filters to limit compliance states or to search for policies
+>* Confirm your settings and set Policy enforcement as **enabled**
+>* Select **Review+Create**
 
 # Enable conditional access in ACR - Azure CLI
 
