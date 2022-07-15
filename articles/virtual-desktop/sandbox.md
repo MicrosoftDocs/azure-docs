@@ -19,20 +19,10 @@ Before you get started, here's what you need to configureWindows Sandbox in Azur
 - A working Azure profile that can access the Azure portal.
 - A functioning Azure Virtual Desktop deployment. To learn how to deploy Azure Virtual Desktop (classic), see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Azure Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
-## Get the OS image from the Azure portal
-
-To get the OS image from the Azure portal:
-
-1. Open the [Azure portal](https://portal.azure.com) and sign in.
-2. Go to **Create a resource** > **Virtual Machine**.
-3. In the **Basic** tab, for the **Image** field, select either a Windows 10 Enterprise multi-session or Windows 11 image. For this example, we'll select **Windows 11 Enterprise multi-session- x64 Gen2**.
-4. Finish creating your virtual machine by following steps 7 through 15 in [Virtual machine details](create-host-pools-azure-marketplace.md#virtual-machine-details).
-
 ## Prepare the VHD image for Azure
 
-Next, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there.
+First, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. When you're given the option to select an operating system (OS) for your master image, select either Windows 10 or Windows 11.
 
-After you've created your master VHD image, you must install the Windows Sandbox feature. To install it enter the following commands:
 After you've created your master VHD image, you must install the Windows Sandbox feature. To install the VHD image, open the **Remote Desktop Connection** app and sign in to your virtual machine (VM), then open the command prompt and enter the following commands:
 
 ```powershell
@@ -41,7 +31,7 @@ Enable-WindowsOptionalFeature -FeatureName "Containers-DisposableClientVM" -All 
 
 >[!NOTE]
 >This change will require that you restart the virtual machine.
-Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure. To learn more, see [Prepare and customize a master VHD image](set-up-customize-master-image.md).
+
 Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
 
 ## Publish Windows Sandbox on your host pool
@@ -51,9 +41,24 @@ Once you've uploaded the VHD to Azure, create a host pool that's based on this n
 To publish Windows Sandbox to your host pool:
 
 1. Sign in to the Azure portal.
-2. Under "Application source," select **File Path**.
-3. For "Application path," enter **C:\windows\system32\WindowsSandbox.exe**.
-4. Enter **Windows Sandbox** into the "Application Name" field.
+
+2. In the search bar, enter **Azure Virtual Desktop** and select the matching service entry.
+
+3. Select **Application groups**, then select the name of the application group in the host pool you want to publish Windows Sandbox to.
+
+4. Once you're in the application group, select the **Applications** tab. The Applications grid will display all existing apps within the app group.
+
+5. Select **+ Add** to open the **Add application** tab
+
+6. For **Application source**, select **File Path**.
+
+7. For **Application path**, enter **C:\windows\system32\WindowsSandbox.exe**.
+
+8. Enter **Windows Sandbox** into the **Application Name** field.
+
+9.  When you're done, select **Save**.
+
+<!--Should I mention the "manage app groups" tutorial at the end to assign the app to users?--->
 
 ### [PowerShell](#tab/powershell)
 
