@@ -365,6 +365,11 @@
             "source_path_from_root": "/articles/azure-monitor/insights/redis-cache-insights-overview.md" ,
             "redirect_url": "/azure/azure-cache-for-redis/redis-cache-insights-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/cosmosdb-insights-overview.md" ,
+            "redirect_url": "/azure/cosmos-db/cosmosdb-insights-overview",
+            "redirect_document_id": false
         }
     ]
 }

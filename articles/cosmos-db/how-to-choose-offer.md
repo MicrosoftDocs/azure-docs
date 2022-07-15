@@ -46,7 +46,7 @@ Use the Azure Cosmos DB [capacity calculator](estimate-ru-with-capacity-planner.
 
 ### Existing applications ###
 
-If you have an existing application using standard (manual) provisioned throughput, you can use [Azure Monitor metrics](../azure-monitor/insights/cosmosdb-insights-overview.md) to determine if your traffic pattern is suitable for autoscale. 
+If you have an existing application using standard (manual) provisioned throughput, you can use [Azure Monitor metrics](cosmosdb-insights-overview.md) to determine if your traffic pattern is suitable for autoscale. 
 
 First, find the [normalized request unit consumption metric](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) of your database or container. Normalized utilization is a measure of how much you are currently using your standard (manual) provisioned throughput. The closer the number is to 100%, the more you are fully using your provisioned RU/s. [Learn more](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) about the metric.
 
