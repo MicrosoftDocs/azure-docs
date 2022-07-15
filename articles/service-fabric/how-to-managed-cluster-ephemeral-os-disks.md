@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 7/14/2022
 ---
 
-# Introduction to Service Fabric managed cluster with Ephemeral OS disks for node types
+# Introduction to Service Fabric managed cluster with Ephemeral OS disks for node types (Preview)
 Azure Service Fabric managed clusters by default use managed OS disks for the nodes in a given node type. To be more cost efficient, managed clusters provide the ability to configure Ephemeral OS disks. Ephemeral OS disks are created on the local virtual machine (VM) storage and not saved to the remote Azure Storage. Ephemeral OS disks are free and replace the need to use a managed OS disks.
 
 The key benefits of ephemeral OS disks are: 
