@@ -19,16 +19,14 @@ ms.custom: devx-track-python, mlflow, sdkv1
 > * [v1](how-to-use-mlflow.md)
 > * [v2 (current version)](../how-to-use-mlflow-cli-runs.md)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-
 In this article, learn how to enable [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) to connect Azure Machine Learning as the backend of your MLflow experiments.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the lifecycle of your machine learning experiments. MLflow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally on your computer, on a remote compute target, a virtual machine, or an [Azure Databricks cluster](how-to-use-mlflow-azure-databricks.md).
+[MLflow](https://www.mlflow.org) is an open-source library for managing the lifecycle of your machine learning experiments. MLflow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally on your computer, on a remote compute target, a virtual machine, or an [Azure Databricks cluster](../how-to-use-mlflow-azure-databricks.md).
 
 See [MLflow and Azure Machine Learning](../concept-mlflow.md) for all supported MLflow and Azure Machine Learning functionality including MLflow Project support (preview) and model deployment.
  
 > [!TIP]
-> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](../monitor-azure-machine-learning.md).
 
 > [!NOTE] 
 > You can use the [MLflow Skinny client](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments.
@@ -36,8 +34,8 @@ See [MLflow and Azure Machine Learning](../concept-mlflow.md) for all supported 
 ## Prerequisites
 
 * Install the `azureml-mlflow` package. 
-* [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
-    * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
+* [Create an Azure Machine Learning Workspace](../quickstart-create-resources.md).
+    * See which [access permissions you need to perform your MLflow operations with your workspace](../how-to-assign-roles.md#mlflow-operations).
 
 * Install and [set up Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) and make sure you install the ml extension.
 * Install and set up [Azure Machine Learning SDK for Python](introduction.md#sdk-v1).
@@ -129,15 +127,6 @@ mlflow.set_tracking_uri(azureml_mlflow_uri)
 > 3. Copy the URI and use it with the method `mlflow.set_tracking_uri`.
 
 ---
-
-```Python
-import mlflow
-from azureml.core import Workspace
-
-ws = Workspace.from_config()
-
-mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
-```
 
 ### Set experiment name
 
@@ -329,7 +318,7 @@ To register and view a model from a run, use the following steps:
     mlflow.register_model(model_uri,"registered_model_name")
     ```
 
-1. View the registered model in your workspace with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+1. View the registered model in your workspace with [Azure Machine Learning studio](../overview-what-is-machine-learning-studio.md).
 
     In the following example the registered model, `my-model` has MLflow tracking metadata tagged. 
 
