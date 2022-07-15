@@ -86,7 +86,7 @@ Applications in Azure Spring Apps run in container environments. For more inform
 
 ### Important JVM options
 
-You can configure the maximum size of each part of memory by using JVM options. You can set JVM options by using Azure CLI commands or through the Azure portal. For more information, see the [Configure memory settings in JVM options](tools-to-troubleshoot-memory-issues.md#configure-memory-settings-in-jvm-options) section of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md).
+You can configure the maximum size of each part of memory by using JVM options. You can set JVM options by using Azure CLI commands or through the Azure portal. For more information, see the [Modify configurations to fix problems](tools-to-troubleshoot-memory-issues.md#modify-configurations-to-fix-problems) section of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md).
 
 The following list describes the JVM options:
 
@@ -138,4 +138,4 @@ Overall, when configuring maximum memory sizes, you should consider the usage of
 
 ## Java OOM
 
-OOM means the application is out of memory. There are two different concepts: container OOM and JVM OOM. For more information, see [App restart issues caused by out-of-memory issues](./how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
+OOM means the application is out of memory. There are two different concepts: container OOM and JVM OOM. For more information, see [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).

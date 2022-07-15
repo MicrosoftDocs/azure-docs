@@ -17,7 +17,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This articles describes out-of-memory (OOM) issues for Java applications in Azure Spring Apps.
+This articles describes out-of-memory (OOM) issues for Java applications in Azure Spring Apps. For container OOM
 
 ## OOM concepts
 
@@ -37,19 +37,21 @@ This article focuses on how to fix container OOM. To fix JVM OOM, check tools li
 
 ## Fix app restart issues due to OOM
 
+The following sections describe the tools, metrics, and JVM options that will help you diagnose and fix container OOM issues.
+
 ### Alert in resource health
 
 The **Resource health** page on the Azure portal shows app restart events due to container OOM, as shown in the following screenshot:
 
 :::image type="content" source="media/how-to-fix-app-restart-issues-caused-by-out-of-memory/out-of-memory-alert-resource-health.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Resource Health page with OOM message highlighted." lightbox="media/how-to-fix-app-restart-issues-caused-by-out-of-memory/out-of-memory-alert-resource-health.png":::
 
-### How to fix container OOM
+### Fix container OOM
 
-The metrics "App memory Usage", `jvm.memory.used`, and `jvm.memory.committed` provide a view of memory usage. For more information see the [Metrics](tools-to-troubleshoot-memory-issues.md#metrics) section of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md). More important, you need to configure maximum memory sizes in JVM options to control memory under limit.
+The metrics "App memory Usage", `jvm.memory.used`, and `jvm.memory.committed` provide a view of memory usage. For more information see the [Metrics](tools-to-troubleshoot-memory-issues.md#metrics) section of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md). More importantly, you need to configure the maximum memory sizes in the JVM options to ensure that memory is under the limit.
 
-The sum of maximum memory sizes of [all parts in Java memory model](concepts-for-java-memory-management.md#java-memory-model), should be less than real available app memory. You can refer to [typical memory layout](concepts-for-java-memory-management.md#memory-usage-layout) to set your maximum memory sizes.
+The sum of the maximum memory sizes of all the parts in the [Java memory model](concepts-for-java-memory-management.md#java-memory-model) should be less than the real available app memory. To set your maximum memory sizes, refer to the typical memory layout described in the [Memory usage layout](concepts-for-java-memory-management.md#memory-usage-layout) section.
 
-When you set the maximum memory size too high, there will be risk of container OOM. When you set the maximum memory size too low, there will be risk of JVM OOM, and garbage collection will be frequent and will slow the app. So you need to find a balance.
+When you set the maximum memory size too high, there will be a risk of container OOM. When you set the maximum memory size too low, there will be a risk of JVM OOM, and garbage collection will be frequent and will slow down the app. So you need to find a balance.
 
 #### Control heap memory
 
@@ -59,12 +61,10 @@ When the value of `jvm.memory.used` is too high in the metrics, you may need to 
 
 #### Control direct memory
 
-Direct memory may be used by frameworks like nio, gzip without noticing it. And direct memory is only garbage collected by full GC, while full GC performs only when the heap is near full.
-
-So it's important to set `-XX:MaxDirectMemorySize` in the JVM options. Normally, you can set `MaxDirectMemorySize` < (app memory size)-(heap memory)-(non-heap memory).
+Direct memory may be used by frameworks like nio and gzip without noticing it. Also, direct memory is only garbage collected by full GC, while full GC occurs only when the heap is near full. For this reason, it's important to set `-XX:MaxDirectMemorySize` in the JVM options. Normally, you can set `MaxDirectMemorySize` to a value less than the app memory size minus the heap memory minus the non-heap memory.
 
 #### Control metaspace
 
-You can set the maximum metaspace size by using `-XX:MaxMetaspaceSize` in the JVM options. Another parameter `-XX:MetaspaceSize` is the threshold value to trigger full GC.
+You can set the maximum metaspace size by using `-XX:MaxMetaspaceSize` in the JVM options. Another parameter, `-XX:MetaspaceSize`, is the threshold value to trigger full GC.
 
 Usually, metaspace memory is stable.

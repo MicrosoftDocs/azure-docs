@@ -97,7 +97,7 @@ You can also use third party tools like [Memory Analyzer](https://www.eclipse.or
 
 ## Modify configurations to fix problems
 
-If you identify issues including [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#how-to-fix-app-restart-issues-due-to-oom), heap memory that's too large, and abnormal garbage collection, you may need to configure the maximum memory size in the JVM options. For more information, see the [Important JVM options](concepts-for-java-memory-management.md#important-jvm-options) section of [Java memory management](concepts-for-java-memory-management.md#important-jvm-options).
+If you identify issues including [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#fix-app-restart-issues-due-to-oom), heap memory that's too large, and abnormal garbage collection, you may need to configure the maximum memory size in the JVM options. For more information, see the [Important JVM options](concepts-for-java-memory-management.md#important-jvm-options) section of [Java memory management](concepts-for-java-memory-management.md#important-jvm-options).
 
 This feature is available on Azure CLI and on the Azure portal, as shown in the following screenshot:
 
