@@ -36,7 +36,7 @@ Use this option to:
 - Minimize downtime. If DNS records are updated to the new environment, clients will establish new connections to the new gateway with no interruption.
 - Allow for extensive testing or even a blue/green scenario.
 
-To create a separate Application Gateway and IP address:
+To create a separate Application Gateway, WAF (optional) and IP address:
 
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to create a new Application Gateway v2 or Application Gateway V2 + WAF v2, respectively. You can reuse your existing Virtual Network or create a new one, but you must create a new frontend Public IP address.
@@ -46,19 +46,19 @@ To create a separate Application Gateway and IP address:
 
 ## Option 2: Delete and redeploy Application Gateway
 
-This option doesn't require you to reconfigure a virtual network/subnet. If the public IP address for the Application Gateway is already configured for the desired end state zone awareness, you can choose to delete and redeploy the Application Gateway, and leave the Public IP address unchanged.
+This option doesn't require you to reconfigure  your virtual network and subnets. If the public IP address for the Application Gateway is already configured for the desired end state zone awareness, you can choose to delete and redeploy the Application Gateway, and leave the Public IP address unchanged.
 
 Use this option to:
 
 - Avoid changing IP address, subnet, and DNS configurations.
 - Move workloads that are not sensitive to downtime.
 
-To delete the Application Gateway and public IP address and redeploy new ones:
+To delete the Application Gateway and WAF and redeploy:
 
 1. Go to the [Azure portal](https://portal.azure.com). 
 2. Select **All resources**, and then select the resource group that contains the Application Gateway.
-3. **Delete** the Application Gateway.
-4. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to create a new Application Gateway v2 or Application Gateway V2 + WAF v2, respectively, reusing the same Virtual Network, subnets, and Public IP address that you used previously.
+3. Select the Application Gateway resource and then select **Delete**. Type **yes** to confirm deletion, and then click **Delete**.
+4. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to create a new Application Gateway v2 or Application Gateway V2 + WAF v2, respectively, using the same Virtual Network, subnets, and Public IP address that you used previously.
 
 ## Next steps
 
