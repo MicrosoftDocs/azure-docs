@@ -3,8 +3,12 @@ author: MikeRayMSFT
 ms.author: mikeray
 ms.service: azure-arc
 ms.topic: include
-ms.date: 07/05/2022
+ms.date: 07/12/2022
 ---
+
+At this time, a test or preview build is not available for the next release.
+
+<!---
 
 The current preview released on July 05, 2022.
 
@@ -16,7 +20,7 @@ The current preview released on July 05, 2022.
 |Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
 |`arcdata` Azure CLI extension version|1.4.3 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc enabled Kubernetes helm chart extension version|1.2.20031002|
-|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.3.0 ([Download](https://azuredatastudioarcext.blob.core.windows.net/stage/arc-1.3.0.vsix))</br>1.3.0 ([Download](https://azuredatastudioarcext.blob.core.windows.net/stage/azcli-1.3.0.vsix))|
+|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.3.2 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.3.2 ([Download](https://aka.ms/ads-azcli-ext))|
 
 New for this release:
 
@@ -35,3 +39,5 @@ New for this release:
 - Data controller
   - Permissions required to deploy the Arc data controller have been reduced to a least-privilege level.
   - When deployed via the Azure CLI, the Arc data controller is now installed via a K8s job that uses a helm chart to do the installation. There's no change to the user experience.
+
+--->

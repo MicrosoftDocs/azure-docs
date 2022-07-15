@@ -5,12 +5,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/07/2022
+ms.date: 07/11/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
 [Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
+
+Use this quickstart to send language detection requests using the REST API. In the following example, you will use cURL to identify the language that a text sample was written in.
 
 
 ## Prerequisites
