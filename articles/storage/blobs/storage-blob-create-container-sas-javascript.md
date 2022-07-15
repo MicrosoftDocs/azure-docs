@@ -41,7 +41,7 @@ Include the required dependencies to create an account SAS token.
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_Dependencies":::
 
-## Get environment variables
+## Get environment variables for user-delegation SAS
 
 The Blob Storage account name and container name are the minimum required values to create a container SAS token:
 
@@ -50,6 +50,8 @@ The Blob Storage account name and container name are the minimum required values
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const containerName = process.env.AZURE_STORAGE_BLOB_CONTAINER_NAME;
 ```
+
+If you need to create a blob SAS token, you need to have the blob name to create the SAS token. That will be predetermined such as a random blob name, a user-submitted blob name, or a name generated from your application. 
 
 ## Create a user delegation SAS token with managed identity
 
@@ -63,7 +65,7 @@ When these two tasks are complete, use the DefaultAzureCredential as the _manage
 
 With managed identity configured, use the following code to create **User delegation SAS token** for an existing account and container:
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_CreateContainerSas" highlight="47-49,54-56,71-75":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_CreateContainerSas" highlight="71-75":::
 
 The preceding code creates a flow of values in order to create the container SAS token:
 
@@ -75,11 +77,11 @@ The preceding code creates a flow of values in order to create the container SAS
 
 Once the container SAS token is created, use the token to:
 
-* Construct a full container URL with the SAS token as the query string
-* Create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-constructor-2) with the container URL
-* List to blobs in the container with [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat)
+* Construct a full URL including container name and query string. The query string is the SAS token.
+* Create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-constructor-2) with the container URL.
+* List to blobs in the container with [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat).
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_Main" highlight="93,97,102-104":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_Main" highlight="93":::
 
 
 ## See also
