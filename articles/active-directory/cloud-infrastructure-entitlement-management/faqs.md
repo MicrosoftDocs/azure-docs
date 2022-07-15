@@ -169,7 +169,7 @@ Where xx-XX is one of the following available language parameters: 'cs-CZ', 'de-
 - [Permissions Management web page](https://microsoft.com/security/business/identity-access-management/permissions-management)
 - For more information about Microsoft's privacy and security terms, see [Commercial Licensing Terms](https://www.microsoft.com/licensing/terms/product/ForallOnlineServices/all). 
 - For more information about Microsoft's data processing and security terms when you subscribe to a product, see [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA).
-- For more information about Microsoft’s policy and practices for Data Subject Requests for GDPR and CCPA: [https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure](https://docs.microsoft.com/compliance/regulatory/gdpr-dsr-azure).
+- For more information about Microsoft’s policy and practices for Data Subject Requests for GDPR and CCPA: [https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure](/compliance/regulatory/gdpr-dsr-azure).
 
 
 ## Next steps
