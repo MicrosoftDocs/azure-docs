@@ -5,7 +5,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/12/2022
+ms.date: 07/14/2022
 ms.author: v-smcevoy
 ms.custom: mode-api
 ---
@@ -49,7 +49,7 @@ You must first create a resource group to contain the deployed instances of work
 
 ### Provision an Event Hubs instance to a namespace
 
-In order to provision an Event Hubs service, an Event Hubs namespace must first be provisioned, because Event Hubs namespaces are logical containers for event hubs. Namespace must be associated with a resource. The event hub and namespace need to be provisioned in the same Azure subscription. See [Event Hubs](../../event-hubs/event-hubs-create.md) for more information.
+In order to provision an Event Hubs service, an Event Hubs namespace must first be provisioned, because Event Hubs namespaces are logical containers for event hubs. Namespace must be associated with a resource. The event hub and namespace need to be provisioned in the same Azure subscription. For more information, see [Event Hubs](../../event-hubs/event-hubs-create.md).
 
 Once an event hub is provisioned, you must give permission to the event hub to read data from the device. Then, MedTech service can retrieve data from the event hub using a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md). This managed identity is assigned an Azure Event Hubs data receiver role. For more information on how to assign the managed-identity role to MedTech service from an Event Hubs service instance, see [Granting MedTech service access](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-the-medtech-service-access).
 
@@ -69,19 +69,15 @@ When the relevant services are provisioned, you can send event data from the dev
 
 - Data is sent from your device to the event hub.
 
-- After the data is received by the event hub, MedTech service reads the data and transforms it into a FHIR service [Observation](http://hl7.org/fhir/observation.html) resource using customer-supplied [data mapping](./how-to-use-device-mappings.md).
+- After the data is received by the event hub, MedTech service reads it. Then it transforms the data into a FHIR service [Observation](http://hl7.org/fhir/observation.html) resource using the data mapping you supplied.
 
 ## Step 4: Verify the data
 
- You can verify the data by checking to see if the  data matches the customer-supplied mapping. If it matches, the data will become an Observation resource in FHIR service. If the data doesn't match or isn't authored properly, then the data is skipped. If the data is not mapped or if the mapping is not authored properly, you can author the data to generate an exception for subsequent data logging.
+If the data isn't mapped or if the mapping isn't authored properly, the data is skipped. If there are no problems with the [device mapping](./how-to-use-device-mappings.md) or the [FHIR destination mapping](./how-to-use-fhir-mappings.md), the data is persisted in the FHIR service.
 
 ### Metrics
 
-You can use Metrics to determine whether the data correctly matches the device mappings and becomes an Observation in the FHIR service. Metrics can also be used to display errors in the data flow, enabling you to troubleshoot your MedTech service instance.
-
-## Summary
-
-When you've successfully finished all these steps, your MedTech service instance is now able to take device-generated data and use it to create [Observation resources](http://hl7.org/fhir/observation.html) in FHIR service.
+You can verify that the data is correctly persisted into FHIR service by using [MedTech service metrics](./how-to-display-metrics.md) in the Azure portal.
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and used with their permission.
 
