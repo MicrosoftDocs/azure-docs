@@ -55,7 +55,7 @@ Now, having [UEBA enabled](enable-entity-behavior-analytics.md) in your Azure Se
 
 Use the **IdentityInfo** table during investigations and when fine-tuning analytics rules for your organization to reduce false positives.
 
-For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference and [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives).
+For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table) in the UEBA enrichments reference and [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives).
 
 ### Enrich entities with geolocation data via API (Public preview)
 
@@ -205,7 +205,7 @@ The SAP data connector streams a multitude of 14 application logs from the entir
 
 To ingest SAP logs into Azure Sentinel, you must have the Azure Sentinel SAP data connector installed on your SAP environment. After the SAP data connector is deployed, deploy the rich SAP solution security content to smoothly gain insight into your organization's SAP environment and improve any related security operation capabilities.
 
-For more information, see [Tutorial: Deploy the Azure Sentinel solution for SAP (public preview)](sap-deploy-solution.md).
+For more information, see [Deploying SAP continuous threat monitoring](sap/deployment-overview.md).
 
 ### Threat intelligence integrations (Public preview)
 
@@ -486,7 +486,7 @@ Our collection of third-party integrations continues to grow, with thirty connec
 
 The Azure Sentinel entity details pages provide an [Insights pane](identify-threats-with-entity-behavior-analytics.md#entity-insights), which displays behavioral insights on the entity and help to quickly identify anomalies and security threats.
 
-If you have [UEBA enabled](ueba-enrichments.md), and have selected a timeframe of at least four days, this Insights pane will now also include the following new sections for UEBA insights:
+If you have [UEBA enabled](ueba-reference.md), and have selected a timeframe of at least four days, this Insights pane will now also include the following new sections for UEBA insights:
 
 |Section  |Description  |
 |---------|---------|

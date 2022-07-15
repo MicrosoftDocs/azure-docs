@@ -5,15 +5,16 @@ description: Launch TensorBoard to visualize experiment run histories and identi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: minxia
-ms.author: minxia
+author: blackmist
+ms.author: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to view your experiment runs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/) in the main Azure Machine Learning SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
 
@@ -38,7 +39,7 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb**
     * Your own Juptyer notebook server
        * [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) with the `tensorboard` extra
-        * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  
+        * [Create an Azure Machine Learning workspace](quickstart-create-resources.md).  
         * [Create a workspace configuration file](how-to-configure-environment.md#workspace).
 
 ## Option 1: Directly view run history in TensorBoard

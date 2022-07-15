@@ -10,15 +10,14 @@ author: singankit
 ms.author: anksing
 ms.date: 03/31/2022
 ms.reviewer: nibaccam
-ms.custom: devplatv2
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
 # Train models with REST (preview)
 
 Learn how to use the Azure Machine Learning REST API to create and manage training jobs (preview).
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
 
@@ -32,7 +31,7 @@ In this article, you learn how to use the new REST APIs to:
 ## Prerequisites
 
 - An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://azure.microsoft.com/free/).
-- An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An [Azure Machine Learning workspace](quickstart-create-resources.md).
 - A service principal in your workspace. Administrative REST requests use [service principal authentication](how-to-setup-authentication.md#use-service-principal-authentication).
 - A service principal authentication token. Follow the steps in [Retrieve a service principal authentication token](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token) to retrieve this token. 
 - The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
@@ -54,7 +53,7 @@ In the following REST API calls, we use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, `
 
 Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). Replace `$TOKEN` with your own value. You can retrieve this token with the following command:
 
-```bash
+```azurecli
 TOKEN=$(az account get-access-token --query accessToken -o tsv)
 ```
 
@@ -117,7 +116,7 @@ Now that you have the datastore, you can create a dataset. For this example, use
 Now that you have the dataset and datastore, you can upload the training script that will run on the job. Use the Azure Storage CLI to upload a blob into your default container. You can also use other methods to upload, such as the Azure portal or Azure Storage Explorer.
 
 
-```bash
+```azurecli
 az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
  -s jobs/train/lightgbm/iris/src --account-name $AZURE_STORAGE_ACCOUNT --account-key $AZURE_STORAGE_KEY
 ```

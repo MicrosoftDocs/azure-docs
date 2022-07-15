@@ -28,6 +28,9 @@ The following table summarizes the compute platforms currently used for instance
 
 <sup>1</sup> Newly created instances in these tiers, created using the Azure portal or specifying API version 2021-01-01-preview or later. Includes some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
 
+> [!NOTE]
+> Currently, the `stv2` platform isn't available in the US Government cloud or in the following Azure regions: China East, China East 2, China North, China North 2.
+
 ## How do I know which platform hosts my API Management instance?
 
 Starting with API version `2021-04-01-preview`, the API Management instance exposes a read-only `platformVersion` property that shows this platform information. 
@@ -41,7 +44,7 @@ To find the `platformVersion` property in the portal:
 1. In **API version**, select a current version such as `2021-08-01` or later.
 1. In the JSON view, scroll down to find the `platformVersion` property.
 
-    :::image type="content" source="media/compute-infrastructure/platformversion property.png" alt-text="platformVersion property in JSON view":::
+    :::image type="content" source="media/compute-infrastructure/platformversion-property.png" alt-text="platformVersion property in JSON view":::
 
 ## How do I migrate to the `stv2` platform? 
 
@@ -68,7 +71,7 @@ If you have an existing Developer or Premium tier instance that's connected to a
 
 ### Prerequisites
 
-* A new or existing virtual network and subnet in the same region and subscription as your API Management instance.
+* A new or existing virtual network and subnet in the same region and subscription as your API Management instance. The subnet must be different from the one currently used for the instance hosted on the `stv1` platform, and a network security group must be attached.
 
 * A new or existing Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region and subscription as your API Management instance.
 

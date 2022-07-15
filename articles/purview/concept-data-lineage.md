@@ -7,7 +7,7 @@ ms.service: purview
 ms.topic: conceptual
 ms.date: 09/27/2021
 ---
-# Data lineage in Microsoft Purview Data Catalog client
+# Data lineage in Microsoft Purview
 
 This article provides an overview of data lineage in Microsoft Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. Microsoft Purview can capture lineage for data in different parts of your organization's data estate, and at different levels of preparation including:
 
@@ -60,4 +60,4 @@ Lineage is a critical feature of the Microsoft Purview Data Catalog to support q
 
 * [Quickstart: Create a Microsoft Purview account in the Azure portal](create-catalog-portal.md)
 * [Quickstart: Create a Microsoft Purview account using Azure PowerShell/Azure CLI](create-catalog-powershell.md)
-* [Use the Microsoft Purview Studio](use-azure-purview-studio.md)
+* [Use the Microsoft Purview governance portal](use-azure-purview-studio.md)

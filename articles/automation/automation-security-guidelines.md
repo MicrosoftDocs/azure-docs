@@ -1,5 +1,5 @@
 ---
-title: Azure Automation security guidelines, security best practices Automation.
+title: Azure Automation security guidelines, security best practices Automation jobs.
 description: This article helps you with the guidelines that Azure Automation offers to ensure a secured configuration of Automation account, Hybrid Runbook worker role, authentication certificate and identities, network isolation and policies.
 services: automation
 ms.subservice: shared-capabilities
@@ -7,7 +7,7 @@ ms.date: 02/16/2022
 ms.topic: conceptual 
 ---
 
-# Best practices for security in Azure Automation
+# Security best practices in Azure Automation
 
 This article details the best practices to securely execute the automation jobs.
 [Azure Automation](./overview.md) provides you the platform to orchestrate frequent, time consuming, error-prone infrastructure management and operational tasks, as well as mission-critical operations. This service allows you to execute scripts, known as automation runbooks seamlessly across cloud and hybrid environments. 
@@ -81,6 +81,6 @@ Review the Azure Policy recommendations for Azure Automation and act as appropri
  
 ## Next steps
 
-* To learn how to use Azure role-based access control (Azure RBAC), see [Manage role permissions and security in Azure Automation](/azure/automation/automation-role-based-access-control).
-* For information on how Azure protects your privacy and secures your data, see [Azure Automation data security](/azure/automation/automation-managing-data).
-* To learn about configuring the Automation account to use encryption, see [Encryption of secure assets in Azure Automation](/azure/automation/automation-secure-asset-encryption).
+* To learn how to use Azure role-based access control (Azure RBAC), see [Manage role permissions and security in Azure Automation](./automation-role-based-access-control.md).
+* For information on how Azure protects your privacy and secures your data, see [Azure Automation data security](./automation-managing-data.md).
+* To learn about configuring the Automation account to use encryption, see [Encryption of secure assets in Azure Automation](./automation-secure-asset-encryption.md).

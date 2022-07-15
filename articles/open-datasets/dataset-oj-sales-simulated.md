@@ -1,11 +1,8 @@
 ---
 title: OJ Sales Simulated 
-titleSuffix: Azure Open Datasets
 description: Learn how to use the OJ Sales Simulated  dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 
@@ -59,7 +56,7 @@ The data contains weekly sales of orange juice over 121 weeks. There are 3,991 s
 ```python
 from azureml.core.workspace import Workspace
 ws = Workspace.from_config()
-datastore = ws.get_default_config()
+datastore = ws.get_default_datastore()
 ```
 
 ```python

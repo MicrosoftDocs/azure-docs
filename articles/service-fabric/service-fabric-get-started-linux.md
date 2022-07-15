@@ -1,16 +1,20 @@
 ---
 title: Set up your development environment on Linux 
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you'll be ready to build applications.
-
-ms.topic: conceptual
-ms.date: 10/16/2020
-ms.custom: devx-track-js
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
 # service-fabric-get-started-linux.md
 # service-fabric-get-started-mac.md
 # service-fabric-local-linux-cluster-windows.md
+# service-fabric-local-linux-cluster-windows-wsl2.md
 ---
+
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
@@ -187,6 +191,10 @@ Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microso
     ```
 
 3. Start the cluster.<br/>
+    <b>Ubuntu 20.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u20
+    ```
     <b>Ubuntu 18.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.reviewer: lmolkova
+ms.reviewer: casocha
 ---
 
 # Application Insights for .NET console applications
@@ -15,7 +15,7 @@ ms.reviewer: lmolkova
 You need a subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, Xbox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
 
 > [!NOTE]
-> It is *highly recommended* to use the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [here](./worker-service.md) for any Console Applications. This package targets [`NetStandard2.0`](/dotnet/standard/net-standard), and hence can be used in .NET Core 2.1 or higher, and .NET Framework 4.7.2 or higher.
+> It is *highly recommended* to use the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [here](./worker-service.md) for any Console Applications. This package is compatible with [Long Term Support (LTS) versions](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core and .NET Framework or higher.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -169,9 +169,13 @@ namespace ConsoleApp
             // before exit, flush the remaining data
             telemetryClient.Flush();
 
-            // flush is not blocking when not using InMemoryChannel so wait a bit. There is an active issue regarding the need for `Sleep`/`Delay`
-            // which is tracked here: https://github.com/microsoft/ApplicationInsights-dotnet/issues/407
+            // Console apps should use the WorkerService package.
+            // This uses ServerTelemetryChannel which does not have synchronous flushing.
+            // For this reason we add a short 5s delay in this sample.
+            
             Task.Delay(5000).Wait();
+
+            // If you're using InMemoryChannel, Flush() is synchronous and the short delay is not required.
 
         }
 

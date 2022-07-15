@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/15/2021
+ms.date: 06/28/2022
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to best use Azure RBAC.
@@ -53,6 +53,10 @@ There are a couple of times when a role name might change, for example:
 Even if a role is renamed, the role ID does not change. If you are using scripts or automation to create your role assignments, it's a best practice to use the unique role ID instead of the role name. Therefore, if a role is renamed, your scripts are more likely to work.
 
 For more information, see [Assign a role using the unique role ID and Azure PowerShell](role-assignments-powershell.md#assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope) and [Assign a role using the unique role ID and Azure CLI](role-assignments-cli.md#assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope).
+
+## Avoid using a wildcard when creating custom roles
+
+When creating custom roles, you can use the wildcard (`*`) character to define permissions. It's recommended that you specify `Actions` and `DataActions` explicitly instead of using the wildcard (`*`) character. The additional access and permissions granted through future `Actions` or `DataActions` may be unwanted behavior using the wildcard. For more information, see [Azure custom roles](custom-roles.md#wildcard-permissions).
 
 ## Next steps
 

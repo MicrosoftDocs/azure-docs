@@ -1,6 +1,6 @@
 ---
 title: View amortized reservation costs
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article helps you understand what amortized reservation costs are and how to view them in cost analysis.
 author: bandersmsft
 ms.reviewer: primittal

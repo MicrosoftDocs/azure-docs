@@ -2,8 +2,13 @@
 title: Azure Service Fabric environment variables 
 description: Learn about environment variables in Azure Service Fabric. Contains a reference of a full list of variables and their uses.
 ms.topic: reference
-ms.date: 12/07/2017
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric environment variables
 
 Service Fabric has built-in environment variables set for each service instance. The full list of environment variables is below:
@@ -33,6 +38,8 @@ Internal Environment Variables Used by Service Fabric Runtime:
 - Fabric_ApplicationId
 - Fabric_CodePackageInstanceId
 - Fabric_CodePackageInstanceSeqNum
+- Fabric_InstanceId
+- Fabric_ReplicaId
 - Fabric_RuntimeConnectionAddress
 - Fabric_ServicePackageActivationGuid
 - Fabric_ServicePackageInstanceId

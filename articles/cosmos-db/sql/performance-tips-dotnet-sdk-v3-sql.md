@@ -43,7 +43,7 @@ If you're testing at high throughput levels, or at rates that are greater than 5
 
 ## <a id="metadata-operations"></a> Metadata operations
 
-Do not verify a Database and/or Container exists by calling `Create...IfNotExistsAsync` and/or `Read...Async` in the hot path and/or before doing an item operation. The validation should only be done on application startup when it is necessary, if you expect them to be deleted (otherwise it's not needed). These metadata operations will generate extra end-to-end latency, have no SLA, and their own separate [limitations](/azure/cosmos-db/sql/troubleshoot-request-rate-too-large#rate-limiting-on-metadata-requests) that do not scale like data operations.
+Do not verify a Database and/or Container exists by calling `Create...IfNotExistsAsync` and/or `Read...Async` in the hot path and/or before doing an item operation. The validation should only be done on application startup when it is necessary, if you expect them to be deleted (otherwise it's not needed). These metadata operations will generate extra end-to-end latency, have no SLA, and their own separate [limitations](./troubleshoot-request-rate-too-large.md#rate-limiting-on-metadata-requests) that do not scale like data operations.
 
 ## <a id="logging-and-tracing"></a> Logging and tracing
 

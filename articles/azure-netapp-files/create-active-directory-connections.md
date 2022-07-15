@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/18/2022
+ms.date: 07/15/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -170,6 +170,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         This is the domain name of your Active Directory Domain Services that you want to join.
     * **AD Site Name**  
         This is the site name that the domain controller discovery will be limited to. This should match the site name in Active Directory Sites and Services.
+        
+        > [!IMPORTANT] 
+        > Without an AD Site Name specified, service disruption may occur. Without an AD Site Name specified, the Azure NetApp Files service may attempt to authenticate with a domain controller beyond what your network topology allows and result in a service disruption. See [Understanding Active Directory Site Topology | Microsoft Docs](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) for more information.
+
     * **SMB server (computer account) prefix**  
         This is the naming prefix for the machine account in Active Directory that Azure NetApp Files will use for creation of new accounts.
 
@@ -194,29 +198,15 @@ This setting is configured in the **Active Directory Connections** under **NetAp
   
         ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
+<<<<<<< HEAD
     * **LDAP Signing**   
         Select this checkbox to enable LDAP signing. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190023).  
+=======
+    * <a name="ldap-signing"></a>**LDAP Signing**   
+        Select this checkbox to enable LDAP signing. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
+>>>>>>> c95dddbe40bc0b24e4074af0e91bf08bc532ea30
 
         ![Active Directory LDAP signing](../media/azure-netapp-files/active-directory-ldap-signing.png) 
-
-        The **LDAP Signing** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
-
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
-        ```
-
-        Check the status of the feature registration: 
-
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
-
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
-        ```
-        
-        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-
 
     * **LDAP over TLS**   
         See [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) for information about this option.
@@ -306,15 +296,15 @@ This feature is currently in preview. You need to register the feature before us
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-## Reset Active Directory computer account
+## Reset Active Directory computer account password
 
 If you accidentally reset the password of the AD computer account on the AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes. A reset affects all volumes on the SMB server. 
 
 ### Register the feature
 
-The reset Active Directory feature is currently in public preview. If you are using this feature for the first time, you need to register the feature first.
+The reset Active Directory computer account password feature is currently in public preview. If you are using this feature for the first time, you need to register the feature first.
 
-1. Register the **reset Active Directory computer account** feature:   
+1. Register the **reset Active Directory computer account psasword** feature:   
 ```azurepowershell-interactive
 Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
 ```

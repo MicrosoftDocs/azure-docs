@@ -1,9 +1,12 @@
 ---
 title: Overview of Service Fabric and containers 
 description: An overview of Service Fabric and the use of containers to deploy microservice applications. This article provides an overview of how containers can be used and the available capabilities in Service Fabric.
-
 ms.topic: conceptual
-ms.date: 7/9/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Service Fabric and containers
@@ -70,9 +73,6 @@ Here are typical examples where a container is a good choice:
 ## Service Fabric support for containers
 
 Service Fabric supports the deployment of Docker containers on Linux, and Windows Server containers on Windows Server 2016 and later, along with support for Hyper-V isolation mode.
-
-> [!NOTE]
-> Containers are not supported on local single node Service Fabric clusters (neither Linux clusters on OneBox, nor Windows clusters on local Service Fabric installations).
 
 > [!NOTE]
 > A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. If you are considering hosting **untrusted applications**, please see [Hosting untrusted applications in a Service Fabric cluster](service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).

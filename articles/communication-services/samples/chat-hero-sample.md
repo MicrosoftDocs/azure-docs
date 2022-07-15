@@ -19,7 +19,7 @@ ms.subservice: chat
 > [This sample is available **on GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
-The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web SDK can be used to build a group calling experience.
+The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web SDK can be used to build a group chat experience.
 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
 
@@ -59,7 +59,13 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
-3. Get the `Connection String` and `Endpoint URL` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)
+3. Get the `Connection String` and `Endpoint URL` from the Azure Portal or by using the Azure CLI. 
+
+    ```azurecli-interactive
+    az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
+    ```
+
+   For more information on connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)
 4. Once you get the `Connection String` and `Endpoint URL`, Add both values to the **Server/appsettings.json** file found under the Chat Hero Sample folder. Input your connection string in the variable: `ResourceConnectionString` and endpoint URL in the variable: `EndpointUrl`.
 
 ## Local run

@@ -5,6 +5,50 @@ ms.topic: include
 ms.date: 01/08/2022
 ms.author: eur
 ---
+### 2022-July release
+
+#### New Speech-to-text-locales:
+
+Added 4 new locales as shown in the following table. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `bs-BA`         | Bosnian (Bosnia and Herzegovina)  |
+| `ps-AF`         | Pashto (Afghanistan)              |
+| `so-SO`         | Somali (Somalia)              |
+| `cy-GB`         | Welsh (United Kingdom)              |
+
+
+### 2022-Jun release
+
+#### New Speech-to-text-locales:
+
+Added 10 new locales as shown in the following table. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `sq-AL`         | Albanian (Albania)                |
+|  `hy-AM`         | Armenian (Armenia)                |
+|  `az-AZ`         | Azerbaijani (Azerbaijan)          |
+|  `eu-ES`         | Basque (Spain)                    |
+|  `gl-ES`         | Galician (Spain)                  |
+| `ka-GE`         | Georgian (Georgia)                |
+|  `it-CH`         | Italian (Switzerland)             |
+|  `kk-KZ`         | Kazakh (Kazakhstan)               |
+|  `mn-MN`         | Mongolian (Mongolia)              |
+|  `ne-NP`         | Nepali (Nepal)                    |
+
+
+### 2022-April release
+
+#### New Speech-to-text-locales:
+
+Below is a list of the new locales. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `bn-IN` | Bengali (India)                   |
+
 
 ### 2022-January release
 

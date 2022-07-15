@@ -115,7 +115,7 @@ To create a symmetric key individual enrollment:
     | **Mechanism** | Select *Symmetric Key* |
     | **Auto Generate Keys** |Check this box. |
     | **Registration ID** | Type in a unique registration ID.|
-    | **IoT Hub Device ID** |  This ID will represent your device. It must follow the rules for a device ID. For more information, see [Device identity properties](../iot-hub/iot-hub-devguide-identity-registry. If the device ID is left unspecified, then the registration ID will be used.|
+    | **IoT Hub Device ID** |  This ID will represent your device. It must follow the rules for a device ID. For more information, see [Device identity properties](../iot-hub/iot-hub-devguide-identity-registry.md). If the device ID is left unspecified, then the registration ID will be used.|
     | **Select how you want to assign devices to hubs** |Select *Static configuration* so that you can assign to a specific hub|
     | **Select the IoT hubs this group can be assigned to** |Select one of your hubs.|
 
@@ -216,10 +216,15 @@ To remove an enrollment entry:
 
 4. In the **Settings** menu, select **Manage enrollments**.
 
-5. Select the enrollment entry you want to remove. 
+5. Select the enrollment entry you want to remove.
 
 6. At the top of the page, select **Delete**.
 
 7. When prompted to confirm, select **Yes**.
 
 8. Once the action is completed, you'll see that your entry has been removed from the list of device enrollments.
+
+> [!NOTE]
+> Deleting an enrollment group doesn't delete the registration records for devices in the group. DPS uses the registration records to determine whether the maximum number of registrations has been reached for the DPS instance. Orphaned registration records still count against this quota. For the current maximum number of registrations supported for a DPS instance, see [Quotas and limits](about-iot-dps.md#quotas-and-limits).
+>
+>You may want to delete the registration records for the enrollment group before deleting the enrollment group itself. You can see and manage the registration records for an enrollment group manually on the **Registration Records** tab for the group in Azure portal. You can retrieve and manage the registration records programmatically using the [Device Registration State REST APIs](/rest/api/iot-dps/service/device-registration-state) or equivalent APIs in the [DPS service SDKs](libraries-sdks.md), or using the [az iot dps enrollment-group registration Azure CLI commands](/cli/azure/iot/dps/enrollment-group/registration).

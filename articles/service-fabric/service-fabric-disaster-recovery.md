@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric disaster recovery 
 description: Azure Service Fabric offers capabilities to deal with disasters. This article describes the types of disasters that can occur and how to deal with them.
-author: masnider
-
-ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 # Disaster recovery in Azure Service Fabric
 A critical part of delivering high availability is ensuring that services can survive all different types of failures. This is especially important for failures that are unplanned and outside your control. 
@@ -204,7 +205,7 @@ In both standalone Service Fabric clusters and Azure, the primary node type is t
 - Learn how to simulate various failures by using the [testability framework](service-fabric-testability-overview.md).
 - Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. Although some of these resources refer to specific techniques for use in other products, they contain many general best practices that you can apply in the Service Fabric context:
   - [Availability checklist](/azure/architecture/checklist/resiliency-per-service)
-  - [Performing a disaster recovery drill](../azure-sql/database/disaster-recovery-drills.md)
+  - [Performing a disaster recovery drill](/azure/azure-sql/database/disaster-recovery-drills)
   - [Disaster recovery and high availability for Azure applications][dr-ha-guide]
 - Learn about [Service Fabric support options](service-fabric-support.md).
 

@@ -63,10 +63,12 @@ Different resources have their own criteria for when they report that they are d
 
 ![Status of *Degraded* for a virtual machine](./media/resource-health-overview/degraded.png)
 
+For VMSS, visit [Resource health state is "Degraded" in Azure Virtual Machine Scale Set](https://docs.microsoft.com/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state) page for more information.
+
 ## History information
 
 > [!NOTE]
-> You can query data up to 1 year using the QueryStartTime parameter of [Events](https://docs.microsoft.com/rest/api/resourcehealth/events/list-by-subscription-id) REST API.
+> You can list current service health events in subscription and query data up to 1 year using the QueryStartTime parameter of [Events - List By Subscription Id](/rest/api/resourcehealth/events/list-by-subscription-id) REST API but currently there is no QueryStartTime parameter under [Events - List By Single Resource](/rest/api/resourcehealth/events/list-by-single-resource) REST API so you cannot query data up to 1 year while listing current service health events for given resource.
  
 You can access up to 30 days of history in the **Health history** section of Resource Health from Azure Portal.
 

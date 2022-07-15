@@ -70,10 +70,14 @@ items:
   items:
   - name: Authentication with Azure Maps
     href: azure-maps-authentication.md
+  - name: Authentication best practices
+    href: authentication-best-practices.md
   - name: Azure Maps Event Grid integration
     href: azure-maps-event-grid-integration.md
   - name: Choose the right pricing tier
     href: choose-pricing-tier.md
+  - name: Azure Maps geographic scope
+    href: geographic-scope.md
   - name: Creator for Indoor maps
     items:
     - name: Indoor map concepts
@@ -127,7 +131,7 @@ items:
           href: how-to-secure-spa-users.md
         - name: How to secure web application
           href: how-to-secure-webapp-users.md
-        - name: How to secure sas application
+        - name: How to secure account with a SAS token
           href: how-to-secure-sas-app.md
         - name: How to secure non-interactive sign-in single page application
           href: how-to-secure-spa-app.md
@@ -345,6 +349,8 @@ items:
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer
       href: power-bi-visual-add-tile-layer.md
+    - name: Add a filled map
+      href: power-bi-visual-filled-map.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access
@@ -378,6 +384,8 @@ items:
   - name: REST
     items:
     - name: Data service
+      href: /rest/api/maps/data
+    - name: Data service V2
       href: /rest/api/maps/data-v2
     - name: Elevation service
       href: /rest/api/maps/elevation
@@ -391,6 +399,8 @@ items:
       href: /rest/api/maps/route
     - name: Search service
       href: /rest/api/maps/search
+    - name: Search service V2
+      href: /rest/api/maps/search-v2
     - name: Spatial service
       href: /rest/api/maps/spatial
     - name: Timezone service
@@ -465,6 +475,8 @@ items:
     href: https://azure.microsoft.com/pricing/details/azure-maps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Understanding Azure Maps Transactions
+    href: understanding-azure-maps-transactions.md
   - name: Azure Maps videos
     href: /shows/
   - name: Open source projects

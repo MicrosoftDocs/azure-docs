@@ -4,7 +4,7 @@ description: The usage event API allows you to emit usage events for SaaS offers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 07/07/2022
 author: arifgani
 ms.author: argani
 ---
@@ -28,7 +28,7 @@ TLS version 1.2 version is enforced as the minimal version for HTTPS communicati
 
 The usage event API should be called by the publisher to emit usage events against an active resource (subscribed) for the plan purchased by the specific customer. The usage event is emitted separately for each custom dimension of the plan defined by the publisher when publishing the offer.
 
-Only one usage event can be emitted for each hour of a calendar day per resource. If more than one unit is consumed in an hour, then accumulate all the units consumed in the hour and then emit it in a single event. Usage events can only be emitted for the past 24 hours. If you emit a usage event at any time between 8:00 and 8:59:59 (and it is accepted) and send an additional event for the same day between 8:00 and 8:59:59, it will be rejected as a duplicate.
+Only one usage event can be emitted for each hour of a calendar day per resource and dimension. If more than one unit is consumed in an hour, then accumulate all the units consumed in the hour and then emit it in a single event. Usage events can only be emitted for the past 24 hours. If you emit a usage event at any time between 8:00 and 8:59:59 (and it is accepted) and send an additional event for the same day between 8:00 and 8:59:59, it will be rejected as a duplicate.
 
 **POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
@@ -37,7 +37,6 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 | Parameter | Recommendation          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Use 2018-08-31. |
-| | |
 
 *Request headers:*
 
@@ -46,7 +45,6 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
 | `authorization`   | A unique access token that identifies the ISV that is making this API call. The format is `"Bearer <access_token>"` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](marketplace-metering-service-authentication.md). </li> </ul> |
-| | |
 
 *Request body example:*
 
@@ -158,10 +156,9 @@ The batch usage event API allows you to emit usage events for more than one purc
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated, and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated, and provided in the response headers. |
 | `authorization`      | A unique access token that identifies the ISV that is making this API call. The format is `Bearer <access_token>` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](./marketplace-metering-service-authentication.md). </li> </ul> |
-| | |
 
 >[!NOTE]
->In the request body, the resource identifier has different meanings for SaaS app and for Azure Managed app emitting custom meter. The resource identifier for SaaS App is `resourceID`. The resource identifier for Azure Application Managed Apps plans is `resourceUri`.
+>In the request body, the resource identifier has different meanings for SaaS app and for Azure Managed app emitting custom meter. The resource identifier for SaaS App is `resourceID`. The resource identifier for Azure Application Managed Apps plans is `resourceUri`. For more information on resource identifiers, see [Azure Marketplace Metered Billing- Picking the correct ID when submitting usage events](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-marketplace-metered-billing-picking-the-correct-id-when/ba-p/3542373).
 
 For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions).
 
@@ -188,7 +185,7 @@ For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details 
 }
 ```
 
-For Azure Application Managed Apps plans, the `resourceUri` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+For Azure Application Managed Apps plans, the `resourceUri` is the Managed Application `resourceId`. An example script for fetching it can be found in [using the Azure-managed identities token](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 *Request body example for Azure Application managed apps:*
 
@@ -302,7 +299,6 @@ GET: `https://marketplaceapi.microsoft.com/api/usageEvents`
 | dimension (optional) | Default = all available |
 | azureSubscriptionId (optional) | Default = all available |
 | reconStatus (optional) | Default = all available |
-|||
 
 *Possible values of reconStatus*:
 
@@ -314,7 +310,6 @@ GET: `https://marketplaceapi.microsoft.com/api/usageEvents`
 | Mismatch | MarketplaceAPI and Partner Center Analytics quantities are both non-zero, however not matching |
 | TestHeaders | Subscription listed with test headers, and therefore not in PC Analytics |
 | DryRun | Submitted with SessionMode=DryRun, and therefore not in PC |
-|||
 
 *Request headers*:
 
@@ -323,7 +318,6 @@ GET: `https://marketplaceapi.microsoft.com/api/usageEvents`
 | x-ms-requestid | Unique string value (preferably a GUID), for tracking the request from the client. If this value is not provided, one will be generated and provided in the response headers. |
 | x-ms-correlationid | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
 | authorization | A unique access token that identifies the ISV that is making this API call. The format is `Bearer <access_token>` when the token value is retrieved by the publisher. For more information, see:<br><ul><li>SaaS in [Get the token with an HTTP POST](./partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post)</li><li>Managed application in [Authentication strategies](marketplace-metering-service-authentication.md)</li></ul> |
-|||
 
 ### Responses
 

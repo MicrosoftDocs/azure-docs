@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 03/22/2022
+ms.date: 07/07/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -11,7 +11,7 @@ ms.date: 03/22/2022
 
 This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last nine months.
 
-Features released earlier than nine months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+Features released earlier than nine months ago are listed in [What's new archive for Microsoft Defender for IoT for organizations](release-notes-archive.md).
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -19,33 +19,205 @@ Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Term
 
 The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
-- Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after release. Fixes and new functionality are applied to each new version and are not applied to older versions.
+- **Starting in version 22.1.x**, each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after its first minor release date, not including hotfix releases.
 
-- Software update packages include new functionality and security patches. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
+    Release versions have the following syntax: **[Major][Minor][Hotfix]**
+
+    Therefore, for example, all **22.1.x** versions, including all hotfix versions, are supported for nine months after the first **22.1.x** release.
+
+    Fixes and new functionality are applied to each new version and are not applied to older versions.
+
+- **Software update packages include new functionality and security patches**. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
+
+- **Features available from the Azure portal that are dependent on a specific sensor version** are only available for sensors that have the required version installed, or higher.
 
 For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
 > [!IMPORTANT]
-> Manual changes to software packages may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
+> Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to packages.
 >
+
+> [!TIP]
+> - Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation. To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
+>
+> - When updating your sensor software version, make sure to also update your on-premises management console. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 **Current versions of the sensor and on-premises management console software include**:
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.1.4 | 04/2022 | 12/2022 |
-| 22.1.3 | 03/2022 | 11/2022 |
+| 22.2.3 | 07/2022 | 4/2023 |
+| 22.1.6 | 06/2022 | 10/2023 |
+| 22.1.5 | 06/2022 | 10/2023 |
+| 22.1.4 | 04/2022 | 10/2022 |
+| 22.1.3 | 03/2022 | 10/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
 | 10.5.5 | 12/2021 | 09/2022 |
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## July 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**Enterprise IoT networks**     | - [Enterprise IoT purchase experience and Defender for Endpoint integration in GA](#enterprise-iot-purchase-experience-and-defender-for-endpoint-integration-in-ga)        |
+|**OT networks**     |**Sensor software version 22.2.3**:<br><br>- [OT appliance hardware profile updates](#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)<br><br>To update to version 22.2.3:<br>- From version 22.1.x, update directly to version 22.2.3<br>- From version 10.x, first update to version 21.1.6, and then update again to 22.2.3<br><br>For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).  |
+|**Cloud-only features**     |  - [Microsoft Sentinel incident synch with Defender for IoT alerts](#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts) |
+
+### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
+
+Defender for IoT’s new purchase experience and the Enterprise IoT integration with Microsoft Defender for Endpoint is now in General Availability (GA). With this update, we've made the following updates and improvements:
+
+- An updated **Plans and pricing** page with an enhanced onboarding process, as well as smooth onboarding directly in Defender for Endpoint. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md) and the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+
+- Seamless integration with Microsoft Defender for Endpoint to view detected Enterprise IoT devices, and their related alerts, vulnerabilities, and recommendations in the Microsoft 365 Security portal. For more information, see the [Enterprise IoT tutorial](tutorial-getting-started-eiot-sensor.md) and the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration). You can continue to view detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal.
+
+- All Enterprise IoT sensors are now automatically added to the same site in Defender for IoT, named **Enterprise network**. When onboarding a new Enterprise IoT device, you only need to define a sensor name and select your subscription, without defining a site or zone.
+
+> [!NOTE]
+> The Enterprise IoT network sensor and all detections remain in Public Preview.
+
+### OT appliance hardware profile updates
+
+We've refreshed the naming conventions for our OT appliance hardware profiles for greater transparency and clarity.
+
+The new names reflect both the *type* of profile, including *Corporate*, *Enterprise*, and *Production line*, and also the related disk storage size.
+
+Use the following table to understand the mapping between legacy hardware profile names and the current names used in the updated software installation:
+
+|Legacy name  |New name  | Description |
+|---------|---------|---------|
+|**Corporate**     |    **C5600** | A *Corporate* environment, with: <br>16 Cores<br>32 GB RAM<br>5.6 TB disk storage |
+|**Enterprise**     | **E1800** | An *Enterprise* environment, with: <br>8 Cores<br>32 GB RAM<br>1.8 TB disk storage        |
+|**SMB**    |    **L500**   | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>500 GB disk storage  |
+|**Office**     | **L100**  | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>100 GB disk storage      |
+|**Rugged**     |   **L64** | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>64 GB disk storage     |
+
+We also now support new enterprise hardware profiles, for sensors supporting both 500 GB and 1 TB disk sizes.
+
+For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
+
+### PCAP access from the Azure portal (Public preview)
+
+Now you can access the raw traffic files, known as packet capture files or PCAP files, directly from the Azure portal. This feature supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately.
+
+:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button." lightbox="media/release-notes/pcap-request.png":::
+
+PCAP files are downloaded to your Azure storage.
+
+For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md).
+
+### Bi-directional alert synch between sensors and the Azure portal (Public preview)
+
+For sensors updated to version 22.2.1, alert statuses and learn statuses are now fully synchronized between the sensor console and the Azure portal. For example, this means that you can close an alert on the Azure portal or the sensor console, and the alert status is updated in both locations.
+
+*Learn* an alert from either the Azure portal or the sensor console to ensure that it's not triggered again the next time the same network traffic is detected.
+
+The sensor console is also synchronized with an on-premises management console, so that alert statuses and learn statuses remain up-to-date across your management interfaces.
+
+For more information, see:
+
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [View alerts on your sensor](how-to-view-alerts.md)
+- [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
+- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+
+### Support diagnostic log enhancements (Public preview)
+
+Starting in sensor version [22.1.1](#new-support-diagnostics-log), you've been able to download a diagnostic log from the sensor console to send to support when you open a ticket.
+
+Now, for locally managed sensors, you can upload that diagnostic log directly on the Azure portal.
+
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the Send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
+
+> [!TIP]
+> For cloud-connected sensors, starting from sensor version [22.1.3](#march-2022), the diagnostic log is automatically available to support when you open the ticket.
+>
+For more information, see:
+
+- [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
+
+
+
+### Improved security for uploading protocol plugins
+
+This version of the sensor provides an improved security for uploading proprietary plugins you've created using the Horizon SDK.
+
+:::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page." lightbox="media/release-notes/horizon.png":::
+
+For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
+
+### Microsoft Sentinel incident synch with Defender for IoT alerts
+
+The **IoT OT Threat Monitoring with Defender for IoT** solution now ensures that alerts in Defender for IoT are updated with any related incident **Status** changes from Microsoft Sentinel.
+
+This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
+
+Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new **AD4IoT-AutoAlertStatusSync** playbook. After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended#update-alert-statuses-in-defender-for-iot) to ensure that the new playbook works as expected. 
+
+For more information, see:
+
+- [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
+- [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
+- [View alerts on your sensor](how-to-view-alerts.md)
+
+## June 2022
+
+- **Sensor software version 22.1.6**: Minor version with maintenance updates for internal sensor components
+
+- **Sensor software version 22.1.5**:  Minor version to improve TI installation packages and software updates
+
+We've also recently optimized and enhanced our documentation as follows:
+
+- [Updated appliance catalog for OT environments](#updated-appliance-catalog-for-ot-environments)
+- [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
+
+
+### Updated appliance catalog for OT environments
+
+We've refreshed and revamped the catalog of supported appliances for monitoring OT environments. These appliances support flexible deployment options for environments of all sizes and can be used to host both the OT monitoring sensor and on-premises management consoles.
+
+Use the new pages as follows:
+
+1. **Understand which hardware model best fits your organization's needs.** For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
+
+1. **Learn about the preconfigured hardware appliances that are available to purchase, or system requirements for virtual machines.** For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md) and [OT monitoring with virtual appliances](ot-virtual-appliances.md).
+
+    For more information about each appliance type, use the linked reference page, or browse through our new **Reference > OT monitoring appliances** section.
+
+    :::image type="content" source="media/release-notes/appliance-catalog.png" alt-text="Screenshot of the new appliance catalog reference section." lightbox="media/release-notes/appliance-catalog.png":::
+
+    Reference articles for each appliance type, including virtual appliances, include specific steps to configure the appliance for OT monitoring with Defender for IoT. Generic software installation and troubleshooting procedures are still documented in [Defender for IoT software installation](how-to-install-software.md).
+
+### Documentation reorganization for end-user organizations
+
+We recently reorganized our Defender for IoT documentation for end-user organizations, highlighting a clearer path for onboarding and getting started.
+
+Check out our new structure to follow through viewing devices and assets, managing alerts, vulnerabilities and threats, integrating with other services, and deploying and maintaining your Defender for IoT system.
+
+**New and updated articles include**:
+
+- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
+- [Microsoft Defender for IoT architecture](architecture.md)
+- [Quickstart: Get started with Defender for IoT](getting-started.md)
+- [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
+- [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
+- [Plan your sensor connections for OT monitoring](best-practices/plan-network-monitoring.md)
+- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
+
+> [!NOTE]
+> To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
+>
+
 ## April 2022
 
-**Sensor software version**: 22.1.4
+- [Extended device property data in the Device inventory](#extended-device-property-data-in-the-device-inventory)
 
 ### Extended device property data in the Device inventory
+
+**Sensor software version**: 22.1.4
 
 Starting for sensors updated to version 22.1.4, the **Device inventory** page on the Azure portal shows extended data for the following fields:
 
@@ -57,8 +229,9 @@ Starting for sensors updated to version 22.1.4, the **Device inventory** page on
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
-
 ## March 2022
+
+**Sensor version**: 22.1.3
 
 - [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot-public-preview)
 - [IoT OT Threat Monitoring with Defender for IoT solution GA](#iot-ot-threat-monitoring-with-defender-for-iot-solution-ga)
@@ -66,9 +239,10 @@ For more information, see [Manage your device inventory from the Azure portal](h
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
 
+
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 
-[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](/azure/governance/resource-graph/).
+[Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](../../governance/resource-graph/index.yml).
 
 In the Azure portal, use the new Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or create custom workbooks of your own.
 
@@ -110,6 +284,8 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
 
 ## February 2022
+
+**Sensor software version**: 22.1.1
 
 - [New sensor installation wizard](#new-sensor-installation-wizard)
 - [Sensor redesign and unified Microsoft product experience](#sensor-redesign-and-unified-microsoft-product-experience)
@@ -219,7 +395,7 @@ Other alert updates include:
 
 - **Access contextual data** for each alert, such as events that occurred around the same time, or a map of connected devices. Maps of connected devices are available for sensor console alerts only.
 
-- **Alert statuses** are updated, and for example now include a *Closed* status instead of *Acknowledged*.
+- **Alert statuses** are updated, and, for example,  now include a *Closed* status instead of *Acknowledged*.
 
 - **Alert storage** for 90 days from the time that they're first detected.
 
@@ -270,7 +446,7 @@ If you're on a legacy version, you may need to run a series of updates in order 
 
 After you've upgraded to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 
-For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Update sensor versions from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md#update-sensor-versions).
+For more information, see [Update OT system software](update-ot-software.md).
 
 > [!NOTE]
 > Upgrading to version 22.1.x is a large update, and you should expect the update process to require more time than previous updates.
@@ -304,6 +480,8 @@ The following Defender for IoT options and configurations have been moved, remov
 
 
 ## December 2021
+
+**Sensor software version**: 10.5.4
 
 - [Enhanced integration with Microsoft Sentinel (Preview)](#enhanced-integration-with-microsoft-sentinel-preview)
 - [Apache Log4j vulnerability](#apache-log4j-vulnerability)
@@ -381,6 +559,8 @@ This new functionality is available on the following alerts:
 
 ## November 2021
 
+**Sensor software version**: 10.5.3
+
 The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
 
 - The on-premises management console, has a new [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
@@ -392,6 +572,8 @@ The following feature enhancements are available with version 10.5.3 of Microsof
 - Many enhancements have been made to the exporting of alert metadata based on customer feedback.
 
 ## October 2021
+
+**Sensor software version**: 10.5.2
 
 The following feature enhancements are available with version 10.5.2 of Microsoft Defender for IoT.
 

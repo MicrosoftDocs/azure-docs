@@ -14,7 +14,7 @@ ms.date: 09/24/2021
 
 In August 2021, access control in Microsoft Purview moved from Azure Identity & Access Management (IAM) (control plane) to [Microsoft Purview collections](how-to-create-and-manage-collections.md) (data plane). This change gives enterprise data curators and administrators more precise, granular access control on their data sources scanned by Microsoft Purview. The change also enables organizations to audit right access and right use of their data.
 
-This tutorial guides you through step-by-step usage of the Microsoft Purview Metadata Policy APIs to help you add users, groups, or service principals to a collection, and manage or remove their roles within that collection. REST APIs are an alternative method to using the Azure portal or Microsoft Purview Studio to achieve the same granular role-based access control.
+This tutorial guides you through step-by-step usage of the Microsoft Purview Metadata Policy APIs to help you add users, groups, or service principals to a collection, and manage or remove their roles within that collection. REST APIs are an alternative method to using the Azure portal or Microsoft Purview governance portal to achieve the same granular role-based access control.
 
 For more information about the built-in roles in Microsoft Purview, see the [Microsoft Purview permissions guide](catalog-permissions.md#roles). The guide maps the roles to the level of access permissions that are granted to users.
 
@@ -922,7 +922,8 @@ Whether you're adding or removing a user, group, or service principal, you'll fo
 }
 ```
 ## Add the Root Collection Administrator role
-By default, the user who created the Microsoft Purview account is the Root Collection Administrator (that is, the administrator of the topmost level of the collection hierarchy). However, in some cases, an organization needs to change the Root Collection Administrator by using the API. For instance, it's possible that the current Root Collection Administrator no longer exists in the organization. In such a case, the Azure portal might be inaccessible to anyone in the organization. For this reason, using the API to assign a new Root Collection Administrator and manage collection permissions becomes the only way to regain access to the Microsoft Purview account.
+
+By default, the user who created the Microsoft Purview account is the Root Collection Administrator (that is, the administrator of the topmost level of the collection hierarchy). However, in some cases, an organization may want to change the Root Collection Administrator using the API. 
 
 ```ruby
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01

@@ -1,17 +1,13 @@
 ---
-title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
+title: Configure auto provisioning of agents for Microsoft Defender for Cloud
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.author: benmansheim
-author: bmansheim
-ms.date: 01/17/2022
+ms.date: 07/06/2022
 ms.custom: mode-other
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-Microsoft Defender for Cloud collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to ensure your resources have the necessary agents and extensions used by Defender for Cloud.
+Microsoft Defender for Cloud collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to auto-provision the necessary agents and extensions used by Defender for Cloud to your resources.
 
 :::image type="content" source="media/enable-data-collection/auto-provisioning-list-of-extensions.png" alt-text="Screenshot of Microsoft Defender for Cloud's extensions that can be auto provisioned.":::
 
@@ -19,6 +15,7 @@ Microsoft Defender for Cloud collects data from your resources using the relevan
 > When you enable auto provisioning of any of the supported extensions, you'll potentially impact *existing* and *future* machines. But when you **disable** auto provisioning for an extension, you'll only affect the *future* machines: nothing is uninstalled by disabling auto provisioning. 
 
 ## Prerequisites
+
 To get started with Defender for Cloud, you must have a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Availability
@@ -82,14 +79,16 @@ This table shows the availability details for the auto provisioning **feature** 
 
 ### [**Defender for Containers**](#tab/autoprovision-containers)
 
-This table shows the availability details for the various components that can be auto provisioned to provide the protections offered by [Microsoft Defender for Containers](defender-for-containers-introduction.md).
+This table shows the availability details for the components that are required for auto provisioning to provide the protections offered by [Microsoft Defender for Containers](defender-for-containers-introduction.md).
+
+By default, auto provisioning is enabled when you enable Defender for Containers from the Azure portal.
 
 | Aspect                                               | Azure Kubernetes Service clusters                                                      | Azure Arc-enabled Kubernetes clusters                                                       |
 |------------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Release state:                                       | • Defender profile is in preview<br> • Azure Policy add-on is generally available (GA) | • Defender extension is in preview<br> • Azure Policy extension for Azure Arc is in preview |
+| Release state:                                       | • Defender profile: GA<br> • Azure Policy add-on: Generally available (GA) | • Defender extension: Preview<br> • Azure Policy extension: Preview |
 | Relevant Defender plan:                              | [Microsoft Defender for Containers](defender-for-containers-introduction.md)           | [Microsoft Defender for Containers](defender-for-containers-introduction.md)                |
-| Required roles and permissions (subscription-level): | [Owner](../role-based-access-control/built-in-roles.md#owner)                          | [Owner](../role-based-access-control/built-in-roles.md#owner)                               |
-| Supported destinations:                              | Any [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) applied to your nodes *might* disrupt the configuration of Defender for Containers <br><br> The AKS Defender profile doesn't support AKS clusters that don't have RBAC enabled.                                                                                     | Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters             |
+| Required roles and permissions (subscription-level): | [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)                          | [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)                               |
+| Supported destinations:                              | The AKS Defender profile only supports [AKS clusters that have RBAC enabled](../aks/concepts-identity.md#kubernetes-rbac).                                                                                   | [See Kubernetes distributions supported for Arc-enabled Kubernetes](supported-machines-endpoint-solutions-clouds-containers.md?tabs=azure-aks#kubernetes-distributions-and-configurations)             |
 | Policy-based:                                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                             |
 | Clouds:                                              | **Defender profile**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy add-on**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet|**Defender extension**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy extension for Azure Arc**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet|
 
@@ -115,12 +114,14 @@ Data is collected using:
 > As Defender for Cloud has grown, the types of resources that can be monitored has also grown. The number of extensions has also grown. Auto provisioning has expanded to support additional resource types by leveraging the capabilities of Azure Policy.
 
 ## Why use auto provisioning?
+
 Any of the agents and extensions described on this page *can* be installed manually (see [Manual installation of the Log Analytics agent](#manual-agent)). However, **auto provisioning** reduces management overhead by installing all required agents and extensions on existing - and new - machines to ensure faster security coverage for all supported resources. 
 
 We recommend enabling auto provisioning, but it's disabled by default.
 
 ## How does auto provisioning work?
-Defender for Cloud's auto provisioning settings have a toggle for each type of supported extension. When you enable auto provisioning of an extension, you assign the appropriate **Deploy if not exists** policy. This policy type ensures the extension is provisioned on all existing and future resources of that type.
+
+Defender for Cloud's auto provisioning settings has a toggle for each type of supported extension. When you enable auto provisioning of an extension, you assign the appropriate **Deploy if not exists** policy. This policy type ensures the extension is provisioned on all existing and future resources of that type.
 
 > [!TIP]
 > Learn more about Azure Policy effects including deploy if not exists in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
@@ -128,7 +129,7 @@ Defender for Cloud's auto provisioning settings have a toggle for each type of s
 
 ## Enable auto provisioning of the Log Analytics agent and extensions <a name="auto-provision-mma"></a>
 
-When automatic provisioning is on for the Log Analytics agent, Defender for Cloud deploys the agent on all supported Azure VMs and any new ones created. For the list of supported platforms, see [Supported platforms in Microsoft Defender for Cloud](security-center-os-coverage.md).
+When auto provisioning is on for the Log Analytics agent, Defender for Cloud deploys the agent on all supported Azure VMs and any new ones created. For the list of supported platforms, see [Supported platforms in Microsoft Defender for Cloud](security-center-os-coverage.md).
 
 To enable auto provisioning of the Log Analytics agent:
 
@@ -165,10 +166,10 @@ To enable auto provisioning of the Log Analytics agent:
 
         1. From Defender for Cloud's menu, open **Environment settings**.
         1. Select the workspace to which you'll be connecting the agents.
-        1. Select **Enhanced security off** or **Enable all Microsoft Defender plans**.
+        1. Set Security posture management to **on** or select **Enable all** to turn all Microsoft Defender plans on.
 
 1. From the **Windows security events** configuration, select the amount of raw event data to store:
-    - **None** – Disable security event storage. This is the default setting.
+    - **None** – Disable security event storage. (Default)
     - **Minimal** – A small set of events for when you want to minimize the event volume.
     - **Common** – A set of events that satisfies most customers and provides a full audit trail.
     - **All events** – For customers who want to make sure all events are stored.
@@ -180,7 +181,7 @@ To enable auto provisioning of the Log Analytics agent:
 
 1. Select **Apply** in the configuration pane.
 
-1. To enable automatic provisioning of an extension other than the Log Analytics agent: 
+1. To enable auto provisioning of an extension other than the Log Analytics agent: 
 
     1. Toggle the status to **On** for the relevant extension.
 
@@ -209,29 +210,29 @@ To enable auto provisioning of the Log Analytics agent:
 
 ## Windows security event options for the Log Analytics agent <a name="data-collection-tier"></a> 
 
-Selecting a data collection tier in Microsoft Defender for Cloud only affects the *storage* of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Defender for Cloud’s threat protection, regardless of the level of security events you choose to store in your workspace. Choosing to store security events enables investigation, search, and auditing of those events in your workspace.
+When you select a data collection tier in Microsoft Defender for Cloud, the security events of the selected tier are stored in your Log Analytics workspace so that you can investigate, search, and audit the events in your workspace. The Log Analytics agent also collects and analyzes the security events required for Defender for Cloud’s threat protection.
 
-### Requirements 
+### Requirements
+
 The enhanced security protections of Defender for Cloud are required for storing Windows security event data. Learn more about [the enhanced protection plans](defender-for-cloud-introduction.md).
 
-Storing data in Log Analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+You maybe charged for storing data in Log Analytics. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ### Information for Microsoft Sentinel users 
-Users of Microsoft Sentinel: note that security events collection within the context of a single workspace can be configured from either Microsoft Defender for Cloud or Microsoft Sentinel, but not both. If you're planning to add Microsoft Sentinel to a workspace that is already getting alerts from Microsoft Defender for Cloud, and is set to collect Security Events, you have two options:
-- Leave the Security Events collection in Microsoft Defender for Cloud as is. You will be able to query and analyze these events in Microsoft Sentinel as well as in Defender for Cloud. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Microsoft Sentinel. If this is important to you, consider the second option.
-- Disable Security Events collection in Microsoft Defender for Cloud (by setting **Windows security events** to **None** in the configuration of your Log Analytics agent). Then add the Security Events connector in Microsoft Sentinel. As with the first option, you will be able to query and analyze events in both Microsoft Sentinel and Defender for Cloud, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Microsoft Sentinel.
+
+Security events collection within the context of a single workspace can be configured from either Microsoft Defender for Cloud or Microsoft Sentinel, but not both. If you want to add Microsoft Sentinel to a workspace that already gets alerts from Microsoft Defender for Cloud and to collect Security Events, you can either:
+
+- Leave the Security Events collection in Microsoft Defender for Cloud as is. You'll be able to query and analyze these events in both Microsoft Sentinel and Defender for Cloud. If you want to monitor the connector's connectivity status or change its configuration in Microsoft Sentinel, consider the second option.
+- Disable Security Events collection in Microsoft Defender for Cloud and then add the Security Events connector in Microsoft Sentinel. You'll be able to query and analyze events in both Microsoft Sentinel, and Defender for Cloud, but you'll also be able to monitor the connector's connectivity status or change its configuration in - and only in - Microsoft Sentinel. To disable Security Events collection in Defender for Cloud, set **Windows security events** to **None** in the configuration of your Log Analytics agent.
 
 ### What event types are stored for "Common" and "Minimal"?
-These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
 
-To determine the events for the **Common** and **Minimal** options, we worked with customers and industry standards to learn about the unfiltered frequency of each event and their usage. We used the following guidelines in this process:
+The **Common** and **Minimal** event sets were designed to address typical scenarios based on customer and industry standards for the unfiltered frequency of each event and their usage.
 
-- **Minimal** - Make sure that this set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain sign out which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the login events and process creation event (event ID 4688).
-- **Common** - Provide a full user audit trail in this set. For example, this set contains both user logins and user sign outs (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
+- **Minimal** - This set is intended to cover only events that might indicate a successful breach and important events with low volume. Most of the data volume of this set is successful user logon (event ID 4625), failed user logon events (event ID 4624), and process creation events (event ID 4688). Sign out events are important for auditing only and have relatively high volume, so they aren't included in this event set.
+- **Common** - This set is intended to provide a full user audit trail, including events with low volume. For example, this set contains both user logon events (event ID 4624) and user logoff events (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
 
-Events that have very low volume were included in the common set as the main motivation to choose it over all the events is to reduce the volume and not to filter out specific events.
-
-Here is a complete breakdown of the Security and App Locker event IDs for each set:
+Here's a complete breakdown of the Security and App Locker event IDs for each set:
 
 | Data tier | Collected event indicators |
 | --- | --- |
@@ -247,7 +248,7 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 
 > [!NOTE]
 > - If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Defender for Cloud's [FAQ](./faq-data-collection-agents.yml#what-happens-when-data-collection-is-enabled-). For more information about these audit policies, see [Audit Policy Recommendations](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
-> -  To enable data collection for [Adaptive Application Controls](adaptive-application-controls.md), Defender for Cloud configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Defender for Cloud. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
+> -  To enable data collection for [Adaptive application controls](adaptive-application-controls.md), Defender for Cloud configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Defender for Cloud. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
 > - To collect Windows Filtering Platform [Event ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156), you need to enable [Audit Filtering Platform Connection](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
 >
 
@@ -296,31 +297,31 @@ To manually install the Log Analytics agent:
 > [!TIP]
 > For more information about onboarding, see [Automate onboarding of Microsoft Defender for Cloud using PowerShell](powershell-onboarding.md).
 
-## Automatic provisioning in cases of a pre-existing agent installation <a name="preexisting"></a>
+## Auto provisioning in cases of a pre-existing agent installation <a name="preexisting"></a>
 
-The following use cases specify how automatic provision works in cases when there is already an agent or extension installed.
+The following use cases explain how auto provisioning works in cases when there's already an agent or extension installed.
 
-- **Log Analytics agent is installed on the machine, but not as an extension (Direct agent)** - If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Defender for Cloud will install the Log Analytics agent extension, and might upgrade the Log Analytics agent to the latest version. The agent installed will continue to report to its already configured workspace(s), and additionally will report to the workspace configured in Defender for Cloud (Multi-homing is supported on Windows machines).
+- **Log Analytics agent is installed on the machine, but not as an extension (Direct agent)** - If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Defender for Cloud will install the Log Analytics agent extension and might upgrade the Log Analytics agent to the latest version. The installed agent will continue to report to its already configured workspaces and to the workspace configured in Defender for Cloud. (Multi-homing is supported on Windows machines.)
 
-  If the configured workspace is a user workspace (not Defender for Cloud's default workspace), then you will need to install the "Security" or "SecurityCenterFree" solution on it for Defender for Cloud to start processing events from VMs and computers reporting to that workspace.
+  If the Log Analytics is configured with a user workspace and not Defender for Cloud's default workspace, you'll need to install the "Security" or "SecurityCenterFree" solution on it for Defender for Cloud to start processing events from VMs and computers reporting to that workspace.
 
-  For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
+  For Linux machines, Agent multi-homing isn't yet supported. If an existing agent installation is detected, the Log Analytics agent won't be auto provisioned.
 
-  For existing machines on subscriptions onboarded to Defender for Cloud before 17 March 2019, when an existing agent will be detected, the Log Analytics agent extension will not be installed and the machine will not be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
+  For existing machines on subscriptions onboarded to Defender for Cloud before 17 March 2019, when an existing agent will be detected, the Log Analytics agent extension won't be installed and the machine won't be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
   
-- **System Center Operations Manager agent is installed on the machine** - Defender for Cloud will install the Log Analytics agent extension side by side to the existing Operations Manager. The existing Operations Manager agent will continue to report to the Operations Manager server normally. The Operations Manager agent and Log Analytics agent share common run-time libraries, which will be updated to the latest version during this process. If Operations Manager agent version 2012 is installed, **do not** enable automatic provisioning.
+- **System Center Operations Manager agent is installed on the machine** - Defender for Cloud will install the Log Analytics agent extension side by side to the existing Operations Manager. The existing Operations Manager agent will continue to report to the Operations Manager server normally. The Operations Manager agent and Log Analytics agent share common run-time libraries, which will be updated to the latest version during this process. If Operations Manager agent version 2012 is installed, **do not** enable auto provisioning.
 
 - **A pre-existing VM extension is present**:
-    - When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Defender for Cloud does not override existing connections to user workspaces. Defender for Cloud will store security data from the VM in the workspace already connected, provided that the "Security" or "SecurityCenterFree" solution has been installed on it. Defender for Cloud may upgrade the extension version to the latest version in this process.
+    - When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Defender for Cloud doesn't override existing connections to user workspaces. Defender for Cloud will store security data from the VM in the workspace already connected, if the "Security" or "SecurityCenterFree" solution has been installed on it. Defender for Cloud may upgrade the extension version to the latest version in this process.
     - To see to which workspace the existing extension is sending data to, run the test to [Validate connectivity with Microsoft Defender for Cloud](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Alternatively, you can open Log Analytics workspaces, select a workspace, select the VM, and look at the Log Analytics agent connection.
     - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Microsoft Defender for Cloud](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](./faq-azure-monitor-logs.yml).
  
 
 ## Disable auto provisioning <a name="offprovisioning"></a>
 
-When you disable auto provisioning, agents will not be provisioned on new VMs.
+When you disable auto provisioning, agents won't be provisioned on new VMs.
 
-To turn off automatic provisioning of an agent:
+To turn off auto provisioning of an agent:
 
 1. From Defender for Cloud's menu in the portal, select **Environment settings**.
 1. Select the relevant subscription.
@@ -329,13 +330,13 @@ To turn off automatic provisioning of an agent:
 
     :::image type="content" source="./media/enable-data-collection/agent-toggles.png" alt-text="Toggles to disable auto provisioning per agent type.":::
 
-1. Select **Save**. When auto provisioning is disabled, the default workspace configuration section is not displayed:
+1. Select **Save**. When auto provisioning is disabled, the default workspace configuration section isn't displayed:
 
     :::image type="content" source="./media/enable-data-collection/empty-configuration-column.png" alt-text="When auto provisioning is disabled, the configuration cell is empty":::
 
 
 > [!NOTE]
->  Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Defender for Cloud](./faq-data-collection-agents.yml#how-do-i-remove-oms-extensions-installed-by-defender-for-cloud-).
+>  Disabling auto provisioning does not remove the Log Analytics agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Defender for Cloud](./faq-data-collection-agents.yml#how-do-i-remove-oms-extensions-installed-by-defender-for-cloud-).
 >
 
 
@@ -347,4 +348,5 @@ To turn off automatic provisioning of an agent:
 
 
 ## Next steps
-This page explained how to enable auto provisioning for the Log Analytics agent and other Defender for Cloud extensions. It also described how to define a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. Storing data in Log Analytics, whether you use a new or existing workspace, might incur more charges for data storage. For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
+This page explained how to enable auto provisioning for the Log Analytics agent and other Defender for Cloud extensions. It also described how to define a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. Data storage in a new or existing Log Analytics workspace might incur more charges for data storage. For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).

@@ -17,9 +17,9 @@ In this article, you learn how to register new data sources, manage collections 
 
 Use the following steps to register a new source.
 
-1. Open [Microsoft Purview Studio](https://web.purview.azure.com/resource/), navigate to the **Data Map**, **Sources**, and select **Register**.
+1. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/), navigate to the **Data Map**, **Sources**, and select **Register**.
 
-   :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="Microsoft Purview Studio":::
+   :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="the Microsoft Purview governance portal":::
 
 1. Select a source type. This example uses Azure Blob Storage. Select **Continue**.
 
@@ -33,7 +33,7 @@ Use the following steps to register a new source.
 
 ## View sources
 
-You can view all registered sources on the **Data Map** tab of Microsoft Purview Studio. There are two view types: map view and list view.
+You can view all registered sources on the **Data Map** tab of the Microsoft Purview governance portal. There are two view types: map view and list view.
 
 ### Map view
 
@@ -49,13 +49,13 @@ In the table view, you can see a sortable list of sources. Hover over the source
 
 ## Manage collections
 
-You can group your data sources into collections. To create a new collection, select **+ New collection** on the *Sources* page of Microsoft Purview Studio. Give the collection a name and select *None* as the Parent. The new collection appears in the map view.
+You can group your data sources into collections. To create a new collection, select **+ New collection** on the *Sources* page of the Microsoft Purview governance portal. Give the collection a name and select *None* as the Parent. The new collection appears in the map view.
 
 To add sources to a collection, select the **Edit** pencil on the source and choose a collection from the **Select a collection** drop-down menu.
 
 To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *Fabrikam* is a parent to the *Finance* collection, which contains an Azure Blob Storage data source. You can collapse or expand collections by selecting the circle attached to the arrow between levels.
 
-:::image type="content" source="media/manage-data-sources/collections.png" alt-text="A hierarchy of collections in Microsoft Purview Studio":::
+:::image type="content" source="media/manage-data-sources/collections.png" alt-text="A hierarchy of collections in the Microsoft Purview governance portal":::
 
 You can remove sources from a hierarchy by selecting *None* for the parent. Unparented sources are grouped in a dotted box in the map view with no arrows linking them to parents.
 

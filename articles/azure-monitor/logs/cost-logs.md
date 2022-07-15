@@ -4,20 +4,24 @@ description: Cost details for data stored in a Log Analytics workspace in Azure 
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 03/24/2022
+ms.reviwer: dalek git 
 ---
  
 # Azure Monitor Logs pricing details
 The most significant charges for most Azure Monitor implementations will typically be ingestion and retention of data in your Log Analytics workspaces. Several features in Azure Monitor do not have a direct cost but add to the workspace data that's collected. This article describes how data charges are calculated for your Log Analytics workspaces and Application Insights resources and the different configuration options that affect your costs.
 
 ## Pricing model
-The default pricing for Log Analytics is a Pay-As-You-Go model that's based on ingested data volume and data retention. Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable, depending on the following factors:
+The default pricing for Log Analytics is a Pay-As-You-Go model that's based on ingested data volume and data retention. Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. [Pricing for Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) is set regionally. The amount of data ingestion can be considerable, depending on the following factors:
 
 - The set of management solutions enabled and their configuration
 - The number and type of monitored resources
-- Type of data collected from each monitored resource
+- The types of data collected from each monitored resource
 
 ## Data size calculation
 Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). The data size of a single record is calculated from a string representation of the columns that are stored in the Log Analytics workspace for that record, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [custom logs API](custom-logs-overview.md), [ingestion-time transformations](ingestion-time-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
+
+>[!NOTE]
+>The billable data volume calculation is substantially smaller than the size of the entire incoming JSON-packaged event. On average across all event types, the billed size is about 25% less than the incoming data size. This can be up to 50% for small events. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
 
 ### Excluded columns
 The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the record size. All other columns stored in Log Analytics are included in the calculation of the record size. 
@@ -78,7 +82,7 @@ The charge for searching against Basic Logs is based on the GB of data scanned i
 See [Configure Basic Logs in Azure Monitor](basic-logs-configure.md) for details on Basic Logs including how to configure them and query their data.
 
 ## Log data retention and archive
-In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, and there is a charge search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
+In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, and there is a charge to search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
 
 See [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md) for details on data retention and archiving including how to configure these settings and access archived data. 
 
@@ -112,7 +116,6 @@ When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collec
 - [SecurityDetection](/azure/azure-monitor/reference/tables/securitydetection)
 - [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)
 - [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
-- [MaliciousIPCommunication](/azure/azure-monitor/reference/tables/maliciousipcommunication)
 - [LinuxAuditLog](/azure/azure-monitor/reference/tables/linuxauditlog)
 - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
 - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
@@ -123,18 +126,22 @@ The count of monitored servers is calculated on an hourly granularity. The daily
 ## Legacy pricing tiers
 Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active, will continue to have access to use the the following legacy pricing tiers: 
 
-- Free Trial
 - Standalone (Per GB)
 - Per Node (OMS)
 
+Access to the legacy Free Trial pricing tier will be further limited starting July 1, 2022 (see below.)
+
 ### Free Trial pricing tier
-Workspaces in the **Free Trial** pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Microsoft Defender for Cloud](../../security-center/index.yml)), and the data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes. No SLA is provided for the Free tier.  Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days. Creating new workspaces in (or moving existing workspaces into) the Free Trial pricing tier is possible until July 1, 2022.
+Workspaces in the **Free Trial** pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Microsoft Defender for Cloud](../../security-center/index.yml)), and the data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes. No SLA is provided for the Free tier.   
+
+> [!NOTE]
+> Creating new workspaces in, or moving existing workspaces into, the legacy Free Trial pricing tier is possible only until July 1, 2022.
 
 ### Standalone pricing tier
-Usage on the **Standalone** pricing tier is billed by the ingested data volume. It is reported in the **Log Analytics** service and the meter is named "Data Analyzed". 
+Usage on the **Standalone** pricing tier is billed by the ingested data volume. It is reported in the **Log Analytics** service and the meter is named "Data Analyzed". Workspaces in the Standalone pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Standalone pricing tier do not support the use of [Basic Logs](basic-logs-configure.md).
 
 ### Per Node pricing tier
-The **Per Node** pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. On your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Usage is reported on three meters:
+The **Per Node** pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. On your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Workspaces in the Per Node pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Per Node pricing tier do not support the use of [Basic Logs](basic-logs-configure.md). Usage is reported on three meters:
 
 - **Node**: this is usage for the number of monitored nodes (VMs) in units of node months.
 - **Data Overage per Node**: this is the number of GB of data ingested in excess of the aggregated data allocation.
@@ -143,8 +150,9 @@ The **Per Node** pricing tier charges per monitored VM (node) on an hour granula
 > [!TIP]
 > If your workspace has access to the **Per Node** pricing tier but you're wondering whether it would cost less in a Pay-As-You-Go tier, you can [use the query below](#evaluate-the-legacy-per-node-pricing-tier) for a recommendation. 
 
-Workspaces created before April 2016 can continue to use the **Standard** and **Premium** pricing tiers that have fixed data retention of 30 days and 365 days, respectively. New workspaces can't be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it can't be moved back. Data ingestion meters on your Azure bill for these legacy tiers are called "Data analyzed."
+### Standard and Premium pricing tiers 
 
+Workspaces created before April 2016 can continue to use the **Standard** and **Premium** pricing tiers that have fixed data retention of 30 days and 365 days, respectively. New workspaces can't be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it can't be moved back. Workspaces in these pricing tiers do not support the use of [Basic Logs](basic-logs-configure.md). Data ingestion meters on your Azure bill for these legacy tiers are called "Data analyzed." 
 
 ### Microsoft Defender for Cloud with legacy pricing tiers 
 Following are considerations between legacy Log Analytics tiers and how usage is billed for [Microsoft Defender for Cloud](../../security-center/index.yml). 

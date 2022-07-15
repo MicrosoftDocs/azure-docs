@@ -71,6 +71,8 @@ To connect a device with device SAS token to your application:
 > [!NOTE]
 > To use existing SAS keys in your enrollment groups, disable the **Auto generate keys** toggle and manually enter your SAS keys.
 
+If you use the default **SAS-IoT-Devices** enrollment group, IoT Central generates the individual device keys for you. To access these keys, select **Connect** on the device details page. This page displays the **ID Scope**, **Device ID**, **Primary key**, and **Secondary key** that you use in your device code. This page also displays a QR code the contains the same data.
+
 ## Individual enrollment
 
 Typically, devices connect by using credentials derived from an enrollment group X.509 certificate or SAS key. However, if your devices each have their own credentials, you can use individual enrollments. An individual enrollment is an entry for a single device that's allowed to connect. Individual enrollments can use either X.509 leaf certificates or SAS tokens (from a physical or virtual trusted platform module) as attestation mechanisms. For more information, see [DPS individual enrollment](../../iot-dps/concepts-service.md#individual-enrollment).
