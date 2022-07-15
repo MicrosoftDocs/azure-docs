@@ -110,7 +110,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 2. Deploy the project by pushing the changes to Azure:
 
     ```console
-    git push azure master
+    git push azure main
     ```
 
     You should see output similar to the following example:
@@ -137,6 +137,13 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 ## Add Application Insights to monitor your web apps
 
+You can add Application Insights to your web app either via:
+
+- The Azure portal UI, or 
+- Manually adding to your web app settings.
+
+### Via the Azure portal
+
 1. In your web app on the Azure portal, select **Application Insights** in the left side menu. 
 1. Click **Turn on Application Insights**. 
 
@@ -151,15 +158,23 @@ The following instructions apply to all Windows, Linux, and Mac development envi
    :::image type="content" source="./media/profiler-aspnetcore-linux/app-insights-3.png" alt-text="Link to a new or existing resource":::    
 
 1. Click **Apply** > **Yes** to apply and confirm.
+
+### Via your web app settings
+
+1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service.
 1. Navigate to the Application Insights resource.
-1. Copy the **Instrumentation Key**.
-1. Navigate to your web app 
+1. Copy the **Instrumentation Key** (iKey).
+1. In your preferred code editor, navigate to your ASP.NET Core project's `appsettings.json` file.
+1. Add the following and insert your copied iKey:
 
-2. Copy the **iKey** value of the Application Insights resource and set the following settings in your web apps:
+   ```json
+   "ApplicationInsights":
+   {
+     "InstrumentationKey": "<your-instrumentation-key>"
+   }
+   ```
 
-    `APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]`
-
-    When the app settings are changed, the site automatically restarts. After the new settings are applied, the Profiler immediately runs for two minutes. The Profiler then runs for two minutes every hour.
+1. Save `appsettings.json` to apply the settings change.
 
 ## Next steps
 Learn how to...
