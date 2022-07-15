@@ -11,7 +11,7 @@ ms.date: 01/19/2022
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
 > [!NOTE]
-> This tutorial uses the Azure portal. See [Tutorial: Send custom logs to Azure Monitor Logs using resource manager templates (preview)](tutorial-data-ingestion-api.md) for a similar tutorial using resource manager templates.
+> This tutorial uses the Azure portal. See [Tutorial: Send custom logs to Azure Monitor Logs using resource manager templates (preview)](tutorial-logs-ingestion-api.md) for a similar tutorial using resource manager templates.
 
 In this tutorial, you learn to:
 

@@ -63,6 +63,6 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 
 ## Next steps
 
-- [Walk through a tutorial on configuring custom logs using resource manager templates.](tutorial-data-ingestion-api.md)
+- [Walk through a tutorial on configuring custom logs using resource manager templates.](tutorial-logs-ingestion-api.md)
 - [Get details on the structure of data collection rules.](../essentials/data-collection-rule-structure.md)
 - [Get an overview on custom logs](logs-ingestion-api-overview.md).

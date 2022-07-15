@@ -11,7 +11,7 @@ ms.date: 01/19/2022
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
 > [!NOTE]
-> This tutorial uses Resource Manager templates and REST API to configure custom logs. See [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-data-ingestion-portal.md) for a similar tutorial using the Azure portal.
+> This tutorial uses Resource Manager templates and REST API to configure custom logs. See [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-logs-ingestion-portal.md) for a similar tutorial using the Azure portal.
 
 In this tutorial, you learn to:
 
@@ -444,6 +444,6 @@ The data may take some time to be ingested, especially if this is the first time
 The cache that drives IntelliSense may take up to 24 hours to update.
 ## Next steps
 
-- [Complete a similar tutorial using the Azure portal.](tutorial-data-ingestion-portal.md)
+- [Complete a similar tutorial using the Azure portal.](tutorial-logs-ingestion-portal.md)
 - [Read more about custom logs.](logs-ingestion-api-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)
