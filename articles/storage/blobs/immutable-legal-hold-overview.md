@@ -43,6 +43,10 @@ When a legal hold is applied to a container, all existing blobs move into an imm
 
 To learn how to configure a legal hold with container-level scope, see [Configure or clear a legal hold](immutable-policy-configure-container-scope.md#configure-or-clear-a-legal-hold).
 
+## Allow protected append blobs writes
+
+[!INCLUDE [allow protected append blobs writes](../../../includes/azure-storage-blobs-immutability-allow-protected-append-blobs.md)]
+
 #### Legal hold tags
 
 A container-level legal hold must be associated with one or more user-defined alphanumeric tags that serve as identifier strings. For example, a tag may include a case ID or event name.

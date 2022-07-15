@@ -29,11 +29,22 @@ To configure a time-based retention policy on a container, use the Azure portal,
 To configure a time-based retention policy on a container with the Azure portal, follow these steps:
 
 1. Navigate to the desired container.
-1. Select the **More** button on the right, then select **Access policy**.
-1. In the **Immutable blob storage** section, select **Add policy**.
-1. In the **Policy type** field, select **Time-based retention**, and specify the retention period in days.
-1. To create a policy with container scope, do not check the box for **Enable version-level immutability**.
-1. If desired, select **Allow additional protected appends** to enable writes to append blobs that are protected by an immutability policy. For more information, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
+
+2. Select the **More** button on the right, then select **Access policy**.
+
+3. In the **Immutable blob storage** section, select **Add policy**.
+
+4. In the **Policy type** field, select **Time-based retention**, and specify the retention period in days.
+
+5. To create a policy with container scope, do not check the box for **Enable version-level immutability**.
+
+6. Choose whether to allow protected append writes. 
+
+   The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
+
+   The **Block and append blobs** option extends this support to certain Microsoft tools (such as Azure Data Factory) which implement append blobs by using block blobs.
+
+   To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
     :::image type="content" source="media/immutable-policy-configure-container-scope/configure-retention-policy-container-scope.png" alt-text="Screenshot showing how to configure immutability policy scoped to container":::
 
@@ -52,6 +63,14 @@ Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
     -ImmutabilityPeriod 10
 ```
 
+To allow protected append writes, set the `-AllowProtectedAppendWrite` or  `-AllowProtectedAppendWriteAll` parameter to `true`. 
+
+The **AllowProtectedAppendWrite** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
+
+The **AllowProtectedAppendWriteAll** option extends this support to certain Microsoft tools (such as Azure Data Factory) which implement append blobs by using block blobs.
+
+To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
+
 ### [Azure CLI](#tab/azure-cli)
 
 To configure a time-based retention policy on a container with Azure CLI, call the [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-create) command, providing the retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
@@ -63,6 +82,14 @@ az storage container immutability-policy create \
     --container-name <container> \
     --period 10
 ```
+
+To allow protected append writes, set the `--allow-protected-append-writes` or  `--allow-protected-append-writes-all` parameter to `true`. 
+
+The **--allow-protected-append-writes** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
+
+The **--allow-protected-append-writes-all** option extends this support to certain Microsoft tools (such as Azure Data Factory) which implement append blobs by using block blobs.
+
+To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
 ---
 
@@ -99,7 +126,7 @@ Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
     -ContainerName <container> `
     -ImmutabilityPeriod 21 `
-    -AllowProtectedAppendWrite true `
+    -AllowProtectedAppendWriteAll true `
     -Etag $policy.Etag `
     -ExtendPolicy
 ```
@@ -130,7 +157,7 @@ az storage container immutability-policy extend \
     --container-name <container> \
     --period 21 \
     --if-match $etag \
-    --allow-protected-append-writes true
+    --allow-protected-append-writes-all true
 ```
 
 To delete an unlocked policy, call the [az storage container immutability-policy delete](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-delete) command.
