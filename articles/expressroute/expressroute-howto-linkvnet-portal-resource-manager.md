@@ -47,8 +47,6 @@ In this tutorial, you learn how to:
 
 * Review guidance for [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
-* You can [view a video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) before beginning to better understand the steps.
-
 ## Connect a VNet to a circuit - same subscription
 
 > [!NOTE]
