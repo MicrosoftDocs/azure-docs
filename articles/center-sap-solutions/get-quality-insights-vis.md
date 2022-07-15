@@ -63,7 +63,8 @@ The following checks are run for each VIS:
 - Checks that **fstrim** is disabled in SAP systems that run on SUSE OS. **fstrim** scans the filesystem and sends `UNMAP` commands for each unused block found. This setting is useful in a thin-provisioned system, if the system is over-provisioned. It's not recommended to run SAP HANA on an over-provisioned storage array. Active **fstrim** can cause XFS metadata corruption. For more information, see [SAP note 2205917](https://launchpad.support.sap.com/#/notes/2205917) and [Disabling fstrim - under which conditions?](https://www.suse.com/support/kb/doc/?id=000019447).
 
 
-**Note:** These quality checks run on all VIS instances at a regular frequency of 12 hours. The corresponding recommendations in Azure Advisor also refresh on the same 12 hour frequency. The number of quality checks being run by ACSS will continue to increase incrementally. The frequency at which these checks are run will also be increased incrementally as more checks are added.
+> [!NOTE]
+> These quality checks run on all VIS instances at a regular frequency of 12 hours. The corresponding recommendations in Azure Advisor also refresh at the same 12-hour frequency.
 
 If you take action on one or more recommendations from ACSS, wait for the next refresh to see any new recommendations from Azure Advisor.
 
