@@ -12,7 +12,7 @@ This article describes how to get the type of schema (Event Grid event schema, c
 [!INCLUDE [Get topic's endpoint and access key](./includes/get-topic-endpoint-access-key.md)]
  
 ## Get the schema type
-Here's a sample Curl command that sends an **HTTP OPTIONS** message to the topic. The response would contain the header property `aeg-input-event-schema` header that gives you the schema type supported by the topic.
+Here's a sample Curl command that sends an **HTTP OPTIONS** message to the topic. The response would contain the header property `aeg-input-event-schema` that gives you the schema type supported by the topic.
 
 ```bash
 curl -X OPTIONS "<TOPIC ENDPOINT>" -H "aeg-sas-key: <ACCESS KEY>"
