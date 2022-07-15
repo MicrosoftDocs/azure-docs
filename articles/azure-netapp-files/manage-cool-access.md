@@ -12,15 +12,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 07/15/2022
 ms.author: anfdocs
 ---
 
 # Manage Azure NetApp Files Standard service level with cool access
 
-Using Azure NetApp Files Standard service level with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier). In doing so, you free up storage that resides within Azure NetApp Files, resulting in cost saving.
+Using Azure NetApp Files Standard service level with [cool access](cool-access-about.md), you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier). In doing so, you free up storage that resides within Azure NetApp Files, resulting in cost saving.
 
-The Standard service level with cool access allows you configure a Standard capacity pool with cool access. The cool access feature moves cold (infrequently accessed) data to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the Standard service level enabled with cool access. However, there can be a difference in data access latency because the data is tiered to the Azure storage account.
+The Standard service level with cool access allows you configure a Standard capacity pool with cool access. The Standard storage service level with cool access feature moves cold (infrequently accessed) data to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the Standard service level enabled with cool access. However, there can be a difference in data access latency because the data is tiered to the Azure storage account.
 
 The Standard service level with cool access feature provides options for the “coolness period” to optimize the network transfer cost, based on your workload and read/write patterns. This feature is provided at the volume level. See the [Set options for coolness period section](#modify-cool) for details. The Standard service level with cool access feature also provides metrics on a per-volume basis. See the [Metrics section](cool-access-about.md#metrics) for details. 
 
@@ -32,7 +32,7 @@ The Standard service level with cool access feature provides options for the “
 * You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for the cool access feature, you cannot convert it back to a non-cool-access capacity pool.  
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled. 
 * After the capacity pool is configured with the option to support cool access volumes, the setting cannot be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level will stop further tiering of data.  
-* Cool access is supported only on capacity pools of the **auto** QoS type.   
+* Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.   
 
 ## Register the feature
 
@@ -60,23 +60,23 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Enable cool access 
 
-To use the cool access feature, you need to configure the feature at the capacity pool level and the volume level.  
+To use the Standard storage with cool access feature, you need to configure the feature at the capacity pool level and the volume level.  
 
 ### Configure the capacity pool for cool access
 
-Before creating or enable a cool-access volume, you need to configure a Stand service-level capacity pool with cool access. The capacity pool must use the auto [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types). You can do so in one of the following ways: 
+Before creating or enable a cool-access volume, you need to configure a Standard service-level capacity pool with cool access. The capacity pool must use the auto [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types). You can do so in one of the following ways: 
 
-* Create a new Standard service-level capacity pool with cool access. 
-* Modify an existing Standard service-level capacity pool to support cool-access volumes. 
+* [Create a new Standard service-level capacity pool with cool access.](#enable-cool-access-new-volume) 
+* [Modify an existing Standard service-level capacity pool to support cool-access volumes.](#enable-cool-access-existing-pool) 
 
-#### Enable cool access on a new volume  
+#### <a name="enable-cool-access-new-volume"></a> Enable cool access on a new volume  
 1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md) with the **Standard** service level and the **auto** QoS type.  
 1. Check the **Enable Cool Access** checkbox, then select **Create**. 
-    When you select Enable Cool Access, the UI automatically selects the auto QoS type. The manual QoS type is not supported for cool access. 
+    When you select **Enable Cool Access**, the UI automatically selects the auto QoS type. The manual QoS type is not supported for Standard service with cool access. 
 
 :::image type="content" source="../media/azure-netapp-files/cool-access-new-capacity-pool.jpg" alt-text="The new capacity pool menu includes an option Enable Cool Access, with a selected checkbox. This is the penultimate field, before QoS Type." lightbox="../media/azure-netapp-files/cool-access-new-capacity-pool.jpg"::: 
 
-#### Enable cool access on an existing capacity pool  
+#### <a name="enable-cool-access-existing-pool"></a> Enable cool access on an existing capacity pool  
 
 You can enable cool access support on an existing Standard service-level capacity pool that uses the auto QoS type. This action allows you to add or modify volumes in the pool to use cool access.  
 
@@ -88,7 +88,7 @@ You can enable cool access support on an existing Standard service-level capacit
 
 ### Configure a volume for cool access 
 
-Cool access can be enabled during the creation of a new volume or on an existing volume. 
+Standard service with cool access can be enabled during the creation of a new volume or on an existing volume. 
 
 #### Enable cool access on a new volume 
 

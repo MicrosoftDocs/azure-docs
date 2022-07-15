@@ -35,7 +35,7 @@
       href: azure-policy-definitions.md
     - name: Storage service add-ons
       href: storage-service-add-ons.md
-    - name: Cool access in Azure NetApp Files
+    - name: Standard storage with cool access
       href: cool-access-about.md
     - name: Cost model for Azure NetApp Files
       href: azure-netapp-files-cost-model.md
@@ -229,7 +229,7 @@
         href: azure-netapp-files-resize-capacity-pools-or-volumes.md
       - name: Dynamically change the service level of a volume
         href: dynamic-change-volume-service-level.md
-      - name: Manage cool access 
+      - name: Manage standard storage with cool access 
         href: manage-cool-access.md
   - name: Manage application volume groups 
     items:

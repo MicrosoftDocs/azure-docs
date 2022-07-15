@@ -16,13 +16,13 @@ ms.date: 06/17/2022
 ms.author: anfdocs
 ---
 
-# Cool access in Azure NetApp Files 
+# Standard storage with cool access in Azure NetApp Files 
 
 The majority of cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
 Using Azure NetApp Files Standard service level with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier). In doing so, you free up storage that resides within Azure NetApp Files, resulting in cost saving.
 
-You can configure Standard service level with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 63 days) for inactive data to be considered “cool”.
+You can configure the Standard service level with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 63 days) for inactive data to be considered “cool”.
 
 When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This tiering process might take a few days.
 
@@ -36,9 +36,10 @@ Metadata is never cooled and will always remain in the standard tier. As such, t
 
 This section describes a large-duration, large-dataset warming test. It shows an example scenario of a dataset where 100% of the data is in the cool tier and how it warms over time.   
 
-Typical randomly accessed data starts as part of a working set (read, modify, and write). As data loses relevance, it becomes cool and is eventually tiered off to the object storage.  
+Typical randomly accessed data starts as part of a working set (read, modify, and write). As data loses relevance, it becomes "cool" and is eventually tiered off to the object storage.  
 
 Cool data might become hot again. It’s not typical for the entire working set to start as cold, but some scenarios do exist, for example, audits, year-end processing, quarter-end processing, lawsuits, and end-of-year licensure reviews.  
+
 This scenario provides insight to the warming performance behavior of a 100% cooled dataset. The insight applies whether it's a small percentage or the entire dataset.
 
 ### 4k random-read test
@@ -59,9 +60,9 @@ This section describes a 4k random-read test across 160 files totaling 10 TB of 
 
 **Methodology**
 
-This test was set up via FIO to run a 4k random-read test across 160 files that total 10 TB of data. FIO was configured to randomly read each block across the entire working dataset. (That is, it can read any block any number of times as part of the test instead of touching each block once). This script was called once every 5 minutes and then a data point collected on performance. When blocks are randomly read, they're moved to the standard tier.
+This test was set up via FIO to run a 4k random-read test across 160 files that total 10 TB of data. FIO was configured to randomly read each block across the entire working dataset. (It can read any block any number of times as part of the test instead of touching each block once). This script was called once every 5 minutes and then a data point collected on performance. When blocks are randomly read, they're moved to the standard tier.
 
-This test had a large dataset and ran several days starting the worst-case most-aged data (all caches dumped). The time component of the X axis has been removed because the total time to rewarm will vary due to the dataset size.  This curve could be in days, hours, minutes, or even seconds depending on the dataset. 
+This test had a large dataset and ran several days starting the worst-case most-aged data (all caches dumped). The time component of the X axis has been removed because the total time to rewarm will vary due to the dataset size. This curve could be in days, hours, minutes, or even seconds depending on the dataset. 
 
 **Results**
 
