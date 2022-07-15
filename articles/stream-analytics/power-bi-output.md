@@ -73,7 +73,7 @@ Currently, Power BI can be called roughly once per second. Streaming visuals sup
 
 You can use the following equation to compute the value to give your window in seconds:
 
-![Screenshot of equation to compute value to give window in seconds](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
+![Screenshot of equation to compute value to give window in seconds.](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
 For example:
 
@@ -83,7 +83,7 @@ For example:
 
 As a result, the equation becomes:
 
-![Screenshot of equation based on example criteria](./media/stream-analytics-power-bi-dashboard/power-bi-example-equation.png)  
+![Screenshot of equation based on example criteria.](./media/stream-analytics-power-bi-dashboard/power-bi-example-equation.png)  
 
 Given this configuration, you can change the original query to the following:
 
