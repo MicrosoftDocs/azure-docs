@@ -291,8 +291,8 @@ To run an experiment using multiple nodes with multiple GPUs:
            
    if __name__ == "__main__":
        parser = ArgumentParser()
-       parser.add_argument("--num_nodes", required=True)
-       parser.add_argument("--gpus", required=True)
+       parser.add_argument("--num_nodes", type=int, required=True)
+       parser.add_argument("--gpus", type=int, required=True)
        args = parser.parse_args()
        set_environment_variables_for_nccl_backend(args.num_nodes, args.gpus)
    ```
