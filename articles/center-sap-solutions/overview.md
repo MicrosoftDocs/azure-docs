@@ -15,6 +15,12 @@ author: lauradolan
 
 *Azure Center for SAP solutions (ACSS)* is an Azure offering that makes SAP a top-level workload on Azure. You can use ACSS to deploy or manage SAP systems on Azure seamlessly. The deployment experience sets up and connects the individual SAP components on your behalf. ACSS simplifies the management of SAP systems and provides quality checks to increase the reliability of these systems on Azure. 
 
+ACSS offers a complete experience for deploying, managing, and optimizing your SAP environment in Azure. This offering provides best practices, tools, and services. By bringing SAP awareness to Azure, ACSS provides a foundation for you to extend the capabilities of your SAP systems on Azure. You can use ACSS to build innovative solutions for your unique requirements.
+
+:::image type="complex" source="./media/overview/service-overview.png" lightbox="./media/overview/service-overview.png" alt-text="Diagram of ACSS service offerings, including products and services, tools and frameworks.":::
+   This diagram shows the ACSS service's offerings. Products and services include fully integrated first-party Azure services that are supported and up-to-date with latest cloud innovations. Tools include quality checks and inventory checks for SAP workloads and are integrated with other products. Frameworks offer up-to-date governance and guidance frameworks, such as enterprise scaling on Azure Assessment, Well-Architected Framework, and Deployment Checklist.
+:::image-end:::
+
 ## What is a Virtual Instance for SAP solutions?
 When you use ACSS, you'll create a *Virtual Instance for SAP solutions (VIS)* resource. The VIS is a logical representation of an SAP system on Azure. 
 
