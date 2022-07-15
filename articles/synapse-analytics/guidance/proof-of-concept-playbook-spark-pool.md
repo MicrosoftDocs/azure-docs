@@ -177,7 +177,7 @@ resources identified in the POC plan.
     - Make data available in Azure by extracting from the source or by creating sample data in Azure. For more information, see:
         - [Transferring data to and from Azure](../../databox/data-box-overview.md#use-cases)
         - [Azure Data Box](https://azure.microsoft.com/services/databox/)
-        - [Copy activity performance and scalability guide](../../data-factory/copy-activity-performance.md#copy-performance-and-scalability-achievable-using-adf)
+        - [Copy activity performance and scalability guide](../../data-factory/copy-activity-performance.md)
         - [Data loading strategies for dedicated SQL pool in Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md)
         - [Bulk load data using the COPY statement](../sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?view=azure-sqldw-latest&preserve-view=true)
     - Test the dedicated connector for the Spark pool and the dedicated SQL pool.
