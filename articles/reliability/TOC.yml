@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   href: overview.md
-- name: Business Continuity and Disaster Recovery
+- name: Business continuity and disaster recovery
   items:
   - name: Business continuity management in Azure
     href: business-continuity-management-program.md
