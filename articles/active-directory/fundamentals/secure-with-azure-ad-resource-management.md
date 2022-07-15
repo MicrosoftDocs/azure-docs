@@ -66,7 +66,7 @@ Subscriptions that enable [delegated resource management](../../lighthouse/conce
 
 It's worth noting that Azure Lighthouse itself is modeled as an Azure resource provider, which means that aspects of the delegation across a tenant can be targeted through Azure Policies.
 
-**Microsoft 365 Lighthouse** - [Microsoft 365 Lighthouse](https://docs.microsoft.com/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide)) is an admin portal that helps Managed Service Providers (MSPs) secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
+**Microsoft 365 Lighthouse** - [Microsoft 365 Lighthouse](https://docs.microsoft.com/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide) is an admin portal that helps Managed Service Providers (MSPs) secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
 
 ## Azure resource management with Azure AD
 
