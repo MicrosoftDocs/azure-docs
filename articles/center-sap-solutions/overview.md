@@ -31,7 +31,7 @@ Each VIS consists of:
    This diagram shows a VIS that contains an SAP system. The SAP system contains an ASCS instance, an Application Server instance, and a database instance. Each instance connects to a virtual machine resource outside of the VIS. 
 :::image-end:::
 
-Inside the VIS, the SID is the parent resource. Your VIS resource is named after the SID of your SAP system. Any ASCS, Application Server, or database instances are child resources of the SID. The child resources are associated with one or more VM resources outside of the VIS. A standalone or distributed SAP system can only have one ASCS instance and one database instance. High Availability (HA) deployments have two ASCS instances. An SAP system can have multiple Application Server instances.
+Inside the VIS, the SID is the parent resource. Your VIS resource is named after the SID of your SAP system. Any ASCS, Application Server, or database instances are child resources of the SID. The child resources are associated with one or more VM resources outside of the VIS. A standalone system would have all three instances mapped to a single VM. A distributed system would have one ASCS and one DB instance mapped to a VM each. High Availability (HA) deployments will have the ASCS instance and DB instance mapped to multiple VMs enabling HA. A distributed or HA type SAP system can have multiple Application Server instances linked to their respective VMs. 
 
 ## What can you do with ACSS? 
 
