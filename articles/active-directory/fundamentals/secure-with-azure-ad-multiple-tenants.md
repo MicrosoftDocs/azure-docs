@@ -64,7 +64,7 @@ In this example, Contoso uses [Azure AD B2B Collaboration](../external-identitie
 
 Use [External Identities cross-tenant access](../external-identities/cross-tenant-access-settings-b2b-collaboration.md) settings to manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of inbound access users in external Azure AD organizations have to your resources, and the level of outbound access your users have to external organizations. They also let you trust multifactor authentication (MFA) and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations. For details and planning considerations, see [Cross-tenant access in Azure AD External Identities](../external-identities/cross-tenant-access-overview.md).
 
-Another approach could have been to utilize the capabilities of Azure AD Connect to sync the same on-premises AD credentials to multiple tenants, keeping the same password but differentiating on the users UPN domain.
+Another approach could have been to utilize the capabilities of Azure AD Connect to sync the same on-premises Azure AD credentials to multiple tenants, keeping the same password but differentiating on the users UPN domain.
 
 ## Multi-tenant resource isolation
 
