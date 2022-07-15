@@ -99,6 +99,12 @@ sections:
           If you use multiple disk encryption schemes, double encryption might negatively affect performance.
 
       - question: |
+          Since Azure confidential VMs support virtual TPM, can I seal secrets/keys to my confidential VM virtual TPM?
+        answer: | 
+          Each Azure confidential VM has its own virtual TPM, where customers can seal their secrets/keys. It is recommended for customers to verify vTPM status (via TPM.msc for Windows VMs).
+          If status is not ready for use, recommend to reboot VMs before sealing secrets/keys to vTPM.
+     
+      - question: |
           Can I enable or disable the new full-disk encryption scheme after VM creation?
         answer: |
           No. After you've created a confidential VM, you can't deactivate or reactivate full-disk encryption. Create a new confidential VM instead.
