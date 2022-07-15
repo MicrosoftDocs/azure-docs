@@ -120,4 +120,4 @@ From your server code, the provider-specific tokens are injected into the reques
 ## Next steps
 
 * After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out the [Work with user identities in Azure App Service authentication](../app-service/configure-authentication-user-identities.md).
-* Lear how to [Work with OAuth tokens in Azure App Service authentication](../app-service/configure-authentication-oauth-tokens.md).
+* Learn how to [Work with OAuth tokens in Azure App Service authentication](../app-service/configure-authentication-oauth-tokens.md).
