@@ -53,9 +53,9 @@ const containerName = process.env.AZURE_STORAGE_BLOB_CONTAINER_NAME;
 
 If you need to create a blob SAS token, you need to have the blob name to create the SAS token. That will be predetermined such as a random blob name, a user-submitted blob name, or a name generated from your application. 
 
-## Create a user delegation SAS token with managed identity
+## Set up managed identity
 
-Before you create a user delegation SAS token with managed identity _in code_, you need to set up managed identity:
+To authenticate to Azure, _without secrets_, set up managed identity:
 
 * Create a managed identity
 * Set the appropriate [Storage roles](/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac) for the identity
@@ -63,13 +63,15 @@ Before you create a user delegation SAS token with managed identity _in code_, y
 
 When these two tasks are complete, use the DefaultAzureCredential as the _managed identity_ instead of a connection string or account key. This allows all your environments to use the exact same source code without the issue of using secrets in source code.
 
+## Create a container SAS token with managed identity
+
 With managed identity configured, use the following code to create **User delegation SAS token** for an existing account and container:
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_CreateContainerSas" highlight="71-75":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_CreateContainerSas" highlight="14-18, 21-24, 36-39":::
 
 The preceding code creates a flow of values in order to create the container SAS token:
 
-* Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest) with the managed identity, [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest)
+* Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with the managed identity, [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
 * Use that client to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
 * Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string
 
@@ -81,9 +83,7 @@ Once the container SAS token is created, use the token to:
 * Create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-constructor-2) with the container URL.
 * List to blobs in the container with [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat).
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_Main" highlight="93":::
-
-
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_Main" highlight="11,15, 20":::
 
 ## See also
 
