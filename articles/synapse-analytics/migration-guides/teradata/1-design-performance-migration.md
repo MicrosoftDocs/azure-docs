@@ -217,7 +217,7 @@ Performance optimizations in the source environment, such as indexes, indicate w
 
 Teradata supports data replication across nodes via the `FALLBACK` option, which replicates table rows that reside physically on a given node to another node within the system. This approach guarantees that data won't be lost if there's a node failure and provides the basis for failover scenarios.
 
-The high availability architecture of Azure SQL Database guarantees that your database is up and running 99.9% of the time regardless of maintenance operations or outages. Azure automatically handles critical servicing tasks such as patching, backups, and Windows and SQL upgrades. Azure also automatically handles unplanned events such as failures in the underlying hardware, software, or network.
+The goal of the high availability architecture in Azure Synapse Analytics is to guarantee that your database is up and running 99.9% of the time, without worrying about the impact of maintenance operations and outages. For more information on the SLA, see [SLA for Azure Synapse Analytics](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1/). Azure automatically handles critical servicing tasks such as patching, backups, and Windows and SQL upgrades. Azure also automatically handles unplanned events such as failures in the underlying hardware, software, or network.
 
 Data storage in Azure Synapse is automatically [backed up](../../sql-data-warehouse/backup-and-restore.md) with snapshots. These snapshots are a built-in feature of the service that creates restore points. You don't have to enable this capability. Users can't currently delete automatic restore points that the service uses to maintain service level agreements (SLAs) for recovery.
 
