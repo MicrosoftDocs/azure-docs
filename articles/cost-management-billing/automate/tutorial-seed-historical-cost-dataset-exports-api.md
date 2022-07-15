@@ -87,7 +87,7 @@ We recommend creating one-time data exports in one month chunks. If you want to 
 
 ## Run each Export
 
-Now that you have created the Export for each month, you need to manually run each by calling the [Execute API](https://docs.microsoft.com/en-us/rest/api/cost-management/exports/execute?tabs=HTTP). An example request to the API is below.
+Now that you have created the Export for each month, you need to manually run each by calling the [Execute API](/rest/api/cost-management/exports/execute). An example request to the API is below.
 
 ```http
 POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/exports/{exportName}/run?api-version=2021-10-01
