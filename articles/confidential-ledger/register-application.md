@@ -12,9 +12,9 @@ ms.author: mbaldwin
 
 # How to register an Azure confidential ledger application with Azure AD
 
-In this article, you'll learn how to register an Azure confidental ledger application in Azure Active Directory (Azure AD). You can find more information on this scenario at [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+In this article, you'll learn how to integrate your Azure confidental ledger application with Azure AD by registering it with the Microsoft identity platform.  
 
-The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform.
+The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform. [Learn more about the Microsoft identity platform](../active-directory/develop/v2-overview.md).
 
 ## Prerequisites
 
