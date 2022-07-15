@@ -151,6 +151,7 @@ There are eight inbound port range requirements. Inbound requests in these range
 
 There are network connectivity requirements for Azure Cache for Redis that might not be initially met in a virtual network. Azure Cache for Redis requires all the following items to function properly when used within a virtual network:
 
+- Outbound network connectivity to Azure Key Vault endpoints worldwide. Azure Key Vault endpoints resolve under the DNS domain vault.azure.net.
 - Outbound network connectivity to Azure Storage endpoints worldwide. Endpoints located in the same region as the Azure Cache for Redis instance and storage endpoints located in *other* Azure regions are included. Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net*, and *file.core.windows.net*.
 - Outbound network connectivity to *ocsp.digicert.com*, *crl4.digicert.com*, *ocsp.msocsp.com*, *mscrl.microsoft.com*, *crl3.digicert.com*, *cacerts.digicert.com*, *oneocsp.microsoft.com*, and *crl.microsoft.com*. This connectivity is needed to support TLS/SSL functionality.
 - The DNS configuration for the virtual network must be able to resolve all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
