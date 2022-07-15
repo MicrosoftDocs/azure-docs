@@ -13,9 +13,25 @@ author: lauradolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-*Azure Center for SAP solutions (ACSS)* is an Azure offering that makes SAP a top-level workload on Azure. You can use ACSS to deploy or manage SAP systems on Azure seamlessly. The deployment experience sets up and connects the individual SAP components on your behalf. ACSS simplifies the management of SAP systems and provides quality checks to increase the reliability of these systems on Azure. 
+*Azure Center for SAP solutions (ACSS)* is an Azure offering that makes SAP a top-level workload on Azure. ACSS is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a more seamless foundation for innovation. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems.
 
-ACSS offers a complete experience for deploying, managing, and optimizing your SAP environment in Azure. This offering provides best practices, tools, and services. By bringing SAP awareness to Azure, ACSS provides a foundation for you to extend the capabilities of your SAP systems on Azure. You can use ACSS to build innovative solutions for your unique requirements.
+The guided deployment experience takes care of creating the necessary compute, storage and networking components needed to run your SAP system. ACSS then helps automate the installation of the SAP software according to Microsoft best practices.
+
+In ACSS, you either create a new SAP system or register an existing one, which then creates a *Virtual Instance for SAP solutions (VIS)*. The VIS brings SAP awareness to Azure by providing management capabilities, such as being able to see the status and health of your SAP systems. Another example is quality checks and insights, which allow you to know when your system isn't following documented best practices and standards.
+
+You can use ACSS to deploy the following types of SAP systems:
+
+- Single server
+- Distributed
+- Distributed with High Availability (HA)
+
+For existing SAP systems that run on Azure, there's a simple registration experience. You can register the following types of existing SAP systems that run on Azure:
+
+- An SAP system that runs on SAP NetWeaver or ABAP stack
+- SAP systems that run on SUSE and RHEL Linux operating systems
+- SAP systems that run on HANA, DB2, SQL Server, Oracle, Max DB, or SAP ASE databases
+
+ACSS brings services, tools and frameworks together to provide an end-to-end unified experience for deployment and management of  SAP workloads on Azure, creating the foundation for you to build innovative solutions for your unique requirements.
 
 :::image type="complex" source="./media/overview/service-overview.png" lightbox="./media/overview/service-overview.png" alt-text="Diagram of ACSS service offerings, including products and services, tools and frameworks.":::
    This diagram shows the ACSS service's offerings. Products and services include fully integrated first-party Azure services that are supported and up-to-date with latest cloud innovations. Tools include quality checks and inventory checks for SAP workloads and are integrated with other products. Frameworks offer up-to-date governance and guidance frameworks, such as enterprise scaling on Azure Assessment, Well-Architected Framework, and Deployment Checklist.
