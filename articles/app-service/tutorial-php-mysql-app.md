@@ -133,6 +133,9 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 ## Frequently asked questions
 
+- [How much does this setup cost?](#how-much-does-this-setup-cost)
+- [How do I connect to the MySQL database with command line tools or desktop tools?](#how-do-i-connect-to-the-mysql-database-with-command-line-tools-or-desktop-tools)
+
 #### How much does this setup cost?
 
 Pricing for the create resources is as follows:
@@ -142,7 +145,7 @@ Pricing for the create resources is as follows:
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
-## How do I connect to the MySQL database with command line tools or desktop tools?
+#### How do I connect to the MySQL database with command line tools or desktop tools?
 
 - For basic access from a commmand-line tool, you can run `mysql` from the app's SSH terminal.
 - To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
