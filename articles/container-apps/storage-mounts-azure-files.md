@@ -150,10 +150,6 @@ Next, create a storage account and establish a file share to mount to the contai
 
 1. Define a storage account name.
 
-    ```bash
-    
-    ```
-
     # [Bash](#tab/bash)
 
     ```azurecli
@@ -163,7 +159,7 @@ Next, create a storage account and establish a file share to mount to the contai
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    $STORAGE_ACCOUNT_NAME="myacastorageaccount$(Get-Random)"
+    $STORAGE_ACCOUNT_NAME="myacastorageaccount$(Get-Random -Maximum 10000)"
     ```
 
     ---
@@ -461,10 +457,10 @@ Now you can update the container app configuration to support the storage mount.
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    az containerapp update \
-      --name $CONTAINER_APP_NAME \
-      --resource-group $RESOURCE_GROUP \
-      --yaml app.yaml \
+    az containerapp update `
+      --name $CONTAINER_APP_NAME `
+      --resource-group $RESOURCE_GROUP `
+      --yaml app.yaml `
       --output table
     ```
 
