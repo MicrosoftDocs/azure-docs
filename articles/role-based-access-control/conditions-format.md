@@ -318,7 +318,7 @@ This section lists the logical operators that are available to construct conditi
 > | --- | --- |
 > | **Operators** | `AND`<br/>`&&` |
 > | **Description** | And operator. |
-> | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})` |
+> | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})` |
 
 ### Or
 
