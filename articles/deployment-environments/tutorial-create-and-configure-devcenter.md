@@ -6,6 +6,7 @@ ms.author: meghaanand
 ms.topic: tutorial
 ms.service: azure-asm
 ms.date: 07/11/2022
+ms.custom: devdivchpfy22
 ---
 
 # Tutorial: Set up an Azure Deployment Environment DevCenter
@@ -55,7 +56,7 @@ The following steps illustrate how to use the Azure portal to create and configu
 
 Once you've created a DevCenter, the next step is to create a system assigned identity or attach an existing user assigned managed identity.
 
-**Using a System assigned managed identity**
+### Using a System assigned managed identity
 
 1. Create a System assigned managed identity by switching the status to 'On', select **Save** and confirm 'Yes'. [Learn more about System Assigned managed identities](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-managed-identity.md#types-of-managed-identities)
 
@@ -63,16 +64,16 @@ Once you've created a DevCenter, the next step is to create a system assigned id
 
 1. Once the System assigned managed identity is created, select **Azure role assignments** to provide 'Owner' access on the subscriptions that will be used in [Mappings](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md#mappings) and ensure the identity has [access to the KeyVault secrets](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-managed-identity.md#assigning-key-vault-secret-access) containing the PAT token to access your repository.
 
-**Using an existing managed identity**
+### Using an existing managed identity
 
-1. Switch to **User Assigned** tab and select **+ Add** to attach an existing identity
+1. Switch to **User Assigned** tab and select **+ Add** to attach an existing identity.
 
     ![Screenshot of user assigned tab.](https://user-images.githubusercontent.com/68404454/124188735-477fde80-da85-11eb-8ae4-04cafb6ec264.png)
 
-1. On the **Add user assigned managed identity** page
-    1. For **Subscription**, select the subscription in which the identity exists
-    1. For **User assigned managed identities**, select an existing identity from the drop-down
-    1. Select **Add**
+1. On the **Add user assigned managed identity** page,
+    1. For **Subscription**, select the subscription in which the identity exists.
+    1. For **User assigned managed identities**, select an existing identity from the drop-down.
+    1. Select **Add**.
 
     ![Screenshot of user assigned managed identity tab.](https://user-images.githubusercontent.com/68404454/124189314-24096380-da86-11eb-9949-0988c6a6c293.png)
 
@@ -82,34 +83,34 @@ Once you've created a DevCenter, the next step is to create a system assigned id
 
 **Prerequisite** - Before attempting to attach a Catalog, store the Personal Access Token(PAT) as a KeyVault Secret and copy the Secret Identifier. [Learn more about generating a PAT](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-catalog.md#get-the-repository-information-and-credentials). Ensure that the identity attached to the DevCenter has 'GET' access to the Secret.
 
-1. Select **Catalogs** in the left menu and Select **+ Add Repo**
+1. Select **Catalogs** in the left menu and Select **+ Add Repo**.
 
     ![Screenshot of catalog tab.](https://user-images.githubusercontent.com/68404454/124190442-e6a5d580-da87-11eb-81cf-206050c45df1.png)
 
-1. In **Add New Catalog** page, provide below details and select **Add**
-    1. For **Name**, provide a name for your Catalog
-    1. For **Git clone Uri**, provide the URI to your GitHub or ADO repository
-    1. For  **Branch Name**, provide the repository branch that you would like to connect
-    1. For **Secret Identifier**, provide the secret identifier that contains your Personal Access Token(PAT) for the repository
-    1. For **Folder Path**, provide the repo path in which the Catalog Items exist
+1. In **Add New Catalog** page, provide below details and select **Add**.
+    1. For **Name**, provide a name for your Catalog.
+    1. For **Git clone Uri**, provide the URI to your GitHub or ADO repository.
+    1. For  **Branch Name**, provide the repository branch that you would like to connect.
+    1. For **Secret Identifier**, provide the secret identifier that contains your Personal Access Token(PAT) for the repository.
+    1. For **Folder Path**, provide the repo path in which the Catalog Items exist.
 
     ![Screenshot of add new catalog page.](https://user-images.githubusercontent.com/68404454/124191487-74ce8b80-da89-11eb-92b7-3c610090e25a.png)
 
-1. Confirm that the Catalog is successfully added by looking at the notifications
+1. Confirm that the Catalog is successfully added by looking at the notifications.
 
 ## Create Environment Types
 
-Environment Types helps you define the different types of environments your development teams can create and apply different settings for different environment types
+Environment Types helps you define the different types of environments your development teams can create and apply different settings for different environment types.
 
-1. Select **Environment Types** in the left menu and select **+ Add**
-1. In the **Add Environment Type** page, provide the below details and select **Add**
-    1. For **Name**, select a name for the Environment Type
-    1. For **Description**, you may choose to provide details about the Environment Type
-    1. For **Tags**, provide a Name and Value
+1. Select **Environment Types** in the left menu and select **+ Add**.
+1. In the **Add Environment Type** page, provide the below details and select **Add**.
+    1. For **Name**, select a name for the Environment Type.
+    1. For **Description**, you may choose to provide details about the Environment Type.
+    1. For **Tags**, provide a Name and Value.
 
     ![Screenshot of add environment type page.](https://user-images.githubusercontent.com/68404454/124192773-700ad700-da8b-11eb-82e6-ca0a62892b99.png)
 
-1. Confirm that the Environment Type is added and repeat Step 2 to create more Environment Types
+1. Confirm that the Environment Type is added and repeat Step 2 to create more Environment Types.
 
 ## Next steps
 
