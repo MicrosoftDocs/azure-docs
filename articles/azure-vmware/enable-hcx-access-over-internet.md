@@ -2,7 +2,6 @@
 title: Enable HCX access over the internet
 description: This article describes how to access HCX over a public IP address using Azure VMware solution.
 ms.topic: how-to
-ms.author: jacobjaygbay
 author: jjaygbay1
 ms.date: 06/27/2022
 ---
