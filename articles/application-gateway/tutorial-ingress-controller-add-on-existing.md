@@ -5,7 +5,7 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/09/2022
+ms.date: 07/15/2022
 ms.author: caya
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
@@ -32,10 +32,10 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named **myResourceGroup** in the **canadacentral** location (region). 
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named **myResourceGroup** in the **East US** location (region): 
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location canadacentral
+az group create --name myResourceGroup --location eastus
 ```
 
 ## Deploy a new AKS cluster
@@ -45,7 +45,7 @@ You'll now deploy a new AKS cluster, to simulate having an existing AKS cluster 
 In the following example, you'll be deploying a new AKS cluster named **myCluster** using [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) and [Managed Identities](../aks/use-managed-identity.md) in the resource group you created, **myResourceGroup**.
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity --generate-ssh-keys
 ```
 
 To configure other parameters for the `az aks create` command, visit references [here](/cli/azure/aks#az-aks-create). 
@@ -59,7 +59,7 @@ When you use an AKS cluster and application gateway in separate virtual networks
 ```azurecli-interactive
 az network public-ip create -n myPublicIp -g myResourceGroup --allocation-method Static --sku Standard
 az network vnet create -n myVnet -g myResourceGroup --address-prefix 11.0.0.0/8 --subnet-name mySubnet --subnet-prefix 11.1.0.0/16 
-az network application-gateway create -n myApplicationGateway -l canadacentral -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet
+az network application-gateway create -n myApplicationGateway -l eastus -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet --priority 200
 ```
 
 > [!NOTE]
@@ -121,10 +121,11 @@ Check that the sample application you created is up and running by either visiti
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and all related resources.
+When no longer needed, delete all resources created in this tutorial by deleting **myResourceGroup** and **MC_myResourceGroup_myCluster_eastus** resource groups:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup 
+az group delete --name MC_myResourceGroup_myCluster_eastus
 ```
 
 ## Next steps

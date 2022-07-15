@@ -2,7 +2,7 @@
 title: Restore SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to restore SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 07/07/2022
+ms.date: 07/15/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -326,7 +326,8 @@ The output appears as:
     "duration": "0:00:04.304322",
     "endTime": null,
     "entityFriendlyName": "master [testSQLVM]",
-    "errorDetails": null,
+    "errorDetails": > [!NOTE]
+> Information the user should notice even if skimmingnull,
     "extendedInfo": {
       "dynamicErrorMessage": null,
       "propertyBag": {
@@ -354,6 +355,8 @@ The output appears as:
 
 The response provides you the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
 
+> [!NOTE]
+> If you don't want to restore the entire chain but only a subset of files, follow the steps as documented [here](restore-sql-database-azure-vm.md#partial-restore-as-files).
 
 ## Next steps
 
