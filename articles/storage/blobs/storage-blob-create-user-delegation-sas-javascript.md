@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/14/2022
+ms.date: 07/15/2022
 ms.author: normesta
 ms.subservice: blobs
 ms.custom: template-how-to, devx-track-js
@@ -87,7 +87,7 @@ Once the container SAS token is created, use the token. As an example of using t
 
 ## Blob: add required dependencies to your application
 
-Include the required dependencies to create an blob SAS token.
+Include the required dependencies to create n blob SAS token.
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-blob-sas-token.js" id="Snippet_Dependencies":::
 
@@ -118,7 +118,7 @@ The preceding code creates a flow of values in order to create the container SAS
 
 * Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with the managed identity, [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
 * Use that client to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
-* Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string. If the blob name was not specified in the options, the SAS token is a container token.
+* Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string. If the blob name wasn't specified in the options, the SAS token is a container token.
 
 ## Blob: use SAS token
 
