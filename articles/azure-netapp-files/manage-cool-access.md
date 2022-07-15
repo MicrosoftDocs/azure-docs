@@ -22,7 +22,7 @@ Using Azure NetApp Files Standard service level with [cool access](cool-access-a
 
 The Standard service level with cool access allows you configure a Standard capacity pool with cool access. The Standard storage service level with cool access feature moves cold (infrequently accessed) data to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the Standard service level enabled with cool access. However, there can be a difference in data access latency because the data is tiered to the Azure storage account.
 
-The Standard service level with cool access feature provides options for the “coolness period” to optimize the network transfer cost, based on your workload and read/write patterns. This feature is provided at the volume level. See the [Set options for coolness period section](#modify-cool) for details. The Standard service level with cool access feature also provides metrics on a per-volume basis. See the [Metrics section](cool-access-about.md#metrics) for details. 
+The Standard service level with cool access feature provides options for the “coolness period” to optimize the network transfer cost, based on your workload and read/write patterns. This feature is provided at the volume level. See the [Set options for coolness period section](#modify_cool) for details. The Standard service level with cool access feature also provides metrics on a per-volume basis. See the [Metrics section](cool-access-about.md#metrics) for details. 
 
 ## Considerations
 
