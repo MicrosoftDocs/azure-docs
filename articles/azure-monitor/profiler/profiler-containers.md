@@ -45,7 +45,7 @@ In this article, you'll learn the various ways you can:
    dotnet new mvc -n EnableServiceProfilerForContainerApp
    ```
 
-   Note that we've added delay in the `Controllers/WeatherForecastController.cs` project to simulate the bottleneck.
+   We've added delay in the `Controllers/WeatherForecastController.cs` project to simulate the bottleneck.
 
    ```CSharp
    [HttpGet(Name = "GetWeatherForecast")]
@@ -163,7 +163,7 @@ Service Profiler session finished.              # A profiling session is complet
 
 1. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
 1. Open the **Performance** blade in your Application Insights resource. 
-1. Once the trace process is complete, you will see the Profiler Traces button like it below:
+1. Once the trace process is complete, you'll see the Profiler Traces button like it below:
 
       :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Profile traces in the performance blade":::
 
