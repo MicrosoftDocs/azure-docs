@@ -217,6 +217,8 @@ A lifecycle management policy must be read or written in full. Partial updates a
 
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
+> [!NOTE]
+> If you enable encryption scope on containers or blobs and if you have defined an action to move a blob from the hot tier to the cool tier or archive tier  then the lifecycle management policy will not move the blob to the respective tiers as this is not supported.
 
 ## See also
 
