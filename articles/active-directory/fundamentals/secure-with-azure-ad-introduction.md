@@ -47,7 +47,7 @@ The Azure AD tenant is an identity security boundary that is under the control o
 
 Azure AD is used to grant objects representing identities access to applications and Azure resources. In that sense both Azure resources and applications trusting Azure AD are resources that can be managed with Azure AD. In the following diagram, The Azure AD tenant boundary shows the Azure AD identity objects and the configuration tools. Below the directory are the resources that use the identity objects for identity and access management. Following best practices, the environment is set up with a test environment to test the proper operation of IAM.
 
-![Screenshot shows shows Azure AD tenant boundary.](media/secure-with-azure-ad-introduction/tenant-boundary.png)
+![Diagram that shows shows Azure AD tenant boundary.](media/secure-with-azure-ad-introduction/tenant-boundary.png)
 
 ### Access to apps that use Azure AD
 
@@ -77,7 +77,7 @@ Users, groups, and service principal objects (workload identities) in the Azure 
 
 Azure resources, resource groups, subscriptions, and management groups are accessed through using these assigned RBAC roles. For example, the following diagram shows distribution of administrative capability in Azure AD using role-based access control.
 
-![Screenshot shows Azure AD role hierarchy.](media/secure-with-azure-ad-introduction/azure-ad-role-hierarchy.png)
+![Diagram that shows Azure AD role hierarchy.](media/secure-with-azure-ad-introduction/azure-ad-role-hierarchy.png)
 
 Azure resources that [support Managed Identities](../managed-identities-azure-resources/overview.md) allow resources to authenticate, be granted access to, and be assigned roles to other resources within the Azure AD tenant boundary.
 
@@ -112,7 +112,7 @@ Administrative units restrict permissions in a role to any portion of your organ
 
 In the following diagram, administrative units are used to segment the Azure AD tenant further based on the business or organizational structure. This is useful when different business units or groups have dedicated IT support staff. The administrative units can be used to provide privileged permissions that are limited to a designated administrative unit.
 
-![Screenshot shows Azure AD Administrative units.](media/secure-with-azure-ad-introduction/administrative-units.png)
+![Diagram that shows Azure AD Administrative units.](media/secure-with-azure-ad-introduction/administrative-units.png)
 
 For more information on administrative units, see [Administrative units in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/roles/administrative-units).
 
