@@ -68,7 +68,7 @@ Here are the settings to add this condition using the Azure portal.
 > [!div class="mx-tableFixed"]
 > | Condition #1 | Setting |
 > | --- | --- |
-> | Actions | [Read content from a blob with tag conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
+> | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
 > | Attribute source | Resource |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | {keyName} |

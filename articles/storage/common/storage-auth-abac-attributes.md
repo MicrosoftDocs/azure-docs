@@ -87,19 +87,6 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 >
 > If you are authoring your own condition where you want to restrict read access by tag conditions, please refer to [Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag).
 
-> [!div class="mx-tdCol2BreakAll"]
-> | Property | Value |
-> | --- | --- |
-> | **Display name** | Read content from a blob with tag conditions |
-> | **Description** | Read blobs with tags. |
-> | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-> | **Suboperation** | `Blob.Read.WithTagConditions` (deprecated) |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys)<br/>[Encryption scope name](#encryption-scope-name) |
-> | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
-> | **Principal attributes support** | True |
-> | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})`<br/>[Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag) |
-> | **Learn more** | [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md) |
-
 ### Read blob index tags
 
 > [!div class="mx-tdCol2BreakAll"]
