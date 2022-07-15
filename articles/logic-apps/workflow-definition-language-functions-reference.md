@@ -4203,7 +4203,7 @@ sort([<collection>], <sortBy>?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Yes | Array | The collection whose items you want to sort |
-| <*sortBy*> | No | String | A key to use for sorting objects in a collection |
+| <*sortBy*> | No | String | The key to use for sorting the collection objects |
 |||||
 
 | Return value | Type | Description |
