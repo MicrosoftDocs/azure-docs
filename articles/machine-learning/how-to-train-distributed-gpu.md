@@ -266,26 +266,21 @@ To run multi-node Lightning training on Azure ML, follow the [per-node-launch](#
 To run an experiment using multiple nodes with multiple GPUs:
 
 - Define `MpiConfiguration` and specify `node_count`. Don't specify `process_count` because Lightning internally handles launching the worker processes for each node.
-- For PyTorch jobs, Azure ML handles setting the MASTER_ADDR, MASTER_PORT, and NODE_RANK environment variables that Lightning requires:
+- For PyTorch jobs, manually set the MASTER_ADDR, MASTER_PORT, and NODE_RANK environment variables that Lightning requires in the main training scripts:
 
    ```python
    import os
+   from argparse import ArgumentParser
 
-   def set_environment_variables_for_nccl_backend(single_node=False, master_port=6105):
-       if not single_node:
-           master_node_params = os.environ["AZ_BATCH_MASTER_NODE"].split(":")
-           os.environ["MASTER_ADDR"] = master_node_params[0]
-
-           # Do not overwrite master port with that defined in AZ_BATCH_MASTER_NODE
-           if "MASTER_PORT" not in os.environ:
-               os.environ["MASTER_PORT"] = str(master_port)
+   def set_environment_variables_for_nccl_backend(num_nodes, gpus_per_node, master_port=54965):
+       if num_nodes > 1:
+           os.environ["MASTER_ADDR"], os.environ["MASTER_PORT"] = os.environ["AZ_BATCH_MASTER_NODE"].split(":")
        else:
            os.environ["MASTER_ADDR"] = os.environ["AZ_BATCHAI_MPI_MASTER_NODE"]
-           os.environ["MASTER_PORT"] = "54965"
+           os.environ["MASTER_PORT"] = str(master_port)
 
-       os.environ["NCCL_SOCKET_IFNAME"] = "^docker0,lo"
        try:
-           os.environ["NODE_RANK"] = os.environ["OMPI_COMM_WORLD_RANK"]
+           os.environ["NODE_RANK"] = str(int(os.environ.get("OMPI_COMM_WORLD_RANK")) // gpus_per_node)
            # additional variables
            os.environ["MASTER_ADDRESS"] = os.environ["MASTER_ADDR"]
            os.environ["LOCAL_RANK"] = os.environ["OMPI_COMM_WORLD_LOCAL_RANK"]
@@ -293,6 +288,13 @@ To run an experiment using multiple nodes with multiple GPUs:
        except:
            # fails when used with pytorch configuration instead of mpi
            pass
+           
+   if __name__ == "__main__":
+       parser = ArgumentParser()
+       parser.add_argument("--num_nodes", required=True)
+       parser.add_argument("--gpus", required=True)
+       args = parser.parse_args()
+       set_environment_variables_for_nccl_backend(args.num_nodes, args.gpus)
    ```
 
 - Lightning handles computing the world size from the Trainer flags `--gpus` and `--num_nodes` and manages rank and local rank internally:
