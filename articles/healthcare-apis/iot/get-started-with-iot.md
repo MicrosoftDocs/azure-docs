@@ -12,9 +12,9 @@ ms.custom: mode-api
 
 # Get started with MedTech service in Azure Health Data Services
 
-This article outlines the basic steps to get started with MedTech service in [Azure Health Data Services](../healthcare-apis-overview.md). MedTech service first processes data that has been sent to an event hub from a medical device, and then saves the data to the Fast Healthcare Interoperability Resources (FHIR&#174;) service as Observation resources. This procedure makes it possible to link the FHIR service Observation to patient and device resources.
+This article outlines the basic steps to get started with Azure MedTech service in [Azure Health Data Services](../healthcare-apis-overview.md). MedTech service ingests health data from a medical device using Azure Event Hubs service. It then persists the data to the Azure Fast Healthcare Interoperability Resources (FHIR&#174;) service as Observation resources. This data processing procedure makes it possible to link FHIR service Observations to patient and device resources.
 
-The following diagram shows the four development steps of the data flow needed to get MedTech service to receive data from a device and send it to FHIR service.
+The following diagram shows the four-step data flow that enables MedTech service to receive data from a device and send it to FHIR service.
 
 - Step 1 introduces the subscription and permissions prerequisites needed.
 
