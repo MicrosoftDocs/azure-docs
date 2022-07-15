@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure confidential computing documentation
+title: Azure confidential computing
 summary: Azure confidential computing offers solutions to enable the isolation your sensitive data while it's being processed in the cloud. Learn how to create and deploy applications based on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. Use Microsoft products built on confidential computing to keep your workloads as secure as possible. 
 
 metadata:
@@ -21,17 +21,23 @@ landingContent:
 ##ROW 1
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Confidential Computing
+  - title: Azure Confidential Computing
     linkLists:
       - linkListType: overview
         links:
           - text: What is Confidential Computing?
             url: overview.md
-          - text: What is Azure Confidential Computing?
+          - text: What is Azure confidential computing?
             url: overview-azure-products.md
           - text: Choose your Confidential Computing offering
             url: use-cases-scenarios.md 
-      - linkListType: reference
+      - linkListType: quickstart
+        links:
+          - text: Building confidential computing solutions
+            url: confidential-computing-solutions.md
+          - text: Deploying confidential computing solutions
+            url: confidential-computing-deployment-models.md
+      - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
             url: ../attestation/overview.md
@@ -43,12 +49,18 @@ landingContent:
             url: ../key-vault/managed-hsm/index.yml
           - text: Azure IoT Edge
             url: ../iot-edge/deploy-confidential-applications.md
+      - linkListType: whats-new
+        links:
+          - text: What's new?
+            url: https://techcommunity.microsoft.com/t5/azure-confidential-computing/bg-p/AzureConfidentialComputingBlog
   # Card (optional)
-  - title: Confidential Virtual machines
+  - title: Confidential Virtual Machines
     linkLists:
       - linkListType: overview
         links:
           - text: Azure Confidential VM options on AMD
+            url: confidential-vm-overview.md
+          - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: virtual-machine-solutions-amd.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: confidential-vm-overview.md
@@ -74,22 +86,20 @@ landingContent:
     linkLists:
       - linkListType: overview
         links: 
-          -  text: Confidential containers
-             url: confidential-containers.md
-          -  text: App enclave-aware containers
-             url: enclave-aware-containers.md
-          -  text: Confidential Node Pools on AKS
-             url: confidential-nodes-aks-addon.md
-          # - text: Confidential computing nodes on AKS (Azure Kubernetes Service)
-          #   url: confidential-nodes-aks-overview.md
+        - text: Confidential Containers 
+          url: confidential-containers.md
+        - text: App enclave nodes in AKS
+          url: confidential-nodes-aks-overview.md
       - linkListType: quickstart
         links:
-          - text: Confidential container samples (unmodified containers on SGX)
-            url: https://github.com/Azure-Samples/confidential-container-samples
-          - text: Enclave Aware Container Samples
-            url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
+          - text: Choose your container offering
+            url: choose-confidential-containers-offerings.md
           - text: CLI based provisioning with a simple enclave container app on AKS
             url: confidential-enclave-nodes-aks-get-started.md
+          - text: App enclave aware container samples
+            url: enclave-aware-containers.md
+          - text: Confidential Node Pools on AKS
+            url: confidential-nodes-aks-addon.md
       - linkListType: reference
         links:
           - text: About Azure Kubernetes Service (AKS) 
