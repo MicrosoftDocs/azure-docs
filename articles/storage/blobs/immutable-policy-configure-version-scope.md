@@ -272,13 +272,18 @@ To configure a default version-level immutability policy for a storage account i
 To configure a default version-level immutability policy for a container in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the **Containers** page, and locate the container to which you want to apply the policy.
-1. Select the **More** button to the right of the container name, and choose **Access policy**.
-1. In the **Access policy** dialog, under the **Immutable blob storage** section, choose **Add policy**.
-1. Select **Time-based retention policy** and specify the retention interval.
-1. If desired, select **Allow additional protected appends** to enable writes to append blobs that are protected by an immutability policy. For more information, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
-1. Select **OK** to apply the default policy to the container.
+2. Select the **More** button to the right of the container name, and choose **Access policy**.
+3. In the **Access policy** dialog, under the **Immutable blob storage** section, choose **Add policy**.
+4. Select **Time-based retention policy** and specify the retention interval.
+5. Choose whether to allow protected append writes. 
 
-    :::image type="content" source="media/immutable-policy-configure-version-scope/configure-default-retention-policy-container.png" alt-text="Screenshot showing how to configure a default version-level retention policy for a container":::
+   The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
+
+   The **Block and append blobs** option extends this support to certain Microsoft tools (such as Azure Data Factory) which implement append blobs by using block blobs.
+
+   To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
+
+    :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-container-scope.png" alt-text="Screenshot showing how to configure immutability policy scoped to container":::
 
 #### [PowerShell](#tab/azure-powershell)
 
