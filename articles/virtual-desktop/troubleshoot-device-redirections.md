@@ -3,7 +3,7 @@ title: Device redirections in Azure Virtual Desktop - Azure
 description: How to resolve issues with device redirections in Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
-manager: lizross
+manager: femila
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
@@ -23,14 +23,10 @@ Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft
 
 ## WebAuthn redirection
 
-WebAuthn redirection is enabled by default in Azure Virtual Desktop if you are using the following operating systems on both the local PC and the session host:
+If WebAuthn requests from the session are not redirected to the local PC, verify that:
 
-- Windows 11 Enterprise single or multi-session with the [2022-09 Cumulative Updates for Windows 11]() or later installed.
-- Windows 10 Enterprise single or multi-session, versions 20H2 or later with the [2022-09 Cumulative Updates for Windows 10]() or later installed.
-- Windows Server, version 2022 with the [2022-09 Cumulative Update for Microsoft server operating system]() or later installed.
-- Windows Server, version 2019 with the [2022-09 Cumulative Update for Microsoft server operating system]() or later installed.
-
-You can configure WebAuthn redirection using an [RDP property](configure-device-redirections.md#webauthn-redirection) available in the Azure Portal.
+- you're using supported operating systems for [in-session passwordless authentication](authentication.md#in-session-passwordless-authentication) on both the local PC and the session host.
+- WebAuthn redirection is enabled as a [device redirection](configure-device-redirections.md#webauthn-redirection).
 
 ## Next steps
 

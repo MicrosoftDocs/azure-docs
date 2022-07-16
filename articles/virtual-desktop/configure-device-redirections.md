@@ -121,4 +121,4 @@ Set the following RDP property to configure WebAuthn redirection:
 - `redirectwebauthn:i:1` enables WebAuthn redirection.
 - `redirectwebauthn:i:0` disables WebAuthn redirection.
 
-When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices (e.g. FIDO keys). This provides support for passwordless authentication inside the session.
+When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices like FIDO keys. This provides support for passwordless authentication inside the session.

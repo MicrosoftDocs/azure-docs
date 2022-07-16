@@ -3,7 +3,7 @@ title: Configure single sign-on for Azure Virtual Desktop - Azure
 description: How to configure single sign-on for an Azure Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
-manager: lizross
+manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
@@ -20,7 +20,7 @@ ms.author: helohr
 This article will walk you through the process of configuring single sign-on (SSO) using Azure AD authentication for Azure Virtual Desktop. When SSO is enabled, you can use passwordless authentication and third-party Identity Providers that federate with Azure AD to sign in to your resources.
 
 > [!NOTE]
-> Azure Virtual Desktop (Classic) doesn't support this feature.
+> Azure Virtual Desktop (classic) doesn't support this feature.
 
 ## Prerequisites
 
@@ -34,9 +34,9 @@ Single sign-on is only available on the following operating systems:
 Single sign-on can be enabled for connections to Azure AD-joined VMs. SSO can also be used to access Hybrid Azure AD-joined VMs, but only after creating a Kerberos Server object. This solution is not supported with VMs joined to Azure AD Domain Services.
 
 > [!NOTE]
-> SSO is not supported with Hybrid Azure AD-joined Windows Server 2019 VMs.
+> Hybrid Azure AD-joined Windows Server 2019 VMs don't support SSO.
 
-SSO is currently supported with the [Windows Desktop client](./user-documentation/connect-windows-7-10.md).
+Currently, the [Windows Desktop client](./user-documentation/connect-windows-7-10.md) is the only client that supports SSO.
 
 This feature is currently supported in the Azure Public, Azure Government and Azure China clouds.
 
@@ -47,7 +47,7 @@ If your host pool contains Hybrid Azure AD-joined session hosts, you must first 
 To enable SSO on your host pool, you must [customize an RDP property](customize-rdp-properties.md). You can find the **Azure AD Authentication** property under the **Connection information** tab in the Azure Portal.
 
 > [!IMPORTANT]
-> If SSO is enabled on Hybrid Azure AD-joined VMs before the Kerberos Server object is created, connections will fail with an error that a specified logon session does not exist.
+> If you enable SSO on your Hybrid Azure AD-joined VMs before you create the Kerberos server object, you won't be able to connect to the VMs, and you'll see an error message saying the specific log on session doesn't exist.
 
 ## Next steps
 

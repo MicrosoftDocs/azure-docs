@@ -181,12 +181,6 @@
         href: configure-device-redirections.md
       - name: Supported RDP file settings
         href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-      - name: Enforce Azure AD MFA
-        href: set-up-mfa.md
-      - name: Configure single sign-on
-        href: configure-single-sign-on.md
-      - name: Set up the KDC proxy
-        href: key-distribution-center-proxy.md
   - name: Set up the PowerShell module
     href: powershell-module.md
   - name: Create a host pool and session hosts
@@ -291,6 +285,14 @@
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
     href: teams-on-avd.md
+  - name: Identity and access management
+    items:
+      - name: Enforce Azure AD MFA
+        href: set-up-mfa.md
+      - name: Configure single sign-on
+        href: configure-single-sign-on.md
+      - name: Set up the KDC proxy
+        href: key-distribution-center-proxy.md
   - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
