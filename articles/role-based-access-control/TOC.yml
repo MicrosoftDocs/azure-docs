@@ -141,6 +141,8 @@
       href: custom-roles-template.md
   - name: View activity logs
     href: change-history-report.md
+  - name: Notification of privileged role assignments
+    href: role-assignments-monitor-alert-rule.md
   - name: Elevate access
     href: elevate-access-global-admin.md
   - name: Classic administrators
