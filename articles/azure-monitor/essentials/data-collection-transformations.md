@@ -41,9 +41,9 @@ Use a transformation to add information to data that provides business context o
 ## Supported tables
 Transformations may be applied to the following tables in a Log Analytics workspace. 
 
-- Any built-in table listed in [Tables that support time transformations in Azure Monitor Logs (preview)](../logs/tables-feature-support.md).
+- Any Azure table listed in [Tables that support time transformations in Azure Monitor Logs (preview)](../logs/tables-feature-support.md)
 
-- Any custom table created by the [logs ingestion API](../logs/logs-ingestion-api-overview.md) or the [data collector API](../logs/data-collector-api.md).
+- Any custom table
 
 
 ## How transformations work
@@ -60,17 +60,16 @@ Another example is data sent from a custom application using the [logs ingestion
 :::image type="content" source="media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram of ingestion-time transformation for custom application using logs ingestion API." border="false":::
 
 ## Workspace transformation DCR
+The workspace transformation DCR is a special DCR that's applied directly to a Log Analytics workspace. It includes default transformations for one more [supported tables](../logs/tables-feature-support.md). These transformations are applied to any data sent to these tables unless that data came from another DCR.
 
-To apply a transformation to data that doesn't use a data collection rule, create the transformation in the [workspace transformation DCR](../data-collection.transformations.md#workspace-transformation-dcr). This DCR can contain a transformation for one more [supported tables](../logs/tables-feature-support.md). Any data sent to these tables not using another DCR will have the transformation applied. 
-
-For example, if you create a transformation in the workspace transformation DCR for the `Event` table, it would be applied to events collected by virtual machines running the [Log Analytics agent](../agents/log-analytics-agent.md) since this agent doesn't use a DCR> The transformation would be ignored by any data sent from the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) though since it uses a DCR.
+For example, if you create a transformation in the workspace transformation DCR for the `Event` table, it would be applied to events collected by virtual machines running the [Log Analytics agent](../agents/log-analytics-agent.md) since this agent doesn't use a DCR. The transformation would be ignored by any data sent from the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) though since it uses a DCR.
 
 A common use of the workspace transformation DCR is collection of [resource logs](resource-logs.md) which are configured with a [diagnostic setting](diagnostic-settings.md). This is shown in the example below. 
 
 :::image type="content" source="media/data-collection-transformations/transformation-diagnostic-settings.png" lightbox="media/data-collection-transformations/transformation-diagnostic-settings.png" alt-text="Diagram of workspace transformation for resource logs configured with diagnostic settings." border="false":::
 
 ## Creating a transformation
-There are multiple methods to create transformations depending on the data source. The following table lists guidance for different methods for creating transformations. 
+There are multiple methods to create transformations depending on the data collection method. The following table lists guidance for different methods for creating transformations. 
 
 | Type | Reference |
 |:---|:---|
