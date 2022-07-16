@@ -147,7 +147,7 @@ Use Log Analytics to test the transformation query before adding it to a data co
    ```
 
 ## Create data collection rule (DCR)
-Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection.md#workspace-transformation-dcr). If you create workspace transformations for other tables in the same workspace, they must be stored in this same DCR.
+Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr). If you create workspace transformations for other tables in the same workspace, they must be stored in this same DCR.
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 

@@ -35,21 +35,21 @@ The following sections describe the data collection scenarios that are currently
 ### Azure Monitor agent
 The diagram below shows data collection for the [Azure Monitor agent](agents/azure-monitor-agent-overview.md) running on a virtual machine. In this scenario, the DCR specifies events and performance data to collect from the agent machine, a transformation to filter and modify the data after its collected, and a Log Analytics workspace to send the transformed data. To implement this scenario, you create an association between the DCR and the agent. One agent can be associated with multiple DCRs, and one DCR can be associated with multiple agents.
 
-:::image type="content" source="essentials/media/data-collection-transformations/transformation-azure-monitor-agent.png" lightbox="essentials/media/data-collection-transformations/transformation-azure-monitor-agent.png" alt-text="Diagram of ingestion-time transformation for Azure Monitor agent." border="false":::
+:::image type="content" source="essentials/media/data-collection-transformations/transformation-azure-monitor-agent.png" lightbox="essentials/media/data-collection-transformations/transformation-azure-monitor-agent.png" alt-text="Diagram showing data collection for Azure Monitor agent." border="false":::
 
 See [Collect data from virtual machines with the Azure Monitor agent](agents/data-collection-rule-azure-monitor-agent.md) for details on creating a DCR for the Azure Monitor agent.
 
 ### Log ingestion API
 The diagram below shows data collection for the [Logs ingestion API](logs/logs-ingestion-api-overview.md), which allows you to send data to a Log Analytics workspace from any REST client. In this scenario, the API call connects to a [data collection endpoint (DCE))](essentials/data-collection-endpoint-overview.md) and specifies a DCR to accept its incoming data. The DCR understands the structure of the incoming data, includes a transformation that ensures that the data is in the format of the target table, and specifies a workspace and table to send the transformed data.
 
-:::image type="content" source="essentials/media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="essentials/media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram of ingestion-time transformation for custom application using logs ingestion API." border="false":::
+:::image type="content" source="essentials/media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="essentials/media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram showing data collection for custom application using logs ingestion API." border="false":::
 
 See [Logs ingestion API in Azure Monitor (Preview)](logs/logs-ingestion-api-overview.md) for details on the Logs ingestion API.
 
 ### Workspace transformation DCR
 The diagram below shows data collection for [resource logs](essentials/resource-logs.md) using a [workspace transformation DCR](essentials/data-collection-transformations.md#workspace-transformation-dcr). This is a special DCR that's associated with a workspace and provides a default transformation for [supported tables](logs/tables-feature-support.md). This transformation is applied to any data sent to the table that doesn't already use a DCR. The example here shows resource logs using a diagnostic setting, but this same transformation could be applied to other data collection methods such as Log Analytics agent or Container insights.
 
-:::image type="content" source="essentials/media/data-collection-transformations/transformation-diagnostic-settings.png" lightbox="essentials/media/data-collection-transformations/diagnostic-settings.png" alt-text="Diagram of ingestion-time transformation for custom application using logs ingestion API." border="false":::
+:::image type="content" source="essentials/media/data-collection-transformations/transformation-diagnostic-settings.png" lightbox="essentials/media/data-collection-transformations/transformation-diagnostic-settings" alt-text="Diagram showing data collection for resource logs using a transformation in the workspace transformation DCR." border="false":::
 
 See [Workspace transformation DCR](essentials/data-collection-transformations.md#workspace-transformation-dcr) for details about workspace transformation DCRs and links to walkthroughs for creating them.
 
