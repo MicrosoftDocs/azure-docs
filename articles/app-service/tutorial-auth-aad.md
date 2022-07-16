@@ -319,7 +319,7 @@ The commands effectively adds a `loginParameters` property with additional custo
 > For Linux apps, There's a temporary requirement to configure a versioning setting for the back-end app registration. In the Cloud Shell, configure it with the following commands. Be sure to replace *\<back-end-client-id>* with your back end's client ID.
 >
 > ```azurecli-interactive
-> id=$(az ad app show --id <back-end-client-id> --query objectId --output tsv)
+> id=$(az ad app show --id <back-end-client-id> --query id --output tsv)
 > az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
 > ```    
 
