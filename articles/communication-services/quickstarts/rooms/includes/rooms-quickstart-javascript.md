@@ -18,43 +18,58 @@ ms.author: radubulboaca
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
-- The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- The latest versions of [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
 
 ## Setting up
 
-### Create a new C# application
-
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `RoomsQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+### Create a new web application
+In a terminal or console window, create a new folder for your application and navigate to it.
 
 ```console
-dotnet new console -o RoomsQuickstart
+mkdir acs-rooms-quickstart && cd acs-rooms-quickstart
 ```
 
-Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
+Run `npm init` to create a package.json file with default settings.
 
 ```console
-cd RoomsQuickstart
-dotnet build
+npm init -y
+```
+
+###Install the packages
+
+Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
+
+```console
+npm install @azure/communication-common --save
+npm install @azure/communication-identity --save
+npm install @azure/communication-signaling --save
 ```
 
 ### Initialize a room client
 
 Create a new `RoomsClient` object that will be used to create new `rooms` and manage their properties and lifecycle. The connection string of your `Communications Service` will be used to authenticate the request. For more information on connection strings, see [this page](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
-```csharp
-// Find your Communication Services resource in the Azure portal
-var connectionString = "<connection_string>"; 
-RoomsClient roomsClient = new RoomsClient(connectionString);
+```javascript
+const connectionString =
+    process.env["COMMUNICATION_CONNECTION_STRING"] ||
+    "endpoint=https://<resource-name>.communication.azure.com/;<access-key>";
+
+const identityClient = new CommunicationIdentityClient(connectionString);
+const user1 = await identityClient.createUserAndToken(["voip"]);
+const user2 = await identityClient.createUserAndToken(["voip"]);
+
+// create RoomsClient
+const roomsClient = new RoomsClient(connectionString);
 ```
 
 ### Create a room
 
 Create a new `room` with default properties using the code snippet below:
 
-```csharp
-RoomRequest request = new RoomRequest();
-Response<RoomModel> createRoomResponse = await roomsClient.CreateRoomAsync(validFrom, validUntil, RoomJoinPolicy.InviteOnly, participants);
-RoomModel createCommunicationRoom = createRoomResponse.Value;
+```javascript
+// create a room with the request payload
+const createRoom = await roomsClient.createRoom(createRoomRequest);
+const roomId = createRoom.id;
 ```
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object. 
@@ -63,43 +78,52 @@ Since `rooms` are server-side entities, you may want to keep track of and persis
 
 Retrieve the details of an existing `room` by referencing the `roomId`:
 
-```csharp
-Response<RoomModel> getRoomResponse = await roomsClient.GetRoomAsync(createdRoomId)
-RoomModel getCommunicationRoom = getRoomResponse.Value;
+```javascript
+// retrieves the room with corresponding ID
+const getRoom = await roomsClient.getRoom(roomId);
+console.log(`Retrieved Room with ID ${roomId}`);
 ```
 
 ### Update the lifetime of a room
 
 The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
 
-```csharp
-var validFrom = new DateTime(2022, 05, 01, 00, 00, 00, DateTimeKind.Utc);
-var validUntil = validFrom.AddDays(1);
+```javascript
+validFrom.setTime(validUntil.getTime());
+validUntil.setTime(validFrom.getTime() + 5 * 60 * 1000);
 
-UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest();
-updateRoomRequest.ValidFrom = validFrom;
-updateRoomRequest.ValidUntil = validUntil;
+// request payload to update a room
+const updateRoomRequest = {
+validFrom: validFrom,
+validUntil: validUntil,
+roomJoinPolicy: "CommunicationServiceUsers",
+participants: [
+    new RoomParticipant(user1.user, "Consumer"),
+    new RoomParticipant(user2.user, "Presenter"),
+],
+};
 
-Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(roomId, updateRoomRequest);
-CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
+// updates the specified room with the request payload
+const updateRoom = await roomsClient.updateRoom(roomId, updateRoomRequest);
 ``` 
 
 ### Add new participants 
 
 To add new participants to a `room`, issue an update request on the room's `Participants`:
 
-```csharp
-var communicationUser1 = "<CommunicationUserId1>";
-var communicationUser2 = "<CommunicationUserId2>";
-var communicationUser3 = "<CommunicationUserId3>";
+```javascript
+const updateRoomRequest = {
+roomJoinPolicy: "CommunicationServiceUsers",
+participants: [
+    new RoomParticipant(user1.user, "Consumer"),
+    new RoomParticipant(user2.user, "Presenter"),
+],
+};
 
-List<RoomParticipant> toAddCommunicationUsers = new List<RoomParticipant>();
-toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser1), "Presenter"));
-toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser2), "Attendee"));
-toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser3), "Attendee"));
-
-Response<RoomModel> addParticipantResponse = await roomsClient.AddParticipantsAsync(createdRoomId, toAddCommunicationUsers);
-RoomModel addedParticipantsRoom = addParticipantResponse.Value;
+// updates the specified room with the request payload
+const updateRoom = await roomsClient.updateRoom(roomId, updateRoomRequest);
+console.log(`Updated Room`);
+printRoom(updateRoom);
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -108,6 +132,7 @@ Participants that have been added to a `room` become eligible to join calls.
 
 To remove a participant from a `room` and revoke their access, update the `Participants` list:
 
+//TODO
 ```csharp
 var communicationUser = "<CommunicationUserId1>";
 
@@ -121,6 +146,7 @@ RoomModel removeParticipantsRoom = removeParticipantResponse.Value;
 ### Delete room
 If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period. 
 
-```csharp
-Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(createdRoomId);
+```javascript
+// deletes the specified room
+await roomsClient.deleteRoom(roomId);
 ```

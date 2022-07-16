@@ -12,10 +12,9 @@ ms.custom: include file
 ms.author: radubulboaca
 ---
 
-
 ## Join a room call
 
-To join a room call, set up your web application using the [Add video calling to your client app](../../voice-video-calling/get-started-with-video-calling?pivots=platform-android) guide. Alternatively, you can download the video calling quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/videoCallingQuickstart).
+To join a room call, set up your web application using the [Add video calling to your client app](../../voice-video-calling/get-started-with-video-calling.md?pivots=platform-android) guide. Alternatively, you can download the video calling quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/videoCallingQuickstart).
 
 Create a `CallAgent` with a valid user token:
 

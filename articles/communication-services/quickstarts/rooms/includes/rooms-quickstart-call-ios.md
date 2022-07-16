@@ -15,7 +15,7 @@ ms.author: radubulboaca
 
 ## Join a room call
 
-To join a room call, set up your web application using the [Add video calling to your client app](../../voice-video-calling/get-started-with-video-calling?pivots=platform-ios) guide. Alternatively, you can download the video calling quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
+To join a room call, set up your web application using the [Add video calling to your client app](../../voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios) guide. Alternatively, you can download the video calling quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
 
 You'll need a User Access Token when initializing a CallAgent instance to join room calls. Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You'll need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource:
 
