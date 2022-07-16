@@ -30,48 +30,48 @@ The following table describes the important terms used in the latest version of 
 | Term | Account type | Description |
 | --- | --- | --- |
 | AccountName | EA, pay-as-you-go | Display name of the EA enrollment account or pay-as-you-go billing account. |
-| AccountOwnerId<sup>1</sup> | EA, pay-as-you-go | Unique identifier for the EA enrollment account or pay-as-you-go billing account. |
+| AccountOwnerId¹ | EA, pay-as-you-go | Unique identifier for the EA enrollment account or pay-as-you-go billing account. |
 | AdditionalInfo | All | Service-specific metadata. For example, an image type for a virtual machine. |
-| BillingAccountId<sup>1</sup> | All | Unique identifier for the root billing account. |
+| BillingAccountId¹ | All | Unique identifier for the root billing account. |
 | BillingAccountName | All | Name of the billing account. |
 | BillingCurrency | All | Currency associated with the billing account. |
 | BillingPeriod | EA, pay-as-you-go | The billing period of the charge. |
 | BillingPeriodEndDate | All | The end date of the billing period. |
 | BillingPeriodStartDate | All | The start date of the billing period. |
-| BillingProfileId<sup>1</sup> | All | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account. |
+| BillingProfileId¹ | All | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account. |
 | BillingProfileName | All | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account. |
 | ChargeType | All | Indicates whether the charge represents usage (**Usage**), a purchase (**Purchase**), or a refund (**Refund**). |
 | ConsumedService | All | Name of the service the charge is associated with. |
-| CostCenter<sup>1</sup> | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts). |
+| CostCenter¹ | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts). |
 | Cost | EA, pay-as-you-go | See CostInBillingCurrency. |
 | CostInBillingCurrency | MCA | Cost of the charge in the billing currency before credits or taxes. |
 | CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before credits or taxes. |
 | Currency | EA, pay-as-you-go | See `BillingCurrency`. |
-| Date<sup>1</sup> | All | The usage or purchase date of the charge. |
+| Date¹ | All | The usage or purchase date of the charge. |
 | EffectivePrice | All | Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time. |
 | ExchangeRateDate | MCA | Date the exchange rate was established. |
 | ExchangeRatePricingToBilling | MCA | Exchange rate used to convert the cost in the pricing currency to the billing currency. |
 | Frequency | All | Indicates whether a charge is expected to repeat. Charges can either happen once (**OneTime**), repeat on a monthly or yearly basis (**Recurring**), or be based on usage (**UsageBased**). |
 | InvoiceId | pay-as-you-go, MCA | The unique document ID listed on the invoice PDF. |
 | InvoiceSection | MCA | See `InvoiceSectionName`. |
-| InvoiceSectionId<sup>1</sup> | EA, MCA | Unique identifier for the EA department or MCA invoice section. |
+| InvoiceSectionId¹ | EA, MCA | Unique identifier for the EA department or MCA invoice section. |
 | InvoiceSectionName | EA, MCA | Name of the EA department or MCA invoice section. |
 | IsAzureCreditEligible | All | Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`). |
 | Location | MCA | Datacenter location where the resource is running. |
 | MeterCategory | All | Name of the classification category for the meter. For example, _Cloud services_ and _Networking_. |
-| MeterId<sup>1</sup> | All | The unique identifier for the meter. |
+| MeterId¹ | All | The unique identifier for the meter. |
 | MeterName | All | The name of the meter. |
 | MeterRegion | All | Name of the datacenter location for services priced based on location. See Location. |
 | MeterSubCategory | All | Name of the meter subclassification category. |
-| OfferId<sup>1</sup> | All | Name of the offer purchased. |
+| OfferId¹ | All | Name of the offer purchased. |
 | pay-as-you-goPrice | All | Retail price for the resource. |
-| PartNumber<sup>1</sup> | EA, pay-as-you-go | Identifier used to get specific meter pricing. |
+| PartNumber¹ | EA, pay-as-you-go | Identifier used to get specific meter pricing. |
 | PlanName | EA, pay-as-you-go | Marketplace plan name. |
 | PreviousInvoiceId | MCA | Reference to an original invoice if the line item is a refund. |
 | PricingCurrency | MCA | Currency used when rating based on negotiated prices. |
 | PricingModel | All | Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`) |
 | Product | All | Name of the product. |
-| ProductId<sup>1</sup> | MCA | Unique identifier for the product. |
+| ProductId¹ | MCA | Unique identifier for the product. |
 | ProductOrderId | All | Unique identifier for the product order. |
 | ProductOrderName | All | Unique name for the product order. |
 | Provider | All | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS. |
@@ -81,24 +81,24 @@ The following table describes the important terms used in the latest version of 
 | ReservationId | EA, MCA | Unique identifier for the purchased reservation instance. |
 | ReservationName | EA, MCA | Name of the purchased reservation instance. |
 | ResourceGroup | All | Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group will be shown as null or empty, **Others**, or **Not applicable**. |
-| ResourceId<sup>1</sup> | All | Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource. |
+| ResourceId¹ | All | Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource. |
 | ResourceLocation | All | Datacenter location where the resource is running. See `Location`. |
 | ResourceName | EA, pay-as-you-go | Name of the resource. Not all charges come from deployed resources. Charges that don't have a resource type will be shown as null/empty, **Others** , or **Not applicable**. |
 | ResourceType | MCA | Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type will be shown as null/empty, **Others** , or **Not applicable**. |
 | ServiceFamily | MCA | Service family that the service belongs to. |
-| ServiceInfo<sup>1</sup> | All | Service-specific metadata. |
+| ServiceInfo¹ | All | Service-specific metadata. |
 | ServiceInfo2 | All | Legacy field with optional service-specific metadata. |
 | ServicePeriodEndDate | MCA | The end date of the rating period that defined and locked pricing for the consumed or purchased service. |
 | ServicePeriodStartDate | MCA | The start date of the rating period that defined and locked pricing for the consumed or purchased service. |
-| SubscriptionId<sup>1</sup> | All | Unique identifier for the Azure subscription. |
+| SubscriptionId¹ | All | Unique identifier for the Azure subscription. |
 | SubscriptionName | All | Name of the Azure subscription. |
-| Tags<sup>1</sup> | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+| Tags¹ | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 | Term | All | Displays the term for the validity of the offer. For example: In case of reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
 | UnitPrice | EA, pay-as-you-go | The price per unit for the charge. |
 | CostAllocationRuleName | EA, MCA | Name of the Cost Allocation rule that's applicable to the record. |
 
-<sup>1</sup> Fields used to build a unique ID for a single cost record.
+¹ Fields used to build a unique ID for a single cost record.
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
 

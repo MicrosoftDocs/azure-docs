@@ -1,7 +1,7 @@
 ---
 title: Migrate from EA Reporting to Azure Resource Manager APIs overview
 titleSuffix: Microsoft Cost Management
-description: This article provides and overview about migrating from EA Reporting to Azure Resource Manager APIs.
+description: This article provides an overview about migrating from EA Reporting to Azure Resource Manager APIs.
 author: bandersmsft
 ms.author: banders
 ms.date: 07/15/2022
@@ -25,7 +25,7 @@ The following information describes the differences between the older Reporting 
 | Scopes and permissions | All requests are at the enrollment scope. API Key permission assignments will determine whether data for the entire enrollment, a department, or a specific account is returned. No user authentication. | Users or service principals are assigned access to the enrollment, department, or account scope. |
 | URI Endpoint | [https://consumption.azure.com](https://consumption.azure.com/) | [https://management.azure.com](https://management.azure.com/) |
 | Development status | In maintenance mode. On the path to deprecation. | In active development |
-| Available APIs | Limited to what's currently available | Equivalent APIs are available to replace each EA API. Additional [Cost Management APIs](/rest/api/cost-management/) are also available, including: <ul><li>Budgets<li>Alerts<li>Exports</ul> |
+| Available APIs | Limited to what's currently available | Equivalent APIs are available to replace each EA API. Additional [Cost Management APIs](/rest/api/cost-management/) are also available, including: <br>- Budgets<br>- Alerts<br>- Exports |
 
 ## Migration checklist
 

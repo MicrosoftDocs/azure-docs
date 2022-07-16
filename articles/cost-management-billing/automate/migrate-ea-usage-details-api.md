@@ -23,8 +23,8 @@ The following table provides a summary of the migration destinations that are av
 
 | Solution | Description | Considerations | Onboarding info |
 | --- | --- | --- | --- |
-| **Exports** | Recurring data dumps to storage on a schedule | <ul><li>The most scalable solution for your workloads. <li>Can be configured to use file partitioning for bigger datasets.<li>Great for establishing and growing a cost dataset that can be integrated with your own queryable data stores.<li>Requires access to a storage account that can hold the data.</ul> | <ul><li>[Configure in Azure portal](../costs/tutorial-export-acm-data.md)<li>[Automate Export creation with the API](../costs/ingest-azure-usage-at-scale.md)<li>[Export API Reference](/rest/api/cost-management/exports/create-or-update)</ul> |
-| **Cost Details API** | On demand download | <ul><li>Useful for small cost datasets.<li>Useful for scenarios when Exports to Azure storage aren't feasible due to security or manageability concerns.</ul> | <ul><li>[Get small cost datasets on demand](get-small-usage-datasets-on-demand.md)<li>[Cost Details](/rest/api/cost-management/generate-cost-details-report) API</ul> |
+| **Exports** | Recurring data dumps to storage on a schedule | - The most scalable solution for your workloads.<br> - Can be configured to use file partitioning for bigger datasets.<br> - Great for establishing and growing a cost dataset that can be integrated with your own queryable data stores.<br> -Requires access to a storage account that can hold the data. | - [Configure in Azure portal](../costs/tutorial-export-acm-data.md)<br>[Automate Export creation with the API](../costs/ingest-azure-usage-at-scale.md)<br> - [Export API Reference](/rest/api/cost-management/exports/create-or-update) |
+| **Cost Details API** | On demand download | - Useful for small cost datasets.<br> - Useful for scenarios when Exports to Azure storage aren't feasible due to security or manageability concerns. | - [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md)<br> - [Cost Details](/rest/api/cost-management/generate-cost-details-report) API |
 
 Generally we recommend using [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs and/or a large monthly cost details dataset. For more information, see [Ingest cost details data](automation-ingest-usage-details-overview.md). If you need additional information to help you make a decision for your workload, see [Choose a cost details solution](usage-details-best-practices.md).
 
@@ -60,13 +60,13 @@ The table below summarizes the different APIs that you may be using today to ing
 
 | Endpoint | API Comments | 
 | --- | ---|
-| `/v3/enrollments/{enrollmentNumber}/usagedetails/download?billingPeriod={billingPeriod}` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: CSV</ul> |
-| `/v3/enrollments/{enrollmentNumber}/usagedetails/download?startTime=2017-01-01&endTime=2017-01-10` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: CSV</ul> |
-| `/v3/enrollments/{enrollmentNumber}/usagedetails` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> | 
-| `/v3/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/usagedetails` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> |
-| `/v3/enrollments/{enrollmentNumber}/usagedetailsbycustomdate?startTime=2017-01-01&endTime=2017-01-10` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> |
-| `/v3/enrollments/{enrollmentNumber}/usagedetails/submit?billingPeriod={billingPeriod}` | <ul><li>API method: POST<li>Asynchronous (polling based)<li>Data format: CSV</ul> |
-| `/v3/enrollments/{enrollmentNumber}/usagedetails/submit?startTime=2017-04-01&endTime=2017-04-10` | <ul><li>API method: POST<li>Asynchronous (polling based)<li>Data format: CSV</ul> |
+| `/v3/enrollments/{enrollmentNumber}/usagedetails/download?billingPeriod={billingPeriod}` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: CSV |
+| `/v3/enrollments/{enrollmentNumber}/usagedetails/download?startTime=2017-01-01&endTime=2017-01-10` | - API method: GET <br> - Synchronous (non polling)<br> - Data format: CSV |
+| `/v3/enrollments/{enrollmentNumber}/usagedetails` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: JSON | 
+| `/v3/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/usagedetails` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: JSON |
+| `/v3/enrollments/{enrollmentNumber}/usagedetailsbycustomdate?startTime=2017-01-01&endTime=2017-01-10` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: JSON |
+| `/v3/enrollments/{enrollmentNumber}/usagedetails/submit?billingPeriod={billingPeriod}` | - API method: POST<br> - Asynchronous (polling based)<br> - Data format: CSV |
+| `/v3/enrollments/{enrollmentNumber}/usagedetails/submit?startTime=2017-04-01&endTime=2017-04-10` | - API method: POST<br> - Asynchronous (polling based)<br> - Data format: CSV |
 
 ## Enterprise Marketplace Store Charge APIs to migrate off
 
@@ -74,9 +74,9 @@ In addition to the usage details APIs outlined above, you'll need to migrate off
 
 | Endpoint | API Comments | 
 | --- | --- |
-| `/v3/enrollments/{enrollmentNumber}/marketplacecharges` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> |
-| `/v3/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> |
-| `/v3/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> | 
+| `/v3/enrollments/{enrollmentNumber}/marketplacecharges` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: JSON |
+| `/v3/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: JSON |
+| `/v3/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: JSON | 
 
 ## Data field mapping
 

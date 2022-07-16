@@ -75,7 +75,7 @@ Enterprise Agreement customers who are using the Consumption Usage Details API h
 } 
 ```
 
-An full example legacy Usage Details record is shown at [Usage Details - List - REST API (Azure Consumption)](/rest/api/consumption/usage-details/list#billingaccountusagedetailslist-legacy)
+A full example legacy Usage Details record is shown at [Usage Details - List - REST API (Azure Consumption)](/rest/api/consumption/usage-details/list#billingaccountusagedetailslist-legacy)
 
 The following table provides a mapping between the old and new fields. New properties are available in the CSV files produced by Exports and the Cost Details API. To learn more about the fields, see [Understand usage details fields](understand-usage-details-fields.md).
 
