@@ -32,7 +32,7 @@ For conceptual information on ZRS, see [Zone-redundant storage for managed disks
     :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-basic.png" alt-text="Screenshot of the VM creation workflow, basic pane, redundancy and regions are highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-basic.png":::
 
 1. Proceed to the **Disks** pane.
-1. Select your disk and select one of the ZRS disks in the drop down.
+1. Select your disk and select one of the ZRS disks in the drop-down.
 
     :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png" alt-text="Screenshot of the vm creation workflow, disks pane, OS disk dropdown is expanded with the ZRS premium SSD and standard SSD options highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png":::
 

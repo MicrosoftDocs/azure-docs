@@ -117,7 +117,7 @@ Premium SSD v2 offers up to 32 TiB per region per subscription by default in the
 
 #### Premium SSD v2 IOPS
 
-All Premium SSD v2 disks have a baseline IOPS of 3000. After 6 GiB, the maximum IOPS a disk can have increases at a rate of 500 per GiB, up to 80,000 IOPS. So a 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on a disk, that disk must have at least 160 GiB.
+All Premium SSD v2 disks have a baseline IOPS of 3000. After 6 GiB, the maximum IOPS a disk can have increases at a rate of 500 per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on a disk, that disk must have at least 160 GiB.
 
 #### Premium SSD v2 throughput
 
