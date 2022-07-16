@@ -725,7 +725,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Log Analytics table(s)** | ESETEnterpriseInspector_CL​ |
 | **DCR support** | Not currently supported |
 | **API credentials** | <li>EEI Username<li>EEI Password<li>Base URL |
-| **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.5/en-US/api.html) |
+| **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.6/en-US/api.html) |
 | **Connector deployment instructions** | [Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template |
 | **Supported by** | [ESET](https://support.eset.com/en) |
 
@@ -1248,7 +1248,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | Morphisec |
 | **Kusto function URL** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Morphisec/Parsers/Morphisec/ |
-| **Supported by** | [Morphisec](https://support.morphisec.com/support/home) |
+| **Supported by** | [Morphisec](https://www.morphisec.com) |
 
 
 
@@ -1807,7 +1807,7 @@ Follow the instructions to obtain the credentials.
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | WatchGuardFirebox |
 | **Kusto function URL:** | https://aka.ms/Sentinel-watchguardfirebox-parser |
-| **Vendor documentation/<br>installation instructions** | [Microsoft Sentinel Integration Guide](https://www.watchguard.com/help/docs/help-center/en-US/Content/Integration-Guides/General/Microsoft%20Azure%20Sentinel.html) |
+| **Vendor documentation/<br>installation instructions** | [Microsoft Sentinel Integration Guide](https://www.watchguard.com/help/docs/help-center/en-us/Content/Integration-Guides/General/Microsoft_Azure_Sentinel.html) |
 | **Supported by** | [WatchGuard Technologies](https://www.watchguard.com/wgrd-support/overview) |
 
 

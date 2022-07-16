@@ -14,7 +14,7 @@ Legacy appliances are certified but aren't currently offered as preconfigured ap
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | SMB|
+|**Hardware profile** | L500 |
 |**Performance** |Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|

@@ -18,7 +18,7 @@ The following steps are for Windows. For macOS, see [IKEv2-macOS](../articles/vp
 
 1. On the client computer, navigate to **Network Settings** and select **VPN**. The VPN connection shows the name of the virtual network that it connects to.
 
-1. Before you attempt to connect, verify that you've installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see [Generate Certificates](../articles/virtual-wan/certificates-point-to-site.md). For information about how to install a client certificate, see [Install a client certificate](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md).
+1. Install a client certificate on each computer that you want to connect via this User VPN configuration. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see [Generate Certificates](../articles/virtual-wan/certificates-point-to-site.md). For information about how to install a client certificate, see [Install a client certificate](../articles/virtual-wan/install-client-certificates.md).
 
 **OpenVPN**
 

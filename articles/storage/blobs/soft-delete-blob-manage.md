@@ -3,12 +3,12 @@ title: Manage and restore soft-deleted blobs
 titleSuffix: Azure Storage
 description: Manage and restore soft-deleted blobs and snapshots with the Azure portal or with the Azure Storage client libraries.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/29/2022
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: "devx-track-csharp"

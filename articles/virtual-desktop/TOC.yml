@@ -35,7 +35,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Getting started with Azure Virtual Desktop
+  - name: Getting started feature
     href: getting-started-feature.md
 - name: Tutorials
   items:
@@ -64,7 +64,7 @@
       - name: AD DS and Azure AD
         href: /azure/architecture/example-scenario/wvd/multi-forest?context=/azure/virtual-desktop/context/context
       - name: AD DS, Azure AD, and Azure AD DS
-        href: /azure/architecture/example-scenario/wvd/multi-forest?context=/azure/virtual-desktop/context/context
+        href: /azure/architecture/example-scenario/wvd/multi-forest-azure-managed?context=/azure/virtual-desktop/context/context
   - name: Network connectivity
     items:
       - name: Understanding network connectivity
