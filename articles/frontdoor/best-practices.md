@@ -26,7 +26,7 @@ Traffic Manager is a DNS-based load balancer. It sends traffic directly to your 
 
 If you combine both Front Door and Traffic Manager together, it's unlikely that you'll increase the resiliency or performance of your solution. Also, if you have health probes configured on both services, you might accidentally overload your servers with the volume of health probe traffic.
 
-If you need TLS termination, advanced routing capabilities, or a web application firewall (WAF), consider using Front Door. For simple global load balancing with direct connections from your client to your endpoints, consider using Traffic Manager. For more information about selecting a load balancing option, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
+If you need content caching and delivery (CDN), TLS termination, advanced routing capabilities, or a web application firewall (WAF), consider using Front Door. For simple global load balancing with direct connections from your client to your endpoints, consider using Traffic Manager. For more information about selecting a load balancing option, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ### Use the latest API version and SDK version
 
@@ -95,6 +95,12 @@ For more information, see [Health probes](health-probes.md).
 Consider the location where you tell Front Door's health probe to monitor. It's usually a good idea to monitor a webpage or location that you specifically design for health monitoring. Your application logic can consider the status of all of the critical components required to serve production traffic including application servers, databases, and caches. That way, if any component fails, Front Door can route your traffic to another instance of your service.
 
 For more information, see the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring)
+
+### Use HEAD health probes
+
+Health probes can use either the GET or HEAD HTTP method. It's a good practice to use the HEAD method for health probes, which reduces the amount of traffic load on your origins.
+
+For more information, see [Supported HTTP methods for health probes](health-probes.md#supported-http-methods-for-health-probes).
 
 ## Next steps
 

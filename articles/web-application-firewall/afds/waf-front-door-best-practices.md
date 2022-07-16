@@ -22,7 +22,7 @@ For internet-facing applications, we recommend you enable a web application fire
 
 ### Tune your WAF
 
-The rules in your WAF should be tuned for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed.
+The rules in your WAF should be tuned for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed. Tuning involves creating [rule exclusions](waf-front-door-exclusion.md) to reduce false positive detections.
 
 While you tune your WAF, consider using [detection mode](waf-front-door-policy-settings.md#waf-mode), which logs requests and the actions the WAF would normally take, but doesn't actually block any traffic.
 
@@ -51,6 +51,16 @@ For more information, see [Bot protection rule set](afds-overview.md#bot-protect
 Microsoft regularly updates the managed rules to take account of the current threat landscape. Ensure that you regularly check for updates to Azure-managed rule sets.
 
 For more information, see [Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md).
+
+## Rate limiting best practices
+
+### Add rate limiting
+
+Front Door's rate limiting support enables you to control the number of requests allowed from each client IP address to the application during a rate limit duration. It's a good practice to add rate limiting to reduce the impact of clients accidentally or intentionally sending large amounts of traffic to your service, such as during a [*retry storm*](/azure/architecture/antipatterns/retry-storm/).
+
+For more information, see the following resources:
+- [Configure a Web Application Firewall rate limit rule using Azure PowerShell](waf-front-door-rate-limit-powershell.md).
+- [Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?](waf-faq.yml#why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server)
 
 ## Geo-filtering best practices
 

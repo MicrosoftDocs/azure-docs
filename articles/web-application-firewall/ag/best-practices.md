@@ -23,11 +23,13 @@ For internet-facing applications, we recommend you enable a web application fire
 
 WAF policies are the new resource type for managing your Application Gateway WAF. If you have older WAFs that use WAF Configuration resources, you should migrate to WAF policies to take advantage of the latest features.
 
-For more information, see [Migrate Web Application Firewall policies using Azure PowerShell](./migrate-policy.md). 
+For more information, see the following resources:
+- [Migrate Web Application Firewall policies using Azure PowerShell](./migrate-policy.md)
+- [Upgrade Application Gateway WAF configuration to WAF policy using Azure Firewall Manager](../shared/manage-policies.md#upgrade-application-gateway-waf-configuration-to-waf-policy)
 
 ### Tune your WAF
 
-The rules in your WAF should be tuned for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed.
+The rules in your WAF should be tuned for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed. Tuning involves creating [rule exclusions](application-gateway-waf-configuration.md) to reduce false positive detections.
 
 While you tune your WAF, consider using [detection mode](create-waf-policy-ag.md#configure-waf-rules-optional), which logs requests and the actions the WAF would normally take, but doesn't actually block any traffic.
 
