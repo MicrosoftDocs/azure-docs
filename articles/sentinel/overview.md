@@ -64,7 +64,7 @@ Workbooks are best used for high-level views of Microsoft Sentinel data, and don
 
 To help you reduce noise and minimize the number of alerts you have to review and investigate, Microsoft Sentinel uses [analytics to correlate alerts into incidents](detect-threats-built-in.md). Incidents are groups of related alerts that together create an actionable possible-threat that you can investigate and resolve. Use the built-in correlation rules as-is, or use them as a starting point to build your own. Microsoft Sentinel also provides machine learning rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots, by combining low fidelity alerts about different entities into potential high-fidelity security incidents.
 
-:::image type="content" source="media/investigate-cases/incident-severity.png" alt-text="Screenshot of the incidents page in Microsoft Sentinel with a list of open incidents. lightbox="media/investigate-cases/incident-severity.png":::
+:::image type="content" source="media/investigate-cases/incident-severity.png" alt-text="Screenshot of the incidents page in Microsoft Sentinel with a list of open incidents."  lightbox="media/investigate-cases/incident-severity.png":::
 
 ## Automate and orchestrate common tasks by using playbooks
 
