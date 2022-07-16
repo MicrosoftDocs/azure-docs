@@ -60,7 +60,7 @@ Front Door's rate limiting support enables you to control the number of requests
 
 For more information, see the following resources:
 - [Configure a Web Application Firewall rate limit rule using Azure PowerShell](waf-front-door-rate-limit-powershell.md).
-- [Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?](waf-faq.yml#why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server)
+- [Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?](waf-faq.yml#why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server-)
 
 ## Geo-filtering best practices
 
