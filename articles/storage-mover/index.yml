@@ -1,0 +1,161 @@
+### YamlMime:Hub
+
+title: Azure Storage Mover documentation
+summary: Azure Storage Mover includes object, file, disk, queue, and table storage. There are also services for hybrid storage solutions, and services to transfer, share, and back up data.
+brand: azure
+
+metadata:
+  title: Azure Storage Mover documentation
+  description: Azure Storage Mover documentation hub page. Points to service documentation for using the Azure Storage Mover hybrid service to migrate unstructured data to Azure. 
+  ms.service: storage
+  ms.topic: hub-page
+  author: stevenmatthew
+  ms.author: shaas
+  ms.date: 06/08/2022
+
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Azure Storage Mover?
+      itemType: concept
+      url: /azure/storage-mover/overview
+    - title: Card 1 Title 2
+      itemType: concept
+      url: /azure/storage-mover/overview
+    - title: Card 1 Title 3
+      itemType: concept
+      url: /azure/storage-mover/overview
+    - title: Card 1 Title 4
+      itemType: concept
+      url: /azure/storage-mover/overview
+    - title: Card 1 Title 5
+      itemType: how-to-guide
+      url: /azure/storage-mover/overview
+    - title: Card 1 Title 6
+      itemType: how-to-guide
+      url: /azure/storage-mover/overview
+
+ 
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 3 sections
+  sections:
+    - title: Section 1
+      items:
+        # Card
+        - title: Section 1 Card 1
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 1 card 1
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 1 card 1
+          - url: /azure/storage-mover/overview
+            text: See some more cool stuff >
+        # Card
+        - title: Section 1 Card 2
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 1 card 2
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 1 card 2
+          - url: /azure/storage-mover/overview
+            text: See some of Fabian's cool stuff >    
+        # Card
+        - title: Section 1 Card 3
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 1 card 3
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 1 card 3
+          - url: /azure/storage-mover/overview
+            text: See some of Stephen's cool stuff >
+        # Card
+        - title: Section 1 Card 4
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 1 card 4
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 1 card 4
+          - url: /azure/storage-mover/overview
+            text: See some outrageously cool stuff >
+
+    - title: Section 2
+      items:
+        # Card
+        - title: Section 2 Card 1
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 1 card 1
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 1 card 1
+          - url: /azure/storage-mover/overview
+            text: See some more cool stuff >
+        # Card
+        - title: Section 2 Card 2
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 2 card 2
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 2 card 2
+          - url: /azure/storage-mover/overview
+            text: See some of Fabian's cool stuff >    
+        # Card
+        - title: Section 2 Card 3
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 2 card 3
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 2 card 3
+          - url: /azure/storage-mover/overview
+            text: See some of Stephen's cool stuff >
+        # Card
+        - title: Section 2 Card 4
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 2 card 4
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 2 card 4
+          - url: /azure/storage-mover/overview
+            text: See some outrageously cool stuff >
+
+    - title: Section 3
+      items:
+        # Card
+        - title: Section 3 Card 1
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 3 card 1
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 3 card 1
+          - url: /azure/storage-mover/overview
+            text: See some more cool stuff >
+        # Card
+        - title: Section 3 Card 2
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 3 card 2
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 3 card 2
+          - url: /azure/storage-mover/overview
+            text: See some of Fabian's cool stuff >    
+        # Card
+        - title: Section 3 Card 3
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 3 card 3
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 3 card 3
+          - url: /azure/storage-mover/overview
+            text: See some of Stephen's cool stuff >
+        # Card
+        - title: Section 3 Card 4
+          links:
+          - url: /azure/storage-mover/overview.md
+            text: Text for section 3 card 4
+          - url: /azure/storage-mover/overview.md
+            text: Additional text for section 3 card 4
+          - url: /azure/storage-mover/overview
+            text: See some outrageously cool stuff >
