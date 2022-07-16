@@ -46,8 +46,6 @@ Note while you can use either group CallID or rooms if you just need an ephemera
 
 ## Managing the Rooms
 
-
-
 Rooms are managed via Rooms SDK or Rooms API. In the initial release, the rooms allows only have voice and video calls within the Room. 
 
 Use the **Rooms API/SDK** in your server application for Room:
