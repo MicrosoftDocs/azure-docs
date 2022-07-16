@@ -101,7 +101,7 @@ Because this is the initial registration for the device, the **deviceRuntimeCont
 }
 ```
 
-## Custom allocation property response
+## Custom allocation policy response
 
 A successful request returns an **AllocationResponse** object.
 
