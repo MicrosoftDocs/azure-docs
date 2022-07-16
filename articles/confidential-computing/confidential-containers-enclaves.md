@@ -12,11 +12,10 @@ ms.custom: ignite-fall-2021
 
 # Confidential containers on Azure Kubernetes Service(AKS) with Intel SGX enclaves
 
-[Confidential containers](confidential-containers.md) help you run existing unmodified container applications of most **common programming languages** runtimes (Python, Node, Java etc.) confidentially.
-This packaging model typically deos not need any source-code modifications or recompilation and is the fastest method to run in Intel SGX enclaves. achieved by packaging your standard docker containers with Open-Source Projects or Azure Partner Solutions. 
-In this packaging and execution model all parts of the container application are loaded in the trusted boundary (enclave). 
+[Confidential containers](confidential-containers.md) help you run existing unmodified container applications of most **common programming languages** runtimes (Python, Node, Java etc.) in the Intel SGX based Trusted Execution Environment(TEE).
+This packaging model typically does not need any source-code modifications or recompilation and is the fastest method to run in Intel SGX enclaves. Typical deployment process for running your standard docker containers requires an Open-Source SGX Wrapper or Azure Partner Solution. 
+In this packaging and execution model each container application is loaded in the trusted boundary (enclave) and with a hardware-based isolation enforced by Intel SGX CPU. Each container running in a enclave receives its own memory encryption key delivered from the Intel SGX CPU.
 This model works well for off the shelf container applications available in the market or custom apps currently running on general purpose nodes
-
 To run an existing Docker container, applications on confidential computing nodes require an Intel Software Guard Extensions (SGX) wrapper software to help the container execution within the bounds of special CPU instruction set. 
 SGX creates a direct execution to the CPU to remove the guest operating system (OS), host OS, or hypervisor from the trust boundary. This step reduces the overall surface attack areas and vulnerabilities while achieving process level isolation within a single node.
 
@@ -24,7 +23,7 @@ The overall process for running unmodified containers involves changes to how yo
 
 :::image type="content" source="./media/confidential-containers/confidential-containers-deploy-steps.png" alt-text="Diagram of confidential container conversion, with new steps for enabling Intel SGX and AKS.":::
 
-The SGX wrapper software needed to help run standard containers are offered by Azure software partners or Open Source Sofwtare (OSS)solutions. 
+The SGX wrapper software needed to help run standard containers are offered by Azure software partners or Open Source Software (OSS)solutions. 
 
 ## Partner enablers
 
