@@ -80,7 +80,7 @@ In this example, the execution time of each copy activity is rounded up to 1 min
 
 **Example 3: If there are 6 HDInsight activities triggered by Foreach. The execution time of each is 9 minutes and 40 seconds. The parallel is configured as 50 in Foreach.**
 
-In this example, ,the execution time of each HDInsight activity is rounded up to 10 minutes. Although the 6 HDInsight activities run in parallel, they're charged independently.
+In this example, the execution time of each HDInsight activity is rounded up to 10 minutes. Although the 6 HDInsight activities run in parallel, they're charged independently.
 
 :::image type="content" source="./media/integration-runtime-pricing/self-hosted-integration-runtime-example-3.png" alt-text="Screenshot of calculation formula for Self-hosted integration runtime example 3.":::
 
