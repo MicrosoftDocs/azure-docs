@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a time series 
 > * Identify anomalies in a time series 
-> * Modify anomaly detection function input to refine results
+> * Tweak anomaly detection settings to refine results
 > * Analyze the root cause of anomalies
 
 ## Prerequisites
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 Use the KQL `make-series` to create a time series. 
 
-Let's create a time series based on logs in the `Usage` table, which holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data ingestion.
+Let's create a time series based on logs in the `Usage` table, which holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data.
 
 This query uses `make-series` to chart the total amount of billable data ingested by each table in the workspace each day, over the past 21 days:
 
@@ -53,9 +53,11 @@ Usage // The table we’re analyzing
 | render timechart // Renders results in a timechart
 ``` 
 
-Looking at the resulting chart, we can see anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types: 
+Notice that in the resulting chart, you can clearly see some anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types: 
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.gif" alt-text="An animated GIF showing a chart of the total data ingested by each table in the workspace each day, over 21 days. The cursor moves to highlight three usage anomalies on the chart."::: 
+
+Next, we'll use a KQL function to list all of the anomalies in a time series.
 
 > [!NOTE]
 > For more information about `make-series` syntax and usage, see [make-series operator](/azure/data-explorer/kusto/query/make-seriesoperator).
@@ -95,13 +97,15 @@ Looking at the query results, you can see that the function:
 > [!NOTE]
 > For more information about `series_decompose_anomalies()` syntax and usage, see [`series_decompose_anomalies()`](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction).
 
-## Modify anomaly detection function input to refine results
+## Tweak anomaly detection settings to refine results
+
+It's good practice to verify that the anomaly detection function produces the results you'd expect. Outliers in input data can affect the functions learning, and you might need to adjust the function's anomaly detection settings to get more accurate results.
 
 Filter the results of the `series_decompose_anomalies()` query for anomalies in the `AzureDiagnostics` data type:
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/anomalies-filtered-kql.png" alt-text="A table showing the results of the anomaly detection query, filtered for results from the Azure Diagnostics data type."::: 
 
-The results show two anomalies on June 14 and June 15. Compare these results with the chart from our first `make-series` query, where you can see other anomalies on May 26, 27, and 28:
+The results show two anomalies on June 14 and June 15. Compare these results with the chart from our first `make-series` query, where you can see other anomalies on May 27 and 28:
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with anomalies highlighted."::: 
 
@@ -113,7 +117,7 @@ The [syntax of the `series_decompose_anomalies()` function](/azure/data-explorer
 
 `series_decompose_anomalies (Series[Threshold,Seasonality,Trend,Test_points,AD_method,Seasonality_threshold])`
 
-`Test_points ` specifies the number of points at the end of the series to exclude from the learning (regression) process. 
+`Test_points` specifies the number of points at the end of the series to exclude from the learning (regression) process. 
 
 To exclude the last data point, set `Test_points` to `1`: 
 
@@ -132,10 +136,11 @@ Usage // The table we’re analyzing
 | sort by abs(AnomalyScore) desc // Sorts results by anomaly score in descending ordering
 ```
 
-Filtering the results for the `AzureDiagnostics` data type now produces the expected results:
+Filter the results for the `AzureDiagnostics` data type:
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/refined-anomalies-filtered-kql.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/refined-anomalies-filtered-kql.png" alt-text="A table showing the results of the modified anomaly detection query, filtered for results from the Azure Diagnostics data type. The results now show the same anomalies as the chart created at the beginning of the tutorial."::: 
 
+All of the anomalies in the chart from our first `make-series` query now appear in the result set. 
 
 
 
