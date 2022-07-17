@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 07/12/2022
+ms.date: 07/17/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -68,9 +68,11 @@ Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 ### View vulnerabilities for running images
 
-The recommendation `Running container images should have vulnerability findings resolved` shows vulnerabilities for running images by using the scan results from ACR registries and information on running images from the Defender security profile/extension. Images that are deployed from a non-ACR registry, will appear under the Not applicable tab.
+The recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) shows vulnerabilities for running images by using the scan results from ACR registries and information on running images from the Defender security profile/extension. Images that are deployed from a non-ACR registry, will appear under the Not applicable tab.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
+
+**Windows Users** - The vulnerabilities scan typically requires the agent profile/extension which is not available on Windows. For Windows, the agent runs on a Linux node which allows the agent to scan and alert you about any container that is running that has vulnerabilities. The scan also scans images that are actively running.
 
 ## Run-time protection for Kubernetes nodes and clusters
 
