@@ -83,7 +83,7 @@ This table summarizes the Microsoft Sentinel roles and their allowed actions in 
 
 <a name=workbooks></a>* Users with these roles can create and delete workbooks with the [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) role. Learn about [Other roles and permissions](#other-roles-and-permissions).
 
-Review the [role recommendations](#role-recommendations) for which roles to assign to which users in your SOC.
+Review the [role recommendations](#role-and-permissions-recommendations) for which roles to assign to which users in your SOC.
 
 ## Custom roles and advanced Azure RBAC
 
