@@ -87,7 +87,7 @@ Starting in sensor versions 22.2.4, you can now take the following actions from 
 
     For more information, see [Merge devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices).
 
-- **Delete individual devices**. In addition, you can now delete devices that haven't communicated for at least *10 minutes*, instead of waiting until they've been active for more than 14 days. For more information, see [Delete devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices).
+- **Delete individual devices**. In addition, you can now delete devices that haven't communicated for at least 10 minutes. For more information, see [Delete devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices).
 
 
 

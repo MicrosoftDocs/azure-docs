@@ -177,13 +177,14 @@ On the **Device inventory** page:
 
 You may want to delete devices from your device inventory, such as if they've been [merged incorrectly](#merge-devices), or are [inactive](#view-inactive-devices).
 
-Deleted devices are removed from the **Device map**, and aren't calculated when generating reports, such as Data Mining, Risk Assessment, or Attack Vector reports.<!--is this also synched w the portal? hope so-->
+Deleted devices are removed from the **Device map** and the device inventories on the Azure portal and on-premises management console, and aren't calculated when generating reports, such as Data Mining, Risk Assessment, or Attack Vector reports.
 
 **To delete a single device**:
 
-In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
+You can delete single devices when they’ve been inactive for more than 10 minutes.
 
-At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
+1. In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
+1. At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
 
 **To delete all inactive devices**
 
