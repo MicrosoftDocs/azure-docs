@@ -171,6 +171,6 @@ Looking at the query results, you can see the following differences:
 
 ## Next steps
 
-Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button]()
+> Learn more about [log queries in Azure Monitor](/azure-monitor/logs/log-query-overview).
+> [Tutorial: Use Kusto queries](/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
