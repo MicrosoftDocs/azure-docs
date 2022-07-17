@@ -15,7 +15,7 @@ ms.reviewer: jucocchi
 
 In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 
-**Point reads** - You can do a key/value lookup on a single *item ID* and partition key. The *item ID* and partition key combination is the key and the item itself is the value. For a 1 KB document, point reads typically cost 1 [request unit](../request-units.md) with a latency under 10 ms. Point reads return a single item.
+**Point reads** - You can do a key/value lookup on a single *item ID* and partition key. The *item ID* and partition key combination is the key and the item itself is the value. For a 1 KB document, point reads typically cost 1 [request unit](../request-units.md) with a latency under 10 ms. Point reads return a single item and can only return whole documents, not partial ones.
 
 Here are some examples of how to do **Point reads** with each SDK:
 
