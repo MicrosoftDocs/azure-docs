@@ -101,7 +101,7 @@ In this scenario, an application was sent an Azure AD access token for some arbi
 
 This flow is called the[OAuth2 token exchange flow](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-04). It generally requires multiple configuration steps with Azure AD, and in some cases(depending on the Azure AD tenant configuration) might require special consent from the administrator of the Azure AD tenant.
 
-## Next Steps
+## Next steps
 
 - [How to register an Azure confidential ledger application with Azure AD](register-application.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)

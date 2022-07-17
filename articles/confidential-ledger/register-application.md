@@ -1,6 +1,6 @@
 ---
-title: How to register an Azure confidental ledger application with Azure AD
-description: In this how to, you learn how to register an Azure confidental ledger application with Azure AAD
+title: How to register an Azure confidential ledger application with Azure AD
+description: In this how to, you learn how to register an Azure confidential ledger application with Azure AD
 services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
@@ -12,7 +12,7 @@ ms.author: mbaldwin
 
 # How to register an Azure confidential ledger application with Azure AD
 
-In this article you'll learn how to integrate your Azure confidental ledger application with Azure AD, by registering it with the Microsoft identity platform.  
+In this article you'll learn how to integrate your Azure confidential ledger application with Azure AD, by registering it with the Microsoft identity platform.  
 
 The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform. [Learn more about the Microsoft identity platform](../active-directory/develop/v2-overview.md).
 
@@ -20,11 +20,11 @@ The Microsoft identity platform performs identity and access management (IAM) on
 
 - An Azure account with an active subscription and permission to manage applications in Azure Active Directory (Azure AD). [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure AD tenant. [Learn how to set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
-- An application that calls Azure confidental ledger.
+- An application that calls Azure confidential ledger.
 
 ## Register an application
 
-Registering your Azure confidental ledger application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around.
+Registering your Azure confidential ledger application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around.
 
 Follow these steps to create the app registration:
 
