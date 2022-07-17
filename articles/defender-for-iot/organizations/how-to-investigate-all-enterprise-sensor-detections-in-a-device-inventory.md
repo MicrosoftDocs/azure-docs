@@ -34,8 +34,7 @@ Use any of the following options to modify or filter the devices shown:
 | **Save a filter** | To save the current set of filters, select the **Save As** button that appears in the filter row.|
 | **Load a saved filter** | Saved filters are listed on the left, in the **Groups** pane. <br><br>1. Select the **Options** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/options-menu.png"border="false"::: button in the toolbar to display the **Groups** pane. <br>2. In the **Device Inventory Filters** list, select the saved filter you want to load.  |
 
-> [!TIP]
-> For a full reference of data available from the **Device inventory** page, see [Device inventories](device-inventory.md#data-visible-from-the-on-premises-management-console).
+For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
 ## Export the device inventory to CSV
 
@@ -128,7 +127,35 @@ For example, retrieve sensor, zone, site ID, IP address, MAC address, firmware, 
 
 For more information, see [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
 
+## Device inventory column reference
 
+The following table describes the device properties shown in the **Device inventory** page on an on-premises management console.
+
+| Name | Description |
+|--|--|
+| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
+| **Business Unit** | The business unit that contains this device. |
+| **Region** | The region that contains this device. |
+| **Site** | The site that contains this device. |
+| **Zone** | The zone that contains this device. |
+| **Appliance** | The Microsoft Defender for IoT sensor that protects this device. |
+| **Name** | The name of this device as Defender for IoT discovered it. |
+| **Type** | The type of device, such as PLC or HMI. |
+| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
+| **Operating System** | The OS of the device. |
+| **Firmware** | The device's firmware. |
+| **IP Address** | The IP address of the device. |
+| **VLAN** | The VLAN of the device. |
+| **MAC Address** | The MAC address of the device. |
+| **Protocols** | The protocols that the device uses. |
+| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
+| **Is Authorized** | The authorization status of the device:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
+| **Is Known as Scanner** | Whether this device performs scanning-like activities in the network. |
+| **Is Programming Device** | Whether this is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device isn't a programming device. |
+| **Groups** | Groups in which this device participates. |
+| **Last Activity** | The last activity that the device performed. |
+| **Discovered** | When this device was first seen in the network. |
+| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only one state is presented. |
 ## Next steps
 
 For more information, see:

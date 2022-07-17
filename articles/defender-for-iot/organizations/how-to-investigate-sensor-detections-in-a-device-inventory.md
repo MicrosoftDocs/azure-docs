@@ -68,7 +68,7 @@ Editable fields include:
    :::column-end:::
 :::row-end:::
 
-For more information, see [Data visible from a sensor console](device-inventory.md#data-visible-from-a-sensor-console).
+For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
 ## Export the device inventory to CSV
 
@@ -105,7 +105,32 @@ Devices you delete from the Inventory are removed from the map and won't be calc
 
     All devices detected within the range of the selected filter are deleted. If there are a large number of devices to delete, the process may take a few minutes.
 
+## Device inventory column reference
 
+The following table describes the device properties shown in the **Device inventory** page on a sensor console.
+
+| Name | Description |
+|--|--|
+| **Description** | A description of the device |
+| **Discovered** | When this device was first seen in the network. |
+| **Firmware version** | The device's firmware, if detected. |
+| **FQDN** | The device's FQDN value |
+| **FQDN lookup time** | The device's FQDN lookup time |
+| **Groups** | The groups that this device participates in. |
+| **IP Address** | The IP address of the device. |
+| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
+| **Is Known as Scanner** | Defined as a network scanning device by the user. |
+| **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
+| **Last Activity** | The last activity that the device performed. |
+| **MAC Address** | The MAC address of the device. |
+| **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
+| **Operating System** | The OS of the device, if detected. |
+| **PLC mode** (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. |
+| **Protocols** | The protocols that the device uses. |
+| **Type** | The type of device as determined by the sensor, or as entered by the user. |
+| **Unacknowledged Alerts** | The number of unacknowledged alerts associated with this device. |
+| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
+| **VLAN** | The VLAN of the device. For more information, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names). |
 
 ## Next steps
 

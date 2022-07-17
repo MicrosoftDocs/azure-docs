@@ -209,8 +209,6 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
-  - name: Device inventory view options
-    href: device-inventory-view-reference.md
   - name: Alert reference
     href: alert-engine-messages.md
   - name: OT monitoring appliances
