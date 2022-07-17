@@ -16,7 +16,7 @@ ms.date: 07/01/2022
 
 Azure Monitor provides advanced data analysis capabilities, powered by Kusto, Microsoft's big data analytics cloud platform. The Kusto Query Language (KQL) includes a set of machine learning operators and plugins for time series analysis, anomaly detection and forecasting, and root cause analysis. 
 
-Using KQL's machine learning operators in the various Log Anayltics tools for extracting insights from logs - including queries, workbooks and dashboards, and integration with Excel - provides you with: 
+Using KQL's machine learning operators in the various Log Analytics tools for extracting insights from logs - including queries, workbooks and dashboards, and integration with Excel - provides you with: 
 
 - Savings on the costs and overhead of exporting data to external machine learning tools.
 - The power of Kusto’s distributed database, running at high scales.
@@ -95,7 +95,7 @@ Looking at the query results, you can see that the function:
 - Identifies positive (`1`) and negative (`-1`) anomalies in each table.    
 
 > [!NOTE]
-> For more information about `series_decompose_anomalies()` syntax and usage, see [`series_decompose_anomalies()`](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction).
+> For more information about `series_decompose_anomalies()` syntax and usage, see [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction).
 
 ## Tweak anomaly detection settings to refine results
 
@@ -109,7 +109,7 @@ The results show two anomalies on June 14 and June 15. Compare these results wit
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/make-series-kql-anomalies.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with anomalies highlighted."::: 
 
-The difference in results occurs because the `series_decompose_anomalies()` function scores anomalies relative to an the expected usage value, which the function calculates based on the full range of values in the input series.
+The difference in results occurs because the `series_decompose_anomalies()` function scores anomalies relative to the expected usage value, which the function calculates based on the full range of values in the input series.
 
 To get more refined results from the function, exclude the usage on the June 15 - which is an outlier compared to the other values in the series - from the function's learning process.
 
@@ -161,19 +161,19 @@ AzureDiagnostics
 | evaluate diffpatterns(AnomalyDate, "OtherDates", "AnomalyDate") // Compares usage on the anomaly date with the regular usage pattern
 ```
 
-The query identifies each entry in the table as occurring on *AnomalyDate*, or June 15, and *OtherDates*. The `diffpatterns()` plugin then splits these data sets - called A and B - and returns a small set of patterns that capture different portions of the data in the two sets:
+The query identifies each entry in the table as occurring on *AnomalyDate* (June 15) or *OtherDates*. The `diffpatterns()` plugin then splits these data sets - called A and B - and returns a few patterns that contribute to the differences in the two sets:
 
-:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with anomalies highlighted."::: 
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" alt-text="A screenshot showing a table with three rows. Each row shows a difference between the usage on the anomalous use and the baseline usage."::: 
 
 Looking at the query results, you can see the following differences:
 
--  There are 24,892,147 instances of ingestion from the *CH1-GEARAMAAKS* resource on June 15, and no ingestion of data from this resource on other days within the 21-day query time range. Data ingestion from the *CH1-GEARAMAAKS* resource accounts for 73.36% of the total ingestion on June 15.
-- There are 2,168,448 instances of ingestion from the *NSG-TESTSQLMI519* resource on June 15, and 110,544 instances of ingestion from this resource on other days within the query time range. Data ingestion from the *NSG-TESTSQLMI519* resource accounts for 6.39% of the total ingestion on June 15 and 19.22% of ingestion on other days with the time range.
-- There are 2,226,837 instances of ingestion from the *CH1-SQLMINSG* resource on June 15, and 106,007 instances of the total ingestion from this resource on other days within the query time range. Data ingestion from the *CH1-SQLMINSG* resource accounts for 6.56% of the total ingestion on June 15 and 24.56% of the total ingestion on other days with the time range.
+-  There are 24,892,147 instances of ingestion from the *CH1-GEARAMAAKS* resource on June 15, and no ingestion of data from this resource on other days within the 21-day query time range. Data from the *CH1-GEARAMAAKS* resource accounts for 73.36% of the total ingestion on June 15.
+- There are 2,168,448 instances of ingestion from the *NSG-TESTSQLMI519* resource on June 15, and 110,544 instances of ingestion from this resource on other days within the query time range. Data from the *NSG-TESTSQLMI519* resource accounts for 6.39% of the total ingestion on June 15 and 19.22% of ingestion on other days with the time range.
+- There are 2,226,837 instances of ingestion from the *CH1-SQLMINSG* resource on June 15, and 106,007 instances of the total ingestion from this resource on other days within the query time range. Data from the *CH1-SQLMINSG* resource accounts for 6.56% of the total ingestion on June 15 and 24.56% of the total ingestion on other days with the time range.
 
 
 > [!NOTE]
-> For more information about `diffpatterns()` syntax and usage, see [`diffpatterns()`](/azure/data-explorer/kusto/query/diffpatternsplugin).
+> For more information about `diffpatterns()` syntax and usage, see [diff patterns plugin](/azure/data-explorer/kusto/query/diffpatternsplugin).
 
 ## Next steps
 
