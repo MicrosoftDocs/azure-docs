@@ -55,7 +55,7 @@ You can enable the following access settings for each associated tenant:
 
 ## Assign roles to users from associated tenants
 
-You must [add a tenant as an associated tenant](#add-an-associated-tenant) and [enable billing management setting](#access-settings-for-associated-tenants) before completing the steps below.
+You must [add a tenant as an associated tenant and enable billing management setting](#add-an-associated-tenant) before completing the steps below.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1.  Search for **Cost Management + Billing**.  
@@ -95,7 +95,7 @@ Use the following table to decide which role assignment method is right for your
 
 ## Provisioning Microsoft 365 subscriptions in the associated tenants
 
-You must [add a tenant as an associated tenant](#add-an-associated-tenant) and [enable provisioning setting](#access-settings-for-associated-tenants) for the tenant before provisioning subscriptions in the associated tenants.
+You must [add a tenant as an associated tenant and enable provisioning setting](#add-an-associated-tenant) for the tenant before provisioning subscriptions in the associated tenants.
 
 To provision Microsoft 365 subscriptions in the associated tenants, see [provision subscriptions in associated tenants](https://) 
 
