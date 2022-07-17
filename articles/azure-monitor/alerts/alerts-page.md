@@ -19,17 +19,17 @@ There are a few ways to get to the alerts page:
 
   :::image type="content" source="media/alerts-managing-alert-instances/alerts-resource-menu.png" alt-text="Screenshot of alerts link on a resource's menu.":::
 
-## The Alerts summary pane
+## The alerts summary pane
 
 The alerts summary pane summarizes the alerts fired in the last 24 hours. You can filter the list of alert instances by **time range**, **subscription**, **alert condition**, **severity**, and more. If you navigated to the alerts page by selecting a specific alert severity, the list is pre-filtered for that severity.
 
 To see more details about a specific alert instance, select the alert instance to open the **Alert Details** page. 
    
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot of alerts page.":::
- 
-## The Alerts details page
 
-The **Alerts details** page provides details about the selected alert. 
+## The alerts details page
+
+The **alerts details** page provides details about the selected alert. 
  
  - To change the user response to the alert, select **Change user response** .
  - To see all closed alerts, select the **History** tab.  
@@ -56,14 +56,6 @@ To enable recommended alert rules:
 1. Select **Enable**.
 
 :::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-rule-pane.jpg" alt-text="Screenshot of recommended alert rules pane."::: 
-
-## The alerts summary pane
-
-If you have alerts configured for this resource, the alerts summary pane summarizes the alerts fired in the last 24 hours. You can modify the list of alert instances by selecting filters such as **time range**, **subscription**, **alert condition**, **severity**, and more. Select an alert instance.
-
-To see more details about a specific alert instance, select the alerts instance to open the **Alert Details** page. 
-> [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for VMs.
 
 ## Next steps
 
