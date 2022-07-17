@@ -419,7 +419,7 @@ items:
     items:
     - name: Overview
       displayname: data collection, data collection rules
-      href: data-collection.md
+      href: essentials/data-collection.md
     - name: Data sources
       href: data-sources.md
     - name: Data collection rules

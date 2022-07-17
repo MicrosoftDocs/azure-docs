@@ -47,7 +47,7 @@ See [Logs ingestion API in Azure Monitor (Preview)](logs/logs-ingestion-api-over
 ### Workspace transformation DCR
 The diagram below shows data collection for [resource logs](essentials/resource-logs.md) using a [workspace transformation DCR](essentials/data-collection-transformations.md#workspace-transformation-dcr). This is a special DCR that's associated with a workspace and provides a default transformation for [supported tables](logs/tables-feature-support.md). This transformation is applied to any data sent to the table that doesn't use another DCR. The example here shows resource logs using a diagnostic setting, but this same transformation could be applied to other data collection methods such as Log Analytics agent or Container insights.
 
-:::image type="content" source="essentials/media/data-collection-transformations/transformation-diagnostic-settings.png" lightbox="essentials/media/data-collection-transformations/transformation-diagnostic-settings" alt-text="Diagram showing data collection for resource logs using a transformation in the workspace transformation DCR." border="false":::
+:::image type="content" source="essentials/media/data-collection-transformations/transformation-diagnostic-settings.png" lightbox="essentials/media/data-collection-transformations/transformation-diagnostic-settings.png" alt-text="Diagram showing data collection for resource logs using a transformation in the workspace transformation DCR." border="false":::
 
 See [Workspace transformation DCR](essentials/data-collection-transformations.md#workspace-transformation-dcr) for details about workspace transformation DCRs and links to walkthroughs for creating them.
 

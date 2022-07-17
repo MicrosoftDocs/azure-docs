@@ -14,7 +14,7 @@ Azure Monitor is based on a [common monitoring data platform](data-platform.md) 
 
 This article describes common sources of monitoring data collected by Azure Monitor in addition to the monitoring data created by Azure resources. Links are provided to detailed information on configuration required to collect this data to different locations.
 
-Some of these data sources use the [new data ingestion pipeline](data-collection.md) in Azure Monitor. This article will be updated as other data sources transition to this new data collection method.
+Some of these data sources use the [new data ingestion pipeline](essentials/data-collection.md) in Azure Monitor. This article will be updated as other data sources transition to this new data collection method.
 
 ## Application tiers
 
