@@ -1,17 +1,17 @@
 ---
 title: 'Quickstart: Onboard in Microsoft Sentinel'
-description: In this quickstart, you enable Microsoft Sentinel, and connect data sources to monitor and protect your environment.
+description: In this quickstart, you enable Microsoft Sentinel, and set up data connectors to monitor and protect your environment.
 author: yelevin
 ms.author: yelevin
 ms.topic: quickstart
 ms.date: 07/14/2022
 ms.custom: references_regions, ignite-fall-2021, mode-other
-#Customer intent: As a security operator, connect all my data sources in one place so I can monitor and protect my environment.
+#Customer intent: As a security operator, set up data connectors in one place so I can monitor and protect my environment.
 ---
 
 # Quickstart: Onboard Microsoft Sentinel
 
-In this quickstart, you enable Microsoft Sentinel, and then connect your data sources to monitor and protect your environment. After you connect your data sources, you choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
+In this quickstart, you enable Microsoft Sentinel, and then set up data connectors to monitor and protect your environment. After you connect your data sources using data connectors, you choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
 Microsoft Sentinel comes with many connectors for Microsoft products, for example, the Microsoft 365 Defender service-to-service connector. You can also enable built-in connectors for non-Microsoft products, for example, Syslog or Common Event Format (CEF). [Learn more about data connectors](connect-data-sources.md).
 
@@ -71,24 +71,22 @@ Microsoft Sentinel comes with many connectors for Microsoft products, for exampl
 
 1. Select **Add Microsoft Sentinel**.
 
-## Connect data sources
+## Set up data connectors
 
 Microsoft Sentinel ingests data from services and apps by connecting to the service and forwarding the events and logs to Microsoft Sentinel. 
 
 - For physical and virtual machines, you can install the Log Analytics agent that collects the logs and forwards them to Microsoft Sentinel. 
 - For firewalls and proxies, Microsoft Sentinel installs the Log Analytics agent on a Linux Syslog server, from which the agent collects the log files and forwards them to Microsoft Sentinel. 
  
-1. From the main menu, select **Data connectors**. This opens the data connectors gallery.
-
-1. The gallery is a list of all the data sources you can connect. Select a data source and then the **Open connector page** button.
-
+1. From the main menu, select **Data connectors**. This opens the data connectors gallery. 
+1. Select a data connector, and then select the **Open connector page** button.
 1. The connector page shows instructions for configuring the connector, and any other instructions that may be necessary.
 
-    For example, if you select the **Azure Active Directory** data source, which lets you stream logs from Azure AD into Microsoft Sentinel, you can select what type of logs you want to get - sign-in logs and/or audit logs. <br>Follow the installation instructions. To learn more, [read the relevant connection guide](data-connectors-reference.md) or learn about [Microsoft Sentinel data connectors](connect-data-sources.md).
+    For example, if you select the **Azure Active Directory** data connector, which lets you stream logs from Azure AD into Microsoft Sentinel, you can select what type of logs you want to get - sign-in logs and/or audit logs. <br>Follow the installation instructions. To learn more, [read the relevant connection guide](data-connectors-reference.md) or learn about [Microsoft Sentinel data connectors](connect-data-sources.md).
 
 1. The **Next steps** tab on the connector page shows relevant built-in workbooks, sample queries, and analytics rule templates that accompany the data connector. You can use these as-is or modify them - either way you can immediately get interesting insights across your data.
 
-After your data sources are connected, your data starts streaming into Microsoft Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](get-visibility.md) and start building queries in Log Analytics to [investigate the data](investigate-cases.md).
+After you set up your data connectors, your data starts streaming into Microsoft Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](get-visibility.md) and start building queries in Log Analytics to [investigate the data](investigate-cases.md).
 
 Review the [data collection best practices](best-practices-data.md).
 
