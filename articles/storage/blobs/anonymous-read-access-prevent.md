@@ -3,12 +3,12 @@ title: Prevent anonymous public read access to containers and blobs
 titleSuffix: Azure Storage
 description: Learn how to analyze anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 12/09/2020
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell

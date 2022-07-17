@@ -109,6 +109,9 @@
         - name: Deep learning
           displayName: deep learning vs machine learning, deep learning, vs, versus
           href: concept-deep-learning-vs-machine-learning.md
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
         - name: AutoML
           items: 
             - name: Automated ML overview
@@ -225,8 +228,6 @@
           href: how-to-assign-roles.md
         - name: Use managed identities for access control
           href: how-to-use-managed-identities.md
-        - name: Use Azure AD identity in AKS deployments
-          href: how-to-use-azure-ad-identity.md
     - name: Network security
       items: 
         - name: Virtual network overview
@@ -411,19 +412,6 @@
             href: how-to-migrate-from-estimators-to-scriptrunconfig.md
           - name: Reinforcement learning
             href: how-to-use-reinforcement-learning.md
-          - name: Track & monitor training
-            items:
-              - name: Monitor training jobs
-                displayName: cancel, fail, status, child run
-                href: how-to-track-monitor-analyze-runs.md
-              - name: Log & view metrics, parameters and files
-                displayName: troubleshoot, log, files, tracing, metrics
-                href: how-to-log-view-metrics.md
-              - name: Visualize runs with TensorBoard
-                displayName: log, monitor, metrics
-                href: how-to-monitor-tensorboard.md
-              - name: Migrate from SDK v1 logging to MLflow
-                href: reference-migrate-sdk-v1-mlflow-tracking.md
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
@@ -431,6 +419,21 @@
           href: how-to-train-cli.md
         - name: Train with the REST API
           href: how-to-train-with-rest.md
+        - name: Track & monitor training
+          items:
+            - name: Monitor training jobs
+              displayName: cancel, fail, status, child run
+              href: how-to-track-monitor-analyze-runs.md
+            - name: Log & view metrics, parameters and files
+              displayName: troubleshoot, log, files, tracing, metrics
+              href: how-to-log-view-metrics.md
+            - name: Log MLflow models
+              href: how-to-log-mlflow-models.md
+            - name: Visualize runs with TensorBoard
+              displayName: log, monitor, metrics
+              href: how-to-monitor-tensorboard.md
+            - name: Migrate from SDK v1 logging to MLflow
+              href: reference-migrate-sdk-v1-mlflow-tracking.md
         - name: Train and track with MLflow
           items:
             - name: Track experiments with MLflow
@@ -560,6 +563,8 @@
               - name: Deploy MLflow models
                 displayName: mlflow models deployment plugin
                 href: how-to-deploy-mlflow-models.md
+              - name: Using MLflow models for no-code deployment
+                href: how-to-log-mlflow-models.md
               - name: Convert custom model to MLflow model
                 displayName: ncd, no code deploy, no-code deployment
                 href: how-to-convert-custom-model-to-mlflow.md
@@ -759,7 +764,7 @@
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
     - name: Service limits
-      href: resource-limits-quotas-capacity.md
+      href: resource-limits-capacity.md
     - name: Conda licensing
       href: /legal/machine-learning/conda-licensing
     - name: Regional availability

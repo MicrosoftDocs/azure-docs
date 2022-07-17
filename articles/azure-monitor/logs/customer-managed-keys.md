@@ -19,7 +19,7 @@ We recommend you review [Limitations and constraints](#limitationsandconstraints
 
 [Encryption at Rest](../../security/fundamentals/encryption-atrest.md) is a common privacy and security requirement in organizations. You can let Azure completely manage encryption at rest, while you have various options to closely manage encryption and encryption keys.
 
-Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). You also have the option to encrypt data with your own key in [Azure Key Vault](../../key-vault/general/overview.md), with control over key lifecycle and ability to revoke  access to your data at any time. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) operates.
+Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). You also have the option to encrypt data with your own key in [Azure Key Vault](../../key-vault/general/overview.md), with control over key lifecycle and ability to revoke  access to your data at any time. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-service-side-encryption) operates.
 
 Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data to dedicated clusters is encrypted twice, once at the service level using Microsoft-managed keys or Customer-managed keys, and once at the infrastructure level, using two different encryption algorithms and two different keys. [double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
 
@@ -221,7 +221,7 @@ Response to GET request when key update is completed:
 > [!IMPORTANT]
 > This step should be performed only after the cluster provisioning. If you link workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
 
-You need to have "write" permissions on your workspace and cluster to perform this operation. It include `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
+You need to have "write" permissions on your workspace and cluster to perform this operation. It includes `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
 
 Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 
@@ -237,7 +237,7 @@ The cluster storage will always respect changes in key permissions within an hou
 
 Key rotation has two modes: 
 - Autorotation—update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```. Storage will automatically use the latest versions.
-- Explicit key version update—update your cluster with key version in ```"keyVersion"``` property. Rotatio of keys require an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the cluster storage will keep using your previous key. If you disable, or delete the old key before updating a new one in the cluster, you will get into [key revocation](#key-revocation) state.
+- Explicit key version update—update your cluster with key version in ```"keyVersion"``` property. Rotation of keys requires an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the cluster storage will keep using your previous key. If you disable or delete the old key before updating a new one in the cluster, you will get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation. Data always encrypted with the Account Encryption Key ("AEK"), which is encrypted with your new Key Encryption Key ("KEK") version in Key Vault.
 
@@ -248,7 +248,7 @@ The query language used in Log Analytics is expressive and can contain sensitive
 > [!NOTE]
 > Log Analytics queries can be saved in various stores depending on the scenario used. Queries remain encrypted with Microsoft key ("MMK") in the following scenarios regardless Customer-managed key configuration: Workbooks in Azure Monitor, Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
 
-When link your own storage (BYOS) to workspace, the service stores *saved-searches* and *log alerts* queries to your Storage Account. With the control on Storage Account and the [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md), you can protect *saved-searches* and *log alerts* with Customer-managed key. You will, however, be responsible for the costs associated with that Storage Account. 
+When linking your own storage (BYOS) to workspace, the service stores *saved-searches* and *log alerts* queries to your Storage Account. With the control on Storage Account and the [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md), you can protect *saved-searches* and *log alerts* with Customer-managed key. You will, however, be responsible for the costs associated with that Storage Account. 
 
 **Considerations before setting Customer-managed key for queries**
 * You need to have "write" permissions on your workspace and Storage Account.
@@ -257,7 +257,7 @@ When link your own storage (BYOS) to workspace, the service stores *saved-search
 * Existing *saves searches* are removed from your workspace. Copy any *saves searches* that you need before this configuration. You can view your *saved-searches* using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
 * Query 'history' and 'pin to dashboard' aren't supported when linking Storage Account for queries.
 * You can link a single Storage Account to a workspace, which can be used for both *saved-searches* and *log alerts* queries.
-* Fired log alerts will not contains search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
+* Fired log alerts will not contain search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
 
 **Configure BYOS for saved-searches queries**
 
@@ -395,7 +395,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
   - If you create a cluster and get an error—"region-name doesn’t support Double Encryption for clusters", you can still create the cluster without Double encryption, by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
-  - Double encryption setting can not be changed after the cluster has been created.
+  - Double encryption settings can not be changed after the cluster has been created.
 
 Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
 
@@ -453,7 +453,7 @@ Deleting a linked workspace is permitted while linked to cluster. If you decide 
   -  400 — Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.
 
   **Cluster Update**
-  -  400 — Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
+  -  400 — Cluster is in deleting state. Async operation is in progress. Cluster must complete its operation before any update operation is performed.
   -  400 — KeyVaultProperties is not empty but has a bad format. See [key identifier update](#update-cluster-with-key-identifier-details).
   -  400 — Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and Access Policy](#grant-key-vault-permissions) in Key Vault.
   -  400 — Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
