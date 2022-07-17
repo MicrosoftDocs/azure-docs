@@ -2,7 +2,7 @@
 title: Create custom security policies in Microsoft Defender for Cloud
 description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 07/11/2022
+ms.date: 07/17/2022
 zone_pivot_groups: manage-asc-initiatives
 ---
 
@@ -10,14 +10,14 @@ zone_pivot_groups: manage-asc-initiatives
 
 To help secure your systems and environment, Microsoft Defender for Cloud generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Defender for Cloud's knowledge of industry and regulatory standards.
 
-With this feature, you can add your own *custom* initiatives. Although custom initiatives are not included in the secure score, you'll receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create are shown in the list of all recommendations and you can filter by initiative to see the recommendations for your initiative. They are also shown with the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
+With this feature, you can add your own *custom* initiatives. Although custom initiatives aren't included in the secure score, you'll receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create are shown in the list of all recommendations and you can filter by initiative to see the recommendations for your initiative. They're also shown with the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
 
 As discussed in [the Azure Policy documentation](../governance/policy/concepts/definition-structure.md#definition-location), when you specify a location for your custom initiative, it must be a management group or a subscription. 
 
 > [!TIP]
 > For an overview of the key concepts on this page, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
 
-Custom security policies, based on custom initiatives, can be combined into groups similar to how compliance standards are grouped. You can learn how to group your custom policies using [policy definitions groups](../governance/policy/concepts/initiative-definition-structure.md).  
+To view your custom initiative organized by controls, in the compliance view. You can create policy groups within the custom initiatives. You can learn how to create these groups and organize the policies in your initiative by following the [policy definitions groups](../governance/policy/concepts/initiative-definition-structure.md) guidance.  
 
 ::: zone pivot="azure-portal"
 
@@ -44,7 +44,7 @@ Custom security policies, based on custom initiatives, can be combined into grou
         1. Select the policies to include and select **Add**.
         1. Enter any desired parameters.
         1. Select **Save**.
-        1. In the Add custom initiatives page, click refresh. Your new initiative will be available.
+        1. In the Add custom initiatives page, select refresh. Your new initiative will be available.
         1. Select **Add** and assign it to your subscription.
 
     ![Create or add a policy.](media/custom-security-policies/create-or-add-custom-policy.png)
@@ -59,7 +59,7 @@ Custom security policies, based on custom initiatives, can be combined into grou
     
     * You'll begin to receive recommendations if your environment doesn't follow the policies you've defined.
 
-1. To see the resulting recommendations for your policy, click **Recommendations** from the sidebar to open the recommendations page. The recommendations will appear with a "Custom" label and be available within approximately one hour.
+1. To see the resulting recommendations for your policy, select **Recommendations** from the sidebar to open the recommendations page. The recommendations will appear with a "Custom" label and be available within approximately one hour.
 
     [![Custom recommendations.](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
@@ -69,7 +69,7 @@ Custom security policies, based on custom initiatives, can be combined into grou
 
 ## Configure a security policy in Azure Policy using the REST API
 
-As part of the native integration with Azure Policy, Microsoft Defender for Cloud enables you to take advantage Azure Policy’s REST API to create policy assignments. The following instructions walk you through creation of policy assignments, as well as customization of existing assignments. 
+As part of the native integration with Azure Policy, Microsoft Defender for Cloud enables you to take advantage Azure Policy’s REST API to create policy assignments. The following instructions walk you through creation of policy assignments, and customization of existing assignments. 
 
 Important concepts in Azure Policy: 
 
