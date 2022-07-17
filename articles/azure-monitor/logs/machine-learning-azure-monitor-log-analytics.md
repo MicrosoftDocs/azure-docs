@@ -47,7 +47,7 @@ Usage // The table we’re analyzing
 | render timechart // Renders results in a timechart
 ``` 
 
-Notice that in the resulting chart, you can clearly see some anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types: 
+In the resulting chart, you can clearly see some anomalies - for example, in the `AzureDiagnostics` and `SecurityEvent` data types: 
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/make-series-kql.gif" alt-text="An animated GIF showing a chart of the total data ingested by each table in the workspace each day, over 21 days. The cursor moves to highlight three usage anomalies on the chart."::: 
 
@@ -165,6 +165,9 @@ Looking at the query results, you can see the following differences:
 - There are 2,168,448 instances of ingestion from the *NSG-TESTSQLMI519* resource on June 15, and 110,544 instances of ingestion from this resource on other days within the query time range. Data from the *NSG-TESTSQLMI519* resource accounts for 6.39% of the total ingestion on June 15 and 19.22% of ingestion on other days with the time range.
 - There are 2,226,837 instances of ingestion from the *CH1-SQLMINSG* resource on June 15, and 106,007 instances of the total ingestion from this resource on other days within the query time range. Data from the *CH1-SQLMINSG* resource accounts for 6.56% of the total ingestion on June 15 and 24.56% of the total ingestion on other days with the time range.
 
+The *PercentDiffAB* column shows the absolute percentage point difference between A and B (|PercentA - PercentB|), which is the main measure of the difference between the two sets. To return only differences of 20% or more between the two data sets, you can set `| evaluate diffpatterns(AnomalyDate, "OtherDates", "AnomalyDate", "~", 0.20)` in the query above:
+
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics-threshold.png" alt-text="A screenshot showing a table with one row that presents a difference between the usage on the anomalous use and the baseline usage. This time, the query did not return differences of less than 20 percent between the two data sets."::: 
 
 > [!NOTE]
 > For more information about `diffpatterns()` syntax and usage, see [diff patterns plugin](/azure/data-explorer/kusto/query/diffpatternsplugin).
