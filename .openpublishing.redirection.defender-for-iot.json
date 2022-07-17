@@ -11,11 +11,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-identify-required-appliances.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/ot-appliance-sizing",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-configure-windows-endpoint-monitoring.md",
             "redirect_url": "/azure/defender-for-iot/organizations/how-to-control-what-traffic-is-monitored#configure-windows-endpoint-monitoring",
             "redirect_document_id": false
