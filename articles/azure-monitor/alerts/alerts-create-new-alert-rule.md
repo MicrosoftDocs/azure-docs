@@ -89,16 +89,16 @@ And then defining these elements for the resulting alert actions using:
    :::image type="content" source="media/alerts-log/alerts-create-log-rule-logic.png" alt-text="Screenshot of alert logic section of a new log alert rule.":::
     
 1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy. 
-       
+
   Select values for these fields under **Number of violations to trigger the alert**:
         
-  |Field  |Description  |
-  |---------|---------|
-  |Number of violations|The number of violations that trigger the alert.|
-  |Evaluation period|The time period within which the number of violations occur. |
-  |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than 2 days, the 2 day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to 2 days of data.<br> If the query requires more data than the alert evaluation, and there's no **ago** command in the query, you can change the time range manually.| 
+   |Field  |Description  |
+   |---------|---------|
+   |Number of violations|The number of violations that trigger the alert.|
+   |Evaluation period|The time period within which the number of violations occur. |
+   |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than 2 days, the 2 day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to 2 days of data.<br> If the query requires more data than the alert evaluation, and there's no **ago** command in the query, you can change the time range manually.| 
        
-  :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
+   :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
     
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
     
