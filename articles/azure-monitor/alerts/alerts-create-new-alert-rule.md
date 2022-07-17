@@ -44,16 +44,16 @@ And then defining these elements for the resulting alert actions using:
 7. Select **Include all future resources** to include any future resources added to the selected scope.
 8. Select **Done**.
 9.    
-## [Log alerts](#tab/logs)
+  ## [Log alerts](#tab/logs)
    
-1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert.
+  1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert.
    You can use the [alert query examples article](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
-1. Select **Run** to run the alert, and then select **Continue Editing Alert**.
-1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last 5 minutes. If the system detects summarized query results, the rule is automatically updated with that information.
+  1. Select **Run** to run the alert, and then select **Continue Editing Alert**.
+  1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last 5 minutes. If the system detects summarized query results, the rule is automatically updated with that information.
 
-   :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
+    :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
 
-1. In the **Measurement** section, select values for these fields:
+  1. In the **Measurement** section, select values for these fields:
 
    |Field  |Description  |
    |---------|---------|
@@ -63,7 +63,7 @@ And then defining these elements for the resulting alert actions using:
     
    :::image type="content" source="media/alerts-log/alerts-log-measurements.png" alt-text="Measurements.":::
 
-1. (Optional) In the **Split by dimensions** section, you can use dimensions to monitor the values of multiple instances of a resource with one rule. You can create resource-centric alerts at scale for a subscription or resource group. When you split by dimensions,  combinations of numerical or string columns are grouped to monitor for the same condition on multiple Azure resources. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
+  1. (Optional) In the **Split by dimensions** section, you can use dimensions to monitor the values of multiple instances of a resource with one rule. You can create resource-centric alerts at scale for a subscription or resource group. When you split by dimensions,  combinations of numerical or string columns are grouped to monitor for the same condition on multiple Azure resources. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
   
   If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
   You can select up to six more splittings for any columns that contain text or numbers.
@@ -78,7 +78,7 @@ And then defining these elements for the resulting alert actions using:
     
    :::image type="content" source="media/alerts-log/alerts-create-log-rule-dimensions.png" alt-text="Screenshot of the splitting by dimensions section of a new log alert rule.":::
     
-1. In the **Alert logic** section, select values for these fields:
+  1. In the **Alert logic** section, select values for these fields:
 
    |Field  |Description  |
    |---------|---------|
@@ -88,7 +88,7 @@ And then defining these elements for the resulting alert actions using:
             
    :::image type="content" source="media/alerts-log/alerts-create-log-rule-logic.png" alt-text="Screenshot of alert logic section of a new log alert rule.":::
     
-1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy. 
+  1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy. 
 
   Select values for these fields under **Number of violations to trigger the alert**:
         
@@ -100,13 +100,13 @@ And then defining these elements for the resulting alert actions using:
        
    :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
     
-1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
+  1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
     
   :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
             
-## [Metric alerts](#tab/metric)
+  ## [Metric alerts](#tab/metric)
        
-1. Configure the signal logic, and then select **Done**.
+  1. Configure the signal logic, and then select **Done**.
       
    |Setting |Description |
    |---------|---------|
@@ -121,7 +121,7 @@ And then defining these elements for the resulting alert actions using:
    |Aggregation granularity|Select the interval over which data points are grouped using the aggregation type function.         |
    |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.         |
        
-1. (Optional.) Configure the advanced settings:
+  1. (Optional.) Configure the advanced settings:
               
    |Setting  |Description  |
    |---------|---------|
@@ -129,9 +129,9 @@ And then defining these elements for the resulting alert actions using:
    |Evaluation period    |         |
    |Ignore data before     |         | 
     
- ## [Activity Log alerts](#tab/activity-log)
+  ## [Activity Log alerts](#tab/activity-log)
 
-1.  In the **Conditions** pane.
+  1.  In the **Conditions** pane.
         
 ---
 
