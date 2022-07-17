@@ -1,5 +1,5 @@
 ---
-title: Device inventories - Microsoft Defender for IoT
+title: Device inventory view options - Microsoft Defender for IoT
 description: Learn about the various options for viewing your network device inventory with Microsoft Defender for IoT.
 ms.date: 06/27/2022
 ms.topic: reference

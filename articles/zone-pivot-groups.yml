@@ -1687,11 +1687,9 @@ groups:
     title: GitHub Actions
 # Owner: bagol
 - id: on-prem-exp-d4iot
-  title: Defender for IoT options
-  prompt: Choose an option
+  title: OT consoles
+  prompt: Choose an on-premises console
   pivots:
-  - id: experience-azure
-    title: Azure portal
   - id: experience-sensor
     title: OT sensor console
   - id: experience-cm

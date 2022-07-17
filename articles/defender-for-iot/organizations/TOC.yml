@@ -51,12 +51,10 @@
           href: ot-virtual-appliances.md
       - name: Supported OT protocols
         href: concept-supported-protocols.md
-    - name: Device inventories
-      href: 
 - name: How-to guides
   items:
   - name: Visualize devices
-    displayName: assets
+    displayName: assets, network devices
     items:
     - name: Manage device inventory
       items:
@@ -167,6 +165,8 @@
           displayName: upgrade
         - name: Control OT traffic monitoring
           href: how-to-control-what-traffic-is-monitored.md
+        - name: Detect Windows workstations and servers by script
+          href: detect-windows-endpoints-script.md
         - name: Configure active monitoring
           items:
           - name: Planning and prerequisites
@@ -177,10 +177,6 @@
             href: configure-reverse-dns-lookup.md
         - name: Manage sensors from the on-premises management console
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
-        - name: Control OT traffic monitoring
-          href: how-to-control-what-traffic-is-monitored.md
-        - name: Detect Windows workstations and servers by script
-          href: detect-windows-endpoints-script.md
       - name: Manage OT sensor users
         items:
         - name: Create and manage users
@@ -214,7 +210,7 @@
 - name: Reference
   items:
   - name: Device inventory view options
-    href: device-inventory.md
+    href: device-inventory-view-reference.md
   - name: Alert reference
     href: alert-engine-messages.md
   - name: OT monitoring appliances

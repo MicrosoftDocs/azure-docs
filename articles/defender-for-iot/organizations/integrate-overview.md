@@ -30,7 +30,11 @@ The following table lists available integrations for Microsoft Defender for IoT,
 
 For more information, see:
 
-**Device inventory**: [View detected devices and assets](how-to-manage-device-inventory-for-organizations.md)
+**Device inventory**:
+
+- [Use the Device inventory in the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Use the Device inventory in the OT sensor](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Use the Device inventory in the on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
 **Alerts**:
 
