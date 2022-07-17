@@ -40,7 +40,7 @@ You can enable the following access settings for each associated tenant:
 1. Select **Access control (IAM)** on the left side of the page.
 1. In the Access control (IAM), select **Associated tenants** from the top of the page.
 
-    ![Screenshot that shows access control page ](./media/manage-billing-across-tenants/access-management-associated-tenants.png)
+    ![Screenshot that shows access control page while adding an associated tenant](./media/manage-billing-across-tenants/access-management-associated-tenants.png)
 1. Select **Add** from the top of the page.
 
      ![Screenshot that shows the add button for associated tenants ](./media/manage-billing-across-tenants/associated-tenants-list-add.png)
@@ -64,13 +64,13 @@ You must [add a tenant as an associated tenant and enable billing management set
 1. Select **Access control (IAM)** on the left side of the page.
 1. In the Access control (IAM), select **Add** from the top of the page.
 
-    ![Screenshot that shows access control page ](./media/manage-billing-across-tenants/access-management-associated-tenants.png)
+    ![Screenshot that shows access control page while assigning roles](./media/manage-billing-across-tenants/access-management-associated-tenants.png)
 1. Select a role. To learn more about billing roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md)
 1. Select the associated tenant from the tenant dropdown  
 1. Enter the email address of the user to assign role.
 1. Select **Save**.
 
-    ![Screenshot that shows access control page ](./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png)
+    ![Screenshot that shows saving a role assignment](./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png)
 1. The user would receive an email with instructions to approve your role assignment. Once they approve, they'll get the permissions to view or manage your billing account, depending on the role that was assigned.
 1. If the user can't receive emails, you can copy the approval link and share with them.
 1. Select manage requests from the top of the **Access control (IAM)** page.
@@ -80,7 +80,7 @@ You must [add a tenant as an associated tenant and enable billing management set
 
 ### Role assignments through associated tenants vs Azure B2B 
 
-You can add users from other tenants through Azure B2B as well. To learn more about Azure B2B, see [B2B collaboration overview](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b). 
+You can add users from other tenants through Azure B2B as well. To learn more about Azure B2B, see [B2B collaboration overview](../../active-directory/external-identities/what-is-b2b.md)
 
 ![Illustration showing associated tenant role assignment ](./media/manage-billing-across-tenants/associated-tenants-role-assignment.png)
 
@@ -106,4 +106,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 - [Billing administrative roles](understand-mca-roles.md)
-- [Associate or add an Azure subscription to your Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory)
+- [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
