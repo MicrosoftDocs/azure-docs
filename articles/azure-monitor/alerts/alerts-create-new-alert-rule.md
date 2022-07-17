@@ -64,11 +64,11 @@ And then defining these elements for the resulting alert actions using:
      :::image type="content" source="media/alerts-log/alerts-log-measurements.png" alt-text="Measurements.":::
 
   1. (Optional) In the **Split by dimensions** section, you can use dimensions to monitor the values of multiple instances of a resource with one rule. You can create resource-centric alerts at scale for a subscription or resource group. When you split by dimensions,  combinations of numerical or string columns are grouped to monitor for the same condition on multiple Azure resources. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
-    If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
+     If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
   
-    You can select up to six more splittings for any columns that contain text or numbers.
+     You can select up to six more splittings for any columns that contain text or numbers.
   
-    You can also decide **not** to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.  
+     You can also decide **not** to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.  
   
      Select values for these fields:
     
@@ -92,7 +92,7 @@ And then defining these elements for the resulting alert actions using:
     
   1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy. 
 
-    Select values for these fields under **Number of violations to trigger the alert**:
+     Select values for these fields under **Number of violations to trigger the alert**:
         
      |Field  |Description  |
      |---------|---------|
@@ -113,7 +113,7 @@ And then defining these elements for the resulting alert actions using:
      |Setting |Description |
      |---------|---------|
      |Select time series|Select the time series to include in the results. |
-    |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
+     |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
      |Threshold| Select if threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold uses a user-defined threshold value to evaluate rule.<br>Dynamic Thresholds use machine learning algorithms to continuously learn the metric behavior pattern and calculate the appropriate threshold for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds).|
      |Operator|Select the operator for comparing the metric value against the threshold.|
      |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.          |
