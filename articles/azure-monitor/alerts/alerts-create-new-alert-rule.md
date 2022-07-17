@@ -43,7 +43,7 @@ And then defining these elements for the resulting alert actions using:
 6. You can see the **Available signal types** for your selected resource(s) at the bottom right of the pane. 
 7. Select **Include all future resources** to include any future resources added to the selected scope.
 8. Select **Done**.
-   
+9.    
 ## [Log alerts](#tab/logs)
    
 1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert.
@@ -135,25 +135,25 @@ And then defining these elements for the resulting alert actions using:
         
 ---
 
-9. From this point on, you can select the **Review + create** button at any time.
-10. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
+10. From this point on, you can select the **Review + create** button at any time.
+11. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
     :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
 
-11. In the **Details** tab, define the **Project details** and the **Alert rule details**.
-12. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **Mute actions** for a period of time after the alert rule fires.
+12. In the **Details** tab, define the **Project details** and the **Alert rule details**.
+13. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **Mute actions** for a period of time after the alert rule fires.
     
   :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
   > [!NOTE]
   > If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
 
-13. In the **Tags** tab, set any required tags on the alert rule resource.
+14. In the **Tags** tab, set any required tags on the alert rule resource.
 
   :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
 
-14. In the **Review + create** tab, a validation will run and inform you of any issues.
-15. When validation passes and you've reviewed the settings, select the **Create** button.    
+15. In the **Review + create** tab, a validation will run and inform you of any issues.
+16. When validation passes and you've reviewed the settings, select the **Create** button.    
     
    :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 
