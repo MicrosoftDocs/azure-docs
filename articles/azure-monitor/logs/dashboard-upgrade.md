@@ -72,7 +72,7 @@ Dashboards can be visually dense and complex. To reduce cognitive load when view
 
 ### Query results limit
 
-A dashboard query can return up to 2000 records.  
+A query underlying a Log Analytics dashboard can return up to 2000 records.  
 
 ### Dashboard refresh on load
 
