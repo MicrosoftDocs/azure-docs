@@ -60,25 +60,25 @@ conceptualContent:
 
     - title: Data security & governance, risk, and compliance
       links:
-        - url: https://docs.microsoft.com/learn/modules/m365-compliance-information-governance/
+        - url: /learn/modules/m365-compliance-information-governance/
           itemType: overview
           text: Introduction to information protection and governance in Microsoft 365
         - url: ../governance/policy/overview.md
           itemType: concept
           text: Azure Policy service
-        - url: https://docs.microsoft.com/microsoft-365/compliance/information-protection-solution?view=o365-worldwide
+        - url: /microsoft-365/compliance/information-protection-solution?view=o365-worldwide
           itemType: concept
           text: Deploy an information protection solution with Microsoft Purview
 
     - title: Secure identities and access
       links:
-        - url: https://docs.microsoft.com/security/zero-trust/deploy/identity
+        - url: /security/zero-trust/deploy/identity
           itemType: how-to-guide
           text: Securing identity with Zero Trust
-        - url: https://docs.microsoft.com/security/compass/overview
+        - url: /security/compass/overview
           itemType: concept
           text: Securing privleged access
-        - url: https://docs.microsoft.com/security/zero-trust/develop/identity
+        - url: /security/zero-trust/develop/identity
           itemType: concept
           text: Building apps with a Zero Trust approach to identity
 
@@ -130,7 +130,7 @@ additionalContent:
       items:
         - title: Microsoft Learn
           summary: If you're new to security, build your skills with Microsoft Learn                         
-          url: https://docs.microsoft.com/learn/browse/?products=azure&roles=security-engineer%2Csecurity-operations-analyst
+          url: /learn/browse/?products=azure&roles=security-engineer%2csecurity-operations-analyst
         - title: Microsoft Cloud Adoption Framework for Azure
           summary: Secure methodology designed to help cloud architects and business decision makers create and implement security strategies for the cloud
           url: /azure/cloud-adoption-framework/secure/
@@ -164,7 +164,7 @@ additionalContent:
               text: See and stop threats before they cause harm
             - url: ../sentinel/quickstart-onboard.md
               text: Onboard Microsoft Sentinel
-            - url: https://docs.microsoft.com/en-us/learn/paths/security-ops-sentinel/
+            - url: /learn/paths/security-ops-sentinel/
               text: "Learn: Cloud-native security operations with Microsoft Sentinel"
 
         - title: Microsoft Defender for Cloud                  
@@ -173,7 +173,7 @@ additionalContent:
               text: Unified security management and advanced threat protection across hybrid cloud workloads
             - url: ../defender-for-cloud/tutorial-protect-resources.md
               text: Protect your resources
-            - url: https://docs.microsoft.com/learn/modules/microsoft-cloud-app-security/
+            - url: /learn/modules/microsoft-cloud-app-security/
               text: "Learn: Secure your cloud apps and services"
 
         - title: Azure Key Vault
@@ -182,7 +182,7 @@ additionalContent:
               text: Create and maintain keys that access and encrypt your cloud resources
             - url: ../key-vault/secrets/quick-create-cli.md
               text: Set and retrieve a secret
-            - url: https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/
+            - url: /learn/modules/manage-secrets-with-azure-key-vault/
               text: "Learn: Manage secrets in your server apps"
 
         - title: Microsoft Defender for IoT
@@ -191,41 +191,41 @@ additionalContent:
               text: Comprehensive threat detection for IoT/OT environments
             - url: ../defender-for-iot/getting-started.md
               text: Get started with Defender for IoT
-            - url: https://docs.microsoft.com/learn/paths/enhance-iot-solution-security-by-using-azure-defender/
+            - url: /learn/paths/enhance-iot-solution-security-by-using-azure-defender/
               text: "Learn: Enhance IoT solution security"
 
         - title: Azure Active Directory
           links: 
-            - url: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis
+            - url: ../active-directory/fundamentals/active-directory-whatis.md
               text: Multi-tenant, cloud-based identity and access management service
-            - url: https://docs.microsoft.com/azure/active-directory/fundamentals/security-operations-introduction
+            - url: ../active-directory/fundamentals/security-operations-introduction.md
               text: Security operations guide
-            - url: https://docs.microsoft.com/learn/modules/secure-aad-users-with-mfa/
+            - url: /learn/modules/secure-aad-users-with-mfa/
               text: "Learn: Secure Azure Active Directory users with Multi-Factor Authentication"
 
         - title: Azure Information Protection
           links: 
-            - url: https://docs.microsoft.com/azure/information-protection/what-is-information-protection
+            - url: /azure/information-protection/what-is-information-protection
               text: Control and secure emails, documents, and sensitive data
-            - url: https://docs.microsoft.com/azure/information-protection/quickstart-deploy-client
+            - url: /azure/information-protection/quickstart-deploy-client
               text: Deploying the client 
-            - url: https://docs.microsoft.com/azure/information-protection/tutorial-scan-networks-and-content
+            - url: /azure/information-protection/tutorial-scan-networks-and-content
               text: Discovering your sensitive content
 
         - title: Microsoft Defender for Cloud Apps
           links: 
-            - url: https://docs.microsoft.com/defender-cloud-apps/what-is-defender-for-cloud-apps
+            - url: /defender-cloud-apps/what-is-defender-for-cloud-apps
               text: Cloud Access Security Broker (CASB) that operates on multiple clouds
-            - url: https://docs.microsoft.com/defender-cloud-apps/get-started
+            - url: /defender-cloud-apps/get-started
               text: Get started 
-            - url: https://docs.microsoft.com/defender-cloud-apps/tutorial-suspicious-activity
+            - url: /defender-cloud-apps/tutorial-suspicious-activity
               text: Detect and manage suspicious activity
 
         - title: Microsoft 365 Defender
           links: 
-            - url: https://docs.microsoft.com/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide
+            - url: /microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide
               text: Protect your enterprise across attack surfaces
-            - url: https://docs.microsoft.com/microsoft-365/security/defender/get-started?view=o365-worldwide
+            - url: /microsoft-365/security/defender/get-started?view=o365-worldwide
               text: Get started 
-            - url: https://docs.microsoft.com/microsoft-365/security/defender/integrate-microsoft-365-defender-secops?view=o365-worldwide
+            - url: /microsoft-365/security/defender/integrate-microsoft-365-defender-secops?view=o365-worldwide
               text: Security operations guide
