@@ -145,19 +145,19 @@ And then defining these elements for the resulting alert actions using:
 12. In the **Details** tab, define the **Project details** and the **Alert rule details**.
 13. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **Mute actions** for a period of time after the alert rule fires.
     
-  :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
+    :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
-  > [!NOTE]
-  > If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
+    > [!NOTE]
+    > If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
 
 14. In the **Tags** tab, set any required tags on the alert rule resource.
 
-  :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
+    :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
 
 15. In the **Review + create** tab, a validation will run and inform you of any issues.
 16. When validation passes and you've reviewed the settings, select the **Create** button.    
     
-   :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
+    :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 
 > [!NOTE]
 > This article describes creating alert rules using the alert rule wizard. 
