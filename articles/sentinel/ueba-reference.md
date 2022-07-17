@@ -252,6 +252,8 @@ The following table describes the user identity data included in the **IdentityI
 | **AccountUPN**                  | string   | The user principal name of the user account.               |
 | **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                |
 | **AssignedRoles**               | dynamic  | The Azure AD roles the user account is assigned to.        |
+| **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Azure Active Directory roles and permissions. <br>Possible values: *Low, Medium, High* |
+| **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *UEBA*<br>- *Watchlist*<br>- *FullSync* |
 | **City**                        | string   | The city of the user account.                              |
 | **Country**                     | string   | The country of the user account.                           |
 | **DeletedDateTime**             | datetime | The date and time the user was deleted.                    |
@@ -264,17 +266,17 @@ The following table describes the user identity data included in the **IdentityI
 | **Manager**                     | string   | The manager alias of the user account.                     |
 | **OnPremisesDistinguishedName** | string   | The Azure AD distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas. |
 | **Phone**                       | string   | The phone number of the user account.                      |
-| **SourceSystem**                | string   | The system where the user data originated.                 |
+| **SourceSystem**                | string   | The system where the user is managed. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *Hybrid* |
 | **State**                       | string   | The geographical state of the user account.                |
 | **StreetAddress**               | string   | The office street address of the user account.             |
 | **Surname**                     | string   | The surname of the user. account.                          |
 | **TenantId**                    | string   | The tenant ID of the user.                                 |
 | **TimeGenerated**               | datetime | The time when the event was generated (UTC).               |
 | **Type**                        | string   | The name of the table.                                     |
-| **UserState**                   | string   | The current state of the user account in Azure AD (Active/Disabled/Dormant/Lockout). |
+| **UserAccountControl**          | dynamic  | Security attributes of the user account in the AD domain. <br> Possible values:<br>- *AccountDisabled*<br>- *HomedirRequired*<br>- *AccountLocked*<br>- *PasswordNotRequired*<br>- *CannotChangePassword*<br>- *EncryptedTextPasswordAllowed*<br>- *TemporaryDuplicateAccount*<br>- *NormalAccount*<br>- *InterdomainTrustAccount*<br>- *WorkstationTrustAccount*<br>- *ServerTrustAccount*<br>- *PasswordNeverExpires*<br>- *MnsLogonAccount*<br>- *SmartcardRequired*<br>- *TrustedForDelegation*<br>- *DelegationNotAllowed*<br>- *UseDesKeyOnly*<br>- *DontRequirePreauthentication*<br>- *PasswordExpired*<br>- *TrustedToAuthenticationForDelegation*<br>- *PartialSecretsAccount*<br>- *UseAesKeys* |
+| **UserState**                   | string   | The current state of the user account in Azure AD.<br>Possible values:<br>- *Active*<br>- *Disabled*<br>- *Dormant*<br>- *Lockout* |
 | **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC). |
 | **UserType**                    | string   | The user type.                                             |
-
 
 ## Next steps
 

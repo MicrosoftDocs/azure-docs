@@ -10,14 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Connect data from Microsoft 365 Defender to Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> **Microsoft Defender for Cloud Apps** was formerly known as **Microsoft Cloud App Security** or **MCAS**.
->
-> You may see the old names still in use for a period of time.
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Background
