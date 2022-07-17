@@ -142,12 +142,38 @@ Filter the results for the `AzureDiagnostics` data type:
 
 All of the anomalies in the chart from our first `make-series` query now appear in the result set. 
 
+## Analyze the root cause of anomalies
+
+Comparing expected values to anomalous values helps you understand the cause of the differences between the two sets. 
+
+The KQL `diffpatterns()` plugin compares two data sets of the same structure and finds patterns that characterize differences between the two data sets.
+
+This query compares `AzureDiagnostics` usage on June 15, the extreme outlier in our example, with the table usage on other days: 
+
+```kusto
+let starttime = 21d; // Start date for the time series, counting back from the current date
+let endtime = 0d; // End date for the time series, counting back from the current date
+let last_date_in_range = datetime_add('day',-1, make_datetime(startofday(ago(endtime))));
+AzureDiagnostics	
+| extend AnomalyDate = iff(startofday(TimeGenerated) == last_date_in_range, "AnomalyDate", "OtherDates") // Adds calculated column called AnomalyDate, which splits the result set into two data sets – AnomalyDate and OtherDates
+| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Defines the time range for the query
+| project AnomalyDate, Resource // Defines which columns to return
+| evaluate diffpatterns(AnomalyDate, "OtherDates", "AnomalyDate") // Compares usage on the anomaly date with the regular usage pattern
+```
+
+The query identifies each entry in the table as occurring on *AnomalyDate*, or June 15, and *OtherDates*. The `diffpatterns()` plugin then splits these data sets - called A and B - and returns a small set of patterns that capture different portions of the data in the two sets:
+
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" alt-text="A screenshot showing a chart of the total data ingested by the Azure Diagnostics table with anomalies highlighted."::: 
+
+Looking at the query results, you can see the following differences:
+
+-  There are 24,892,147 instances of ingestion from the *CH1-GEARAMAAKS* resource on June 15, and no ingestion of data from this resource on other days within the 21-day query time range. Data ingestion from the *CH1-GEARAMAAKS* resource accounts for 73.36% of the total ingestion on June 15.
+- There are 2,168,448 instances of ingestion from the *NSG-TESTSQLMI519* resource on June 15, and 110,544 instances of ingestion from this resource on other days within the query time range. Data ingestion from the *NSG-TESTSQLMI519* resource accounts for 6.39% of the total ingestion on June 15 and 19.22% of ingestion on other days with the time range.
+- There are 2,226,837 instances of ingestion from the *CH1-SQLMINSG* resource on June 15, and 106,007 instances of the total ingestion from this resource on other days within the query time range. Data ingestion from the *CH1-SQLMINSG* resource accounts for 6.56% of the total ingestion on June 15 and 24.56% of the total ingestion on other days with the time range.
 
 
-<!-- 6. Clean up resources
-Required. If resources were created during the tutorial. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
+> [!NOTE]
+> For more information about `diffpatterns()` syntax and usage, see [`diffpatterns()`](/azure/data-explorer/kusto/query/diffpatternsplugin).
 
 ## Next steps
 
