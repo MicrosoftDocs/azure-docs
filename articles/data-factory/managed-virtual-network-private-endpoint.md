@@ -39,11 +39,11 @@ Currently, the managed virtual network is only supported in the same region as t
 There are two ways to enable managed virtual network in your data factory:
 1. Enable managed virtual network during the creation of data factory.
 
-:::image type="content" source="./media/managed-vnet/managed-vnet-creation_1.png" alt-text="Enable managed virtual network during the creation of data factory":::
+:::image type="content" source="./media/managed-vnet/managed-vnet-creation-1.png" alt-text="Screenshot of enabling managed virtual network during the creation of data factory.":::
 
 2. Enable managed virtual network in integration runtime.
 
-:::image type="content" source="./media/managed-vnet/managed-vnet-creation_2.png" alt-text="Enable managed virtual network in integration runtime":::
+:::image type="content" source="./media/managed-vnet/managed-vnet-creation-2.png" alt-text="Screenshot of enabling managed virtual network in integration runtime":::
 
 
 ## Managed private endpoints
