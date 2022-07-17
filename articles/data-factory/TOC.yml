@@ -1113,6 +1113,8 @@ items:
       href: data-flow-reserved-capacity-overview.md
     - name: Data flow understand reservation charges
       href: data-flow-understand-reservation-charges.md
+    - name: Better understand charges in different integration runtime
+      href: better-understand-charges-in-different-integration-runtime
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
       displayName: diu
