@@ -12,15 +12,9 @@ ms.date: 07/01/2022
 
 ---
 
-# Tutorial: Analyze log data with machine learning in Log Analytics 
+# Tutorial: Detect and analyze anomalies with machine learning in Log Analytics using KQL 
 
-Azure Monitor provides advanced data analysis capabilities, powered by Kusto, Microsoft's big data analytics cloud platform. The Kusto Query Language (KQL) includes a set of machine learning operators and plugins for time series analysis, anomaly detection and forecasting, and root cause analysis. 
-
-Using KQL's machine learning operators in the various Log Analytics tools for extracting insights from logs - including queries, workbooks and dashboards, and integration with Excel - provides you with: 
-
-- Savings on the costs and overhead of exporting data to external machine learning tools.
-- The power of Kusto’s distributed database, running at high scales.
-- Greater flexibility and deeper insights than out-of-the-box insights tools.
+The Kusto Query Language (KQL) includes a set of machine learning operators and plugins for time series analysis, anomaly detection, forecasting, and root cause analysis. Using KQL's machine learning operators in Log Analytics give you advanced data analysis capabilities and the power of Kusto’s distributed database, running at high scales, without the overhead of exporting data to external machine learning tools.
 
 In this tutorial, you learn how to:
 
