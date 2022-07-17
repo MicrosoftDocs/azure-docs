@@ -1052,8 +1052,8 @@ items:
       items:
       - name: SSIS migration overview
         href: scenario-ssis-migration-overview.md
-      - name: SSISDB migration to Azure SQL Managed Instance
-        href: scenario-ssis-migration-ssisdb-mi.md
+      - name: SSIS migration assessment rules
+        href: scenario-ssis-migration-rules.md
     - name: SAP knowledge center
       items:
       - name: Overview
