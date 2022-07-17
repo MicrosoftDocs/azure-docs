@@ -4,7 +4,7 @@ description: Learn how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 07/17/2022
 ms.reviewer: harelbr
 ---
 # Create a new alert rule
@@ -27,15 +27,9 @@ And then defining these elements for the resulting alert actions using:
 
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot showing steps to create new alert rule.":::
 
-3. In the **Select a resource** pane, set the scope for your alert rule, and then select **Done**. 
+3. In the **Select a resource** pane, set the scope for your alert rule, and then select **Done**. You can filter by subscription, resource type, resource location or do a search.
    You can see the alert rule types available for the selected resource at the bottom right of the pane. 
-   
-   You can filter by:
-   - Subscription
-   - Resource type
-   - Resource location
-   - Search
-
+      
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot showing select resource pane for creating new alert rule."::: 
 
 4. Select **Next: Condition>** at the bottom of the page.
@@ -47,7 +41,7 @@ And then defining these elements for the resulting alert actions using:
   ## [Log alerts](#tab/logs)
    
   1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert.
-   You can use the [alert query examples article](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
+     You can use the [alert query examples article](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
   1. Select **Run** to run the alert, and then select **Continue Editing Alert**.
   1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last 5 minutes. If the system detects summarized query results, the rule is automatically updated with that information.
   
