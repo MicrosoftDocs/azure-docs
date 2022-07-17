@@ -1,6 +1,6 @@
 ---
 title: Use Selective logging feature using script action in Azure HDInsight clusters 
-description: Learn how to use Selective logging feature using script action to moniton logs.
+description: Learn how to use Selective logging feature using script action to monitor logs.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurepowershell, references_regions, devx-track-azurecli
@@ -13,16 +13,16 @@ ms.date: 07/31/2022
 
 ## About selective logging
 
-Selective logging is a part of Azure overall monitoring system. You can connect your cluster to a log analytics workspace. Once enabled, you can see the logs and metrics like HDInsight Security Logs, Yarn Resource Manager, System Metrics etc. You can monitor workloads and see how they are affecting cluster stability. 
-Selective logging allows you to enable/disable all the tables or enable selective tables in log analytics workspace. You can adjust the source type for each table , since in new version of Geneva monitoring one table has multiple sources.
+Selective logging is a part of Azure overall monitoring system. You can connect your cluster to a log analytics workspace. Once enabled, you can see the logs and metrics like HDInsight Security Logs, Yarn Resource Manager, System Metrics etc. You can monitor workloads and see how they're affecting cluster stability. 
+Selective logging allows you to enable/disable all the tables or enable selective tables in log analytics workspace. You can adjust the source type for each table, since in new version of Geneva monitoring one table has multiple sources.
 
 > [!NOTE]  
-> If log analytics is reinstalled in a cluster, then, you will have to disable all the tables/log types again, since the reinstallation resets all the configuration files to its original state.
+> If log analytics is reinstalled in a cluster, then, you'll have to disable all the tables/log types again, since the reinstallation resets all the configuration files to its original state.
 
 ## Using script action
 
 * The Geneva monitoring system uses mdsd(MDS daemon) which is a monitoring agent and fluentd for collecting logs using unified logging layer.
-* Selective Logging uses script action to disable/enable tables and their log types. Since it does not open any new ports or change any existing security setting hence, there are no security changes.
+* Selective Logging uses script action to disable/enable tables and their log types. Since it doesn't open any new ports or change any existing security setting hence, there are no security changes.
 * Script Action runs in parallel on all specified nodes and changes the configuration files for disabling/enabling tables and their log types.
 
 ## Prerequisites
@@ -59,7 +59,7 @@ Selective logging allows you to enable/disable all the tables or enable selectiv
 For more details, see [Parameters](## Parameters syntax) section.
 
 1. Click Create.
-1. After 1-2 minutes you will see a green tick next to your script action history, which means script has successfully run.
+1. After 1-2 minutes you'll see a green tick next to your script action history, which means script has successfully run.
 
 :::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/enable_table_and_log_types.png" alt-text="screenshot_showing_enable_table_and_log_types":::
 
@@ -82,7 +82,7 @@ If Script Action is submitted but there are no changes in the log analytics work
 
 :::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/background_operations.png" alt-text="screenshot_showing_background_operations":::
 
-1. You can check the script run status in all the nodes individually.
+1. Verify the script run status in all the nodes individually.
 
 :::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/background_operations_all.png" alt-text="screenshot_showing_background_operations_all":::
 
@@ -92,7 +92,7 @@ If Script Action is submitted but there are no changes in the log analytics work
 
 :::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/script_action_persisits.png" alt-text="screenshot_showing_script_action_persisits":::
 
-1. It is possbile that a new node has beed added to the cluster recently.
+1. It's possbile, that a new node has been added to the cluster recently.
     > [!NOTE]  
     > For the script to run in the latest cluster,  and  the script must persist the script.
 1. Make sure all the node types are selected while running  the script action.
@@ -101,7 +101,7 @@ If Script Action is submitted but there are no changes in the log analytics work
 
 ### Scenario 2
 
-If the script action is showing a Failed status in the script action history.
+If the script action is showing a Failed status in the script action history
 
 1. Make sure the parameter syntax is correct while using the parameter syntax section.
 1. Check that the script link is correct.
@@ -117,7 +117,7 @@ Different log types(sources) inside **Spark** tables
 | --- | --- | --- | --- |
 | 1.  | HDInsightAmbariCluster Alerts   | No log types  | This table contains Ambari Cluster Alerts from each node in the cluster (except for edge nodes). Each alert is a record in this table. 
 | 2.  | HDInsightAmbariSystem Metrics  | No log types  | This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edge nodes) instead of just the two headnodes. Each metric is now a column and each metric is reported once per record.  |
-| 3.  | HDInsightHadoopAnd YarnLogs   | Head Node: MRJobSummary, ResourceManager, TimelineServer  Worker Node: NodeManager  | This table contains all logs generated from the Hadoop and YARN frameworks.  |
+| 3.  | HDInsightHadoopAnd YarnLogs   | Head Node: MRJobSummary, Resource Manager, TimelineServer  Worker Node: NodeManager  | This table contains all logs generated from the Hadoop and YARN frameworks.  |
 | 4.  | HDInsightSecurityLogs   | AmbariAuditLog, AuthLog  | This table contains records from the Ambari Audit and Auth Logs.  |
 | 5.  | HDInsightSparkLogs   | Head Node: JupyterLog, LivyLog, SparkThriftDriverLog  Worker Node: SparkExecutorLog, SparkDriverLog  | This table contains all logs related to Spark and its related component: Livy and Jupyter.  |
 | 6.  | HDInsightHadoopAnd YarnMetrics  | No log types   | This table contains JMX metrics from the Hadoop and YARN frameworks. It contains all the same JMX metrics as the old Custom Logs tables, plus more metrics we considered important. We added Timeline Server, Node Manager, and Job History Server metrics. It contains one metric per record.  |
@@ -131,7 +131,7 @@ Different log types(sources) inside **interactive query** tables
 | --- | --- | --- | --- |
 | 1.  | HDInsightAmbariClusterAlerts   | No log types  | This table contains Ambari Cluster Alerts from each node in the cluster (except for edge nodes). Each alert is a record in this table.  |
 | 2.  | HDInsightAmbariSystem Metrics  | No log types  | This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edge nodes) instead of just the two headnodes. Each metric is now a column and each metric is reported once per record.  |
-| 3.  | HDInsightHadoopAndYarnLogs   | **Head Node** : MRJobSummary, ResourceManager, TimelineServer   **WorkerNode:** NodeManager  | This table contains all logs generated from the Hadoop and YARN frameworks.  |
+| 3.  | HDInsightHadoopAndYarnLogs   | **Head Node** : MRJobSummary, Resource Manager, TimelineServer   **WorkerNode:** NodeManager  | This table contains all logs generated from the Hadoop and YARN frameworks.  |
 | 4.  | HDInsightHadoopAndYarnMetrics  | No log types   | This table contains JMX metrics from the Hadoop and YARN frameworks. It contains all the same JMX metrics as the old Custom Logs tables, plus more metrics we considered important. We added Timeline Server, Node Manager, and Job History Server metrics. It contains one metric per record.  |
 | 5.  | HDInsightHiveAndLLAPLogs   | Head Node: InteractiveHiveHSILog, InteractiveHiveMetastoreLog, ZeppelinLog    | This table contains logs generated from Hive, LLAP, and their related components: WebHCat and Zeppelin.  |
 | 6.  | HDInsightHiveAndLLAPmetrics   | No log types  | This table contains JMX metrics from the Hive and LLAP frameworks. It contains all the same JMX metrics as the old Custom Logs tables. It contains one metric per record.  |
@@ -146,7 +146,7 @@ Different log types(sources) inside **HBase** tables
 | --- | --- | --- | --- |
 | 1.  | HDInsightAmbariClusterAlerts   | No other log types  | This table contains Ambari Cluster Alerts from each node in the cluster (except for edge nodes). Each alert is a record in this table.
 | 2.  | HDInsightAmbariSystem Metrics  | No other log types  | This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edge nodes) instead of just the two headnodes. Each metric is now a column and each metric is reported once per record.  |
-| 3.  | HDInsightHadoopAndYarnLogs   | **Head Node** : MRJobSummary, ResourceManager, TimelineServer   **WorkerNode:** NodeManager  | This table contains all logs generated from the Hadoop and YARN frameworks.  |
+| 3.  | HDInsightHadoopAndYarnLogs   | **Head Node** : MRJobSummary, Resource Manager, TimelineServer   **WorkerNode:** NodeManager  | This table contains all logs generated from the Hadoop and YARN frameworks.  |
 | 4.  | HDInsightSecurityLogs   | **Head Node:** AmbariAuditLog, AuthLog   **Worker Node:** AuthLog  **Zookeper Node:** AuthLog  | This table contains records from the Ambari Audit and Auth Logs.  |
 | 5.  | HDInsightHBaseLogs   | **Head Node** : HDFSGarbageCollectorLog, HDFSNameNodeLog   **WorkerNode:** PhoenixServerLog, HBaseRegionServerLog, HBaseRestServerLog   **Zookeeper Node:** HBaseMasterLog   | This table contains logs from HBase and its related components: Phoenix and HDFS.  |
 | 6.  | HDInsightHBaseMetrics   | No log types  | This table contains JMX metrics from HBase. It contains all the same JMX metrics from the tables listed in the Old Schema column. In contrast from the old tables, each row contains one metric.  |
@@ -160,7 +160,7 @@ Different log types(sources) inside **Hadoop** tables
 | --- | --- | --- | --- |
 | 1.  | HDInsightAmbariClusterAlerts   | No log types  | This table contains Ambari Cluster Alerts from each node in the cluster (except for edge nodes). Each alert is a record in this table.  |
 | 2.  | HDInsightAmbariSystem Metrics  | No log types  | This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edge nodes) instead of just the two headnodes. Each metric is now a column and each metric is reported once per record.  |
-| 3.  | HDInsightHadoopAndYarnLogs   | **Head Node:** MRJobSummary, ResourceManager, TimelineServer  Worker Node: NodeManager  | This table contains all logs generated from the Hadoop and YARN frameworks.  |
+| 3.  | HDInsightHadoopAndYarnLogs   | **Head Node:** MRJobSummary, Resource Manager, TimelineServer  Worker Node: NodeManager  | This table contains all logs generated from the Hadoop and YARN frameworks.  |
 | 4.  | HDInsightHadoopAndYarnMetrics   |  No Log Types  | This table contains JMX metrics from the Hadoop and YARN frameworks. It contains all the same JMX metrics as the old Custom Logs tables, plus more metrics we considered important. We added Timeline Server, Node Manager, and Job History Server metrics. It contains one metric per record.  |
 | 5.  | HDInsightHiveAndLLAPLogs    | **Head Node:** HiveMetastoreLog, HiveServer2Log, WebHcatLog     | This table contains logs generated from Hive, LLAP, and their related components: WebHCat and Zeppelin.  |
 | 6.  | HDInsight Hive And LLAP Metrics   | No log types   | This table contains JMX metrics from the Hive and LLAP frameworks. It contains all the same JMX metrics as the old Custom Logs tables. It contains one metric per record.  |
@@ -178,7 +178,7 @@ Parameter contains three parts
 1. Action (The action can be either `--disable` or `--enable`.)
 
 * Multiple tables syntax
-Rule : The tables are separated with a (,) or comma.
+Rule: The tables are separated with a (,) or comma.
 
 For example,
 
@@ -190,13 +190,13 @@ For example,
 >The tables are separated with a comma.
 
 * Multiple source type/log type
-Rule :The source types/log types are separated with a space.
-Rule: For disabling a source the user must write the table name in which the log types is and then followed by a colon, then the real log type name.
+Rule:The source types/log types are separated with a space.
+Rule:For disabling a source the user must write the table name in which the log types is then followed by a colon, then the real log type name.
 TableName :  LogTypeName
 
 For example,
 
-spark HDInsightSecurityLogs is a table which has two log types AmbariAuditLog and AuthLog.
+spark HDInsightSecurityLogs is a table, which has two log types AmbariAuditLog and AuthLog.
 For Disabling both the log types the correct syntax would be:
 spark HDInsightSecurityLogs: AmbariAuditLog AuthLog --disable
 
@@ -205,7 +205,7 @@ spark HDInsightSecurityLogs: AmbariAuditLog AuthLog --disable
 >* Table and its source types are separated by a colon.
 
 * Multiple tables and source types
-If there are two tables and two source types which we need to be disabled
+If there are two tables and two source types, which we need to be disabled
 
 1. spark InteractiveHiveMetastoreLog logtype in HDInsightHiveAndLLAPLogs table
 1. hbase InteractiveHiveHSILog logtype in HDInsightHiveAndLLAPLogs table
