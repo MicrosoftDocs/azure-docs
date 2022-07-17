@@ -1,6 +1,6 @@
 ---
 title: Manage billing across multiple tenants
-description: Describes how to manage billing from multiple tenants and provision subscriptions in different tenants
+description: Describes how to use associated tenants to manage billing across tenants and provision subscriptions in different tenants
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing
@@ -13,7 +13,7 @@ ms.author: banders
 
 # Associated tenants overview
 
-Associated tenants is a feature that enables commerce and billing collaboration among tenants. You can securely share your organization's billing account with other tenants, while maintaining control over your billing data. You can provision subscription in different tenants and provide users from these tenants access to your organization's billing account to let them perform billing activities like viewing and downloading invoices or managing licenses.
+Associated tenants is a feature that enables billing collaboration among tenants. You can securely share your organization's billing account with other tenants, while maintaining control over your billing data. You can provision subscription in different tenants and provide users from these tenants access to your organization's billing account to let them perform billing activities like viewing and downloading invoices or managing licenses.
 
 ## Understand type of tenants
 
@@ -44,11 +44,11 @@ You can enable the following access settings for each associated tenant:
 1. Select **Add** from the top of the page.
 
      ![Screenshot that shows the add button for associated tenants ](./media/manage-billing-across-tenants/associated-tenants-list-add.png)
-1. Enter tenant ID or domain name, provide a friendly name and then select Access settings. To learn more about finding a tenant ID or domain name, see [Find your tenant ID and domain name](https://). To learn about access setting, see [Access settings for associated tenant](#access-settings-for-associated-tenants)
+1. Enter tenant ID or domain name, provide a friendly name and then select Access settings. To learn more about finding a tenant ID or domain name, see [Find your tenant ID and domain name](finding-tenantid-domain.md). To learn about access setting, see [Access settings for associated tenant](#access-settings-for-associated-tenants)
 
     ![Screenshot that shows associated tenants form ](./media/manage-billing-across-tenants/associated-tenants-add.png)
 1. Select **Save**.
-1. If you enabled provisioning setting, copy the invitation URL, and share it with the Global administrator of the associated tenant to approve provisioning of subscriptions into their tenants.
+1. If you enable provisioning setting, copy the invitation URL, and share it with the Global administrator of the associated tenant to approve provisioning of subscriptions into their tenant.
 
     ![Screenshot that shows provisioning request URL ](./media/manage-billing-across-tenants/associated-tenants-list-added.png)
 
@@ -74,8 +74,7 @@ You must [add a tenant as an associated tenant](#add-an-associated-tenant) and [
 1. The user would receive an email with instructions to approve your role assignment. Once they approve, they'll get the permissions to view or manage your billing account, depending on the role that was assigned.
 1. If the user can't receive emails, you can copy the approval link and share with them.
 1. Select manage requests from the top of the **Access control (IAM)** page.
-1. Select the approval request sent to the user that you added.
-<!-- Todo: add a screenshot for request list page -->
+1. Select the approval request sent to the user that you added. <!-- Todo: add a screenshot for request list page -->
 1. Copy the request URL.
 <!-- Todo: add a screenshot for request details page -->
 
