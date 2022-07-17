@@ -63,9 +63,10 @@ And then defining these elements for the resulting alert actions using:
     
    :::image type="content" source="media/alerts-log/alerts-log-measurements.png" alt-text="Measurements.":::
 
-1. (Optional) In the **Split by dimensions** section, you can create resource-centric alerts at scale for a subscription or resource group. Splitting by dimensions groups combinations of numerical or string columns to monitor for the same condition on multiple Azure resources.
+1. (Optional) In the **Split by dimensions** section, you can use dimensions to monitor the values of multiple instances of a resource with one rule. You can create resource-centric alerts at scale for a subscription or resource group. When you split by dimensions,  combinations of numerical or string columns are grouped to monitor for the same condition on multiple Azure resources. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
+  
   If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
-  You can select up to six more splittings for any number or text columns types.
+  You can select up to six more splittings for any columns that contain text or numbers.
   You can also decide **not** to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.  
   Select values for these fields:
     
@@ -91,17 +92,17 @@ And then defining these elements for the resulting alert actions using:
        
   Select values for these fields under **Number of violations to trigger the alert**:
         
-   |Field  |Description  |
-   |---------|---------|
-   |Number of violations|The number of violations that have to occur to trigger the alert.|
-   |Evaluation period|The amount of time within which those violations have to occur. |
-   |Override query time range| Enter a value in this field if the alert evaluation period is different than the query time range.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than 2 days, the 2 day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to 2 days of data.<br> If the query requires more data than the alert evaluation, and there's no **ago** command in the query, you can change the time range manually.| 
+  |Field  |Description  |
+  |---------|---------|
+  |Number of violations|The number of violations that trigger the alert.|
+  |Evaluation period|The time period within which the number of violations occur. |
+  |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than 2 days, the 2 day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to 2 days of data.<br> If the query requires more data than the alert evaluation, and there's no **ago** command in the query, you can change the time range manually.| 
        
-   :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
+  :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
     
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
     
-   :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
+  :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
             
 ## [Metric alerts](#tab/metric)
        
