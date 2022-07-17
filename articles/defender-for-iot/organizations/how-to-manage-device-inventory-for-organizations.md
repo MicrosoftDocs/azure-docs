@@ -1,7 +1,7 @@
 ---
 title: View your device inventory from the Azure portal
 description: Learn how to manage your IoT devices with the device inventory for organizations.
-ms.date: 03/09/2022
+ms.date: 07/17/2022
 ms.topic: how-to
 ---
 
@@ -145,7 +145,7 @@ You can export a maximum of 30,000 devices at a time from your device inventory 
 
 Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
 
-## How to identify devices that haven't recently communicated with the Azure cloud
+## Identify devices that haven't recently communicated with the Azure cloud
 
 If you are under the impression that certain devices aren't actively communicating, there's a way to check, and see which devices haven't communicated in a specified time period.
 
@@ -174,8 +174,6 @@ If you have devices no longer in use, delete them from the device inventory so t
 **To delete a device**:
 
 In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
-
-If your device has had activity in the past 14 days, it isn't considered inactive, and the **Delete** button will be grayed-out.
 
 At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
 
