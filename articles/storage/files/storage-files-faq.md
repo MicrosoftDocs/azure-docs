@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage
-ms.date: 06/06/2022
+ms.date: 07/12/2022
 ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
@@ -87,8 +87,7 @@ ms.topic: conceptual
 * <a id="access-based-enumeration"></a>
 **Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares?**
 
-  No, this scenario isn't supported.
-
+  Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
    
 ### AD DS & Azure AD DS Authentication
 * <a id="ad-support-devices"></a>

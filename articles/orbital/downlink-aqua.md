@@ -1,9 +1,9 @@
 ---
-title: Schedule a contact with NASA's AQUA public satellite using Azure Orbital Earth Observation Service
-description: How to schedule a contact with NASA's AQUA public satellite using Azure Orbital Earth Observation Service
+title: Schedule a contact with NASA's AQUA public satellite using Azure Orbital Ground Station service
+description: How to schedule a contact with NASA's AQUA public satellite using Azure Orbital Ground Station service
 author: wamota
 ms.service: orbital
-ms.topic: how-to
+ms.topic: tutorial
 ms.custom: ga
 ms.date: 07/12/2022
 ms.author: wamota
@@ -12,7 +12,7 @@ ms.author: wamota
 
 # Tutorial: Downlink data from NASA's AQUA public satellite
 
-You can communicate with satellites directly from Azure using Azure Orbital's ground station service. Once downlinked, this data can be processed and analyzed in Azure. In this guide you'll learn how to:
+You can communicate with satellites directly from Azure using Azure Orbital's Ground Station (AOGS) service. Once downlinked, this data can be processed and analyzed in Azure. In this guide you'll learn how to:
 
 > [!div class="checklist"]
 > * Create & authorize a spacecraft for AQUA
@@ -24,7 +24,6 @@ You can communicate with satellites directly from Azure using Azure Orbital's gr
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Complete the onboarding process for the preview. [Onboard to the Azure Orbital Preview](orbital-preview.md).
 
 ## Sign in to Azure
 
@@ -34,8 +33,9 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 > These steps must be followed as is or you won't be able to find the resources. Please use the specific link above to sign in directly to the Azure Orbital Preview page.
 
 ## Create & authorize a spacecraft for AQUA
-1. In the Azure portal search box, enter **Spacecrafts*. Select **Spacecrafts** in the search results.
-2. In the **Spacecrafts** page, select Create.
+
+1. In the Azure portal search box, enter **Spacecraft*. Select **Spacecraft** in the search results.
+2. In the **Spacecraft** page, select Create.
 3. Learn an up-to-date Two-Line Element (TLE) for AQUA by checking celestrak at https://celestrak.com/NORAD/elements/active.txt
    > [!NOTE]
    > You will want to periodically update this TLE value to ensure that it is up-to-date prior to scheduling a contact. A TLE that is more than one or two weeks old may result in an unsuccessful downlink.
@@ -80,6 +80,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 
 ## Prepare a virtual machine (VM) to receive the downlinked AQUA data
+
 1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint virtual machine (VM)
 2. [Create a virtual machine (VM)](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network above. Ensure that this VM has the following specifications:
 - Operation System: Linux (Ubuntu 18.04 or higher)
@@ -143,8 +144,9 @@ sudo apt install socat
 9. Select the **Create** button
 
 ## Schedule a contact with AQUA using Azure Orbital and save the downlinked data
-1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
-2. In the **Spacecrafts** page, select **AQUA**.
+
+1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
+2. In the **Spacecraft** page, select **AQUA**.
 3. Select **Schedule contact** on the top bar of the spacecraft’s overview.
 4. In the **Schedule contact** page, specify this information from the top of the page:
 
@@ -169,9 +171,9 @@ socat -u tcp-listen:56001,fork create:/media/aqua/out.bin
  of the tmpfs and into your home directory to avoid being overwritten when another contact is executed.
 
  > [!NOTE]
-   > For a 10 minute long contact with AQUA while it is transmitting with 15MHz of bandwidth, you should expect to receive somewhere in the order of 450MB of data.
+ > For a 10 minute long contact with AQUA while it is transmitting with 15MHz of bandwidth, you should expect to receive somewhere in the order of 450MB of data.
    
 ## Next steps
 
-- [Quickstart: Configure a contact profile](contact-profile.md)
-- [Quickstart: Schedule a contact](schedule-contact.md)
+- [Configure a contact profile](contact-profile.md)
+- [Schedule a contact](schedule-contact.md)

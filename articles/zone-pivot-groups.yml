@@ -845,6 +845,14 @@ groups:
     title: Windows with Maven
   - id: platform-windows-development-environment-azure-portal
     title: Windows with Azure portal
+- id: app-service-containers-windows-linux
+  title: App Service with custom containers
+  prompt: Choose a custom container platform
+  pivots:
+  - id: container-linux
+    title: Linux container
+  - id: container-windows
+    title: Windows container    
 - id: app-service-containers-windows-linux-portal
   title: App Service with custom containers
   prompt: Choose a custom container platform and deployment environment
@@ -1161,7 +1169,7 @@ groups:
   prompt: How will you connect the AWS account?
   pivots:
   - id: env-settings
-    title: Environment settings
+    title: Native connector
   - id: classic-connector
     title: Classic connector
 - id: connect-gcp-accounts
@@ -1169,7 +1177,7 @@ groups:
   prompt: How will you connect the GCP account?
   pivots:
   - id: env-settings
-    title: Environment settings
+    title: Native connector
   - id: classic-connector
     title: Classic connector
 - id: manage-asc-initiatives
@@ -1688,3 +1696,12 @@ groups:
     title: OT sensor console
   - id: experience-cm
     title: On-premises management console
+# Owner: v-yilinhu
+- id: programming-languages-batch-linux-nodes
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python

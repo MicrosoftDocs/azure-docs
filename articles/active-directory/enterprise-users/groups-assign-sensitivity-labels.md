@@ -33,7 +33,7 @@ To apply published labels to groups, you must first enable the feature. These st
     ```powershell
     Install-Module AzureADPreview
     Import-Module AzureADPreview
-    Connect-AzureAD
+    AzureADPreview\Connect-AzureAD
     ```
 
     In the **Sign in to your account** page, enter your admin account and password to connect you to your service, and select **Sign in**.
