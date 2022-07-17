@@ -53,7 +53,7 @@ Users with particular job requirements may need to be assigned other roles or sp
 
 - **Guest users assigning incidents**
 
-    If a guest user needs to be able to assign incidents, you need to assig the [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers) to the user, in addition to the Microsoft Sentinel Responder role. Note that the Directory Reader role is *not* an Azure role but an **Azure Active Directory** role, and that regular (non-guest) users have this role assigned by default.
+    If a guest user needs to be able to assign incidents, you need to assign the [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers) to the user, in addition to the Microsoft Sentinel Responder role. Note that the Directory Reader role is *not* an Azure role but an **Azure Active Directory** role, and that regular (non-guest) users have this role assigned by default.
 
 - **Creating and deleting workbooks**
 
