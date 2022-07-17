@@ -41,9 +41,9 @@ Transformations in a [data collection rule (DCR)](data-collection-rule-overview.
 
 
 ## Inline reference table
-The [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) operator isn't supported in the subset of KQL available to use in transformations. This would normally be used in KQL to define an inline query-time table. Use dynamic literals instead to work around this limitation.
+The [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) operator isn't supported in the subset of KQL available to use in transformations. This operator would normally be used in KQL to define an inline query-time table. Use dynamic literals instead to work around this limitation.
 
-For example, the following isn't supported in a transformation:
+For example, the following statement isn't supported in a transformation:
 
 ```kusto
 let galaxy = datatable (country:string,entity:string)['ES','Spain','US','United States'];
@@ -51,7 +51,8 @@ source
 | join kind=inner (galaxy) on $left.Location == $right.country
 | extend Galaxy_CF = ['entity']
 ```
-You can instead use the following statement which is supported and performs the same functionality:
+
+You can instead use the following statement, which is supported and performs the same functionality:
 
 ```kusto
 let galaxyDictionary = parsejson('{"ES": "Spain","US": "United States"}');
