@@ -33,7 +33,7 @@ To change email notifications after Start/Stop VMs v2 is deployed, you can modif
 
     To learn more about action groups, see [action groups](../../azure-monitor/alerts/action-groups.md)
 
-The following screenshot is an example email that is sent when the feature shuts down virtual machines.
+The following screenshot is an example email that is sent when the feature shuts down virtual machines. (looks like something is not working)
 
 :::image type="content" source="media/manage/email-notification-example.png" alt-text="Screenshot of an example email sent when the feature shuts down virtual machines.":::
 
