@@ -97,7 +97,7 @@ Use the following table to decide which role assignment method is right for your
 
 You must [add a tenant as an associated tenant and enable provisioning setting](#add-an-associated-tenant) for the tenant before provisioning subscriptions in the associated tenants.
 
-To provision Microsoft 365 subscriptions in the associated tenants, see [provision subscriptions in associated tenants](https://) 
+To provision Microsoft 365 subscriptions in the associated tenants, see [provision subscriptions in associated tenants](/microsoft-365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings?view=o365-worldwide) <!--Todo: Need to update this link once M365 MT doc is live -->
 
 ## Need help? contact support
 
