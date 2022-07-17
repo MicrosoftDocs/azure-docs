@@ -37,8 +37,12 @@ You can learn more by watching these videos from the Defender for Cloud in the F
 [!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-aks.md)]
 ::: zone-end
 
-::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
-[!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-arc-eks.md)]
+::: zone pivot="defender-for-container-arc,"
+[!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-arc.md)]
+::: zone-end
+
+::: zone pivot="defender-for-container-eks,defender-for-container-gke"
+[!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-eks-gke.md)]
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
