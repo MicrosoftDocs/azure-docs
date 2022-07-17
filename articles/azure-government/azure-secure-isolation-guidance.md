@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 07/14/2022
+ms.date: 07/15/2022
 ---
 
 # Azure guidance for secure isolation
@@ -117,7 +117,7 @@ With Key Vault, you can import or generate encryption keys in HSMs, ensuring tha
 :::image type="content" source="./media/secure-isolation-fig3.png" alt-text="Azure Key Vault support for bring your own key (BYOK)":::
 **Figure 3.**  Azure Key Vault support for bring your own key (BYOK)
 
-**Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.**
+**Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.** For extra assurances, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys)
 
 Key Vault provides a robust solution for encryption key lifecycle management. Upon creation, every key vault or managed HSM is automatically associated with the Azure AD tenant that owns the subscription. Anyone trying to manage or retrieve content from a key vault or managed HSM must be properly authenticated and authorized:
 
