@@ -1,6 +1,6 @@
 ---
 title: Analyze log data with machine learning in Azure Monitor Log Analytics
-description: Learn how to conduct time series analysis and anomaly detection on data in Azure Monitor Log Analytics. 
+description: Learn how to use KQL machine learning tools for time series analysis and anomaly detection in Azure Monitor Log Analytics. 
 ms.service: azure-monitor
 ms.topic: tutorial 
 author: guywild
@@ -14,7 +14,7 @@ ms.date: 07/01/2022
 
 # Tutorial: Detect and analyze anomalies with machine learning in Log Analytics using KQL 
 
-The Kusto Query Language (KQL) includes a set of machine learning operators and plugins for time series analysis, anomaly detection, forecasting, and root cause analysis. Using KQL's machine learning operators in Log Analytics give you advanced data analysis capabilities and the power of Kusto’s distributed database, running at high scales, without the overhead of exporting data to external machine learning tools.
+The Kusto Query Language (KQL) includes a set of machine learning operators, functions and plugins for time series analysis, anomaly detection, forecasting, and root cause analysis. Using KQL's machine learning operators in Log Analytics give you advanced data analysis capabilities and the power of Kusto’s distributed database, running at high scales, without the overhead of exporting data to external machine learning tools.
 
 In this tutorial, you learn how to:
 
@@ -43,7 +43,7 @@ let timeframe = 1d; // How often to sample data
 Usage // The table we’re analyzing
 | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 am of the first day and ending at 11:59 of the last day in the time range
 | where IsBillable == "true" // Include only billable data in the result set
-| make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
+| make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // Creates the time series, listed by data type 
 | render timechart // Renders results in a timechart
 ``` 
 
@@ -69,7 +69,7 @@ let timeframe = 1d; // How often to sample data
 Usage // The table we’re analyzing
 | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 AM of the first day and ending at 11:59 PM of the last day in the time range
 | where IsBillable == "true" // Includes only billable data in the result set
-| make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
+| make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // Creates the time series, listed by data type
 | extend(Anomalies, AnomalyScore, ExpectedUsage) = series_decompose_anomalies(ActualUsage) // Scores and extracts anomalies based on the output of make-series 
 | mv-expand ActualUsage to typeof(double), TimeGenerated to typeof(datetime), Anomalies to typeof(double),AnomalyScore to typeof(double), ExpectedUsage to typeof(long) // Expands the array created by series_decompose_anomalies()
 | where Anomalies != 0  // Returns all positive and negative deviations from expected usage
