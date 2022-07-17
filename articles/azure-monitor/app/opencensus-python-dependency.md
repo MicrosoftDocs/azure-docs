@@ -13,6 +13,8 @@ A dependency is an external component that is called by your application. Depend
 
 First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).
 
+You can find sample dependency applications in the Azure Monitor OpenCenses Python git repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/docs_samples).
+
 ## In-process dependencies
 
 OpenCensus Python SDK for Azure Monitor allows you to send "in-process" dependency telemetry (information and logic that occurs within your application). In-process dependencies will have the `type` field as `INPROC` in analytics.
@@ -169,4 +171,3 @@ config_integration.trace_integrations(['sqlalchemy'])
 * [Search](./diagnostic-search.md)
 * [Log (Analytics) query](../logs/log-query-overview.md)
 * [Transaction diagnostics](./transaction-diagnostics.md)
-
