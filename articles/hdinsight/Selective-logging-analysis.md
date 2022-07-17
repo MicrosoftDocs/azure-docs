@@ -42,9 +42,9 @@ Selective logging allows you to enable/disable all the tables or enable selectiv
 
 1. Go to script action in your cluster and create a new Script Action for disabling/enabling table and log type.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/select_submit_script_action.png" alt-text="Screenshot_showing_select_submit_script_action":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select_submit_script_action.png" alt-text="Screenshot_showing_select_submit_script_action":::
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/submit_script_action_window.png" alt-text="screenshot_showing_submit_script_action_window":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/submit_script_action_window.png" alt-text="screenshot_showing_submit_script_action_window":::
 
 1. In the script type we can select **custom**.
 1. Name the script. For example, Disable two tables and two sources.
@@ -61,7 +61,7 @@ For more details, see [Parameters](## Parameters syntax) section.
 1. Click Create.
 1. After 1-2 minutes you'll see a green tick next to your script action history, which means script has successfully run.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/enable_table_and_log_types.png" alt-text="screenshot_showing_enable_table_and_log_types":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/enable_table_and_log_types.png" alt-text="screenshot_showing_enable_table_and_log_types":::
 
 1. You will see the desired changes in the log analytics workspace.
 
@@ -72,32 +72,32 @@ If Script Action is submitted but there are no changes in the log analytics work
 
 1. Go to Ambari Home and check debug information.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/select_dashboard_ambari_home.png" alt-text="screenshot_showing_select_dashboard_ambari_home":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select_dashboard_ambari_home.png" alt-text="screenshot_showing_select_dashboard_ambari_home":::
 
 1. Click on settings button.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/ambari_dash_board.png" alt-text="screenshot_showing_ambari_dash_board":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective_-og-analytics-tutorial/ambari_dash_board.png" alt-text="screenshot_showing_ambari_dash_board":::
 
 1. You will get your latest script run at the top of the list.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/background_operations.png" alt-text="screenshot_showing_background_operations":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/background_operations.png" alt-text="screenshot_showing_background_operations":::
 
 1. Verify the script run status in all the nodes individually.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/background_operations_all.png" alt-text="screenshot_showing_background_operations_all":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/background_operations_all.png" alt-text="screenshot_showing_background_operations_all":::
 
 1. Check if the parameter syntax from the parameter syntax section is correct.
 1. Check if the log analytics workspace is connected to the cluster and log analytics monitoring is turned on.
 1. Check if the script that you run from script action was checked as persisted.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/script_action_persisits.png" alt-text="screenshot_showing_script_action_persisits":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/script_action_persisits.png" alt-text="screenshot_showing_script_action_persisits":::
 
 1. It's possbile, that a new node has been added to the cluster recently.
     > [!NOTE]  
     > For the script to run in the latest cluster,  and  the script must persist the script.
 1. Make sure all the node types are selected while running  the script action.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective_log-analytics-tutorial/select_node_types.png" alt-text="screenshot_showing_select_node_types":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select_node_types.png" alt-text="screenshot_showing_select_node_types":::
 
 ### Scenario 2
 
