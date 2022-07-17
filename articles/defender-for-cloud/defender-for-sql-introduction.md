@@ -21,13 +21,11 @@ Microsoft Defender for Azure SQL includes two Microsoft Defender plans that exte
 
 ## What does Microsoft Defender for Azure SQL protect?
 
-**Microsoft Defender for Azure SQL database servers** protects:
+Microsoft Defender for Azure SQL databases protects:
 
-    - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
-
-    - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
-
-    - [Dedicated SQL pool in Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
+- [Dedicated SQL pool in Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 When you enabled **Microsoft Defender for Azure SQL**, all supported resources that exist within the subscription are protected. Future resources created on the same subscription are also be protected.
 
