@@ -340,10 +340,10 @@ items:
         href: logs/query-optimization.md
       - name: Functions
         href: logs/functions.md
-      - name: Parse text data
-        href: logs/parse-text.md
       - name: KQL machine learning
         href: logs/machine-learning-azure-monitor-log-analytics.md
+      - name: Parse text data
+        href: logs/parse-text.md
       - name: Computer groups
         href: logs/computer-groups.md
       - name: Cross resource queries
