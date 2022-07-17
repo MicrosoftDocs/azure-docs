@@ -1,10 +1,10 @@
 ---
-title: How to set up Microsoft Defender for SQL
-description: Learn how to enable Microsoft Defender for Cloud's optional Microsoft Defender for SQL plan
+title: How to enable Microsoft Defender for SQL servers on machines
+description: Learn how to protect your Microsoft SQL servers on Azure VMs, on-premises, and in hybrid and multicloud environments with Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.author: benmansheim
 author: bmansheim
-ms.date: 11/09/2021
+ms.date: 07/17/2022
 ---
 
 # Enable Microsoft Defender for SQL servers on machines 
@@ -13,17 +13,37 @@ This Microsoft Defender plan detects anomalous activities indicating unusual and
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.
 
+Microsoft Defender for SQL servers on machines extends the protections for your Azure-native SQL servers to fully support hybrid environments and protect SQL servers (all supported versions) hosted in Azure, multicloud environments, and even on-premises machines:
+
+- [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
+
+- On-premises SQL servers:
+
+    - [Azure Arc-enabled SQL Server (preview)](/sql/sql-server/azure-arc/overview)
+    
+    - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/agents/agent-windows.md)
+    
+- Multicloud SQL servers:
+
+    - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
+
+    - [Connect your GCP project to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
+
+This plan includes functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases.
+
+A vulnerability assessment service discovers, tracks, and helps you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
+
+Learn more about [vulnerability assessment for Azure SQL servers on machines](defender-for-sql-on-machines-vulnerability-assessment.md).
+
 ## Availability
 
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for SQL servers on machines** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
-|Protected SQL versions:|SQL Server (versions currently [supported by Microsoft](/mem/configmgr/core/plan-design/configs/support-for-sql-server-versions))|
+|Protected SQL versions:|SQL Server versions currently [supported by Microsoft](/mem/configmgr/core/plan-design/configs/support-for-sql-server-versions) in:
+<br>- [SQL on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)<br>- [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)<br>- On-premises SQL servers on Windows machines without Azure Arc<br>|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet|
-
-
-
 
 ## Set up Microsoft Defender for SQL servers on machines
 
@@ -34,7 +54,6 @@ To enable this plan:
 [Step 2. Provision the Log Analytics agent on your SQL server's host:](#step-2-provision-the-log-analytics-agent-on-your-sql-servers-host)
 
 [Step 3. Enable the optional plan in Defender for Cloud's environment settings page:](#step-3-enable-the-optional-plan-in-defender-for-clouds-environment-settings-page)
-
 
 ### Step 1. Install the agent extension
 
@@ -107,13 +126,24 @@ No. To defend a SQL Server deployment on an Azure virtual machine, or a SQL Serv
 
 The subscription *status*, shown in the SQL server page in the Azure portal, reflects the default workspace status and applies to all connected machines. Only the SQL servers on hosts with a Log Analytics agent reporting to that workspace are protected by Defender for Cloud.
 
+### Is there a performance impact from deploying Microsoft Defender for Azure SQL on machines?
 
+The focus of **Microsoft Defender for SQL on machines** is obviously security. But we also care about your business and so we've prioritized performance to ensure the minimal impact on your SQL servers. 
 
+The service has a split architecture to balance data uploading and speed with performance: 
+
+- Some of our detectors, including an [extended events trace](/azure/azure-sql/database/xevent-db-diff-from-svr) named `SQLAdvancedThreatProtectionTraffic`, run on the machine for real-time speed advantages.
+- Other detectors run in the cloud to spare the machine from heavy computational loads.
+
+Lab tests of our solution, comparing it against benchmark loads, showed CPU usage averaging 3% for peak slices. An analysis of the telemetry for our current users shows a negligible impact on CPU and memory usage.
+
+Of course, performance always varies between environments, machines, and loads. The statements and numbers above are provided as a general guideline, not a guarantee for any individual deployment.
 
 ## Next steps
 
-For related material, see the following article:
+For related information, see these resources:
 
+- [How Microsoft Defender for Azure SQL can protect SQL servers anywhere](https://www.youtube.com/watch?v=V7RdB6RSVpc).
 - [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
