@@ -14,7 +14,7 @@ ms.date: 07/01/2022
 
 # Tutorial: Detect and analyze anomalies with machine learning in Log Analytics using KQL 
 
-The Kusto Query Language (KQL) includes a set of machine learning operators, functions and plugins for time series analysis, anomaly detection, forecasting, and root cause analysis. Using KQL's machine learning operators in Log Analytics give you advanced data analysis capabilities and the power of Kusto’s distributed database, running at high scales, without the overhead of exporting data to external machine learning tools.
+The Kusto Query Language (KQL) includes machine learning operators, functions and plugins for time series analysis, anomaly detection, forecasting, and root cause analysis. Use these KQL capabilities in Log Analytics to perform advanced data analysis powered by Kusto’s distributed database running at high scales, without the overhead of exporting data to external machine learning tools.
 
 In this tutorial, you learn how to:
 
@@ -167,7 +167,7 @@ Looking at the query results, you can see the following differences:
 
 The *PercentDiffAB* column shows the absolute percentage point difference between A and B (|PercentA - PercentB|), which is the main measure of the difference between the two sets. To return only differences of 20% or more between the two data sets, you can set `| evaluate diffpatterns(AnomalyDate, "OtherDates", "AnomalyDate", "~", 0.20)` in the query above:
 
-:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics-threshold.png" alt-text="A screenshot showing a table with one row that presents a difference between the usage on the anomalous use and the baseline usage. This time, the query did not return differences of less than 20 percent between the two data sets."::: 
+:::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics-threshold.png" alt-text="A screenshot showing a table with one row that presents a difference between the usage on the anomalous use and the baseline usage. This time, the query didn't return differences of less than 20 percent between the two data sets."::: 
 
 > [!NOTE]
 > For more information about `diffpatterns()` syntax and usage, see [diff patterns plugin](/azure/data-explorer/kusto/query/diffpatternsplugin).
