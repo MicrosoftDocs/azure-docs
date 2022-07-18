@@ -7,7 +7,7 @@ ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 07/18/2022
 ---
 
 # Manage Power BI visual offer names

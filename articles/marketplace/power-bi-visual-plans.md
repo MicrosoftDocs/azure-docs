@@ -7,7 +7,7 @@ ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 07/18/2022
 ---
 
 # Create Power BI visual plans
@@ -86,7 +86,7 @@ If you only configure private plans for a visual:
 - They won’t be auto-updated, won’t appear in the store, and can’t be marked with a certification badge.
 
 > [!NOTE]
-> If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private.
+> If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private. If you upgrade an offer from list only to transactable, and add private plans only, the offer will be hidden from AppSource.
 
 You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID you assign. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file.
 
