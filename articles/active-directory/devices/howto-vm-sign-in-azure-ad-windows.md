@@ -230,9 +230,6 @@ You can enforce Conditional Access policies, such as multifactor authentication 
 >
 > Remote desktop using Windows Hello for Business authentication is available only for deployments that use a certificate trust model. It's currently not available for a key trust model.
 
-> [!WARNING]
-> The per-user **Enabled/Enforced Azure AD Multi-Factor Authentication** setting is not supported for the Azure Windows VM Sign-In app.
-
 ## Log in by using Azure AD credentials to a Windows VM
 
 > [!IMPORTANT]
@@ -396,30 +393,11 @@ You might see the following error message when you initiate a remote desktop con
 
 ![Screenshot of the message that says the sign-in method you're trying to use isn't allowed.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-If you've configured a Conditional Access policy that requires MFA before you can access the resource, you need to ensure that the Windows 10 or later PC that's initiating the remote desktop connection to your VM signs in by using a strong authentication method such as Windows Hello. If you don't use a strong authentication method for your remote desktop connection, you'll see the error.
+If you've configured a Conditional Access policy that requires MFA or legacy per-user Enabled/Enforced Azure AD MFA before you can access the resource, you need to ensure that the Windows 10 or later PC that's initiating the remote desktop connection to your VM signs in by using a strong authentication method such as Windows Hello. If you don't use a strong authentication method for your remote desktop connection, you'll see the error.
 
 Another MFA-related error message is the one described previously: "Your credentials did not work."
 
 ![Screenshot of the message that says your credentials didn't work.](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
-
-> [!WARNING]
-> The legacy per-user **Enabled/Enforced Azure AD Multi-Factor Authentication** setting is not supported for the Azure Windows VM Sign-In app. This setting causes sign-in to fail with the "Your credentials did not work" error message.
-
-You can resolve the problem by removing the per-user MFA setting through these commands:
-
-```
-
-# Get StrongAuthenticationRequirements configure on a user
-(Get-MsolUser -UserPrincipalName username@contoso.com).StrongAuthenticationRequirements
- 
-# Clear StrongAuthenticationRequirements from a user
-$mfa = @()
-Set-MsolUser -UserPrincipalName username@contoso.com -StrongAuthenticationRequirements $mfa
- 
-# Verify StrongAuthenticationRequirements are cleared from the user
-(Get-MsolUser -UserPrincipalName username@contoso.com).StrongAuthenticationRequirements
-
-```
 
 If you haven't deployed Windows Hello for Business and if that isn't an option for now, you can configure a Conditional Access policy that excludes the Azure Windows VM Sign-In app from the list of cloud apps that require MFA. To learn more about Windows Hello for Business, see [Windows Hello for Business overview](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
