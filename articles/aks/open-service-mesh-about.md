@@ -49,6 +49,7 @@ The OSM AKS add-on has the following limitations:
 
 * [Iptables redirection][ip-tables-redirection] for port IP address and port range exclusion must be enabled using `kubectl patch` after installation. For more details, see [iptables redirection][ip-tables-redirection].
 * Pods that are onboarded to the mesh that need access to IMDS, Azure DNS, or the Kubernetes API server must have their IP addresses to the global list of excluded outbound IP ranges using [Global outbound IP range exclusions][global-exclusion].
+* At this time, OSM does not support Windows Server containers.
 
 ## Next steps
 
