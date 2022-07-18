@@ -61,7 +61,7 @@ The following scenarios are supported for Staged Rollout. The feature works only
 
 - User sign-in traffic on browsers and *modern authentication* clients. Applications or cloud services that use legacy authentication will fall back to federated authentication flows. An example might be Exchange online with modern authentication turned off, or Outlook 2010, which does not support modern authentication.
 
-- Group size is currently limited to 50,000 users.  If you have groups that are larger then 50,000 users, it is recommended to split this group over multiple groups for Staged Rollout.
+- Group size is currently limited to 50,000 users.  If you have groups that are larger than 50,000 users, it is recommended to split this group over multiple groups for Staged Rollout.
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition without line-of-sight to the federation server for Windows 10 version 1903 and newer, when user’s UPN is routable and domain suffix is verified in Azure AD.
 
