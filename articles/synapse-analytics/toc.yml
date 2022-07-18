@@ -783,7 +783,7 @@ items:
       - name: Manage Apache Spark configuration
         href: ./spark/apache-spark-azure-create-spark-configuration.md
       - name: Apache Spark Advisor
-        href: ./monitoring/apache-spark-advisor-tsg.md          
+        href: ./monitoring/apache-spark-advisor.md          
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3
