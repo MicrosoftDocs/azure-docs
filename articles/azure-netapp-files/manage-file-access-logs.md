@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/12/2022
+ms.date: 07/18/2022
 ms.author: anfdocs
 ---
 # Manage file access logs in Azure NetApp Files

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 07/14/2022
+ms.date: 07/18/2022
 ms.author: anfdocs
 ---
 
@@ -20,7 +20,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-* [File access logs](file-access-logs.md) (Preview)
+* [File access logs](manage-file-access-logs.md) (Preview)
     The Azure NetApp Files file access logs feature will provide Azure NetApp Files customers with access logs for their files accessed (data plane logging) on SMB, NFSv4.1, and dual-protocol (SMB/NFSv4.1) volumes. With this feature administrators can enable logging, and view and report on file access operations sent to a variety of logging destinations. Standard file system operations will be captured in the logs. This feature is supports SMB and NFSv4.1 enabled volumes.
 
 ## June 2022
