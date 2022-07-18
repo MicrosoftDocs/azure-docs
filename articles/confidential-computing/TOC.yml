@@ -74,25 +74,25 @@
     - name: Container solutions overview
       href: confidential-computing-deployment-models.md
     - name: Application enclave nodes on AKS
-        items:
-        - name: Application enclave DCSv2/DCsv3 VM nodes Intel SGX
-          href: confidential-nodes-aks-overview.md
-        - name: Deploy application enclave nodes on AKS
-          href: confidential-enclave-nodes-aks-get-started.md
-        - name: Enclave-aware containers
-          href: enclave-aware-containers.md
-        - name: AKS Add-on
-          href: confidential-nodes-aks-addon.md
-        - name: Confidential enclave nodes FAQ
-          href: confidential-nodes-aks-faq.yml
+      items:
+      - name: Application enclave DCSv2/DCsv3 VM nodes Intel SGX
+        href: confidential-nodes-aks-overview.md
+      - name: Deploy application enclave nodes on AKS
+        href: confidential-enclave-nodes-aks-get-started.md
+      - name: Enclave-aware containers
+        href: enclave-aware-containers.md
+      - name: AKS Add-on
+        href: confidential-nodes-aks-addon.md
+      - name: Confidential enclave nodes FAQ
+        href: confidential-nodes-aks-faq.yml
     - name: Confidential containers
       items:
       - name: Confidential containers on Azure Overview
         href: confidential-containers.md
       - name: Confidential containers with Intel SGX enclaves
         href: confidential-containers-enclaves.md
-      # - name: VM Isolated Confidential containers on Azure Container Instance 
-        # href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/microsoft-introduces-preview-of-confidential-containers-on-azure/ba-p/3410394
+      - name: VM Isolated Confidential containers on Azure Container Instance 
+        href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/microsoft-introduces-preview-of-confidential-containers-on-azure/ba-p/3410394
         # confidential-containers.md #vm-isolated-confidential-containers-on-azure-container-instances-aci---private-preview.md
 - name: How To
   items:
