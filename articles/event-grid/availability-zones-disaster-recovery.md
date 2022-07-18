@@ -66,10 +66,4 @@ You may find more information availability zone resiliency and disaster recovery
 
 ## Next steps
 
-If you want to implement your own client-side failover logic, see [# Build your own disaster recovery for custom topics in Event Grid](custom-disaster-recovery.md)
-
-
-
-
-
-
+- If you want to implement your own disaster recovery plan for Azure Event Grid topics and domains, see [Build your own disaster recovery for custom topics in Event Grid](custom-disaster-recovery.md).
