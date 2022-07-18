@@ -38,8 +38,6 @@ The following basic search tools are available:
 - Multicast or broadcast traffic
 - Last activity: Filter the devices on the map according to the time they last communicated with other devices.
 
-    :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon-v2.png" border="false":::
-
 When you search by IP or MAC address, the map displays the device that you searched for with the devices connected to it.
 
 :::image type="content" source="media/how-to-work-with-maps/search-ip-entered.png" alt-text="Screenshot of an I P address entered in the Device map search and displayed in the map.":::
