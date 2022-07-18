@@ -102,21 +102,15 @@ The following procedure explains how to troubleshoot Config Server settings.
 
 1. Select **Diagnose and solve problems**.
 
-1. Select **Config Server** detector.
+1. Under **Availability and Performance**, select **Troubleshoot**.
 
-    :::image type="content" source="media/quickstart-setup-config-server/setup-config-server-diagnose.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page with Config Server button highlighted." lightbox="media/quickstart-setup-config-server/setup-config-server-diagnose.png":::
+   :::image type="content" source="media/quickstart-setup-config-server/setup-config-server-diagnose.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page." lightbox="media/quickstart-setup-config-server/setup-config-server-diagnose.png":::
 
-1. Select **Config Server Health Check**.
-
-    :::image type="content" source="media/quickstart-setup-config-server/setup-config-server-genie.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page and the Availability and Performance tab." lightbox="media/quickstart-setup-config-server/setup-config-server-genie.png":::
-
-1. Select **Config Server Status** to see more details from the detector.
-
-    :::image type="content" source="media/quickstart-setup-config-server/setup-config-server-health-status.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page with Config Server Health Status highlighted." lightbox="media/quickstart-setup-config-server/setup-config-server-health-status.png":::
+   Azure portal displays the **Availability and Performance** page, which provides a variety of information about Config Server health status.
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group, enter the following commands in the Azure CLI:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need it, delete the resource group, which deletes the resources in the resource group. To delete the resource group, enter the following commands in the Azure CLI:
 
 ```azurecli
 echo "Enter the Resource Group name:" &&
