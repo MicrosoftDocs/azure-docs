@@ -121,7 +121,7 @@ In addition to applying Azure Hybrid Benefit to existing pay-as-you-go virtual m
 - It enables future licensing mode changes. These changes aren't available with a BYOS-only image.
 - The virtual machine scale sets will be connected to Red Hat Update Infrastructure (RHUI) by default, to help keep it up to date and secure. You can change the updated mechanism after deployment at any time.
 
-To apply Azure Hybrid Benefit to virtual machine scale sets at creation time by using the Azure CLI:
+To apply Azure Hybrid Benefit to virtual machine scale sets at creation time by using the Azure CLI, use one of the following commands:
 
 ```azurecli
 # This will enable Azure Hybrid Benefit while creating a RHEL virtual machine scale set

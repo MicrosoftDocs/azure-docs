@@ -19,7 +19,7 @@ ms.custom: kr2b-contr-experiment
 Azure Hybrid Benefit provides software updates and integrated support directly from Azure for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines. Azure Hybrid Benefit for bring-your-own-subscription (BYOS) virtual machines is a licensing benefit that's currently in public preview. It lets you switch RHEL and SLES BYOS virtual machines generated from custom on-premises images or from Azure Marketplace to pay-as-you-go billing. 
 
 >[!IMPORTANT]
-> To do the reverse and switch from an RHEL pay-as-you-go virtual machine or SLES pay-as-you-go virtual machine to a BYOS virtual machine, see [Explore Azure Hybrid Benefit for pay-as-you-go Linux virtual machines](./azure-hybrid-benefit-linux.md).
+> To do the reverse and switch from a RHEL pay-as-you-go virtual machine or SLES pay-as-you-go virtual machine to a BYOS virtual machine, see [Explore Azure Hybrid Benefit for pay-as-you-go Linux virtual machines](./azure-hybrid-benefit-linux.md).
 
 ## How does Azure Hybrid Benefit work?
 
@@ -29,7 +29,7 @@ Azure Hybrid Benefit converts BYOS billing to pay-as-you-go, so that you pay onl
 
 ## Which Linux virtual machines qualify for Azure Hybrid Benefit?
 
-Azure Hybrid Benefit for BYOS virtual machines is available to all RHEL and SLES virtual machines that come from a custom image. It's also available to all RHEL and SLES BYOS virtual machines that come from Azure Marketplace. 
+Azure Hybrid Benefit for BYOS virtual machines is available to all RHEL and SLES virtual machines that come from a custom image. It's also available to all RHEL and SLES BYOS virtual machines that come from an Azure Marketplace image. 
 
 Azure Dedicated Host instances and SQL hybrid benefits aren't eligible for Azure Hybrid Benefit if you're already using Azure Hybrid Benefit with Linux virtual machines. Virtual machine scale sets are reserved instances, so they also can't use Azure Hybrid Benefit for BYOS virtual machines.
 
@@ -62,7 +62,7 @@ To start using Azure Hybrid Benefit for Red Hat:
 1. If you want to switch back to the bring-your-own-subscription model,  just change the license type to `None` and run the extension. This action will remove all Red Hat Update Infrastructure (RHUI) repositories from your virtual machine and stop the billing.
 
 > [!Note]
-> In the unlikely event that the extension can't install repositories or there are any other issues, switch the license type back to empty and reach out to Support. This ensures that you don't get billed for software updates.  
+> In the unlikely event that the extension can't install repositories or there are any other issues, switch the license type back to empty and reach out to Microsoft support. This ensures that you don't get billed for software updates.  
 
 ### Azure Hybrid Benefit for SUSE customers
 
@@ -192,7 +192,7 @@ Customers who use Azure Hybrid Benefit for BYOS virtual machines for RHEL agree 
 
 ### SUSE compliance
 
-If you use Azure Hybrid Benefit for BYOS virtual machines for SLES and want more information about moving from SLES pay-as-you-go to BYOS or moving from SLES BYOS to pay-as-you-go, see [Azure Hybrid Benefit Support](https://aka.ms/suse-ahb) on the SUSE website.
+If you use Azure Hybrid Benefit for BYOS virtual machines for SLES and want more information about moving from SLES pay-as-you-go to BYOS, or moving from SLES BYOS to pay-as-you-go, see [Azure Hybrid Benefit Support](https://aka.ms/suse-ahb) on the SUSE website.
 
 ## Frequently asked questions
 *Q: What is the licensing cost I pay with Azure Hybrid Benefit for BYOS virtual machines?*
@@ -221,7 +221,7 @@ If you accidentally enter the wrong license type, remove the billing by changing
 
 *Q: What are the supported versions for RHEL with Azure Hybrid Benefit for BYOS virtual machines?*
 
-A: RHEL versions later than 7.4 are supported with Azure Hybrid Benefit for BYOS virtual machines.
+A: Azure Hybrid Benefit for BYOS virtual machines supports RHEL versions later than 7.4.
 
 *Q: I've uploaded my own RHEL or SLES image from on-premises (via Azure Migrate, Azure Site Recovery, or otherwise) to Azure. Can I convert the billing on these images from BYOS to pay-as-you-go?*
 

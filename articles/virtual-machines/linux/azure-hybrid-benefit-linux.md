@@ -72,7 +72,7 @@ To start using Azure Hybrid Benefit for SUSE:
 2. Activate the subscription in the SUSE Customer Center.
 3. Register your virtual machines that are receiving Azure Hybrid Benefit with the SUSE Customer Center to get the updates from the SUSE Customer Center.
 
-## Enable and disable Azure Hybrid Benefit in the Azure portal
+## Enable Azure Hybrid Benefit in the Azure portal
 
 In the Azure portal, you can enable Azure Hybrid Benefit on existing virtual machines or on new virtual machines at the time that you create them.
 
@@ -251,5 +251,5 @@ This section lists common problems that you might encounter and steps for mitiga
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription." | To use Azure Hybrid Benefit with RHEL virtual machines, you must first [register your Azure subscriptions with Red Hat Cloud Access](https://access.redhat.com/management/cloud).
 
 ## Next steps
-* [Learn how to create and update virtual machines and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit by using the Azure CLI](/cli/azure/vm).
-* Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is available to all users. [Learn more about this benefit and how to use it](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md).
+* [Learn how to create and update virtual machines and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit by using the Azure CLI](/cli/azure/vm)
+* [Learn about Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES and how to use it](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md)
