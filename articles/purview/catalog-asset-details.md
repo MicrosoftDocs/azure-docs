@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 07/11/2022
+ms.date: 07/25/2022
 ---
 # Asset details page in the Microsoft Purview Data Catalog
 
@@ -71,6 +71,9 @@ Below are the rich text formatting options:
 | Clear formatting | Remove all formatting from a selection of text, leaving only the normal, unformatted text. | |
 | Undo | Undo changes you made to the content. | Ctrl+Z | 
 | Redo | Redo changes you made to the content. | Ctrl+Y | 
+
+> [!NOTE]
+> Updating a description with the rich text editor updates the `userDescription` field of an entity. If you have already added an asset description before the release of this feature, that description is stored in the `description` field. When overwriting a plain text description with rich text, the entity model will persist both `userDescription` and `description`. The asset details overview page will only show `userDescription`. The `description` field can't be edited in the Microsoft Purview studio user experience.
 
 ### Classifications
 
