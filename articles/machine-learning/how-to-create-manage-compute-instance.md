@@ -383,6 +383,7 @@ To use RStudio open source, set up a custom application as follows:
 1. Use **Bind mounts** to add access to the files in your default storage account: 
    * Specify **/home/azureuser/cloudfiles** for **Host path**.  
    * Specify **/home/azureuser/cloudfiles** for the **Container path**.
+   * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
 3. Select **Create** to set up RStudio as a custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
