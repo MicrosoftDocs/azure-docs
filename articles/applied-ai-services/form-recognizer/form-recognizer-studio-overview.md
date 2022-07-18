@@ -12,6 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
+<!-- markdownlint-disable MD033 -->
 # What is Form Recognizer Studio?
 
 >[!NOTE]
@@ -48,6 +49,7 @@ The studio supports all Form Recognizer v3.0 models and v2.1 models with labeled
 
       * Retrieve your endpoint and key from the Azure portal.
       * Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
+      * Enter the values in the appropriate fields.
 
       :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -55,8 +57,7 @@ The studio supports all Form Recognizer v3.0 models and v2.1 models with labeled
 
     :::image type="content" source="media/studio/form-recognizer-studio-front.png" alt-text="Screenshot of Form Recognizer Studio front page.":::
 
-<!-- markdownlint-disable MD033 -->
-1. After trying Form Recognizer Studio, use the [**C#**](quickstarts/try-v3-csharp-sdk.md), [**Java**](quickstarts/try-v3-java-sdk.md), [**JavaScript**](quickstarts/try-v3-javascript-sdk.md) or [**Python**](quickstarts/try-v3-python-sdk.md) client libraries or the [**REST API**](quickstarts/try-v3-rest-api.md) to get started incorporating Form Recognizer models into your own applications.
+1. After you've tried Form Recognizer Studio, use the [**C#**](quickstarts/try-v3-csharp-sdk.md), [**Java**](quickstarts/try-v3-java-sdk.md), [**JavaScript**](quickstarts/try-v3-javascript-sdk.md) or [**Python**](quickstarts/try-v3-python-sdk.md) client libraries or the [**REST API**](quickstarts/try-v3-rest-api.md) to get started incorporating Form Recognizer models into your own applications.
 
    To learn more about each model, *see* the concepts pages.
 
