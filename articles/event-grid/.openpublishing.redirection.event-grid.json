@@ -49,6 +49,11 @@
       "source_path": "geo-disaster-recovery.md",
       "redirect_url": "/azure/event-grid/availability-zones-disaster-recovery",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "availability-zone-resiliency.md",
+      "redirect_url": "/azure/event-grid/availability-zones-disaster-recovery",
+      "redirect_document_id": false
     }
   ]
 }
