@@ -408,14 +408,6 @@
       - name: Update image resources
         displayName: Shared Image Gallery, SIG, sig, gallery, image
         href: update-image-resources.md
-      - name: App registration for sharing
-        items:
-        - name: Linux
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, app registration
-          href: ./linux/share-images-across-tenants.md
-        - name: Windows
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, app registration
-          href: ./windows/share-images-across-tenants.md
       - name: Resource Manager Templates
         items:
         - name: Create an Azure Compute Gallery

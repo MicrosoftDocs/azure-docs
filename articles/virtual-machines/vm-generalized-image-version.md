@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/07/2022
+ms.date: 07/18/2022
 ms.author: saraic
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell

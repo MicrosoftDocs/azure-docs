@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/20/2022
+ms.date: 07/18/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
