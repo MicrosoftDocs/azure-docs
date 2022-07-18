@@ -1,20 +1,18 @@
 ---
-title: Data collection rule transformations
-description: Use transformations in a data collection rule in Azure Monitor to filter and modify incoming data.
+title: KQL limitations in data collection transformations
+description: Structure of transformation in Azure Monitor including limitations of KQL allowed in a transformation.
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 06/29/2022
 ms.reviwer: nikeist
 
 ---
 
-# Data collection rule transformations in Azure Monitor (preview)
-Transformations in a [data collection rule (DCR)](data-collection-rule-overview.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. This article describes how to build transformations in a DCR, including details and limitations of the Kusto Query Language (KQL) used for the transform statement.
+# Structure of transformation in Azure Monitor (preview)
+[Transformations in Azure Monitor](/data-collection-transformations.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They are implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](data-collection-rule-overview.md). This article provides details on how this query is structured and limitations on the KQL language allowed.
 
-## Basic concepts
-Data transformations are defined using a Kusto Query Language (KQL) statement that is applied individually to each entry in the data source. It must understand the format of the incoming data and create output in the structure of the target table. 
 
 ## Transformation structure
-The input stream is represented by a virtual table named `source` with columns matching the input data stream definition. Following is a typical example of a transformation. This example includes the following functionality:
+The KQL statement is applied individually to each entry in the data source. It must understand the format of the incoming data and create output in the structure of the target table. The input stream is represented by a virtual table named `source` with columns matching the input data stream definition. Following is a typical example of a transformation. This example includes the following functionality:
 
 - Filters the incoming data with a [where](/azure/data-explorer/kusto/query/whereoperator) statement
 - Adds a new column using the [extend](/azure/data-explorer/kusto/query/extendoperator) operator
@@ -32,14 +30,20 @@ source
     EventId = tostring(Properties.EventId)
 ```
 
-
 ## KQL limitations
 Since the transformation is applied to each record individually, it can't use any KQL operators that act on multiple records. Only operators that take a single row as input and return no more than one row are supported. For example, [summarize](/azure/data-explorer/kusto/query/summarizeoperator) isn't supported since it summarizes multiple records. See [Supported KQL features](#supported-kql-features) for a complete list of supported features.
 
-### Inline reference table
-The [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) operator isn't supported in the subset of KQL available to use in transformations. This would normally be used in KQL to define an inline query-time table. Use dynamic literals instead to work around this limitation.
 
-For example, the following isn't supported in a transformation:
+
+Transformations in a [data collection rule (DCR)](data-collection-rule-overview.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. This article describes how to build transformations in a DCR, including details and limitations of the Kusto Query Language (KQL) used for the transform statement.
+
+
+
+
+## Inline reference table
+The [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) operator isn't supported in the subset of KQL available to use in transformations. This operator would normally be used in KQL to define an inline query-time table. Use dynamic literals instead to work around this limitation.
+
+For example, the following statement isn't supported in a transformation:
 
 ```kusto
 let galaxy = datatable (country:string,entity:string)['ES','Spain','US','United States'];
@@ -47,7 +51,8 @@ source
 | join kind=inner (galaxy) on $left.Location == $right.country
 | extend Galaxy_CF = ['entity']
 ```
-You can instead use the following statement which is supported and performs the same functionality:
+
+You can instead use the following statement, which is supported and performs the same functionality:
 
 ```kusto
 let galaxyDictionary = parsejson('{"ES": "Spain","US": "United States"}');
