@@ -27,18 +27,18 @@
       - name: Create Intel SGX VM with Marketplace
         href: quick-create-marketplace.md
   - name: Container Compute
-  - name: Confidential VMs with enclaves
-    items:
-      - name: Deploy Intel SGX
-        items:
-          - name: Create Intel SGX VM with Azure portal
-            href: quick-create-portal.md
-          - name: Create Intel SGX VM with Marketplace
-            href: quick-create-marketplace.md
-  - name: Confidential containers with enclaves
-    items:
-      - name: Create Intel SGX AKS with CLI
-        href: confidential-enclave-nodes-aks-get-started.md
+    - name: Confidential VMs with enclaves
+      ite-ms:
+        - name: Deploy Intel SGX
+          items:
+             name: Create Intel SGX VM with Azure portal
+              href: quick-create-portal.md
+            - name: Create Intel SGX VM with Marketplace
+              href: quick-create-marketplace.md
+    - name: Confidential containers with enclaves
+      items:
+        - name: Create Intel SGX AKS with CLI
+          href: confidential-enclave-nodes-aks-get-started.md
 - name: Concept
   expanded: true
   items:
