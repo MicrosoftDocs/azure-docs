@@ -19,7 +19,7 @@ If you want to get large amounts of exported data regularly, see [Retrieve large
 
 To learn more about the data in cost details (formerly referred to as *usage details*), see [Ingest cost details data](automation-ingest-usage-details-overview.md).
 
-The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, Pay-As-You-Go or Visual Studio customer, see [Get cost details as a legacy customer](get-usage-details-legacy-customer.md).
+The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, Pay-As-You-Go or Visual Studio customer, see [Get cost details for a pay-as-you-go subscription](get-usage-details-legacy-customer.md).
 
 ## Cost Details API best practices
 
