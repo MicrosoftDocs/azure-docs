@@ -53,7 +53,7 @@ You can group this section by environment by selecting the Group by Environment 
 
 The contribution of each security control towards the overall secure score is shown on the recommendations page.
 
-:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Microsoft Defender for Cloud's security controls and their impact on your secure score" lightbox="./media/secure-score-security-controls/security-controls.png":::
+:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Microsoft Defender for Cloud's security controls and their impact on your secure score." lightbox="./media/secure-score-security-controls/security-controls.png":::
 
 To get all the possible points for a security control, all of your resources must comply with all of the security recommendations within the security control. For example, Defender for Cloud has multiple recommendations regarding how to secure your management ports. You'll need to remediate them all to make a difference to your secure score.
 
