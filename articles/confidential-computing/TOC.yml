@@ -24,10 +24,13 @@
         href: quick-create-portal.md
       - name: Create Intel SGX VM with Marketplace
         href: quick-create-marketplace.md
-  - name: Container Computes
+  - name: Container Compute
     items:
       - name: Create Intel SGX AKS with CLI
         href: confidential-enclave-nodes-aks-get-started.md
+      - name: Preview VM Isolated Confidential containers on Azure Container Instance 
+        href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/microsoft-introduces-preview-of-confidential-containers-on-azure/ba-p/3410394
+      
 - name: Concept
   expanded: true
   items:
