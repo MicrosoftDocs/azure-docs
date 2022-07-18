@@ -1,6 +1,6 @@
 ---
-title: Review access with peer outlier recommendations - Azure AD
-description: Learn how to review access of group members with peer outlier recommendations in Azure Active Directory access reviews.
+title: Review access with review recommendations - Azure AD
+description: Learn how to review access of group members with review recommendations in Azure Active Directory access reviews.
 services: active-directory
 author: ajburnle
 manager: rkarlin
@@ -16,7 +16,9 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Review access with peer outlier recommendations
+# Review recommendations for group access reviews 
+
+Decision makers who review users' access and perform access reviews can use system based recommendations to help them decide whether to continue their access or deny their access to resources. For more information about how to use review recommendations, see [Enable decision helpers](create-access-review.md#next-settings).
 
 ## Prerequisites
  
@@ -25,13 +27,19 @@ ms.collection: M365-identity-device-management
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
 ## Peer outlier recommendations
-Decision makers who review users' access and perform access reviews can use system based recommendations to help them decide whether to continue their access or deny their access to resources. If review decision helpers are enabled by the creator of the access review, reviewers can receive peer outlier recommendations for reviews of group access reviews.
+If review decision helpers are enabled by the creator of the access review, reviewers can receive peer outlier recommendations for reviews of group access reviews.
 
 Peer analysis recommendation detects users with outlier access to a group, based on reporting-structure similarity with other group members. The outlier recommendation relies on a scoring mechanism which is calculated by computing the user’s average distance to the remaining users in the group.
 
-A *peer* in an organization’s chart is defined as two or more users who share similar characteristics in the organization's reporting structure. Users who are very distant from all the other group members based on their organization's chart, are considered a “peer outlier” in a group. The following image has an example of an organization's reporting structure in a cosmetics company: 
+A *peer* in an organization’s chart is defined as two or more users who share similar characteristics in the organization's reporting structure. Users who are very distant from all the other group members based on their organization's chart, are considered a “peer outlier” in a group. 
 
-![Example hierarchial organization chart for a cosmetics company](./media/peer-outlier-access-reviews/org-chart-example.png)
+> [!NOTE]
+> Currently, this feature is only available for uses in your directory. Use of the peer outlier recommendations is not supported for guest users.
+
+
+The following image has an example of an organization's reporting structure in a cosmetics company: 
+
+![Example hierarchial organization chart for a cosmetics company](./media/review-recommendations-group-access-reviews/org-chart-example.png)
 
 Based on the reporting structure in the example image, members outside of a division that is under a group review, would be denied access by the system if the peer outlier recommendation was taken by the reviewer. 
 
@@ -39,5 +47,5 @@ For example, Phil who works within the Personal care division is in a group with
 
 ## Next Steps
 - [Create an access review](create-access-review.md)
-- - [Review access to groups or applications](perform-access-review.md)
+- [Review access to groups or applications](perform-access-review.md)
 

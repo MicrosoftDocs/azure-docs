@@ -55,7 +55,7 @@
       href: manage-access-review.md
     - name: Manage users excluded from Conditional Access
       href: conditional-access-exclusion.md
-    - name: Peer outlier recommendations for access reviews
+    - name: Review recommendations for group access reviews
       hreg: peer-outlier-access-reviews.md
   - name:  Review and remove users from external organizations
     href: access-reviews-external-users.md
