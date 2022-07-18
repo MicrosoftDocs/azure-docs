@@ -86,7 +86,7 @@ To start using Azure Hybrid Benefit for SLES virtual machines:
 
 1. If you want to switch back to the bring-your-own-subscription model,  just change the license type to `None` and run the extension. This action will remove all repositories from your virtual machine and stop the billing.
 
-## Enable and disable Azure Hybrid Benefit for RHEL
+## Enable Azure Hybrid Benefit for RHEL
 
 After you successfully install the `AHBForRHEL` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPHA`, `RHEL_SAPAPPS`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
 
@@ -190,7 +190,7 @@ After you successfully install the `AHBForSLES` extension, you can use the `az v
 
 Customers who use Azure Hybrid Benefit for BYOS virtual machines for RHEL agree to the standard [legal terms](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) and [privacy statement](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associated with the Azure Marketplace RHEL offerings.
 
-### Explore Azure Hybrid Benefit for SUSE
+### SUSE compliance
 
 If you use Azure Hybrid Benefit for BYOS virtual machines for SLES and want more information about moving from SLES pay-as-you-go to BYOS or moving from SLES BYOS to pay-as-you-go, see [Azure Hybrid Benefit Support](https://aka.ms/suse-ahb) on the SUSE website.
 
