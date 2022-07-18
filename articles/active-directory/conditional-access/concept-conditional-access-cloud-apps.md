@@ -112,10 +112,10 @@ A complete list of all services included can be found in the article [Apps inclu
 
 ### Microsoft Azure Management
 
-When Conditional Access policy is targeted to the Microsoft Azure Management application, within the Conditional Access policy app picker, policy will be enforced for tokens issued to application IDs of a set of services closely bound to the portal.  
+When Conditional Access policy is targeted to the Microsoft Azure Management application, within the Conditional Access policy app picker the policy will be enforced for tokens issued to application IDs of a set of services closely bound to the portal.  
 
-- Azure Resource Manager (ARM API)  
-- Azure Portal, which also covers the Microsoft Entra admin center                                                          
+- Azure Resource Manager
+- Azure portal, which also covers the Microsoft Entra admin center                                                          
 - Azure Data Lake                                                
 - Application Insights API                              
 - Log Analytics API                                         
