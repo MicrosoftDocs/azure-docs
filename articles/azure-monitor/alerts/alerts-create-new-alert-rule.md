@@ -111,9 +111,12 @@ And then defining these elements for the resulting alert actions using:
      |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
 
   1. (Optional) Depending on the signal type, you may see the **Split by dimensions** section.
-     Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
-     If you select more than one dimension value, each time series that results from the combination will trigger its own alert, and will be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in any API name (which is the aggregated data), or you can use dimensions to  alert only when the number of transactions is high for specific API names.
-     To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations. Splitting on Azure resource ID column makes the specified resource into the alert target. When you want a condition applied to multiple resources in the scope, you would **not** split by dimensions. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
+     
+    Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
+    
+    If you select more than one dimension value, each time series that results from the combination will trigger its own alert, and will be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in any API name (which is the aggregated data), or you can use dimensions to  alert only when the number of transactions is high for specific API names.
+    
+    To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations. Splitting on Azure resource ID column makes the specified resource into the alert target. When you want a condition applied to multiple resources in the scope, you would **not** split by dimensions. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
      
      |Field  |Description  |
      |---------|---------|
@@ -182,15 +185,13 @@ And then defining these elements for the resulting alert actions using:
 
 ## Create a new alert rule using CLI 
 
-You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-with-azure-cli). The [Azure Cloud Shell](../../cloud-shell/overview.md) is the fastest way to start using the Azure CLI.
-
-You can see the full list of the [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor#azure-monitor-references).
+You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-with-azure-cli). The code examples below are using [Azure Cloud Shell](../../cloud-shell/overview.md). You can see the full list of the [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor#azure-monitor-references).
 
 > [!NOTE]
 > Azure CLI support is only available for the scheduledQueryRules API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
 
-1. In the [portal](https://portal.azure.com/), select **Cloud Shell**.
-1. At the prompt, enter these commands:
+1. In the [portal](https://portal.azure.com/), select **Cloud Shell**, and at the prompt, enter the following commands:
+1. 
   ## [Log alerts](#tab/logs)
 
   To create a log alert rule that monitors count of system event errors:
@@ -199,7 +200,7 @@ You can see the full list of the [Azure CLI commands for Azure Monitor](/cli/azu
    ```
   ## [Metric alerts](#tab/metric)
 
-  To create a metric alert rule, use the **az monitor metrics alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor metrics alert create** section of the [metric alert CLI reference documentation](..cli/azure/monitor/metrics/alert?view=azure-cli-latest).  
+  To create a metric alert rule, use the **az monitor metrics alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor metrics alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/metrics/alert?view=azure-cli-latest).  
  
   To create a metric alert rule that monitors if average Percentage CPU on a VM is greater than 90:
    ```azurecli
@@ -208,7 +209,7 @@ You can see the full list of the [Azure CLI commands for Azure Monitor](/cli/azu
  
   ## [Activity Log alerts](#tab/activity-log)
 
-  To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [metric alert CLI reference documentation](..cli/azure/monitor/activity-log/alert?view=azure-cli-latest).  
+  To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/activity-log/alert?view=azure-cli-latest).  
  
   To create an activity log alert rule with the default settings:
   ```azurecli
