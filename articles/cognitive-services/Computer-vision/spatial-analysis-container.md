@@ -336,13 +336,9 @@ Give your VM a name and select the region to be (US) West US 2.
 
 :::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.jpg" alt-text="Virtual machine configuration details." lightbox="media/spatial-analysis/virtual-machine-instance-details.jpg":::
 
-To locate the VM size, select "See all sizes" and then view the list for "Non-premium storage VM sizes", shown below.
+To locate the VM size, select "See all sizes" and then view the list for "N-Series" and select **NC6s_v3**, shown below.
 
 :::image type="content" source="media/spatial-analysis/virtual-machine-sizes.png" alt-text="Virtual machine sizes." lightbox="media/spatial-analysis/virtual-machine-sizes.png":::
-
-Then, select either **NC6** or **NC6_Promo**.
-
-:::image type="content" source="media/spatial-analysis/promotional-selection.png" alt-text="promotional selection" lightbox="media/spatial-analysis/promotional-selection.png":::
 
 Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. Select on "Add" to bring up the extensions window with all available extensions. Search for and select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
 
