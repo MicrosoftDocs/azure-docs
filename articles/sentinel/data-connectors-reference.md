@@ -1248,7 +1248,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | Morphisec |
 | **Kusto function URL** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Morphisec/Parsers/Morphisec/ |
-| **Supported by** | [Morphisec](https://support.morphisec.com/support/home) |
+| **Supported by** | [Morphisec](https://www.morphisec.com) |
 
 
 
@@ -1807,7 +1807,7 @@ Follow the instructions to obtain the credentials.
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | WatchGuardFirebox |
 | **Kusto function URL:** | https://aka.ms/Sentinel-watchguardfirebox-parser |
-| **Vendor documentation/<br>installation instructions** | [Microsoft Sentinel Integration Guide](https://www.watchguard.com/help/docs/help-center/en-US/Content/Integration-Guides/General/Microsoft%20Azure%20Sentinel.html) |
+| **Vendor documentation/<br>installation instructions** | [Microsoft Sentinel Integration Guide](https://www.watchguard.com/help/docs/help-center/en-us/Content/Integration-Guides/General/Microsoft_Azure_Sentinel.html) |
 | **Supported by** | [WatchGuard Technologies](https://www.watchguard.com/wgrd-support/overview) |
 
 
