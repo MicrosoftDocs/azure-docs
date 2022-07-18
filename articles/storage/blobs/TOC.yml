@@ -326,6 +326,8 @@ items:
           href: upgrade-to-data-lake-storage-gen2-how-to.md
       - name: Create and manage containers
         items:
+        - name: Manage containers (Azure portal)
+          href: blob-containers-portal.md
         - name: Manage containers (CLI)
           href: blob-containers-cli.md
         - name: Manage containers (PowerShell)
