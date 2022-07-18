@@ -5,7 +5,7 @@
  author: duongau
  ms.service: expressroute
  ms.topic: include
- ms.date: 06/29/2021
+ ms.date: 07/13/2022
  ms.author: duau
  ms.custom: include file
 ---
@@ -35,7 +35,7 @@ The table below provides information on regions and geopolitical boundaries for 
 | --- | --- | --- |
 | **US Government cloud** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Atlanta,Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **China East** |China East, China East2 |Shanghai, Shanghai2 |
-| **China North** |China North, China North2 |Beijing, Beijing2 |
+| **China North** |China North, China North2, China North3 |Beijing, Beijing2 |
 | **Germany** |Germany Central, Germany East |Berlin, Frankfurt |
 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.

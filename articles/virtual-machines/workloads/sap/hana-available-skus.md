@@ -3,7 +3,7 @@ title: SKUs for SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about the SKUs available for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: mamccrea
+author: lauradolan
 manager: juergent
 editor: ''
 keywords: 'HLI, HANA, SKUs, S896, S224, S448, S672, Optane, SAP'
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/11/2022
-ms.author: mamccrea
+ms.author: ladolan
 ms.custom: H1Hack27Feb2017, references_regions
 
 ---
