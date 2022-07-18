@@ -27,9 +27,7 @@ ORAS Artifacts support is a preview feature and subject to [limitations](#previe
 
 ## Preview limitations
 
-ORAS Artifacts support is limited to the South Central US region, with Availability Zone support.
-
-* Geo-replicated registries will not replicate referenced artifacts to other regions. As additional regions support ORAS Artifacts, the referenced artifacts will be replicated.
+ORAS Artifacts support is not available in the government or China clouds, but available in all other regions.  Geo-replicated registries will not replicate referenced artifacts to non-supported regions. As additional regions support ORAS Artifacts, the referenced artifacts will be replicated.
 
 ## ORAS installation
 
