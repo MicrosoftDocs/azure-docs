@@ -101,7 +101,7 @@ Juan wants to make sure that certain terms and conditions are known to users bef
 ### Add the terms of use to the policy
 
 1. In the left menu of the tenant overview, select **Security**.
-1. Select **Conditional Access**, and then **Policies**. Form the list of policies, select the *MFA Pilot* policy.
+1. Select **Conditional Access**, and then **Policies**. From the list of policies, select the *MFA Pilot* policy.
 1. Under **Access controls** and **Grant**, select the controls selected link.
 1. Select *My TOU*.
 1. Select **Require all the selected controls**, and then choose **Select**.
