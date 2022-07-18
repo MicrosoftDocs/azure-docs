@@ -270,7 +270,7 @@ pip3 install cqlsh==5.0.3
 5. Run the [CQLSH using the authentication mechanism](manage-data-cqlsh.md#update-your-connection-string).
 
 > [!NOTE]
->  You would need to set the environment variables to point to  the Python27 folder.
+>  You would need to set the environment variables to point to  the Python 2 folder.
 
 **Install on Unix/Linux/Mac:**
 
