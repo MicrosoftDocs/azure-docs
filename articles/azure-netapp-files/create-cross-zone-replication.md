@@ -97,6 +97,8 @@ This process requires that your account is subscribed to the availability zone v
 1. Create the data replication volume (the destination volume) _in another availability zone, but in the same region as the source volume_. In the **Basics** tab of the **Create a new protection volume** page, select an available availability zone.
 > [!IMPORTANT]
 > Logical availability zones for the subscription without Azure NetApp Files presence are marked `(Unavailable)` and are greyed out.
+    :::image type="content" source="../media/azure-netapp-files/zone-replication-create-new-volume.png" alt-text="Select an availability zone for the CZR volume." lightbox="../media/azure-netapp-files/zone-replication-create-new-volume.png":::
+
 
 ## Complete cross-zone replication configuration
 
