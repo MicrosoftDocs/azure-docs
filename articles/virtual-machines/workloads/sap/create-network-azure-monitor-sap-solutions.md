@@ -52,7 +52,7 @@ You can configure the **Route All** setting when you create an AMS resource thro
 If you use NSGs, you can create AMS-related [virtual network service tags](../../../virtual-network/service-tags-overview.md) to allow appropriate traffic flow for your deployment. A service tag represents a group of IP address prefixes from a given Azure service. 
 
 > [!NOTE]
-You can use this option after you've deployed an AMS resource.
+> You can use this option after you've deployed an AMS resource.
 
 1. Find the subnet associated with your AMS managed resource group:
       1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -66,16 +66,18 @@ You can use this option after you've deployed an AMS resource.
       1. Go to the NSG resource in the Azure portal.    
       1. On the NSG's menu, under **Settings**, select **Outbound security rules**.
       1. Select the **Add** button to add the following new rules:        
-| Priority | Name | Port | Protocol | Source | Destination | Action |
-| -------- | ------ | ----- | --------- | -------- | ------------ | ------- |
-| 450 | **allow_monitor** | 443 | TCP | AMS subnet's IP address | **AzureMonitor** | Allow |
-| 501 | allow_keyVault | 443 | TCP | AMS subnet's IP address | **AzureKeyVault** | Allow |
-| 550 | **allow_storage** | 443 | TCP | AMS subnet's IP address | **Storage** | Allow |
-| 600 | **allow_azure_controlplane** | 443 | Any | AMS subnet's  IP address | **AzureResourceManager** | Allow |
-| 660 | **deny_internet** | Any | Any | Any | Internet | Deny |
 
- >* AMS subnet IP refers to Ip of subnet associated with AMS resource  
-<img width="1004" alt="IPSubnet" src="https://user-images.githubusercontent.com/33844181/176853982-ce90631d-d352-471e-9339-92a2efa17660.png">
+| **Priority** | **Name**                 | **Port** | **Protocol** | **Source** | **Destination**      | **Action** |
+|--------------|--------------------------|----------|--------------|------------|----------------------|------------|
+| 450          | allow_monitor            | 443      | TCP          |            | AzureMonitor         | Allow      |
+| 501          | allow_keyVault           | 443      | TCP          |            | AzureKeyVault        | Allow      |
+| 550          | allow_storage            | 443      | TCP          |            | Storage              | Allow      |
+| 600          | allow_azure_controlplane | 443      | Any          |            | AzureResourceManager | Allow      |
+| 660          | deny_internet            | Any      | Any          | Any        | Internet             | Deny       |
+
+
+  AMS subnet IP refers to Ip of subnet associated with AMS resource  
+  <img width="1004" alt="IPSubnet" src="https://user-images.githubusercontent.com/33844181/176853982-ce90631d-d352-471e-9339-92a2efa17660.png">
          
 
 For the rules that you create, **allow_vnet** must have a lower priority than **deny_internet**. All other rules also need to have a lower priority than **allow_vnet**. However, the remaining order of these other rules is interchangeable.
@@ -89,13 +91,14 @@ To create a private endpoint for AMS:
 1. In the Azure portal, go to your AMS resource.
 1. On the **Overview** page for the AMS resource, select the **Managed resource group**.
 A private endpoint connection needs to be created for the following resources inside the managed resource group: 
-1. Key-vault, 
-2. Storage-account, and 
-3. Log-analytics workspace
+    1. Key-vault, 
+    2. Storage-account, and 
+    3. Log-analytics workspace
 
 ![LogAnalytics](https://user-images.githubusercontent.com/33844181/176844487-388fbea4-4821-4c8d-90af-917ff9c0ba48.png)
  
-_**Key Vault**_ 
+###### Key Vault
+
 Only 1 private endpoint is required for all the key vault resources (secrets, certificates, and keys). Once a private endpoint is created for key vault, the vault resources cannot be accessed from systems outside the given vnet. 
 
 1. On the key vault resource's menu, under **Settings**, select **Networking**. 
@@ -175,9 +178,8 @@ Next, find and note important IP address ranges.
     1. On the **DNS configuration** page, note the **IP addresses** for the private endpoint.
     
 
-For Log analytics private endpoint: 
-Go to the private endpoint created for Azure Monitor Private Link Scope resource. 
-![linked scope resource](https://user-images.githubusercontent.com/33844181/176845649-0ccef546-c511-4373-ac3d-cbf9e857ca78.png)
+    For Log analytics private endpoint: Go to the private endpoint created for Azure Monitor Private Link Scope resource. 
+    ![linked scope resource](https://user-images.githubusercontent.com/33844181/176845649-0ccef546-c511-4373-ac3d-cbf9e857ca78.png)
 
 1. On the private endpoint's menu, under **Settings**, select **DNS configuration**.
 1. On the **DNS configuration** page, note the associated IP addresses.

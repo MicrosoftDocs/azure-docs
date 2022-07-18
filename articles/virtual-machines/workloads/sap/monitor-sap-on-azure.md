@@ -34,7 +34,7 @@ You can monitor different components of an SAP landscape, such as Azure virtual 
 
 The following table provides a quick comparison of the Azure Monitor for SAP solutions (Classic) and Azure Monitor for SAP solutions. 
 
-|                    | Azure Monitor for SAP solutions             | Azure Monitor for SAP solutions (Classic) |
+|| Azure Monitor for SAP solutions             | Azure Monitor for SAP solutions (Classic) |
 |--------------------|---------------------------------------------|-------------------------------------------|
 | Architecture Style | Azure Function based Collector architecture | VM based collector architecture           |
 | Supported Database | Microsoft SQL Server<br>SAP HANA<br>IBM Db2 | Microsoft SQL Server<br>SAP HANA   
@@ -121,7 +121,8 @@ You can enable data sharing with Microsoft when you create Azure Monitor for SAP
 
 The following diagram shows, at a high level, how Azure Monitor for SAP solutions collects telemetry from the SAP HANA database. The architecture is the same whether SAP HANA is deployed on Azure VMs or Azure Large Instances.
 
-![AMS New Arch](./media/azure-monitor-sap/AMS-New-Arch.png)
+![AMS New Arch](./media/azure-monitor-sap/azure-monitor-sap-solution-new-arch-2.png)  
+
 
 
 The key components of the architecture are:

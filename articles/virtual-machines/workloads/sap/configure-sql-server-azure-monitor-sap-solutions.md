@@ -14,6 +14,7 @@ ms.author: sujaj
 
 # Configure SQL Server for Azure Monitor for SAP solutions
 
+This article explains how to configure the Microsoft SQL server provider for Azure Monitor for SAP solutions (AMS) through the Azure portal.
 
 ## Open Windows port
 

@@ -35,10 +35,12 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 1. Select **Add** to add a new provider.
 
 
-<img width="491" alt="Provider" src="https://user-images.githubusercontent.com/33844181/167706257-2fa23564-cc41-4fc7-a0a2-4d6d0110f563.png">
 
 
-1. For **Type**, select **High-availability cluster (Pacemaker)**.
+![diagram shows how to add a new provider](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-start.png)  
+
+
+6. For **Type**, select **High-availability cluster (Pacemaker)**.
 1. Configure providers for each node of the cluster by entering the endpoint URL for **HA Cluster Exporter Endpoint**. 
     1. For SUSE-based clusters, enter `http://<'IP address'> :9664/metrics`. 
     1. For RHEL-based clusters, enter `http://<'IP address'>:44322/metrics?names=ha_cluster`.
@@ -51,18 +53,13 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 For SUSE based cluster
 
 
+![diagram that shows required fields to setup azure monitor for sap ha suse cluster](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-suse.png)  
 
-<img width="563" alt="Suse details" src="https://user-images.githubusercontent.com/33844181/167705933-68b0b8c7-5fda-4335-90eb-3354e21c9e1d.png">
+######For RHEL based cluster
 
-
-For RHEL based cluster
-
-
+![diagram that shows required fields to setup azure monitor for sap ha rhel cluster](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-rhel.png)  
 
 
-<img width="563" alt="RHEL Details" src="https://user-images.githubusercontent.com/33844181/167706004-9e52da62-a2eb-45df-a36a-346520ea142a.png">
-
-## Create provider for AMS (classic)
 
 
 

@@ -76,7 +76,7 @@ After you restart the SAP service, check that your updated rules are applied to 
 
 1. Review the output, which should look like the following sample output:
 
-![SAPControlOutput](./media/azure-monitor-sap/azure-monitor-providers-NW-SAPControOutput.png)
+![Diagram shows the expected output of SAPcontrol command](./media/azure-monitor-sap/azure-monitor-providers-netweaver-sap-control-output.png)
 
 
 Repeat these steps for each instance profile.
@@ -205,9 +205,14 @@ To fetch specific metrics, you need to unprotect some methods for the current re
       SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList
 
 7. Go back and select **Profile** > **Save**.
-8. After saving the changes for this parameter, restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux))
+8. After saving the changes for this parameter, restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux)).
+
    8a. On Windows systems, this can be done in a single window using the SAP Microsoft Management Console (MMC) / SAP Management Console(MC).  Right-click on each instance and choose All Tasks -> Restart Service.
-![MMC](https://user-images.githubusercontent.com/75772258/126453939-daf1cf6b-a940-41f6-98b5-3abb69883520.png)
+
+
+  
+    ![pic depicts sap mmc console](./media/azure-monitor-sap/azure-monitor-providers-netweaver-mmc-output.png)
+
 
    8b. On Linux systems, use the below command where NN is the SAP instance number to restart the host which is logged into.
    
@@ -223,7 +228,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
    `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user "<adminUser>" "<adminPassword>"`
 
    The output should look like :-
-   ![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png)
+  ![Diagram shows the expected output of SAPcontrol command classic](./media/azure-monitor-sap/azure-monitor-providers-netweaver-sap-control-output.png)
 
 10. To conclude and validate, run a test query against web methods to validate (replace the hostname , instance number and, method name ) 
     
