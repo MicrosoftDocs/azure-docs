@@ -57,6 +57,20 @@ Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported size
 
 Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [AKS Ubuntu 18.04 image](#os-configuration). This image supports all Gen2 SKUs and sizes.
 
+## Default OS disk sizing
+
+By default, when creating a new cluster or adding a new node pool to an existing cluster, the disk size is determined by the number for vCPUs, which is based on the VM SKU. The default values are shown in the following table: 
+
+|VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mpbs) |
+|--|--|--|--|
+| 1 - 7 | P10/128G | 500 | 100 |
+| 8 - 15 | P15/256G | 1100 | 125 |
+| 16 - 63 | P20/512G | 2300 | 150 |
+| 64+ | P30/1024G | 5000 | 200 |
+
+> [!IMPORTANT]
+> Default OS disk sizing is only used on new clusters or node pools when Ephemeral OS disks are not supported and a default OS disk size is not specified. The default OS disk size may impact the performance or cost of your cluster, but you can change the sizing of the OS disk at any time after cluster or node pool creation. This default disk sizing affects clusters or node pools created in July 2022 or later.
+
 ## Ephemeral OS
 
 By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss if the VM needs to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
