@@ -115,7 +115,7 @@ Here's a description of how the control script works:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
+      [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment) provides a simple way to organize multiple jobs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of jobs.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -131,7 +131,7 @@ Here's a description of how the control script works:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Submits your script. This submission is called a [run](/python/api/azureml-core/azureml.core.run%28class%29). A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics, and more.
+       Submits your script. This submission is called a [run](/python/api/azureml-core/azureml.core.run%28class%29). A job encapsulates a single execution of your code. Use a job to monitor the script progress, capture the output, analyze the results, visualize metrics, and more.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -150,15 +150,15 @@ Here's a description of how the control script works:
 
 1. In the terminal, you may be asked to sign in to authenticate.  Copy the code and follow the link to complete this step.
 
-1. Once you're authenticated, you'll see a link in the terminal. Select the link to view the run.
+1. Once you're authenticated, you'll see a link in the terminal. Select the link to view the job.
 
     [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
 
 ## View the output
 
-1. In the page that opens, you'll see the run status.
-1. When the status of the run is **Completed**, select **Output + logs** at the top of the page.
-1. Select **std_log.txt** to view the output of your run.
+1. In the page that opens, you'll see the job status.
+1. When the status of the job is **Completed**, select **Output + logs** at the top of the page.
+1. Select **std_log.txt** to view the output of your job.
 
 ## <a name="monitor"></a>Monitor your code in the cloud in the studio
 
@@ -171,15 +171,15 @@ Follow the link.  At first, you'll see a status of **Queued** or **Preparing**. 
 * The compute cluster is resized from 0 to 1 node
 * The docker image is downloaded to the compute. 
 
-Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
+Subsequent jobs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first job has completed.
 
-Wait about 10 minutes.  You'll see a message that the run has completed. Then use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `std_log.txt` file that looks like this:
+Wait about 10 minutes.  You'll see a message that the job has completed. Then use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `std_log.txt` file that looks like this:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.
  2: [context_manager_injector.py] Command line Options: Namespace(inject=['ProjectPythonPath:context_managers.ProjectPythonPath', 'RunHistory:context_managers.RunHistory', 'TrackUserError:context_managers.TrackUserError', 'UserExceptions:context_managers.UserExceptions'], invocation=['hello.py'])
  3: Starting the daemon thread to refresh tokens in background for process with pid = 31263
- 4: Entering Run History Context Manager.
+ 4: Entering Job History Context Manager.
  5: Preparing to call script [ hello.py ] with arguments: []
  6: After variable expansion, calling script [ hello.py ] with arguments: []
  7:
@@ -187,11 +187,11 @@ Wait about 10 minutes.  You'll see a message that the run has completed. Then us
  9: Starting the daemon thread to refresh tokens in background for process with pid = 31263
 10:
 11:
-12: The experiment completed successfully. Finalizing run...
+12: The experiment completed successfully. Finalizing job...
 13: Logging experiment finalizing status in history service.
 14: [2020-08-04T22:15:46.541334] TimeoutHandler __init__
 15: [2020-08-04T22:15:46.541396] TimeoutHandler __enter__
-16: Cleaning up all outstanding Run operations, waiting 300.0 seconds
+16: Cleaning up all outstanding Job operations, waiting 300.0 seconds
 17: 1 items cleaning up...
 18: Cleanup took 0.1812913417816162 seconds
 19: [2020-08-04T22:15:47.040203] TimeoutHandler __exit__
@@ -199,7 +199,7 @@ Wait about 10 minutes.  You'll see a message that the run has completed. Then us
 
 On line 8, you see the "Hello world!" output.
 
-The `70_driver_log.txt` file contains the standard output from a run. This file can be useful when you're debugging remote runs in the cloud.
+The `70_driver_log.txt` file contains the standard output from a job. This file can be useful when you're debugging remote jobs in the cloud.
 
 
 ## Next steps
