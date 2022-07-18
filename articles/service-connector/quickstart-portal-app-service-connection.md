@@ -26,7 +26,9 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 ## Create a new service connection in App Service
 
 1. To create a new service connection in App Service, select the **Search resources, services and docs (G +/)** search bar at the top of the Azure portal, type ***App Services***, and select **App Services**.
+
     :::image type="content" source="./media/app-service-quickstart/select-app-services.png" alt-text="Screenshot of the Azure portal, selecting App Services.":::
+
 1. Select the Azure App Services resource you want to connect to a target resource.
 1. Select **Service Connector** from the left table of contents. Then select **Create**.
 
@@ -44,18 +46,27 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
     :::image type="content" source="./media/app-service-quickstart/basics-tab.png" alt-text="Screenshot of the Azure portal, filling out the Basics tab.":::
 
-1. Select **Next: Authentication** to select the authentication from four options:
+1. Select **Next: Authentication** to choose an authentication method.
 
-   - System-assigned managed identity (recommended)
-   - User-assigned managed identity
-   - Connection string
-   - Service principal
+    ### [System-assigned managed identity](#tab/SMI)
 
-    :::image type="content" source="./media/app-service-quickstart/authentication.png" alt-text="Screenshot of the Azure portal, filling out the Authentication tab.":::
+    System-assigned managed identity is the recommended authentication option. Select **System-assigned managed identity** to connect through an identity that's generated in Azure Active Directory and tied to the lifecycle of the service instance.
+
+    ### [User-assigned managed identity](#tab/UMI)
+
+    Select **User-assigned managed identity** to authenticate through a standalone identity assigned to one or more instances of an Azure service.
+
+    ### [Connection string](#tab/CS)
+
+    Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
+
+    ### [Service principal](#tab/SP)
+
+    Choose this option to use a service principal that defines the access policy and permissions for the user/application in Azure Active Directory.
 
 1. Select **Next: Networking** to configure the network access to your target service and select **Configure firewall rules to enable access to your target service**.
 
-1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take one minute to complete.
+1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take a minute to complete.
 
 ## View service connections in App Service
 
