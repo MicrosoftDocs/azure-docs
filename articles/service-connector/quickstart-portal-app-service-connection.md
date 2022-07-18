@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Create a service connection in App Service from the Azure portal
 description: Quickstart showing how to create a service connection in App Service from the Azure portal
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: quickstart
@@ -62,7 +62,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
     ### [Service principal](#tab/SP)
 
-    Choose this option to use a service principal that defines the access policy and permissions for the user/application in Azure Active Directory.
+    Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Azure Active Directory.
 
 1. Select **Next: Networking** to configure the network access to your target service and select **Configure firewall rules to enable access to your target service**.
 
