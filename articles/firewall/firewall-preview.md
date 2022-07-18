@@ -97,9 +97,7 @@ By default, the new resource specific tables are disabled. Open a support ticket
 
 In addition, when setting up your log analytics workspace, you must select whether you want to work with the AzureDiagnostics table (default) or with Resource Specific Tables.
 
-Additional KQL log queries were added (as seen in the following screenshot) to query structured firewall logs.
-
-:::image type="content" source="media/firewall-preview/resource-specific-tables.png" alt-text="Screenshot showing Firewall logs Resource Specific Tables." lightbox="media/firewall-preview/resource-specific-tables-zoom.png":::
+Additional KQL log queries were added to query structured firewall logs.
 
 > [!NOTE]
 > Existing Workbooks and any Sentinel integration will be adjusted to support the new structured logs when **Resource Specific** mode is selected.
@@ -139,11 +137,9 @@ Enabling Policy Analytics on a Firewall Policy associated with a single firewall
 1.	Once all prerequisites are met, select **Policy analytics (preview)** in the table of contents. 
 2. Next, select **Configure Workspaces**.
 3. In the pane that opens, select the **Enable Policy Analytics** checkbox. 
-:::image type="content" source="media/firewall-preview/configure-workspaces.png" alt-text="Screenshot showing Azure Firewall Configure Workspaces.":::
 4. Next, choose a log analytics workspace. The log analytics workspace should be the same as the Firewall attached to the policy.
 5. Select **Save** after you choose the log analytics workspace.
 6. Go to the Firewall attached to the policy and enter the **Diagnostic settings** page. You'll see the **FirewallPolicySetting** added there as part of the policy analytics feature.
-:::image type="content" source="media/firewall-preview/edit-setting.png" alt-text="Screenshot showing Azure Firewall Policy Analytics edit setting.":::
 7. Select **Edit Setting**, and ensure the **Resource specific** toggle is checked, and the highlighted tables are checked. In the previous example, all logs are written to the log analytics workspace.
 
 #### Firewall with Azure Diagnostics settings already configured
@@ -154,12 +150,10 @@ Enabling Policy Analytics on a Firewall Policy associated with a single firewall
    - AZFWNatRuleAggregation
 2. Next, select **Policy Analytics (preview)** in the table of contents. Once inside the feature, select **Configure Workspaces**. 
 3. Now, select **Enable Policy Analytics**.
-:::image type="content" source="media/firewall-preview/configure-workspaces.png" alt-text="Screenshot showing Azure Firewall Configure Workspaces.":::
 4. Next, choose a log analytics workspace. The log analytics workspace should be the same as the Firewall attached to the policy. 
 5. Select **Save** after you choose the log analytics workspace.
 
-   During the save process, you might see the following error message:
-   :::image type="content" source="media/firewall-preview/error-message.png" alt-text="Screenshot showing Azure Firewall Policy Analytics error message.":::
+   During the save process, you might see the following error message: **Failed to update Diagnostic Settings**
 
    You can disregard this error message if the policy was successfully updated.
 
