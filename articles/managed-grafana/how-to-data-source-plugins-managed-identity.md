@@ -64,7 +64,7 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
 
    :::image type="content" source="media/managed-grafana-how-to-source-configuration-Azure-Monitor-settings.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
 
-Authentication and authorization are subsequently made through the provided managed identity. With Managed Identity, you can assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
+Authentication and authorization are then made through the provided managed identity. With Managed Identity, you can assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
 
 ## Next steps
 
