@@ -84,13 +84,15 @@ To create the registry key that overrides push notifications:
    Value = TRUE
 1. Restart the NPS Service. 
 
-## Enable number matching in the portal
+## Enable number matching 
 
-To enable number matching in the Azure AD portal, complete the following steps:
+To enable number matching, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. Select the target users, click the three dots on the right, and click **Configure**.
-1. Select the **Authentication mode**, and then for **Require number matching (Preview)**, click **Enable**, and then click **Done**. 
+1. Click **Basics**.
+1. Click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Push**. 
+1. Click **Configure**.
+1. Click **Require number matching for push notifications (Preview)**, and then for **Require number matching (Preview)**, click **Enable**, and then click **Done**. 
 
 
 ## Next steps

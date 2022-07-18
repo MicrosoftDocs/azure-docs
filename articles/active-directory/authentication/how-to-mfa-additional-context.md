@@ -13,11 +13,11 @@ ms.collection: M365-identity-device-management
 ---
 # How to use additional context in Microsoft Authenticator app notifications (Preview) - Authentication Methods Policy
 
-This topic covers how to improve the security of user sign-in by adding the application and location in Microsoft Authenticator app push notifications.  
+This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator push and passwordless notifications.  
 
 ## Prerequisites
 
-Your organization will need to enable Authenticator app push notifications for some users or groups by using the Azure AD portal. The new Authentication Methods Policy API will soon be ready as another configuration option.
+Your organization will need to enable Microsoft Authenticator push notifications for some users or groups by using the Azure AD portal. The new Authentication Methods Policy API will soon be ready as another configuration option.
 
 >[!NOTE]
 >Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy.
@@ -32,15 +32,17 @@ The additional context can be combined with [number matching](how-to-mfa-number-
 
 :::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location-with-number-match.png" alt-text="Screenshot of additional context with number matching in the MFA push notification.":::
 
+## Enable additional context
 
-## Enable additional context in the portal
-
-To enable additional context in the Azure AD portal, complete the following steps:
+To enable additional context, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. Select the target users, click the three dots on the right, and click **Configure**.
+1. Click **Basics**.
+1. Click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. 
+1. Click **Configure**.
+1. Below **Show application name in push and passwordless notifications (Preview)**, change **Status** to **Enabled** and choose who to include or exclude from the policy. 
+1. Below **Show geographic location in push and passwordless notifications (Preview)**, change **Status** to **Enabled** and choose who to include or exclude from the policy. 
 1. Select the **Authentication mode**, and then for **Show additional context in notifications (Preview)**, click **Enable**, and then click **Done**.
-
 
 ## Known issues
 
