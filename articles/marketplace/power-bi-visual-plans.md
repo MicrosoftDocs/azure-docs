@@ -1,5 +1,5 @@
 ---
-title: Create Power Bi visual plans in Partner Center for Microsoft AppSource
+title: Create Power BI visual plans in Partner Center for Microsoft AppSource
 description: Learn how to create plans for a Power BI visual offer in Partner Center for Microsoft AppSource.
 author: posurnis
 ms.author: posurnis
