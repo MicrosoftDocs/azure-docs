@@ -14,7 +14,7 @@ ms.custom: mode-other
 
 This article shows you how to add the Azure Maps to an iOS app. It walks you through these basic steps:
 
-* Setup your development environment.
+* Set up your development environment.
 * Create your own Azure Maps account.
 * Get your primary Azure Maps key to use in the app.
 * Reference the Azure Maps libraries from the project.
@@ -67,7 +67,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 
 ## Create a project in Xcode
 
-First, create a new iOS App project. Complete these steps to create a Xcode project:
+First, create a new iOS App project. Complete these steps to create an Xcode project:
 
 1. Under **File**, select **New** -> **Project**.
 
