@@ -65,7 +65,7 @@ If an asset filter (job, model, component, environment, dataset) is present, res
 > * Input text of any language is supported but filter strings must match the provided options (ex. submittedBy:).
 > * The tags filter can accept multiple key:value pairs separated by a comma (ex. tags:"key1:value1, key2:value2").
 
-### View search results
+## View search results
 
 You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Data** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view aren't displayed.
 
@@ -74,4 +74,24 @@ You can view your search results in the individual **Jobs**, **Models**, **Compo
 If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
 
 > [!IMPORTANT]	
-> Search results may be unexpected for multiword terms in other languages (ex. Chinese characters). 	
+> Search results may be unexpected for multiword terms in other languages (ex. Chinese characters).
+
+## Customize search results
+
+You can create, save and share different views for your search results.  
+
+1.  On the search results page, select **Edit view**.
+
+    :::image type="content" source="media/how-to-search-assets/edit-view.png" alt-text="Screenshot: Edit view for search results.":::
+
+Use the menu to customize and create new views:
+
+|Item  |Description  |
+|---------|---------|
+|Edit columns     |   Add, delete, and re-order columns in the current view's search results table      |
+|Reset     |   Add all hidden columns back into the view |
+|Share     |  Displays a URL you can copy to share this view     |
+|New...     |  Create a new view       |
+|Clone     |   Clone the current view as a new view      |
+
+Since each tab displays different columns, you customize views separately for each tab.
