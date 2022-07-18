@@ -114,6 +114,8 @@ The My Apps portal enables administrators and users to manage the applications u
 > [!NOTE]
 > Applications only appear in a user's my Apps portal after the user is assigned to the application and the application is configured to be visible to users. See [Configure application properties](add-application-portal-configure.md) to learn how to make the application visible to users.
 
+By default, all applications are listed together on a single page. But you can use collections to group together related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on. In this section, you create a collection  and assign it to users and groups.
+
 1. Open the Azure portal.
 1. Go to **Azure Active Directory**, and then select **Enterprise Applications**.
 1. Under **Manage**, select **Collections**.
@@ -123,6 +125,13 @@ The My Apps portal enables administrators and users to manage the applications u
 1. Select the **Owners** tab. Select **+ Add users and groups**, and then in the Add users and groups page, select the users or groups you want to assign ownership to. When you're finished selecting users and groups, choose **Select**.
 1. Select the **Users and groups** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign the collection to. Or use the Search box to find users or groups. When you're finished selecting users and groups, choose **Select**.
 1. Select **Review + Create**, and then select **Create**. The properties for the new collection appear.
+
+### Check the collection in the My Apps portal
+
+1. Open a new browser window in InPrivate or incognito mode and browse to the [My Apps](https://myapps.microsoft.com/) portal.
+1. Sign in with the user account that you assigned to the application. 
+1. Check that the collection you created appears in the My Apps portal.
+1. Close the browser window.
 
 ## Clean up resources
 
