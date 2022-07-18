@@ -4,7 +4,7 @@ description: How to open a help request for Azure HPC Cache, including how to cr
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/13/2022
+ms.date: 07/18/2022
 ms.author: v-erinkelly
 ---
 
@@ -18,6 +18,8 @@ To open a ticket when you do not have an active cache, use the main Help + suppo
 
 > [!TIP]
 > If you need a quota increase, most requests can be handled automatically. Follow the instructions below in [Request a quota increase](#request-a-quota-increase).
+
+## Request technical support
 
 Choose **Create a support request**. On the support request form, write a summary of the issue, and select **Technical** as the **Issue type**.
 
