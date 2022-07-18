@@ -153,13 +153,13 @@
       href: how-to-work-with-threat-intelligence-packages.md
     - name: OT system maintenance
       items:
+      - name: Update OT monitoring software
+        href: update-ot-software.md
+        displayName: upgrade
       - name: Manage OT sensors
         items:
         - name: Manage individual sensors
           href: how-to-manage-individual-sensors.md
-        - name: Update OT sensor software
-          href: update-ot-software.md
-          displayName: upgrade
         - name: Control OT traffic monitoring
           href: how-to-control-what-traffic-is-monitored.md
         - name: Configure active monitoring
