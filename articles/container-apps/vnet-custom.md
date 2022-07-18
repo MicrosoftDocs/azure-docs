@@ -15,16 +15,13 @@ zone_pivot_groups: azure-cli-or-portal
 
 The following example shows you how to create a Container Apps environment in an existing virtual network.
 
-> [!IMPORTANT]
-> Container Apps environments are deployed on a virtual network. This network can be managed or custom (pre-configured by the user beforehand). In either case, the environment has dependencies on services outside of that virtual network. For a list of these dependencies see [Outbound FQDN dependencies](firewall-integration.md#outbound-fqdn-dependencies).
-
 ::: zone pivot="azure-portal"
 
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
 > [!NOTE]
-> Network address prefixes requires a CDIR range of `/23`.
+> Network address prefixes requires a CIDR range of `/23`.
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.

@@ -117,11 +117,21 @@ ms.author: eur
 | Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-JulioNeural` <sup>New</sup> | General |
 | Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-ValerioNeural` <sup>New</sup> | General |
 | Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-NicolauNeural` <sup>New</sup> | General |
-| Chinese (Mandarin, Simplified) | `zh-CN-SC` | Male | `zh-CN-SC-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
-| Chinese (Mandarin, Simplified) | `zh-CN-LN` | Female | `zh-CN-LN-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
+| Chinese (Mandarin, Simplified) | `zh-CN-sichuan` | Male | `zh-CN-sichuan-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
+| Chinese (Mandarin, Simplified) | `zh-CN-liaoning` | Female | `zh-CN-liaoning-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
 
 * Improved quality for `en-SG-LunaNeural` and `en-SG-WayneNeural`
 * 48kHz output support for Public Preview with en-US-JennyNeural, en-US-AriaNeural, and zh-CN-XiaoxiaoNeural
+
+#### Custom Neural Voice
+
+* Enabled to fix data issues online. Learn more on [how to fix data issues online](../../how-to-custom-voice-create-voice.md#fix-data-issues-online).
+* Added training recipe version. Learn more on [selecting the training recipe version for your voice model](../../how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
+
+#### Audio Content Creation tool
+
+* Supported pagination.
+* Enabled to sort globally by name, file type, and update time on work file page.
 
 ### 2022-May release
 
@@ -136,6 +146,22 @@ ms.author: eur
 * Support 1 new style `advertisement-upbeat` in public preview for `zh-CN-YunhaoNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
 * The `cheerful` and `sad` styles for `fr-FR-DeniseNeural` are generally available in all regions.
 * SSML updated to support MathML elements for en-US and en-AU voices. Learn more at [speech synthesis markup](../../speech-synthesis-markup.md#supported-mathml-elements).
+
+#### Custom Neural Voice
+
+* Enabled to cancel training during training voice model. Learn more on [how to cancel training](../../how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
+* Enabled to clone model (rename voice model). Learn more on [how to rename your voice model](../../how-to-custom-voice-create-voice.md#rename-your-model).
+* Enabled to test your voice model by adding your own test script. Learn more on [how to upload your test script](../../how-to-custom-voice-create-voice.md#test-your-voice-model).
+* Enabled to update engine version for your voice model. Learn more on [how to update the model engine version](../../how-to-custom-voice-create-voice.md#update-engine-version-for-your-voice-model).
+* Supported more training regions. See [region support](../../regions.md#custom-neural-voices).
+* Supported 10 locales for Custom Neural Voice Lite (preview). See [language support](../../language-support.md#custom-neural-voice).
+
+#### Audio Content Creation tool
+
+* Enabled to try out Audio Content Creation tool without signing in.
+* Improved layout for adjusting phonemes.
+* Enhanced performance: Specified the maximum number (200) of files to be uploaded at one time.
+* Enhanced performance: Specified the maximum directory depth level (5 levels).
 
 ### 2022-March release
 

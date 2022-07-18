@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud troubleshooting guide | Microsoft Docs
+title: Microsoft Defender for Cloud troubleshooting guide
 description: This guide is for IT professionals, security analysts, and cloud admins who need to troubleshoot Microsoft Defender for Cloud related issues.
 ms.topic: conceptual
 ms.date: 12/26/2021
