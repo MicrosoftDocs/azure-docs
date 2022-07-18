@@ -25,7 +25,7 @@ In this guide, you'll:
 
 ## Set up the project locally
 
-1. Open a Command Prompt window on your machine. The following instructions work for all Windows, Linux, and Mac development environments.
+1. Open a Command Prompt window on your machine.
 
 1. Create an ASP.NET Core MVC web application:
 
