@@ -15,7 +15,7 @@ sections:
       - question: |
           Does Azure Event Grid support resiliency?
         answer: |
-          Yes, Azure Event Grid it's a high available service by zone-redundant support replicated in three availability zones when available to provide automatic in-region recovery of your data if a failure occurs in the region. See [Resiliency in Azure Event Grid](availability-zone-resiliency.md) and [Highly available services](../availability-zones/az-region.md#highly-available-services) for more details.
+          Yes, Azure Event Grid it's a high available service by zone-redundant support replicated in three availability zones when available to provide automatic in-region recovery of your data if a failure occurs in the region. See [availability zones in Azure Event Grid](availability-zones-disaster-recovery.md) and [Highly available services](../availability-zones/az-region.md#highly-available-services) for more details.
 
       - question: |
           How does resiliency works in Azure Event Grid?
@@ -30,7 +30,7 @@ sections:
       - question: |
            Do I need to configure Azure Event Grid to enable resiliency?
         answer: |          
-          No, you don't need to configure anything. Azure Event Grid automatically replicates data across data centers in the selected region. See [Resiliency in Azure Event Grid](availability-zone-resiliency.md) for more details.
+          No, you don't need to configure anything. Azure Event Grid automatically replicates data across data centers in the selected region. See [availability zones in Azure Event Grid](availability-zones-disaster-recovery.md) for more details.
 
       - question: |
           How do I recover from a failover?
