@@ -77,7 +77,7 @@ It's important that you have the following prerequisites completed before you be
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-deploy-medtech-service-button.png" alt-text="Screenshot of Azure Health Data Services workspace with a red box around the Deploy MedTech service button." lightbox="media\iot-deploy-manual-in-portal\select-deploy-medtech-service-button.png":::
 
-3. Select the **Add MedTech service**.
+3. Select the **Add MedTech service** button.
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-add-medtech-service-button.png" alt-text="Screenshot of workspace and red box round the Add MedTech service button." lightbox="media\iot-deploy-manual-in-portal\select-add-medtech-service-button.png":::
 
@@ -114,7 +114,7 @@ It's important that you have the following prerequisites completed before you be
 
       :::image type="content" source="media\iot-deploy-manual-in-portal\select-medtech-service-event-hub.png" alt-text="Screenshot of Event Hubs overview and red box around the event hub to be used for the MedTech service device messages." lightbox="media\iot-deploy-manual-in-portal\select-medtech-service-event-hub.png":::
 
-   5. Once inside of the event hub, select the **Consumer groups** button on the middle right hand side of the screen under **Entities** to display the name of the consumer group to be used by your MedTech service. 
+   5. Once inside of the event hub, select the **Consumer groups** button under **Entities** to display the name of the consumer group to be used by your MedTech service. 
 
       :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-consumer-groups.png" alt-text="Screenshot of event hub overview and red box around the consumer groups button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-consumer-groups.png":::
 
@@ -132,7 +132,7 @@ It's important that you have the following prerequisites completed before you be
       > * Two MedTech services accessing the same device message event hub.
       > * A MedTech service and a storage writer application accessing the same device message event hub. 
     
-2. Select **Next: Device mapping**. 
+2. Select **Next: Device mapping** button. 
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-device-mapping-button.png" alt-text="Screenshot of MedTech services basics information filled out and a red box around the Device mapping button." lightbox="media\iot-deploy-manual-in-portal\select-device-mapping-button.png":::
   
@@ -216,7 +216,7 @@ Tags are name and value pairs used for categorizing resources. For more informat
    1. Enter a **Name**.
    2. Enter a **Value**.
 
-2. Once you've entered your tag(s), select the **Review + create** button in the lower left hand side of the screen.
+2. Once you've entered your tag(s), select the **Review + create** button.
 
 3. You should notice a **Validation success** message like what's shown in the image below. 
 
@@ -228,7 +228,7 @@ Tags are name and value pairs used for categorizing resources. For more informat
 
 ## Create your MedTech service
 
-1. Select the **Create** button in the lower left hand side of the screen to begin the deployment of your MedTech service.
+1. Select the **Create** button to begin the deployment of your MedTech service.
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\create-medtech-service.png" alt-text="Screenshot of a red box around the Create button for the MedTech service." lightbox="media\iot-deploy-manual-in-portal\create-medtech-service.png":::
 
@@ -254,7 +254,7 @@ To ensure that your MedTech service works properly, it's system-assigned managed
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\search-for-event-hubs-namespace.png" alt-text="Screenshot of the Azure portal search bar with red box around the search bar and Azure Event Hubs Namespace." lightbox="media\iot-deploy-manual-in-portal\search-for-event-hubs-namespace.png":::
 
-2. Select the **Event Hubs** button in the lower left hand side of the screen under **Entities**.
+2. Select the **Event Hubs** button under **Entities**.
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-medtech-service-event-hubs-button.png" alt-text="Screenshot of the MedTech service Azure Event Hubs Namespace with red box around the Event Hubs button." lightbox="media\iot-deploy-manual-in-portal\select-medtech-service-event-hubs-button.png":::  
    
@@ -262,11 +262,11 @@ To ensure that your MedTech service works properly, it's system-assigned managed
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-for-device-messages.png" alt-text="Screenshot of the device message event hub with red box around the Access control (IAM) button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-for-device-messages.png":::
 
-4. Select the **Access control (IAM)** button in the upper left hand side of the screen.
+4. Select the **Access control (IAM)** button.
    
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-access-control-iam-button.png" alt-text="Screenshot of event hub landing page and a red box around the Access control (IAM) button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-access-control-iam-button.png":::    
 
-5. Select the **Add role assignment** button in the upper middle of the screen.
+5. Select the **Add role assignment** button.
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-add-role-assignment-button.png" alt-text="Screenshot of the Access control (IAM) page and a red box around the Add role assignment button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-add-role-assignment-button.png":::
  
@@ -274,7 +274,7 @@ To ensure that your MedTech service works properly, it's system-assigned managed
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\event-hub-add-role-assignment-available-roles.png" alt-text="Screenshot of the Access control (IAM) page and a red box around the Azure Event Hubs Data Receiver text and View button." lightbox="media\iot-deploy-manual-in-portal\event-hub-add-role-assignment-available-roles.png":::
 
-   The Azure Event Hubs Data Receiver role allows the MedTech service that's being assigned this role to receive data from this event hub.
+   The Azure Event Hubs Data Receiver role allows the MedTech service that's being assigned this role to receive device message data from this event hub.
 
    > [!TIP]
    > For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](.././authentication-authorization.md).
@@ -287,11 +287,11 @@ To ensure that your MedTech service works properly, it's system-assigned managed
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-permissions-next-button.png" alt-text="Screenshot of the Azure Events Hubs Data Receiver role with a red box around the Next button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-permissions-next-button.png":::
 
-9. In the **Add role assignment** page on the left hand side of the screen, select **Managed identity** next to **Assign access to** and **+ Select members** next to **Members**. 
+9. In the **Add role assignment** page, select **Managed identity** next to **Assign access to** and **+ Select members** next to **Members**. 
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hubs-managed-identity-and-members-buttons.png" alt-text="Screenshot of the Add role assignment page with a red box around the Managed identity and + Select members buttons." lightbox="media\iot-deploy-manual-in-portal\select-event-hubs-managed-identity-and-members-buttons.png"::: 
 
-10. When the **Select managed identities** box opens, under the **Managed identity** box, select **MedTech service,** and find your MedTech service system-assigned managed identity under the **Select** box. Once the system-assigned managed identity for your MedTech service is found, select it, and then select the **Select** button located at the bottom of the page.
+10. When the **Select managed identities** box opens, under the **Managed identity** box, select **MedTech service,** and find your MedTech service system-assigned managed identity under the **Select** box. Once the system-assigned managed identity for your MedTech service is found, select it, and then select the **Select** button.
 
     > [!TIP]
     >   
@@ -305,15 +305,15 @@ To ensure that your MedTech service works properly, it's system-assigned managed
 
     :::image type="content" source="media\iot-deploy-manual-in-portal\select-medtech-service-mi-for-event-hub-access.png" alt-text="Screenshot of the Select managed identities page with a red box around the Managed identity drop-down box, the selected managed identity and the Select button." lightbox="media\iot-deploy-manual-in-portal\select-medtech-service-mi-for-event-hub-access.png":::
 
-11. On the **Add role assignment** page, select the **Review + assign** button in the lower left hand side of your screen.
+11. On the **Add role assignment** page, select the **Review + assign** button.
 
     :::image type="content" source="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-add.png" alt-text="Screenshot of the Add role assignment page with a red box around the Review + assign button." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-add.png":::
 
-12. On the **Add role assignment** confirmation page, select the **Review + assign** button in the lower left hand side of your screen.
+12. On the **Add role assignment** confirmation page, select the **Review + assign** button.
 
     :::image type="content" source="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png" alt-text="Screenshot of the Add role assignment confirmation page with a red box around the Review + assign button." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png":::
 
-13. After the role assignment has been successfully added to the event hub, a notification will display in the upper right hand corner of your screen with a green check mark. This notification indicates that your MedTech service can now read from your device message event hub.
+13. After the role assignment has been successfully added to the event hub, a notification will display on your screen with a green check mark. This notification indicates that your MedTech service can now read from your device message event hub.
 
     :::image type="content" source="media\iot-deploy-manual-in-portal\validate-medtech-service-managed-identity-added-to-event-hub.png" alt-text="Screenshot of the MedTech service system-assigned managed identity being successfully granted access to the event hub with a red box around the message." lightbox="media\iot-deploy-manual-in-portal\select-review-assign-for-event-hub-managed-identity-confirmation.png":::
 
