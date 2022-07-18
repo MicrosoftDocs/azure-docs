@@ -46,7 +46,7 @@ Create a new Azure Maps account with the following steps:
    * Read the _License_ and _Privacy Statement_, and check the checkbox to accept the terms.
    * Select the **Create** button.
 
-    ![Create an Azure maps account.](./media/ios-sdk/quick-ios-app/create-account.png)
+    ![Create an Azure maps account.](./media/shared/create-account.png)
 
 ## Get the primary key for your account
 

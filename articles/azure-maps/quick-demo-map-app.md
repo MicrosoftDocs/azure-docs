@@ -43,7 +43,7 @@ Create a new Azure Maps account with the following steps:
     * The *Pricing tier* for this account. Select **Gen2**.
     * Read the *License* and *Privacy Statement*, then select the checkbox to accept the terms.
 
-    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="A screen shot showing the Create an Azure Maps Account resource page in the Azure portal." lightbox="./media/quick-demo-map-app/create-account.png":::
+    :::image type="content" source="./media/shared/create-account.png" alt-text="A screen shot showing the Create an Azure Maps Account resource page in the Azure portal." lightbox="./media/shared/create-account.png":::
 
 <a id="getkey"></a>
 
