@@ -17,9 +17,9 @@ recommendations: false
 >[!NOTE]
 > Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool to visually explore, understand, and integrate features from the Form Recognizer service into your applications. The studio provides a platform for you to experiment with the different Form Recognizer models and sample their returned data in an interactive manner without the need to write code. 
+Form Recognizer Studio is an online tool to visually explore, understand, and integrate features from the Form Recognizer service into your applications. The studio provides a platform for you to experiment with the different Form Recognizer models and sample their returned data in an interactive manner without the need to write code.
 
-The studio supports all Form Recognizer v3.0 models v2.1 models with labeled data. Refer to the [REST API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
+The studio supports all Form Recognizer v3.0 models and v2.1 models with labeled data. Refer to the [REST API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 
 ## Get started using Form Recognizer Studio
 
@@ -27,16 +27,14 @@ The studio supports all Form Recognizer v3.0 models v2.1 models with labeled dat
 
     * **Azure subscription** - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
-    * **Cognitive Services or Form Recognizer resource**. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal to get your key and endpoint.
-
-    * Use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * **Cognitive Services or Form Recognizer resource**. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal to get your key and endpoint. Use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
     >
-    > * Create a Cognitive Services (multi-service) resource if you plan to access multiple cognitive services under a single endpoint/key.
-    > * For single-service Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
+    > * Create a Cognitive Services (multi-service) resource if you plan to access multiple cognitive services under a single endpoint and key.
+    > * Create a single-service resource for Form Recognizer access only. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
 
-1. Navigate to the Form Recognizer Studio. If it's your first time logging in, a popup window will appear prompting you to configure your service resource. You have two options:
+1. Navigate to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window will appear prompting you to configure your service resource. You have two options:
 
    **a. Access by Resource**.
 
@@ -53,27 +51,28 @@ The studio supports all Form Recognizer v3.0 models v2.1 models with labeled dat
 
       :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-1. Once you've completed configuring your resource, you'll be able to try the different models offered by Form Recognizer Studio.
+1. Once you've completed configuring your resource, you'll be able to try the different models offered by Form Recognizer Studio. From the front page, select any Form Recognizer model to try using a no-code approach.
 
     :::image type="content" source="media/studio/form-recognizer-studio-front.png" alt-text="Screenshot of Form Recognizer Studio front page.":::
 
-1. From the front page, select any Form Recognizer model to try using a no-code approach.  Each model is explained in depth in the concepts pages.
-
 <!-- markdownlint-disable MD033 -->
+1. After trying Form Recognizer Studio, use the [**C#**](quickstarts/try-v3-csharp-sdk.md), [**Java**](quickstarts/try-v3-java-sdk.md), [**JavaScript**](quickstarts/try-v3-javascript-sdk.md) or [**Python**](quickstarts/try-v3-python-sdk.md) client libraries or the [**REST API**](quickstarts/try-v3-rest-api.md) to get started incorporating Form Recognizer models into your own applications.
 
-| Model type| Models |
-|-----|-----|
-|Document analysis models| <ul><li>[**Read model**](concept-read.md)</li><li>[**Layout model**](concept-layout.md)</li><li>[**General document model**](concept-general-document.md)</li></ul>.</br></br>
-|**Prebuilt models**|<ul><li>[**W-2 form model**](concept-w2.md)</li><li>[**Invoice model**](concept-invoice.md)</li><li>[**Receipt model**](concept-receipt.md)</li><li>[**ID document model**](concept-id-document.md)</li><li>[**Business card model**](concept-business-card.md)</li></ul>
-|Custom models|<ul><li>[**Custom model**](concept-custom.md)</li><ul><li>[**Template model**](concept-custom-template.md)</li><li>[**Neural model**](concept-custom-template.md)</li></ul><li>[**Composed model**](concept-model-overview.md)</li></ul>
+   To learn more about each model, *see* the concepts pages.
+
+   | Model type| Models |
+   |-----|-----|
+   |Document analysis models| <ul><li>[**Read model**](concept-read.md)</li><li>[**Layout model**](concept-layout.md)</li><li>[**General document model**](concept-general-document.md)</li></ul>.</br></br>
+   |**Prebuilt models**|<ul><li>[**W-2 form model**](concept-w2.md)</li><li>[**Invoice model**](concept-invoice.md)</li><li>[**Receipt model**](concept-receipt.md)</li><li>[**ID document model**](concept-id-document.md)</li><li>[**Business card model**](concept-business-card.md)</li></ul>
+   |Custom models|<ul><li>[**Custom model**](concept-custom.md)</li><ul><li>[**Template model**](concept-custom-template.md)</li><li>[**Neural model**](concept-custom-template.md)</li></ul><li>[**Composed model**](concept-model-overview.md)</li></ul>
 
 ### Manage your resource
 
- To view resource details such as name and pricing tier, select the **Settings** icon in the top-right corner of the In Form Recognizer Studio home page and select the **Resource** tab. If you have access to other resources, you can switch resources as well.
+ To view resource details such as name and pricing tier, select the **Settings** icon in the top-right corner of the Form Recognizer Studio home page and select the **Resource** tab. If you have access to other resources, you can switch resources as well.
 
 :::image type="content" source="media/studio/form-recognizer-studio-resource-page.png" alt-text="Screenshot of the studio settings page resource tab.":::
 
-After trying Form Recognizer Studio, you can use the [**C#**](quickstarts/try-v3-csharp-sdk.md), [**Java**](quickstarts/try-v3-java-sdk.md), [**JavaScript**](quickstarts/try-v3-javascript-sdk.md) or [**Python**](quickstarts/try-v3-python-sdk.md) client libraries or the [**REST API**](quickstarts/try-v3-rest-api.md) to get started incorporating Form Recognizer models into your own applications.
+With Form Recognizer, you can quickly automate your data processing in applications and workflows, easily enhance data-driven strategies, and skillfully enrich document search capabilities.
 
 ## Next steps
 
