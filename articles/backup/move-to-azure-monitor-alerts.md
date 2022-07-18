@@ -33,7 +33,7 @@ Azure Backup now supports different kinds of Azure Monitor based alerting soluti
 - **Metric alerts**: You can write custom alert rules using Azure Monitor metrics to monitor the health of your backup items across different KPIs.
 - **Log Alerts**: If you've scenarios where an alert needs to be generated based on custom logic, you can use Log Analytics based alerts for such scenarios, provided you've configured your vaults to send diagnostics data to a Log Analytics (LA) workspace.
 
-Learn more about [monitoring solutions supported by Azure Backup](monitoring-and-alerts-overview.md).<br>
+Learn more about [monitoring solutions supported by Azure Backup](monitoring-and-alerts-overview.md).<br><br>
 
 > [!VIDEO https://www.youtube.com/embed/3zzWxWJGWPg]
 
