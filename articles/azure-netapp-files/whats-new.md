@@ -12,13 +12,17 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 06/28/2022
+ms.date: 07/18/2022
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+<!-- date pending -->
+* [Cross-zone replication](create-cross-zone-replication.md) (Preview)
+    <!-- Geert to provide -->
 
 ## June 2022
 

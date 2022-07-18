@@ -287,6 +287,8 @@
       items:
       - name: Create volume replication
         href: cross-region-replication-create-peering.md
+      - name: Create cross-zone replication 
+        href: create-cross-zone-replication.md
       - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md
       - name: Manage disaster recovery

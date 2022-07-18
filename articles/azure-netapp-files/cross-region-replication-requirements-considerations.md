@@ -12,13 +12,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 05/18/2022
 ms.author: anfdocs
 ---
 
 # Requirements and considerations for using cross-region replication 
 
 This article describes requirements and considerations about [using the volume cross-region replication](cross-region-replication-create-peering.md) functionality of Azure NetApp Files.
+
+These requirements and considerations also apply to [cross-zone replication](create-cross-zone-replication.md). 
 
 ## Requirements and considerations 
 
@@ -38,6 +40,7 @@ This article describes requirements and considerations about [using the volume c
 
 ## Next steps
 * [Create volume replication](cross-region-replication-create-peering.md)
+* [Create cross-zone replication relationships](create-cross-zone-replication.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
