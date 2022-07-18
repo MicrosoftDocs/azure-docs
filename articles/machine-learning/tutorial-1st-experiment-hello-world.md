@@ -153,15 +153,15 @@ Here's a description of how the control script works:
 
 1. In the terminal, you may be asked to sign in to authenticate. Copy the code and follow the link to complete this step.
 
-1. Once you're authenticated, you'll see a link in the terminal. Select the link to view the run.
+1. Once you're authenticated, you'll see a link in the terminal. Select the link to view the job.
 
    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
 
 ## View the output
 
-1. In the page that opens, you'll see the run status.
-1. When the status of the run is **Completed**, select **Output + logs** at the top of the page.
-1. Select **std_log.txt** to view the output of your run.
+1. In the page that opens, you'll see the job status.
+1. When the status of the job is **Completed**, select **Output + logs** at the top of the page.
+1. Select **std_log.txt** to view the output of your job.
 
 ## <a name="monitor"></a>Monitor your code in the cloud in the studio
 
@@ -174,7 +174,7 @@ Follow the link. At first, you'll see a status of **Queued** or **Preparing**. T
 * The compute cluster is resized from 0 to 1 node
 * The docker image is downloaded to the compute.
 
-Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
+Subsequent jobs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first job has completed.
 
 Wait about 10 minutes. You'll see a message that the run has completed. Then use **Refresh** to see the status change to _Completed_. Once the job completes, go to the **Outputs + logs** tab.
 

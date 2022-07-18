@@ -1,5 +1,5 @@
 ---
-title: Platforms supported by Microsoft Defender for Cloud | Microsoft Docs
+title: Platforms supported by Microsoft Defender for Cloud
 description: This document provides a list of platforms supported by Microsoft Defender for Cloud.
 ms.topic: overview
 ms.date: 11/09/2021

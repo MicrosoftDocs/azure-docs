@@ -2,7 +2,11 @@
 title: Azure Service Fabric Event List 
 description: Comprehensive list of events provided by Azure Service Fabric to help monitor clusters.
 ms.topic: reference
-ms.date: 2/25/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # List of Service Fabric events 
