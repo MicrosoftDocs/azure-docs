@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 18/07/2022
+ms.date: 07/18/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
