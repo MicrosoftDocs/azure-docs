@@ -93,7 +93,6 @@
         href: confidential-containers-enclaves.md
       - name: VM Isolated Confidential containers on Azure Container Instance 
         href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci---private-preview.md
-   
 - name: How To
   items:
   - name: Partner Solutions
@@ -116,4 +115,3 @@
     href: https://stackoverflow.com/questions/tagged/azure-confidential-computing
   - name: Virtual Machines on Azure
     href: ../virtual-machines/index.yml
-  
