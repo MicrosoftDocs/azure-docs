@@ -195,6 +195,8 @@
       href: how-to-enable-shutdown-disconnect.md      
     - name: View support information
       href: lab-creator-support-information.md
+    - name: Troubleshooting lab creation
+      href: troubleshooting.md
   - name: Connect to VMs in labs (student)
     items:        
     - name: Access labs
