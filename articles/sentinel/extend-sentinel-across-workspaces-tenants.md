@@ -44,7 +44,7 @@ As implied by the requirements above, there are cases where a single SOC needs t
 
 To address these cases, Microsoft Sentinel offers multiple-workspace capabilities that enable central monitoring, configuration, and management, providing a single pane of glass across everything covered by the SOC. This diagram shows an example architecture for such use cases. 
 
-:::image type="content" source="media/extend-sentinel-across-workspaces-tenants/cross-workspace-architecture.png" alt-text="Extend workspace across multiple tenants: architecture":::
+:::image type="content" source="media/extend-sentinel-across-workspaces-tenants/cross-workspace-architecture.png" alt-text="Diagram showing extend workspace across multiple tenants: architecture.":::
 
 This model offers significant advantages over a fully centralized model in which all data is copied to a single workspace:
 
