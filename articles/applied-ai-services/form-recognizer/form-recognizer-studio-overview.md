@@ -17,7 +17,7 @@ recommendations: false
 >[!NOTE]
 > Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities.
 
-  [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool to visually explore, understand, and integrate features from the Form Recognizer service into your applications. Form Recognizer Studio provides a platform for you to quickly try several service models and sample their returned data in an interactive manner. You can use Studio to experiment with the different Form Recognizer models and without the need to write any code. After trying Form Recognizer in the Studio, you can use the available client libraries and REST APIs to get started adding models and incorporating features within your own applications.
+  [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool to visually explore, understand, and integrate features from the Form Recognizer service into your applications. Form Recognizer Studio provides a platform for you to experiment with the different Form Recognizer models and sample their returned data in an interactive manner without the need to write any code. After trying Form Recognizer Studio, you can use the available client libraries and REST APIs to get started adding models and incorporating features to your own applications.
 
 ## Get started using Form Recognizer Studio
 
@@ -34,23 +34,26 @@ recommendations: false
 
 1. Navigate to the Form Recognizer Studio. If it's your first time logging in, a popup window will appear prompting you to configure your service resource. You have two options:
 
-   a. **Access by Resource**.
+   **a. Access by Resource**.
+
       * Choose your existing subscription.
       * Select an existing resource group within your subscription or create a new one.
       * Select your existing Form Recognizer or Cognitive services resource.
 
       :::image type="content" source="media/studio/welcome-to-studio.png" alt-text="Screenshot of the configure service resource window.":::
 
-   b. **Access by API endpoint and key**.
-        * You can retrieve your endpoint and key from the Azure portal. Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
+    **b. Access by API endpoint and key**.
+
+       * You can retrieve your endpoint and key from the Azure portal.
+       * Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
 
       :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-1. Once you have completed configuring your resource, you'll be able to try the different models offered by Form Recognizer Studio.
+1. Once you've completed configuring your resource, you'll be able to try the different models offered by Form Recognizer Studio.
 
-:::image type="content" source="media/studio/form-recognizer-studio-front.png" alt-text="Screenshot of Form Recognizer Studio front page.":::
+    :::image type="content" source="media/studio/form-recognizer-studio-front.png" alt-text="Screenshot of Form Recognizer Studio front page.":::
 
-1. From the front page, select any model offered by Form Recognizer to easily try using a no-code approach.  Each model is explained in depth in the concept article section:
+1. From the front page, select any model to easily try Form Recognizer using a no-code approach.  Each model is explained in depth in the concepts section.
 
 <!-- markdownlint-disable MD033 -->
 
@@ -60,11 +63,13 @@ recommendations: false
 |**Prebuilt models**|<ul><li>[**W-2 form model**](concept-w2.md)</li><li>[**Invoice model**](concept-invoice.md)</li><li>[**Receipt model**](concept-receipt.md)</li><li>[**ID document model**](concept-id-document.md)</li><li>[**Business card model**](concept-business-card.md)</li></ul>
 |Custom models|<ul><li>[**Custom model**](concept-custom.md)</li><ul><li>[**Template model**](concept-custom-template.md)</li><li>[**Neural model**](concept-custom-template.md)</li></ul><li>[**Composed model**](concept-model-overview.md)</li></ul>
 
-### View and manage your resource
+### Manage your resource
 
- In Form Recognizer Studio, select the **Settings** icon in the top-right corner of the studio home page. Select the **Resource** tab to view resource details such as name and pricing tier. If you have access to other resources, you can switch resources as well.
+ In Form Recognizer Studio, select the **Settings** icon in the top-right corner of the studio home page to view your resource. Select the **Resource** tab to view resource details such as name and pricing tier. If you have access to other resources, you can switch resources as well.
 
 :::image type="content" source="media/studio/form-recognizer-studio-resource-page.png" alt-text="Screenshot of the studio settings page resource tab.":::
+
+Enjoy the Form Recognizer Studio and 
 
 ## Next steps
 
