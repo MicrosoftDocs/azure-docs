@@ -25,7 +25,7 @@ This article provides details on the  REST API endpoints for the Azure OpenAI Se
 
 The Azure OpenAI Service is deployed as a part of the Azure Cognitive Services. All Cognitive Services rely on the same set of management APIs for creation, update and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
 
-[**Management APIs reference documentation**](/azure/api-management/)
+[**Management APIs reference documentation**](/rest/api/cognitiveservices/)
 
 ## Authentication
 
