@@ -26,7 +26,7 @@ Form Recognizer uses the following models to easily identify, extract, and analy
 
 * [**Read model**](concept-read.md) | Extract text lines, words, locations, and detected languages from documents and images.
 * [**Layout model**](concept-layout.md) | Extract text, tables, selection marks, and structure information from documents and images.
-* [**General document model**](concept-general-document.md) | Extract key-value pairs, selection marks, and entities from documents.
+* [**General document model**](concept-general-document.md) | Extract text, tables, selection marks, structure information, key-value pairs, and entities from documents.
 
 **Prebuilt models**
 
