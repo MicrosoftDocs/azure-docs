@@ -181,5 +181,43 @@ And then defining these elements for the resulting alert actions using:
 > - The new alert rule wizard does not support customization of the email subject.
 >     - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to trigger an alert of the desired resource using the resource id column.
 >     - For more advanced customizations, use Logic Apps.
-  
+
+## Create a new alert rule using CLI 
+
+You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-with-azure-cli). The [Azure Cloud Shell](../../cloud-shell/overview.md) is the fastest way to start using the Azure CLI.
+
+You can see the full list of the [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor#azure-monitor-references).
+
+> [!NOTE]
+> Azure CLI support is only available for the scheduledQueryRules API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
+
+1. In the [portal](https://portal.azure.com/), select **Cloud Shell**.
+1. At the prompt, enter these commands:
+ ## [Log alerts](#tab/logs)
+
+ To create a log alert rule that monitors count of system event errors:
+   ```azurecli
+        az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > ago(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
+   ```
+ ## [Metric alerts](#tab/metric)
+
+ To create a metric alert rule, use the **az monitor metrics alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor metrics alert create** section of the [metric alert CLI reference documentation](cli/azure/monitor/metrics/alert?view=azure-cli-latest).  
+ 
+ To create a simple metric alert rule that monitors if average Percentage CPU on a VM is greater than 90:
+
+    ```azurecli
+    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
+    ```
+ 
+ ## [Activity Log alerts](#tab/activity-log)
+
+To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [metric alert CLI reference documentation](cli/azure/monitor/activity-log/alert?view=azure-cli-latest).  
+ 
+ To create a simple activity log alert rule with the default settings:
+
+    ```azurecli
+    az monitor activity-log alert create -n {AlertName} -g {ResourceGroup}
+    ```
+---
 ## Next Steps
+ - [View and manage your alert instances](alerts-page.md)
