@@ -77,7 +77,7 @@ When a user within the customer’s organization tries to run an application, Mi
 ### Step 7: View reports
 
 ISVs can view information on:
-- Orders purchased, renewed, or cancelled over time and by geography.
+- Orders purchased, renewed, or canceled over time and by geography.
 
 - Provisioned and assigned licenses over a period of time and by geography.
 
