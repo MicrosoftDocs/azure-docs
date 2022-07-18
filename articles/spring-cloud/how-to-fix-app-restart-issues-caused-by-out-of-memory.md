@@ -61,7 +61,7 @@ When the value of `jvm.memory.used` is too high in the metrics, you may need to 
 
 #### Control direct memory
 
-Direct memory may be used by frameworks like nio and gzip without noticing it. Also, direct memory is only garbage collected by full GC, while full GC occurs only when the heap is near full. For this reason, it's important to set `-XX:MaxDirectMemorySize` in the JVM options. Normally, you can set `MaxDirectMemorySize` to a value less than the app memory size minus the heap memory minus the non-heap memory.
+Frameworks like nio and gzip may use direct memory without you noticing it. Also, direct memory is only garbage collected by full GC, while full GC occurs only when the heap is near full. For this reason, it's important to set `-XX:MaxDirectMemorySize` in the JVM options. Normally, you can set `MaxDirectMemorySize` to a value less than the app memory size minus the heap memory minus the non-heap memory.
 
 #### Control metaspace
 

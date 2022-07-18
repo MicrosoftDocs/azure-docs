@@ -130,7 +130,25 @@ The metaspace size depends on the complexity of your code, such as the number of
 
 The direct memory size depends on your throughput and your use of third party libraries like nio and gzip.
 
-The following diagram shows a typical memory layout sample for 2-GB apps. Numbers in grey are reference values of daily memory usage. You can refer to this image to configure your memory size settings.
+The following list describes a typical memory layout sample for 2-GB apps. You can refer to this list to configure your memory size settings.
+
+- Total Memory (2048M)
+- Heap memory: Xmx is 1433.6M (70% of total memory). The reference value of daily memory usage is 1200M.
+  - Young generation
+    - Survivor space (S0, S1)
+    - Eden space
+  - Old generation
+- Non-heap memory
+  - Observed part (observed by Spring Boot Actuator)
+    - Metaspace: the daily usage reference value is 50M-256M
+    - Code cache
+    - Compressed class space
+  - Not observed part (not observed by Spring Boot Actuator): the daily usage reference value is 150M-250M.
+    - Thread stack
+    - GC, internal symbol and other
+- Direct memory: the daily usage reference value is 10M-200M.
+
+The following diagram shows the same information. Numbers in grey are the reference values of daily memory usage.
 
 :::image type="content" source="media/concepts-for-java-memory-management/2-gb-sample.png" alt-text="Diagram of typical memory layout for 2-GB apps." border="false":::
 
