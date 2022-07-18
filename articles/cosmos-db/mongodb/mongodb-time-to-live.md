@@ -1,6 +1,6 @@
 ---
 title: MongoDB per-document TTL feature in Azure Cosmos DB
-description: Learn how to set time to live value for documents using Azure Cosmos DB's API for MongoDB to automatically purge them from the system after a period of time.
+description: Learn how to set time to live value for documents using Azure Cosmos DB's API for MongoDB, to automatically purge them from the system after a period of time.
 author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
@@ -22,16 +22,10 @@ MongoShell example:
 
 ```
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
-{
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : true,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
-}
 ```
+The command in the above example will create an index with TTL functionality. 
 
-The command in the above example will create an index with TTL functionality. Once the index is created, the database will automatically delete any documents in that collection that have not been modified in the last 10 seconds. 
+ Once the index is created, the database will automatically delete any documents in that collection that have not been modified in the last 10 seconds. 
 
 > [!NOTE]
 > `_ts` is a Cosmos DB-specific field and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
