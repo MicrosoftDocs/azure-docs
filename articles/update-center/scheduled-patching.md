@@ -23,7 +23,7 @@ Update management center (preview) uses maintenance control schedule instead of 
 1. Patch orchestration of the Azure machines should be set to **Azure Orchestrated (Automatic By Platform)**. For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!Note]
-	> If you set the patch orchestration mode to Azure orchestrated (Automatic By Platform) but don't attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](/azure/virtual-machines/automatic-vm-guest-patching) enabled machine and Azure platform will automatically install updates as per its own schedule.
+	> If you set the patch orchestration mode to Azure orchestrated (Automatic By Platform) but don't attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule.
 
 1. The maintenance configuration's subscription and the subscriptions of all VMs assigned to the maintenance configuration must be allowlisted with feature flag **Microsoft.Compute/InGuestScheduledPatchVMPreview**.
 
@@ -205,7 +205,7 @@ The update management center (preview) allows you to target a dynamic group of A
 
 ### Assign a policy
 
-Policy allows you to assign standards and assess compliance at scale. [Learn more](/azure/governance/policy/overview). To assign a policy to scope, follow these steps:
+Policy allows you to assign standards and assess compliance at scale. [Learn more](../governance/policy/overview.md). To assign a policy to scope, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Policy**.
 1. In **Assignments**, select **Assign policy**.
