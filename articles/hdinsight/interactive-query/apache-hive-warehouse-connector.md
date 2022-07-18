@@ -1,11 +1,11 @@
 ---
 title: Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight
 description: Learn how to integrate Apache Spark and Apache Hive with the Hive Warehouse Connector on Azure HDInsight.
-author: nis-goel
-ms.author: nisgoel
+author: reachnijel
+ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 07/18/2022
 ---
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight

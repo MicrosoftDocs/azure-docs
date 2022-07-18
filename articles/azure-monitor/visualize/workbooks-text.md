@@ -86,7 +86,7 @@ The text parameter supports the following field styles:
 > [!NOTE]
 > In the preceding example, `{SlowRequestThreshold}` represents an integer value. If you were querying for a string like `{ComputerName}`, you would need to modify your Kusto query to add quotation marks `"{ComputerName}"` in order for the parameter field to accept an input without quotation marks.
 
-## Set default values by using queries
+## Set the default values using queries
 
 1. Start with an empty workbook in edit mode.
 1. Select **Add parameters** > **Add Parameter**.
@@ -129,4 +129,4 @@ If data is coming from a query, you can select the option to pre-format the JSON
 
 ## Next steps
 
-[Getting started with Azure Workbooks](workbooks-getting-started.md)
+[Get started with Azure Workbooks](workbooks-getting-started.md)
