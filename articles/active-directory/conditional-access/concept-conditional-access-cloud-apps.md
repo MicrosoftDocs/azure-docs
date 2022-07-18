@@ -112,30 +112,35 @@ A complete list of all services included can be found in the article [Apps inclu
 
 ### Microsoft Azure Management
 
-The Microsoft Azure Management application includes multiple services. 
+When Conditional Access policy is targeted to the Microsoft Azure Management application, within the Conditional Access policy app picker, policy will be enforced for tokens issued to application IDs of a set of services closely bound to the portal.  
 
-   - Azure portal
-   - Microsoft Entra admin center
-   - Azure Resource Manager provider
-   - Classic deployment model APIs
-   - Azure PowerShell
-   - Azure CLI
-   - Azure DevOps
-   - Azure Data Factory portal
-   - Azure Event Hubs
-   - Azure Service Bus
-   - [Azure SQL Database](/azure/azure-sql/database/conditional-access-configure)
-   - SQL Managed Instance
-   - Azure Synapse
-   - Visual Studio subscriptions administrator portal
+- Azure Resource Manager (ARM API)  
+- Azure Portal, which also covers the Microsoft Entra admin center                                                          
+- Azure Data Lake                                                
+- Application Insights API                              
+- Log Analytics API                                         
+
+Because the policy is applied to the Azure management portal and API, services, or clients with an Azure API service dependency, can indirectly be impacted. For example: 
+
+- Classic deployment model APIs 
+- Azure PowerShell 
+- Azure CLI 
+- Azure DevOps 
+- Azure Data Factory portal 
+- Azure Event Hubs 
+- Azure Service Bus 
+- [Azure SQL Database](/azure/azure-sql/database/conditional-access-configure)
+- SQL Managed Instance 
+- Azure Synapse 
+- Visual Studio subscriptions administrator portal 
 
 > [!NOTE]
 > The Microsoft Azure Management application applies to [Azure PowerShell](/powershell/azure/what-is-azure-powershell), which calls the [Azure Resource Manager API](../../azure-resource-manager/management/overview.md). It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/overview), which calls the [Microsoft Graph API](/graph/overview).
 
 For more information on how to set up a sample policy for Microsoft Azure Management, see [Conditional Access: Require MFA for Azure management](howto-conditional-access-policy-azure-management.md).
 
->[!NOTE]
->For Azure Government, you should target the Azure Government Cloud Management API application.
+> [!TIP]
+> For Azure Government, you should target the Azure Government Cloud Management API application.
 
 ### Other applications
 
