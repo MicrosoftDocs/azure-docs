@@ -7,7 +7,7 @@ ms.author: jomondi
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
-ms.date: 02/24/2022
+ms.date: 07/18/2022
 
 # Customer intent: As an administrator of an Azure AD tenant, I want to manage access to my applications and make sure they are secure.
 ---
@@ -76,7 +76,7 @@ In this tutorial, the administrator can find the basic steps to configure the ap
 1. Set **Enable policy** to **On**.
 1. To apply the Conditional Access policy, select **Create**.
 
-## Test multi-factor authentication
+### Test multi-factor authentication
 
 1. Open a new browser window in InPrivate or incognito mode and browse to the URL of the application.
 1. Sign in with the user account that you assigned to the application. You're required to register for and use Azure AD Multi-Factor Authentication. Follow the prompts to complete the process and verify you successfully sign into the Azure portal.
@@ -98,10 +98,10 @@ Juan wants to make sure that certain terms and conditions are known to users bef
 1. For **Enforce with conditional access policy templates**, select **Custom policy**.
 1. Select **Create**.
 
-## Add the terms of use to the policy
+### Add the terms of use to the policy
 
 1. In the left menu of the tenant overview, select **Security**.
-1. Select **Conditional Access**, and then select the *MFA Pilot* policy.
+1. Select **Conditional Access**, and then **Policies**. Form the list of policies, select the *MFA Pilot* policy.
 1. Under **Access controls** and **Grant**, select the controls selected link.
 1. Select *My TOU*.
 1. Select **Require all the selected controls**, and then choose **Select**.
