@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2021
+ms.date: 18/07/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -334,7 +334,7 @@ Windows and Oracle Linux are the only operating systems that are supported by Or
 
 Exceptions, according to SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619), are SAP components that don't use the Oracle Database client. Such SAP components are SAP's stand-alone enqueue, message server, Enqueue replication services, WebDispatcher, and SAP Gateway.  
 
-Even if you're running your Oracle DBMS and SAP application instances on Oracle Linux, you can run your SAP Central Services on SLES or RHEL and protect it with a Pacemaker-based cluster. Pacemaker as a high-availability framework isn't supported on Oracle Linux.
+Even if you're running your Oracle DBMS and SAP application instances on Oracle Linux, you can run your SAP Central Services on SLES or RHEL and protect it with a Pacemaker-based cluster. Pacemaker as an high-availability framework has not been approved for support on Oracle Linux by SAP and Oracle.
 
 ## Specifics for Oracle Database on Windows
 
