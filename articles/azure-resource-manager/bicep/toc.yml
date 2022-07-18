@@ -339,6 +339,7 @@
   - name: Provide parameters
     items:
     - name: Parameter file
+      displayName: comments,metadata,
       href: parameter-files.md
     - name: Sensitive values
       displayName: key vault
