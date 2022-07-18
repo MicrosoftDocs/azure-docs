@@ -16,14 +16,21 @@ In this quickstart, you'll learn how to deploy the MedTech service in the Azure 
 
 ## Deploy the MedTech service with a quickstart template
 
-If you already have an active Azure account, you can use this [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json) button to deploy a MedTech service that will include the following resources and permissions:
+If you already have an active Azure account, you can use this [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json) button to deploy a MedTech service that will include the following resources and roles:
 
  * An Azure Event Hubs Namespace and device message Azure event hub (the event hub is named: **devicedata**).
  * An Azure event hub consumer group (the consumer group is named: **$Default**).
  * An Azure event hub sender role (the sender role is named: **devicedatasender**).
  * An Azure Health Data Services workspace.
  * An Azure Health Data Services FHIR service.
- * An Azure Health Data Services MedTech service including the necessary system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) permissions to the device message event hub (**Azure Events Hubs Receiver**) and FHIR service (**FHIR Data Writer**).
+ * An Azure Health Data Services MedTech service including the necessary system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles to the device message event hub (**Azure Events Hubs Receiver**) and FHIR service (**FHIR Data Writer**).
+
+> [!TIP]
+> 
+> By using the drop down menus, you can find all the values that can be selected. You can also begin to type the value to begin the search for the resource, however, selecting the resource from the drop down menu will ensure that there are no typos.
+>
+> :::image type="content" source="media\iot-deploy-quickstart-in-portal\display-drop-down-box.png" alt-text="Screenshot of Azure portal page displaying drop down menu example." lightbox="media\iot-deploy-quickstart-in-portal\display-drop-down-box.png"::: 
+>
 
 1. When the Azure portal launches, the following fields must be filled out:
 
@@ -68,6 +75,13 @@ It's important that you have the following prerequisites completed before you be
 * [Azure Event Hubs namespace and event hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
 * [Workspace deployed in Azure Health Data Services](../healthcare-apis-quickstart.md)  
 * [FHIR service deployed in Azure Health Data Services](../fhir/fhir-portal-quickstart.md)
+
+> [!TIP]
+> 
+> By using the drop down menus, you can find all the values that can be selected. You can also begin to type the value to begin the search for the resource, however, selecting the resource from the drop down menu will ensure that there are no typos.
+>
+> :::image type="content" source="media\iot-deploy-quickstart-in-portal\display-drop-down-box.png" alt-text="Screenshot of Azure portal page displaying drop down menu example." lightbox="media\iot-deploy-quickstart-in-portal\display-drop-down-box.png"::: 
+>
 
 1. Sign into the [Azure portal](https://portal.azure.com), and then enter your Health Data Services workspace resource name in the **Search** bar field located at the middle top of your screen. The name of the workspace you'll be deploying into will be of your own choosing. For this example deployment of the MedTech service, we'll be using a workspace named `azuredocsdemo`. 
  
@@ -240,13 +254,13 @@ Tags are name and value pairs used for categorizing resources. For more informat
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment status and a red box around Go to resource button" lightbox="media\iot-deploy-manual-in-portal\created-medtech-service.png":::  
 
-4. Now that your MedTech service has been deployed, we're going to walk through the steps of assigning access permissions. Your MedTech service's system-assigned managed identity will require access to your device message event hub and your FHIR service.
+4. Now that your MedTech service has been deployed, we're going to walk through the steps of assigning access roles. Your MedTech service's system-assigned managed identity will require access to your device message event hub and your FHIR service.
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\display-medtech-service-configurations.png" alt-text="Screenshot of the MedTech service main configuration page." lightbox="media\iot-deploy-manual-in-portal\display-medtech-service-configurations.png":::
 
 ## Granting the MedTech service access to the device message event hub and FHIR service
 
-To ensure that your MedTech service works properly, it's system-assigned managed identity must be granted access permissions to your device message event hub and FHIR service. 
+To ensure that your MedTech service works properly, it's system-assigned managed identity must be granted access via role assignments to your device message event hub and FHIR service. 
 
 ### Granting access to the device message event hub
 
@@ -285,7 +299,7 @@ To ensure that your MedTech service works properly, it's system-assigned managed
 
 8. Select the **Next** button.
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-permissions-next-button.png" alt-text="Screenshot of the Azure Events Hubs Data Receiver role with a red box around the Next button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-permissions-next-button.png":::
+   :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-roles-next-button.png" alt-text="Screenshot of the Azure Events Hubs Data Receiver role with a red box around the Next button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-roles-next-button.png":::
 
 9. In the **Add role assignment** page, select **Managed identity** next to **Assign access to** and **+ Select members** next to **Members**. 
 

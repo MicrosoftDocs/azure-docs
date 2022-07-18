@@ -88,6 +88,6 @@ You can verify that the data is correctly persisted into the FHIR service by usi
 This article only described the basic steps needed to get started using MedTech service. For information about deploying MedTech service in the workspace, see
 
 >[!div class="nextstepaction"]
->[Deploy MedTech service in the Azure portal](deploy-iot-connector-in-azure.md)
+>[Deploy the MedTech service in the Azure portal](deploy-iot-connector-in-azure.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
