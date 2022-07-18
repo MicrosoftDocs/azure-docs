@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 06/29/2022
 author: chez-charlie
 ms.author: chez
 ---
@@ -57,6 +57,7 @@ All the linked service types are supported for parameterization.
 - FTP
 - Generic HTTP
 - Generic REST
+- Google AdWords
 - MySQL
 - OData 
 - Oracle

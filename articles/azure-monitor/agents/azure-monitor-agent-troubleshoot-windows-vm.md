@@ -6,7 +6,7 @@ author: shseth
 ms.author: shseth
 ms.date: 6/9/2022
 ms.custom: references_region
-
+ms.reviewer: shseth
 ---
 
 # Troubleshooting guidance for the Azure Monitor agent on Windows virtual machines and scale sets

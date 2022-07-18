@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 06/13/2022
+ms.date: 06/20/2022
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
@@ -18,7 +18,9 @@ keywords: image recognition, image identifier, image recognition app, custom vis
 
 # What is Custom Vision?
 
-Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their detected visual characteristics. Each label represents a classification or object. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
+Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their visual characteristics. Each label represents a classification or object. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
+
+:::image type="content" source="media/overview/image-example.png" alt-text="Screenshot of an image on the Custom Vision website with predicted tags." :::
 
 This documentation contains the following types of articles:
 * The [quickstarts](./getting-started-build-a-classifier.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time.
@@ -32,7 +34,7 @@ For a more structured approach, follow a Microsoft Learn module for Custom Visio
 
 ## What it does
 
-The Custom Vision service uses a machine learning algorithm to analyze images. You, the developer, submit groups of images that have and don't have the characteristics in question. You label the images yourself with your own custom labels (tags) at the time of submission. Then the algorithm trains to this data and calculates its own accuracy by testing itself on those same images. Once you've trained the algorithm, you can test, retrain, and eventually use it in your image recognition app to [classify images](getting-started-build-a-classifier.md). You can also [export the model](export-your-model.md) itself for offline use.
+The Custom Vision service uses a machine learning algorithm to analyze images. You submit groups of images that have and don't have the characteristics in question. You label the images yourself with your own custom labels (tags) at the time of submission. Then the algorithm trains to this data and calculates its own accuracy by testing itself on the same images. Once you've trained the model, you can test, retrain, and eventually use it in your image recognition app to [classify images](getting-started-build-a-classifier.md) or [detect objects](get-started-build-detector.md). You can also [export the model](export-your-model.md) itself for offline use.
 
 ### Classification and object detection
 
@@ -71,4 +73,4 @@ Custom Vision primarily doesn't replicate data out of the specified region, exce
 
 ## Next steps
 
-Follow the [Build a classifier](getting-started-build-a-classifier.md) quickstart to get started using Custom Vision on the web portal, or complete an [SDK quickstart](quickstarts/image-classification.md) to implement the basic scenarios in code.
+Follow the [Build a classifier](getting-started-build-a-classifier.md) quickstart to get started using Custom Vision on the web portal, or complete an [SDK quickstart](quickstarts/image-classification.md) to implement the basic scenarios with code.

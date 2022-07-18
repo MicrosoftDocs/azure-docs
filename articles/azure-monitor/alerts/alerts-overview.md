@@ -6,7 +6,7 @@ ms.author: abbyweisberg
 ms.topic: overview 
 ms.date: 06/09/2022
 ms.custom: template-overview 
-ms.reviewer: harelb    
+ms.reviewer: nolavime    
 ---
 # What are Azure Monitor Alerts?
 
@@ -55,7 +55,7 @@ See [this article](alerts-types.md) for detailed information about each alert ty
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
 ## Out-of-the-box alert rules (preview)
 
-If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
+If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-page.md#alert-rule-recommendations-preview).
 
 > [!NOTE]
 > The alert rule recommendations feature is currently in preview and is only enabled for VMs.
@@ -81,14 +81,14 @@ For stateful alerts, the alert is considered resolved when:
 |Alert type  |The alert is resolved when |
 |---------|---------|
 |Metric alerts|The alert condition isn't met for three consecutive checks.|
-|Log alerts|The alert condition isn't met for 30 minutes for a specific evaluation period (to account for log ingestion delay), and <br>the alert condition isn't met for three consecutive checks.|
+|Log alerts| In log alerts, the alert is resolved at different rates based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5-15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes - 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
 
 When the alert is considered resolved, the alert rule sends out a resolved notification using webhooks or email and the monitor state in the Azure portal is set to resolved.
 
 ## Manage your alerts programmatically
 
-You can query you alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
-We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For an sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
+You can query your alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
+We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For a sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
 
 You can use Azure Resource Graphs:
  - with [Azure PowerShell](/powershell/module/az.monitor/)

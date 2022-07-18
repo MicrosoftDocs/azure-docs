@@ -16,14 +16,15 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V3](create-sql-api-dotnet.md)
-> * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java SDK v4](create-sql-api-java.md)
-> * [Spring Data v3](create-sql-api-spring-data.md)
-> * [Spark 3 OLTP connector](create-sql-api-spark.md)
+>
+> * [.NET](quickstart-dotnet.md)
 > * [Node.js](create-sql-api-nodejs.md)
+> * [Java](create-sql-api-java.md)
+> * [Spring Data](create-sql-api-spring-data.md)
 > * [Python](create-sql-api-python.md)
+> * [Spark v3](create-sql-api-spark.md)
 > * [Go](create-sql-api-go.md)
+>
 
 This tutorial is a quick start guide to show how to use Cosmos DB Spark Connector to read from or write to Cosmos DB. Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x.
 
@@ -161,7 +162,13 @@ For more information related to schema inference, see the full [schema inference
 
 The Azure Cosmos DB Spark 3 OLTP Connector for SQL API has a complete configuration reference that provides additional and advanced settings writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
 
+## Migrate to Spark 3 Connector
+
+If you are using our older Spark 2.4 Connector, you can find out how to migrate to the Spark 3 Connector [here](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/docs/migration.md).
+
 ## Next steps
 
 * Azure Cosmos DB Apache Spark 3 OLTP Connector for Core (SQL) API: [Release notes and resources](sql-api-sdk-java-spark-v3.md)
 * Learn more about [Apache Spark](https://spark.apache.org/).
+* Learn how to configure [throughput control](throughput-control-spark.md).
+* Check out more [samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples).

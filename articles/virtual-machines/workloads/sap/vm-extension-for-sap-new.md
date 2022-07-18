@@ -141,9 +141,9 @@ This check makes sure that all performance metrics that appear inside your SAP a
 ### Run the readiness check on a Windows VM
 
 1. Sign in to the Azure virtual machine (using an admin account is not necessary).
-1. Open a web browser and navigate to http://127.0.0.1:11812/azure4sap/metrics
+1. Open a web browser and navigate to `http://127.0.0.1:11812/azure4sap/metrics`.
 1. The browser should display or download an XML file that contains the monitoring data of your virtual machine. If that is not the case, make sure that the Azure Extension for SAP is installed.
-1. Check the content of the XML file. The XML file that you can access at http://127.0.0.1:11812/azure4sap/metrics contains all populated Azure performance counters for SAP. It also contains a summary and health indicator of the status of Azure Extension for SAP.
+1. Check the content of the XML file. The XML file that you can access at `http://127.0.0.1:11812/azure4sap/metrics` contains all populated Azure performance counters for SAP. It also contains a summary and health indicator of the status of Azure Extension for SAP.
 1. Check the value of the **Provider Health Description** element. If the value is not **OK**, follow the instructions in chapter [Health checks][health-check].
  
 ### Run the readiness check on a Linux VM

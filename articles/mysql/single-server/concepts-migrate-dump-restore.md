@@ -1,12 +1,12 @@
 ---
 title: Migrate using dump and restore - Azure Database for MySQL
 description: This article explains two common ways to back up and restore databases in your Azure Database for MySQL, using tools such as mysqldump, MySQL Workbench, and PHPMyAdmin.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 10/30/2020
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
 
 # Migrate your MySQL database to Azure Database for MySQL using dump and restore
