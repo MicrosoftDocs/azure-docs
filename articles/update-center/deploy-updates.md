@@ -1,7 +1,8 @@
 ---
 title: Deploy updates and track results in update management center (preview).
 description: The article details how to use update management center (preview) in the Azure portal to deploy updates and view results for supported machines.
-ms.service: update-management-center
+ms.service: automation
+ms.subservice: update-management
 ms.date: 04/21/2022
 ms.topic: conceptual
 author: SnehaSudhirG
@@ -85,7 +86,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 6 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
 
-   A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
+   A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](../azure-monitor/essentials/activity-log.md).
 
 # [From a selected VM](#tab/singlevm-deploy-home)
 
@@ -138,7 +139,7 @@ The **Machines** displays a list of machines for which you want to deploy one-ti
 
 ----
 
-A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log). 
+A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](../azure-monitor/essentials/activity-log.md). 
 
 
 ## View update history for single VM
