@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/13/2022
+ms.date: 07/18/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -114,11 +114,11 @@ It's important that you have the following prerequisites completed before you be
 
       :::image type="content" source="media\iot-deploy-manual-in-portal\select-medtech-service-event-hub.png" alt-text="Screenshot of Event Hubs overview and red box around the event hub to be used for the MedTech service device messages." lightbox="media\iot-deploy-manual-in-portal\select-medtech-service-event-hub.png":::
 
-      Once inside of the event hub, select the **Consumer groups** button on the middle right hand side of the screen under **Entities** to display the name of the consumer group to be used by your MedTech service. 
+   5. Once inside of the event hub, select the **Consumer groups** button on the middle right hand side of the screen under **Entities** to display the name of the consumer group to be used by your MedTech service. 
 
       :::image type="content" source="media\iot-deploy-manual-in-portal\select-event-hub-consumer-groups.png" alt-text="Screenshot of event hub overview and red box around the consumer groups button." lightbox="media\iot-deploy-manual-in-portal\select-event-hub-consumer-groups.png":::
 
-      By default, a consumer group named **$Default** is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
+   6. By default, a consumer group named **$Default** is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
 
       :::image type="content" source="media\iot-deploy-manual-in-portal\display-event-hub-consumer-group.png" alt-text="Screenshot of event hub consumer groups with red box around the consumer group to be used with the MedTech service." lightbox="media\iot-deploy-manual-in-portal\display-event-hub-consumer-group.png":::
 
