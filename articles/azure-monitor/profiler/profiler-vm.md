@@ -52,7 +52,7 @@ In this article, you learn how to run Application Insights Profiler on your Azur
 
 1. Select **Update**.
 
-   :::image type="content" source="../app/media/asp-net-core/update-nuget-package.png" alt-text="Screenshot showing where to select the Application Insights package for update":::
+   :::image type="content" source="../app/media/asp-net-core/update-nuget-package.png" alt-text="Screenshot of where to select the Application Insights package for update.":::
 
 ## Enable Profiler
 
@@ -169,14 +169,14 @@ Since the Azure portal doesn't provide a way to set the Application Insights Pro
 
 1. Verify the Microsoft Azure Diagnostics extension is installed by viewing the extensions installed for your virtual machine.  
 
-   :::image type="content" source="./media/profiler-vm/wad-extension.png" alt-text="Check if WAD extension is installed":::
+   :::image type="content" source="./media/profiler-vm/wad-extension.png" alt-text="Screenshot of checking if WAD extension is installed.":::
 
 1. Find the VM Diagnostics extension for your VM:
     1. Go to [https://resources.azure.com](https://resources.azure.com). 
     1. Expand **subscriptions** and find the subscription holding the resource group with your VM.
     1. Drill down to your VM extensions by selecting your resource group, followed by **Microsoft.Compute** > **virtualMachines** > **[your virtual machine]** > **extensions**.  
 
-       :::image type="content" source="./media/profiler-vm/azure-resource-explorer.png" alt-text="Navigate to WAD config in Azure Resource Explorer":::
+       :::image type="content" source="./media/profiler-vm/azure-resource-explorer.png" alt-text="Screenshot of navigating to WAD config in Azure Resource Explorer.":::
 
 1. Add the Application Insights Profiler sink to the `SinksConfig` node under WadCfg. If you don't already have a `SinksConfig` section, you may need to add one. To add the sink:
 
@@ -184,7 +184,7 @@ Since the Azure portal doesn't provide a way to set the Application Insights Pro
    - Switch the explorers mode to Read/Write in the upper right corner.
    - Press the blue **Edit** button.
 
-     :::image type="content" source="./media/profiler-vm/resource-explorer-sinks-config.png" alt-text="Add Application Insights Profiler sink":::
+     :::image type="content" source="./media/profiler-vm/resource-explorer-sinks-config.png" alt-text="Screenshot of adding Application Insights Profiler sink.":::
 
    ```json
    "WadCfg": {
@@ -204,7 +204,7 @@ Since the Azure portal doesn't provide a way to set the Application Insights Pro
 
 1. If the `put` is successful, a green check will appear in the middle of the screen.
 
-   :::image type="content" source="./media/profiler-vm/resource-explorer-put.png" alt-text="Send put request to apply changes":::
+   :::image type="content" source="./media/profiler-vm/resource-explorer-put.png" alt-text="Screenshot of sending the put request to apply changes.":::
 
 ---
 
