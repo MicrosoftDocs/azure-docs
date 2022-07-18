@@ -19,9 +19,9 @@ az login
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az login
-```
 Connect-AzAccount
+```
+
 ---
 
 Next, install the Azure Container Apps extension for the CLI.

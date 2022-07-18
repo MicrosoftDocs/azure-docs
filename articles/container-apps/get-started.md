@@ -25,9 +25,9 @@ In this quickstart, you create a secure Container Apps environment and deploy yo
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-To create the environment, run the following command:
-
 # [Bash](#tab/bash)
+
+To create the environment, run the following command:
 
 ```azurecli
 az containerapp env create \
@@ -38,11 +38,24 @@ az containerapp env create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az containerapp env create `
-  --name $CONTAINERAPPS_ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --location $LOCATION
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
+
+```powershell
+New-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace -Location $Location -PublicNetworkAccessForIngestion "Enabled" -PublicNetworkAccessForQuery "Enabled"
+$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
+$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).PrimarySharedKey
+```
+
+To create the environment, run the following command:
+
+```powershell
+
+New-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -AppLogConfigurationDestination "log-analytics" `
+  -Location $LOCATION `
+  -LogAnalyticConfigurationCustomerId $WORKSPACE_ID `
+  -LogAnalyticConfigurationSharedKey $WORKSPACE_SHARED_KEY
 ```
 
 ---
@@ -66,15 +79,20 @@ az containerapp create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az containerapp create `
-  --name my-container-app `
-  --resource-group $RESOURCE_GROUP `
-  --environment $CONTAINERAPPS_ENVIRONMENT `
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
-  --target-port 80 `
-  --ingress 'external' `
-  --query properties.configuration.ingress.fqdn
+```powershell
+
+$IMAGE_OBJ = New-AzContainerAppTemplateObject `
+  -Name my-container-app `
+  -Image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
+ $ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
+
+New-AzContainerApp -Name my-container-app `
+ -Location $LOCATION `
+ -ResourceGroupName $RESOURCE_GROUP `
+ -ManagedEnvironmentId $ENV_ID `
+ -TemplateContainer $IMAGE_OBJ `
+ -IngressTargetPort 80 `
+ -IngressExternal
 ```
 
 ---
@@ -86,7 +104,23 @@ By setting `--ingress` to `external`, you make the container app available to pu
 
 ## Verify deployment
 
-The `create` command returned the fully qualified domain name for the container app. Copy this location to a web browser and see the following message:
+# [Bash](#tab/bash)
+
+The `create` command returned the fully qualified domain name for the container app. Copy this location to a web browser.
+
+# [PowerShell](#tab/powershell)
+
+Get the fully qualified domain name for the container app.
+
+```powershell
+(Get-AzContainerApp -ResourceGroupName $RESOURCE_GROUP -Name my-container-app).IngressFqdn
+```
+
+Copy this location to a web browser.
+
+---
+
+ The following message is displayed when the container app is deployed:
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
 
