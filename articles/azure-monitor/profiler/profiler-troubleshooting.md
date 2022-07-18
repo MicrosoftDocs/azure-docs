@@ -1,14 +1,14 @@
 ---
-title: Troubleshoot problems with Azure Application Insights Profiler
-description: This article presents troubleshooting steps and information to help developers enable and use Application Insights Profiler.
+title: Troubleshoot the Application Insights Profiler
+description: Walk through troubleshooting steps and information to enable and use Azure Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 08/06/2018
-ms.reviewer: jogrima
+ms.date: 07/18/2022
+ms.reviewer: charles.weininger
 ---
 
 # Troubleshoot problems enabling or viewing Application Insights Profiler
 
-## <a id="troubleshooting"></a>General troubleshooting
+## General troubleshooting
 
 ### Make sure you're using the appropriate Profiler Endpoint
 
@@ -50,7 +50,7 @@ Profiler writes trace messages and custom events to your Application Insights re
 * Make sure that proxies or a firewall haven't blocked access to https://gateway.azureserviceprofiler.net.
 * Profiler isn't supported on free or shared app service plans. If you're using one of those plans, try scaling up to one of the basic plans and Profiler should start working.
 
-### <a id="double-counting"></a>Double counting in parallel threads
+### Double counting in parallel threads
 
 In some cases, the total time metric in the stack viewer is more than the duration of the request.
 
