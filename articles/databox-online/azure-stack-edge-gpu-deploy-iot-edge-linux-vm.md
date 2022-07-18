@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 06/28/2022
 ms.author: alkohli
 ---
 
@@ -255,11 +255,11 @@ Here are the high-level steps to deploy the VM and IoT Edge runtime:
 1. Follow these steps to create an Ubuntu VM using the VM image.
    1. Specify the *cloud-init* script on the **Advanced** tab. To create a VM, see [Deploy GPU VM via Azure portal](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=portal) or [Deploy VM via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
-      ![Screenshot of the Advanced tab of V M configuration in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-advanced-page-2.png)
+      ![Screenshot of the Advanced tab of VM configuration in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-advanced-page-2.png)
 
    1. Specify the appropriate device connection strings in the *cloud-init* to connect to the IoT Hub or DPS device. For detailed steps, see [Provision with symmetric keys](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md#use-symmetric-key-provisioning) or [Provision with IoT Hub DPS](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md#use-dps).
 
-      ![Screenshot of the Custom data field of V M configuration in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-init-script.png)
+      ![Screenshot of the Custom data field of VM configuration in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-init-script.png)
 
   If you didn't specify the *cloud-init* during VM creation, you'll have to manually deploy the IoT Edge runtime after the VM is created:
 
@@ -275,7 +275,7 @@ Use these steps to verify that your IoT Edge runtime is running.
 1. Select the IoT Edge device.
 1. Verify that the IoT Edge runtime is running.
 
-    ![Screenshot of the I o T Edge runtime status in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-iot-edge-runtime-status.png)
+    ![Screenshot of the IoT Edge runtime status in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-iot-edge-runtime-status.png)
 
 ## Update the IoT Edge runtime
 

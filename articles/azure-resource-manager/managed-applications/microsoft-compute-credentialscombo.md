@@ -1,11 +1,11 @@
 ---
 title: CredentialsCombo UI element
 description: Describes the Microsoft.Compute.CredentialsCombo UI element for Azure portal.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 09/29/2018
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 # Microsoft.Compute.CredentialsCombo UI element

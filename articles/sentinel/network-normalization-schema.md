@@ -287,9 +287,9 @@ The following fields are used to represent that inspection which a security devi
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| **NetworkRuleName** | Optional | String | The name or ID of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |
-| **NetworkRuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br>Example: `23` |
-| **Rule** | Mandatory | Alias | Either `NetworkRuleName` or `NetworkRuleNumber`. |
+| <a name="networkrulename"></a>**NetworkRuleName** | Optional | String | The name or ID of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |
+| <a name="networkrulenumber"></a>**NetworkRuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br>Example: `23` |
+| **Rule** | Mandatory | String | Either the value of [NetworkRuleName](#networkrulename) or the value of [NetworkRuleNumber](#networkrulenumber). Note that if the value of [NetworkRuleNumber](#networkrulenumber) is used, the type should be converted to string. |
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the network session.<br><br>Example: `Tr.124` |
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the network session.<br><br>Example: `EICAR Test File` |
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the network session.<br><br>Example: `Trojan` |

@@ -123,6 +123,8 @@
       href: azure-vm-disaster-recovery-with-expressroute.md
   - name: About moving Azure VMs to another region
     href: azure-to-azure-move-overview.md
+  - name: Migrate to availability zone support
+    href: ../availability-zones/migrate-recovery-services-vault.md
   - name: About VMware VM disaster recovery
     items:
     - name: VMware disaster recovery overview

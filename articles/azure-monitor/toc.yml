@@ -424,6 +424,9 @@ items:
       - name: Create with Azure Policy
         displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
         href: essentials/diagnostic-settings-policy.md
+      - name: Migrate retention to Azure Storage lifecycle
+        href: essentials/migrate-to-azure-storage-lifecycle-policy.md
+
   - name: Data collection
     items:
     - name: Data collection rules
@@ -431,6 +434,9 @@ items:
       - name: Overview
         displayName: Data collection rules
         href: essentials/data-collection-rule-overview.md
+      - name: Edit
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-edit.md
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
@@ -498,8 +504,11 @@ items:
       - name: Use data collection endpoints
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Migrate from Log Analytics agent
-        displayName: Migrate to Azure Monitor agent
-        href: agents/azure-monitor-agent-migration.md
+        items:
+        - name: Migration guidance
+          href: agents/azure-monitor-agent-migration.md
+        - name: Migration tools
+          href: agents/azure-monitor-agent-migration-tools.md
       - name: FAQ
         displayName: Azure Monitor agent FAQ
         href: /azure/azure-monitor/faq#azure-monitor-agent
@@ -908,6 +917,8 @@ items:
         items:
         - name: Overview
           href: app/java-in-process-agent.md
+        - name: Spring Boot
+          href: app/java-spring-boot.md
         - name: Configuration options
           href: app/java-standalone-config.md
         - name: Advanced configurations
@@ -1119,20 +1130,23 @@ items:
       href: profiler/profiler-overview.md
     - name: Enable Profiler
       items:        
-      - name: App Service
+      - name: Azure App Service
         href: profiler/profiler.md
       - name: Azure Functions app
         href: profiler/profiler-azure-functions.md
-      - name: Cloud Service
+      - name: Azure Cloud Service
         href: profiler/profiler-cloudservice.md
-      - name: Service Fabric Application
+      - name: Azure Service Fabric app
         href: profiler/profiler-servicefabric.md
-      - name: Azure VM
+      - name: Azure Virtual Machine
         href: profiler/profiler-vm.md
-      - name: Linux App services
+      - name: ASP.NET Core app hosted in Linux on App Service
         href: profiler/profiler-aspnetcore-linux.md
-      - name: ASP.NET Core Container
+      - name: ASP.NET Core app running in container
         href: profiler/profiler-containers.md
+    - name: View Profiler data
+      displayName: profiling, debugging, code performance, perf
+      href: profiler/profiler-data.md
     - name: Configure
       items:        
       - name: Configure Profiler
@@ -1165,6 +1179,8 @@ items:
     items:
     - name: Overview
       href: change/change-analysis.md
+    - name: Enable Change Analysis
+      href: change/change-analysis-enable.md
     - name: Visualizations
       href: change/change-analysis-visualizations.md
     - name: Azure PowerShell
@@ -1315,8 +1331,8 @@ items:
       href: containers/container-insights-troubleshoot.md
   - name: Insights
     items:
-    - name: Azure Cache for Redis (preview)
-      href: insights/redis-cache-insights-overview.md
+    - name: Azure Cache for Redis
+      href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
@@ -1338,10 +1354,14 @@ items:
     items:
     - name: Overview
       href: visualize/workbooks-overview.md 
-    - name: Working with workbooks
+    - name: Get started with workbooks
+      href: visualize/workbooks-getting-started.md    
+    - name: Create a new workbook
       items:
-        - name: Getting started with workbooks
-          href: visualize/workbooks-getting-started.md
+        - name: Create a workbook with a template
+          href: visualize/workbooks-templates.md
+        - name: Create a new workbook
+          href: visualize/workbooks-create-workbook.md
         - name: Data sources
           href: visualize/workbooks-data-sources.md         
         - name: Visualizations
@@ -1368,15 +1388,9 @@ items:
             href: visualize/workbooks-composite-bar.md
           - name: Renderers
             href: visualize/workbooks-renderers.md
-        - name: Workbook result limits
-          href: visualize/workbooks-limits.md
-    - name: Creating a workbook
-      items:
-        - name: Using workbook templates
-          href: visualize/workbooks-templates.md
-        - name: Creating a new workbook
-          href: visualize/workbooks-create-workbook.md
-        - name: Working with parameters
+          - name: Link actions
+            href: visualize/workbooks-link-actions.md  
+        - name: Parameters
           items:
           - name: Workbook parameters
             href: visualize/workbooks-parameters.md
@@ -1393,43 +1407,27 @@ items:
           - name: Resource parameters
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
-            href: visualize/workbooks-multi-value.md
-        - name: Link actions
-          href: visualize/workbooks-link-actions.md    
-    - name: Configuration
+            href: visualize/workbooks-multi-value.md               
+        - name: Workbook configuration options
+          href: visualize/workbooks-configurations.md
+        - name: Commonly used components
+          href: visualize/workbooks-commonly-used-components.md
+        - name: Workbook result limits
+          href: visualize/workbooks-limits.md   
+    - name: Integrate with other Azure services
       items:
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md
-      - name: Groups
-        href: visualize/workbooks-groups.md
       - name: Bring your own storage
         href: visualize/workbooks-bring-your-own-storage.md
       - name: Transform JSON data with JSONPath
         href: visualize/workbooks-jsonpath.md
       - name: Move Workbooks to another region
         href: visualize/workbooks-move-region.md
-      - name: Move Workbook Templates to another region
+      - name: Move Workbook templates to another region
         href: visualize/workbook-templates-move-region.md
     - name: Workbook Samples
-      items:
-        - name: Links
-          href: visualize/workbooks-sample-links.md
-    - name: Deprecated Features
-      items:
-      - name: View Designer
-        items:
-          - name: Converting View Designer 
-            href: visualize/view-designer-conversion-overview.md
-          - name: Conversion options
-            href: visualize/view-designer-conversion-options.md
-          - name: Overview and access
-            href: visualize/view-designer-conversion-access.md
-          - name: Common tasks
-            href: visualize/view-designer-conversion-tasks.md
-          - name: Tile conversions
-            href: visualize/view-designer-conversion-tiles.md
-          - name: Examples
-            href: visualize/view-designer-conversion-examples.md
+      href: visualize/workbooks-sample-links.md          
   - name: Other visualizations
     items:
     - name: Monitoring solutions

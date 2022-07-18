@@ -303,6 +303,8 @@
         href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
       - name: Custom Swaggers for Logic Apps connector
         href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+      - name: Multivariate Anomaly Detection Toolkit
+        href: /samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/
   - name: Ontologies
     items:
       - name: Smart buildings

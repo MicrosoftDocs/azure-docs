@@ -8,6 +8,7 @@ ms.author: tomcassidy
 ms.topic: conceptual
 ms.date: 05/25/2022
 ---
+
 # Service Fabric application lifecycle
 As with other platforms, an application on Azure Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. This article provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.
 
