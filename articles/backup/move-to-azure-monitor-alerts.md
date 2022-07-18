@@ -100,7 +100,7 @@ Follow these steps:
 
 1. To select multiple vaults on a page and update the settings for these vaults with a single action, select **Update** from the top menu.
 
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/classic-alerts-multiple-vaults.png" alt-text="Screenshot showing how to opt out of classic alerts for multiple vaults":::
+   :::image type="content" source="./media/move-to-azure-monitor-alerts/classic-alerts-multiple-vaults.png" alt-text="Screenshot showing how to opt out of classic alerts for multiple vaults.":::
 
 ## Suppress notifications during a planned maintenance window
 
