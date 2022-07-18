@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/16/2022
+ms.date: 07/11/2022
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ---
@@ -19,6 +19,13 @@ ms.devlang: csharp, golang, java, javascript, python
 # Quickstart: Azure Cognitive Services Translator
 
 In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) with a programming language of your choice and the REST API.
+
+> [!NOTE]
+>
+> * For this quickstart it is recommended that you use a Translator text single-service subscription.
+> * With the single-service subscription you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
+> * If you choose to use the multi-service Cognitive Services subscription, it requires two authentication headers (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
+> * For more information on how to use the Ocp-Apim-Subscription-Region header, _see_ [Use the Text Translator APIs](translator-text-apis.md).
 
 ## Prerequisites
 
@@ -38,7 +45,7 @@ To get started, you'll need an active Azure subscription. If you don't have an A
 
 To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to include the following headers with each request. Don't worry, we'll include the headers for you in the sample code for each programming language.
 
-For more information on Translator authentication options, *see* the [Translator v3 reference](/azure/cognitive-services/translator/reference/v3-0-reference#authentication) guide.
+For more information on Translator authentication options, *see* the [Translator v3 reference](./reference/v3-0-reference.md#authentication) guide.
 
 |Header|Value| Condition  |
 |--- |:--- |:---|
@@ -164,7 +171,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 >
 > If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) Microsoft Learn module.
 
-1. If you haven't done so already, [download and install Go](https://go.dev/doc/install]).
+1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
 
     * Download the Go version for your operating system.
     * Once the download is complete, run the installer.
@@ -609,4 +616,3 @@ That's it, congratulations! You have learned to use the Translator service to tr
 * [**Get sentence length**](translator-text-apis.md#get-sentence-length)
 
 * [**Dictionary lookup and alternate translations**](translator-text-apis.md#dictionary-examples-translations-in-context)
-

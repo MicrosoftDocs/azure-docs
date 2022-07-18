@@ -4,7 +4,7 @@ description: Learn how to configure logging and connection policy used by Azure 
 author: ealsur
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 07/06/2022
 ms.author: maquaran
 ---
 
@@ -91,6 +91,18 @@ If your Azure Functions project is working with Azure Functions V1 runtime, the 
   "documentDB": {
     "connectionMode": "Direct",
     "protocol": "Tcp"
+  }
+}
+```
+
+## Customizing the user agent
+
+The Azure Functions trigger for Cosmos DB performs requests to the service that will be reflected on your [monitoring](../monitor-cosmos-db.md). You can customize the user agent used for the requests from an Azure Function by changing the `userAgentSuffix` in the `host.json` [extra settings](../../azure-functions/functions-bindings-cosmosdb-v2.md?tabs=extensionv4#hostjson-settings):
+
+```js
+{
+  "cosmosDB": {
+    "userAgentSuffix": "MyUniqueIdentifier"
   }
 }
 ```

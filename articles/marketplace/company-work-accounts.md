@@ -1,52 +1,70 @@
 ---
 title: Company work accounts and Partner Center 
-description: How to check whether your company has a work account set up with Microsoft, create a new work account, or set up multiple work accounts to use with Partner Center (Azure Marketplace). 
+description: Find out how to link a work email account domain to Partner Center. Learn how to create a work account and use multiple accounts. See troubleshooting tips.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 06/08/2021
+ms.reviewer: agandotra
+ms.date: 06/30/2022
+ms.custom: kr2b-contr-experiment
 ---
 
 # Company work accounts and Partner Center
 
-Partner Center uses company work accounts, also known as Azure Active Directory (AD) tenants, to manage account access for multiple users, control permissions, host groups and applications, and maintain profile data. By linking your company's work email account domain to your Partner Center account, employees of your company can sign in to Partner Center to manage marketplace offers using their own work account usernames and passwords.
+Partner Center uses company work accounts, also known as Azure Active Directory (Azure AD) tenants, for many purposes:
+
+- To manage account access for multiple users
+- To control permissions
+- To host groups and applications
+- To maintain profile data
+
+If you link your company's work email account domain to your Partner Center account, your employees can sign in to Partner Center to manage marketplace offers by using their own work account usernames and passwords.
 
 ## Check whether your company already has a work account
 
-If your company has subscribed to a Microsoft cloud service such as Azure, Microsoft Intune, or Microsoft 365, then you already have a work email account domain (also referred to as an Azure Active Directory tenant) that can be used with Partner Center.
+If your company subscribes to a Microsoft cloud service such as Azure, Microsoft Intune, or Microsoft 365, you already have a work email account domain. You can use that work account with Partner Center.
 
-Follow these steps to check:
+Follow these steps to check for a work account:
 
-1. Sign in to the Azure admin portal at https://portal.azure.com.
-2. Select **Azure Active Directory** from the left-navigation menu and then select **Custom Domain Names**.
-3. If you already have a work account, your domain name will be listed.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select **Azure Active Directory**, and then select **Custom domain names**.
+1. Search for your domain name in the list. If you already have a work account, the list will contain your domain name.
 
 If your company doesn't already have a work account, one will be created for you during the Partner Center enrollment process.
 
 ## Set up multiple work accounts
 
-Before deciding to use an existing work account, consider how many users in the work account will need to access Partner Center. If you have users in the work account who won't need to access Partner Center, you may want to consider creating multiple work accounts, so that only those users who will need to access Partner Center are represented on a particular account.
+Before you decide to use an existing work account, consider how many users in the work account need to access Partner Center. If you have users in the work account who don't need to access Partner Center, you might want to consider creating multiple work accounts. That way, only users who need to access Partner Center are represented on a particular account.
 
 ## Create a new work account
 
-To create a new work account for your company, follow the steps below. You may need to request assistance from whoever has administrative permissions on your company's Microsoft Azure account.
+To create a new work account for your company, take the following steps. You might need to request assistance from the person who has administrative permissions for your company's Microsoft Azure account.
 
-1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
-2. From the left navigation menu, select the **Azure Active Directory** > **Users**.
-3. Select **New user** and create a new Azure work account by entering a name and work email address. Ensure the **Directory role** is set as per the User requirement and select the **Show Password** checkbox at the bottom to view and make a note of the auto-generated password.
-4. Complete the other required fields and select **Create** to save the new user. 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-The email address for the user account must be a verified domain name in your directory. You can list all the verified domains in your directory by selecting **Azure Active Directory** > **Custom domain names** in the left-navigation menu.
+1. Search for and select **Azure Active Directory**, and then select **Users**.
 
-To learn more about adding custom domains in Azure Active Directory, see [Add or associate a domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md).
+1. Select **New user**, and then follow these steps to configure a new Azure work account:
+
+   1. Enter a name and work email address.
+   1. For **Directory role**, ensure the value meets the user requirement.
+   1. At the bottom, select **Show password**.
+   1. Make a note of the autogenerated password.
+   1. Complete the other required fields.
+
+1. Select **Create** to save the new user. 
+
+The email address for the user account must be a verified domain name in your directory. To list all the verified domains in your directory, select **Azure Active Directory** > **Custom domain names**.
+
+To learn more about adding custom domains in Azure AD, see [Add or associate a domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md).
 
 ## Troubleshoot work email sign-in
 
-If you're having trouble signing in to your work account (also known as your Azure AD tenant), find the scenario on the diagram below that best matches your situation and follow the recommended steps.
+If you're having trouble signing in to your work account, find the scenario on the following diagram that best matches your situation, and take the recommended steps.
 
-[![Diagram for troubleshooting work account sign-in](media/manage-accounts/onboarding-aad-flow.png)](media/manage-accounts/onboarding-aad-flow.png#lightbox)
+:::image type="content" source="media/manage-accounts/onboarding-aad-flow.png" alt-text="Flowchart that helps users solve sign-in problems. Steps in the chart check for a domain, show how to add a domain, and provide other tips." lightbox="media/manage-accounts/onboarding-aad-flow.png":::
 
 ## Next steps
 

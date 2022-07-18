@@ -26,7 +26,15 @@
     - name: System architecture
       href: architecture.md
     - name: OT network monitoring best practices
-      href: plan-network-monitoring.md
+      items:
+      - name: Understand your network architecture
+        href: best-practices/understand-network-architecture.md
+      - name: Plan your network connections
+        href: best-practices/plan-network-monitoring.md
+      - name: Traffic mirroring methods
+        href: best-practices/traffic-mirroring-methods.md
+      - name: Sample connectivity models
+        href: best-practices/sample-connectivity-models.md
     - name: OT threat monitoring in enterprise SOCs
       href: concept-sentinel-integration.md
     - name: OT security system architecture
@@ -113,10 +121,10 @@
       href: tutorial-servicenow.md
   - name: System deployment
     items:
-    - name: Manage an Azure subscription
+    - name: Manage plans on Azure subscriptions
       href: how-to-manage-subscriptions.md
-    - name: Onboard sensors in the Azure portal
-      href: how-to-manage-sensors-on-the-cloud.md
+    - name: Onboard sensors
+      href: onboard-sensors.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
     - name: OT system setup
@@ -135,18 +143,33 @@
           href: how-to-connect-sensor-by-proxy.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
+      - name: Add support for proprietary protocols
+        href: resources-manage-proprietary-protocols.md
   - name: System maintenance
     items:
+    - name: Manage sensors from the Azure portal
+      href: how-to-manage-sensors-on-the-cloud.md
     - name: Maintain threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
     - name: OT system maintenance
       items:
+      - name: Update OT monitoring software
+        href: update-ot-software.md
+        displayName: upgrade
       - name: Manage OT sensors
         items:
         - name: Manage individual sensors
           href: how-to-manage-individual-sensors.md
         - name: Control OT traffic monitoring
           href: how-to-control-what-traffic-is-monitored.md
+        - name: Configure active monitoring
+          items:
+          - name: Planning and prerequisites
+            href: configure-active-monitoring.md
+          - name: Configure Windows Endpoint Monitoring
+            href: configure-windows-endpoint-monitoring.md
+          - name: Configure reverse DNS lookup
+            href: configure-reverse-dns-lookup.md
         - name: Manage sensors from the on-premises management console
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
       - name: Manage OT sensor users
@@ -169,6 +192,8 @@
         href: how-to-track-sensor-activity.md
       - name: Set up SNMP MIB monitoring
         href: how-to-set-up-snmp-mib-monitoring.md
+      - name: Manage proprietary protocols (Horizon)
+        href: resources-manage-proprietary-protocols.md
       - name: Manage an OT on-premises management console
         items:
         - name: Set up high availability
@@ -181,23 +206,23 @@
   items:
   - name: OT monitoring appliances
     items:
-    - name: Corporate appliances
+    - name: Overview
+      href: appliance-catalog/appliance-catalog-overview.md
+    - name: Corporate environments
       items:
       - name: HPE ProLiant DL360
         href: appliance-catalog/hpe-proliant-dl360.md
-    - name: Enterprise appliances
+    - name: Large enterprises
       items:
-      - name: HPE ProLiant DL20/DL20 Plus
+      - name: HPE ProLiant DL20/DL20 Plus (4SFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
-    - name: SMB appliances
+    - name: Production line
       items:
-      - name: HPE ProLiant DL20 Plus
+      - name: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
-    - name: Rugged appliances
-      items:
-      - name: Dell Edge 5200
+      - name: Dell Edge 5200 (Rugged MIL-STD-810G)
         href: appliance-catalog/dell-edge-5200.md
-      - name: YS-techsystems YS-FIT2
+      - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
         href: appliance-catalog/ys-techsystems-ys-fit2.md
     - name: Virtual appliances
       items:

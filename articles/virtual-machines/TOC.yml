@@ -425,8 +425,8 @@
         displayName: SSE, CMK, encrypt
         href: image-version-encryption.md
       - name: Export an image to a managed disk
-        desplayName: export, image version, disk, SIG, gallery
         href: managed-disk-from-image-version.md
+        desplayName: export, image version, disk, SIG, gallery
       - name: Purchase plan information
         href: marketplace-images.md
     - name: VM Applications
@@ -539,7 +539,7 @@
         href: ./windows/create-vm-generalized-managed.md
       - name: Visual Studio
         href: ./windows/using-visual-studio-vm.md
-    - name: Image builder
+    - name: VM Image Builder
       items:
       - name: Overview
         displayName: Image builder, images, building
@@ -564,7 +564,7 @@
         - name: Security controls by Azure Policy
           displayName: Image builder, images, building
           href: ./security-controls-policy-image-builder.md
-      - name: Use a VNET
+      - name: Use a virtual network
         items:
         - name: CLI
           displayName: Image builder, images, building
@@ -586,7 +586,7 @@
       - name: DevOps task
         displayName: Image builder, images, building
         href: ./linux/image-builder-devops-task.md
-      - name: Image Builder template reference
+      - name: VM Image Builder template reference
         displayName: Image builder, images, building, json, ARM, template
         href: ./linux/image-builder-json.md
       - name: Build for image galleries
@@ -608,7 +608,7 @@
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
-      - name: What's new in Azure Image Builder
+      - name: What's new in Azure VM Image Builder
         displayName: Image builder, images, building, api, features, updates, change log
         href: image-builder-api-update-release-notes.md
       - name: Troubleshoot
@@ -719,13 +719,13 @@
     - name: Remove a VM
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-vm.md
-    - name: Associate a virtual machine scale set with uniform orchestration
-      displayName: on-demand capacity reservation
-      href: capacity-reservation-associate-virtual-machine-scale-set.md
-    - name: Associate a virtual machine scale set
+    - name: Associate a VM scale set - Flexible 
       displayName: on-demand capacity reservation with flexible orchestration
       href: capacity-reservation-associate-virtual-machine-scale-set-flex.md
-    - name: Remove a virtual machine scale set
+    - name: Associate a VM scale set - Uniform 
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-associate-virtual-machine-scale-set.md
+    - name: Remove a VM scale set
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-virtual-machine-scale-set.md
   - name: Create Virtual Machines
@@ -790,10 +790,12 @@
         href: ./linux/use-remote-desktop.md
     - name: Windows
       items:
-      - name: Remote Desktop for Windows
-        href: ./windows/connect-logon.md
+      - name: Remote Desktop
+        href: ./windows/connect-rdp.md
+      - name: SSH
+        href: ./windows/connect-ssh.md
       - name: WinRM
-        href: ./windows/winrm.md
+        href: ./windows/connect-winrm.md
   - name: Time sync
     items:
     - name: Linux
@@ -1036,19 +1038,19 @@
     items:
     - name: Overview
       displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
     - name: Portal
       displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-portal.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-portal.md
     - name: CLI
       displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-cli.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli.md
     - name: PowerShell
       displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-powershell.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-powershell.md
     - name: ARM template
       displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-rest-api.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-rest-api.md
     - name: Autoscale
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
     - name: Orchestration modes
@@ -1056,7 +1058,7 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
     - name: Migration and considerations
       displayName: VMSS, flex, scale set, scale, virtual machine scale set
-      href: flexible-virtual-machine-scale-sets-migration-resources.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources.md
   - name: Understand VM reboots
     href: understand-vm-reboots.md
   - name: Azure Regions
@@ -1229,8 +1231,10 @@
             href: ./windows/disk-encryption-windows-aad.md
   - name: Performance and cost optimization
     items:
-    - name: Ultra disks
+    - name: Deploy an ultra disk
       href: disks-enable-ultra-ssd.md
+    - name: Deploy a premium SSD v2
+      href: disks-deploy-premium-v2.md
       displayname: Performance, cost, perf, disks, disk
     - name: Virtual machine and disk performance
       href: disks-performance.md
@@ -1555,8 +1559,6 @@
     - name: Windows using PowerShell
       displayName: Use multipe NICs
       href: ./windows/multiple-nics.md
-  - name: Find and delete unattached NICs
-    href: ./linux/find-unattached-nics.md
   - name: Assign public DNS name
     href: create-fqdn.md
   - name: Assign public DNS name
@@ -1680,8 +1682,8 @@
     displayName: aad, ssh, active directory
     href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md?context=/azure/virtual-machines/context/context
   - name: Windows VMs and Azure AD
-    displayname: aad, active directory
     href: ../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md?context=/azure/virtual-machines/context/context
+    displayname: aad, active directory
 - name: Updates and maintenance
   items:
   - name: Overview
@@ -1886,7 +1888,7 @@
         href: ../azure-monitor/vm/vminsights-performance.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Analyze data with log queries
         displayName: Azure monitor, monitoring
-        href: ../azure-monitor/vm/vminsights-log-search.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        href: ../azure-monitor/vm/vminsights-log-query.md
       - name: Visualize data with workbooks
         displayName: Azure monitor, monitoring
         href: ../azure-monitor/vm/vminsights-workbooks.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
@@ -2011,7 +2013,7 @@
       items:
       - name: Migrate from Amazon Web Services (AWS) to Azure
         href: ./windows/aws-to-azure.md
-      - name: Upload on-prem VM
+      - name: Upload on-premises VM
         href: ./linux/upload-vhd.md
         displayname: Migrate from Amazon Web Services (AWS) to Azure
       - name: Use Azure Site Recovery
