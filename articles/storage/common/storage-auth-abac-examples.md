@@ -6,7 +6,7 @@ services: storage
 author: jimmart-dev
 ms.service: storage
 ms.topic: conceptual
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: 
 ms.subservice: common
 ms.date: 05/24/2022
