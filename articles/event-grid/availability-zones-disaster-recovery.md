@@ -58,7 +58,7 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 
 ## Metrics
 
-Event Grid also provides [diagnostic logs schemas](diagnostic-logs.md) and [metrics](metrics.md) that helps you to identify a problem when there is a failure when publishing or delivering events. See the [troubleshoot](troubleshoot-issues.md) article in case you need help to solve an issue in Azure Event Grid.
+Event Grid also provides [diagnostic logs schemas](diagnostic-logs.md) and [metrics](metrics.md) that helps you to identify a problem when there is a failure when publishing or delivering events. See the [troubleshoot](troubleshoot-issues.md) article in case you need with solving an issue in Azure Event Grid.
 
 ## More information
 
