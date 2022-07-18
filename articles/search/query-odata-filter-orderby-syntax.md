@@ -216,9 +216,11 @@ An interactive syntax diagram is also available:
 > [!NOTE]
 > See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
+## Next steps
+
 The **$orderby** and **$select** parameters are both comma-separated lists of simpler expressions. The **$filter** parameter is a Boolean expression that is composed of simpler subexpressions. These subexpressions are combined using logical operators such as [`and`, `or`, and `not`](search-query-odata-logical-operators.md), comparison operators such as [`eq`, `lt`, `gt`, and so on](search-query-odata-comparison-operators.md), and collection operators such as [`any` and `all`](search-query-odata-collection-operators.md).
 
-## See also  
+The **$filter**, **$orderby**, and **$select** parameters are explored in more detail in the following articles:
 
 + [OData $filter syntax in Azure Cognitive Search](search-query-odata-filter.md)
 + [OData $orderby syntax in Azure Cognitive Search](search-query-odata-orderby.md)
