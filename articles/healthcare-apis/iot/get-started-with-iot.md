@@ -12,7 +12,7 @@ ms.custom: mode-api
 
 # Get started with the MedTech service in the Azure Health Data Services
 
-This article outlines the basic steps to get started with the Azure MedTech service in [Azure Health Data Services](../healthcare-apis-overview.md). The MedTech service ingests health data from a medical device using the Azure Event Hubs service. It then persists the data to the Azure Fast Healthcare Interoperability Resources (FHIR&#174;) service as Observation resources. This data processing procedure makes it possible to link FHIR service Observations to patient and device resources.
+This article outlines the basic steps to get started with the Azure MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). The MedTech service ingests health data from a medical device using the Azure Event Hubs service. It then persists the data to the Azure Fast Healthcare Interoperability Resources (FHIR&#174;) service as Observation resources. This data processing procedure makes it possible to link FHIR service Observations to patient and device resources.
 
 The following diagram shows the four-step data flow that enables the MedTech service to receive data from a device and send it to the FHIR service.
 
@@ -57,7 +57,7 @@ Once an event hub is provisioned, you must give permission to the event hub to r
 
 You must provision a [FHIR service](../fhir/fhir-portal-quickstart.md) instance in your workspace. The MedTech service persists the data to FHIR service store using the system-managed identity. See details on how to assign the role to the MedTech service from the [FHIR service](deploy-iot-connector-in-azure.md#granting-access-to-the-fhir-service).
 
-Once the FHIR service is provisioned, you must give the MedTech service permission to read and write to FHIR service. This permission enables the data to be persisted in the FHIR service store using system-assigned managed identity. See details on how to assign the **FHIR Data Writer** role to the MedTech service from the [FHIR service](deploy-iot-connector-in-azure.md#granting-access-to-the-fhir-service).md#granting-access-to-the-fhir-service).
+Once the FHIR service is provisioned, you must give the MedTech service permission to read and write to FHIR service. This permission enables the data to be persisted in the FHIR service store using system-assigned managed identity. See details on how to assign the **FHIR Data Writer** role to the MedTech service from the [FHIR service](deploy-iot-connector-in-azure.md#granting-access-to-the-fhir-service).
 
 By design, the MedTech service retrieves data from the specified event hub using the system-assigned managed identity. For more information on how to assign the role to the MedTech service from [Event Hubs](deploy-iot-connector-in-azure.md#granting-access-to-the-device-message-event-hub). 
 
@@ -81,7 +81,7 @@ If the data isn't mapped or if the mapping isn't authored properly, the data is 
 
 ### Metrics
 
-You can verify that the data is correctly persisted into FHIR service by using [MedTech service metrics](how-to-display-metrics.md) in the Azure portal.
+You can verify that the data is correctly persisted into the FHIR service by using the [MedTech service metrics](how-to-display-metrics.md) in the Azure portal.
 
 ## Next steps
 
