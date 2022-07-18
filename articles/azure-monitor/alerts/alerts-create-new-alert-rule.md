@@ -38,11 +38,12 @@ And then defining these elements for the resulting alert actions using:
 7. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. Select any filters to narrow the resource list.
 8. Select the signal you want to use for your alert rule.
 9.    
-  ## [Log alerts](#tab/logs)
+  ### [Log alerts](#tab/logs)
    
   1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert.
      You can use the [alert query examples article](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
-  1. Select **Run** to run the alert, and then select **Continue Editing Alert**.
+  1. Select **Run** to run the alert.
+  1. The **Preview** section shows you the query results. When you are finished editing your query, select **Continue Editing Alert**.
   1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last 5 minutes. If the system detects summarized query results, the rule is automatically updated with that information.
   
      :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
@@ -101,7 +102,7 @@ And then defining these elements for the resulting alert actions using:
     
      :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
             
-  ## [Metric alerts](#tab/metric)
+  ### [Metric alerts](#tab/metric)
        
   1. In the **Configure signal logic** pane, select values for the following fields.
       
@@ -109,21 +110,21 @@ And then defining these elements for the resulting alert actions using:
      |---------|---------|
      |Select time series|Select the time series to include in the results. |
      |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
-
+  1. The **Preview** section shows you the results.
   1. (Optional) Depending on the signal type, you may see the **Split by dimensions** section.
      
-    Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
+      Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
     
-    If you select more than one dimension value, each time series that results from the combination will trigger its own alert, and will be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in any API name (which is the aggregated data), or you can use dimensions to  alert only when the number of transactions is high for specific API names.
+      If you select more than one dimension value, each time series that results from the combination will trigger its own alert, and will be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in any API name (which is the aggregated data), or you can use dimensions to  alert only when the number of transactions is high for specific API names.
     
-    To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations. Splitting on Azure resource ID column makes the specified resource into the alert target. When you want a condition applied to multiple resources in the scope, you would **not** split by dimensions. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
+      To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations. Splitting on Azure resource ID column makes the specified resource into the alert target. When you want a condition applied to multiple resources in the scope, you would **not** split by dimensions. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
      
-     |Field  |Description  |
-     |---------|---------|
-     |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
-     |Operator|The operator used on the dimension name and value.  |
-     |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
-     |Include all future values| Select this field to include any future values added to the selected dimension.  |
+      |Field  |Description  |
+      |---------|---------|
+      |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
+      |Operator|The operator used on the dimension name and value.  |
+      |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
+      |Include all future values| Select this field to include any future values added to the selected dimension.  |
    
 
    1. In the **Alert logic** section:
@@ -140,10 +141,18 @@ And then defining these elements for the resulting alert actions using:
      |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.  |
        
    1. Select **Done**. 
-  ## [Activity Log alerts](#tab/activity-log)
+  ### [Activity Log alerts](#tab/activity-log)
 
-  1.  In the **Conditions** pane.
+  1. In the **Conditions** pane, select the **Chart period**.
+  1. The **Preview** chart shows you the results of your selection.
+  1. In the **Alert logic** section:
         
+     |Field |Description |
+     |---------|---------|
+     |Event level| Select the level of the events that this alert rule monitors. Values are: **Critical**, **Error**, **Warning**, **Informational**, **Verbose** and **All**.|
+     |Status|Select the status levels for which the alert will evaluated.|
+     |Event initiated by|Select the user or service principal that initiated the event.          |
+           
 ---
 
 10. From this point on, you can select the **Review + create** button at any time.
@@ -192,13 +201,13 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**, and at the prompt, enter the following commands:
 1. 
-  ## [Log alerts](#tab/logs)
+  ### [Log alerts](#tab/logs)
 
   To create a log alert rule that monitors count of system event errors:
    ```azurecli
    az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > ago(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
    ```
-  ## [Metric alerts](#tab/metric)
+  ### [Metric alerts](#tab/metric)
 
   To create a metric alert rule, use the **az monitor metrics alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor metrics alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/metrics/alert?view=azure-cli-latest).  
  
@@ -206,15 +215,20 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
    ```azurecli
    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
    ```
- 
-  ## [Activity Log alerts](#tab/activity-log)
+   ### [Activity Log alerts](#tab/activity-log)
 
   To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/activity-log/alert?view=azure-cli-latest).  
  
-  To create an activity log alert rule with the default settings:
-  ```azurecli
-  az monitor activity-log alert create -n {AlertName} -g {ResourceGroup}
-  ```
+  To create a new activity log alert rule, use the following commands:
+
+    1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
+    2. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
+    3. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
 ---
+
+## Create a new alert rule using PowerShell
+
+- To create a metric alert rule using PowerShell, use this cmdlet: [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2)
+- To create an  activity log alert rule using PowerShell, use this cmdlet: [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert)
 ## Next Steps
  - [View and manage your alert instances](alerts-page.md)
