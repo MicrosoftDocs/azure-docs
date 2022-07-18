@@ -13,7 +13,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 # Make predictions with ONNX on computer vision models from AutoML (v1)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"] 
 > * [v1](how-to-inference-onnx-automl-image-models-v1.md) 
@@ -43,7 +43,7 @@ In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://on
 
 ## Prerequisites
 
-* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or instance segmentation. [Learn more about AutoML support for computer vision tasks](how-to-auto-train-image-models.md).
+* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or instance segmentation. [Learn more about AutoML support for computer vision tasks](../how-to-auto-train-image-models.md).
 
 * Install the [onnxruntime](https://onnxruntime.ai/docs/get-started/with-python.html) package. The methods in this article have been tested with versions 1.3.0 to 1.8.0.
 
