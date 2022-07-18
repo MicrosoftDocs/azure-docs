@@ -248,11 +248,11 @@ Tags are name and value pairs used for categorizing resources. For more informat
 
 2. The deployment status of your MedTech service will be displayed.
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\deploy-medtech-service-status.png" alt-text="Screenshot of the MedTech service deployment status and a red box around deployment information" lightbox="media\iot-deploy-manual-in-portal\deploy-medtech-service-status.png":::
+   :::image type="content" source="media\iot-deploy-manual-in-portal\deploy-medtech-service-status.png" alt-text="Screenshot of the MedTech service deployment status and a red box around deployment information." lightbox="media\iot-deploy-manual-in-portal\deploy-medtech-service-status.png":::
 
 3. Once your MedTech service is successfully deployed, select the **Go to resource** button to be taken to your MedTech service.
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment status and a red box around Go to resource button" lightbox="media\iot-deploy-manual-in-portal\created-medtech-service.png":::  
+   :::image type="content" source="media\iot-deploy-manual-in-portal\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment status and a red box around Go to resource button." lightbox="media\iot-deploy-manual-in-portal\created-medtech-service.png":::  
 
 4. Now that your MedTech service has been deployed, we're going to walk through the steps of assigning access roles. Your MedTech service's system-assigned managed identity will require access to your device message event hub and your FHIR service.
 
