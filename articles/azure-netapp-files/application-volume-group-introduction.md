@@ -19,9 +19,6 @@ ms.author: anfdocs
 
 This article helps you understand the use cases and key features of Azure NetApp Files application volume group for SAP HANA. 
 
-> [!IMPORTANT]
-> Azure NetApp Files application volume group for SAP HANA is currently in preview. You need to submit a waitlist request for accessing the feature through the [**Azure NetApp Files application volume group for SAP HANA waitlist submission page**](https://aka.ms/anfavgpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using application volume group for SAP HANA. 
-
 Application volume group for SAP HANA enables you to deploy all volumes required to install and operate an SAP HANA database according to best practices. Instead of individually creating the required SAP HANA volumes (including data, log, shared, log-backup, and data-backup volumes), application volume group for SAP HANA creates these volumes in a single "atomic" call. The atomic call ensures that either all volumes or no volumes at all are created.
 
 Application volume group for SAP HANA provides technical improvements to simplify and standardize the process to help you streamline volume deployments for SAP HANA. As a result, you can focus on your application demands instead of managing technical settings such as individual QoS or sizes for volumes. 

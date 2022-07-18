@@ -103,7 +103,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## November 2021
 
-* [Application volume group for SAP HANA](application-volume-group-introduction.md) (Preview)
+* [Application volume group for SAP HANA](application-volume-group-introduction.md)
 
     Application volume group (AVG) for SAP HANA enables you to deploy all volumes required to install and operate an SAP HANA database according to best practices, including the use of proximity placement group (PPG) with VMs to achieve automated, low-latency deployments. AVG for SAP HANA has implemented many technical improvements that simplify and standardize the entire process to help you streamline volume deployments for SAP HANA. 
  
