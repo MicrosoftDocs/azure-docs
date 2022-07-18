@@ -16,17 +16,16 @@ ms.devlang: azurecli
 
 # Share a gallery with subscriptions or tenants (preview)
 
-This article covers how to share an Azure Compute Gallery with specific subscriptions or tenants using direct sharing. Sharing a gallery with tenants and subscriptions give them read-only access to your gallery.
+This article covers how to share an Azure Compute Gallery with specific subscriptions or tenants using a direct shared gallery. Sharing a gallery with tenants and subscriptions give them read-only access to your gallery.
 
 
 > [!IMPORTANT]
-> Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Compute Gallery – direct shared gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > To publish images to a direct shared gallery during the preview, you need to register at [https://aka.ms/directsharedgallery-preview](https://aka.ms/directsharedgallery-preview). Creating VMs from a direct shared gallery is open to all Azure users.
 >
 > During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
->
-> You can't currently create a Flexible virtual machine scale set from an image shared to you by another tenant.
+
 
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
@@ -34,7 +33,7 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | Share with\: | Option |
 |----|----|
 | [Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](explained in this article) | Direct sharing lets you share to everyone in a subscription or tenant. |
+| [Subscriptions or tenants](explained in this article) | Direct shared gallery lets you share to everyone in a subscription or tenant. |
 | [Everyone](./share-gallery-community.md) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
 
 
@@ -44,15 +43,15 @@ During the preview:
 - You can only share to subscriptions that are also in the preview.
 - You can only share to 30 subscriptions and 5 tenants.
 - Only images can be shared. You can't directly share a [VM application](vm-applications.md) during the preview.
-- The gallery using direct sharing can't contain encrypted image versions. Encrypted images can't be created within a gallery that is directly shared.
-- The user or service principal that will share must be a member of the `Owner` role definition. Only an `Owner` at the scope of the gallery or higher will be able to enable group-based sharing.
+- A direct shared gallery can't contain encrypted image versions. Encrypted images can't be created within a gallery that is directly shared.
+- Only the owner of a subscription, or a user or service principal assigned to the `Compute Gallery Sharing Admin` role at the subscription or gallery level will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 - PowerShell, Ansible, and Terraform aren't supported at this time.
 - **Known issue**: When creating a VM from a direct shared image using the Azure portal, if you you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image: <region>" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 
 ## Prerequisites
 
-You need to create a [new gallery with direct sharing enabled](./create-gallery.md#create-a-direct-shared-gallery). Direct sharing means that the `sharingProfile.permissions` property is set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
+You need to create a [new direct shared gallery ](./create-gallery.md#create-a-direct-shared-gallery). A direct shared gallery has the `sharingProfile.permissions` property is set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 ### [Portal](#tab/portaldirect)
 
 1. Sign in to the Azure portal at https://portal.azure.com.
@@ -61,7 +60,7 @@ You need to create a [new gallery with direct sharing enabled](./create-gallery.
 
 ### [CLI](#tab/clidirect)
 
-To create a gallery that can be shared to a subscription or tenant using direct sharing, you need to create the gallery with the `--permissions` parameter set to `groups`.
+To create a direct shared gallery, you need to create the gallery with the `--permissions` parameter set to `groups`.
 
 ```azurecli-interactive
 az sig create \

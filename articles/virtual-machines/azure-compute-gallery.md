@@ -89,7 +89,7 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | Share with\: | Option |
 |----|----|
 | [Specific people, groups, or service principals](#rbac) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](#direct-sharing-to-a-tenant-or-subscription) | Direct sharing (preview) lets you share to everyone in a subscription or tenant. |
+| [Subscriptions or tenants](#direct-sharing-to-a-tenant-or-subscription) | Direct shared gallery (preview) lets you share to everyone in a subscription or tenant. |
 | [Everyone](#community-gallery) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
 
 ### RBAC
@@ -106,12 +106,12 @@ We recommend sharing at the Gallery level for the best experience. We do not rec
 For more information, see [Share using RBAC](./share-gallery.md).
 
 
-### Direct sharing to a tenant or subscription
+### Shared directly to a tenant or subscription
 
-Give specific subscriptions or tenants access to an Azure Compute Gallery using direct sharing. Sharing a gallery with tenants and subscriptions give them read-only access to your gallery. For more information, see [Share a gallery with subscriptions or tenants](./share-gallery-direct.md).
+Give specific subscriptions or tenants access to an direct shared Azure Compute Gallery. Sharing a gallery with tenants and subscriptions give them read-only access to your gallery. For more information, see [Share a gallery with subscriptions or tenants](./share-gallery-direct.md).
 
 > [!IMPORTANT]
-> Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Compute Gallery – direct shared gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > To publish images to a direct shared gallery during the preview, you need to register at [https://aka.ms/directsharedgallery-preview](https://aka.ms/directsharedgallery-preview). Creating VMs from a direct shared gallery is open to all Azure users.
  
@@ -124,8 +124,8 @@ Give specific subscriptions or tenants access to an Azure Compute Gallery using 
 During the preview:
 - You can only share to subscriptions that are also in the preview.
 - You can only share to 30 subscriptions and 5 tenants.
-- The gallery using direct sharing cannot contain encrypted image versions. Encrypted images cannot be created within a gallery that is directly shared.
-- Only an `Owner` at the scope of the gallery or higher will be able to enable group-based sharing.
+- A direct shared gallery cannot contain encrypted image versions. Encrypted images cannot be created within a gallery that is directly shared.
+- Only the owner of a subscription, or a user or service principal assigned to the `Compute Gallery Sharing Admin` role at the subscription or gallery level will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
 ### Community gallery

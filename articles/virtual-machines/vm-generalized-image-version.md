@@ -525,13 +525,12 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 ## Create a VM from a gallery shared with your subscription or tenant
 
 > [!IMPORTANT]
-> Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Compute Gallery – direct shared gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > To publish images to a direct shared gallery during the preview, you need to register at [https://aka.ms/directsharedgallery-preview](https://aka.ms/directsharedgallery-preview). Creating VMs from a direct shared gallery is open to all Azure users.
 >
 > During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
->
-> You can't currently create a Flexible virtual machine scale set from an image shared to you by another tenant.
+
 
 
 
@@ -586,6 +585,8 @@ az vm create\
 
 > [!NOTE]
 > **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image: <region>" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
+>
+> You can also use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus" to see what images are shared with you in the West US region.
 
 1. Type **virtual machines** in the search.
 1. Under **Services**, select **Virtual machines**.

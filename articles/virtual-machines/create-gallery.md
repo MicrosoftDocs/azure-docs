@@ -26,7 +26,7 @@ The gallery is a top-level resource that can be shared in multiple ways:
 | Share with\: | Option |
 |----|----|
 | [Specific people, groups, or service principals](#create-a-private-gallery) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](#create-a-direct-shared-gallery) | Direct sharing (preview) lets you share to everyone in a subscription or tenant. |
+| [Subscriptions or tenants](#create-a-direct-shared-gallery) | Direct shared gallery (preview) lets you share to everyone in a subscription or tenant. |
 | [Everyone](#create-a-community-gallery) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
 
 ## Naming
@@ -112,7 +112,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ## Create a direct shared gallery
 
 > [!IMPORTANT]
-> Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Compute Gallery – direct shared gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 >
@@ -139,7 +139,7 @@ To start sharing the gallery with a subscription or tenant, use see [Share a gal
 
 ### [CLI](#tab/clidirect)
 
-To create a gallery that can be shared to a subscription or tenant using direct sharing, you need to create the gallery with the `--permissions` parameter set to `groups`.
+To create a gallery that can be shared to a subscription or tenant using a direct shared gallery, you need to create the gallery with the `--permissions` parameter set to `groups`.
 
 ```azurecli-interactive
 az sig create \

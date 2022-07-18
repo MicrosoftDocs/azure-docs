@@ -116,12 +116,11 @@ There are three main ways to share an Azure Compute Gallery, depending on who yo
 | Share with\: | Option |
 |----|----|
 |[Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](./share-gallery-direct.md) | Direct sharing (preview) lets you share to everyone in a subscription or tenant. |
+| [Subscriptions or tenants](./share-gallery-direct.md) | A direct shared gallery (preview) lets you share to everyone in a subscription or tenant. |
 | [Everyone](./share-gallery-community.md) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
 
 
-> [!IMPORTANT]
-> You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
+
 ## Shallow replication 
 
 When you create an image version, you can set the replication mode to shallow for development and test. Shallow replication skips copying the image, so the image version is ready much faster. But, it also means you can't deploy a large number of VMs from that image version. This is similar to the way that the older managed images worked.
