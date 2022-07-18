@@ -74,7 +74,7 @@ To start using Azure Hybrid Benefit for SUSE:
 1. Create a virtual machine scale set by following the next set of instructions.
 1. On the **Operating system** pane, confirm that the option is enabled.
    
-    :::image type="content" source="./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png" alt-text=Screenshot of the Azure Hybrid Benefit pane for the operating system after you create a virtual machine.":::
+    :::image type="content" source="./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png" alt-text="Screenshot of the Azure Hybrid Benefit pane for the operating system after you create a virtual machine.":::
 
 ### Enable Azure Hybrid Benefit in an existing virtual machine scale set
 1. Go to the [Azure portal](https://portal.azure.com/).
