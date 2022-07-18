@@ -81,7 +81,7 @@ To request IA support for Zerto on Azure VMware Solution, send an email request 
 
 After the ZVM installation, select the options below from the Zerto Virtual Manager **Site Settings**.
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-install-5.png" alt-text="Screenshot of the Workload Automation section that shows to select all of the options listed for the blue checkboxes.":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-install-5.png" alt-text="Image of the Workload Automation section that shows to select all of the options listed for the blue checkboxes.":::
 
 >[!NOTE]
 >General Availability of Azure VMware Solution will enable self-service installation and Day 2 operations of Zerto on Azure VMware Solution.
@@ -96,7 +96,7 @@ For more information, see the [Zerto technical documentation](https://www.zerto.
 
 - As you scale your Azure VMware Solution private cloud operations, you might need to add new Azure VMware Solution hosts for Zerto protection or configure Zerto disaster recovery to new Azure VMware Solution vSphere Clusters. In both these scenarios, you'll be required to open a Support Request with the Azure VMware Solution team in the Initial Availability phase. You can open the [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for these Day 2 configurations.
 
-   :::image type="content" source="media/zerto-disaster-recovery/support-request-zerto-disaster-recovery.png" alt-text="Screenshot showing the support request for Day 2 Zerto disaster recovery configurations.":::
+   :::image type="content" source="media/zerto-disaster-recovery/support-request-zerto-disaster-recovery.png" alt-text="Image shows the support request for Day 2 Zerto disaster recovery configurations.":::
 
 - In the GA phase, all the above operations will be enabled in an automated self-service fashion.
 
