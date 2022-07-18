@@ -2,8 +2,8 @@
 title: Enable Profiler for web apps on an Azure virtual machine
 description: Profile web apps running on an Azure virtual machine or a virtual machine scale set by using Application Insights Profiler
 ms.topic: conceptual
-ms.date: 07/15/2022
-ms.reviewer: jogrima
+ms.date: 07/18/2022
+ms.reviewer: charles.weininger
 ---
 
 # Enable Profiler for web apps on an Azure virtual machine
@@ -58,7 +58,7 @@ In this article, you learn how to run Application Insights Profiler on your Azur
 
 You can enable Profiler by any of the following three ways:
 
-- Within your ASP.NET Core application using an Azure Resource Manager template and Visual Studio.
+- Within your ASP.NET Core application using an Azure Resource Manager template and Visual Studio (recommended).
 - Using a PowerShell command via the Azure CLI.
 - Using Azure Resource Explorer.
 
@@ -146,15 +146,15 @@ If the intended application is running through [IIS](https://www.microsoft.com/w
 
 1. Use the [Add Windows features](/iis/configuration/system.webserver/tracing/) window, or run the following command in PowerShell (as administrator):  
 
-  ```powershell
-  Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
-  ```
+    ```powershell
+    Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
+    ```
 
-  If establishing remote access is a problem, you can use the [Azure CLI](/cli/azure/get-started-with-azure-cli) to run the following command:  
+    If establishing remote access is a problem, you can use the [Azure CLI](/cli/azure/get-started-with-azure-cli) to run the following command:  
 
-  ```cli
-  az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
-  ```
+    ```cli
+    az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
+    ```
 
 1. Deploy your application.
 
