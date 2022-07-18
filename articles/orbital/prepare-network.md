@@ -9,9 +9,9 @@ ms.date: 07/12/2022
 ms.author: hrshelar
 ---
 
-# Prepare the network for Azure Orbital GSaaS integration
+# Prepare the network for Azure Orbital Ground Station integration
 
-The Orbital GSaaS platform interfaces with your resources using VNET injection, which is used in both uplink and downlink directions. This page describes how to ensure your Subnet and Orbital GSaaS objects are configured correctly.
+The Azure Orbital Ground Station platform interfaces with your resources using VNET injection, which is used in both uplink and downlink directions. This page describes how to ensure your Subnet and Orbital ground station objects are configured correctly.
 
 Ensure the objects comply with the recommendations in this article. Note, these steps don't have to be followed in order.
 
@@ -21,7 +21,7 @@ Prerequisites:
 - An entire subnet that can be dedicated to Orbital GSaaS in your virtual network in your resource group.
 
 Steps:
-1. Delegate a subnet to service named: Microsoft.Orbital/orbitalGateways. Follow instructions here: [Add or remove a subnet delegation in an Azure virtual network](/azure/virtual-network/manage-subnet-delegation).
+1. Delegate a subnet to service named: Microsoft.Orbital/orbitalGateways. Follow instructions here: [Add or remove a subnet delegation in an Azure virtual network](../virtual-network/manage-subnet-delegation.md).
 
 > [!NOTE]
 >  Address range needs to be at least /24 (example 10.0.0.0/23)
@@ -88,5 +88,5 @@ Here's how to set up the link flows based on direction on tcp or udp preference.
 
 ## Next steps
 
-- [Quickstart: Register Spacecraft](register-spacecraft.md)
-- [Quickstart: Schedule a contact](schedule-contact.md)
+- [Register Spacecraft](register-spacecraft.md)
+- [Schedule a contact](schedule-contact.md)
