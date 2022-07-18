@@ -43,7 +43,7 @@ The following image has an example of an organization's reporting structure in a
 
 Based on the reporting structure in the example image, members outside of a division that is under a group review, would be denied access by the system if the peer outlier recommendation was taken by the reviewer. 
 
-For example, Phil who works within the Personal care division is in a group with Debbie and Emily who both work within the Cosmetics division. The group is called *Fresh Skin*. If an Access Review for the group Fresh Skin is performed, based on the reporting structure and distance away from the other group members, Phil would be considered an outlier. The system will create a **Deny** recommendation in the group access review.
+For example, Phil who works within the Personal care division is in a group with Debby, Irwin, and Emily who all work within the Cosmetics division. The group is called *Fresh Skin*. If an Access Review for the group Fresh Skin is performed, based on the reporting structure and distance away from the other group members, Phil would be considered an outlier. The system will create a **Deny** recommendation in the group access review.
 
 ## Next Steps
 - [Create an access review](create-access-review.md)
