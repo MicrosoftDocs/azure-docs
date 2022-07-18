@@ -58,7 +58,7 @@ In this article, you'll download and install the following software packages. Th
 * [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) runtime.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
-In our example, we'll utilize an [NCv3 series VM](../../virtual-machines/ncv3-series) that has one v100 GPU.
+In our example, we'll utilize an [NCv3 series VM](../../virtual-machines/ncv3-series.md) that has one v100 GPU.
 
 ---
 
@@ -323,7 +323,7 @@ Use the below steps to deploy the container using the Azure CLI.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
 
-An Azure Virtual Machine with a GPU can also be used to run Spatial Analysis. The example below will use a [NCv3 series VM](../../virtual-machines/ncv3-series) that has one v100 GPU.
+An Azure Virtual Machine with a GPU can also be used to run Spatial Analysis. The example below will use a [NCv3 series VM](../../virtual-machines/ncv3-series.md) that has one v100 GPU.
 
 #### Create the VM
 
