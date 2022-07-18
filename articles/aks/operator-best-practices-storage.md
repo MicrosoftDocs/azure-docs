@@ -89,7 +89,6 @@ Work with your application development team to understand their storage capacity
 
 For more information about available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
 
-## Default OS disk sizing
 
 The default disk size and performance for managed disks is assigned according to the selected VM SKU and vCPU count. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
 
