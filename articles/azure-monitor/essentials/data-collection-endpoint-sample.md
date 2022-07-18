@@ -8,7 +8,9 @@ ms.custom: references_region
 ---
 
 # Sample data collection endpoint
-The sample data collection endpoint below is for virtual machines with Azure Monitor agent, with public network access disabled so that agent only uses private links to communicate and send data to Azure Monitor/Log Analytics.
+The sample data collection endpoint (DCE) below is for virtual machines with Azure Monitor agent, with public network access disabled so that agent only uses private links to communicate and send data to Azure Monitor/Log Analytics.
+
+## Sample DCE
 
 ```json
 {

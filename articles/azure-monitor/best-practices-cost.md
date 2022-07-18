@@ -46,10 +46,10 @@ You can save on data ingestion costs by configuring [certain tables](logs/basic-
 
 The decision whether to configure a table for Basic Logs is based on the following criteria:
 
-- The table currently support Basic Logs.
+- The table currently supports Basic Logs.
 - You don't require more than eight days of data retention for the table.
 - You only require basic queries of the data using a limited version of the query language.
-- The cost savings for data ingestion over a month exceeds the expected cost for any expected queries
+- The cost savings for data ingestion over a month exceed the expected cost for any expected queries
 
 See [Query Basic Logs in Azure Monitor (Preview)](.//logs/basic-logs-query.md) for details on query limitations and [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more details about them.
 
@@ -77,7 +77,7 @@ See the section below on filtering data with transformations for a summary on wh
 ### Multi-homing agents
 You should be cautious with any configuration using multi-homed agents where a single virtual machine sends data to multiple workspaces since you may be incurring charges for the same data multiple times. If you do multi-home agents, ensure that you're sending unique data to each workspace.
 
-You can also collect duplicate data with a single virtual machine running both the Azure Monitor agent and Log Analytics agent, even if they're both sending data to the same workspace. While the agents can coexist, each works independently without any knowledge of the other. You should continue to use the Log Analytics agent until you [migrate to the Azure Monitor agent](./agents/azure-monitor-agent-migration.md) rather than using both together unless you can ensure that each are collecting unique data.
+You can also collect duplicate data with a single virtual machine running both the Azure Monitor agent and Log Analytics agent, even if they're both sending data to the same workspace. While the agents can coexist, each works independently without any knowledge of the other. You should continue to use the Log Analytics agent until you [migrate to the Azure Monitor agent](./agents/azure-monitor-agent-migration.md) rather than using both together unless you can ensure that each is collecting unique data.
 
 See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for guidance on analyzing your collected data to ensure that you aren't collecting duplicate data for the same machine.
 
@@ -139,11 +139,11 @@ Once you've configured your environment and data collection for cost optimizatio
 ### Set a daily cap
 A [daily cap](logs/daily-cap.md) disables data collection in a Log Analytics workspace for the rest of the day once your configured limit is reached. This should not be used as a method to reduce costs, but rather as a preventative measure to ensure that you don't exceed a particular budget. Daily caps are typically used by organizations that are particularly cost conscious. 
 
-When data collection stops, you effectively have no monitoring of features and resources relying on that workspace. Rather than just relying on the daily cap alone, you can configure an alert rule to notify you when data collection reaches some level before the daily cap. This allows you address any increases before data collection shuts down, or even to temporarily disable collection for less critical resources.
+When data collection stops, you effectively have no monitoring of features and resources relying on that workspace. Rather than just relying on the daily cap alone, you can configure an alert rule to notify you when data collection reaches some level before the daily cap. This allows you to address any increases before data collection shuts down, or even to temporarily disable collection for less critical resources.
 
 See [Set daily cap on Log Analytics workspace](logs/daily-cap.md) for details on how the daily cap works and how to configure one.
 ### Send alert when data collection is high
-In order to avoid unexpected bills, you should be proactively notified any time you experience excessive usage. This allows you to address any potential anomalies before the end of your billing period.
+In order to avoid unexpected bills, you should be proactively notified anytime you experience excessive usage. This allows you to address any potential anomalies before the end of your billing period.
 
 The following example is a [log alert rule](alerts/alerts-unified-log.md) that sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB. Modify the **Alert Logic** to use a different threshold based on expected usage in your environment. You can also increase the frequency to check usage multiple times every day, but this will result in a higher charge for the alert rule.
 

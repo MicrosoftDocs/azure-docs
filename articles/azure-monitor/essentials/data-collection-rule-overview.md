@@ -4,7 +4,7 @@ description: Overview of data collection rules (DCRs) in Azure Monitor including
 ms.topic: conceptual
 ms.date: 07/15/2022
 ms.reviewer: nikeist
-
+ms.custom: references_regions
 ---
 
 # Data collection rules in Azure Monitor
@@ -25,8 +25,8 @@ The following resources describe different scenarios for creating data collectio
 | Scenario | Resources | Description |
 |:---|:---|:---|
 | Azure Monitor agent | [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md) | Use the Azure portal to create a data collection rule that specifies events and performance counters to collect from a machine with the Azure Monitor agent and then apply that rule to one or more virtual machines. The Azure Monitor agent will be installed on any machines that don't currently have it.  |
-| | [Use Azure Policy to install Azure Monitor agent and associate with DCR](../agents/azure-monitor-agent-manage.md#using-azure-policy) | Use Azure Policy to install the Azure Monitor agent and associate one or more data collection rules with with any virtual machines or virtual machine scale sets as they're created in your subscription.
-| Custom logs | [Configure custom logs using the Azure portal](../logs/tutorial-logs-ingestion-portal.md)<br>[Configure custom logs using Resource Manager templates and REST API](../logs/tutorial-logs-ingestion-api.md) | Send custom data using a REST API. The API call connects to a DCE and specifies a DCR to use. The DCR specifies the target table and potentially includes a transformation that filters and modifies the data before its stored in a Log Analytics workspace.  |
+| | [Use Azure Policy to install Azure Monitor agent and associate with DCR](../agents/azure-monitor-agent-manage.md#using-azure-policy) | Use Azure Policy to install the Azure Monitor agent and associate one or more data collection rules with any virtual machines or virtual machine scale sets as they're created in your subscription.
+| Custom logs | [Configure custom logs using the Azure portal](../logs/tutorial-logs-ingestion-portal.md)<br>[Configure custom logs using Resource Manager templates and REST API](../logs/tutorial-logs-ingestion-api.md) | Send custom data using a REST API. The API call connects to a DCE and specifies a DCR to use. The DCR specifies the target table and potentially includes a transformation that filters and modifies the data before it's stored in a Log Analytics workspace.  |
 | Workspace transformation | [Configure ingestion-time transformations using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Configure ingestion-time transformations using Resource Manager templates and REST API](../logs/tutorial-workspace-transformations-api.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR that's then associated with the workspace and applied to any data sent to that table from a legacy workload that doesn't use a DCR. |
 
 ##  Work with data collection rules
@@ -64,7 +64,7 @@ Data collection rules are available in all public regions where Log Analytics wo
 
 
 ## Data resiliency and high availability
-A rule gets created and stored in a particular region and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) within the same geography. The service is deployed to all three [availability zones](../../availability-zones/az-overview.md#availability-zones) within the region, making it a **zone-redundant service** which further adds to high availability.
+A rule gets created and stored in a particular region and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) within the same geography. The service is deployed to all three [availability zones](../../availability-zones/az-overview.md#availability-zones) within the region, making it a **zone-redundant service** which further increases availability.
 
 
 ## Next steps

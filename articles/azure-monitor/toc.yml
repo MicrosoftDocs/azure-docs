@@ -129,6 +129,8 @@ items:
   items:
   - name: Continuous monitoring
     href: continuous-monitoring.md
+  - name: Observability
+    href: observability-data.md
   - name: Data platform
     href: data-platform.md
   - name: Usage and cost
