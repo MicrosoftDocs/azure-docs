@@ -1,6 +1,6 @@
 ---
 title: Open a support ticket for Azure HPC Cache
-description: How to open a help request for Azure HPC Cache, including how to create a quota increase request 
+description: How to open a help request for Azure HPC Cache, including how to request a quota increase 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
@@ -16,8 +16,7 @@ Navigate to your cache instance, then click the **New support request** link tha
 
 To open a ticket when you do not have an active cache, use the main Help + support page from the Azure portal. Open the portal menu from the control at the top left of the screen, then scroll to the bottom and click **Help + support**.
 
-> [!TIP]
-> If you need a quota increase, most requests can be handled automatically. Follow the instructions below in [Request a quota increase](#request-a-quota-increase).
+Support requests are also used to request a quota increase. If you want to host more HPC Caches than your subscription currently allows, follow the instructions below in [Request a quota increase](#request-a-quota-increase).
 
 ## Request technical support
 
