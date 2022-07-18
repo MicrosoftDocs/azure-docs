@@ -46,7 +46,7 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ### Issue access token with multiple scopes
 
-Run the following command to issue an access token with multiple scopes for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
+Run the following command to issue an access token with multiple scopes for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens).
 
 ```azurecli-interactive
 az communication identity issue-access-token --scope chat voip --userid "<userId>" --connection-string "<yourConnectionString>"
