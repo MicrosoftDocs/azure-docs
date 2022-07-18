@@ -49,7 +49,7 @@ To enable or disable this feature (these prerequisites are not required to use t
     - **Active Directory** on-premises (Preview)
     - **Azure Active Directory**
 
-    To sync user entities from on-premises Active Directory, your Azure tenant must be onboarded to Microsoft Defender for Identity (either standalone or as part of Microsoft 365 Defender) and you must have the MDI sensor installed on your Active Directory domain controller.
+    To sync user entities from on-premises Active Directory, your Azure tenant must be onboarded to Microsoft Defender for Identity (either standalone or as part of Microsoft 365 Defender) and you must have the MDI sensor installed on your Active Directory domain controller. See [Microsoft Defender for Identity prerequisites](/defender-for-identity/prerequisites) for more information.
 
 1. Mark the check boxes next to the data sources on which you want to enable UEBA.
 
