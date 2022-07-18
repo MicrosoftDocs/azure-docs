@@ -531,7 +531,7 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
     ---
 
-    Note how the *access.log* and *error.log* files appear in this folder.
+    Note how the *access.log* and *error.log* files appear in this folder. These files are written to the Azure Files mount in your Azure Storage share created in the previous steps.
 
 1. View the contents of the *access.log* file.
 
@@ -548,6 +548,30 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
     ```
 
     ---
+
+    Next, view the files in the Azure portal to verify they exist in your Azure Storage account.
+
+1. Print the name of your randomly generated storage account.
+
+    # [Bash](#tab/bash)
+
+    ```bash
+    echo $STORAGE_ACCOUNT_NAME
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    echo $STORAGE_ACCOUNT_NAME
+    ```
+
+    ---
+
+1. Navigate to the Azure portal and open up the storage account created in this procedure.
+
+1. Under **Data Storage** select **File shares**
+
+1. Select **myshare** to view the *access.log* and *error.log* files.
 
 ## Clean up resources
 
