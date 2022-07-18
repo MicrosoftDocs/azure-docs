@@ -257,7 +257,7 @@
           href: set-up-scaling-script.md
   - name: Manage agent updates
     items:
-      - name: Scheduled Agent Updates (preview)
+      - name: Scheduled Agent Updates
         href: scheduled-agent-updates.md
       - name: Set up diagnostics to monitor agent updates
         href: agent-updates-diagnostics.md
