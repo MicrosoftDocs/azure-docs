@@ -64,7 +64,7 @@ ISV enforces license check based on the plans that user has access to.
 
 ISVs can view information on:
 - Revenue details and payout information
-- Orders purchased / renewed / cancelled over time and by geography
+- Orders purchased / renewed / canceled over time and by geography
 - Assigned licenses over time and by geography
 
 <!--- [
@@ -76,14 +76,14 @@ ISVs can view information on:
 | Customers manage subscription | Customers can manage the subscriptions of these visuals and offers in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/subscriptions), just like they normally do for any of their other subscriptions, such as Office or Power BI subscriptions. |
 | Customers assign licenses | Customers can assign licenses of these Power BI visuals in license pages under the billing node in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/subscriptions). Customers can assign licenses to users or groups. Doing so will enable these users to launch the Power BI visual. |
 | ISV enforces runtime checks | ISV enforces license check based on the plans that user has access to. |
-| ISV can view reports | ISVs can view information on:<br>- Revenue details and payout information<br>- Orders purchased / renewed / cancelled over time and by geography<br>- Assigned licenses over time and by geography |
+| ISV can view reports | ISVs can view information on:<br>- Revenue details and payout information<br>- Orders purchased / renewed / canceled over time and by geography<br>- Assigned licenses over time and by geography |
 ]() --->
 
 ## Offer listing page on AppSource
 
 After your offer is published, the options you chose will drive which buttons appear to a user. This screenshot shows an offer listing page on AppSource.
 
-[ ![Alt-Text.](./media/isv-app-license/power-bi-transact-appsource.png) ](./media/isv-app-license/power-bi-transact-appsource.png#lightbox)
+[ ![Screenshot of listing options on an offer listing page in Microsoft AppSource.](./media/isv-app-license/power-bi-transact-appsource.png) ](./media/isv-app-license/power-bi-transact-appsource.png#lightbox)
 
 ## Next steps
 

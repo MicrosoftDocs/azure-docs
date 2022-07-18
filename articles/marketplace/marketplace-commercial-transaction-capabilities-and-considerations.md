@@ -35,16 +35,16 @@ The transact publishing option is currently supported for the following offer ty
 | Offer type | Billing cadence | Metered billing | Pricing model |
 | ------------ | ------------- | ------------- | ------------- |
 | Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
-| Azure Virtual Machine | Monthly<sup>1</sup> | No | Usage-based, BYOL |
+| Azure Virtual Machine | Monthly [1] | No | Usage-based, BYOL |
 | Software as a service (SaaS) | Monthly and annual | Yes | Flat rate, per user, usage-based. |
-| Dynamics 365 apps on Dataverse and Power Apps<sup>2</sup> | Monthly and annual | No | Per user |
-| Power BI visual<sup>3</sup> | Monthly and annual | No | Per user |
+| Dynamics 365 apps on Dataverse and Power Apps [2] | Monthly and annual | No | Per user |
+| Power BI visual [3] | Monthly and annual | No | Per user |
 
-<sup>1</sup> Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
+[1] Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
 
-<sup>2</sup> Dynamics 365 apps on Dataverse and Power Apps offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Dynamics 365 apps on Dataverse and Power Apps](isv-app-license.md).
+[2] Dynamics 365 apps on Dataverse and Power Apps offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Dynamics 365 apps on Dataverse and Power Apps](isv-app-license.md).
 
-<sup>3</sup> Power BI visual offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Power BI visual offers](isv-app-license-power-bi-visual.md).
+[3] Power BI visual offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Power BI visual offers](isv-app-license-power-bi-visual.md).
 
 ### Metered billing
 
