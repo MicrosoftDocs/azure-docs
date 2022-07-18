@@ -432,7 +432,7 @@ Now you can update the container app configuration to support the storage mount.
         name: my-container-app
         volumeMounts:
         - volumeName: my-azure-file-volume
-          mountPath: /usr/share/nginx/html
+          mountPath: /var/log/nginx
     ```
 
     The new `volumeMounts` section under the *nginx* container includes the following properties:
@@ -497,38 +497,36 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
     # [Bash](#tab/bash)
 
     ```bash
-    cd /usr/share/nginx/html
+    cd /var/log/nginx
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    cd /usr/share/nginx/html
+    cd /var/log/nginx
     ```
 
     ---
 
-1. Create a test file.
+1. Return to the browser and navigate to the website and refresh the page a few times.
+
+    The requests made to the website creates a series of log stream entries.
+
+1. Return to your terminal and list the values of the `/var/log/nginx` folder.
 
     # [Bash](#tab/bash)
 
     ```bash
-    echo "hello" > file-mount.html
+    ls
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    echo "hello" > file-mount.html
+    ls
     ```
 
     ---
-
-1. Return to your browser and navigate to the *file-mount.html* file from the nginx website.
-
-    Verify you see the *hello* message in the browser.
-
-    You can now run the `exit` command to return to your native terminal environment.
 
 ## Clean up resources
 
