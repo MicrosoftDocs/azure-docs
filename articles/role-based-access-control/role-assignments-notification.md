@@ -47,7 +47,7 @@ To get notified of privileged role assignments, you create an alert rule in Azur
 
     This query filters for all attempts to assign the Owner, Contributor, or User Access Administrator role in the selected subscription.
 
-    ```
+    ```kusto
     // Get start logs where there was an attempt to assign a privileged role
     let StartLog = AzureActivity
         | where Authorization contains "Microsoft.Authorization/roleAssignments/write"
