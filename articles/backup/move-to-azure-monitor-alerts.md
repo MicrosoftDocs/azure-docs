@@ -41,7 +41,7 @@ Learn more about [monitoring solutions supported by Azure Backup](monitoring-and
 
 Among the different Azure Monitor based alert solutions, built-in Azure Monitor alerts come closest to classic alerts as per user experience and functionality. So, to quickly switch from classic alerts to Azure Monitor, you can use built-in Azure Monitor alerts.
 
-The following table lists the differences between classic backup alerts and built-in Azure Monitor alerts for backupl:
+The following table lists the differences between classic backup alerts and built-in Azure Monitor alerts for backup:
 
 | Actions | Classic alerts | Built-in Azure Monitor alerts |
 | --- | --- | --- |
