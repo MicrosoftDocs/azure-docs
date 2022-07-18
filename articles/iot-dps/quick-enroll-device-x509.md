@@ -1,28 +1,28 @@
 ---
-title: Quickstart - Group enrollment to the Azure Device Provisioning Service using X.509 certificate attestation
-description: This quickstart shows you how to programmatically enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
+title: How to programmatically create an Azure Device Provisioning Service enrollment group for X.509 certificate attestation
+description: This article shows you how to programmatically create an enrollment group to enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
 author: kgremban
 ms.author: kgremban
-ms.date: 04/28/2022
-ms.topic: quickstart
+ms.date: 07/18/2022
+ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.devlang: csharp
+ms.devlang: csharp, java, node.js
 ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set2
 ---
  
-# Quickstart: Enroll a group of devices to the Device Provisioning Service using X.509 certificate attestation
+# Programmatically create a Device Provisioning Service enrollment group for X.509 certificate attestation
 
 :::zone pivot="programming-language-csharp,programming-language-nodejs"
 
-This quickstart shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
+This article shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
 
 :::zone-end
 
 :::zone pivot="programming-language-java"
 
-This quickstart shows you how to programmatically create an individual enrollment and an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
+This article shows you how to programmatically create an individual enrollment and an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
 
 :::zone-end
 
@@ -52,7 +52,7 @@ This quickstart shows you how to programmatically create an individual enrollmen
 
 :::zone pivot="programming-language-java"
 
-* [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure). This quickstart installs the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) below. It works on both Windows and Linux. This quickstart uses Windows.
+* [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure). This article installs the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) below. It works on both Windows and Linux. This article uses Windows.
 
 * [Maven 3](https://maven.apache.org/download.cgi).
 
@@ -65,7 +65,11 @@ This quickstart shows you how to programmatically create an individual enrollmen
 
 ## Prepare test certificates
 
-For this quickstart, you must have a *.pem* or a *.cer* file that contains the public portion of an intermediate or root CA X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
+Enrollment groups that use X.509 certificate attestation can be configured to use a root CA certificate or an intermediate certificate. The more usual case is to configure the enrollment group with an intermediate certificate. This provides more flexibility as multiple intermediate certificates can be generated or revoked by the same root CA certificate.  
+
+For this article, you'll need both a root CA and an intermediate CA certificate file in *.pem* or *.cer* format. One file will contain the public portion of the intermediate CA X.509 certificate and the other will contain the public portion of the root CA X.509 certificate.
+
+If you already have root and intermediate CA files, you can continue to [Add and verify your root CA certificate]().
 
 :::zone pivot="programming-language-csharp,programming-language-nodejs"
 
@@ -149,11 +153,13 @@ To create the certificate, follow the steps in [Managing test CA certificates fo
 
 :::zone-end
 
-### Add and verify your test certificate
+## Add and verify your root CA certificate
 
-To add and verify your certificate to the Device Provisioning Service.
+Devices that provision using X.509 certificates through an enrollment group, present the entire certificate chain when they authenticate with DPS. For DPS to be able to validate the certificate chain, you must upload and verify the root CA certificate that anchors the chain. You must do this whether you configure the enrollment group with a root CA or an intermediate CA certificate. 
 
-1. After you've created the certificates, sign in to the [Azure portal](https://portal.azure.com).
+To add and verify your root CA certificate to the Device Provisioning Service.
+
+1. After you've created the root CA certificates, sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the left-hand menu or on the portal page, select **All resources**.
 
@@ -163,7 +169,7 @@ To add and verify your certificate to the Device Provisioning Service.
 
 5. On the top menu, select **+ Add:**.
 
-6. Type in in a certificate name, and upload the *.pem* file you create in the preceding section.
+6. Enter your root CA certificate name, and upload the *.pem* or *.cer* file.
 
 7. Select **Set certificate status to verified on upload**.
 
@@ -173,7 +179,7 @@ To add and verify your certificate to the Device Provisioning Service.
 
 ## Get the connection string for your provisioning service
 
-For the sample in this quickstart, you'll need to copy the connection string for your provisioning service.
+For the sample in this article, you'll need to copy the connection string for your provisioning service.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -515,7 +521,7 @@ To enroll a single X.509 device, modify the *individual enrollment* sample code 
 
 ## Clean up resources
 
-If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart.
+If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, don't clean up the resources created in this article. Otherwise, use the following steps to delete all resources created by this article.
 
 1. Close the sample output window on your computer.
 
@@ -527,19 +533,19 @@ If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, 
 
 5. Select the **Enrollment Groups** tab.
 
-6. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart.
+6. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this article.
 
 7. At the top of the page, select  **Delete**.
 
 8. From your Device Provisioning Service in the Azure portal, select **Certificates**.
 
-9. Select the certificate you uploaded for this quickstart.
+9. Select the certificate you uploaded for this article.
 
 10. At the top of **Certificate Details**, select **Delete**.  
 
 ## Next steps
 
-In this quickstart, you created an enrollment group for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorials for the Device Provisioning Service.
+In this article, you created an enrollment group for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorials for the Device Provisioning Service.
 
 > [!div class="nextstepaction"]
 > [Use custom allocation policies with Device Provisioning Service](tutorial-custom-allocation-policies.md)

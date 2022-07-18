@@ -39,14 +39,6 @@ items:
        href: tutorial-provision-multiple-hubs.md
      - name: Provision for multitenancy
        href: how-to-provision-multitenant.md
-- name: Samples
-  items:
-  - name: Create device enrollments using DPS APIs
-    items:
-    - name: Group enrollment using X.509 Certificate Attestation
-      href: quick-enroll-device-x509.md
-    - name: Individual device enrollment using TPM attestation
-      href: quick-enroll-device-tpm.md
 - name: Concepts
   items:
   - name: DPS terminology
@@ -89,6 +81,12 @@ items:
       href: how-to-send-additional-data.md
     - name: Provision devices using custom allocation policies
       href: how-to-use-custom-allocation-policies.md
+    - name: Create enrollments using DPS service APIs
+      items:
+      - name: Create an enrollment group for X.509 certificate attestation
+        href: quick-enroll-device-x509.md
+      - name: Create an individual enrollment for TPM attestation
+        href: quick-enroll-device-tpm.md
     - name: Communicate with your DPS using MQTT protocol
       href: iot-dps-mqtt-support.md
   - name: Manage
