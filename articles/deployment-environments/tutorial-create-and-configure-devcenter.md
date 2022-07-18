@@ -1,7 +1,7 @@
 ---
 title: Set up an Azure Deployment Environment
 description: This tutorial helps to create a DevCenter using the Azure portal.
-author: github-handle
+author: meghaanand
 ms.author: meghaanand
 ms.topic: tutorial
 ms.service: deployment-environments
@@ -100,7 +100,7 @@ After you've created a DevCenter, the next step is to create a system-assigned i
 
 ## Create environment types
 
-Environment types helps you define the different types of environments your development teams can create and apply different settings for different environment types.
+Environment types help you define the different types of environments your development teams can create and apply different settings for different environment types.
 
 1. Select the **Environment Types** in the left menu and select **+ Add**.
 1. On the **Add environment type** page, provide the following details and select **Add**.
