@@ -1231,8 +1231,10 @@
             href: ./windows/disk-encryption-windows-aad.md
   - name: Performance and cost optimization
     items:
-    - name: Ultra disks
+    - name: Deploy an ultra disk
       href: disks-enable-ultra-ssd.md
+    - name: Deploy a premium SSD v2
+      href: disks-deploy-premium-v2.md
       displayname: Performance, cost, perf, disks, disk
     - name: Virtual machine and disk performance
       href: disks-performance.md
@@ -1886,7 +1888,7 @@
         href: ../azure-monitor/vm/vminsights-performance.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Analyze data with log queries
         displayName: Azure monitor, monitoring
-        href: /azure/azure-monitor/vm/vminsights-log-query
+        href: ../azure-monitor/vm/vminsights-log-query.md
       - name: Visualize data with workbooks
         displayName: Azure monitor, monitoring
         href: ../azure-monitor/vm/vminsights-workbooks.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
