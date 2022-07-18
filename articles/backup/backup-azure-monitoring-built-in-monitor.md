@@ -250,7 +250,7 @@ Based on alert severity, you can define three types of alerts:
 
 Once an alert is raised, you're notified. Azure Backup provides a built-in notification mechanism via email. You can specify individual email addresses or distribution lists to be notified when an alert is generated. You can also choose if you need to receive notified for each individual alert or to group them in an hourly digest and then get notified.
 
-:::image type="content" source="./media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification-inline.png" alt-text="Screenshot of the Recovery Services vault built-in email notification." lightbox="./media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification-expanded.png":::
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-built-in-notification-inline.png" alt-text="Screenshot of the Recovery Services vault built-in email notification." lightbox="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-built-in-notification-expanded.png":::
 
 When notification is configured, you'll receive a welcome or introductory email. This confirms that Azure Backup can send emails to these addresses when an alert is raised.
 
