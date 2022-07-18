@@ -47,9 +47,14 @@ Other data sources include:
 - [TestData DB](https://grafana.com/docs/grafana/latest/datasources/testdata/)
 - [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)
 
-You can find all available Grafana data sources by going to your resource and selecting this page from the left menu: **Configuration** > **Data sources** > **Add a data source** . Search for the data source you need from the available list. For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
+You can find all available Grafana data sources by going to your resource and selecting **Configuration** > **Data sources** from the left menu. Search for the data source you need from the available list and select **Add data source**.
 
    :::image type="content" source="media/managed-grafana-how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
+
+> [!NOTE]
+> Installing Grafana plugins listed on the page **Configuration** > **Plugins** isn’t currently supported.
+
+For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
 
 ## Default configuration for Azure Monitor
 
@@ -59,7 +64,7 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
 
    :::image type="content" source="media/managed-grafana-how-to-source-configuration.png" alt-text="Screenshot of the Add data sources page.":::
 
-1. Azure Monitor should be listed as a built-in data source for your Managed Grafana instance. Select **Azure Monitor**.
+1. Azure Monitor is listed as a built-in data source for your Managed Grafana instance. Select **Azure Monitor**.
 1. In **Settings**, authenticate through **Managed Identity** and select your subscription from the dropdown list or enter your **App Registration** details
 
    :::image type="content" source="media/managed-grafana-how-to-source-configuration-Azure-Monitor-settings.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::

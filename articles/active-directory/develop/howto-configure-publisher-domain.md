@@ -17,7 +17,7 @@ ms.custom: contperf-fy21q4, aaddev
 
 # Configure an application's publisher domain
 
-An application’s publisher domain informs the users where their information is being sent and acts as an input/prerequisite for [publisher verification](publisher-verification-overview.md). Depending on when the app was registered and it's verified publisher status, publisher domain may be displayed directly to the user on the [application's consent prompt](application-consent-experience.md). [Multi-tenant applications](/azure/architecture/guide/multitenant/overview) that are registered after May 21, 2019, that don't have a publisher domain show up as **unverified**. Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
+An application’s publisher domain informs the users where their information is being sent and acts as an input/prerequisite for [publisher verification](publisher-verification-overview.md). Depending on whether an app is a [multi-tenant app](/azure/architecture/guide/multitenant/overview), when it was registered and it's verified publisher status, either the publisher domain or the verified publisher status will be displayed to the user on the [application's consent prompt](application-consent-experience.md). Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
 
 ## New applications
 
@@ -34,15 +34,15 @@ The following table summarizes the default behavior of the publisher domain valu
 | - *.onmicrosoft.com<br/>- domain1.com<br/>- domain2.com (primary) | domain2.com |
 
 1. If your multi-tenant was registered between **May 21, 2019 and November 30, 2020**:  
- - If the  application's publisher domain isn't set, or if it's set to a domain that ends in .onmicrosoft.com, the app's consent prompt will show **unverified** in place of the publisher domain. 
- - If the application has a verified app domain, the consent prompt will show the verified domain. 
- - If the application is publisher verified, it will show a [blue "verified" badge] (publisher-verification-overview.md) indicating the same 
+   - If the  application's publisher domain isn't set, or if it's set to a domain that ends in .onmicrosoft.com, the app's consent prompt will show **unverified** in place of the publisher domain. 
+   - If the application has a verified app domain, the consent prompt will show the verified domain. 
+   - If the application is publisher verified, it will show a [blue "verified" badge](publisher-verification-overview.md) indicating the same 
 2. If your multi-tenant was registered after **November 30, 2020**:
- - If the application is not publisher verified, the app will show as "**unverified**" in the consent prompt (i.e, no publisher domain related info is shown) 
- - If the application is publisher verified, it will show a [blue "verified" badge] (publisher-verification-overview.md) indicating the same 
+   - If the application is not publisher verified, the app will show as "**unverified**" in the consent prompt (i.e, no publisher domain related info is shown) 
+   - If the application is publisher verified, it will show a [blue "verified" badge](publisher-verification-overview.md) indicating the same 
 ## Grandfathered applications
 
-If your app was registered before May 21, 2019, your application's consent prompt will not show **unverified** even if you have not set a publisher domain. We recommend that you set the publisher domain value so that users can see this information on your app's consent prompt.
+If your app was registered **before May 21, 2019**, your application's consent prompt will not show **unverified** even if you have not set a publisher domain. We recommend that you set the publisher domain value so that users can see this information on your app's consent prompt.
 
 ## Configure publisher domain using the Azure portal
 
