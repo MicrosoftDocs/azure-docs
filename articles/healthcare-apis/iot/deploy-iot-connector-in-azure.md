@@ -244,9 +244,9 @@ Tags are name and value pairs used for categorizing resources. For more informat
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\display-medtech-service-configurations.png" alt-text="Screenshot of the MedTech service main configuration page." lightbox="media\iot-deploy-manual-in-portal\display-medtech-service-configurations.png":::
 
-## Granting the MedTech service system-assigned managed identity access to the event hub and FHIR service
+## Granting the MedTech service access to the device message event hub and FHIR service
 
-To ensure that your MedTech service works properly, it's system-assigned managed identity must be granted access permissions to the device message event hub and FHIR service. 
+To ensure that your MedTech service works properly, it's system-assigned managed identity must be granted access permissions to your device message event hub and FHIR service. 
 
 ### Granting access to the device message event hub
 
