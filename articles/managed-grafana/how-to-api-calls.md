@@ -1,6 +1,6 @@
 ---
 title: 'Call Grafana APIs programmatically'
-titleSuffix: Azure Managed Grafana Preview
+titleSuffix: Azure Managed Grafana
 description: Learn how to call Grafana APIs programmatically with Azure Active Directory (Azure AD) and an Azure service principal
 author: maud-lv 
 ms.author: malev 
@@ -11,7 +11,7 @@ ms.date: 4/18/2022
 
 # How to call Grafana APIs programmatically
 
-In this article, you'll learn how to call Grafana APIs within Azure Managed Grafana Preview using a service principal.
+In this article, you'll learn how to call Grafana APIs within Azure Managed Grafana using a service principal.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ In this article, you'll learn how to call Grafana APIs within Azure Managed Graf
 
 Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
 
-## Assign roles to the service principal of your application and of your Azure Managed Grafana Preview instance
+## Assign roles to the service principal of your application and of your Azure Managed Grafana instance
 
 1. Start by [Creating an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). This guide takes you through creating an application and assigning a role to its service principal. For simplicity, use an application located in the same Azure Active Directory (Azure AD) tenant as your Grafana instance.
 1. Assign the role of your choice to the service principal for your Grafana resource. Refer to [How to share a Managed Grafana instance](how-to-share-grafana-workspace.md) to learn how to grant access to a Grafana instance. Instead of selecting a user, select **Service principal**.

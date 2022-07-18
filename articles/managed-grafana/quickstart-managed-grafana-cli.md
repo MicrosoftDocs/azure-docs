@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: create an Azure Managed Grafana Preview instance using the Azure CLI'
+title: 'Quickstart: create an Azure Managed Grafana instance using the Azure CLI'
 description: Learn how to create a Managed Grafana instance using the Azure CLI
 ms.service: managed-grafana
 ms.topic: quickstart
@@ -9,12 +9,12 @@ ms.date: 06/10/2022
 ms.devlang: azurecli
 --- 
 
-# Quickstart: Create an Azure Managed Grafana Preview instance using the Azure CLI
+# Quickstart: Create an Azure Managed Grafana instance using the Azure CLI
 
-Get started by creating an Azure Managed Grafana Preview workspace using the Azure CLI. Creating a workspace will generate a Managed Grafana instance.
+Get started by creating an Azure Managed Grafana workspace using the Azure CLI. Creating a workspace will generate a Managed Grafana instance.
 
 > [!NOTE]
-> The CLI experience for Azure Managed Grafana Preview is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.
+> The CLI experience for Azure Managed Grafana is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.
 
 > [!NOTE]
 > Azure Managed Grafana doesn't support personal [Microsoft accounts](https://account.microsoft.com) currently.
@@ -31,7 +31,7 @@ Open your CLI and run the `az login` command:
 az login
 ```
 
-This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign-in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Create a resource group
 

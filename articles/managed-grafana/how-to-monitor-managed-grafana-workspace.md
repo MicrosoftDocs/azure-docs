@@ -1,6 +1,6 @@
 ---
-title: 'How to monitor your Azure Managed Grafana Preview instance with logs'
-description: Learn how to monitor your Azure Managed Grafana Preview instance with logs.
+title: 'How to monitor your Azure Managed Grafana instance with logs'
+description: Learn how to monitor your Azure Managed Grafana instance with logs.
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 3/31/2022 
 ---
 
-# How to monitor your Azure Managed Grafana Preview instance with logs
+# How to monitor your Azure Managed Grafana instance with logs
 
-In this article, you'll learn how to monitor an Azure Managed Grafana Preview instance by configuring diagnostic settings and accessing event logs.
+In this article, you'll learn how to monitor an Azure Managed Grafana instance by configuring diagnostic settings and accessing event logs.
 
 ## Prerequisites
 

@@ -1,5 +1,5 @@
 ---
-title: How to share an Azure Managed Grafana Preview instance
+title: How to share an Azure Managed Grafana instance
 description: 'Azure Managed Grafana: learn how you can share access permissions and dashboards with your team and customers.' 
 author: maud-lv 
 ms.author: malev 
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 3/31/2022 
 ---
 
-# How to share an Azure Managed Grafana Preview instance
+# How to share an Azure Managed Grafana instance
 
 A DevOps team may build dashboards to monitor and diagnose an application or infrastructure that it manages. Likewise, a support team may use a Grafana monitoring solution for troubleshooting customer issues. In these scenarios, multiple users will be accessing one Grafana instance. Azure Managed Grafana enables such sharing by allowing you to set the custom permissions on an instance that you own. This article explains what permissions are supported and how to grant permissions to share dashboards with your internal teams or external customers.
 

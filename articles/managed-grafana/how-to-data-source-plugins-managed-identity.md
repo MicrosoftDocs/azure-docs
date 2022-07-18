@@ -1,5 +1,5 @@
 ---
-title: How to configure data sources for Azure Managed Grafana Preview
+title: How to configure data sources for Azure Managed Grafana
 description: In this how-to guide, discover how you can configure data sources for Azure Managed Grafana using Managed Identity.
 author: maud-lv 
 ms.author: malev 
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 3/31/2022 
 ---
 
-# How to configure data sources for Azure Managed Grafana Preview
+# How to configure data sources for Azure Managed Grafana
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
 
    :::image type="content" source="media/managed-grafana-how-to-source-configuration-Azure-Monitor-settings.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
 
-Authentication and authorization are subsequently made through the provided managed identity. With Managed Identity, you can assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
+Authentication and authorization are then made through the provided managed identity. With Managed Identity, you can assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
 
 ## Next steps
 
