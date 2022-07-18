@@ -362,13 +362,33 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/logs/ingestion-time-transformations.md" ,
+            "source_path_from_root": "/articles/azure-monitor/insights/redis-cache-insights-overview.md" ,
+            "redirect_url": "/azure/azure-cache-for-redis/redis-cache-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/data-collection.md" ,
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-transformations",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/insights/redis-cache-insights-overview.md" ,
-            "redirect_url": "/azure/azure-cache-for-redis/redis-cache-insights-overview",
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-ingestion-time-transformations.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-workspace-transformations-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-ingestion-time-transformations-api.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-workspace-transformations-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-custom-logs.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-logs-ingestion-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-custom-logs-api.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-logs-ingestion-api",
             "redirect_document_id": false
         }
     ]
