@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 06/21/2022
 ---
 
 # Dapr integration with Azure Container Apps
@@ -111,17 +111,16 @@ The `pubsub.yaml` spec will be scoped to the dapr-enabled container apps with ap
 
 ```yaml
 # pubsub.yaml for Azure Service Bus component
-- name: dapr-pubsub
-  type: pubsub.azure.servicebus
-  version: v1
-  metadata:
-  - name: connectionString
-    secretRef: sb-root-connectionstring
-  secrets:
-  - name: sb-root-connectionstring
-    value: "value"
-  # Application scopes  
-  scopes:
+componentType: pubsub.azure.servicebus
+version: v1
+metadata:
+- name: connectionString
+  secretRef: sb-root-connectionstring
+secrets:
+- name: sb-root-connectionstring
+  value: "value"
+# Application scopes  
+scopes:
   - publisher-app
   - subscriber-app
 ```

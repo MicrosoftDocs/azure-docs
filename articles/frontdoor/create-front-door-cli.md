@@ -57,7 +57,8 @@ Run [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-cr
 az appservice plan create \
     --name myAppServicePlanCentralUS \
     --resource-group myRGFD
-
+```
+```azurecli-interactive
 az appservice plan create \
     --name myAppServicePlanEastUS \
     --resource-group myRGFD
@@ -72,7 +73,8 @@ az webapp create \
     --name WebAppContoso-01 \
     --resource-group myRGFD \
     --plan myAppServicePlanCentralUS
-
+```
+```azurecli-interactive
 az webapp create \
     --name WebAppContoso-02 \
     --resource-group myRGFD \
@@ -108,7 +110,7 @@ az afd endpoint create \
     --enabled-state Enabled
 ```
 
-## Create an origin group
+### Create an origin group
 
 Run [az afd origin-group create](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group that contains your two web apps.
 
@@ -178,6 +180,7 @@ az afd route create \
     --supported-protocols Http Https \
     --link-to-default-domain Enabled 
 ```
+Your Front Door profile would become fully functional with the last step.
 
 ## Create a new security policy
 
@@ -225,7 +228,7 @@ az network front-door waf-policy managed-rules add \
 Run [az afd security-policy create](/cli/azure/afd/security-policy#az-afd-security-policy-create) to apply your WAF policy to the endpoint's default domain.
 
 > [!NOTE]
-> Substitute 'mysubscription' with your Azure Subscription ID in the domains and waf-policy parameters below. Run [az account subscription list](/cli/azure/aaccount/subscription#az-account-subscription-list) to get Subscription ID details.
+> Substitute 'mysubscription' with your Azure Subscription ID in the domains and waf-policy parameters below. Run [az account subscription list](/cli/azure/account/subscription#az-account-subscription-list) to get Subscription ID details.
 
 
 ```azurecli-interactive

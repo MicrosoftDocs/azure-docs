@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: srranga
 author: sr-msft
-ms.date: 6/15/2020
+ms.date: 06/24/2022
 ---
 
 # High availability in Azure Database for PostgreSQL – Single Server
@@ -16,7 +16,7 @@ ms.date: 6/15/2020
 
 The Azure Database for PostgreSQL – Single Server service provides a guaranteed high level of availability with the financially backed service level agreement (SLA) of [99.99%](https://azure.microsoft.com/support/legal/sla/postgresql) uptime. Azure Database for PostgreSQL provides high availability during planned events such as user-initiated scale compute operation, and also when unplanned events such as underlying hardware, software, or network failures occur. Azure Database for PostgreSQL can quickly recover from most critical circumstances, ensuring virtually no application down time when using this service.
 
-Azure Database for PostgreSQL is suitable for running mission critical databases that require high uptime. Built on Azure architecture, the service has inherent high availability, redundancy, and resiliency capabilities to mitigate database downtime from planned and unplanned outages, without requiring you to configure any additional components. 
+Azure Database for PostgreSQL is suitable for running mission critical databases that require high uptime. Built on Azure architecture, the service has inherent high availability, redundancy, and resiliency capabilities to mitigate database downtime from planned and unplanned outages, without requiring you to configure any additional components.
 
 ## Components in Azure Database for PostgreSQL – Single Server
 
@@ -27,7 +27,8 @@ Azure Database for PostgreSQL is suitable for running mission critical databases
 | <b>Gateway | The Gateway acts as a database proxy, routes all client connections to the database server. |
 
 ## Planned downtime mitigation
-Azure Database for PostgreSQL is architected to provide high availability during planned downtime operations. 
+
+Azure Database for PostgreSQL is architected to provide high availability during planned downtime operations.
 
 :::image type="content" source="./media/concepts-high-availability/azure-postgresql-elastic-scaling.png" alt-text="view of Elastic Scaling in Azure PostgreSQL":::
 
@@ -43,11 +44,9 @@ Here are some planned maintenance scenarios:
 | <b>New Software Deployment (Azure) | New features rollout or bug fixes automatically happen as part of service’s planned maintenance. For more information, refer to the [documentation](./concepts-monitoring.md#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
 | <b>Minor version upgrades | Azure Database for PostgreSQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. This would incur a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, refer to the [documentation](./concepts-monitoring.md#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
 
-
 ##  Unplanned downtime mitigation
 
-Unplanned downtime can occur as a result of unforeseen failures, including underlying hardware fault, networking issues, and software bugs. If the database server goes down unexpectedly, a new database server is automatically provisioned in seconds. The remote storage is automatically attached to the new database server. PostgreSQL engine performs the recovery operation using WAL and database files, and opens up the database server to allow clients to connect. Uncommitted transactions are lost, and they have to be retried by the application. While an unplanned downtime cannot be avoided, Azure Database for PostgreSQL mitigates the downtime by automatically performing recovery operations at both database server and storage layers without requiring human intervention. 
-
+Unplanned downtime can occur as a result of unforeseen failures, including underlying hardware fault, networking issues, and software bugs. If the database server goes down unexpectedly, a new database server is automatically provisioned in seconds. The remote storage is automatically attached to the new database server. PostgreSQL engine performs the recovery operation using WAL and database files, and opens up the database server to allow clients to connect. Uncommitted transactions are lost, and they have to be retried by the application. While an unplanned downtime cannot be avoided, Azure Database for PostgreSQL mitigates the downtime by automatically performing recovery operations at both database server and storage layers without requiring human intervention.
 
 :::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="view of High Availability in Azure PostgreSQL":::
 
@@ -55,8 +54,9 @@ Unplanned downtime can occur as a result of unforeseen failures, including under
 2. Gateway that acts as a proxy to route client connections to the proper database server
 3. Azure storage with three copies for reliability, availability, and redundancy.
 4. Remote storage also enables fast detach/re-attach after the server failover.
-   
+
 ### Unplanned downtime: failure scenarios and service recovery
+
 Here are some failure scenarios and how Azure Database for PostgreSQL automatically recovers:
 
 | **Scenario** | **Automatic recovery** |
@@ -74,12 +74,12 @@ Here are some failure scenarios that require user action to recover:
 | <b> Logical/user errors | Recovery from user errors, such as accidentally dropped tables or incorrectly updated data, involves performing a [point-in-time recovery](./concepts-backup.md) (PITR), by restoring and recovering the data until the time just before the error had occurred.<br> <br>  If you want to restore only a subset of databases or specific tables rather than all databases in the database server, you can restore the database server in a new instance, export the table(s) via [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), and then use [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) to restore those tables into your database. |
 
 
-
 ## Summary
 
 Azure Database for PostgreSQL provides fast restart capability of database servers,  redundant storage, and efficient routing from the Gateway. For additional data protection, you can configure backups to be geo-replicated, and also deploy one or more read replicas in other regions. With inherent high availability capabilities, Azure Database for PostgreSQL protects your databases from most common outages, and offers an industry leading, finance-backed [99.99% of uptime SLA](https://azure.microsoft.com/support/legal/sla/postgresql). All these availability and reliability capabilities enable Azure to be the ideal platform to run your mission-critical applications.
 
 ## Next steps
+
 - Learn about [Azure regions](../../availability-zones/az-overview.md)
 - Learn about [handling transient connectivity errors](concepts-connectivity.md)
 - Learn how to [replicate your data with read replicas](how-to-read-replicas-portal.md)

@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 07/11/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
@@ -19,12 +19,16 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
-- SQL server version 2022 CTP 2.0 or later. [Follow this link](https://www.microsoft.com/sql-server/sql-server-2022)
+- SQL server version 2022 CTP 2.0 or later running on Windows. [Follow this link](https://www.microsoft.com/sql-server/sql-server-2022)
 - Complete process to onboard that SQL server with Azure Arc and enable Azure AD Authentication. [Follow this guide to learn how](https://aka.ms/sql-on-arc-AADauth).
 
 **Enforcement of policies for this data source is available only in the following regions for Microsoft Purview**
 - East US
+- West US 3
+- Canada Central
+- West Europe
 - UK South
+- France Central
 - Australia East
 
 ## Security considerations

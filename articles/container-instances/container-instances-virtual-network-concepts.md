@@ -46,7 +46,8 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * Due to the additional networking resources involved, deployments to a virtual network are typically slower than deploying a standard container instance.
 * Outbound connection to port 25 is not supported at this time.
 * If you are connecting your container group to an Azure Storage Account, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to that resource.
-* [IPv6 addresses](../virtual-network/ip-services/ipv6-overview.md) are not supported at this time
+* [IPv6 addresses](../virtual-network/ip-services/ipv6-overview.md) are not supported at this time.
+* Depending on your subscription type, [certain ports may be blocked](../virtual-network/network-security-groups-overview.md#azure-platform-considerations).
 
 ## Required network resources
 

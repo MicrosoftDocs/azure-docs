@@ -2,7 +2,7 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 04/19/2022
+ms.date: 06/22/2022
 ms.author: tamram
 ---
 
@@ -21,6 +21,7 @@ ZRS for standard general-purpose v2 storage accounts is available for a subset o
 - (Europe) North Europe
 - (Europe) Norway East
 - (Europe) Sweden Central
+- (Europe) Switzerland North
 - (Europe) UK South
 - (Europe) West Europe
 - (North America) Canada Central
