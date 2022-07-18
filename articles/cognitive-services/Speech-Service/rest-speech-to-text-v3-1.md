@@ -48,10 +48,10 @@ Use the REST API v3.1 to:
  ```json 
  "features": {
          …
-          "supportsAdaptationsWith": [
-           “Acoustic”,
-           "Language",
-           “LanguageMarkdown”,
+            "supportsAdaptationsWith": [
+            "Acoustic",
+            "Language",
+            "LanguageMarkdown",
             "Pronunciation"
           ]
    }

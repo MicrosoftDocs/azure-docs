@@ -173,7 +173,7 @@
     displayName: location
     href: regions.md
   - name: Microsoft Q&A
-    href: https://docs.microsoft.com/answers/topics/azure-video-indexer.html
+    href: /answers/topics/azure-video-indexer.html
   - name: FAQ
     href: faq.yml
   - name: Compliance
