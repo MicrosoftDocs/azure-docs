@@ -6,7 +6,7 @@ ms.date: 02/27/2022
 zone_pivot_groups: non-azure-machines
 ms.custom: mode-other
 ---
-# Connect your non-Azure machines to Microsoft Defender for Cloud
+# Quickstart: Connect your non-Azure machines to Microsoft Defender for Cloud
 
 Defender for Cloud can monitor the security posture of your non-Azure computers, but first you need to connect them to Azure.
 

@@ -7,7 +7,7 @@ zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
 
-#  Connect your GCP projects to Microsoft Defender for Cloud
+# Quickstart: Connect your GCP projects to Microsoft Defender for Cloud
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
