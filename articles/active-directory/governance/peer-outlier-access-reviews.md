@@ -1,6 +1,6 @@
 ---
-title: Review access to groups & applications in access reviews - Azure AD
-description: Learn how to review access of group members or application access in Azure Active Directory access reviews.
+title: Review access with peer outlier recommendations - Azure AD
+description: Learn how to review access of group members with peer outlier recommendations in Azure Active Directory access reviews.
 services: active-directory
 author: ajburnle
 manager: rkarlin
