@@ -7,6 +7,7 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 07/28/2021
 ms.author: srijangupta
+ms.reviewer: mattmcinnes
 
 ---
 # Prepare an Ubuntu virtual machine for Azure
