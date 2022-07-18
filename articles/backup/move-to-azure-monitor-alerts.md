@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/18/2022
 author: v-amallick
 ms.service: backup
+manager: jsuri
 ms.author: v-amallick
 ---
 
