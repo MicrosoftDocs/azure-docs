@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3
 description: How to migrate your applications to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 5/4/2022
+ms.date: 8/1/2022
 ms.author: jordanselig
 ---
 # Migrate to App Service Environment v3
@@ -151,7 +151,7 @@ Once your migration and any testing with your new environment is complete, delet
 - **Do I need to change anything about my apps to get them to run on App Service Environment v3?**  
   No, apps that run on App Service Environment v1 and v2 shouldn't need any modifications to run on App Service Environment v3.
 - **What if my App Service Environment has a custom domain suffix?**  
-  The migration feature doesn't support migration of App Service Environments with custom domain suffixes at this time. You won't be able to migrate until it's supported.
+  The migration feature supports this [migration scenario](./migrate.md#supported-scenarios). You can migrate using a manual method if you don't want to use the migration feature. You can configure your [custom domain suffix](./how-to-custom-domain-suffix.md) when creating your App Service Environment v3 or any time after that. 
 - **What if my App Service Environment is zone pinned?**  
   Zone pinning isn't a supported feature on App Service Environment v3. Use [zone redundancy](overview-zone-redundancy.md) instead.
 - **What properties of my App Service Environment will change?**  
@@ -171,4 +171,7 @@ Once your migration and any testing with your new environment is complete, delet
 > [Integrate your ILB App Service Environment with the Azure Application Gateway](integrate-with-application-gateway.md)
 
 > [!div class="nextstepaction"]
-> [Migrate to App Service Environment v3 by using the migration feature](migrate.md)
+> [Migrate to App Service Environment v3 using the migration feature](migrate.md)
+
+> [!div class="nextstepaction"]
+> [Custom domain suffix](./how-to-custom-domain-suffix.md)
