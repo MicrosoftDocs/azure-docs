@@ -56,7 +56,7 @@ The data contains weekly sales of orange juice over 121 weeks. There are 3,991 s
 ```python
 from azureml.core.workspace import Workspace
 ws = Workspace.from_config()
-datastore = ws.get_default_config()
+datastore = ws.get_default_datastore()
 ```
 
 ```python

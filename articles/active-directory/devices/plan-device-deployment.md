@@ -8,8 +8,8 @@ ms.subservice: devices
 ms.topic: how-to
 ms.date: 02/15/2022
 
-ms.author: baselden
-author: BarbaraSelden
+ms.author: gasinh
+author: gargi-sinha
 manager: martinco
 ms.reviewer: sandeo
 
