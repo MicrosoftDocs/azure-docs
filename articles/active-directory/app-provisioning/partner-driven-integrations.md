@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 07/08/2022
+ms.date: 07/18/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -22,11 +22,15 @@ Popular third party applications, such as Dropbox, Snowflake, and Workplace by F
 **Option 2 - Implement a SCIM compliant API for your application:**
 If your line-of-business application supports the [SCIM](https://aka.ms/scimoverview) standard, it can easily be integrated with the [Azure AD SCIM client](use-scim-to-provision-users-and-groups.md).
 
+   [![Diagram showing implementation of a SCIM compliant API for your application.](media/partner-driven-integrations/scim-compliant-api-1.png)](media/partner-driven-integrations/scim-compliant-api-1.png#lightbox)
+
 **Option 3 - Use Microsoft Graph:**
 Many new applications use Microsoft Graph to retrieve users, groups and other resources from Azure Active Directory. You can learn more about what scenarios to use [SCIM and Graph](scim-graph-scenarios.md) in. 
 
 **Option 4 - Use partner-driven connectors:**
 In cases where an application doesn't support SCIM, partners have built gateways between the Azure AD SCIM client and target applications. **This document serves as a place for partners to attest to integrations that are compatible with Azure Active Directory, and for customers to discover these partner-driven integrations.** These gateways are built, maintained, and owned by the third-party vendor. 
+
+   [![Diagram showing gateways between the Azure AD SCIM client and target applications.](media/partner-driven-integrations/partner-driven-connectors-1.png)](media/partner-driven-integrations/partner-driven-connectors-1.png#lightbox)
 
 ## Available partner-driven integrations
 The descriptions and lists of applications below are provided by the partners themselves. You can use the lists of applications supported to identify a partner that you may want to contact and learn more about.  
