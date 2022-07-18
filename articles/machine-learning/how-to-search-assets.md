@@ -35,7 +35,7 @@ Use the search bar to find machine learning assets across all workspaces, resour
     :::image type="content" source="media/how-to-search-assets/search-bar.png" alt-text="Screenshot: Shows search in titlebar.":::
 
 1. Type your text and hit enter to trigger a 'contains' search.
-A contains search scans across all metadata fields for the given asset and sorts results relevance.
+A contains search scans across all metadata fields for the given asset and sorts results by relevancy score which is determined by weightings for different column properties.
 
 
 ## Structured search
