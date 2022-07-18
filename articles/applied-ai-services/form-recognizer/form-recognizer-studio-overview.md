@@ -30,18 +30,18 @@ recommendations: false
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
 
 1. Navigate to the Form Recognizer Studio. If it's your first time logging in, a popup window will appear prompting you to configure your service resource. You have two options:
 
-    a. **Access by Resource**.
+   a. **Access by Resource**.
       * Choose your existing subscription.
       * Select an existing resource group within your subscription or create a new one.
       * Select your existing Form Recognizer or Cognitive services resource.
 
       :::image type="content" source="media/studio/welcome-to-studio.png" alt-text="Screenshot of the configure service resource window.":::
 
-    b. **Access by API endpoint and key**.
+   b. **Access by API endpoint and key**.
         * You can retrieve your endpoint and key from the Azure portal. Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
 
       :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
@@ -52,26 +52,13 @@ recommendations: false
 
 1. From the front page, select any model offered by Form Recognizer to easily try using a no-code approach.  Each model is explained in depth in the concept article section:
 
-<!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD033 -->
 
-  **Document analysis models**
-
-    * [**Read model**](concept-read.md).
-    * [**Layout model**](concept-layout.md).
-    * [**General document model**](concept-general-document.md) .
-
-  **Prebuilt models**
-
-    * [**W-2 form model**](concept-w2.md).
-    * [**Invoice model**](concept-invoice.md).
-    * [**Receipt model**](concept-receipt.md).
-    * [**ID document model**](concept-id-document.md).
-    * [**Business card model**](concept-business-card.md).
-
-  **Custom models**
-
-    * [**Custom model**](concept-custom.md).
-    * [**Composed model**](concept-model-overview.md).
+| Model type| Models |
+|-----|-----|
+|Document analysis models| <ul><li>[**Read model**](concept-read.md)</li><li>[**Layout model**](concept-layout.md)</li><li>[**General document model**](concept-general-document.md)</li></ul>.</br></br>
+|**Prebuilt models**|<ul><li>[**W-2 form model**](concept-w2.md)</li><li>[**Invoice model**](concept-invoice.md)</li><li>[**Receipt model**](concept-receipt.md)</li><li>[**ID document model**](concept-id-document.md)</li><li>[**Business card model**](concept-business-card.md)</li></ul>
+|Custom models|<ul><li>[**Custom model**](concept-custom.md)</li><ul><li>[**Template model**](concept-custom-template.md)</li><li>[**Neural model**](concept-custom-template.md)</li></ul><li>[**Composed model**](concept-model-overview.md)</li></ul>
 
 ### View and manage your resource
 
