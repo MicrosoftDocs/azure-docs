@@ -3,7 +3,7 @@ title: 'How to: Deploy Fluid applications using Azure Static Web Apps'
 description: Detailed explanation about how Fluid applications can be hosted on Azure Static Web Apps
 author: sonalivdeshpande
 ms.author: sdeshpande
-ms.date: 08/19/2021
+ms.date: 07/18/2022
 ms.topic: article
 ms.service: azure-fluid
 ---
@@ -94,36 +94,77 @@ Run the `npm run build` command from the root directory to rebuild the app. This
     > [!NOTE]
     > You must sign in to Azure and GitHub in Visual Studio Code to continue. If you are not already authenticated, the extension will prompt you to sign in to both services during the creation process.
 
-1. Under the *Static Web Apps* label, select the **plus sign**.
+1. Select <kbd>F1</kbd> to open the Visual Studio Code command palette.
 
-    :::image type="content" source="../../static-web-apps/media/getting-started/extension-create-button.png" alt-text="An image of the Static Web Apps extension UI, highlighting the create button.":::
-    
-    > [!NOTE]
-    > The Azure Static Web Apps Visual Studio Code extension streamlines the creating process by using a series of default values. If you want to have fine-grained control of the creation process, open the command palate and select **Azure Static Web Apps: Create Static Web App... (Advanced)**.
+1. Enter **Create static web app** in the command box.
 
-1. The command palette opens at the top of the editor and prompts you to select a subscription name.
+1. Select *Azure Static Web Apps: Create static web app...* and select **Enter**.
 
-    Select your subscription and press <kbd>Enter</kbd>.
+    # [No Framework](#tab/vanilla-javascript)
 
-    :::image type="content" source="../../static-web-apps/media/getting-started/extension-subscription.png" alt-text="An image of the Azure subscription selection UI, which shows a single subscription to be selected.":::
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter **my-first-static-web-app** |
+    | Region | Select the region closest to you. |
+    | Build preset | Select **Custom**. |
 
-1. Next, name your application.
+    # [Angular](#tab/angular)
 
-    Type **my-first-static-web-app** and press <kbd>Enter</kbd>.
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter **my-first-static-web-app** |
+    | Region | Select the region closest to you. |
+    | Build preset | Select **Custom**. |
 
-    :::image type="content" source="../../static-web-apps/media/getting-started/extension-create-app.png" alt-text="An image of the Static Web Apps extension UI, which shows a text box to enter the name of the application.":::
+    # [React](#tab/react)
 
-1. Select a region close to you.
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter **my-first-static-web-app** |
+    | Region | Select the region closest to you. |
+    | Build preset | Select **Custom**. |
 
-    > [!NOTE]
-    > Azure Static Web Apps globally distributes your static assets. The region you select determines where your
-    > optional staging environments and API function app will be located.
+    # [Vue](#tab/vue)
 
-1. Set other deployment options.
-    
-    - When asked to select a build preset to configure default project structure, select **Custom**.
-    - Location of application code: `/`
-    - Location of Azure Function code: `api`
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter **my-first-static-web-app** |
+    | Region | Select the region closest to you. |
+    | Build preset | Select **Custom**. |
+
+    ---
+
+1. Enter the settings values for that match your framework preset choice.
+
+    # [No Framework](#tab/vanilla-javascript)
+
+    | Setting | Value |
+    | --- | --- |
+    | Location of application code | Enter **/src** |
+    | Location of Azure Function code | **api** |
+
+    # [Angular](#tab/angular)
+
+    | Setting | Value |
+    | --- | --- |
+    | Location of application code | Enter **/** |
+    | Location of Azure Function code | **api** |
+
+    # [React](#tab/react)
+
+    | Setting | Value |
+    | --- | --- |
+    | Location of application code | Enter **/** |
+    | Location of Azure Function code | **api** |
+
+    # [Vue](#tab/vue)
+
+    | Setting | Value |
+    | --- | --- |
+    | Location of application code | Enter **/** |
+    | Location of Azure Function code | **api** |
+
+    ---
 
 1. Once the app is created, a confirmation notification is shown in Visual Studio Code.
 
