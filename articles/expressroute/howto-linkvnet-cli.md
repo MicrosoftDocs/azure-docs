@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 07/18/20222
+ms.date: 07/18/2022
 ms.author: duau
 ms.custom: template-tutorial
 ---
