@@ -1,5 +1,5 @@
 ---
-title: How to Configure Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise tier
+title: How to configure Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise tier
 description: Shows you how to configure VMware Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise tier.
 author: karlerickson
 ms.author: xiading
