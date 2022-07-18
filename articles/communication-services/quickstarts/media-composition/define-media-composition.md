@@ -369,7 +369,7 @@ If none of the pre-defined layouts fit your needs, then you can use custom layou
 ```
 
 The custom layout example above will result in the following composition:
-:::image type="content" source="../media/custom-2x2GridWithSingleCellOverlayed.png" alt-text="Diagram showing how example of custom layout"::
+:::image type="content" source="../media/custom-2x2GridWithSingleCellOverlayed.png" alt-text="Diagram showing how example of custom layout":::
 
 ## Outputs
 After media has been composed according to a layout, they can be outputted to your audience in various ways. Currently, you can either send the composed stream to a call or to an RTMP server.
