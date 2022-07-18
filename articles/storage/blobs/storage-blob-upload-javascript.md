@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.author: normesta
-ms.date: 03/28/2022
+ms.date: 07/18/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -22,6 +22,16 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 > [!NOTE]
 > The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
 
+## Upload by blob client
+
+Use the following table to find the correct upload method based on the blob client.
+
+|Client|Upload method|
+|--|--|
+|[BlobClient](/javascript/api/@azure/storage-blob/blobclient)|The SDK would needs to know the blob type you want to upload to. Because this is the base class for the other Blob clients, it does not have upload methods. It is mostly useful for operations that are common to the child blob classes. For uploading, create specific blob clients directly or get specific blob clients from ContainerClient.|
+|[BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient)|* upload()<br>* stageBlock() and commitBlockList()|
+|[AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient)|* create()<br>* append()|
+|[PageBlobClient](/javascript/api/@azure/storage-blob/pageblobclient)|* create()<br>* appendPages()|
 
 ## Upload by using a file path
 
