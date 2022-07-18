@@ -29,7 +29,7 @@ The following table briefly describes the application tiers that are specific to
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View AAD data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
+| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View Azure Active Directory data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
 | [Azure subscription](#azure-subscription) | Data related to the health and management of cross-resource services in your Azure subscription such as Resource Manager and Service Health. | View in portal or configure collection to Azure Monitor using a log profile. |
 | [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically, view in Metrics Explorer.<br>Configure diagnostic settings to collect logs in Azure Monitor.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
 
@@ -55,7 +55,7 @@ Telemetry related to your Azure tenant is collected from tenant-wide services su
 |:---|:---|:---|
 | Azure Monitor Logs | Configure Azure AD logs to be collected in Azure Monitor to analyze them with other monitoring data. | [Integrate Azure AD logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
 | Azure Storage | Export Azure AD logs to Azure Storage for archiving. | [Tutorial: Archive Azure AD logs to an Azure storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event Hub | Stream Azure AD logs to other locations using Event Hubs. | [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Event Hubs | Stream Azure AD logs to other locations using Event Hubs. | [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 
 
@@ -72,7 +72,7 @@ The [Azure Activity log](essentials/platform-logs-overview.md) includes service 
 | Activity log | The Activity log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity log alerts. | [Query the Activity log in the Azure portal](essentials/activity-log.md#view-the-activity-log) |
 | Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity log to analyze it with other monitoring data. | [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](essentials/activity-log.md) |
 | Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](essentials/resource-logs.md#send-to-azure-storage)  |
-| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hub](essentials/resource-logs.md#send-to-azure-event-hubs). |
+| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hubs](essentials/resource-logs.md#send-to-azure-event-hubs). |
 
 ### Azure Service Health
 [Azure Service Health](../service-health/service-health-overview.md) provides information about the health of the Azure services in your subscription that your application and resources rely on.
@@ -135,7 +135,7 @@ Enabling the Azure diagnostics extension for Azure Virtual machines allows you t
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Storage | Azure diagnostics extension always writes to an Azure Storage account. | [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) |
+| Storage | Azure diagnostics extension always writes to an Azure Storage account. | [Install and configure Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) |
 | Azure Monitor Metrics (preview) | When you configure the Diagnostics Extension to collect performance counters, they are written to the Azure Monitor metrics database. | [Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine](essentials/collect-custom-metrics-guestos-resource-manager-vm.md) |
 | Event Hubs | Configure the Diagnostics Extension to stream the data to other locations using Event Hubs.  | [Streaming Azure Diagnostics data by using Event Hubs](agents/diagnostics-extension-stream-event-hubs.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) |
 | Application Insights Logs | Collect logs and performance counters from the compute resource supporting your application to be analyzed with other application data. | [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](agents/diagnostics-extension-to-application-insights.md) |

@@ -3,7 +3,6 @@ title: Sample data collection endpoint
 description: Sample data collection endpoint below is for virtual machines with Azure Monitor agent
 ms.topic: conceptual
 ms.date: 03/16/2022
-ms.custom: references_region
 
 ---
 
