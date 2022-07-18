@@ -1,6 +1,6 @@
 ---
 title: Push and pull supply chain artifacts
-description: Push and pull supply chain artifacts, using a private container registry in Azure 
+description: Push and pull supply chain artifacts using Azure Registry (Preview)
 author: SteveLasker
 manager: gwallace
 ms.topic: article
@@ -9,7 +9,7 @@ ms.author: stevelas
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Push and pull supply chain artifacts, using a private container registry in Azure (Preview)
+# Push and pull supply chain artifacts using Azure Registry (Preview)
 
 Use an Azure container registry to store and manage a graph of artifacts, including signatures, software bill of materials (SBoM), security scan results or other types. 
 
@@ -27,7 +27,7 @@ ORAS Artifacts support is a preview feature and subject to [limitations](#previe
 
 ## Preview limitations
 
-ORAS Artifacts support is not available in the government or China clouds, but available in all other regions.  Geo-replicated registries will not replicate referenced artifacts to non-supported regions. As additional regions support ORAS Artifacts, the referenced artifacts will be replicated.
+ORAS Artifacts support is not available in the government or China clouds, but available in all other regions.
 
 ## ORAS installation
 
