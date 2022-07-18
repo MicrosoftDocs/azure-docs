@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 11/01/2021
-ms.author: stempesta, ananyagarg
+ms.author: stempesta #ananyagarg
 ms.custom: ignite-fall-2021, inspire-july-2022
 ---
 
