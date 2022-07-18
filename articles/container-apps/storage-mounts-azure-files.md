@@ -24,6 +24,7 @@ In this tutorial, you learn how to:
 > * Define a file share in the storage account
 > * Link the environment to the storage file share
 > * Mount the storage share in an individual container
+> * Verify the storage mount by viewing the website access log
 
 ## Prerequisites
 
@@ -510,9 +511,11 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
 1. Return to the browser and navigate to the website and refresh the page a few times.
 
-    The requests made to the website creates a series of log stream entries.
+    The requests made to the website create a series of log stream entries.
 
 1. Return to your terminal and list the values of the `/var/log/nginx` folder.
+
+1. List the files in the folder.
 
     # [Bash](#tab/bash)
 
@@ -524,6 +527,24 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
     ```powershell
     ls
+    ```
+
+    ---
+
+    Note how the *access.log* and *error.log* files appear in this folder.
+
+1. View the contents of the *access.log* file.
+
+    # [Bash](#tab/bash)
+
+    ```bash
+    cat access.log
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    type access.log
     ```
 
     ---
