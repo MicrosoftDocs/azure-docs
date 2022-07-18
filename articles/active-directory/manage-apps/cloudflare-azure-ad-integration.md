@@ -28,7 +28,7 @@ To get started, you need:
 
 - An Azure AD tenant linked to your Azure AD subscription
 
-  - See, [Quickstart: Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+  - See, [Quickstart: Create a new tenant in Azure Active Directory](../fundamentals/active-directory-access-create-new-tenant.md).
 
 - A Cloudflare Zero Trust account
 
@@ -187,4 +187,4 @@ Use the instructions in the following three sections to register Cloudflare with
 
 - [Integrate single sign-on (SSO) with Cloudflare](https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/)
 
-- [Cloudflare integration with Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/partner-cloudflare)
+- [Cloudflare integration with Azure AD B2C](../../active-directory-b2c/partner-cloudflare.md)

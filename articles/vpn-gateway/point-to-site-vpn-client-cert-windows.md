@@ -11,7 +11,7 @@ ms.author: cherylmc
 
 # Configure point-to-site VPN clients - certificate authentication - Windows
 
-When you connect to an Azure virtual network (VNet) using point-to-site (P2S) and certificate authentication, you use the VPN client that is natively installed on the operating system from which you’re connecting. If you use the tunnel type OpenVPN, you also have the option of using the Azure VPN Client or the OpenVPN client software. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients Windows.
+When you connect to an Azure virtual network (VNet) using point-to-site (P2S) and certificate authentication, you can use the VPN client that is natively installed on the operating system from which you’re connecting. If you use the tunnel type OpenVPN, you also have the option of using the Azure VPN Client or the OpenVPN client software. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients.
 
 The VPN client configuration files that you generate are specific to the P2S VPN gateway configuration for the VNet. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client configuration files and apply the new configuration to all of the VPN clients that you want to connect. For more information about P2S connections, see [About point-to-site VPN](point-to-site-about.md).
 

@@ -471,10 +471,10 @@ Open function host index page: `http://localhost:7071/api/index` to view the rea
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a simple chatroom with Azure Web PubSub](/azure/azure-web-pubsub/tutorial-build-chat)
+> [Tutorial: Create a simple chatroom with Azure Web PubSub](./tutorial-build-chat.md)
 
 > [!div class="nextstepaction"]
-> [Azure Web PubSub bindings for Azure Functions](/azure/azure-web-pubsub/reference-functions-bindings)
+> [Azure Web PubSub bindings for Azure Functions](./reference-functions-bindings.md)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)

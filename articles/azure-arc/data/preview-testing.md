@@ -24,7 +24,7 @@ Each month, Azure Arc-enabled data services is released on the second Tuesday of
 - 14 days before the release date, the *test* pre-release version is made available.
 - 7 days before the release date, the *preview* pre-release version is made available.
 
-The main difference between the test and preview pre-release versions is usually just quality and stability, but in some exceptional cases there may be new features introduced in between the test and preview releases.
+Normally, the main difference between the test and preview pre-release versions is quality and stability, but in some exceptional cases there may be new features introduced in between the test and preview releases.
 
 Normally, pre-release version binaries are available around 10:00 AM Pacific Time. Documentation follows later in the day.
 
@@ -74,21 +74,69 @@ If you use the Azure Data Studio extension to install:
 
 #### Indirect connectivity mode
 
-If you install using the Azure CLI, follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). Once created, edit this custom configuration profile file enter the `docker` property values as required based on the information provided in the version history table on this page.
+If you install using the Azure CLI:
 
-For example:
+1. Follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). 
+1. Edit this custom configuration profile file. Enter the `docker` property values as required based on the information provided in the version history table on this page.
 
-```json
+   For example:
 
-        "docker": {
-            "registry": "mcr.microsoft.com",
-            "repository": "arcdata/test",
-            "imageTag": "v1.8.0_2022-06-07_5ba6b837",
-            "imagePullPolicy": "Always"
-        },
-```
+   ```json
 
-Once the file is edited, use the command `az arcdata dc create` as explained in [create a custom configuration profile](create-custom-configuration-template.md).
+           "docker": {
+               "registry": "mcr.microsoft.com",
+               "repository": "arcdata/test",
+               "imageTag": "v1.8.0_2022-06-07_5ba6b837",
+               "imagePullPolicy": "Always"
+           },
+   ```
+
+1. Use the command `az arcdata dc create` as explained in [create a custom configuration profile](create-custom-configuration-template.md).
+
+#### Direct connectivity mode
+
+If you install using the Azure CLI:
+
+1. Follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). 
+1. Edit this custom configuration profile file. Enter the `docker` property values as required based on the information provided in the version history table on this page.
+
+   For example:
+
+   ```json
+
+           "docker": {
+               "registry": "mcr.microsoft.com",
+               "repository": "arcdata/test",
+               "imageTag": "v1.8.0_2022-06-07_5ba6b837",
+               "imagePullPolicy": "Always"
+           },
+   ```
+1. Set environment variables for:
+
+   - `ARC_DATASERVICES_EXTENSION_VERSION_TAG`: Use the version of the **Arc enabled Kubernetes helm chart extension version** from the release details under [Current preview release information](#current-preview-release-information).
+   - `ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN`: `preview`
+
+   For example, the following command sets the environment variables on Linux.
+
+   ```console
+   export ARC_DATASERVICES_EXTENSION_VERSION_TAG='1.2.20031002'
+   export ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN='preview'
+   ```
+
+   The following command sets the environment variables on PowerShell
+
+   ```console
+   $ENV:ARC_DATASERVICES_EXTENSION_VERSION_TAG="1.2.20031002"
+   $ENV:ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN="preview"
+   ```
+
+1. Run `az arcdata dc create` as normal for the direct mode to:
+
+   - Create the extension, if it doesn't already exist
+   - Create the custom location, if it doesn't already exist
+   - Create data controller
+
+   For details see, [create a custom configuration profile](create-custom-configuration-template.md).
 
 ### Install using Azure Data Studio
 
