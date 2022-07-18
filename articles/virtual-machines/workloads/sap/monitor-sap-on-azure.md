@@ -1,13 +1,13 @@
 ---
 title: Monitor SAP on Azure (preview) | Microsoft Docs
 description: Start here to learn how to monitor SAP on Azure.
-author: mamccrea
+author: lauradolan
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.custom: subject-monitoring
 ms.date: 10/13/2021
-ms.author: mamccrea
+ms.author: ladolan
 
 ---
 
@@ -36,7 +36,7 @@ Supported databases:
 
 Azure Monitor for SAP Solutions uses the [Azure Monitor](../../../azure-monitor/overview.md) capabilities of [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). With it, you can:
 
-- Create [custom visualizations](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions. 
+- Create [custom visualizations](../../../azure-monitor/visualize/workbooks-getting-started.md) by editing the default Workbooks provided by Azure Monitor for SAP Solutions. 
 - Write [custom queries](../../../azure-monitor/logs/log-analytics-tutorial.md).
 - Create [custom alerts](../../../azure-monitor/alerts/alerts-log.md) by using Azure Log Analytics workspace. 
 - Take advantage of the [flexible retention period](../../../azure-monitor/logs/data-retention-archive.md) in Azure Monitor Logs/Log Analytics. 

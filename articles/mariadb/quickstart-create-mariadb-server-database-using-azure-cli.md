@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create a server - Azure CLI - Azure Database for MariaDB'
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/18/2020
+ms.date: 06/24/2022
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
@@ -220,7 +220,7 @@ To connect to the server by using the mysql command-line tool:
 
 ## Clean up resources
 
-If you don't need the resources that you used in this quickstart for another quickstart or tutorial, you can delete them by running the following command: 
+If you don't need the resources that you used in this quickstart for another quickstart or tutorial, you can delete them by running the following command:
 
 ```azurecli-interactive
 az group delete --name myresourcegroup

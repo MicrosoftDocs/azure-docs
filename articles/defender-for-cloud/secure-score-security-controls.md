@@ -9,7 +9,7 @@ ms.date: 06/02/2022
 
 # Security posture for Microsoft Defender for Cloud
 
-## Introduction to secure score
+## Overview of secure score
 
 Microsoft Defender for Cloud has two main goals:
 

@@ -85,7 +85,7 @@ Use the `get-authorization-context` policy to get the authorization context of a
 
 The policy fetches and stores authorization and refresh tokens from the configured authorization provider.
 
-If `identity-type=jwt` is configured, a JWT token is required to be validated. The audience of this token must be https://azure-api.net/authorization-manager.  
+If `identity-type=jwt` is configured, a JWT token is required to be validated. The audience of this token must be `https://azure-api.net/authorization-manager`.  
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -186,7 +186,7 @@ If `identity-type=jwt` is configured, a JWT token is required to be validated. T
 | authorization-id | The authorization resource identifier. | Yes |   |
 | context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). | Yes |   |
 | identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | managed |
-| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: https://azure-api.net/authorization-manager <br> - `oid`: Permission object id <br> - `tid`: Permission tenant id | No |   |
+| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID | No |   |
 | ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500` | No | false |
 
 ### Authorization object
@@ -225,8 +225,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 > * This policy can be used only once per policy document.
 > * [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
 
-> [!CAUTION]
-> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests varyies based on request volume and rate, backend latency, and other factors.
+[!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)]
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -301,8 +300,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
-> [!CAUTION]
-> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
+[!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)]
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
@@ -351,7 +349,7 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 | Name                | Description                                                                                           | Required | Default |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expression is allowed. | Yes      | N/A     |
-| counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
+| counter-key         | The key to use for the rate limit policy. For each key value, a single counter is used for all scopes at which the policy is configured.           | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
 | increment-count | The number by which the counter is increased per request.        | No       | 1     |
 | renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
@@ -430,6 +428,8 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 > * This policy can be used only once per policy document.
 > * [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
 
+[!INCLUDE [api-management-quota-accuracy](../../includes/api-management-quota-accuracy.md)]
+
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
@@ -491,6 +491,9 @@ For more information and examples of this policy, see [Advanced request throttli
 
 To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
+[!INCLUDE [api-management-quota-accuracy](../../includes/api-management-quota-accuracy.md)]
+
+
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 
@@ -535,7 +538,7 @@ In the following example, the quota is keyed by the caller IP address.
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | bandwidth           | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| counter-key         | The key to use for the quota policy.                                                                      | Yes                                                              | N/A     |
+| counter-key         | The key to use for the quota policy. For each key value, a single counter is used for all scopes at which the policy is configured.              | Yes                                                              | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
 | renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
 | first-period-start      | The starting date and time for quota renewal periods, in the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.   | No                                                              | `0001-01-01T00:00:00Z`     |
@@ -552,7 +555,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="ValidateJWT"></a> Validate JWT
 
-The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from either a specified HTTP header or a specified query parameter.
+The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
 
 > [!IMPORTANT]
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
@@ -566,10 +569,11 @@ The `validate-jwt` policy enforces existence and validity of a JSON web token (J
 
 ```xml
 <validate-jwt
-    header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"
+    header-name="name of HTTP header containing the token (alternatively, use query-parameter-name or token-value attribute to specify token)"
+    query-parameter-name="name of query parameter used to pass the token (alternative, use header-name or token-value attribute to specify token)"
+    token-value="expression returning the token as a string (alternatively, use header-name or query-parameter attribute to specify token)"
     failed-validation-httpcode="http status code to return on failure"
     failed-validation-error-message="error message to return on failure"
-    token-value="expression returning JWT token as a string"
     require-expiration-time="true|false"
     require-scheme="scheme"
     require-signed-tokens="true|false"
@@ -721,7 +725,7 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | failed-validation-httpcode      | HTTP Status code to return if the JWT doesn't pass validation.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
 | header-name                     | The name of the HTTP header holding the token.                                                                                                                                                                                                                                                                                                                                                                                                         | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | query-parameter-name            | The name of the query parameter holding the token.                                                                                                                                                                                                                                                                                                                                                                                                     | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
-| token-value                     | Expression returning a string containing JWT token. You must not return `Bearer ` as part of the token value.                                                                                                                                                                                                                                                                                                                                           | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
+| token-value                     | Expression returning a string containing the token. You must not return `Bearer ` as part of the token value.                                                                                                                                                                                                                                                                                                                                           | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | id                              | The `id` attribute on the `key` element allows you to specify the string that will be matched against `kid` claim in the token (if present) to find out the appropriate key to use for signature validation.                                                                                                                                                                                                                                           | No                                                                               | N/A                                                                               |
 | match                           | The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> - `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> - `any` - at least one claim value must be present in the token for validation to succeed.                                                       | No                                                                               | all                                                                               |
 | require-expiration-time         | Boolean. Specifies whether an expiration claim is required in the token.                                                                                                                                                                                                                                                                                                                                                                               | No                                                                               | true                                                                              |

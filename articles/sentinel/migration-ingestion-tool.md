@@ -67,7 +67,7 @@ To optimize performance, [configure the Logstash tier size](https://www.elastic.
 You can ingest data to Azure Blob Storage in several ways. 
 - [Azure Data Factory or Azure Synapse](../data-factory/connector-azure-blob-storage.md)
 - [AzCopy](../storage/common/storage-use-azcopy-v10.md)
-- [Azure Storage Explorer](/architecture/data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)
+- [Azure Storage Explorer](/azure/architecture/data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
 - [SSIS](/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis)
 

@@ -4,8 +4,7 @@ description: An introduction to Permissions Management.
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 04/20/2022
@@ -13,14 +12,6 @@ ms.author: kenwith
 ---
 
 # What's Permissions Management?
-
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
-> [!NOTE]
-> The Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 ## Overview
 

@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph sample queries for management groups
 description: Sample Azure Resource Graph queries for management groups showing use of resource types and tables to access management group details.
-ms.date: 03/08/2022
+ms.date: 07/07/2022
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
 ---

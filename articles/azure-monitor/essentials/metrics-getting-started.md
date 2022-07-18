@@ -3,10 +3,10 @@ title: Getting started with Azure metrics explorer
 description: Learn how to create your first metric chart with Azure metrics explorer.
 author: vgorbenko
 services: azure-monitor
-
 ms.topic: conceptual
 ms.date: 02/21/2022
 ms.author: vitalyg
+ms.reviewer: vitalyg
 ---
 
 # Getting started with Azure Metrics Explorer

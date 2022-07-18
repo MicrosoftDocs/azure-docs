@@ -27,7 +27,7 @@ Before you get started, make sure to:
 
 ## Create and configure a project
 
-[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
+[Install the Speech SDK](../../../../quickstarts/setup-platform.md?pivots=programming-language-java&tabs=android) by using Android Studio.
 
 ## Create user interface
 

@@ -1,16 +1,16 @@
 ---
-title: Azure consumption API overview
+title: Azure Consumption API overview
 description: Learn how Azure Consumption APIs give you programmatic access to cost and usage data for your Azure resources.
 author: bandersmsft
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: reference
-ms.date: 06/14/2022
+ms.date: 07/14/2022
 ms.author: banders
 ---
 
-# Azure consumption API overview
+# Azure Consumption API overview
 
 The Azure Consumption APIs give you programmatic access to cost and usage data for your Azure resources. The APIs are continually updated to support other types of Azure subscriptions.
 
@@ -28,6 +28,10 @@ The Azure Consumption APIs give you programmatic access to cost and usage data f
     - Price sheet
     - Budgets
     - Balances
+
+The Azure public endpoint for the Consumption APIs is `consumption.azure.com`.
+
+The Azure Government endpoint for the Consumption APIs is `consumption.azure.us`.
 
 ## Usage Details API
 

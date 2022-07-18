@@ -20,6 +20,11 @@ Computer Vision can analyze an image and generate a human-readable phrase that d
 
 At this time, English is the only supported language for image description.
 
+Try out the image captioning features quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
+
 ## Image description example
 
 The following JSON response illustrates what the Analyze API returns when describing the example image based on its visual features.

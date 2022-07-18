@@ -148,7 +148,7 @@
     href: deploy-arc-for-azure-vmware-solution.md
   - name: Deploy disaster recovery
     items:
-    - name: Deploy JetStream DR
+    - name: Deploy disaster recovery using JetStream DR software
       href: deploy-disaster-recovery-using-jetstream.md
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md
@@ -202,14 +202,64 @@
       href: azure-vmware-solution-horizon.md
     - name: Deploy VMs from the content library
       href: deploy-vm-content-library.md
+    - name: Enable HCX access over the internet
+      href: enable-hcx-access-over-internet.md
+    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution (Preview)
+      href: enable-sql-azure-hybrid-benefit.md
     - name: Upgrade the VMware HCX appliance
       href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
 - name: Resources
   items:
-  - name: Learning path
+  - name: Learning paths
     items:
+      - name: Introduction to Azure VMware Solution
+        href: /learn/modules/intro-azure-vmware-solution/
       - name: Run VMware workloads on Azure VMware Solution
         href: /learn/paths/run-vmware-workloads-azure-vmware-solution/
+      - name: Prepare to migrate VMware workloads to Azure by deploying Azure VMware Solution
+        href: /learn/modules/deploy-azure-vmware-solution/
+      - name: Migrate VMware workloads on-premises to Azure VMware Solution
+        href: /learn/modules/migrate-vmware-workloads-on-premises-azure-vmware-solution/
+      - name: Deploy disaster recovery using VMware Site Recovery Manager and Azure VMware Solution
+        href: /learn/modules/deploy-disaster-recovery-vmware-srm-azure-vmware-solution/
+  - name: Hands-on Labs
+    items:
+      - name: Azure VMware Solution Private Cloud Deployment and Connectivity
+        href: https://labs.hol.vmware.com/HOL/catalogs/lab/10713
+      - name: Azure VMware Solution Workload Migration with VMware HCX
+        href: https://labs.hol.vmware.com/HOL/catalogs/lab/10895
+      - name: Disaster Protection with Azure VMware Solution and VMware Site Recovery
+        href: https://labs.hol.vmware.com/HOL/catalogs/lab/10707
+  - name: Cloud Adoption Framework
+    items:
+      - name: Azure VMware Solution landing zone accelerator
+        href: https://aka.ms/avsaccelerator
+      - name: Enterprise-Scale for Azure VMware Solution repository
+        href: https://github.com/Azure/Enterprise-Scale-for-AVS
+      - name: Azure VMware Solution Landing Zone Accelerator | Video
+        href: https://www.youtube.com/watch?v=vbujjWxN268
+  - name: Videos
+    items:
+    - name: Extend to the Cloud with Azure VMware Solution
+      href: https://info.microsoft.com/www-extend-to-the-cloud-with-azure-vmware-solution-on-demand-registration.html
+    - name: Run your VMware workloads natively on Azure with Azure VMware Solution | Azure Friday
+      href: https://youtu.be/Zcmbj0KHkaY
+    - name: Azure VMware Solution Technical Overview Series | VMware  
+      href: https://www.youtube.com/playlist?list=PLNOz1mVhDkG5tfbUDrOkTouVHfXu6jTiS
+    - name: Azure VMware Solution Deployment Deep Dive Series | VMware
+      href: https://www.youtube.com/playlist?list=PLNOz1mVhDkG4MUkHCxTg6OCB4DBbLp8Zg
+  - name: Regional availability
+    href: https://aka.ms/avsregions
+  - name: Pricing
+    items:
+      - name: Azure VMware Solution pricing        
+        href: https://azure.microsoft.com/en-us/pricing/details/azure-vmware/
+      - name: Azure pricing calculator
+        href: https://azure.microsoft.com/pricing/calculator/
+  - name: SLA
+    href: https://aka.ms/avssla
+  - name: Azure VMware Solution roadmap
+    href: https://aka.ms/avsroadmap
   - name: Troubleshooting
     items:
     - name: Open a support request for deployment failures
