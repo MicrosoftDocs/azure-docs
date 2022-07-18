@@ -23,38 +23,38 @@ Rules and Display definitions are used to define a credential. You can read more
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`attestations`| [idTokenAttestation](#idtokenattestation-type) and/or [idTokenHintAttestation](#idtokenhintattestation-type) and/or [verifiablePresentationAttestation](#verifiablepresentationattestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) |
-|`validityInterval` | number | represents the lifespan of the credential |
-|`vc`| vcType array | types for this contract |
+| `attestations`| [idTokenAttestation](#idtokenattestation-type) and/or [idTokenHintAttestation](#idtokenhintattestation-type) and/or [verifiablePresentationAttestation](#verifiablepresentationattestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) |
+| `validityInterval` | number | represents the lifespan of the credential in seconds |
+| `vc`| [vcType](#vctype-type) | verifiable credential types for this contract |
 
 
 ### idTokenAttestation type
 
-When you sign in the user from within Authenticator, you can use the returned ID token from the OIDC compatible provider as input.
+When you sign in the user from within Authenticator, you can use the returned ID token from the OpenID Connect compatible provider as input.
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
 | `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `configuration` | string (url) | location of the identity provider's configuration document |
 | `clientId` | string | client ID to use when obtaining the ID token |
-| `redirectUri` | string | redirect uri to use when obtaining the ID token MUST BE vcclient://openid/ |
+| `redirectUri` | string | redirect uri to use when obtaining the ID token; MUST BE `vcclient://openid/` |
 | `scope` | string | space delimited list of scopes to use when obtaining the ID token |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
-| `trustedIssuers` | optional string (array) | a list of DIDs allowed to issue the verifiable credential for this contract. This property is only used for specific scenarios where the `idtoken` hint can come from another issuer |
+| `trustedIssuers` | optional string (array) | a list of DIDs allowed to issue the verifiable credential for this contract. This property is only used for specific scenarios where the `id_token_hint` can come from another issuer |
 
 ### idTokenHintAttestation type
 
-This flow uses the IDTokenHint, which is provided as payload through the Request REST API. The mapping is the same as for the ID Token attestation.
+This flow uses the ID Token Hint, which is provided as payload through the Request REST API. The mapping is the same as for the ID Token attestation.
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
 | `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
-| `trustedIssuers` | optional string (array) | a list of DIDs allowed to issue the verifiable credential for this contract. This property is only used for specific scenarios where the idtoken hint can come from another issuer |
+| `trustedIssuers` | optional string (array) | a list of DIDs allowed to issue the verifiable credential for this contract. This property is only used for specific scenarios where the `id_token_hint` can come from another issuer |
 
 ### verifiablePresentationAttestation type
 
-When you want the user to present another VC as input for a new issued VC. The wallet will allow the user to select the VC during issuance.
+When you want the user to present another verifiable credential as input for a new issued verifiable credential. The wallet will allow the user to select the verifiable credential during issuance.
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
@@ -82,6 +82,12 @@ When you want the user to enter information themselves. This type is also called
 | `indexed` | boolean (default false) | indicating whether the value of this claim is used for searching; only one clientMapping object is indexable for a given contract |
 | `required` | boolean (default false) | indicating whether this mapping is required or not |
 | `type` | string (optional) | type of claim |
+
+### vcType type
+
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| `type` | string (array) | a list of verifiable credential types this contract can issue |
 
 ## Example rules definition:
 ```
