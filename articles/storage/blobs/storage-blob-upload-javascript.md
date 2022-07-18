@@ -49,12 +49,71 @@ Transform the stream during the upload for data clean up.
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js" id="Snippet_Transform" :::
 
+The following code demonstrates how to use the function.
+
+```javascript
+// fully qualified path to file
+const localFileWithPath = path.join(__dirname, `my-text-file.txt`);
+
+// encoding: just to see the chunk as it goes by in the transform
+const streamOptions = { highWaterMark: 20, encoding: 'utf-8' }
+
+const readableStream = fs.createReadStream(localFileWithPath, streamOptions);
+
+// upload options
+const uploadOptions = {
+
+      // not indexed for searching
+      metadata: {
+        owner: 'PhillyProject'
+      },
+
+      // indexed for searching
+      tags: {
+        createdBy: 'YOUR-NAME',
+        createdWith: `StorageSnippetsForDocs-${i}`,
+        createdOn: (new Date()).toDateString()
+      }
+    }
+
+// upload stream
+await createBlobFromReadStream(containerClient, `my-text-file.txt`, readableStream, uploadOptions);
+```
+
 ## <a name="upload-by-using-a-binarydata-object"></a>Upload with BlockBlobClient by using a BinaryData object
 
 The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to affect the upload:
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-buffer.js" id="Snippet_UploadBlob" highlight="17":::
 
+The following code demonstrates how to use the function.
+
+```javascript
+// fully qualified path to file
+const localFileWithPath = path.join(__dirname, `daisies.jpg`);
+
+// read file into buffer
+const buffer = await fs.readFile(localFileWithPath);
+
+// upload options
+const uploadOptions = {
+
+      // not indexed for searching
+      metadata: {
+        owner: 'PhillyProject'
+      },
+
+      // indexed for searching
+      tags: {
+        createdBy: 'YOUR-NAME',
+        createdWith: `StorageSnippetsForDocs-${i}`,
+        createdOn: (new Date()).toDateString()
+      }
+    }
+
+// upload buffer
+createBlobFromBuffer(containerClient, `daisies.jpg`, buffer, uploadOptions)
+```
 
 ## <a name="upload-a-string"></a>Upload a string with BlockBlobClient 
 
