@@ -59,19 +59,13 @@ You must provision a [FHIR service](../fhir/fhir-portal-quickstart.md) instance 
 
 Once FHIR service is provisioned, you must give MedTech service permission to read and write to FHIR service. This permission enables the data to be persisted in the FHIR service store using system-assigned managed identity. See details on how to assign the role to MedTech service from [FHIR service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-medtech-service-from-the-fhir-service).
 
-<<<<<<< HEAD
 By design, the MedTech service retrieves data from the specified event hub using the system-assigned managed identity. For more information on how to assign the role to the MedTech service from [Event Hubs](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-access-to-the-device-message-event-hub).
-=======
 ### Provision a MedTech service instance in the workspace
->>>>>>> f1ee691f2990585a72da4fcaa778bd479dfca0f7
 
 You must provision a MedTech service instance from the [Azure portal](deploy-iot-connector-in-azure.md) in your workspace. You can make the provisioning process easier and more efficient by automating everything with Azure PowerShell, Azure CLI, or Azure REST API. You can find automation scripts at the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts) website.
 
-<<<<<<< HEAD
 The MedTech service persists the data to the FHIR store using the system-managed identity. See details on how to assign the role to the MedTech service from the [FHIR service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-access-to-the-fhir-service).
-=======
 ## Step 3: Send the data
->>>>>>> f1ee691f2990585a72da4fcaa778bd479dfca0f7
 
 When the relevant services are provisioned, you can send event data from the device to MedTech service using an event hub. The event data is routed in the following manner:
 
