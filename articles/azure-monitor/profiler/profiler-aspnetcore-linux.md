@@ -79,21 +79,21 @@ In this guide, you'll:
 
 1. In the Azure portal, create a web app environment by using App Service on Linux:
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/create-web-app.png" alt-text="Create the Linux web app":::
+   :::image type="content" source="./media/profiler-aspnetcore-linux/create-web-app.png" alt-text="Screenshot of creating the Linux web app.":::
 
 1. Go to your new web app resource and select **Deployment Center** > **FTPS credentials** to create the deployment credentials. Make note of your credentials to use later.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/credentials.png" alt-text="Create the deployment credentials":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/credentials.png" alt-text="Screenshot of creating the deployment credentials.":::    
 
 1. Click **Save**.
 1. Select the **Settings** tab. 
 1. In the drop-down, select **Local Git** to set up a local Git repository in the web app.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/deployment-options.png" alt-text="View deployment options":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/deployment-options.png" alt-text="Screenshot of view deployment options in a drop-down.":::    
 
 1. Click **Save** to create a Git repository with a Git Clone Uri. 
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/local-git-repo.png" alt-text="Set up the local Git repository":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/local-git-repo.png" alt-text="Screenshot of setting up the local Git repository.":::    
 
    For more deployment options, see [App Service documentation](../../app-service/deploy-best-practices.md).
 
@@ -149,15 +149,15 @@ You can add Application Insights to your web app either via:
 1. In your web app on the Azure portal, select **Application Insights** in the left side menu. 
 1. Click **Turn on Application Insights**. 
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/app-insights-1.png" alt-text="Turn on Application Insights":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/turn-on-app-insights.png" alt-text="Screenshot of turning on Application Insights.":::    
 
 1. Under **Application Insights**, select **Enable**.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/app-insights-2.png" alt-text="Enable Application Insights":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/enable-app-insights.png" alt-text="Screenshot of enabling Application Insights.":::    
 
 1. Under **Link to an Application Insights resource**, either create a new resource or select an existing resource. For this example, we'll create a new resource.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/app-insights-3.png" alt-text="Link to a new or existing resource":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/link-app-insights.png" alt-text="Screenshot of linking your Application Insights to a new or existing resource.":::    
 
 1. Click **Apply** > **Yes** to apply and confirm.
 
@@ -169,7 +169,7 @@ You can add Application Insights to your web app either via:
 1. In your web app on the Azure portal, select **Configuration** in the left side menu. 
 1. Click **New application setting**.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/configuration-1.png" alt-text="Add new application setting in the configuration blade.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/new-setting-configuration.png" alt-text="Screenshot of adding new application setting in the configuration blade.":::    
 
 1. Add the following settings in the **Add/Edit application setting** pane, using your saved iKey:
 
@@ -177,11 +177,11 @@ You can add Application Insights to your web app either via:
    | ---- | ----- |
    | APPINSIGHTS_INSTRUMENTATIONKEY | [YOUR_APPINSIGHTS_KEY] |
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/configuration-2.png" alt-text="Add iKey to the settings pane.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/add-ikey-settings.png" alt-text="Screenshot of adding iKey to the settings pane.":::    
 
 1. Click **OK**.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/configuration-3.png" alt-text="Save the application insights key settings.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/save-app-insights-key.png" alt-text="Screenshot of saving the application insights key settings.":::    
 
 1. Click **Save**.
 
