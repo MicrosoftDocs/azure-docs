@@ -64,7 +64,7 @@ The following permission is required to call the Request Service REST API. For m
 
 | Permission type | Permission  |
 |---------|---------|
-| Application | bbb94529-53a3-4be5-a069-7eaf2712b826/.default|
+| Application | 3db474b9-6a0c-4840-96ac-1fceb342124f/.default|
 
 ## Issuance request payload
 

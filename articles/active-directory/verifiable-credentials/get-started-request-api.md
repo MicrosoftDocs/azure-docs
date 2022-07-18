@@ -74,7 +74,7 @@ const msalConfig = {
 };
 const cca = new msal.ConfidentialClientApplication(msalConfig);
 const msalClientCredentialRequest = {
-  scopes: ["bbb94529-53a3-4be5-a069-7eaf2712b826/.default"],
+  scopes: ["3db474b9-6a0c-4840-96ac-1fceb342124f/.default"],
   skipCache: false, 
 };
 module.exports.msalCca = cca;
@@ -96,7 +96,7 @@ In the preceding code, provide the following parameters:
 | Authority | Required | The directory tenant the application plans to operate against. For example: `https://login.microsoftonline.com/{your-tenant}`. (Replace `your-tenant` with your [tenant ID or name](../fundamentals/active-directory-how-to-find-tenant.md).) |
 | Client ID | Required | The application ID that's assigned to your app. You can find this information in the Azure portal, where you registered your app. |
 | Client secret | Required | The client secret that you generated for your app.|
-| Scopes | Required | Must be set to `bbb94529-53a3-4be5-a069-7eaf2712b826/.default`. |
+| Scopes | Required | Must be set to `3db474b9-6a0c-4840-96ac-1fceb342124f/.default`. |
 
 For more information about how to get an access token by using a console app's identity, see one of the following articles: [C#](../develop/quickstart-v2-netcore-daemon.md), [Python](../develop/quickstart-v2-python-daemon.md), [Node.js](../develop/quickstart-v2-nodejs-console.md), or [Java](../develop/quickstart-v2-java-daemon.md).
 
@@ -110,7 +110,7 @@ Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=12345678-0000-0000-00000000000000000
-&scope=bbb94529-53a3-4be5-a069-7eaf2712b826/.default
+&scope=3db474b9-6a0c-4840-96ac-1fceb342124f/.default
 &client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
 &client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
 &grant_type=client_credentials
@@ -156,7 +156,7 @@ const msalConfig = {
 };
 const cca = new msal.ConfidentialClientApplication(msalConfig);
 const msalClientCredentialRequest = {
-  scopes: ["bbb94529-53a3-4be5-a069-7eaf2712b826/.default"],
+  scopes: ["3db474b9-6a0c-4840-96ac-1fceb342124f/.default"],
   skipCache: false, 
 };
 module.exports.msalCca = cca;

@@ -109,7 +109,7 @@ The following JSON demonstrates a complete *appsettings.json* file:
 
  "AppSettings": {
    "Endpoint": "https://beta.did.msidentity.com/v1.0/{0}/verifiablecredentials/request",
-   "VCServiceScope": "bbb94529-53a3-4be5-a069-7eaf2712b826/.default",
+   "VCServiceScope": "3db474b9-6a0c-4840-96ac-1fceb342124f/.default",
    "Instance": "https://login.microsoftonline.com/{0}",
    "TenantId": "987654321-0000-0000-0000-000000000000",
    "ClientId": "555555555-0000-0000-0000-000000000000",
