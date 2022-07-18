@@ -27,16 +27,16 @@ And then defining these elements for the resulting alert actions using:
 
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot showing steps to create new alert rule.":::
 
-3. In the **Select a resource** pane, set the scope for your alert rule, and then select **Done**. You can filter by subscription, resource type, resource location or do a search.
-   You can see the alert rule types available for the selected resource at the bottom right of the pane. 
+3. In the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, **resource location**, or do a search.
+   You can see the **Available signal types** for your selected resource(s) at the bottom right of the pane.
       
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot showing select resource pane for creating new alert rule."::: 
 
-4. Select **Next: Condition>** at the bottom of the page.
-5. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. Select any filters to narrow the resource list.
-6. You can see the **Available signal types** for your selected resource(s) at the bottom right of the pane. 
-7. Select **Include all future resources** to include any future resources added to the selected scope.
-8. Select **Done**.
+4. Select **Include all future resources** to include any future resources added to the selected scope.
+5. Select **Done**.
+6. Select **Next: Condition>** at the bottom of the page.
+7. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. Select any filters to narrow the resource list.
+8. Select the signal you want to use for your alert rule.
 9.    
   ## [Log alerts](#tab/logs)
    
@@ -68,9 +68,10 @@ And then defining these elements for the resulting alert actions using:
     
      |Field  |Description  |
      |---------|---------|
-     |Dimension name|Dimensions can be either number or string columns. imensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
+     |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
      |Operator|The operator used on the dimension name and value.  |
      |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
+     |Include all future values| Select this field to include any future values added to the selected dimension.  |
     
      :::image type="content" source="media/alerts-log/alerts-create-log-rule-dimensions.png" alt-text="Screenshot of the splitting by dimensions section of a new log alert rule.":::
     
@@ -102,29 +103,43 @@ And then defining these elements for the resulting alert actions using:
             
   ## [Metric alerts](#tab/metric)
        
-  1. Configure the signal logic, and then select **Done**.
+  1. In the **Configure signal logic** pane, select values for the following fields.
       
+    |Setting |Description |
+    |---------|---------|
+    |Select time series|Select the time series to include in the results. |
+    |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
+
+  1. (Optional) Depending on the signal type, you may see the **Split by dimensions** section. Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.  Dimensions can be either number or string columns. If you select more than one dimension value, each time series that results from the combination will trigger its own alert and will be charged separately.
+  
+ For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in any API name (which is the aggregated data), or you can use dimensions to further break it down to alert only when the number of transactions is high for specific API names.
+
+ To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations. Splitting on Azure resource ID column makes the specified resource into the alert target.
+
+ When you want a condition applied to multiple resources in the scope, you would **not** split by dimensions. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
+     
+    |Field  |Description  |
+    |---------|---------|
+    |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
+    |Operator|The operator used on the dimension name and value.  |
+    |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
+    |Include all future values| Select this field to include any future values added to the selected dimension.  |
+   
+
+   1. In the **Alert logic** section:
+     
      |Setting |Description |
      |---------|---------|
-     |Select time series|Select the time series to include in the results. |
-     |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
-     |Threshold| Select if threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold uses a user-defined threshold value to evaluate rule.<br>Dynamic Thresholds use machine learning algorithms to continuously learn the metric behavior pattern and calculate the appropriate threshold for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds).|
+     |Threshold| Select if threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold evaluates the rule using the threshold value that you configure.<br>Dynamic Thresholds use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds).|
      |Operator|Select the operator for comparing the metric value against the threshold.|
      |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.          |
      |Threshold value| If you selected a **static** threshold, enter the threshold value for the condition logic.        |
      |Unit| If you selected a **static** threshold, enter the unit for the condition logic.        |
      |Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
      |Aggregation granularity|Select the interval over which data points are grouped using the aggregation type function.         |
-     |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.         |
+     |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.  |
        
-  1. (Optional.) Configure the advanced settings:
-              
-     |Setting  |Description  |
-     |---------|---------|
-     |Number of violations     |Select the minimum number of violations required within the selected look-back time window required to raise an alert.         |
-     |Evaluation period    |         |
-     Ignore data before     |         | 
-    
+   1. Select **Done**. 
   ## [Activity Log alerts](#tab/activity-log)
 
   1.  In the **Conditions** pane.
