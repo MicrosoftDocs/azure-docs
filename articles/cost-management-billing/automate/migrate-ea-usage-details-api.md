@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Usage Details APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 07/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -89,12 +89,12 @@ The table below provides a summary of the old fields available in the solutions 
 | location | ResourceLocation |  |
 | chargesBilledSeparately | isAzureCreditEligible | The properties are opposites. If isAzureCreditEnabled is true, ChargesBilledSeparately would be false. |
 | partNumber | PartNumber |  |
-| resourceGuid | MeterId |  |
+| resourceGuid | MeterId | Values vary. `resourceGuid` is a GUID value. `meterId` is a long number. |
 | offerId | OfferId |  |
 | cost | CostInBillingCurrency |  |
 | accountId | AccountId |  |
 | resourceLocationId |  | Not available. |
-| consumedServiceId | ConsumedService |  |
+| consumedServiceId | ConsumedService | `consumedServiceId` only provides a number value. `ConsumedService` provides the name of the service. |
 | departmentId | InvoiceSectionId |  |
 | accountOwnerEmail | AccountOwnerId |  |
 | accountName | AccountName |  |
