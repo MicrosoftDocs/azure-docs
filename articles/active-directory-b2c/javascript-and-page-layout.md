@@ -245,7 +245,7 @@ Alternatively, you can add a link at the bottom of self-asserted pages, without 
 </LocalizedResources>
 ```
 
-In the code, replace `termsOfUseUrl` with the link to your organization's privacy statement and terms and conditions. 
+Replace `termsOfUseUrl` with the link to your organization's privacy policy and terms of use. 
 
 
 ## Next steps
