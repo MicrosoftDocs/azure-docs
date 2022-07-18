@@ -61,8 +61,8 @@ Multiple NVA instances can be deployed in an active/passive setup as well, for e
 
 As the previous sections have shown, Azure Route Server has a double role:
 
-1. It learns and advertises routes to/from Virtual Network Gateways (VPN and ExpressRoute)
-2. It configures learnt routes on its VNet, and on directly peered VNets
+- It learns and advertises routes to/from Virtual Network Gateways (VPN and ExpressRoute)
+- It configures learnt routes on its VNet, and on directly peered VNets
 
 This dual functionality often is interesting, but at times it can be detrimental to certain requirements. For example, if the Route Server is deployed in a VNet with an NVA advertising a 0.0.0.0/0 route and an ExpressRoute gateway advertising prefixes from on-premises, it will configure all routes (both the 0.0.0.0/0 from the NVA and the on-premises prefixes) on the virtual machines in its VNet and directly peered VNets. As a consequence, since the on-premises prefixes will be more specific than 0.0.0.0/0, traffic between on-premises and Azure will bypass the NVA. If this is not desired, the previous sections in this article have shown how to disable BGP propagation in the VM subnets and configure UDRs.
 
