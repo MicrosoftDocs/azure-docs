@@ -40,7 +40,6 @@ Azure Kubernetes Service (AKS) supports adding [Intel SGX confidential computing
 ## Confidential full VM encrypted node through AMD SEV-SNP Confidential VM's
 
 Coming soon.
-
 ## Questions?
 
 Do you have questions about your implementation reach out to <acconaks@microsoft.com>.
