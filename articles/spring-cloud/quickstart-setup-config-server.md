@@ -92,7 +92,7 @@ The following procedure explains how to troubleshoot Config Server settings.
 1. In the **Queries** pane under **Show the application logs that contain the "error" or "exception" terms"**,
    select **Run**.
 
-   :::image type="content" source="media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps query." lightbox="media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png":::
+   :::image type="content" source="media/quickstart-setup-config-server/setup-config-server-query.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps query." lightbox="media/quickstart-setup-config-server/setup-config-server-query.png":::
 
    If logs contain the following error, this indicates that the Spring Apps service can't locate properties from Config Server:
 
