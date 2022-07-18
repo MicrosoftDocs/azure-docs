@@ -42,6 +42,8 @@ To enable or disable this feature (these prerequisites are not required to use t
 
 1. On the **Entity behavior configuration** page, switch the toggle to **On**.
 
+    :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings.":::
+
 1. Mark the check boxes next to the Active Directory source types from which you want to synchronize user entities with Microsoft Sentinel.
 
     - **Active Directory** on-premises (Preview)
