@@ -174,7 +174,7 @@ Since the Azure portal doesn't provide a way to set the Application Insights Pro
 1. Find the VM Diagnostics extension for your VM:
     1. Go to [https://resources.azure.com](https://resources.azure.com). 
     1. Expand **subscriptions** and find the subscription holding the resource group with your VM.
-    1. Drill down to your VM extensions by selecting your resource group, followed by **Microsoft.Compute** > **virtualMachines** > **<your virtual machine>** > **extensions**.  
+    1. Drill down to your VM extensions by selecting your resource group, followed by **Microsoft.Compute** > **virtualMachines** > **[your virtual machine]** > **extensions**.  
 
        :::image type="content" source="./media/profiler-vm/azure-resource-explorer.png" alt-text="Navigate to WAD config in Azure Resource Explorer":::
 
