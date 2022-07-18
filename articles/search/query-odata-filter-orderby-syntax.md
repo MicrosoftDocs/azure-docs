@@ -7,24 +7,24 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 07/18/2022
 
 ---
 
 # OData language overview for `$filter`, `$orderby`, and `$select` in Azure Cognitive Search
 
-Azure Cognitive Search supports a subset of the OData expression syntax for **$filter**, **$orderby**, and **$select** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set to sort the documents that are returned. Select expressions determine which document fields are included in the result set. The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax that is used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
+This article provides an overview of the OData expression language used in filters, order-by, and select expressions in Azure Cognitive Search. The language is presented "bottom-up", starting with the most basic elements. The OData expressions that you can construct in a query request range from simple to highly complex, but they all share common elements. The shared elements include:
 
-This article provides an overview of the OData expression language used in filters, order-by, and select expressions. The language is presented "bottom-up", starting with the most basic elements and building on them. The top-level syntax for each parameter is described in a separate article:
++ **Field paths**, which refer to specific fields of your index.
++ **Constants**, which are literal values of a certain data type.
 
-- [$filter syntax](search-query-odata-filter.md)
-- [$orderby syntax](search-query-odata-orderby.md)
-- [$select syntax](search-query-odata-select.md)
+Once you understand these common concepts, you can continue with the top-level syntax for each expression:
 
-OData expressions range from simple to highly complex, but they all share common elements. The most basic parts of an OData expression in Azure Cognitive Search are:
++ [**$filter**](search-query-odata-filter.md) expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. 
++ [**$orderby**](search-query-odata-orderby.md) expressions are applied as a post-processing step over a result set to sort the documents that are returned. 
++ [**$select**](search-query-odata-select.md) expressions determine which document fields are included in the result set. 
 
-- **Field paths**, which refer to specific fields of your index.
-- **Constants**, which are literal values of a certain data type.
+The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
 
 > [!NOTE]
 > Terminology in Azure Cognitive Search differs from the [OData standard](https://www.odata.org/documentation/) in a few ways. What we call a **field** in Azure Cognitive Search is called a **property** in OData, and similarly for **field path** versus **property path**. An **index** containing **documents** in Azure Cognitive Search is referred to more generally in OData as an **entity set** containing **entities**. The Azure Cognitive Search terminology is used throughout this reference.
@@ -218,16 +218,8 @@ An interactive syntax diagram is also available:
 
 The **$orderby** and **$select** parameters are both comma-separated lists of simpler expressions. The **$filter** parameter is a Boolean expression that is composed of simpler sub-expressions. These sub-expressions are combined using logical operators such as [`and`, `or`, and `not`](search-query-odata-logical-operators.md), comparison operators such as [`eq`, `lt`, `gt`, and so on](search-query-odata-comparison-operators.md), and collection operators such as [`any` and `all`](search-query-odata-collection-operators.md).
 
-The **$filter**, **$orderby**, and **$select** parameters are explored in more detail in the following articles:
-
-- [OData $filter syntax in Azure Cognitive Search](search-query-odata-filter.md)
-- [OData $orderby syntax in Azure Cognitive Search](search-query-odata-orderby.md)
-- [OData $select syntax in Azure Cognitive Search](search-query-odata-select.md)
-
 ## See also  
 
-- [Faceted navigation in Azure Cognitive Search](search-faceted-navigation.md)
-- [Filters in Azure Cognitive Search](search-filters.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
-- [Lucene query syntax](query-lucene-syntax.md)
-- [Simple query syntax in Azure Cognitive Search](query-simple-syntax.md)
++ [OData $filter syntax in Azure Cognitive Search](search-query-odata-filter.md)
++ [OData $orderby syntax in Azure Cognitive Search](search-query-odata-orderby.md)
++ [OData $select syntax in Azure Cognitive Search](search-query-odata-select.md)

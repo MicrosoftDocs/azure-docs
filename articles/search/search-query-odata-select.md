@@ -8,22 +8,14 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 09/16/2021
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 07/18/2022
 ---
+
 # OData $select syntax in Azure Cognitive Search
 
- You can use the [OData **$select** parameter](query-odata-filter-orderby-syntax.md) to choose which fields to include in search results from Azure Cognitive Search. This article describes the syntax of **$select** in detail. For more general information about how to use **$select** when presenting search results, see [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md).
+In Azure Cognitive Search, the **$select** parameter specifies which fields to include in search results. This article describes the OData syntax of **$select** and provides examples.
+
+Field path construction and constants are described in the [OData language overview in Azure Cognitive Search](query-odata-filter-orderby-syntax.md). For more information about search result composition, see [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md).
 
 ## Syntax
 
