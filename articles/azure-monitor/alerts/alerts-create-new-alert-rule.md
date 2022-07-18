@@ -111,7 +111,6 @@ And then defining these elements for the resulting alert actions using:
      |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
 
   1. (Optional) Depending on the signal type, you may see the **Split by dimensions** section. Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.  Dimensions can be either number or string columns. If you select more than one dimension value, each time series that results from the combination will trigger its own alert and will be charged separately.
-  
     For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in any API name (which is the aggregated data), or you can use dimensions to further break it down to alert only when the number of transactions is high for specific API names.
 
     To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations. Splitting on Azure resource ID column makes the specified resource into the alert target.
