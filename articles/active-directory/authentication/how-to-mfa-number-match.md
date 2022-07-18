@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 07/18/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -39,6 +39,8 @@ Number matching is available for the following scenarios. When enabled, all scen
 
 >[!NOTE]
 >For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
+
+Number matching is not supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
 
 ### Multifactor authentication
 
@@ -87,9 +89,11 @@ To create the registry key that overrides push notifications:
 >[!NOTE]
 >In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
-Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property to **enabled**:
+Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property under featureSettings to **enabled** and include or exclude groups:
 
+```
 https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+```
 
 
 #### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties
@@ -105,8 +109,8 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 | Relationship | Type | Description |
 |--------------|------|-------------|
-| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) |
-| collection | A collection of users or groups who are enabled to use the authentication method. |
+| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget?view=graph-rest-beta) collection | A collection of users or groups who are enabled to use the authentication method |
+| featureSettings | [microsoftAuthenticatorFeatureSettings](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) collection | A collection of Microsoft Authenticator features. |
  
 #### MicrosoftAuthenticator includeTarget properties
  
@@ -117,10 +121,29 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 | authenticationMode | String | Possible values are:<br>**any**: Both passwordless phone sign-in and traditional second factor notifications are allowed.<br>**deviceBasedPush**: Only passwordless phone sign-in notifications are allowed.<br>**push**: Only traditional second factor push notifications are allowed. |
 | id | String | Object ID of an Azure AD user or group. |
 | targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.<br>Please note: You will be able to only set one group or user for number matching. |
-| numberMatchingRequiredState | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
 
->[!NOTE]
->Number matching can only be enabled for a single group.
+
+
+#### MicrosoftAuthenticator featureSettings properties
+ 
+**PROPERTIES**
+
+| Property | Type | Description |
+|----------|------|-------------|
+| numberMatchingRequiredState | authenticationMethodFeatureConfiguration | Require number matching for MFA notifications. Value is ignored for phone sign-in notifications. |
+| displayAppInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown application context in Microsoft Authenticator notification. |
+| displayLocationInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown geographic location context in Microsoft Authenticator notification. |
+
+#### Authentication Method Feature Configuration properties
+
+**PROPERTIES**
+
+| Property | Type | Description |
+|----------|------|-------------|
+| excludeTarget | featureTarget | A single entity that is excluded from this feature. |
+| includeTarget | featureTarget | A single entity that is included in this feature. |
+| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+
 
 #### Example of how to enable number matching for all users
 
@@ -234,18 +257,10 @@ To turn number matching off, you will need to PATCH remove **numberMatchingRequi
 To enable number matching in the Azure AD portal, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. Select the target users, click the three dots on the right, and click **Configure**.
-   
-   ![Screenshot of configuring number match.](media/howto-authentication-passwordless-phone/configure.png)
-
-1. Select the **Authentication mode**, and then for **Require number matching (Preview)**, click **Enable**, and then click **Done**. 
-
-   ![Screenshot of enabling number match.](media/howto-authentication-passwordless-phone/enable-number-matching.png)
-   
->[!NOTE]
->[Least privileged role in Azure Active Directory - Multifactor authentication](../roles/delegate-by-task.md#multi-factor-authentication)
-
-Number matching is not supported for Apple Watch notifications. Apple Watch need to use their phone to approve notifications when number matching is enabled.
+1. Click **Basics**.
+1. Click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Push**. 
+1. Click **Configure**.
+1. Click **Require number matching for push notifications (Preview)**, and then for **Require number matching (Preview)**, click **Enable**, and then click **Done**. 
 
 ## Next steps
 
