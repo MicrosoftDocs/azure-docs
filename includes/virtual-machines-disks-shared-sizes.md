@@ -43,4 +43,4 @@ The IOPS and bandwidth limits for a disk are not affected by the `maxShares` val
 
 ### Ultra disk ranges
 
-The minimum `maxShares` value is 1, while the maximum `maxShares` value is 5. There are no size restrictions on ultra disks, any size ultra disk can use any value for `maxShares`, up to and including the maximum value.
+The minimum `maxShares` value is 1, while the maximum `maxShares` value is 15. There are no size restrictions on ultra disks, any size ultra disk can use any value for `maxShares`, up to and including the maximum value.

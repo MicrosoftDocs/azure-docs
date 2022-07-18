@@ -70,7 +70,7 @@ The following table lists the supported operating systems for Azure VMs and Azur
 
 # [Azure VMs](#tab/azurevm-os)
 
-[Azure VMs](/azure/virtual-machines/index) are: 
+[Azure VMs](../virtual-machines/index.yml) are: 
  
    | Publisher | Operating System | SKU |
    |----------|-------------|-------------|
@@ -97,7 +97,7 @@ The following table lists the supported operating systems for Azure VMs and Azur
 
 # [Azure Arc-enabled servers](#tab/azurearc-os)
 
-[Azure Arc-enabled servers](/azure/azure-arc/servers/overview) are:
+[Azure Arc-enabled servers](../azure-arc/servers/overview.md) are:
 
    | Publisher | Operating System
    |----------|-------------|
