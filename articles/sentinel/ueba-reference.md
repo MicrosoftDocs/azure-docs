@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Microsoft Sentinel UEBA reference
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This reference article lists the input data sources for the User and Entity Behavior Analytics service in Microsoft Sentinel. It also describes the enrichments that UEBA adds to entities, providing needed context to alerts and incidents.
 
 ## UEBA data sources

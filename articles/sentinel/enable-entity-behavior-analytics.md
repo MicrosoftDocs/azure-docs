@@ -57,7 +57,7 @@ To enable or disable this feature (these prerequisites are not required to use t
     >
     > Once you have enabled UEBA, you will have the option, when connecting new data sources, to enable them for UEBA directly from the data connector pane if they are UEBA-capable.
 
-1. Select **Apply**. You will be returned to the **Entity behavior** page.
+1. Select **Apply**. If you accessed this page through the **Entity behavior** page, you will be returned there.
 
 ## Next steps
 
