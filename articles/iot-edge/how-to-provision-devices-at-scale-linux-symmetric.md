@@ -94,7 +94,7 @@ Have the following information ready:
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
@@ -144,7 +144,7 @@ Have the following information ready:
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Verify successful installation
 
@@ -184,8 +184,9 @@ iotedge list
 ```
 
 :::moniker-end
+<!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 Check the status of the IoT Edge service.

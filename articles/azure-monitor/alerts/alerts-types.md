@@ -25,7 +25,7 @@ This table can help you decide when to use what type of alert. For more detailed
 
 |Alert Type  |When to Use |Pricing Information|
 |---------|---------|---------|
-|Metric alert|Metric alerts are useful when you want to be alerted about data that requires little or no manipulation.  Metric data is stored in the system already pre-computed, so metric alerts are less expensive than log alerts. If the data you want to monitor is available in metric data, you would want to metric alerts.|Each metrics alert rule is charged based on the number of time-series that are monitored. |
+|Metric alert|Metric alerts are useful when you want to be alerted about data that requires little or no manipulation.  Metric data is stored in the system already pre-computed, so metric alerts are less expensive than log alerts. If the data you want to monitor is available in metric data, using metric alerts is recommended.|Each metrics alert rule is charged based on the number of time-series that are monitored. |
 |Log alert|Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts. Log alerts are more expensive than metric alerts.|Each Log Alert rule is billed based the interval at which the log query is evaluated (more frequent query evaluation results in a higher cost). Additionally, for Log Alerts configured for [at scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost will also depend on the number of time series created by the dimensions resulting from your query. | 
 |Activity Log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource.|For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
 
@@ -70,7 +70,7 @@ You may also decide not to split when you want a condition applied to multiple r
 
 You can monitor at scale by applying the same metric alert rule to multiple resources of the same type for resources that exist in the same Azure region. Individual notifications are sent for each monitored resource.
 
-These platform metrics for these services in the following Azure clouds are supported:
+The platform metrics for these services in the following Azure clouds are supported:
 
 | Service                      | Global Azure | Government | China   |
 |:-----------------------------|:-------------|:-----------|:--------|
@@ -85,7 +85,9 @@ These platform metrics for these services in the following Azure clouds are supp
 | Recovery Services vaults     | Yes      | No     | No  |
 
   > [!NOTE]
-  > Platform metrics are not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
+  > Multi-resource metric alerts are not supported for the following scenarios:
+  > - Alerting on virtual machines' guest metrics
+  > - Alerting on virtual machines' network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
 
 You can specify the scope of monitoring with a single metric alert rule in one of three ways. For example, with virtual machines you can specify the scope as:  
 

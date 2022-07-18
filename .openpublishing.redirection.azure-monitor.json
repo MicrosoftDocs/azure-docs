@@ -217,6 +217,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-sample-links.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-samples",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-access.md",
             "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
             "redirect_document_id": false
@@ -322,6 +327,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-action-rules.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-processing-rules",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/insights/data-explorer.md" ,
             "redirect_url": "/azure/data-explorer/data-explorer-insights",
             "redirect_document_id": false
@@ -349,6 +359,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/insights/azure-cli-application-insights-component.md" ,
             "redirect_url": "/cli/azure/monitor/app-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/redis-cache-insights-overview.md" ,
+            "redirect_url": "/azure/azure-cache-for-redis/redis-cache-insights-overview",
             "redirect_document_id": false
         }
     ]
