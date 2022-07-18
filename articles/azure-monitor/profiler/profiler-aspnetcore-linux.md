@@ -4,8 +4,8 @@ description: Learn how to enable Profiler on your ASP.NET Core web application h
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 07/13/2022
-ms.reviewer: jogrima
+ms.date: 07/18/2022
+ms.reviewer: charles.weininger
 ---
 
 # Enable Profiler for ASP.NET Core web applications hosted in Linux on App Services
@@ -144,7 +144,7 @@ You can add Application Insights to your web app either via:
 - The Configuration blade in the Azure portal, or 
 - Manually adding to your web app settings.
 
-### Via the Enablement blade
+# [Enablement blade](#tab/enablement)
 
 1. In your web app on the Azure portal, select **Application Insights** in the left side menu. 
 1. Click **Turn on Application Insights**. 
@@ -161,9 +161,9 @@ You can add Application Insights to your web app either via:
 
 1. Click **Apply** > **Yes** to apply and confirm.
 
-### Via the Configuration blade
+# [Configuration blade](#tab/config)
 
-1. 1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service.
+1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service.
 1. Navigate to the Application Insights resource.
 1. Copy the **Instrumentation Key** (iKey).
 1. In your web app on the Azure portal, select **Configuration** in the left side menu. 
@@ -185,7 +185,7 @@ You can add Application Insights to your web app either via:
 
 1. Click **Save**.
 
-### Via your web app settings
+# [Web app settings](#tab/appsettings)
 
 1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service.
 1. Navigate to the Application Insights resource.
@@ -201,6 +201,8 @@ You can add Application Insights to your web app either via:
    ```
 
 1. Save `appsettings.json` to apply the settings change.
+
+---
 
 ## Next steps
 Learn how to...
