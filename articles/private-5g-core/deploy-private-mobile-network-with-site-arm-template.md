@@ -75,6 +75,7 @@ The following Azure resources are defined in the template.
     |**SIM Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
     |**Sim Policy Name**     | Leave this field unchanged.        |
     |**Slice Name**     | Leave this field unchanged.        |
+    | **Platform Type** | Ensure **AKS-HCI** is selected. |
     |**Control Plane Access Interface Name**     | Enter the name of the control plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device.        |
     |**Control Plane Access IP Address**    | Enter the IP address for the control plane interface on the access network.        |
     |**User Plane Access Interface Name**     | Enter the name of the user plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device.        |
