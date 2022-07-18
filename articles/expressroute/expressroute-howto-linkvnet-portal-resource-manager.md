@@ -9,7 +9,7 @@ ms.date: 07/18/2022
 ms.author: duau
 ms.custom: seodec18, template-tutorial
 ---
-# Tutorial: Connect a virtual network to an ExpressRoute circuit using the portal
+# Tutorial: Connect a virtual network to an ExpressRoute circuit using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
