@@ -24,8 +24,8 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network and the resource group containing it.
-- Decide on the SIM group to which you want to add your SIMs. You can create a new SIM group when provisioning your SIMs, or you can choose an existing SIM group. See [Manage SIM groups - Azure portal](manage-sim-groups.md) for information on viewing your existing SIM groups.
-- For each SIM you want to provision, decide whether you want to assign a SIM policy to it. If you do, you must have already created the relevant SIM policies using the instructions in [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md). SIMs can't access your private mobile network unless they have an assigned SIM policy.
+- Choose a name for the new SIM group to which your SIMs will be added. 
+- Identify the SIM policy you want to assign to the SIMs you're provisioning. You must have already created this SIM policy using the instructions in [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md). 
 
 ## Collect the required information for your SIMs
 
@@ -39,7 +39,6 @@ To begin, collect the values in the following table for each SIM you want to pro
 | The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. It must be a 32-character string, containing hexadecimal characters only. | `authenticationKey` |
 | The derived operator code (OPc). The OPc is taken from the SIM's Ki and the network's operator code (OP). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | `operatorKeyCode` |
 | The type of device using this SIM. This value is an optional free-form string. You can use it as required to easily identify device types using the enterprise's private mobile network.  | `deviceType` |
-| The resource ID of the SIM policy to assign to the SIM. This is optional, but your SIMs won't be able to use the private mobile network without an assigned SIM policy. | `simPolicyId` |
 
 ## Prepare an array for your SIMs
 
@@ -53,8 +52,7 @@ Use the information you collected in [Collect the required information for your 
   "internationalMobileSubscriberIdentity": "001019990010001",
   "authenticationKey": "00112233445566778899AABBCCDDEEFF",
   "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88737d",
-  "deviceType": "Cellphone",
-  "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy1"
+  "deviceType": "Cellphone"
  },
  {
   "simName": "SIM2",
@@ -62,8 +60,7 @@ Use the information you collected in [Collect the required information for your 
   "internationalMobileSubscriberIdentity": "001019990010002",
   "authenticationKey": "11112233445566778899AABBCCDDEEFF",
   "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88738d",
-  "deviceType": "Sensor",
-  "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy2"
+  "deviceType": "Sensor"
  }
 ]
 ```
@@ -92,7 +89,8 @@ The following Azure resources are defined in the template.
     - **Region:** select **East US**.
     - **Location:** enter *eastus*.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
-    - **Sim Group Name:** enter the name of the SIM group.
+    - **Existing Sim Policy Name:** enter the name of the SIM policy you want to assign to the SIMs.
+    - **Sim Group Name:** enter the name for the new SIM group.
     - **Sim Resources:** paste in the array you prepared in [Prepare an array for your SIMs](#prepare-an-array-for-your-sims).
 
     :::image type="content" source="media/provision-sims-arm-template/sims-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the SIMs ARM template.":::

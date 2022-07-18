@@ -30,7 +30,7 @@ You can view your existing SIM groups in the Azure portal.
 
 1. In the **Resource** menu, select **SIM groups** to see a list of existing SIM groups.
 
-    :::image type="content" source="media/manage-sim-groups/sim-groups-list.png" alt-text="Screenshot of the Azure portal showing a list of SIM groups. The SIM groups resource menu option is highlighted.":::
+    :::image type="content" source="media/manage-sim-groups/sim-groups-list.png" alt-text="Screenshot of the Azure portal showing a list of SIM groups. The SIM groups resource menu option is highlighted." :::
 
 ## Create a SIM group
 
@@ -70,7 +70,7 @@ To create a new SIM group:
 
 1. Click **Go to resource group** and then select your new SIM group from the list of resources. You'll be shown your new SIM group and any SIMs you've provisioned.
 
-    :::image type="content" source="media/manage-sim-groups/sim-group-resource.png" alt-text="Screenshot of the Azure portal showing a SIM group containing SIMs.":::
+    :::image type="content" source="media/sim-group-resource.png" alt-text="Screenshot of the Azure portal showing a SIM group containing SIMs." lightbox="media/sim-group-resource-enlarged.png" :::
 
 1. At this point, your SIMs will not have any assigned SIM policies and so will not be brought into service. If you want to begin using the SIMs, [assign a SIM policy to them](manage-existing-sims.md#assign-sim-policies). If you've configured static IP address allocation for your packet core instance(s), you may also want to [assign static IP addresses](manage-existing-sims.md#assign-static-ip-addresses) to the SIMs you've provisioned.
 

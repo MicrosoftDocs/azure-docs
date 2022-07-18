@@ -23,14 +23,17 @@ ms.custom: template-how-to
 You can view your existing SIMs in the Azure portal.
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
-1. Search for and select the **Mobile Network** resource representing the private mobile network to which you want to add a SIM group.
+1. Search for and select the **Mobile Network** resource representing the private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-1. In the **Resource** menu, select **SIMs**. You'll be shown a list of existing SIMs in the private mobile network.
-
+1. To see a list of all existing SIMs in the private mobile network, select **SIMs** from the **Resource** menu.
 
     :::image type="content" source="media/manage-existing-sims/sims-list-inline.png" alt-text="Screenshot of the Azure portal. It shows a list of currently provisioned SIMs for a private mobile network." lightbox="media/manage-existing-sims/sims-list-enlarged.png":::
+
+1. To see a list of existing SIMs in a particular SIM group, select **SIM groups** from the resource menu, and then select your chosen SIM group from the list. 
+
+    :::image type="content" source="media/sim-group-resource.png" alt-text="Screenshot of the Azure portal. It shows a list of currently provisioned SIMs in a SIM group." lightbox="media/sim-group-resource-enlarged.png":::
 
 ## Assign SIM policies
 
