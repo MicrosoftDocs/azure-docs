@@ -88,24 +88,7 @@ For more information about available VM sizes, see [Sizes for Linux virtual mach
 
 ## Default OS disk sizing
 
-By default, when creating a new cluster or adding a new node pool to an existing cluster, the managed disk size is determined by the number of vCPUs, which is based on the VM SKU. The default values are shown in the following table: 
-
-|VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mpbs) |
-|--|--|--|--|
-| 1 - 7 | P10/128G | 500 | 100 |
-| 8 - 15 | P15/256G | 1100 | 125 |
-| 16 - 63 | P20/512G | 2300 | 150 |
-| 64+ | P30/1024G | 5000 | 200 |
-
-> [!IMPORTANT]
-> Default OS disk sizing is only used on new clusters or node pools when Ephemeral OS disks are not supported and a default OS disk is not specified. The default OS disk size may impact the performance or cost of your cluster, but you can change the sizing of the OS disk at any time after cluster or node pool creation.
-
-### Conditions
-
-The default OS Disk setting change applies only when all following conditions are met:
-1. OS Disk Size is not specified at creation.
-2. Ephemeral OS not supported.
-3. New AKS nodes/clusters are created.
+The default disk size and performance for managed disks is assigned according to the selected VM SKU and vCPU count. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
 
 ## Dynamically provision volumes
 
