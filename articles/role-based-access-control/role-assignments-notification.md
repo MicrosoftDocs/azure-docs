@@ -101,9 +101,9 @@ To get notified of privileged role assignments, you create an alert rule in Azur
 
 ## Test the alert rule
 
-Once you've created an alert rule, you can test the new alert. you can check for alerts fired in the Alerts page under Azure Monitor. 
+Once you've created an alert rule, you can test that it fires. 
 
-1. Assign the Owner, Contributor, or User Access Administrator role at subscription scope.
+1. Assign the Owner, Contributor, or User Access Administrator role at subscription scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
 1. Wait a few minutes to receive the notification based on the aggregation granularity and the frequency of evaluation of the log query.
 
