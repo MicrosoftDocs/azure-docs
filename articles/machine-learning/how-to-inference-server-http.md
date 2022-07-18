@@ -175,7 +175,7 @@ You have **Flask 2** installed in your python environment but are running a serv
 ImportError: cannot import name 'Markup' from 'jinja2'
 ```
 
-Some older versions of the server do not have the correct boundaries for these dependencies. Please upgrade to the latest version of the server. We also recommend to not include these packages in their dependencies and rely on our server package to install the compatible versions of these dependencies.
+Older versions (<= 0.4.10) of the server did not pin Flask's dependency to compatible versions. This is fixed in the latest version of the server.
 
 ### 3. Do I need to reload the server when changing the score script?
 
@@ -187,5 +187,5 @@ The Azure Machine Learning inference server runs on Windows & Linux based operat
 
 ## Next steps
 
-* For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-and-where.md).
+* For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-managed-online-endpoints.md).
 * Learn about [Prebuilt docker images for inference](concept-prebuilt-docker-images-inference.md)
