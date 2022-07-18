@@ -3,16 +3,12 @@ title: Create an autoscale scaling plan for Azure Virtual Desktop
 description: How to create an autoscale scaling plan to optimize deployment costs.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/29/2022
+ms.date: 07/28/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
 ---
 # Create an autoscale scaling plan for Azure Virtual Desktop
-
-> [!IMPORTANT]
-> Autoscale is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You can create a scaling plan based on:
 
@@ -28,25 +24,6 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 > - You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
-
->[!IMPORTANT]
->The preview version of this feature currently has the following limitations:
->
-> - You can only use autoscale in the Azure public cloud.
-> - You can only configure autoscale with the Azure portal.
-> - You can only deploy a scaling plan to these regions:
->   - Canada Central
->   - Canada East
->   - Central US
->   - East US
->   - East US 2
->   - North Central US
->   - North Europe
->   - South Central US
->   - West Central US
->   - West Europe
->   - West US
->   - West US 2
 
 ## Prerequisites
 
