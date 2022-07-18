@@ -71,7 +71,7 @@ pip install -r requirements.txt
 
 This sample application requires an *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
-```yml
+```
 DBNAME=<database name>
 DBHOST=<database-hostname>
 DBUSER=<db-user-name>
