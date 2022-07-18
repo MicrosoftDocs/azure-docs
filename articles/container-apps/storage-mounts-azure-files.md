@@ -372,9 +372,9 @@ Now you can update the container app configuration to support the storage mount.
 
 1. Copy the URL and paste into your web browser to navigate to the website.
 
-    Once the page loads, you'll see the "Welcome to nginx!" message.
+    Once the page loads, you'll see the "Welcome to nginx!" message. Keep this browser tab open. You'll return to the website during the storage mount verification steps.
 
-    Now that you've verified the container app is configured, you can update the app to with a storage mount definition.
+    Now that you've confirmed the container app is configured, you can update the app to with a storage mount definition.
 
 1. Export the container app's configuration.
 
@@ -471,7 +471,7 @@ Now you can update the container app configuration to support the storage mount.
 
 Now that the storage mount is established, you can manipulate files in Azure Storage from your container. Use the following commands to observe the storage mount at work.
 
-1. Open an interactive shell inside the container app to test the storage mount.
+1. Open an interactive shell inside the container app to execute commands inside the running container.
 
     # [Bash](#tab/bash)
 
@@ -491,9 +491,9 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
     ---
 
-    This command may take a moment to open the shell. Once the shell is ready, then you can interact with the storage mount via file system commands.
+    This command may take a moment to open the remote shell. Once the shell is ready, you can interact with the storage mount via file system commands.
 
-1. Change into the nginx *html* folder.
+1. Change into the nginx */var/log/nginx* folder.
 
     # [Bash](#tab/bash)
 
@@ -549,9 +549,23 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
     ---
 
-    Next, view the files in the Azure portal to verify they exist in your Azure Storage account.
+1. Exit out of the container's interactive shell to return to your local terminal session.
 
-1. Print the name of your randomly generated storage account.
+    # [Bash](#tab/bash)
+
+    ```bash
+    exit
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    exit
+    ```
+
+    ---
+
+1. Now, you can view the files in the Azure portal to verify they exist in your Azure Storage account. Print the name of your randomly generated storage account.
 
     # [Bash](#tab/bash)
 
