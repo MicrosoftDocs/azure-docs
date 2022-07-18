@@ -120,7 +120,7 @@ Store the received identity with mapping to your application's users (for exampl
 
 ## Issue access tokens
 
-After you have a Communication Services identity, use the `GetToken` method to issue an access token for it. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md). You can also construct a new instance of `communicationUser` based on a string representation of an Azure Communication Service identity.
+After you have a Communication Services identity, use the `GetToken` method to issue an access token for it. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of `communicationUser` based on a string representation of an Azure Communication Service identity.
 
 ```csharp
 // Issue an access token with the "voip" scope for an identity
