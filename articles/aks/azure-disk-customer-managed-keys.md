@@ -9,7 +9,7 @@ ms.date: 07/18/2022
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
 
-Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the OS and data disks for your AKS clusters.
+Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the OS and data disks for your AKS clusters.
 
 Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] and [Windows][customer-managed-keys-windows].
 
@@ -23,7 +23,7 @@ Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] a
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
 * You need the Azure CLI version 2.11.1 or later.
 * Customer-managed keys are only supported in Kubernetes versions 1.17 and higher.
-* If you choose to rotate (change) your keys periodically, see [Customer-managed keys and encryption of Azure managed disk](../virtual-machines/disk-encryption.md) for more information.
+* If you choose to rotate (change) your keys periodically, for more information see [Customer-managed keys and encryption of Azure managed disk](../virtual-machines/disk-encryption.md).
 
 ## Create an Azure Key Vault instance
 
@@ -96,7 +96,7 @@ When new node pools are added to the cluster created above, the customer-managed
 
 ## Encrypt your AKS cluster data disk(optional)
 
-OS disk encryption key is used to encrypt the data disk if the key is not provided for data disk from AKS version 1.17.2. You can also encrypt AKS data disks with your other keys.
+OS disk encryption key is used to encrypt the data disk if the key isn't provided for data disk from AKS version 1.17.2. You can also encrypt AKS data disks with your other keys.
 
 > [!IMPORTANT]
 > Ensure you have the proper AKS credentials. The managed identity needs to have contributor access to the resource group where the diskencryptionset is deployed. Otherwise, you'll get an error suggesting that the managed identity does not have permissions.
@@ -153,7 +153,7 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## Using Azure tags
 
-For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
+For more information on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 
