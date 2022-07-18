@@ -251,7 +251,7 @@ Steps:
 
 To learn more about metrics, refer to the [Micrometer documentation](https://micrometer.io/docs/).
 
-Other sample code on how to create different types of metrics can be found in[the official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Other sample code on how to create different types of metrics can be found in the [official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 ## How to bind additional metrics collection
 

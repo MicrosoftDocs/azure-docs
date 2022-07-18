@@ -92,7 +92,7 @@ Be aware of the following considerations when you're deploying:
 
     This table is demonstrated in the following figure:
 
-    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts Postgres Hyperscale worker node parameters and associated architecture." border="false":::  
+    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts PostgreSQL Hyperscale worker node parameters and associated architecture." border="false":::  
 
     Although you can indicate *1* worker, it's not a good idea to do so. This deployment doesn't provide you with much value. With it, you get two instances of Azure Arc-enabled PostgreSQL Hyperscale: one coordinator and one worker. You don't scale out the data because you deploy a single worker. As such, you don't see an increased level of performance and scalability.
 

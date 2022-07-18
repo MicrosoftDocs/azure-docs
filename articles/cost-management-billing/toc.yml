@@ -12,8 +12,11 @@
   - name: Start analyzing costs
     displayName: Azure CLI, az costmanagement query, az costmanagement export, azure amortized cost, azure cost dashboard, azure forecast cost
     href: costs/quick-acm-cost-analysis.md
+  - name: Create a budget - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: costs/quick-create-budget-bicep.md
   - name: Create a budget - ARM template
-    displayName: ARM template, resource manager template
+    displayName: Resource Manager
     href: costs/quick-create-budget-template.md
   expanded: true
 - name: Tutorials
@@ -31,6 +34,8 @@
   - name: Export data
     displayName: Azure CLI, az costmanagement query, az costmanagement export
     href: costs/tutorial-export-acm-data.md
+  - name: Seed historical cost dataset with Exports API
+    href: automate/tutorial-seed-historical-cost-dataset-exports-api.md
   - name: Act on recommendations
     href: costs/tutorial-acm-opt-recommendations.md
 - name: Concepts
@@ -58,8 +63,6 @@
       href: understand/analyze-unexpected-charges.md
     - name: Manage costs with automation
       href: costs/manage-automation.md
-    - name: Retrieve large datasets with exports
-      href: costs/ingest-azure-usage-at-scale.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
     - name: Migrate from EA reporting to Azure Resource Manager APIs
@@ -140,6 +143,70 @@
       href: manage/ea-direct-portal-get-started.md
     - name: Request Withholding Tax credit - India
       href: manage/withholding-tax-credit-india.md
+  - name: Automation
+    items:
+    - name: Automation scenarios
+      href: automate/automation-overview.md
+    - name: Automation FAQ
+      href: automate/automation-faq.md
+    - name: Assign API permissions
+      items:
+      - name: Cost Management API permissions
+        href: automate/cost-management-api-permissions.md
+      - name: Assign roles to EA SPNs
+        href: manage/assign-roles-azure-service-principals.md?toc=/azure/cost-management-billing/toc.json
+    - name: Ingest cost details
+      items:
+      - name: Cost details overview
+        href: automate/automation-ingest-usage-details-overview.md
+      - name: Choose a cost details solution
+        href: automate/usage-details-best-practices.md
+      - name: Understand cost details data fields
+        href: automate/understand-usage-details-fields.md
+      - name: Retrieve large datasets with exports
+        href: costs/ingest-azure-usage-at-scale.md?toc=/azure/cost-management-billing/toc.json
+      - name: Get small cost datasets on demand
+        href: automate/get-small-usage-datasets-on-demand.md
+      - name: Get cost details as a legacy customer
+        href: automate/get-usage-details-legacy-customer.md
+      - name: Get cost data with Azure CLI
+        href: automate/get-usage-data-azure-cli.md
+    - name: Budget automation
+      items:
+      - name: Automate budget creation
+        href: automate/automate-budget-creation.md
+      - name: Configure budget-based actions
+        href: manage/cost-management-budget-scenario.md?toc=/azure/cost-management-billing/toc.json
+    - name: Reservation automation
+      href: reservations/reservation-apis.md?toc=/azure/cost-management-billing/toc.json
+    - name: Automation for partners
+      href: automate/partner-automation.md
+    - name: Migrate from Enterprise Reporting APIs
+      items:
+      - name: Migrate from EA Reporting APIs to ARM
+        href: automate/migrate-ea-reporting-arm-apis-overview.md
+      - name: EA Usage Details APIs 
+        href: automate/migrate-ea-usage-details-api.md
+      - name: EA Balance Summary API
+        href: automate/migrate-ea-balance-summary-api.md
+      - name: EA Price Sheet API
+        href: automate/migrate-ea-price-sheet-api.md
+      - name: EA Reserved Instance Usage Details API
+        href: automate/migrate-ea-reserved-instance-usage-details-api.md
+      - name: EA Reserved Instance Usage Summary API
+        href: automate/migrate-ea-reserved-instance-usage-summary-api.md
+      - name: EA Reserved Instance Recommendations API
+        href: automate/migrate-ea-reserved-instance-recommendations-api.md
+      - name: EA Reserved Instance Charges API
+        href: automate/migrate-ea-reserved-instance-charges-api.md
+    - name: Migrate from EA to MCA APIs
+      href: costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/toc.json
+    - name: Migrate from Consumption APIs
+      items:
+      - name: Usage Details API
+        href: automate/migrate-consumption-usage-details-api.md
+      - name: Marketplaces API
+        href: automate/migrate-consumption-marketplaces-api.md
   - name: Security
     items:
     - name: Security baseline
@@ -176,10 +243,6 @@
         href: manage/mca-section-invoice.md
       - name: Set up Microsoft Customer Agreement billing account
         href: manage/mca-setup-account.md
-      - name: Sign up with Microsoft 365 account
-        href: manage/microsoft-365-account-for-azure-subscription.md
-      - name: Sign up for Microsoft 365 with Azure account
-        href: manage/azure-account-for-microsoft-365-subscription.md
       - name: Pay using strong customer authentication
         href: manage/open-banking-strong-customer-authentication.md
     - name: Administer subscriptions
@@ -304,6 +367,8 @@
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Use cost analysis for common tasks
       href: costs/cost-analysis-common-uses.md
+    - name: Enable preview features
+      href: costs/enable-preview-features-cost-management-labs.md
     - name: Automate actions with budgets
       href: manage/cost-management-budget-scenario.md
     - name: Save and share customized views
@@ -326,10 +391,6 @@
       href: manage/mca-check-azure-credits-balance.md
     - name: Track your Microsoft Azure Consumption Commitment
       href: manage/track-consumption-commitment.md
-    - name: Migrate from EA to MCA APIs
-      href: costs/migrate-cost-management-api.md
-    - name: Assign roles to EA SPNs
-      href: manage/assign-roles-azure-service-principals.md
     - name: Migrate from EA reporting to Azure Resource Manager APIs
       href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
   - name: Purchase and administer reservations

@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Use Terraform to create an Azure Database for MySQL - Flexible Server'
 description: Learn how to deploy a database for Azure Database for MySQL Flexible Server using Terraform
-author: tomarchermsft
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
+author: shreyaaithal
+ms.author: shaithal
 ms.custom: devx-track-terraform
-ms.author: tarcher
 ms.date: 5/27/2022
 ---
 

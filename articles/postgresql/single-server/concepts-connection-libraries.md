@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
-ms.date: 5/6/2019
+ms.date: 06/24/2022
 ---
 
 # Connection libraries for Azure Database for PostgreSQL - Single Server
@@ -33,6 +33,7 @@ Most language client libraries used to connect to PostgreSQL server are external
 | C++ | [libpqxx](http://pqxx.org/) | New-style C++ interface | [Download](http://pqxx.org/download/software/) |
 
 ## Next steps
+
 Read these quickstarts on how to connect to and query Azure Database for PostgreSQL by using your language of choice:
 
 [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

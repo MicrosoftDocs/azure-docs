@@ -1,7 +1,6 @@
 ---
 title: Version compatibility with Fluid Framework releases
-description: |
-  How to determine what versions of the Fluid Framework releases are compatible with Azure Fluid Relay service.
+description: How to determine what versions of the Fluid Framework releases are compatible with Azure Fluid Relay
 services: azure-fluid
 author: tylerbutler
 ms.author: tylerbu
@@ -31,19 +30,25 @@ npx install-peerdeps @fluidframework/azure-client
 ```
 
 > [!TIP]
-> During Public Preview, the versions of **@fluidframework/azure-client** and **fluid-framework** will match. That is, if
-> the current release of **@fluidframework/azure-client** is 0.48, then it will be compatible with **fluid-framework** 0.48. The inverse is also true.
+> If building with any pre-release version of of **@fluidframework/azure-client** and **fluid-framework** we strongly recommend that you update to the latest 1.0 version. Earlier versions will not be
+> supported with the General Availability of Azure Fluid Relay. With this upgrade, you’ll make use of our new multi-region routing capability where
+> Azure Fluid Relay will host your session closer to your end users to improve customer experience. In the latest package, you will need to update your
+> serviceConfig object to the new Azure Fluid Relay service endpoint instead of the storage and orderer endpoints:
+> If your Azure Fluid Relay resource is in West US 2, please use **`https://us.fluidrelay.azure.com`**. If it is West Europe, 
+> use **`https://eu.fluidrelay.azure.com`**. If it is in Southeast Asia, use **`https://global.fluidrelay.azure.com`**.
+> These values can also be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. The orderer and storage endpoints will be deprecated soon.
+
 
 ## Compatibility table
 
 | npm package                         | Minimum version | API                                                              |
 | ----------------------------------  | :-------------- | :--------------------------------------------------------------- |
-| @fluidframework/azure-client        | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
-| fluid-framework                     | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
-| @fluidframework/azure-service-utils | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
-| @fluidframework/test-client-utils   | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
+| @fluidframework/azure-client        | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
+| fluid-framework                     | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
+| @fluidframework/azure-service-utils | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
+| @fluidframework/test-client-utils   | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
 
-[0.48.4]: https://fluidframework.com/docs/updates/v0.48/
+[1.0.1]: https://fluidframework.com/docs/updates/v1.0.0/
 
 ## Next steps
 

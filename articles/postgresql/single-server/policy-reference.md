@@ -7,8 +7,9 @@ ms.topic: reference
 ms.author: jonels
 author: jonels-msft
 ms.custom: subject-policy-reference
-ms.date: 05/11/2022
+ms.date: 07/06/2022
 ---
+
 # Azure Policy built-in definitions for Azure Database for PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

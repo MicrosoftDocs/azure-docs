@@ -3,7 +3,7 @@ title: Define a new IoT device type in Azure IoT Central | Microsoft Docs
 description: This article shows you how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/22/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -233,12 +233,6 @@ The following table shows the configuration settings for customizations:
 
 | Field | Description |
 | ----- | ----------- |
-|Display name | Override display name from model. |
-|Semantic type | Override semantic type from model. |
-|Unit | Override unit from model. |
-|Display unit | Override from model. |
-|Comment | Override from model. |
-|Description | Override from model. |
 |Color | IoT Central-specific option. |
 |Min value | Set minimum value - IoT Central-specific option. |
 |Max value | Set maximum value - IoT Central-specific option. |

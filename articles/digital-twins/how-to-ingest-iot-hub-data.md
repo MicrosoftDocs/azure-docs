@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to ingest device telemetry messages from Azure IoT Hub to digital twins in an instance of Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/16/2022
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -30,8 +30,6 @@ This how-to document walks through the process for writing a function that can i
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
 * An IoT hub. For instructions, see the [Create an IoT Hub section of this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
 * An Azure Digital Twins instance that will receive your device telemetry. For instructions, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
-
-This article also uses Visual Studio. You can download the latest version from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
 
 ## Example telemetry scenario
 
@@ -79,22 +77,26 @@ When the twin is created successfully, the CLI output from the command should lo
 
 In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT telemetry events that it receives. Follow the steps below to create and publish the function.
 
-1. First, create a new Azure Functions project in Visual Studio. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
+1. First, create a new Azure Functions project. 
 
-2. Add the following packages to your project:
+    You can do this using **Visual Studio** (for instructions, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project)), **Visual Studio Code** (for instructions, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#create-an-azure-functions-project)), or the **Azure CLI** (for instructions, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#create-a-local-function-project)).
+
+2. Add the following packages to your project (you can use the Visual Studio NuGet package manager, or the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in a command-line tool).
     * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
     * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
     * [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
 
-3. Rename the *Function1.cs* sample function that Visual Studio has generated to *IoTHubtoTwins.cs*. Replace the code in the file with the following code:
+3. Create a function within the project called *IoTHubtoTwins.cs*. Paste the following code into the function file:
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
     Save your function code.
 
-4. Publish the project with the *IoTHubtoTwins.cs* function to a function app in Azure. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+4. Publish the project with the *IoTHubtoTwins.cs* function to a function app in Azure. 
+    
+    For instructions on how to publish the function using **Visual Studio**, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure). For instructions on how to publish the function using **Visual Studio Code**, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#publish-the-project-to-azure). For instructions on how to publish the function using the **Azure CLI**, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#deploy-the-function-project-to-azure).
 
-Once the process of publishing the function completes, you can use this CLI command to verify the publish was successful. There are placeholders for your resource group, and the name of your function app. The command will print information about the *IoTHubToTwins* function.
+Once the process of publishing the function completes, you can use this Azure CLI command to verify the publish was successful. There are placeholders for your resource group, and the name of your function app. The command will print information about the *IoTHubToTwins* function.
 
 ```azurecli-interactive
 az functionapp function show --resource-group <your-resource-group> --name <your-function-app> --function-name IoTHubToTwins
@@ -128,7 +130,7 @@ You can test your new ingress function by using the device simulator from [Conne
 
 1. Navigate to the [Azure Digital Twins end-to-end sample project repository](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Get the sample project on your machine by selecting the **Browse code** button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a .zip by selecting the **Code** button followed by **Download ZIP**.
 
-      This will download a .zip folder to your machine as *digital-twins-samples-master.zip*. Unzip the folder and extract the files. You'll be using the *DeviceSimulator* project folder.
+      This will download a .zip folder to your machine as *digital-twins-samples-main.zip*. Unzip the folder and extract the files. You'll be using the *DeviceSimulator* project folder.
 1. [Register the simulated device with IoT Hub](tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
 2. [Configure and run the simulation](tutorial-end-to-end.md#configure-and-run-the-simulation)
 

@@ -4,13 +4,11 @@ description: A conceptual overview and step-by-step tutorial on how to use Appli
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 02/23/2018
+ms.date: 06/16/2022
 ms.reviewer: jogrima
 ---
 
 # Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler
-
-This feature is currently in preview.
 
 Find out how much time is spent in each method of your live web application when using [Application Insights](../app/app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
 

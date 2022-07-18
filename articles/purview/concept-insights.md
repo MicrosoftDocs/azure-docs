@@ -14,8 +14,6 @@ ms.date: 05/16/2022
 
 This article provides an overview of the Data Estate Insights application in Microsoft Purview.
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 The Data Estate Insights application is purpose-built for governance stakeholders, primarily for roles focused on data management, compliance, and data use: like a Chief Data Officer. The application provides actionable insights into the organization’s data estate, catalog usage, adoption, and processes. As organizations scan and populate their Microsoft Purview Data Map, the Data Estate Insights application automatically extracts valuable governance gaps and highlights them in its top metrics. Then it also provides drill-down experience that enables all stakeholders, such as data owners and data stewards, to take appropriate action to close the gaps. 
 
 All the reports within the Data Estate Insights application are automatically generated and populated, so governance stakeholders can focus on the information itself, rather than building the reports.

@@ -5,20 +5,20 @@ author: rahulg1190
 ms.author: rahugup
 ms.manager: bsiva
 ms.topic: tutorial
-ms.date: 06/09/2020
+ms.date: 06/20/2022
 ms.custom: MVC
 ---
 
 # Migrate VMware VMs to Azure (agent-based)
 
-This article shows you how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agent-based migration.  You can also migrate VMware VMs using agentless migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agent-based migration.  You can also migrate VMware VMs using agentless migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
 
 
  In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Prepare Azure to work with Azure Migrate.
 > * Prepare for agent-based migration. Set up a VMware account so that Azure Migrate can discover machines for migration. Set up an account so that the Mobility service agent can install on machines you want to migrate, and prepare a machine to act as the replication appliance.
-> * Add the Azure Migrate:Server Migration tool
+> * Add the Azure Migrate: Server Migration tool
 > * Set up the replication appliance.
 > * Replicate VMs.
 > * Run a test migration to make sure everything's working as expected.
@@ -74,7 +74,7 @@ Verify support requirements  and permissions, and prepare to deploy a replicatio
 
 ### Prepare an account to discover VMs
 
-Azure Migrate Server Migration needs access to VMware servers to discover VMs you want to migrate. Create the account as follows:
+Azure Migrate: Server Migration needs access to VMware servers to discover VMs you want to migrate. Create the account as follows:
 
 1. To use a dedicated account, create a role at the vCenter level. Give the role a name such as
    **Azure_Migrate**.
@@ -94,7 +94,7 @@ The Mobility service must be installed on machines you want to replicate.
 
 - The Azure Migrate replication appliance can do a push installation of this service when you enable replication for a machine, or you can install it manually, or using installation tools.
 - In this tutorial, we're going to install the Mobility service with the push installation.
-- For push installation, you need to prepare an account that Azure Migrate Server Migration can use to access the VM. This account is used only for the push installation, if you don't install the Mobility service manually.
+- For push installation, you need to prepare an account that Azure Migrate: Server Migration can use to access the VM. This account is used only for the push installation, if you don't install the Mobility service manually.
 
 Prepare the account as follows:
 
@@ -131,7 +131,7 @@ Make sure VMware servers and VMs comply with requirements for migration to Azure
     - Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 > [!NOTE]
-> Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
+> Agent-based migration with Azure Migrate: Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
 
 ## Set up the replication appliance
 
@@ -276,9 +276,9 @@ Select VMs for migration.
 16. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
-    - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
-    - **Availability Zone**: Specify the Availability Zone to use.
-    - **Availability Set**: Specify the Availability Set to use.
+   - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
+   - **Availability Zone**: Specify the Availability Zone to use.
+   - **Availability Set**: Specify the Availability Set to use.
 
 17. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.

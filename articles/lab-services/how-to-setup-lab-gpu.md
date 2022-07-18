@@ -115,7 +115,7 @@ This section describes how to validate that your GPU drivers are properly instal
 
 #### Small GPU (Visualization) Windows images
 
-To verify driver installation for **Small GPU (Visualization)** size, see [validate the AMD GPU drivers on N-series VMs running Windows](/virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
+To verify driver installation for **Small GPU (Visualization)** size, see [validate the AMD GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
 
 #### Small GPU (Compute) and Medium GPU (Visualization) Windows images
 
