@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 18/07/2022
+ms.date: 07/18/2022
 ---
 
 # Security in Azure Cosmos DB - overview
