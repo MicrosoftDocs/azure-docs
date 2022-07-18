@@ -88,7 +88,7 @@ For more information about available VM sizes, see [Sizes for Linux virtual mach
 
 ## Default OS disk sizing
 
-By default, when creating a new cluster or adding a new node pool to an existing cluster, the managed disk size is determined by the number for vCPUs, which is based on the VM SKU. The default values are shown in the following table: 
+By default, when creating a new cluster or adding a new node pool to an existing cluster, the managed disk size is determined by the number of vCPUs, which is based on the VM SKU. The default values are shown in the following table: 
 
 |VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mpbs) |
 |--|--|--|--|
