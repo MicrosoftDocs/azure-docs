@@ -233,7 +233,7 @@ function addTermsOfUseLink() {
 
 In the code, replace `termsOfUseUrl` with the link to your terms of use agreement. For your directory, create a new user attribute called **termsOfUse** and then include **termsOfUse** as a user attribute.
 
-Alternatively, you can add a link to the bottom of self-asserted pages, without the use of Javascript, using the following localization.
+Alternatively, you can add a link at the bottom of self-asserted pages, without using of JavaScript. Use the following localization:
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
