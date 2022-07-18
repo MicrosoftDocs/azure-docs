@@ -180,7 +180,7 @@ Otherwise, if a user-assigned managed identity is specified in Azure Machine Lea
 |Azure resource name |Role to be assigned|Description|
 |--|--|--|
 |Azure Relay|Azure Relay Owner|Only applicable for Arc-enabled Kubernetes cluster. Azure Relay isn't created for AKS cluster without Arc connected.|
-|Azure Arc-enabled Kubernetes|Reader|Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
+|Azure Arc-enabled Kubernetes or AKS|Reader|Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
 
 Azure Relay resource is created during the extension deployment under the same Resource Group as the Arc-enabled Kubernetes cluster.
 
@@ -248,7 +248,7 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 1. Enter a compute name and select your Kubernetes cluster from the dropdown.
 
-    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster. Compute attach won't create the Kubernetes namespace for you, or validate whether the kubernetes namespace existed. You need to make sure that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
+    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster. Compute attach won't create the Kubernetes namespace for you, or validate whether the kubernetes namespace exists. You need to make sure that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
 
     * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) .
 
