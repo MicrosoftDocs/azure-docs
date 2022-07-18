@@ -2,15 +2,15 @@
 title: Add or remove a group from another group - Azure AD
 description: Instructions about how to add or remove a group from another group using Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
 ms.date: 10/19/2018
-ms.author: ajburnle
+ms.author: barclayn
 ms.custom: "it-pro, seodec18"
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management

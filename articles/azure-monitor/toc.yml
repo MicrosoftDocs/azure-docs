@@ -424,6 +424,9 @@ items:
       - name: Create with Azure Policy
         displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
         href: essentials/diagnostic-settings-policy.md
+      - name: Migrate retention to Azure Storage lifecycle
+        href: essentials/migrate-to-azure-storage-lifecycle-policy.md
+
   - name: Data collection
     items:
     - name: Data collection rules
@@ -1127,20 +1130,23 @@ items:
       href: profiler/profiler-overview.md
     - name: Enable Profiler
       items:        
-      - name: App Service
+      - name: Azure App Service
         href: profiler/profiler.md
       - name: Azure Functions app
         href: profiler/profiler-azure-functions.md
-      - name: Cloud Service
+      - name: Azure Cloud Service
         href: profiler/profiler-cloudservice.md
-      - name: Service Fabric Application
+      - name: Azure Service Fabric app
         href: profiler/profiler-servicefabric.md
-      - name: Azure VM
+      - name: Azure Virtual Machine
         href: profiler/profiler-vm.md
-      - name: Linux App services
+      - name: ASP.NET Core app hosted in Linux on App Service
         href: profiler/profiler-aspnetcore-linux.md
-      - name: ASP.NET Core Container
+      - name: ASP.NET Core app running in container
         href: profiler/profiler-containers.md
+    - name: View Profiler data
+      displayName: profiling, debugging, code performance, perf
+      href: profiler/profiler-data.md
     - name: Configure
       items:        
       - name: Configure Profiler
@@ -1326,7 +1332,7 @@ items:
   - name: Insights
     items:
     - name: Azure Cache for Redis
-      href: insights/redis-cache-insights-overview.md
+      href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
@@ -1348,19 +1354,17 @@ items:
     items:
     - name: Overview
       href: visualize/workbooks-overview.md 
-    - name: Getting started with workbooks
+    - name: Get started with workbooks
       href: visualize/workbooks-getting-started.md    
-    - name: Creating a workbook
+    - name: Create a new workbook
       items:
-        - name: Using workbook templates
+        - name: Create a workbook with a template
           href: visualize/workbooks-templates.md
-        - name: Creating a new workbook
+        - name: Create a new workbook
           href: visualize/workbooks-create-workbook.md
-        - name: Workbook configuration options
-          href: visualize/workbooks-configurations.md
-        - name: Working with data sources
+        - name: Data sources
           href: visualize/workbooks-data-sources.md         
-        - name: Working with visualizations
+        - name: Visualizations
           items:
           - name: Overview
             href: visualize/workbooks-visualizations.md         
@@ -1386,7 +1390,7 @@ items:
             href: visualize/workbooks-renderers.md
           - name: Link actions
             href: visualize/workbooks-link-actions.md  
-        - name: Working with parameters
+        - name: Parameters
           items:
           - name: Workbook parameters
             href: visualize/workbooks-parameters.md
@@ -1404,11 +1408,13 @@ items:
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
             href: visualize/workbooks-multi-value.md               
+        - name: Workbook configuration options
+          href: visualize/workbooks-configurations.md
         - name: Commonly used components
           href: visualize/workbooks-commonly-used-components.md
         - name: Workbook result limits
           href: visualize/workbooks-limits.md   
-    - name: Integrating with other Azure services
+    - name: Integrate with other Azure services
       items:
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md

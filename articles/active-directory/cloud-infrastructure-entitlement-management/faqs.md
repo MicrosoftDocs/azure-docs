@@ -42,15 +42,11 @@ Yes, non-Azure customers can use our solution. Permissions Management is a multi
 
 ## Is Permissions Management available for tenants hosted in the European Union (EU)?
 
-No, the Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
+Yes, Permissions Management is currently for tenants hosted in the European Union (EU).
 
 ## If I'm already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does Permissions Management provide?
 
 Permissions Management complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure (as well as Microsoft Online Services and apps that use groups), while Permissions Management allows multi-cloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP.
-
-## What languages does Permissions Management support?
-
-Permissions Management currently supports English.
 
 ## What public cloud infrastructures are supported by Permissions Management?
 
@@ -109,10 +105,9 @@ Yes, Permissions Management has various types of system report available that ca
 
 For information about permissions usage reports, see [Generate and download the Permissions analytics report](product-permissions-analytics-reports.md).
 
-
 ## Does Permissions Management integrate with third-party ITSM (Information Technology Service Management) tools?
 
-Permissions Management integrates with ServiceNow.
+Integration with ITMS tools, such as ServiceNow, is in the future roadmap.
 
 ## How is Permissions Management being deployed?
 
@@ -144,7 +139,7 @@ We also have the ability to remove, export or modify specific data should the Gl
 
 ## Do I require a license to use Entra Permissions Management? 
 
-Yes, as of July 1st, 2022, new customers must acquire a free 90-trial license or a paid license to use the service. You can enable a trial or purchase licenses here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement)
+Yes, as of July 1st, 2022, new customers must acquire a free 90-trial license or a paid license to use the service. You can enable a trial here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) or you can directly purchase resource-based licenses here: [https://aka.ms/BuyPermissionsManagement](https://aka.ms/BuyPermissionsManagement) 
  
 ## What do I do if I’m using Public Preview version of Entra Permissions Management?  
 
@@ -174,7 +169,7 @@ Where xx-XX is one of the following available language parameters: 'cs-CZ', 'de-
 - [Permissions Management web page](https://microsoft.com/security/business/identity-access-management/permissions-management)
 - For more information about Microsoft's privacy and security terms, see [Commercial Licensing Terms](https://www.microsoft.com/licensing/terms/product/ForallOnlineServices/all). 
 - For more information about Microsoft's data processing and security terms when you subscribe to a product, see [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA).
-- For more information about Microsoft’s policy and practices for Data Subject Requests for GDPR and CCPA: [https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure](https://docs.microsoft.com/compliance/regulatory/gdpr-dsr-azure).
+- For more information about Microsoft’s policy and practices for Data Subject Requests for GDPR and CCPA: [https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure](/compliance/regulatory/gdpr-dsr-azure).
 
 
 ## Next steps

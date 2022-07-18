@@ -55,13 +55,13 @@ items:
     displayName: Data privacy, logging, data retention
 - name: Custom text classification
   items:
-  - name: Overview
+  - name: Custom text classification overview
     href: custom-text-classification/overview.md
-  - name: Quickstart
+  - name: Custom text classification quickstart
     href: custom-text-classification/quickstart.md
-  - name: Language support
+  - name: Custom text classification language support
     href: custom-text-classification/language-support.md
-  - name: FAQ
+  - name: Custom text classification FAQ
     href: custom-text-classification/faq.md
   - name: Samples
     items:
@@ -146,13 +146,13 @@ items:
           href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
 - name: Custom named entity recognition (NER)
   items:
-  - name: Overview
+  - name: Custom NER overview
     href: custom-named-entity-recognition/overview.md
-  - name: Quickstart
+  - name: Custom NER quickstart
     href: custom-named-entity-recognition/quickstart.md
-  - name: Language support
+  - name: Custom NER language support
     href: custom-named-entity-recognition/language-support.md
-  - name: FAQ
+  - name: Custom NER FAQ
     href: custom-named-entity-recognition/faq.md
   - name: Samples
     items:
@@ -236,13 +236,13 @@ items:
           href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
 - name: Conversational language understanding
   items:
-  - name: Overview
+  - name: Conversational language understanding overview
     href: conversational-language-understanding/overview.md
-  - name: Quickstart
+  - name: Conversational language understanding quickstart
     href: conversational-language-understanding/quickstart.md
-  - name: Language support
+  - name: Conversational language understanding language support
     href: conversational-language-understanding/language-support.md
-  - name: FAQ
+  - name: Conversational language understanding FAQ
     href: conversational-language-understanding/faq.md
   - name: Samples
     items:
@@ -308,11 +308,11 @@ items:
           href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
 - name: Entity linking
   items:
-  - name: Overview
+  - name: Entity linking overview
     href: entity-linking/overview.md
-  - name: Quickstart
+  - name: Entity linking quickstart
     href: entity-linking/quickstart.md
-  - name: Language support
+  - name: Entity linking language support
     href: entity-linking/language-support.md
   - name: Samples
     items:
@@ -372,13 +372,13 @@ items:
             href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
           - name: Node.js
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
-- name: Language Detection
+- name: Language detection
   items:
-  - name: Overview
+  - name: Language detection overview
     href: language-detection/overview.md
-  - name: Quickstart
+  - name: Language detection quickstart
     href: language-detection/quickstart.md 
-  - name: Language support
+  - name: Language detection language support
     href: language-detection/language-support.md 
   - name: Samples
     items:
@@ -456,11 +456,11 @@ items:
 
 - name: Key phrase extraction
   items:
-  - name: Overview
+  - name: Key phrase extraction overview
     href: key-phrase-extraction/overview.md
-  - name: Quickstart
+  - name: Key phrase extraction quickstart
     href: key-phrase-extraction/quickstart.md 
-  - name: Language support
+  - name: Key phrase extraction language support
     href: key-phrase-extraction/language-support.md
   - name: Samples
     items:
@@ -485,7 +485,7 @@ items:
       displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
-    - name: Call Key Phrase Analysis
+    - name: Call key phrase extraction
       href: key-phrase-extraction/how-to/call-api.md
     - name: Use containers
       items:
@@ -542,11 +542,11 @@ items:
 
 - name: Named Entity Recognition (NER)
   items:
-  - name: Overview
+  - name: NER overview
     href: named-entity-recognition/overview.md
-  - name: Quickstart
+  - name: NER quickstart
     href: named-entity-recognition/quickstart.md
-  - name: Language support
+  - name: NER language support
     href: named-entity-recognition/language-support.md
   - name: Samples
     items:
@@ -619,13 +619,13 @@ items:
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
 - name: Orchestration workflow
   items:
-  - name: Overview
+  - name: Orchestration workflow overview
     href: orchestration-workflow/overview.md
-  - name: Quickstart
+  - name: Orchestration workflow quickstart
     href: orchestration-workflow/quickstart.md
-  - name: FAQ
+  - name: Orchestration workflow FAQ
     href: orchestration-workflow/faq.md
-  - name: Language support
+  - name: Orchestration workflow language support
     href: orchestration-workflow/language-support.md
   - name: Samples
     items:
@@ -685,13 +685,13 @@ items:
           href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
-- name: Personally Identifying Information (PII) detection
+- name: Personally Identifiable Information (PII) detection
   items:
-  - name: Overview
+  - name: PII overview
     href: personally-identifiable-information/overview.md
-  - name: Quickstart
+  - name: PII quickstart
     href: personally-identifiable-information/quickstart.md
-  - name: Language support
+  - name: PII language support
     href: personally-identifiable-information/language-support.md
   - name: Samples
     items:
@@ -765,11 +765,11 @@ items:
 
 - name: Question answering
   items:
-  - name: Overview
+  - name: Question answering overview
     href: question-answering/overview.md
-  - name: Quickstart
+  - name: Question answering quickstart
     href: question-answering/quickstart/sdk.md
-  - name: Language support
+  - name: Question answering language support
     href: question-answering/language-support.md
   - name: Samples
     items:
@@ -872,13 +872,13 @@ items:
             href: /rest/api/cognitiveservices/questionanswering/question-answering-projects
           - name: Runtime API 
             href: /rest/api/cognitiveservices/questionanswering/question-answering/get-answers
-- name: Sentiment analysis and Opinion mining
+- name: Sentiment analysis and opinion mining
   items:
-  - name: Overview
+  - name: Sentiment analysis and opinion mining overview
     href: sentiment-opinion-mining/overview.md
-  - name: Quickstart
+  - name: Sentiment analysis and opinion mining quickstart
     href: sentiment-opinion-mining/quickstart.md
-  - name: Language support
+  - name: Sentiment analysis and opinion mining language support
     href: sentiment-opinion-mining/language-support.md
   - name: Samples
     items:
@@ -962,11 +962,11 @@ items:
 
 - name: Text Analytics for health
   items:
-  - name: Overview
+  - name: Text Analytics for health overview
     href: text-analytics-for-health/overview.md
-  - name: Quickstart
+  - name: Text Analytics for health quickstart
     href: text-analytics-for-health/quickstart.md 
-  - name: Language support
+  - name: Text Analytics for health language support
     href: text-analytics-for-health/language-support.md
   - name: Samples
     items:
@@ -1049,11 +1049,11 @@ items:
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
 - name: Summarization (preview)
   items:
-  - name: Overview
+  - name: Summarization overview
     href: summarization/overview.md
-  - name: Quickstart
+  - name: Summarization quickstart
     href: summarization/quickstart.md
-  - name: Language support
+  - name: Summarization language support
     href: summarization/language-support.md
   - name: Responsible use of AI
     items: 
