@@ -91,7 +91,6 @@ The following table describes the enrichments featured in the **UsersInsights** 
 | **Is local admin**<br>*(IsLocalAdmin)* | The account has local administrator privileges. | True, False |
 | **Is new account**<br>*(IsNewAccount)* | The account was created within the past 30 days. | True, False |
 | **On premises SID**<br>*(OnPremisesSID)* | The on-premises SID of the user related to the action. | S-1-5-21-1112946627-1321165628-2437342228-1103 |
-|
 
 #### DevicesInsights field
 
@@ -108,7 +107,6 @@ The following table describes the enrichments featured in the **DevicesInsights*
 | **Threat intel indicator type**<br>*(ThreatIntelIndicatorType)* | The type of the threat indicator resolved from the IP address used in the action. | Botnet, C2, CryptoMining, Darknet, Ddos, MaliciousUrl, Malware, Phishing, Proxy, PUA, Watchlist |
 | **User agent**<br>*(UserAgent)* | The user agent used in the action. | Microsoft Azure Graph Client Library 1.0,<br>​Swagger-Codegen/1.4.0.0/csharp,<br>EvoSTS |
 | **User agent family**<br>*(UserAgentFamily)* | The user agent family used in the action. | Chrome, Edge, Firefox |
-|
 
 #### ActivityInsights field
 
@@ -123,7 +121,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Action uncommonly performed among peers**<br>*(ActionUncommonlyPerformedAmongPeers)* | 180 | The action is not commonly performed among user's peers. | True, False |
 | **First time action performed in tenant**<br>*(FirstTimeActionPerformedInTenant)* | 180 | The action was performed for the first time by anyone in the organization. | True, False |
 | **Action uncommonly performed in tenant**<br>*(ActionUncommonlyPerformedInTenant)* | 180 | The action is not commonly performed in the organization. | True, False |
-|
 
 ##### App used
 
@@ -134,7 +131,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **App uncommonly used among peers**<br>*(AppUncommonlyUsedAmongPeers)* | 180 | The app is not commonly used among user's peers. | True, False |
 | **First time app observed in tenant**<br>*(FirstTimeAppObservedInTenant)* | 180 | The app was observed for the first time in the organization. | True, False |
 | **App uncommonly used in tenant**<br>*(AppUncommonlyUsedInTenant)* | 180 | The app is not commonly used in the organization. | True, False |
-| 
 
 ##### Browser used
 
@@ -145,7 +141,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Browser uncommonly used among peers**<br>*(BrowserUncommonlyUsedAmongPeers)* | 30 | The browser is not commonly used among user's peers. | True, False |
 | **First time browser observed in tenant**<br>*(FirstTimeBrowserObservedInTenant)* | 30 | The browser was observed for the first time in the organization. | True, False |
 | **Browser uncommonly used in tenant**<br>*(BrowserUncommonlyUsedInTenant)* | 30 | The browser is not commonly used in the organization. | True, False |
-| 
 
 ##### Country connected from
 
@@ -156,7 +151,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Country uncommonly connected from among peers**<br>*(CountryUncommonlyConnectedFromAmongPeers)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from among user's peers. | True, False |
 | **First time connection from country observed in tenant**<br>*(FirstTimeConnectionFromCountryObservedInTenant)* | 90 | The country was connected from for the first time by anyone in the organization. | True, False |
 | **Country uncommonly connected from in tenant**<br>*(CountryUncommonlyConnectedFromInTenant)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from in the organization. | True, False |
-| 
 
 ##### Device used to connect
 
@@ -167,7 +161,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Device uncommonly used among peers**<br>*(DeviceUncommonlyUsedAmongPeers)* | 180 | The device is not commonly used among user's peers. | True, False |
 | **First time device observed in tenant**<br>*(FirstTimeDeviceObservedInTenant)* | 30 | The device was observed for the first time in the organization. | True, False |
 | **Device uncommonly used in tenant**<br>*(DeviceUncommonlyUsedInTenant)* | 180 | The device is not commonly used in the organization. | True, False |
-| 
 
 ##### Other device-related
 
@@ -175,7 +168,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | --- | --- | --- | --- |
 | **First time user logged on to device**<br>*(FirstTimeUserLoggedOnToDevice)* | 180 | The destination device was connected to for the first time by the user. | True, False |
 | **Device family uncommonly used in tenant**<br>*(DeviceFamilyUncommonlyUsedInTenant)* | 30 | The device family is not commonly used in the organization. | True, False |
-| 
 
 ##### Internet Service Provider used to connect
 
@@ -186,7 +178,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **ISP uncommonly used among peers**<br>*(ISPUncommonlyUsedAmongPeers)* | 30 | The ISP is not commonly used among user's peers. | True, False |
 | **First time connection via ISP in tenant**<br>*(FirstTimeConnectionViaISPInTenant)* | 30 | The ISP was observed for the first time in the organization. | True, False |
 | **ISP uncommonly used in tenant**<br>*(ISPUncommonlyUsedInTenant)* | 30 | The ISP is not commonly used in the organization. | True, False |
-| 
 
 ##### Resource accessed
 
@@ -197,7 +188,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Resource uncommonly accessed among peers**<br>*(ResourceUncommonlyAccessedAmongPeers)* | 180 | The resource is not commonly accessed among user's peers. | True, False |
 | **First time resource accessed in tenant**<br>*(FirstTimeResourceAccessedInTenant)* | 180 | The resource was accessed for the first time by anyone in the organization. | True, False |
 | **Resource uncommonly accessed in tenant**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | The resource is not commonly accessed in the organization. | True, False |
-| 
 
 ##### Miscellaneous
 
@@ -211,8 +201,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Unusual number of devices added**<br>*(UnusualNumberOfDevicesAdded)* | 5 | A user added an unusual number of devices. | True, False |
 | **Unusual number of devices deleted**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | A user deleted an unusual number of devices. | True, False |
 | **Unusual number of users added to group**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | A user added an unusual number of users to a group. | True, False |
-|
-
 
 ### IdentityInfo table
 
