@@ -279,7 +279,7 @@ To configure a default version-level immutability policy for a container in the 
 
    The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
 
-   The **Block and append blobs** option extends this support to certain Microsoft tools (such as Azure Data Factory) which implement append blobs by using block blobs.
+   The **Block and append blobs** option extends this support to certain Microsoft tools, such as Azure Data Factory, which implement append blobs by using block blobs. If your workloads depend on those tools, you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob.
 
    To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
