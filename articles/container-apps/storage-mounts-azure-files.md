@@ -569,7 +569,7 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
 1. Navigate to the Azure portal and open up the storage account created in this procedure.
 
-1. Under **Data Storage** select **File shares**
+1. Under **Data Storage** select **File shares**.
 
 1. Select **myshare** to view the *access.log* and *error.log* files.
 
