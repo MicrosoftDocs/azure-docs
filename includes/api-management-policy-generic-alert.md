@@ -2,8 +2,8 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 03/15/2022
+ms.date: 06/27/2022
 ms.author: danlep
 ---
-> [!TIP]
-> Learn [how to set or edit API Management policies](../articles/api-management/set-edit-policies.md).	
+> [!NOTE]
+> Set the policy's elements and child elements in the order provided in the policy statement. Learn more about [how to set or edit API Management policies](../articles/api-management/set-edit-policies.md).	

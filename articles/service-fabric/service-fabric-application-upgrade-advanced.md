@@ -1,10 +1,14 @@
 ---
 title: Advanced Application Upgrade Topics
 description: This article covers some advanced topics pertaining to upgrading a Service Fabric application.
-
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric application upgrade: Advanced topics
 
 ## Add or remove service types during an application upgrade
@@ -176,7 +180,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
 ```
 
-Now, upgrade the application using the **Start-ServiceFabricApplicationUpgrade** cmdlet. This example shows an monitored upgrade, but an unmonitored upgrade can also be used. To see a full description of flags accepted by this cmdlet, see the [Azure Service Fabric PowerShell module reference](/powershell/module/servicefabric/start-servicefabricapplicationupgrade#parameters)
+Now, upgrade the application using the **Start-ServiceFabricApplicationUpgrade** cmdlet. This example shows a monitored upgrade, but an unmonitored upgrade can also be used. To see a full description of flags accepted by this cmdlet, see the [Azure Service Fabric PowerShell module reference](/powershell/module/servicefabric/start-servicefabricapplicationupgrade#parameters)
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}

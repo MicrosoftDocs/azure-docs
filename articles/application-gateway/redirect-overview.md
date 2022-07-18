@@ -20,8 +20,8 @@ A redirect type sets the response status code for the clients to understand the 
 
 - 301 (Moved permanently): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource will use one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
 - 302 (Found): Indicates that the target resource is temporarily under a different URI. Since the redirection can change on occasion, the client should continue to use the effective request URI for future requests.
+- 303 (See Other): Indicates that the target resource is redirecting the user agent to a different resource, as indicated by a URI in the Location header field.
 - 307 (Temporary redirect): Indicates that the target resource is temporarily under a different URI. The user agent MUST NOT change the request method if it does an automatic redirection to that URI. Since the redirection can change over time, the client ought to continue using the original effective request URI for future requests.
-- 308 (Permanent redirect): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource should use one of the enclosed URIs.
 
 ## Redirection capabilities
 

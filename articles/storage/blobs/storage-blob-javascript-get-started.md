@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 07/06/2022
 ms.author: normesta
 ms.subservice: blobs
 ms.custom: template-how-to
@@ -72,11 +72,60 @@ The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) o
     ```javascript
     const { BlobServiceClient, StorageSharedKeyCredential } = require('@azure/storage-blob');    
 
-    // optional but suggested - connect with managed identity
+    // optional but recommended - connect with managed identity (Azure AD)
     const { DefaultAzureCredential } = require('@azure/identity');
     ```
 
+## Connect with Azure AD
 
+Azure Active Directory (Azure AD) provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This functionality allows you to develop code that doesn't require any secrets (keys or connection strings) stored in the code or environment. Managed identity requires [**setup**](assign-azure-role-data-access.md?tabs=portal) for any identities such as developer (personal) or cloud (hosting) environments. You need to complete the setup before using the code in this section. 
+
+After you complete the setup, your Storage resource needs to have one or more of the following roles assigned to the identity resource you plan to connect with:
+
+* A [data access](../common/authorize-data-access.md) role - such as: 
+    * **Storage Blob Data Reader**
+    * **Storage Blob Data Contributor**
+* A [resource](../common/authorization-resource-provider.md) role - such as:
+    * **Reader** 
+    * **Contributor**
+
+To authorize with Azure AD, you'll need to use an Azure credential. Which type of credential you need depends on where your application runs. Use this table as a guide.
+
+| Where the application runs | Security principal | Guidance |
+|--|--|---|
+| Local machine (developing and testing) | User identity or service principal | [Use the Azure Identity library to get an access token for authorization](../common/identity-library-acquire-token.md) | 
+| Azure | Managed identity | [Authorize access to blob data with managed identities for Azure resources](authorize-managed-identity.md) |
+| Servers or clients outside of Azure | Service principal | [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) |
+
+Create a [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential) instance. Use that object to create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient).
+
+```javascript
+const { BlobServiceClient } = require('@azure/storage-blob');
+const { DefaultAzureCredential } = require('@azure/identity');
+require('dotenv').config()
+
+const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+if (!accountName) throw Error('Azure Storage accountName not found');
+
+const blobServiceClient = new BlobServiceClient(
+  `https://${accountName}.blob.core.windows.net`,
+  new DefaultAzureCredential()
+);
+
+async function main(){
+
+  // this call requires Reader role on the identity
+  const serviceGetPropertiesResponse = await blobServiceClient.getProperties();
+  console.log(`${JSON.stringify(serviceGetPropertiesResponse)}`);
+
+}
+
+main()
+  .then(() => console.log(`done`))
+  .catch((ex) => console.log(`error: ${ex.message}`));
+```
+
+If you plan to deploy the application to servers and clients that run outside of Azure, you can obtain an OAuth token by using other classes in the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme) which derive from the [TokenCredential](/javascript/api/@azure/core-auth/tokencredential) class.
 
 ## Connect with an account name and key
 
@@ -172,42 +221,7 @@ To generate and manage SAS tokens, see any of these articles:
 - [Create a service SAS for a container or blob](sas-service-create.md)
 
 
-## Object authorization with Azure AD
 
-To authorize with Azure AD, you'll need to use an Azure credential. Which type of credential you need depends on where your application runs. Use this table as a guide.
-
-| Where the application runs | Security principal | Guidance |
-|--|--|---|
-| Local machine (developing and testing) | User identity or service principal | [Use the Azure Identity library to get an access token for authorization](../common/identity-library-acquire-token.md) | 
-| Azure | Managed identity | [Authorize access to blob data with managed identities for Azure resources](authorize-managed-identity.md) |
-| Servers or clients outside of Azure | Service principal | [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) |
-
-If you're testing on a local machine, or your application will run in Azure virtual machines (VMs), Functions apps, virtual machine scale sets, or in other Azure services, obtain an OAuth token by creating a [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential) instance. Use that object to create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient).
-
-```javascript
-const { BlobServiceClient } = require('@azure/storage-blob');
-const { DefaultAzureCredential } = require('@azure/identity');
-require('dotenv').config()
-
-const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
-if (!accountName) throw Error('Azure Storage accountName not found');
-
-const blobServiceClient = new BlobServiceClient(
-  `https://${accountName}.blob.core.windows.net`,
-  new DefaultAzureCredential()
-);
-
-async function main(){
-  const serviceGetPropertiesResponse = await blobServiceClient.getProperties();
-  console.log(`${JSON.stringify(serviceGetPropertiesResponse)}`);
-}
-
-main()
-  .then(() => console.log(`done`))
-  .catch((ex) => console.log(`error: ${ex.message}`));
-```
-
-If you plan to deploy the application to servers and clients that run outside of Azure, you can obtain an OAuth token by using other classes in the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme) which derive from the [TokenCredential](/javascript/api/@azure/core-auth/tokencredential) class.
 
 ## Connect anonymously
 

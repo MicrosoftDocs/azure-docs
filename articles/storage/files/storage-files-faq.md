@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage
-ms.date: 06/06/2022
+ms.date: 07/12/2022
 ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
@@ -87,8 +87,7 @@ ms.topic: conceptual
 * <a id="access-based-enumeration"></a>
 **Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares?**
 
-  No, this scenario isn't supported.
-
+  Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
    
 ### AD DS & Azure AD DS Authentication
 * <a id="ad-support-devices"></a>
@@ -149,6 +148,15 @@ ms.topic: conceptual
     2. Delete the existing connection to the file share. You can specify the mount path as either the mounted drive letter or the storage-account-name.file.core.windows.net path.
     
        net use <drive-letter/share-path> /delete
+
+* <a id="ad-sid-to-upn"></a>
+**Is it possible to view the userPrincipalName (UPN) of a file/directory owner in Windows Explorer instead of the security identifier (SID)?**
+
+    In Windows Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, you can use the following PowerShell command to view all items in a directory and their owner, including UPN:
+
+    ```PowerShell
+    Get-ChildItem <Path> | Get-ACL | Select Path, Owner
+    ```
 
 ## Network File System (NFS v4.1)
 

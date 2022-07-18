@@ -5,6 +5,7 @@
   expanded: true
   items:
   - name: What is Microsoft Defender for Cloud?
+    displayName: Defender for cloud, servers, storage, sql, containers, app service, key vaulkt, resource manager, dns, open-source relational databases, Azure cosmos db, db, Azure, defender
     href: defender-for-cloud-introduction.md
   - name: What are the enhanced security features?
     displayName: azure defender
@@ -80,13 +81,16 @@
 
 - name: Concepts
   items:
+  - name: The Defender for Cloud multicloud solution
+    href: multicloud.yml
+
   - name: Cloud Security Posture Management concepts
     items:
     - name: Policies, initiatives, and recommendations
       href: security-policy-concept.md
     - name: Security posture
       href: secure-score-security-controls.md
-    - name: Reference list of recommendations
+    - name: Reference list of Azure recommendations
       href: recommendations-reference.md
     - name: Reference list of AWS recommendations
       href: recommendations-reference-aws.md
@@ -97,9 +101,6 @@
       href: alerts-overview.md
     - name: Reference list of alerts
       href: alerts-reference.md
-
-  - name: The Defender for Cloud multicloud solution
-    href: multicloud.yml
 
 - name: How-to guides
   items:
@@ -205,7 +206,7 @@
     displayName: hybrid, arc, Defender for Servers
     items:
     - name: Overview
-      displayName: VM
+      displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
       href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
@@ -261,42 +262,10 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-  - name: Defender for Azure SQL Databases
-    items: 
-    - name: Overview
-      displayName: database
-      href: defender-for-sql-introduction.md
-    - name: Enable protection on your SQL databases
-      href: defender-for-sql-enable-azure-sql-protections.md
-    - name: Scan your SQL resources for vulnerabilities
-      href: defender-for-sql-on-machines-vulnerability-assessment.md
-      displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
-    - name: Customize SQL information protection policy
-      displayName: sql, database, data discovery
-      href: sql-information-protection-policy.md
-  - name: Defender for SQL servers on machines
-    items:
-    - name: Enable Defender for SQL servers on machines
-      href: defender-for-sql-usage.md
-      displayName: hybrid, arc, Azure Defender
-  - name: Defender for open-source relational databases
-    items: 
-    - name: Overview
-      displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
-      href: defender-for-databases-introduction.md
-    - name: Enable Defender for OSS RDBs and respond to alerts
-      displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
-      href: defender-for-databases-usage.md
-  - name: Defender for Azure Cosmos DB (Preview)
-    items: 
-    - name: Overview
-      href: concept-defender-for-cosmos.md
-    - name: Enable Microsoft Defender for Azure Cosmos DB
-      href: defender-for-databases-enable-cosmos-protections.md
   - name: Defender for Containers
     items:
     - name: Overview
-      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
+      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud, Hardening, Vulnerability assessment, Run-time protection
       href: defender-for-containers-introduction.md
     - name: How does Defender for Containers work?
       href: defender-for-containers-architecture.md
@@ -318,6 +287,40 @@
     - name: Defender for container registries (deprecated)
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
+  - name: Database protection
+    items:
+    - name: Enable database protection
+      href: quickstart-enable-database-protections.md
+    - name: Defender for Azure SQL Databases
+      items: 
+      - name: Overview
+        displayName: database
+        href: defender-for-sql-introduction.md
+      - name: Scan your SQL resources for vulnerabilities
+        href: defender-for-sql-on-machines-vulnerability-assessment.md
+        displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
+      - name: Customize SQL information protection policy
+        displayName: sql, database, data discovery
+        href: sql-information-protection-policy.md
+    - name: Defender for SQL servers on machines
+      items:
+      - name: Enable Defender for SQL servers on machines
+        href: defender-for-sql-usage.md
+        displayName: hybrid, arc, Azure Defender
+    - name: Defender for open-source relational databases
+      items: 
+      - name: Overview
+        displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+        href: defender-for-databases-introduction.md
+      - name: Enable Defender for OSS RDBs and respond to alerts
+        displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
+        href: defender-for-databases-usage.md
+    - name: Defender for Azure Cosmos DB
+      items: 
+      - name: Overview
+        href: concept-defender-for-cosmos.md
+      - name: Enable Microsoft Defender for Azure Cosmos DB
+        href: defender-for-databases-enable-cosmos-protections.md 
   - name: Defender for App Service
     items:
     - name: Overview
@@ -328,7 +331,7 @@
   - name: Defender for Storage
     items:
     - name: Overview
-      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
+      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage, storage, Azure-native security, automated response, alerts, security, hash reputation analysis
       href: defender-for-storage-introduction.md
     - name: Enable Defender for Storage
       href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json#set-up-microsoft-defender-for-cloud
@@ -363,7 +366,7 @@
     - name: Enable Defender for DNS
       href: enable-enhanced-security.md
     - name: Respond to Microsoft Defender for DNS alerts
-      href: defender-for-dns-alerts.md
+      href: defender-for-dns-alerts.md  
 
 - name: Reference
   items:
@@ -432,6 +435,10 @@
       href: episode-twelve.md
     - name: Defender for Storage
       href: episode-thirteen.md
+    - name: Defender for Servers deployment in AWS and GCP
+      href: episode-fourteen.md
+    - name: Remediate security recommendations with governance
+      href: episode-fifteen.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

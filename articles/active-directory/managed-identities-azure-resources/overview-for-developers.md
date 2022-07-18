@@ -4,7 +4,7 @@ description: An overview how developers can use managed identities for Azure res
 services: active-directory
 documentationcenter:
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 editor:
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -330,7 +330,7 @@ dr.Close();
 
 #### [Java](#tab/java)
 
-If you use [Azure Spring Apps](/azure/spring-cloud/), you can connect to Azure SQL Database with a managed identity without needing to make any changes to your code.
+If you use [Azure Spring Apps](../../spring-cloud/index.yml), you can connect to Azure SQL Database with a managed identity without needing to make any changes to your code.
 
 Open the `src/main/resources/application.properties` file, and add `Authentication=ActiveDirectoryMSI;` at the end of the following line. Be sure to use the correct value for `$AZ_DATABASE_NAME` variable.
 
@@ -338,7 +338,7 @@ Open the `src/main/resources/application.properties` file, and add `Authenticati
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
 ```
 
-Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](/azure/spring-cloud/connect-managed-identity-to-azure-sql/).
+Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](../../spring-cloud/connect-managed-identity-to-azure-sql.md).
 
 ---
 

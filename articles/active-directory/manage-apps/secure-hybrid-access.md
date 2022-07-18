@@ -62,6 +62,8 @@ The following partners offer pre-built solutions and detailed guidance for integ
 
 - [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
+- [Cloudflare](../manage-apps/cloudflare-azure-ad-integration.md)
+
 - [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 
 - [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)

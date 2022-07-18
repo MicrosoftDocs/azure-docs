@@ -46,7 +46,7 @@ The following diagram illustrates that you can enable code generation for any Au
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
@@ -440,7 +440,7 @@ run = experiment.submit(config=src)
 
 Once you have a trained model, you can save/serialize it to a `.pkl` file with  `pickle.dump()` and `pickle.load()`.  You can also use `joblib.dump()` and `joblib.load()`.
 
-The following example is how you download and load  a model in-memory that was trained in AML compute with `ScriptRunConfig`. This code can run in the same notebook you used the Azure ML SDK `ScriptRunConfig`.
+The following example is how you download and load  a model in-memory that was trained in AzureML compute with `ScriptRunConfig`. This code can run in the same notebook you used the Azure ML SDK `ScriptRunConfig`.
 
 ```python
 import joblib

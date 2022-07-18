@@ -31,7 +31,7 @@ Models trained in the designer can also be deployed through the SDK or command-l
 
 ## Prerequisites
 
-* [An Azure Machine Learning workspace](how-to-manage-workspace.md)
+* [An Azure Machine Learning workspace](quickstart-create-resources.md)
 
 * A completed training pipeline containing one of following components:
     - [Train Model Component](./algorithm-module-reference/train-model.md)

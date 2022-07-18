@@ -16,7 +16,7 @@
   - name: Prepay for reserved capacity
     href: single-server/concept-reserved-pricing.md
   - name: Version support policy
-    href: single-server/concepts-version-policy.md
+    href: concepts-version-policy.md
     displayName: version policy
 - name: Flexible Server
   items:
@@ -131,7 +131,7 @@
   - name: Integrations
     items:
     - name: Azure advisor
-      href: /azure/postgresql/single-server/concepts-azure-advisor-recommendations
+      href: ../postgresql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
       href: ../data-factory/connector-azure-database-for-mysql.md
   - name: Tutorials
@@ -140,7 +140,7 @@
       items:
       - name: WordPress on Azure Kubernetes
         href: flexible-server/tutorial-deploy-wordpress-on-aks.md
-      - name: Build PHP (Laravel) app with database
+      - name: Build PHP app with database
         href: flexible-server/tutorial-php-database-app.md
       - name: Deploy Java Spring Boot app on AKS in VNet
         href: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
@@ -274,8 +274,6 @@
     items:
     - name: What is Single Server?
       href: single-server/single-server-overview.md
-    - name: Supported versions
-      href: single-server/concepts-supported-versions.md
     - name: Pricing Tiers
       items:
       - name: Pricing tiers

@@ -6,10 +6,10 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: v-jeevkumar
-ms.author: v-jeevkumar
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: reference
-ms.date: 05/12/2021
+ms.date: 06/23/2022
 ms.custom: contperf-fy20q4
 
 ---
@@ -100,8 +100,6 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | [Nano](https://www.nano-editor.org/) | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span></br> | <span class='red-x'>&#10060;</span></br> | |
 | [Visual Studio 2019 Community Edition](https://www.visualstudio.com/community/) | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | [Visual Studio on the DSVM](dsvm-tools-development.md#visual-studio-community-edition) |
 | [Visual Studio Code](https://code.visualstudio.com/) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | [Visual Studio Code on the DSVM](./dsvm-tools-development.md#visual-studio-code) |
-| [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | [RStudio Desktop on the DSVM](./dsvm-tools-development.md#rstudio-desktop) |
-| [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) <br/> (disabled by default) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> |  |
 | [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | [PyCharm on the DSVM](./dsvm-tools-development.md#pycharm) |
 | [IntelliJ IDEA](https://www.jetbrains.com/idea/) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | |
 | [Vim](https://www.vim.org) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | |

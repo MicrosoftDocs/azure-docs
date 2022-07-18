@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 06/08/2022
+ms.date: 07/06/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -18,6 +18,12 @@ ms.custom: devx-track-csharp
 > [!div class="op_single_selector"]
 >
 > * [.NET](quickstart-dotnet.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Java](create-sql-api-java.md)
+> * [Spring Data](create-sql-api-spring-data.md)
+> * [Python](create-sql-api-python.md)
+> * [Spark v3](create-sql-api-spark.md)
+> * [Go](create-sql-api-go.md)
 >
 
 Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account. Follow these steps to  install the package and try out example code for basic tasks.
@@ -88,7 +94,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
         --query "documentEndpoint"
     ```
 
-1. Find the *PRIMARY KEY* from the list of keys for the account with the[``az-cosmosdb-keys-list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
+1. Find the *PRIMARY KEY* from the list of keys for the account with the [`az-cosmosdb-keys-list`](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
 
     ```azurecli-interactive
     az cosmosdb keys list \
@@ -173,9 +179,9 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. On the **Select API option** page, select the **Create** option within the **Core (SQL) - Recommend** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the SQL API](/azure/cosmos-db/sql/introduction.md).
+1. On the **Select API option** page, select the **Create** option within the **Core (SQL) - Recommend** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the SQL API](../index.yml).
 
-   :::image type="content" source="media/create-account-portal/cosmos-api-choices.png" lightbox="media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos D B.":::
+   :::image type="content" source="media/create-account-portal/cosmos-api-choices.png" lightbox="media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos DB.":::
 
 1. On the **Create Azure Cosmos DB Account** page, enter the following information:
 
@@ -199,15 +205,15 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page.
 
-   :::image type="content" source="media/create-account-portal/cosmos-deployment-complete.png" lightbox="media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos D B SQL A P I resource.":::
+   :::image type="content" source="media/create-account-portal/cosmos-deployment-complete.png" lightbox="media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos DB SQL A P I resource.":::
 
 1. From the Azure Cosmos DB SQL API account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos D B SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
+   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos D B SQL A P I account.":::
+   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL A P I account.":::
 
 #### [Resource Manager template](#tab/azure-resource-manager)
 
@@ -324,8 +330,8 @@ export COSMOS_KEY="<cosmos-account-PRIMARY-KEY>"
 
 Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, containers, and items.
 
-:::image type="complex" source="media/quickstart-dotnet/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, containers, and items.":::
-    Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
+:::image type="complex" source="media/quickstart-dotnet/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, containers, and items." border="false":::
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
 :::image-end:::
 
 For more information about the hierarchy of different resources, see [working with databases, containers, and items in Azure Cosmos DB](../account-databases-containers-items.md).
