@@ -1,24 +1,25 @@
 ---
 title: Tutorial - Add ingestion-time transformation to Azure Monitor Logs using resource manager templates
-description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using resource manager templates.
+description: Describes how to add a custom transformation to data flowing through Azure Monitor Logs using resource manager templates.
 ms.topic: tutorial
-ms.date: 02/20/2022
+ms.date: 07/01/2022
 ---
 
-# Tutorial: Add ingestion-time transformation to Azure Monitor Logs using resource manager templates (preview)
-[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested. This tutorial walks you through configuration of a sample ingestion time transformation using resource manager templates.
+# Tutorial: Add transformation in workspace data collection rule to Azure Monitor using resource manager templates (preview)
+This tutorial walks you through configuration of a sample [transformation in a workspace data collection rule](../essentials/data-collection-transformations.md) using resource manager templates. [Transformations](../essentials/data-collection-transformations.md) in Azure Monitor allow you to filter or modify incoming data before it's sent to its destination. Workspace transformations provide support for [ingestion-time transformations](../essentials/data-collection-transformations.md) for workflows that don't yet use the [Azure Monitor data ingestion pipeline](../essentials/data-collection.md).
+
+Workspace transformations are stored together in a single [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) for the workspace, called the workspace DCR. Each transformation is associated with a particular table. The transformation will be applied to all data sent to this table from any workflow not using a DCR.
 
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
-
 > [!NOTE]
-> This tutorial uses resource manager templates and REST API to configure an ingestion-time transformation. See [Tutorial: Add ingestion-time transformation to Azure Monitor Logs using the Azure portal (preview)](tutorial-ingestion-time-transformations.md) for the same tutorial using the Azure portal.
+> This tutorial uses resource manager templates and REST API to configure a workspace transformation. See [Tutorial: Add transformation in workspace data collection rule to Azure Monitor using the Azure portal (preview)](tutorial-workspace-transformations-portal.md) for the same tutorial using the Azure portal.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Configure [ingestion-time transformation](ingestion-time-transformations.md) for a table in Azure Monitor Logs
-> * Write a log query for an ingestion-time transform
+> * Configure [workspace transformation](../essentials/data-collection-transformations.md#workspace-transformation-dcr) for a table in a Log Analytics workspace.
+> * Write a log query for an ingestion-time transform.
 
 
 > [!NOTE]
@@ -30,7 +31,7 @@ To complete this tutorial, you need the following:
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - The table must already have some data.
-- The table can't be linked to the [workspace's transformation DCR](../essentials/data-collection-rule-overview.md#types-of-data-collection-rules).
+- The table can't already be linked to the [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr).
 
 
 ## Overview of tutorial
@@ -42,30 +43,30 @@ You need to enable [query auditing](query-audit.md) for your workspace to create
 
 1. From the **Log Analytics workspaces** menu in the Azure portal, select **Diagnostic settings** and then **Add diagnostic setting**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations/diagnostic-settings.png" lightbox="media/tutorial-ingestion-time-transformations/diagnostic-settings.png" alt-text="Screenshot of diagnostic settings.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/diagnostic-settings.png" lightbox="media/tutorial-workspace-transformations-portal/diagnostic-settings.png" alt-text="Screenshot of diagnostic settings.":::
 
 2. Provide a name for the diagnostic setting and select the workspace so that the auditing data is stored in the same workspace. Select the **Audit** category and  then click **Save** to save the diagnostic setting and close the diagnostic setting page.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations/new-diagnostic-setting.png" lightbox="media/tutorial-ingestion-time-transformations/new-diagnostic-setting.png" alt-text="Screenshot of new diagnostic setting.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/new-diagnostic-setting.png" lightbox="media/tutorial-workspace-transformations-portal/new-diagnostic-setting.png" alt-text="Screenshot of new diagnostic setting.":::
 
 3. Select **Logs** and then run some queries to populate `LAQueryLogs` with some data. These queries don't need to actually return any data. 
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations/sample-queries.png" lightbox="media/tutorial-ingestion-time-transformations/sample-queries.png" alt-text="Screenshot of sample log queries.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/sample-queries.png" lightbox="media/tutorial-workspace-transformations-portal/sample-queries.png" alt-text="Screenshot of sample log queries.":::
 
 ## Update table schema
 Before you can create the transformation, the following two changes must be made to the table:
 
-- The table must be enabled for ingestion-time transformation. This is required for any table that will have a transformation, even if the transformation doesn't modify the table's schema.
+- The table must be enabled for workspace transformation. This is required for any table that will have a transformation, even if the transformation doesn't modify the table's schema.
 - Any additional columns populated by the transformation must be added to the table.
 
-Use the **Tables - Update** API to configure the table with the PowerShell code below. Calling the API enables the table for ingestion-time transformations, whether or not custom columns are defined. In this sample, it includes a custom column called *Resources_CF* that will be populated with the transformation query. 
+Use the **Tables - Update** API to configure the table with the PowerShell code below. Calling the API enables the table for workspace transformations, whether or not custom columns are defined. In this sample, it includes a custom column called *Resources_CF* that will be populated with the transformation query. 
 
 > [!IMPORTANT]
 > Any custom columns added to a built-in table must end in *_CF*. Columns added to a custom table (a table with a name that ends in *_CL*) does not need to have this suffix.
 
 1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell.":::
 
 2. Copy the following PowerShell code and replace the **Path** parameter with the details for your workspace. 
 
@@ -94,11 +95,11 @@ Use the **Tables - Update** API to configure the table with the PowerShell code 
 
 3. Paste the code into the cloud shell prompt to run it.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" alt-text="Screenshot of script in cloud shell.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-workspace-transformations-api/cloud-shell-script.png" alt-text="Screenshot of script in cloud shell.":::
 
 4. You can verify that the column was added by going to the **Log Analytics workspace** menu in the Azure portal. Select **Logs** to open Log Analytics and then expand the `LAQueryLogs` table to view its columns.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations/verify-table.png" lightbox="media/tutorial-ingestion-time-transformations/verify-table.png" alt-text="Screenshot of Log Analytics with new column.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/verify-table.png" lightbox="media/tutorial-workspace-transformations-portal/verify-table.png" alt-text="Screenshot of Log Analytics with new column.":::
 
 ## Define transformation query
 Use Log Analytics to test the transformation query before adding it to a data collection rule. 
@@ -112,7 +113,7 @@ Use Log Analytics to test the transformation query before adding it to a data co
     | take 10
     ```
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations/initial-query.png" lightbox="media/tutorial-ingestion-time-transformations/initial-query.png" alt-text="Screenshot of initial query in Log Analytics.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/initial-query.png" lightbox="media/tutorial-workspace-transformations-portal/initial-query.png" alt-text="Screenshot of initial query in Log Analytics.":::
 
 3. Modify the query to the following:
 
@@ -130,7 +131,7 @@ Use Log Analytics to test the transformation query before adding it to a data co
    - Remove data from the `RequestContext` column to save space.
 
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations/modified-query.png" lightbox="media/tutorial-ingestion-time-transformations/modified-query.png" alt-text="Screenshot of modified query in Log Analytics.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-portal/modified-query.png" lightbox="media/tutorial-workspace-transformations-portal/modified-query.png" alt-text="Screenshot of modified query in Log Analytics.":::
 
 
 4. Make the following changes to the query to use it in the transformation:
@@ -146,19 +147,19 @@ Use Log Analytics to test the transformation query before adding it to a data co
    ```
 
 ## Create data collection rule (DCR)
-Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-rule-overview.md#types-of-data-collection-rules). If you create transformations for other tables in the same workspace, they will be stored in this same DCR.
+Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr). If you create workspace transformations for other tables in the same workspace, they must be stored in this same DCR.
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
 
 2. Click **Build your own template in the editor**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
 
 3. Paste the resource manager template below into the editor and then click **Save**. This template defines the DCR and contains the transformation query. You don't need to modify this template since it will collect values for its parameters.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template.":::
 
 
     ```json
@@ -232,17 +233,17 @@ Since this is the first transformation in the workspace, you need to create a [w
 
 4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-workspace-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
 
 5. Click **Review + create** and then **Create** when you review the details.
 
 6. When the deployment is complete, expand the **Deployment details** box and click on your data collection rule to view its details. Click **JSON View**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
 
 7. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
 
 ## Link workspace to DCR
 The final step to enable the transformation is to link the DCR to the workspace.
@@ -268,7 +269,7 @@ Use the **Workspaces - Update** API to configure the table with the PowerShell c
 
 2. Paste the code into the cloud shell prompt to run it.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script-link-workspace.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script-link-workspace.png" alt-text="Screenshot of script to link workspace to DCR.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/cloud-shell-script-link-workspace.png" lightbox="media/tutorial-workspace-transformations-api/cloud-shell-script-link-workspace.png" alt-text="Screenshot of script to link workspace to DCR.":::
 
 ## Test transformation
 Allow about 30 minutes for the transformation to take effect, and you can then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected. 
@@ -287,6 +288,6 @@ There is currently a known issue affecting dynamic columns. A temporary workarou
 
 ## Next steps
 
-- [Read more about ingestion-time transformations](ingestion-time-transformations.md)
-- [See which tables support ingestion-time transformations](tables-feature-support.md)
-- [Learn more about writing transformation queries](../essentials/data-collection-rule-transformations.md)
+- [Read more about transformations](../essentials/data-collection-transformations.md)
+- [See which tables support workspace transformations](tables-feature-support.md)
+- [Learn more about writing transformation queries](../essentials/data-collection-transformations-structure.md)
