@@ -153,7 +153,7 @@ Once your new solution loads in the Visual Studio Code window, take a moment to 
 
 ### Set IoT Edge runtime version
 
-The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.3. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio Code to match.
+The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is 1.3. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio Code to match.
 
 1. Select **View** > **Command Palette**.
 
