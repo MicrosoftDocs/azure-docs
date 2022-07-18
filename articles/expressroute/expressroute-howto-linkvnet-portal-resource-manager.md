@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 07/15/2022
+ms.date: 07/18/2022
 ms.author: duau
 ms.custom: seodec18, template-tutorial
 ---
@@ -19,12 +19,13 @@ ms.custom: seodec18, template-tutorial
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
-This tutorial helps you create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or be part of another subscription.
+This tutorial helps you create a connection to link a virtual network (VNet) to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Connect a virtual network to a circuit in the same subscription.
 > - Connect a virtual network to a circuit in a different subscription.
+> - Configure ExpressRoute FastPath.
 > - Delete the link between the virtual network and ExpressRoute circuit.
 
 ## Prerequisites
