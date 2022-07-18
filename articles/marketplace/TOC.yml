@@ -393,6 +393,8 @@
         href: power-bi-visual-availability.md
       - name: Technical configuration
         href: power-bi-visual-technical-configuration.md
+      - name: Plans
+        href: power-bi-visual-plans.md  
       - name: Manage offer names
         href: power-bi-visual-manage-names.md
     - name: FAQs on migrating to the commercial marketplace
