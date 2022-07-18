@@ -6,7 +6,7 @@ ms.author: abbyweisberg
 ms.topic: overview 
 ms.date: 06/09/2022
 ms.custom: template-overview 
-ms.reviewer: nolavime    
+ms.reviewer: harelbr    
 ---
 # What are Azure Monitor Alerts?
 
@@ -16,7 +16,9 @@ You can alert on any metric or log data source in the Azure Monitor data platfor
 
 This diagram shows you how alerts work:
 
-:::image type="content" source="media/alerts-overview/alerts.png" alt-text="Graphic explaining Azure Monitor alerts.":::
+:::image type="content" source="media/alerts-overview/alerts.png"  alt-text="Graphic explaining Azure Monitor alerts." lightbox="media/alerts-overview/alerts.png":::
+
+
 
 An **alert rule** monitors your telemetry and captures a signal that indicates that something is happening on a specified target. The alert rule  captures the signal and checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert. 
  
