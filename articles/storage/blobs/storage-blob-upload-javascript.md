@@ -29,11 +29,11 @@ Use the following table to find the correct upload method based on the blob clie
 |Client|Upload method|
 |--|--|
 |[BlobClient](/javascript/api/@azure/storage-blob/blobclient)|The SDK would needs to know the blob type you want to upload to. Because this is the base class for the other Blob clients, it does not have upload methods. It is mostly useful for operations that are common to the child blob classes. For uploading, create specific blob clients directly or get specific blob clients from ContainerClient.|
-|[BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient)|* upload()<br>* stageBlock() and commitBlockList()|
+|[BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient)|This is the **most common upload client**:<br>* upload()<br>* stageBlock() and commitBlockList()|
 |[AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient)|* create()<br>* append()|
 |[PageBlobClient](/javascript/api/@azure/storage-blob/pageblobclient)|* create()<br>* appendPages()|
 
-## Upload by using a file path
+## <a name="upload-by-using-a-file-path"></a>Upload with BlockBlobClient by using a file path
 
 The following example uploads a local file to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. The [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) object allows you to pass in your own metadata and [tags](storage-manage-find-blobs.md#blob-index-tags-and-data-management), used for indexing, at upload time:
 
@@ -53,7 +53,7 @@ async function createBlobFromLocalPath(containerClient, blobName, localFileWithP
 }
 ```
 
-## Upload by using a Stream
+## <a name="upload-by-using-a-stream"></a>Upload with BlockBlobClient by using a Stream
 
 The following example uploads a readable stream to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadStream [options](/javascript/api/@azure/storage-blob/blockblobuploadstreamoptions) to affect the upload:
 
@@ -104,7 +104,7 @@ const myTransform = new Transform({
 
 ```
 
-## Upload by using a BinaryData object
+## <a name="upload-by-using-a-binarydata-object"></a>Upload with BlockBlobClient by using a BinaryData object
 
 The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to affect the upload:
 
@@ -130,7 +130,7 @@ async function createBlobFromBuffer(containerClient, blobName, buffer, uploadOpt
 }
 ```
 
-## Upload a string
+## <a name="upload-a-string"></a>Upload a string with BlockBlobClient 
 
 The following example uploads a string to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadOptions [options](/javascript/api/@azure/storage-blob/blockblobuploadoptions) to affect the upload:
 
