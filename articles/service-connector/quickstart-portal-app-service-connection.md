@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: quickstart
-ms.date: 05/03/2022
+ms.date: 07/18/2022
 #Customer intent: As an app developer, I want to connect several services together so that I can ensure I have the right connectivity to access my Azure resources.
 ---
 
@@ -25,36 +25,56 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Create a new service connection in App Service
 
-You'll use Service Connector to create a new service connection in App Service.
+1. To create a new service connection in App Service, select the **Search resources, services and docs (G +/)** search bar at the top of the Azure portal, type ***App Services***, and select **App Services**.
+    :::image type="content" source="./media/app-service-quickstart/select-app-services.png" alt-text="Screenshot of the Azure portal, selecting App Services.":::
+1. Select the Azure App Services resource you want to connect to a target resource.
+1. Select **Service Connector** from the left table of contents. Then select **Create**.
 
-1. Select the **All resources** button on the left of the Azure portal. Type **App Service** in the filter and select the name of the App Service you want to use in the list.
-2. Select **Service Connector** from the left table of contents. Then select **Create**.
-3. Select or enter the following settings.
+    :::image type="content" source="./media/app-service-quickstart/select-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector and creating new connection.":::
 
-    | Setting      | Suggested value  | Description                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Service type** | Blob Storage | Target service type. If you don't have a Storage Blob container, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type. |
-    | **Subscription** | One of your subscriptions | The subscription where your target service (the service you want to connect to) is located. The default value is the subscription that this App Service is in. |
-    | **Connection name** | Generated unique name | The connection name that identifies the connection between your App Service and target service  |
-    | **Storage account** | Your storage account | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance. |
-    | **Client type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
+1. Select or enter the following settings.
 
-4. Select **Next: Authentication** to select the authentication type. Then select **Connection string** to use access key to connect your Blob Storage account.
+    | Setting             | Example                                | Description                                                                                                                                                             |
+    |---------------------|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Service type**    | Storage -  Blob                        | Target service type. If you don't have a Microsoft Blob Storage, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type. |
+    | **Subscription**    | My subscription                        | The subscription for your target service (the service you want to connect to). The default value is the subscription for this App Service resource.          |
+    | **Connection name** | *my_connection*                        | The connection name that identifies the connection between your App Service and target service                                                                          |
+    | **Storage account** | *my_storage_account*                   | The target storage account you want to connect to. Target service instances to choose from vary according to the selected service type.                                 |
+    | **Client type**     | The same app stack on this App Service | Select the app stack that's on this App Service instance. The default value comes from the App Service runtime stack.                                                   |
 
-5. Then select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. It might take 1 minute to complete the operation.
+    :::image type="content" source="./media/app-service-quickstart/basics-tab.png" alt-text="Screenshot of the Azure portal, filling out the Basics tab.":::
+
+1. Select **Next: Authentication** to select the authentication from four options:
+
+   - System-assigned managed identity (recommended)
+   - User-assigned managed identity
+   - Connection string
+   - Service principal
+
+    :::image type="content" source="./media/app-service-quickstart/authentication.png" alt-text="Screenshot of the Azure portal, filling out the Authentication tab.":::
+
+1. Select **Next: Networking** to configure the network access to your target service and select **Configure firewall rules to enable access to your target service**.
+
+1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take one minute to complete.
 
 ## View service connections in App Service
 
-1. In **Service Connector**, you see an App Service connection to the target service.
+1. The **Service Connector** tab displays existing App Service connections.
 
-1. Select the **>** button to expand the list. You can see the environment variables required by your application code.
+1. Select the **>** button to expand the list and see the environment variables required by your application code. Select **Hidden value** to view the hidden value.
 
-1. Select the **...** button and select **Validate**. You can see the connection validation details in the pop-up panel on the right.
+    :::image type="content" source="./media/app-service-quickstart/show-values.png" alt-text="Screenshot of the Azure portal, viewing connection details.":::
+
+1. Select **Validate** to check your connection. You can see the connection validation details in the panel on the right.
+
+    :::image type="content" source="./media/app-service-quickstart/validation.png" alt-text="Screenshot of the Azure portal, validating the connection.":::
 
 ## Next steps
 
 Follow the tutorials listed below to start building your own application with Service Connector.
 
 > [!div class="nextstepaction"]
-> - [Tutorial: WebApp + Storage with Azure CLI](./tutorial-csharp-webapp-storage-cli.md)
-> - [Tutorial: WebApp + PostgreSQL with Azure CLI](./tutorial-django-webapp-postgres-cli.md)
+> [Tutorial: WebApp + Storage with Azure CLI](./tutorial-csharp-webapp-storage-cli.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: WebApp + PostgreSQL with Azure CLI](./tutorial-django-webapp-postgres-cli.md)
