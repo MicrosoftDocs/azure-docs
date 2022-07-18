@@ -19,11 +19,11 @@ ms.author: anfdocs
 
 Cross-zone replication (CZR) enables you to replicate volumes across availability zones within the same region. It enables you to fail over your critical application if a region-wide outage or disaster happens. 
 
-CZR builds on the existing workflows CRR (generally available) and the availability zone volume placement feature (in private preview). The existing feature of Azure NetApp Files Cross-region replication (CRR) provides data protection through cross-region volume replication. 
+CZR builds on the existing workflows CRR (CRR, generally available) and the availability zone volume placement feature (in private preview). The existing feature of Azure NetApp Files Cross-region replication (CRR) provides data protection through cross-region volume replication. 
 
-To establish a cross-zone replication relationship (CRR), you create the source volume within an availability zone and the destination volume within a different availability zone in the same Azure region.  
+To establish a cross-zone replication relationship, you create the source volume within an availability zone. The destination volume must be created in a different availability zone in the same Azure region. 
 
-Compared  to CRR, a CZR setup provides the following benefits: 
+Compared to CRR, a CZR setup provides the following benefits: 
 * Data protection within the same region
 * Failure domain isolation down to the availability zone level
 * With the help of availability zone volume placement feature, bring volumes into the same availability zone as the consuming compute resources
@@ -80,11 +80,11 @@ This process requires that your account is subscribed to the availability zone v
     > [!IMPORTANT]
     > Logical availability zones for the subscription without Azure NetApp Files presence are marked `(Unavailable)` and are greyed out.
 
-    :::image type="content" source="../media/azure-netapp-files/zone-replication-availability.png" alt-text="The create a zone menu requires you to select an availability zone." lightbox="../media/azure-netapp-files/zone-replication-availability.png":::
+    :::image type="content" source="../media/azure-netapp-files/zone-replication-availability.png" alt-text="The 'Create a zone menu' requires you to select an availability zone." lightbox="../media/azure-netapp-files/zone-replication-availability.png":::
 
-1. Follow the UI to create the volume. The **Review + Create** page shows the selected availability zone you specified.
+1. Follow the steps indicated in the interface to create the volume. The **Review + Create** page shows the selected availability zone you specified.
     
-    :::image type="content" source="../media/azure-netapp-files/zone-replication-review-create.png" alt-text="Confirm you have selected the correct availability zone in the Review and Create page." lightbox="../media/azure-netapp-files/zone-replication-review-create.png":::
+    :::image type="content" source="../media/azure-netapp-files/zone-replication-review-create.png" alt-text="Confirm you've selected the correct availability zone in the Review and Create page." lightbox="../media/azure-netapp-files/zone-replication-review-create.png":::
 
 1. After you create the volume, the **Volume Overview** page includes availability zone information for the volume.
 
@@ -92,13 +92,12 @@ This process requires that your account is subscribed to the availability zone v
 
 ## Create the data replication volume in another availability zone of the same region
 
-1. [Locate the volume source ID.](cross-region-replication-create-peering#locate-the-source-volume-resource-id)
+1. [Locate the volume source ID.](cross-region-replication-create-peering.md#locate-the-source-volume-resource-id)
 
 1. Create the data replication volume (the destination volume) _in another availability zone, but in the same region as the source volume_. In the **Basics** tab of the **Create a new protection volume** page, select an available availability zone.
 > [!IMPORTANT]
 > Logical availability zones for the subscription without Azure NetApp Files presence are marked `(Unavailable)` and are greyed out.
     :::image type="content" source="../media/azure-netapp-files/zone-replication-create-new-volume.png" alt-text="Select an availability zone for the CZR volume." lightbox="../media/azure-netapp-files/zone-replication-create-new-volume.png":::
-
 
 ## Complete cross-zone replication configuration
 
