@@ -28,7 +28,6 @@ Azure confidential ledger client library resources:
 
 You will also need an running confidential ledger, and a registered user with the `Administrator` privileges. You can create a confidential ledger (and an administrator) using the [Azure portal](quickstart-portal.md), the [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
 
-
 ## Setup
 
 ### Create new .NET console app
@@ -105,7 +104,7 @@ Operation postOperation = ledgerClient.PostLedgerEntry(
 
 ```
 
-## Get transaction ID
+### Get transaction ID
 
 The [PostLedgerEntry](/dotnet/api/azure.security.confidentialledger.confidentialledgerclient.postledgerentry) method returns an object that contains the transaction of the entry you just wrote to the confidential ledger. To get the transation ID, access the "Id" value:
 
