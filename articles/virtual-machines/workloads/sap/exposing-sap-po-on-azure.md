@@ -28,7 +28,7 @@ Dispatching approaches range from traditional reverse proxies like Apache, to Pl
 > [!NOTE]
 > All described setups in this article assume a hub-spoke networking topology, where shared services are deployed into the hub. Given the criticality of SAP, even more isolation may be desirable.
 
-## Primary Azure services used
+## Primary Azure services used 
 
 [Azure Application Gateway](../../../application-gateway/how-application-gateway-works) handles public [internet-based](../../../application-gateway/configuration-front-end-ip) and/or [internal private](../../../application-gateway/configuration-front-end-ip) http routing and [encrypted tunneling across Azure subscriptions](../../../application-gateway/private-link), [security](../../../application-gateway/features), and [auto-scaling](../../../application-gateway/application-gateway-autoscaling-zone-redundant) for instance. Workloads in other virtual networks (VNet) or even Azure Subscriptions that shall communicate with SAP through the app gateway can be connected via [private links](../../../application-gateway/private-link-configure). Azure Application Gateway is focused on exposing web applications, hence offers a Web Application Firewall.
 
