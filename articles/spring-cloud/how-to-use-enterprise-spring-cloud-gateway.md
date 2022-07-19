@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise Tier
 description: How to use Spring Cloud Gateway for Tanzu with Azure Spring Apps Enterprise Tier.
 author: karlerickson
 ms.author: xiading
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
