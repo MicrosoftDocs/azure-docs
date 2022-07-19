@@ -4,12 +4,12 @@ description: An overview on why the customer needs to routinely rotate the acces
 author: vicancy
 ms.service: signalr
 ms.topic: how-to
-ms.date: 03/01/2019
+ms.date: 07/18/2022
 ms.author: lianwei
 ---
 # How to rotate access key for Azure SignalR Service
 
-Each Azure SignalR Service instance has a pair of access keys called Primary and Secondary keys. They're used to authenticate SignalR clients when requests are made to the service. The keys are associated with the instance endpoint url. Keep your keys secure, and rotate them regularly. You're provided with two access keys, so you can maintain connections by using one key while regenerating the other.
+Each Azure SignalR Service instance has a pair of access keys called Primary and Secondary keys. They're used to authenticate SignalR clients when requests are made to the service. The keys are associated with the instance endpoint URL. Keep your keys secure, and rotate them regularly. You're provided with two access keys so that you can maintain connections by using one key while regenerating the other.
 
 ## Why rotate access keys?
 
