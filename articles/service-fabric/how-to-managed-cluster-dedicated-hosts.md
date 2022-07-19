@@ -40,7 +40,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
 Create a dedicated host group pinned to one availability zone and five fault domains using the provided [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH). The sample will ensure there is at least one dedicated host per fault domain.
    ```powershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $location
-   New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\hostGroupTemplate_sample.json" -hostGroupName $hostGroupName -dedicatedHostNamePrefix $dedicatedHostNamePrefix -dedicatedHostSKU $dedicatedHostSKU -Debug –Verbose 
+   New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\HostGroup-And-RoleAssignment.json" -TemplateParameterFile ".\HostGroup-And-RoleAssignment.parameters.json" -Debug -Verbose
    ```
 
 >[!NOTE] 
