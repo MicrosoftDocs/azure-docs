@@ -219,7 +219,7 @@ While Microsoft aims to simplify VMware SRM and vSphere Replication installation
 
 ## Scale limitations
 
-To learn about the limits for the VMware Site Recovery Manager Add-On with the Azure VMware Soltuion, check the [Azure subscription and service limits, quotas, and constraints.](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-resource-manager/management/azure-subscription-service-limits.md#azure-vmware-solution-limits)
+To learn about the limits for the VMware Site Recovery Manager Add-On with the Azure VMware Soltuion, check the [Azure subscription and service limits, quotas, and constraints.](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits)
 
 ## SRM licenses
 
