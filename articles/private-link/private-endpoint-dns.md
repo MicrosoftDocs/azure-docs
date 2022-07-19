@@ -71,7 +71,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Container Registry (Microsoft.ContainerRegistry/registries) / registry | privatelink.azurecr.io </br> {region}.privatelink.azurecr.io | azurecr.io </br> {region}.azurecr.io |
 | Azure App Configuration (Microsoft.AppConfiguration/configurationStores) / configurationStores | privatelink.azconfig.io | azconfig.io |
 | Azure Backup (Microsoft.RecoveryServices/vaults) / AzureBackup | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
-| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | privatelink.siterecovery.windowsazure.com | {region}.hypervrecoverymanager.windowsazure.com |
+| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | privatelink.{region}.siterecovery.windowsazure.com | {region}.siterecovery.windowsazure.com |
 | Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure IoT Hub (Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
@@ -83,7 +83,7 @@ For Azure services, use the recommended zone names as described in the following
 | SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.service.signalr.net | service.signalr.net |
 | Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net |
 | Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
-| Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.net  |  afs.azure.net  |
+| Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.{region}.afs.azure.net  |  {region}.afs.azure.net  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
@@ -124,7 +124,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Search (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.us | search.windows.us |
 | Azure App Configuration (Microsoft.AppConfiguration/configurationStores) / configurationStores | privatelink.azconfig.azure.us | azconfig.azure.us |
 | Azure Backup (Microsoft.RecoveryServices/vaults) / AzureBackup | privatelink.{region}.backup.windowsazure.us | {region}.backup.windowsazure.us |
-| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | privatelink.siterecovery.windowsazure.us | {region}.hypervrecoverymanager.windowsazure.us |
+| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | privatelink.{region}.siterecovery.windowsazure.us | {region}.siterecovery.windowsazure.us |
 | Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net|
 | Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net| servicebus.usgovcloudapi.net |
 | Azure IoT Hub (Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.us<br/>privatelink.servicebus.windows.us<sup>1</sup> | azure-devices.us<br/>servicebus.usgovcloudapi.net |
