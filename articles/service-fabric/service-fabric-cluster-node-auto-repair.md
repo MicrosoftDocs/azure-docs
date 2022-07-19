@@ -7,7 +7,7 @@ ms.author: ankujain
 ---
 # Azure Service Fabric managed cluster (SFMC) node auto-repair
 
-Service Fabric managed cluster (SFMC) has added the capability to detect and repair unhealthy nodes in a cluster. SFMC continuously monitor the health of nodes and VMs and perform repair actions if they go down or become unhealthy. In this document, you'll learn how automatic node repair works for Windows and Linux nodes.
+Service Fabric managed cluster (SFMC) has added the capability to detect and repair unhealthy nodes in a cluster. SFMC continuously monitors the health of nodes and VMs and performs repair actions if they go down or become unhealthy. In this document, you'll learn how automatic node repair works for Windows and Linux nodes.
 
 ## How SFMC checks for unhealthy nodes 
 
