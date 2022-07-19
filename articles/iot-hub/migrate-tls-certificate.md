@@ -7,14 +7,17 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 07/19/2022
 ---
 
-# Migrate IoT hub resources to a new TLS certificate root
+# Migrate IoT Hub resources to a new TLS certificate root
 
-Azure IoT Hub and Device Provisioning Service (DPS) use TLS certificates issued by the Baltimore CyberTrust Root, which expires in 2025. Starting in February 2023 and completing by September 2023, all IoT hubs will migrate to a new TLS certificate issued by the DigiCert Global Root G2.
+Azure IoT Hub and Device Provisioning Service (DPS) use TLS certificates issued by the Baltimore CyberTrust Root, which expires in 2025. Starting in February 2023 and completing by September 2023, all IoT hubs in the public Azure cloud will migrate to a new TLS certificate issued by the DigiCert Global Root G2.
 
-Once an IoT hub has migrated to the new TLS certificate, any device that doesn't have the DigiCert Global Root G2 in its certificate store won't be able to connect to Azure.
+You should start planning now for the effects of migrating your IoT hubs to the new TLS certificate:
+
+* Any device that doesn't have the DigiCert Global Root G2 in its certificate store won't be able to connect to Azure.
+* The IP address of the IoT hub will change.
 
 ## Timeline
 
@@ -42,6 +45,8 @@ For more information about how to validate if your devices are ready for the TLS
 
 If you've prepared your devices and are ready for the TLS certificate migration before February 2023, you can manually migrate your certificates yourself.
 
+This manual migration process, and the ability to revert to the previous TLS certificate, is available only until February 2023. After that, migration will be exclusively handled by Microsoft.
+
 After migrating the root certificate, it will take about 45 minutes for all devices to disconnect and reconnect with the new certificate. This timing is because the Azure IoT SDKs are programmed to reverify their connection every 45 minutes. If you've implemented a different pattern in your solution, then your experience may vary.
 
 >[!NOTE]
@@ -61,7 +66,11 @@ After migrating the root certificate, it will take about 45 minutes for all devi
 
 1. Use the **Connected Devices** metric to verify that your devices are successfully reconnecting with the new certificate.
 
-1. If you experience any issues, select **Revert to Baltimore root** to undo the migration.
+For more information about monitoring your devices, see [Monitoring IoT Hub](monitor-iot-hub.md).
+
+If you encounter any issues, you can undo the migration and revert to the Baltimore CyberTrust Root certificate.
+
+1. Select **Revert to Baltimore root** to undo the migration.
 
 1. Again, a series of checkboxes asks you to verify that you understand how reverting to the Baltimore CyberTrust Root will affect your devices. Check each box, then select **Update**.
 
@@ -88,7 +97,11 @@ Use the [az iot hub certificate root-authority set](/cli/azure/iot/hub/certifica
 az iot hub certificate root-authority set --name <iothub_name> --certificate-authority v2
 ```
 
-Verify that your migration was successful. We recommend using the **connected devices** metric to view devices disconnecting and reconnecting post-migration. If you encounter any issues, you can undo the migration and revert to the Baltimore CyberTrust Root certificate by running the previous command again with `--certificate authority v1`.
+Verify that your migration was successful. We recommend using the **connected devices** metric to view devices disconnecting and reconnecting post-migration. 
+
+For more information about monitoring your devices, see [Monitoring IoT Hub](monitor-iot-hub.md).
+
+If you encounter any issues, you can undo the migration and revert to the Baltimore CyberTrust Root certificate by running the previous command again with `--certificate authority v1`.
 
 ---
 
@@ -103,3 +116,11 @@ IoT Hub and DPS present their server certificate to devices, and devices authent
 ### My devices use the Azure IoT SDKs to connect. Do I have to do anything?
 
 Yes, while most Azure IoT SDKs (except the Java V1 device client that packages the Baltimore root along with the SDK) rely on the underlying operating system’s certificate store to retrieve trusted roots for server authentication during the TLS handshake, it's highly recommended to validate your devices against the endpoints made available as described in the validation section of the blog post [Azure IoT TLS: Critical changes are almost here](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
+
+### My devices connect to a sovereign Azure region. Do I still need to update them?
+
+No, only the [public Azure cloud](https://azure.microsoft.com/global-infrastructure/geographies) is affected by this change. Sovereign clouds are not included in this migration.
+
+### I use IoT Central. Do I need to update my devices?
+
+Yes, IoT Central uses IoT Hub in the backend. The TLS migration will affect your solution, and you need to update your devices to maintain connection.
