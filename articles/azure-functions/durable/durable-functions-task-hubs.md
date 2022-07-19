@@ -98,33 +98,33 @@ After this orchestration is initiated by a client it's processed by the function
 
 1. A client requests to start a new orchestration with instance-id "123". After the client completes this request, the task hub contains a placeholder for the orchestration state and an instance message:
 
-   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-1.png)
+   ![workitems-illustration-step-1](./media/durable-functions-task-hubs/work-items-1.png)
 
    The label `ExecutionStarted` is one of many [history event types](https://github.com/Azure/durabletask/tree/main/src/DurableTask.Core/History#readme) that identify the various types of messages and events participating in an orchestration's history.
 
 2. A worker executes an *orchestrator work item* to process the `ExecutionStarted` message. It calls the orchestrator function which starts executing the orchestration code. This code schedules two activities and then stops executing when it is waiting for the results. After the worker commits this work item, the task hub contains
 
-   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-2.png)
+   ![workitems-illustration-step-2](./media/durable-functions-task-hubs/work-items-2.png)
 
    The runtime state is now `Running`, two new `TaskScheduled` messages were added, and the history now contains the five events `OrchestratorStarted`, `ExecutionStarted`, `TaskScheduled`, `TaskScheduled`, `OrchestratorCompleted`. These events represent the first episode of this orchestration's execution.
 
 3. A worker executes an *activity work item* to process one of the `TaskScheduled` message. It calls the activity function with input "2". When the activity function completes, it creates a `TaskCompleted` message containing the result. After the worker commits this work item, the task hub contains
 
-   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-3.png)
+   ![workitems-illustration-step-3](./media/durable-functions-task-hubs/work-items-3.png)
 
 4. A worker executes an *orchestrator work item* to process the `TaskCompleted` message. If the orchestration is still cached in memory, it can just resume execution. Otherwise, the worker first [replays the history to recover the current state of the orchestration](durable-functions-orchestrations.md#reliability). Then it continues the orchestration,  delivering the result of the activity. After receiving this result, the orchestration is still waiting for the result of the other activity, so it once more stops executing. After the worker commits this work item, the task hub contains
 
-   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-4.png)
+   ![workitems-illustration-step-4](./media/durable-functions-task-hubs/work-items-4.png)
 
    The orchestration history now contains three more events `OrchestratorStarted`, `TaskCompleted`, `OrchestratorCompleted`. These  events represent the second episode of this orchestration's execution.
 
 5. A worker executes an *activity work item* to process the remaining `TaskScheduled` message. It calls the activity function with input "1". After the worker commits this work item, the task hub contains
 
-   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-5.png)
+   ![workitems-illustration-step-5](./media/durable-functions-task-hubs/work-items-5.png)
 
 6. A worker executes another *orchestrator work item* to process the `TaskCompleted` message. After receiving this second result, the orchestration completes. After the worker commits this work item, the task hub contains
 
-   ![workitems-illustration](./media/durable-functions-task-hubs/work-items-6.png)
+   ![workitems-illustration-step-6](./media/durable-functions-task-hubs/work-items-6.png)
 
    The runtime state is now `Completed`, and the orchestration history now contains four more events `OrchestratorStarted`, `TaskCompleted`, `ExecutionCompleted`, `OrchestratorCompleted`. These events represent the third and final episode of this orchestration's execution.
 
