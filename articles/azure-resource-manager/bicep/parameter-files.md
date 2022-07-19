@@ -4,7 +4,7 @@ description: Create parameter file for passing in values during deployment of a 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 07/18/2022
 ---
 
 # Create Bicep parameter file
@@ -97,6 +97,9 @@ Check the Bicep file for parameters with a default value. If a parameter has a d
   }
 }
 ```
+
+> [!NOTE]
+> For inline comments, you can use either // or /* ... */. In Visual Studio Code, save the parameter files with the **JSONC** file type, otherwise you will get an error message saying "Comments not permitted in JSON".
 
 Check the Bicep's allowed values and any restrictions such as maximum length. Those values specify the range of values you can provide for a parameter. In this example, `storagePrefix` can have a maximum of 11 characters and `storageAccountType` must specify an allowed value.
 

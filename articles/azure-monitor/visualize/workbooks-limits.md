@@ -5,7 +5,7 @@ services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 05/30/2022
+ms.date: 07/05/2022
 ms.reviewer: gardnerjr
 ---
 
@@ -31,10 +31,10 @@ This table lists the limits of specific data visualizations.
 
 |Visualization|Limits |
 |---------|---------|
-|Grid|By default, grids only display the first 250 rows of data. This setting can be changed in the query step's advanced settings to display up to 10,000 rows. Any further items will be ignored, and a warning will be displayed.|
+|Grid|By default, grids only display the first 250 rows of data. This setting can be changed in the query component's advanced settings to display up to 10,000 rows. Any further items are ignored, and a warning will be displayed.|
 |Charts|Charts are limited to 100 series.<br>Charts are limited to 10000 data points. |
-|Tiles|Tiles is limited to displaying 100 tiles. Any further items will be ignored, and a warning will be displayed.|
-|Maps|Maps are limited to displaying 100 points. Any further items will be ignored, and a warning will be displayed.|
+|Tiles|Tiles is limited to displaying 100 tiles. Any further items are ignored, and a warning will be displayed.|
+|Maps|Maps are limited to displaying 100 points. Any further items are ignored, and a warning will be displayed.|
 |Text|Text visualization only displays the first cell of data returned by a query. Any other data is ignored.|
  
 

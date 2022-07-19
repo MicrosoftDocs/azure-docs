@@ -10,11 +10,11 @@ ms.service: iot-hub-device-update
 
 # Azure role-based access control (RBAC) and Device Update
 
-Device Update uses Azure RBAC to provide authentication and authorization for users and service APIs.
+Device Update uses Azure RBAC to provide authentication and authorization for users and service APIs. In order for other users and applications to have access to Device Update, users or applications must be granted access to this resource. It is also necessary to [configure access for Azure Device Update service principal](./device-update-control-access.md#configuring-access-for-azure-device-update-service-principal-in-the-iot-hub) for successfully deploying updates and managing your devices.
 
 ## Configure access control roles
 
-In order for other users and applications to have access to Device Update, users or applications must be granted access to this resource. Here are the roles that are supported by Device Update:
+ These are the roles that are supported by Device Update:
 
 |   Role Name   | Description  |
 | :--------- | :---- |
@@ -26,6 +26,23 @@ In order for other users and applications to have access to Device Update, users
 |  Device Update Deployments Reader| Can view deployments of updates to devices |
 
 A combination of roles can be used to provide the right level of access. For example, a developer can import and manage updates using the Device Update Content Administrator role, but needs a Device Update Deployments Reader role to view the progress of an update. Conversely, a solution operator with the Device Update Reader role can view all updates, but needs to use the Device Update Deployments Administrator role to deploy a specific update to devices.
+
+## Configuring access for Azure Device Update service principal in the IoT Hub
+
+Device Update for IoT Hub communicates with the IoT Hub for deployments and manage updates at scale. In order to enable Device Update to do this, users need to set Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
+
+Below actions will be blocked, after 9/28/22, if these permissions are not set:
+* Create Deployment
+* Cancel Deployment
+* Retry Deployment 
+* Get Device
+
+1. Go to the **IoT Hub** connected to your Device Update Instance. Click **Access Control(IAM)**
+2. Click **+ Add** -> **Add role assignment**
+3. Under Role tab, select **Contributor**
+4. Click **Next**. For **Assign access to**, select **User, group, or service principal**. Click **+ Select Members**, search for '**Azure Device Update**'
+5. Click **Next** -> **Review + Assign**
+
 
 ## Authenticate to Device Update REST APIs
 

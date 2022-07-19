@@ -74,9 +74,9 @@ If not already installed, add the firewall extension to the Azure CLI using the 
 
 :::code language="azurecli" source="~/azure_cli_scripts/container-instances/egress-ip-address.sh" id="firewallext":::
 
-Create the firewall resources:
+Create the firewall resources using the [az network firewall create][az-network-firewall-create] command:
 
-:::code language="azurecli" source="~/azure_cli_scripts/container-instances/egress-ip-address.sh" id="firewallext":::
+:::code language="azurecli" source="~/azure_cli_scripts/container-instances/egress-ip-address.sh" id="firewall":::
 
 Update the firewall configuration using the [az network firewall update][az-network-firewall-update] command:
 
@@ -190,6 +190,7 @@ For more information about managing traffic and protecting Azure resources, see 
 [az-container-create]: /cli/azure/container#az_container_create
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
 [az-extension-add]: /cli/azure/extension#az_extension_add
+[az-network-firewall-create]: /cli/azure/network/firewall#az_network_firewall_create
 [az-network-firewall-update]: /cli/azure/network/firewall#az_network_firewall_update
 [az-network-public-ip-show]: /cli/azure/network/public-ip/#az_network_public_ip_show
 [az-network-route-table-create]:/cli/azure/network/route-table/#az_network_route_table_create

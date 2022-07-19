@@ -3,7 +3,7 @@ title: Sizing of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about sizing of SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: mamccrea
+author: lauradolan
 manager: bburns
 editor: ''
 ms.service: virtual-machines-sap
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/16/2021
-ms.author: mamccrea
+ms.author: ladolan
 ms.custom: H1Hack27Feb2017
 
 ---
