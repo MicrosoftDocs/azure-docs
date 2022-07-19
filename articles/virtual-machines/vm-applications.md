@@ -1,5 +1,5 @@
 ---
-title: Overview of VM Applications in the Azure Compute Gallery (preview)
+title: Overview of VM Applications in the Azure Compute Gallery
 description: Learn more about VM application packages in an Azure Compute Gallery.
 author: ericd-mst-github
 ms.service: virtual-machines
@@ -13,14 +13,12 @@ ms.custom:
 
 ---
 
-# VM Applications overview (preview)
+# VM Applications overview
 
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing, and global distribution of applications for your virtual machines.
 
 > [!IMPORTANT]
-> **VM applications in Azure Compute Gallery** are currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Deploying **VM applications in Azure Compute Gallery** do not currently support using Azure policies.
 
 
 While you can create an image of a VM with apps pre-installed, you would need to update your image each time you have application changes. Separating your application installation from your VM images means there’s no need to publish a new image for every line of code change.
