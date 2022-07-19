@@ -19,8 +19,8 @@ SFMC performs the following repair actions on the VM if Service Fabric node is d
 
 1) Reboot the VM.
 2) If reboot doesn't bring the node up, redeploy the node.   
-3) If redeploy doesn't work, deallocate and start the VM back. 
-4) If the deallocation is unsuccessful, reimage the node.
+3) If redeploy is unsuccessful to bring the node up, deallocate and start the VM back. 
+4) If the deallocation doesn't bring the node up, reimage the node. 
 
 SFMC waits for nodes to come back up after each action, and if a node does not come up, SFMC proceeds to the next action. No further retries are made if the node is still down after SFMC has tried all the repair actions above. Alternative remediations are investigated by SF engineers if auto-repair doesn't bring the node up. 
 
