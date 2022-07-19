@@ -5,7 +5,7 @@ services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 07/18/2022
 ms.author: jodowns
 
 ---
@@ -22,7 +22,7 @@ For internet-facing applications, we recommend you enable a web application fire
 
 ### Tune your WAF
 
-The rules in your WAF should be tuned for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed. Tuning involves creating [rule exclusions](waf-front-door-exclusion.md) to reduce false positive detections.
+The rules in your WAF should be tuned for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed. Tuning might involve creating [rule exclusions](waf-front-door-exclusion.md) to reduce false positive detections.
 
 While you tune your WAF, consider using [detection mode](waf-front-door-policy-settings.md#waf-mode), which logs requests and the actions the WAF would normally take, but doesn't actually block any traffic.
 

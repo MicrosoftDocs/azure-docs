@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 07/11/2022
+ms.date: 07/18/2022
 ms.author: jodowns
 ---
 
@@ -29,7 +29,7 @@ For more information, see the following resources:
 
 ### Tune your WAF
 
-The rules in your WAF should be tuned for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed. Tuning involves creating [rule exclusions](application-gateway-waf-configuration.md) to reduce false positive detections.
+The rules in your WAF should be tuned for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed. Tuning might involve creating [rule exclusions](application-gateway-waf-configuration.md) to reduce false positive detections.
 
 While you tune your WAF, consider using [detection mode](create-waf-policy-ag.md#configure-waf-rules-optional), which logs requests and the actions the WAF would normally take, but doesn't actually block any traffic.
 
