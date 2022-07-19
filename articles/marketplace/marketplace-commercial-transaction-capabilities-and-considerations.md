@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 07/18/2022
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -35,13 +35,16 @@ The transact publishing option is currently supported for the following offer ty
 | Offer type | Billing cadence | Metered billing | Pricing model |
 | ------------ | ------------- | ------------- | ------------- |
 | Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
-| Azure Virtual Machine | Monthly<sup>1</sup> | No | Usage-based, BYOL |
+| Azure Virtual Machine | Monthly [1] | No | Usage-based, BYOL |
 | Software as a service (SaaS) | Monthly and annual | Yes | Flat rate, per user, usage-based. |
-| Dynamics 365 apps on Dataverse and Power Apps<sup>2</sup> | Monthly and annual | No | Per user |
+| Dynamics 365 apps on Dataverse and Power Apps [2] | Monthly and annual | No | Per user |
+| Power BI visual [3] | Monthly and annual | No | Per user |
 
-<sup>1</sup> Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
+[1] Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
 
-<sup>2</sup> Dynamics 365 apps on Dataverse and Power Apps offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management](isv-app-license.md).
+[2] Dynamics 365 apps on Dataverse and Power Apps offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Dynamics 365 apps on Dataverse and Power Apps](isv-app-license.md).
+
+[3] Power BI visual offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Power BI visual offers](isv-app-license-power-bi-visual.md).
 
 ### Metered billing
 
@@ -193,6 +196,8 @@ The ability to transact through Microsoft is available for the following commerc
 - **SaaS application**: Must be a multitenant solution, use [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for authentication, and integrate with the [SaaS Fulfillment APIs](partner-center-portal/pc-saas-fulfillment-apis.md). Azure infrastructure usage is managed and billed directly to you (the publisher), so you must account for Azure infrastructure usage fees and software licensing fees as a single cost item. For detailed guidance, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
 
 - **Dynamics 365 Dataverse apps and Power Apps**: Select “Per user” pricing to enable Dynamics 365 Dataverse apps and Power Apps to be sold in AppSource marketplace. Customers can manage licenses of these offers in Microsoft Admin Center.
+
+- **Power BI visual**: Select "Managing license and selling with Microsoft" to enable your offer to be transactable in Microsoft AppSource and get license management. Customers can manage licenses of these offers in Microsoft Admin Center.
 
 ## Private plans
 

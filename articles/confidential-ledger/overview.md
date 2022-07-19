@@ -9,7 +9,7 @@ ms.date: 04/15/2021
 ms.author: mbaldwin
 
 ---
-# Microsoft Azure confidential ledger (preview)
+# Microsoft Azure confidential ledger
 
 Microsoft Azure confidential ledger (ACL) is a new and highly secure service for managing sensitive data records. It runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment which keeps potential attacks at bay. Furthermore, Azure confidential ledger runs on a minimalistic Trusted Computing Base (TCB), which ensures that no one⁠—not even Microsoft⁠—is "above" the ledger.
 

@@ -83,7 +83,7 @@ For Azure services, use the recommended zone names as described in the following
 | SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.service.signalr.net | service.signalr.net |
 | Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net |
 | Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
-| Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.net  |  afs.azure.net  |
+| Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.{region}.afs.azure.net  |  {region}.afs.azure.net  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
@@ -97,6 +97,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Explorer (Microsoft.Kusto) | privatelink.{region}.kusto.windows.net | {region}.kusto.windows.net |
 | Azure Static Web Apps (Microsoft.Web/staticSites) / staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 | Azure Migrate (Microsoft.Migrate) / migrate projects, assessment project and discovery site | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
+| Azure Managed HSM (Microsoft.Keyvault/managedHSMs) | privatelink.managedhsm.azure.net | managedhsm.azure.net |
+| Azure API Management (Microsoft.ApiManagement/service) | privatelink.azure-api.net </br> privatelink.developer.azure-api.net | azure-api.net </br> developer.azure-api.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
 
