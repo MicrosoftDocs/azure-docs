@@ -337,7 +337,7 @@ Here is an example of response payloads including the orchestration status (form
 ```
 
 > [!NOTE]
-> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Azure Storage provider (Azure Functions)](durable-functions-azure-storage-provider.md#instances-table) documentation.
+> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Azure Storage provider](durable-functions-azure-storage-provider.md#instances-table) documentation.
 
 If more results exist, a continuation token is returned in the response header.  The name of the header is `x-ms-continuation-token`.
 

@@ -3,7 +3,7 @@ title: Data persistence and serialization in Durable Functions - Azure
 description: Learn how the Durable Functions extension for Azure Functions persists data
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 07/18/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
 #Customer intent: As a developer, I want to understand what data is persisted to durable storage, how that data is serialized, and how I can customize it when it doesn't work the way my app needs it to.
@@ -15,7 +15,7 @@ The Durable Functions runtime automatically persists function parameters, return
 
 ## Task Hub Contents
 
-[Task hubs](durable-functions-task-hubs.md) store the current state of instances, and any pending messages:
+Task hubs store the current state of instances, and any pending messages:
 
 * *Instance states* store the current status and history of an instance. For orchestration instances, this includes the runtime state, the orchestration history, inputs, outputs, and custom status. For entity instances, it includes the entity state.
 * *Messages* store function inputs or outputs, event payloads, and metadata that Durable Functions uses for internal purposes, like routing and end-to-end correlation.

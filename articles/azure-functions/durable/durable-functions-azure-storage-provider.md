@@ -3,7 +3,7 @@ title: Azure Storage provider for Durable Functions
 description: Learn about the characteristics of the Durable Functions Azure Storage provider.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 07/18/2022
 ms.author: azfuncdf
 ---
 
@@ -247,7 +247,9 @@ In all other situations, there is typically no observable performance improvemen
 
 ### Performance targets
 
-The following table shows the expected *maximum* throughput numbers for the previously described scenarios when using the default [Azure Storage provider for Durable Functions](durable-functions-storage-providers.md#azure-storage). "Instance" refers to a single instance of an orchestrator function running on a single small ([A1](../../virtual-machines/sizes-previous-gen.md)) VM in Azure App Service. In all cases, it is assumed that [extended sessions](#orchestrator-function-replay) are enabled. Actual results may vary depending on the CPU or I/O work performed by the function code.
+The following table shows the expected *maximum* throughput numbers for the scenarios described in the [Performance Targets](durable-functions-perf-and-scale.md#performance-targets) section of the [Performance and Scale](durable-functions-perf-and-scale.md) article. 
+
+"Instance" refers to a single instance of an orchestrator function running on a single small ([A1](../../virtual-machines/sizes-previous-gen.md)) VM in Azure App Service. In all cases, it is assumed that [extended sessions](#orchestrator-function-replay) are enabled. Actual results may vary depending on the CPU or I/O work performed by the function code.
 
 | Scenario | Maximum throughput |
 |-|-|

@@ -3,24 +3,22 @@ title: Durable Functions storage providers - Azure
 description: Learn about the different storage providers for Durable Functions and how they compare
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 07/18/2022
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand what storage providers are available Durable Functions and which one I should choose.
 ---
 
 # Durable Functions storage providers
 
-Durable Functions automatically persists function parameters, return values, and other state to durable storage to guarantee reliable execution. The default configuration for Durable Functions stores this runtime state in an Azure Storage (classic) account. However, it's possible to configure Durable Functions v2.0 and above to use an alternate durable storage provider.
+Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.5.0**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
 
 > [!NOTE]
 > For many function apps, the default Azure Storage provider for Durable Functions is likely to suffice, and is the easiest to use since it requires no extra configuration. However, there are cost, scalability, and data management tradeoffs that may favor the use of an alternate storage provider.
 
-Two alternate DTFx storage providers were developed for use with Durable Functions, the _Netherite_ storage provider and the _Microsoft SQL Server (MSSQL)_ storage provider. This article describes all three supported providers, compares them against each other, and provides basic information about how to get started using them.
+Two alternate storage providers were developed for use with Durable Functions and the Durable Task Framework, namely the _Netherite_ storage provider and the _Microsoft SQL Server (MSSQL)_ storage provider. This article describes all three supported providers, compares them against each other, and provides basic information about how to get started using them.
 
 > [!NOTE]
 > It's not currently possible to migrate data from one storage provider to another. If you want to use a new storage provider, you should create a new app configured with the new storage provider.
-
-Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.5.0**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
 
 ## Azure Storage
 
@@ -171,9 +169,9 @@ There are many significant tradeoffs between the various supported storage provi
 | Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A |
 | Maximum activity scale-out (nodes) | N/A | 32 | N/A |
 | Consumption plan support | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
-| Elastic Premium plan support | ✅ Fully supported | ⚠️ Requires runtime-driven scaling | ⚠️ Requires runtime-driven scaling |
+| Elastic Premium plan support | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) |
 | [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) |
-| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ❌ Not supported |
+| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
 | Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) |
 | Managed Identity Support | ✅ Fully supported | ❌ Not supported | ⚠️ Requires runtime-driven scaling |
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported |

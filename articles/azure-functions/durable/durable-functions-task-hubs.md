@@ -26,13 +26,20 @@ Internally, each storage provider may use a different organization to represent 
 
 ## Work items
 
-While the function app is running, it continuously fetches *work items* from the task hub. Each work item is processing one or more messages. Depending on the message to be processed, the function app executes an activity function, orchestration function, or entity function.
-When it finishes executing the work item, the runtime atomically commits the effects back to the task hub.
+The activity messages and instance messages in the task hub represent the work that the function app needs to process. While the function app is running, it continuously fetches *work items* from the task hub. Each work item is processing one or more messages. We distinguish two types of work items:
 
-There are two types of work items:
+* **Activity work items**: Run an activity function to process an activity message.
+* **Orchestrator work item**: Run an orchestrator or entity function to process one or more instance messages.
 
-* An activity work item consumes a single activity message containing an input, and produces an instance message containing the output.
-* an orchestration work item consumes one or more instance messages for the same instance, updates the instance state, and may also produce new messages.
+Workers can process multiple work items at the same time, subject to the [configured per-worker concurrency limits](durable-functions-perf-and-scale.md#concurrency-throttles).
+
+Once a worker completes a work item, it commits the effects back to the task hub. These effects vary by the type of function that was executed:
+
+* A completed activity function creates an instance message containing the result, addressed to the parent orchestrator instance.
+* A completed orchestrator function updates the orchestration state and history, and may create new messages.
+* A completed entity function updates the entity state, and may also create new instance messages.
+
+For orchestrations, each work item represents one **episode** of that orchestration's execution. An episode starts when there are new messages for the orchestrator to process. Such a message may indicate that the orchestration should start; or it may indicate that an activity, entity call, timer, or suborchestration has completed; or it can represent an external event. The message triggers a work item that allows the orchestrator to process the result and to continue with the next episode. That episode ends when the orchestrator either completes, or reaches a point where it must wait for new messages.
 
 ### Execution example
 
@@ -71,40 +78,60 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     yield context.task_all(tasks)
 ```
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("Example")
+public String exampleOrchestrator(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+        Task<Void> t1 = ctx.callActivity("MyActivity", 1);
+        Task<Void> t2 = ctx.callActivity("MyActivity", 2);
+        ctx.allOf(List.of(t1, t2)).await();
+    });
+}
+```
+
 ---
 
-After this orchestration is initiated by a client, it's processed by the function app as a sequence of work items. Each completed work item updates the task hub state:
+After this orchestration is initiated by a client it's processed by the function app as a sequence of work items. Each completed work item updates the task hub state when it commits. These are the steps:
 
-1. After a client requests to start a new orchestration with instance-id "123", the task hub contains
+1. A client requests to start a new orchestration with instance-id "123". After the client completes this request, the task hub contains a placeholder for the orchestration state and an instance message:
+
    ![workitems-illustration](./media/durable-functions-task-hubs/work-items-1.png)
 
+   The label `ExecutionStarted` is one of many [history event types](https://github.com/Azure/durabletask/tree/main/src/DurableTask.Core/History#readme) that identify the various types of messages and events participating in an orchestration's history.
 
-2. After the `ExecutionStarted` message is processed, the task hub contains
+2. A worker executes an *orchestrator work item* to process the `ExecutionStarted` message. It calls the orchestrator function which starts executing the orchestration code. This code schedules two activities and then stops executing when it is waiting for the results. After the worker commits this work item, the task hub contains
+
    ![workitems-illustration](./media/durable-functions-task-hubs/work-items-2.png)
 
-   The runtime state is now `Running`, two new `TaskScheduled` messages were added, and the history now contains the five events `OrchestratorStarted`, `ExecutionStarted`, `TaskScheduled`, `TaskScheduled`, `OrchestratorCompleted`.
+   The runtime state is now `Running`, two new `TaskScheduled` messages were added, and the history now contains the five events `OrchestratorStarted`, `ExecutionStarted`, `TaskScheduled`, `TaskScheduled`, `OrchestratorCompleted`. These events represent the first episode of this orchestration's execution.
 
-3. After one of the two activity messages is processed, the task hub contains
+3. A worker executes an *activity work item* to process one of the `TaskScheduled` message. It calls the activity function with input "2". When the activity function completes, it creates a `TaskCompleted` message containing the result. After the worker commits this work item, the task hub contains
+
    ![workitems-illustration](./media/durable-functions-task-hubs/work-items-3.png)
 
-   A new `TaskCompleted` message was added, containing the result.
+4. A worker executes an *orchestrator work item* to process the `TaskCompleted` message. If the orchestration is still cached in memory, it can just resume execution. Otherwise, the worker first [replays the history to recover the current state of the orchestration](durable-functions-orchestrations.md#reliability). Then it continues the orchestration,  delivering the result of the activity. After receiving this result, the orchestration is still waiting for the result of the other activity, so it once more stops executing. After the worker commits this work item, the task hub contains
 
-4. After the `TaskCompleted` message is processed, the task hub contains
    ![workitems-illustration](./media/durable-functions-task-hubs/work-items-4.png)
 
-   The history now contains three more events `OrchestratorStarted`, `TaskCompleted`, `OrchestratorCompleted`.
+   The orchestration history now contains three more events `OrchestratorStarted`, `TaskCompleted`, `OrchestratorCompleted`. These  events represent the second episode of this orchestration's execution.
 
-5. After the remaining activity message is processed, the task hub contains
+5. A worker executes an *activity work item* to process the remaining `TaskScheduled` message. It calls the activity function with input "1". After the worker commits this work item, the task hub contains
+
    ![workitems-illustration](./media/durable-functions-task-hubs/work-items-5.png)
 
-   A new `TaskCompleted` message was added, containing the result.
+6. A worker executes another *orchestrator work item* to process the `TaskCompleted` message. After receiving this second result, the orchestration completes. After the worker commits this work item, the task hub contains
 
-6. After the last instance message is processed, the task hub contains
    ![workitems-illustration](./media/durable-functions-task-hubs/work-items-6.png)
 
-   The runtime state is now `Completed`, and the history now contains four more events `OrchestratorStarted`, `TaskCompleted`, `ExecutionCompleted`, `OrchestratorCompleted`.
+   The runtime state is now `Completed`, and the orchestration history now contains four more events `OrchestratorStarted`, `TaskCompleted`, `ExecutionCompleted`, `OrchestratorCompleted`. These events represent the third and final episode of this orchestration's execution.
 
-The schedule shown isn't the only one: there are many slightly different possible schedules. For example, if the second activity completes earlier, both `TaskCompleted` instance messages may be processed by a single work item. In that case, the execution history is a bit shorter, containing the following sequence of 10 events: `OrchestratorStarted`, `ExecutionStarted`, `TaskScheduled`, `TaskScheduled`, `OrchestratorCompleted`, `OrchestratorStarted`, `TaskCompleted`, `TaskCompleted`, `ExecutionCompleted`, `OrchestratorCompleted`.
+The final history for this orchestration's execution then contains the 12 events `OrchestratorStarted`, `ExecutionStarted`, `TaskScheduled`, `TaskScheduled`, `OrchestratorCompleted`, `OrchestratorStarted`, `TaskCompleted`, `OrchestratorCompleted`, `OrchestratorStarted`, `TaskCompleted`, `ExecutionCompleted`, `OrchestratorCompleted`.
+
+> [!NOTE]
+> The schedule shown isn't the only one: there are many slightly different possible schedules. For example, if the second activity completes earlier, both `TaskCompleted` instance messages may be processed by a single work item. In that case, the execution history is a bit shorter, because there are only two episodes, and it contains the following 10 events: `OrchestratorStarted`, `ExecutionStarted`, `TaskScheduled`, `TaskScheduled`, `OrchestratorCompleted`, `OrchestratorStarted`, `TaskCompleted`, `TaskCompleted`, `ExecutionCompleted`, `OrchestratorCompleted`.
 
 ## Task hub management
 
@@ -167,7 +194,7 @@ In storage, the following resources are used:
 * One Azure Table that contains published metrics about the partitions.
 * An Azure Event Hubs namespace for delivering messages between partitions.
 
-For example, a task hub named `x` with `PartitionCount = 32` is represented in storage as follows:
+For example, a task hub named `mytaskhub` with `PartitionCount = 32` is represented in storage as follows:
 
 ![Diagram showing Netherite storage organization for 32 partitions.](./media/durable-functions-task-hubs/netherite-storage.png)
 
@@ -189,7 +216,7 @@ All task hub data is stored in a single relational database, using several table
 
 ![Diagram showing MSSQL storage organization.](./media/durable-functions-task-hubs/mssql-storage.png)
 
-To enable multiple task hubs to coexist independently in the same database, each table includes a `TaskHub` column as part of its primary key.
+To enable multiple task hubs to coexist independently in the same database, each table includes a `TaskHub` column as part of its primary key. Unlike the other two providers, the MSSQL provider doesn't have a concept of partitions.
 
 For more information on task hubs for the MSSQL storage provider, see [Task Hub information for the Microsoft SQL (MSSQL) storage provider](https://microsoft.github.io/durabletask-mssql/#/taskhubs).
 
