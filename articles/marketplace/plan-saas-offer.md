@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 07/15/2022
 ---
 
 # Plan a SaaS offer for the commercial marketplace
@@ -251,11 +251,34 @@ SaaS offers can use one of two pricing models with each plan: either _flat rate_
 > [!IMPORTANT]
 > After your offer is published, you cannot change the pricing model. In addition, all plans for the same offer must share the same pricing model.
 
+### SaaS billing terms and payment options
+
+The _billing term_ is the plan duration the customer is committing to, and the payment option is the payment schedule that the customer follows to pay for the entire term. SaaS apps support 1-month, 1-year, 2-year, and 3-year billing terms with options to pay one-time upfront, or with equal payments (if applicable).
+
+This table shows the payment options for SaaS offers in the commercial marketplace.
+
+| Billing term | One-time upfront payment | Monthly equal payments | Annual equal payments |
+| ------------ | ------------- | ------------- | ------------- |
+| 1-month | Yes | NA | NA |
+| 1-year | Yes | Yes | NA |
+| 2-year | Yes | Yes | Yes |
+| 3-year | Yes | Yes | Yes |
+
+> [!IMPORTANT]
+> If you choose to configure a 2-year or 3-year billing term, or a 1-year billing term with a monthly payment option, your offer will be published to Azure Marketplace only. If you update an offer that is currently published live on AppSource with a multi-year billing term, the offer will be delisted from AppSource and published to Azure Marketplace only.
+
+You can choose to configure one or more billing terms on a plan. For each billing term you define, you can select one payment option (monthly or annual payments) and set the price for each payment option. For example, to encourage a potential customer to subscribe to a longer billing term, you could offer a 2-year billing term for $100.00 and a 3-year billing term for $90.00.
+
+> [!NOTE]
+> Only one payment option is supported for a billing term on a given plan. To offer an additional payment option for the same term, you can create another plan.
+
+For billing terms with equal payments, payment collection will be enforced for the entire term and the [standard refund policy](/marketplace/refund-policies) applies. For more information about SaaS subscription management, see [SaaS subscription lifecycle management](/marketplace/saas-subscription-lifecycle-management).
+
 ### SaaS billing
 
 For SaaS apps that run in your (the publisher’s) Azure subscription, infrastructure usage is billed to you directly; customers do not see actual infrastructure usage fees. You should bundle Azure infrastructure usage fees into your software license pricing to compensate for the cost of the infrastructure you deployed to run the solution.
 
-SaaS app offers that are sold through Microsoft support monthly or annual billing based on a flat fee, per user, or consumption charges using the [metered billing service](./partner-center-portal/saas-metered-billing.md). The commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to publishers while withholding an agency fee.
+SaaS app offers that are sold through Microsoft support one-time upfront monthly or annual billing (payment option) based on a flat fee, per user, or consumption charges using the [metered billing service](./partner-center-portal/saas-metered-billing.md). The commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to publishers while withholding an agency fee.
 
 The following example shows a sample breakdown of costs and payouts to demonstrate the agency model. In this example, Microsoft bills $100.00 to the customer for your software license and pays out $97.00 to the publisher.
 
@@ -266,7 +289,9 @@ The following example shows a sample breakdown of costs and payouts to demonstra
 | **Microsoft bills** | **$100 per month** |
 | Microsoft charges a 3% Marketplace Service Fee and pays you 97% of your license cost | $97.00 per month |
 
-A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live. 
+## Preview audience
+
+A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live.
 
 On the **Preview audience** page, you can define a limited preview audience. This setting is not available if you choose to process transactions independently instead of selling your offer through Microsoft. If so, you can skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
 
