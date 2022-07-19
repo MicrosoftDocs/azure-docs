@@ -129,6 +129,13 @@ string entryContents = JsonDocument.Parse(ledgerResponse.Content)
 Console.WriteLine(entryContents);
 ```
 
+## Test and verify
+
+In the console directly, execute the following command to run the app.
+
+```csharp
+dotnet run
+```
 
 ## Sample code
 
@@ -184,15 +191,6 @@ namespace acl_app
     }
 }
 ```
-
-### Test and verify
-
-In the console directly, execute the following command to run the app.
-
-```csharp
-dotnet run
-```
-
 
 ## Next steps
 
