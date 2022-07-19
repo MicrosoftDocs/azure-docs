@@ -10,7 +10,7 @@ ms.service: azure-fluid
 
 # How to: Deploy Fluid applications using Azure Static Web Apps
 
-This article demonstrates how to deploy Fluid apps using Azure Static Web Apps. The [FluidHelloWorld](https://github.com/microsoft/FluidHelloWorld/tree/main-azure) repository contains a Fluid application called **DiceRoller** that enables all connected clients to roll a dice and view the result.  In this how-to, you deploy the DiceRoller application to Azure Static Web Apps using the Visual Studio Code extension.
+This article demonstrates how to deploy Fluid apps using Azure Static Web Apps. The [FluidHelloWorld](https://github.com/microsoft/FluidHelloWorld/tree/main-azure) repository contains a Fluid application called **DiceRoller** that enables all connected clients to roll a die and view the result.  In this how-to, you deploy the DiceRoller application to Azure Static Web Apps using the Visual Studio Code extension.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
@@ -55,7 +55,7 @@ In order to use this token provider, you need to deploy an HTTPS endpoint that w
 
 ### Deploying an Azure Function using Azure Static Web apps
 
-Azure Static Web Apps allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. You can deploy Azure Functions alongside your static website. Using this capability, you can deploy an HTTP-triggered Azure Function that will sign tokens.
+Azure Static Web Apps allows you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. You can deploy Azure Functions alongside your static website. Using this capability, you can deploy an HTTP-triggered Azure Function that will sign tokens.
 
 For more information about deploying Azure Function-powered APIs to your static web app see [Add an API to Azure Static Web Apps with Azure Functions](../../static-web-apps/add-api.md).
 
@@ -180,7 +180,7 @@ Run the `npm run build` command from the root directory to rebuild the app. This
 
     :::image type="content" source="../../static-web-apps/media/getting-started/extension-browse-site.png" alt-text="An image of the menu that is shown when right-clicking on a static web app. The Browse Site option is highlighted.":::
 
-1. The location of your application code, Azure Function, and build output is part of the `azure-static-web-apps-xxx-xxx-xxx.yml` workflow file located in the `/.github/workflows` directory. This file is automatically created when create the Static Web app. It defines a GitHub Actions to build and deploy your Static Web app.
+1. The location of your application code, Azure Function, and build output is part of the `azure-static-web-apps-xxx-xxx-xxx.yml` workflow file located in the `/.github/workflows` directory. This file is automatically created when you create the Static Web app. It defines a GitHub Actions to build and deploy your Static Web app.
 
 
 ## Clean up resources
