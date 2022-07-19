@@ -86,7 +86,7 @@ landingContent:
             url: https://aka.ms/dlbcvm
 
   # Card
-  - title: Container compute options
+  - title: Container Computes
     linkLists:
       - linkListType: overview
         links: 
