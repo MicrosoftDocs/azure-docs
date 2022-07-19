@@ -151,15 +151,15 @@ Now that your configuration files are saved in a repository, you need to connect
 
 5. Select **Validate**.
 
-    ![Navigate to config server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Navigate to config server](media/how-to-config-server/portal-config.png)
 
 6. When validation is complete, select **Apply** to save your changes.
 
-    ![Validating config server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+    ![Validating config server](media/how-to-config-server/validate-complete.png)
 
 7. Updating the configuration can take a few minutes.
 
-    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png)
+    ![Updating config server](media/how-to-config-server/updating-config.png)
 
 8. You should get a notification when the configuration is complete.
 
@@ -211,7 +211,7 @@ The information from your YAML file should be displayed in the Azure portal. Sel
 
 ## Using Azure Repos for Azure Spring Apps Configuration
 
-Azure Spring Apps can access Git repositories that are public, secured by SSH, or secured using HTTP basic authentication. We'll use that last option, as its easier to create and manage with Azure Repos.
+Azure Spring Apps can access Git repositories that are public, secured by SSH, or secured using HTTP basic authentication. We'll use that last option, as it's easier to create and manage with Azure Repos.
 
 ### Get repo url and credentials
 
