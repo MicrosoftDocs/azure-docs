@@ -66,9 +66,9 @@ TimeRange is the time range in the original video. AdjustedTimeRange is the time
 
 Azure Video Indexer supports embedding widgets in your apps. For more information, see [Embed Azure Video Indexer widgets in your apps](video-indexer-embed-widgets.md).
 
-## Summarized insights	
+## Insights	
 
-Summarized insights contain an aggregated view of the data: faces, topics, emotions. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.	
+Insights contain an aggregated view of the data: faces, topics, emotions. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.	
 
 ## Next steps
 
