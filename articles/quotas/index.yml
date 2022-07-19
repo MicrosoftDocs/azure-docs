@@ -1,0 +1,64 @@
+### YamlMime:Landing
+
+title: Azure Quotas documentation
+summary: Azure Quotas summary TK
+metadata:
+  title: Azure Quotas documentation
+  description: Azure Quotas summary TK
+  services: Azure Quotas
+  ms.topic: landing-page
+  ms.service: azure-quotas
+  ms.collection: collection
+  ms.date: 07/25/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About the Azure portal
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Azure portal?
+            url: azure-portal-overview.md
+          - text: Onboard with Azure Quickstart Center
+            url: azure-portal-quickstart-center.md
+          - text: Supported browsers and devices
+            url: azure-portal-supported-browsers-devices.md
+
+  # Card 
+  - title: Get started
+    linkLists: 
+      - linkListType: quickstart
+        links:
+          - text: Request a quota increase in the portal
+            url: quickstart-increase-quotas-portal.md
+
+            
+  # Card
+  - title: View quotas and request increases
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View and increase quotas
+            url: view-quotas.md
+          - text: Increase VM-family vCPU quotas
+            url: per-vm-quota-requests.md
+          - text: Increase regional vCPU quotas
+            url: regional-quota-requests.md
+          - text: Increase spot vCPU quotas
+            url: spot-quota.md
+
+  # Card
+  - title: API Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/network#az-network-list-usages
+          - text: Azure PowerShell
+            url: /powershell/module/azurerm.network/get-azurermnetworkusage
+          - text: Azure REST API
+            url: /rest/api/virtualnetwork/virtualnetworks/listusage

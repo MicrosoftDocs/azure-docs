@@ -11,19 +11,19 @@
 - name: How-to guides
   items:
     - name: View quotas
-      href: supportability/view-quotas.md
+      href: view-quotas.md
     - name: Increase compute quotas
       items:
       - name: Increase VM-family vCPU quotas
-        href: supportability/per-vm-quota-requests.md
+        href: per-vm-quota-requests.md
       - name: Increase regional vCPU quotas
-        href: supportability/regional-quota-requests.md
+        href: regional-quota-requests.md
       - name: Increase spot vCPU quotas
-        href: supportability/spot-quota.md
+        href: spot-quota.md
     - name: Increase vCPU quotas for classic deployment
-      href: supportability/classic-deployment-model-quota-increase-requests.md
+      href: classic-deployment-model-quota-increase-requests.md
     - name: Increase networking quotas
-      href: supportability/networking-quota-requests.md
+      href: networking-quota-requests.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -32,9 +32,6 @@
     href: /powershell/module/azurerm.network/get-azurermnetworkusage
   - name: Azure REST API
     href: /rest/api/virtualnetwork/virtualnetworks/listusage
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure updates
