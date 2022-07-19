@@ -36,7 +36,7 @@ The Request Service REST API presentation request requires the following HTTP he
 |`Authorization`| Attach the access token as a bearer token to the authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
 |`Content-Type`| `Application/json`|
 
-Construct an HTTP POST request to the Request Service REST API. The `tenantId` is not needed in the URL anymore as it is present as a claim in the `access_token`.
+Construct an HTTP POST request to the Request Service REST API. The `tenantId` isn't needed in the URL anymore as it is present as a claim in the `access_token`.
 
 ```http
 https://verifiedid.did.msidentity.com/v1.0/verifiableCredentials/createPresentationRequest
@@ -135,7 +135,7 @@ The Request Service REST API generates several events to the callback endpoint. 
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `url` | string| URI to the callback endpoint of your application. The URI must point to a reacheable endpoint on the internet otherwise the service will throw a callback URL unreadable error. Accepted inputs IPv4, IPv6 or DNS resolvable hostname. |
+| `url` | string| URI to the callback endpoint of your application. The URI must point to a reachable endpoint on the internet otherwise the service will throw a callback URL unreadable error. Accepted inputs IPv4, IPv6 or DNS resolvable hostname. |
 | `state` | string| Correlates the callback event with the state passed in the original payload. |
 | `headers` | string| Optional. You can include a collection of HTTP headers required by the receiving end of the POST message. The current supported header values are the `api-key` or the `Authorization` headers. Any other header will throw an invalid callback header error.|
 
@@ -148,7 +148,7 @@ The `RequestCredential` provides information about the requested credentials the
 | `type`| string| The verifiable credential type. The `type` must match the type as defined in the `issuer` verifiable credential manifest (for example, `VerifiedCredentialExpert`). To get the issuer manifest, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md). Copy the **Issue credential URL**, open it in a web browser, and check the **id** property. |
 | `purpose`| string | Provide information about the purpose of requesting this verifiable credential. |
 | `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. |
-| `configuration.validation` | [Configuration.Validation](#configuration-validation-type) | Optional. Settings for the presentation validation.|
+| `configuration.validation` | [Configuration.Validation](#configurationvalidation-type) | Optional. Settings for the presentation validation.|
 
 ### Configuration.Validation type
 

@@ -948,7 +948,7 @@ example:
 |`description`| string | supplemental text displayed alongside each credential |
 |`logo`| [displayCredentialLogo](#displaycredentiallogo-type) | the logo to use for the credential |
 
-#### displayCredentialLogodisplayCredentialLogo type
+#### displayCredentialLogo type
 
 | Property | Type | Description |
 | -------- | -------- | -------- |

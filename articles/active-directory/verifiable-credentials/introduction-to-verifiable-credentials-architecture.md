@@ -2,13 +2,13 @@
 title: Azure Active Directory architecture overview (preview)
 description: Learn foundational information to plan and design your solution
 documentationCenter: ''
-author: barbaraselden
+author: barclayn
 manager: martinco
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/02/2022
-ms.author: baselden
+ms.date: 07/19/2022
+ms.author: barclayn
 ---
 
 # Microsoft Entra Verified ID architecture overview (preview)
@@ -84,7 +84,7 @@ Terminology for verifiable credentials (VCs) might be confusing if you're not fa
 
 * Woodgrove (issuer) signs their employees’ VCs with its public key; similarly, Proseware (verifier) signs requests to present a VC using its key, which is also associated with its DID.
 
-A ***trust system*** is the foundation in establishing trust bewteen decentralized systems. It can be a distributed ledger or it can be something centralized, such as [DID Web](https://w3c-ccg.github.io/did-method-web/). 
+A ***trust system*** is the foundation in establishing trust between decentralized systems. It can be a distributed ledger or it can be something centralized, such as [DID Web](https://w3c-ccg.github.io/did-method-web/). 
 
  “A ***distributed ledger*** is a non-centralized system for recording events. These systems establish sufficient confidence for participants to rely upon the data recorded by others to make operational decisions. They typically use distributed databases where different nodes use a consensus protocol to confirm the ordering of cryptographically signed transactions. The linking of digitally signed transactions over time often makes the history of the ledger effectively immutable.”
 
@@ -198,7 +198,7 @@ By providing Alice the VC, Woodgrove is attesting that Alice is an employee. Woo
 
 * Woodgrove enables Alice to provide Proseware proof of employment without Woodgrove having to extend its trust boundary. 
 
-* Proseware doesn’t need to expand their trust boundary to validate Alice is an employee of Woodgrove. Proseware can use the VC that Woodgrove provides instead. Because the trust boundary isn’t expanded, managing the trust relationship is easier and Proseware can easily end the relationship by not accepting the VCs anymore.
+* Proseware doesn’t need to expand their trust boundary to validate Alice is an employee of Woodgrove. Proseware can use the VC that Woodgrove provides instead. Because the trust boundary isn’t expanded, managing the trust relationship is easier, and Proseware can easily end the relationship by not accepting the VCs anymore.
 
 * Alice doesn’t need to provide Proseware personal information, such as an email. Alice maintains the VC in a wallet application on a personal device. The only person that can use the VC is Alice, and Alice must initiate usage of the credential. Each usage of the VC is recorded by the wallet application, so Alice has a record of when and where the VC is used. 
 
