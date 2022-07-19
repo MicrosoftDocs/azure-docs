@@ -26,14 +26,14 @@ Azure confidential ledger client library resources:
 - [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
-You will also need an running confidential ledger, and a registered user with the `Administrator` privileges. You can create a confidential ledger (and an administrator) using the [Azure portal](quick-portal.md), the [Azure CLI](quick-cli.md), or [Azure PowerShell](quick-powershell.md).
+You will also need an running confidential ledger, and a registered user with the `Administrator` privileges. You can create a confidential ledger (and an administrator) using the [Azure portal](quickstart-portal.md), the [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
 
 
 ## Setup
 
 ### Create new .NET console app
 
-1. In a command shell, run the following command to create a project named `acl-quickstart-app`:
+1. In a command shell, run the following command to create a project named `acl-app`:
 
     ```dotnetcli
     dotnet new console --name acl-app
