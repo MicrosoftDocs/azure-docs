@@ -3,7 +3,7 @@ title: Use KMS etcd encryption in Azure Kubernetes Service (AKS)
 description: Learn how to use kms etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/13/2022
+ms.date: 07/19/2022
 
 ---
 
@@ -32,7 +32,7 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * KMS etcd encryption doesn't work with System-Assigned Managed Identity. The keyvault access-policy is required to be set before the feature is enabled. In addition, System-Assigned Managed Identity isn't available until cluster creation, thus there's a cycle dependency. 
 * Using more than 2000 secrets in a cluster.
 * Bring your own (BYO) Azure Key Vault from another tenant.
-* Change Azure Key Vault model (public, private) if KMS is enabled. For changing key vault mode, you need to disable and enable KMS again.
+* Change associated Azure Key Vault model (public, private) if KMS is enabled. For [changing associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
 
 KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private key vault][Enable-KMS-with-private-key-vault] now. 
 
@@ -236,6 +236,37 @@ Use below command to update all secrets. Otherwise, the old secrets are still en
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
+## Update key vault mode
+
+> [!NOTE]
+> To change a different key vault with different mode (public, private), you could run `az aks update` directly. To change the mode of attached key vault, you need to diable KMS and re-enable it with new key vault ids. 
+
+Below are the steps about how to migrate the attached public key vault to private mode.
+
+### Disable KMS on the cluster
+
+Use below command to disable the KMS on existing cluster and release the key vault.
+
+```azurecli-interactive
+az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
+```
+
+### Change key vault mode
+
+Update the key vault from public to private.
+
+```azurecli-interactive
+az keyvault update --name MyKeyVault --resource-group MyResourceGroup --public-network-access "Disabled"
+```
+
+### Enable KMS on the cluster with updated key vault
+
+Use below command to re-enable the KMS with updated private key vault.
+
+```azurecli-interactive
+az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $NewKEY_ID --azure-keyvault-kms-key-vault-network-access "Private" --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID
+```
+
 ## Disable KMS
 
 Use below command to disable KMS on existing cluster. 
@@ -271,3 +302,4 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [Enable-KMS-with-public-key-vault]: use-kms-etcd-encryption.md#enable-kms-with-public-key-vault
 [Enable-KMS-with-private-key-vault]: use-kms-etcd-encryption.md#enable-kms-with-private-key-vault
+[changing-associated-key-vault-mode]: use-kms-etcd-encryption.md#update-key-vault-mode
