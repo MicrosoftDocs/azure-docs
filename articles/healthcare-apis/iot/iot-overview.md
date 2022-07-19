@@ -60,12 +60,10 @@ The MedTech service uses [Azure role-based access control (Azure RBAC)](../../ro
 
 ## Next steps
 
-For more information about the MedTech service data flow, see
+In this article, you learned about the MedTech service. To learn about the MedTech service data flows and how to deploy the MedTech service in the Azure portal, see
 
 >[!div class="nextstepaction"]
->[The MedTech service data flow](./iot-data-flow.md)
-
-For more information about deploying the MedTech service, see
+>[The MedTech service data flows](./iot-data-flow.md)
 
 >[!div class="nextstepaction"]
 >[Deploy the MedTech service using the Azure portal](./deploy-iot-connector-in-azure.md)
