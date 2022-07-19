@@ -5,7 +5,7 @@ author: bwren
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2022
+ms.date: 07/19/2022
 ms.reviewer: bwren
 ---
 
@@ -56,6 +56,14 @@ Traces are series of related events that follow a user request through a distrib
 Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](app/distributed-tracing.md). Trace data is stored with other application log data collected by Application Insights. This way it's available to the same analysis tools as other log data including log queries, dashboards, and alerts.
 
 Read more about distributed tracing at [What is distributed tracing?](app/distributed-tracing.md).
+
+### Changes
+
+[Changes](./change/change-analysis-visualizations.md) are a series of events that occur in your Azure application, from the infrastructure layer through application deployment. Changes are traced on a subscription-level using [the Change Analysis tool](./change/change-analysis.md). The Change Analysis tool increases observability by building on the power of [Azure Resource Graph](../governance/resource-graph/overview.md) to provide detailed insights into your application changes. 
+
+Once [Change Analysis is enabled](./change/change-analysis-enable.md), the `Microsoft.ChangeAnalysis` resource provider is registered with an Azure Resource Manager subscription to make the tracked properties and proxied settings change data available. Change Analysis' [Diagnose and solve problems tool](./change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool) provides data for various diagnostic tools to help users understand what changes might have caused the issues.
+
+Read more about Change Analysis, including data sources in [Use Change Analysis in Azure Monitor](./change/change-analysis.md).
 
 ## Compare Azure Monitor metrics and logs
 
