@@ -488,7 +488,7 @@
       items:
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
-      - name: Backup and restore
+      - name: Back up and restore
         href: flexible-server/concepts-backup-restore.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
@@ -690,7 +690,7 @@
         href: hyperscale/howto-compute-quota.md
       - name: Manage read replicas
         href: hyperscale/howto-read-replicas-portal.md
-    - name: Availability and resilliency
+    - name: Availability and resilience
       items:
       - name: Configure high availability
         href: hyperscale/howto-high-availability.md
@@ -775,7 +775,7 @@
       href: hyperscale/concepts-maintenance.md
     - name: Business continuity
       items:
-      - name: Backup and restore
+      - name: Back up and restore
         href: hyperscale/concepts-backup.md
         displayName: backup, restore, outage, hyperscale
       - name: High availability
