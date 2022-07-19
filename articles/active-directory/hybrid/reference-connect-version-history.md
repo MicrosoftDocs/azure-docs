@@ -396,6 +396,10 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it as
 - We now use the V2 endpoint for import and export. We fixed an issue in the Get-ADSyncAADConnectorExportApiVersion cmdlet. To learn more about the V2 endpoint, see [Azure AD Connect sync V2 endpoint](how-to-connect-sync-endpoint-api-v2.md).
 - We added the following new user properties to sync from on-premises Active Directory to Azure AD:
   - employeeType
+- Below attributes are AzureAD attribute. It is present at AADConnect cloud connector schema.
+  These attributes aren't present in an Active Directory Domain Services (ADDS) schema.
+  Here's the article which lists the available attributes in ADDS,
+  https://docs.microsoft.com/en-us/windows/win32/adschema/attributes-all
   - employeeHireDate
 - This release requires PowerShell version 5.0 or newer to be installed on the Windows server. This version is part of Windows Server 2016 and newer.
 - We increased the group sync membership limits to 250,000 with the new V2 endpoint.
