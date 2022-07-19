@@ -44,7 +44,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 | Region   |  West US 2 |
 | Name   |  TestERCircuit |
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text=" Screenshot of how to configure the resource group and region.":::
+  :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text=" Screenshot of how to configure the resource group and region.":::
 
 1. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Local, Standard, or Premium) and data metering billing model (Unlimited or Metered).
 
