@@ -17,7 +17,7 @@ As discussed in [the Azure Policy documentation](../governance/policy/concepts/d
 > [!TIP]
 > For an overview of the key concepts on this page, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
 
-You can your custom initiative organized by controls, similar to the controls in the compliance standard. Learn how to create policy groups within the custom initiatives and organize them in your initiative by following the [policy definitions groups](../governance/policy/concepts/initiative-definition-structure.md) guidance.  
+You can view your custom initiatives organized by controls, similar to the controls in the compliance standard. To learn how to create policy groups within the custom initiatives and organize them in your initiative by following the [policy definitions groups](../governance/policy/concepts/initiative-definition-structure.md) guidance.  
 
 ::: zone pivot="azure-portal"
 
