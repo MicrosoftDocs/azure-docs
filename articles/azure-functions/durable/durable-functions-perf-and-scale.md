@@ -65,7 +65,7 @@ The typical effect of caching is reduced I/O against the underlying storage serv
 
 Instance caching is currently supported by the Azure Storage provider and by the Netherite storage provider. The table below provides a comparison.
 
-|   | Azure Storage provider | Netherite storage provider | MSSQL storage provider |
+|| Azure Storage provider | Netherite storage provider | MSSQL storage provider |
 | -                |-              |-          |- |
 | Instance caching     | Supported<br/>(.NET in-process worker only)       | Supported          | Not supported |
 | Default setting       | Disabled       | Enabled   | n/a |
@@ -153,7 +153,7 @@ When using partitioning, workers do not directly compete for individual work ite
 
 The following table shows, for each storage provider, which queues are partitioned, and the allowable range and default values for the `partitionCount` parameter.
 
-|   | Azure Storage provider | Netherite storage provider | MSSQL storage provider |
+|| Azure Storage provider | Netherite storage provider | MSSQL storage provider |
 | -                |-              |-          |-      |
 | Instance messages | Partitioned        | Partitioned          | Not partitioned     |
 | Activity messages    | Not partitioned      | Partitioned          | Not partitioned    |
