@@ -26,6 +26,10 @@ When sharing ultra disks, they have the following additional limitations:
 
 Premium SSD v2 disks have their own separate list of limitations, unrelated to shared disks. For these limitations, see [Premium SSD v2 limitations](../articles/virtual-machines/disks-types.md#premium-ssd-v2-limitations).
 
+When sharing Premium SSD v2 disks, they have the following additional limitation:
+
+- Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
+
 ### Premium SSDs
 
 - Can only be enabled on data disks, not OS disks.
