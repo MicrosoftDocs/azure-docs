@@ -1,13 +1,13 @@
 ---
 title: Monitor SAP on Azure (preview) | Microsoft Docs
 description: Start here to learn how to monitor SAP on Azure.
-author: mamccrea
+author: lauradolan
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.custom: subject-monitoring
 ms.date: 10/13/2021
-ms.author: mamccrea
+ms.author: ladolan
 
 ---
 
