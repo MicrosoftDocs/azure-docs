@@ -11,7 +11,7 @@ ms.custom:
 
 ---
 
-# Create and deploy VM Applications (preview)
+# Create and deploy VM Applications
 
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing and global distribution of applications for your virtual machines.
 
