@@ -34,6 +34,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 **VM size support**:
 - B-series
 - DCsv2-series
+- DCsv3-series
 - Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series
 - Dav4-series, Dasv4-series
 - Ddv4-series, Ddsv4-series
