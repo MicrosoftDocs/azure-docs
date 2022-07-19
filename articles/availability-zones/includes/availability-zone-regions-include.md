@@ -13,8 +13,8 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
-| Brazil South | France Central | Qatar Central* | South Africa North | Australia East |
-| Canada Central | Germany West Central | UAE North* | | Central India |
+| Brazil South | France Central | Qatar Central | South Africa North | Australia East |
+| Canada Central | Germany West Central | UAE North | | Central India |
 | Central US | North Europe | | | Japan East |
 | East US | Norway East | | | Korea Central |
 | East US 2 | UK South | | | Southeast Asia |
@@ -22,5 +22,3 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | US Gov Virginia | Sweden Central | | | China North 3 |
 | West US 2 | Switzerland North | | | |
 | West US 3 | | | | |
-
-\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
