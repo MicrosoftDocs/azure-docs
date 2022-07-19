@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/06/2022
+ms.date: 07/18/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: udayh
@@ -59,9 +59,28 @@ The most important fields for creating the federated identity credential are:
 
 The following command configures a federated identity credential:
 
-```http
-az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/41be38fd-caac-4354-aa1e-1fdb20e43bfa/federatedIdentityCredentials' --body '{"name":"GcpFederation","issuer":"https://accounts.google.com","subject":"112633961854638529490","description":"Testing","audiences":["api://AzureADTokenExchange"]}'
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az ad app federated-credential create --id 41be38fd-caac-4354-aa1e-1fdb20e43bfa --parameters credential.json
+("credential.json" contains the following content)
+{
+    "name": "GcpFederation",
+    "issuer": "https://accounts.google.com",
+    "subject": "112633961854638529490",
+    "description": "Test GCP federation",
+    "audiences": [
+        "api://AzureADTokenExchange"
+    ]
+}
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://accounts.google.com' -name 'GcpFederation' -Subject '112633961854638529490'
+```
+---
 
 For more information and examples, see [Create a federated identity credential](workload-identity-federation-create-trust.md).
 
@@ -96,7 +115,7 @@ async function getGoogleIDToken() {
 ```
 
 # [C#](#tab/csharp)
-Here’s an example in TypeScript of how to request an ID token from the Google metadata server:
+Here’s an example in C# of how to request an ID token from the Google metadata server:
 ```csharp
 private string getGoogleIdToken()
 {
