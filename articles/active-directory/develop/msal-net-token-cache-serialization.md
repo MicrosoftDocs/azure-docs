@@ -686,6 +686,9 @@ namespace CommonCacheMsalV3
 }
 ```
 
+For more details see the sample: https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/TokenCacheMigration/ADAL2MSAL
+
+
 ---
 
 ## Monitor cache hit ratios and cache performance
