@@ -35,7 +35,7 @@ The [Device Update for IoT Hub](..\iot-hub-device-update\understand-device-updat
    > [!Note]
    > The file extension must be .importmanifest.json.
    
-   :::image type="content" source="./media/how-to-adu/upload-manifest.png" alt-text="Dialog to instruct the user to upload the .importmanifest.json file by selecting the "choose File" button.":::
+   :::image type="content" source="./media/how-to-adu/upload-manifest.png" alt-text="Dialog to instruct the user to upload the .importmanifest.json file by selecting the choose File button.":::
 
    5.	Copy and Paste the SAS URL to the location of your .SWU file in the provided input box, then select the **Validate** button.
    :::image type="content" source="./media/how-to-adu/input-sasurl.png" alt-text="Dialog that shows how the SAS url is applied.":::
