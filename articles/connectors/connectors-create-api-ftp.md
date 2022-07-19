@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/13/2022
+ms.date: 07/24/2022
 tags: connectors
 ---
 
@@ -47,6 +47,12 @@ The FTP connector has different versions, based on [logic app type and host envi
   * Managed connector for Consumption and Standard workflows
 
     By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
+
+* If you use an external tool or client that creates, adds, or updates files on the FTP server, make sure that you disable any feature in the tool or client that preserves a file's "last modified" timestamp.
+
+  FTP triggers work by polling, or checking, the FTP file system and looking for any files that changed since the last poll. The FTP *managed* connector triggers compare file versions using the file's last modified timestamp. If you create, add, or update file with a timestamp that's earlier than the currently tracked "last modified" timestamp, the FTP managed connector trigger won't detect this file. For more information, review the [FTP managed connector reference - Requirements](/connectors/ftp/#requirements).
+
+  On the other hand, the FTP *built-in* connector trigger in Standard logic app workflows doesn't have this limitation. 
 
 * For more limitations that apply to both the FTP managed connector and built-in connector, review the [FTP managed connector reference - Limitations](/connectors/ftp/#limitations).
 
@@ -561,10 +567,10 @@ This action creates a file using the specified file path and file content. If th
 
 > [!IMPORTANT]
 >
-> If the file is deleted or renamed on the FTP server immediately after creation, 
-> the operation might return an HTTP **404** error by design. To avoid this problem, 
-> include a 1-minute delay before you delete or rename any newly created files. You can 
-> use the [**Delay** action](connectors-native-delay.md) to add this delay to your workflow.
+> If you delete or rename a file on the FTP server immediately after creation within the same workflow, 
+> the operation might return an HTTP **404** error, which is by design. To avoid this problem, include 
+> a 1-minute delay before you delete or rename any newly created files. You can use the 
+> [**Delay** action](connectors-native-delay.md) to add this delay to your workflow.
 
 #### Parameters
 
@@ -692,10 +698,10 @@ This action updates a file using the specified file path and file content.
 
 > [!IMPORTANT]
 >
-> If the file is deleted or renamed on the FTP server immediately after an update, 
-> the operation might return an HTTP **404** error by design. To avoid this problem, 
-> include a 1-minute delay before you delete or rename any updated files. You can use 
-> the [**Delay** action](connectors-native-delay.md) to add this delay to your workflow.
+> If you delete or rename a file on the FTP server immediately after creation within the same workflow, 
+> the operation might return an HTTP **404** error, which is by design. To avoid this problem, include 
+> a 1-minute delay before you delete or rename any newly created files. You can use the 
+> [**Delay** action](connectors-native-delay.md) to add this delay to your workflow.
 
 #### Parameters
 
