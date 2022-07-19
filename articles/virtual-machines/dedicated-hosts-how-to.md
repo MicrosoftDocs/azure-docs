@@ -8,7 +8,7 @@ ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/01/2021
-ms.reviewer: brittanyrowe
+ms.reviewer: mattmcinnes
 
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines

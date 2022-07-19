@@ -25,7 +25,7 @@ Configure a Public IP block through portal by using the Public IP feature of the
 
 After the Public IP is configured successfully, you should see it appear under the Public IP section. The provisioning state shows **Succeeded**. This Public IP block is configured as NSX-T segment on the Tier-1 router.
 
-For more information about how to enable a public IP to the NSX Edge for Azure VMware Solution, see [Enable Public IP to the NSX Edge for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/enable-public-ip-nsx-edge). 
+For more information about how to enable a public IP to the NSX Edge for Azure VMware Solution, see [Enable Public IP to the NSX Edge for Azure VMware Solution](./enable-public-ip-nsx-edge.md). 
 
 ## Create Public IP segment on NSX-T 
 Before you create a Public IP segment, get your credentials for NSX-T Manager from Azure VMware Solution portal. 
@@ -124,7 +124,6 @@ The HCX Network Extension service provides layer 2 connectivity between sites. T
 After the network is extended to destination site, VMs can be migrated over Layer 2 Extension. 
 
 ## Next steps 
+[Enable Public IP to the NSX Edge for Azure VMware Solution](./enable-public-ip-nsx-edge.md)
+
 For detailed information on HCX network underlay minimum requirements, see [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html).
-
-
-

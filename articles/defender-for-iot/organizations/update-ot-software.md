@@ -209,7 +209,7 @@ In such cases:
 
 1. Verify that your sensors are connected successfully.
 
-1. Delete any private IoT Hubs that are no longer needed. For more information, see the [IoT Hub documentation](/azure/iot-hub/iot-hub-create-through-portal).
+1. Delete any private IoT Hubs that are no longer needed. For more information, see the [IoT Hub documentation](../../iot-hub/iot-hub-create-through-portal.md).
 
 ## Next steps
 

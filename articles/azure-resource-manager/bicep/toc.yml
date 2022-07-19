@@ -36,10 +36,15 @@
     - name: Bicep with GitHub Actions
       displayName: continuous, ci, cd, CI/CD
       href: deploy-github-actions.md
+    - name: Bicep with MSBuild
+      href: msbuild-bicep-file.md
+      displayName: continuous, ci, cd, CI/CD
 - name: Tutorials
   items:
   - name: Microsoft Learn - Bicep
     href: learn-bicep.md
+  - name: Learn live - Bicep
+    href: /events/learntv/learnlive-iac-and-bicep/
 - name: Samples - Azure Services
   items:
   - name: Advisor
@@ -138,6 +143,8 @@
       href: ../../purview/quickstart-bicep-create-azure-purview.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Resource Graph
       href: ../../governance/resource-graph/shared-query-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Role-based access control - custom roles
+      href: ../../role-based-access-control/custom-roles-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Role-based access control - role assignment
       href: ../../role-based-access-control/quickstart-role-assignments-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Site Recovery
@@ -160,7 +167,9 @@
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Firewall - Availability Zones
       href: ../../firewall/deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Firewall Manager
+    - name: Firewall Manager - policy
+      href: ../../firewall-manager/quick-firewall-policy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Firewall Manager - virtual hub
       href: ../../firewall-manager/quick-secure-virtual-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
@@ -330,6 +339,7 @@
   - name: Provide parameters
     items:
     - name: Parameter file
+      displayName: comments,metadata,
       href: parameter-files.md
     - name: Sensitive values
       displayName: key vault
