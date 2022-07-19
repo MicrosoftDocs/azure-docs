@@ -77,8 +77,8 @@ If you use NSGs, you can create AMS-related [virtual network service tags](../..
 
 
   AMS subnet IP refers to Ip of subnet associated with AMS resource  
-  <img width="1004" alt="IPSubnet" src="https://user-images.githubusercontent.com/33844181/176853982-ce90631d-d352-471e-9339-92a2efa17660.png">
-         
+  
+![Diagram shows the subnet associated with ams resource.](./media/azure-monitor-sap/azure-monitor-network-subnet.png)
 
 For the rules that you create, **allow_vnet** must have a lower priority than **deny_internet**. All other rules also need to have a lower priority than **allow_vnet**. However, the remaining order of these other rules is interchangeable.
         
@@ -175,11 +175,11 @@ Next, find and note important IP address ranges.
     1. Go to the resource group that contains the AMS resource in the Azure portal.
     1. On the **Overview** page, note the **Private endpoint** in the resource group.
     1. In the resource group's menu, under **Settings**, select **DNS configuration**.
-    1. On the **DNS configuration** page, note the **IP addresses** for the private endpoint.
-    
+    1. On the **DNS configuration** page, note the **IP addresses** for the private endpoint.    
 
-    For Log analytics private endpoint: Go to the private endpoint created for Azure Monitor Private Link Scope resource. 
-    ![linked scope resource](https://user-images.githubusercontent.com/33844181/176845649-0ccef546-c511-4373-ac3d-cbf9e857ca78.png)
+    1. For Log analytics private endpoint: Go to the private endpoint created for Azure Monitor Private Link Scope resource.         
+    
+        ![linked scope resource](https://user-images.githubusercontent.com/33844181/176845649-0ccef546-c511-4373-ac3d-cbf9e857ca78.png)
 
 1. On the private endpoint's menu, under **Settings**, select **DNS configuration**.
 1. On the **DNS configuration** page, note the associated IP addresses.

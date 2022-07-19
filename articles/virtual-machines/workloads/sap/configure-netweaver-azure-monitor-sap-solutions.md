@@ -244,7 +244,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
     $FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
     $sapcntrl.$Function($FunctionObject)
     ```
-11. **Repeat Steps 3-10 for each instance profile **.
+11. **Repeat Steps 3-10 for each instance profile**.
 
 >[!Important] 
 >It is critical that the sapstartsrv service is restarted on each instance of the SAP system for the SAPControl web methods to be unprotected.  These read-only SOAP API are required for the NetWeaver provider to fetch metric data from the SAP System and failure to unprotect these methods will lead to empty or missing visualizations on the NetWeaver metric workbook.

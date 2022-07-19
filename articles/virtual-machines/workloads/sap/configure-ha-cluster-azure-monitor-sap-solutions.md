@@ -50,12 +50,12 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 1. Select **Review + create** to review the settings.
 1. Select **Create** to finish creating the resource.
 
-For SUSE based cluster
+###### For SUSE based cluster
 
 
 ![diagram that shows required fields to setup azure monitor for sap ha suse cluster](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-suse.png)  
 
-######For RHEL based cluster
+###### For RHEL based cluster
 
 ![diagram that shows required fields to setup azure monitor for sap ha rhel cluster](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-rhel.png)  
 
