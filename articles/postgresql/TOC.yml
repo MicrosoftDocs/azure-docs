@@ -684,12 +684,12 @@
           href: hyperscale/howto-scale-initial.md
         - name: Scale server group
           href: hyperscale/howto-scale-grow.md
-        - name: Rebalance shards
-          href: hyperscale/howto-scale-rebalance.md
-        - name: Change compute quotas
-          href: hyperscale/howto-compute-quota.md
-        - name: Manage read replicas
-          href: hyperscale/howto-read-replicas-portal.md
+      - name: Rebalance shards
+        href: hyperscale/howto-scale-rebalance.md
+      - name: Change compute quotas
+        href: hyperscale/howto-compute-quota.md
+      - name: Manage read replicas
+        href: hyperscale/howto-read-replicas-portal.md
     - name: Availability and resilliency
       items:
       - name: Configure high availability
