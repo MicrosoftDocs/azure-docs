@@ -161,7 +161,7 @@ There are many significant tradeoffs between the various supported storage provi
 
 | Storage provider | Azure Storage | Netherite | MSSQL |
 |- |-              |-          |-      |
-| Official support status | ✅ Generally available (GA) | ✅ Generally available (GA) | ⚠ Public preview |
+| Official support status | ✅ Generally available (GA) | ⚠ Public preview | ⚠ Public preview |
 | External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Storage account (general purpose) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database |
 | Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform)<br/>[Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) |
 | Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) |
@@ -169,7 +169,7 @@ There are many significant tradeoffs between the various supported storage provi
 | Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A |
 | Maximum activity scale-out (nodes) | N/A | 32 | N/A |
 | Consumption plan support | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
-| Elastic Premium plan support | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) |
+| Elastic Premium plan support |  ✅ Fully supported | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) |
 | [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) |
 | Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
 | Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) |
