@@ -219,6 +219,10 @@
       href: gpu-acceleration.md
     - name: Configure networking
       href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
+    - name: Troubleshoot
+      items:
+        - name: Resolve common errors
+        - href: troubleshoot-iot-edge-for-linux-on-windows-common-errors.md
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2022

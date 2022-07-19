@@ -1,0 +1,189 @@
+---
+title: Common errors - Azure IoT Edge for Linux on Windows | Microsoft Docs 
+description: Use this article to resolve common issues encountered when deploying an IoT Edge for Linux on Windows solution
+author: PatAltimore
+
+ms.author: fcabrera
+ms.date: 07/19/2022
+ms.topic: conceptual
+ms.service: iot-edge
+services: iot-edge
+ms.custom:  [amqp, mqtt]
+---
+
+# Common issues and resolutions for Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
+Use this article to find steps to resolve common issues that you may experience when deploying IoT Edge for Linux on Windows solutions. 
+
+## Installation and Deployment
+
+The following section addresses the common errors when installing the EFLOW MSI and deploy the EFLOW virtual machine. Ensure to have full understanding of the different EFLOW concepts:
+
+- [Azure IoT Edge for Linux on Windows prerequisites](https://aka.ms/AzEFLOW-Requirements)
+- [Nested virtualization for Azure IoT Edge for Linux on Windows](./nested-virtualization.md)
+- [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking)
+- [Azure IoT Edge for Linux on Windows virtual switch creation](/how-to-create-virtual-switch.md)
+- [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md)
+
+| Error | Error Description | Solution |
+| ----- | ----------------- | -------- |
+| HNS API version X doesn't meet minimum version | EFLOW uses HCS/HNS to create the virtual machine on Client SKUs.  The minimum HNS version its  9.2. | If you're using a Windows version 20H1 or great, the HCS/HNS api should be ok. If you're using Windows Client RS5 (17763), you should have the latest Windows update. | 
+| Can't find WSSDAGENT service! <br/> WssdAgent is unreachable, update has failed. | The WSSDAgent it's a Windows service installed with EFLOW MSI that manages the lifecycle of the EFLOW virtual machine. If this service it's not running, the VM communication and lifecycle will fail. | Check the WSSDAgent is running on the Windows host OS. Open an elevated PowerShell session and run the command: `Get-Service -Name wssdagent`. If not running, try running it manually using the cmdlet: `Start-Service -name WSSDAgent`. If for some reason it's still not running share the content of under _C:\ProgramData\wssdagent_. | 
+| Expected image '$vhdPathBackup' is missing | When installing EFLOW CR, the user can provide the data partition size using the vmDataSize. If so, we need to resize the VHDX. If the VHDX isn't found, we'll show this error. | Make sure the VHDX wasn't deleted or moved from the original location. | 
+| Installation of Hyper-V, Hyper-V Management PowerShell or OpenSSH failed. Please install manually and restart deployment. Aborting... | EFLOW installation has some prerequisites that must be met in order to deploy the virtual machine. If one the prerequisite it's not met, the `Deploy-Eflow` cmdlet will fail. | Ensure that all the prerequisites are met. _PowerShell_: Try with another version of PowerShell. Also make sure to close PowerShell session and open a new one. If you have multiple installations, make sure to have the correct module imported. <br/>_Hyper-V_: For more information EFLOW Hyper-V support, check [Azure IoT Edge for Linux on Windows Nested Virtualization](https://docs.microsoft.com/en-us/azure/iot-edge/nested-virtualization). <br/> _OpenSSH:_ If you're using your own custom installation, check `customSsh` parameter during deployment. |
+| $feature isn't available in this Windows edition. <br/> $featureversion could not be enabled. Please add '$featureversion' optional feature in settings and restart the deployment. | When deploying EFLOW, if one of the prerequisites it's not met, the installer will try to install it. If this feature it's not available or the feature installation fails, the EFLOW deployment will fail. | Ensure that all the prerequisites are met. _PowerShell_: Try with another version of PowerShell. Also make sure to close PowerShell session and open a new one. If you have multiple installations, make sure to have the correct module imported. <br/>_Hyper-V_: For more information EFLOW Hyper-V support, check [Azure IoT Edge for Linux on Windows Nested Virtualization](https://docs.microsoft.com/en-us/azure/iot-edge/nested-virtualization). <br/> _OpenSSH_ : If you're using your own custom installation, check `customSsh` parameter during deployment. |
+| Hyper-V properties indicate the Hyper-V component is not functional (property HyperVRequirementVirtualizationFirmwareEnabled is false) <br/> Hyper-V properties indicate the Hyper-V component is not functional (property HyperVisorPresent is false). <br/>Hyper-V core services not running (vmms, vmcompute, hvhost). Ensure Hyper-V is configured properly and capable of starting virtual machines. | All these errors are related to Hyper-V virtualization technology stack and services. EFLOW virtual machine requires different Hyper-V services in order to create and run the virtual machine. If one of these services it's not available, the installation will fail. | For more information EFLOW Hyper-V support, check [Azure IoT Edge for Linux on Windows Nested Virtualization](https://docs.microsoft.com/en-us/azure/iot-edge/nested-virtualization).| 
+| wssdagent unreachable, please retry... | The WSSDAgent is the EFLOW component that creates and manages the lifecycle of the VM. This runs a service on the Windows host OS. | Check the agent is running using the PowerShell cmdlet `Get-Service -Name wssdagent`. If not running, try to manually start the service using the cmdlet `Start-Servie -name wssdagent`. If still not running, please share the content of under _C:\ProgramData\wssdagent_. | 
+| Virtual machine configuration could not be retrieved from wssdagent | Error the find the EFLOW configuration yaml files under the EFLOW root installation folder. For example, if the default installation dir was used, this would be _C:\Programs\Azure IoT Edge\yaml_. | Check if the file was deleted or moved. If this file it's not available, the VM can't be created, and the reinstallation it's needed. | 
+| An existing virtual machine was detected. To redeploy the virtual machine, please uninstall and re-install $eflowProductName. <br/> Virtual machine '$name' already exists. You much remove '$name' virtual machine first. | During EFLOW deployment, the installer will check if there's an EFLOW VM created from previous installations. In some cases, even though the installation will fail in final steps, the VM was created and it's still running in the Windows host OS. | Make sure to completely uninstall EFLOW before starting a new installation. If you want to remove the Azure IoT Edge for Linux on Windows installation from your device, use the following commands. <br/> 1) Open Settings on Windows <br/> 2) Select Add or Remove Programs <br/> 3) Select Azure IoT Edge LTS app <br/> 4) Select Uninstall.| 
+| Creating storage vhd (file: $($config["imageNameEflowVm"])) failed | Error when creating or resizing the EFLOW virtual machine VHDX. | Check EFLOW installation logs _C:\Program Files\Azure IoT Edge_ and WSSDAgent logs _C:\ProgramData\wssdagent_ for more information. | 
+| Error: Virtual machine creation failed! <br/> Failed to retrieve virtual machine name. | Error related to virtual machine creation by WSSDAgent - Installer will try removing the VM and mark the installation as failed. | Check the agent is running using the PowerShell cmdlet `Get-Service -Name wssdagent`. If not running, try to manually start the service using the cmdlet `Start-Servie -name wssdagent`. If still not running, please share the content of under _C:\ProgramData\wssdagent_. |
+| This Windows device does not meet the minimum requirements for Azure EFLOW. Please refer to https://aka.ms/AzEFLOW-Requirements for system requirements | During EFLOW deployment, the PowerShell cmdlet will check that all the prerequisites are met.  Specifically, Windows SKUs are check (Server 2019, 2022, Client Pro, Client Enterprise) and the version should be at least 17763 | Make sure you're using a supported Windows SKU and version. If using Windows version 17763, ensure to have all the updates applied. | 
+| Not enough memory available. | There isn't enough RAM memory to create the EFLOW VM with the allocated VM memory. By default, the virtual machine will have 1024 MB assigned. The Windows host OS needs to have at least X MB free to assign that memory to the VM. | Check the Windows host OS memory available and use the _memoryInMb_ parameter during `Deploy-Eflow` for custom memory assignment.  For more information about `Deploy-EFlow` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| Not enough CPU cores available. | There isn't enough CPU cores available to create the EFLOW VM with the allocated cores. By default, the virtual machine will have one core assigned. The Windows host OS needs to have at least one core to assign that core to the EFLOW VM. | Check the Windows host OS CPU cores available and use the _cpuCore_ parameter during `Deploy-Eflow` for custom memory assignment.  For more information about `Deploy-EFlow` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| Not enough disk space is available on drive '$drive'. | There isn't enough storage available to create the EFLOW VM with the allocated storage size. By default, the VM will use ~18 GB of storage. The Windows host OS needs to have at least 18 GB of free storage to assign that storage to the EFLOW VM VHDX. |  Check the Windows host free storage available and use the _vmDiskSize_ parameter during `Deploy-Eflow` for custom storage size. For more information about `Deploy-EFlow` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| Signature is not valid (file: $filePath, signature status: ${signature.Status}) <br/> Signature is missing (file: $filePath)! <br/> could not track signature to the microsoft root certificate | The signature of the file cant be found or it's invalid - EFLOW PSM and EFLOW updates are all signed using Microsoft certificates. If the Microsoft Code or Microsoft CA certificates are not available in the Windows host OS, the validation will fail. | Make sure that all contents were downloaded from MSFT official sties. Also, if the necessary certificates aren't part of the Windows host, check [Install EFLOW necessary certificates](https://github.com/Azure/iotedge-eflow/issues/158). | 
+
+
+## Provisioning and IoT Edge runtime
+
+The following section addresses the common errors when provisioning the EFLOW virtual machine and interact with the IoT Edge runtime. Ensure to have full understanding of the different EFLOW concepts:
+
+- [What is Azure IoT Hub Device Provisioning Service?](/azure/iot-dps/about-iot-dps)
+- [Understand the Azure IoT Edge runtime and its architecture](./iot-edge-runtime.md)
+- [Troubleshoot your IoT Edge device](./troubleshoot.md)
+
+| Error | Error Description | Solution |
+| ----- | ----------------- | -------- |
+| Action aborted by user | For some of the EFLOW PowerShell cmdlet, there's user interaction and confirmation needed. | - |
+| Error, device connection string not provided. <br/> Only device connection string for _ManualConnectionString_ provisioning may be specified. | Incorrect parameters used when using ManualConnectionString device provisioning. | For more information about `Provision-EflowVm` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| IoT Hub Hostname, Device ID, and/or identity cert/pk parameters for ManualX509 provisioning not specified <br/> Device connection string, scope ID, registration ID, and symmetric key may not be specified for DpsX509 provisioning <br/> Certificate and private key file for ManualX509 provisioning not found (expected at $identityCertPath and $identityPrivKeyPath) | Incorrect parameters used when using _ManualX509_ device provisioning. | For more information about `Provision-EflowVm` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| Scope ID for DpsTpm provisioning not specified <br/> Only scope ID and registration ID (optional) for DpsTpm provisioning may be specified | Incorrect parameters used when using _DpsTpm_ device provisioning. | For more information about `Provision-EflowVm` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| Scope ID, registration ID or symmetric key missing for DpsSymmetricKey provisioning <br/> globalEndpoint not specified <br> Only scope ID, registration ID or symmetric key for DpsSymmetricKey provisioning may be specified | Incorrect parameters used when using _DpsSymmetricKey_ device provisioning. | For more information about `Provision-EflowVm` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| Virtual machine does not exist, deploy it first | The EFLOW MSI was installed, however the EFLOW virtual machine was never deployed. | Ensure sure to deploy the EFLOW VM using the `Deploy-Eflow` PowerShell cmdlet. | 
+| Aborting, iotedge was previously provisioned (headless mode)! | The EFLOW VM was previously provisioned and _headless_ mode it's not supported when reprovisioning. | This issue was fixed and now -headless mode it's supported with reprovisioning | 
+| Provisioning aborted by user | The EFLOW VM was previously provisioned and user needs to confirm they want to reprovision. | User must accept reprovisioning to continue with the provisioning process.|
+| Failed to provision <br/> Failed to provision config.toml. Please provision manually. <br/> iotedge service not running after provisioning, please investigate manually | The EFLOW provisioning information was correctly configured inside the EFLOW VM, but the IoT Edge daemon was not able to provision the device with the cloud provisioning service. | Check the Azure IoT Edge runtime logs. First, connect to the EFLOW virtual machine using the `Connect-EflowVm` PowerShell cmdlet, and follow [Troubleshoot your IoT Edge device](https://docs.microsoft.com/en-us/azure/iot-edge/troubleshoot?view=iotedge-2020-11) to get the IoT Edge logs |
+| Unexpected return from 'sudo iotedge list' <br/> Retrieving iotedge check output from:  "$vmName" | This error is because the execution of `sudo iotedge list` command inside the EFLOW VM returned an unexpected payload. Generally this is related to IoT Edge service not running correctly inside the EFLOW VM. | Check the Azure IoT Edge runtime logs. First, connect to the EFLOW virtual machine using the `Connect-EflowVm` PowerShell cmdlet, and follow [Troubleshoot your IoT Edge device](https://docs.microsoft.com/en-us/azure/iot-edge/troubleshoot?view=iotedge-2020-11) to get the IoT Edge logs |
+| TPM 2.0 is required to enable DpsTpm | TPM passthrough only works with TPM2.0 compatible hardware. This could be a physical TPM or if the EFLOW VM is running using nested virtualization, could be a vTPM on the Windows host OS, as long as it is TPM2.0. | Make sure the Windows host OS has a valid TPM2.0, check [Enable TPM2.0 on your PC](https://support.microsoft.com/en-us/windows/enable-tpm-2-0-on-your-pc-1fd5a332-360d-4f46-a1e7-ae6b0c90645c). |
+| TPM provisioning information not available! | The TPM passthrough binary inside the EFLOW VM could not get the TPM information from the Windows host OS. Probably related to a communication error with the EFLOWProxy. | Ensure that the _EFLOW Proxy Service_ service is running using the PowerShell cmdlet `Get-Service -name "EFLOW Proxy Service"`. If not running, check the Event logs. Open the Event Viewer -> Application and service logs -> Azure IoT Edge for Linux on Windows. |
+
+## Interaction with the VM
+
+The following section addresses the common errors when interacting with the EFLOW virtual machine, and configure the EFLOW device passthrough options. Ensure to have full understanding of the different EFLOW concepts:
+
+- [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md)
+- [GPU acceleration for Azure IoT Edge for Linux on Windows](./gpu-acceleration.md)
+
+| Error | Error Description | Solution |
+| ----- | ----------------- | -------- |
+| Can't process request, EFLOW VM is OFF! | When trying to apply a configuration to the EFLOW virtual machine, the VM must be turned on. If the EFLOW VM is off, then the SSH channel will fail, and no communication it's possible with the VM.| Turn the EFLOW VM using the Start-EflowVm PowerShell cmdlet. For more information about Start-EflowVm cmdlet, check [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| Virtual machine name could not be retrieved from wssdagent <br/> Error: More than one virtual machine found | The WSSDAgent service couldn't find the EFLOW virtual machine. | Start by ensuring the EFLOW VM is up and running, use the PowerShell cmdlet `Start-EflowVm`. If using Client SKU, use the `hcsdiag list` cmdlet and look for a line that has _wssdagent_ after the GUID of the VM and check the state. If using Server SKU, go to Hyper-V manager and check if there's a VM wit the name <Windows-hostname>-EFLOW and check the state. | 
+| Unable to connect virtual machine with SSH.  Aborting.. | The Windows host OS could not establish an SSH connection with the EFLOW VM to execute the necessary commands or copy files. Generally this issue is related to a networking problem between Windows and the virtual machine. |  Try the PowerShell cmdlet `Get-EflowVmAddr` and see if the IP4Address assigned to the VM is correct. For more information about networking configurations, see [Azure IoT Edge for Linux on Windows networking](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-for-linux-on-windows-networking).| 
+| Unexpected return stats from virtual machine | The execution of  `Get-EflowVm` PowerShell cmdlet checks for the stats of the virtual machine. If the communication with the virtual machine fails, or some of the Linux bash commands inside the VM fail, the cmdlet will fail. | Check EFLOW VM connection using `Connect-EflowVm` PowerShell cmdlet and try manually running the VM stats bash commands inside the VM. | 
+| TPM provisioning was not enabled! | To get the TPM provisioning information for the TPM, the EFLOW TPM passthrough must be enabled first, if not the cmdlet will fail. | Enable TPM passthrough before getting the TPM information. Use the `Set-EflowVmFeature` PowerShell cmdlet to enable the TPM passthrough. For more information about `Set-EflowVmFeature` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| Unknown feature '$feature' is provided. | The Set-EflowVmFeature supports _DpsTpm_ and _Defender_ as the two features that can be turned on/off | For more information about `Set-EflowVmFeature` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| Unsupported DDA Type: $gpuName | Currently, GPU DDA is only supported for _NVIDIA Tesla T4_ and _NVIDIA A2_. If the user provides another GPU name, the GPU passthrough will fail. | Make sure all the GPU prerequisites are met. For more information about EFLOW GPU support, check [Azure IoT Edge for Linux on Windows GPU passthrough](https://aka.ms./azeflow-gpu). 
+| 44 | Invalid GPU configuration requested, Passthrough enabled but requested gpuCount == $gpuCount <br/> GPU PassthroughType '$gpuPassthroughType' not suported by '$script:WssdProviderVmms' WssdProvider <br/> Requested GPU configuration cannot be supported by Host, GPU '$gpuName' not available <br/> Requested GPU configuration cannot be supported by Host, not enough GPUs available - Requested($gpuCount), Available($($selectedGpuDevice.Count)) <br/> Requested GPU configuration cannot be supported by Host, GPU PassthroughType '$gpuPassthroughType' not suported <br/> Invalid GPU configuration requested, Passthrough disabled but gpuCount > 0" | These erros are generally related to one or more the GPU dependencies were not met. | Make sure all the GPU prerequisites are met. For more information about EFLOW GPU support, check [Azure IoT Edge for Linux on Windows GPU passthrough](https://aka.ms./azeflow-gpu). |
+
+## Networking
+
+The following section addresses the common errors related to EFLOW networking and communication between the EFLOW virtual machine and the Windows host OS. Ensure to have full understanding of the different EFLOW concepts:
+
+- [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md)
+- [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking)
+- [Azure IoT Edge for Linux on Windows virtual switch creation](/how-to-create-virtual-switch.md)
+
+| Error | Error Description | Solution |
+| ----- | ----------------- | -------- |
+| Installation of virtual switch failed <br/> The virtual switch '$switchName' of type '$switchType' was not found | When creating the EFLOW VM, we check that the virtual switch provided exists and has the correct type. If using no parameter, the installation will use Default Switch provided by Windows Client. | Check that the virtual switch being used is part of the Windows host OS. You can check the virtual switches using the PowerShell cmdlet `Get-VmSwitch`. For more information about networking configurations, see [Azure IoT Edge for Linux on Windows networking](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-for-linux-on-windows-networking). | 
+| The virtual switch '$switchName' of type '$switchType' is not supported on current host OS | When using Windows Client SKUs, External/Default Switch are supported. On the other hand, when using Windows Server SKUs - External./Internal are supported. | For more information about networking configurations, see [Azure IoT Edge for Linux on Windows networking](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-for-linux-on-windows-networking).
+| Cannot set Static IP on ICS type virtual switch (Default Switch) | The _default switch_ is a virtual switch that is already part of the Windows Client SKUs after installing Hyper-V. This switch already has a DHCP server for IP4Address assignation and for security reasons doesn't support Static IP. | If using _default switch_, you can either use the `Get-EflowVmAddr` or use the hostname of the EFLOW VM to get the VM IP4Address. If using the hostname, try <Windows-hostname>-EFLOW.mshome.net. For more information about networking configurations, see [Azure IoT Edge for Linux on Windows networking](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-for-linux-on-windows-networking). | 
+| $dnsServer is not a valid IP4 address | The Set-EflowVmDnsServers expects a list of valid IP4Addresses | Make sure to check provide a valid list of addresses. You can check the Windows host OS DNS servers by using the PowerShell cmdlet `ipconfig /all` and then looking for the entry _DNS Servers_. For example, if you wanted to set two DNS servers with IPs 10.0.1.2 and 10.0.1.3, use the `Set-EflowVmDnsServers -dnsServers @("10.0.1.2", "10.0.1.3")`. | 
+| Could not retrieve IP address for virtual machine <br/> Virtual machine name could not be retrieved, failed to get IP/MAC address <br/> Failed to acquire MAC address for virtual machine <br/> Failed to acquire IP address for virtual machine <br/> Unable to obtain host routing. Connectivity test to $computerName failed. <br/> wssdagent does not have the expected vnet resource provisioned. <br/> Missing EFLOW-VM guest interface for ($vnicName) | Connectivity issues with the EFLOW virtual machine - Generally related to an IP change (if using Static IP) or fail to assign an IP if using DHCP server. | Make sure to use the appropriate networking configuration. If there's a valid DHCP server, you can use DHCP assignation. If using Static IP, make sure the IP configuration it's correctly (all three parameters: _ip4Address_, _ip4GatewayAddress_ and _ip4PrefixLength_) and the address isn't being used by another device in the network. For more information about networking configurations, see [Azure IoT Edge for Linux on Windows networking](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-for-linux-on-windows-networking). | 
+| No adapters associated with the switch '$vnetName' are found. <br/> No adapters associated with the device ID '$adapterGuid' are found <br/> No adapters associated with the adapter name '$name' are found. <br/> Network '$vswitchName' does not exist | Network communication error between the Windows host OS and the EFLOW virtual machine. | Ensure you can reach the EFLOW VM and establish an SSH channel. Use the `Connect-EflowVm` PowerShell cmdlet to connect to the virtual machine. If connectivity fails, reboot the EFLOW VM and check again. | 
+| ip4Address & ip4PrefixLength are required for StaticIP! | During EFLOW VM deployment or when adding multiple NICs, if using Static IP, the three static ip parameters are needed: _ip4Address_, _ip4GatewayAddress_, _ip4PrefixLength_. | For more information about `Deploy-EFlow` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions). | 
+| Found multiple VMMS switches with name '$switchName' of type '$switchType' | There are two or more virtual switches with the same name and type. This environment will conflict with the EFLOW VM installation and lifecycle of the VM. | Use `Get-VmSwitch` PowerShell cmdlet to check the virtual switches available in the Windows host and make sure that each {name,type} is unique. | 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
