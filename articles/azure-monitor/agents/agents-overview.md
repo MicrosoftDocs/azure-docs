@@ -119,23 +119,9 @@ Use Telegraf agent if you need to:
 
 * Send data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) to analyze it with [metrics explorer](../essentials/metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](../alerts/alerts-metric-overview.md) and [autoscale](../autoscale/autoscale-overview.md) (Linux only).
 
-## Dependency agent
-
-The Dependency agent collects discovered data about processes running on the machine and external process dependencies. 
-
-Use the Dependency agent if you need to:
-
-* Use the Map feature [VM insights](../vm/vminsights-overview.md) or the [Service Map](../vm/service-map.md) solution.
-
-Consider the following when using the Dependency agent:
-
-- The Dependency agent requires the Log Analytics agent to be installed on the same machine.
-- On Linux computers, the Log Analytics agent must be installed before the Azure Diagnostic Extension.
-- On both the Windows and Linux versions of the Dependency Agent, data collection is done using a user-space service and a kernel driver. 
-
 ## Virtual machine extensions
 
-The [Azure Monitor agent](./azure-monitor-agent-manage.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. The Azure Monitor Dependency extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) install the Dependency agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
+The [Azure Monitor agent](./azure-monitor-agent-manage.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
 
 On hybrid machines, use [Azure Arc-enabled servers](../../azure-arc/servers/manage-vm-extensions.md) to deploy the Azure Monitor agent, Log Analytics and Azure Monitor Dependency VM extensions.
 
@@ -169,95 +155,48 @@ The following tables list the operating systems that are supported by the Azure 
 <sup>2</sup> Using the Azure Monitor agent [client installer (preview)](./azure-monitor-agent-windows-client.md)
 ### Linux
 
-> [!NOTE]
-> For Dependency Agent, please additionally check for supported kernel versions. See "Dependency agent Linux kernel support" table below for details 
-
-
-| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Dependency agent | Diagnostics extension <sup>2</sup>| 
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
-| AlmaLinux                                                   | X | X |   |   |
-| Amazon Linux 2017.09                                        |   | X |   |   |
-| Amazon Linux 2                                              |   | X |   |   |
-| CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
-| CentOS Linux 7                                              | X | X | X | X |
-| CentOS Linux 6                                              |   | X |   |   |
-| CentOS Linux 6.5+                                           |   | X | X | X |
-| Debian 11 <sup>1</sup>                                      | X |   |   |   |
-| Debian 10 <sup>1</sup>                                      | X |   |   |   |
-| Debian 9                                                    | X | X | x | X |
-| Debian 8                                                    |   | X | X |   |
-| Debian 7                                                    |   |   |   | X |
-| OpenSUSE 13.1+                                              |   |   |   | X |
-| Oracle Linux 8                                              | X <sup>3</sup> | X |   |   |
-| Oracle Linux 7                                              | X | X |   | X |
-| Oracle Linux 6                                              |   | X |   |   |
-| Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8.5, 8.6                    | X | X |  |   |
-| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>3</sup> | X | X |   |
-| Red Hat Enterprise Linux Server 7                           | X | X | X | X |
-| Red Hat Enterprise Linux Server 6                           |   | X | X |   |
-| Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
-| Rocky Linux                                                 | X | X |   |   |
-| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
-| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
-| SUSE Linux Enterprise Server 15 SP1                         | X | X | X |   |
-| SUSE Linux Enterprise Server 15                             | X | X | X |   |
-| SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
-| SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 22.04 LTS                                            | X |   |   |   |
-| Ubuntu 20.04 LTS                                            | X | X | X | X <sup>4</sup> |
-| Ubuntu 18.04 LTS                                            | X | X | X | X |
-| Ubuntu 16.04 LTS                                            | X | X | X | X |
-| Ubuntu 14.04 LTS                                            |   | X |   | X |
+| AlmaLinux                                                   | X | X |   |
+| Amazon Linux 2017.09                                        |   | X |   |
+| Amazon Linux 2                                              |   | X |   |
+| CentOS Linux 8                                              | X <sup>3</sup> | X |   |
+| CentOS Linux 7                                              | X | X | X |
+| CentOS Linux 6                                              |   | X |   |
+| CentOS Linux 6.5+                                           |   | X | X |
+| Debian 11 <sup>1</sup>                                      | X |   |   |
+| Debian 10 <sup>1</sup>                                      | X |   |   |
+| Debian 9                                                    | X | X | X |
+| Debian 8                                                    |   | X |   |
+| Debian 7                                                    |   |   | X |
+| OpenSUSE 13.1+                                              |   |   | X |
+| Oracle Linux 8                                              | X <sup>3</sup> | X |   |
+| Oracle Linux 7                                              | X | X | X |
+| Oracle Linux 6                                              |   | X |   |
+| Oracle Linux 6.4+                                           |   | X | X |
+| Red Hat Enterprise Linux Server 8.5, 8.6                    | X | X |   |
+| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>3</sup> | X |   |
+| Red Hat Enterprise Linux Server 7                           | X | X | X |
+| Red Hat Enterprise Linux Server 6                           |   | X |   |
+| Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
+| Rocky Linux                                                 | X | X |   |
+| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |
+| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |
+| SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
+| SUSE Linux Enterprise Server 15                             | X | X |   |
+| SUSE Linux Enterprise Server 12 SP5                         | X | X | X |
+| SUSE Linux Enterprise Server 12                             | X | X | X |
+| Ubuntu 22.04 LTS                                            | X |   |   |
+| Ubuntu 20.04 LTS                                            | X | X | X <sup>4</sup> |
+| Ubuntu 18.04 LTS                                            | X | X | X |
+| Ubuntu 16.04 LTS                                            | X | X | X |
+| Ubuntu 14.04 LTS                                            |   | X | X |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.
 
 <sup>3</sup> Known issue collecting Syslog events in versions prior to 1.9.0.
 
 <sup>4</sup> Not all kernel versions are supported, check supported kernel versions below. 
-
-#### Dependency agent Linux kernel support
-
-Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. As of Dependency agent version 9.10.* the agent supports * kernels.  The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
-
-| Distribution | OS version | Kernel version |
-|:---|:---|:---|
-|  Red Hat Linux 8   | 8.5     | 4.18.0-348.\*el8_5.x86_644.18.0-348.\*el8.x86_64 |
-|                    | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
-|                    | 8.3     |  4.18.0-240.\*el8_3.x86_64 |
-|                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
-|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
-|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
-|  Red Hat Linux 7   | 7.9     | 3.10.0-1160 |
-|                    | 7.8     | 3.10.0-1136 |
-|                    | 7.7     | 3.10.0-1062 |
-|                    | 7.6     | 3.10.0-957  |
-|                    | 7.5     | 3.10.0-862  |
-|                    | 7.4     | 3.10.0-693  |
-| Red Hat Linux 6    | 6.10    | 2.6.32-754 |
-|                    | 6.9     | 2.6.32-696  |
-| CentOS Linux 8     | 8.5     | 4.18.0-348.\*el8_5.x86_644.18.0-348.\*el8.x86_64  |
-|                    | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
-|                    | 8.3     | 4.18.0-240.\*el8_3.x86_64 |
-|                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
-|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
-|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
-| CentOS Linux 7     | 7.9     | 3.10.0-1160 |
-|                    | 7.8     | 3.10.0-1136 |
-|                    | 7.7     | 3.10.0-1062 |
-| CentOS Linux 6     | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-|                    | 6.9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 20.04   | 5.8<br>5.4\* |
-|                    | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
-|                    | 16.04.3 | 4.15.\* |
-|                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| SUSE Linux 12 Enterprise Server | 12 SP5     | 4.12.14-122.\*-default, 4.12.14-16.\*-azure|
-|                                 | 12 SP4 | 4.12.\* (includes Azure-tuned kernel) |
-|                                 | 12 SP3 | 4.4.\* |
-|                                 | 12 SP2 | 4.4.\* |
-| SUSE Linux 15 Enterprise Server | 15 SP1 | 4.12.14-197.\*-default, 4.12.14-8.\*-azure |
-|                                 | 15     | 4.12.14-150.\*-default |
-| Debian                          | 9      | 4.9  | 
 
 ## Next steps
 
