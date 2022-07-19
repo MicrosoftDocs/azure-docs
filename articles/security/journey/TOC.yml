@@ -87,7 +87,7 @@
   - name: Zero Trust
     href: ../fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Design for zero trust model
-    href: /azure/architecture/framework/mission-critical/mission-critical-security.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /azure/architecture/framework/mission-critical/mission-critical-security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 - name: Detect and mitigate threats
   items:

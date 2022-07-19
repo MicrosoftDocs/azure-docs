@@ -1,13 +1,13 @@
 ---
 title: Manage sensors with Defender for IoT in the Azure portal
-description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
-ms.date: 03/30/2022
+description: Learn how to view, and manage sensors with Defender for IoT in the Azure portal.
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
 # Manage sensors with Defender for IoT in the Azure portal
 
-This article describes how to onboard, view, and manage sensors with [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+This article describes how to view and manage sensors with [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
 ## Purchase sensors or download software for sensors
 
@@ -28,6 +28,7 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
         1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
 
         1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
+
 
 ## Onboard sensors
 
@@ -60,7 +61,7 @@ For more information, see [Activate and set up your sensor](how-to-activate-and-
 
     1. In the **Sensor version** field, select which software version is installed on your sensor machine. We recommend that you select **22.X and above** to get all of the latest features and enhancements.
 
-        If you haven't yet upgraded to version 22.x, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Reactivate a sensor for upgrades to version 22.x](#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version).
+        If you haven't yet upgraded to version 22.x, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
     1. In the **Site** section, select the **Resource name** and enter the **Display name** for your site. Add any tags as needed to help you identify your sensor.
 
@@ -100,21 +101,21 @@ Make the downloaded activation file accessible to the sensor console admin so th
 > As opposed to OT sensors, where you define your sensor's site, all Enterprise IoT sensors are automatically added to the **Enterprise network** site.
 
 ---
-## Manage on-boarded sensors
 
-Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. This page supports the following management tasks:
+## Sensor management options from the Azure portal
 
-- **Export sensor data**. To export a CSV file with details about all sensors listed, select **Export** at the top of the page.
+Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. From the **Sites and sensors** page, do any of the following:
 
-- **Edit sensor details**. To edit a sensor zone, or to toggle on/off the **Automatic Threat Intelligence Update** option, select the **...** options menu at the right of a sensor row > **Edit**.
+|Task  |Steps  |
+|---------|---------|
+| **Push threat intelligence updates** | Select your sensor in the grid > **Push Threat Intelligence update**. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md). |
+|**Prepare an OT sensor to update to software version 22.x or higher**     | Select your sensor in the grid > **Prepare to update to 22.X**. For more information, see: <br><br>-[Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor-for-upgrades-to-version-22x-from-a-legacy-version)<br>-  [Update Defender for IoT OT monitoring software](update-ot-software.md#download-and-apply-a-new-activation-file)   |
+|**Export sensor data**     |Select **Export** at the top of the page.  A CSV file is downloaded with details about all sensors listed.       |
+|**Download an activation file**     |   From the **...** options menu at the right of a sensor row. For more information, see [Reactivate a sensor](#reactivate-a-sensor).      |
+|**Edit a sensor zone**    | From the **...** options menu at the right of a sensor row, select **Edit**.  From the **Zone** menu, select a zone, or **Create new zone**. Select **Submit** to save your changes.     |
+|**Edit automatic threat intelligence updates**     | From the **...** options menu at the right of a sensor row, select **Edit**. Toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes.       |
+|**Delete a sensor**     |  Delete sensors only if you're no longer working with them.  From the **...** options menu at the right of a sensor row, select **Delete sensor**.      |
 
-    Make your changes as needed and select **Save**.
-
-- **Delete a sensor**. Delete sensors if you're no longer working with them. Select the **...** options menu at the right of a sensor row > **Delete sensor**.
-
-- **Download an activation file**. You'll need to download a new activation file for your sensor if you want to [reactivate the sensor](#reactivate-a-sensor). Select the **...** options menu at the right of a sensor row > **Download activation file**.
-
-- **Prepare to update to 22.X**. Use this option specifically when upgrading sensors to version 22.x. For more information, see [below](#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version).
 
 ## Reactivate a sensor
 
@@ -128,15 +129,15 @@ You may need to reactivate your sensor because you want to:
 
 In such cases, do the following:
 
-1. [Delete your existing sensor](#manage-on-boarded-sensors).
-1. [Onboard your sensor](#onboard-sensors), registering it again with any new settings.
+1. [Delete your existing sensor](#sensor-management-options-from-the-azure-portal).
+1. [Onboard the sensor again](onboard-sensors.md#onboard-ot-sensors), registering it with any new settings.
 1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files).
 
-### Reactivate a sensor for upgrades to version 22.x from a legacy version
+### Reactivate an OT sensor for upgrades to version 22.x from a legacy version
 
-If you're updating your sensor version from a legacy version to 22.1.x or higher, you'll need a different activation procedure than for earlier releases.
+If you're updating your OT sensor version from a legacy version to 22.1.x or higher, you'll need a different activation procedure than for earlier releases.
 
-Make sure that you've started with the relevant updates steps for this update. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
+Make sure that you've started with the relevant updates steps for this update. For more information, see [Update OT system software](update-ot-software.md).
 
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
@@ -149,6 +150,7 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
 > [!TIP]
 > For cloud-connected sensors, the diagnostics log is automatically available to your support team when you open a support ticket.
 >
+
 **To upload a diagnostics report**:
 
 1. Make sure you have the diagnostics report available for upload. For more information, see [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support).

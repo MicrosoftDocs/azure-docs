@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 12/03/2021
+ms.date: 07/14/2022
 ---
 
 # Geographic availability and currency support for the commercial marketplace
