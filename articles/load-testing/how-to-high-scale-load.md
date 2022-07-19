@@ -97,8 +97,10 @@ To view the engine resource metrics:
 1. In the list, select your load test to view the list of test runs.
 1. In the test run list, select your test run.
 1. In the test run dashboard, select the **Engine health** to view the engine resource metrics.
-
+    
     Optionally, select a specific test engine instance by using the filters controls.
+
+:::image type="content" source="media/how-to-high-scale-load/engine-health-metrics.png" alt-text="Screenshot that shows the load engine health metrics on the test run dashboard.":::
 
 ### Troubleshoot unhealthy engine instances
 
