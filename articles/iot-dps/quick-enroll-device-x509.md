@@ -63,95 +63,15 @@ This article shows you how to programmatically create an individual enrollment a
 >[!NOTE]
 >Although the steps in this article work on both Windows and Linux computers, this article uses a Windows development computer.
 
-## Prepare test certificates
+## Create test certificates
 
 Enrollment groups that use X.509 certificate attestation can be configured to use a root CA certificate or an intermediate certificate. The more usual case is to configure the enrollment group with an intermediate certificate. This provides more flexibility as multiple intermediate certificates can be generated or revoked by the same root CA certificate.  
 
 For this article, you'll need both a root CA and an intermediate CA certificate file in *.pem* or *.cer* format. One file will contain the public portion of the intermediate CA X.509 certificate and the other will contain the public portion of the root CA X.509 certificate.
 
-If you already have root and intermediate CA files, you can continue to [Add and verify your root CA certificate]().
+If you already have root and intermediate CA files, you can continue to [Add and verify your root CA certificate](#add-and-verify-your-root-ca-certificate).
 
-:::zone pivot="programming-language-csharp,programming-language-nodejs"
-
-### Clone the Azure IoT C SDK
-
-The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and do proof-of-possession with the service to verify the certificate.
-
-If you've already cloned the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository, skip to the [next section](#create-the-test-certificate).
-
-1. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
-
-2. Copy the tag name for the latest release of the Azure IoT C SDK.
-
-3. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
-
-    ```cmd/sh
-    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
-    cd azure-iot-sdk-c
-    git submodule update --init
-    ```
-
-    This operation may take several minutes to complete.
-
-4. The test tooling should now be located in the *azure-iot-sdk-c/tools/CACertificates* of the repository that you cloned.
-
-:::zone-end
-
-:::zone pivot="programming-language-java"
-
-<a id="javasample"></a>
-
-### Clone the Azure IoT Java SDK
-
-The [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and do proof-of-possession with the service to verify the certificate.
-
-1. Open a command prompt.
-
-2. Clone the GitHub repo for device enrollment code sample using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/):
-
-    ```cmd\sh
-    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
-    ```
-
-:::zone-end
-
-### Create the test certificate
-
-To create the test certificate:
-
-:::zone pivot="programming-language-csharp,programming-language-nodejs"
-
-To create the certificate, follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
-
->[!TIP]
->In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
-
-:::zone-end
-
-:::zone pivot="programming-language-java"
-
-1. In a command window, go to the folder *_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_*.
-
-2. To build the tool, run the following command:
-
-    ```cmd\sh
-    mvn clean install
-    ```
-
-3. To run the tool, use the following commands:
-
-    ```cmd\sh
-    cd target
-    java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-    ```
-
-4. When prompted, you may optionally enter a _Common Name_ for your certificates.
-
-5. The tool locally generates a *Client Cert*, the *Client Cert Private Key*, and the *Root Cert*. Copy the *Root Cert*, as you'll need it to modify the sample code.
-
-6. Close the command window, or enter **n** when prompted for *Verification Code*.
-
-:::zone-end
+If you don't have a root CA and intermediate CA certificate, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-the-intermediate-ca-certificate) as you wont need device certificates to complete the steps in this article.
 
 ## Add and verify your root CA certificate
 
@@ -176,6 +96,13 @@ To add and verify your root CA certificate to the Device Provisioning Service.
 8. Select **Save**.
 
 :::image type="content" source="./media/quick-enroll-device-x509/add-certificate.png" alt-text="Add a certificate for verification.":::
+
+:::zone pivot="programming-language-csharp"
+
+>[!TIP]
+>The [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
+
+:::zone-end
 
 ## Get the connection string for your provisioning service
 
@@ -365,22 +292,30 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 <a id="runjavasample"></a>
 
+1. Open a command prompt.
+
+1. Clone the GitHub repo for device enrollment code sample using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/):
+
+    ```cmd\sh
+    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
+    ```
+
 1. In the Azure IoT Java SDK, go to the sample folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_*.
 
-2. Open the file *_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_* in an editor of your choice.
+1. Open the file *_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_* in an editor of your choice.
 
-3. Replace `[Provisioning Connection String]` with the connection string that you copied in [Get the connection string for your provisioning service](#get-the-connection-string-for-your-provisioning-service).
+1. Replace `[Provisioning Connection String]` with the connection string that you copied in [Get the connection string for your provisioning service](#get-the-connection-string-for-your-provisioning-service).
 
-4. Replace the `PUBLIC_KEY_CERTIFICATE_STRING` value with the value of the *Root Cert** you generated in the previous section. Make sure to replace the entire sample value, including the lines **_-----BEGIN CERTIFICATE-----_** and **_-----END CERTIFICATE-----_**.
+1. Replace the `PUBLIC_KEY_CERTIFICATE_STRING` value with the value of the *Root Cert** you generated in the previous section. Make sure to replace the entire sample value, including the lines **_-----BEGIN CERTIFICATE-----_** and **_-----END CERTIFICATE-----_**.
 
-5. To configure your provisioning service from within the sample code, proceed to the next step. If you  do not want to configure it, make sure to comment out or delete the following statements in the _ServiceEnrollmentGroupSample.java_ file:
+1. To configure your provisioning service from within the sample code, proceed to the next step. If you  do not want to configure it, make sure to comment out or delete the following statements in the _ServiceEnrollmentGroupSample.java_ file:
 
     ```Java
     enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
     enrollmentGroup.setProvisioningStatus(ProvisioningStatus.ENABLED);  // Optional parameter.
     ```
 
-6. This step shows you how to configure your provisioning service in the sample code.
+1. This step shows you how to configure your provisioning service in the sample code.
 
     1. Go to the [Azure portal](https://portal.azure.com).
 
@@ -394,7 +329,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
         private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
         ```
 
-7. Study the sample code. It creates, updates, queries, and deletes a group enrollment for X.509 devices. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
+1. Study the sample code. It creates, updates, queries, and deletes a group enrollment for X.509 devices. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
 
     ```Java
     // ************************************** Delete info of enrollmentGroup ***************************************
@@ -402,7 +337,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
     provisioningServiceClient.deleteEnrollmentGroup(enrollmentGroupId);
     ```
 
-8. Save the file _ServiceEnrollmentGroupSample.java_.
+1. Save the file _ServiceEnrollmentGroupSample.java_.
 
 :::zone-end
 
@@ -542,6 +477,23 @@ If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, 
 9. Select the certificate you uploaded for this article.
 
 10. At the top of **Certificate Details**, select **Delete**.  
+
+## Certificate tooling
+
+:::zone pivot="programming-language-csharp,programming-language-nodejs"
+
+The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) has scripts that can help you create root CA, intermediate CA, and device certificates, and do proof-of-possession with the service to verify the root CA certificate. To learn more, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+
+>[!TIP]
+>The [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
+
+:::zone-end
+
+:::zone pivot="programming-language-java"
+
+The [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and do proof-of-possession with the service to verify the root CA certificate. To learn more, see [X509 certificate generator using DICE emulator](https://github.com/Azure/azure-iot-sdk-java/tree/main/provisioning/provisioning-tools/provisioning-x509-cert-generator).
+
+:::zone-end
 
 ## Next steps
 
