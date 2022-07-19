@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Disable public access in Azure App Configuration
 
-In this article, you'll learn how to disable public access for your Azure App Configuration store. Setting up private access can offer a better security for your configuration store.
+In this article, you'll learn how to disable public access for your Azure App Configuration store. Setting up private access can offer better security for your configuration store.
 
 ## Prerequisites
 

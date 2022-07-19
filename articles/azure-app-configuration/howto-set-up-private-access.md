@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Set up private access in Azure App Configuration
 
-In this article, you'll learn how to set up private access for your Azure App Configuration store, by creating a private endpoint with Azure Private Link. Private endpoints allow access to your App Configuration store using a private IP address from a virtual network.
+In this article, you'll learn how to set up private access for your Azure App Configuration store, by creating a [private endpoint](/azure/private-link/private-endpoint-overview) with Azure Private Link. Private endpoints allow access to your App Configuration store using a private IP address from a virtual network.
 
 In the guide below, you will:
 > [!div class="checklist"]
@@ -66,7 +66,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
    :::image type="content" source="./media/private-endpoint/basics.png" alt-text="Screenshot of the Azure portal, create a private endpoint, basics tab.":::
 
-1. Select **Next : Resource >**. Private Link offers options to create private endpoints for different types of Azure resources, such as SQL servers, Azure storage accounts or App Configuration stores. Review the information displayed to ensure that the correct App Configuration store is selected.
+1. Select **Next : Resource >**. Private Link offers options to create private endpoints for different types of Azure resources, such as SQL servers, Azure storage accounts or App Configuration stores. The current App Configuration store is automatically filled in the **Resource** field as that is the resource the private endpoint is connecting to.
 
    1. The resource type **Microsoft.AppConfiguration/configurationStores** and the target subresource **configurationStores** indicate that you're creating an endpoint for an App Configuration store.
 
@@ -82,13 +82,13 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
    1. Leave the box **Enable network policies for all private endpoints in this subnet** checked.
 
-   1. Under **Private IP configuration**, select the option to allocate IP addresses dynamically. For more information, refer to [Using private endpoints for Azure App Configuration](concept-private-endpoint.md)
+   1. Under **Private IP configuration**, select the option to allocate IP addresses dynamically. For more information, refer to [Private IP addresses](/azure/virtual-network/ip-services/private-ip-addresses).
 
    1. Optionally, you can select or create an **Application security group**. Application security groups allow you to group virtual machines and define network security policies based on those groups.
 
     :::image type="content" source="./media/private-endpoint/virtual-network.png" alt-text="Screenshot of the Azure portal, create a private endpoint, virtual network tab.":::
 
-1. Select **Next : DNS >** to choose a DNS record. If you don't want to make changes to the default settings, you can move forward to the next tab.
+1. Select **Next : DNS >** to configure a DNS record. If you don't want to make changes to the default settings, you can move forward to the next tab.
 
    1. For **Integrate with private DNS zone**, select **Yes** to integrate your private endpoint with a private DNS zone. You may also use your own DNS servers or create DNS records using the host files on your virtual machines.
 
@@ -107,6 +107,8 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     :::image type="content" source="./media/private-endpoint/review.png" alt-text="Screenshot of the Azure portal, create a private endpoint, review tab.":::
 
 1. Select **Create**.
+
+Once deployment is complete, you can start using it to access your App Configuration store.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -154,9 +156,9 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 ### [Portal](#tab/azure-portal)
 
-Go back to **Networking** > **Private Access** in your App Configuration store to access the private endpoints linked to your App Configuration store and check their connection state.
+Go to **Networking** > **Private Access** in your App Configuration store to access the private endpoints linked to your App Configuration store and check their connection state.
 
-On this page, you can also manually approve or reject a connection, and remove existing endpoints. To do so, select the checkbox next to the endpoint you want to edit and select an action item from the top menu.
+On this page, you can also manually approve or reject a connection, and delete existing endpoints. To do so, select the checkbox next to the endpoint you want to edit and select an action item from the top menu.
 
 :::image type="content" source="./media/private-endpoint/review-endpoints.png" alt-text="Screenshot of the Azure portal, review existing endpoints.":::
 
