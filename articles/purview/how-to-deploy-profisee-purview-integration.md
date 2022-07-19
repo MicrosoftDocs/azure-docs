@@ -47,9 +47,9 @@ Fully containerized configuration streamlines patches and upgrades
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/) and [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
 
 ### Azure Architecture Guides/Reference Docs
-1. [Data Governance with Profisee and Microsoft Purview](../architecture/reference-architectures/data/profisee-master-data-management-purview)
-1. [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and PowerBI](../architecture/reference-architectures/data/profisee-master-data-management-data-factory)
-1. [MDM on Azure Overview](../cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
+1. [Data Governance with Profisee and Microsoft Purview](../../architecture/reference-architectures/data/profisee-master-data-management-purview)
+1. [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and PowerBI](../../architecture/reference-architectures/data/profisee-master-data-management-data-factory)
+1. [MDM on Azure Overview](../../cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
 
 ## Profisee <> Purview Reference Architecture
 ![Profisee <> Purview Reference Architecture](https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png)
@@ -65,42 +65,42 @@ Let's take an example of a sample manufacturing company working across multiple 
 - Application Administrator role in Azure Active Directory so the required permissions that are needed for the Application Registration can be assigned.
 - Managed Identity Contributor and User Access Administrator at the Subscription level. These two are needed in order for the ARM template Managed Identity to be able to create the Key Vault specific Managed Identity that will be used by Profisee to pull the values stored in the Key Vault.
 - Data Curator Role added for the Purview account for the Purview specific Application Registration.
-1. Assign roles and permissions as per the list below and final state should look like this (attach image)
-1. Go to https://github.com/Profisee/kubernetes and click "Azure ARM". The readme includes troubleshooting steps as well. Read all the steps and troubleshooting wiki page very carefully.
-- Get the license file from Profisee by raising a support ticket on https://support.profisee.com/. Only pre-req for this step is you need to pre-determine the URL your profisee setup on Azure. NOte that this is a load balanced AKS (Azure Kubernetes) deployment using an ingress controller. In other words, keep handy the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com" . Example : DNSHOSTNAME="purviewprofiseeintegration.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to profisee support when you raise the support ticket and Profisee will revert with the license file. You will need to supply this file during the next configuration steps below. 
-- Click "Deploy to Azure"
+2. Assign roles and permissions as per the list below and final state should look like this (attach image)
+3. Go to https://github.com/Profisee/kubernetes and click "Azure ARM". The readme includes troubleshooting steps as well. Read all the steps and troubleshooting wiki page very carefully.
+4. Get the license file from Profisee by raising a support ticket on https://support.profisee.com/. Only pre-req for this step is you need to pre-determine the URL your profisee setup on Azure. NOte that this is a load balanced AKS (Azure Kubernetes) deployment using an ingress controller. In other words, keep handy the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com" . Example : DNSHOSTNAME="purviewprofiseeintegration.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to profisee support when you raise the support ticket and Profisee will revert with the license file. You will need to supply this file during the next configuration steps below. 
+5. Click "Deploy to Azure"
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprofisee%2Fkubernetes%2Fmaster%2FAzure-ARM%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprofisee%2Fkubernetes%2Fmaster%2FAzure-ARM%2FcreateUIDefinition.json)
 - The configurator wizard will ask for the inputs as described here - [Deploying the AKS Cluster using the ARM Template](https://support.profisee.com/wikis/2022_r1_support/deploying_the_AKS_cluster_with_the_arm_template)
 - Make sure to give the exact same RG (Resource Group) in the deployment as you gave permissions to the managed identity in Step1.
 - Once deployment completes, click "Go to Resource Group" and open the Profisee AKS Cluster.
--
-![Deployment Progress Intermediate](./media/how-to-deploy-profisee-purview/DeploymentProgressA.png)
--
-![Deployment Progress Final](./media/how-to-deploy-profisee-purview/DeploymentProgressFinal.png)
--
+- Profisee ARM Deployement Wizard - Managed Identity for installation; its role assignments and permissions should look like the image below.
 ![Profisee Managed Identity Azure Role Assignments](./media/how-to-deploy-profisee-purview/Profisee_Managed_Identity_AzureRoleAssignments.png)
--
+- Profisee ARM Deployement Wizard - App Registration Configuration
 ![Profisee Azure ARM Wizard App Registration Configuration](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_AppReg_Config.png)
--
+- Profisee ARM Deployement Wizard - Profisee Configuration and supplying Admin account username
 ![Profisee Azure ARM Wizard Step1 Profisee](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step1_Profisee.png)
--
+- Profisee ARM Deployement Wizard - Kubernetes Configuration - You may choose an older version of Kubernetes but leave the field BLANK to deploy the LATEST version.
 ![Profisee Azure ARM_Wizard Step2 Kubernetes](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step2_Kubernetes.png)
--
+- Profisee ARM Deployement Wizard - SQL Server
 ![Profisee Azure ARM Wizard Step3 SQLServer](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step3_SQLServer.png)
--
+- Profisee ARM Deployement Wizard - Azure DNS
 ![Profisee Azure ARM Wizard Step4 AzureDNS](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_AzureDNS.png)
--
+- Profisee ARM Deployement Wizard - Azure Storage
 ![Profisee Azure ARM Wizard Step4 Storage](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_Storage.png)
--
+- Profisee ARM Deployement Wizard - Final Validation Stages
 ![Profisee Azure ARM Wizard_Step5 Final_Template Validation](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation.png)
--
+- Profisee ARM Deployement Wizard - Final Validation
 ![Profisee Azure ARM Wizard_Step5 Final Template Validation New](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation_New.png)
--
-![Profisee Azure ARM Wizard Click Outputs Get FinalDeployment URL](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_ClickOutputs_GetFinalDeploymentURL.png)
--
+- Around 5-10 Minutes into the ARM deployment
+![Deployment Progress Intermediate](./media/how-to-deploy-profisee-purview/DeploymentProgressA.png)
+- Final Stages of Deployment. You need to wait around 45-50 minutes for the deployment to complete installing Profisee
+![Deployment Progress Final](./media/how-to-deploy-profisee-purview/DeploymentProgressFinal.png)
+- Deployment Complete
 ![Profisee Azure ARM Wizard Deployment Complete](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Deployment_Complete.png)
--
+- Open the resource group once deployment completes.
 ![Profisee Azure ARM Wizard_Post Deploy_Click Open Resource Group](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Post_Deploy_ClickOpen_Resource_Group.png)
+- Fetch the final deployment URL
+![Profisee Azure ARM Wizard Click Outputs Get FinalDeployment URL](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_ClickOutputs_GetFinalDeploymentURL.png)
 -
 - Populate and hydrate data to the newly installed profisee environment by installing FastApp. Go to your Profisee SaaS deployment URL and hit "/Profisee/api/client". It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client".
 
