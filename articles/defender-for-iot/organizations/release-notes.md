@@ -78,6 +78,12 @@ Defender for IoT’s new purchase experience and the Enterprise IoT integration 
 > [!NOTE]
 > The Enterprise IoT network sensor and all detections remain in Public Preview.
 
+### Last seen on devices replaced by Last activity
+
+In the sensor console's **Device inventory** page, the **Last seen** value in the device details pane is replaced by **Last activity**. For example:
+
+:::image type="content" source="media/release-notes/last-activity-new.png" alt-text="Screenshot of the new Last activity field showing in the sensor console's device details pane on the Device inventory page.":::
+
 ### OT appliance hardware profile updates
 
 We've refreshed the naming conventions for our OT appliance hardware profiles for greater transparency and clarity.
