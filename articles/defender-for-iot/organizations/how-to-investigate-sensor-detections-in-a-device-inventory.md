@@ -272,7 +272,6 @@ Devices you delete from the Inventory are removed from the map and won't be calc
 You'll be prompted to record a reason for deleting devices. This information, as well as the date/time and number of devices deleted, appears in the Event timeline.
 
 **To delete inactive devices:**
-
 1. Select the **Last Seen** filter icon in the Inventory.
 1. Select a filter option.
 1. Select **Apply**.
