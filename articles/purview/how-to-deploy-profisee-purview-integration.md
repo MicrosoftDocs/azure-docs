@@ -1,6 +1,6 @@
 ---
 title: Deploy Purview-Profisee Integration for MDM Master Data Management 
-description: This guide describes how to deploy Profisee-Purview better together integration as a managed MDM Master Data Managemnent solution for your data estate governance.
+description: This guide describes how to deploy Profisee-Purview better together integration as a managed MDM Master Data Management solution for your data estate governance.
 author: abandyop
 ms.author: arindamba
 ms.service: purview
@@ -13,7 +13,7 @@ ms.custom: template-how-to
 # Microsoft Purview - Profisee Integration
 Master Data Management (MDM) is a key pillar of any world class industry leading Unified Data Governance solution. Microsoft Purview now supports Master Data Management MDM with Partners such as Profisee, CluedIn, Tamr, Semarchy. This tutorial compiles reference and integration deployment materials at one place to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
 
-## What, why and how of MDM - Master Data Management ?
+## What, why and how of MDM - Master Data Management?
 Master data management (MDM) arose out of the necessity for businesses to improve the consistency and quality of their key data assets, such as products, assets, customers, location data, and so on. Many businesses today, especially global enterprises have hundreds of separate applications and systems (like SAP, ERP and CRM) where data that crosses organizational departments or divisions can easily become fragmented, duplicated and most commonly out of date. When this occurs, answering even the most basic, but critical questions about any type of performance metric or KPI for a business accurately becomes a pain.
 Getting answers to basic questions such as “who are our most profitable customers?”, “what product(s) have the best margins?” or in some cases, “how many employees do we have”? become tough to answer – or at least with any degree of accuracy.
 Basically, the need for accurate, timely information is acute and as sources of data increase, managing it consistently and keeping data definitions up to date so all parts of a business use the same information is a never ending challenge.
@@ -39,7 +39,7 @@ Modern Cloud Architecture -
 Platform available as a containerized Kubernetes service
 
 Complete Flexibility & Autonomy -
-Available in Azure, AWS, Google Cloud or on-premises
+Available in Azure, AWS, Google Cloud or on-prem.
 
 Fast to Deploy, Easy to Maintain -
 Fully containerized configuration streamlines patches and upgrades
@@ -59,7 +59,7 @@ Let's take an example of a sample manufacturing company working across multiple 
 
 ## Microsoft Purview - Profisee Integration SaaS Deployment on AKS Azure Kubernetes Infrastructure How-To Guide
 
-1. Create a managed identity in Azure. You must have a Managed Identity created to run the deployment. This Managed Identity must have the following permissions when running a deployment. After it is done, the Managed Identity can be deleted. Based on your ARM template choices, you will need some or all of the following permissions assigned to your Managed Identity:
+1. Create a managed identity in Azure. You must have a Managed Identity created to run the deployment. This Managed Identity must have the following permissions when running a deployment. After it's done, the Managed Identity can be deleted. Based on your ARM template choices, you'll need some or all of the following permissions assigned to your Managed Identity:
 - Contributor role to the Resource Group where AKS will be deployed. This can either be assigned directly to the Resource Group OR at Subscription level down.
 - DNS Zone Contributor role to the particular DNS zone where the entry will be created OR Contributor role to the DNS Zone Resource Group. This is needed only if updating DNS hosted in Azure.
 - Application Administrator role in Azure Active Directory so the required permissions that are needed for the Application Registration can be assigned.
@@ -67,29 +67,29 @@ Let's take an example of a sample manufacturing company working across multiple 
 - Data Curator Role added for the Purview account for the Purview specific Application Registration.
 2. Assign roles and permissions as per the list below and final state should look like this (attach image)
 3. Go to https://github.com/Profisee/kubernetes and click "Azure ARM". The readme includes troubleshooting steps as well. Read all the steps and troubleshooting wiki page very carefully.
-4. Get the license file from Profisee by raising a support ticket on https://support.profisee.com/. Only pre-req for this step is you need to pre-determine the URL your profisee setup on Azure. NOte that this is a load balanced AKS (Azure Kubernetes) deployment using an ingress controller. In other words, keep handy the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com" . Example : DNSHOSTNAME="purviewprofiseeintegration.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to profisee support when you raise the support ticket and Profisee will revert with the license file. You will need to supply this file during the next configuration steps below. 
+4. Get the license file from Profisee by raising a support ticket on https://support.profisee.com/. Only pre-req for this step is your need to pre-determine the URL your Profisee setup on Azure. Note that this is a load balanced AKS (Azure Kubernetes) deployment using an ingress controller. In other words, keep handy the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com". For instance, DNSHOSTNAME="purviewprofiseeintegration.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to Profisee support when you raise the support ticket and Profisee will revert with the license file. You'll need to supply this file during the next configuration steps below. 
 5. Click "Deploy to Azure"
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprofisee%2Fkubernetes%2Fmaster%2FAzure-ARM%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprofisee%2Fkubernetes%2Fmaster%2FAzure-ARM%2FcreateUIDefinition.json)
 - The configurator wizard will ask for the inputs as described here - [Deploying the AKS Cluster using the ARM Template](https://support.profisee.com/wikis/2022_r1_support/deploying_the_AKS_cluster_with_the_arm_template)
 - Make sure to give the exact same RG (Resource Group) in the deployment as you gave permissions to the managed identity in Step1.
 - Once deployment completes, click "Go to Resource Group" and open the Profisee AKS Cluster.
-- Profisee ARM Deployement Wizard - Managed Identity for installation; its role assignments and permissions should look like the image below.
+- Profisee ARM Deployment Wizard - Managed Identity for installation; its role assignments and permissions should look like the image below.
 ![Profisee Managed Identity Azure Role Assignments](./media/how-to-deploy-profisee-purview/Profisee_Managed_Identity_AzureRoleAssignments.png)
-- Profisee ARM Deployement Wizard - App Registration Configuration
+- Profisee ARM Deployment Wizard - App Registration Configuration
 ![Profisee Azure ARM Wizard App Registration Configuration](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_AppReg_Config.png)
-- Profisee ARM Deployement Wizard - Profisee Configuration and supplying Admin account username
+- Profisee ARM Deployment Wizard - Profisee Configuration and supplying Admin account username
 ![Profisee Azure ARM Wizard Step1 Profisee](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step1_Profisee.png)
-- Profisee ARM Deployement Wizard - Kubernetes Configuration - You may choose an older version of Kubernetes but leave the field BLANK to deploy the LATEST version.
+- Profisee ARM Deployment Wizard - Kubernetes Configuration - You may choose an older version of Kubernetes but leave the field BLANK to deploy the LATEST version.
 ![Profisee Azure ARM_Wizard Step2 Kubernetes](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step2_Kubernetes.png)
-- Profisee ARM Deployement Wizard - SQL Server
+- Profisee ARM Deployment Wizard - SQL Server
 ![Profisee Azure ARM Wizard Step3 SQLServer](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step3_SQLServer.png)
-- Profisee ARM Deployement Wizard - Azure DNS
+- Profisee ARM Deployment Wizard - Azure DNS
 ![Profisee Azure ARM Wizard Step4 AzureDNS](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_AzureDNS.png)
-- Profisee ARM Deployement Wizard - Azure Storage
+- Profisee ARM Deployment Wizard - Azure Storage
 ![Profisee Azure ARM Wizard Step4 Storage](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_Storage.png)
-- Profisee ARM Deployement Wizard - Final Validation Stages
+- Profisee ARM Deployment Wizard - Final Validation Stages
 ![Profisee Azure ARM Wizard_Step5 Final_Template Validation](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation.png)
-- Profisee ARM Deployement Wizard - Final Validation
+- Profisee ARM Deployment Wizard - Final Validation
 ![Profisee Azure ARM Wizard_Step5 Final Template Validation New](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation_New.png)
 - Around 5-10 Minutes into the ARM deployment
 ![Deployment Progress Intermediate](./media/how-to-deploy-profisee-purview/DeploymentProgressA.png)
@@ -106,4 +106,4 @@ Let's take an example of a sample manufacturing company working across multiple 
 
 ## Next Steps
 Through this guide we learnt how to set up and deploy Profisee <> Purview Integration on a very detailed level.
-For more usage details on Profisee especially how to configure data models, data quality, MDM and various other features of Profisee - Register on https://profisee.com/demo/ for further detailed tutorials!
+For more usage details on Profisee and Profisee FastApp, especially how to configure data models, data quality, MDM and various other features of Profisee - Register on https://profisee.com/demo/ for further detailed tutorials!
