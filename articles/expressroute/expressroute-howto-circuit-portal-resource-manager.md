@@ -40,7 +40,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 | Setting | Value |
 | ---     | ---   |
-| Resource group |	Select **Create new**. Enter **ExpressRouteResourceGroup** </br>  Select **OK**. |
+| Resource group | Select **Create new**. Enter **ExpressRouteResourceGroup** </br>  Select **OK**. |
 | Region   |  West US 2 |
 | Name   |  TestERCircuit |
 
