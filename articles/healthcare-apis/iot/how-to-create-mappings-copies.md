@@ -28,14 +28,14 @@ This article provides steps for creating copies of your MedTech service's device
 
 2. Select the name of the **MedTech service** that you'll be copying the device and FHIR destination mappings from.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Screenshoot of select the MedTech service that you will be making mappings copies from" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Screenshoot of select the MedTech service that you will be making mappings copies from." lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
    > [!NOTE]
    > This process may also be used for copying and saving the contents of the **"Destination"** FHIR destination mapping.
 
 3. Select the contents of the JSON and do a copy operation (for example: Press **Ctrl + C**). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Screenshot of select and copy contents of the mapping" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Screenshot of select and copy contents of the mapping." lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 4. Do a paste operation (for example: Press **Ctrl + V**) into a new file within an editor like Microsoft Visual Studio Code or Notepad. Make sure to save the file with the **.json** extension.
 
