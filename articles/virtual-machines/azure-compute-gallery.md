@@ -108,7 +108,7 @@ For more information, see [Share using RBAC](./share-gallery.md).
 
 ### Shared directly to a tenant or subscription
 
-Give specific subscriptions or tenants access to an direct shared Azure Compute Gallery. Sharing a gallery with tenants and subscriptions give them read-only access to your gallery. For more information, see [Share a gallery with subscriptions or tenants](./share-gallery-direct.md).
+Give specific subscriptions or tenants access to a direct shared Azure Compute Gallery. Sharing a gallery with tenants and subscriptions give them read-only access to your gallery. For more information, see [Share a gallery with subscriptions or tenants](./share-gallery-direct.md).
 
 > [!IMPORTANT]
 > Azure Compute Gallery – direct shared gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

@@ -127,15 +127,15 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 1. Complete all of the details on the page.
 1. At the bottom of the page, select **Next: Sharing method**.
     :::image type="content" source="media/create-gallery/create-gallery.png" alt-text="Screenshot showing where to select to go on to sharing methods.":::
-1. On the **Sharing** tab, select **xxxxxxxxx**.
+1. On the **Sharing** tab, select **RBAC + share directly**.
 
-   :::image type="content" source="media/create-gallery/sharing-type.png" alt-text="Screenshot showing the option to share using both role-based access control and a community gallery.":::
+   :::image type="content" source="media/create-gallery/share-direct.png" alt-text="Screenshot showing the option to share using both role-based access control and share directly.":::
 
-1. xxx
+1. When you are done, select **Review + create**.
 1. After validation passes, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
 
-To start sharing the gallery with a subscription or tenant, use see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
+To start sharing the gallery with a subscription or tenant, see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
 
 ### [CLI](#tab/clidirect)
 

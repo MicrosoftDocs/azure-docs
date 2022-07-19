@@ -18,7 +18,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 Create a VM from a [specialized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery (formerly known as Shared Image Gallery). If you want to create a VM using a generalized image version, see [Create a VM from a generalized image version](vm-generalized-image-version.md).
 
-This article shows how to create a VM from a a specialized image:
+This article shows how to create a VM from a specialized image:
 - [In your own gallery](#create-a-vm-from-your-gallery) 
 - Shared to a [community gallery](#create-a-vm-from-a-community-gallery-image)
 - [Directly shared to your subscription or tenant](#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant)
@@ -26,9 +26,6 @@ This article shows how to create a VM from a a specialized image:
 > [!IMPORTANT]
 > 
 > When you create a new VM from a specialized image, the new VM retains the computer name of the original VM. Other computer-specific information, like the CMID, is also kept. This duplicate information can cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
-
-
-Replace resource names as needed in these examples.
 
 
 ## Create a VM from your gallery
@@ -296,7 +293,7 @@ az vm create\
 ### [Portal](#tab/portal2)
 
 > [!NOTE]
-> **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
+> **Known issue**: In the Azure portal, if you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 >
 > You can also use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus" to see what images are shared with you in the West US region.
 
