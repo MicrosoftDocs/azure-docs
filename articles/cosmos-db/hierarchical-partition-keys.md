@@ -32,7 +32,8 @@ Queries that specify either the **TenantId**, or both **TenantId** and **UserId*
 ## Getting started
 
 > [!IMPORTANT]
-> Working with containers that use hierarchical partition keys is supported only in the preview versions of the .NET v3 and Java v4 SDK. You must use the supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data
+> Working with containers that use hierarchical partition keys is supported only in the preview versions of the .NET v3 and Java v4 SDK. You must use the supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data.
+> If you would like to use an SDK or connector that isn't currently supported, please file a request on our [community forum](https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858).
 
 Find the latest preview version of each supported SDK:
 
@@ -362,9 +363,9 @@ For example, assume we have a hierarchical partition key composed of **TenantId 
 ```bicep
 partitionKey: {
   paths: [
-    'TenantId',
-    'UserId',
-    'SessionId'
+    '/TenantId',
+    '/UserId',
+    '/SessionId'
   ]
   kind: 'MultiHash'
   version: 2
@@ -376,9 +377,9 @@ partitionKey: {
 ```json
 "partitionKey": {
     "paths": [
-        "TenantId",
-        "UserId",
-        "SessionId"
+        "/TenantId",
+        "/UserId",
+        "/SessionId"
     ],
     "kind": "MultiHash",
     "version": 2

@@ -33,7 +33,7 @@ If you’re using the Azure CLI, you’ll need Azure CLI version 2.0.59 or later
 
 ## Create a resource group - Azure CLI
 
-Run the following Azure CLI command to create a resource group.
+Run the following Azure CLI command to create a resource group in which your Azure Red Hat OpenShift cluster will reside.
 
 ```azurecli-interactive
 AZ_RG=$(az group create -n test-aro-rg -l eastus2 --query name -o tsv)
@@ -68,29 +68,10 @@ The output is similar to the following example.
 }
 ``` 
  
-> [!NOTE]
-> This service principal only allows a contributor over the resource group the Azure Red Hat OpenShift cluster is located in. If your VNet is in another resource group, you need to assign the service principal contributor role to that resource group as well. 
+> [!IMPORTANT]
+> This service principal only allows a contributor over the resource group the Azure Red Hat OpenShift cluster is located in. If your VNet is in another resource group, you need to assign the service principal contributor role to that resource group as well. You also need to create your Azure Red Hat OpenShift cluster in the resource group you created above.
 
 To grant permissions to an existing service principal with the Azure portal, see [Create an Azure AD app and service principal in the portal](../active-directory/develop/howto-create-service-principal-portal.md#configure-access-policies-on-resources).
-
-## Use the service principal to deploy an Azure Red Hat OpenShift cluster - Azure CLI
-
-Using the service principal that you created when you created the Azure Red Hat OpenShift cluster, use the `az aro create` command to deploy the Azure Red Hat OpenShift cluster. Use the `--client-id` and `--client-secret` parameters to specify the appId and password from the output of the `az ad sp create-for-rbac` command, as shown in the following command. 
-
-```azure-cli 
-az aro create \ 
-
-    --resource-group myResourceGroup \ 
-
-    --name myAROCluster \ 
-
-    --client-id <appID> \ 
-
-    --client-secret <password> 
-```
-
-> [!IMPORTANT] 
-> If you're using an existing service principal with a customized secret, ensure the secret doesn't exceed 190 bytes. 
 
 ::: zone-end
 
@@ -98,40 +79,10 @@ az aro create \
 
 ## Create a service principal with the Azure portal
 
-The following sections explain how to use the Azure portal to create a service principal for your Azure Red Hat OpenShift cluster.
+This section explains how to use the Azure portal to create a service principal for your Azure Red Hat OpenShift cluster. 
 
-## Prerequisite - Azure portal
+To create a service principal, see [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). **Be sure to save the client ID and the appID.**
 
-Create a service principal, as explained in [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). **Be sure to save the client ID and the appID.**
 
-## To use the service principal to deploy an Azure Red Hat OpenShift cluster - Azure portal 
-
-To use the service principal you created to deploy a cluster, complete the following steps.
-
-1. On the Create Azure Red Hat OpenShift **Basics** tab, create a resource group for your subscription, as shown in the following example.
-
-   :::image type="content" source="./media/basics-openshift-sp.png" alt-text="Screenshot that shows how to use the Azure Red Hat service principal with Azure portal to create a cluster." lightbox="./media/basics-openshift-sp.png":::
-
-2. Select **Next: Authentication** to configure the service principal on the **Authentication** page of the **Azure Red Hat OpenShift** dialog.
-
-     :::image type="content" source="./media/openshift-service-principal-portal.png" alt-text="Screenshot that shows how to use the Authentication tab with Azure portal to create a service principal." lightbox="./media/openshift-service-principal-portal.png":::
-
-In the **Service principal information** section:
-
-- **Service principal client ID** is your appId. 
-- **Service principal client secret** is the service principal's decrypted Secret value.
-
-In the **Cluster pull secret** section:
-
-- **Pull secret** is your cluster's pull secret's decrypted value. If you don't have a pull secret, leave this field blank.
-
-After completing this tab, select **Next: Networking** to continue deploying your cluster. Select **Review + Create** when you complete the remaining tabs.
-
-> [!NOTE]
-> This service principal only allows a contributor over the resource group the Azure Red Hat OpenShift cluster is located in. If your VNet is in another resource group, you need to assign the service principal contributor role to that resource group as well.
-
-## Grant permissions to the service principal - Azure portal
-
-To grant permissions to an existing service principal with the Azure portal, see [Create an Azure AD app and service principal in the portal](../active-directory/develop/howto-create-service-principal-portal.md#configure-access-policies-on-resources).
 
 ::: zone-end

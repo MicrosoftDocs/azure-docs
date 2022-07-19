@@ -45,6 +45,7 @@ If you don’t have an Azure subscription, create a free account before you begi
     1. Select **Notebooks** in the studio.
     1. Select the **Samples** tab.
     1. Open the *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* notebook.
+    1. To run each cell in the tutorial, select **Clone this notebook**
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). 
 To get the required packages, 
@@ -231,7 +232,7 @@ automl_config = AutoMLConfig(task='regression',
 
 ### Train the automatic regression model
 
-Create an experiment object in your workspace. An experiment acts as a container for your individual runs. Pass the defined `automl_config` object to the experiment, and set the output to `True` to view progress during the run.
+Create an experiment object in your workspace. An experiment acts as a container for your individual jobs. Pass the defined `automl_config` object to the experiment, and set the output to `True` to view progress during the job.
 
 After starting the experiment, the output shown updates live as the experiment runs. For each iteration, you see the model type, the run duration, and the training accuracy. The field `BEST` tracks the best running training score based on your metric type.
 
@@ -284,7 +285,7 @@ BEST: The best observed score thus far.
 
 ## Explore the results
 
-Explore the results of automatic training with a [Jupyter widget](/python/api/azureml-widgets/azureml.widgets). The widget allows you to see a graph and table of all individual run iterations, along with training accuracy metrics and metadata. Additionally, you can filter on different accuracy metrics than your primary metric with the dropdown selector.
+Explore the results of automatic training with a [Jupyter widget](/python/api/azureml-widgets/azureml.widgets). The widget allows you to see a graph and table of all individual job iterations, along with training accuracy metrics and metadata. Additionally, you can filter on different accuracy metrics than your primary metric with the dropdown selector.
 
 ```python
 from azureml.widgets import RunDetails

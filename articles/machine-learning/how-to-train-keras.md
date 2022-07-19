@@ -46,6 +46,8 @@ Run this code on either of these environments:
 
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
+
 ## Set up the experiment
 
 This section sets up the training experiment by loading the required Python packages, initializing a workspace, creating the FileDataset for the input training data, creating the compute target, and defining the training environment.
@@ -102,6 +104,8 @@ dataset = dataset.register(workspace=ws,
 ### Create a compute target
 
 Create a compute target for your training job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
+
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 cluster_name = "gpu-cluster"

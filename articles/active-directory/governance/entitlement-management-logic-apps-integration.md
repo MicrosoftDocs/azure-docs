@@ -46,7 +46,7 @@ These triggers to Logic Apps are controlled in a new tab within access package p
 
 1. In the left menu, select **Catalogs**. 
 
-1. In the left menu, select **Custom Extensions (Preview)**. 
+1. Select the catalog for which you want to add a custom extension and then in the left menu, select **Custom Extensions (Preview)**. 
 
 1. In the header navigation bar, select **Add a Custom Extension**.  
 
@@ -111,7 +111,7 @@ These triggers to Logic Apps are controlled in a new tab within access package p
 
     > [!NOTE]  
     > Select **New access package** if you want to create a new access package.
-    > For more information about how to create an access package see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policy-of-request-settings). 
+    > For more information about how to create an access package see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
 
 1. Change to the policy tab, select the policy and select **Edit**.
 

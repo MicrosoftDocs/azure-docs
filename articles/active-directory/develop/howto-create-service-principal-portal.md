@@ -1,6 +1,5 @@
 ---
 title: Create an Azure AD app and service principal in the portal
-titleSuffix: Microsoft identity platform
 description: Create a new Azure Active Directory app and service principal to manage access to resources with role-based access control in Azure Resource Manager.
 services: active-directory
 author: rwike77

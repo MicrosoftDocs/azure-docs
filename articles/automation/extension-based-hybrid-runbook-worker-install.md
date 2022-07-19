@@ -105,7 +105,7 @@ Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 0.1 -Settings $settings -NoWait
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 0.1 -Setting $settings -NoWait
 ```
 
 # [Linux](#tab/linux)
@@ -127,7 +127,7 @@ Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Settings $settings -NoWait
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Setting $settings -NoWait
 ```
 
 ---
@@ -164,14 +164,14 @@ To create a hybrid worker group in the Azure portal, follow these steps:
 
 1. From the **Basics** tab, in the **Name** text box, enter a name for your Hybrid worker group.
 
-1. For the **Use run as credential** option:
+1. For the **Use Hybrid Worker Credentials** option:
 
-   - If you select **No**, the hybrid extension will be installed using the local system account.
-   - If you select **Yes**, then from the drop-down list, select the credential asset.
+   - If you select **Default**, the hybrid extension will be installed using the local system account.
+   - If you select **Custom**, then from the drop-down list, select the credential asset.
 
 1. Select **Next** to advance to the **Hybrid workers** tab. You can select Azure virtual machines or Azure Arc-enabled servers to be added to this Hybrid worker group. If you don't select any machines, an empty Hybrid worker group will be created. You can still add machines later.
 
-   :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/basics-tab-portal.png" alt-text="Screenshot showing to entering name and credentials in basics tab.":::
+   :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/basics-tab-portal.png" alt-text="Screenshot showing to enter name and credentials in basics tab.":::
 
 1. Select **Add machines** to go to the **Add machines as hybrid worker** page. You'll only see machines that aren't part of any other hybrid worker group.
 
@@ -622,7 +622,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 1. Get the automation account details using this API call.
 
    ```http
-   GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2021-06-22
+   GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/HybridWorkerExtension?api-version=2021-06-22
 
    ```
 
@@ -631,7 +631,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 1. Install the Hybrid Worker Extension on Azure VM by using the following API call. 
   
     ```http
-    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName}?api-version=2021-11-01
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/HybridWorkerExtension?api-version=2021-11-01
 
     ```
    

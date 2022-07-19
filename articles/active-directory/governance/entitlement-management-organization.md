@@ -158,6 +158,9 @@ Only users from configured connected organizations can request access packages t
 
 > [!NOTE]
 > As part of rolling out this new feature, all connected organizations created before 09/09/20 were considered **configured**. If you had an access package that allowed users from any organization to sign up, you should review your list of connected organizations that were created before that date to ensure none are miscategorized as **configured**.  An admin can update the **State** property as appropriate. For guidance, see [Update a connected organization](#update-a-connected-organization).
+> [!NOTE]
+>  In some cases, a user might request an access package using their personal account having the same domain as the connected organization resulting in a new suggested connected organization. In this case, make sure the user is using their organization account instead and the portal will identify this user coming from the configured connected organization Azure AD tenant.
+
 
 ## Next steps
 

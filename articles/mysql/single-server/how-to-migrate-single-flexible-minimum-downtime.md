@@ -6,7 +6,7 @@ ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 06/20/2022
 ---
 
 # Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimal downtime

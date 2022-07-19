@@ -1,13 +1,13 @@
 ---
 title: Create a proximity placement group using the Azure CLI
 description: Learn about creating and using proximity placement groups for virtual machines in Azure. 
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 3/8/2021
-ms.author: cynthn
+ms.author: mattmcinnes
 
 ---
 

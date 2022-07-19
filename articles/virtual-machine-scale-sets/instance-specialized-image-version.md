@@ -14,7 +14,8 @@ ms.custom: devx-track-azurecli
 
 # Create a scale set using a specialized image version with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+> [!IMPORTANT]
+> You can't currently create a virtual machine scale set using Flexible orchestration mode from an image shared by another tenant.
 
 Create a scale set from a [specialized image version](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery. If you want to create a scale set using a generalized image version, see [Create a scale set from a generalized image](instance-generalized-image-version-cli.md).
 
@@ -201,7 +202,7 @@ To create a VM using an image shared to a community gallery, use the unique ID o
 /CommunityGalleries/<community gallery name>/Images/<image name>/Versions/latest
 ```
 
-To list all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
+To list all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az-sig-image-definition-list-community). In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
 
 ```azurecli-interactive 
  az sig image-definition list-community \

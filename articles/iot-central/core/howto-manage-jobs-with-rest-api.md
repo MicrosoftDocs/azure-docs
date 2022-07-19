@@ -3,7 +3,7 @@ title: Use the REST API to manage jobs in Azure IoT Central
 description: How to use the IoT Central REST API to create and manage jobs in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/05/2022
+ms.date: 06/20/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -26,9 +26,6 @@ This article describes how to use the `/jobs/{job_id}` API to control devices in
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
-
-> [!TIP]
-> The [preview API](/rest/api/iotcentral/1.2-previewdataplane/jobs) includes support for the new [organizations feature](howto-create-organizations.md).
 
 To learn how to create and manage jobs in the UI, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 

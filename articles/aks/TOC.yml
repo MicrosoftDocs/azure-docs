@@ -179,6 +179,8 @@
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
+        - name: Automatically upgrade an AKS cluster
+          href: auto-upgrade-cluster.md
         - name: Use Uptime SLA
           href: uptime-sla.md
         - name: Use Draft (preview)
@@ -223,7 +225,7 @@
               href: use-system-pools.md
             - name: Use WebAssembly System Interface (WASI) node pools
               href: use-wasi-node-pools.md
-            - name: Start/stop node pools (preview)
+            - name: Start/stop node pools
               href: start-stop-nodepools.md
             - name: Resize node pools
               href: resize-node-pool.md
@@ -239,7 +241,7 @@
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
-          href: ../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks#what-are-the-benefits-of-microsoft-defender-for-containers
+          href: ../defender-for-cloud/defender-for-containers-introduction.md
           maintainContext: true
         - name: Enable Defender for Containers
           href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks
@@ -329,6 +331,8 @@
               href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
+        - name: Use API Server VNet Integration
+          href: api-server-vnet-integration.md
         - name: Bring your own CNI
           href: use-byo-cni.md
         - name: Create an internal load balancer
@@ -341,23 +345,17 @@
           href: http-proxy.md
         - name: Ingress
           items:
-            - name: Create a basic controller
-              href: ingress-basic.md
+            - name: Use ingress-nginx
+              items:
+                - name: Create an ingress controller
+                  href: ingress-basic.md
+                - name: Use TLS with an ingress controller
+                  href: ingress-tls.md
             - name: Use HTTP application routing
               href: http-application-routing.md
-            - name: Use internal network
-              href: ingress-internal-ip.md
             - name: Enable the AGIC add-on for an existing AKS cluster
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
               maintainContext: true
-            - name: Use TLS with your own certificates
-              href: ingress-own-tls.md
-            - name: Use TLS with Let's Encrypt
-              items:
-                - name: Use a dynamic public IP address
-                  href: ingress-tls.md
-                - name: Use a static public IP address
-                  href: ingress-static-ip.md
         - name: Egress
           items:
             - name: Restrict and control cluster egress traffic
@@ -370,17 +368,17 @@
           href: coredns-custom.md
     - name: Configure data volumes
       items:
-        - name: Azure Disk - Dynamic
+        - name: Azure disk - dynamic
           href: azure-disks-dynamic-pv.md
-        - name: Azure Disk - Static
+        - name: Azure disk - static
           href: azure-disk-volume.md
-        - name: Azure Files - Dynamic
+        - name: Azure Files - dynamic
           href: azure-files-dynamic-pv.md
-        - name: Azure Files - Static
+        - name: Azure Files - static
           href: azure-files-volume.md
         - name: Azure HPC Cache
           href: azure-hpc-cache.md
-        - name: NFS Server - Static
+        - name: NFS Server - static
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
@@ -388,11 +386,11 @@
           href: use-ultra-disks.md
     - name: CSI storage drivers
       items:
-        - name: CSI storage driver overview
+        - name: CSI storage drivers overview
           href: csi-storage-drivers.md
-        - name: Azure disk CSI drivers
+        - name: Azure disks CSI driver
           href: azure-disk-csi.md
-        - name: Azure Files CSI drivers
+        - name: Azure Files CSI driver
           href: azure-files-csi.md
     - name: Monitoring and logging
       items:
@@ -467,10 +465,20 @@
           href: open-service-mesh-uninstall-add-on.md
     - name: Track releases and region availability
       href: release-tracker.md
+    - name: Deploy the Kubernetes Event-driven Autoscaler (KEDA) add-on (preview)
+      items:
+        - name: About Kubernetes Event-driven Autoscaler (KEDA)
+          href: keda-about.md
+        - name: Use ARM template
+          href: keda-deploy-add-on-arm.md
+        - name: Use Azure CLI
+          href: keda-deploy-add-on-cli.md
+        - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
+          href: keda-integrations.md
+        - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
+          href: keda-troubleshoot.md
     - name: Use Web Application Routing (preview)
       href: web-app-routing.md
-    - name: Kubernetes Event-driven Autoscaler add-on (preview)
-      href: keda.md
     - name: Use cluster extensions
       href: cluster-extensions.md
     - name: DevOps

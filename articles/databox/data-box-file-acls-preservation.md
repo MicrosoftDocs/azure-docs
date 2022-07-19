@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 04/11/2022
+ms.date: 07/06/2022
 ms.author: alkohli
 ---
 
@@ -101,7 +101,7 @@ If you do not have **SeBackupPrivilege**:
 
 ### ACLs transfer over NFS
  
-ACLs aren't transferred when you copy data over [NFS](data-box-deploy-copy-data-via-nfs.md).
+ACLs (and metadata attributes) aren't transferred when you copy data over [NFS](data-box-deploy-copy-data-via-nfs.md).
 
 
 ### Default ACLs transfer

@@ -31,6 +31,9 @@ items:
     href: quickstart-create-data-factory-python.md
   - name: Create data factory - REST
     href: quickstart-create-data-factory-rest-api.md
+  - name: Create data factory - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-data-factory-bicep.md
   - name: Create data factory - ARM template
     displayName: Resource Manager
     href: quickstart-create-data-factory-resource-manager-template.md
@@ -197,6 +200,9 @@ items:
   - name: Pipelines and activities
     href: concepts-pipelines-activities.md
     displayName: retry, timeout
+  - name: Nested activities
+    href: concepts-nested-activities.md
+    displayName: nested, nesting
   - name: Linked services
     href: concepts-linked-services.md
   - name: Datasets
@@ -724,9 +730,11 @@ items:
       href: data-flow-alter-row.md
       displayName: upsert, update, insert, delete
     - name: Assert
-      href: data-flow-assert.md
+      href: data-flow-assert.md   
     - name: Conditional split
       href: data-flow-conditional-split.md
+    - name: Cast
+      href: data-flow-cast.md
       displayName: split
     - name: Derived column
       href: data-flow-derived-column.md
@@ -826,6 +834,8 @@ items:
     items: 
     - name: Manage Azure Data Factory settings and preferences
       href: how-to-manage-settings.md
+    - name: Manage Azure Data Factory studio preview experience
+      href: how-to-manage-studio-preview-exp.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -1042,8 +1052,8 @@ items:
       items:
       - name: SSIS migration overview
         href: scenario-ssis-migration-overview.md
-      - name: SSISDB migration to Azure SQL Managed Instance
-        href: scenario-ssis-migration-ssisdb-mi.md
+      - name: SSIS migration assessment rules
+        href: scenario-ssis-migration-rules.md
     - name: SAP knowledge center
       items:
       - name: Overview
@@ -1052,6 +1062,24 @@ items:
         href: industry-sap-connectors.md
       - name: SAP templates
         href: industry-sap-templates.md
+      - name: SAP change data capture (CDC)
+        items:
+        - name: 1 - Introduction and architecture
+          href: sap-change-data-capture-introduction-architecture.md
+        - name: 2 - Prerequisites and configuration
+          href: sap-change-data-capture-prerequisites-configuration.md
+        - name: 3 - Self-hosted integration runtime preparation
+          href: sap-change-data-capture-shir-preparation.md
+        - name: 4 - Linked service and source dataset creation
+          href: sap-change-data-capture-prepare-linked-service-source-dataset.md
+        - name: 5 - Debug copy activity issues
+          href: sap-change-data-capture-debug-shir-logs.md
+        - name: 6 - Data partitioning template
+          href: sap-change-data-capture-data-partitioning-template.md
+        - name: 7 - Data Replication template
+          href: sap-change-data-capture-data-replication-template.md
+        - name: 8 - Managing the solution
+          href: sap-change-data-capture-management.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -1085,6 +1113,8 @@ items:
       href: data-flow-reserved-capacity-overview.md
     - name: Data flow understand reservation charges
       href: data-flow-understand-reservation-charges.md
+    - name: Better understand different integration runtime charges
+      href: better-understand-different-integration-runtime-charges.md
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
       displayName: diu
@@ -1095,52 +1125,75 @@ items:
     items:
     - name: Azure Data Factory Studio
       href: data-factory-ux-troubleshoot-guide.md
+      displayName: troubleshooting
     - name: Activities
       href: data-factory-troubleshoot-guide.md
-      displayName: timeout
+      displayName: timeout, troubleshooting
     - name: Connectors
       items:
       - name: Overview and general copy activity errors
         href: connector-troubleshoot-guide.md
-        displayName: polybase, timeout
+        displayName: polybase, timeout, troubleshooting
       - name: Azure Blob Storage
         href: connector-troubleshoot-azure-blob-storage.md
+        displayName: troubleshooting
       - name: Azure Cosmos DB (including SQL API)
         href: connector-troubleshoot-azure-cosmos-db.md
+        displayName: troubleshooting
       - name: Azure Data Lake (Gen1 and Gen2)
         href: connector-troubleshoot-azure-data-lake.md
+        displayName: troubleshooting
       - name: Azure database for PostgreSQL
         href: connector-troubleshoot-postgresql.md
+        displayName: troubleshooting
       - name: Azure files
         href: connector-troubleshoot-azure-files.md
+        displayName: troubleshooting
       - name: Azure Synapse Analytics, Azure SQL Database, and SQL Server
         href: connector-troubleshoot-synapse-sql.md
+        displayName: troubleshooting
       - name: Azure Table Storage
         href: connector-troubleshoot-azure-table-storage.md
+        displayName: troubleshooting
       - name: DB2
         href: connector-troubleshoot-db2.md
+        displayName: troubleshooting
       - name: Delimited text format
         href: connector-troubleshoot-delimited-text.md
+        displayName: troubleshooting
       - name: Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
         href: connector-troubleshoot-dynamics-dataverse.md
+        displayName: troubleshooting
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
+        displayName: troubleshooting
       - name: Google AdWords
         href: connector-troubleshoot-google-adwords.md          
+        displayName: troubleshooting
       - name: Hive
         href: connector-troubleshoot-hive.md  
+        displayName: troubleshooting
       - name: Oracle
         href: connector-troubleshoot-oracle.md
+        displayName: troubleshooting
       - name: ORC format
         href: connector-troubleshoot-orc.md
+        displayName: troubleshooting
       - name: Parquet format
         href: connector-troubleshoot-parquet.md
+        displayName: troubleshooting
       - name: REST
         href: connector-troubleshoot-rest.md
+        displayName: troubleshooting
       - name: SharePoint Online list
         href: connector-troubleshoot-sharepoint-online-list.md
+        displayName: troubleshooting
+      - name: Snowflake
+        href: connector-troubleshoot-snowflake.md
+        displayName: troubleshooting
       - name: XML format
         href: connector-troubleshoot-xml.md
+        displayName: troubleshooting
     - name: Pipeline Triggers 
       href: pipeline-trigger-troubleshoot-guide.md 
       displayName: orchestration
@@ -1148,27 +1201,31 @@ items:
       items:
       - name: Data flow troubleshooting overview
         href: data-flow-troubleshoot-guide.md
-        displayName: timeout
+        displayName: timeout, troubleshooting
       - name: Data flow errors and messages
         href: data-flow-troubleshoot-errors.md
+        displayName: troubleshooting
       - name: Connector and format
         href: data-flow-troubleshoot-connector-format.md
+        displayName: troubleshooting
     - name: Continuous Integration and Deployment 
       href: ci-cd-github-troubleshoot-guide.md      
+      displayName: troubleshooting
     - name: Security and access control
       href: security-and-access-control-troubleshoot-guide.md
+      displayName: troubleshooting
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
-      displayName: self hosted
+      displayName: self hosted, troubleshooting
     - name: Azure-SSIS Integration Runtime
       href: ssis-integration-runtime-management-troubleshoot.md
-      displayName: timeout
+      displayName: timeout, troubleshooting
     - name: Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
-      displayName: retry, timeout
+      displayName: retry, timeout, troubleshooting
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
-      displayName: timeout
+      displayName: timeout, troubleshooting
 - name: Reference
   items:
   - name: Data flow script
@@ -1205,7 +1262,7 @@ items:
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
-    href: /answers/topics/azure-data-factory.html
+    href: https://feedback.azure.com/d365community/forum/1219ec2d-6c26-ec11-b6e6-000d3a4f032c
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region
