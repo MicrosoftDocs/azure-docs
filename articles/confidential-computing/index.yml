@@ -80,33 +80,51 @@ landingContent:
             url: ../virtual-machines/ecasv5-ecadsv5-series.md
           - text: Availability
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
+      - linkListType: whats-new
+        links:
+          - text: AMD SEV-SNP Confidential VM's with customizable firmware - Private preview 
+            url: https://aka.ms/dlbcvm
 
   # Card
   - title: Container Computes
     linkLists:
       - linkListType: overview
         links: 
-        - text: Confidential Containers 
+        - text: Confidential Containers on Azure
           url: confidential-containers.md
         - text: App enclave nodes in AKS
           url: confidential-nodes-aks-overview.md
       - linkListType: quickstart
         links:
-          - text: Choose your container offering
-            url: choose-confidential-containers-offerings.md
-          - text: CLI based provisioning with a simple enclave container app on AKS
+          - text: CLI based provisioning with a hello from enclave container app on AKS
             url: confidential-enclave-nodes-aks-get-started.md
+          - text: Confidential containers with Intel SGX enclaves architecture
+            url: enclave-aware-containers.md
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
           - text: Confidential Node Pools on AKS
             url: confidential-nodes-aks-addon.md
       - linkListType: reference
         links:
+          - text: Azure architecture center confidential container scenarios
+            url: https://docs.microsoft.com/en-us/search/?terms=confidential%20containers&scope=Azure%20Architecture%20Center
           - text: About Azure Kubernetes Service (AKS) 
             url: ..\aks\intro-kubernetes.md
-          - text: Confidential nodes on AKS FAQ 
+          - text: App enclave nodes on AKS FAQ 
             url: confidential-nodes-aks-faq.yml
-          - text: Confidential Node Pools on AKS
+      - linkListType: video
+        links:
+          -text: Overview of confidential computing Intel SGX nodes on AKS
+           url: https://www.youtube.com/watch?v=FYZxtHI_Or0
+          -text: Python hello world demo with Intel SGX based confidential containers on AKS 
+           url: https://www.youtube.com/watch?v=PiYCQmOh0EI
+          -text: Confidential big data analytics with Apache spark in enclaves
+           url: https://www.youtube.com/watch?v=em6ovuznAf8          
+      - linkListType: whats-new
+        links:
+          - text: AMD SEV-SNP based confidential containers with Azure Container Instances (ACI) - Private preview 
+            url: https://aka.ms/ccaci
+          - text: Confidential VM AMD SEV-SNP node pools on AKS - Public -preview
             url: https://aka.ms/AKS-AMD-ACC-Preview-Inspire-2022
 ## Row 2
 # Card
