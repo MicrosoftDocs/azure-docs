@@ -2,7 +2,7 @@
 author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/12/2022
+ms.date: 07/19/2022
 ms.author: timwarner
 ms.custom: generated
 ---
@@ -65,7 +65,7 @@ The data object has the following properties:
 ## Example event
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
-The following example shows the schema of a policy state created event:
+The following example shows the schema of a policy state created event scoped at the subscription level:
 
 ```json
 [{
@@ -88,7 +88,7 @@ The following example shows the schema of a policy state created event:
 }]
 ```
 
-The schema for a policy state changed event is similar:
+The schema for a policy state changed event scoped at the subscription level is similar:
 
 ```json
 [{
@@ -110,9 +110,10 @@ The schema for a policy state changed event is similar:
     "metadataVersion": "1"
 }]
 ```
+
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of a policy state created event:
+The following example shows the schema of a policy state created event scoped at the subscription level:
 
 ```json
 [{
@@ -134,12 +135,107 @@ The following example shows the schema of a policy state created event:
 }]
 ```
 
-The schema for a policy state changed event is similar:
+The schema for a policy state changed event scoped at the subscription level is similar:
 
 ```json
 [{
     "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
     "source": "/subscriptions/<SubscriptionID>",
+    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
+    "data": {
+        "timestamp": "2021-03-27T18:37:42.4496956Z",
+        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
+        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
+        "policyDefinitionReferenceId": "",
+        "complianceState": "NonCompliant",
+        "subscriptionId": "<subscription-id>",
+        "complianceReasonCode": ""
+    },
+    "type": "Microsoft.PolicyInsights.PolicyStateChanged",
+    "time": "2021-03-27T18:37:42.5241536Z",
+    "specversion": "1.0"
+}]
+```
+
+---
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+The following example shows the schema of a policy state created event scoped at the management group level:
+
+```json
+[{
+    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
+    "topic": "/tenants/<tenantId>/providers/Microsoft.Management/managementGroups/<managementGroupId>",
+    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
+    "data": {
+        "timestamp": "2021-03-27T18:37:42.4496956Z",
+        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
+        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
+        "policyDefinitionReferenceId": "",
+        "complianceState": "NonCompliant",
+        "subscriptionId": "<subscription-id>",
+        "complianceReasonCode": ""
+    },
+    "eventType": "Microsoft.PolicyInsights.PolicyStateCreated",
+    "eventTime": "2021-03-27T18:37:42.5241536Z",
+    "dataVersion": "1",
+    "metadataVersion": "1"
+}]
+```
+
+The schema for a policy state changed event scoped at the management group level is similar:
+
+```json
+[{
+    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
+    "topic": "/tenants/<tenantId>/providers/Microsoft.Management/managementGroups/<managementGroupId>",
+    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
+    "data": {
+        "timestamp": "2021-03-27T18:37:42.4496956Z",
+        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
+        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
+        "policyDefinitionReferenceId": "",
+        "complianceState": "NonCompliant",
+        "subscriptionId": "<subscription-id>",
+        "complianceReasonCode": ""
+    },
+    "eventType": "Microsoft.PolicyInsights.PolicyStateChanged",
+    "eventTime": "2021-03-27T18:37:42.5241536Z",
+    "dataVersion": "1",
+    "metadataVersion": "1"
+}]
+```
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+The following example shows the schema of a policy state created event scoped at the management group level:
+
+```json
+[{
+    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
+    "source": "/tenants/<tenantId>/providers/Microsoft.Management/managementGroups/<managementGroupId>",
+    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
+    "data": {
+        "timestamp": "2021-03-27T18:37:42.4496956Z",
+        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
+        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
+        "policyDefinitionReferenceId": "",
+        "complianceState": "NonCompliant",
+        "subscriptionId": "<subscription-id>",
+        "complianceReasonCode": ""
+    },
+    "type": "Microsoft.PolicyInsights.PolicyStateCreated",
+    "time": "2021-03-27T18:37:42.5241536Z",
+    "specversion": "1.0"
+}]
+```
+
+The schema for a policy state changed event scoped at the management group level is similar:
+
+```json
+[{
+    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
+    "source": "/tenants/<tenantId>/providers/Microsoft.Management/managementGroups/<managementGroupId>",
     "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
     "data": {
         "timestamp": "2021-03-27T18:37:42.4496956Z",
