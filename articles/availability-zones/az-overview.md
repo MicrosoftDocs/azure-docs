@@ -13,6 +13,7 @@ ms.custom: references_regions
 # Regions and availability zones 
 
 Azure regions and availability zones are designed to help you achieve resiliency and reliability for your business-critical workloads. Azure maintains multiple geographies. These discrete demarcations define disaster recovery and data residency boundaries across one or multiple Azure regions. Maintaining many regions ensures customers are supported across the world.
+For all Virtual Machines that have two or more instances deployed across two or more Availability Zones in the same Azure region, we guarantee to meet the [99.99% Azure SLA](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_9/)
 
 ## Regions
 
