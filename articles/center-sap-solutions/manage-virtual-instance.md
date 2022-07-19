@@ -18,7 +18,6 @@ In this article, you'll learn how to view the *Virtual Instance for SAP solution
 ## Prerequisites
 
 - An Azure subscription. 
-- **Contributor** and **User Access Administrator** role access to the Azure subscription or Azure resource group(s) in which the VIS exists.
 - **Contributor** role access to the subscription or resource groups where you plan to deploy the SAP system.
 - The ACSS application **Azure SAP Workloads Management** also needs  **Contributor** role access to the resource groups for the SAP system. There are two options to grant access:
     - If your Azure account has **Owner** or **User Access Admin** role access, you can automatically grant access to the application when deploying or registering the SAP system.
