@@ -38,7 +38,7 @@ With URL rewrite capability in Application Gateway, you can:
 
 * Rewrite the host name, path and query string of the request URL 
 
-* Choose to rewrite the URL of all requests on a listener or only those requests which match one or more of the conditions you set. These conditions are based on the request and response properties (request, header, response header and server variables).
+* Choose to rewrite the URL of all requests on a listener or only those requests which match one or more of the conditions you set. These conditions are based on the request properties (request header and server variables).
 
 * Choose to route the request (select the backend pool) based on either the original URL or the rewritten URL
 
