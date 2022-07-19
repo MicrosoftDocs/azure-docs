@@ -53,7 +53,7 @@ The studio supports all Form Recognizer v3.0 models and v2.1 models with labeled
 
       :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-1. Once you've completed configuring your resource, you'll be able to try the different models offered by Form Recognizer Studio. From the front page, select any Form Recognizer model to try using a no-code approach.
+1. Once you've completed configuring your resource, you'll be able to try the different models offered by Form Recognizer Studio. From the front page, select any Form Recognizer model to try using with a no-code approach.
 
     :::image type="content" source="media/studio/form-recognizer-studio-front.png" alt-text="Screenshot of Form Recognizer Studio front page.":::
 
