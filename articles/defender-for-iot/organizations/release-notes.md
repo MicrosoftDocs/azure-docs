@@ -379,7 +379,7 @@ Now you can get a summary of the log and system information that gets added to y
 
 Alerts are now available in Defender for IoT in the Azure portal. Work with alerts to enhance the security and operation of your IoT/OT network.
 
-The new **Alerts** page is currently in Public Preview, and provides:
+The new **Alerts** page is currently in Public Preview, and provides: 
 
 - An aggregated, real-time view of threats detected by network sensors.
 - Remediation steps for devices and network processes.
