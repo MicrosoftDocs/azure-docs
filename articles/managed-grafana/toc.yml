@@ -11,7 +11,12 @@ items:
   - name: Create an instance from the portal
     href: quickstart-managed-grafana-portal.md
   - name: Create an instance from the CLI
-    href: quickstart-managed-grafana-cli.md  
+    href: quickstart-managed-grafana-cli.md
+- name: Tutorial
+  expanded: true
+  items:
+  - name: Call Grafana APIs programmatically
+    href: how-to-api-calls.md
 - name: How-to guides
   items:
   - name: Configure data source plugins
