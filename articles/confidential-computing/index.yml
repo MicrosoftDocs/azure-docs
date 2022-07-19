@@ -114,12 +114,12 @@ landingContent:
             url: confidential-nodes-aks-faq.yml
       - linkListType: video
         links:
-          -text: Overview of confidential computing Intel SGX nodes on AKS
-           url: https://www.youtube.com/watch?v=FYZxtHI_Or0
-          -text: Python hello world demo with Intel SGX based confidential containers on AKS 
-           url: https://www.youtube.com/watch?v=PiYCQmOh0EI
-          -text: Confidential big data analytics with Apache spark in enclaves
-           url: https://www.youtube.com/watch?v=em6ovuznAf8          
+          - text: Overview of confidential computing Intel SGX nodes on AKS
+            url: https://www.youtube.com/watch?v=FYZxtHI_Or0
+          - text: Python hello world demo with Intel SGX based confidential containers on AKS 
+            url: https://www.youtube.com/watch?v=PiYCQmOh0EI
+          - text: Confidential big data analytics with Apache spark in enclaves
+            url: https://www.youtube.com/watch?v=em6ovuznAf8          
       - linkListType: whats-new
         links:
           - text: AMD SEV-SNP based confidential containers with Azure Container Instances (ACI) - Private preview 
