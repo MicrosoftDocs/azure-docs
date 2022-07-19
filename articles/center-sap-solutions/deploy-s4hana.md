@@ -18,7 +18,10 @@ In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azur
 ## Prerequisites
 
 - An Azure subscription.
-- An Azure account with **Contributor** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource. 
+- An Azure account with **Contributor** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
+- The ACSS application **Azure SAP Workloads Management** also needs Contributor role access to the resource groups for the SAP system. There are two options to grant access:
+    - If your Azure account has **Owner** or **User Access Admin** role access, you can automatically grant access to the application when deploying or registering the SAP system.
+    - If your Azure account doesn't have Owner or User Access Admin role access, you must enable access for the ACSS application. 
 - A [network set up for your infrastructure deployment](prepare-network.md).
 
 ## Deployment types
