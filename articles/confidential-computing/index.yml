@@ -82,7 +82,7 @@ landingContent:
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
 
   # Card
-  - title: Confidential Containers
+  - title: Container Computes
     linkLists:
       - linkListType: overview
         links: 
