@@ -1,5 +1,5 @@
 ---
-title: Create and deploy VM application packages (preview)
+title: Create and deploy VM application packages
 description: Learn how to create and deploy VM Applications using an Azure Compute Gallery.
 ms.service: virtual-machines
 ms.subservice: gallery
