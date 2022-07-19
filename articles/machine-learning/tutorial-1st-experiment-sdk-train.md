@@ -225,16 +225,16 @@ if __name__ == "__main__":
 
 1. Select **Save and run script in terminal** to run the *run-pytorch.py* script.
 
-1. You'll see a link in the terminal window that opens. Select the link to view the run.
+1. You'll see a link in the terminal window that opens. Select the link to view the job.
 
     [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
 
 ### View the output
 
-1. In the page that opens, you'll see the run status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might around 10 minutes to complete.  This image will be reused in future runs to make them run much quicker.
+1. In the page that opens, you'll see the job status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole job might around 10 minutes to complete.  This image will be reused in future jobs to make them run much quicker.
 1. You can see view Docker build logs in the Azure Machine Learning studio. Select the **Outputs + logs** tab, and then select **20_image_build_log.txt**.
-1. When the status of the run is **Completed**, select **Output + logs**.
-1. Select **std_log.txt** to view the output of your run.
+1. When the status of the job is **Completed**, select **Output + logs**.
+1. Select **std_log.txt** to view the output of your job.
 
 ```txt
 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ../data/cifar-10-python.tar.gz
@@ -258,7 +258,7 @@ Select the **...** at the end of the folder, then select **Move** to move **data
 
 Now that you have a model training in Azure Machine Learning, start tracking some performance metrics.
 
-The current training script prints metrics to the terminal. Azure Machine Learning provides a mechanism for logging metrics with more functionality. By adding a few lines of code, you gain the ability to visualize metrics in the studio and to compare metrics between multiple runs.
+The current training script prints metrics to the terminal. Azure Machine Learning provides a mechanism for logging metrics with more functionality. By adding a few lines of code, you gain the ability to visualize metrics in the studio and to compare metrics between multiple jobs.
 
 ### Modify *train.py* to include logging
 

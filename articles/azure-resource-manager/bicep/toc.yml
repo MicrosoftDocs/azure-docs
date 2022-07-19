@@ -36,6 +36,9 @@
     - name: Bicep with GitHub Actions
       displayName: continuous, ci, cd, CI/CD
       href: deploy-github-actions.md
+    - name: Bicep with MSBuild
+      href: msbuild-bicep-file.md
+      displayName: continuous, ci, cd, CI/CD
 - name: Tutorials
   items:
   - name: Microsoft Learn - Bicep
@@ -164,7 +167,9 @@
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Firewall - Availability Zones
       href: ../../firewall/deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Firewall Manager
+    - name: Firewall Manager - policy
+      href: ../../firewall-manager/quick-firewall-policy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Firewall Manager - virtual hub
       href: ../../firewall-manager/quick-secure-virtual-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
@@ -334,6 +339,7 @@
   - name: Provide parameters
     items:
     - name: Parameter file
+      displayName: comments,metadata,
       href: parameter-files.md
     - name: Sensitive values
       displayName: key vault

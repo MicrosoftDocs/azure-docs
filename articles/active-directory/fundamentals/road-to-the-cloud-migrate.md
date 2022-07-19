@@ -28,43 +28,23 @@ A typical migration workstream has the following stages:
 
 ## Users and Groups
 
-### Move password self-service
+### Enable password self-service
 
 We recommend a [passwordless environment](../authentication/concept-authentication-passwordless.md). Until then, you can migrate password self-service workflows from on-premises systems to Azure AD to simplify your environment. Azure AD [self-service password reset (SSPR)](../authentication/concept-sspr-howitworks.md) gives users the ability to change or reset their password, with no administrator or help desk involvement.
 
-To enable self-service capabilities, your authentication methods must be updated to a [level that supported by self-service capabilities](../authentication/tutorial-enable-sspr.md). Once authentication methods are updated, you'll want to enable user self-service password capability for your Azure AD authentication environment.
+To enable self-service capabilities, choose the appropriate [authentication methods](../authentication/concept-authentication-methods.md) for your organization. Once the authentication methods are updated, you can enable user self-service password capability for your Azure AD authentication environment. For deployment guidance, see [Deployment considerations for Azure Active Directory self-service password reset](../authentication/howto-sspr-deployment.md)
 
-### To evaluate and pilot SSPR
-
-* Enable [combined registration (multi-factor authentication (MFA) +SSPR)](../authentication/concept-registration-mfa-sspr-combined.md) for a target group of users
-
-* Deploy [SSPR](../authentication/tutorial-enable-sspr.md) for a target group of users
-
-* For that group of users with Azure AD and Hybrid Azure AD joined devices (Windows devices - 7, 8, 8.1 and 10), enable [Windows password reset](../authentication/howto-sspr-windows.md) for those users.
+**Additional considerations include**:
 
 * Deploy [Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md) in a subset of DCs with *Audit Mode* to gather information about impact of modern policies. For more guidance, see [Enable on-premises Azure Active Directory Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md).
-
-### To scale out
-
-Gradually register and enable SSPR. For example, roll out by region, subsidiary, department, etc. for all users. This enables both MFA and SSPR. Refer to [Sample SSPR rollout materials](https://www.microsoft.com/download/details.aspx?id=56768) to assist with required end-user communications and evangelizing.
-
-**Key points:**
-
-* Use Azure AD password policies on the domain.
-
+* Gradually register and enable [Combined registration for SSPR and Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md). This enables both MFA and SSPR. For example, roll out by region, subsidiary, department, etc. for all users. 
 * Go through a cycle of password change for all users to flush out weak passwords.
-
 * Once the cycle is complete, implement the policy expiration time.
 
-* Enable Windows 10 password reset ([Self-service password reset for Windows devices - Azure Active Directory](../authentication/howto-sspr-windows.md)) for all users
-
-For Windows down-level devices, follow [these instructions](../authentication/howto-sspr-windows.md)
-
-* Add monitoring information like workbooks, for reset activity ([Self-service password reset reports - Azure Active Directory](../authentication/howto-sspr-reporting.md)) - Authentication Methods Insights and reporting ([Authentication Methods Activity - Azure Active Directory](../authentication/howto-authentication-methods-activity.md))
-
 * Switch the "Password Protection" configuration in the DCs that have "Audit Mode" set to "Enforced mode" ([Enable on-premises Azure AD Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md))
-
-* For customers with Azure AD Identity Protection, enable [password reset as a control in Conditional Access policies](../identity-protection/howto-identity-protection-configure-risk-policies.md)for risky users (users marked as risky through Identity Protection). [Investigate risk Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md)
+>[!NOTE]
+>* End user communications and evangelizing are recommended for a smooth deployment. See [Sample SSPR rollout materials](https://www.microsoft.com/download/details.aspx?id=56768) to assist with required end-user communications and evangelizing.
+>* For customers with Azure AD Identity Protection, enable [password reset as a control in Conditional Access policies](../identity-protection/howto-identity-protection-configure-risk-policies.md) for risky users (users marked as risky through Identity Protection).
 
 ### Move groups management
 
@@ -283,7 +263,7 @@ Based on the app dependencies, you have three migration options:
 >[!NOTE]
 >* Utilize Azure AD Domain Services if the dependencies are aligned with [Common deployment scenarios for Azure AD Domain Services](../../active-directory-domain-services/scenarios.md). 
 >* To validate if Azure AD DS is a good fit, you might use tools like Service Map [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [Automatic Dependency Mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
->* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
+>* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
 
 #### Implement approach #2
 

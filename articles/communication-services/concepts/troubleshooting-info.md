@@ -261,7 +261,7 @@ To verify your Teams License eligibility via Teams web client, follow the steps 
 1. If the authentication is successful and you remain in the https://teams.microsoft.com/ domain, then your Teams License is eligible. If authentication fails or you're redirected to the https://www.teams.live.com domain, then your Teams License isn't eligible to use Azure Communication Services support for Teams users. 
 
 #### Checking your current Teams license via Microsoft Graph API
-You can find your current Teams license using [licenseDetails](https://docs.microsoft.com/graph/api/resources/licensedetails) Microsoft Graph API that returns licenses assigned to a user. Follow the steps below to use the Graph Explorer tool to view licenses assigned to a user:
+You can find your current Teams license using [licenseDetails](/graph/api/resources/licensedetails) Microsoft Graph API that returns licenses assigned to a user. Follow the steps below to use the Graph Explorer tool to view licenses assigned to a user:
 
 1. Open your browser and navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Sign in to Graph Explorer using the credentials.
