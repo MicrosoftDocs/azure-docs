@@ -250,7 +250,7 @@ The pipelines use a custom task to perform cleanup activities post deployment. T
 
    :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
 
-1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_ and _Read & write_ is selected for _Code_. Write down the created token value.
+1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_, _Read & write_ is selected for _Code_, and _Read, create, & manage_ is selected for _Variable Groups_. Write down the created token value.
 
    :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
 
