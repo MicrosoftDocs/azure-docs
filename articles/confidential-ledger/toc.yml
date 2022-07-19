@@ -14,12 +14,16 @@
     href: quickstart-powershell.md
   - name: Python
     href: quickstart-python.md
+  - name: .NET
+    href: quickstart-net.md
   - name: ARM template
     href: quickstart-template.md 
 - name: Concepts
   items:
   - name: Architecture
     href: architecture.md
+  - name: Authentication with Azure AD
+    href: authentication-azure-ad.md
   - name: Authenticating ledger nodes
     href: authenticate-ledger-nodes.md
 - name: How To Guides
@@ -28,6 +32,8 @@
     href: create-client-certificate.md 
   - name: Register the confidential ledger resource provider
     href: register-ledger-resource-provider.md
+  - name: Register an ACL app with Azure AD
+    href: register-application.md
 - name: References
   items:
   - name: FAQ

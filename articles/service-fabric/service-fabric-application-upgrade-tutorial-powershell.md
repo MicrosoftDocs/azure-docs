@@ -1,11 +1,14 @@
 ---
 title: Service Fabric App upgrade using PowerShell
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade using PowerShell.
-
-ms.topic: conceptual
-ms.date: 8/5/2020 
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric application upgrade using PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
@@ -93,7 +96,7 @@ UpgradeTimeout = 3000
 ## Step 4: Prepare application for upgrade
 Now the application is built and ready to be upgraded. If you open up a PowerShell window as an administrator and type [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication), it should let you know that it is application type 1.0.0.0 of **VisualObjects** that's been deployed.  
 
-The application package is stored under the following relative path where you uncompressed the Service Fabric SDK - *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. You should find a "Package" folder in that directory, where the application package is stored. Check the timestamps to ensure that it is the latest build (you may need to modify the paths appropriately as well).
+The application package is stored under the following relative path where you uncompressed the Service Fabric SDK: *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. You should find a "Package" folder in that directory, where the application package is stored. Check the timestamps to ensure that it is the latest build (you may need to modify the paths appropriately as well).
 
 Now let's copy the updated application package to the Service Fabric ImageStore (where the application packages are stored by Service Fabric). The parameter *ApplicationPackagePathInImageStore* informs Service Fabric where it can find the application package. We have put the updated application in "VisualObjects\_V2" with the following command (you may need to modify paths again appropriately).
 
