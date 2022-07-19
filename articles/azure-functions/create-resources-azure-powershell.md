@@ -1,12 +1,12 @@
 ---
-title: Create function app resources in Azure using Azure PowerShell
+title: Create function app resources in Azure using PowerShell
 description: Azure PowerShell scripts that show you how to create the Azure resources required to host your functions code in Azure.
 ms.topic: sample
 ms.date: 07/18/2022
 ---
-# Create function app resources in Azure using Azure PowerShell
+# Create function app resources in Azure using PowerShell
 
-The Azure Functions sample scripts in this article create function apps and other resources required to host your functions in Azure. A function app provides an execution context in which your functions are executed. All functions running in a function app share the same resources and connections, and they are all scaled together. 
+The Azure PowerShell example scripts in this article create function apps and other resources required to host your functions in Azure. A function app provides an execution context in which your functions are executed. All functions running in a function app share the same resources and connections, and they're all scaled together. 
 
 After the resources are created, you can deploy your project files to the new function app. To learn more, see [Deployment methods](functions-deployment-technologies.md#deployment-methods).
 
@@ -16,8 +16,8 @@ Every function app requires your PowerShell scripts to create the following reso
 | --- | --- | --- |
 | Resource group | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a [resource group](../azure-resource-manager/management/overview.md) in which you'll create your function app. |
 | Storage account |  [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) |  Creates a [storage account](../storage/common/storage-account-create.md) used by your function app. Storage account names must be between 3 and 24 characters in length and can contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](storage-considerations.md#storage-account-requirements). | 
-| App Service plan | [New-AzFunctionAppPlan](/powershell/module/az.functions/new-azfunctionappplan) | Hosting plan that defines how resources are allocated to your function app. Used only when hosting in a Premium or Dedicated plan. You won't use this cmdlet when hosting in a serverless [Consumption plan](consumption-plan.md), since Consumption plans are created when you run `New-AzFunctionApp`. For more information, see [Azure Functions hosting options](functions-scale.md). |
-| Function app | [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  Must be a globally unique name across all of Azure App Service. Most examples create a function app that supports C# functions. You can change the language by using the `-Runtime` parameter, with supported values of `DotNet`, `Java`, `Node`, `PowerShell`, and `Python`. Use the `-RuntimeVersion` if you need to choose a specific language version. | 
+| App Service plan | [New-AzFunctionAppPlan](/powershell/module/az.functions/new-azfunctionappplan) | Explicitly creates a hosting plan, which defines how resources are allocated to your function app. Used only when hosting in a Premium or Dedicated plan. You won't use this cmdlet when hosting in a serverless [Consumption plan](consumption-plan.md), since Consumption plans are created when you run `New-AzFunctionApp`. For more information, see [Azure Functions hosting options](functions-scale.md). |
+| Function app | [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) | Creates the function app using the required resources. The `-Name` parameter must be a globally unique name across all of Azure App Service. Valid characters in `-Name` are `a-z` (case insensitive), `0-9`, and `-`.  Most examples create a function app that supports C# functions. You can change the language by using the `-Runtime` parameter, with supported values of `DotNet`, `Java`, `Node`, `PowerShell`, and `Python`. Use the `-RuntimeVersion` to choose a [specific language version](supported-languages.md#languages-by-runtime-version). | 
 
 This article contains the following examples:
 
@@ -30,7 +30,6 @@ This article contains the following examples:
 * [Create a function app with an Azure Cosmos DB connection](#create-a-function-app-with-an-azure-cosmos-db-connection)
 * [Create a function app with continuous deployment](#create-a-function-app-with-continuous-deployment)
 * [Create a serverless Python function app and mount file share](#create-a-serverless-python-function-app-and-mount-file-share)
-
 
 [!INCLUDE [azure-powershell-requirements](../../includes/azure-powershell-requirements.md)]
 
