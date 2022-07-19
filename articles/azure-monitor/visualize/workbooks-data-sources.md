@@ -59,7 +59,7 @@ To make a query control use this data source, use the **Query type** dropdown an
 
 Azure Workbooks supports Azure Resource Manager REST operations. With this capability, you can query the management.azure.com endpoint without the need to provide your own authorization header token.
 
-To make a query control use this data source, use the **Data source** dropdown and select **Azure Resource Manager**. Provide the appropriate parameters such as **Http method**, **url path**, **headers**, **url parameters**, and **body**.
+To make a query control use this data source, use the **Data source** dropdown and select **Azure Resource Manager**. Enter the appropriate parameters for **Http method**, **url path**, **headers**, **url parameters**, and **body**.
 
 > [!NOTE]
 > Only GET, POST, and HEAD operations are currently supported.
@@ -164,4 +164,4 @@ To make a query control by using [Application Change Analysis](../app/change-ana
 ## Next steps
 
  - [Get started with Azure Workbooks](workbooks-getting-started.md)
- - [Create an Azure workbook](workbooks-create-workbook.md).
+ - [Create an Azure workbook](workbooks-create-workbook.md)

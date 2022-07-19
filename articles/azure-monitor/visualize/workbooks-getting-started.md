@@ -70,4 +70,4 @@ Select **Auto refresh** to open a list of intervals that you can use to select t
 
 ## Next steps
 
-[Azure workbooks data sources](workbooks-data-sources.md)
+[Azure Workbooks data sources](workbooks-data-sources.md)
