@@ -37,7 +37,7 @@ Linking a DID to a domain solves the initial trust problem by allowing any entit
 
 ## When do you need to update the domain in your DID?
 
-In the event where the domain associated with your company changes, you would also need to change the domain in your DID document. You can update the domain in your DID directly from the Azure AD Verifiable Credential portal
+In the event where the domain associated with your company changes, you would also need to change the domain in your DID document. You can update the domain in your DID directly from the [Microsoft Entra Verified ID blade in the Azure portal](https://portal.azure.com/#view/Microsoft_AAD_DecentralizedIdentity/InitialMenuBlade/~/domainUpdateBlade).
 
 ## How do we link DIDs and domains?
 
@@ -132,7 +132,7 @@ Yes. You need to wait until the config.json file gets updated before you publish
 
 ### How do I know when the linked domain update has successfully completed?
 
-If the trust system is ION, once the domain changes are published to ION, the domain section inside the Azure AD Verifiable Credentials service will display Published as the status and you should be able to make new changes to the domain. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
+If the trust system is ION, once the domain changes are published to ION, the domain section inside the Microsoft Entra Verified ID service will display Published as the status and you should be able to make new changes to the domain. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
 
 >[!IMPORTANT]
 > No changes to your domain are possible while publishing is in progress.

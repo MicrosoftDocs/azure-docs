@@ -1,29 +1,29 @@
 ---
-title: Plan your Azure Active Directory Verifiable Credentials issuance solution(preview)
+title: Plan your Microsoft Entra Verified ID issuance solution(preview)
 description: Learn to plan your end-to-end issuance solution.
 documentationCenter: ''
-author: barclayn
+author: barbaraselden
 manager: martinco
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 06/03/2022
-ms.author: barclayn
+ms.author: baselden
 ms.custom: references_regions
 ---
 
-# Plan your Azure Active Directory Verifiable Credentials issuance solution (preview)
+# Plan your Microsoft Entra Verified ID issuance solution (preview)
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
  >[!IMPORTANT]
-> Azure Active Directory Verifiable Credentials is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Microsoft Entra Verified ID is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-It’s important to plan your issuance solution so that in addition to issuing credentials, you have a complete view of the architectural and business impacts of your solution. If you haven’t done so, we recommend you view the [Azure Active Directory Verifiable Credentials architecture overview](introduction-to-verifiable-credentials-architecture.md) for foundational information.
+It’s important to plan your issuance solution so that in addition to issuing credentials, you have a complete view of the architectural and business impacts of your solution. If you haven’t done so, we recommend you view the [Microsoft Entra Verified ID architecture overview](introduction-to-verifiable-credentials-architecture.md) for foundational information.
 
 ## Scope of guidance
 
-This article covers the technical aspects of planning for a verifiable credential issuance solution using Microsoft products to interoperate with the Identity Overlay Network (ION). The Microsoft solution for verifiable credentials follows the World Wide Web Consortium (W3C) [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/) and [Decentralized Identifiers (DIDs) V1.0](https://www.w3.org/TR/did-core/) standards so can interoperate with non-Microsoft services. However, the examples in this content reflect the Microsoft solution stack for verifiable credentials. 
+This article covers the technical aspects of planning for a verifiable credential issuance solution. The Microsoft solution for verifiable credentials follows the World Wide Web Consortium (W3C) [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/) and [Decentralized Identifiers (DIDs) V1.0](https://www.w3.org/TR/did-core/) standards so can interoperate with non-Microsoft services. However, the examples in this content reflect the Microsoft solution stack for verifiable credentials. 
 
 Out of scope for this content are topics covering supporting technologies that aren't specific to issuance solutions. For example, websites are used in a verifiable credential issuance solution but planning a website deployment isn't covered in detail.
 
@@ -38,34 +38,34 @@ As part of your plan for an issuance solution, you must design a solution that e
 
 ### Azure Active Directory tenant
 
-A prerequisite for running the Azure AD Verifiable Credentials service is that it's hosted in an Azure Active Directory (Azure AD) tenant. The Azure AD tenant provides an Identity and Access Management (IAM) control plane for the Azure resources that are part of the solution.
+A prerequisite for running the Microsoft Entra Verified ID service is that it's hosted in an Azure Active Directory (Azure AD) tenant. The Azure AD tenant provides an Identity and Access Management (IAM) control plane for the Azure resources that are part of the solution.
 
-Each tenant has a single instance of the Azure AD Verifiable Credentials service, and  a single decentralized identifier (DID). The DID provides proof that the issuer owns the domain incorporated into the DID. The DID is used by the subject and the verifier to validate the issuer. 
+Each tenant uses the multi-tenant Microsoft Entra Verified ID service, and a has a decentralized identifier (DID). The DID provides proof that the issuer owns the domain incorporated into the DID. The DID is used by the subject and the verifier to validate the issuer. 
 
 ### Microsoft Azure services
 
 ![Components of an issuance solution, focusing on Azure services](media/plan-issuance-solution/plan-for-issuance-solution-azure-services.png)
 
-The **Azure Key Vault** service stores your issuer keys, which are generated when you initiate the Azure AD Verifiable Credentials issuance service. The keys and metadata are used to execute credential management operations and provide message security.
+The **Azure Key Vault** service stores your issuer keys, which are generated when you initiate the Microsoft Entra Verified ID issuance service. The keys and metadata are used to execute credential management operations and provide message security.
 
 Each issuer has a single key set used for signing, updating, and recovery. This key set is used for every issuance of every verifiable credential you produce. 
 
-**Azure AD Verifiable Credentials Service** is used to store credential metadata and definitions; specifically, the rules and display definitions for your credentials.
+**Microsoft Entra Verified ID Service** is used to store credential metadata and definitions; specifically, the rules and display definitions for your credentials.
 
-* Display definitions determine which claims are stored in the VC and how it's displayed in the holder’s wallet. The display definition also includes branding and other elements. Rules definitions are limited in size to 50 KB, while display definitions are limited to 150 KB. See [How to customize your verifiable credentials](../verifiable-credentials/credential-design.md).
+* Display definitions determine how claims are displayed in the holder’s wallet and also includes branding and other elements. The Display definition can be localized into multiple languages. See [How to customize your verifiable credentials](../verifiable-credentials/credential-design.md).
 
-* Rules are an issuer-defined model that describes the required inputs of a verifiable credential, the trusted sources of the inputs, and the mapping of input claims to output claims.
+* Rules are an issuer-defined model that describes the required inputs of a verifiable credential, the trusted sources of the inputs, and the mapping of input claims to output claims that are stored in the VC. Depending on which attestation that is defined in the rules definition, the input claims can come from an OIDC Identity Provider, from an id_token_hint or being self asserted during issuance via user input in the wallet.
 
    * **Input** – Are a subset of the model in the rules file for client consumption. The subset must describe the set of inputs, where to obtain the inputs and the endpoint to call to obtain a verifiable credential.
 
 
-### Azure AD Verifiable Credentials service
+### Microsoft Entra Verified ID service
 
-![Microsoft Azure AD Verifiable Credentials service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-vc-services.png)
+![Microsoft Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-vc-services.png)
 
-The Azure AD Verifiable Credentials service enables you to issue and revoke VCs based on your configuration. The service:
+The Microsoft Entra Verified ID service enables you to issue and revoke VCs based on your configuration. The service:
 
-* Provisions the decentralized identifier (DID) and writes the DID document to ION, where it can be used by subjects and verifiers. Each issuer has a single DID per tenant. 
+* Provisions the decentralized identifier (DID). Each issuer has a single DID per tenant.   
 
 * Provisions key sets to Key Vault. 
 
@@ -73,17 +73,17 @@ The Azure AD Verifiable Credentials service enables you to issue and revoke VCs 
 
 * Provides REST APIs interface for issuer and verifier web front ends
 
-### ION
+### Trust System
 
 ![ION](media/plan-issuance-solution/plan-for-issuance-solution-ion.png)
 
-As one alternative for the tenants trust system, Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/) that uses Bitcoin’s blockchain for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and is used to perform cryptographic signature checks by parties to the transaction. The other alternative for trust system is Web, where the DID document is hosted on the issuers webserver.
+Microsoft Entra Verified ID currently supports two trust system. One is the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/) that uses Bitcoin’s blockchain for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and is used to perform cryptographic signature checks by parties to the transaction. The other alternative for trust system is [DID Web](https://w3c-ccg.github.io/did-method-web/), where the DID document is hosted on the issuers webserver.
 
 ### Microsoft Authenticator application
 
 ![Microsoft Authenticator application](media/plan-issuance-solution/plan-for-issuance-solution-authenticator.png)
 
-Microsoft Authenticator is the mobile application that orchestrates the interactions between the user, the Azure AD Verifiable Credentials service, and dependencies that are described in the contract used to issue VCs. It acts as a digital wallet in which the holder of the VC stores the VC, including the private key of the subject of the VC. Authenticator is also the mechanism used to present VCs for verification.
+Microsoft Authenticator is the mobile application that orchestrates the interactions between the user, the Microsoft Entra Verified ID service, and dependencies that are described in the contract used to issue VCs. It acts as a digital wallet in which the holder of the VC stores the VC, including the private key of the subject of the VC. Authenticator is also the mechanism used to present VCs for verification.
 
 ### Issuance business logic 
 
@@ -93,7 +93,7 @@ Your issuance solution includes a web front end where users request a VC, an ide
 
 A web front end serves issuance requests to the subject’s wallet by generating deep links or QR codes. Based on the configuration of the contract, other components might be required to satisfy the requirements to create a VC.
 
-These services provide supporting roles that don't necessarily need to integrate with ION or Azure AD Verifiable Credentials issuance service. This layer typically includes:
+These services provide supporting roles that don't necessarily need to integrate with ION or Microsoft Entra Verified ID issuance service. This layer typically includes:
 
 * **Open ID Connect (OIDC)-compliant service or services** are used to obtain id_tokens needed to issue the VC. Existing identity systems such as Azure AD or Azure AD B2C can provide the OIDC-compliant service, as can custom solutions such as Identity Server.
 
@@ -115,11 +115,9 @@ Your specific use cases determine your credential design. The use case will dete
 
 * if credentials will ever need to be revoked
 
- 
-
 ### Credential Use Cases
 
-With Azure AD Verifiable Credentials, the most common credential use cases are:
+With Microsoft Entra Verified ID, the most common credential use cases are:
 
 **Identity Verification**: a credential is issued based on multiple criteria. This may include verifying the authenticity of government-issued documents like a passport or driver’s license and corelating the information in that document with other information such as:
 
@@ -128,8 +126,6 @@ With Azure AD Verifiable Credentials, the most common credential use cases are:
 * verification of liveness
 
 This kind of credential is a good fit for identity onboarding scenarios of new employees, partners, service providers, students, and other instances where identity verification is essential.
-
- 
 
 ![Identity verification use case](media/plan-issuance-solution/plan-for-issuance-solution-identity-verification-use-case.png)
 
@@ -145,9 +141,17 @@ As part of the design process, investigate industry-specific schemas, namespaces
 
 Note that common schemas are an area where standards are still emerging. One example of such an effort is the [Verifiable Credentials for Education Task Force](https://github.com/w3c-ccg/vc-ed). We encourage you to investigate and contribute to emerging standards in your organization's industry.
 
-### Credential Attributes 
+### Credential Type and Attributes 
 
-After establishing the use case for a credential, you need to decide what attributes to include in the credential. Verifiers can read the claims in the VC presented by the users.
+After establishing the use case for a credential, you need to decide the credential type and what attributes to include in the credential. Verifiers can read the claims in the VC presented by the users.
+
+All verifiable credentials must declare their *type* in their [rules definition](rules-and-display-definitions-model.md#rulesmodel-type). The credential type distinguishes a verifiable credentials schema from other credentials and it ensures interoperability between issuers and verifiers. To indicate a credential type, provide one or more credential types that the credential satisfies. Each type is represented by a unique string. Often, a URI is used to ensure global uniqueness. The URI doesn't need to be addressable. It's treated as a string. As an example, a diploma credential issued by Contoso University might declare the following types:
+
+| Type | Purpose |
+| ---- | ------- |
+| `https://schema.org/EducationalCredential` | Declares that diplomas issued by Contoso University contain attributes defined by the schema.org `EducationaCredential` object. |
+| `https://schemas.ed.gov/universityDiploma2020` | Declares that diplomas issued by Contoso University contain attributes defined by the U.S. Department of Education. |
+| `https://schemas.contoso.edu/diploma2020` | Declares that diplomas issued by Contoso University contain attributes defined by Contoso University. |
 
 In addition to the industry-specific standards and schemas that might be applicable to your scenarios, consider the following aspects:
 
@@ -163,13 +167,13 @@ For additional considerations on credential attributes, refer to the [Verifiable
 
 ### Plan for performance
 
-As with any solution, you must plan for performance. The key areas to focus on are latency, throughput storage, and scalability. During initial phases of a release cycle, performance should not be a concern. However, when adoption of your issuance solution results in many verifiable credentials being issued, performance planning might become a critical part of your solution.
+As with any solution, you must plan for performance. The key areas to focus on are latency and scalability. During initial phases of a release cycle, performance should not be a concern. However, when adoption of your issuance solution results in many verifiable credentials being issued, performance planning might become a critical part of your solution.
 
 The following provides areas to consider when planning for performance:
 
-* The Azure AD Verifiable Credentials issuance service is deployed in West Europe, North Europe, West US 2, and West Central US Azure regions. You do not select a region to deploy the service to. 
+* The Microsoft Entra Verified ID issuance service is deployed in West Europe, North Europe, West US 2, and West Central US Azure regions. If your Azure Active Directory tenant resides within EU, the Microsoft Entra Verified ID service will be in EU too. 
 
-* To limit latency, deploy your issuance frontend website, key vault, and storage in the region listed above that is closest to where requests are expected to originate.
+* To limit latency, deploy your issuance frontend website and key vault in the region listed above that is closest to where requests are expected to originate.
 
 Model based on throughput:
 * The Issuer service is subject to [Azure Key Vault service limits](../../key-vault/general/service-limits.md). 
@@ -188,12 +192,6 @@ Model based on throughput:
 
 * If you are planning a large rollout and onboarding of VCs, consider batching VC creation to ensure you do not exceed limits.
 
-* The issuance service is subject to Azure storage limits. In typical use cases storage should not be a concern. However, if you feel you might exceed storage limits or feel storage might be a bottleneck, review the following: 
-
-   * We recommend reading [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md) as part of your planning process. Azure AD Verifiable Credentials issuance service reads rules and displays files, and results are cached by the service.
-
-   * We also recommend you review [Performance and scalability checklist for Blob storage - Azure Storage](../../storage/blobs/storage-performance-checklist.md). 
-
 As part of your plan for performance, determine what you will monitor to better understand the performance of the solution. In addition to application-level website monitoring, consider the following as you define your VC issuance monitoring strategy:
 
 For scalability, consider implementing metrics for the following:
@@ -206,7 +204,7 @@ For scalability, consider implementing metrics for the following:
 
    * Attribute lookup
 
-   * Calls to Azure AD Verifiable Credentials issuance service
+   * Calls to Microsoft Entra Verified ID issuance service
 
    * Credential issued
 
@@ -218,7 +216,7 @@ For scalability, consider implementing metrics for the following:
 
       * Time spent (latency)
 
-* Monitor Azure Key Vault and Storage using the following:
+* Monitor Azure Key Vault using the following:
 
    * [Azure Key Vault monitoring and alerting](../../key-vault/general/alert.md)
 
@@ -234,13 +232,13 @@ To plan for reliability, we recommend:
 
 * For frontend and business layer, your solution can manifest in an unlimited number of ways. As with any solution, for the dependencies you identify, ensure that the dependencies are resilient and monitored. 
 
-If the rare event that the Azure AD Verifiable Credentials issuance service, Azure Key Vault, or Azure Storage services become unavailable, the entire solution will become unavailable.
+If the rare event that the Microsoft Entra Verified ID issuance service or Azure Key Vault services become unavailable, the entire solution will become unavailable.
 
 ### Plan for compliance
 
 Your organization may have specific compliance needs related to your industry, type of transactions, or country of operation. 
 
-**Data residency**: The Azure AD Verifiable Credentials issuance service is deployed in a subset of Azure regions. The service is used for compute functions only. We do not store values of verifiable credentials in Microsoft systems. However, as part of the issuance process, personal data is sent and used when issuing VCs. Using the VC service should not impact data residency requirements. If, as a part of identity verification you store any personal information, that should be stored in a manner and region that meets your compliance requirements. For Azure-related guidance, visit the Microsoft Trust Center website. 
+**Data residency**: The Microsoft Entra Verified ID issuance service is deployed in a subset of Azure regions. The service is used for compute functions only. We do not store values of verifiable credentials in Microsoft systems. However, as part of the issuance process, personal data is sent and used when issuing VCs. Using the VC service should not impact data residency requirements. If, as a part of identity verification you store any personal information, that should be stored in a manner and region that meets your compliance requirements. For Azure-related guidance, visit the Microsoft Trust Center website. 
 
 **Revoking credentials**: Determine if your organization will need to revoke credentials. For example, an admin may need to revoke credentials when an employee leaves the company. Or if a credential is issued for a driver’s license, and the holder is caught doing something that would cause the driver’s license to be suspended, the VC might need to be revoked. For more information, see [Revoke a previously issued verifiable credential](how-to-issuer-revoke.md).
 
@@ -248,7 +246,7 @@ Your organization may have specific compliance needs related to your industry, t
 
 ## Plan for operations
 
-When planning for operations, it is critical you develop a schema to use for troubleshooting, reporting, and distinguishing various customers you support. Additionally, if the operations team is responsible for executing VC revocation, that process must be defined. Each step in the process should be correlated so that you can determine which log entries can be associated with each unique issuance request. For auditing, we recommend you capture each attempt of credential issuing individually. Specifically:
+When planning for operations, it is critical you develop a schema to use for troubleshooting, reporting and distinguishing various customers you support. Additionally, if the operations team is responsible for executing VC revocation, that process must be defined. Each step in the process should be correlated so that you can determine which log entries can be associated with each unique issuance request. For auditing, we recommend you capture each attempt of credential issuing individually. Specifically:
 
 * Generate unique transaction IDs that customers and support engineers can refer to as needed.
 
@@ -264,7 +262,7 @@ As part of your design considerations focused on security, we recommend the foll
 
 * For key management:
 
-   * Create a dedicated Key Vault for VC issuance. Limit Azure Key Vault permissions to the Azure AD Verifiable Credentials issuance service and the issuance service frontend website service principal. 
+   * Create a dedicated Key Vault for VC issuance. Limit Azure Key Vault permissions to the Microsoft Entra Verified ID issuance service and the issuance service frontend website service principal. 
 
    * Treat Azure Key Vault as a highly privileged system - Azure Key Vault issues credentials to customers. We recommend that no human identities have standing permissions over the Azure Key Vault service. Administrators should have only just I time access to Key Vault. For more best practices for Azure Key Vault usage, refer to [Azure Security Baseline for Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline).
 
@@ -277,8 +275,6 @@ As part of your design considerations focused on security, we recommend the foll
 For security logging and monitoring, we recommend the following:
 
 * Enable logging and alerting of Azure Key Vault to track credential issuance operations, key extraction attempts, permission changes, and to monitor and send alert for configuration changes. More information can be found at [How to enable Key Vault logging](../../key-vault/general/howto-logging.md). 
-
-* Enable logging of your Azure Storage account to monitor and send alert for configuration changes. More information can be found at [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage.md).
 
 * Archive logs in a security information and event management (SIEM) systems, such as [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) for long-term retention.
 

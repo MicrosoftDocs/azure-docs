@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Issue a Verifiable Credential for directory based claims 
+title: Tutorial - Issue a Microsoft Entra Verified ID credential for directory based claims 
 description: In this tutorial, you learn how to issue verifiable credentials, from directory based claims, by using a sample app.
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
@@ -31,7 +31,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- [Set up a tenant for Azure AD Verifiable Credentials](verifiable-credentials-configure-tenant.md).
+- [Set up a tenant for Microsoft Entra Verified ID Credentials](verifiable-credentials-configure-tenant.md).
 - Complete the tutorial for [issuance](verifiable-credentials-configure-issuer.md) and [verification](verifiable-credentials-configure-verifier.md) of verifiable credentials.
 - A mobile phone with Microsoft Authenticator that can be used as the test user account.
 

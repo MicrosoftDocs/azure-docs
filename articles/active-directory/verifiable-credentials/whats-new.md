@@ -20,6 +20,20 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Microsoft Entra Verified ID service.
 
+## July 2022
+
+- The Request Service APIs have a **new hostname** `verifiedid.did.msidentity.com`. The `beta.did.msidentity` and the `beta.eu.did.msidentity` will continue to work, but you should change your application and configuration. Also, you no longer need to specify `.eu.` for an EU tenant.
+- Request Service API have **new endpoints** and **updated JSON payloads**. For issuance, see [Issuance API specification](issuance-request-api.md#Issuance-request-payload) and for presentation, see [Presentation API specification](presentation-request-api.md#presentation-request-payload). The old endpoints and JSON payloads will continue to work, but you should change your applications to use the new endpoints and payloads.
+- Request Service API **[Error codes](error-codes.md)** have been **updated** 
+- The **[Admin API](admin-api.md)** is made **public** and is documented. The Azure portal is using the Admin API and with this REST API you can automate the onboarding or your tenant and creation of credential contracts.
+- Find issuers and credentials to verify via the [The Microsoft Entra Verified ID Network](how-to-use-vcnetwork.md).
+- For migrating your Azure Storage based credentials to become Managed Credentials there is a powershell script in the [github samples repo](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/contractmigration/scripts/contractmigration) for the task.
+
+- We also made the following updates to our Plan and design docs:
+    - (updated) [architecture planning overview](introduction-to-verifiable-credentials-architecture.md).
+    - (updated) [Plan your issuance solution](plan-issuance-solution.md).
+    - (updated) [Plan your verification solution](plan-verification-solution.md).
+
 ## June 2022
 
 - We are adding support for the [did:web](https://w3c-ccg.github.io/did-method-web/) method. Any new tenant that starts using the Verifiable Credentials Service after June 14, 2022 will have Web as a new, default, trust system when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials). VC Administrators can still choose to use ION when setting a tenant. If you want to use did:web instead of ION or viceversa, you will need to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reset-the-azure-ad-verifiable-credentials-service).
@@ -32,12 +46,12 @@ This article lists the latest features, improvements, and changes in the Microso
 > You need to migrate your Azure Storage based credentials to become Managed Credentials. We'll soon provide migration instructions.
 
 - We made the following updates to our docs:
-  - (new) [Current supported open standards for Microsoft Entra Verified ID](verifiable-credentials-standards.md).
-  - (new) [How to create verifiable credentials for ID token hint](how-to-use-quickstart.md).
-  - (new) [How to create verifiable credentials for ID token](how-to-use-quickstart-idtoken.md).
-  - (new) [How to create verifiable credentials for self-asserted claims](how-to-use-quickstart-selfissued.md). 
-  - (new) [Rules and Display definition model specification](rules-and-display-definitions-model.md).
-  - (new) [Creating an Azure AD tenant for development](how-to-create-a-free-developer-account.md).
+    - (new) [Current supported open standards for Microsoft Entra Verified ID](verifiable-credentials-standards.md).
+    - (new) [How to create verifiable credentials for ID token hint](how-to-use-quickstart.md).
+    - (new) [How to create verifiable credentials for ID token](how-to-use-quickstart-idtoken.md).
+    - (new) [How to create verifiable credentials for self-asserted claims](how-to-use-quickstart-selfissued.md). 
+    - (new) [Rules and Display definition model specification](rules-and-display-definitions-model.md).
+    - (new) [Creating an Azure AD tenant for development](how-to-create-a-free-developer-account.md).
 
 ## May 2022
 
