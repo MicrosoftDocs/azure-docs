@@ -38,6 +38,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 1. Under **Assign access to**, select **User,group, or service principal**.
 1. Select **Select members** and select your service principal and select **Select**.
 1. Select **Review + assign**
+
     :::image type="content" source="media/tutorial-api/role-assignment.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
 
 ## Retrieve application details
