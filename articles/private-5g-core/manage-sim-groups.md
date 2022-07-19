@@ -76,12 +76,19 @@ To create a new SIM group:
 
 ## Delete a SIM group
 
-Deleting a SIM group removes both the SIM group and all the SIMs it contains. 
+You can delete SIM groups through the Azure portal. 
 
 1. Navigate to the list of SIM groups in your private mobile network, as described in [View existing SIM groups](#view-existing-sim-groups).
-1. Tick the checkboxes next to the SIM group(s) you want to delete.
-1. Select **Delete**.
-1. In the pop-up that appears, select **Delete** to confirm you want to delete the SIM group(s).
+1. Check the **Number of SIMs** column for the SIM group you want to delete. If there are any SIMs in the SIM group, you'll need to delete the SIMs first. To delete the SIMs:
+ 
+   1. Select the relevant SIM group.
+   1. Tick the checkboxes next to all of the SIMs in the SIM group.
+   1. Select **Delete** from the **Command** bar.
+   1. In the pop-up that appears, select **Delete** to confirm you want to delete the SIMs.
+  
+1. Once you've confirmed the SIM group is empty, tick the checkbox next to it in the list of SIM groups.
+1. Select **Delete** from the **Command** bar.
+1. In the pop-up that appears, select **Delete** to confirm you want to delete the SIM group.
 
 ## Next steps
 Learn more about how to manage the SIMs in your SIM groups. 
