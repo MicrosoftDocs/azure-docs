@@ -19,7 +19,6 @@ Ultra disks have their own separate list of limitations, unrelated to shared dis
 When sharing ultra disks, they have the following additional limitations:
 
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
-- Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) isn't currently supported.
 
 
 ### Premium SSD v2 (preview)
