@@ -148,7 +148,7 @@ The `RequestCredential` provides information about the requested credentials the
 | `type`| string| The verifiable credential type. The `type` must match the type as defined in the `issuer` verifiable credential manifest (for example, `VerifiedCredentialExpert`). To get the issuer manifest, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md). Copy the **Issue credential URL**, open it in a web browser, and check the **id** property. |
 | `purpose`| string | Provide information about the purpose of requesting this verifiable credential. |
 | `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. |
-| `configuration.validation` | [Configuration.Validation](#configurationvalidation-type) | Optional. Settings for the presentation validation.|
+| `configuration.validation` | [Configuration.Validation](#configuration.validation-type) | Optional. Settings for the presentation validation.|
 
 ### Configuration.Validation type
 

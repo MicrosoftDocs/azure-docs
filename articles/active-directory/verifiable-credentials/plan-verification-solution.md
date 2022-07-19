@@ -2,13 +2,13 @@
 title: Plan your Microsoft Entra Verified ID verification solution (preview)
 description: Learn foundational information to plan and design your verification solution
 documentationCenter: ''
-author: barbaraselden
+author: barclayn
 manager: martinco
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/02/2022
-ms.author: baselden
+ms.date: 07/19/2022
+ms.author: barclayn
 ms.custom: references_regions
 ---
 
@@ -125,7 +125,7 @@ Verifiable credentials can be used to enable faster onboarding by replacing some
 
    * To invite users to Azure AD using B2B collaboration, the RP website can use a service principal that is granted the MS Graph scope of User.Invite.All to create invitations.
 
-   * If your RP is running in Azure, use Managed Identities to call Microsoft Graph; this will remove the risks of managing service principal credentials in code or configuration files. To learn more about Managed identities, go to [Managed identities for Azure resources.](../managed-identities-azure-resources/overview.md)
+   * If your RP is running in Azure, use Managed Identities to call Microsoft Graph. Using managed identities removes the risks of managing service principal credentials in code or configuration files. To learn more about Managed identities, go to [Managed identities for Azure resources.](../managed-identities-azure-resources/overview.md)
 
 ### Accessing high-value applications inside organizations 
 
