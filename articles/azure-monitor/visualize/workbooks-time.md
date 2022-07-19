@@ -40,7 +40,7 @@ You can reference time parameters with bindings, KQL, or text.
 
    * This control binds the time range parameter to the time range of the chart.
    * The time scope of the sample query is now **Last 24 hours**.
-1. Run the query to see the results
+1. Run the query to see the results.
 
     :::image type="content" source="media/workbooks-time/time-binding.png" alt-text="Screenshot that shows a time range parameter referenced via bindings.":::
 
