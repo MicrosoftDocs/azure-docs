@@ -7,7 +7,7 @@ metadata:
   ms.service: azure-monitor
   author: bwren
   ms.author: bwren
-  ms.date: 04/01/2022
+  ms.date: 06/23/2022
 title: Azure Monitor Frequently Asked Questions
 summary: |
   This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any other questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
@@ -49,7 +49,7 @@ sections:
       - question: |
           Can Azure Monitor monitor on-premises resources?
         answer: |
-          Yes, in addition to collecting monitoring data from Azure resources, Azure Monitor can collect data from virtual machines and applications in other clouds and on-premises. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
+          Yes, in addition to collecting monitoring data from Azure resources, Azure Monitor can collect data from virtual machines and applications in other clouds and on-premises. See [Sources of monitoring data for Azure Monitor](data-sources.md).
           
       - question: |
           Does Azure Monitor integrate with System Center Operations Manager?
@@ -66,7 +66,7 @@ sections:
       - question: |
           Where does Azure Monitor get its data?
         answer: |
-          Azure Monitor collects data from various sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
+          Azure Monitor collects data from various sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](data-sources.md).
           
       - question: |
           What data is collected by Azure Monitor?
@@ -123,7 +123,7 @@ sections:
       - question: |
           Can I delete data from a Log Analytics workspace?
         answer: |
-          Data is removed from a workspace according to its [retention period](logs/data-retention-archive.md). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
+          Data is removed from a workspace according to its [retention period](logs/data-retention-archive.md). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#exporting-and-deleting-personal-data) for more information.
           
       - question: |
           Is Log Analytics storage immutable?
@@ -133,7 +133,7 @@ sections:
       - question: |
           What is a Log Analytics workspace?
         answer: |
-          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from various sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md).
+          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See Design a Log Analytics workspace configuration(logs/workspace-design.md).
           
       - question: |
           Can you move an existing Log Analytics workspace to another Azure subscription?
@@ -354,6 +354,11 @@ sections:
           Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent).
 
       - question: |
+          Does AMA support AuditD logs on linux, or AUOMS?
+        answer: |
+          Yes, but you need to [onboard to Defender for Cloud](agents/azure-monitor-agent-overview.md#supported-services-and-features) (previously Azure Security Center) service available as an extension to AMA, which collects Linux auditd logs via AUOMS.	
+      
+      - question: |
           Is Azure Arc required for AAD-joined machines?
         answer: |
           For AAD-joined (or hybrid AAD-joined) machines running Windows 10 or 11 (client OS), you **do not require Arc** to be installed on these machines. Instead, you can leverage the Windows MSI installer for AMA, [currently available in preview](https://aka.ms/amadcr-privatepreviews)). 
@@ -376,7 +381,7 @@ sections:
       - question: |
           Can we filter events using event ID, i.e. more granular event filtering using the new Azure Monitor Agent?
         answer: |
-          Yes. You can use **Xpath queries** for filtering Windows Event Logs. [Learn more](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)  
+          Yes. You can use **Xpath queries** for filtering Windows Event Logs. [Learn more](agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries)  
           For performance counters, you can specify specific counters you wish to collect, and exclude ones you don’t need.
           For syslog on Linux, you can choose Facilities and log level for each facility to collect.
           
@@ -444,7 +449,6 @@ sections:
           * [Node.js apps](app/nodejs.md)
           * [Web apps on Azure](app/azure-web-apps.md)
           * [Cloud Services on Azure](app/cloudservices.md)
-          * [App servers running in Docker](./azure-monitor-app-hub.yml)
           * [Single-page web apps](app/javascript.md)
           * [SharePoint](app/sharepoint.md)
           * [Windows desktop app](app/windows-desktop.md)
@@ -675,6 +679,118 @@ sections:
           > If the resource you are creating in a new region is replacing a classic resource we recommend exploring the benefits of [creating a new workspace-based resource](app/create-workspace-resource.md) or alternatively [migrating your existing resource to workspace-based](app/convert-classic-resource.md).
           
       - question: |
+          What versions of ASP.NET and ASP.NET Core are supported by Application Insights?
+        answer: |
+          .NET and .NET Core [LTS](https://dotnet.microsoft.com/download/visual-studio-sdks)
+        
+      - question: |
+          How can I track telemetry that's not automatically collected?
+        answer: |
+          Get an instance of `TelemetryClient` by using constructor injection, and call the required `TrackXXX()` method on it. We don't recommend creating new `TelemetryClient` or `TelemetryConfiguration` instances in an ASP.NET Core application. A singleton instance of `TelemetryClient` is already registered in the `DependencyInjection` container, which shares `TelemetryConfiguration` with rest of the telemetry. Creating a new `TelemetryClient` instance is recommended only if it needs a configuration that's separate from the rest of the telemetry.
+         
+          The following example shows how to track more telemetry from a controller.
+         
+          ```csharp
+          using Microsoft.ApplicationInsights;
+          public class HomeController : Controller
+          {
+           private TelemetryClient telemetry;
+           // Use constructor injection to get a TelemetryClient instance.
+           public HomeController(TelemetryClient telemetry)
+           {
+            this.telemetry = telemetry;
+           }
+           public IActionResult Index()
+           {
+           // Call the required TrackXXX method.
+           this.telemetry.TrackEvent("HomePageRequested");
+           return View();
+           }
+          ```
+          For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](app/api-custom-events-metrics.md). A similar approach can be used for sending custom metrics to Application Insights using the [GetMetric API](app/get-metric.md).
+
+      - question: |
+          How do I customize ILogger logs collection?
+        answer: |
+          By default, only `Warning` logs and more severe logs are automatically captured. To change this behavior, explicitly override the logging configuration for the provider `ApplicationInsights` as shown below.
+         
+          The following configuration allows ApplicationInsights to capture all `Information` logs and more severe logs.
+         
+          ```json
+          {
+           "Logging": {
+            "LogLevel": {
+             "Default": "Warning"
+            },
+            "ApplicationInsights": {
+             "LogLevel": {
+              "Default": "Information"
+              }
+             }
+           }
+          }
+          ```
+          It's important to note that the following example doesn't cause the ApplicationInsights provider to capture `Information` logs. It doesn't capture it because the SDK adds a default logging filter that instructs `ApplicationInsights` to capture only `Warning` logs and more severe logs. ApplicationInsights requires an explicit override.
+          ```json
+          {
+           "Logging": {
+            "LogLevel": {
+             "Default": "Information"
+             }
+           }
+          }
+          ```
+          For more information, see [ILogger configuration](app/ilogger.md#logging-level).
+
+      - question: |
+          Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
+        answer: |
+          The extension method `UseApplicationInsights()` is still supported, but it's marked as obsolete in Application Insights SDK version 2.8.0 and later. It will be removed in the next major version of the SDK. To enable Application Insights telemetry, we recommend using `AddApplicationInsightsTelemetry()` because it provides overloads to control some configuration. Also, in ASP.NET Core 3.X apps, `services.AddApplicationInsightsTelemetry()` is the only way to enable Application Insights.
+
+      - question: |
+          I'm deploying my ASP.NET Core application to Web Apps. Should I still enable the Application Insights extension from Web Apps?
+        answer: |
+           If the SDK is installed at build time as shown in this article, you don't need to enable the [Application Insights extension](app/azure-web-apps.md) from the App Service portal. If the extension is installed, it will back off when it detects the SDK is already added. If you enable Application Insights from the extension, you don't have to install and update the SDK. But if you enable Application Insights by following instructions in this article, you have more flexibility because:
+
+           * Application Insights telemetry will continue to work in:
+            * All operating systems, including Windows, Linux, and Mac.
+            * All publish modes, including self-contained or framework dependent.
+            * All target frameworks, including the full .NET Framework.
+            * All hosting options, including Web Apps, VMs, Linux, containers, Azure Kubernetes Service, and non-Azure hosting.
+            * All .NET Core versions including preview versions.
+           * You can see telemetry locally when you're debugging from Visual Studio.
+           * You can track more custom telemetry by using the `TrackXXX()` API.
+           * You have full control over the configuration.
+
+      - question: |
+          Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
+        answer: |
+          Yes. In [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1) and later, ASP.NET Core applications hosted in IIS are supported.
+
+      - question: |
+          Are all features supported if I run my application in Linux?
+        answer: |
+          Yes. Feature support for the SDK is the same in all platforms, with the following exceptions:
+
+          * The SDK collects [Event Counters](app/eventcounters.md) on Linux because [Performance Counters](app/performance-counters.md) are only supported in Windows. Most metrics are the same.
+          * Although `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
+          ```csharp
+          using Microsoft.ApplicationInsights.Channel;
+          using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+          public void ConfigureServices(IServiceCollection services)
+          {
+           // The following will configure the channel to use the given folder to temporarily
+           // store telemetry items during network or Application Insights server issues.
+           // User should ensure that the given folder already exists
+           // and that the application has read/write permissions.
+           services.AddSingleton(typeof(ITelemetryChannel),
+           new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+           services.AddApplicationInsightsTelemetry();
+          }
+          ```
+          This limitation isn't applicable from version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) and later.          
+
+      - question: |
           Automation
         answer: |
           ### Configuring Application Insights
@@ -801,7 +917,7 @@ sections:
           However, there are still cases where even when server-side monitoring is enabled on an application's web server that a 502 or 503 error will not be captured by Application Insights. Many modern web servers do not allow a client to communicate directly, but instead employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
           
           In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and would not be captured out-of-box by Application Insights. To help detect issues at this layer you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
-          
+
   - name: OpenTelemetry
     questions:
       - question: |
@@ -823,7 +939,7 @@ sections:
       - question: |
           What is the status of OpenTelemetry?
         answer: |
-          A complete observability solution includes all three pillars of observability. The OpenTelemetry community has been committing heavily to [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) and the specifications as well as supported language implementations have been marked as stable. [Metrics](https://medium.com/opentelemetry/opentelemetry-metrics-roadmap-f4276fd070cf) and [Logs](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/overview.md) are still in progress. Azure Monitor is working on an OpenTelemetry-based supported telemetry solution that includes Distributed Tracing only with plans to add the other pillars as they mature in the OpenTelemetry community.
+          A complete observability solution includes all three pillars of observability. The OpenTelemetry community has been committing heavily to [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) and the specifications as well as supported language implementations have been marked as stable. [Metrics](https://medium.com/opentelemetry/opentelemetry-metrics-roadmap-f4276fd070cf) and [Logs](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/logs) are still in progress. Azure Monitor is working on an OpenTelemetry-based supported telemetry solution that includes Distributed Tracing only with plans to add the other pillars as they mature in the OpenTelemetry community.
 
       - question: |
           How can I test out OpenTelemetry?
@@ -868,7 +984,7 @@ sections:
           What's the difference between OpenCensus and OpenTelemetry?
         answer: |
           [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. Azure Monitor's current [production-recommended Python SDK](app/opencensus-python.md) is based on OpenCensus, but eventually all Azure Monitor's SDKs will be based on OpenTelemetry.
-          
+
   - name: Container insights
     questions:
       - question: |
@@ -1068,8 +1184,6 @@ sections:
       - question: |
           I don't see some or any data in the performance charts for my VM
         answer: |
-          Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you'll need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](vm/vminsights-ga-release-faq.yml) for more information.
-          
           If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](./vm/vminsights-enable-powershell.md).
           
       - question: |

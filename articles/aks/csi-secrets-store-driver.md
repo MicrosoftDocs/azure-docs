@@ -17,6 +17,7 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Before you start, ensure that your version of the Azure CLI is 2.30.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
+- If restricting Ingress to the cluster, ensure Ports 9808 and 8095 are open. 
 
 ### Supported Kubernetes versions
 
@@ -86,7 +87,7 @@ aks-secrets-store-provider-azure-6pqmv   1/1     Running   0          4m24s
 aks-secrets-store-provider-azure-f5qlm   1/1     Running   0          4m25s
 ```
 
-Be sure that a Secrets Store CSI Driver pod and an Azure Key Vault Provider pod are running on each node in your cluster's node pools.
+Be sure that a Secrets Store CSI Driver pod and a Secrets Store Provider Azure pod are running on each node in your cluster's node pools.
 
 ## Create or use an existing Azure key vault
 
@@ -164,14 +165,14 @@ az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGrou
 > When the Azure Key Vault Provider for Secrets Store CSI Driver is enabled, it updates the pod mount and the Kubernetes secret that's defined in the `secretObjects` field of `SecretProviderClass`. It does so by polling for changes periodically, based on the rotation poll interval you've defined. The default rotation poll interval is 2 minutes.
 
 >[!NOTE]
-> When the secret/key is updated in external secrets store after the initial pod deployment, the updated secret will be periodically updated in the pod mount and the Kubernetes Secret.
+> When a secret is updated in an external secrets store after initial pod deployment, the Kubernetes Secret and the pod mount will be periodically updated depending on how the application consumes the secret data.
 >
-> Depending on how the application consumes the secret data:
+> **Mount the Kubernetes Secret as a volume**: Use the auto rotation and Sync K8s secrets features of Secrets Store CSI Driver. The application will need to watch for changes from the mounted Kubernetes Secret volume. When the Kubernetes Secret is updated by the CSI Driver, the corresponding volume contents are automatically updated.
 >
-> 1. Mount Kubernetes secret as a volume: Use auto rotation feature + Sync K8s secrets feature in Secrets Store CSI Driver, application will need to watch for changes from the mounted Kubernetes Secret volume. When the Kubernetes Secret is updated by the CSI Driver, the corresponding volume contents are automatically updated.
-> 2. Application reads the data from container’s filesystem: Use rotation feature in Secrets Store CSI Driver, application will need to watch for the file change from the volume mounted by the CSI driver.
-> 3. Using Kubernetes secret for environment variable: The pod needs to be restarted to get the latest secret as environment variable.
-> Use something like https://github.com/stakater/Reloader to watch for changes on the synced Kubernetes secret and do rolling upgrades on pods
+> **Application reads the data from the container’s filesystem**: Use the rotation feature of Secrets Store CSI Driver. The application will need to watch for the file change from the volume mounted by the CSI driver.
+>
+> **Use the Kubernetes Secret for an environment variable**: Restart the pod to get the latest secret as an environment variable.
+> Use a tool such as [Reloader][reloader] to watch for changes on the synced Kubernetes Secret and perform rolling upgrades on pods.
 
 To enable autorotation of secrets, use the `enable-secret-rotation` flag when you create your cluster:
 
@@ -182,19 +183,19 @@ az aks create -n myAKSCluster2 -g myResourceGroup --enable-addons azure-keyvault
 Or update an existing cluster with the add-on enabled:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster2 --enable-secret-rotation
+az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation
 ```
 
 To specify a custom rotation interval, use the `rotation-poll-interval` flag:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster2 --enable-secret-rotation --rotation-poll-interval 5m
+az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
 ```
 
 To disable autorotation, use the flag `disable-secret-rotation`:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster2 --disable-secret-rotation
+az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --disable-secret-rotation
 ```
 
 ### Sync mounted content with a Kubernetes secret
@@ -204,7 +205,7 @@ You might sometimes want to create a Kubernetes secret to mirror the mounted con
 When you create a `SecretProviderClass`, use the `secretObjects` field to define the desired state of the Kubernetes secret, as shown in the following example.
 
 > [!NOTE]
-> The example here is incomplete. You'll need to modify it to support your chosen method of access to your key vault identity.
+> The YAML examples here are incomplete. You'll need to modify them to support your chosen method of access to your key vault identity. For details, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods].
 
 The secrets will sync only after you start a pod to mount them. To rely solely on syncing with the Kubernetes secrets feature doesn't work. When all the pods that consume the secret are deleted, the Kubernetes secret is also deleted.
 
@@ -231,7 +232,7 @@ spec:
 After you've created the Kubernetes secret, you can reference it by setting an environment variable in your pod, as shown in the following example code:
 
 > [!NOTE]
-> The example here is incomplete. You'll need to modify it to support the Azure key vault identity access that you've chosen.
+> The example here demonstrates access to a secret through env variables and through volume/volumeMount. This is for illustrative purposes. These two methods can exist independently from the other.
 
 ```yml
 kind: Pod
@@ -332,3 +333,5 @@ Now that you've learned how to use the Azure Key Vault Provider for Secrets Stor
 [kube-csi]: https://kubernetes-csi.github.io/docs/
 [key-vault-provider-install]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/installation
 [sample-secret-provider-class]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/usage/#create-your-own-secretproviderclass-object
+[reloader]: https://github.com/stakater/Reloader
+

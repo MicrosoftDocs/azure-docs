@@ -11,6 +11,8 @@ ms.date: 08/03/2021
 
 # Audit logging in Azure Database for PostgreSQL - Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 > [!IMPORTANT]
 > The pgAudit extension in Hyperscale (Citus) is currently in preview. This
 > preview version is provided without a service level agreement, and it's not

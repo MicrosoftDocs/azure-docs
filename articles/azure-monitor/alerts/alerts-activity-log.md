@@ -4,6 +4,7 @@ description: Create activity log alerts by using the Azure portal, an Azure Reso
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 2/23/2022
+ms.reviewer: ofmanor
 
 ---
 

@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: quickstart
-ms.date: 01/10/2022
+ms.topic: conceptual
+ms.date: 06/21/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, mode-other
 ---
@@ -29,6 +29,10 @@ See [How to create projects and build schemas](./how-to/create-project.md) for i
 
 LUIS applications that use the Language resource as their authoring resource will be available for connection. You can only connect to LUIS applications that are owned by the same resource. This option will only be available for resources in West Europe, as it's the only common available region between LUIS and CLU.
 
+## Which question answering project can I connect to in orchestration workflow projects?
+
+Question answering projects that use the Language resource will be available for connection. You can only connect to question answering projects that are in the same Language resource.
+
 ## Training is taking a long time, is this expected?
 
 For orchestration projects, long training times are expected. Based on the number of examples you have your training times may vary from 5 minutes to 1 hour or more. 
@@ -44,7 +48,7 @@ See the [language support](./language-support.md) article.
 -->
 ## How do I get more accurate results for my project?
 
-Take a look at the [recommended guidelines](./how-to/create-project.md) for information on improving accuracy.
+See [evaluation metrics](./concepts/evaluation-metrics.md) for information on how models are evaluated, and metrics you can use to improve accuracy.
 <!--
 ## How many intents, and utterances can I add to a project?
 
@@ -60,7 +64,9 @@ Yes, only for predictions, and [samples are available](https://aka.ms/cluSampleC
 
 ## Are there APIs for this feature?
 
-Yes, all the APIs [are available](https://aka.ms/clu-apis).
+Yes, all the APIs are available.
+* [Authoring APIs](https://aka.ms/clu-authoring-apis)
+* [Prediction API](https://aka.ms/clu-runtime-api)
 
 ## Next steps
 

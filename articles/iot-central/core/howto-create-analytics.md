@@ -3,7 +3,7 @@ title: Analyze device data in your Azure IoT Central application | Microsoft Doc
 description: Analyze device data in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -96,4 +96,4 @@ Select the ellipsis, for more chart controls:
 
 ## Next steps
 
-Now that you've learned how to visualize your data with the built-in analytics capabilities, a suggested next step is to learn how to [Export IoT data to cloud destinations using data export](howto-export-data.md).
+Now that you've learned how to visualize your data with the built-in analytics capabilities, a suggested next step is to learn how to [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).

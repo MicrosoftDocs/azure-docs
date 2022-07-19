@@ -3,7 +3,7 @@ title: NP-series - Azure Virtual Machines
 description: Specifications for the NP-series VMs.
 author: luismcMSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: luismc
@@ -78,11 +78,11 @@ VM Generation Support: Generation 1<br>
 
  Xilinx has created the following marketplace images to simplify the deployment of these VMs. 
 
-[Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu18.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_ubuntu1804_deployment_image)
+Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu18.04
 
-[Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu20.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_ubuntu2004_deployment_image)
+Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu20.04
 
-[Xilinx Alveo U250 2021.1 Deployment VM – CentOS7.8](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_centos78_deployment_image)
+Xilinx Alveo U250 2021.1 Deployment VM – CentOS7.8
 
 **Q:** Can I deploy my Own Ubuntu / CentOS VMs and install XRT / Deployment Target Platform? 
 

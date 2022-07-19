@@ -5,24 +5,12 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 03/23/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.service: microsoft-sentinel
 ---
 
 # Connect data from Microsoft 365 Defender to Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> **Microsoft Defender for Cloud Apps** was formerly known as **Microsoft Cloud App Security** or **MCAS**.
->
-> You may see the old names still in use for a period of time.
-
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
-
-## Background
-
-Microsoft Sentinel's [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) connector with incident integration allows you to stream all Microsoft 365 Defender incidents and alerts into Microsoft Sentinel, and keeps the incidents synchronized between both portals. Microsoft 365 Defender incidents include all their alerts, entities, and other relevant information, and they group together, and are enriched by, alerts from Microsoft 365 Defender's component services **Microsoft Defender for Endpoint**, **Microsoft Defender for Identity**, **Microsoft Defender for Office 365**, and **Microsoft Defender for Cloud Apps**.
+Microsoft Sentinel's [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) connector with incident integration allows you to stream all Microsoft 365 Defender incidents and alerts into Microsoft Sentinel, and keeps the incidents synchronized between both portals. Microsoft 365 Defender incidents include all their alerts, entities, and other relevant information, and they group together, and are enriched by, alerts from Microsoft 365 Defender's component services **Microsoft Defender for Endpoint**, **Microsoft Defender for Identity**, **Microsoft Defender for Office 365**, and **Microsoft Defender for Cloud Apps**, as well as alerts from other services such as **Microsoft Purview Data Loss Prevention (DLP)**.
 
 The connector also lets you stream **advanced hunting** events from *all* of the above components into Microsoft Sentinel, allowing you to copy those Defender components' advanced hunting queries into Microsoft Sentinel, enrich Sentinel alerts with the Defender components' raw event data to provide additional insights, and store the logs with increased retention in Log Analytics.
 

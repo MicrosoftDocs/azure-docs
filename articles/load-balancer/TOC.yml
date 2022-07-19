@@ -110,7 +110,11 @@
   - name: Cross-region load balancer
     href: cross-region-overview.md
   - name: Gateway load balancer
-    href: gateway-overview.md
+    items:
+    - name: Overview
+      href: gateway-overview.md
+    - name: Partners
+      href: gateway-partners.md
   - name: SKUs
     href: skus.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets
@@ -127,6 +131,8 @@
       href: load-balancer-insights.md
     - name: Standard Load Balancer metrics and diagnostics
       href: load-balancer-standard-diagnostics.md
+    - name: Get Load Balancer metrics with Azure Monitor CLI
+      href: load-balancer-monitor-metrics-cli.md
     - name: Get Load Balancer metrics with REST
       href: load-balancer-query-metrics-rest-api.md
   - name: Inbound connectivity
@@ -217,11 +223,7 @@
       href: move-across-regions-internal-load-balancer-powershell.md
   - name: IPv6
     items:
-    - name: Add IPv6 to an IPv4 application- PowerShell
-      href: ipv6-add-to-existing-vnet-powershell.md
-    - name: Add IPv6 to an IPv4 application - Azure CLI
-      href: ipv6-add-to-existing-vnet-cli.md 
-    - name: Standard public
+    - name: Public Load Balancer
       items: 
       - name: Standard Public Load Balancer with IPv6 - PowerShell
         href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
@@ -229,10 +231,16 @@
         href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
       - name: Standard Public Load Balancer with IPv6 - ARM template
         href: ipv6-configure-standard-load-balancer-template-json.md
-    - name: Standard internal
+    - name: Internal Load Balancer
       items:
       - name: Standard Internal Load Balancer with IPv6 - PowerShell
         href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+    - name: Add IPv6 to existing deployments 
+      items:
+      - name: Add IPv6 to an IPv4 application- PowerShell
+        href: ipv6-add-to-existing-vnet-powershell.md
+      - name: Add IPv6 to an IPv4 application - Azure CLI
+        href: ipv6-add-to-existing-vnet-cli.md 
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer

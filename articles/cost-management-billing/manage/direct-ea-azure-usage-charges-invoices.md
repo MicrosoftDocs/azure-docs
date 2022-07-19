@@ -65,9 +65,9 @@ Enterprise administrators can also view an overall summary of the charges for th
 
 ## Download or view your Azure billing invoice
 
-You can download your invoice from the [Azure portal](https://portal.azure.com) or have it sent in email. Invoices are sent to whoever is set up to receive invoices for the enrollment.
+An EA administrator can download the invoice from the [Azure portal](https://portal.azure.com) or have it sent in email. Invoices are sent to whoever is set up to receive invoices for the enrollment. If someone other than an EA administrator needs an email copy of the invoice, an EA administrator can send them a copy.
 
-Only an Enterprise Administrator has permission to view and get the billing invoice. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](manage-billing-access.md).
+Only an Enterprise Administrator has permission to view and download the billing invoice. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](manage-billing-access.md).
 
 You receive an Azure invoice when any of the following events occur during your billing cycle:
 
@@ -199,7 +199,7 @@ The following table lists the terms and descriptions shown on the Reservation tr
 | Billing frequency | Billing frequency of the reservation |
 | Type | Type of the transaction. For example, Purchase or Refund. |
 | Purchase Month | Month of the Purchase |
-| MC (USD) | Indicates the Monetary Committment value |
+| MC (USD) | Indicates the Monetary Commitment value |
 | Overage (USD) | Indicates the Service Overage value |
 | Quantity | Reservation quantity that was purchased |
 | Amount (USD) | Reservation cost |

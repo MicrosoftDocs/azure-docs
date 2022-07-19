@@ -1,11 +1,14 @@
 ---
 title: Reliable Collection object serialization
 description: Learn about Azure Service Fabric Reliable Collections object serialization, including the default strategy and how to define custom serialization.'
-
 ms.topic: conceptual
-ms.date: 5/8/2017
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Reliable Collection object serialization in Azure Service Fabric
 Reliable Collections' replicate and persist their items to make sure they are durable across machine failures and power outages.
 Both to replicate and to persist items, Reliable Collections' need to serialize them.

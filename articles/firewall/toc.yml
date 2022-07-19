@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Firewall?
     href: overview.md
+  - name: Well-Architected review of Azure Firewall
+    href: /azure/architecture/framework/services/networking/azure-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -14,6 +16,9 @@ items:
   - name: Deploy with multiple addresses - ARM template
     displayName: Resource Manager
     href: quick-create-multiple-ip-template.md
+  - name: Deploy with Availability Zones - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: deploy-bicep.md
   - name: Deploy with Availability Zones - ARM template
     displayName: Resource Manager
     href: deploy-template.md

@@ -39,7 +39,7 @@ This configuration will be different depending on the data source. For example:
 
 - [Create diagnostic settings](../essentials/diagnostic-settings.md) to send resource logs from Azure resources to the workspace. 
 - [Enable VM insights](../vm/vminsights-enable-overview.md) to collect data from virtual machines. 
-- [Configure data sources on the workspace](../agents/data-sources.md) to collect more events and performance data.
+- [Configure data sources on the workspace](../data-sources.md) to collect more events and performance data.
 
 > [!IMPORTANT]
 > Most data collection in Logs will incur ingestion and retention costs, so refer to [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before enabling any data collection.
@@ -48,7 +48,7 @@ This configuration will be different depending on the data source. For example:
 For a complete list of data sources that you can configure to send data to Azure Monitor Logs, see [What is monitored by Azure Monitor?](../monitor-reference.md).
 
 ## Log Analytics workspaces
-Azure Monitor Logs stores the data that it collects in one or more [Log Analytics workspaces](./design-logs-deployment.md). You must create at least one workspace to use Azure Monitor Logs. See [Log Analytics workspace overview](log-analytics-workspace-overview.md) For a description of Log Analytics workspaces.
+Azure Monitor Logs stores the data that it collects in one or more [Log Analytics workspaces](./workspace-design.md). You must create at least one workspace to use Azure Monitor Logs. See [Log Analytics workspace overview](log-analytics-workspace-overview.md) For a description of Log Analytics workspaces.
 
 ## Log Analytics 
 Log Analytics is a tool in the Azure portal. Use it to edit and run log queries and interactively analyze their results. You can then use those queries to support other features in Azure Monitor, such as log query alerts and workbooks. Access Log Analytics from the **Logs** option on the Azure Monitor menu or from most other services in the Azure portal.
@@ -75,4 +75,4 @@ The experience of using Log Analytics to work with Azure Monitor queries in the 
 
 - Learn about [log queries](./log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
 - Learn about [metrics in Azure Monitor](../essentials/data-platform-metrics.md).
-- Learn about the [monitoring data available](../agents/data-sources.md) for various resources in Azure.
+- Learn about the [monitoring data available](../data-sources.md) for various resources in Azure.

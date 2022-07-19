@@ -1,6 +1,6 @@
 ---
-title:  Azure Video Indexer (formerly Azure Video Analyzer for Media) concepts - Azure  
-description: This article gives a brief overview of Azure Video Indexer (formerly Azure Video Analyzer for Media) terminology and concepts.
+title:  Azure Video Indexer concepts - Azure  
+description: This article gives a brief overview of Azure Video Indexer terminology and concepts.
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: juliako
@@ -9,7 +9,7 @@ ms.author: juliako
 
 # Azure Video Indexer concepts
 
-This article gives a brief overview of Azure Video Indexer (formerly Azure Video Analyzer for Media) terminology and concepts.
+This article gives a brief overview of Azure Video Indexer terminology and concepts.
 
 ## Audio/video/combined insights
 
@@ -42,10 +42,6 @@ The confidence score indicates the confidence in an insight. It is a number betw
 
 Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content. For more information, see [Insights: visual and textual content moderation](video-indexer-output-json-v2.md#visualcontentmoderation). 
 
-## Blocks	
-
-Blocks are meant to make it easier to go through the data. For example, block might be broken down based on when speakers change or there is a long pause.	
-
 ## Project and editor
 
 The [Azure Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Azure Video Indexer and be used in your own editing applications or downstream workflows.
@@ -70,9 +66,14 @@ TimeRange is the time range in the original video. AdjustedTimeRange is the time
 
 Azure Video Indexer supports embedding widgets in your apps. For more information, see [Embed Azure Video Indexer widgets in your apps](video-indexer-embed-widgets.md).
 
-## Summarized insights	
+## Insights	
 
-Summarized insights contain an aggregated view of the data: faces, topics, emotions. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.	
+Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Below is an illustration of the audio and video analysis performed by Azure Video Indexer in the background.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow.":::
+ 
+[!INCLUDE [insights](./includes/insights.md)]
 
 ## Next steps
 

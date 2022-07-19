@@ -1,37 +1,35 @@
 ---
 title: Tutorial - Configure your tenant for Azure AD Verifiable Credentials (preview)
 description: In this tutorial, you learn how to configure your tenant to support the Verifiable Credentials service. 
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 04/26/2022
+ms.date: 06/27/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
 
 # Configure your tenant for Azure AD Verifiable Credentials (preview)
 
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
+
 Azure Active Directory (Azure AD) Verifiable Credentials safeguards your organization with an identity solution that's seamless and decentralized. The service allows you to issue and verify credentials. For issuers, Azure AD provides a service that they can customize and use to issue their own verifiable credentials. For verifiers, the service provides a free REST API that makes it easy to request and accept verifiable credentials in your apps and services.
 
-In this tutorial, you learn how to configure your Azure AD tenant so it can use this credentials service.
+In this tutorial, you learn how to configure your Azure AD tenant so it can use the verifiable credentials service.
 
 Specifically, you learn how to:
 
 > [!div class="checklist"]
->
-> - Set up a service principal.
 > - Create an Azure Key Vault instance.
-> - Register an application in Azure AD. 
 > - Set up the Verifiable Credentials service.
+> - Register an application in Azure AD.
 
 The following diagram illustrates the Azure AD Verifiable Credentials architecture and the component you configure.
 
 ![Diagram that illustrates the Azure AD Verifiable Credentials architecture.](media/verifiable-credentials-configure-tenant/verifiable-credentials-architecture.png)
-
-See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) going over the setup of the Azure AD Verifiable Credential service.
 
 ## Prerequisites
 
@@ -40,19 +38,18 @@ See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) going ove
 
 ## Create a key vault
 
-[Azure Key Vault](../../key-vault/general/basic-concepts.md) is a cloud service that enables the secure storage and access of secrets and keys. Your Verifiable
+[Azure Key Vault](../../key-vault/general/basic-concepts.md) is a cloud service that enables the secure storage and access of secrets and keys. The Verifiable
 Credentials service stores public and private keys in Azure Key Vault. These keys are used to sign and verify credentials.
 
-If you don't have an instance of Azure Key Vault, follow these steps to create a key vault by using the Azure portal.
+If you don't have an Azure Key Vault instance available, follow [these steps](../../key-vault/general/quick-create-portal.md) to create a key vault using the Azure portal.
 
 >[!NOTE]
->By default, the account that creates the key vault is the only one with access. The Verifiable Credentials service needs access to the key vault. You must configure the key vault with an access policy that allows the account used during configuration to create and delete keys. The account used during configuration also requires permission to sign to create the domain binding for Verifiable Credentials. If you use the same account while testing, modify the default policy to grant the account sign permission, in addition to the default permissions granted to vault creators.
+>By default, the account that creates a vault is the only one with access. The Verifiable Credentials service needs access to the key vault. You must configure the key vault with an access policy that allows the account used during configuration to create and delete keys. The account used during configuration also requires permission to sign to create the domain binding for Verifiable Credentials. If you use the same account while testing, modify the default policy to grant the account sign permission, in addition to the default permissions granted to vault creators.
 
 ### Set access policies for the key vault
 
+A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) defines whether a specified security principal can perform operations on Key Vault secrets and keys. Set access policies in your key vault for both the Azure AD Verifiable Credentials service administrator account, and for the Request Service API principal that you created.
 After you create your key vault, Verifiable Credentials generates a set of keys used to provide message security. These keys are stored in Key Vault. You use a key set for signing, updating, and recovering verifiable credentials.
-
-A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) defines whether a specified security principal can perform operations on Key Vault secrets and keys. Set access policies in your key vault for both the administrator account of the Azure AD Verifiable Credentials service, and for the Request Service API principal that you created.
 
 ### Set access policies for the Verifiable Credentials Admin user
 
@@ -68,49 +65,17 @@ A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) def
 
 1. To save the changes, select **Save**.
 
-## Register an application in Azure AD
+### Set access policies for the Verifiable Credentials Service Request service principal
 
-Azure AD Verifiable Credentials Request Service needs to be able to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verifiable Credential Request Service that you set up in the previous step.
+The Verifiable Credentials Service Request is the Request Service API, and it needs access to Key Vault in order to sign issuance and presentation requests. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
+1. Select **+ Add Access Policy** and select the service principal **Verifiable Credentials Service Request** with AppId **3db474b9-6a0c-4840-96ac-1fceb342124**.
 
-1. If you have access to multiple tenants, select the **Directory + subscription** :::image type="icon" source="media/verifiable-credentials-configure-tenant/portal-directory-subscription-filter.png" border="false"::: icon. Then, search for and select your **Azure Active Directory**.
+1. For **Key permissions**, select permissions **Get** and **Sign**. 
 
-1. Under **Manage**, select **App registrations** > **New registration**.  
+    ![screenshot of key vault granting access to a security principal](media/verifiable-credentials-configure-tenant/set-key-vault-sp-access-policy.png)
 
-   ![Screenshot that shows how to select a new application registration.](media/verifiable-credentials-configure-tenant/register-azure-ad-app.png)
-
-1. Enter a display name for your application. For example: *verifiable-credentials-app*.
-
-1. For **Supported account types**, select **Accounts in this organizational directory only (Default Directory only - Single tenant)**.
-
-1. Select **Register** to create the application.
-
-   ![Screenshot that shows how to register the verifiable credentials app.](media/verifiable-credentials-configure-tenant/register-azure-ad-app-properties.png)
-
-### Grant permissions to get access tokens
-
-In this step, you grant permissions to the Verifiable Credential Request Service principal.
-
-To add the required permissions, follow these steps:
-
-1. Stay in the **verifiable-credentials-app** application details page. Select **API permissions** > **Add a permission**.
-    
-    ![Screenshot that shows how to add permissions to the verifiable credentials app.](media/verifiable-credentials-configure-tenant/add-app-api-permissions.png)
-
-1. Select **APIs my organization uses**.
-
-1. Search for the service principal that you created earlier, **Verifiable Credential Request Service**, and select it.
-    
-    ![Screenshot that shows how to select the service principal.](media/verifiable-credentials-configure-tenant/add-app-api-permissions-select-service-principal.png)
-
-1. Choose **Application Permission**, and expand **VerifiableCredential.Create.All**.
-
-    ![Screenshot that shows how to select the required permissions.](media/verifiable-credentials-configure-tenant/add-app-api-permissions-verifiable-credentials.png)
-
-1. Select **Add permissions**.
-
-1. Select **Grant admin consent for \<your tenant name\>**.
+1. To save the changes, select **Save**.
 
 ## Set up Verifiable Credentials 
 
@@ -129,11 +94,75 @@ To set up Azure AD Verifiable Credentials, follow these steps:
         >[!IMPORTANT]
         > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://contoso.com`.
 
-    1. **Key vault**: Enter the name of the key vault that you created earlier.
+    1. **Key vault**: Select the key vault that you created earlier.
 
-1. Select **Save and create credential**.  
+    1. Under **Advanced**, you may choose the **trust system** that you want to use for your tenant. You can choose from either **Web** or **ION**. Web means your tenant uses [did:web](https://w3c-ccg.github.io/did-method-web/) as the did method and ION means it uses [did:ion](https://identity.foundation/ion/).
+            
+        >[!IMPORTANT]
+        > The only way to change the trust system is to opt-out of verifiable credentials and redo the onboarding.
+
+
+1. Select **Save and get started**.  
     
     ![Screenshots that shows how to set up Verifiable Credentials.](media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png)
+
+## Register an application in Azure AD
+
+Azure AD Verifiable Credentials Service Request needs to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verifiable Credential Request Service that you set up in the previous step.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
+
+1. If you have access to multiple tenants, select the **Directory + subscription**. Then, search for and select your **Azure Active Directory**.
+
+1. Under **Manage**, select **App registrations** > **New registration**.  
+
+   ![Screenshot that shows how to select a new application registration.](media/verifiable-credentials-configure-tenant/register-azure-ad-app.png)
+
+1. Enter a display name for your application. For example: *verifiable-credentials-app*.
+
+1. For **Supported account types**, select **Accounts in this organizational directory only (Default Directory only - Single tenant)**.
+
+1. Select **Register** to create the application.
+
+   ![Screenshot that shows how to register the verifiable credentials app.](media/verifiable-credentials-configure-tenant/register-azure-ad-app-properties.png)
+
+### Grant permissions to get access tokens
+
+In this step, you grant permissions to the Verifiable Credentials Service Request Service principal.
+
+To add the required permissions, follow these steps:
+
+1. Stay in the **verifiable-credentials-app** application details page. Select **API permissions** > **Add a permission**.
+    
+    ![Screenshot that shows how to add permissions to the verifiable credentials app.](media/verifiable-credentials-configure-tenant/add-app-api-permissions.png)
+
+1. Select **APIs my organization uses**.
+
+1. Search for the service principal that you created earlier, **Verifiable Credentials Service Request**, and select it.
+    
+    ![Screenshot that shows how to select the service principal.](media/verifiable-credentials-configure-tenant/add-app-api-permissions-select-service-principal.png)
+
+1. Choose **Application Permission**, and expand **VerifiableCredential.Create.All**.
+
+    ![Screenshot that shows how to select the required permissions.](media/verifiable-credentials-configure-tenant/add-app-api-permissions-verifiable-credentials.png)
+
+1. Select **Add permissions**.
+
+1. Select **Grant admin consent for \<your tenant name\>**.
+
+## Service endpoint configuration
+
+1. In the Azure portal, navigate to the Verifiable credentials page.
+1. Select **Registration**.
+1. Notice that there are two sections:
+    1. Website ID registration
+    1. Domain verification.
+1. Select on each section and download the JSON file under each.
+1. Crete a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
+    - https://contoso.com/.well-known/did.json
+    - https://contoso.com/.well-known/did-configuration.json.
+
+Once that you have successfully completed the verification steps, you are ready to continue to the next tutorial.
 
 ## Next steps
 

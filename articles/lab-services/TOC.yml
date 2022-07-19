@@ -1,25 +1,41 @@
 - name: Azure Lab Services docs
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: About Lab Services
     href: lab-services-overview.md
   - name: What's New in Lab Services?
     href: lab-services-whats-new.md
 - name: Quickstarts
+  expanded: true
   items:
     - name: Create a lab plan (admin)
+      expanded: true
       items:
       - name: Azure portal
         href: quick-create-lab-plan-portal.md
+      - name: ARM template
+        href: quick-create-lab-plan-template.md
       - name: PowerShell
         href: quick-create-lab-plan-powershell.md
+      - name: Bicep
+        href: quick-create-lab-plan-bicep.md
+      - name: Python
+        href: quick-create-lab-plan-python.md
     - name: Create a lab (educator)
+      expanded: true
       items:
       - name: Azure Lab Services website
         href: quick-create-lab-portal.md
+      - name: ARM template
+        href: quick-create-lab-template.md
       - name: PowerShell
         href: quick-create-lab-powershell.md
+      - name: Bicep
+        href: quick-create-lab-bicep.md
+      - name: Python
+        href: quick-create-lab-python.md
 - name: Tutorials
   items:
   - name: Set up a lab plan (admin)
@@ -30,7 +46,7 @@
     href: tutorial-connect-lab-virtual-machine.md
   - name: Track usage of a lab
     href: tutorial-track-usage.md
-  - name: Set up a lab account (deprecated)
+  - name: Set up a lab account
     href: tutorial-setup-lab-account.md
 - name: Concepts
   items:
@@ -139,6 +155,8 @@
       href: manage-labs.md
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
+    - name: Configure regions for labs
+      href: create-and-configure-labs-admin.md
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs
@@ -178,7 +196,7 @@
     - name: Set and reset passwords 
       href: how-to-set-virtual-machine-passwords.md
     - name: Configure auto-shutdown settings
-      href: how-to-enable-shutdown-disconnect.md       
+      href: how-to-enable-shutdown-disconnect.md      
     - name: View support information
       href: lab-creator-support-information.md
   - name: Connect to VMs in labs (student)
@@ -195,6 +213,8 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
+    - name: How to troubleshoot a VM
+      href: how-to-reset-and-redeploy-vm.md  
     - name: Set or reset passwords for VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
     - name: View support information (student)
@@ -227,9 +247,15 @@
         href: how-to-create-schedules-within-teams.md
       - name: Access a VM (student view)
         href: how-to-access-vm-for-students-within-teams.md
-  - name: Earlier releases (deprecated)
+  - name: Earlier releases
     items:
-    - name: Create & configure lab accounts (deprecated)
+    - name: Labs architecture fundamentals
+      href: classroom-labs-fundamentals-1.md
+    - name: Administrator guide
+      href: administrator-guide-1.md
+    - name: Lab account creation guide
+      href: account-setup-guide.md
+    - name: Create & configure lab accounts
       items:
       - name: Create and manage labs
         href: how-to-manage-classroom-labs.md        
@@ -239,7 +265,7 @@
         href: how-to-configure-lab-accounts.md
       - name: Allow lab creator to pick lab location
         href: allow-lab-creator-pick-lab-location.md
-      - name: Create a lab with a shared resource (deprecated)
+      - name: Create a lab with a shared resource
         href: how-to-create-a-lab-with-shared-resource-1.md
       - name: Connect to a peer virtual network 
         href: how-to-connect-peer-virtual-network.md
@@ -251,11 +277,9 @@
         href: how-to-add-user-lab-owner.md
       - name: Manage labs in a lab account
         href: manage-labs-1.md
-    - name: Administrator guide
-      href: administrator-guide-1.md
-    - name: Lab account creation guide
-      href: account-setup-guide.md
-    - name: Az.LabServices PowerShell module (deprecated)
+    - name: Set up GPU VMs when using lab accounts
+      href: how-to-setup-lab-gpu-1.md
+    - name: Az.LabServices PowerShell module for lab accounts
       href: reference-powershell-module.md     
 - name: Reference
   items:
@@ -265,6 +289,10 @@
     href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
+  - name: Built-in policies
+    href: /azure/governance/policy/samples/built-in-policies#lab-services
+  - name: Microsoft Azure SDK for Python
+    href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources
   items:
   - name: Azure Lab Services Blog

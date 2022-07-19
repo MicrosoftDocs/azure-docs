@@ -39,8 +39,14 @@
     href: determine-your-listing-type.md
   - name: Transacting in the commercial marketplace
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
-  - name: License management
-    href: isv-app-license.md
+  - name: ISV app license management
+    items:
+      - name: About ISV app license management
+        href: isv-app-license-management.md
+      - name: License management for Dynamics 365 apps on Dataverse and Power Apps
+        href: isv-app-license.md
+      - name: License management for Power BI visual
+        href: isv-app-license-power-bi-visual.md  
   - name: Private plans
     href: private-plans.md
   - name: Private plans troubleshooting
@@ -393,6 +399,8 @@
         href: power-bi-visual-availability.md
       - name: Technical configuration
         href: power-bi-visual-technical-configuration.md
+      - name: Plans
+        href: power-bi-visual-plans.md  
       - name: Manage offer names
         href: power-bi-visual-manage-names.md
     - name: FAQs on migrating to the commercial marketplace
@@ -629,6 +637,12 @@
       href: partner-center-portal/saas-fulfillment-apis-faq.yml
     - name: SaaS Fulfillment APIs v1 (deprecated)
       href: partner-center-portal/pc-saas-fulfillment-api-v1.md    
+  - name: Private Offer APIs
+    items:
+    - name: Private Offer APIs
+      href: private-offers-api.md
+  - name: Product Ingestion API
+    href: product-ingestion-api.md
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
