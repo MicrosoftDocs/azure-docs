@@ -51,7 +51,7 @@ Preview mode:
 1. Add text by doing one of these steps:
 
    * Select **Add** > **Add text** below an existing element or at the bottom of the workbook.
-   * Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add text**.
+   * Select the ellipsis (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add text**.
 
 1. Enter Markdown text in the editor field.
 1. Use the **Text Style** option to switch between plain Markdown and Markdown wrapped with the Azure portal's standard info, warning, success, and error styling.
@@ -96,7 +96,7 @@ For example, you can query Azure Resource Health to help you view any service pr
 1. Make sure you're in edit mode by selecting **Edit**.
 1. Add a query by doing one of these steps:
     - Select **Add** > **Add query** below an existing element or at the bottom of the workbook.
-    - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add query**.
+    - Select the ellipsis (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add query**.
 1. Select the [data source](workbooks-data-sources.md) for your query. The other fields are determined based on the data source you choose.
 1. Select any other values that are required based on the data source you selected.
 1. Select the [visualization](workbooks-visualizations.md) for your workbook.
@@ -168,7 +168,7 @@ You can control how your parameter controls are presented to consumers with work
 1. Make sure you're in edit mode by selecting **Edit**.
 1. Add a parameter by doing one of these steps:
     - Select **Add** > **Add parameter** below an existing element or at the bottom of the workbook.
-    - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add parameter**.
+    - Select the ellipsis (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add parameter**.
 1. In the new parameter pane that appears, enter values for these fields:
 
     - **Parameter name**: Parameter names can't include spaces or special characters.
@@ -193,7 +193,7 @@ The following example shows the number of transactions in a storage account over
 1. Make sure you're in edit mode by selecting **Edit**.
 1. Add a metric chart by doing one of these steps:
     - Select **Add** > **Add metric** below an existing element or at the bottom of the workbook.
-    - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add metric**.
+    - Select the ellipsis (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add metric**.
 1. Select a **resource type**, the resources to target, the metric namespace and name, and the aggregation to use.
 1. Set parameters such as time range, split by, visualization, size, and color palette, if needed.
 1. Select **Done Editing**.
@@ -323,7 +323,7 @@ Groups in workbooks are useful for several things:
 1. Make sure you're in edit mode by selecting **Edit**.
 1. Add a group by doing one of these steps:
     - Select **Add** > **Add group** below an existing element or at the bottom of the workbook.
-    - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add group**.
+    - Select the ellipsis (...) to the right of the **Edit** button next to one of the elements in the workbook. Then select **Add** > **Add group**.
 
       :::image type="content" source="media/workbooks-create-workbook/workbooks-add-group.png" alt-text="Screenshot that shows adding a group to a workbook. ":::
 
