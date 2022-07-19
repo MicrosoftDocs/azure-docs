@@ -176,7 +176,7 @@ This section applies to applications that use another SQL database as the underl
 
 Now that you have a list of all the users obtained from the application, you'll match those users from the application's data store with users in Azure AD.  
 
-Before you proceed, review the information about [matching users in the source and target systems](..app-provisioning/customize-application-attributes.md#matching-users-in-the-source-and-target--systems). You'll configure Azure AD provisioning with equivalent mappings afterward. That step will allow Azure AD provisioning to query the application's data store with the same matching rules.
+Before you proceed, review the information about [matching users in the source and target systems](../app-provisioning/customize-application-attributes.md#matching-users-in-the-source-and-target--systems). You'll configure Azure AD provisioning with equivalent mappings afterward. That step will allow Azure AD provisioning to query the application's data store with the same matching rules.
 
 ### Retrieve the IDs of the users in Azure AD
 
@@ -397,7 +397,7 @@ Before you create new assignments, configure [provisioning of Azure AD users](..
 1. Ensure that the application is configured to require users to have application role assignments, so that only selected users will be provisioned to the application.
 1. If provisioning hasn't been configured for the application, configure it now (but don't start provisioning):
 
-   * If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](..app-provisioning/on-premises-ldap-connector-configure.md).
+   * If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md).
    * If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md).
 
 1. Check the [attribute mappings](../app-provisioning/customize-application-attributes.md) for provisioning to that application. Make sure that **Match objects using this attribute** is set for the Azure AD attribute and column that you used in the previous sections for matching.  
@@ -463,7 +463,7 @@ When an application role assignment is created in Azure AD for a user to an appl
 1. Based on the guidance for [how long will it take to provision users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users), wait for Azure AD provisioning to match the existing users of the application to those users just assigned.
 1. Monitor the [provisioning status](../app-provisioning/check-status-user-account-provisioning.md) to ensure that all users were matched successfully.  
 
-   If you don't see users being provisioned, check the [troubleshooting guide for no users being provisioned](..app-provisioning/application-provisioning-config-problem-no-users-provisioned.md). If you see an error in the provisioning status and are provisioning to an on-premises application, check the [troubleshooting guide for on-premises application provisioning](/azure/active-directory/app-provisioning/on-premises-ecma-troubleshoot).
+   If you don't see users being provisioned, check the [troubleshooting guide for no users being provisioned](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md). If you see an error in the provisioning status and are provisioning to an on-premises application, check the [troubleshooting guide for on-premises application provisioning](../app-provisioning/on-premises-ecma-troubleshoot.md).
 
 After the Azure AD provisioning service has matched the users based on the application role assignments you've created, subsequent changes will be sent to the application.
 
