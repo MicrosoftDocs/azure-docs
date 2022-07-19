@@ -95,7 +95,7 @@ A private endpoint connection needs to be created for the following resources in
     2. Storage-account, and 
     3. Log-analytics workspace
 
-![LogAnalytics](https://user-images.githubusercontent.com/33844181/176844487-388fbea4-4821-4c8d-90af-917ff9c0ba48.png)
+![Diagram that shows LogAnalytics screen.](https://user-images.githubusercontent.com/33844181/176844487-388fbea4-4821-4c8d-90af-917ff9c0ba48.png)
  
 ###### Key Vault
 
@@ -142,7 +142,7 @@ If possible, create the private endpoint before you allow any system to access t
 1. Select **Add** to create a new AMPLS setting.
 1. Select the appropriate scope for the endpoint. Then, select **Apply**.
 To enable private endpoint for Azure Monitor Private Link Scope, go to Private Endpoint connections tab under configure. 
-![EndPoint Resources](https://user-images.githubusercontent.com/33844181/176845102-3b5d813e-eb0d-445c-a5fb-9262947eda77.png)
+![Diagram shows EndPoint Resources.](https://user-images.githubusercontent.com/33844181/176845102-3b5d813e-eb0d-445c-a5fb-9262947eda77.png)
 
 1. Select the **Private endpoint connections** tab.
 1. Select **Create** to open the endpoint creation page.
@@ -179,7 +179,7 @@ Next, find and note important IP address ranges.
 
     1. For Log analytics private endpoint: Go to the private endpoint created for Azure Monitor Private Link Scope resource.         
     
-        ![linked scope resource](https://user-images.githubusercontent.com/33844181/176845649-0ccef546-c511-4373-ac3d-cbf9e857ca78.png)
+        ![Diagram that shows linked scope resource.](https://user-images.githubusercontent.com/33844181/176845649-0ccef546-c511-4373-ac3d-cbf9e857ca78.png)
 
 1. On the private endpoint's menu, under **Settings**, select **DNS configuration**.
 1. On the **DNS configuration** page, note the associated IP addresses.
@@ -190,7 +190,7 @@ Next, find and note important IP address ranges.
 1. Go to the NSG resource in the Azure portal.
 1. In the NSG menu, under **Settings**, select **Outbound security rules**.
 The below image contains the required security rules for AMS resource to work. 
-![Security Roles](https://user-images.githubusercontent.com/33844181/176845846-44bbcb1a-4b86-4158-afa8-0eebd1378655.png)
+![Diagram that shows Security Roles.](https://user-images.githubusercontent.com/33844181/176845846-44bbcb1a-4b86-4158-afa8-0eebd1378655.png)
 
 
 | Priority | Description |

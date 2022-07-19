@@ -26,7 +26,7 @@ This article explains how to configure the SAP HANA provider for Azure Monitor f
     * Select **Add provider**.
     * On the creation pane, for **Type**, select **SAP HANA**.
 
-   ![Diagram shows the provider details that need to be filled](./media/azure-monitor-sap/azure-monitor-providers-hana-setup.png)
+   ![Diagram shows the provider details that need to be filled.](./media/azure-monitor-sap/azure-monitor-providers-hana-setup.png)
 
 
     * For **IP address**, enter the IP address or hostname of the server that runs the SAP HANA instance that you want to monitor. If you're using a hostname, make sure there is connectivity within the virtual network.

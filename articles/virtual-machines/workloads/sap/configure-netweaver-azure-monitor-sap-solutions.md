@@ -76,7 +76,7 @@ After you restart the SAP service, check that your updated rules are applied to 
 
 1. Review the output, which should look like the following sample output:
 
-![Diagram shows the expected output of SAPcontrol command](./media/azure-monitor-sap/azure-monitor-providers-netweaver-sap-control-output.png)
+![Diagram shows the expected output of SAPcontrol command.](./media/azure-monitor-sap/azure-monitor-providers-netweaver-sap-control-output.png)
 
 
 Repeat these steps for each instance profile.
@@ -211,7 +211,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 
 
   
-    ![pic depicts sap mmc console](./media/azure-monitor-sap/azure-monitor-providers-netweaver-mmc-output.png)
+    ![Diagram that depicts sap mmc console.](./media/azure-monitor-sap/azure-monitor-providers-netweaver-mmc-output.png)
 
 
    8b. On Linux systems, use the below command where NN is the SAP instance number to restart the host which is logged into.
@@ -228,7 +228,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
    `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user "<adminUser>" "<adminPassword>"`
 
    The output should look like :-
-  ![Diagram shows the expected output of SAPcontrol command classic](./media/azure-monitor-sap/azure-monitor-providers-netweaver-sap-control-output.png)
+  ![Diagram shows the expected output of SAPcontrol command classic.](./media/azure-monitor-sap/azure-monitor-providers-netweaver-sap-control-output.png)
 
 10. To conclude and validate, run a test query against web methods to validate (replace the hostname , instance number and, method name ) 
     
@@ -252,7 +252,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 >[!Tip]
 > Use an access control list (ACL) to filter the access to a server port. For more information, see [this SAP note](https://launchpad.support.sap.com/#/notes/1495075).
 
-To install the NetWeaver provider inthe Azure portal:
+To install the NetWeaver provider in the Azure portal:
 
 1. Make sure you've completed the earlier steps and restarted the server.
 
@@ -283,7 +283,7 @@ To install the NetWeaver provider inthe Azure portal:
 1. Select **Create** to finish creating the resource.
 
 
-If the SAP application servers (VMs) are part of a network domain, such as an Azure Active Directory (Azure AD) managed domain, you must provide the corresponding subdomain. The AMS collector VM exists inside the virtual network, adn isn't joined to the domain. AMS can't resolve the hostname of instances inside the SAP system unless the hostname is an FQDN. If you don't provide the subdomain, there will be missing or incomplete visualizations in the NetWeaver workbook.
+If the SAP application servers (VMs) are part of a network domain, such as an Azure Active Directory (Azure AD) managed domain, you must provide the corresponding subdomain. The AMS collector VM exists inside the virtual network, and isn't joined to the domain. AMS can't resolve the hostname of instances inside the SAP system unless the hostname is an FQDN. If you don't provide the subdomain, there will be missing or incomplete visualizations in the NetWeaver workbook.
 
 For example, if the hostname of the SAP system has an FQDN of `myhost.mycompany.contoso.com`:
 
@@ -292,4 +292,4 @@ For example, if the hostname of the SAP system has an FQDN of `myhost.mycompany.
 
 When the NetWeaver provider invokes the **GetSystemInstanceList** API on the SAP system, SAP returns the hostnames of all instances in the system. The collect VM uses this list to make more API calls to fetch metrics for each instances features. For example, ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, and more. If you specify the subdomain, the collect VM uses the subdomain to build the FQDN of each instance in the system.
 
-Don't specify an IP address for the hostanme if your SAP systme is part of network domain.
+Don't specify an IP address for the hostname if your SAP system is part of network domain.

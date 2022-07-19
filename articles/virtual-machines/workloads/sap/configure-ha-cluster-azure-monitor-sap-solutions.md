@@ -37,7 +37,7 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 
 
 
-![diagram shows how to add a new provider](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-start.png)  
+![Diagram shows how to add a new provider.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-start.png)  
 
 
 6. For **Type**, select **High-availability cluster (Pacemaker)**.
@@ -53,13 +53,8 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 ###### For SUSE based cluster
 
 
-![diagram that shows required fields to setup azure monitor for sap ha suse cluster](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-suse.png)  
+![Diagram that shows required fields to setup azure monitor for sap ha suse cluster.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-suse.png)  
 
 ###### For RHEL based cluster
 
-![diagram that shows required fields to setup azure monitor for sap ha rhel cluster](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-rhel.png)  
-
-
-
-
-
+![Diagram that shows required fields to setup azure monitor for sap ha rhel cluster.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-rhel.png)  

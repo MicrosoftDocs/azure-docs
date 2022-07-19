@@ -420,7 +420,7 @@
        href: configure-hana-azure-monitor-sap-solutions.md
      - name: Configure Microsoft SQL Server Provider
        href: configure-sql-server-azure-monitor-sap-solutions.md
-     - name: Configure Configure High-availability cluster (Pacemaker) provider
+     - name: Configure High-availability cluster (Pacemaker) provider
        href: configure-ha-cluster-azure-monitor-sap-solutions.md
      - name: Configure OS (Linux) Provider
        href: configure-linux-os-azure-monitor-sap-solutions.md
