@@ -9,9 +9,9 @@ ms.date: 10/25/2021
 
 # Deploy Zerto disaster recovery on Azure VMware Solution
 
-This article explains how to implement disaster recovery for on-premises VMware or Azure VMware Solution-based virtual machines (VMs). The solution in this article uses [Zerto disaster recovery](https://www.zerto.com/solutions/use-cases/disaster-recovery/). Instances of Zerto are deployed at both the protected and the recovery sites.
+In this article, you'll learn how to implement disaster recovery for on-premises VMware or Azure VMware Solution-based virtual machines (VMs). The solution in this article uses [Zerto disaster recovery](https://www.zerto.com/solutions/use-cases/disaster-recovery/). Instances of Zerto are deployed at both the protected and the recovery sites.
 
-Zerto is a disaster recovery solution designed to minimize downtime of the VMs if there was a disaster. Zerto's platform is built on the foundation of Continuous Data Protection (CDP), which enables minimal or close to no data loss. It provides the level of protection wanted for many business-critical and mission-critical enterprise applications. Zerto also automates and orchestrates failover and failback, ensuring minimal downtime in a disaster. Overall, Zerto simplifies management through automation and ensures fast and highly predictable recovery times.
+Zerto is a disaster recovery solution designed to minimize downtime of VMs should a disaster occur. Zerto's platform is built on the foundation of Continuous Data Protection (CDP) that enables minimal or close to no data loss. The platform provides the level of protection wanted for many business-critical and mission-critical enterprise applications. Zerto also automates and orchestrates failover and failback to ensure minimal downtime in a disaster. Overall, Zerto simplifies management through automation and ensures fast and highly predictable recovery times.
 
 ## Core components of the Zerto platform
 
@@ -23,8 +23,7 @@ Zerto is a disaster recovery solution designed to minimize downtime of the VMs i
 | **Zerto Cloud Appliance (ZCA)**   | Windows VM only used when Zerto is used to recover vSphere VMs as Azure Native IaaS VMs. The ZCA is composed of:<ul><li>**ZVM:** A Windows service that hosts the UI and integrates with the native APIs of Azure for management and orchestration.</li><li>**VRA:** A Windows service that replicates the data from or to Azure.</li></ul>The ZCA integrates natively with the platform it's deployed on, allowing you to use Azure Blob storage within a storage account on Microsoft Azure. As a result, it ensures the most cost-efficient deployment on each of these platforms.   |
 | **Virtual Protection Group (VPG)**   | Logical group of VMs created on the ZVM. Zerto allows configuring disaster recovery, Backup, and Mobility policies on a VPG. This mechanism enables a consistent set of policies to be applied to a group of VMs.  |
 
-
-To learn more about Zerto platform architecture, see the [Zerto Platform Architecture Guide](https://www.zerto.com/wp-content/uploads/2021/07/Zerto-Platform-Architecture-Guide.pdf). 
+To learn more about Zerto platform architecture, see the [Zerto Platform Architecture Guide](https://www.zerto.com/wp-content/uploads/2021/07/Zerto-Platform-Architecture-Guide.pdf).
 
 ## Supported Zerto scenarios
 
@@ -58,7 +57,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 ### Azure VMware Solution to Azure VMware Solution cloud disaster recovery
 
-- Azure VMware Solution private cloud must be deployed in the primary and secondary region.
+- Azure VMware Solution private cloud must be deployed in the primary and secondary regions.
 
    :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2a-prerequisite.png" alt-text="Diagram shows the first prerequisite for Scenario 2 of the Zerto disaster recovery solution on Azure VMware Solution.":::
 
@@ -77,7 +76,7 @@ Currently, Zerto disaster recovery on Azure VMware Solution is in an Initial Ava
 To request IA support for Zerto on Azure VMware Solution, send an email request to zertoonavs@microsoft.com. In the IA phase, Azure VMware Solution only supports manual installation and onboarding of Zerto. However, Microsoft will work with you to ensure that you can manually install Zerto on your private cloud.
 
 > [!NOTE]
-> As part of the manual installation, Microsoft will create a new vCenter user account for Zerto. This user account is only for Zerto Virtual Manager (ZVM) to perform operations on the Azure VMware Solution vCenter. When installing ZVM on Azure VMware Solution, don’t select the “Select to enforce roles and permissions using Zerto vCenter privileges” option.
+> As part of the manual installation, Microsoft creates a new vCenter user account for Zerto. This user account is only for Zerto Virtual Manager (ZVM) to perform operations on the Azure VMware Solution vCenter. When installing ZVM on Azure VMware Solution, don’t select the “Select to enforce roles and permissions using Zerto vCenter privileges” option.
 
 After the ZVM installation, select the options below from the Zerto Virtual Manager **Site Settings**.
 
