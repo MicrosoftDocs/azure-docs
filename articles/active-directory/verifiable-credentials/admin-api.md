@@ -711,7 +711,6 @@ This call checks your DID setup. It downloads the well known DID configuration a
 
 Don't supply a request body for this method
 
-> [name=Matthijs Hoekstra]Is this correct?
 
 #### Response message
 
@@ -734,8 +733,6 @@ The rotate signing keys update the private key for the did:web authority
 | -------- | -------- |
 | Authorization | Bearer (token). Required |
 | Content-Type | application/json |
-
-> [name=Matthijs Hoekstra]Is this correct?
 
 #### Request Body
 
@@ -826,10 +823,10 @@ The response contains the following properties
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`attestations`| [idTokenAttestation](#idTokenAttestation-type) or [idTokenHintAttestation](#idTokenHintAttestation-type) and/or [verifiablePresentationAttestation](#verifiablePresentationAttestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) and/or [accessTokenAttestation](#accesstokenattestation-type) (array) | describing supported inputs for the rules |
+|`attestations`| [idTokenAttestation](#idtokenattestation-type) or [idTokenHintAttestation](#idtokenhintattestation-type) and/or [verifiablePresentationAttestation](#verifiablepresentationattestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) and/or [accessTokenAttestation](#accesstokenattestation-type) (array) | describing supported inputs for the rules |
 |`validityInterval` | number | this value shows the lifespan of the credential |
 |`vc`| vcType array | types for this contract |
-|`customStatusEndpoint`| [customStatusEndpoint] (#customStatusEndpoint-type) (optional) | status endpoint to include in the verifiable credential for this contract |
+|`customStatusEndpoint`| [customStatusEndpoint] (#customstatusendpoint-type) (optional) | status endpoint to include in the verifiable credential for this contract |
 
 If the property `customStatusEndpoint` property isn't specified then the `anynomous` status endpoint is used.
 
@@ -856,7 +853,7 @@ If the property `customStatusEndpoint` property isn't specified then the `anynom
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| `mapping` | [claimMapping](#claimMapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
+| `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `credentialType` | string (optional) | required credential type of the input |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
 | `trustedIssuers` | string (array) | a list of DIDs allowed to issue the verifiable credential for this contract |
