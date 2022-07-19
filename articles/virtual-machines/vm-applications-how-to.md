@@ -344,7 +344,7 @@ virtualMachineScaleSets/\<**VMSSName**\>?api-version=2019-03-01
 | order | Optional. The order in which the applications should be deployed. See below. | Validate integer |
 | packageReferenceId | A reference the gallery application version | Valid application version reference |
 | configurationReference | Optional. The full url of a storage blob containing the configuration for this deployment. This will override any value provided for defaultConfiguration earlier. | Valid storage blob reference |
-| treatFailureAsDeploymentFailure | Optional. Provisioning status for VM App. When set to false, provisioning status will always show 'succeeded' regardless of app deployment failure. |
+| treatFailureAsDeploymentFailure | Optional. Provisioning status for VM App. When set to false, provisioning status will always show 'succeeded' regardless of app deployment failure. | True or False
 
 The order field may be used to specify dependencies between applications. The rules for order are the following:
 
