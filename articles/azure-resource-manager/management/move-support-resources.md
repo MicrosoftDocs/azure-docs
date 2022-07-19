@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 05/04/2022
+ms.date: 06/27/2022
 ---
 
 # Move operation support for resources
@@ -22,6 +22,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft.App](#microsoftapp)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
 > - [Microsoft.AppPlatform](#microsoftappplatform)
 > - [Microsoft.AppService](#microsoftappservice)
@@ -280,6 +281,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | reportfeedback | No | No | No |
 > | service | Yes | Yes | Yes (using template) <br/><br/> [Move API Management across regions](../../api-management/api-management-howto-migrate.md). |
+
+## Microsoft.App
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | managedenvironments | Yes | Yes | No |
 
 ## Microsoft.AppConfiguration
 
@@ -837,6 +845,7 @@ Jump to a resource provider namespace:
 > | services | No | No | No |
 > | services / projects | No | No | No |
 > | slots | No | No | No |
+> | sqlmigrationservices | No | No | No |
 
 ## Microsoft.DataProtection
 
@@ -1507,6 +1516,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | hypervsites | No | No | No |
 > | importsites | No | No | No |
+> | mastersites | No | No | No |
 > | serversites | No | No | No |
 > | vmwaresites | No | No | No |
 

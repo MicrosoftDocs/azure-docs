@@ -194,7 +194,7 @@ items:
       href: how-to/add-faces.md
     - name: Use the large-scale feature
       href: how-to/use-large-scale.md
-    - name: Use the PersonDirectory structure
+    - name: Use the PersonDirectory structure (preview)
       href: how-to/use-persondirectory.md
     - name: Use the HeadPose attribute
       href: how-to/use-headpose.md

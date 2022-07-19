@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 06/23/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 - Independent [scaling](scale-app.md), [versioning](application-lifecycle-management.md), and [upgrades](application-lifecycle-management.md)
 - [Service discovery](connect-apps.md)
-- Native [Dapr integration](microservices-dapr.md)
+- Native [Dapr integration](./dapr-overview.md)
 
 :::image type="content" source="media/microservices/azure-container-services-microservices.png" alt-text="Container apps are deployed as microservices.":::
 

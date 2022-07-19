@@ -133,7 +133,7 @@ The Computer Vision API v3.2 is now generally available with the following updat
 > [!div class="nextstepaction"]
 > [See Computer Vision v3.2 GA](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
-### PersonDirectory data structure
+### PersonDirectory data structure (preview)
 
 * In order to perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory. Currently, the Face API offers the **LargePersonGroup** structure which has similar functionality but is limited to 1 million identities. The **PersonDirectory** structure can scale up to 75 million identities.
 * Another major difference between **PersonDirectory** and previous data structures is that you'll no longer need to make any Train calls after adding faces to a **Person** object&mdash;the update process happens automatically. For more details see [Use the PersonDirectory structure](how-to/use-persondirectory.md).

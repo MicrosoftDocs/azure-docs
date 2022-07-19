@@ -58,7 +58,7 @@ You can only create server using  General purpose or Business Critical pricing t
 **Example:**
 
    ```azurecli
-    az mysql flexible-server create --name myservername --sku-name Standard_D2ds_v4 --tier Genaralpurpose --resource-group myresourcegroup --high-availability ZoneRedundant --location eastus
+    az mysql flexible-server create --name myservername --sku-name Standard_D2ds_v4 --tier GeneralPurpose --resource-group myresourcegroup --high-availability ZoneRedundant --location eastus
    ```
 
 ## Disable high availability

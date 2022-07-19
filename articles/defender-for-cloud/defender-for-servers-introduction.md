@@ -48,6 +48,7 @@ The following table describes what's included in each plan at a high level.
 | Microsoft threat and vulnerability management | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Integration of Microsoft Defender for Cloud and Microsoft Defender for Endpoint (alerts, software inventory, Vulnerability Assessment) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Security Policy and Regulatory Compliance | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Log-analytics (500 MB free) | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Vulnerability Assessment using Qualys | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Threat detections: OS level, network layer, control plane | | :::image type="icon" source="./media/icons/yes-icon.png"::: |

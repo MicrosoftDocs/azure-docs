@@ -1,16 +1,16 @@
 ---
-title: What is the Space Partner Program?
-description: Overview of the Azure Space Partner Program
+title: What is the Space Partner Community?
+description: Overview of the Azure Space Partner Community
 author: wamota
 ms.service: orbital
 ms.topic: overview
 ms.custom: public-preview
 ms.date: 3/21/2022
 ms.author: wamota
-# Customer intent: Educate potential partners on how to engage with the Azure Space partner programs.
+# Customer intent: Educate potential partners on how to engage with the Azure Space partner Communities.
 ---
 
-# What is the Space Partner Program?
+# What is the Azure Space Partner Community?
 
 At Microsoft, our mission is to empower every person and every organization on the planet to achieve more.  When it comes to space, we’re investing in building the tools that will allow every person and organization on Earth to realize the incredible potential of space.   
 
@@ -20,9 +20,9 @@ Our differentiated ecosystem of partners spans space operators, manufacturers, s
 
 :::image type="content" source="media/azure-space-partners.png" alt-text="List of all Azure Space partners":::
 
-## Why join the Space Partner Program?
+## Why join the Azure Space Partner Community?
 
-We believe in a better together story for Space and Spectrum partners running on Azure.  By joining the program, you can gain access to various benefits such as: 
+We believe in a better together story for Space and Spectrum partners running on Azure.  By joining the community, you can gain access to various benefits such as: 
 
 - Azure Engineering Training & Adoption Resources 
 - Quarterly NDA roadmap reviews and newsletters
@@ -34,11 +34,11 @@ We believe in a better together story for Space and Spectrum partners running on
 - Co-sell and joint GTM coordination
 - Opportunities to be showcased in Microsoft customer presentations and sales trainings
 
-:::image type="content" source="media/azure-space-program.png" alt-text="Benefits of the Azure Space Program" lightbox="media/azure-space-program.png":::
+:::image type="content" source="media/azure-space-program.png" alt-text="Benefits of the Azure Space Community" lightbox="media/azure-space-program.png":::
 
 ## Partner Requirements 
 
-To join the program, we ask partners to commit to: 
+To join the community, we ask partners to commit to: 
 
 - Sign a non-disclosure agreement with Microsoft
 - Run solution(s) on Azure including Azure monetary commitment 
@@ -57,7 +57,7 @@ To join the program, we ask partners to commit to:
   - [5G core for Gov with Lockheed Martin](https://azure.microsoft.com/blog/new-azure-for-operators-solutions-and-services-built-for-the-future-of-telecommunications/)
   - [Private network based on SATCOM with Intelsat](https://www.intelsat.com/newsroom/intelsat-collaborates-with-microsoft-to-demonstrate-private-cellular-network-using-intelsats-global-satellite-and-ground-network/)
 - [Read this public deck on Microsoft Space offerings](https://azurespace.blob.core.windows.net/docs/Azure_Space_Public_Deck.pdf)
-- Reach out to [SpacePartnerProgram@microsoft.com](mailto:SpacePartnerProgram@microsoft.com) to learn more and sign a non-disclosure agreement
+- Reach out to [Azure Space Partner Community](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5Mbl7o3PghInEJV6ey1cpVUMVIzNU5XR0JWQ05RQjU3VDNaT1hDUE1BQS4u) to learn more and sign a non-disclosure agreement
 
 ## Next steps
 

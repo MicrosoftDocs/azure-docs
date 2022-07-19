@@ -20,4 +20,4 @@ You must perform the steps in this article on a computer running Windows 10 or W
 
 ## Next steps
 
-Continue with the [Virtual WAN steps for user VPN connection](virtual-wan-about.md)
+Continue with the [Virtual WAN steps for user VPN connection](virtual-wan-point-to-site-portal.md#p2sconfig).

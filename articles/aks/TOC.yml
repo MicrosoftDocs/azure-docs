@@ -329,6 +329,8 @@
               href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
+        - name: Use API Server VNet Integration
+          href: api-server-vnet-integration.md
         - name: Bring your own CNI
           href: use-byo-cni.md
         - name: Create an internal load balancer

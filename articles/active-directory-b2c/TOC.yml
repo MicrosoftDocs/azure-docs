@@ -116,10 +116,24 @@
         href: enable-authentication-web-app-with-api.md
       - name: Authentication options
         href: enable-authentication-web-app-with-api-options.md
+    - name: Azure Web Apps
+      items:
+      - name: Configure an Azure Web App
+        href: configure-authentication-in-azure-web-app.md
+      - name: File based configuration
+        href: configure-authentication-in-azure-web-app-file-based.md
+    - name: Azure Static Web Apps
+      items:
+      - name: Configure an Azure Static Web App
+        href: configure-authentication-in-azure-static-app.md
+      - name: Authentication options
+        href: enable-authentication-azure-static-app-options.md
     - name: Python web app
       items:
-      - name: Configure a sample web app
+      - name: Configure a sample Python web app
         href: configure-authentication-sample-python-web-app.md
+      - name: Enable authentication in a Python web app
+        href: enable-authentication-python-web-app.md
       - name: Authentication options
         href: enable-authentication-python-web-app-options.md
     - name: Single-page application (SPA)
