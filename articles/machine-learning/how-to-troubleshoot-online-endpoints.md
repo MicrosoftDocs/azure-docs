@@ -240,11 +240,19 @@ Make sure model and code artifacts are registered to the same workspace as the d
   az ml code show --name <code-name> --version <version>
   ```
  
-  You can also check if the blobs are present in the workspace storage account.
+You can also check if the blobs are present in the workspace storage account.
 
 - For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl`, you can use this command to check if it exists:
+   
+   ```azurecli
+   az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+   ```
+  
+- If the blob is not present, you can use this command to obtain the logs from the storage initializer:
 
-  `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+  ```azurecli
+  az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
+  ```
 
 #### azureml-fe not ready
 The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
