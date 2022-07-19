@@ -6,8 +6,8 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/16/2022
-ms.author: v-smcevoy
+ms.date: 06/29/2022
+ms.author: v-judegnan
 ---
 
 # Release notes: Azure Health Data Services
@@ -19,15 +19,21 @@ ms.author: v-smcevoy
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
-## May 2022
+## June 2022
 
 ### FHIR service
 
-### **Enhancement**
+#### **Bug fixes**
 
-|Enhancement |Related information |
+|Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
-|FHIR service does not create a new version of the resource if the resource content has not changed. |If a user updates an existing resource and only meta.versionId or meta.lastUpdated have changed then we return OK with existing resource information without updating VersionId and lastUpdated. For more information, see [#2519](https://github.com/microsoft/fhir-server/pull/2519). |
+|Export Job not being queued for execution.  |Fixes issue with export job not being queued due to duplicate job definition caused due to reference to container URL. For more information, see [#2648](https://github.com/microsoft/fhir-server/pull/2648). |
+|Queries not providing consistent result count after appended with the _sort operator.   |Fixes the issue with the help of distinct operator to resolve inconsistency and record duplication in response.  For more information, see [#2680](https://github.com/microsoft/fhir-server/pull/2680). |
+
+
+## May 2022
+
+### FHIR service
 
 #### **Bug fixes**
 
