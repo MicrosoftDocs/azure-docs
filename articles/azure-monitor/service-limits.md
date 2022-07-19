@@ -24,7 +24,7 @@ This article lists limits in different areas of Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-autoscale.md)]
 
-## Custom logs
+## Logs ingestion API
 
 [!INCLUDE [custom-logs](../../includes/azure-monitor-limits-custom-logs.md)]
 
