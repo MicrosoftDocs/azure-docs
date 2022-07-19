@@ -211,7 +211,7 @@ The information from your YAML file should be displayed in the Azure portal. Sel
 
 ## Using Azure Repos for Azure Spring Apps Configuration
 
-Azure Spring Apps can access Git repositories that are public, secured by SSH, or secured using HTTP basic authentication. We'll use that last option, as its easier to create and manage with Azure Repos.
+Azure Spring Apps can access Git repositories that are public, secured by SSH, or secured using HTTP basic authentication. We'll use that last option, as it's easier to create and manage with Azure Repos.
 
 ### Get repo url and credentials
 
