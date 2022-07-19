@@ -26,7 +26,7 @@ For other subscription offer types:
 | -------- | ------------- | ------------- |
 | Synapse workspaces in an Azure subscription per region | 20 | 250 |
 
-### Synapse Spark Limits
+### Synapse Limits for Apache Spark
 
 For Pay-As-You-Go, Free Trial, Azure Pass, and Azure for Students subscription offer types:
 
