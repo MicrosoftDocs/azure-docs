@@ -36,7 +36,7 @@ You can create a system topic in two ways:
 
     When you use the Azure portal, you're always using this method. When you create an event subscription using the [**Events** page of an Azure resource](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), the system topic is created first and then the subscription for the topic is created. You can explicitly create a system topic first by using the [**Event Grid System Topics** page](create-view-manage-system-topics.md#create-a-system-topic) and then create a subscription for that topic. 
 
-When you use [CLI](create-view-manage-system-topics-cli.md), [REST](/rest/api/eventgrid/controlplane-version2021-12-01/event-subscriptions/create-or-update), or [Azure Resource Manager template](create-view-manage-system-topics-arm.md), you can choose either of the above methods. We recommend that you create a system topic first and then create a subscription on the topic, as it's the latest way of creating system topics.
+When you use [CLI](create-view-manage-system-topics-cli.md), [REST](/rest/api/eventgrid/controlplane-version2022-06-15/event-subscriptions/create-or-update), or [Azure Resource Manager template](create-view-manage-system-topics-arm.md), you can choose either of the above methods. We recommend that you create a system topic first and then create a subscription on the topic, as it's the latest way of creating system topics.
 
 ### Failure to create system topics
 The system topic creation fails if you have set up Azure policies in such a way that the Event Grid service can't create it. For example, you may have a policy that allows creation of only certain types of resources (for example: Azure Storage, Azure Event Hubs, and so on.) in the subscription. 
