@@ -155,7 +155,7 @@ Error message:
 
 ## Data schema
 
-When you try to create a new automated ML experiment via the **Edit and submit** button in the Azure Machine Learning studio, the data schema for the new experiment must match the schema of the data that was used in the original experiment. Otherwise, an error message similar to the following results. Learn more about how to [edit and submit experiments from the studio UI](how-to-use-automated-ml-for-ml-models.md#edit-and-submit-runs-preview).
+When you try to create a new automated ML experiment via the **Edit and submit** button in the Azure Machine Learning studio, the data schema for the new experiment must match the schema of the data that was used in the original experiment. Otherwise, an error message similar to the following results. Learn more about how to [edit and submit experiments from the studio UI](how-to-use-automated-ml-for-ml-models.md#edit-and-submit-jobs-preview).
 
 Error message non-vision experiments: ` Schema mismatch error: (an) additional column(s): "Column1: String, Column2: String, Column3: String", (a) missing column(s)`
 

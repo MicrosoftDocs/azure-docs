@@ -393,7 +393,7 @@ automl_image_run = experiment.submit(automl_image_config)
 The automated ML training runs generates output model files, evaluation metrics, logs and deployment artifacts like the scoring file and the environment file which can be viewed from the outputs and logs and metrics tab of the child runs.
 
 > [!TIP]
-> Check how to navigate to the run results from the  [View run results](../how-to-understand-automated-ml.md#view-run-results) section.
+> Check how to navigate to the job results from the  [View run results](../how-to-understand-automated-ml.md#view-job-results) section.
 
 For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](../how-to-understand-automated-ml.md#metrics-for-image-models-preview)
 

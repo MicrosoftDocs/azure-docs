@@ -146,7 +146,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     
         1. Forecasting tasks only supports k-fold cross validation.
     
-    1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that was recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-run-results-preview).
+    1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that was recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-job-results-preview).
     
         >[!IMPORTANT]
         > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
@@ -257,7 +257,7 @@ After your experiment completes, you can test the model(s) that automated ML gen
 1. Select the **Test** button. The schema of the test dataset should match the training dataset, but the **target column** is optional.
 1. Upon successful creation of model test job, the **Details** page displays a success message. Select the **Test results** tab to see the progress of the job.
 
-1. To view the results of the test job, open the **Details** page and follow the steps in the [view results of the remote test job](#view-remote-test-run-results-preview) section. 
+1. To view the results of the test job, open the **Details** page and follow the steps in the [view results of the remote test job](#view-remote-test-job-results-preview) section. 
 
     ![Test model form](./media/how-to-use-automated-ml-for-ml-models/test-model-form.png)
     
