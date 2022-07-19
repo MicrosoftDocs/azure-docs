@@ -402,6 +402,8 @@
       href: automation-bom-prepare.md
     - name: Create automation template files
       href: automation-bom-templates-db.md
+- name: Azure Center for SAP solutions
+  href: ../../../center-sap-solutions/toc.yml
 - name: Azure Monitor for SAP Solutions
   items:
   - name: Monitor SAP on Azure
