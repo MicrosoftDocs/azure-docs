@@ -1,14 +1,13 @@
 ---
-title: Install OT system software - Microsoft Defender for IoT
-description: Learn how to install a sensor and the on-premises management console for Microsoft Defender for IoT.
-ms.date: 01/06/2022
+title: Install OT network monitoring software - Microsoft Defender for IoT
+description: Learn how to install agentless monitoring software for an OT sensor and an on-premises management console for Microsoft Defender for IoT. Use this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
+ms.date: 07/11/2022
 ms.topic: how-to
 ---
 
-# Install OT system software
+# Install OT agentless monitoring software
 
-This article describes how to install software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
-
+This article describes how to install agentless monitoring software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
 
 ## Pre-installation configuration
 
@@ -26,7 +25,7 @@ For more information, see:
 
 Make sure that you've downloaded the relevant software file for the sensor or on-premises management console.
 
-You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal, on the Defender for IoT > **Getting started** page. Select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
+You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal. On the Defender for IoT > **Getting started** page, select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
 
 Mount the ISO file using one of the following options:
 
@@ -59,33 +58,33 @@ This procedure describes how to install OT sensor software on a physical or virt
 
 1. The sensor will reboot, and the **Package configuration** screen will appear. Press the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
 
-1. Select the monitor interface and press the **ENTER** key.
+1. Select the monitor interface. For example:
 
     :::image type="content" source="media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
 
-1. If one of the monitoring ports is for ERSPAN, select it, and press the **ENTER** key.
+1. If one of the monitoring ports is for ERSPAN, select it. For example:
 
     :::image type="content" source="media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
 
-1. Select the interface to be used as the management interface, and press the **ENTER** key.
+1. Select the interface to be used as the management interface. For example:
 
     :::image type="content" source="media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::
 
-1. Enter the sensor's IP address, and press the **ENTER** key.
+1. Enter the sensor's IP address. For example:
 
     :::image type="content" source="media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
 
-1. Enter the path of the mounted logs folder. We recommend using the default path, and press the **ENTER** key.
+1. Enter the path of the mounted logs folder. We recommend using the default path. For example:
 
     :::image type="content" source="media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
 
-1. Enter the Subnet Mask IP address, and press the **ENTER** key.
+1. Enter the Subnet Mask IP address. For example:
 
-1. Enter the default gateway IP address, and press the **ENTER** key.
+1. Enter the default gateway IP address.
 
-1. Enter the DNS Server IP address, and press the **ENTER** key.
+1. Enter the DNS Server IP address.
 
-1. Enter the sensor hostname and press the **ENTER** key.
+1. Enter the sensor hostname. For example:
 
     :::image type="content" source="media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the screen where you enter a hostname for your sensor.":::
 
@@ -150,9 +149,9 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 ### Add a secondary NIC (optional)
 
-You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. By adding a secondary NIC, the first will be dedicated for end-users, and the secondary will support the configuration of a gateway for routed networks.
+You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. When you use a secondary NIC, the first is dedicated for end-users, and the secondary supports the configuration of a gateway for routed networks.
 
-:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
+:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="Diagram that shows the overall architecture of the secondary NIC." border="false":::
 
 Both NICs will support the user interface (UI). If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
 
@@ -199,7 +198,7 @@ This command will cause the light on the port to flash for the specified time pe
 
 After you've finished installing OT monitoring software on your appliance, test your system to make sure that processes are running correctly. The same validation process applies to all appliance types.
 
-System health validations are supported via the sensor or on-premises management console UI or CLI, and is available for both the **Support** and **CyberX** users.
+System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the **Support** and **CyberX** users.
 
 After installing OT monitoring software, make sure to run the following tests:
 
@@ -211,13 +210,21 @@ After installing OT monitoring software, make sure to run the following tests:
 
 For more information, see [Check system health](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) in our sensor and on-premises management console troubleshooting article.
 
-## Access sensors from the on-premises management console
+## Configure tunneling access for sensors through the on-premises management console
 
-You can enhance system security by preventing direct user access to the sensor. Instead, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
+Enhance system security by preventing direct user access to the sensor.
 
-:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor.":::
+Instead of direct access, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
 
-**To enable tunneling**:
+When tunneling access is configured, users use the following URL syntax to access their sensor consoles: `https://<on-premises management console address>/<sensor address>/<page URL>`
+
+For example, the following image shows a sample architecture where users access the sensor consoles via the on-premises management console.
+
+:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor." border="false":::
+
+The interface between the IT firewall, on-premises management console, and the OT firewall is done using a reverse proxy with URL rewrites. The interface between the OT firewall and the sensors is done using reverse SSH tunnels.
+
+**To enable tunneling access for sensors**:
 
 1. Sign in to the on-premises management console's CLI with the **CyberX** or the **Support** user credentials.
 

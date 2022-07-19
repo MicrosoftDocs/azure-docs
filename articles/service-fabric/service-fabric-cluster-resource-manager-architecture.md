@@ -1,12 +1,14 @@
 ---
 title: Resource Manager Architecture 
 description: An overview of and architectural information about the Azure Service Fabric Cluster Resource Manager service.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Cluster resource manager architecture overview
 The Service Fabric Cluster Resource Manager is a central service that runs in the cluster. It manages the desired state of the services in the cluster, particularly with respect to resource consumption and any placement rules. 
 

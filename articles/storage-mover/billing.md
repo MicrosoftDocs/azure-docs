@@ -1,77 +1,67 @@
 ---
 title: Understanding Azure Storage Mover billing
 description: Understanding Azure Storage Mover billing 
-author: stevenmatthew
-ms.author: shaas
+author: fauhse
+ms.author: fauhse
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 07/19/2022
 ms.custom: template-concept
 ---
 
-<!--
-
-This template provides the basic structure of a concept article.
-
-1. H1
-
-##Docs Required##
-
-Set expectations for what the content covers, so customers know the content meets their needs. The heading should NOT begin with a verb.-->
-
 # Understanding Azure Storage Mover billing
 
-<!-- 
-2. Introductory paragraph\
+Azure Storage Mover facilitates the migration of unstructured data (files and folders) into Azure. This article provides insight into the categories of costs that may apply to your migration scenarios.
 
-##Docs Required## 
+## Billing components
 
-Lead with a light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it short. -->
+In a migration to Azure, there are several components involved that can have an impact on your bill:
 
-<!-- 
-3. H2s
+1. Storage Mover Service usage
+1. Target storage usage
+1. Network usage
 
-##Docs Required## 
+### 1. Storage Mover service
 
-Give each H2 a heading that sets expectations for the content that follows. Follow the H2 headings with a sentence about how the section contributes to the whole. -->
+All current features of the Azure Storage Mover service are provided free of charge. It is possible, that the service will be enhanced with future, paid features.
 
-Prescriptively direct the customer through the procedure end-to-end. Don't link to other content (until 'next steps'), but include whatever the customer needs to complete the scenario in the article. -->
+### 2. Target Azure storage usage
 
-## Logical step 1 heading
+As part of your migration into Azure, the service will copy your files and folders into your target Azure Storage locations. Depending on the configuration of these targets, storage usage charges may apply.
 
-Summarize the steps involved in this section. Describe the outcome of this section.
+There are two possible components of a bill in this category:
+- storage transactions
+- billed capacity
 
-1. Sign in to the portal.
-1. Select the **Storage Mover** link in the menu. If the menu isn't displayed, select the burger icon to toggle visibility.
-1. Venmo lunch money to Stephen.
+How these charges apply depends on the billing model in effect for each Azure Storage target.
+There are two distinct billing models in Azure Storage: *provisioned* billing and *pay-as-you-go* billing.
 
-Describe how this section impacts the end-result.
+**Pay-as-you-go billing**
+* Transactions caused by the Storage Mover service will be billed. Review your specific storage product's pricing pages for details on transactions. It is very difficult to estimate the impact on your bill. The section [estimating storage transaction charges](#estimating-storage-transaction-charges) in this article illustrates the reasons.
+* Capacity charges progressively apply as files move into the cloud and occupy more and more storage capacity.
 
-## Logical step 2 heading
+**Provisioned billing**
+* Storage transactions typically don't apply to storage usage in this billing model. This means there are no transaction charges for your migration. Review your specific storage product's pricing pages for details.
+* Capacity of your Azure target storage is pre-provisioned and billed for regardless of utilization. Progress of your cloud migration has no impact on your bill. Capacity charges only change when you change the provisioned capacity. Always ensure there is enough provisioned capacity in the target to hold all the source content. Otherwise copy jobs might fail.
 
-Summarize the steps involved in this section. Describe the outcome of this section.
+> [!NOTE]
+> A typical cloud migration has multiple sources and multiple Azure storage targets. Both billing models may apply to you across your migration projects.
 
-1. Step 1.
-1. Step 2.
-1. Step *n*.
+#### Estimating storage transaction charges
 
-Describe how this section impacts the end-result.
+Not all types of Azure Storage charge storage transactions for storage usage. Review the previous section and your specific storage product's pricing pages.
 
-## Logical step *n* heading
+For those storage products that charge for transactions: Estimating the amount or cost for your migration is very hard to do. For any given source share, it is unclear how many transactions are required to migrate the contained files and folders to the cloud until they are actually processed by the migration engine. 
 
-Summarize the steps involved in this section. Describe the outcome of this section.
+The following factors contribute to the complexity of answering this question:
+- It's not possible to estimate the number of transactions based on the utilized storage capacity of the source. One GiB of small files requires more transactions than one GiB of fewer, but larger files. The number of transactions scales with the number of namespace items and their properties that are migrated, not their size.
+- It matters if your target is empty or not. When your target is not empty, the Storage Mover service often needs to enumerate the namespace items (files and folders) in the target. That causes transactions. It's important to evaluate each item in the target in order to create a copy result that complies with the migrations settings.
+- In order to minimize downtime, cloud migrations often require you to run a copy from source to target several times. Each time you run a copy, you are processing all the items in the source and the target, even if each subsequent run finishes faster because only the differences since the last copy run need to be transported over the network.
+- Copying the same file twice does not have a fixed number of transactions it causes. Processing an item that already had been migrated in a previous copy run, may result in only a few read transactions on the target. In contrast,  metadata, or content changes between copy runs may require a number of transactions to get the file updated in the target. Each file in your namespace can have different requirements for what needs to be done, resulting in a different number of transactions for even the same file across copy runs.
 
-1. Step 1.
-1. Step 2.
-1. Step *n*.
+### 3. Network usage
 
-Describe how this section impacts the end-result.
-
-<!-- 
-4. Next steps
-##Docs Required##
-
-We must provide at least one next step, but should provide no more than three. This should be relevant to the learning path and provide context so the customer can determine why they would click the link.-->
+The cost of your upload bandwidth from the location of your Azure Storage Mover agent to your Azure target storage can be another cost component. There is no specific charge associated on the Azure Storage Mover side. You can estimate that the utilized capacity of your migration is charged/not charged just as any other traffic to Azure storage would be. Whether there is a charge associated with upload depends on your specific network connection and provider agreements.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

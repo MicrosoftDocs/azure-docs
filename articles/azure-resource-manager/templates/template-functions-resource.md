@@ -179,8 +179,8 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-keys) |
 | Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-10-15/notebook-workspaces/list-connection-info) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/controlplane-version2021-12-01/domains/list-shared-access-keys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/controlplane-version2021-12-01/topics/list-shared-access-keys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/domains/list-shared-access-keys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/topics/list-shared-access-keys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listKeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listKeys](/rest/api/eventhub) |

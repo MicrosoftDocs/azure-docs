@@ -23,11 +23,11 @@ Alternatively, browse to the **Monitoring** blade in the left panel and click th
 
 There are 17 types of metrics provided by Azure Stream Analytics service. To learn about the details of them, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md).
 
-You can also use these metrics to [monitor the performance of your Stream Analytics job](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 
+You can also use these metrics to [monitor the performance of your Stream Analytics job](./stream-analytics-job-metrics.md#scenarios-to-monitor). 
 
 ## Operate and aggregate metrics in portal monitor
 
-There are several options available for your to operate and aggregate the metrics in portal monitor page. 
+There are several options available for you to operate and aggregate the metrics in portal monitor page. 
 
 To check the metrics data for a specific dimension, you can use **Add filter**. There are 3 important metrics dimensions available. To learn more about the metric dimensions, see [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md).
 

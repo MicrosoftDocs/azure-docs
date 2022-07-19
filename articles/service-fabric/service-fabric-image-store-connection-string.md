@@ -1,12 +1,14 @@
 ---
 title: Azure Service Fabric image store connection string 
 description: Learn about the image store connection string, including its uses and applications to a Service Fabric cluster.
-author: alexwun
-
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: alexwun
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Understand the ImageStoreConnectionString setting
 
 In some of our documentation, we briefly mention the existence of an "ImageStoreConnectionString" parameter without describing what it really means. And after going through an article like [Deploy and remove applications using PowerShell][10], it looks like all you do is copy/paste the value as shown in the cluster manifest of the target cluster. So the setting must be configurable per cluster, but when you create a cluster through the [Azure portal][11], there's no option to configure this setting and it's always "fabric:ImageStore". What's the purpose of this setting then?
