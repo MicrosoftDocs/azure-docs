@@ -42,7 +42,7 @@ The following four Azure resources are created by this template:
 
 ## Deploy the template
 
-The following scripts are designed and tested on Azure Cloud Shell, in either Bash (Azure CLI) or PowerShell (Azure PowerShell). Choose **Try It** to open a Cloud Shell instance right in your browser. 
+The following scripts are designed for and tested in Azure Cloud Shell. Choose **Try It** to open a Cloud Shell instance right in your browser. 
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
@@ -54,7 +54,7 @@ az deployment group create --resource-group $resourceGroupName --template-uri  $
 echo "Press [ENTER] to continue ..." &&
 read
 ```
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
