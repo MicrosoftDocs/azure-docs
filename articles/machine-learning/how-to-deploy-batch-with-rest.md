@@ -188,9 +188,9 @@ Now, let's look at other options for invoking the batch endpoint. When it comes 
 
 - An `InputData` property has `JobInputType` and `Uri` keys. When you are specifying a single file, use `"JobInputType": "UriFile"`, and when you are specifying a folder, use `'JobInputType": "UriFolder"`.
 
-- When the file or folder is on Azure ML registered datastore, the syntax for the `Uri` is  `azureml://datastores/<datastore-name>/paths/<path-on-datastore>` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. You can also use the longer form to represent the same path, such as `azureml://subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>/`.
+- When the file or folder is on Azure ML registered datastore, the syntax for the `Uri` is  `azureml://datastores/<datastore-name>/paths/<path-on-datastore>` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. You can also use the longer form to represent the same path, such as `azureml://subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>/`.
 
-- When the file or folder is registered as V2 data asset as `uri_folder` or `uri_file`, the syntax for the `Uri` is `\"azureml://data/<data-name>/versions/<data-version>/\"` (short form) or `\"azureml://subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/data/<data-name>/versions/<data-version>/\"` (long form).
+- When the file or folder is registered as V2 data asset as `uri_folder` or `uri_file`, the syntax for the `Uri` is `\"azureml://locations/<location-name>/workspaces/<workspace-name>/data/<data-name>/versions/<data-version>"` (Asset ID form) or `\"/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/data/<data-name>/versions/<data-version>\"` (ARM ID form).
 
 - When the file or folder is a publicly accessible path, the syntax for the URI is `https://<public-path>` for folder, `https://<public-path>/<file-name>` for a specific file.
 
@@ -274,7 +274,7 @@ Below are some examples using different types of input data.
             \"InputData\": {
                 \"mnistInput\": {
                     \"JobInputType\" : \"UriFolder\",
-                    \"Uri": \"azureml://data/$DATA_NAME/versions/$DATA_VERSION/\"
+                    \"Uri": \"azureml://locations/$LOCATION_NAME/workspaces/$WORKSPACE_NAME/data/$DATA_NAME/versions/$DATA_VERSION/\"
                 }
             }
         }
