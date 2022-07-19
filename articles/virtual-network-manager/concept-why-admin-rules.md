@@ -18,7 +18,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 [add your introductory paragraph]
 
 ### Virtual network enforcement
-Enforcement
+
 With NSGs alone, widespread enforcement on VNets across several applications, teams, or even entire organizations can be tricky. Often there’s a balancing act between attempts at centralized enforcement across an organization and handing over granular, flexible control to teams. Let’s look at a few common models of security management without security admin rules, and their pros and cons:
 
 Model 1: NSGs are managed by a central governance team.
@@ -36,37 +36,9 @@ Security admin rules aim to eliminate this sliding scale between enforcement and
 
 
 
-### Management at scale
 
-When you apply a security admin configuration to a network group – a collection of VNets that were selected either manually or conditionally – then all of the resources in the selected network groups’ VNets have those security admin rules applied to them, regardless a network group contains dozens or hundreds of VNets matters not, since a security admin configuration would apply its rules to all the VNets in the selected network groups.
-This protection encapsulates not only existing resources, but extends even to new resources. If you add new VMs to a VNet that belongs to a network group that has a security admin configuration applied on it, then those VMs will automatically be secured as well. In effect, security admin rules protect your resources from day zero. As soon as your resources are provisioned, they'll fall under the protection of security admin rules.
-Then, if new security risks are identified, new security admin rules can still protect your resources at scale. You can create security admin rules to protect against the new risk, then apply them to network groups – essentially, hundreds of VNets at once.
 
-### Protect high-risk ports
-Based on the industry study and suggestions from Microsoft, below is what we recommend customers restrict the traffic from outside using security admin rules. These ports are often used for the management of resources or unsecure/unencrypted data transmission and shouldn't be exposed to the internet.
 
-|Port |	Protocol | Description |
-| --- | ---- | ------- |
-|20| TCP |Unencrypted FTP Traffic | 
-|21| TCP |Unencrypted FTP Traffic | 
-|22| TCP |SSH. Potential brute force attacks | 
-|23| TCP  |TFTP allows unauthenticated and/or unencrypted traffic | 
-|69	| UDP | TFTP allows unauthenticated and/or unencrypted traffic | 
-| 111	| TCP/UDP | RPC. Unencrypted authentication allowed | 
-| 119| TCP |NNTP for unencrypted authentication | 
-| 135	| TCP/UDP | End Point Mapper, multiple remote management services | 
-| 161| TCP |SNMP for unsecure / no authentication | 
-| 162 | TCP/UDP | SNMP Trap - unsecure / no authentication | 
-| 445| TCP |SMB - well known attack vector | 
-| 512| TCP |Rexec on Linux - remote commands without encryption authentication | 
-| 514| TCP |Remote Shell - remote commands without authentication or encryption | 
-| 593	| TCP/UDP | HTTP RPC EPMAP - unencrypted remote procedure call | 
-| 873| TCP |Rsync - unencrypted file transfer | 
-| 2049 | TCP/UDP |	Network File System | 
-| 3389| TCP | RDP - Common brute force attack port | 
-| 5800| TCP | VNC Remote Frame Buffer over HTTP | 
-| 5900| TCP | VNC Remote Frame Buffer over HTTP | 
-| 11211	 | UDP	 | Memcached |
 
 ### Enforcement and flexibility in practice
 Let’s apply the concepts we’ve discussed so far to an example scenario. A company network administrator wants to enforce a security rule to block inbound SSH traffic for the whole company. As mentioned above, having such enforcement was difficult without AVNM’s security admin rule. If the administrator manages all the NSGs, then management overhead is high, and the administrator cannot rapidly respond to product teams’ needs to modify NSG rules. On the other hand, if the product teams manage their own NSGs without security admin rules, then the administrator cannot enforce critical security rules, leaving potential security risks open. Using both security admin rules and NSGs can solve this dilemma. In this case, the administrator wants to make an exception for Application 1 as the Application 1 team needs more time to make changes to not rely on SSH. The diagram below visualizes how the administrator can achieve the goal of enforcement with security admin rules, while leaving an exception open for the Application 1 team to handle SSH traffic through NSGs.
