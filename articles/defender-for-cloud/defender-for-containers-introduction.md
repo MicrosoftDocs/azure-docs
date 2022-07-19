@@ -72,7 +72,7 @@ The recommendation [Running container images should have vulnerability findings 
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
-**Windows containers** - The vulnerability scan is performed in ACR and doesn't require an agent. Information for running images is retrieved via the agent. The Defender agent must be enabled on the cluster that the Windows containers are running on. Once the agent is enabled, the agent will provide the relevant information for the Windows images that are running. This is performed by deploying the agent on Linux nodes on the same cluster as there is currently no agent for Windows.
+For Windows containers, the vulnerability scan is performed in the ACR registry and doesn't require an agent. Information for images that are actively running is retrieved via the agent. The Defender agent must be enabled on the cluster that the Windows containers are running on. Enabling the agent will deploy it on the same cluster and allows the agent to provide the relevant information for the Windows images that are running. Currently, there's no agent for Windows.
 
 ## Run-time protection for Kubernetes nodes and clusters
 
