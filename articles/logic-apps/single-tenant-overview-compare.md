@@ -138,7 +138,8 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
   For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
 > [!IMPORTANT]
->You must decide the type of workflow you are implementing - stateful or stateless - at the time of the workflow creation. Changing the type of the workflow after its creation will imply in runtime errors.
+> You have to decide on the workflow type, either stateful or stateless, to implement at creation time. 
+> Changes to the workflow type after creation results in runtime errors.
 
 ### Summary differences between stateful and stateless workflows
 
