@@ -66,11 +66,11 @@ The typical effect of caching is reduced I/O against the underlying storage serv
 Instance caching is currently supported by the Azure Storage provider and by the Netherite storage provider. The table below provides a comparison.
 
 || Azure Storage provider | Netherite storage provider | MSSQL storage provider |
-| -                |-              |-          |- |
-| Instance caching     | Supported<br/>(.NET in-process worker only)       | Supported          | Not supported |
-| Default setting       | Disabled       | Enabled   | n/a |
-| Mechanism         | Extended Sessions       | Instance Cache   | n/a |
-| Documentation   |  See [Extended sessions](durable-functions-azure-storage-provider.md#extended-sessions) | See [Instance cache](https://microsoft.github.io/durabletask-netherite/#/caching) | n/a |
+|----|----|----|----|
+| **Instance caching**    | Supported<br/>(.NET in-process worker only)       | Supported          | Not supported |
+| **Default setting**      | Disabled       | Enabled   | n/a |
+| **Mechanism**        | Extended Sessions       | Instance Cache   | n/a |
+| **Documentation**  |  See [Extended sessions](durable-functions-azure-storage-provider.md#extended-sessions) | See [Instance cache](https://microsoft.github.io/durabletask-netherite/#/caching) | n/a |
 
 > [!TIP]
 > Caching can reduce how often histories are replayed, but it cannot eliminate replay altogether. When developing orchestrators, we highly recommend testing them on a configuration that disables caching. This forced-replay behavior can useful for detecting [orchestrator function code constraints](durable-functions-code-constraints.md) violations at development time.  
@@ -154,12 +154,12 @@ When using partitioning, workers do not directly compete for individual work ite
 The following table shows, for each storage provider, which queues are partitioned, and the allowable range and default values for the `partitionCount` parameter.
 
 || Azure Storage provider | Netherite storage provider | MSSQL storage provider |
-| -                |-              |-          |-      |
-| Instance messages | Partitioned        | Partitioned          | Not partitioned     |
-| Activity messages    | Not partitioned      | Partitioned          | Not partitioned    |
-| Default `partitionCount`     | 4        | 12          | n/a    |
-| Maximum `partitionCount`     | 16       | 32          | n/a     |
-| Documentation   |  See [Orchestrator scale-out](durable-functions-azure-storage-provider.md#orchestrator-scale-out) | See [Partition count considerations](https://microsoft.github.io/durabletask-netherite/#/settings?id=partition-count-considerations) | n/a |
+|----|----|----|----|
+| **Instance messages**| Partitioned        | Partitioned          | Not partitioned     |
+| **Activity messages**   | Not partitioned      | Partitioned          | Not partitioned    |
+| **Default `partitionCount`**    | 4        | 12          | n/a    |
+| **Maximum `partitionCount`**    | 16       | 32          | n/a     |
+| **Documentation**  |  See [Orchestrator scale-out](durable-functions-azure-storage-provider.md#orchestrator-scale-out) | See [Partition count considerations](https://microsoft.github.io/durabletask-netherite/#/settings?id=partition-count-considerations) | n/a |
 
 > [!WARNING]
 > The partition count can no longer be changed after a task hub has been created. Thus, it is advisable to set it to a large enough value to accommodate future scale out requirements for the task hub instance.
