@@ -74,9 +74,14 @@ You must [add a tenant as an associated tenant and enable billing management set
 1. The user would receive an email with instructions to approve your role assignment. Once they approve, they'll get the permissions to view or manage your billing account, depending on the role that was assigned.
 1. If the user can't receive emails, you can copy the approval link and share with them.
 1. Select manage requests from the top of the **Access control (IAM)** page.
-1. Select the approval request sent to the user that you added. <!-- Todo: add a screenshot for request list page -->
+    
+    ![Screenshot that shows manage requests button](./media/manage-billing-across-tenants/access-management-manage-requests.png)
+1. Select the role assignment request sent to the user that you added.
+    
+    ![Screenshot that shows billing access requests list](./media/manage-billing-across-tenants/access-management-requests-list.png)
 1. Copy the request URL.
-<!-- Todo: add a screenshot for request details page -->
+
+    ![Screenshot that shows the invitation URL for role assignment request](./media/manage-billing-across-tenants/role-assignment-request-details.png)
 
 ### Role assignments through associated tenants vs Azure B2B 
 
