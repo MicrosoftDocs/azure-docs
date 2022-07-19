@@ -1,5 +1,5 @@
 ---
-title: Best practices for Web Application Firewall on Application Gateway
+title: Best practices for Web Application Firewall on Azure Application Gateway
 description: In this tutorial, you learn about the best practices for using the web application firewall with Application Gateway.
 services: web-application-firewall
 author: vhorne
