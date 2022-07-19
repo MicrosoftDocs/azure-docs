@@ -26,7 +26,7 @@ This guide provides insight on a full deployment lifecycle, from initial plannin
 | Stage | Description |
 |-------|-------------|
 |[Identify objectives and goals](#identify-objectives-and-goals)|Consider what your entire organization wants and needs from data governance.|
-|[Gathering questions](#answering-questions)|What questions might you and your team have as you get started, and where can you look to begin addressing them?|
+|[Gathering questions](#gathering-questions)|What questions might you and your team have as you get started, and where can you look to begin addressing them?|
 |[Deployment models](#deployment-models)|Customize your deployment to your data estate.|
 |[Create a process to move to production](#create-a-process-to-move-to-production)|Create a phased deployment tailored to your data estate.|
 |[Platform hardening](#platform-hardening)|How you can continue to grow your deployment to maturity.|
@@ -150,7 +150,7 @@ However, there are exceptions to this pattern:
 3. **Conglomerates and federated model** – Conglomerates often have many business units (BUs) that operate separately, and, in some cases, they won't even share billing with each other. In those cases, the organization will end up creating a Microsoft Purview instance for each BU. This model isn't ideal, but may be necessary, especially because BUs are often not willing to share billing.
 4. **Compliance** – There are some strict compliance regimes, which treat even metadata as sensitive and require it to be in a specific geography. If a company has multiple geographies, the only solution is to have multiple Microsoft Purview instances, one for each geography.
 
-For more information, see our [accounts architecture best practices guide](concept-best-practices-accounts) and our [default account guide](concept-default-purview-account).
+For more information, see our [accounts architecture best practices guide](concept-best-practices-accounts.md) and our [default account guide](concept-default-purview-account.md).
 
 ## Create a process to move to production
 
