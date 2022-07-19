@@ -16,12 +16,12 @@ ms.author: jasteppe
 
 The MedTech service is an optional service of the Azure Health Data Services designed to ingest health data from multiple and disparate Internet of Medical Things (IoMT) devices and persisting the health data in a Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 
-The MedTech service is important because health data collected from patients and health care consumers can be fragmented from access across multiple systems, device types, and formats. Managing healthcare data can be difficult, however, trying to gain insight from the data can be one of the biggest barriers to population and personal wellness understanding as well as sustaining health.  
+The MedTech service is important because health data collected from patients and health care consumers can be fragmented from access across multiple systems, device types, and formats. Managing healthcare data can be difficult, however, trying to gain insight from the data can be one of the biggest barriers to population and personal wellness understanding and sustaining health.  
 
 
 The MedTech service transforms device data into FHIR-based Observation resources and then persists the transformed messages into the Azure Health Data Services FHIR service. Allowing for a unified approach to health data access, standardization, and trend capture enabling the discovery of operational and clinical insights, connecting new device applications, and enabling new research projects.
 
-Below is an overview of what the MedTech service does after IoMT device data is received. Each step will be further explained in the [MedTech service data flow](./iot-data-flow.md) article.
+Below is an overview of what the MedTech service does after IoMT device data is received. Each step will be further explained in the [The MedTech service data flows](./iot-data-flow.md) article.
 
 > [!NOTE]
 > Learn more about [Azure Event Hubs](../../event-hubs/index.yml) use cases, features and architectures.
@@ -30,7 +30,7 @@ Below is an overview of what the MedTech service does after IoMT device data is 
 
 ## Scalable
 
-The MedTech service is designed out-of-the-box to support growth and adaptation to the changes and pace of healthcare by using autoscaling features. The service enables developers to modify and extend the capabilities to support additional device mapping template types and FHIR resources.
+The MedTech service is designed out-of-the-box to support growth and adaptation to the changes and pace of healthcare by using autoscaling features. The service enables developers to modify and extend the capabilities to support more device mapping template types and FHIR resources.
 
 ## Configurable 
 
@@ -60,7 +60,7 @@ The MedTech service uses [Azure role-based access control (Azure RBAC)](../../ro
 
 ## Next steps
 
-For more information about MedTech service data flow, see
+For more information about the MedTech service data flow, see
 
 >[!div class="nextstepaction"]
 >[The MedTech service data flow](./iot-data-flow.md)
