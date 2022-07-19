@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 07/19/2022
 ms.author: anfdocs
 ---
 # How Azure NetApp Files snapshots work
@@ -230,6 +230,7 @@ Vaulted snapshot history is managed automatically by the applied snapshot policy
 * [Manage snapshots by using Azure NetApp Files](azure-netapp-files-manage-snapshots.md)
 * [Monitor volume and snapshot metrics](azure-netapp-files-metrics.md#volumes)
 * [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
+* [Restore individual files using single-file backup restore](restore-single-file-backup.md)
 * [Restore a file from a snapshot using a client](snapshots-restore-file-client.md)
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/14/2021
+ms.date: 07/19/2022
 ms.author: anfdocs
 ---
 
@@ -21,6 +21,8 @@ ms.author: anfdocs
 If you do not want to [restore the entire snapshot to a new volume](snapshots-restore-new-volume.md) or [copy large files across the network](snapshots-restore-file-client.md), you have the option to use the single-file snapshot restore feature to recover individual files directly within a volume from a snapshot, without requiring an external client data copy.  
 
 The single-file snapshot restore feature enables you to restore a single file or a list of files (up to 10 files at a time) from a snapshot.  You can specify a specific destination location or folder where the files will be restored to.    
+
+<!-- differentiate from backup restore-->
 
 ## Considerations  
 
@@ -167,3 +169,4 @@ From the Azure portal:
 * [Learn more about snapshots](snapshots-introduction.md) 
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files Snapshot Overview](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
+* [Restore individual files using single-file backup restore](restore-single-file-backup.md)

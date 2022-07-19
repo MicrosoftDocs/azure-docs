@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 07/19/2022
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
@@ -56,6 +56,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
+* [Restore individual files using single-file backup restore](restore-single-file-backup.md)
 * [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
