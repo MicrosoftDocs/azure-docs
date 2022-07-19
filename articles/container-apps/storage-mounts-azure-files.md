@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: tutorial
-ms.date: 07/14/2022
+ms.date: 07/19/2022
 ms.author: cshoe
 ---
 
@@ -44,7 +44,7 @@ The following commands help you define  variables and ensure your Container Apps
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
     az login
     ```
 
@@ -80,8 +80,40 @@ The following commands help you define  variables and ensure your Container Apps
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
     az extension add -n containerapp --upgrade
+    ```
+
+    ---
+
+1. Register the `Microsoft.App` namespace.
+
+    # [Bash](#tab/bash)
+
+    ```azurecli
+    az provider register --namespace Microsoft.App
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```azurecli
+    az provider register --namespace Microsoft.App
+    ```
+
+    ---
+
+1. Register the `Microsoft.OperationalInsights` provider for the [Azure Monitor Log Analytics Workspace](../articles/container-apps/observability.md?tabs=bash#azure-monitor-log-analytics) if you haven't used it before.
+
+    # [Bash](#tab/bash)
+
+    ```azurecli
+    az provider register --namespace Microsoft.OperationalInsights
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```azurecli
+    az provider register --namespace Microsoft.OperationalInsights
     ```
 
     ---
@@ -93,7 +125,6 @@ The following steps create a resource group and a Container Apps environment.
 1. Create a resource group.
 
     # [Bash](#tab/bash)
-
 
     ```azurecli
     az group create \
@@ -131,7 +162,7 @@ The following steps create a resource group and a Container Apps environment.
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
     az containerapp env create `
       --name $ENVIRONMENT_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -151,6 +182,8 @@ Next, create a storage account and establish a file share to mount to the contai
 
 1. Define a storage account name.
 
+    This command generates a random suffix to the storage account name to ensure uniqueness.
+
     # [Bash](#tab/bash)
 
     ```azurecli
@@ -164,8 +197,6 @@ Next, create a storage account and establish a file share to mount to the contai
     ```
 
     ---
-
-    This value is used with a few different commands in this procedure.
 
 1. Create an Azure Storage account.
 
@@ -184,7 +215,7 @@ Next, create a storage account and establish a file share to mount to the contai
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
     az storage account create `
       --resource-group $RESOURCE_GROUP `
       --name $STORAGE_ACCOUNT_NAME `
@@ -219,7 +250,6 @@ Next, create a storage account and establish a file share to mount to the contai
 
     # [Bash](#tab/bash)
 
-
     ```azurecli
     az storage share-rm create \
       --resource-group $RESOURCE_GROUP \
@@ -232,7 +262,7 @@ Next, create a storage account and establish a file share to mount to the contai
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
     az storage share-rm create `
       --resource-group $RESOURCE_GROUP `
       --storage-account $STORAGE_ACCOUNT_NAME `
@@ -288,7 +318,6 @@ Now you can update the container app configuration to support the storage mount.
 
     # [Bash](#tab/bash)
 
-
     ```azurecli
     az containerapp env storage set \
       --access-mode ReadWrite \
@@ -303,7 +332,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
     az containerapp env storage set `
       --access-mode ReadWrite `
       --azure-file-account-name $STORAGE_ACCOUNT_NAME `
@@ -341,7 +370,6 @@ Now you can update the container app configuration to support the storage mount.
 
     # [Bash](#tab/bash)
 
-
     ```azurecli
     az containerapp create \
       --name $CONTAINER_APP_NAME \
@@ -355,7 +383,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
     az containerapp create `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -389,7 +417,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
     az containerapp show `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -425,7 +453,7 @@ Now you can update the container app configuration to support the storage mount.
 
     The `volumes` section defines volumes at the app level that your application container or sidecar containers can reference via a `volumeMounts` section associated with a container.
 
-1. Add a `volumeMounts` section to `containers`.
+1. Add a `volumeMounts` section to the `nginx` container in the `containers` section.
 
     ```yml
     containers:
@@ -436,7 +464,7 @@ Now you can update the container app configuration to support the storage mount.
           mountPath: /var/log/nginx
     ```
 
-    The new `volumeMounts` section under the *nginx* container includes the following properties:
+    The new `volumeMounts` section includes the following properties:
 
     | Property | Description |
     |--|--|
@@ -457,7 +485,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
     az containerapp update `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -483,7 +511,7 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
     az containerapp exec `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP
@@ -514,8 +542,6 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
     The requests made to the website create a series of log stream entries.
 
 1. Return to your terminal and list the values of the `/var/log/nginx` folder.
-
-1. List the files in the folder.
 
     # [Bash](#tab/bash)
 
@@ -604,3 +630,8 @@ az group delete \
 az group delete `
   --name $RESOURCE_GROUP
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Connect container apps together](connect-apps.md)
