@@ -14,6 +14,7 @@ ms.custom: ignite-fall-2021
 # Confidential Computing on Azure
 
  Azure already offers many tools to safeguard [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
+ 
 
 > [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
 

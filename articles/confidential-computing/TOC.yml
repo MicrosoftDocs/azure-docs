@@ -14,10 +14,12 @@
   items:
   - name: Confidential Virtual Machines
     items:
-      - name: Create confidential VM with Azure CLI
+      - name: Create confidential VM with Azure ARM template
         href: quick-create-confidential-vm-arm-amd.md
       - name: Create confidential VM with Azure portal
         href: quick-create-confidential-vm-portal-amd.md
+      - name: Create Azure Compute Gallery Image for confidential VM
+        href: create-confidential-vm-from-compute-gallery.md
   - name: Virtual Machines with App Enclaves
     items:
       - name: Create Intel SGX VM with Azure portal
@@ -25,12 +27,18 @@
       - name: Create Intel SGX VM with Marketplace
         href: quick-create-marketplace.md
   - name: Container Compute
-    items:
-      - name: Create Intel SGX AKS with CLI
-        href: confidential-enclave-nodes-aks-get-started.md
-      - name: Preview VM Isolated Confidential containers on Azure Container Instance 
-        href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/microsoft-introduces-preview-of-confidential-containers-on-azure/ba-p/3410394
-      
+    - name: Confidential VMs with enclaves
+      ite-ms:
+        - name: Deploy Intel SGX
+          items:
+             name: Create Intel SGX VM with Azure portal
+              href: quick-create-portal.md
+            - name: Create Intel SGX VM with Marketplace
+              href: quick-create-marketplace.md
+    - name: Confidential containers with enclaves
+      items:
+        - name: Create Intel SGX AKS with CLI
+          href: confidential-enclave-nodes-aks-get-started.md
 - name: Concept
   expanded: true
   items:
@@ -98,6 +106,7 @@
         href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/microsoft-introduces-preview-of-confidential-containers-on-azure/ba-p/3410394
         # confidential-containers.md #vm-isolated-confidential-containers-on-azure-container-instances-aci---private-preview.md
 - name: How To
+  expanded: true
   items:
   - name: Partner Solutions
     items:
@@ -107,6 +116,11 @@
         href: how-to-fortanix-confidential-computing-manager.md
       - name: Fortanix Confidential Computing Manager Node Agent
         href: how-to-fortanix-confidential-computing-manager-node-agent.md
+    - name: Azure confidential VM
+      items:
+      - name: Key rotation for Azure confidential VMs
+        href: key-rotation-offline.md
+
 - name: Resources
   items:
   - name: Join our Tech Community
