@@ -21,7 +21,7 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 ## Before you begin
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed](/cli/azure/install-azure-cli).
+* Azure CLI version 2.23.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 
 ## Limitations
