@@ -305,3 +305,4 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 [Enable-KMS-with-public-key-vault]: use-kms-etcd-encryption.md#enable-kms-with-public-key-vault
 [Enable-KMS-with-private-key-vault]: use-kms-etcd-encryption.md#enable-kms-with-private-key-vault
 [changing-associated-key-vault-mode]: use-kms-etcd-encryption.md#update-key-vault-mode
+[install-azure-cli]: /cli/azure/install-azure-cli
