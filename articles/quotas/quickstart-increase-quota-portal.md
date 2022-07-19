@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Request a quota increase in the Azure portal
 description: This quickstart shows you how to increase a quota in the Azure portal.
-ms.date: 02/14/2022
+ms.date: 07/25/2022
 ms.topic: how-to
 ---
 
@@ -25,5 +25,5 @@ For more information about quotas, see [Quotas overview](quotas-overview.md).
 
 Advance to the next article to learn how to increase VM-family vCPU quotas.
 > [!div class="nextstepaction"]
-> [Next steps button](per-vm-quota-request.md)
+> [Next steps button](per-vm-quota-requests.md)
 
