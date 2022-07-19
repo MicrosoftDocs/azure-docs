@@ -48,7 +48,7 @@ az extension update --name aks-preview
 
 Since Web Application Routing uses OSM internally to secure intranet communication, we need to set up the `osm` CLI. This command-line tool contains everything needed to configure and manage Open Service Mesh. The latest binaries are available on the [OSM GitHub releases page][osm-release].
 
-### Import Certificate to Azure Keyvault
+### Import certificate to Azure Keyvault
 
 ```bash
 openssl pkcs12 -export -in aks-ingress-tls.crt -inkey aks-ingress-tls.key -out aks-ingress-tls.pfx
