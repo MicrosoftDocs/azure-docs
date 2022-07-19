@@ -229,11 +229,11 @@ sections:
         answer: |
           The encrypted keys are not expected to be present in the target region as part of Cross Regions Restore (CRR). Therefore, you need to restore the encrypted keys and secrets using the restored file. When the restore is complete, you can create Azure encrypted VM using restored disks.
 
-      - question: Are there aany recommended naming conventions of a Windows VM in Azure Backup?
+      - question: Are there any recommended naming conventions of an Azure VM in Azure Backup?
         answer: |
-          Microsoft Windows allows a VM name that has maximum of 15 characters. Also, you can't specify a DNS host name that differs from the *NETBIOS* host name. However, you can create host headers for a website hosted on an Azure VM with the name as per the recommendation.
+          Microsoft Windows allows a VM name that has maximum of 15 characters. Also, you can't specify a DNS host name that differs from the *NETBIOS* host name. However, you can create host headers for a website hosted on an Azure VM with the name as per recommendation.
 
-          Learn more about the [VM naming convention limitations for Windows VMs](/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou).
+          Learn more about the [VM naming convention limitations for Azure VMs](/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou).
           
 
   - name: Manage VM backups
