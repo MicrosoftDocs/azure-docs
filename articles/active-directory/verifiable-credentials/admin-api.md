@@ -75,14 +75,14 @@ This endpoint can be used to create or update a Verifiable Credential service in
 
 | Methods | Return Type | Description |
 | -------- | -------- | -------- |
-| [Get Authority](#Get-authority) | Authority | Read properties of an authority |
-| [List Authority](#List-authorities)     | Authority array     | Get a list of all configured Authorities/verifiable credential services     |
-| [Create Authority](#Create-authority) | Authority | Create a new authority |
-| [Update authority](#Update-authority) | Authority | Update authority |
-| [Generate Well known DID Configuration](#Wellknown-DID-Configuration) | | |
-| [Generate DID Document](#Generate-DID-Document) | | |
-| [Validate Wellknown DID config](#Validate-Wellknown-DID-config) | | |
-| [Rotate Signing Key](#Rotate-Signing-Key) | | |
+| [Get Authority](#get-authority) | Authority | Read properties of an authority |
+| [List Authority](#list-authorities)     | Authority array     | Get a list of all configured Authorities/verifiable credential services     |
+| [Create Authority](#create-authority) | Authority | Create a new authority |
+| [Update authority](#update-authority) | Authority | Update authority |
+| [Generate Well known DID Configuration](#wellknown-did-configuration) | | |
+| [Generate DID Document](#generate-did-document) | | |
+| [Validate Wellknown DID config](#validate-wellknown-did-config) | | |
+| [Rotate Signing Key](#rotate-signing-key) | | |
 
 
 ### Get authority
