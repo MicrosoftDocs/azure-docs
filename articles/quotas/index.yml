@@ -17,16 +17,12 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About the Azure portal
+  - title: About Azure Quotas
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the Azure portal?
-            url: azure-portal-overview.md
-          - text: Onboard with Azure Quickstart Center
-            url: azure-portal-quickstart-center.md
-          - text: Supported browsers and devices
-            url: azure-portal-supported-browsers-devices.md
+          - text: What are Azure Quotas?
+            url: overview.md
 
   # Card 
   - title: Get started

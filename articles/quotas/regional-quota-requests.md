@@ -1,7 +1,7 @@
 ---
 title: Increase regional vCPU quotas
 description: Learn how to request an increase in the vCPU quota limit for a region in the Azure portal.
-ms.date: 1/26/2022
+ms.date: 07/25/2022
 ms.topic: how-to
 ms.custom: references-regions
 ---
@@ -35,7 +35,7 @@ When considering your vCPU needs across regions, keep in mind the following:
 1. To view the **Quotas** page, sign in to the [Azure portal](https://portal.azure.com) and enter "quotas" into the search box, then select **Quotas**.
 
    > [!TIP]
-   > After you've accessed **Quotas**, the service will appear at the top of [Azure Home](https://ms.portal.azure.com/#home) in the Azure portal. You can also [add **Quotas** to your **Favorites** list](../azure-portal-add-remove-sort-favorites.md) so that you can quickly go back to it.
+   > After you've accessed **Quotas**, the service will appear at the top of [Azure Home](https://portal.azure.com/#home) in the Azure portal. You can also [add **Quotas** to your **Favorites** list](../azure-portal/azure-portal-add-remove-sort-favorites.md) so that you can quickly go back to it.
 
 1. On the **Overview** page, select **Compute**.
 1. On the **My quotas** page, select **Region** and then unselect **All**.
@@ -64,7 +64,7 @@ Your request will be reviewed, and you'll be notified if the request can be fulf
 
 ## Next steps
 
-- Learn more about [vCPU quotas](../../virtual-machines/windows/quotas.md).
+- Learn more about [vCPU quotas](../virtual-machines/windows/quotas.md).
 - Learn more in [Quotas overview](quotas-overview.md).
-- Learn about [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Review the [list of Azure regions and their locations](https://azure.microsoft.com/regions/).
