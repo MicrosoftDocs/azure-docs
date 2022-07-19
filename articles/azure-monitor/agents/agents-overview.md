@@ -22,23 +22,23 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 
 ### Windows agents
 
-| | Azure Monitor agent | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
-|:---|:----|:---|:---|:---|
-| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)<br>[Windows Client OS (preview)](./azure-monitor-agent-windows-client.md)  | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
-| **Agent requirements**  | None | None | None | Requires Log Analytics agent |
-| **Data collected** | Event Logs<br>Performance<br>File based logs (preview)<br> | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<br>File based logs<br>IIS logs<br>Insights and solutions<br>Other services | Process dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer<br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel | VM insights<br>Service Map |
+| | Azure Monitor agent | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | 
+|:---|:----|:---|:---|
+| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)<br>[Windows Client OS (preview)](./azure-monitor-agent-windows-client.md)  | Azure | Azure<br>Other cloud<br>On-premises |  
+| **Agent requirements**  | None | None | None | 
+| **Data collected** | Event Logs<br>Performance<br>File based logs (preview)<br> | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<br>File based logs<br>IIS logs<br>Insights and solutions<br>Other services |
+| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | 
+| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer<br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel |
 
 ### Linux agents
 
-| | Azure Monitor agent | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
-|:---|:----|:---|:---|:---|:---|
-| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc) | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
-| **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
-| **Data collected** | Syslog<br>Performance<br>File based logs (preview)<br> | Syslog<br>Performance | Performance | Syslog<br>Performance| Process dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer<br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) | | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel | VM insights<br>Service Map |
+|                                                   | Azure Monitor agent                                                                                                                       | Diagnostics<br>extension (LAD) | Telegraf<br>agent                   | Log Analytics<br>agent                                                                                 | 
+| :------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- | :---------------------------------- | :----------------------------------------------------------------------------------------------------- | 
+| **Environments supported**                        | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)                                                                               | Azure                          | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises                                                                    |           |
+| **Agent requirements**                            | None                                                                                                                                      | None                           | None                                | None                                                                                                   | 
+| **Data collected**                                | Syslog<br>Performance<br>File based logs (preview)<br>                                                                                    | Syslog<br>Performance          | Performance                         | Syslog<br>Performance                                                                                  | 
+| **Data sent to**                                  | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup>                                                                                   | Azure Storage<br>Event Hub     | Azure Monitor Metrics               | Azure Monitor Logs                                                                                     | 
+| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer<br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) |                                | Metrics explorer                    | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel | 
 
 <sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher. 
 
@@ -145,25 +145,25 @@ The following tables list the operating systems that are supported by the Azure 
 
 ### Windows
 
-| Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
+| Operating system | Azure Monitor agent | Log Analytics agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:|
-| Windows Server 2022                                      | X |   |   |   |
-| Windows Server 2022 Core                                 | X |   |   |   |
-| Windows Server 2019                                      | X | X | X | X |
-| Windows Server 2019 Core                                 | X |   |   |   |
-| Windows Server 2016                                      | X | X | X | X |
-| Windows Server 2016 Core                                 | X |   |   | X |
-| Windows Server 2012 R2                                   | X | X | X | X |
-| Windows Server 2012                                      | X | X | X | X |
-| Windows Server 2008 R2 SP1                               | X | X | X | X |
-| Windows Server 2008 R2                                   |   |   |   | X |
-| Windows Server 2008 SP2                                   |   | X |  |  |
-| Windows 11 client OS                                     | X<sup>2</sup> |  |  |  |
-| Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |  |
-| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | X | 
-| Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X | X |   |
-| Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X | X |   |
-| Azure Stack HCI                                          |   | X |   |   |
+| Windows Server 2022                                      | X |   |   |
+| Windows Server 2022 Core                                 | X |   |   |
+| Windows Server 2019                                      | X | X | X |
+| Windows Server 2019 Core                                 | X |   |   |
+| Windows Server 2016                                      | X | X | X |
+| Windows Server 2016 Core                                 | X |   | X |
+| Windows Server 2012 R2                                   | X | X | X |
+| Windows Server 2012                                      | X | X | X |
+| Windows Server 2008 R2 SP1                               | X | X | X |
+| Windows Server 2008 R2                                   |   |   | X |
+| Windows Server 2008 SP2                                  |   | X |   |
+| Windows 11 client OS                                     | X<sup>2</sup> |  |  |
+| Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
+| Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |
+| Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X |   |
+| Azure Stack HCI                                          |   | X |   |
 
 <sup>1</sup> Running the OS on server hardware, i.e. machines that are always connected, always turned on, and not running other workloads (PC, office, browser, etc.)
 <sup>2</sup> Using the Azure Monitor agent [client installer (preview)](./azure-monitor-agent-windows-client.md)
