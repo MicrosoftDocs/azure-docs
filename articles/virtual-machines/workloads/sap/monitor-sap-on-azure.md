@@ -121,7 +121,7 @@ You can enable data sharing with Microsoft when you create Azure Monitor for SAP
 
 The following diagram shows, at a high level, how Azure Monitor for SAP solutions collects telemetry from the SAP HANA database. The architecture is the same whether SAP HANA is deployed on Azure VMs or Azure Large Instances.
 
-![AMS New Arch](./media/azure-monitor-sap/azure-monitor-sap-solution-new-arch-2.png)  
+![Diagram shows AMS New Architecture.](./media/azure-monitor-sap/azure-monitor-sap-solution-new-arch-2.png)  
 
 
 

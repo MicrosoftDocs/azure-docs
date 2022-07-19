@@ -23,7 +23,7 @@ To create the IBM Db2 provider for AMS:
 1. Go to the AMS service. 
 1. Open the AMS resource you want to modify.
 1. On the resource's menu, under **Settings**, select **Providers**.
-1. Select **Add* to add a new provider.
+1. Select **Add** to add a new provider.
     1. For **Type**, select **IBM Db2**.
     1. Enter the IP address for the hostname.
     1. Enter the database name.

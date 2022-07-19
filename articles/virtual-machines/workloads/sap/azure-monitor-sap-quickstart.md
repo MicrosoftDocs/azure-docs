@@ -22,13 +22,16 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ###### For Azure Monitor for SAP solutions
 
-![Diagram that shows Azure Monitor for SAP solutions Quick Start.](./media/azure-monitor-sap/azure-monitor-quickstart-1-new.png)
+1. In Azure **Search**, select **Azure Monitor for SAP Solutions**.
+
+    ![Diagram that shows Azure Monitor for SAP solutions Quick Start.](./media/azure-monitor-sap/azure-monitor-quickstart-1-new.png)
+
 
 
 2. On the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
  
 
-![Diagram that shows Azure Monitor for SAP solutions Quick Start 2.](./media/azure-monitor-sap/azure-monitor-quickstart-2-new.png)
+    ![Diagram that shows Azure Monitor for SAP solutions Quick Start 2.](./media/azure-monitor-sap/azure-monitor-quickstart-2-new.png)
 
 
 ###### For Azure Monitor for SAP solutions (Classic)
