@@ -63,9 +63,9 @@ Steps|Description|
 >[!NOTE]
 >You must enable group writeback via Azure AD Connect before enabling group writeback via PowerShell to receive the new features outlined in this article.  You must do both and in the correct order.
 
-### Enable group writeback using Azure AD Connect
+### Enable group writeback V1 using Azure AD Connect
 
-To enable group writeback, use the following steps:
+To enable group writeback V1, use the following steps:
 
 1. Open the Azure AD Connect wizard, select **Configure** and then click **Next**.
 2. Select **Customize synchronization options** and then click **Next**.
@@ -97,9 +97,9 @@ To enable group writeback, use the following steps:
 
 For more information on configuring the Microsoft 365 groups, see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
-### Enable group writeback using PowerShell
+### Enable group writeback V2 using PowerShell
 
-To enable group writeback via PowerShell:
+To enable group writeback V2 via PowerShell:
 
  1. Open a PowerShell prompt as administrator. 
  2. Disable the sync scheduler after verifying that no synchronization operations are running: 
@@ -119,7 +119,7 @@ To enable group writeback via PowerShell:
     Set-ADSyncScheduler -SyncCycleEnabled $true 
     ```
 
-You've now enabled the group writeback feature. 
+You've now enabled the group writeback V2 feature. 
 
 ### Optional Configuration 
 
