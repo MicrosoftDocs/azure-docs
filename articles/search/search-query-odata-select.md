@@ -44,11 +44,11 @@ The **$select** parameter comes in two forms:
 
 When using the second form, you may only specify retrievable fields in the list.
 
-If you list a complex field without specifying its sub-fields explicitly, all retrievable sub-fields will be included in the query result set. For example, assume your index has an `Address` field with `Street`, `City`, and `Country` sub-fields that are all retrievable. If you specify `Address` in **$select**, the query results will include all three sub-fields.
+If you list a complex field without specifying its subfields explicitly, all retrievable subfields will be included in the query result set. For example, assume your index has an `Address` field with `Street`, `City`, and `Country` subfields that are all retrievable. If you specify `Address` in **$select**, the query results will include all three subfields.
 
 ## Examples
 
-Include the `HotelId`, `HotelName`, and `Rating` top-level fields in the results, as well as the `City` sub-field of `Address`:
+Include the `HotelId`, `HotelName`, and `Rating` top-level fields in the results, and include the `City` subfield of `Address`:
 
 ```odata-filter-expr
     $select=HotelId, HotelName, Rating, Address/City
@@ -67,7 +67,7 @@ An example result might look like this:
 }
 ```
 
-Include the `HotelName` top-level field in the results, as well as all sub-fields of `Address`, and the `Type` and `BaseRate` sub-fields of each object in the `Rooms` collection:
+Include the `HotelName` top-level field in the results. Include all subfields of `Address`. Include the `Type` and `BaseRate` subfields of each object in the `Rooms` collection:
 
 ```odata-filter-expr
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate

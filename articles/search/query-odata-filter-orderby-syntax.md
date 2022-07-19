@@ -51,7 +51,7 @@ An interactive syntax diagram is also available:
 
 A field path is composed of one or more **identifiers** separated by slashes. Each identifier is a sequence of characters that must start with an ASCII letter or underscore, and contain only ASCII letters, digits, or underscores. The letters can be upper- or lower-case.
 
-An identifier can refer either to the name of a field, or to a **range variable** in the context of a [collection expression](search-query-odata-collection-operators.md) (`any` or `all`) in a filter. A range variable is like a loop variable that represents the current element of the collection. For complex collections, that variable represents an object, which is why you can use field paths to refer to sub-fields of the variable. This is analogous to dot notation in many programming languages.
+An identifier can refer either to the name of a field, or to a **range variable** in the context of a [collection expression](search-query-odata-collection-operators.md) (`any` or `all`) in a filter. A range variable is like a loop variable that represents the current element of the collection. For complex collections, that variable represents an object, which is why you can use field paths to refer to subfields of the variable. This is analogous to dot notation in many programming languages.
 
 Examples of field paths are shown in the following table:
 
