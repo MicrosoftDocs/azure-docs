@@ -50,6 +50,12 @@ Customers using OMS version 13 need to install OMS version 14 to meet the securi
 
 #### TEZ bug fixes
 
+<style>
+td, th {
+   border: none!important;
+}
+</style>
+
 | Bug Fixes|Apache JIRA|
 |---|---|
 |Fix protobuf dependency to 3.x|[TEZ-4363](https://issues.apache.org/jira/browse/TEZ-4363)|
