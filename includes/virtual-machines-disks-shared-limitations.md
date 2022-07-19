@@ -5,12 +5,12 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/22/2022
+ ms.date: 07/19/2022
  ms.author: rogarana
  ms.custom: include file
 ---
 
-Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSDs, and standard SSDs can enable shared disks. Each managed disk that has shared disks enabled are subject to the following limitations, organized by disk type:
+Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2 (preview), premium SSDs, and standard SSDs can enable shared disks. Each managed disk that has shared disks enabled are subject to the following limitations, organized by disk type:
 
 ### Ultra disks
 
@@ -20,6 +20,11 @@ When sharing ultra disks, they have the following additional limitations:
 
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
 - Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) isn't currently supported.
+
+
+### Premium SSD v2 (preview)
+
+Premium SSD v2 disks have their own separate list of limitations, unrelated to shared disks. For these limitations, see [Premium SSD v2 limitations](../articles/virtual-machines/disks-types.md#premium-ssd-v2-limitations).
 
 ### Premium SSDs
 
