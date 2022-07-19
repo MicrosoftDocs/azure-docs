@@ -19,7 +19,7 @@ To access and use the **Permissions** section, you must be in the **App Administ
 
 ## Add users
 
-Every user must have a user account before they can sign in and access an application. IoT Central currently supports Microsoft accounts and Azure Active Directory accounts, but not Azure Active Directory groups.
+Every user must have a user account before they can sign in and access an application. IoT Central currently supports Microsoft user accounts, Azure Active Directory accounts and Azure Active Directory service principals , but not Azure Active Directory groups.
 
 For more information, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
@@ -28,6 +28,10 @@ For more information, see [Microsoft account help](https://support.microsoft.com
     :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Screenshot of Manage users.":::
 
 1. To add a user, on the **Users** page, choose **+ Assign user**.
+1. To add a service principal, on the **Users** page, choose **+Assign service principal**. You can then start typing the name of the service principal to auto-populate the form.
+
+> [!NOTE]
+    > Service Principals must belong to the same Azure Active Directory Tenant as the Azure subscription associated with the IoT Central application. 
 
 1. If your application uses [organizations](howto-create-organizations.md), choose an organization to assign to the user from the **Organization** drop-down menu.
 
