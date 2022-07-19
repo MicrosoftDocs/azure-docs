@@ -4,7 +4,7 @@ description: Describes the data available to monitor the health and performance 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/09/2022
+ms.date: 07/19/2022
 ms.reviewer: shseth
 
 ---
@@ -57,8 +57,6 @@ Telemetry related to your Azure tenant is collected from tenant-wide services su
 | Azure Storage | Export Azure AD logs to Azure Storage for archiving. | [Tutorial: Archive Azure AD logs to an Azure storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
 | Event Hubs | Stream Azure AD logs to other locations using Event Hubs. | [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
-
-
 ## Azure subscription
 Telemetry related to the health and operation of your Azure subscription.
 
@@ -81,6 +79,15 @@ The [Azure Activity log](essentials/platform-logs-overview.md) includes service 
 |:---|:---|:---|
 | Activity log<br>Azure Monitor Logs | Service Health records are stored in the Azure Activity log, so you can view them in the Azure portal or perform any other activities you can perform with the Activity log. | [View service health notifications by using the Azure portal](../service-health/service-notifications.md) |
 
+### Azure Monitor Change Analysis
+
+[Change Analysis](./change/change-analysis.md) provides insights into your Azure application changes, increases observability, and reduces mean time to repair.
+
+| Destination | Description | Reference |
+| ----------- | ----------- | --------- |
+| Azure Resource Manager tracked properties | Change Analysis provides a historical record of how the Azure resources that host your application have changed over time, using Azure Resource Graph | [How Resource Graph complements Azure Resource Manager](../governance/resource-graph/overview.md#how-resource-graph-complements-azure-resource-manager) |
+| Proxied configurations | Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app. | [Link?]() |
+| Web app in-guest changes | Every 30 minutes, Change Analysis captures the deployment and configuration state of an application. | [Diagnose and solve problems tool for Web App](./change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool-for-web-app) |
 
 ## Azure resources
 Metrics and resource logs provide information about the _internal_ operation of Azure resources. These are available for most Azure services, and monitoring solutions and insights collect additional data for particular services.
@@ -95,6 +102,7 @@ Most Azure services will send [platform metrics](essentials/data-platform-metric
 |:---|:---|:---|
 | Azure Monitor Metrics | Platform metrics will write to the Azure Monitor metrics database with no configuration. Access platform metrics from Metrics Explorer.  | [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md)<br>[Supported metrics with Azure Monitor](essentials/metrics-supported.md) |
 | Azure Monitor Logs | Copy platform metrics to Logs for trending and other analysis using Log Analytics. | [Azure diagnostics direct to Log Analytics](essentials/resource-logs.md#send-to-log-analytics-workspace) |
+| Azure Monitor Change Analysis | Change Analysis detects various types of changes, from the infrastructure layer through application deployment. | [Use Change Analysis in Azure Monitor](./change/change-analysis.md) |
 | Event Hubs | Stream metrics to other locations using Event Hubs. |[Stream Azure monitoring data to an event hub for consumption by an external tool](essentials/stream-monitoring-data-event-hubs.md) |
 
 ### Resource logs
@@ -158,7 +166,7 @@ Detailed application monitoring in Azure Monitor is done with [Application Insig
 
 
 ### Application data
-When you enable Application Insights for an application by installing an instrumentation package, it collects metrics and logs related to the performance and operation of the application. Application Insights stores the data it collects in the same Azure Monitor data platform used by other data sources. It includes extensive tools for analyzing this data, but you can also analyze it with data from other sources using tools such as Metrics Explorer and Log Analytics.
+When you enable Application Insights for an application by installing an instrumentation package, it collects metrics and logs related to the performance and operation of the application. Application Insights stores the data it collects in the same Azure Monitor data platform used by other data sources. It includes extensive tools for analyzing this data, but you can also analyze it with data from other sources using tools such as Metrics Explorer, Log Analytics, and Change Analysis.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
@@ -166,6 +174,7 @@ When you enable Application Insights for an application by installing an instrum
 |                    | Dependency information between application components to support Application Map and telemetry correlation. | [Telemetry correlation in Application Insights](app/correlation.md) <br> [Application Map](app/app-map.md) |
 |            | Results of availability tests that test the availability and responsiveness of your application from different locations on the public Internet. | [Monitor availability and responsiveness of any web site](app/monitor-web-app-availability.md) |
 | Azure Monitor Metrics | Application Insights collects metrics describing the performance and operation of the application in addition to custom metrics that you define in your application into the Azure Monitor metrics database. | [Log-based and pre-aggregated metrics in Application Insights](app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights API for custom events and metrics](app/api-custom-events-metrics.md) |
+| Azure Monitor Change Analysis | Change Analysis detects and provides insights on various types of changes in your application. | [Use Change Analysis in Azure Monitor](./change/change-analysis.md) |
 | Azure Storage | Send application data to Azure Storage for archiving. | [Export telemetry from Application Insights](app/export-telemetry.md) |
 |            | Details of availability tests are stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis. Results of availability tests are stored in Azure Monitor Logs. | [Monitor availability and responsiveness of any web site](app/monitor-web-app-availability.md) |
 |            | Profiler trace data is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [Profile production applications in Azure with Application Insights](app/profiler-overview.md) 
