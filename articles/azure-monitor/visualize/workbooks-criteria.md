@@ -13,7 +13,7 @@ ms.reviewer: gardnerjr
 
 When a query depends on many parameters, then the query will be stalled until each of its parameters have been resolved. Sometimes a parameter could have a simple query that concatenates a string or performs a conditional evaluation. However these queries still make network calls to services that perform these basic operations and that increases the time it takes for a parameter to resolve a value. This results in long load times for complex workbooks.
 
-Criteria Text parameters solve this issue, as an author can define a set of criteria based on previously specified parameters, which will be evaluated to provide a dynamic value. The main benefit of using Criteria parameters is that it has the ability to resolve values of previously specified parameters and perform simple conditional operations without making any network calls. Below is an example of such a use case.
+Using criteria parameters, you can define a set of criteria based on previously specified parameters which will be evaluated to provide a dynamic value. The main benefit of using criteria parameters is that criteria parameters can resolve values of previously specified parameters and perform simple conditional operations without making any network calls. Below is an example of such a use case.
 
 ## Example
 Consider the conditional query below:
@@ -33,7 +33,7 @@ This can be translated to a criteria text parameter like so:
 
 In the image above, the conditions will be evaluated from top to bottom and the value of the parameter `isNetworkCounter` will take the value of which ever condition evaluates to true first. All conditions except for the default condition (the 'else' condition) can be reordered to get the desired outcome.
 
-## Setting up criteria
+## Set up criteria
 1. Start with a workbook with at least one existing parameter in edit mode.
     1. Choose Add parameters from the links within the workbook.
     1. Select on the blue Add Parameter button.
@@ -46,7 +46,7 @@ In the image above, the conditions will be evaluated from top to bottom and the 
     1. Choose 'Save' from the toolbar to create the parameter. 
 
     > [!NOTE]
-    > The first parameter in the workbook will not show the `Criteria` tab
+    > The first parameter in the workbook will not show the `Criteria` tab.
 
      :::image type="content" source="media/workbooks-criteria/workbooks-criteria-first-param.png" alt-text="Screenshot showing the first parameter.":::
 
@@ -56,7 +56,7 @@ In the image above, the conditions will be evaluated from top to bottom and the 
     - Parameter type: Text
     - Required: checked
     - Get data from: Criteria
-1. A grid should appear, select on 'Edit' next to the blank text box, this will bring up a 'Criteria Settings' form. Refer to [Criteria Settings form](#criteria-settings-form) for the description of each field.
+1. A grid appears. Select **Edit** next to the blank text box to open the 'Criteria Settings' form. Refer to [Criteria Settings form](#criteria-settings-form) for the description of each field.
 
    :::image type="content" source="media/workbooks-criteria/workbooks-criteria-setting.png" alt-text="Screenshot showing the criteria settings form.":::
 

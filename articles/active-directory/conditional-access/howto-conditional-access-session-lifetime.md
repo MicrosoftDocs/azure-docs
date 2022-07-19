@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/29/2022
+ms.date: 07/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -48,7 +48,7 @@ The sign-in frequency setting works with apps that have implemented OAuth2 or OI
 - Dynamics CRM Online
 - Azure portal
 
-The sign-in frequency setting works with 3rd party SAML applications and apps that have implemented OAuth2 or OIDC protocols, as long as they don't drop their own cookies and are redirected back to Azure AD for authentication on regular basis.
+The sign-in frequency setting works with third-party SAML applications and apps that have implemented OAuth2 or OIDC protocols, as long as they don't drop their own cookies and are redirected back to Azure AD for authentication on regular basis.
 
 ### User sign-in frequency and multifactor authentication
 
@@ -87,6 +87,9 @@ When administrators select **Every time**, it will require full reauthentication
 
 > [!NOTE]
 > An early preview version included the option to prompt for Secondary authentication methods only at reauthentication. This option is no longer supported and should not be used.
+
+> [!WARNING]
+> Using require reauthentication every time with the sign-in risk grant control set to **No risk** isn’t supported and will result in poor user experience.
 
 ## Persistence of browsing sessions
 
@@ -170,7 +173,7 @@ After administrators confirm your settings using [report-only mode](howto-condit
 
 ### Validation
 
-Use the What-If tool to simulate a login from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
+Use the What-If tool to simulate a sign in from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
 
 ![Conditional Access What If tool results](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
