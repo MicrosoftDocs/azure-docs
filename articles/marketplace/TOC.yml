@@ -251,7 +251,7 @@
         href: azure-vm-plan-reorder-plans.md
       - name: Deprecate or restore a VM
         href: deprecate-vm.md
-  - name: Consulting services offer
+  - name: Consulting service offer
     items: 
     - name: Plan the offer
       href: plan-consulting-service-offer.md
