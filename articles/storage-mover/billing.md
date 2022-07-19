@@ -21,7 +21,7 @@ In a migration to Azure, there are several components involved that can have an 
 1. Target storage usage
 1. Network usage
 
-### 1. Storage Mover service
+### 1. Storage Mover service usage
 
 All current features of the Azure Storage Mover service are provided free of charge. It is possible, that the service will be enhanced with future, paid features.
 
@@ -41,7 +41,7 @@ There are two distinct billing models in Azure Storage: *provisioned* billing an
 * Capacity charges progressively apply as files move into the cloud and occupy more and more storage capacity.
 
 **Provisioned billing**
-* Storage transactions typically don't apply to storage usage in this billing model. This means there are no transaction charges for your migration. Review your specific storage product's pricing pages for details.
+* Storage transaction charges typically don't apply to targets covered by this billing model. This means there are no transaction charges for your migration. Review your specific storage product's pricing pages for details.
 * Capacity of your Azure target storage is pre-provisioned and billed for regardless of utilization. Progress of your cloud migration has no impact on your bill. Capacity charges only change when you change the provisioned capacity. Always ensure there is enough provisioned capacity in the target to hold all the source content. Otherwise copy jobs might fail.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ For those storage products that charge for transactions: Estimating the amount o
 
 The following factors contribute to the complexity of answering this question:
 - It's not possible to estimate the number of transactions based on the utilized storage capacity of the source. One GiB of small files requires more transactions than one GiB of fewer, but larger files. The number of transactions scales with the number of namespace items and their properties that are migrated, not their size.
-- It matters if your target is empty or not. When your target is not empty, the Storage Mover service often needs to enumerate the namespace items (files and folders) in the target. That causes transactions. It's important to evaluate each item in the target in order to create a copy result that complies with the migrations settings.
+- It matters if your target already has content. When your target is not empty, the Storage Mover service often needs to enumerate the namespace items (files and folders) in the target. That causes transactions. It's important to evaluate each item in the target in order to create a migration result that complies with your migrations settings.
 - In order to minimize downtime, cloud migrations often require you to run a copy from source to target several times. Each time you run a copy, you are processing all the items in the source and the target, even if each subsequent run finishes faster because only the differences since the last copy run need to be transported over the network.
 - Copying the same file twice does not have a fixed number of transactions it causes. Processing an item that already had been migrated in a previous copy run, may result in only a few read transactions on the target. In contrast,  metadata, or content changes between copy runs may require a number of transactions to get the file updated in the target. Each file in your namespace can have different requirements for what needs to be done, resulting in a different number of transactions for even the same file across copy runs.
 
