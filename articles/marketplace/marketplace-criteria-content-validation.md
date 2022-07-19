@@ -11,7 +11,7 @@ ms.date: 07/29/2022
 
 # Azure Marketplace listing guidelines
 
-This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace. All offers must meet the [listing requirements](#listing-requirements-for-most-offers) listed in this article. Use the links on the right to navigate to additional requirements and checklists for specific offer types.
+This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace. All offers must meet the [listing requirements](#listing-requirements-for-most-offers) described in this article. Use the links on the right to navigate to additional requirements and checklists for specific offer types.
 
 ## Listing requirements for most offers
 
@@ -30,6 +30,7 @@ This article explains the requirements and guidelines for listing new offers and
 | 11 | Legal | Policies or terms are available via a public URL. |  |
 
 [1] Doesn’t apply to Consulting service and Power BI app offers
+
 [2] Doesn’t apply to Consulting service offers
 
 ## Listing requirements for trial offers
