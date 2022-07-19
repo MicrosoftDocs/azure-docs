@@ -17,7 +17,7 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-As part of the process of working with verifiable credentials (VCs), you not only have to issue credentials, but sometimes you also have to revoke them. In this article we go over the **Status** property part of the VC specification and take a closer look at the revocation process, why we may want to revoke credentials and some data and privacy implications.
+As part of the process of working with verifiable credentials (VCs), you not only have to issue credentials, but sometimes you also have to revoke them. In this article, we go over the **Status** property part of the VC specification and take a closer look at the revocation process, why we may want to revoke credentials and some data and privacy implications.
 
 > [!IMPORTANT]
 > Microsoft Entra Verified ID is currently in public preview.
@@ -26,7 +26,7 @@ As part of the process of working with verifiable credentials (VCs), you not onl
 
 ## Why you may want to revoke a VC?
 
-Each customer will have their own unique reason's for wanting to revoke a verifiable credential, but here are some of the common themes we have heard thus far. 
+Each customer will have their own unique reason's for wanting to revoke a verifiable credential, but here are some of the common themes we've heard thus far. 
 
 - Student ID: the student is no longer an active student at the University.
 - Employee ID: the employee is no longer an active employee.
@@ -40,7 +40,7 @@ Using the indexed claim in verifiable credentials, you can search for issued ver
 1. Select the verifiable credential type
 1. On the left-hand menu, choose **Revoke a credential**
    ![Revoke a credential](media/how-to-issuer-revoke/settings-revoke.png) 
-1. Search for the index claim of the user you want to revoke. If you haven't indexed a claim, search will not work and you will not be able to revoke.
+1. Search for the index claim of the user you want to revoke. If you haven't indexed a claim, search won't work, and you won't be able to revoke the verifiable credential.
 
    ![Find the credential to revoke](media/how-to-issuer-revoke/revoke-search.png)
 
@@ -51,14 +51,14 @@ Using the indexed claim in verifiable credentials, you can search for issued ver
 
    ![A warning letting you know that after revocation the user still has the credential](media/how-to-issuer-revoke/warning.png) 
 
-1. After successful revocation you see the status update and a green banner will appear at the top of the page. 
+1. After successful revocation, you see the status update and a green banner will appear at the top of the page. 
    ![Verify this domain in settings](media/how-to-issuer-revoke/revoke-successful.png) 
 
 Now whenever a presentation is sent to the Request Service API it will check if the VC has been revoked.
 
 ## How to set up a verifiable credential with the ability to revoke
 
-Verifiable credential data is not stored with Microsoft. Therefore, the issuer needs to make one claim the indexed claim in order to let make the the VCs searchable. There can be only one claim that is indexed and if there is none, you will not be able to revoke credentials. The selected claim to index is subsequently salted and hashed and is not stored as its original value.
+Verifiable credential data isn't stored by Microsoft. Therefore, the issuer needs to make one claim, the indexed claim, before the VC is searchable. There can be only one claim that is indexed and if there is none, you won't be able to revoke credentials. The selected claim to index is then salted and hashed and isn't stored as its original value.
 
 >[!NOTE]
 >Hashing is a one way cryptographic operation that turns an input, called a ```preimage```, and produces an output called a hash that has a fixed length. It is not computationally feasible at this time to reverse a hash operation.
@@ -117,7 +117,7 @@ Microsoft Entra Verified ID implements the [W3C StatusList2021](https://github.c
 
 ### Verifiable credential data 
 
-In every Microsoft issued verifiable credential, there is an claim called `credentialStatus`. This data is a navigational map to where in a block of data this VC has its revocation flag.
+In every Microsoft issued verifiable credential, there is a claim called `credentialStatus`. This data is a navigational map to where in a block of data this VC has its revocation flag.
 
 ```json
 ...

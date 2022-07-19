@@ -8,7 +8,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
-ms.date: 10/08/2021
+ms.date: 07/19/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application.
@@ -37,7 +37,7 @@ During public preview, the Request Service API returned errors in the following 
 
 ```
 
-This format is now changed into the following to enable both simpler error handling and better support for troubleshooting. In the new format, the outer [error](#error-type) code and message fields have standardized values while the [innererror](#innererror-type) object provide details on what caused the error.
+This format is now changed into the following to enable both simpler error handling and better support for troubleshooting. In the new format, the outer [error](#error-type) code and message fields have standardized values while the [```innererror```](#innererror-type) object provide details on what caused the error.
 
 ```json
 {
@@ -70,7 +70,7 @@ The `error` object is now matching the HTTP Status Code returned from the API Ca
 |Property |Type |Description |
 |---------|---------|---------|
 | `code` | string| The return error code matching the HTTP Status Code. |
-| `message`| string| A standardized error message that is also dependant on the HTTP status code returned. |
+| `message`| string| A standardized error message that is also dependent on the HTTP status code returned. |
 | `innererror` | [Innererror](#innererror-type)| Provide details on what caused the error. |
 
 
@@ -83,26 +83,26 @@ The following are the possible top level `code` values that maps to the differen
 | 400 | badRequest |The request is invalid.|
 | 401 | unauthorized |The requested resource requires authentication|
 | 403 | forbidden |Missing permissions to fulfill this request.|
-| 404 | notFound |The requested resource does not exist.|
-| 405 | methodNotAllowed |The requested method is not allowed on the requested resource.|
+| 404 | notFound |The requested resource doesn't exist.|
+| 405 | methodNotAllowed |The requested method isn't allowed on the requested resource.|
 | 406 | notAcceptable |Requested response format not supported.|
 | 408 | requestTimeout |The request timed out.|
-| 409 | conflict |The server cannot fulfill the request due to a server conflict.|
+| 409 | conflict |The server can't fulfill the request due to a server conflict.|
 | 410 | gone |The requested resource is no longer available.|
 | 411 | contentLengthRequired |The Content-Length header is missing.|
 | 412 | preconditionFailed |A precondition for this request failed.|
 | 413 | payloadTooLarge |The payload is too large.|
 | 414 | uriTooLong |The URI is too long.|
 | 415 | unsupportedMediaType |The specified media type is unsupported.|
-| 416 | rangeNotSatisfiable |The requested range of data requested cannot be satisfied.|
-| 417 | expectationFailed |The Expect header could not be satisfied.|
+| 416 | rangeNotSatisfiable |The requested range of data requested can't be satisfied.|
+| 417 | expectationFailed |The Expect header couldn't be satisfied.|
 | 421 | misdirectedRequest |Unable to produce a response for this request.|
 | 422 | unprocessableEntity |The request contains semantic errors.|
 | 423 | locked |The source or destination resource is locked.|
-| 429 | tooManyRequests |Too many requests, please try again later.|
+| 429 | tooManyRequests |Too many requests, try again later.|
 | 431 | requestHeaderFieldsTooLarge |The request header field is too large.|
 | 500 | internalServerError |A generic error has occurred on the server.|
-| 501 | notImplemented |The server does not support the requested function.|
+| 501 | notImplemented |The server doesn't support the requested function.|
 | 502 | badGateway |bad response received from another gateway.|
 | 503 | serviceUnavailable |The server is temporarily unavailable, please try again later.|
 | 504 | gatewayTimeout |Time out received from another gateway.|
@@ -141,10 +141,9 @@ The inner error object contains error specific details useful to the developer t
 |Code|Description|
 |-|-|
 |`badOrMissingField`|returned when validation issues on the request occur. The `target` field contains the field in the request that is causing the issue.|
-|`notFound`|returned when a resource the client is requesting is not found. The `target` field contains the resource name/id that is not found.|
+|`notFound`|returned when a resource the client is requesting isn't found. The `target` field contains the resource name/id that isn't found.|
 |`tokenError`|returned for any validation issues on tokens like JWT and the likes. The `target` field contains the token name causing the issue, when applicable.|
-|`transientError`|returned for all the cases where the client might be able to get a successul response if they retry the request at a later stage. A common case for this are when a HTTP 429 code is returned back|
-
+|`transientError`|returned for all the cases where the client might be able to get a successful response if they retry the request at a later stage. A common example of when this code is returned is when an HTTP 429 code is returned back|
 
 ## Next steps
 

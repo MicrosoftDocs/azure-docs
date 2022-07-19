@@ -81,7 +81,7 @@ This endpoint can be used to create or update a Verifiable Credential service in
 | [Update authority](#update-authority) | Authority | Update authority |
 | [Generate Well known DID Configuration](#well-known-did-configuration) | | |
 | [Generate DID Document](#generate-did-document) | | |
-| [Validate Well-known DID config](#validate-well-known-did-config) | | |
+| [Validate Well-known DID config](#validate-well-known-did-configuration) | | |
 | [Rotate Signing Key](#rotate-signing-keys) | | |
 
 
@@ -329,7 +329,7 @@ Example message:
 
 #### Response message
 
-When successful the response message contains the created [authority](#authority-type)
+When successful the response message contains the name of the [authority](#authority-type)
 
 Example message for did:web:
 ```
@@ -362,6 +362,7 @@ Example message for did:web:
 
 
 Example message for did:ion:
+
 ```
 HTTP/1.1 201 Created
 Content-type: application/json
@@ -825,7 +826,7 @@ The response contains the following properties
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`attestations`| [idTokenAttestation](#idTokenAttestation-type) or [idTokenHintAttestation](#idTokenHintAttestation-type) and/or [verifiablePresentationAttestation](#verifiablePresentationAttestation-type) and/or [selfIssuedAttestation](#selfIssuedAttestation-type) and/or [accessTokenAttestation](#accessTokenAttestation-type) (array) | describing supported inputs for the rules |
+|`attestations`| [idTokenAttestation](#idTokenAttestation-type) or [idTokenHintAttestation](#idTokenHintAttestation-type) and/or [verifiablePresentationAttestation](#verifiablePresentationAttestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) and/or [accessTokenAttestation](#accesstokenattestation-type) (array) | describing supported inputs for the rules |
 |`validityInterval` | number | this value shows the lifespan of the credential |
 |`vc`| vcType array | types for this contract |
 |`customStatusEndpoint`| [customStatusEndpoint] (#customStatusEndpoint-type) (optional) | status endpoint to include in the verifiable credential for this contract |
@@ -836,7 +837,7 @@ If the property `customStatusEndpoint` property isn't specified then the `anynom
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| `mapping` | [claimMapping](#claimMapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
+| `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `configuration` | string (url) | location of the identity provider's configuration document |
 | `clientId` | string | client id to use when obtaining the id token |
 | `redirectUri` | string | redirect uri to use when obtaining the id token MUST BE vcclient://openid/ |
@@ -864,7 +865,7 @@ If the property `customStatusEndpoint` property isn't specified then the `anynom
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| `mapping` | [claimMapping](#claimMapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
+| `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
 
 #### accessTokenAttestation type
@@ -946,7 +947,7 @@ example:
 |`title`| string | title of the credential |
 |`issuedBy` | string | the name of the issuer of the credential |
 |`backgroundColor` | number (hex)| background color of the credential in hex, for example, #FFAABB |
-|`textColor`| number (hex)| text color of the credential in hex for example, #FFAABB |
+|`textColor`| number (hex)| text color of the credential in hex, for example, #FFAABB |
 |`description`| string | supplemental text displayed alongside each credential |
 |`logo`| [displayCredentialLogo](#displaycredentiallogo-type) | the logo to use for the credential |
 
