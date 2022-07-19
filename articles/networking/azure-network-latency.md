@@ -19,7 +19,7 @@ The latency measurements are collected from ThousandEyes agents, hosted in Azure
 
 ## June 2022 round-trip latency figures
 
-The monthly average round-trip times between Azure regions for past 31 days (ending on June 30th, 2022) are shown below. The following measurements are powered by [ThousandEyes](https://thousandeyes.com).
+The monthly Percentile P50 round trip times between Azure regions for the past 31 days (ending on July 31, 2022) are shown below. The following measurements are powered by  [ThousandEyes](https://thousandeyes.com).
 
 :::image type="content" source="media/azure-network-latency/azure-network-latency-thmb-july-2022.png" alt-text="This is a chart of the inter-region latency statistics as of July 15th, 2022." lightbox="media/azure-network-latency/azure-network-latency-july-2022.png":::
 
