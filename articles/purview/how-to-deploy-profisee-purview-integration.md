@@ -51,7 +51,7 @@ More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://pro
 ### Azure Architecture Guides/Reference Docs
 1. [Data Governance with Profisee and Microsoft Purview](https://docs.microsoft.com/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
 1. [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and PowerBI](https://docs.microsoft.com/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
-1. [MDM on Azure Overview](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
+1. [MDM on Azure Overview](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
 
 ## Profisee <> Purview Reference Architecture
 ![Profisee <> Purview Reference Architecture](https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png)
@@ -74,35 +74,35 @@ Let's take an example of a sample manufacturing company working across multiple 
 - The configurator wizard will ask for the inputs as described here - [Deploying the AKS Cluster using the ARM Template](https://support.profisee.com/wikis/2022_r1_support/deploying_the_AKS_cluster_with_the_arm_template)
 - Make sure to give the exact same RG (Resource Group) in the deployment as you gave permissions to the managed identity in Step1.
 - Once deployment completes, click "Go to Resource Group" and open the Profisee AKS Cluster.
-
-![Deployment_Progress_Intermediate](./media/how-to-deploy-profisee-purview/DeploymentProgressA.png)
-
-![Deployment_Progress_Final](./media/how-to-deploy-profisee-purview/DeploymentProgressFinal.png)
-
-![Profisee_Managed_Identity_AzureRoleAssignments](./media/how-to-deploy-profisee-purview/Profisee_Managed_Identity_AzureRoleAssignments.png)
-
-![ProfiseeAzureARM_Wizard_AppReg_Config](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_AppReg_Config.png)
-
-![ProfiseeAzureARM_Wizard_ClickOutputs_GetFinalDeploymentURL](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_ClickOutputs_GetFinalDeploymentURL.png)
-
-![ProfiseeAzureARM_Wizard_Deployment_Complete](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Deployment_Complete.png)
-
-![ProfiseeAzureARM_Wizard_Post_Deploy_ClickOpen_Resource_Group](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Post_Deploy_ClickOpen_Resource_Group.png)
-
-![ProfiseeAzureARM_Wizard_Step1_Profisee](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step1_Profisee.png)
-
-![ProfiseeAzureARM_Wizard_Step2_Kubernetes](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step2_Kubernetes.png)
-
-![ProfiseeAzureARM_Wizard_Step3_SQLServer](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step3_SQLServer.png)
-
-![ProfiseeAzureARM_Wizard_Step4_AzureDNS](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_AzureDNS.png)
-
-![ProfiseeAzureARM_Wizard_Step4_Storage](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_Storage.png)
-
-![ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation.png)
-
-![ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation_New](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation_New.png)
-
+-
+![Deployment Progress Intermediate](./media/how-to-deploy-profisee-purview/DeploymentProgressA.png)
+-
+![Deployment Progress Final](./media/how-to-deploy-profisee-purview/DeploymentProgressFinal.png)
+-
+![Profisee Managed Identity Azure Role Assignments](./media/how-to-deploy-profisee-purview/Profisee_Managed_Identity_AzureRoleAssignments.png)
+-
+![Profisee Azure ARM Wizard App Registration Configuration](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_AppReg_Config.png)
+-
+![Profisee Azure ARM Wizard Step1 Profisee](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step1_Profisee.png)
+-
+![Profisee Azure ARM_Wizard Step2 Kubernetes](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step2_Kubernetes.png)
+-
+![Profisee Azure ARM Wizard Step3 SQLServer](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step3_SQLServer.png)
+-
+![Profisee Azure ARM Wizard Step4 AzureDNS](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_AzureDNS.png)
+-
+![Profisee Azure ARM Wizard Step4 Storage](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_Storage.png)
+-
+![Profisee Azure ARM Wizard_Step5 Final_Template Validation](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation.png)
+-
+![Profisee Azure ARM Wizard_Step5 Final Template Validation New](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation_New.png)
+-
+![Profisee Azure ARM Wizard Click Outputs Get FinalDeployment URL](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_ClickOutputs_GetFinalDeploymentURL.png)
+-
+![Profisee Azure ARM Wizard Deployment Complete](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Deployment_Complete.png)
+-
+![Profisee Azure ARM Wizard_Post Deploy_Click Open Resource Group](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Post_Deploy_ClickOpen_Resource_Group.png)
+-
 - Populate and hydrate data to the newly installed profisee environment by installing FastApp. Go to your Profisee SaaS deployment URL and hit "/Profisee/api/client". It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client".
 
 ## Next Steps
