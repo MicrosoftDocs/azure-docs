@@ -14,7 +14,7 @@ ms.custom: template-how-to
 Master Data Management (MDM) is a key pillar of any world class industry leading Unified Data Governance solution. Microsoft Purview now supports Master Data Management MDM with Partners such as Profisee, CluedIn, Tamr, Semarchy. This tutorial compiles reference and integration deployment materials at one place to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
 
 ## What, why and how of MDM - Master Data Management?
-Master data management (MDM) arose out of the necessity for businesses to improve the consistency and quality of their key data assets, such as products, assets, customers, location data, and so on. Many businesses today, especially global enterprises have hundreds of separate applications and systems (like SAP, ERP and CRM) where data that crosses organizational departments or divisions can easily become fragmented, duplicated and most commonly out of date. When this occurs, answering even the most basic, but critical questions about any type of performance metric or KPI for a business accurately becomes a pain.
+Master data management (MDM) arose out of the necessity for businesses to improve the consistency and quality of their key data assets, such as products, assets, customers, location data, and so on. Many businesses today, especially global enterprises have hundreds of separate applications and systems (like SAP, ERP and CRM) where data that crosses organizational departments or divisions can easily become fragmented, duplicated and most commonly out of date. In such cases, answering even the most basic, but critical questions about any type of performance metric or KPI for a business accurately becomes a pain.
 Getting answers to basic questions such as “who are our most profitable customers?”, “what product(s) have the best margins?” or in some cases, “how many employees do we have”? become tough to answer – or at least with any degree of accuracy.
 Basically, the need for accurate, timely information is acute and as sources of data increase, managing it consistently and keeping data definitions up to date so all parts of a business use the same information is a never ending challenge.
 To meet such challenges, businesses turn to master data management (MDM).
@@ -48,14 +48,14 @@ More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://pro
 
 ### Azure Architecture Guides/Reference Docs
 1. [Data Governance with Profisee and Microsoft Purview](../../architecture/reference-architectures/data/profisee-master-data-management-purview)
-1. [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and PowerBI](../../architecture/reference-architectures/data/profisee-master-data-management-data-factory)
+1. [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and Power BI](../../architecture/reference-architectures/data/profisee-master-data-management-data-factory)
 1. [MDM on Azure Overview](../../cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
 
 ## Profisee <> Purview Reference Architecture
 ![Profisee <> Purview Reference Architecture](https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png)
 
 ### Business & Technical Use Case (Example)
-Let's take an example of a sample manufacturing company working across multiple data sources; it uses ADF to load the business critical data sources into Profisee, which is when Profisee works its magic and finds out the golden records and matching records and then we finally are able to enrich the metadata with Purview (updates  made by Purview on Classifications, Sensitivity Labels, Glossary and all other Catalog features are reflected seamlessly into Profisee). Finally, they connect the enriched metadata detected by Purview and cleansed/curated data by Profisee with PowerBI or Azure ML for advanced analytics.
+Let's take an example of a sample manufacturing company working across multiple data sources; it uses ADF to load the business critical data sources into Profisee, which is when Profisee works its magic and finds out the golden records and matching records and then we finally are able to enrich the metadata with Purview (updates  made by Purview on Classifications, Sensitivity Labels, Glossary and all other Catalog features are reflected seamlessly into Profisee). Finally, they connect the enriched metadata detected by Purview and cleansed/curated data by Profisee with Power BI or Azure ML for advanced analytics.
 
 ## Microsoft Purview - Profisee Integration SaaS Deployment on AKS Azure Kubernetes Infrastructure How-To Guide
 
