@@ -77,11 +77,8 @@ To update permissions for an Azure subscription:
 1. Select **Next**.
 1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal**.
 1. For **Members**, select **Select members**.
-1. In the **Select members** pane, search for **Azure_Workload_RP_RPaaS_Application_SAPVirtualInstance**.
+1. In the **Select members** pane, search for **Azure SAP Workloads Management**.
 1. Select the ACSS application in the results.
-
-    :::image type="content" source="media/register-existing-system/role-assign.png" alt-text="Screenshot of Select members pane in Role assignment page, showing the ACSS application being selected for the contributor role access." lightbox="media/register-existing-system/role-assign.png":::
-
 1. Select **Select**.
 1. Select **Review + assign**.
 
@@ -98,11 +95,8 @@ To update permissions for a resource group:
 1. Select **Next**.
 1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal**.
 1. For **Members**, select **Select members**.
-1. In the **Select members** pane, search for **Azure_Workload_RP_RPaaS_Application_SAPVirtualInstance**.
+1. In the **Select members** pane, search for **Azure SAP Workloads Management**.
 1. Select the ACSS application in the results.
-
-    :::image type="content" source="media/register-existing-system/role-assign.png" alt-text="Screenshot of Select members pane in Role assignment page, showing the ACSS application being selected for the contributor role access." lightbox="media/register-existing-system/role-assign.png":::
-
 1. Select **Select**.
 1. Select **Review + assign**.
 
