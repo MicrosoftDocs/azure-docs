@@ -71,9 +71,8 @@ When you create an assignment for a user to an access package, Azure AD entitlem
 - You need to have an appropriate administrative role. If this is the first time you're performing these steps, you need the Global Administrator role to authorize the use of Microsoft Graph PowerShell in your tenant.
 - Your application needs a service principal in your tenant:
 
-  - If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure) through the section to download, install, and configure the Azure AD Connect Provisioning Agent package.
-  - If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](/azure/active-directory/app-provisioning/on-premises-sql-connector-configure) through the section to download, install, and configure the Azure AD Connect Provisioning Agent package.
-
+  - If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md) through the section to download, install, and configure the Azure AD Connect Provisioning Agent package.
+  - If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md) through the section to download, install, and configure the Azure AD Connect Provisioning Agent package.
 
 ## Collect existing users from an application
 
@@ -123,7 +122,7 @@ First, get a list of the users from the tables. Most databases provide a way to 
 
 ### Collect existing users from an application's database table by using PowerShell
 
-This section applies to applications that use another SQL database as the underlying data store, where you're using the [ECMA Connector Host](/azure/active-directory/app-provisioning/on-premises-sql-connector-configure) to provision users into that application. If you haven't yet configured the provisioning agent, use that guide to create the DSN connection file you'll use in this section.
+This section applies to applications that use another SQL database as the underlying data store, where you're using the [ECMA Connector Host](../app-provisioning/on-premises-sql-connector-configure.md) to provision users into that application. If you haven't yet configured the provisioning agent, use that guide to create the DSN connection file you'll use in this section.
 
 1. Log in to the system where the provisioning agent is or will be installed.
 1. Open PowerShell.
@@ -177,7 +176,7 @@ This section applies to applications that use another SQL database as the underl
 
 Now that you have a list of all the users obtained from the application, you'll match those users from the application's data store with users in Azure AD.  
 
-Before proceeding, review the information about [matching users in the source and target systems](/azure/active-directory/app-provisioning/customize-application-attributes#matching-users-in-the-source-and-target--systems). You'll configure Azure AD provisioning with equivalent mappings afterward. That step will allow Azure AD provisioning to query the application's data store with the same matching rules.
+Before you proceed, review the information about [matching users in the source and target systems](..app-provisioning/customize-application-attributes.md#matching-users-in-the-source-and-target--systems). You'll configure Azure AD provisioning with equivalent mappings afterward. That step will allow Azure AD provisioning to query the application's data store with the same matching rules.
 
 ### Retrieve the IDs of the users in Azure AD
 
@@ -186,7 +185,7 @@ This section shows how to interact with Azure AD by using [Microsoft Graph Power
 The first time your organization uses these cmdlets for this scenario, you need to be in a Global Administrator role to allow Microsoft Graph PowerShell to be used in your tenant. Subsequent interactions can use a lower-privileged role, such as:
 
 - User Administrator, if you anticipate creating new users.
-- Application Administrator or [Identity Governance Administrator](/azure/active-directory/roles/permissions-reference#identity-governance-administrator), if you're just managing application role assignments.
+- Application Administrator or [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator), if you're just managing application role assignments.
 
 1. Open PowerShell.
 1. If you don't have the [Microsoft Graph PowerShell modules](https://www.powershellgallery.com/packages/Microsoft.Graph) already installed, install the `Microsoft.Graph.Users` module and others by using this command:
@@ -393,21 +392,21 @@ The previous steps have confirmed that all the users in the application's data s
 
 ## Configure application provisioning
 
-Before you create new assignments, configure [provisioning of Azure AD users](/azure/active-directory/app-provisioning/user-provisioning) to the application. Configuring provisioning will enable Azure AD to match up the users in Azure AD with the application role assignments to the users already in the application's data store.
+Before you create new assignments, configure [provisioning of Azure AD users](../app-provisioning/user-provisioning.md) to the application. Configuring provisioning will enable Azure AD to match up the users in Azure AD with the application role assignments to the users already in the application's data store.
 
 1. Ensure that the application is configured to require users to have application role assignments, so that only selected users will be provisioned to the application.
 1. If provisioning hasn't been configured for the application, configure it now (but don't start provisioning):
 
-   * If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure).
-   * If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](/azure/active-directory/app-provisioning/on-premises-sql-connector-configure).
+   * If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](..app-provisioning/on-premises-ldap-connector-configure.md).
+   * If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md).
 
-1. Check the [attribute mappings](/azure/active-directory/app-provisioning/customize-application-attributes) for provisioning to that application. Make sure that **Match objects using this attribute** is set for the Azure AD attribute and column that you used in the previous sections for matching.  
+1. Check the [attribute mappings](../app-provisioning/customize-application-attributes.md) for provisioning to that application. Make sure that **Match objects using this attribute** is set for the Azure AD attribute and column that you used in the previous sections for matching.  
 
    If these rules aren't using the same attributes that you used earlier, then when application role assignments are created, Azure AD might be unable to locate existing users in the application's data store. Azure AD might then inadvertently create duplicate users.
 1. Check that there's an attribute mapping for `isSoftDeleted` to an attribute of the application. 
 
    When a user is unassigned from the application, soft-deleted in Azure AD, or blocked from sign-in, Azure AD provisioning will update the attribute mapped to `isSoftDeleted`. If no attribute is mapped, users who later are unassigned from the application role will continue to exist in the application's data store.
-1. If provisioning has already been enabled for the application, check that the application provisioning is not in [quarantine](/azure/active-directory/app-provisioning/application-provisioning-quarantine-status). Resolve any issues that are causing the quarantine before you proceed.
+1. If provisioning has already been enabled for the application, check that the application provisioning is not in [quarantine](../app-provisioning/application-provisioning-quarantine-status.md). Resolve any issues that are causing the quarantine before you proceed.
 
 ## Create app role assignments in Azure AD
 
@@ -460,11 +459,11 @@ When an application role assignment is created in Azure AD for a user to an appl
 
    If any users aren't assigned to application roles, check the Azure AD audit log for an error from a previous step.
 
-1. If the **Provisioning Status** of the application is **Off**, turn it to **On**.
-1. Based on the guidance for [how long will it take to provision users](/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users), wait for Azure AD provisioning to match the existing users of the application to those users just assigned.
-1. Monitor the [provisioning status](/azure/active-directory/app-provisioning/check-status-user-account-provisioning) to ensure that all users were matched successfully.  
+1. If **Provisioning Status** for the application is **Off**, turn it to **On**.
+1. Based on the guidance for [how long will it take to provision users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users), wait for Azure AD provisioning to match the existing users of the application to those users just assigned.
+1. Monitor the [provisioning status](../app-provisioning/check-status-user-account-provisioning.md) to ensure that all users were matched successfully.  
 
-   If you don't see users being provisioned, check the [troubleshooting guide for no users being provisioned](/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned). If you see an error in the provisioning status and are provisioning to an on-premises application, check the [troubleshooting guide for on-premises application provisioning](/azure/active-directory/app-provisioning/on-premises-ecma-troubleshoot).
+   If you don't see users being provisioned, check the [troubleshooting guide for no users being provisioned](..app-provisioning/application-provisioning-config-problem-no-users-provisioned.md). If you see an error in the provisioning status and are provisioning to an on-premises application, check the [troubleshooting guide for on-premises application provisioning](/azure/active-directory/app-provisioning/on-premises-ecma-troubleshoot).
 
 After the Azure AD provisioning service has matched the users based on the application role assignments you've created, subsequent changes will be sent to the application.
 

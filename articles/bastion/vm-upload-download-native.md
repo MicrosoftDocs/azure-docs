@@ -46,7 +46,7 @@ The steps in this section apply when connecting to a target VM from a Windows lo
 1. Sign in to your target VM via RDP using the following command. You can use either a local username and password, or your Azure AD credentials. To learn more about how to use Azure AD to sign in to your Azure Windows VMs, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
     ```azurecli
-    az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
+    az network bastion rdp --name "<BastionName>" --resource-group "<BastionResourceGroupName>" --target-resource-id "<VMResourceId>"
     ```
 
 1. Once you sign in to your target VM, the native client on your computer will open up with your VM session. You can now transfer files between your VM and local machine using right-click, then **Copy** and **Paste**.
