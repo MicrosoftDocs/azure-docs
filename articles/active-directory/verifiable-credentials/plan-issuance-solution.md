@@ -25,7 +25,7 @@ It’s important to plan your issuance solution so that in addition to issuing c
 
 This article covers the technical aspects of planning for a verifiable credential issuance solution. The Microsoft solution for verifiable credentials follows the World Wide Web Consortium (W3C) [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/) and [Decentralized Identifiers (DIDs) V1.0](https://www.w3.org/TR/did-core/) standards so can interoperate with non-Microsoft services. However, the examples in this content reflect the Microsoft solution stack for verifiable credentials. 
 
-Out of scope for this content are topics covering supporting technologies that aren't specific to issuance solutions. For example, websites are used in a verifiable credential issuance solution but planning a website deployment isn't covered in detail.
+Out of scope for this content is articles covering supporting technologies that aren't specific to issuance solutions. For example, websites are used in a verifiable credential issuance solution but planning a website deployment isn't covered in detail.
 
 ## Components of the solution
 
@@ -40,7 +40,7 @@ As part of your plan for an issuance solution, you must design a solution that e
 
 A prerequisite for running the Microsoft Entra Verified ID service is that it's hosted in an Azure Active Directory (Azure AD) tenant. The Azure AD tenant provides an Identity and Access Management (IAM) control plane for the Azure resources that are part of the solution.
 
-Each tenant uses the multi-tenant Microsoft Entra Verified ID service, and a has a decentralized identifier (DID). The DID provides proof that the issuer owns the domain incorporated into the DID. The DID is used by the subject and the verifier to validate the issuer. 
+Each tenant uses the multi-tenant Microsoft Entra Verified ID service, and has a decentralized identifier (DID). The DID provides proof that the issuer owns the domain incorporated into the DID. The DID is used by the subject and the verifier to validate the issuer. 
 
 ### Microsoft Azure services
 
@@ -139,7 +139,7 @@ For more use cases, see [Verifiable Credentials Use Cases (w3.org)](https://www.
 
 As part of the design process, investigate industry-specific schemas, namespaces, and identifiers to which you can align to maximize interoperability and usage. Examples can be found in [Schema.org](https://schema.org/) and the [DIF - Claims and Credentials Working Group.](https://identity.foundation/working-groups/claims-credentials.html)
 
-Note that common schemas are an area where standards are still emerging. One example of such an effort is the [Verifiable Credentials for Education Task Force](https://github.com/w3c-ccg/vc-ed). We encourage you to investigate and contribute to emerging standards in your organization's industry.
+Common schemas are an area where standards are still emerging. One example of such an effort is the [Verifiable Credentials for Education Task Force](https://github.com/w3c-ccg/vc-ed). We encourage you to investigate and contribute to emerging standards in your organization's industry.
 
 ### Credential Type and Attributes 
 
