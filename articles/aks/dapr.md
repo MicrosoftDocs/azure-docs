@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 05/16/2022
+ms.date: 07/19/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022
 ---
 
@@ -156,7 +156,7 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## Limiting the extension to certain nodes (`nodeSelector`)
 
-In some configurations you may only want to run Dapr on certain nodes. This can be accomplished by passing a `nodeSelector` in the extension configuration. Note that if the desired `nodeSelector` contains `.`, you must escape them from the shell and the extension. For example, the following configuration will install Dapr to only nodes with `kubernetes.io/os=linux`:
+In some configurations you may only want to run Dapr on certain nodes. This can be accomplished by passing a `nodeSelector` in the extension configuration. Note that if the desired `nodeSelector` contains `.`, you must escape them from the shell and the extension. For example, the following configuration will install Dapr to only nodes with `topology.kubernetes.io/zone: "us-east-1c"`:
 
 ```azure-cli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -167,7 +167,22 @@ az k8s-extension create --cluster-type managedClusters \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
 --configuration-settings "dapr_operator.replicaCount=2" \
---configuration-settings "global.nodeSelector.kubernetes\.io/os=linux"
+--configuration-settings "global.nodeSelector.kubernetes\.io/zone: us-east-1c"
+```
+
+For managing OS and architecture, use the configuration `global.daprControlPlaneOs` and `global.daprControlPlaneArch`:
+
+```azure-cli-interactive
+az k8s-extension create --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name myDaprExtension \
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version true \
+--configuration-settings "global.ha.enabled=true" \
+--configuration-settings "dapr_operator.replicaCount=2" \
+--configuration-settings "global.daprControlPlaneOs=linux” \
+--configuration-settings "global.daprControlPlaneArch=amd64”
 ```
 
 ## Show current configuration settings
