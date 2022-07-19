@@ -71,6 +71,12 @@ Using your favorite IDE, create a new Java project with groupId **test** and art
       <artifactId>postgresql</artifactId>
       <version>42.2.12</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>5.0.0</version>
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
@@ -101,6 +107,7 @@ This file configures [Apache Maven](https://maven.apache.org/) to use:
 Create a `src/main/resources/application.properties` file, and add:
 
 ``` properties
+driver.class.name=org.postgresql.Driver
 url=jdbc:postgresql://<host>:5432/citus?ssl=true&sslmode=require
 user=citus
 password=<password>
@@ -142,6 +149,59 @@ select create_distributed_table('public.pharmacy','pharmacy_id');
 
 Next, add the Java code that will use JDBC to store and retrieve data from your Hyperscale (Citus) server group.
 
+#### Connection Pooling Setup
+
+Using the below code create a `DButil.java` file, which contains the **DButil** class. The DBUtil class sets up a connection pool to Postgres using [HikariCP](https://github.com/brettwooldridge/HikariCP). In the below application, we will be using this class to connect to postgres and start querying. This ensures that whenever your application uses a connection from the pool and avoids generating a new connection every time. Application side connection pooling is strongly recommended because:
+* It ensures that the application doesn't generate too many connections to the database, avoiding connection limit exceeded issues . 
+* Connection pooling also helps persist & reuse connections from the pool, instead of generating new connections every time. Generating a new connection can be expensive as it involving forking the postgres process every time a new connection is generated.Hence application side connection pooling can help drastically improve performance, both latency and throughput.
+
+```java
+//DButil.java
+package test.crud;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import com.zaxxer.hikari.HikariDataSource;
+
+public class DButil {
+private static final String DB_USERNAME = "db.username";
+private static final String DB_PASSWORD = "db.password";
+private static final String DB_URL = "db.url";
+private static final String DB_DRIVER_CLASS = "driver.class.name";
+private static Properties properties =  null;
+private static HikariDataSource datasource;
+
+static {    
+    try {
+        properties = new  Properties();
+        properties .load(new FileInputStream("src/main/java/application.properties"));
+        datasource = new HikariDataSource();
+        datasource.setDriverClassName(properties.getProperty(DB_DRIVER_CLASS ));
+        datasource.setJdbcUrl(properties.getProperty(DB_URL));
+        datasource.setUsername(properties.getProperty(DB_USERNAME));
+        datasource.setPassword(properties.getProperty(DB_PASSWORD));
+        datasource.setMinimumIdle(100);
+        datasource.setMaximumPoolSize(1000000000);
+        datasource.setAutoCommit(false);
+        datasource.setLoginTimeout(3);
+        
+    
+    }catch (IOException | SQLException  e) {
+        e.printStackTrace();
+    }
+    
+}
+public static DataSource getDataSource() {
+    return datasource;
+}
+    }
+```
+
 Create a `src/main/java/DemoApplication.java` file that contains:
 
 ``` java
@@ -168,11 +228,9 @@ public class DemoApplication {
     }
     public static void main(String[] args)throws Exception
     {
-        log.info("Loading application properties");
-        Properties properties = new Properties();
-        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
         log.info("Connecting to the database");
-        Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
+        Connection connection = DButil.getDataSource().getConnection();
+        System.out.println("The Connection Object is of Class: " + connection.getClass());
         log.info("Database connection test: " + connection.getCatalog());
         log.info("Creating table");
         log.info("Creating index");
@@ -272,13 +330,13 @@ public class Pharmacy {
     }
     @Override
     public String toString() {
-        return "TPharmacy{"
-               "pharmacy_id=" + pharmacy_id
-               ", pharmacy_name='" + pharmacy_name + '\''
-               ", city='" + city + '\''
-                   ", state='" + state + '\''
-                   ", zip_code='" + zip_code + '\''
-               '}';
+        return "TPharmacy{" +
+                "pharmacy_id=" + pharmacy_id +
+                ", pharmacy_name='" + pharmacy_name + '\'' +
+                ", city='" + city + '\'' +
+                 ", state='" + state + '\'' +
+                  ", zip_code='" + zip_code + '\'' +
+                '}';
     }
 }
 ```
@@ -473,13 +531,15 @@ It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/
 
 ```java
 public static long copyFromFile(Connection connection, String filePath, String tableName)
-    throws SQLException, IOException
-{
+        throws SQLException, IOException {
     long count = 0;
     FileInputStream fileInputStream = null;
 
     try {
-        CopyManager copyManager = new CopyManager((BaseConnection) connection);
+        Connection unwrap = connection.unwrap(Connection.class);
+        BaseConnection  connSec = (BaseConnection) unwrap;
+            
+        CopyManager copyManager = new CopyManager((BaseConnection) connSec);
         fileInputStream = new FileInputStream(filePath);
         count = copyManager.copyIn("COPY " + tableName + " FROM STDIN delimiter ',' csv", fileInputStream);
     } finally {
@@ -530,19 +590,24 @@ The following code is an example for copying in-memory data to table.
 
 ```java
 private static void inMemory(Connection connection) throws SQLException,IOException {
-    log.info("Copying in-memory data into table");
-    String[] input = {"5000,Target,Sunnyvale,California,94001"};
-
-    CopyManager copyManager = new CopyManager((BaseConnection) connection);
-    String copyCommand = "COPY pharmacy FROM STDIN with csv " ;
-
-    for (String var : input)
-    {
+    log.info("Copying inmemory data into table");
+    String[] input = {"0,Target,Sunnyvale,California,94001"};
+        
+    Connection unwrap = connection.unwrap(Connection.class);
+    BaseConnection  connSec = (BaseConnection) unwrap;
+        
+    CopyManager copyManager = new CopyManager((BaseConnection) connSec);
+    String copyCommand = "COPY pharmacy FROM STDIN with csv " ; 
+        
+    for (String var : input) 
+    { 
         Reader reader = new StringReader(var);
         copyManager.copyIn(copyCommand, reader);
     }
+
     copyManager.copyIn(copyCommand);
-}
+    
+} 
 ```
 
 You can now add the following line in the main method:

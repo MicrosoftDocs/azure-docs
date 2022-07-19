@@ -46,14 +46,19 @@ Replace the following values:
 
 ## Step 1: Connect, create table, and insert data
 
-The following code example connects to your Hyperscale (Citus) database using
-the [psycopg2.connect](https://www.psycopg.org/docs/connection.html) function,
-and loads data with a SQL INSERT statement.  The
-[cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) function
-executes the SQL query against the database.
+The following code example creates a connection pool to your Postgres database using
+the [psycopg2.pool](https://www.psycopg.org/docs/pool.html) library. **pool.getconn()** is used to get a connection from the pool.
+[cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) function executes the SQL query against the database.
+
+> [!TIP]
+>
+> Application side connection pooling is strongly recommended because:
+> * It ensures that the application doesn't generate too many connections to the database, avoiding connection limit exceeded issues. 
+> * Connection pooling also helps persist & reuse connections from the pool, instead of generating new connections every time. Generating a new connection can be expensive as it involves forking the postgres process every time a new connection is generated. Hence application side connection pooling can help drastically improve performance, both latency and throughput.
 
 ```python
 import psycopg2
+from psycopg2 import pool
 
 # NOTE: fill in these variables for your own server group
 host = "<host>"
@@ -65,8 +70,12 @@ sslmode = "require"
 # now we'll build a connection string from the variables
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 
-conn = psycopg2.connect(conn_string)
-print("Connection established")
+postgreSQL_pool = psycopg2.pool.SimpleConnectionPool(1, 20,conn_string)
+if (postgreSQL_pool):
+    print("Connection pool created successfully")
+
+# Use getconn() to Get Connection from connection pool
+conn = postgreSQL_pool.getconn()
 
 cursor = conn.cursor()
 
