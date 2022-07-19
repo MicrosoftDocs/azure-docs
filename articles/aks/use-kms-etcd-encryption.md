@@ -267,6 +267,8 @@ Use below command to re-enable the KMS with updated private key vault.
 az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $NewKEY_ID --azure-keyvault-kms-key-vault-network-access "Private" --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID
 ```
 
+After configuring KMS, you could enable [diagnostic-settings for key vault to check the encryption logs](../key-vault/general/howto-logging.md).
+
 ## Disable KMS
 
 Use below command to disable KMS on existing cluster. 
