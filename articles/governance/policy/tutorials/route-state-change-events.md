@@ -52,7 +52,7 @@ Now that we have a resource group, we create a
 more events published by Azure services such as Azure Policy and Azure Event Hubs. This system topic
 uses the `Microsoft.PolicyInsights.PolicyStates` topic type for Azure Policy state changes.
 
-First, you'll need to register the `PolicyInsights` and `EventGrid` resource providers (RPs) at the appropriate management scope. Whereas the Azure Portal auto-registers any RPs you invoke for the first time, Azure CLI does not.
+First, you'll need to register the `PolicyInsights` and `EventGrid` resource providers (RPs) at the appropriate management scope. Whereas the Azure portal auto-registers any RPs you invoke for the first time, Azure CLI does not.
 
 ```azurecli-interactive
 # Log in first with az login if you're not using Cloud Shell
