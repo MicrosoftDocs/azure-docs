@@ -16,7 +16,7 @@ Custom rules allow you to create tailored rules to suit the exact needs of your 
 To create a geo-filtering custom rule in the Azure portal, simply select *Geo location* as the Match Type, and then select the country/region or countries/regions you want to allow/block from your application. When creating geomatch rules with Azure PowerShell or Azure Resource Manager, use the match variable `RemoteAddr` and the operator `Geomatch`. For more information, see [how to create custom rules in PowerShell](configure-waf-custom-rules.md) and more [custom rule examples](create-custom-waf-rules.md).
 
 > [!NOTE]
-> Geo-filtering works based on mapping each request's IP address to a country or region. Some IP addresses aren't yet mapped to a country or region in our dataset. To avoid accidentally blocking legitimate users, Application Gateway's WAF allows requests from unknown IP addresses.
+> Geo-filtering works based on mapping each request's IP address to a country or region. There might be some IP addresses in the data set that are not yet mapped to a country or region. To avoid accidentally blocking legitimate users, Application Gateway's WAF allows requests from unknown IP addresses.
 
 ## Country/Region codes
 
