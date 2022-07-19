@@ -529,7 +529,7 @@ You can now delete each of the resources we've created during this tutorial.
 1. Select **SIMGroup1**.
 1. Tick the checkboxes next to **SIM1** and **SIM2**, and then select **Delete** from the **Command** bar.
 1. Select **Delete** to confirm your choice. 
-1. Once the SIMs have been deleted, select **SIM groups** from the **Resource** menu.
+1. Once the SIMs have been deleted, select the name of your private mobile network from the breadcrumbs in the top left corner to return to the list of SIM groups.
 1. Tick the checkbox next to **SIMGroup1**, and then select **Delete** from the **Command** bar.
 1. Select **Delete** to confirm your choice. 
 1. Once the SIM group has been deleted, select **SIM policies** from the **Resource** menu.
