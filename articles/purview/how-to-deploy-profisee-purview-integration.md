@@ -4,7 +4,7 @@ description: This guide describes how to deploy Profisee-Purview better together
 author: abandyop
 ms.author: arindamba
 ms.service: purview
-ms.subservice: purview-catalog
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 07/15/2022
 ms.custom: template-how-to
