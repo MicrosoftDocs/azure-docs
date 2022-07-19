@@ -79,10 +79,10 @@ This endpoint can be used to create or update a Verifiable Credential service in
 | [List Authority](#list-authorities)     | Authority array     | Get a list of all configured Authorities/verifiable credential services     |
 | [Create Authority](#create-authority) | Authority | Create a new authority |
 | [Update authority](#update-authority) | Authority | Update authority |
-| [Generate Well known DID Configuration](#wellknown-did-configuration) | | |
+| [Generate Well known DID Configuration](#well-known-did-configuration) | | |
 | [Generate DID Document](#generate-did-document) | | |
-| [Validate Well-known DID config](#validate-wellknown-did-config) | | |
-| [Rotate Signing Key](#rotate-signing-key) | | |
+| [Validate Well-known DID config](#validate-well-known-did-config) | | |
+| [Rotate Signing Key](#rotate-signing-keys) | | |
 
 
 ### Get authority
@@ -542,7 +542,7 @@ Content-type: application/json
 
 ### Well-known DID Configuration
 
-The `generateWellknownDidConfiguration` method generates the signed did-configuration.json file. The file must be uploaded to the `.well-known` folder in the root of the website hosted for the domain in the linked domain of this verifiable credential instance. Instructions can be found [here](https://docs.microsoft.com/en-us/azure/active-directory/verifiable-credentials/how-to-dnsbind#distribute-well-known-config).
+The `generateWellknownDidConfiguration` method generates the signed did-configuration.json file. The file must be uploaded to the `.well-known` folder in the root of the website hosted for the domain in the linked domain of this verifiable credential instance. Instructions can be found [here](how-to-dnsbind.md#distribute-well-known-config).
 
 #### HTTP Request
 
@@ -750,7 +750,7 @@ Content-type: application/json
 
 ## Contracts
 
-This endpoint allows you to create new contracts, and update existing contracts. Contracts consist of two parts represented by two JSON definitions. Information on how to design and create a contract manually can be found [here.](https://docs.microsoft.com/en-us/azure/active-directory/verifiable-credentials/credential-design)
+This endpoint allows you to create new contracts, and update existing contracts. Contracts consist of two parts represented by two JSON definitions. Information on how to design and create a contract manually can be found [here.](credential-design.md)
 
 - The display definition is used by administrators to control the appearance of a verifiable credential, for example background color, logo and title of the verifiable credential. This file also contains the claims that need to be stored inside the verifiable credential. 
 - The rules definition contains the information on how to gather and collect attestations like self-attested claims, another verifiable credential as input or perhaps an ID Token received after a user has signed in to an OIDC compatible identity provider.
@@ -759,10 +759,10 @@ This endpoint allows you to create new contracts, and update existing contracts.
 
 | Methods | Return Type | Description |
 | -------- | -------- | -------- |
-| [Get contract](#Get-contract) | Contract | Read properties of a Contract |
-| [List contracts](#List-contracts)     | Contract collection     | Get a list of all configured contracts |
-| [Create contract](#Create-contract) | Contract | Create a new contract |
-| [Update contract](#Update-contract) | Contract | Update contract |
+| [Get contract](#get-contract) | Contract | Read properties of a Contract |
+| [List contracts](#list-contracts)     | Contract collection     | Get a list of all configured contracts |
+| [Create contract](#create-contract) | Contract | Create a new contract |
+| [Update contract](#update-contract) | Contract | Update contract |
 
 
 ### Get contract
@@ -818,8 +818,8 @@ The response contains the following properties
 | `issueNotificationEnabled` | boolean | set to true if users will be notified this VC is ready for them to get issued |
 | `issueNotificationAllowedToGroupOids` | array of groupId strings | array of group IDs this credential will be offered to |
 | `availableInVcDirectory` | boolean | Is this contract published in the Verifiable Credential Network |
-| [rules](#rulesModel-type) | rulesModel | rules definition |
-| [displays](#displayModel-type) | displayModel array| display definitions |
+| [rules](#rulesmodel-type) | rulesModel | rules definition |
+| [displays](#displaymodel-type) | displayModel array| display definitions |
 
 #### rulesModel type
 
@@ -935,9 +935,9 @@ example:
 | Property | Type | Description |
 | -------- | -------- | -------- |
 |`locale`| string | the locale of this display |
-|`credential` | [displayCredential](#displayCredential-type) | the display properties of the verifiable credential |
-|`consent` | [displayConsent](#displayConsent-type) | supplemental data when the verifiable credential is issued |
-|`claims`| [displayClaims](#displayClaims-type) array | labels for the claims included in the verifiable credential |
+|`credential` | [displayCredential](#displaycredential-type) | the display properties of the verifiable credential |
+|`consent` | [displayConsent](#displayconsent-type) | supplemental data when the verifiable credential is issued |
+|`claims`| [displayClaims](#displayclaims-type) array | labels for the claims included in the verifiable credential |
 
 #### displayCrendential type
 
@@ -948,7 +948,7 @@ example:
 |`backgroundColor` | number (hex)| background color of the credential in hex, for example, #FFAABB |
 |`textColor`| number (hex)| text color of the credential in hex for example, #FFAABB |
 |`description`| string | supplemental text displayed alongside each credential |
-|`logo`| [displayCredentialLogo](#displayCredentialLogo-type) | the logo to use for the credential |
+|`logo`| [displayCredentialLogo](#displaycredentiallogo-type) | the logo to use for the credential |
 
 #### displayCredentialLogodisplayCredentialLogo type
 
