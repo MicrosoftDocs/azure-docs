@@ -7,7 +7,7 @@ ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 07/20/2022
 ---
 
 # Create a Power BI visual offer
@@ -17,6 +17,8 @@ This article describes how to use Partner Center to submit a Power BI visual off
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
 ## Before you begin
+
+Before you can publish a Power BI visual offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 Review [Plan a Power BI visual offer](marketplace-power-bi-visual.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 

@@ -16,6 +16,8 @@ As a commercial marketplace publisher, you can create a software as a service (S
 
 ## Before you begin
 
+Before you can publish a SaaS offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
+
 If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). It will explain the technical requirements for your SaaS app, and the information and assets you’ll need when you create your offer. Unless you plan to publish a simple listing (**Contact me** listing option) in the commercial marketplace, your SaaS application must meet technical requirements around authentication.
 
 > [!IMPORTANT]
