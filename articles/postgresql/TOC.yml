@@ -657,6 +657,7 @@
       - name: Azure Data Factory (ADF)
         href: hyperscale/howto-ingest-azure-data-factory.md
     - name: Administer
+      items:
       - name: Create users
         href: hyperscale/howto-create-users.md
       - name: Schedule maintenance
@@ -676,6 +677,7 @@
       - name: Upgrade server group
         href: hyperscale/howto-upgrade.md
     - name: Scale
+      items:
       - name: Server group size
         items:
         - name: Pick initial size
@@ -689,6 +691,7 @@
         - name: Manage read replicas
           href: hyperscale/howto-read-replicas-portal.md
     - name: Availability and resilliency
+      items:
       - name: Configure high availability
         href: hyperscale/howto-high-availability.md
       - name: Manage read replicas
