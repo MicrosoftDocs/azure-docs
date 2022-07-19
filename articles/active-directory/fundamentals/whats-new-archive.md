@@ -3770,7 +3770,7 @@ Because of modern browser [3rd party cookie restrictions such as Safari ITP](../
 **Service category:** Device Management
 **Product capability:** Device Lifecycle Management
  
-Previously, the only filters you could use were "Enabled" and "Activity date." Now, you can [filter your list of devices on more properties](../devices/device-management-azure-portal.md#device-list-filtering-preview), including OS type, join type, compliance, and more. These additions should simplify locating a particular device.
+Previously, the only filters you could use were "Enabled" and "Activity date." Now, you can [filter your list of devices on more properties](../devices/device-management-azure-portal.md), including OS type, join type, compliance, and more. These additions should simplify locating a particular device.
 
 ---
 
