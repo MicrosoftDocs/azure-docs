@@ -77,7 +77,7 @@ To start using AHB for SLES Virtual Machines:
     |---|---|---|
     | SLES  | Installs SLES repositories into your virtual machine. | SLES BYOS Virtual Machines, SLES custom image Virtual Machines|
     | SLES_SAP | Installs SLES for SAP repositories into your virtual machine. | SLES for SAP BYOS Virtual Machines, SLES for SAP custom image Virtual Machines|
-    | SLES_HPC  | Installs SLE High Performance Compute related repositories  into your virtual machine. | SLE HPC BYOS Virtual Machines, SLE HPC custom image Virtual Machines|
+    | SLES_HPC  | Installs SLE High Performance Computing related repositories  into your virtual machine. | SLE HPC BYOS Virtual Machines, SLE HPC custom image Virtual Machines|
 
 1. Wait for 5 minutes for the extension to read the license type value and install the repositories.
 
