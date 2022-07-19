@@ -17,7 +17,7 @@ ms.date: 07/20/2022
 
 - All Partner Center users
 
-To publish your offers to [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/), you need to have a [commercial marketplace account](create-account.md) in Partner Center and ensure your account is enrolled in the commercial marketplace program. This article covers how to create a commercial marketplace account to the commercial marketplace program. To verify that your account is enrolled in the commercial marketplace program, see [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
+To publish your offers to [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/), you need to have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. This article covers how to create a commercial marketplace account to the commercial marketplace program. To verify that your account is enrolled in the commercial marketplace program, see [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 >[!NOTE]
 >If you had an account in the Cloud Partner Portal (CPP), we moved it to Partner Center. You don't need to create a new account. For more information, see [Publishers who moved from the Cloud Partner Portal](#publishers-who-moved-from-the-cloud-partner-portal).
