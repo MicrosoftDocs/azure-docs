@@ -71,7 +71,7 @@ For this article, you'll need both a root CA and an intermediate CA certificate 
 
 If you already have root and intermediate CA files, you can continue to [Add and verify your root CA certificate](#add-and-verify-your-root-ca-certificate).
 
-If you don't have a root CA and intermediate CA certificate, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-the-intermediate-ca-certificate) as you wont need device certificates to complete the steps in this article.
+If you don't have a root CA and intermediate CA certificate, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-the-intermediate-ca-certificate) as you wont need device certificates to complete the steps in this article. When you're finished, you'll have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
 
 ## Add and verify your root CA certificate
 
@@ -79,7 +79,7 @@ Devices that provision using X.509 certificates through an enrollment group, pre
 
 To add and verify your root CA certificate to the Device Provisioning Service.
 
-1. After you've created the root CA certificates, sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the left-hand menu or on the portal page, select **All resources**.
 
@@ -297,30 +297,33 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 1. Replace `[Provisioning Connection String]` with the connection string that you copied in [Get the connection string for your provisioning service](#get-the-connection-string-for-your-provisioning-service).
 
-1. Replace the `PUBLIC_KEY_CERTIFICATE_STRING` value with the value of the *Root Cert** you generated in the previous section. Make sure to replace the entire sample value, including the lines **_-----BEGIN CERTIFICATE-----_** and **_-----END CERTIFICATE-----_**.
+1. Replace the `PUBLIC_KEY_CERTIFICATE_STRING` constant string with the value of your intermediate certificate `'pem` file.
 
-1. To configure your provisioning service from within the sample code, proceed to the next step. If you  do not want to configure it, make sure to comment out or delete the following statements in the _ServiceEnrollmentGroupSample.java_ file:
+    The syntax of certificate text must follow the pattern below with no extra spaces or characters.
+
+    ```java
+    private static final String PUBLIC_KEY_CERTIFICATE_STRING = "-----BEGIN CERTIFICATE-----\n" +
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n" +
+        ...
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n" +
+    "-----END CERTIFICATE-----";
+    ```
+
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into a **Git Bash** prompt, replace `your-intermediate-cert.pem` with the location of your certificate file, and press **ENTER**. This command will generate the syntax for the `PUBLIC_KEY_CERTIFICATE_STRING` string constant value and write it to the output.
+
+    ```bash
+    sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' your-intermediate-cert.pem
+    ```
+
+    Copy and paste the output certificate text for the constant value.
+
+1. The sample allows you to set an IoT hub in the enrollment group to provision the device to. For this sample, we'll let DPS choose from the hubs that have already been linked to the DPS instance according to the default allocation policy, Evenly weighted distribution. Comment out or delete the following statement in the _ServiceEnrollmentGroupSample.java_ file:
 
     ```Java
     enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
-    enrollmentGroup.setProvisioningStatus(ProvisioningStatus.ENABLED);  // Optional parameter.
     ```
 
-1. This step shows you how to configure your provisioning service in the sample code.
-
-    1. Go to the [Azure portal](https://portal.azure.com).
-
-    2. On the left-hand menu or on the portal page, select **All resources**.
-
-    3. Select your Device Provisioning Service.
-
-    4. In the **Overview** panel, copy the hostname of the *Service endpoint*.  In the source code sample, replace `[Host name]` with the copied hostname.
-
-        ```Java
-        private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
-        ```
-
-1. Study the sample code. It creates, updates, queries, and deletes a group enrollment for X.509 devices. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
+1. Study the sample code. It creates, updates, queries, and deletes a group enrollment for X.509 devices. To verify successful creation of the enrollment group in Azure portal, comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
 
     ```Java
     // ************************************** Delete info of enrollmentGroup ***************************************
@@ -344,7 +347,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-nodejs"
 
-1. Open a command prompt, and the following command (include the quotes around the command arguments and replace `<connection string>` withe connection string you copied in the previous section, and `<certificate .pem file>` with the path of your `.pem` file):
+1. Run the following command in your command prompt. Include the quotes around the command arguments and replace `<connection string>` withe connection string you copied in the previous section, and `<certificate .pem file>` with the path to your intermediate CA `.pem` file.
 
     ```cmd\sh
     node create_enrollment_group.js "<connection string>" "<certificate .pem file>"
@@ -383,7 +386,7 @@ To verify that the enrollment group has been created:
 
 2. In the **Settings** menu, select **Manage enrollments**.
 
-3. Select **Enrollment Groups**. You should see a new enrollment entry that corresponds to the registration ID that you used in the sample.
+3. Select **Enrollment Groups**. You should see a new enrollment entry that corresponds to the enrollment group ID that you used in the sample.
 
 :::zone pivot="programming-language-csharp"
 
