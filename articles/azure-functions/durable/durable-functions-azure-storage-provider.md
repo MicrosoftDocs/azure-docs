@@ -20,7 +20,16 @@ In the Azure Storage provider, all function execution is driven by Azure Storage
 
 A [task hub](durable-functions-task-hubs.md) durably persists all instance states and all messages. For a quick overview of how these are used to track the progress of an orchestration, see the [task hub execution example](durable-functions-task-hubs.md#execution-example).
 
-[!INCLUDE [durable-functions-azure-storage-task-hubs](durable-functions-azure-storage-task-hubs.md)]
+The Azure Storage provider represents the task hub in storage using the following components:
+
+* Two Azure Tables store the instance states.
+* One Azure Queue stores the activity messages.
+* One or more Azure Queues store the instance messages. Each of these so-called *control queues* represents a [partition](durable-functions-perf-and-scale.md#partition-count) that is assigned a subset of all instance messages, based on the hash of the instance ID.
+* A few extra blob containers used for lease blobs and/or large messages.
+
+For example, a task hub named `xyz` with `PartitionCount = 4` contains the following queues and tables:
+
+![Diagram showing Azure Storage provider storage storage organization for 4 control queues.](./media/durable-functions-task-hubs/azure-storage.png)
 
 Next, we describe these components and the role they play in more detail.
 
