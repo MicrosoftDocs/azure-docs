@@ -25,6 +25,17 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
 The command in the above example will create an index with TTL functionality. 
 
+The output of the command includes various metadata:
+
+```output
+{
+        "_t" : "CreateIndexesResponse",
+        "ok" : 1,
+        "createdCollectionAutomatically" : true,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 4
+}
+
  Once the index is created, the database will automatically delete any documents in that collection that have not been modified in the last 10 seconds. 
 
 > [!NOTE]
