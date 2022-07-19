@@ -8,7 +8,7 @@ ms.date: 07/12/2022
 
 # Manage your OT device inventory from an on-premises management console
 
-Use the **Device inventory** page from a on-premises management console to manage all OT and IT devices detected by sensors connected to that console. Identify new devices detected, devices that might need troubleshooting, and more.
+Use the **Device inventory** page from an on-premises management console to manage all OT and IT devices detected by sensors connected to that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
 For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
 
@@ -115,15 +115,19 @@ The new data appears in the **Device Inventory** grid.
 
 You can retrieve an extensive range of device information detected by managed sensors and integrate that information with partner systems.
 
-For example, retrieve sensor, zone, site ID, IP address, MAC address, firmware, protocol, and vendor information, and then filter that information based on any of the following:
+For example:
 
-- Authorized and unauthorized devices.
+1. Retrieve sensor, zone, site ID, IP address, MAC address, firmware, protocol, and vendor information.
 
-- Devices associated with specific sites.
+1. Filter that information based on any of the following values:
 
-- Devices associated with specific zones.
+    - Authorized and unauthorized devices.
 
-- Devices associated with specific sensors.
+    - Devices associated with specific sites.
+
+    - Devices associated with specific zones.
+
+    - Devices associated with specific sensors.
 
 For more information, see [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
 
@@ -151,7 +155,7 @@ The following table describes the device properties shown in the **Device invent
 | **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
 | **Is Authorized** | The authorization status of the device:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
 | **Is Known as Scanner** | Whether this device performs scanning-like activities in the network. |
-| **Is Programming Device** | Whether this is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device isn't a programming device. |
+| **Is Programming Device** | Whether the device is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device isn't a programming device. |
 | **Groups** | Groups in which this device participates. |
 | **Last Activity** | The last activity that the device performed. |
 | **Discovered** | When this device was first seen in the network. |

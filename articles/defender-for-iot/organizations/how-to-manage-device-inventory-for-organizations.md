@@ -43,7 +43,7 @@ For more information, see [Device inventory column reference](#device-inventory-
 
 ### Identify devices that aren't connecting successfully
 
-If you suspect that certain devices aren't actively communicating with Azure, we recommend that you verify whether those devices have communicated with Azure in a specific time period. For example:
+If you suspect that certain devices aren't actively communicating with Azure, we recommend that you verify whether those devices have communicated with Azure recently at all. For example:
 
 1. In the **Device inventory** page, make sure that the **Last activity** column is shown.
 
