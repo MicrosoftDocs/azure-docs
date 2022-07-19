@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/15/2022
+ms.date: 07/18/2022
 
 
 ms.author: justinha
@@ -24,7 +24,7 @@ Microsoft Authenticator can be used to sign in to any Azure AD account without u
 
 This authentication technology can be used on any device platform, including mobile. This technology can also be used with any app or website that integrates with Microsoft Authentication Libraries.
 
-:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png" alt-text="Screenshot that shows an example of a browser sign-in asking for the user to approve the sign-in.":::
+:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app-next.png" alt-text="Screenshot that shows an example of a browser sign-in asking for the user to approve the sign-in.":::
 
 People who enabled phone sign-in from Microsoft Authenticator see a message that asks them to tap a number in their app. No username or password is asked for. To complete the sign-in process in the app, a user must next take the following actions:
 
@@ -32,13 +32,30 @@ People who enabled phone sign-in from Microsoft Authenticator see a message that
 1. Choose **Approve**.
 1. Provide their PIN or biometric.
 
+## Multiple accounts on iOS (preview)
+
+You can enable passwordless phone sign-in for multiple accounts in Microsoft Authenticator on any supported iOS device. Consultants, students, and others with multiple accounts in Azure AD can add each account to Microsoft Authenticator and use passwordless phone sign-in for all of them from the same iOS device. 
+
+Previously, admins might not require passwordless sign-in for users with multiple accounts because it requires them to carry more devices for sign-in. By removing the limitation of one user sign-in from a device, admins can more confidently encourage users to register passwordless phone sign-in and use it as their default sign-in method.
+
+The Azure AD accounts can be in the same tenant or different tenants. Guest accounts aren't supported for multiple account sign-in from one device.
+
+>[!NOTE]
+>Multiple accounts on iOS is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+
 ## Prerequisites
 
 To use passwordless phone sign-in with Microsoft Authenticator, the following prerequisites must be met:
 
 - Recommended: Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method. Push notifications to your smartphone or tablet help the Authenticator app to prevent unauthorized access to accounts and stop fraudulent transactions. The Authenticator app automatically generates codes when set up to do push notifications so a user has a backup sign-in method even if their device doesn't have connectivity. 
 - Latest version of Microsoft Authenticator installed on devices running iOS 12.0 or greater, or Android 6.0 or greater.
-- The device that runs Microsoft Authenticator must be registered to an individual user. We're actively working to enable multiple accounts on Android. 
+- For Android, the device that runs Microsoft Authenticator must be registered to an individual user. We're actively working to enable multiple accounts on Android. 
+- For iOS, the device must be registered with each tenant where it's used to sign in. For example, the following device must be registered with Contoso and Wingtiptoys to allow all accounts to sign in:
+  - balas@contoso.com
+  - balas@wingtiptoys.com and bsandhu@wingtiptoys
+- For iOS, we recommend enabling the option in Microsoft Authenticator to allow Microsoft to gather usage data. It's not enabled by default. To enable it in Microsoft Authenticator, go to **Settings** > **Usage Data**.
+  
+  :::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/telemetry.png" alt-text="Screenshot os Usage Data in Microsoft Authenticator.":::
 
 To use passwordless authentication in Azure AD, first enable the combined registration experience, then enable users for the passwordless method.
 
@@ -128,14 +145,6 @@ An end user can be enabled for multifactor authentication (MFA) through an on-pr
 
 If the user attempts to upgrade multiple installations (5+) of Microsoft Authenticator with the passwordless phone sign-in credential, this change might result in an error.
 
-### Device registration
-
-Before you can create this new strong credential, there are prerequisites. One prerequisite is that the device on which Microsoft Authenticator is installed must be registered within the Azure AD tenant to an individual user.
-
-Currently, a device can only be enabled for passwordless sign-in in a single tenant. This limit means that only one work or school account in Microsoft Authenticator can be enabled for phone sign-in.
-
-> [!NOTE]
-> Device registration is not the same as device management or mobile device management (MDM). Device registration only associates a device ID and a user ID together, in the Azure AD directory.
 
 ## Next steps
 
