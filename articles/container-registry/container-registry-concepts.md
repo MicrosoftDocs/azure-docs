@@ -89,13 +89,13 @@ A basic manifest for a Linux `hello-world` image looks similar to the following:
 You can list the manifests for a repository with the Azure CLI command [az acr manifest list-metadata][az-acr-manifest-list-metadata]:
 
 ```azurecli
-az acr manifest list-metadata --name <acrName> --repository <repositoryName>
+az acr manifest list-metadata --name <repositoryName> --registry <acrName>
 ```
 
 For example, list the manifests for the "acr-helloworld" repository:
 
 ```azurecli
-az acr manifest list-metadata --name myregistry --repository acr-helloworld
+az acr manifest list-metadata --name acr-helloworld --registry myregistry
 ```
 
 ```output

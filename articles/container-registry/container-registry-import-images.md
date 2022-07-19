@@ -84,8 +84,8 @@ You can verify that multiple manifests are associated with this image by running
 
 ```azurecli
 az acr manifest list-metadata \
-  --name myregistry \
-  --repository hello-world
+  --name hello-world \
+  --registry myregistry
 ```
 
 To import an artifact by digest without adding a tag:

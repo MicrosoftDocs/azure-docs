@@ -108,13 +108,13 @@ sections:
           If you are on bash:
           
           ```azurecli
-          az acr manifest list-metadata --name myRegistry --repository myRepository --query "[?tags[0]==null].digest" --output tsv  | xargs -I% az acr repository delete --name myRegistry ---image myRepository@%
+          az acr manifest list-metadata --name myRepository --registry myRegistry --query "[?tags[0]==null].digest" --output tsv  | xargs -I% az acr repository delete --name myRegistry ---image myRepository@%
           ```
           
           For PowerShell:
           
           ```azurecli
-          az acr manifest list-metadata --name myRegistry --repository myRepository --query "[?tags[0]==null].digest" --output tsv | %{ az acr repository delete --name myRegistry --image myRepository@$_ }
+          az acr manifest list-metadata --name myRepository --repository myRegistry --query "[?tags[0]==null].digest" --output tsv | %{ az acr repository delete --name myRegistry --image myRepository@$_ }
           ```
           
           > [!NOTE] 

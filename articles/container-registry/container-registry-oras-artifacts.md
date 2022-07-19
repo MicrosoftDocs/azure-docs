@@ -314,9 +314,9 @@ A repository can have a list of manifests that are both tagged and untagged
 
 ```azurecli
 az acr manifest list-metadata \
-  -n $ACR_NAME \
-  --repository $REPO \
-  --detail -o jsonc
+  --name $REPO \
+  --repository $ACR_NAME \
+  --output jsonc
 ```
 
 Note the container image manifests have `"tags":`
@@ -374,8 +374,8 @@ az acr repository delete \
 
 ```azurecli
 az acr manifest list-metadata \
-  -n $ACR_NAME \
-  --repository $REPO \
+  --name $REPO \
+  --registry $ACR_NAME \
   --detail -o jsonc
 ```
 
