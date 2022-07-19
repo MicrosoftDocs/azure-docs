@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/01/2022
+ms.date: 07/27/2022
 ---
 
 # Plans and pricing for commercial marketplace offers
@@ -84,7 +84,11 @@ The commercial marketplace operates on an agency model, whereby publishers set p
 You must associate a pricing model with each plan for the following offer types. Each of these offer types have different available pricing models:
 
 - **Azure managed application**: flat rate (monthly) and usage-based pricing (metering service dimensions).
-- **Software as a service**: flat rate (monthly or annual), per user, and usage-based pricing (metering service dimensions). 
+- **Software as a service**: flat rate (1-month to 3-year terms), per user (1-month to 3-year terms), and usage-based pricing (metering service dimensions).
+
+    > [!NOTE]
+    > For flat rate and per user pricing models, customers can pay either monthly, annually, or one-time upfront for the entire 1-year, 2-year, or 3-year term.
+
 - **Azure virtual machine**: Bring your own license (BYOL) and usage-based pricing. For a usage-based pricing model, you can charge per core, per core size, or per market and core size. A BYOL license model does not allow for additional, usage-based charges.   (BYOL virtual machine offers do not require a pricing model.)
 
 An offer can have only one pricing model. For example, a SaaS offer cannot have one plan that's flat rate and another plan that’s per user. However, a SaaS offer can have some plans with flat rate with metered billing and other flat rate plans without metered billing. See specific offer documentation for detailed information.
