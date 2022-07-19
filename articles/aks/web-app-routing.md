@@ -137,7 +137,7 @@ These annotations in the service manifest would direct Web Application Routing t
 az keyvault certificate show --vault-name <MY_KEYVAULT> --name <KEYVAULT-CERTIFICATE-NAME> -o jsonc | jq .id
 ```
 
-Create a file named **samples-web-app-routing.yaml** and copy in the following YAML. On line 29-31, update `<MY_HOSTNAME>` with your DNS host name and `<MY_KEYVAULT_CERTIFICATE_URI>` with the id returned from keyvault.
+Create a file named **samples-web-app-routing.yaml** and copy in the following YAML. On line 29-31, update `<MY_HOSTNAME>` with your DNS host name and `<MY_KEYVAULT_CERTIFICATE_URI>` with the ID returned from keyvault.
 
 ```yaml
 apiVersion: apps/v1
