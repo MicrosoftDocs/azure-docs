@@ -845,7 +845,7 @@ If the property `customStatusEndpoint` property isn't specified then the `anynom
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| `mapping` | [claimMapping](#claimMapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
+| `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
 | `trustedIssuers` | string (array) | a list of DIDs allowed to issue the verifiable credential for this contract |
 
@@ -869,7 +869,7 @@ If the property `customStatusEndpoint` property isn't specified then the `anynom
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| `mapping` | [claimMapping](#claimMapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
+| `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
 
 > Supported `inputClaim` values for the `mappings` property are: `givenName`, `displayName`, `preferredLanguage`, `userPrincipalName`, `surname`, `mail`, `jobTitle`, `photo`.
@@ -937,7 +937,7 @@ example:
 |`consent` | [displayConsent](#displayconsent-type) | supplemental data when the verifiable credential is issued |
 |`claims`| [displayClaims](#displayclaims-type) array | labels for the claims included in the verifiable credential |
 
-#### displayCrendential type
+#### displayCredential type
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
@@ -1158,9 +1158,9 @@ This endpoint helps you search for specific issued verifiable credentials, check
 
 | Methods | Return Type | Description |
 | -------- | -------- | -------- |
-| [Get credential](#Get-credential) | Credential | Read properties of a Credential |
-| [Search credentials](#Search-credentials) | Credential collection  | Search a list of credentials with a specific claim value |
-| [Revoke credential](#Revoke-credential) |  | Revoke specific credential |
+| [Get credential](#get-credential) | Credential | Read properties of a Credential |
+| [Search credentials](#search-credentials) | Credential collection  | Search a list of credentials with a specific claim value |
+| [Revoke credential](#revoke-credential) |  | Revoke specific credential |
 
 ### Get credential
 This API allows you to retrieve a specific credential and check the status to see if it is revoked or not. 
