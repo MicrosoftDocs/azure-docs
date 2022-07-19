@@ -209,7 +209,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
    ```
   ### [Metric alerts](#tab/metric)
 
-  To create a metric alert rule, use the **az monitor metrics alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor metrics alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/metrics/alert?view=azure-cli-latest).  
+  To create a metric alert rule, use the **az monitor metrics alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor metrics alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/metrics/alert).  
  
   To create a metric alert rule that monitors if average Percentage CPU on a VM is greater than 90:
    ```azurecli
@@ -217,7 +217,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
    ```
    ### [Activity Log alerts](#tab/activity-log)
 
-  To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/activity-log/alert?view=azure-cli-latest).  
+  To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/activity-log/alert).  
  
   To create a new activity log alert rule, use the following commands:
 
