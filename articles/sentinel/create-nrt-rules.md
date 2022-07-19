@@ -55,7 +55,7 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
     - **Query scheduling** is not configurable, since queries are automatically scheduled to run once per minute with a one-minute lookback period. 
     - **Alert threshold** is irrelevant, since an alert is always generated.
-    - **Event grouping** configuration is not available, since events are always grouped into the alert created by the rule that captures the events. NRT rules cannot produce an alert for each event.
+    - **Event grouping** configuration is now available to a limited degree. You can choose to have an NRT rule generate an alert for each event for up to 30 events. If you choose this option and the rule results in more than 30 events, single-event alerts will be generated for the first 29 events, and a 30th alert will summarize all the events in the result set.
 
     In addition, the query itself has the following requirements:
 
