@@ -101,7 +101,7 @@ The following key applications are included in the Office 365 client app:
 - OneDrive
 - Power Apps
 - Power Automate
-- Security & Compliance Center
+- Security & compliance portal
 - SharePoint Online
 - Skype for Business Online
 - Skype and Teams Tenant Admin API
@@ -157,7 +157,7 @@ Administrators can add any Azure AD registered application to Conditional Access
 
 Some applications don't appear in the picker at all. The only way to include these applications in a Conditional Access policy is to include **All cloud apps**. 
 
-### All cloud Apps
+### All cloud apps
 
 Applying a Conditional Access policy to **All cloud apps** will result in the policy being enforced for all tokens issued to web sites and services. This option includes applications that aren't individually targetable in Conditional Access policy, such as Azure Active Directory. 
 
