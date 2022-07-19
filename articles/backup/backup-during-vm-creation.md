@@ -58,7 +58,7 @@ The Backup service creates a separate resource group (RG), different than the re
 
 Points to note:
 
-1. You can use default name of RG or customize the name according to organization requirements.
+1. You can use default name of RG or customize the name according to organizational requirements.
 
    >[!Note]
    >When Azure Backup creates an RG, a numeric is appended to the name of RG and used for restore point collection.
