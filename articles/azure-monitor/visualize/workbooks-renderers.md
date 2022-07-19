@@ -8,10 +8,12 @@ ms.author: abbyweisberg
 ---
 
 # Rendering options
+
 These rendering options can be used with grids, tiles, and graphs to produce the visualizations in optimal format.
+
 ## Column renderers
 
-| Column Renderer | Explanation | More Options |
+| Column renderer | Description | More options |
 |:------------- |:-------------|:-------------|
 | Automatic | The default - uses the most appropriate renderer based on the column type.  |  |
 | Text| Renders the column values as text. | |
@@ -36,13 +38,13 @@ These rendering options can be used with grids, tiles, and graphs to produce the
 
 If the **Link** renderer is selected or the **Make this item a link** checkbox is selected, the author can configure a link action to occur when the user selects the cell to taking the user to another view with context coming from the cell, or to open up a url. See link renderer actions for more details.
 
-## Using thresholds with links
+## Use thresholds with links
 
 The instructions below will show you how to use thresholds with links to assign icons and open different workbooks. Each link in the grid will open up a different workbook template for that Application Insights resource.
 
-1. Switch the workbook to edit mode by selecting **Edit** toolbar item.
-1. Select **Add** then **Add query**.
-1. Change the **Data source** to "JSON" and **Visualization** to "Grid".
+1. Switch the workbook to edit mode by selecting **Edit**.
+1. Select **Add** > **Add query**.
+1. Change the **Data source** to **JSON** and **Visualization** to **Grid**.
 1. Enter this query.
 
       ```json
@@ -53,33 +55,33 @@ The instructions below will show you how to use thresholds with links to assign 
         ]
       ```
 
-1. Run query.
+1. Run the query.
 1. Select **Column Settings** to open the settings.
-1. Select "name" from **Columns**.
-1. Under **Column renderer**, choose "Thresholds".
-1. Enter and choose the following **Threshold Settings**. 
+1. Select **name** from **Columns**.
+1. Under **Column renderer**, select **Thresholds**.
+1. Enter and choose the following **Threshold Settings**.
 
-   Keep the default row as is. You may enter whatever text you like. The Text column takes a String format as an input and populates it with the column value and unit if specified. For example, if warning is the column value the text can be "{0} {1} link!", it will be displayed as "warning link!".
+   Keep the default row as is. Enter whatever text you like. The Text column takes a String format as an input and populates it with the column value and unit if specified. For example, if warning is the column value, the text can be "{0} {1} link!". It will be displayed as "warning link!".
    
     | Operator | Value   | Icons   |
     |----------|---------|---------|
     | ==       | warning | Warning |
     | ==       | error   | Failed  |
 
-    ![Screenshot of Edit column settings tab with the above settings.](./media/workbooks-grid-visualizations/column-settings.png)
+    ![Screenshot that shows the Edit column settings tab with the preceding settings.](./media/workbooks-grid-visualizations/column-settings.png)
    
-1. Select the **Make this item a link** box.
+1. Select the **Make this item a link** checkbox.
      - Under **View to open**, choose **Workbook (Template)**.
-     - Under **Link value comes from**, choose **link**.
-     - Select the **Open link in Context Blade** box.
-     -  Choose the following settings in **Workbook Link Settings**
-        - Under **Template Id comes from**, choose **Column**.
-        - Under **Column** choose **link**.
+     - Under **Link value comes from**, select **link**.
+     - Select the **Open link in Context Blade** checkbox.
+     -  Choose the following settings in **Workbook Link Settings**:
+        - Under **Template Id comes from**, select **Column**.
+        - Under **Column**, select **link**.
 
-     ![Screenshot of link settings with the above settings.](./media/workbooks-grid-visualizations/make-this-item-a-link.png)
+     ![Screenshot that shows link settings with the preceding settings.](./media/workbooks-grid-visualizations/make-this-item-a-link.png)
 
 1. Select **link** from **Columns**. Under **Settings**, next to **Column renderer**, select **(Hide column)**.
-1. To change the display name of the **name** column, select the **Labels** tab. On the row with **name** as its **Column ID**, under **Column Label** enter the name you want displayed.
+1. To change the display name of the **name** column, select the **Labels** tab. On the row with **name** as its **Column ID**, under **Column Label**, enter the name you want displayed.
 1. Select **Apply**.
 
-     ![Screenshot of a thresholds in grid with the above settings.](./media/workbooks-grid-visualizations/thresholds-workbooks-links.png)
+     ![Screenshot that shows thresholds in a grid with the preceding settings.](./media/workbooks-grid-visualizations/thresholds-workbooks-links.png)
