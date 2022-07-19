@@ -1,6 +1,6 @@
 ---
 title: Introduction to file mount in Azure Synapse Analytics
-description: "Tutorial: How to use file mount/unmount API in Azure Synapse Analytics"
+description: This tutorial describes how to use the file mount/unmount API in Azure Synapse Analytics.
 author: ruixinxu 
 services: synapse-analytics 
 ms.service: synapse-analytics 
@@ -12,48 +12,50 @@ ms.reviewer: wiassaf
 ms.custom: subject-rbac-steps
 ---
 
-# How to use file mount/unmount API in Synapse 
+# How to use file mount/unmount API in Azure Synapse Analytics 
 
-Synapse studio team built two new mount/unmount APIs in the Microsoft Spark Utilities (MSSparkUtils) package, you can use mount to attach remote storage (Azure Blob Storage, Azure Data Lake Storage (ADLS) Gen2) to all working nodes (driver node and worker nodes). Once in place, you can access data in storage as if they were one the local file system with local file API. For more information, see [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md).
+The Azure Synapse Studio team built two new mount/unmount APIs in the Microsoft Spark Utilities (MSSparkUtils) package. You can use these APIs to attach remote storage (Azure Blob Storage or Azure Data Lake Storage Gen2) to all working nodes (driver node and worker nodes). After the storage is in place, you can use the local file API to ccess data in storage as if it's in the local file system. For more information, see [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md).
 
-The document will show you how to use mount/unmount API in your workspace, mainly includes below sections: 
+The article shows you how to use mount/unmount APIs in your workspace. You'll learn: 
 
-+ How to mount Azure Data Lake Storage (ADLS) Gen2 or Azure Blob Storage
-+ How to access files under mount point via local file system API 
-+ How to access files under mount point using `mssparktuils` fs API 
-+ How to access files under mount point using Spark Read API
-+ How to unmount the mount point
++ How to mount Data Lake Storage Gen2 or Blob Storage.
++ How to access files under the mount point via the local file system API. 
++ How to access files under the mount point by using the `mssparktuils fs` API. 
++ How to access files under the mount point by using the Spark Read API.
++ How to unmount the mount point.
  
 > [!WARNING]
-> + Azure Fileshare mount is temporarily disabled, you can use ADLS Gen2/blob mount following the [How to mount Gen2/blob Storage](#How-to-mount-Gen2/blob-Storage).
+> Azure file-share mount is temporarily disabled. You can use Data Lake Storage Gen2 of blob mount instead, as described in the next section.
 >
-> + Azure Data Lake storage Gen1 storage is not supported, you can migrate to ADLS Gen2 following the [Migration gudiance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using mount APIs.
+> Azure Data Lake Storage Gen1 storage is not supported. You can migrate to Data Lake Storage Gen2 following the [migration gudiance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using mount APIs.
 
 
 <a id="How-to-mount-Gen2/blob-Storage"></a>
-## How to mount storage
+## Mount storage
 
-Here we will illustrate how to mount Azure Data Lake Storage (ADLS) Gen2 or Azure Blob Storage step by step as an example, mounting blob storage works similarly. 
+This section illustrates how to mount Data Lake Storage Gen2 step by step as an example. Mounting Blob Storage works similarly. 
 
-Assuming you have one ADLS Gen2 account named `storegen2` and the account has one container name `mycontainer`, and you want to mount the `mycontainer` to `/test` of your Spark pool. 
+The example assumes you have one Data Lake Storage Gen2 account named `storegen2` and the account has one container name `mycontainer`, and you want to mount the `mycontainer` to `/test` of your Spark pool. 
 
-![Screenshot of ADLS Gen2 storage account](./media/synapse-file-mount-api/gen2-storage-account.png)
+![Screenshot of a Data Lake Storage Gen2 storage account.](./media/synapse-file-mount-api/gen2-storage-account.png)
 
-To mount container `mycontainer`, `mssparkutils` need to check whether you have the permission to access the container at first, currently we support three authentication methods to trigger mount operation, **LinkedService**, **accountKey**, and **sastoken**. 
+To mount the container called `mycontainer`, `mssparkutils` first needs to check whether you have the permission to access the container. Currently, we support three authentication methods for the trigger mount operation: `linkedService`, `accountKey`, and `sastoken`. 
 
-### Via Linked Service (recommend):
+### Mount by using a linked service (recommended)
 
-Trigger mount via linked Service is our recommend way, there won't have any security leak issue by this way, since `mssparkutils` doesn't store any secret/auth value itself, and it will always fetch auth value from linked service to request blob data from the remote storage. 
+We recommend a trigger mount via linked service. This method avoids security leaks, because `mssparkutils` doesn't store any secret/authentication values itself. Instead, `mssparkutils` always fetches authentication values from the linked service to request blob data from remote storage. 
 
-![Screenshot of link services](./media/synapse-file-mount-api/synapse-link-service.png)
+![Screenshot of linked services.](./media/synapse-file-mount-api/synapse-link-service.png)
 
-You can create linked service for ADLS Gen2 or blob storage. Currently, two authentication methods are supported when created linked service, one is using account key, another is using managed identity. 
+You can create a linked service for Data Lake Storage Gen2 or Blob Storage. Currently, two authentication methods are supported when you create a linked service: 
 
-+ **Create linked service using account key**
-    ![Screenshot of link services using account key](./media/synapse-file-mount-api/synapse-link-service-using-account-key.png)
++ **Create a linked service by using an account key**
 
-+ **Create linked service using Managed Identity**
-    ![Screenshot of link services using managed identity](./media/synapse-file-mount-api/synapse-link-service-using-managed-identity.png)
+    ![Screenshot of selections for creating a linked service by using an account key.](./media/synapse-file-mount-api/synapse-link-service-using-account-key.png)
+
++ **Create a linked service by using managed identity**
+
+    ![Screenshot of selections for creating a linked service by using managed identity.](./media/synapse-file-mount-api/synapse-link-service-using-managed-identity.png)
 
 > [!NOTE]
 > + If you create linked service using managed identity as authentication method, please make sure that the workspace MSI has the Storage Blob Data Contributor role of the mounted container. 
@@ -79,7 +81,7 @@ mssparkutils.fs.mount(
 + It's not recommended to mount a root folder, no matter which authentication method is used.
 
 
-### Via Shared Access Signature Token or Account Key  
+### Mount via shared access signature token or account key  
 
 In addition to mount with linked service, `mssparkutils` also support explicitly passing account key or [SAS (shared access signature)](/samples/azure-samples/storage-dotnet-sas-getting-started/storage-dotnet-sas-getting-started/) token as parameter to mount the target. 
 
@@ -104,11 +106,11 @@ mssparkutils.fs.mount(
 > For security reasons, do not store credentials in code.
 
 <!---
-## How to mount Azure File Shares
+## Mount Azure file shares
 > [!WARNING]
-> Fileshare mount is temporarily disable due to tech limitation issue. Please using blob/gen2 mount following above steps as workaround.
+> File-share mount is temporarily disable due to tech limitation issue. Please using blob/gen2 mount following above steps as workaround.
 
-Assuming you have a ADLS Gen2 storage account named `storegen2` and the account has one file share named `myfileshare`, and you want to mount the `myfileshare` to `/test` of your spark pool.
+Assuming you have a Data Lake Storage Gen2 storage account named `storegen2` and the account has one file share named `myfileshare`, and you want to mount the `myfileshare` to `/test` of your spark pool.
 ![Screenshot of file share](./media/synapse-file-mount-api/file-share.png)
  
 Mount azure file share only supports the account key authentication method, below is the code sample to mount **myfileshare** to `/test` and we reuse the Azure Key Value settings of `MountKV` here: 
@@ -128,7 +130,7 @@ In the above example, we pre-defined the schema format of source URL for the fil
 
    
 
-## How to access files under mount point via local file system API
+## Access files under the mount point via the local file system API
 
 Once the mount run successfully, you can access data via local file system API, while currently we limit the mount point always be created under **/synfs** folder of node and it was scoped to job/session level. 
 
@@ -144,11 +146,11 @@ f.close()
 ``` 
 --->
 
-## How to access files under mount point using mssparktuils fs API 
+## Access files under the mount point by using the mssparktuils fs API 
 
 The main purpose of the mount operation is to let customer access the data stored in remote storage account using local file system API, you can also access data using `mssparkutils fs` API with mounted path as a parameter. The path format used here is a little different. 
 
-Assuming you mounted to the ADLS Gen2 container `mycontainer` to `/test` using mount API. 
+Assuming you mounted to the Data Lake Storage Gen2 container `mycontainer` to `/test` using mount API. 
 
 When you access the data using local file system API, as above section shared, the path format is like 
 
@@ -180,33 +182,31 @@ Below are three examples to show how to access file with mount point path using 
     mssparkutils.fs.mkdirs("synfs:/49/test/newdir") 
     ``` 
 
- 
+## Access files under the mount point by using the Spark Read API 
 
-## How to access files under mount point using Spark Read API 
-
-You can also use Spark read API with mounted path as parameter to access the data after mount as well, the path format here is same with the format of using `mssparkutils fs` API: 
+You can also use Spark Read API with mounted path as parameter to access the data after mount as well, the path format here is same with the format of using `mssparkutils fs` API: 
 
 `synfs:/{jobId}/test/{filename} `
 
-Below are two code examples, one is for a mounted ADLS Gen2 storage, another for a mounted blob storage. 
+Below are two code examples, one is for a mounted Data Lake Storage Gen2 storage, another for a mounted blob storage. 
 
 <a id="read-file-from-a-mounted-gen2-storage-account"></a>
-### Read file from a mounted ADLS Gen2 storage account 
+### Read file from a mounted Data Lake Storage Gen2 storage account 
 
-The below example assumes an ADLS Gen2 storage was already mounted then read file using mount path.
+The below example assumes an Data Lake Storage Gen2 storage was already mounted then read file using mount path.
 
 ```python 
 %%pyspark 
 
-# Assume a ADLS Gen2 storage was already mounted then read file using mount path 
+# Assume a Data Lake Storage Gen2 storage was already mounted then read file using mount path 
 
 df = spark.read.load("synfs:/49/test/myFile.csv", format='csv') 
 df.show() 
 ``` 
 
-### Read file from a mounted blob storage account 
+### Read files from a mounted Blob Storage account 
 
-Notice that if you mounted a blob storage account then want to access it using `mssparkutils` or Spark API, you need to explicitly configure the sas token via spark configuration at first before try to mount container using mount API. 
+Notice that if you mounted a Blob Storage account then want to access it using `mssparkutils` or Spark API, you need to explicitly configure the sas token via spark configuration at first before try to mount container using mount API. 
 
 1. Update Spark configuration as below code example if you want to access it using `mssparkutils` or Spark API after trigger mount, you can bypass this step if you only want to access it using local file api after mount:
 
@@ -235,7 +235,7 @@ Notice that if you mounted a blob storage account then want to access it using `
         print(f.read())
     ```
 
-4. Read data from mounted blob storage through Spark read API:
+4. Read data from mounted blob storage through Spark Read API:
 
     ```python
     %%spark
@@ -244,7 +244,7 @@ Notice that if you mounted a blob storage account then want to access it using `
     df.show()
     ```
 
-## How to unmount the mount point 
+## Unmount the mount point 
 
 Unmount with your mount point, `/test` in our example: 
 
@@ -258,7 +258,7 @@ mssparkutils.fs.unmount("/test")
 
 + In further, we will support auto unmount mechanism to remove the mount point when application run finished, currently it not implemented yet. If you want to unmount the mount point to release the disk space, you need to explicitly call unmount API in your code, otherwise, the mount point will still exist in the node even after the application run finished. 
 
-+ Mounting ADLS Gen1 storage account is not supported for now. 
++ Mounting Data Lake Storage Gen1 storage account is not supported for now. 
 
 ## Next steps
 
