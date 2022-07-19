@@ -158,6 +158,8 @@
         href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: Private Link
         href: private-link.md
+      - name: Best practices
+        href: best-practices.md
     - name: Classic
       items:
         - name: Caching
