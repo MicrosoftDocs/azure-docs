@@ -108,7 +108,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 1. Select **Create**.
 
-Once deployment is complete, you can start using it to access your App Configuration store.
+Once deployment is complete, you can start using the private endpoint to access your App Configuration store.
 
 ### [Azure CLI](#tab/azure-cli)
 
