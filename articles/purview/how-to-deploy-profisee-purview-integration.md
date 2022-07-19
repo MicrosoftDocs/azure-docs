@@ -1,10 +1,10 @@
 ---
 title: Deploy Purview-Profisee Integration for MDM Master Data Management 
 description: This guide describes how to deploy Profisee-Purview better together integration as a managed MDM Master Data Managemnent solution for your data estate governance.
-author: arindamba
+author: abandyop
 ms.author: arindamba
 ms.service: purview
-ms.subservice: purview-mdm
+ms.subservice: purview-catalog
 ms.topic: how-to
 ms.date: 07/15/2022
 ms.custom: template-how-to
@@ -49,12 +49,12 @@ More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://pro
 
 
 ### Azure Architecture Guides/Reference Docs
-1. [Data Governance with Profisee and Microsoft Purview](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
-1. [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and PowerBI](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
+1. [Data Governance with Profisee and Microsoft Purview](https://docs.microsoft.com/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
+1. [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and PowerBI](https://docs.microsoft.com/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
 1. [MDM on Azure Overview](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
 
 ## Profisee <> Purview Reference Architecture
-![image](https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png)
+![Profisee <> Purview Reference Architecture](https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png)
 
 ### Business & Technical Use Case (Example)
 Let's take an example of a sample manufacturing company working across multiple data sources; it uses ADF to load the business critical data sources into Profisee, which is when Profisee works its magic and finds out the golden records and matching records and then we finally are able to enrich the metadata with Purview (updates  made by Purview on Classifications, Sensitivity Labels, Glossary and all other Catalog features are reflected seamlessly into Profisee). Finally, they connect the enriched metadata detected by Purview and cleansed/curated data by Profisee with PowerBI or Azure ML for advanced analytics.
@@ -75,33 +75,33 @@ Let's take an example of a sample manufacturing company working across multiple 
 - Make sure to give the exact same RG (Resource Group) in the deployment as you gave permissions to the managed identity in Step1.
 - Once deployment completes, click "Go to Resource Group" and open the Profisee AKS Cluster.
 
-![image](./media/how-to-deploy-profisee-purview/DeploymentProgressA.png)
+![Deployment_Progress_Intermediate](./media/how-to-deploy-profisee-purview/DeploymentProgressA.png)
 
-![image](./media/how-to-deploy-profisee-purview/DeploymentProgressFinal.png)
+![Deployment_Progress_Final](./media/how-to-deploy-profisee-purview/DeploymentProgressFinal.png)
 
-![image](./media/how-to-deploy-profisee-purview/Profisee_Managed_Identity_AzureRoleAssignments.png)
+![Profisee_Managed_Identity_AzureRoleAssignments](./media/how-to-deploy-profisee-purview/Profisee_Managed_Identity_AzureRoleAssignments.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_AppReg_Config.png)
+![ProfiseeAzureARM_Wizard_AppReg_Config](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_AppReg_Config.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_ClickOutputs_GetFinalDeploymentURL.png)
+![ProfiseeAzureARM_Wizard_ClickOutputs_GetFinalDeploymentURL](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_ClickOutputs_GetFinalDeploymentURL.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Deployment_Complete.png)
+![ProfiseeAzureARM_Wizard_Deployment_Complete](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Deployment_Complete.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Post_Deploy_ClickOpen_Resource_Group.png)
+![ProfiseeAzureARM_Wizard_Post_Deploy_ClickOpen_Resource_Group](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Post_Deploy_ClickOpen_Resource_Group.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step1_Profisee.png)
+![ProfiseeAzureARM_Wizard_Step1_Profisee](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step1_Profisee.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step2_Kubernetes.png)
+![ProfiseeAzureARM_Wizard_Step2_Kubernetes](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step2_Kubernetes.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step3_SQLServer.png)
+![ProfiseeAzureARM_Wizard_Step3_SQLServer](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step3_SQLServer.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_AzureDNS.png)
+![ProfiseeAzureARM_Wizard_Step4_AzureDNS](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_AzureDNS.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_Storage.png)
+![ProfiseeAzureARM_Wizard_Step4_Storage](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_Storage.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation.png)
+![ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation.png)
 
-![image](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation_New.png)
+![ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation_New](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation_New.png)
 
 - Populate and hydrate data to the newly installed profisee environment by installing FastApp. Go to your Profisee SaaS deployment URL and hit "/Profisee/api/client". It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client".
 
