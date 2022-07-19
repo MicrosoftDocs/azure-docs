@@ -12,16 +12,16 @@ ms.custom: ignite-fall-2021
 
 # Confidential containers on Azure
 
-Confidential containers are a set of features and capabilities to further secure your standard container workloads to achieve higher data security running them in a Trusted Execution Environment (TEE). Azure offers a portfolio of capabilities through different container compute options as discussed below.
+Confidential containers provide a set of features and capabilities to further secure your standard container workloads to achieve higher data security by running them in a Trusted Execution Environment (TEE). Azure offers a portfolio of capabilities through different confidential container options as discussed below.
 
 ## Benefits
-Confidential containers on Azure run within a enclave based TEE or VM based TEE environments. Both deployment models help achieve high isolation and memory encryption through hardware-based assurances. Confidential computing can enhance your deployment security posture by protecting your memory space through encryption through code and data integrity.
+Confidential containers on Azure run within an enclave-based TEE or VM based TEE environments. Both deployment models help achieve high-isolation and memory encryption through hardware-based assurances. Confidential computing can enhance your deployment security posture in Azure cloud by protecting your memory space through encryption.
 
-Below are the qualities of confidential containers
+Below are the qualities of confidential containers:
 
 1. Allows running existing standard container images with no code changes (lift-and-shift) within a TEE
 2. Allows establishing a hardware root of trust through remote guest attestation
-3. Provides strong assurances of data confidentiality, code integrity in a cloud environment
+3. Provides strong assurances of data confidentiality, code integrity and data integrity in a cloud environment
 4. Helps isolate your containers from other container groups/pods, as well as VM node OS kernel
 
 The diagram below will guide different offerings in this portfolio
@@ -39,7 +39,7 @@ Azure Kubernetes Service (AKS) supports adding [Intel SGX confidential computing
 
 ## Questions?
 
-If you have questions about container offerings please reach out to <acconaks@microsoft.com>.
+If you have questions about container offerings, please reach out to <acconaks@microsoft.com>.
 
 ## Next steps
 
