@@ -38,7 +38,7 @@ Product support is represented by the following symbols:
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Machine learning](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet)| Partial | Partial |
+| [Machine learning](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet)|  &#x26A0; |  &#x26A0; |
 
 ## Next steps
 
