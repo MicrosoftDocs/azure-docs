@@ -5,7 +5,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/18/2022
+ms.date: 07/19/2022
 ms.author: v-smcevoy
 ms.custom: mode-api
 ---
@@ -24,7 +24,7 @@ The following diagram shows the four-step data flow that enables the MedTech ser
 
 - Step 4 demonstrates the path needed to verify data sent to the FHIR service.  
 
-[![MedTech service data flow diagram.](media/get-started-with-iot.png)](media/get-started-with-iot.png#lightbox)
+[![MedTech service data flow diagram.](media/iot-get-started/get-started-with-iot.png)](media/iot-get-started/get-started-with-iot.png#lightbox)
 
 Follow these four steps and you'll be able to deploy the MedTech service effectively:
 
@@ -32,7 +32,7 @@ Follow these four steps and you'll be able to deploy the MedTech service effecti
 
 Before you can begin sending data from a device, you need to determine if you have the appropriate Azure subscription and Azure RBAC (Role-Based Access Control) roles. If you already have the appropriate subscription and roles, you can skip this step.
 
-- If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+- If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
 - You must have the appropriate RBAC roles for the subscription resources you want to use. The roles required for a user to complete the provisioning would be Contributor AND User Access Administrator OR Owner. The Contributor role allows the user to provision resources, and the User Access Administrator role allows the user to grant access so resources can send data between them. The Owner role can perform both. For more information, see [Azure role-based access control](/azure/cloud-adoption-framework/ready/considerations/roles).
 
