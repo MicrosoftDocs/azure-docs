@@ -136,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. In the **SAML SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    d. In the **Identity Provider Issuer** textbox, paste the **Application ID** value which you have copied from the **Overview** in Azure portal.
+    d. In the **Identity Provider Issuer** textbox, paste the **Application ID** value which you have copied from Zylo's overview page in Azure portal.
 
     e.  Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Public Certificate (from Identity Provider)** textbox.
 
