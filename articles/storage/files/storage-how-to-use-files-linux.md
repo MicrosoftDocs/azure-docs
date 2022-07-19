@@ -84,7 +84,7 @@ uname -r
         --resource-group $resourceGroupName \
         --name $storageAccountName \
         --query "primaryEndpoints.file" --output tsv | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
+    smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})
     fileHost=$(echo $smbPath | tr -d "/")
 
     nc -zvw3 $fileHost 445
@@ -92,7 +92,7 @@ uname -r
 
     If the connection was successful, you should see something similar to the following output:
 
-    ```ouput
+    ```output
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
@@ -126,7 +126,7 @@ httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
@@ -143,7 +143,7 @@ httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
@@ -160,7 +160,7 @@ httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
@@ -237,7 +237,7 @@ httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
     echo "$smbPath $mntPath cifs nofail,credentials=$smbCredentialFile,serverino,nosharesock,actimeo=30" | sudo tee -a /etc/fstab > /dev/null

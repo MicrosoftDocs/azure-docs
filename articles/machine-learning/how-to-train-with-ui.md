@@ -21,7 +21,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
 * Understanding of what a job is in Azure Machine Learning. See [how to train models with the CLI (v2)](how-to-train-cli.md).
 
@@ -37,8 +37,6 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 * Or, you may enter the job creation from the left pane. Click **+New** and select **Job**. 
 [![Azure Machine Learning studio left navigation](media/how-to-train-with-ui/left-nav-entry.png)](media/how-to-train-with-ui/left-nav-entry.png)
 
-* Or, if you're in the Experiment page, you may go to the **All jobs** tab and click **Create job**. 
-[![Experiment page entry for job creation UI](media/how-to-train-with-ui/experiment-entry.png)](media/how-to-train-with-ui/experiment-entry.png)
 
 These options will all take you to the job creation panel, which has a wizard for configuring and creating a training job. 
 
@@ -50,7 +48,7 @@ The first step in the job creation UI is to select the compute target on which y
 | --- | --- | 
 | Compute instance | [What is an Azure Machine Learning compute instance?](concept-compute-instance.md) | 
 | Compute cluster | [What is a compute cluster?](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster) | 
-| Attached Kubernetes cluster | [Configure and attach Kubernetes cluster anywhere (preview)](how-to-attach-kubernetes-anywhere.md). | 
+| Attached Compute (Kubernetes cluster) | [Configure and attach Kubernetes cluster anywhere (preview)](how-to-attach-kubernetes-anywhere.md). | 
 
 1. Select a compute type
 1. Select an existing compute resource. The dropdown shows the node information and SKU type to help your choice.

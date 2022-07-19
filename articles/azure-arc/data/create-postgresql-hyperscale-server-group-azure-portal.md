@@ -26,7 +26,7 @@ You might want read the following important topics before you proceed. (If you'r
 - [Overview of Azure Arc-enabled data services](overview.md)
 - [Connectivity modes and requirements](connectivity.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
-- [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
+- [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)
 
 If you prefer to try things out without provisioning a full environment yourself, get started quickly with [Azure Arc jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/). You can do this on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE), or in an Azure virtual machine (VM).
 
@@ -92,7 +92,7 @@ Be aware of the following considerations when you're deploying:
 
     This table is demonstrated in the following figure:
 
-    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts Postgres Hyperscale worker node parameters and associated architecture." border="false":::  
+    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts PostgreSQL Hyperscale worker node parameters and associated architecture." border="false":::  
 
     Although you can indicate *1* worker, it's not a good idea to do so. This deployment doesn't provide you with much value. With it, you get two instances of Azure Arc-enabled PostgreSQL Hyperscale: one coordinator and one worker. You don't scale out the data because you deploy a single worker. As such, you don't see an increased level of performance and scalability.
 
@@ -109,4 +109,4 @@ Be aware of the following considerations when you're deploying:
 - [Scale out your Azure Arc-enabled for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Expanding persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
-- [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
+- [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)

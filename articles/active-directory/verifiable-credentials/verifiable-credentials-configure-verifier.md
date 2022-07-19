@@ -7,12 +7,14 @@ author: barclayn
 manager: rkarlin
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 06/16/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
 
 # Configure Azure AD Verifiable Credentials verifier (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 In [Issue Azure AD Verifiable Credentials from an application (preview)](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Azure Active Directory (Azure AD) tenant. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
 
@@ -80,7 +82,7 @@ Create a client secret for the registered application you created. The sample ap
 
     1. Under **Expires**, select a duration for which the secret is valid (for example, six months). Then select **Add**.
 
-    1. Record the secret's **Value**. You'll use this value for configuration in a later step. The secret’s value will not be displayed again, and is not retrievable by any other means, so you should record it as soon as it is visible.
+    1. Record the secret's **Value**. This value is needed in a later step. The secret’s value won't be displayed again, and isn't retrievable by **any** other means, so you should record it once it's visible.
 
 At this point, you should have all the required information that you need to set up your sample application.
 
@@ -90,7 +92,7 @@ Now make modifications to the sample app's issuer code to update it with your ve
 
 1. In the *active-directory-verifiable-credentials-dotnet-main* directory, open **Visual Studio Code**. Select the project inside the *1. asp-net-core-api-idtokenhint* directory.
 
-1. Under the project root folder, open the *appsettings.json* file. This file contains information about your credentials in Azure AD Verifiable Credentials. Update the following properties with the information that you have previously recorded during the earlier steps.
+1. Under the project root folder, open the *appsettings.json* file. This file contains information about your credentials in Azure AD Verifiable Credentials. Update the following properties with the information that you collected during earlier steps.
 
     1. **Tenant ID**: Your tenant ID
     1. **Client ID**: Your client ID

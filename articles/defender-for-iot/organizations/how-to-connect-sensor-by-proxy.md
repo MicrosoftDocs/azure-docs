@@ -25,7 +25,7 @@ The following diagram shows data going from Microsoft Defender for IoT to the Io
 
 ## Set up your system
 
-For this scenario we will be installing, and configuring the latest version of [Squid](http://www.squid-cache.org/) on an Ubuntu 18 server.
+For this scenario we'll be installing, and configuring the latest version of [Squid](http://www.squid-cache.org/) on an Ubuntu 18 server.
 
 > [!Note]
 > Microsoft Defender for IoT does not offer support for Squid or any other proxy service.

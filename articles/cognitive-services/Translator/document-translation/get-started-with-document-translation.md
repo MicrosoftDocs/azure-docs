@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 06/23/2022
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -129,8 +129,8 @@ The following headers are included with each Document Translator API request:
 
 * The POST request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`
 * The POST request body is a JSON object named `inputs`.
-* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs
-* The `prefix` and `suffix` fields (optional) are used to filter documents in the container including folders.
+* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
+* The `prefix` and `suffix` are case-sensitive strings to filter documents in the source path for translation. The `prefix` field is often used to delineate subfolders for translation. The `suffix` field is most often used for file extensions.
 * A value for the  `glossaries`  field (optional) is applied when the document is being translated.
 * The `targetUrl` for each target language must be unique.
 
@@ -196,10 +196,7 @@ The following headers are included with each Document Translator API request:
         {
             "source": {
                 "sourceUrl": "https://myblob.blob.core.windows.net/source",
-                "filter": {
-                    "prefix": "myfolder/"
-                }
-            },
+             },
             "targets": [
                 {
                     "targetUrl": "https://myblob.blob.core.windows.net/target",
@@ -358,7 +355,7 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
 
         private static readonly string key = "<YOUR-KEY>";
 
-        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
+        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"language\": \"en\"}, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
 
         static async Task Main(string[] args)
         {
@@ -407,9 +404,7 @@ let data = JSON.stringify({"inputs": [
       "source": {
           "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
           "storageSource": "AzureBlob",
-          "language": "en",
-          "filter":{
-              "prefix": "Demo_1/"
+          "language": "en"
           }
       },
       "targets": [
@@ -458,9 +453,7 @@ payload= {
             "source": {
                 "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
                 "storageSource": "AzureBlob",
-                "language": "en",
-                "filter":{
-                    "prefix": "Demo_1/"
+                "language": "en"
                 }
             },
             "targets": [
@@ -502,7 +495,7 @@ public class DocumentTranslation {
 
     public void post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\n \"filter\": {\n  \"prefix\": \"Demo_1\"\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
+        RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
         Request request = new Request.Builder()
                 .url(path).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
@@ -542,7 +535,7 @@ key := "<YOUR-KEY>"
 uri := endpoint + "/batches"
 method := "POST"
 
-var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS","storageSource":"AzureBlob","language":"en","filter":{"prefix":"Demo_1/"}},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
+var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS","storageSource":"AzureBlob","language":"en"},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
 
 req, err := http.NewRequest(method, endpoint, bytes.NewBuffer(jsonStr))
 req.Header.Add("Ocp-Apim-Subscription-Key", key)

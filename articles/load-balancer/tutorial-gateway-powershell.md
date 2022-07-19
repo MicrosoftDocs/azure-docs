@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a gateway load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using Azure PowerShell.
-author: greg-lindsay
-ms.author: greglin
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/17/2021

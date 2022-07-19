@@ -29,7 +29,6 @@ After you create an Azure Front Door Standard/Premium profile, the default front
 ## Add a new custom domain
 
 > [!NOTE]
-> * When using Azure DNS, creating Apex domains isn't supported on Azure Front Door currently. There are other DNS providers that support CNAME flattening or DNS chasing that will allow APEX domains to be used for Azure Front Door Standard/Premium.
 > * If a custom domain is validated in one of the Azure Front Door Standard, Premium, classic or classic Microsoft CDN profiles, then it can't be added to another profile.
 
 A custom domain is managed by Domains section in the portal. A custom domain can be created and validated before association to an endpoint. A custom domain and its subdomains can be associated with only a single endpoint at a time. However, you can use different subdomains from the same custom domain for different Front Doors. You can also map custom domains with different subdomains to the same Front Door endpoint.
@@ -75,8 +74,9 @@ A custom domain is managed by Domains section in the portal. A custom domain can
 | Internal error | If you see this error, retry by clicking the **Refresh** or **Regenerate** buttons. If you're still experiencing issues, raise a support request. |
 
 > [!NOTE]
-> 1. If the **Regenerate** button doesn't work, delete and recreate the domain.
-> 2. If the domain state doesn't reflect as expected, select the **Refresh** button.
+> 1. The default TTL for TXT record is 1 hour. When you need to regenerate the TXT record for re-validation, please pay attention to the TTL for the previous TXT record. If it doesn't expire, the validation will fail until the previous TXT record expires. 
+> 2. If the **Regenerate** button doesn't work, delete and recreate the domain.
+> 3. If the domain state doesn't reflect as expected, select the **Refresh** button.
 
 ## Associate the custom domain with your Front Door Endpoint
 

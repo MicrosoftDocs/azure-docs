@@ -10,7 +10,7 @@ For important details on what this service does, how it works, and frequently as
 ### On-premises prerequisites
 
  - The application relies upon a SQL database, in which records for users can be created, updated, and deleted.
- - A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target database system, and with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) and [Azure](/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
+ - A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target database system, and with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
  - The computer should have .NET Framework 4.7.2 and an ODBC driver for the SQL database.
 
 Configuration of the connection to the application's database is done via a wizard. Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. Use the following information to guide you in your configuration.
@@ -30,7 +30,7 @@ Note: The table-based method of the generic SQL connector requires that column n
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
- - The Hybrid identity administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
+ - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Application Administrator roles for configuring provisioning in the Azure portal.
 
 ## Prepare the sample database
 
@@ -122,7 +122,7 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
      >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
  1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
  1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
- 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. Hybrid identity administrator or global administrator is required.
+ 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The Hybrid Identity Administrator or Global Administrator role is required.
  1. Select **Confirm** to confirm the installation was successful.
  1. Sign in to the Azure portal.
  1. Go to **Enterprise applications** > **Add a new application**.
@@ -287,7 +287,7 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
 Now you need to map attributes between the representation of the user in Azure AD and the representation of a user in the on-premises application's SQL database.
 
 #### Configure attribute mapping
- 1. In the Azure AD portal, under **Enterprise applications**, select the the **On-premises ECMA app** application, and then the **Provisioning** page.
+ 1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then the **Provisioning** page.
  2. Select **Edit provisioning**, and wait 10 seconds.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.
      ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)</br>
@@ -311,7 +311,12 @@ Now you need to map attributes between the representation of the user in Azure A
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and the attribute mapping configured, you can move on to configuring who's in scope for provisioning.
 
 >[!IMPORTANT]
->If you were signed in using a Hybrid identity administrator role, you need to sign-out and sign-in with an account that has the app administrator or global administrator role, for this section.  The Hybrid identity administrator role does not have permissions to assign users to applications.
+>If you were signed in using a Hybrid Identity Administrator role, you need to sign-out and sign-in with an account that has the Application Administrator, Cloud Application Administrator or Global Administrator role, for this section.  The Hybrid Identity Administrator role does not have permissions to assign users to applications.
+
+
+If there are existing users in the SQL database, then you should create application role assignments for those existing users. To learn more about how to create application role assignments in bulk, see [governing an application's existing users in Azure AD](../articles/active-directory/governance/identity-governance-applications-existing-users.md).
+
+Otherwise, if there are no current users of the application, then select a test user from Azure AD who will be provisioned to the application.
 
  1. In the Azure portal, select **Enterprise applications**.
  2. Select the **On-premises ECMA app** application.

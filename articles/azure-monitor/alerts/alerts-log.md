@@ -12,10 +12,15 @@ ms.reviewer: yanivlavi
 
 This article shows you how to create log alert rules and manage your alert instances. Azure Monitor log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resource logs at a set frequency and fire an alert based on the results. Rules can trigger one or more actions using [alert processing rules](alerts-action-rules.md) and [action groups](./action-groups.md). Learn the concepts behind log alerts [here](alerts-types.md#log-alerts).
 
-When an alert is triggered by an alert rule, 
-- Target: A specific Azure resource to monitor.
-- Criteria: Logic to evaluate. If met, the alert fires.  
-- Action: Notifications or automation - email, SMS, webhook, and so on.
+You create an alert rule by combining:
+ - The resource(s) to be monitored.
+ - The signal or telemetry from the resource
+ - Conditions
+
+And then defining these elements of the triggered alert:
+ - Alert processing rules
+ - Action groups
+
 You can also [create log alert rules using Azure Resource Manager templates](../alerts/alerts-log-create-templates.md).
 ## Create a new log alert rule in the Azure portal
 
@@ -56,7 +61,7 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 
     |Field  |Description  |
     |---------|---------|
-    |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the Azure Resource ID column makes the specified resource into the alert target. If an Resource ID column is detected, it is selected automatically and changes the context of the fired alert to the record's resource.  |
+    |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the Azure Resource ID column makes the specified resource into the alert target. If a Resource ID column is detected, it is selected automatically and changes the context of the fired alert to the record's resource.  |
     |Operator|The operator used on the dimension name and value.  |
     |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
 
@@ -80,13 +85,13 @@ You can also [create log alert rules using Azure Resource Manager templates](../
    |---------|---------|
    |Number of violations|The number of violations that have to occur to trigger the alert.|
    |Evaluation period|The amount of time within which those violations have to occur. |
-   |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range.| 
+   |Override query time range| Enter a value in this field if the alert evaluation period is different than the query time range.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than 2 days, the 2 day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to 2 days of data.<br> If the query requires more data than the alert evaluation, and there is no **ago** command in the query, you can change the time range manually.| 
 
    :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
-    :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
+   :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
 
 1. From this point on, you can select the **Review + create** button at any time. 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
@@ -113,37 +118,17 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 > [!NOTE]
 > This section above describes creating alert rules using the new alert rule wizard. 
 > The new alert rule experience is a little different than the old experience. Please note these changes:
-> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited and error prone solution. To get detailed context information about the alert so that you can decide on the appropriate action :
->   - The recommended best practice it to use [Dimensions](alerts-unified-log.md#split-by-alert-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
->    - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
->    - If you need the raw search results or for any other advanced customizations, use Logic Apps.
+> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited solution, since the email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results.
+>    To get detailed context information about the alert so that you can decide on the appropriate action :
+>     - We recommend using [Dimensions](alerts-unified-log.md#split-by-alert-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
+>     - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
+>     - If you need the raw search results or for any other advanced customizations, use Logic Apps.
 > - The new alert rule wizard does not support customization of the JSON payload.
 >   - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static parameters and associated values to the webhook actions triggered by the alert.
 >    - For more advanced customizations, use Logic Apps.
 > - The new alert rule wizard does not support customization of the email subject.
 >     - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to trigger an alert of the desired resource using the resource id column.
 >     - For more advanced customizations, use Logic Apps.
-
-## Enable recommended out-of-the-box alert rules in the Azure portal (preview)
-> [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for VMs.
-
-If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can enable our recommended out-of-the-box alert rules. 
-
-:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
-
-The system compiles a list of recommended alert rules based on:
-- The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
-- Telemetry that tells us what customers commonly alert on for this resource.
-
-To enable recommended alert rules:
-1. On the **Alerts** page, select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
-1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like.
-1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
-1. Select **Enable**.
-
-:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-rule-pane.jpg" alt-text="Screenshot of recommended alert rules pane."::: 
-
 ## Manage alert rules in the Alerts portal
 
 > [!NOTE]

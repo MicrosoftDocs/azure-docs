@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2022
+ms.date: 06/23/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Assign sensitivity labels to Microsoft 365 groups in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports applying sensitivity labels published by the [Microsoft Purview compliance portal](https://compliance.microsoft.com) to Microsoft 365 groups. Sensitivity labels apply to group across services like Outlook, Microsoft Teams, and SharePoint. For more information about Microsoft 365 apps support, see [Microsoft 365 support for sensitivity labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD), part of Microsoft Entra, supports applying sensitivity labels published by the [Microsoft Purview compliance portal](https://compliance.microsoft.com) to Microsoft 365 groups. Sensitivity labels apply to group across services like Outlook, Microsoft Teams, and SharePoint. For more information about Microsoft 365 apps support, see [Microsoft 365 support for sensitivity labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > To configure this feature, there must be at least one active Azure Active Directory Premium P1 license in your Azure AD organization.
@@ -33,7 +33,7 @@ To apply published labels to groups, you must first enable the feature. These st
     ```powershell
     Install-Module AzureADPreview
     Import-Module AzureADPreview
-    Connect-AzureAD
+    AzureADPreview\Connect-AzureAD
     ```
 
     In the **Sign in to your account** page, enter your admin account and password to connect you to your service, and select **Sign in**.
