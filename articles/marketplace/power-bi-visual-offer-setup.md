@@ -14,8 +14,6 @@ ms.date: 07/20/2022
 
 This article describes how to use Partner Center to submit a Power BI visual offer to [Microsoft AppSource](https://appsource.microsoft.com) for others to discover and use.
 
-Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
-
 ## Before you begin
 
 Before you can publish a Power BI visual offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
