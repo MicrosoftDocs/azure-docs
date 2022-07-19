@@ -95,12 +95,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Arc (Microsoft.HybridCompute) / hybridcompute | privatelink.his.arc.azure.com<br />privatelink.guestconfiguration.azure.com | his.arc.azure.com<br/>guestconfiguration.azure.com |
 | Azure Media Services (Microsoft.Media) / keydelivery, liveevent, streamingendpoint | privatelink.media.azure.net | media.azure.net |
 | Azure Data Explorer (Microsoft.Kusto) | privatelink.{region}.kusto.windows.net | {region}.kusto.windows.net |
-<<<<<<< HEAD
-| Azure Static Web Apps (Microsoft.Web/Staticsites) / staticSites | privatelink.azurestaticapps.net | azurestaticapps.net |
-=======
 | Azure Static Web Apps (Microsoft.Web/staticSites) / staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 | Azure Migrate (Microsoft.Migrate) / migrate projects, assessment project and discovery site | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
->>>>>>> 7cea21b341c6212108392cbf77878ff2afee9172
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
 
