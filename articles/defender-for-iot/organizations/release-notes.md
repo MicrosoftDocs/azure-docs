@@ -87,7 +87,7 @@ Defender for IoT alerts in the Azure portal and the sensor console now show the 
 
 - **First detection**. Defines the first time the alert was detected in the network.
 
-- **Last activity**. Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication. On the sensor console, replaces the legacy **Last seen** column.
+- **Last activity**. Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication.
 
 The **First detection** and **Last activity** columns aren't displayed by default. Add them to your **Alerts** page as needed.
 
