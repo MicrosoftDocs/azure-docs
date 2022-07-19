@@ -58,7 +58,7 @@ additionalContent:
         - title: Video
           links:
             - text: Combining OpenAI models with the power of Azure
-              url: https://docs.microsoft.com/shows/ai-show/build-recap-combining-openai-models-with-the-power-of-azure
+              url: /shows/ai-show/build-recap-combining-openai-models-with-the-power-of-azure
         - title: Reference
           links:
             - text: REST API

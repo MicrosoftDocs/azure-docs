@@ -147,7 +147,7 @@ landingContent:
           - text: Setting up SMT server for SUSE Linux
             url: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Buy an SAP HANA Large Instances reservation
-            url: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
+            url: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
 
 # card 4
   - title: BareMetal Infrastructure for NC2 on Azure
@@ -169,7 +169,7 @@ landingContent:
          - text: Requirements
            url: workloads/nc2-public-preview/requirements.md
          - text: Supported instances and regions
-           url: /nc2-public-preview/supported-instances-and-regions.md
+           url: ./workloads/nc2-public-preview/supported-instances-and-regions.md
          - text: SKUs
            url: workloads/nc2-public-preview/skus.md
       - linkListType: architecture
@@ -180,5 +180,3 @@ landingContent:
         links:
          - text: Solution design
            url: workloads/nc2-public-preview/solution-design.md
-
-

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/20/2022
+ms.date: 07/13/2022
 ms.author: ryanwi
 ms.reviewer: shkhalid, udayh, vakarand
 ms.custom: aaddev 
@@ -29,7 +29,7 @@ You use workload identity federation to configure an Azure AD app registration t
 
 ## Supported scenarios
 > [!NOTE]
-> Azure AD-issued tokens might not be used for federated identity flows.
+> Azure AD issued tokens may not be used for federated identity flows. The federated identity credentials flow does not support tokens issued by Azure AD.
 
 The following scenarios are supported for accessing Azure AD protected resources using workload identity federation:
 

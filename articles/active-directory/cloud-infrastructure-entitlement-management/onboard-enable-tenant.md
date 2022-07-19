@@ -27,12 +27,11 @@ To enable Permissions Management in your organization:
 
 > [!NOTE]
 > During public preview, Permissions Management doesn't perform a license check.
+> The public preview environment will only be available until October 7th, 2022. You will be no longer be able view or access your configuration and data in the public preview environment after that date.
+> Once you complete all the steps and confirm to use Microsoft Entra Permissions Management, access to the public preview environment will be lost. You can take a note of your configuration before you start. 
+> To start using generally available Microsoft Entra Permissions Management, you must purchase a license or begin a trial. From the public preview console, initiate the workflow by selecting Start.
 
-## View a training video on enabling Permissions Management
 
-- To view a video on how to enable Permissions Management in your Azure AD tenant, select [Enable Permissions Management in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
-- To view a video on how to configure and onboard AWS accounts in Permissions Management, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?v=R6K21wiWYmE).
-- To view a video on how to configure and onboard GCP accounts in Permissions Management, select [Configure and onboard GCP accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
 
 
 ## How to enable Permissions Management on your Azure AD tenant

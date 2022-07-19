@@ -30,11 +30,11 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Design for zero trust model
-            url: /azure/architecture/framework/mission-critical/mission-critical-security
+            url: /azure/architecture/framework/mission-critical/mission-critical-security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
           - text: Implement zero trust
-            url: https://docs.microsoft.com/security/zero-trust/
+            url: /security/zero-trust/
 
   # Card
   - title: Protect against ransomware and extortion 
