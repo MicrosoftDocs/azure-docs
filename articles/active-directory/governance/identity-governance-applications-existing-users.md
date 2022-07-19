@@ -41,10 +41,7 @@ In the second scenario, an application doesn't solely rely on Azure AD as its id
 
 In some cases, an application might support multiple identity providers or have its own built-in credential storage. This scenario is described as Pattern C in [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md). 
 
-It might not be feasible to remove other identity providers or local credential authentication from the application. In that case, if you want to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent:
-
-- The access by users of the application.
-- Those users who don't rely on Azure AD for authentication. 
+It might not be feasible to remove other identity providers or local credential authentication from the application. In that case, if you want to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent application users who don't rely on Azure AD for authentication.
 
 Having these assignments is necessary if you plan to review all users with access to the application, as part of an access review.
 
@@ -62,7 +59,7 @@ In Azure AD, a service principal (`ServicePrincipal`) represents an application 
 
 You might also be using [Azure AD entitlement management](entitlement-management-overview.md) access packages to give users time-limited access to the application. In entitlement management, `AccessPackage` contains one or more resource roles, potentially from multiple service principals. `AccessPackage` also has assignments (`Assignment`) for users to the access package. 
 
-When you create an assignment for a user to an access package, Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` instance for the user to each application. For more information, see the [Manage access to resources in Azure AD entitlement management](/powershell/microsoftgraph/tutorial-entitlement-management) tutorial on how to create access packages through PowerShell.
+When you create an assignment for a user to an access package, Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` instances for the user to each application. For more information, see the [Manage access to resources in Azure AD entitlement management](/powershell/microsoftgraph/tutorial-entitlement-management) tutorial on how to create access packages through PowerShell.
 
 ## Before you begin
 
