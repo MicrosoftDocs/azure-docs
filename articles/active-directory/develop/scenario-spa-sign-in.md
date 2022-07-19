@@ -26,7 +26,7 @@ Before you can get tokens to access APIs in your application, you need an authen
 
 You can also optionally pass the scopes of the APIs for which you need the user to consent at the time of sign-in.
 
-If your application already has access to an authenticated user context or ID token, you can skip the login step and directly acquire tokens. For details, see [SSO with user hint](msal-js-sso.md#with-user-hint).
+If your application already has access to an authenticated user context or ID token, you can skip the login step, and directly acquire tokens. For details, see [SSO with user hint](msal-js-sso.md#with-user-hint).
 
 ## Choosing between a pop-up or redirect experience
 
@@ -572,7 +572,7 @@ function App() {
 
 ## Sign-out with a redirect
 
-MSAL.js provides a `logout` method in v1, and `logoutRedirect` method in v2, that clears the cache in browser storage and redirects the window to the Azure AD sign-out page. After sign-out, Azure AD redirects back to the page that invoked logout by default.
+MSAL.js provides a `logout` method in v1, and `logoutRedirect` method in v2 that clears the cache in browser storage and redirects the window to the Azure AD sign-out page. After sign-out, Azure AD redirects back to the page that invoked logout by default.
 
 You can configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect URI in your application registration.
 
