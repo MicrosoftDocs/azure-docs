@@ -11,7 +11,7 @@ ms.date: 07/27/2022
 
 # Azure Marketplace listing guidelines
 
-This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace. All offers must meet the [listing requirements](#listing-requirements-for-all-offers) listed in this article. Use the links on the right to navigate to additional requirements and checklists for specific offer types.
+This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace. All offers must meet the [listing requirements](#listing-requirements-for-most-offers) listed in this article. Use the links on the right to navigate to additional requirements and checklists for specific offer types.
 
 ## Listing requirements for most offers
 
@@ -32,13 +32,13 @@ This article explains the requirements and guidelines for listing new offers and
 [1] Doesn’t apply to Consulting service and Power BI app offers
 [2] Doesn’t apply to Consulting service offers
 
-## Trial offer requirements
+## Listing requirements for trial offers
 
 | No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
 |  | List status (Listing option) | The link must lead to a customer-led *Trial* experience. | Other listing options (for example, *Buy Now*) are also available. |
 
-## SaaS application requirements
+## Listing requirements for SaaS applications
 
 | No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
@@ -54,7 +54,7 @@ This article explains the requirements and guidelines for listing new offers and
 | 10 | Contacts: Solution support and help | <ul><li>Engineering contact name: The name of the engineering contact for your app. This contact will receive technical communications from Microsoft.</li><li>Engineering contact email: The email address of the engineering contact for your app.</li><li>Engineering contacts phone: The phone number of the engineering contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support contact name: The name of the support contact for your app. This contact will receive support-related communications from Microsoft.</li><li>Support contact email: The email address of the support contact for your app.</li><li>Support contact phone: The phone number of the support contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support URL: The URL of your support page. | <ul><li>All support methods are listed.</li><li>Paid support offered free during the *Trial* or *Test Drive* period. |
 | 11 | Legal |<ul><li>Privacy policy URL: The URL for your app's privacy policy in the Privacy policy URL field in the CPP.</li><li>Terms of use: The terms of use of your app. Customers are required to accept these terms before they can try your app. |    Policies or terms are available via a public URL site. |
 
-## Container offer requirements
+## Listing requirements for Container offers
 
 | No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
@@ -63,7 +63,7 @@ This article explains the requirements and guidelines for listing new offers and
 | 3 | Marketplace artifacts | Logos are displayed correctly. |<ul><li>Logos: Small (48 x 48 px, optional), Medium (90 x 90 px, optional), and Large (from 216 x 216 to 350 x 350 px, required).</li><li>Screenshot (max. 5): Requires a .PNG image with a resolution of 1280 x 720 pixels.|
 | 4 | Lead management |<ul><li>Lead management: Select the system where your leads will be stored.</li><li>See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. | |
 
-## Consulting offer requirements
+## Listing requirements for Consulting service offers
 
 | No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
