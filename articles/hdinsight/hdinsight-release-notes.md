@@ -26,7 +26,7 @@ HDInsight uses safe deployment practices which involve gradual region deployment
 
 ...
 
-![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png)**New Feature**
+![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) # New Feature
 
 **Attach external disks in HDI Hadoop/Spark clusters.**
 
@@ -36,7 +36,7 @@ The new feature allows you to add more disks to the HDI cluster and add the disk
 - Add validation to the number of disks which to each VM.
 - Newly added disks can be updated in node manager configurations.
 
-![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png)**Fixed**
+![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) # Fixed
 
 #### **Log analytics**
 
@@ -49,12 +49,6 @@ Customers using OMS version 13 need to install OMS version 14 to meet the securi
 ## Other bug fixes
 
 #### TEZ bug fixes
-
-<style>
-td, th {
-   border: none!important;
-}
-</style>
 
 | Bug Fixes|Apache JIRA|
 |---|---|
