@@ -32,13 +32,13 @@ For Pay-As-You-Go, Free Trial, Azure Pass, and Azure for Students subscription o
 
 | Resource | Memory Optimized cores | GPU cores | 
 | -------- | ------------- | ------------- |
-| Synapse Spark cores in a Synapse workpsace | 12 | 48 |
+| Spark cores in a Synapse workpsace | 12 | 48 |
 
 For other subscription offer types:
 
 | Resource | Memory Optimized cores | GPU cores | 
 | -------- | ------------- | ------------- |
-| Synapse Spark cores in a Synapse workpsace | 50 | 50 |
+| Spark cores in a Synapse workpsace | 50 | 50 |
 
 ### Azure Synapse limits for pipelines
 
