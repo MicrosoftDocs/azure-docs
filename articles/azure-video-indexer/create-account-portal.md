@@ -41,10 +41,9 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Using the search bar at the top, enter **"Azure Video Indexer"**.
-1. Select on *Azure Video Indexer* under *Services*.
+1. Select *Azure Video Indexer* under *Services*.
 
     ![Image of search bar](media/create-account-portal/search-bar.png)
-
 1. Select **Create**.
 1. In the **Create an Azure Video Indexer resource** section enter required values. 
 
@@ -71,14 +70,14 @@ You can use the Azure portal to validate the Azure Video Indexer account and oth
 
 ![Image of Azure Video Indexer overview blade.](media/create-account-portal/avi-overview.png)
 
-Select on *Explore Azure Video Indexer's portal* to view your new account on the [Azure Video Indexer portal](https://aka.ms/vi-portal-link).
+Select *Explore Azure Video Indexer's portal* to view your new account on the [Azure Video Indexer portal](https://aka.ms/vi-portal-link).
 
 #### Unique essentials 
+
 |Name|Description|
 |---|---|
 |Status| When the resource is connected properly, status is **Active**. When there's a problem with the connection between the managed identity and the Media Service instance status will be *Connection to Azure Media Services failed*. Contributor role assignment on the Media Services should be added to the proper managed identity.|
 |Managed identity |The name of the default managed identity, user-assigned or system-assigned. The default managed identity can be updated using the *Change* button.|
-
 
 ### Management API
 
