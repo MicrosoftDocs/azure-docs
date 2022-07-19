@@ -283,7 +283,7 @@ productDirectory:
     # Card
     - title: Azure Video Indexer
       summary: Unlock video insights
-      imageSrc: ../applied-ai-services/media/video-indexer.svg
+      imageSrc: applied-ai-services/media/video-indexer.svg
       azureCategories:
         - ai-machine-learning
         - media
