@@ -2,7 +2,7 @@
 title: Enable backup when you create an Azure VM
 description: Describes how to enable backup when you create an Azure VM with Azure Backup.
 ms.topic: conceptual
-ms.date: 07/01/2022
+ms.date: 07/19/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -58,7 +58,7 @@ The Backup service creates a separate resource group (RG), different than the re
 
 Points to note:
 
-1. You can either use the default name of the RG, or edit it according to your company requirements.
+1. You can use default name of RG or customize the name according to organization requirements.
 
    >[!Note]
    >When Azure Backup creates an RG, a numeric is appended to the name of RG and used for restore point collection.
