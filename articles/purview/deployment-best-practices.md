@@ -5,7 +5,7 @@ author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 07/19/2022
 ---
 # Microsoft Purview (formerly Azure Purview) deployment best practices
 
@@ -172,21 +172,17 @@ In this phase, Microsoft Purview must be created and configured for a small set 
 |Task|Detail|Duration|
 |---------|---------|---------|
 |Gather & agree on requirements|Discussion with all stakeholders to gather a full set of requirements. Different personas must participate to agree on a subset of requirements to complete for each phase of the project.|One Week|
-|Navigating Microsoft Purview|Understand how to use Microsoft Purview from the home page.|One Day|
-|Configure ADF for lineage|Identify key pipelines and data assets. Gather all information required to connect to an internal ADF account.|One Day|
-|Scan a data source such as Azure Data Lake Storage Gen2 or a SQL server.|Add the data source and set up a scan. Ensure the scan successfully detects all assets.|Two Day|
-|Search and browse|Allow end users to access Microsoft Purview and perform end-to-end search and browse scenarios.|One Day|
+|[Navigating the Microsoft Purview governance portal](use-azure-purview-studio.md)|Understand how to use Microsoft Purview from the home page.|One Day|
+|[Configure ADF for lineage](how-to-link-azure-data-factory.md)|Identify key pipelines and data assets. Gather all information required to connect to an internal ADF account.|One Day|
+|Scan a data source such as [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md) or a [SQL server.](tutorial-register-scan-on-premises-sql-server.md)|Add the data source and set up a scan. Ensure the scan successfully detects all assets.|Two Day|
+|[Search](how-to-search-catalog.md) and [browse](how-to-browse-catalog.md)|Allow end users to access Microsoft Purview and perform end-to-end search and browse scenarios.|One Day|
 
 #### Other helpful links
 
 - [Create a Microsoft Purview account](create-catalog-portal.md)
-- [How to use the governance portal](use-azure-purview-studio.md)
 - [Create a collection](quickstart-create-collection.md)
 - [Concept: Permissions and access](catalog-permissions.md)
-- [Tutorial: Register and scan a SQL server](tutorial-register-scan-on-premises-sql-server.md)
-- [Connect to Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)
-- [How to connect to Azure Data Factory to track data lineage](how-to-link-azure-data-factory.md)
-- [Browse the data catalog](how-to-browse-catalog.md)
+- [Microsoft Purview product glossary](reference-azure-purview-glossary.md)
 
 #### Acceptance criteria
 
@@ -273,9 +269,16 @@ The above phases should be followed to create an effective data lifecycle manage
 |Task|Detail|Duration|
 |---------|---------|---------|
 |Scan production data sources with Firewall enabled|If this is optional when firewall is in place but it’s important to explore options to hardening your infrastructure.|1-5 Days|
-|Enable Private Link|If this is optional when Private Link is used. Otherwise, you can skip this as it’s a must-have criterion when Private is enabled.|1-5 Days|
-|Create automated workflow|Workflow is important to automate process such as approval, escalation, review and issue management.|2-3 Weeks|
-|Operation documentation|Data governance isn't a one-time project. It's an ongoing program to fuel data-driven decision making and creating opportunities for business. It's critical to document key procedure and business standards.|One Week|
+|[Enable Private Link](catalog-private-link.md)|If this is optional when Private Link is used. Otherwise, you can skip this as it’s a must-have criterion when Private is enabled.|1-5 Days|
+|[Create automated workflow](concept-workflow.md)|Workflow is important to automate process such as approval, escalation, review and issue management.|2-3 Weeks|
+|Create operation documentation|Data governance isn't a one-time project. It's an ongoing program to fuel data-driven decision making and creating opportunities for business. It's critical to document key procedure and business standards.|One Week|
+
+#### Other helpful links
+
+- [Manage workflow runs](how-to-workflow-manage-runs.md)
+- [Workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)
+- [Manage integration runtimes](manage-integration-runtimes.md)
+- [Request access to a data asset](how-to-request-access.md)
 
 #### Acceptance criteria
 
@@ -289,8 +292,9 @@ More hardening steps can be taken:
 
 * Increase security posture by enabling scan on firewall resources or use Private Link
 * Fine-tune scope scan to improve scan performance
-* Use REST APIs to export critical metadata and properties for backup and recovery
-* Use workflow to automate ticketing and eventing to avoid human errors
+* [Use REST APIs](tutorial-atlas-2-2-apis.md) to export critical metadata and properties for backup and recovery
+* [Use workflow](how-to-workflow-business-terms-approval.md) to automate ticketing and eventing to avoid human errors
+* [Use policies](concept-data-owner-policies.md) to manage access to data assets through the Microsoft Purview governance portal.
 
 ## Lifecycle considerations
 
