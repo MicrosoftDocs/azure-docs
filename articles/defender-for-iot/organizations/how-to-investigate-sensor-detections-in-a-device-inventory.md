@@ -279,7 +279,6 @@ You'll be prompted to record a reason for deleting devices. This information, as
 1. Select **Delete Inactive Devices**.
 1. In the confirmation dialog box that opens, enter the reason for the deletion and select **Delete**. All devices detected within the range of the filter will be deleted. If you delete a large number of devices, the delete process may take a few minutes.
 
-
 ## Export device inventory information
 
 You can export device inventory information to a .csv file.
