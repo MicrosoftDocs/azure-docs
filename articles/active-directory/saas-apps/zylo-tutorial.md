@@ -2,21 +2,16 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zylo | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zylo.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4041dc39-c98a-4d65-bb4f-455bb5d79541
+manager: CelesteDG
+ms.reviewer: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/04/2021
+ms.date: 07/19/2022
 ms.author: jeedes
 
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Zylo
@@ -141,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. In the **SAML SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    d. In the **Identity Provider Issuer** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
+    d. In the **Identity Provider Issuer** textbox, paste the **Application ID** value which you have copied from the **Overview** in Azure portal.
 
     e.  Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Public Certificate (from Identity Provider)** textbox.
 
