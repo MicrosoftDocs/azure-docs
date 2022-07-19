@@ -11,7 +11,7 @@ services: iot-edge
 ms.custom:  [amqp, mqtt]
 ---
 
-# Common issues and resolutions for Azure IoT Edge
+# Common issues and resolutions for Azure IoT Edge for Linux on Windows
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
