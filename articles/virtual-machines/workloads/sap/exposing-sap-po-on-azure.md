@@ -61,9 +61,9 @@ In addition, security can be further enhanced with [mutual TLS](../../../applica
 
 ## Scenario 1.A: Inbound http connectivity focused
 
-The SAP WebDispatcher **don't** offer a Web Application Firewall. Because of that Azure Application Gateway is recommended for a more secure setup. The WebDispatcher and PO remain in charge to protect the SAP backend from request overload with [sizing guidance](https://help.sap.com/docs/ABAP_PLATFORM_NEW/683d6a1797a34730a6e005d1e8de6f22/489ab14248c673e8e10000000a42189b.html) and [concurrent request limits](https://help.sap.com/docs/ABAP_PLATFORM/683d6a1797a34730a6e005d1e8de6f22/3a450194bf9c4797afb6e21b4b22ad2a.html). There's no throttling capability available in the SAP workloads.
+The SAP WebDispatcher **doesn't** offer a Web Application Firewall. Because of that Azure Application Gateway is recommended for a more secure setup. The WebDispatcher and PO remain in charge to protect the SAP backend from request overload with [sizing guidance](https://help.sap.com/docs/ABAP_PLATFORM_NEW/683d6a1797a34730a6e005d1e8de6f22/489ab14248c673e8e10000000a42189b.html) and [concurrent request limits](https://help.sap.com/docs/ABAP_PLATFORM/683d6a1797a34730a6e005d1e8de6f22/3a450194bf9c4797afb6e21b4b22ad2a.html). There's **no** throttling capability available in the SAP workloads.
 
-Unintentional access can be avoided through [Access Control Lists](https://help.sap.com/docs/ABAP_PLATFORM_NEW/683d6a1797a34730a6e005d1e8de6f22/0c39b84c3afe4d2d9f9f887a32914ecd.html).
+Unintentional access can be avoided through [Access Control Lists](https://help.sap.com/docs/ABAP_PLATFORM_NEW/683d6a1797a34730a6e005d1e8de6f22/0c39b84c3afe4d2d9f9f887a32914ecd.html) on the SAP WebDispatcher.
 
 One of the scenarios for SAP PO communication is inbound flow. Traffic may originate from On-premises, external apps/users or an internal system. See below an example with focus on https.
 
@@ -104,9 +104,9 @@ Azure Application Gateway is a region-bound service. Compared to the above scena
 
 ## Scenario 4: File-based
 
-`Non-http` protocols like FTP can't be addressed with Azure API Management, Application Gateway, or Front Door like shown in scenarios beforehand. The managed Azure Firewall or equivalent Network Virtual Appliance (NVA) takes over the role of securing inbound requests.
+`Non-http` protocols like FTP can't be addressed with Azure API Management, Application Gateway, or Front Door like shown in scenarios beforehand. Instead the managed Azure Firewall or equivalent Network Virtual Appliance (NVA) takes over the role of securing inbound requests.
 
-Files need to be stored before they can be processed by SAP. It's recommended to use [SFTP](../../../storage/blobs/secure-file-transfer-protocol-support). Azure Blob Storage supports SFTP natively. At the time of writing this article the feature is still in preview.
+Files need to be stored before they can be processed by SAP. It's recommended to use [SFTP](../../../storage/blobs/secure-file-transfer-protocol-support). Azure Blob Storage supports SFTP natively. *Note: At the time of writing this article the feature is still in preview.*
 
 :::image type="content" source="media/exposing-sap-po-on-azure/po-on-azure-file-blob-4.png" alt-text="SAP PO on Azure Azure blob scenario":::
 
@@ -129,7 +129,7 @@ Below diagrams describe two different setups as examples. Check our [SAP RISE re
 
 ### Scenario 5.A: Http inbound
 
-In the first setup, the integration layer including SAP PO and the complete inbound path is governed by the customer. Only the final SAP target runs on the RISE subscription. Communication to the RISE hosted workload is configured through virtual network peering -- typically over the hub. A potential integration could be iDocs posted to the SAP ERP Webservice `/sap/bc/idoc_xml` by an external party.
+In the first setup, the integration layer including SAP PO and the complete inbound path is governed by the customer. Only the final SAP target runs on the RISE subscription. Communication to the RISE hosted workload is configured through virtual network peering - typically over the hub. A potential integration could be iDocs posted to the SAP ERP Webservice `/sap/bc/idoc_xml` by an external party.
 
 :::image type="content" source="media/exposing-sap-po-on-azure/po-on-azure-rise-5a.png" alt-text="SAP PO on Azure RISE APIM internal scenario":::
 
@@ -139,7 +139,7 @@ This second example shows a setup, where SAP RISE runs the whole integration cha
 
 ### Scenario 5.B: File outbound
 
-In this scenario, the SAP-managed PO instance writes files to the customer managed file share on Azure or to a workload sitting on-premises. The breakout needs to be handled by the customer. At the time of writing this article the [Azure Blob Storage SFTP feature](../../../storage/blobs/secure-file-transfer-protocol-support) is still in preview.
+In this scenario, the SAP-managed PO instance writes files to the customer managed file share on Azure or to a workload sitting on-premises. The breakout needs to be handled by the customer. *Note: At the time of writing this article the [Azure Blob Storage SFTP feature](../../../storage/blobs/secure-file-transfer-protocol-support) is still in preview.*
 
 :::image type="content" source="media/exposing-sap-po-on-azure/po-on-azure-rise-5b.png" alt-text="SAP PO on Azure RISE file share scenario":::
 
@@ -163,19 +163,19 @@ Depending on the integration protocols required you may need multiple components
 
 Which integration flavor described in this article fits your requirements best, needs to be evaluated on a case-by-case basis. Consider enabling the following capabilities:
 
-- Request throttling using API Management
+- [Request throttling](../../../api-management/api-management-sample-flexible-throttling) using API Management
 
-- Concurrent request limits on the SAP WebDispatcher
+- [Concurrent request limits](https://help.sap.com/docs/ABAP_PLATFORM/683d6a1797a34730a6e005d1e8de6f22/3a450194bf9c4797afb6e21b4b22ad2a.html) on the SAP WebDispatcher
 
-- Mutual TLS to verify client and receiver
+- [Mutual TLS](../../../application-gateway/mutual-authentication-overview) to verify client and receiver
 
-- Web Application Firewall and re-encrypt after TLS-termination
+- Web Application Firewall and [re-encrypt after TLS-termination](../../../application-gateway/ssl-overview)
 
-- A Firewall for `non-http` integrations
+- A [Firewall](../../../firewall/features) for `non-http` integrations
 
-- High-availability and disaster recovery for the VM-based SAP integration workloads
+- [High-availability](../../../virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) and [disaster recovery](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for the VM-based SAP integration workloads
 
-- Modern authentication mechanisms like OAuth2 where applicable
+- Modern [authentication mechanisms like OAuth2](../../../api-management/sap-api?#production-considerations) where applicable
 
 - Utilize a managed key store like [Azure Key Vault](../../../key-vault/general/overview) for all involved credentials, certificates, and keys
 
