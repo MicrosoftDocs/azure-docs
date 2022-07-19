@@ -51,7 +51,7 @@ The single file backup restore feature is currently in public preview. If you ar
 
     * **Destination path**: The field specifies the directory to which the files will be restored. The destination path must already exist in the destination volume.  If no value is specified, the files will be restored to the original volume.
 
-    :::image type="content" source="../media/azure-netapp-files/restore-files-path.jpg" alt-text="The restore individual files from backup menu includes four fields: file paths, NetApp account, destination volume, and destination path." lightbox="../media/azure-netapp-files/restore-files-path.jpg":::
+    :::image type="content" source="../media/azure-netapp-files/restore-files-file-path.jpg" alt-text="The restore individual files from backup menu includes four fields: file paths, NetApp account, destination volume, and destination path." lightbox="../media/azure-netapp-files/restore-files-path.jpg":::
 
 1. Select **Restore** to complete the operation. 
 
