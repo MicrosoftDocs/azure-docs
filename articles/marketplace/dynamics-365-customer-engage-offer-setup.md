@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 06/29/2022
+ms.date: 07/18/2022
 ---
 
 # Create a Dynamics 365 apps on Dataverse and Power Apps offer
@@ -62,9 +62,6 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
     - Select **Yes** to sell through Microsoft and have Microsoft host transactions on your behalf. 
     
         If you choose this option, the Enable app license management through Microsoft check box is enabled and cannot be changed.
-
-        > [!NOTE]
-        > This capability is currently in Public Preview.
 
     - Select **No**, if you prefer to only list your offer through the marketplace and process transactions independently.
 
