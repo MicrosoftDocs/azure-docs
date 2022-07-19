@@ -30,18 +30,24 @@ Start by creating a Jupyter Notebook associated with the Spark cluster. You use 
 1. From the [Azure portal](https://portal.azure.com/), open your cluster.
 1. Select **Jupyter Notebook** underneath **Cluster dashboards** on the right side.  If you don't see **Cluster dashboards**, select **Overview** from the left menu. If prompted, enter the admin credentials for the cluster.
 
+:::image type="content" source="./media/apache-spark-connect-to-sql-database/new-hdinsight-spark-cluster-dashboard-jupyter-notebook.png " alt-text="Jupyter Notebook on Apache Spark" border="true":::
+
    > [!NOTE]
    > You can also access the Jupyter Notebook on Spark cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
    > 
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 1. In the Jupyter Notebook, from the top-right corner, click **New**, and then click **Spark** to create a Scala notebook. Jupyter Notebooks on HDInsight Spark cluster also provide the **PySpark** kernel for Python2 applications, and the **PySpark3** kernel for Python3 applications. For this article, we create a Scala notebook.
 
+:::image type="content" source="./media/apache-spark-connect-to-sql-database/new-kernel-jupyter-notebook-on-spark.png " alt-text="Kernels for Jupyter Notebook on Spark" border="true":::
+
+For more information about the kernels, see [Use Jupyter Notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
+
 > [!NOTE]
 > In this article, we use a Spark (Scala) kernel because streaming data from Spark into SQL Database is only supported in Scala and Java currently. Even though reading from and writing into SQL can be done using Python, for consistency in this article, we use Scala for all three operations.
 
 1. A new notebook opens with a default name, **Untitled**. Click the notebook name and enter a name of your choice.
 
-   ![](media/apache-spark-connect-to-sql-database/new-hdinsight-spark-jupyter-notebook-name.png)
+   :::image type="content" source="./media/apache-spark-connect-to-sql-database/new-hdinsight-spark-jupyter-notebook-name.png " alt-text="Provide a name for the notebook" border="true":::
 
       You can now start creating your application.
 
