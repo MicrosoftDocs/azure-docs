@@ -42,7 +42,7 @@ The following four Azure resources are created by this template:
 
 ## Deploy the template
 
-The following scripts are designed for and tested in Azure Cloud Shell. Choose **Try It** to open a Cloud Shell instance right in your browser. 
+The following scripts are designed for and tested in [Azure Cloud Shell](../cloud-shell/overview.md). Choose **Try It** to open a Cloud Shell instance right in your browser. 
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
