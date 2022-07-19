@@ -47,7 +47,6 @@ Fully containerized configuration streamlines patches and upgrades
 
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/) and [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
 
-
 ### Azure Architecture Guides/Reference Docs
 1. [Data Governance with Profisee and Microsoft Purview](https://docs.microsoft.com/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
 1. [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and PowerBI](https://docs.microsoft.com/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
@@ -59,7 +58,8 @@ More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://pro
 ### Business & Technical Use Case (Example)
 Let's take an example of a sample manufacturing company working across multiple data sources; it uses ADF to load the business critical data sources into Profisee, which is when Profisee works its magic and finds out the golden records and matching records and then we finally are able to enrich the metadata with Purview (updates  made by Purview on Classifications, Sensitivity Labels, Glossary and all other Catalog features are reflected seamlessly into Profisee). Finally, they connect the enriched metadata detected by Purview and cleansed/curated data by Profisee with PowerBI or Azure ML for advanced analytics.
 
-# Microsoft Purview - Profisee Integration SaaS Deployment on AKS Azure Kubernetes Infrastructure How-To Guide
+## Microsoft Purview - Profisee Integration SaaS Deployment on AKS Azure Kubernetes Infrastructure How-To Guide
+
 1. Create a managed identity in Azure. You must have a Managed Identity created to run the deployment. This Managed Identity must have the following permissions when running a deployment. After it is done, the Managed Identity can be deleted. Based on your ARM template choices, you will need some or all of the following permissions assigned to your Managed Identity:
 - Contributor role to the Resource Group where AKS will be deployed. This can either be assigned directly to the Resource Group OR at Subscription level down.
 - DNS Zone Contributor role to the particular DNS zone where the entry will be created OR Contributor role to the DNS Zone Resource Group. This is needed only if updating DNS hosted in Azure.
