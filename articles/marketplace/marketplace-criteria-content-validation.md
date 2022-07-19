@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 07/27/2022
+ms.date: 07/29/2022
 ---
 
 # Azure Marketplace listing guidelines
