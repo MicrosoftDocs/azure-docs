@@ -123,7 +123,7 @@ az iot hub device-identity create --device-id $iotDeviceName \
 
 # Retrieve the primary connection string for the device identity, then copy it to
 #   Notepad. You need this to run the device simulation during the testing phase.
-az iot hub device-identity show-connection-string --device-id $iotDeviceName \
+az iot hub device-identity connection-string show --device-id $iotDeviceName \
     --hub-name $iotHubName
 
 ```
