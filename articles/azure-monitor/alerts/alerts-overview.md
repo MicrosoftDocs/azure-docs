@@ -4,7 +4,7 @@ description: Learn about Azure Monitor alerts, alert rules, action processing ru
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: overview 
-ms.date: 06/09/2022
+ms.date: 07/19/2022
 ms.custom: template-overview 
 ms.reviewer: harelbr    
 ---
@@ -16,20 +16,20 @@ You can alert on any metric or log data source in the Azure Monitor data platfor
 
 This diagram shows you how alerts work:
 
-:::image type="content" source="media/alerts-overview/alerts.png"  alt-text="Graphic explaining Azure Monitor alerts.":::
+:::image type="content" source="media/alerts-overview/alerts.png"  alt-text="Graphic explaining Azure Monitor alerts." lightbox="media/alerts-overview/alerts.png":::
 
-An **alert rule** monitors your telemetry and captures a signal that indicates that something is happening on a specified target. The alert rule  captures the signal and checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert. 
+An **alert rule** monitors your telemetry and captures a signal that indicates that something is happening on the specified resource. The alert rule captures the signal and checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert. 
  
-You create an alert rule by combining:
- - The resource(s) to be monitored.
+An alert rule combines:
+ - The resource(s) to be monitored
  - The signal or telemetry from the resource
  - Conditions
 
 If you're monitoring more than one resource, the condition is evaluated separately for each of the resources and alerts are fired for each resource separately.
 
 Once an alert is triggered, the alert is made up of:
- - An **alert processing rule** allows you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
- - An **action group** can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
+ - **Alert processing rules** allow you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
+ - **Action groups** can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
      - Notification methods such as email, SMS, and push notifications.
      - Automation Runbooks
      - Azure functions
@@ -38,7 +38,7 @@ Once an alert is triggered, the alert is made up of:
      - Secure webhooks
      - Webhooks
      - Event hubs
-- The **alert condition** is set by the system. When an alert fires, the alert’s monitor condition is set to ‘fired’, and when the underlying condition that caused the alert to fire clears, the monitor condition is set to ‘resolved’.
+- **Alert conditions** are set by the system. When an alert fires, the alert’s monitor condition is set to ‘fired’, and when the underlying condition that caused the alert to fire clears, the monitor condition is set to ‘resolved’.
 - The **user response** is set by the user and doesn’t change until the user changes it. 
 
 You can see all alert instances in all your Azure resources generated in the last 30 days on the **[Alerts page](alerts-page.md)** in the Azure portal. 
