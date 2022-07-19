@@ -80,10 +80,10 @@ az acr import \
   --image hello-world:latest
 ```
 
-You can verify that multiple manifests are associated with this image by running the `az acr repository show-manifests` command:
+You can verify that multiple manifests are associated with this image by running the [az acr manifest list-metadata](/cli/azure/acr/manifest#az-acr-manifest-list-metadata) command:
 
 ```azurecli
-az acr repository show-manifests \
+az acr manifest list-metadata \
   --name myregistry \
   --repository hello-world
 ```

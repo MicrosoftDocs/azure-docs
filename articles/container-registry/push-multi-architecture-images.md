@@ -41,7 +41,7 @@ A basic manifest for a Linux `hello-world` image looks similar to the following:
   }
   ```
     
-You can view a manifest in Azure Container Registry using the Azure portal or tools such as the [az acr repository show-manifests](/cli/azure/acr/repository#az-acr-repository-show-manifests) command in the Azure CLI.
+You can view a manifest in Azure Container Registry using the Azure portal or tools such as the [az acr manifest list-metadata](/cli/azure/acr/manifest#az-acr-manifest-list-metadata) command in the Azure CLI.
 
 ### Manifest list
 
@@ -90,7 +90,7 @@ You can view a manifest list using the `docker manifest inspect` command. The fo
 }
 ```
 
-When a multi-arch manifest list is stored in Azure Container Registry, you can also view the manifest list using the Azure portal or with tools such as the [az acr repository show-manifests](/cli/azure/acr/repository#az-acr-repository-how-manifests) command.
+When a multi-arch manifest list is stored in Azure Container Registry, you can also view the manifest list using the Azure portal or with tools such as the [az acr manifest list-metadata](/cli/azure/acr/manifest#az-acr-manifest-list-metadata) command.
 
 ## Import a multi-arch image 
 
