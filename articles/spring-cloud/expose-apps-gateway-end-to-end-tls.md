@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: How to expose applications to the internet using Application Gateway
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 02/28/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022

@@ -3,7 +3,7 @@ title: How to configure ingress for Azure Spring Apps
 description: Describes how to configure ingress for Azure Spring Apps.
 author: KarlErickson
 ms.author: haital
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 05/27/2022
 ms.custom: devx-track-java, devx-track-azurecli
