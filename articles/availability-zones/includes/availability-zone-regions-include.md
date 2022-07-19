@@ -13,7 +13,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
-| Brazil South | France Central | Qatar Central* | South Africa North | Australia East |
+| Brazil South | France Central | Qatar Central | South Africa North | Australia East |
 | Canada Central | Germany West Central | UAE North* | | Central India |
 | Central US | North Europe | | | Japan East |
 | East US | Norway East | | | Korea Central |
