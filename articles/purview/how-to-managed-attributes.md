@@ -1,6 +1,6 @@
 ---
 title: Managed attributes in the Microsoft Purview Data Catalog
-description: View relevant information and take action on assets in the data catalog
+description: Apply business context to assets using managed attributes
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
@@ -13,7 +13,7 @@ ms.date: 07/25/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-After ingesting data assets into the Microsoft Purview Data Map, organizations need to add information that gives context on how the assets are used with the business. Managed attributes are user-defined attributes that provide a business or organization level context to an asset. When applied, managed attributes enable data consumers using the data catalog to gain context on the role an asset plays in a business.
+Managed attributes are user-defined attributes that provide a business or organization level context to an asset. When applied, managed attributes enable data consumers using the data catalog to gain context on the role an asset plays in a business.
 
 ## Terminology
 
@@ -41,7 +41,7 @@ Both attribute groups and individual managed attributes can be expired. To mark 
 
 :::image type="content" source="media/how-to-managed-attributes/expire-attribute-group.png" alt-text="Edit an attribute group":::
 
-Select **Mark as expired** and confirm your change. Once expired, neither an attribute group nor a managed attribute can be reactivated.
+Select **Mark as expired** and confirm your change. Once expired, attribute groups and managed attributes can't be reactivated.
 
 :::image type="content" source="media/how-to-managed-attributes/mark-as-expired.png" alt-text="Expire an attribute group":::
 
@@ -66,7 +66,7 @@ Managed attributes can be programmatically created and applied using the busines
 Below are the known limitations of the managed attribute feature as it currently exists in Microsoft Purview.
 
 - Managed attributes can only be expired, not deleted.
-- Managed attributes get matched to search keywords, but there is no user-facing filter in the search results. Managed attributes can be filtered using the Search APIs.
+- Managed attributes get matched to search keywords, but there's no user-facing filter in the search results. Managed attributes can be filtered using the Search APIs.
 - Managed attributes can't be applied via the bulk edit experience.
 - After creating an attribute group, you can't edit the name of the attribute group.
 - After creating a managed attribute, you can't update the attribute name, attribute group or the field type. 
