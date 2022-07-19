@@ -35,6 +35,7 @@ The output of the command includes various metadata:
         "numIndexesBefore" : 1,
         "numIndexesAfter" : 4
 }
+```
 
  Once the index is created, the database will automatically delete any documents in that collection that have not been modified in the last 10 seconds. 
 
