@@ -40,6 +40,7 @@ This procedure describes how to view detected devices in the **Device inventory*
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
 
 For more information, see [Device inventory column reference](#device-inventory-column-reference).
+
 ### Identify devices that aren't connecting successfully
 
 If you suspect that certain devices aren't actively communicating with Azure, we recommend that you verify whether those devices have communicated with Azure in a specific time period. For example:
