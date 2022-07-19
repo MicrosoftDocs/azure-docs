@@ -11,7 +11,7 @@ ms.date: 07/29/2022
 
 # Azure Marketplace listing guidelines
 
-This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace. All offers must meet the [listing requirements](#listing-requirements-for-most-offers) described in this article. Use the links on the right to navigate to additional requirements and checklists for specific offer types.
+This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace. All offers must meet the listing requirements described in this article. Use the links on the right to navigate to additional requirements and checklists for specific offer types.
 
 ## Listing requirements for most offers
 
