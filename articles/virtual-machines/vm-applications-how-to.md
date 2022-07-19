@@ -17,9 +17,7 @@ VM Applications are a resource type in Azure Compute Gallery (formerly known as 
 
 
 > [!IMPORTANT]
-> **VM applications in Azure Compute Gallery** are currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Deploying **VM applications in Azure Compute Gallery** do not currently support using Azure policies.
 
 
 ## Prerequisites
