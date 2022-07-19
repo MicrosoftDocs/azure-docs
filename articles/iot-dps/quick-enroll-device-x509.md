@@ -95,15 +95,6 @@ To add and verify your root CA certificate to the Device Provisioning Service.
 
 8. Select **Save**.
 
-:::image type="content" source="./media/quick-enroll-device-x509/add-certificate.png" alt-text="Add a certificate for verification.":::
-
-:::zone pivot="programming-language-csharp"
-
->[!TIP]
->The [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
-
-:::zone-end
-
 ## Get the connection string for your provisioning service
 
 For the sample in this article, you'll need to copy the connection string for your provisioning service.
