@@ -26,6 +26,20 @@ For other subscription offer types:
 | -------- | ------------- | ------------- |
 | Synapse workspaces in an Azure subscription per region | 20 | 250 |
 
+### Synapse Spark Limits
+
+For Pay-As-You-Go, Free Trial, Azure Pass, and Azure for Students subscription offer types:
+
+| Resource | Memory Optimized cores | GPU cores | 
+| -------- | ------------- | ------------- |
+| Synapse Spark cores in a Synapse workpsace | 12 | 48 |
+
+For other subscription offer types:
+
+| Resource | Memory Optimized cores | GPU cores | 
+| -------- | ------------- | ------------- |
+| Synapse Spark cores in a Synapse workpsace | 50 | 50 |
+
 ### Synapse Pipeline Limits
 
 | Resource | Default limit | Maximum limit |
