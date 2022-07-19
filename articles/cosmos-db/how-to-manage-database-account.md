@@ -30,7 +30,7 @@ This article describes how to manage various tasks on an Azure Cosmos account us
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 
-1. Go to your Azure Cosmos account, and open the **Replicate data globally** menu.
+1. Go to your Azure Cosmos account, and select **Replicate data globally** in the resource menu.
 
 1. To add regions, select the hexagons on the map with the **+** label that corresponds to your desired region(s). Alternatively, to add a region, select the **+ Add region** option and choose a region from the drop-down menu.
 
