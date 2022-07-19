@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/19/2022
 ms.author: chschrae
-zone_pivot_groups: programming-languages-set-nine
+zone_pivot_groups: programming-languages-set-thirteen
 ms.custom: devx-track-cpp, devx-track-csharp, mode-other
 ---
 
