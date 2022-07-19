@@ -1,6 +1,6 @@
 ---
 title: "Quickstart - Set up Azure Spring Apps Config Server"
-description: Describes the set up of Azure Spring Apps Config Server for app deployment.
+description: Describes the setup of Azure Spring Apps Config Server for app deployment.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -64,7 +64,7 @@ The following procedure sets up the Config Server using the Azure portal to depl
 
 1. When validation is complete, select **Apply** to save your changes.
 
-    :::image type="content" source="media/quickstart-setup-config-server/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted."  lightbox="media/quickstart-setup-config-server/validate-complete.png":::
+    :::image type="content" source="media/quickstart-setup-config-server/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted." lightbox="media/quickstart-setup-config-server/validate-complete.png":::
 
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
@@ -89,14 +89,12 @@ The following procedure explains how to troubleshoot Config Server settings.
 
 1. In the Azure portal, go to the service **Overview** page and select **Logs**.
 
-1. In the **Queries** pane under **Show the application logs that contain the "error" or "exception" terms"**,
+1. In the **Queries** pane under **Show the application logs that contain the "error" or "exception" terms**,
    select **Run**.
 
    :::image type="content" source="media/quickstart-setup-config-server/setup-config-server-query.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps query." lightbox="media/quickstart-setup-config-server/setup-config-server-query.png":::
 
-   If logs contain the following error, this indicates that the Spring Apps service can't locate properties from Config Server:
-
-   `java.lang.illegalStateException`
+   The following error in the logs indicates that the Spring Apps service can't locate properties from Config Server: `java.lang.illegalStateException`
 
 1. Go to the service **Overview** page.
 
@@ -106,7 +104,7 @@ The following procedure explains how to troubleshoot Config Server settings.
 
    :::image type="content" source="media/quickstart-setup-config-server/setup-config-server-diagnose.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page." lightbox="media/quickstart-setup-config-server/setup-config-server-diagnose.png":::
 
-   Azure portal displays the **Availability and Performance** page, which provides a variety of information about Config Server health status.
+   Azure portal displays the **Availability and Performance** page, which provides various information about Config Server health status.
 
 ## Clean up resources
 
