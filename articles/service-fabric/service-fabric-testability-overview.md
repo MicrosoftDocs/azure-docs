@@ -1,10 +1,14 @@
 ---
 title: Fault Analysis Service overview 
 description: This article describes the Fault Analysis Service in Service Fabric for inducing faults and running test scenarios against your services.
-
 ms.topic: conceptual
-ms.date: 06/15/2017
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Introduction to the Fault Analysis Service
 The Fault Analysis Service is designed for testing services that are built on Microsoft Azure Service Fabric. With the Fault Analysis Service you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
 
