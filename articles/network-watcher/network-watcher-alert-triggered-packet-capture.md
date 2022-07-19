@@ -269,56 +269,59 @@ The following example is PowerShell code that can be used in the function. There
             Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Network\Az.Network.psd1" -Global
             Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Resources\Az.Resources.psd1" -Global
 
-            #Process alert request body
-            $requestBody = Get-Content $req -Raw | ConvertFrom-Json
+            # Input bindings are passed in via param block.
+            param($Request, $TriggerMetadata)
 
-            #Storage account ID to save captures in
+            # Process alert request body
+            $requestBody = $Request.Body.data
+
+            # Storage account ID to save captures in
             $storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
 
-            #Packet capture vars
-            $packetcapturename = "PSAzureFunction"
+            # Packet capture vars
+            $packetCaptureName = "PSAzureFunction"
             $packetCaptureLimit = 10
-            $packetCaptureDuration = 10
+            $packetCaptureDuration = 30
 
-            #Credentials
+            # Credentials
             $tenant = $env:AzureTenant
             $pw = $env:AzureCredPassword
             $clientid = $env:AzureClientId
             $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
 
-            #Authentication
+            # Authentication
             $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
             $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
             Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
-
-            #Get the VM that fired the alert
-            if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
-            {
+            if ($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines") {
                 Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
                 Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
                 Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
                 Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
-                #Get the Network Watcher in the VM's region
-                $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+                # Get the VM firing this alert
+                $vm = Get-AzVM -ResourceGroupName $requestBody.context.resourceGroupName -Name $requestBody.context.resourceName
 
-                #Get existing packetCaptures
+                # Get the Network Watcher in the VM's region
+                $networkWatcher = Get-AzNetworkWatcher -Location $vm.Location 
+
+                # Get existing packetCaptures
                 $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
-                #Remove existing packet capture created by the function (if it exists)
-                $packetCaptures | %{if($_.Name -eq $packetCaptureName)
-                { 
-                    Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
-                }}
-
-                #Initiate packet capture on the VM that fired the alert
-                if ((Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
-                    echo "Initiating Packet Capture"
-                    New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
-                    Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
+                # Remove existing packet capture created by the function (if it exists)
+                $packetCaptures | ForEach-Object { if ($_.Name -eq $packetCaptureName)
+                    { 
+                        Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+                    }
                 }
-            } 
+
+                # Initiate packet capture on the VM that fired the alert
+                if ((Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit) {
+                    Write-Output "Initiating Packet Capture"
+                    New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+                }
+            }
  ``` 
 #### Retrieve the function URL 
 1. After you've created your function, configure your alert to call the URL that's associated with the function. To get this value, copy the function URL from your function app.
