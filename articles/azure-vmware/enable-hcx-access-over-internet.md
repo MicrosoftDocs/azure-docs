@@ -2,12 +2,10 @@
 title: Enable HCX access over the internet
 description: This article describes how to access HCX over a public IP address using Azure VMware solution.
 ms.topic: how-to
-author: jjaygbay1
-ms.date: 06/27/2022
 ---
 # Enable HCX access over the internet
 
-In this article you'll learn how to access the HCX over a Public IP address using Azure VMware Solution. You'll also learn how to pair HCX sites, and create service mesh from on-premises to Azure VMware Solutions private cloud using Public IP. The service mesh allows you to migrate a workload from an on-premises datacenter to Azure VMware Solutions private cloud over the public internet. This solution is useful where the customer is not using Express Route or VPN connectivity with the Azure cloud.   
+In this article you'll learn how to access the HCX over a Public IP address using Azure VMware Solution. You'll also learn how to pair HCX sites, and create service mesh from on-premises to Azure VMware Solutions private cloud using Public IP. The service mesh allows you to migrate a workload from an on-premises datacenter to Azure VMware Solutions private cloud over the public internet. This solution is useful where the customer isn't using Express Route or VPN connectivity with the Azure cloud.
 
 > [!IMPORTANT] 
 > The on-premises HCX appliance should be reachable from the internet to establish HCX communication from on-premises to Azure VMware Solution private cloud. 
