@@ -243,7 +243,7 @@ items:
       href: how-to-monitor-scan-runs.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
-  - name: Search and manage data catalog
+  - name: Data catalog
     items:
     - name: Browse Data Catalog
       href: how-to-browse-catalog.md
@@ -255,6 +255,8 @@ items:
       href: how-to-bulk-edit-assets.md
     - name: Asset certification
       href: how-to-certify-assets.md
+    - name: Managed attributes
+      href: how-to-managed-attributes.md
   - name: Lineage 
     items:
     - name: Lineage user guide
