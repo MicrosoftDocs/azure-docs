@@ -21,6 +21,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in July include:
 
 - [General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection](#general-availability-ga-of-the-cloud-native-security-agent-for-kubernetes-runtime-protection)
+- [Protect against the Operations Management Suite vulnerability CVE-2022-29149](#protect-against-the-operations-management-suite-vulnerability-cve-2022-29149)
+
 ### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
 
 We're excited to share that the Cloud-native security agent for Kubernetes runtime protection is now generally available (GA)!
@@ -40,6 +42,35 @@ Learn more about the Defender for Container's [feature availability](supported-m
 You can also review [all available alerts](alerts-reference.md#alerts-k8scluster).
 
 Note, if you're using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
+
+### Protect against the Operations Management Suite vulnerability CVE-2022-29149
+
+Operations Management Suite (OMS) is a collection of cloud-based services for managing on-premises and cloud environments from one single place. Rather than deploying and managing on-premises resources, OMS components are entirely hosted in Azure.
+
+Log Analytics integrated with Azure HDInsight running OMS version 13 requires an upgrade to OMS version 14 to apply the latest security updates ([CVE-2022-29149](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-29149)).
+
+When this integration is enabled along with the OMS monitoring pipeline, the OMS agent is installed in HDInsight clusters for your machines. 
+
+**Recommended action**
+
+Customers using OMS version 13 need to install OMS version 14 to meet the security compliance requirement.
+
+To upgrade your OMS version from 13 to 14:
+
+1. Login to the [Azure Portal](https://portal.azure.com).
+1. From the resource group, select the **HDInsight** cluster resource.
+1. Select **Script actions**.
+1. From the **Submit script action** panel, choose **Script type as custom**.
+1. Paste the following link in the Bash script URL box: `https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh`
+1. Select **Node type**.
+1. Select **Create**.
+1. Verify the successful installation of the patch using the following steps:
+    1. Log in to the cluster using SSH.
+    1. Run the following command in your SSH Client: `sudo /opt/omi/bin/ominiserver/ --version`
+
+For further details on this security update, refer to [CVE-2022-29149](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-29149).
+
+If you have additional questions, contact [Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## June 2022
 
