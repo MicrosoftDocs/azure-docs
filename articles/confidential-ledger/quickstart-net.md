@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Azure Confidential Ledger client library for .NET 
+title: Quickstart - Azure confidential ledger client library for .NET 
 description: Learn how to use Azure Confidential Ledger using the client library for .NET
 author: msmbaldwin
 ms.author: mbaldwin
@@ -26,7 +26,7 @@ Azure confidential ledger client library resources:
 - [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
-You will also need an running confidential ledger, and a registered user with the `Administrator` privileges. You can create a confidential ledger (and an administrator) using the [Azure portal](quickstart-portal.md), the [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
+You will also need a running confidential ledger, and a registered user with the `Administrator` privileges. You can create a confidential ledger (and an administrator) using the [Azure portal](quickstart-portal.md), the [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
 
 ## Setup
 
@@ -106,7 +106,7 @@ Operation postOperation = ledgerClient.PostLedgerEntry(
 
 ### Get transaction ID
 
-The [PostLedgerEntry](/dotnet/api/azure.security.confidentialledger.confidentialledgerclient.postledgerentry) method returns an object that contains the transaction of the entry you just wrote to the confidential ledger. To get the transation ID, access the "Id" value:
+The [PostLedgerEntry](/dotnet/api/azure.security.confidentialledger.confidentialledgerclient.postledgerentry) method returns an object that contains the transaction of the entry you just wrote to the confidential ledger. To get the transaction ID, access the "Id" value:
 
 ```csharp
 string transactionId = postOperation.Id;
