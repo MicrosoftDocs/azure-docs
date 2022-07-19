@@ -5,6 +5,25 @@ ms.date: 02/14/2022
 ms.topic: how-to
 ---
 
-# Request a quota increase in the Azure portal
+# Quickstart: Request a quota increase in the Azure portal
 
-Content still to come
+Get started with Azure Quotas by using the Azure portal to request a quota increase.
+
+For more information about quotas, see [Quotas overview](quotas-overview.md).
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free]
+  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## Request a quota increase
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. *(more steps and a screenshot will be added)*
+
+## Next steps
+
+Advance to the next article to learn how to increase VM-family vCPU quotas.
+> [!div class="nextstepaction"]
+> [Next steps button](per-vm-quota-request.md)
+
