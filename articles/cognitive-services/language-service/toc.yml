@@ -685,7 +685,7 @@ items:
           href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
-- name: Personally Identifying Information (PII) detection
+- name: Personally Identifiable Information (PII) detection
   items:
   - name: PII overview
     href: personally-identifiable-information/overview.md
@@ -919,8 +919,6 @@ items:
         href: ../containers/index.yml
   - name: Tutorials
     items:
-    - name: Sentiment Analysis on streaming data using Azure Databricks
-      href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
       href: /learn/modules/python-flask-build-ai-web-app/
   - name: Reference

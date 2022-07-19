@@ -1,11 +1,14 @@
 ---
 title: Set up a Windows development environment
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Windows.
-author: peterpogorski
-ms.topic: conceptual
-ms.date: 06/16/2020
-ms.custom: sfrev, devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Prepare your development environment on Windows
 
 > [!div class="op_single_selector"]
@@ -45,8 +48,8 @@ If you only need the SDK, you can install this package:
 
 The current versions are:
 
-* Service Fabric SDK and Tools 6.0.1028
-* Service Fabric runtime 9.0.1028
+* Service Fabric SDK and Tools 6.0.1048
+* Service Fabric runtime 9.0.1048
 
 For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 

@@ -93,7 +93,7 @@ To ensure that your MedTech service works properly, it must have granted access 
 You can also do the following:
 - Create a new FHIR service or use an existing one in the same or different workspace 
 - Create a new event hub or use an existing one 
-- Assign roles to allow the MedTech service to access [Event Hubs](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-the-medtech-service-access) and [FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-medtech-service-from-the-fhir-service)
+- Assign roles to allow the MedTech service to access [Event Hubs](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-access-to-the-device-message-event-hub) and [FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-access-to-the-fhir-service)
 - Send data to the event hub, which is associated with the MedTech service 
 
 For more information, see [Get started with the MedTech service](./../healthcare-apis/iot/get-started-with-iot.md).
