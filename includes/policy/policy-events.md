@@ -157,7 +157,9 @@ The schema for a policy state changed event scoped at the subscription level is 
 }]
 ```
 
-# [Azure Event Grid event schema](#tab/azure-event-grid-event-schema)
+---
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
 The following example shows the schema of a policy state created event scoped at the management group level:
 
 ```json
@@ -204,7 +206,7 @@ The schema for a policy state changed event scoped at the management group level
 }]
 ```
 
-# [Azure Cloud event schema](#tab/azure-cloud-event-schema)
+# [Cloud event schema](#tab/cloud-event-schema)
 
 The following example shows the schema of a policy state created event scoped at the management group level:
 
