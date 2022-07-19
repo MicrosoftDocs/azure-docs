@@ -56,7 +56,7 @@ For more information, see [Web Application Firewall DRS rule groups and rules](w
 
 ### Add rate limiting
 
-Front Door's rate limiting support enables you to control the number of requests allowed from each client IP address to the application during a rate limit duration. It's a good practice to add rate limiting to reduce the impact of clients accidentally or intentionally sending large amounts of traffic to your service, such as during a [*retry storm*](/azure/architecture/antipatterns/retry-storm/).
+Front Door's WAF enables you to control the number of requests allowed from each client's IP address over a period of time. It's a good practice to add rate limiting to reduce the impact of clients accidentally or intentionally sending large amounts of traffic to your service, such as during a [*retry storm*](/azure/architecture/antipatterns/retry-storm/).
 
 For more information, see the following resources:
 - [Configure a Web Application Firewall rate limit rule using Azure PowerShell](waf-front-door-rate-limit-powershell.md).
