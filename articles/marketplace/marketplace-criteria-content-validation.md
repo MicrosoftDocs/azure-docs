@@ -26,7 +26,7 @@ This article explains the requirements and guidelines for listing new offers and
 | 7 | List status (listing options) | <ul><li>Must be labeled as one of the following types: <ul><li>*Contact Me*</li><li>*Trial*/*Get Trial Now*/*Start Trial*/*Test Drive*</li><li>*Buy Now*/*Get It Now*</li></ul></ul> | Customer can readily understand what the next steps are: <ol><li>Try the Trial.</li><li>Buy Now.</li><li>Contact via email or phone number to arrange for Proof of Concept (POC), Assessment, or Briefing.</li></ol> | 
 | 8 | Solution pricing | Must have solution pricing tab/details, and pricing must be in the local currency of the partner solution offering. | Multiple billing options should be available with tier pricing to give customer options. |
 | 9 | Learn more | Links at the bottom (under the description, not Azure Marketplace links on the left) lead to more information about the solution and are publicly available and displaying correctly. |    Links to specific items (for example, spec pages on the partner site) and not just the partner home page. |
-| 10 | Solution support and help | Provide at least one of the following: <br>- Telephone numbers [1]<br>Email support [2] |- All support methods are listed.<br>- Paid support is offered free during the *Trial* or *Test Drive* period. |
+| 10 | Solution support and help | Provide at least one of the following: <br>- Telephone numbers [1]<br>- Email support [2] |- All support methods are listed.<br>- Paid support is offered free during the *Trial* or *Test Drive* period. |
 | 11 | Legal | Policies or terms are available via a public URL. |  |
 
 [1] Doesn’t apply to Consulting service and Power BI app offers
