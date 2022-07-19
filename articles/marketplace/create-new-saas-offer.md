@@ -109,7 +109,7 @@ To configure the lead management in Partner Center:
 
 ## Configure Microsoft 365 App integration
 
-You can light up [unified discovery and delivery](plan-SaaS-offer.md) of your SaaS offer and any related Microsoft 365 App consumption by linking them.
+You can enable [unified discovery and delivery](plan-SaaS-offer.md) of your SaaS offer and any related Microsoft 365 App consumption by linking them.
 
 ### Integrate with the Microsoft Graph API
 
