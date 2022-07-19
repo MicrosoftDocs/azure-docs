@@ -34,8 +34,15 @@ az extension add --name containerapp --upgrade
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+
+```powershell
 Install-Module -Name Az.App
+```
+
+Suppress breaking change warnings.
+
+```powershell
+Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
 ```
 
 ---
@@ -53,7 +60,7 @@ az provider register --namespace Microsoft.App
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.App
 ```
 
@@ -69,7 +76,7 @@ az provider register --namespace Microsoft.OperationalInsights
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.OperationalInsights
 ```
 
@@ -107,7 +114,7 @@ az group create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
 ```
 

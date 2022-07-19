@@ -84,7 +84,7 @@ az containerapp create \
 $IMAGE_OBJ = New-AzContainerAppTemplateObject `
   -Name my-container-app `
   -Image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
- $ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
+$ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
 
 New-AzContainerApp -Name my-container-app `
  -Location $LOCATION `

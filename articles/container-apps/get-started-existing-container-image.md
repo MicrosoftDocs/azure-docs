@@ -42,11 +42,24 @@ az containerapp env create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az containerapp env create `
-  --name $CONTAINERAPPS_ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --location $LOCATION
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
+
+```powershell
+New-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace -Location $Location -PublicNetworkAccessForIngestion "Enabled" -PublicNetworkAccessForQuery "Enabled"
+$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
+$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).PrimarySharedKey
+```
+
+To create the environment, run the following command:
+
+```powershell
+
+New-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -AppLogConfigurationDestination "log-analytics" `
+  -Location $LOCATION `
+  -LogAnalyticConfigurationCustomerId $WORKSPACE_ID `
+  -LogAnalyticConfigurationSharedKey $WORKSPACE_SHARED_KEY
 ```
 
 ---
@@ -65,27 +78,14 @@ The example shown in this article demonstrates how to use a custom container ima
 - Enable external or internal ingress
 - Provide minimum and maximum replica values or scale rules
 
-For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help`.
+
 
 ::: zone pivot="container-apps-private-registry"
 
-If you are using Azure Container Registry (ACR), you can login to your registry and forego the need to use the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command and eliminate the need to set the REGISTRY_USERNAME and REGISTRY_PASSWORD variables.
 
 # [Bash](#tab/bash)
 
-```azurecli
-az acr login --name <REGISTRY_NAME>
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az acr login --name <REGISTRY_NAME>
-```
-
----
-
-# [Bash](#tab/bash)
+For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help`.
 
 ```bash
 CONTAINER_IMAGE_NAME=<CONTAINER_IMAGE_NAME>
@@ -95,8 +95,6 @@ REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 ```
 
 (Replace the \<placeholders\> with your values.)
-
-If you have logged in to ACR, you can omit the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command.
 
 ```azurecli
 az containerapp create \
@@ -120,17 +118,29 @@ $REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 
 (Replace the \<placeholders\> with your values.)
 
-If you have logged in to ACR, you can omit the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command.
-
 ```powershell
-az containerapp create `
-  --name my-container-app `
-  --resource-group $RESOURCE_GROUP `
-  --image $CONTAINER_IMAGE_NAME `
-  --environment $CONTAINERAPPS_ENVIRONMENT `
-  --registry-server $REGISTRY_SERVER `
-  --registry-username $REGISTRY_USERNAME `
-  --registry-password $REGISTRY_PASSWORD 
+$ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
+
+$TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
+  -Name my-container-app `
+  -Image $CONTAINER_IMAGE_NAME
+
+$REGISTRY_SECRET_OBJ = New-AzContainerAppSecretObject `
+  -Name registry-secret `
+  -Value $REGISTRY_PASSWORD
+
+$REGISTRY_OBJ = New-AzContainerAppRegistryCredentialObject `
+  -PasswordSecretRef registry-secret `
+  -Server $REGISTRY_SERVER `
+  -Username $REGISTRY_USERNAME
+
+New-AzContainerApp -Name my-container-app `
+  -Location $LOCATION `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -ManagedEnvironmentId $ENV_ID `
+  -ConfigurationRegistry $REGISTRY_OBJ `
+  -ConfigurationSecret $REGISTRY_SECRET_OBJ `
+  -TemplateContainer $TEMPLATE_OBJ 
 ```
 
 ---
@@ -151,15 +161,26 @@ az containerapp create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az containerapp create `
-  --image <REGISTRY_CONTAINER_NAME> `
-  --name my-container-app `
-  --resource-group $RESOURCE_GROUP `
-  --environment $CONTAINERAPPS_ENVIRONMENT
-```
+If you have logged in to ACR, you can omit the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command.
+
+```powershell
+$IMAGE_OBJ = New-AzContainerAppTemplateObject `
+  -Name my-container-app `
+  -Image <REGISTRY_CONTAINER_NAME> 
+
+$ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
+
+New-AzContainerApp `
+  -Name my-container-app `
+  -Location $LOCATION `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -ManagedEnvironmentId $ENV_ID `
+  -TemplateContainer $IMAGE_OBJ
+ ```
 
 ---
+
+(Replace the \<placeholders\> with your values.)
 
 Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full name the public container registry location, including the registry path and tag. For example, a valid container name is `mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`.
 
@@ -187,13 +208,8 @@ az monitor log-analytics query \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
-
-
-az monitor log-analytics query `
-  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated" `
-  --out table
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WORKSPACE_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated"
+$queryResults.Results
 ```
 
 ---
@@ -212,8 +228,8 @@ az group delete \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az group delete `
-  --name $RESOURCE_GROUP
+
+Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
 
 ---
