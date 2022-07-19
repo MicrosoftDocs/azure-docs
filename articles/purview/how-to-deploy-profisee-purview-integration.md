@@ -32,16 +32,15 @@ Hosted on Azure for industry-leading scalability and availability
 - The Fastest Path to Trusted Data -
 Leave the networking, firewalls and storage to us so you can deploy in minutes
 
-PROFISEE MDM: ULTIMATE PAAS FLEXIBILITY -
-Complete deployment flexibility and control, using the most efficient and low-maintenance option on [Microsoft Azure](https://azure.microsoft.com/) cloud-or on-prem.
+PROFISEE MDM: ULTIMATE PAAS FLEXIBILITY - Complete deployment flexibility and control, using the most efficient and low-maintenance option on [Microsoft Azure](https://azure.microsoft.com/) cloud-or on-prem.
 
-Modern Cloud Architecture -
+- Modern Cloud Architecture -
 Platform available as a containerized Kubernetes service
 
-Complete Flexibility & Autonomy -
+- Complete Flexibility & Autonomy -
 Available in Azure, AWS, Google Cloud or on-prem.
 
-Fast to Deploy, Easy to Maintain -
+- Fast to Deploy, Easy to Maintain -
 Fully containerized configuration streamlines patches and upgrades
 
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/) and [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
