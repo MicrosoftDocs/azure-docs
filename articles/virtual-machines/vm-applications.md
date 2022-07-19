@@ -249,9 +249,9 @@ rmdir /S /Q C:\\myapp
 ```
 
 
-## Troubleshooting during preview
+## Troubleshooting VM Applications
 
-During the preview, the VM application extension always returns a success regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there's a problem with the extension or the underlying infrastructure. To know whether a particular VM application was successfully added to the VM instance, check the message of the VM Application extension.
+The VM application extension always returns a success regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there's a problem with the extension or the underlying infrastructure. To know whether a particular VM application was successfully added to the VM instance, check the message of the VM Application extension.
 
 To learn more about getting the status of VM extensions, see [Virtual machine extensions and features for Linux](extensions/features-linux.md#view-extension-status) and [Virtual machine extensions and features for Windows](extensions/features-windows.md#view-extension-status).
 
