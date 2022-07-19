@@ -22,7 +22,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What are Azure Quotas?
-            url: overview.md
+            url: quotas-overview.md
 
   # Card 
   - title: Get started
@@ -30,7 +30,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Request a quota increase in the portal
-            url: quickstart-increase-quotas-portal.md
+            url: quickstart-increase-quota-portal.md
 
             
   # Card
@@ -53,8 +53,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/network#az-network-list-usages
+            url: /cli/azure/quota
           - text: Azure PowerShell
-            url: /powershell/module/azurerm.network/get-azurermnetworkusage
+            url: /powershell/module/az.quota/
           - text: Azure REST API
-            url: /rest/api/virtualnetwork/virtualnetworks/listusage
+            url: https://docs.microsoft.com/en-us/rest/api/reserved-vm-instances/quotaapi

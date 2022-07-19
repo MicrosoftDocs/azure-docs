@@ -4,34 +4,36 @@
   items:
   - name: About Azure Quotas
     href: quotas-overview.md
+  - name: View quotas
+    href: view-quotas.md
 - name: Quickstarts
   items:
   - name: Request a quota increase
     href: quickstart-increase-quota-portal.md
 - name: How-to guides
   items:
-    - name: View quotas
-      href: view-quotas.md
-    - name: Increase compute quotas
+    - name: Azure region access request process
+      href: /troubleshoot/azure/general/region-access-request-process
+    - name: Request quota increases
       items:
-      - name: Increase VM-family vCPU quotas
+      - name: Increase vCPU family quotas
         href: per-vm-quota-requests.md
-      - name: Increase regional vCPU quotas
+      - name: Increase regional vCPU family quotas
         href: regional-quota-requests.md
-      - name: Increase spot vCPU quotas
+      - name: Increase spot vCPU family quotas
         href: spot-quota.md
-    - name: Increase vCPU quotas for classic deployment
-      href: classic-deployment-model-quota-increase-requests.md
-    - name: Increase networking quotas
-      href: networking-quota-requests.md
+      - name: Increase vCPU quotas for classic deployment
+        href: classic-deployment-model-quota-increase-requests.md
+      - name: Increase networking quotas
+        href: networking-quota-requests.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/network#az-network-list-usages
+    href: /cli/azure/quota
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network/get-azurermnetworkusage
+    href: /powershell/module/az.quota/
   - name: Azure REST API
-    href: /rest/api/virtualnetwork/virtualnetworks/listusage
+    href: /rest/api/reserved-vm-instances/quotaapi
 - name: Resources
   items:
   - name: Azure updates
