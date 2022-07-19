@@ -95,7 +95,7 @@ When a web application firewall isn't required, Azure API Management can be depl
 
 ## Scenario 3: Global reach
 
-Azure Application Gateway is a region-bound service. Compared to the above scenarios [Azure Front Door](../../../frontdoor/front-door-overview.md) ensures cross-region global routing including a web application firewall. Look at [this comparison](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) for more details about the differences.
+Azure Application Gateway is a region-bound service. Compared to the above scenarios [Azure Front Door](../../../frontdoor/front-door-overview.md) ensures cross-region global routing including a web application firewall. Look at [this comparison](/azure/architecture/guide/technology-choices/load-balancing-overview) for more details about the differences.
 
 > [!NOTE]
 > Condensed SAP WebDispatcher, Process Orchestration, and backend into single image for better readability.
@@ -173,7 +173,7 @@ Which integration flavor described in this article fits your requirements best, 
 
 - A [Firewall](../../../firewall/features.md) for `non-http` integrations
 
-- [High-availability](../../../virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios.md) and [disaster recovery](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for the VM-based SAP integration workloads
+- [High-availability](../../../virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios.md) and [disaster recovery](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for the VM-based SAP integration workloads
 
 - Modern [authentication mechanisms like OAuth2](../../../api-management/sap-api?#production-considerations.md) where applicable
 
