@@ -35,8 +35,8 @@ And then defining these elements for the resulting alert actions using:
 4. Select **Include all future resources** to include any future resources added to the selected scope.
 5. Select **Done**.
 6. Select **Next: Condition>** at the bottom of the page.
-7. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. You can narrow the signal list using these fields. The **Signal type** determines which [type of alert](alerts-overview.md#types-of-alerts) rule you are creating. 
-8. Select the **Signal name**, and follow the steps below depending on the type of alert you are creating.   
+7. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. You can narrow the signal list using these fields. The **Signal type** determines which [type of alert](alerts-overview.md#types-of-alerts) rule you're creating. 
+8. Select the **Signal name**, and follow the steps below depending on the type of alert you're creating.   
       ### [Metric alert](#tab/metric)
            
       1. In the **Configure signal logic** pane, select values for the following fields. 
@@ -51,7 +51,7 @@ And then defining these elements for the resulting alert actions using:
          
           Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
         
-          If you select more than one dimension value, each time series that results from the combination will trigger its own alert, and will be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in any API name (which is the aggregated data), or you can use dimensions to  alert only when the number of transactions is high for specific API names.
+          If you select more than one dimension value, each time series that results from the combination will trigger its own alert, and will be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (which is the aggregated data), or you can use dimensions to alert only when the number of transactions is high for specific APIs.
         
           To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations. Splitting on Azure resource ID column makes the specified resource into the alert target. When you want a condition applied to multiple resources in the scope, you would **not** split by dimensions. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
          
@@ -83,7 +83,7 @@ And then defining these elements for the resulting alert actions using:
       1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert.
          You can use the [alert query examples article](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
       1. Select **Run** to run the alert.
-      1. The **Preview** section shows you the query results. When you are finished editing your query, select **Continue Editing Alert**.
+      1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
       1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last 5 minutes. If the system detects summarized query results, the rule is automatically updated with that information.
       
          :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
@@ -151,7 +151,7 @@ And then defining these elements for the resulting alert actions using:
          |Field |Description |
          |---------|---------|
          |Event level| Select the level of the events that this alert rule monitors. Values are: **Critical**, **Error**, **Warning**, **Informational**, **Verbose** and **All**.|
-         |Status|Select the status levels for which the alert will evaluated.|
+         |Status|Select the status levels for which the alert is evaluated.|
          |Event initiated by|Select the user or service principal that initiated the event.          |
                
     ---
@@ -213,8 +213,8 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
    az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > ago(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
    ```
        
-     > [!NOTE]
-     > Azure CLI support is only available for the scheduledQueryRules API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
+   > [!NOTE]
+   > Azure CLI support is only available for the scheduledQueryRules API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
      
   ### [Activity log alert](#tab/activity-log)
     
