@@ -62,7 +62,7 @@ Perform the following steps to order an import job in Azure Import/Export via th
     1. Select the **Destination country/region** for the job.
     1. Then select **Apply**.
 
-    [ ![Screenshot of Get Started options for a new export order in Azure Import/Export's Preview portal. The Export From Azure transfer type and the Apply button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-03-export-job.png) ](./media/storage-import-export-data-from-blobs/import-export-order-preview-03-export-job.png#lightbox)
+    [![Screenshot of Get Started options for a new export order in Azure Import/Export's Preview portal. The Export From Azure transfer type and the Apply button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-03-export-job.png)](./media/storage-import-export-data-from-blobs/import-export-order-preview-03-export-job.png#lightbox)
 
 1. Choose the **Select** button for **Import/Export Job**.
 
@@ -153,14 +153,14 @@ Perform the following steps to order an import job in Azure Import/Export via th
 
      You can select **Go to resource** to open the **Overview** of the job.
 
-     [ ![Screenshot showing the Overview pane for an Azure Import Export job in Created state in the Preview portal.](./media/storage-import-export-data-from-blobs/import-export-order-preview-12-export-job.png) ](./media/storage-import-export-data-from-blobs/import-export-order-preview-12-export-job.png#lightbox)
+     [![Screenshot showing the Overview pane for an Azure Import Export job in Created state in the Preview portal.](./media/storage-import-export-data-from-blobs/import-export-order-preview-12-export-job.png)](./media/storage-import-export-data-from-blobs/import-export-order-preview-12-export-job.png#lightbox)
 
 
 # [Portal (Classic)](#tab/azure-portal-classic)
 
 Perform the following steps to create an export job in the Azure portal using the classic Azure Import/Export service.
 
-1. Log on to <https://portal.azure.com/>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **import/export jobs**.
 
     ![Screenshot of the Search box at the top of the Azure Portal home page. A search key for the Import Export Jobs Service is entered in the Search box.](../../includes/media/storage-import-export-classic-import-steps/import-to-blob-1.png)
@@ -448,7 +448,7 @@ You can use the copy logs from the job to verify that all data transferred succe
 
 To find the log locations, open the job in the [Azure portal/](https://portal.azure.com/). The **Data copy details** show the **Copy log path** and **Verbose log path** for each drive that was included in the order.
 
-[ ![Screenshot showing a completed export job in Azure Import Export. In Data Copy Details, the Copy Log Path and Verbose Log Path are highlighted.](./media/storage-import-export-data-from-blobs/import-export-status-export-order-completed.png) ](./media/storage-import-export-data-from-blobs/import-export-status-export-order-completed.png#lightbox)
+[![Screenshot showing a completed export job in Azure Import Export. In Data Copy Details, the Copy Log Path and Verbose Log Path are highlighted.](./media/storage-import-export-data-from-blobs/import-export-status-export-order-completed.png)](./media/storage-import-export-data-from-blobs/import-export-status-export-order-completed.png#lightbox)
 
 At this time, you can delete the job or leave it. Jobs automatically get deleted after 90 days.
 

@@ -141,6 +141,9 @@ conceptualContent:
         - url: ./vmware-vsphere/overview.md
           itemType: overview
           text: Azure Arc-enabled VMware vSphere (preview)
+        - url: ./system-center-virtual-machine-manager/overview.md
+          itemType: overview
+          text: Azure Arc-enabled System Center Virtual Machine Manager (preview)
     # Card
     - title: Application services
       links:

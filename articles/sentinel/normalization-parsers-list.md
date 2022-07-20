@@ -1,6 +1,6 @@
 ---
 title: List of Microsoft Sentinel Advanced Security Information Model (ASIM) parsers | Microsoft Docs
-description: This article list Advanced Security Information Model (ASIM) parsers .
+description: This article lists Advanced Security Information Model (ASIM) parsers.
 author: oshezaf
 ms.topic: reference
 ms.date: 05/02/2022
@@ -29,6 +29,7 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 - **Azure Active Directory sign-ins**, collected using the Azure Active Directory connector. Separate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.
 - **Okta authentication**, collected using the Okta connector.
+- **PostgreSQL** sign-in logs.
  
 Deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimAuthentication).
 
@@ -69,14 +70,17 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
+| **AppGate SDP** ip connection logs collected using Syslog |`_ASim_NetworkSession_AppGateSDP` (regular)<br> `_Im_NetworkSession_AppGateSDP` (filtering)<br> (Pending deployment) | `ASimNetworkSessionAppGateSDP` (regular)<br> `vimNetworkSessionAppGateSDP` (filtering)  |
 | **AWS VPC logs** collected using the AWS S3 connector |`_ASim_NetworkSession_AWSVPC` (regular)<br> `_Im_NetworkSession_AWSVPC` (filtering)  | `ASimNetworkSessionAWSVPC` (regular)<br> `vimNetworkSessionAWSVPC` (filtering)  |
 | **Azure Firewall logs** |`_ASim_NetworkSession_AzureFirewall` (regular)<br> `_Im_NetworkSession_AzureFirewall` (filtering)  | `ASimNetworkSessionAzureFirewall` (regular)<br> `vimNetworkSessionAzureFirewall` (filtering)  |
 | **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
 | **Azure Network Security Groups (NSG) logs** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_AzureNSG` (regular)<br> `_Im_NetworkSession_AzureNSG` (filtering)  | `ASimNetworkSessionAzureNSG` (regular)<br> `vimNetworkSessionAzureNSG` (filtering)  |
+| **Fortigate FortiOS** ip connection logs collected using Syslog |`_ASim_NetworkSession_FortinetFortiGate` (regular)<br> `_Im_NetworkSession_FortinetFortiGate` (filtering)<br> (Pending deployment) | `ASimNetworkSessionFortinetFortiGate` (regular)<br> `vimNetworkSessionFortinetFortiGate` (filtering)  |
 | **Microsoft 365 Defender for Endpoint** | `_ASim_NetworkSession_Microsoft365Defender` (regular)<br><br>`_Im_NetworkSession_Microsoft365Defender` (filtering) | `ASimNetworkSessionMicrosoft365Defender` (regular)<br><br> `vimNetworkSessionMicrosoft365Defender` (filtering) |
 | **Microsoft Defender for IoT - Endpoint** |`_ASim_NetworkSession_MD4IoT` (regular)<br><br>`_Im_NetworkSession_MD4IoT` (filtering) | `ASimNetworkSessionMD4IoT` (regular)<br><br> `vimNetworkSessionMD4IoT` (filtering) |
 | **Palo Alto PanOS traffic logs** collected using CEF |`_ASim_NetworkSession_PaloAltoCEF` (regular)<br> `_Im_NetworkSession_PaloAltoCEF` (filtering)  | `ASimNetworkSessionPaloAltoCEF` (regular)<br> `vimNetworkSessionPaloAltoCEF` (filtering)  |
 | **Sysmon for Linux**  (event 3)<br> Collected using the Log Analytics Agent<br> or the Azure Monitor Agent |`_ASim_NetworkSession_LinuxSysmon` (regular)<br><br>`_Im_NetworkSession_LinuxSysmon` (filtering) | `ASimNetworkSessionLinuxSysmon` (regular)<br><br> `vimNetworkSessionLinuxSysmon` (filtering) |
+| **Vectra AI** |`_ASim_NetworkSession_VectraIA` (regular)<br> `_Im_NetworkSession_VectraIA` (filtering)  | `AsimNetworkSessionVectraAI` (regular)<br> `vimNetworkSessionVectraAI` (filtering)  |
 | **Windows Firewall logs**<br>Collected as Windows events using the Log Analytics Agent (Event table) or Azure Monitor Agent (WindowsEvent table). Supports Windows events 5150 to 5159. |`_ASim_NetworkSession_`<br>`MicrosoftWindowsEventFirewall` (regular)<br><br>`_Im_NetworkSession_`<br>`MicrosoftWindowsEventFirewall` (filtering) | `ASimNetworkSession`<br>`MicrosoftWindowsEventFirewall` (regular)<br><br> `vimNetworkSession`<br>`MicrosoftWindowsEventFirewall` (filtering) |
 | **Zscaler ZIA firewall logs** |`_ASim_NetworkSessionZscalerZIA` (regular)<br> `_Im_NetworkSessionZscalerZIA` (filtering)  | `AsimNetworkSessionZscalerZIA` (regular)<br> `vimNetowrkSessionSzcalerZIA` (filtering)  |
 
@@ -111,6 +115,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Web S
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
 |**Squid Proxy** | `_ASim_WebSession_SquidProxy` (regular) <br> `_Im_WebSession_SquidProxy` (filtering) <br><br>  | `ASimWebSessionSquidProxy` (regular) <br>`vimWebSessionSquidProxy` (filtering) <br><br> |
+| **Vectra AI Streams** |`_ASim_WebSession_VectraAI` (regular)<br> `_Im_WebSession_VectraAI` (filtering) <br> (Pending deployment) | `ASimWebSessionVectraAI` (regular)<br> `vimWebSessionVectraAI` (filtering)  |
 | **Zscaler ZIA** |`_ASim_WebSessionZscalerZIA` (regular)<br> `_Im_WebSessionZscalerZIA` (filtering)  | `AsimWebSessionZscalerZIA` (regular)<br> `vimWebSessionSzcalerZIA` (filtering)  |
 
 
@@ -124,7 +129,7 @@ Learn more about ASIM parsers:
 - [Develop custom ASIM parsers](normalization-develop-parsers.md)
 - [Manage ASIM parsers](normalization-manage-parsers.md)
 
-For more about ASIM, in general, see: 
+Learn more about ASIM: 
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
 - [Advanced Security Information Model (ASIM) overview](normalization.md)

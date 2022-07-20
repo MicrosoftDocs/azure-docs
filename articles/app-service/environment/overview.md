@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 03/29/2022
+ms.date: 06/30/2022
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -79,10 +79,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 A few features that were available in earlier versions of App Service Environment aren't available in App Service Environment v3. For example, you can no longer do the following:
 
-- Send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25.
 - Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
-- Configure an IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps.
-- Configure a custom domain suffix.
 - Perform a backup and restore operation on a storage account behind a firewall.
 
 ## Pricing
@@ -105,23 +102,24 @@ App Service Environment v3 is available in the following regions:
 | Australia Southeast | Brazil South |
 | Brazil South | Canada Central |
 | Canada Central | Central India |
-| Central India | Central US |
-| Central US | East Asia |
-| East Asia | East US |
-| East US | East US 2 |
-| East US 2 | France Central |
-| France Central | Germany West Central |
-| Germany West Central | Japan East |
-| Japan East | Korea Central |
-| Korea Central | North Europe |
-| North Central US | Norway East |
-| North Europe | South Africa North |
-| Norway East | South Central US |
-| South Africa North | Southeast Asia |
-| South Central US | UK South |
-| Southeast Asia | West Europe |
-| Switzerland North | West US 2 |
-| UAE North | West US 3 |
+| Canada East | Central US |
+| Central India | East Asia |
+| Central US | East US |
+| East Asia | East US 2 |
+| East US | France Central |
+| East US 2 | Germany West Central |
+| France Central | Japan East |
+| Germany West Central | Korea Central |
+| Japan East | North Europe |
+| Korea Central | Norway East |
+| North Central US | South Africa North |
+| North Europe | South Central US |
+| Norway East | Southeast Asia |
+| South Africa North | UK South |
+| South Central US | West Europe |
+| Southeast Asia | West US 2 |
+| Switzerland North | West US 3 |
+| UAE North |  |
 | UK South |  |
 | UK West |  |
 | West Central US |  |

@@ -153,7 +153,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-When you enable the cluster autoscaler on node pools in the cluster, those clusters will also use the cluster autoscaler profile. For example:
+When you enable the cluster autoscaler on node pools in the cluster, these node pools with CA enabled will also use the cluster autoscaler profile. For example:
 
 ```azurecli-interactive
 az aks nodepool update \

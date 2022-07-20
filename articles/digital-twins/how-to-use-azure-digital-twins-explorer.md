@@ -1,13 +1,14 @@
 ---
 # Mandatory fields.
-title: Use Azure Digital Twins Explorer
+title: Use Azure Digital Twins Explorer (preview)
 titleSuffix: Azure Digital Twins
-description: Learn how to use the features of Azure Digital Twins Explorer
+description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 02/24/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: event-tier1-build-2022
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,10 +18,7 @@ ms.service: digital-twins
 
 # Use Azure Digital Twins Explorer (preview)
 
-[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using clicks or [keyboard shortcuts](#accessibility-and-advanced-settings).
-
->[!NOTE]
->This tool is currently in public preview.
+[Azure Digital Twins Explorer (preview)](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using clicks or [keyboard shortcuts](#accessibility-and-advanced-settings).
 
 ## How to access
 

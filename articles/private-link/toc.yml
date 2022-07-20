@@ -65,6 +65,8 @@
       href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
+  - name: Configure an application security group
+    href: configure-asg-private-endpoint.md
   - name: Export private endpoint DNS records
     href: private-endpoint-export-dns.md
   - name: Manage network policies for private endpoints
@@ -84,7 +86,7 @@
 - name: Reference
   items:
   - name: The Azure CLI
-    href: /cli/azure/network
+    href: /cli/azure/network/private-link-service
   - name: Azure PowerShell
     href: /powershell/module/az.network
   - name: .NET

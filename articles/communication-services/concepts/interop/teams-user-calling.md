@@ -61,6 +61,7 @@ The following list presents the set of features, which are currently available i
 |                   | Place a group call with PSTN participants                                                                           | ✔️        |
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️        |
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️        |
+|                   | Suppport for early media                                                                                            | ❌        |
 | General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️        |
 | Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️        |
 |                   | Get camera list                                                                                                     | ✔️        |

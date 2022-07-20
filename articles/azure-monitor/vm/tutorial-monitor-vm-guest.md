@@ -5,6 +5,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
 ms.date: 11/08/2021
+ms.reviewer: Xema Pathak
 ---
 
 # Tutorial: Collect guest logs and metrics from Azure virtual machine

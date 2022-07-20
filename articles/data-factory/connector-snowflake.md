@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 06/17/2022
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -19,17 +19,39 @@ This article outlines how to use the Copy activity in Azure Data Factory and Azu
 
 ## Supported capabilities
 
-This Snowflake connector is supported for the following activities:
+This Snowflake connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md) table
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 For the Copy activity, this Snowflake connector supports the following functions:
 
 - Copy data from Snowflake that utilizes Snowflake's [COPY into [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) command to achieve the best performance.
 - Copy data to Snowflake that takes advantage of Snowflake's [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports Snowflake on Azure.
 - If a proxy is required to connect to Snowflake from a self-hosted Integration Runtime, you must configure the environment variables for HTTP_PROXY and HTTPS_PROXY on the Integration Runtime host. 
+
+## Prerequisites
+
+If your data store is located inside an on-premises network, an Azure virtual network, or Amazon Virtual Private Cloud, you need to configure a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to it. Make sure to add the IP addresses that the self-hosted integration runtime uses to the allowed list. 
+
+If your data store is a managed cloud data service, you can use the Azure Integration Runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allowed list.
+
+The Snowflake account that is used for Source or Sink should have the necessary `USAGE` access on the Database and Read / Write access on Schema and the Tables/Views under it. In addition, it should also have `CREATE STAGE` on the schema to be able to create the External stage with SAS URI.
+
+The following Account properties values must be set
+
+| Property         | Description                                                  | Required | Default
+| :--------------- | :----------------------------------------------------------- | :------- | :-------
+| REQUIRE_STORAGE_INTEGRATION_FOR_STAGE_CREATION             | Specifies whether to require a storage integration object as cloud credentials when creating a named external stage (using CREATE STAGE) to access a private cloud storage location.             | FALSE      | FALSE
+| REQUIRE_STORAGE_INTEGRATION_FOR_STAGE_OPERATION            | Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. | FALSE | FALSE
+
+For more information about the network security mechanisms and options supported by Data Factory, see [Data access strategies](data-access-strategies.md).
 
 ## Get started
 
@@ -239,7 +261,7 @@ When your sink data store or format is not natively compatible with the Snowflak
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
 > [!NOTE]
-> The staging Azure Blob storage linked service must use shared access signature authentication, as required by the Snowflake COPY command. 
+> The staging Azure Blob storage linked service must use shared access signature authentication, as required by the Snowflake COPY command. Make sure you grant proper access permission to Snowflake in the staging Azure Blob storage. To learn more about this, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token). 
 
 **Example:**
 

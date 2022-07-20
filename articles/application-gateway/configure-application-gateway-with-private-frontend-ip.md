@@ -26,7 +26,7 @@ This article guides you through the steps to configure a Standard v1 Application
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com>
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an application gateway
 

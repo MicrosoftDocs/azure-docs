@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/18/2022
 ms.author: govindk
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -904,7 +904,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB SQL
 Next, deploy the template by using Azure PowerShell or Azure CLI. The following example shows how to deploy the template with an Azure CLI command:  
 
 ```azurecli-interactive
-az group deployment create -g <ResourceGroup> --template-file <RestoreTemplateFilePath> 
+az deployment group create -g <ResourceGroup> --template-file <RestoreTemplateFilePath> 
 ```
 
 ## Next steps

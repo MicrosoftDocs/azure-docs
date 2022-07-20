@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, sdkv1, event-tier1-build-2022
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/12/2022
+ms.date: 06/28/2022
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
@@ -27,8 +27,11 @@ Azure Private Link enables you to connect to your workspace using a private endp
 > * [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 > * [Secure workspace resources](how-to-secure-workspace-vnet.md).
 > * [Secure training environments](how-to-secure-training-vnet.md).
-> * [Secure inference environments](how-to-secure-inferencing-vnet.md).
+> * For securing inference, see the following documents:
+>     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+>     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 > * [Use Azure Machine Learning studio in a VNet](how-to-enable-studio-virtual-network.md).
+> * [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
 
 ## Prerequisites
 
@@ -61,6 +64,8 @@ Use one of the following methods to create a workspace with a private endpoint. 
 
 The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) class, which can be used with [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) to create a workspace with a private endpoint. This class requires an existing virtual network.
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core import Workspace
 from azureml.core import PrivateEndPointConfig
@@ -77,7 +82,7 @@ ws = Workspace.create(name='myworkspace',
 
 # [Azure CLI extension 2.0 preview](#tab/azurecliextensionv2)
 
-When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), a YAML document is used to configure the workspace. The following is an of creating a new workspace using a YAML configuration:
+When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), a YAML document is used to configure the workspace. The following is an example of creating a new workspace using a YAML configuration:
 
 > [!TIP]
 > When using private link, your workspace cannot use Azure Container Registry tasks compute for image building. The `image_build_compute` property in this configuration specifies a CPU compute cluster name to use for Docker image environment building. You can also specify whether the private link workspace should be accessible over the internet using the `public_network_access` property.
@@ -148,7 +153,7 @@ az network private-endpoint dns-zone-group add \
 
 # [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
-If you are using the Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md), use the [az ml workspace create](/cli/azure/ml/workspace#az-ml-workspace-create) command. The following parameters for this command can be used to create a workspace with a private network, but it requires an existing virtual network:
+If you are using the Azure CLI [extension 1.0 for machine learning](v1/reference-azure-machine-learning-cli.md), use the [az ml workspace create](/cli/azure/ml/workspace#az-ml-workspace-create) command. The following parameters for this command can be used to create a workspace with a private network, but it requires an existing virtual network:
 
 * `--pe-name`: The name of the private endpoint that is created.
 * `--pe-auto-approval`: Whether private endpoint connections to the workspace should be automatically approved.
@@ -184,6 +189,8 @@ Use one of the following methods to add a private endpoint to an existing worksp
 > If you have any existing compute targets associated with this workspace, and they are not behind the same virtual network tha the private endpoint is created in, they will not work.
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
@@ -254,7 +261,7 @@ az network private-endpoint dns-zone-group add \
 
 # [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
-The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint add](/cli/azure/ml(v1)/workspace/private-endpoint#az-ml-workspace-private-endpoint-add) command.
+The Azure CLI [extension 1.0 for machine learning](v1/reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint add](/cli/azure/ml(v1)/workspace/private-endpoint#az-ml-workspace-private-endpoint-add) command.
 
 ```azurecli
 az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval --pe-vnet-name myvnet
@@ -285,6 +292,8 @@ To remove a private endpoint, use the following information:
 
 To remove a private endpoint, use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)#delete-private-endpoint-connection-private-endpoint-connection-name-). The following example demonstrates how to remove a private endpoint:
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core import Workspace
 
@@ -305,7 +314,7 @@ az network private-endpoint delete \
 
 # [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
-The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint delete](/cli/azure/ml(v1)/workspace/private-endpoint#az-ml-workspace-private-endpoint-delete) command.
+The Azure CLI [extension 1.0 for machine learning](v1/reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint delete](/cli/azure/ml(v1)/workspace/private-endpoint#az-ml-workspace-private-endpoint-delete) command.
 
 # [Portal](#tab/azure-portal)
 
@@ -322,7 +331,7 @@ The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learn
 In some situations, you may want to allow someone to connect to your secured workspace over a public endpoint, instead of through the VNet. Or you may want to remove the workspace from the VNet and re-enable public access.
 
 > [!IMPORTANT]
-> Enabling public access doesn't remove any private endpoints that exist. All communications between components behind the VNet that the private endpoint(s) connect to is still secured. It enables public access only to the workspace, in addition to the private access through any private endpoints.
+> Enabling public access doesn't remove any private endpoints that exist. All communications between components behind the VNet that the private endpoint(s) connect to are still secured. It enables public access only to the workspace, in addition to the private access through any private endpoints.
 
 > [!WARNING]
 > When connecting over the public endpoint while the workspace uses a private endpoint to communicate with other resources:
@@ -331,9 +340,19 @@ In some situations, you may want to allow someone to connect to your secured wor
 
 To enable public access, use the following steps:
 
+> [!TIP]
+> There are two possible properties that you can configure:
+> * `allow_public_access_when_behind_vnet` - used by the Python SDK v1
+> * `public_network_access` - used by the CLI and Python SDK v2 (preview)
+> Each property overrides the other. For example, setting `public_network_access` will override any previous setting to `allow_public_access_when_behind_vnet`.
+>
+> Microsoft recommends using `public_network_access` to enable or disable public access to a workspace.
+
 # [Python](#tab/python)
 
 To enable public access, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `allow_public_access_when_behind_vnet=True`.
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
@@ -344,30 +363,20 @@ ws.update(allow_public_access_when_behind_vnet=True)
 
 # [Azure CLI extension 2.0 preview](#tab/azurecliextensionv2)
 
-When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), create a YAML document that sets the `public_network_access` property to `Enabled`. Then use the `az ml update` command to update the workspace:
-
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
-name: mlw-privatelink-prod
-location: eastus
-display_name: Private Link endpoint workspace-example
-description: When using private link, you must set the image_build_compute property to a cluster name to use for Docker image environment building. You can also specify whether the workspace should be accessible over the internet.
-image_build_compute: cpu-compute
-public_network_access: Enabled
-tags:
-  purpose: demonstration
-```
+When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), use the `az ml update` command to enable `public_network_access` for the workspace:
 
 ```azurecli
 az ml workspace update \
+    --set public_network_access=Enabled \
     -n <workspace-name> \
-    -f workspace.yml
     -g <resource-group-name>
 ```
 
+You can also enable public network access by using a YAML file. For more information, see the [workspace YAML reference](reference-yaml-workspace.md).
+
 # [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
-The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
+The Azure CLI [extension 1.0 for machine learning](v1/reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
 
 # [Portal](#tab/azure-portal)
 
@@ -439,3 +448,5 @@ If you want to create an isolated Azure Kubernetes Service used by the workspace
 * For more information on securing your Azure Machine Learning workspace, see the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
 
 * If you plan on using a custom DNS solution in your virtual network, see [how to use a workspace with a custom DNS server](how-to-custom-dns.md).
+
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)

@@ -2,6 +2,7 @@
 title: VMware HCX Mobility Optimized Networking (MON) guidance
 description: Learn about Azure VMware Solution-specific use cases for Mobility Optimized Networking (MON).  
 ms.topic: reference
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ---
 

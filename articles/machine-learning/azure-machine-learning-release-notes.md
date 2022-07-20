@@ -5,10 +5,11 @@ description: Learn about the latest updates to Azure Machine Learning Python SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 04/25/2022
+ms.date: 06/27/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -17,6 +18,33 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2022-06-27
+
+  + **azureml-automl-dnn-nlp**
+    + Remove duplicate labels column from multi-label predictions
+  + **azureml-contrib-automl-pipeline-steps**
+    + Many Models now provides the capability to generate prediction output in csv format as well. - Many Models prediction will now include column names in the output file in case of **csv** file format.
+  + **azureml-core**
+    + ADAL authentication is now deprecated and all authentication classes now use MSAL authentication. Please install azure-cli>=2.30.0 to utilize MSAL based authentication when using AzureCliAuthentication class.
+    + Added fix to force environment registration when `Environment.build(workspace)`. The fix solves confusion of the latest environment built instead of the asked one when environment is cloned or inherited from another instance.
+    + SDK warning message to restart Compute Instance before May 31, 2022, if it was created before September 19, 2021
+  + **azureml-interpret**
+    + Updated azureml-interpret package to interpret-community 0.26.*
+    + In the azureml-interpret package, add ability to get raw and engineered feature names from scoring explainer. Also, add example to the scoring notebook to get feature names from the scoring explainer and add documentation about raw and engineered feature names.
+  + **azureml-mlflow**
+    + azureml-core as a dependency of azureml-mlflow has been removed. - MLflow projects and local deployments will require azureml-core and needs to be installed separately.
+    + Adding support for creating endpoints and deploying to them via the MLflow client plugin.
+  + **azureml-responsibleai**
+    + Updated azureml-responsibleai package and environment images to latest responsibleai and raiwidgets 0.19.0 release
+  + **azureml-train-automl-client**
+    + Now OutputDatasetConfig is supported as the input of the MM/HTS pipeline builder. The mappings are: 1) OutputTabularDatasetConfig -> treated as unpartitioned tabular dataset. 2) OutputFileDatasetConfig -> treated as filed dataset.
+  + **azureml-train-automl-runtime**
+    + Added data validation that requires the number of minority class samples in the dataset to be at least as much as the number of CV folds requested.    
+    + Automatic cross-validation parameter configuration is now available for automl forecasting tasks. Users can now specify "auto" for n_cross_validations and cv_step_size or leave them empty, and automl will provide those configurations base on your data. However, currently this feature is not supported when TCN is enabled.
+    + Forecasting Parameters in Many Models and Hierarchical Time Series can now be passed via object rather than using individual parameters in dictionary.
+    + Enabled forecasting model endpoints with quantiles support to be consumed in PowerBI.
+    + Updated automl scipy dependency upper bound to 1.5.3 from 1.5.2
 
 ## 2022-04-25
 
@@ -2865,7 +2893,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
 
 + **Improved Swagger schema generation experience**<br/> Our previous swagger generation method was error prone and impossible to automate. We have a new in-line way of generating swagger schemas from any Python function via decorators. We have open-sourced this code and our schema generation protocol is not coupled to the Azure ML platform.
 
-+ **Azure ML CLI is generally available (GA)**<br/> Models can now be deployed with a single CLI command. We got common customer feedback that no one deploys an ML model from a Jupyter notebook. The [**CLI reference documentation**](./reference-azure-machine-learning-cli.md) has been updated.
++ **Azure ML CLI is generally available (GA)**<br/> Models can now be deployed with a single CLI command. We got common customer feedback that no one deploys an ML model from a Jupyter notebook. The [**CLI reference documentation**](./v1/reference-azure-machine-learning-cli.md) has been updated.
 
 
 ## 2019-04-22

@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Create a mesh network with Azure Virtual Network Manager using Azure PowerShell'
 description: Use this quickstart to learn how to create a mesh network with Virtual Network Manager using Azure PowerShell.
-author: duongau
-ms.author: duau
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 06/27/2022
 ms.custom: template-quickstart, ignite-fall-2021, mode-api
 ---
 
@@ -23,23 +23,18 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
+* During preview, the `4.15.1-preview` version of `Az.Network` is required to access the required cmdlets.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-## Register subscription for public preview
-
-Use the following command to register your Azure subscription for Public Preview of Azure Virtual Network Manager:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AllowAzureNetworkManager -ProviderNamespace Microsoft.Network
-```
+> [!IMPORTANT]
+> Perform this quickstart using Powershell locally, not through Azure Cloud Shell. The version of `Az.Network` in Azure Cloud Shell does not currently support the Azure Virtual Network Manager cmdlets.
 
 ## Install Azure PowerShell module
 
 Install the latest *Az.Network* Azure PowerShell module using this command:
 
 ```azurepowershell-interactive
-Install-Module -Name Az.Network -AllowPrerelease
+ Install-Module -Name Az.Network -RequiredVersion 4.15.1-preview -AllowPrerelease
 ```
 
 ## Create a resource group
@@ -59,12 +54,12 @@ New-AzResourceGroup @rg
 1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using New-AzNetworkManagerScope.
 
     ```azurepowershell-interactive
-    Import-Module -Name Az.Network -RequiredVersion "4.12.1"
+    Import-Module -Name Az.Network -RequiredVersion "4.15.1"
     
     [System.Collections.Generic.List[string]]$subGroup = @()  
     $subGroup.Add("/subscriptions/abcdef12-3456-7890-abcd-ef1234567890")
     [System.Collections.Generic.List[string]]$mgGroup = @()  
-    $mgGroup.Add("/managementGroups/abcdef12-3456-7890-abcd-ef1234567890")
+    $mgGroup.Add("/providers/Microsoft.Management/managementGroups/abcdef12-3456-7890-abcd-ef1234567890")
     
     [System.Collections.Generic.List[String]]$access = @()  
     $access.Add("Connectivity");  
@@ -153,14 +148,26 @@ $virtualnetworkC | Set-AzVirtualNetwork
 1. Create a static virtual network member with New-AzNetworkManagerGroupMembersItem.
 
     ```azurepowershell-interactive
-    $member = New-AzNetworkManagerGroupMembersItem –ResourceId "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA"
+    $ng = @{
+         Name = 'myNetworkGroup'
+         ResourceGroupName = 'myAVNMResourceGroup'
+         NetworkManagerName = 'myAVNM'
+         MemberType = 'Microsoft.Network/VirtualNetwork'
+     }
+     $networkgroup = New-AzNetworkManagerGroup @ng
     ```
-
+    
 1. Add the static member to the static membership group with the following commands:
 
     ```azurepowershell-interactive
-    [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerGroupMembersItem]]$groupMembers = @()  
-    $groupMembers.Add($member)
+    $sm = @{
+         Name = 'myStaticMember'
+         ResourceGroupName = 'myAVNMResourceGroup'
+         NetworkGroupName = 'myNetworkGroup'
+         NetworkManagerName = 'myAVNM'
+         ResourceId = '/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
+     }
+     $statimember = New-AzNetworkManagerStaticMember @sm
     ```
 
 ### Dynamic membership

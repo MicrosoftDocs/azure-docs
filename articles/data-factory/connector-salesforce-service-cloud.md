@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 06/23/2022
 ---
 
 # Copy data from and to Salesforce Service Cloud using Azure Data Factory or Synapse Analytics
@@ -35,7 +35,7 @@ The Salesforce connector is built on top of the Salesforce REST/Bulk API. By def
 
 ## Prerequisites
 
-API permission must be enabled in Salesforce. For more information, see [Enable API access in Salesforce by permission set](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
+API permission must be enabled in Salesforce.
 
 ## Salesforce request limits
 
@@ -240,6 +240,9 @@ To copy data from Salesforce Service Cloud, the following properties are support
     }
 ]
 ```
+
+> [!Note]
+> Salesforce Service Cloud source doesn't support proxy settings in the self-hosted integration runtime, but sink does.
 
 ### Salesforce Service Cloud as a sink type
 

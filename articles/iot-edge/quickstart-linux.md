@@ -133,17 +133,17 @@ Use the following CLI command to create your IoT Edge device based on the prebui
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
-Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.2) template.
+Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.3) template.
 
 * For bash or Cloud Shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or Cloud Shell window:
 
    ```azurecli-interactive
    az deployment group create \
    --resource-group IoTEdgeResources \
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2/edgeDeploy.json" \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.3/edgeDeploy.json" \
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
@@ -164,7 +164,7 @@ Use the following CLI command to create your IoT Edge device based on the prebui
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 This template takes the following parameters:
 
@@ -222,7 +222,7 @@ Once connected to your virtual machine, verify that the runtime was successfully
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Check to see that IoT Edge is running. The following command should return a status of **Ok** if IoT Edge is running, or provide any service errors.
@@ -247,7 +247,7 @@ Once connected to your virtual machine, verify that the runtime was successfully
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 Your IoT Edge device is now configured. It's ready to run cloud-deployed modules.
 
@@ -269,7 +269,7 @@ Follow these steps to start the **Set Modules** wizard to deploy your first modu
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
 
-1. From the menu on the left, under **Automatic Device Management**, select **IoT Edge**.
+1. From the menu on the left, under **Device Management**, select **IoT Edge**.
 
 1. Select the device ID of the target device from the list of devices.
 
@@ -289,20 +289,20 @@ Under **IoT Edge Modules**, open the **Add** drop-down menu, and then select **M
 
 In **IoT Edge Module Marketplace**, search for and select the `Simulated Temperature Sensor` module. The module is added to the IoT Edge Modules section with the desired **running** status.
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 Select **Runtime Settings** to open the settings for the edgeHub and edgeAgent modules. This settings section is where you can manage the runtime modules by adding environment variables or changing the create options.
 
-Update the **Image** field for both the edgeHub and edgeAgent modules to use the version tag 1.2. For example:
+Update the **Image** field for both the edgeHub and edgeAgent modules to use the version tag 1.3. For example:
 
-* `mcr.microsoft.com/azureiotedge-hub:1.2`
-* `mcr.microsoft.com/azureiotedge-agent:1.2`
+* `mcr.microsoft.com/azureiotedge-hub:1.3`
+* `mcr.microsoft.com/azureiotedge-agent:1.3`
 
 Select **Save** to apply your changes to the runtime modules.
 
 :::moniker-end
-<!--end 1.2-->
+<!--end iotedge-2020-11-->
 
 Select **Next: Routes** to continue to the next step of the wizard.
 
@@ -347,7 +347,7 @@ Open the command prompt on your IoT Edge device again, or use the SSH connection
    ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-201806.png)
 :::moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
    ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-202011.png)
 :::moniker-end

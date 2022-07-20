@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 05/02/2022
+ms.date: 05/25/2022
 ms.topic: overview
 author: timwarner-msft
 ms.author: timwarner
@@ -39,7 +39,7 @@ under those subscriptions. This security policy cannot be altered by the resourc
 owner allowing for improved governance.
 
 > [!NOTE]
-> Management groups aren't currently supported for Microsoft Customer Agreement subscriptions.
+> Management groups aren't currently supported in Cost Management features for Microsoft Customer Agreement (MCA) subscriptions.
 
 Another scenario where you would use management groups is to provide user access to multiple
 subscriptions. By moving multiple subscriptions under that management group, you can create one
@@ -277,7 +277,7 @@ need to be evaluated as true.
 
 If you're doing the move action, you need:
 
-- Management group write and Role Assignment write permissions on the child subscription or
+- Management group write and role assignment write permissions on the child subscription or
   management group.
   - Built-in role example: **Owner**
 - Management group write access on the target parent management group.
@@ -313,6 +313,9 @@ management group.
 
 When looking to query on management groups outside the Azure portal, the target scope for
 management groups looks like **"/providers/Microsoft.Management/managementGroups/{_management-group-id_}"**.
+
+> [!NOTE]
+> Using the Azure Resource Manager REST API, you can enable diagnostic settings on a management group to send related Azure Activity log entries to a Log Analytics workspace, Azure Storage, or Azure Event Hub. For more information, see [Management Group Diagnostic Settings - Create Or Update](/rest/api/monitor/management-group-diagnostic-settings/create-or-update).
 
 ## Next steps
 

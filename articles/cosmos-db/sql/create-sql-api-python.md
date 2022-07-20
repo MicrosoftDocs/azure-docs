@@ -15,14 +15,15 @@ ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V3](create-sql-api-dotnet.md)
-> * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java SDK v4](create-sql-api-java.md)
-> * [Spring Data v3](create-sql-api-spring-data.md)
-> * [Spark v3 connector](create-sql-api-spark.md)
+>
+> * [.NET](quickstart-dotnet.md)
 > * [Node.js](create-sql-api-nodejs.md)
+> * [Java](create-sql-api-java.md)
+> * [Spring Data](create-sql-api-spring-data.md)
 > * [Python](create-sql-api-python.md)
+> * [Spark v3](create-sql-api-spark.md)
 > * [Go](create-sql-api-go.md)
+>
 
 In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and from Visual Studio Code with a Python app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
@@ -34,7 +35,7 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
         * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
         * [Azure Cosmos DB Free Tier](../optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Without an Azure active subscription:
-        * [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/), a tests environment that lasts for 30 days.
+        * [Try Azure Cosmos DB for free](../try-free.md), a tests environment that lasts for 30 days.
         * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
 - [Python 2.7 or 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).

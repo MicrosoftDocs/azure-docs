@@ -1,5 +1,5 @@
 ---
-title: Manage secrets in Azure Container Apps Preview
+title: Manage secrets in Azure Container Apps
 description: Learn to store and consume sensitive configuration values in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -7,10 +7,10 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Manage secrets in Azure Container Apps Preview
+# Manage secrets in Azure Container Apps
 
 Azure Container Apps allows your application to securely store sensitive configuration values. Once defined at the application level, secured values are available to containers, inside scale rules, and via Dapr.
 
@@ -93,11 +93,11 @@ Here, a connection string to a queue storage account is declared in the `--secre
 
 ## Using secrets
 
-Application secrets are referenced via the `secretref` property. Secret values are mapped to application-level secrets where the `secretref` value matches the secret name declared at the application level.
+The secret value is mapped to the secret name declared at the application level as described in the [defining secrets](#defining-secrets) section.    The `passwordSecretRef` and `secretRef` parameters are used to reference the secret names as environment variables at the container level.  The `passwordSecretRef` provides a descriptive parameter name for secrets containing passwords.
 
 ## Example
 
-The following example shows an application that declares a connection string at the application level and is used throughout the configuration via `secretref`.
+The following example shows an application that declares a connection string at the application level and is used throughout the configuration via `secretRef`.
 
 # [ARM template](#tab/arm-template)
 
@@ -120,10 +120,10 @@ az containerapp create \
   --environment "my-environment-name" \
   --image demos/myQueueApp:v1 \
   --secrets "queue-connection-string=$CONNECTIONSTRING" \
-  --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
+  --env-vars "QueueName=myqueue" "ConnectionString=secretRef:queue-connection-string"
 ```
 
-Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
+Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretRef`.
 
 # [PowerShell](#tab/powershell)
 
@@ -136,10 +136,10 @@ az containerapp create `
   --environment "my-environment-name" `
   --image demos/myQueueApp:v1 `
   --secrets "queue-connection-string=$CONNECTIONSTRING" `
-  --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
+  --env-vars "QueueName=myqueue" "ConnectionString=secretRef:queue-connection-string"
 ```
 
-Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
+Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretRef`.
 
 ---
 

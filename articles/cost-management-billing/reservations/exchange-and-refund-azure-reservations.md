@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 06/20/2022
 ms.author: banders
 ---
 
@@ -99,7 +99,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 **Refund policies**
 
 - We're currently not charging an early termination fee, but in the future there might be a 12% early termination fee for cancellations.
-- The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment. For example, for a three-year reservation that's 100 USD per month and it's refunded in the 18th month, the canceled commitment is 1,800 USD. After the refund, your new available limit for refund will be 48,200 USD. In 365 days from the refund, the 48,200 USD limit will be increased by 1,800 USD and your new pool will be 50,000 USD. Any other reservation cancellation for the billing profile or EA enrollment will deplete the same pool, and the same replenishment logic will apply.
+- The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment. For example, for a three-year reservation (36 months) that's 100 USD per month and it's refunded in the 12th month, the canceled commitment is 2,400 USD (for the remaining 24 months). After the refund, your new available limit for refund will be 47,600 USD (50,000-2,400). In 365 days from the refund, the 47,600 USD limit will be increased by 2,400 USD and your new pool will be 50,000 USD. Any other reservation cancellation for the billing profile or EA enrollment will deplete the same pool, and the same replenishment logic will apply.
 - Azure won't process any refund that will exceed the 50,000 USD limit in a 12-month window for a billing profile or EA enrollment.
     - Refunds that result from an exchange don't count against the refund limit.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
