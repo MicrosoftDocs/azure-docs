@@ -16,20 +16,15 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure Datawiza to enable Azure Active Directory SSO to Oracle JD Edwards
 
-This tutorial shows how to enable Azure Active Directory (Azure AD)
-single sign-on (SSO) for an Oracle JD Edwards (JDE) application using
+This tutorial shows how to enable Azure Active Directory (Azure AD) single sign-on (SSO) for an Oracle JD Edwards (JDE) application using
 Datawiza Access Broker (DAB).
 
-Benefits of integrating applications with Azure AD using DAB
-include:
+Benefits of integrating applications with Azure AD using DAB include:
 
-- [Proactive security with Zero
-  Trust](https://www.microsoft.com/security/business/zero-trust)
-  through [Azure AD SSO](https://azure.microsoft.com/solutions/active-directory-sso/?OCID=AIDcmm5edswduu_SEM_e13a1a1787ce1700761a78c235ae5906:G:s&ef_id=e13a1a1787ce1700761a78c235ae5906:G:s&msclkid=e13a1a1787ce1700761a78c235ae5906#features), [Azure AD Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) and
+- [Proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust) through [Azure AD SSO](https://azure.microsoft.com/solutions/active-directory-sso/OCID=AIDcmm5edswduu_SEM_e13a1a1787ce1700761a78c235ae5906:G:s&ef_id=e13a1a1787ce1700761a78c235ae5906:G:s&msclkid=e13a1a1787ce1700761a78c235ae5906#features), [Azure AD Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) and
   [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 
-- [Easy authentication and authorization in Azure AD with no-code Datawiza](https://www.microsoft.com/security/blog/2022/05/17/easy-authentication-and-authorization-in-azure-active-directory-with-no-code-datawiza/).
-Use of web applications such as: JDE, E-Business Suite, Sibel, Peoplesoft, and home-grown apps.
+- [Easy authentication and authorization in Azure AD with no-code Datawiza](https://www.microsoft.com/security/blog/2022/05/17/easy-authentication-and-authorization-in-azure-active-directory-with-no-code-datawiza/). Use of web applications such as: JDE, E-Business Suite, Sibel, Peoplesoft, and home-grown apps.
 
 - Use the [Datawiza Cloud Management
 Console](https://console.datawiza.com), to manage access to applications in public clouds and on-premises.
@@ -77,8 +72,7 @@ Ensure the following prerequisites are met.
 
 - An account with Azure AD and the Application Administrator role
 
-  - See, [Azure AD built-in roles, All
-    roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#all-roles).
+  - See, [Azure AD built-in roles, All roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#all-roles).
 
 - An Oracle JDE environment
 
