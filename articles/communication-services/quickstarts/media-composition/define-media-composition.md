@@ -123,7 +123,7 @@ Dominant Speaker json:
 Media Composition supports several layouts. These include grid, auto grid, presentation, presenter, and custom.
 
 ### Grid
-The grid layout will compose the specified media sources into a grid with a constant number of cells. You can customize the number of rows and columns that grid should have as well as specify the media source that should be place at each slot of the grid.
+The grid layout will compose the specified media sources into a grid with a constant number of cells. You can customize the number of rows and columns the grid should have as well as specify the media source that should be place in each cell of the grid.
 
 Sample grid layout json:
 ```json
