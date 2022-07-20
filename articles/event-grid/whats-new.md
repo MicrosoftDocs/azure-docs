@@ -12,11 +12,11 @@ ms.date: 07/20/2022
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release. 
 
 ## Microsoft.Azure.Management.EventGrid version 9.0.0 (REST API version 2022-06)
-This release corresponds to REST API version 2022-06, which includes the following features:
+This release corresponds to REST API version 2022-06-15, which includes the following features:
 
 - [Partner Events - General Availability (GA)](partner-events-overview-for-partners.md)
 - Nested event subscriptions for domains, domain topics, and topics.
-- [Data residency for topics and domains](event-grid-faq.md#where-does-azure-event-grid-store-data-).
+- [Data residency for topics and domains](/azure/event-grid/event-grid-faq#where-does-azure-event-grid-store-data-).
 - [Azure Policy - Management group support](event-schema-policy.md)
 
 ## Microsoft.Azure.Management.EventGrid version 7.0.0 (REST API version 2021-12)
