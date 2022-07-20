@@ -1639,7 +1639,7 @@ groups:
   - id: ms-graph
     title: Microsoft Graph
 ## Generic how-to doc template without graph
-- id: enterprise-apps
+- id: enterprise-apps-minus-graph
   title: Manage Enterpise apps
   prompt: Choose an option
   pivots:
