@@ -27,7 +27,7 @@ This article describes how to develop a sample code in C# to read cryptographic 
 ## Prerequisites
 
 - A Windows host OS with a TPM or vTPM
-- EFLOW virtual machine TPM passthrough is enabled. For more information, see [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmfeature).
+- EFLOW virtual machine with TPM passthrough enabled. For more information, see [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmfeature).
 - Ensure that the NV index (default index=3001) is initialized and has 8 bytes of data written to it. The AuthValue used by default by the sample is {1,2,3,4,5,6,7,8} which corresponds to the NV (Windows) Sample in the TSS.MSR libraries when writing to the TPM. All index initialization must take place on the Windows Host before reading from the EFLOW VM. For more information about TPM samples, see [TSS.MSR](https://github.com/microsoft/TSS.MSR).
 
 ## Create the dTPM executable
