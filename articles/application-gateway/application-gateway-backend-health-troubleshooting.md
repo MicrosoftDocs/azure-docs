@@ -22,7 +22,7 @@ successfully, Application Gateway resumes forwarding the requests.
 To check the health of your backend pool, you can use the
 **Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
-The status retrieved by any of these methods can be any one of the following:
+The status retrieved by any of these methods can be any one of the following states:
 
 - Healthy
 - Unhealthy
@@ -37,7 +37,7 @@ If the backend health status is **Unhealthy**, the portal view will resemble the
 
 ![Application Gateway backend health - Unhealthy](./media/application-gateway-backend-health-troubleshooting/appgwunhealthy.png)
 
-Or if you're using an Azure PowerShell, CLI, or Azure REST API query, you'll get a response that resembles the following:
+Or if you're using an Azure PowerShell, CLI, or Azure REST API query, you'll get a response that resembles the following example:
 
 ```azurepowershell
 PS C:\Users\testuser\> Get-AzApplicationGatewayBackendHealth -Name "appgw1" -ResourceGroupName "rgOne"
@@ -74,7 +74,7 @@ BackendAddressPoolsText : [
 
 After you receive an unhealthy backend server status for all the servers in a backend pool, requests aren't forwarded to the servers, and Application Gateway returns a "502 Bad Gateway" error to the requesting client. To troubleshoot this issue, check the **Details** column on the **Backend Health** tab.
 
-The message displayed in the **Details** column provides more detailed insights about the issue, and based on those, you can start troubleshooting the issue.
+The message displayed in the **Details** column provides more detailed insights about the issue, and based on those details, you can start troubleshooting the issue.
 
 > [!NOTE]
 > The default probe request is sent in the format of \<protocol\>://127.0.0.1:\<port\>. For example, `http://127.0.0.1:80` for an HTTP probe on port 80. Only HTTP status codes of 200 through 399 are considered healthy. The protocol and destination port are inherited from the HTTP settings. If you want Application Gateway to probe on a different protocol, host name, or path and to recognize a different status code as Healthy, configure a custom probe and associate it with the HTTP settings.
@@ -102,7 +102,7 @@ To increase the timeout value, follow these steps:
 
 **Message:** Application Gateway could not create a probe for this backend. This usually happens when the FQDN of the backend has not been entered correctly. 
 
-**Cause:** If the backend pool is of type IP Address/FQDN or App Service, Application Gateway resolves to the IP address of the FQDN entered through Domain Name System (DNS) (custom or Azure default) and tries to connect to the server on the TCP port mentioned in the HTTP Settings. But if this message is displayed, it suggests that Application Gateway couldn't successfully resolve the IP address of the FQDN entered.
+**Cause:** If the backend pool is of type IP Address, FQDN or App Service, Application Gateway resolves to the IP address of the FQDN entered through DNS (custom or Azure default). The application gateway then tries to connect to the server on the TCP port mentioned in the HTTP settings. But if this message is displayed, it suggests that Application Gateway couldn't successfully resolve the IP address of the FQDN entered.
 
 **Resolution:**
 
@@ -147,7 +147,7 @@ az network application-gateway start -n <appgw_name> -g <rg_name>
 
 ### TCP connect error
 
-**Message:** Application Gateway could not connect to the backend. Please check that the backend responds on the port used for the probe. Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of this backend.
+**Message:** Application Gateway could not connect to the backend. Check that the backend responds on the port used for the probe. Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of this backend.
 
 **Cause:** After the DNS resolution phase, Application Gateway tries to connect to the backend server on the TCP port that's configured in the HTTP settings. If Application Gateway can't establish a TCP session on the port specified, the probe is marked as Unhealthy with this message.
 
@@ -177,7 +177,7 @@ az network application-gateway start -n <appgw_name> -g <rg_name>
 
 4. If you don't find any issues with NSG or UDR, check your backend server for application-related issues that are preventing clients from establishing a TCP session on the ports configured. A few things to check:
 
-   a.  Open a command prompt (Win+R -> cmd), enter `netstat`, and select Enter.
+   a.  Open a command prompt (Win+R -> cmd), enter **netstat**, and select Enter.
 
    b.  Check whether the server is listening on the port that's configured. For example:
 
@@ -195,7 +195,7 @@ az network application-gateway start -n <appgw_name> -g <rg_name>
 
 **Message:** Status code of the backend's HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}.
 
-**Cause:** After the TCP connection has been established and a TLS handshake is done (if TLS is enabled), Application Gateway will send the probe as an HTTP GET request to the backend server. As described earlier, the default probe will be to \<protocol\>://127.0.0.1:\<port\>/, and it considers response status codes in the rage 200 through 399 as Healthy. If the server returns any other status code, it will be marked as Unhealthy with this message.
+**Cause:** After the TCP connection has been established and a TLS handshake is done (if TLS is enabled), Application Gateway will send the probe as an HTTP GET request to the backend server. As described earlier, the default probe will be to `<protocol>://127.0.0.1:<port>/`, and it considers response status codes in the rage 200 through 399 as Healthy. If the server returns any other status code, it will be marked as Unhealthy with this message.
 
 **Solution:** Depending on the backend server's response code, you can take the following steps. A few of the common status codes are listed here:
 
@@ -217,7 +217,7 @@ To create a custom probe, follow [these steps](./application-gateway-create-prob
 **Message:** Body of the backend's HTTP response did not match the
 probe setting. Received response body does not contain {string}.
 
-**Cause:** When you create a custom probe, you have an option to mark a backend server as Healthy by matching a string from the response body. For example, you can configure Application Gateway to accept "unauthorized" as a string to match. If the backend server response for the probe request contains the string **unauthorized**, it will be marked as Healthy. Otherwise, it will be marked as Unhealthy with this message.
+**Cause:** When you create a custom probe, you can mark a backend server as Healthy by matching a string from the response body. For example, you can configure Application Gateway to accept "unauthorized" as a string to match. If the backend server response for the probe request contains the string **unauthorized**, it will be marked as Healthy. Otherwise, it will be marked as Unhealthy with this message.
 
 **Solution:** To resolve this issue, follow these steps:
 
@@ -246,7 +246,7 @@ Learn more about [Application Gateway probe matching](./application-gateway-prob
 6. In the Certificate properties, select the **Details** tab.
 7. On the **Details** tab, select the **Copy to File** option and save the file in the Base-64 encoded X.509 (.CER) format.
 8. Open the Application Gateway HTTP **Settings** page in the Azure portal.
-9. Open the HTTP settings, select **Add Certificate**, and locate the certificate file that you just saved.
+9. Open the HTTP settings, select **Add Certificate**, and locate the certificate file that you saved.
 10. Select **Save** to save the HTTP settings.
 
 Alternatively, you can export the root certificate from a client machine by directly accessing the server (bypassing Application Gateway) through browser and exporting the root certificate from the browser.
@@ -299,7 +299,7 @@ If the output doesn't show the complete chain of the certificate being returned,
 
 **Message:** The Common Name (CN) of the backend certificate does not match the host header of the probe.
 
-**Cause:** Application Gateway checks whether the host name specified in the backend HTTP settings matches that of the CN presented by the backend server’s TLS/SSL certificate. This is Standard_v2 and WAF_v2 SKU (V2) behavior. The Standard and WAF SKU’s (v1) Server Name Indication (SNI) is set as the FQDN in the backend pool address. For more information on SNI behavior and differences between v1 and v2 SKU, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md).
+**Cause:** Application Gateway checks whether the host name specified in the backend HTTP settings matches that of the CN presented by the backend server’s TLS/SSL certificate. This verification is Standard_v2 and WAF_v2 SKU (V2) behavior. The Standard and WAF SKU (v1) Server Name Indication (SNI) is set as the FQDN in the backend pool address. For more information on SNI behavior and differences between v1 and v2 SKU, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md).
 
 In the v2 SKU, if there's a default probe (no custom probe has been configured and associated), SNI will be set from the host name mentioned in the HTTP settings. Or, if “Pick host name from backend address” is mentioned in the HTTP settings, where the backend address pool contains a valid FQDN, this setting will be applied.
 
@@ -307,7 +307,7 @@ If there's a custom probe associated with the HTTP settings, SNI will be set fro
 
 If **Pick hostname from backend address** is set in the HTTP settings, the backend address pool must contain a valid FQDN.
 
-If you receive this error message, the CN of the backend certificate doesn't match the host name configured in the custom probe or the HTTP settings (if **Pick hostname from backend HTTP settings** is selected). If you're using a default probe, the host name will be set as **127.0.0.1**. If that’s not a desired value, you should create a custom probe and associate it with the HTTP settings.
+If you receive this error message, the CN of the backend certificate doesn't match the host name configured in the custom probe, or the HTTP settings if **Pick hostname from backend HTTP settings** is selected. If you're using a default probe, the host name will be set as **127.0.0.1**. If that’s not a desired value, you should create a custom probe and associate it with the HTTP settings.
 
 **Solution:**
 
@@ -384,7 +384,7 @@ This behavior can occur for one or more of the following reasons:
 
    a.	Follow steps 1a and 1b to determine your subnet.
    b.	Check whether there's any UDR configured. If there is, search for the resource on the search bar or under **All resources**.
-   c.	Check whether there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance or the on-premises device can properly route the packet back to the internet destination without modifying the packet.
+   c.	Check whether there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance, or the on-premises device, can properly route the packet back to the internet destination without modifying the packet.
    d.	Otherwise, change the next hop to **Internet**, select **Save**, and verify the backend health.
 
 3. Default route advertised by the ExpressRoute/VPN connection to the virtual network over BGP:
@@ -393,11 +393,11 @@ This behavior can occur for one or more of the following reasons:
    b.	Choose the destination manually as any internet-routable IP address like 1.1.1.1. Set the destination port as anything, and verify the connectivity.
    c.	If the next hop is virtual network gateway, there might be a default route advertised over ExpressRoute or VPN.
 
-4. If there's a custom DNS server configured on the virtual network, verify that the server (or servers) can resolve public domains. Public domain name resolution might be required in scenarios where Application Gateway must reach out to external domains like OCSP servers or to check the certificate’s revocation status.
+4. If there's a custom DNS server configured on the virtual network, verify that the servers can resolve public domains. Public domain name resolution might be required in scenarios where Application Gateway must reach out to external domains like OCSP servers or to check the certificate’s revocation status.
 
-5. To verify that Application Gateway is healthy and running, go to the **Resource Health** option in the portal and verify that the state is **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
+5. To verify that Application Gateway is healthy and running, go to the **Resource Health** option in the portal, and verify that the state is **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
 
-6. If Internet and private traffic are going though an Azure Firewall hosted in a secured Virtual hub (using Azure Virtual WAN Hub):
+6. If Internet and private traffic are going through an Azure Firewall hosted in a secured Virtual hub (using Azure Virtual WAN Hub):
 
    a. To ensure the application gateway can send traffic directly to the Internet, configure the following user defined route:
 
