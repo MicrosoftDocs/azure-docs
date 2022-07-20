@@ -44,7 +44,7 @@
     href: /rest/api/confidentialledger/
   - name: .NET client library
     href: /dotnet/api/overview/azure/confidentialledger 
-  - name: Javascript client library
+  - name: JavaScript client library
     href: /javascript/api/overview/azure/azureconfidentialledger
   - name: Java preview client library
     href: /java/api/overview/azure/data-confidentialledger-readme
