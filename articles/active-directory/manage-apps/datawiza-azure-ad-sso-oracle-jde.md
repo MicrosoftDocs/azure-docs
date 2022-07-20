@@ -1,10 +1,9 @@
 ---
-title: Configure Azure AD SSO for an Oracle JD Edwards application using Datawiza Access Broker
-description: In this tutorial, learn how to enable Azure Active Directory SSO for an Oracle JD Edwards application using
-Datawiza Access Broker
-services: active-directory
-author: gargi-sinha
-manager: martinco
+Title: Configure Azure AD SSO for an Oracle JD Edwards application using Datawiza Access Broker
+Description: Enable Azure Active Directory SSO for Oracle JD Edwards application using Datawiza Access Broker
+Services: active-directory
+Author: gargi-sinha
+Manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
@@ -31,11 +30,9 @@ Console](https://console.datawiza.com), to manage access to applications in publ
 
 ## Scenario description
 
-This scenario focuses on issues that can arise when identity providers (IdPs) integrate with the classic Oracle JDE application. Integration can be accomplished because Oracle JDE supports HTTP Authorization headers.
+This scenario focuses on Oracle JDE application integration using HTTP authorization headers to manage access to protected content.
 
-In legacy applications, due to the absence of modern protocol support, it's difficult to integrate SSO.
-
-Datawiza Access Broker lowers integration overhead, saves engineering time, and improves application security.
+In legacy applications, due to the absence of modern protocol support, a direct integration with Azure AD SSO is difficult. Datawiza Access Broker (DBA) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. DBA lowers integration overhead, saves engineering time, and improves application security.
 
 ## Scenario architecture
 
@@ -43,48 +40,45 @@ The scenario solution has the following components:
 
 - **Azure AD**: The Microsoft cloud-based identity and access management service, which helps users sign in and access external and internal resources.
 
-- **Oracle JDE Application**: Legacy application protected by Azure AD.
+- **Oracle JDE application**: Legacy application protected by Azure AD.
 
-- **Datawiza Access Broker (DAB)**: A lightweight container-based reverse-proxy that implements OpenID Connect (OIDC), OAuth, or Security Assertion Markup Language (SAML) for user sign-in flow. It    transparently passes identity to applications through HTTP headers.
+- **Datawiza Access Broker (DAB)**: A lightweight container-based reverse-proxy that implements OpenID Connect (OIDC), OAuth, or Security Assertion Markup Language (SAML) for user sign-in flow. It transparently passes identity to applications through HTTP headers.
 
 - **Datawiza Cloud Management Console (DCMC)**: A centralized console to manage DAB. DCMC has UI and RESTful APIs for administrators to configure Datawiza Access Broker and access control policies.
 
-Follow the steps mentioned in [Datawiza and Azure AD authentication
-architecture](https://docs.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad#datawiza-with-azure-ad-authentication-architecture)
-to understand the SP initiated flow.
+Understand the SP initiated flow by following the steps mentioned in [Datawiza and Azure AD authentication
+architecture](https://docs.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad#datawiza-with-azure-ad-authentication-architecture).
 
 ## Prerequisites
 
 Ensure the following prerequisites are met.
 
-- An Azure subscription. If you don\'t have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+- An Azure subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free)
 
 - An Azure AD tenant linked to the Azure subscription.
   - See, [Quickstart: Create a new tenant in Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - Docker and Docker Compose
 
-  - Go to docs.docker.com to [Get Docker](https://docs.docker.com/get-docker/) and [Install Docker Compose](https://docs.docker.com/compose/install/).
+  - Go to docs.docker.com to [Get Docker](https://docs.docker.com/get-docker) and [Install Docker Compose](https://docs.docker.com/compose/install).
 
 - User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to an on-premises directory.
 
   - See, [Azure AD Connect sync: Understand and customize synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis).
 
-- An account with Azure AD and the Application Administrator role
+- An account with Azure AD and the Application administrator role
 
-  - See, [Azure AD built-in roles, All roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#all-roles).
+  - See, [Azure AD built-in roles, all roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#all-roles).
 
 - An Oracle JDE environment
 
-- (Optional) An SSL web certificate to publish services over HTTPS. You can also use default Datawiza self-signed certs for testing. See, [SSL
-profile](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide#ssl-profile).
+- (Optional) An SSL web certificate to publish services over HTTPS. You can also use default Datawiza self-signed certs for testing. 
 
 ## Getting started with DAB
 
 To integrate Oracle JDE with Azure AD:
 
-1. Sign in to [Datawiza Cloud Management
-    Console.](https://console.datawiza.com/)
+1. Sign in to [Datawiza Cloud Management Console.](https://console.datawiza.com/)
 
 2. The Welcome page appears.
 
@@ -92,7 +86,7 @@ To integrate Oracle JDE with Azure AD:
 
    ![Screenshot that shows the getting started page](media/datawiza-azure-ad-sso-oracle-jde/getting-started.png)
 
-4. In the **Name** and **Description** fields, add needed information.
+4. In the **Name** and **Description** fields, enter relevant information.
 
 5. Select **Next**.
 
@@ -133,7 +127,7 @@ DAB gets user attributes from IdP and passes them to the upstream application wi
 
 For the Oracle JDE application to, recognize the user correctly, there's another configuration step. Using a certain name, it instructs DAB to pass the values from the IdP to the application through the HTTP header.
 
-1. In Oracle JDE, in the left navigation, select **Applications**.
+1. In Oracle JDE, from the left navigation, select **Applications**.
 
 2. Select the **Attribute Pass** subtab.
 
@@ -148,8 +142,7 @@ For the Oracle JDE application to, recognize the user correctly, there's another
    ![Screenshot that shows the attributes that needs to be passed for the Oracle JDE application](media/datawiza-azure-ad-sso-oracle-jde/add-new-attribute.png)
 
    >[!Note]
-   >This configuration uses the Azure AD user principal name as
-   the log-in username used by Oracle JDE. To use another user identity, go to the **Mappings** tab.
+   >This configuration uses the Azure AD user principal name as the log-in username used by Oracle JDE. To use another user identity, go to the **Mappings** tab.
 
    ![Screenshot that shows the user principal name field as the username](media/datawiza-azure-ad-sso-oracle-jde/user-principal-name-mapping.png)
 
@@ -157,7 +150,7 @@ For the Oracle JDE application to, recognize the user correctly, there's another
 
    ![Screenshot that shows the advanced fields](media/datawiza-azure-ad-sso-oracle-jde/advanced-attributes.png)
 
-   ![Screenshot that shows the user principal name tab as the username](media/datawiza-azure-ad-sso-oracle-jde/add-new-attribute.png)
+   ![Screenshot that shows the new attribute](media/datawiza-azure-ad-sso-oracle-jde/add-new-attribute.png)
 
 5. Select **Enable SSL**.
 
@@ -176,11 +169,11 @@ For the Oracle JDE application to, recognize the user correctly, there's another
 
 8. Select **Save**.
 
-## Enable SSO in the JDE EnterpriseOne Console
+## Enable SSO in the Oracle JDE EnterpriseOne Console
 
 To enable SSO in the Oracle JDE environment:
 
-1. Sign in to the Oracle JDE EnterpriseOne Server Manager Management Console as an Administrator.
+1. Sign in to the Oracle JDE EnterpriseOne Server Manager Management Console as an **Administrator**.
 
 2. In **Select Instance**, select the option above **EnterpriseOne HTML Server**.
 
@@ -195,8 +188,7 @@ To enable SSO in the Oracle JDE environment:
 7. Select **Stop** to confirm you want to stop the managed instance.
 
    >[!NOTE]
-   >If a message shows the web server configuration (jas.ini) is
-   out-of-date, select **Synchronize Configuration**.
+   >If a message shows the web server configuration (jas.ini) is out-of-date, select **Synchronize Configuration**.
 
 8. Select **Start** to confirm you want to start the managed instance.
 
