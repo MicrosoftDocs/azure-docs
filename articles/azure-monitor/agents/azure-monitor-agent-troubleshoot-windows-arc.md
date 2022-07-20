@@ -4,7 +4,7 @@ description: Guidance for troubleshooting issues on Windows Arc-enabled server w
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 5/9/2022
+ms.date: 7/19/2022
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -25,7 +25,16 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 		```azurecli
 		azcmagent show
 		```   
-		If you see `Agent Status: Disconnected`, [file a ticket](#file-a-ticket) with **Summary** as 'Arc agent or extensions service not working' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.
+		You should see the below output:
+		```
+		Resource Name                           : <server name>
+		[...]
+		Dependent Service Status
+		  Agent Service (himds)                 : running
+		  GC Service (gcarcservice)             : running
+		  Extension Service (extensionservice)  : running
+		```
+		If instead you see `Agent Status: Disconnected` or any other status, [file a ticket](#file-a-ticket) with **Summary** as 'Arc agent or extensions service not working' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.
 	3. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up, [uninstall and install the extension](./azure-monitor-agent-manage.md) again and repeat the verification to see the extension show up. 
 	4. If not, check if you see any errors in extension logs located at `C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent` on your machine  
 	5. If none of the above works, [file a ticket](#file-a-ticket) with **Summary** as 'AMA extension fails to install or provision' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.  

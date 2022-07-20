@@ -48,13 +48,13 @@ No the Cost Details API is free. Make sure to abide by the rate-limiting policie
 
 <!--- For more information, see [Data latency and rate limits](api-latency-rate-limits.md). -->
 
-### What's the difference between the Invoice API, the Transaction API, and the Cost Details API?
+### What's the difference between the Invoices API, the Transactions API, and the Cost Details API?
 
 These APIs provide a different view of the same data:
 
-- The [Invoice API](/api/billing/2019-10-01-preview/invoices) provides an aggregated view of your monthly charges.
+- The [Invoices API](/api/billing/2019-10-01-preview/invoices) provides an aggregated view of your monthly charges.
 - The [Transactions API](/rest/api/billing/2020-05-01/transactions/list-by-invoice) provides a view of your monthly charges aggregated at product/service family level.
-- The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report provides a granular view of the usage and cost records for each day. Both Enterprise and Microsoft Customer Agreement customers can use it. If you're a legacy pay-as-you-go customer, see [Get Cost Details as a legacy customer](get-usage-details-legacy-customer.md).
+- The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report provides a granular view of the usage and cost records for each day. The Cost Details API is available for Enterprise Agreement and Microsoft Customer Agreement accounts. For pay-as-you-go subscriptions, use the Exports API. If Exports don't meet your needs and you need an on-demand solution, see [Get Cost Details for a pay-as-you-go subscription](get-usage-details-legacy-customer.md).
 
 ### I recently migrated from an EA to an MCA agreement. How do I migrate my API workloads?
 
