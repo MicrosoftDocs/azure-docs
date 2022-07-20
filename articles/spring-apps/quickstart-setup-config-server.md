@@ -7,7 +7,7 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 7/19/2022
 ms.custom: devx-track-java, fasttrack-edit, mode-other, event-tier1-build-2022
-zone_pivot_groups: programming-languages-spring-cloud
+zone_pivot_groups: programming-languages-spring-apps
 ---
 
 # Quickstart: Set up Azure Spring Apps Config Server

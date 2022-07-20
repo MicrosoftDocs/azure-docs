@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 09/13/2021
 ms.author: karler
 ms.custom: devx-track-java, event-tier1-build-2022
-zone_pivot_groups: programming-languages-spring-cloud
+zone_pivot_groups: programming-languages-spring-apps
 ---
 
 # Automate application deployments to Azure Spring Apps

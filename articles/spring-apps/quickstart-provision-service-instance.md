@@ -7,7 +7,7 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 10/12/2021
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
-zone_pivot_groups: programming-languages-spring-cloud
+zone_pivot_groups: programming-languages-spring-apps
 ---
 
 # Quickstart: Provision an Azure Spring Apps service instance

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 07/06/2021
 ms.author: karler
 ms.custom: devx-track-java, event-tier1-build-2022
-zone_pivot_groups: programming-languages-spring-cloud
+zone_pivot_groups: programming-languages-spring-apps
 ---
 
 # Prepare an application for deployment in Azure Spring Apps

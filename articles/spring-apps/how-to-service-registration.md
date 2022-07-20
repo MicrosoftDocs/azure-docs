@@ -7,7 +7,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 05/09/2022
 ms.custom: devx-track-java, event-tier1-build-2022
-zone_pivot_groups: programming-languages-spring-cloud
+zone_pivot_groups: programming-languages-spring-apps
 ---
 
 # Discover and register your Spring Boot applications
