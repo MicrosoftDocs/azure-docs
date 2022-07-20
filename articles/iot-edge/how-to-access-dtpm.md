@@ -37,7 +37,7 @@ The following steps show you how to create a sample executable to access a TPM i
 > [!WARNING]
 > Enabling TPM passthrough to the virtual machine may increase security risks.
 
-1. Open Visual Studio 2019/2022.
+1. Open Visual Studio 2019 or 2022.
 
 1. Select _Create a new project_
 
