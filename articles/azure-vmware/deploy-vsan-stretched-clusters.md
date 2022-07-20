@@ -32,15 +32,15 @@ To protect against split-brain scenarios and help measure site health, a managed
 
 In summary, stretched clusters simplify protection needs by providing the same trusted controls and capabilities in addition to the scale and flexibility of the Azure infrastructure.
 
-It's important to understand that stretched cluster private clouds only offer an extra layer of resiliency, they don't address all failure scenarios.
+It's important to understand that stretched cluster private clouds only offer an extra layer of resiliency, and they don't address all failure scenarios.
 - For example: Stretch cluster private clouds don't protect against region-level failures within Azure or data loss scenarios caused by application issues or poorly planned storage policies.
 
 A stretched cluster provides protection against a single zonal failure but isn't designed to provide protection against double or progressive failures.
 - For example: Despite various layers of redundancy built into the fabric, if an inter-AZ failure results in the partitioning of the secondary site, vSphere HA starts powering off the workload VMs on the secondary site. See the Secondary site partitioning scenario in the diagram below.
 
-**Secondary site partitioning**
-
-:::image type="content" source="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png" alt-text="Diagram shows vSphere high availability powering off the workload virtual machines on the secondary site.":::
+    **Secondary site partitioning**
+    
+    :::image type="content" source="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png" alt-text="Diagram shows vSphere high availability powering off the workload virtual machines on the secondary site.":::
 
 If the secondary site partitioning progressed into the failure of the primary site instead, or resulted in a complete partitioning, vSphere HA would attempt to restart the workload VMs on the secondary site. If vSphere HA attempted to restart the workload VMs on the secondary site, it would put the workload VMs in an unsteady state.
 
@@ -73,10 +73,6 @@ Once the private cloud is created, you can peer both availability zones (AZs) to
 
 Next, repeat the process to [peer](https://docs.microsoft.com/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud#peer-private-cloud-to-on-premises) the two availability zones to the on-premises ExpressRoute circuit.
 
-In this phase, while the creation of the private cloud and the first stretched cluster is enabled via the Azure portal, open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for other (#supported-scenarios) and configurations. While doing so, make sure you select **Stretched Clusters** as a Problem Type.  
-
-Once stretched clusters are made generally available, it's expected that all the following [Supported scenarios](#supported-scenarios) will be enabled in an automated self-service fashion.
-
 ## Supported scenarios
 
 The following scenarios are supported:
@@ -85,7 +81,7 @@ The following scenarios are supported:
 - Private DNS resolution
 - Placement policies (except for VM-AZ affinity)
 - Cluster scale out and scale in
-- The following SPBM policies are supported, with a PFTT of “Dual Site Mirroring” and SFTT of “RAID 1 (Mirroring)” enabled as the default policies for the cluster: 
+- The following SPBM policies are supported, with a PFTT of “Dual Site Mirroring” and SFTT of “RAID 1 (Mirroring)” enabled as the default policies for the cluster:
     - Site disaster tolerance settings (PFTT):
         - Dual site mirroring
         - None - keep data on preferred
@@ -95,9 +91,11 @@ The following scenarios are supported:
         - 1 failure – RAID 5 (Erasure coding), requires a minimum of 4 hosts in each AZ
         - 2 failures – RAID 1 (Mirroring)
         - 2 failures – RAID 6 (Erasure coding), requires a minimum of 6 hosts in each AZ
-        - 3 failures – RAID 1 (Mirroring) 
+        - 3 failures – RAID 1 (Mirroring)
 
-While you create the private cloud and enable the first stretched cluster via the Azure portal, you need to open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal to perform the following actions:
+In this phase, while the creation of the private cloud and the first stretched cluster is enabled via the Azure portal, open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for other supported scenarios and configurations listed below. While doing so, make sure you select **Stretched Clusters** as a Problem Type.  
+
+Once stretched clusters are made generally available, it's expected that all the following supported scenarios will be enabled in an automated self-service fashion.
 
 - HCX installation, deployment, removal, and support for migration
 - Connect a private cloud in another region to a Stretched Cluster private cloud
@@ -114,55 +112,53 @@ Azure VMware Solution stretched clusters are available in the following regions:
 
 - UK South
 - West Europe
-- Germany West Central (planned)
+- Germany West Central
 
 ## FAQ
 
-**Are any other regions planned?**
+### Are any other regions planned?
 
 As of now, the only 3 regions listed above are planned for support of stretched clusters.
 
-**What kind of SLA does Azure VMware Solution provide with the stretched clusters limited availability release?**
+### What kind of SLA does Azure VMware Solution provide with the stretched clusters limited availability release?
 
 A private cloud created with a vSAN stretched cluster is designed to offer a 99.99% infrastructure availability commitment when the following conditions exist:
 - A minimum of 6 nodes are deployed in the cluster (3 in each availability zone)
 - When a VM storage policy of PFTT of "Dual-Site Mirroring" and an SFTT of 1 is used by the workload VMs
 - Compliance with the **Additional Requirements** captured in the [SLA details of Azure VMware Solution](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) is required to achieve the availability goals
 
-**Do I get to choose the availability zone in which a private cloud is deployed?**
+### Do I get to choose the availability zone in which a private cloud is deployed?
 
 No. A stretched cluster is created between two availability zones, while the third zone is used for deploying the witness node. Because all of the zones are effectively used for deploying a stretched cluster environment, a choice isn't provided to the customer. Instead, the customer chooses to deploy hosts in multiple AZs at the time of private cloud creation.
 
-**What are the limitations I should be aware of?**
+### What are the limitations I should be aware of?
 
 - Once a private cloud has been created with a stretched cluster, it can't be changed to a non-stretched cluster private cloud. Similarly, a non-stretched cluster private cloud can't be changed to a stretched cluster private cloud after creation.
 - Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a Stretched Cluster environment.
 - Customer workload VMs are restarted with a medium vSphere HA priority. Management VMs have the highest restart priority.
 - The solution relies on vSphere HA and vSAN for restarts and replication. Recovery time objective (RTO) is determined by the amount of time it takes vSphere HA to restart a VM on the surviving AZ after the failure of a single AZ.
 - Preview features for non-stretched private cloud environments aren't supported in a stretched cluster environment. For example, external storage options like disk pools and Azure NetApp Files (ANF), Customer Management Keys, Public IP via NSX Edge, and others.
-- A non-stretched private cloud can't connect to a stretched private cloud in the same region.
 - Disaster recovery addons like, SRM, Zerto, and JetStream are currently not supported in a stretched cluster environment.
 
-**What kind of latencies should I expect between the availability zones (AZs)?**
+### What kind of latencies should I expect between the availability zones (AZs)?
 
 vSAN Stretched Clusters operate within a 5 ms RTT between the AZs that host the workload VMs. The Azure VMware Solution stretched cluster deployment follows that guiding principle. Consider that information when deploying applications (with SFTT of dual site mirroring, which uses synchronous writes) that have stringent latency requirements.
 
-**Can I mix stretched and non-stretched clusters in my private cloud?**
+### Can I mix stretched and non-stretched clusters in my private cloud?
 
 No. A mix of stretched and non-stretched clusters aren't supported within the same private cloud. A stretched or non-stretched cluster environment is selected when you create the private cloud. Once a private cloud has been created with a stretched cluster, it's assumed that all clusters created within that private cloud are stretched in nature.
 
-**How much does the solution cost?**
+### How much does the solution cost?
 
-During the scope of the limited availability, customers will be charged for only 6 nodes per stretched cluster. Six is the minimum number of nodes required to deploy a stretched cluster. If you deploy 8+ nodes, you'll continue to be charged only for the minimum number of nodes (6) (per stretched cluster) during the duration of the limited availability. Once stretched cluster is made generally available, customers will be charged based on the number of nodes deployed within the private cloud.
+Customers will be charged based on the number of nodes deployed within the private cloud.
 
-**Will I be charged for the witness node and for inter-AZ traffic?**
+### Will I be charged for the witness node and for inter-AZ traffic?
 
 No. While in limited availability, customers won't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution provides the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed by Microsoft.
 
-**Which SKUs are available?**
+### Which SKUs are available?
 
 Stretched clusters will solely be supported on the AV36 SKU.
 
-**If vSphere 6.7 is [EOGS by October 15, 2022](https://lifecycle.vmware.com/#/), how will my private cloud be upgraded to vSphere 7.0?**
 
-At launch, Stretched Clusters will be deployed on vSphere 6.7 U3. We intend to upgrade all Stretched Cluster private clouds to vSphere 7.0 prior to the EOGS timeline published by VMware.
+test
