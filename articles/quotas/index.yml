@@ -38,7 +38,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: View and increase quotas
+          - text: View quotas
             url: view-quotas.md
           - text: Increase VM-family vCPU quotas
             url: per-vm-quota-requests.md
