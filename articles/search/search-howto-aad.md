@@ -7,7 +7,7 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 6/7/2022
+ms.date: 7/20/2022
 ms.custom: subject-rbac-steps
 ---
 
@@ -141,7 +141,7 @@ The following instructions reference an existing C# sample to demonstrate the co
 > [!NOTE]
 > User-assigned managed identities work only in Azure environments. If you run this code locally, `DefaultAzureCredential` will fall back to authenticating with your credentials. Make sure you've also given yourself the required access to the search service if you plan to run the code locally. 
 
-The Azure.Identity documentation also has additional details on using [Azure AD authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme) which gives more details on how `DefaultAzureCredential` works as well as other authentication techniqeus available. `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. Developers who want more control or whose scenario isn't served by the default settings should use other credential types.
+The Azure.Identity documentation also has more details on using [Azure AD authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme), which gives more details on how `DefaultAzureCredential` works as well as other authentication techniques available. `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. Developers who want more control or whose scenario isn't served by the default settings should use other credential types.
 
 ### [**REST API**](#tab/aad-rest)
 
