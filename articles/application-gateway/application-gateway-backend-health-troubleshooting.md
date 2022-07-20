@@ -94,7 +94,7 @@ respond within the configured period (the timeout value), it's marked as Unhealt
 To increase the timeout value, follow these steps:
 
 1. Access the backend server directly and check the time taken for the server to respond on that page. You can use any tool to access the backend server, including a browser using developer tools.
-2. After you've figured out the time taken for the application to respond, select the **Health Probes** tab and then select the probe that's associated with your HTTP settings.
+2. After you've figured out the time taken for the application to respond, select the **Health Probes** tab, then select the probe that's associated with your HTTP settings.
 3. Enter any timeout value that's greater than the application response time, in seconds.
 4. Save the custom probe settings and check whether the backend health shows as Healthy now.
 
