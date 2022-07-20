@@ -30,25 +30,25 @@ More Details on [Profisee MDM](https://profisee.com/master-data-management-what-
 ### Profisee MDM: True SaaS experience 
 A fully managed instance of Profisee MDM hosted in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.
 
-- Platform and Management in One -
+    - Platform and Management in One -
 Leverage a true, end-to-end SaaS platform with one agreement and no third parties
 
-- Industry-leading Cloud Service -
+    - Industry-leading Cloud Service -
 Hosted on Azure for industry-leading scalability and availability
 
-- The fastest path to trusted data -
+    - The fastest path to trusted data -
 Leave the networking, firewalls and storage to us so you can deploy in minutes
 
 ### Profisee MDM: Ultimate PaaS flexibility 
 Complete deployment flexibility and control, using the most efficient and low-maintenance option on [Microsoft Azure](https://azure.microsoft.com/) cloud-or on-prem.
 
-- Modern Cloud Architecture -
+    - Modern Cloud Architecture -
 Platform available as a containerized Kubernetes service
 
-- Complete Flexibility & Autonomy -
+    - Complete Flexibility & Autonomy -
 Available in Azure, AWS, Google Cloud or on-prem.
 
-- Fast to Deploy, Easy to Maintain -
+    - Fast to Deploy, Easy to Maintain -
 Fully containerized configuration streamlines patches and upgrades
 
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
@@ -57,9 +57,9 @@ More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://pro
 :::image type="content" alt-text="Profisee-Purview Reference Architecture Diagram" source="https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png" lightbox="https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png":::
 
 ### Microsoft Purview - Profisee Reference Architecture - Guides/Reference Docs
-  - [Data Governance with Profisee and Microsoft Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
-  - [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and Power BI](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
-  - [MDM on Azure Overview](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
+    - [Data Governance with Profisee and Microsoft Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
+    - [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and Power BI](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
+    - [MDM on Azure Overview](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
 
 ### Example Scenario: Business & Technical Use Case
 Let's take an example of a sample manufacturing company working across multiple data sources; it uses ADF to load the business critical data sources into Profisee, which is when Profisee works its magic and finds out the golden records and matching records and then we finally are able to enrich the metadata with Purview (updates  made by Purview on Classifications, Sensitivity Labels, Glossary and all other Catalog features are reflected seamlessly into Profisee). Finally, they connect the enriched metadata detected by Purview and cleansed/curated data by Profisee with Power BI or Azure ML for advanced analytics.
@@ -67,17 +67,17 @@ Let's take an example of a sample manufacturing company working across multiple 
 ## Microsoft Purview - Profisee Integration SaaS Deployment on AKS Azure Kubernetes How-To Guide
 
 1. Create a managed identity in Azure. You must have a Managed Identity created to run the deployment. This Managed Identity must have the following permissions when running a deployment. After it's done, the Managed Identity can be deleted. Based on your ARM template choices, you'll need some or all of the following roles and permissions assigned to your Managed Identity:
-  - Contributor role to the Resource Group where AKS will be deployed. It can either be assigned directly to the Resource Group OR at Subscription level down.
-  - DNS Zone Contributor role to the particular DNS zone where the entry will be created OR Contributor role to the DNS Zone Resource Group. This DNS role is needed only if updating DNS hosted in Azure.
-  - Application Administrator role in Azure Active Directory so the required permissions that are needed for the Application Registration can be assigned.
-  - Managed Identity Contributor and User Access Administrator at the Subscription level. Required in order for the ARM template Managed Identity to be able to create the Key Vault specific Managed Identity that will be used by Profisee to pull the values stored in the Key Vault.
-  - Data Curator Role added for the Purview account for the Purview specific Application Registration.
+    - Contributor role to the Resource Group where AKS will be deployed. It can either be assigned directly to the Resource Group OR at Subscription level down.
+    - DNS Zone Contributor role to the particular DNS zone where the entry will be created OR Contributor role to the DNS Zone Resource Group. This DNS role is needed only if updating DNS hosted in Azure.
+    - Application Administrator role in Azure Active Directory so the required permissions that are needed for the Application Registration can be assigned.
+    - Managed Identity Contributor and User Access Administrator at the Subscription level. Required in order for the ARM template Managed Identity to be able to create the Key Vault specific Managed Identity that will be used by Profisee to pull the values stored in the Key Vault.
+    - Data Curator Role added for the Purview account for the Purview specific Application Registration.
 2. Go to https://github.com/Profisee/kubernetes and click "Azure ARM". The readme includes troubleshooting steps as well. Read all the steps and troubleshooting wiki page very carefully.
 3. Get the license file from Profisee by raising a support ticket on https://support.profisee.com/. Only pre-req for this step is your need to pre-determine the URL your Profisee setup on Azure. This is a load balanced AKS (Azure Kubernetes) deployment using an ingress controller. In other words, keep handy the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com". For instance, DNSHOSTNAME="purviewprofiseeintegration.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to Profisee support when you raise the support ticket and Profisee will revert with the license file. You'll need to supply this file during the next configuration steps below. 
 4. Click "Deploy to Azure"
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprofisee%2Fkubernetes%2Fmaster%2FAzure-ARM%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprofisee%2Fkubernetes%2Fmaster%2FAzure-ARM%2FcreateUIDefinition.json)
-  - The configurator wizard will ask for the inputs as described here - [Deploying the AKS Cluster using the ARM Template](https://support.profisee.com/wikis/2022_r1_support/deploying_the_AKS_cluster_with_the_arm_template)
-  - Make sure to give the exact same RG (Resource Group) in the deployment as you gave permissions to the managed identity in Step1.
+    - The configurator wizard will ask for the inputs as described here - [Deploying the AKS Cluster using the ARM Template](https://support.profisee.com/wikis/2022_r1_support/deploying_the_AKS_cluster_with_the_arm_template)
+    - Make sure to give the exact same RG (Resource Group) in the deployment as you gave permissions to the managed identity in Step1.
 5. Once deployment completes, click "Go to Resource Group" and open the Profisee AKS Cluster.
 
 ### Stages of a typical Profisee-Purview Deployment Run
