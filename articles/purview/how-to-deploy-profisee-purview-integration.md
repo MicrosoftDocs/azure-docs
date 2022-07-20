@@ -106,4 +106,4 @@ Let's take an example of a sample manufacturing company working across multiple 
 
 ## Next Steps
 Through this guide, we learned how to set up and deploy a Microsoft Purview-Profisee integration.
-For more usage details on Profisee and Profisee FastApp, especially how to configure data models, data quality, MDM and various other features of Profisee - Register on https://profisee.com/demo/ for further detailed tutorials!
+For more usage details on Profisee and Profisee FastApp, especially how to configure data models, data quality, MDM and various other features of Profisee - Register on [Profisee Academy Tutorials and Demos](https://profisee.com/demo/) for further detailed tutorials on the Profisee side of MDM!
