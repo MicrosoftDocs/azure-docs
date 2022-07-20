@@ -26,24 +26,22 @@ HDInsight uses safe deployment practices which involve gradual region deployment
 
 ...
 
-![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) # New Feature
+## ![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) New Feature
 
 **Attach external disks in HDI Hadoop/Spark clusters.**
 
-The new feature allows you to add more disks to the HDI cluster and add the disks as part of node manager directory.
+This new feature allows you to add more disks to the HDI cluster and add the disks as part of node manager directory.
 
 - Add number of disks to worker nodes during HIVE and Spark cluster creation, while the selected disks will be part of node manager’s local directories.
 - Add validation to the number of disks which to each VM.
 - Newly added disks can be updated in node manager configurations.
 
-![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) # Fixed
+## ![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) Fixed
 
 #### **Log analytics**
 
-Log Analytics integrated with Azure HDInsight running OMS version 13 requires an upgrade to OMS version 14 to apply the latest security updates ([CVE-2022-29149](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmsrc.microsoft.com%2Fupdate-guide%2Fen-US%2Fvulnerability%2FCVE-2022-29149&data=05%7C01%7Cv-kabhi1%40microsoft.com%7C52d4591de93f4a9f03cf08da4f791a40%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637909678816969704%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=epa0AfjIHirPMZ57fkbeXyXqSRzbZG05Wlp7ySssXpA%3D&reserved=0)).
-
-When this integration is enabled along with the OMS monitoring pipeline, the OMS agent is installed in HDInsight clusters for your machines.
-
+Log Analytics integrated with Azure HDInsight running OMS version 13 requires an upgrade to OMS version 14 to apply the latest security updates.
+When log anatics integration is enabled along with the OMS monitoring pipeline, the OMS agent is installed in HDInsight clusters for your machines.
 Customers using OMS version 13 need to install OMS version 14 to meet the security requirements.
 
 ## Other bug fixes
@@ -66,4 +64,3 @@ Customers using OMS version 13 need to install OMS version 14 to meet the securi
 |Remove an FS#exists call from AcidUtils#getLogicalLength|[HIVE-23533](https://issues.apache.org/jira/browse/HIVE-23533)|
 | VectorizedOrcAcidRowBatchReader.computeOffsetAndBucket optimization|[ HIVE-17917]()|
 |||
-
