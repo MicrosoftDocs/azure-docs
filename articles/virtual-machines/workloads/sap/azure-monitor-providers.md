@@ -47,10 +47,22 @@ For the current release, the following SOAP web methods are the standard, out-of
 ![Diagram shows SOAP methods.](https://user-images.githubusercontent.com/75772258/114600036-820d8280-9cb1-11eb-9f25-d886ab1d5414.png)
 
 In public preview, you can expect to see the following data with the SAP NetWeaver provider: 
-- System and instance availability
-- Work process usage
-- Queue usage
-- Enqueue lock statistics
+
+- SAP system and application server availability, including: instance process availability of dispatcher, ICM, gateway, message server, Enqueue Server, IGS Watchdog
+- Work process usage statistics and trends
+- Enqueue Lock statistics and trends
+- Queue usage statistics and trends
+- SMON Metrics (/SDF/SMON )
+- SWNC Workload , Memory , Transaction, User , RFC Usage (St03n)
+- Short Dumps (ST22)
+- Object Lock (SM12)
+- Failed Updates (SM13)
+- System Logs Analysis(SM21)
+- Batch Jobs Statistics(SM37)
+- Outbound Queues(SMQ1)
+- Inbound Queues(SMQ2)
+- Transactional RFC(SM59)
+- STMS Change Transport System Metrics(STMS)
 
 ![Diagram shows Netweaver Provider architecture.](https://user-images.githubusercontent.com/75772258/114581825-a9f2eb00-9c9d-11eb-8e6f-79cee7c5093f.png)
 
