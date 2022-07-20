@@ -60,6 +60,7 @@ In IoT Central, you can configure and manage security in the following areas:
 - Device access to your application.
 - Programmatic access to your application.
 - Authentication to other services from your application.
+- Use audit logs to track activity in your IoT Central application.
 
 To learn more, see the [IoT Central security guide](overview-iot-central-security.md).
 
