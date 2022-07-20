@@ -18,10 +18,8 @@ The Distribution Advisor (DA) feature of Azure Synapse SQL analyzes customer que
 
 ## Prerequisites
 
-- Run the following to ensure that your Azure Synapse Analytics dedicated SQL pool is version 10.0.15669 or higher.
-```sql 
-SELECT @@version 
-``` 
+- Execute the T-SQL statement `SELECT @@version` to ensure that your Azure Synapse Analytics dedicated SQL pool is version 10.0.15669 or higher. If your version is lower, a new version should automatically reach your provisioned dedicated SQL pools during their maintenance cycle.
+
 - Ensure that statistics are available and up-to-date before running the advisor. For more details, [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) articles for more details on statistics.
 
 ## 1. Create Distribution Advisor stored procedures
@@ -44,7 +42,7 @@ EXEC dbo.read_dist_recommendation;
 go
 ```
 
-- To see which queries were analyzed by DA, run [the e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql).
+To see which queries were analyzed by DA, run [the e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql).
 
 ## 2b. Run the advisor on selected queries
 
@@ -100,17 +98,18 @@ The 'result' pane shows `CommandToInvokeAdvisorString` below but does not show t
 
 For example, you see only the `Command_to_Invoke_Distribution_Advisor` resultset.
 
-:::image type="content" source="media/distribution-advisor/troubleshooting-2.jpg" alt-text="Screenshot of the output of a T-SQL result showing the Command_to_Invoke_Distribution_Advisor.":::
+:::image type="content" source="./media/distribution-advisor/troubleshooting-2.png" alt-text="Screenshot of the output of a T-SQL result showing the Command_to_Invoke_Distribution_Advisor.":::
     
 But not the second resultset containing the table change T-SQL commands:  
 
-:::image type="content" source="media/distribution-advisor/troubleshooting-3.jpg" alt-text="Screenshot of the output of a T-SQL result showing the Command_to_Invoke_Distribution_Advisor with a second resultset containing table change T-SQL commands.":::
+:::image type="content" source="media/distribution-advisor/troubleshooting-3.png" alt-text="Screenshot of the output of a T-SQL result showing the Command_to_Invoke_Distribution_Advisor with a second resultset containing table change T-SQL commands.":::
 
 
 ##### Mitigation:
 
-- Check the output of `CommandToInvokeAdvisorString` above. 
-- Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing `WHERE` clause in: [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql).
+ - Check the output of `CommandToInvokeAdvisorString` above. 
+
+ - Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing `WHERE` clause in: [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql).
 
 ### Error during post-processing of recommendation output
     
@@ -125,11 +124,12 @@ Invalid length parameter passed to the LEFT or SUBSTRING function.
 ##### Mitigation:
 Ensure that you have the most up to date version of the stored procedure from GitHub:
 
--[e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql)
--[CreateDistributionAdvisor_T62.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/CreateDistributionAdvisor_T62.sql)
+ - [e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql)
+
+ - [CreateDistributionAdvisor_T62.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/CreateDistributionAdvisor_T62.sql)
 
 
-## Feedback
+## Azure Synapse product group feedback
 
 If you need information not provided in this article, search the [Microsoft Q&A question page for Azure Synapse](/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the Azure Synapse Analytics Product Group.  
 
