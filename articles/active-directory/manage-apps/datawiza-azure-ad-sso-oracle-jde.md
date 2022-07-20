@@ -208,8 +208,7 @@ To confirm Oracle JDE application access occurs correctly, a prompt appears to u
 
 ## Next steps
 
-- [Watch the video - Enable SSO/MFA for Oracle JDE with Azure AD via
-    Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90).
+- [Watch the video - Enable SSO/MFA for Oracle JDE with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90).
 
 - [Configure Datawiza and Azure AD for secure hybrid access](https://docs.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad)
 
