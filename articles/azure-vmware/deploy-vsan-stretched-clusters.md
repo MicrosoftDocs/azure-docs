@@ -17,16 +17,17 @@ Azure’s global infrastructure is broken up into Regions. Each region supports 
 
 With Azure VMware Solution, ESXi hosts deployed in a standard vSphere cluster traditionally reside in a single Azure Availability Zone (AZ) and are protected by vSphere high availability (HA). However, it doesn't protect the workloads against an Azure AZ failure. To protect against an AZ failure, a single vSAN cluster can be enabled to span two separate availability zones, called a [vSAN stretched cluster](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vsan-planning.doc/GUID-4172337E-E25F-4C6B-945E-01623D314FDA.html?hWord=N4IghgNiBcIG4GcwDsAECAuAnAphgxgBY4Amq+EArpjliAL5A).
 
-Stretched clusters allow the configuration of vSAN fault domains across two AZs to notify vCenter that hosts reside in each Availability Zone (AZ). Each fault domain is named after the AZ it resides within to increase clarity. When you stretch a vSAN cluster across two AZs within a region, should an AZ go down, it's treated as a vSphere HA event and the virtual machine is restarted in the other AZ. 
+Stretched clusters allow the configuration of vSAN fault domains across two AZs to notify vCenter that hosts reside in each Availability Zone (AZ). Each fault domain is named after the AZ it resides within to increase clarity. When you stretch a vSAN cluster across two AZs within a region, should an AZ go down, it's treated as a vSphere HA event and the virtual machine is restarted in the other AZ.
 
 **Stretch cluster benefits:**
-- Improve an application’s availability.
+- Improve application availability.
 - Provide a zero RPO recovery for enterprise applications without needing to redesign them, or to deploy expensive disaster recovery (DR) solutions.
 - Enable developers to focus on core application requirements and capabilities, instead of infrastructure availability.
 
 To protect against split-brain scenarios and help measure site health, a managed vSAN Witness is created in a third AZ. With a copy of the data in each AZ, vSphere HA attempts to recover from any failure using a simple restart of the virtual machine.
 
 **vSAN stretched cluster**
+
 :::image type="content" source="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png" alt-text="Diagram shows a managed vSAN stretched cluster created in a third Availability Zone with the data being copied to all three of them.":::
 
 In summary, stretched clusters simplify protection needs by providing the same trusted controls and capabilities in addition to the scale and flexibility of the Azure infrastructure.
@@ -38,11 +39,13 @@ A stretched cluster provides protection against a single zonal failure but isn't
 - For example: Despite various layers of redundancy built into the fabric, if an inter-AZ failure results in the partitioning of the secondary site, vSphere HA starts powering off the workload VMs on the secondary site. See the Secondary site partitioning scenario in the diagram below.
 
 **Secondary site partitioning**
+
 :::image type="content" source="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png" alt-text="Diagram shows vSphere high availability powering off the workload virtual machines on the secondary site.":::
 
 If the secondary site partitioning progressed into the failure of the primary site instead, or resulted in a complete partitioning, vSphere HA would attempt to restart the workload VMs on the secondary site. If vSphere HA attempted to restart the workload VMs on the secondary site, it would put the workload VMs in an unsteady state.
 
 **Preferred site failure or complete partitioning**
+
 :::image type="content" source="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when preferred site failure or complete partitioning occurs.":::
 
 It should be noted that these types of failures, though rare, fall outside the scope of the protection offered by a stretched cluster private cloud. Because of that, a stretched cluster solution should be regarded as a high availability solution reliant on vSphere HA. Also, a stretched cluster solution isn't meant to replace a detailed multi-site DR strategy that can be employed to ensure application availability.
