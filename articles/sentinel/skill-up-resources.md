@@ -79,7 +79,7 @@ Finally, do you want to try it yourself? The Microsoft Sentinel All-In-One Accel
 Thousands of organizations and service providers are using Microsoft Sentinel. As is usual with security products, most organizations don't go public about it. Still, here are a few who have:
 
 * Find [public customer use cases](https://customers.microsoft.com/en-us/home).
-* [Insight](https://www.insightcdct.com/) released a use case about [an NBA team adapting Microsoft Sentinel](https://www.insightcdct.com/Resources/Case-Studies/Case-Studies/NBA-Team-Adopts-Azure-Sentinel-for-a-Modern-Securi).
+* [Insight](https://www.insightcdct.com/) released a use case about [an NBA team adopts Microsoft Sentinel](https://www.insightcdct.com/Resources/Case-Studies/Case-Studies/NBA-Team-Adopts-Azure-Sentinel-for-a-Modern-Securi).
 * Stuart Gregg, Security Operations Manager at ASOS, posted a much more detailed [blog post from the Microsoft Sentinel experience, focusing on hunting](https://medium.com/@stuart.gregg/proactive-phishing-with-azure-sentinel-part-1-b570fff3113).
  
 
@@ -99,7 +99,7 @@ Use Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft 365 Defender
 * Read more about [our comprehensive SIEM+XDR solution combining Microsoft Sentinel and Microsoft 365 Defender](https://techcommunity.microsoft.com/t5/azure-sentinel/whats-new-azure-sentinel-and-microsoft-365-defender-incident/ba-p/2191090).
 * Read [The Azure Security compass](https://aka.ms/azuresecuritycompass) (now Microsoft Security Best Practices) to understand the Microsoft blueprint for your security operations.
 * Read and watch how such a setup helps detect and respond to a WebShell attack: [blog](https://techcommunity.microsoft.com/t5/azure-sentinel/analysing-web-shell-attacks-with-azure-defender-data-in-azure/ba-p/1724130) or [video demo](https://techcommunity.microsoft.com/t5/video-hub/webshell-attack-deep-dive/m-p/1698964).
-* View the [Better Together webinar: "OT and IOT attack detection, investigation, and response"](https://youtu.be/S8DlZmzYO2s).
+* View the Better Together webinar ["OT and IOT attack detection, investigation, and response."](https://youtu.be/S8DlZmzYO2s)
 
 
 #### To monitor your multi-cloud workloads
@@ -184,7 +184,7 @@ The first architecture decision to consider when you're configuring Microsoft Se
 
 #### Ingest, archive, search, and restore data within Microsoft Sentinel
 
-To get started, view the ["Manage Your Log Lifecycle with New Methods for Ingestion, Archival, Search, and Restoration"](https://www.youtube.com/watch?v=LgGpSJxUGoc&ab_channel=MicrosoftSecurityCommunity) webinar.
+To get started, view the ["Manage your log lifecycle with new methods for ingestion, archival, search, and restoration"](https://www.youtube.com/watch?v=LgGpSJxUGoc&ab_channel=MicrosoftSecurityCommunity) webinar.
 
 
 This suite of features contains:
@@ -258,7 +258,7 @@ Use watchlists to help you with following scenarios:
 
 * **Enrich event data**: Use watchlists to enrich your event data with name-value combinations that are derived from external data sources.
 
-In addition to watchlists, you can use the KQL external-data operator, custom logs, and KQL functions to manage and query context information. Each of the four methods has its pros and cons, and you can read more about the comparisons between them in the blog post ["Implementing lookups in Microsoft Sentinel"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/implementing-lookups-in-azure-sentinel/ba-p/1091306). Although each method is different, using the resulting information in your queries is similar and enables easy switching between them.
+In addition to watchlists, you can use the KQL external-data operator, custom logs, and KQL functions to manage and query context information. Each of the four methods has its pros and cons, and you can read more about the comparisons between them in the blog post ["Implementing lookups in Microsoft Sentinel."](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/implementing-lookups-in-azure-sentinel/ba-p/1091306) Although each method is different, using the resulting information in your queries is similar and enables easy switching between them.
 
 For ideas about using watchlists outside analytic rules, see [Utilize watchlists to drive efficiency during Microsoft Sentinel investigations](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/utilize-watchlists-to-drive-efficiency-during-microsoft-sentinel/ba-p/2090711).
 
@@ -501,7 +501,7 @@ To learn about the most recent updates, view the ["Future of Users Entity Behavi
 Part of operating a SIEM is making sure that it works smoothly and is an evolving area in Azure Microsoft Sentinel. Use the following to monitor Microsoft Sentinel's health:
 
 * Measure the efficiency of your [Security operations](manage-soc-with-incident-metrics.md#security-operations-efficiency-workbook) ([video](https://www.youtube.com/watch?v=jRucUysVpxI&ab_channel=MicrosoftSecurityCommunity)).
-* The Microsoft Sentinel Health data table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md). View the video, ["Data Connectors Health Monitoring Workbook"](https://www.youtube.com/watch?v=T6Vyo7gZYds&ab_channel=MicrosoftSecurityCommunity). And [get notifications on anomalies](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/data-connector-health-push-notification-alerts/ba-p/1996442).
+* The Microsoft Sentinel Health data table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md). View the ["Data Connectors Health Monitoring Workbook"](https://www.youtube.com/watch?v=T6Vyo7gZYds&ab_channel=MicrosoftSecurityCommunity) video. And [get notifications on anomalies](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/data-connector-health-push-notification-alerts/ba-p/1996442).
 * Monitor agents by using the [agents' health solution](../azure-monitor/insights/solution-agenthealth.md) (Windows only) and the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat) (Linux and Windows).
 * Monitor your Azure Monitor Logs workspace: [YouTube](https://www.youtube.com/watch?v=DmDU9QP_JlI&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21792&ithint=video%2Cmp4&authkey=%21ALgHojpWDidvFyo), or [presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21794&ithint=file%2Cpdf&authkey=%21AAva%2Do6Ru1fjJ78), including query execution and ingestion health.
 * Cost management is also an important operational procedure in the SOC. Use the [Ingestion Cost Alert Playbook](https://techcommunity.microsoft.com/t5/azure-sentinel/ingestion-cost-alert-playbook/ba-p/2006003) to ensure that you're always aware of any cost increases. 
