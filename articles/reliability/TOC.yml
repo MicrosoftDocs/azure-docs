@@ -1,15 +1,15 @@
 - name: Azure Services Reliability Documentation
   href: index.yml
 - name: Overview
-  href: overview.md
+  href: overview-reliability.md
 - name: Business continuity and disaster recovery
   items:
   - name: Business continuity management in Azure
     href: business-continuity-management-program.md
   - name: Cross-region replication in Azure
     href: cross-region-replication-azure.md
-  - name: Resiliency guides by service
-    href: overview-resiliency.md
+  - name: Reliability guides by service
+    href: overview-reliability.md
   - name: Azure services that support availability zones
     href: availability-zones-region.md
   - name: Availability zone migration guides

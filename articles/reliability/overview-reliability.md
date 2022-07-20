@@ -24,13 +24,13 @@ Each Azure service includes built-in reliability design that you can leverage an
 The required level of reliability for any Azure solution depends on several considerations. Availability and latency SLA and other business requirements drive the architectural choices and reliability level and should be considered first. Availability requirements range from how much downtime is acceptable – and how much it costs your business – to the amount of money and time that you can realistically invest in making an application highly available.  
 
 
-## Building resiliency
+## Building reliability
 
 You should define your application’s reliability requirements at the beginning of planning. Many applications don't need 100% high availability; being aware of this can help to optimize costs during non-critical periods. Identify the type of failures an application can experience as well as the potential effect of each failure. A recovery plan should cover all critical services by finalizing recovery strategy at the individual component and the overall application level. Design your recovery strategy to protect against zonal, regional, and application-level failure. And perform testing of the end-to-end application environment to measure application resiliency and recovery against unexpected failure.  
 
 The following checklist covers the scope of reliability planning. 
 
-| **Resiliency planning** |
+| **Reliability planning** |
 | --- | 
 | **Define** availability and recovery targets to meet business requirements. | 
 | **Design** the reliability features of your applications based on the availability requirements. |
@@ -52,7 +52,7 @@ Microsoft Azure services support availability zones and are enabled to drive you
 
 Building reliable systems on Azure is a *shared responsibility*. Microsoft is responsible for the reliability of the cloud platform, including its global network and data centers. Azure customers and partners are responsible for the resilience of their cloud applications, using architectural best practices based on the requirements of each workload. See [Business continuity management program in Azure](business-continuity-management-program.md) for more information. 
 
- While Azure continually strives for highest possible resiliency in SLA for the cloud platform, you must define your own target SLAs for each workload in your solution. An SLA makes it possible to evaluate whether the architecture meets the business requirements. As you strive for higher percentages of SLA guaranteed uptime, the cost and complexity to achieve that level of availability grows. An uptime of 99.99 percent translates to about five minutes of total downtime per month. Is it worth the additional complexity and cost to reach that percentage? The answer depends on the individual business requirements. While deciding final SLA commitments, understand Microsoft’s supported SLAs. Each Azure service has its own SLA. 
+ While Azure continually strives for highest possible reliability in SLA for the cloud platform, you must define your own target SLAs for each workload in your solution. An SLA makes it possible to evaluate whether the architecture meets the business requirements. As you strive for higher percentages of SLA guaranteed uptime, the cost and complexity to achieve that level of availability grows. An uptime of 99.99 percent translates to about five minutes of total downtime per month. Is it worth the additional complexity and cost to reach that percentage? The answer depends on the individual business requirements. While deciding final SLA commitments, understand Microsoft’s supported SLAs. Each Azure service has its own SLA. 
 
 
 ## Azure service dependencies
