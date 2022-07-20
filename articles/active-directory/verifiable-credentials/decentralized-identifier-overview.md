@@ -107,19 +107,28 @@ Alice requests WoodGrove Inc for a proof of employment verifiable credential. Wo
 
 There are three primary actors in the verifiable credential solution. In the following diagram:
 
-- **Step 1**, the **user** requests a verifiable credential from an issuer.
-- **Step 2**, the **issuer** of the credential attests that the proof the user provided is accurate and creates a verifiable credential signed with their DID and the user’s DID is the subject.
-- **In Step 3**, the user signs a verifiable presentation (VP) with their DID and sends to the **verifier.** The verifier then validates the credential by matching with the public key placed in the DPKI.
+- In **Step 1**, the **user** requests a verifiable credential from an issuer.
+- In **Step 2**, the **issuer** of the credential attests that the proof the user provided is accurate and creates a verifiable credential signed with their DID for which the user’s DID is the subject.
+- In **Step 3**, the user signs a verifiable presentation (VP) with their DID and sends it to the **verifier.** The verifier then validates the credential by matching it against the public key placed in the DPKI.
 
 The roles in this scenario are:
 
 ![roles in a verifiable credential environment](media/decentralized-identifier-overview/issuer-user-verifier.png)
 
-**issuer** – The issuer is an organization that creates an issuance solution requesting information from a user. The information is used to verify the user’s identity. For example, WoodGrove, Inc. has an issuance solution that enables them to create and distribute verifiable credentials (VCs) to all their employees. The employee uses the Authenticator app to sign in with their username and password, which passes an ID token to the issuing service. Once WoodGrove, Inc. validates the ID token submitted, the issuance solution creates a VC that includes claims about the employee and is signed with WoodGrove, Inc. DID. The employee now has a verifiable credential that is signed by their employer, which includes the employees DID as the subject DID.  
+### Issuer
 
-**user** – The user is the person or entity that is requesting a VC. For example, Alice is a new employee of WoodGrove, Inc. and was previously issued her proof of employment verifiable credential. When Alice needs to provide proof of employment in order to get a discount at ProseWare, she can grant access to the credential in her Authenticator app by signing a verifiable presentation that proves Alice is the owner of the DID. ProseWare is able to validate the credential was issued by WoodGrove, Inc.and Alice is the owner of the credential. 
+The issuer is an organization that creates an issuance solution requesting information from a user. The information is used to verify the user’s identity. For example, WoodGrove, Inc. has an issuance solution that enables them to create and distribute verifiable credentials (VCs) to all their employees. The employee uses the Authenticator app to sign in with their username and password, which passes an ID token to the issuing service. Once WoodGrove, Inc. validates the ID token submitted, the issuance solution creates a VC that includes claims about the employee and is signed with the DID of WoodGrove, Inc. The employee now has a verifiable credential that is signed by their employer, which includes the employees DID as the subject DID.  
 
-**verifier** – The verifier is a company or entity who needs to verify claims from one or more issuers they trust. For example, ProseWare trusts WoodGrove, Inc. does an adequate job of verifying their employees’ identity and issuing authentic and valid VCs. When Alice tries to order the equipment she needs for her job, ProseWare will use open standards such as SIOP and Presentation Exchange to request credentials from the user proving they are an employee of WoodGrove, Inc. For example, ProseWare might provide Alice a link to a website with a QR code she scans with her phone camera. This initiates the request for a specific VC, which Authenticator will analyze and give Alice the ability to approve the request to prove her employment to ProseWare. ProseWare can use the verifiable credentials service API or SDK, to verify the authenticity of the verifiable presentation. Based on the information provided by Alice they give Alice the discount. If other companies and organizations know that WoodGrove, Inc. issues VCs to their employees, they can also create a verifier solution and use the WoodGrove, Inc. verifiable credential to provide special offers reserved for WoodGrove, Inc. employees.
+### User
+
+The user is the person or entity that is requesting a VC. For example, Alice is a new employee of WoodGrove, Inc. and was previously issued her proof of employment verifiable credential. When Alice needs to provide proof of employment in order to get a discount at ProseWare, she can grant access to the credential in her Authenticator app by signing a verifiable presentation that proves Alice is the owner of the DID. ProseWare is able to validate that the credential was issued by WoodGrove, Inc. and that Alice is the owner of the credential. 
+
+### Verifier
+
+The verifier is a company or entity who needs to verify claims from one or more issuers they trust. For example, ProseWare trusts that WoodGrove, Inc. does an adequate job of verifying their employees’ identity and issuing authentic and valid VCs. When Alice tries to order the equipment she needs for her job, ProseWare will use open standards such as SIOP and Presentation Exchange to request credentials from the user proving they are an employee of WoodGrove, Inc. For example, ProseWare might provide Alice a link to a website with a QR code she scans with her phone camera. This initiates the request for a specific VC, which Authenticator will analyze and give Alice the ability to approve the request to prove her employment to ProseWare. ProseWare can use the verifiable credentials service API or SDK, to verify the authenticity of the verifiable presentation. Based on the information provided by Alice, they give Alice the discount. If other companies and organizations know that WoodGrove, Inc. issues VCs to their employees, they can also create a verifier solution and use the WoodGrove, Inc. verifiable credential to provide special offers reserved for WoodGrove, Inc. employees.
+
+> [!NOTE]
+> The verifier can use open standards to perform the presentation and verification, or simply [configure their own Azure AD tenant](verifiable-credentials-configure-tenant.md) to let the Azure AD Verifiable Credentials service perform most of the work.
 
 ## Next steps
 

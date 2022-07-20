@@ -16,7 +16,7 @@ ms.date: 06/27/2022
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-Azure Active Directory (Azure AD) Verifiable Credentials safeguards your organization with an identity solution that's seamless and decentralized. The service allows you to issue and verify credentials. For issuers, Azure AD provides a service that they can customize and use to issue their own verifiable credentials. For verifiers, the service provides a free REST API that makes it easy to request and accept verifiable credentials in your apps and services.
+Azure Active Directory (Azure AD) Verifiable Credentials safeguards your organization with an identity solution that's seamless and decentralized. The service allows you to issue and verify credentials. For issuers, Azure AD provides a service that they can customize and use to issue their own verifiable credentials. For verifiers, the service provides a free REST API that makes it easy to request and accept verifiable credentials in your apps and services. In both cases, you will have to configure your Azure AD tenant so that you can use it to either issue your own verifiable credentials, or verify the presentation of a user's verifiable credentials that were issued by another organization. In case you are both an issuer and a verifier, you can use a single Azure AD tenant to both issue your own verifiable credentials as well as verify those of others.
 
 In this tutorial, you learn how to configure your Azure AD tenant so it can use the verifiable credentials service.
 
