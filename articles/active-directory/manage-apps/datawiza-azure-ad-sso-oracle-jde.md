@@ -69,7 +69,7 @@ Ensure the following prerequisites are met.
 
 - Docker and Docker Compose
 
-  - Go to docs.docker.com to [Get         Docker](https://docs.docker.com/get-docker/) and [Install Docker Compose](https://docs.docker.com/compose/install/).
+  - Go to docs.docker.com to [Get Docker](https://docs.docker.com/get-docker/) and [Install Docker Compose](https://docs.docker.com/compose/install/).
 
 - User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to an on-premises directory.
 
