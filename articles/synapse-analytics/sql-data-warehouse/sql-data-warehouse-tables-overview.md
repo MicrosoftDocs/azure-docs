@@ -103,6 +103,10 @@ The table category often determines which option to choose for distributing the 
 | Dimension      | Use replicated for smaller tables. If tables are too large to store on each Compute node, use hash-distributed. |
 | Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to production tables. |
 
+>[!NOTE]
+> For recommendations on the best distribution strategy to use based on your workloads, see the [Synapse SQL Distribution Advisor (Preview)](../sql/distribution-advisor).
+>
+
 ## Table partitions
 
 A partitioned table stores and performs operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. You can also maintain the data through partition switching. Since the data in SQL pool is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](sql-data-warehouse-tables-partition.md).  When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement if the existing data is to be truncated. The below code switches in the transformed daily data into the SalesFact overwriting any existing data.
