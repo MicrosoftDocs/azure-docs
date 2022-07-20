@@ -40,11 +40,24 @@ az containerapp env create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az containerapp env create `
-  --name $CONTAINERAPPS_ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --location $LOCATION
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
+
+```powershell
+New-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace -Location $Location -PublicNetworkAccessForIngestion "Enabled" -PublicNetworkAccessForQuery "Enabled"
+$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
+$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).PrimarySharedKey
+```
+
+To create the environment, run the following command:
+
+```powershell
+
+New-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -AppLogConfigurationDestination "log-analytics" `
+  -Location $LOCATION `
+  -LogAnalyticConfigurationCustomerId $WORKSPACE_ID `
+  -LogAnalyticConfigurationSharedKey $WORKSPACE_SHARED_KEY
 ```
 
 ---
@@ -102,6 +115,10 @@ QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_
 ```
 
 # [PowerShell](#tab/powershell)
+
+Here we use Azure CLI as there is not an equivalent PowerShell to get the connection string for the storage account queue. 
+
+```powershell
 
 ```azurecli
  $QUEUE_CONNECTION_STRING=(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --out json)  -replace '"',''
@@ -287,9 +304,7 @@ az monitor log-analytics query \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
-
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'"
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WORKSPACE_ID  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'"
 $queryResults.Results
 ```
 

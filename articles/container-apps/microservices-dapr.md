@@ -41,9 +41,10 @@ The following architecture diagram illustrates the components that make up this 
 
 ---
 
-Individual container apps are deployed to an Azure Container Apps environment. To create the environment, run the following command:
 
 # [Bash](#tab/bash)
+
+Individual container apps are deployed to an Azure Container Apps environment. To create the environment, run the following command:
 
 ```azurecli
 az containerapp env create \
@@ -54,11 +55,24 @@ az containerapp env create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az containerapp env create `
-  --name $CONTAINERAPPS_ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --location "$LOCATION"
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
+
+```powershell
+New-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace -Location $Location -PublicNetworkAccessForIngestion "Enabled" -PublicNetworkAccessForQuery "Enabled"
+$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
+$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).PrimarySharedKey
+```
+
+To create the environment, run the following command:
+
+```powershell
+
+New-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -AppLogConfigurationDestination "log-analytics" `
+  -Location $LOCATION `
+  -LogAnalyticConfigurationCustomerId $WORKSPACE_ID `
+  -LogAnalyticConfigurationSharedKey $WORKSPACE_SHARED_KEY
 ```
 
 ---
@@ -116,13 +130,13 @@ az storage account create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az storage account create `
-  --name $STORAGE_ACCOUNT `
-  --resource-group $RESOURCE_GROUP `
-  --location "$LOCATION" `
-  --sku Standard_RAGRS `
-  --kind StorageV2
+```powershell
+$STORAGE_ACCOUNT = New-AzStorageAccount `
+  -Name $STORAGE_ACCOUNT_NAME `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -Location $LOCATION `
+  -SkuName Standard_RAGRS `
+  -Kind StorageV2
 ```
 
 ---
@@ -137,13 +151,17 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-$STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
+```pwoershell
+$STORAGE_ACCOUNT_KEY = (Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -Name $STORAGE_ACCOUNT_NAME)| Where-Object {$_.KeyName -eq "key1"}
 ```
 
 ---
 
+
 ### Configure the state store component
+
+# [Bash](#tab/bash)
+
 
 Create a config file named *statestore.yaml* with the properties that you sourced from the previous steps. This file helps enable your Dapr app to access your state store. The following example shows how your *statestore.yaml* file should look when configured for your Azure Blob Storage account:
 
@@ -185,9 +203,6 @@ Navigate to the directory in which you stored the *statestore.yaml* file and run
 
 If you need to add multiple components, create a separate YAML file for each component and run the `az containerapp env dapr-component set` command multiple times to add each component.  For more information about configuring Dapr components, see [Configure Dapr components](dapr-overview.md#configure-dapr-components).
 
-
-# [Bash](#tab/bash)
-
 ```azurecli
 az containerapp env dapr-component set \
     --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP \
@@ -197,16 +212,27 @@ az containerapp env dapr-component set \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az containerapp env dapr-component set `
-    --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP `
-    --dapr-component-name statestore `
-    --yaml statestore.yaml
+```powershell
+
+$metadata = ((New-AzContainerAppDaprMetadataObject -Name AccountName -Value $STORAGE_ACCOUNT),
+(New-AzContainerAppDaprMetadataObject -Name AccountKey -SecretRef account-key),
+(New-AzContainerAppDaprMetadataObject -Name ContainerName -Value $STORAGE_ACCOUNT_CONTAINER))
+$secret = New-AzContainerAppSecretObject -Name account-key -Value $STORAGE_ACCOUNT_KEY
+New-AzContainerAppManagedEnvDapr `
+  -EnvName $CONTAINERAPPS_ENVIRONMENT `
+  -DaprName statestore `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -Metadata $metadata `
+  -Secret $secret `
+  -Scope nodeapp `
+  -Version v1 `
+  -ComponentType state.azure.blobstorage
+
 ```
 
 ---
 
-Your state store is configured using the Dapr component described in *statestore.yaml*. The component is scoped to a container app named `nodeapp` and isn't available to other container apps.
+Your state store is configured using the Dapr component type state.azure.blobstorage. The component is scoped to a container app named `nodeapp` and isn't available to other container apps.
 
 ## Deploy the service application (HTTP web server)
 
@@ -231,20 +257,28 @@ az containerapp create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az containerapp create `
-  --name nodeapp `
-  --resource-group $RESOURCE_GROUP `
-  --environment $CONTAINERAPPS_ENVIRONMENT `
-  --image dapriosamples/hello-k8s-node:latest `
-  --target-port 3000 `
-  --ingress 'internal' `
-  --min-replicas 1 `
-  --max-replicas 1 `
-  --enable-dapr `
-  --dapr-app-id nodeapp `
-  --dapr-app-port 3000 `
-  --env-vars 'APP_PORT=3000'
+```powershell
+$ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
+
+$ENV_VARS = NewAzContainerAppEnvironmentVarObject -Name APP_PORT -Value 3000
+
+$TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
+  -Name nodeapp `
+  -Image dapriosamples/hello-k8s-node:latest `
+  -Env $ENV_VARS
+
+New-AzContainerApp `
+  -Name nodeapp `
+  -Location $LOCATION `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -ManagedEnvironmentId $ENV_ID `
+  -TemplateContainer $TEMPLATE_OBJ `
+  -DaprAppId nodeapp ` 
+  -DaprAppPort 3000 `
+  -DaprEnabled `
+  -ScaleMaxReplica 1 `
+  -ScaleMinReplica 1 `
+  -IngressTargetPort 3000 
 ```
 
 ---
@@ -276,16 +310,25 @@ az containerapp create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az containerapp create `
-  --name pythonapp `
-  --resource-group $RESOURCE_GROUP `
-  --environment $CONTAINERAPPS_ENVIRONMENT `
-  --image dapriosamples/hello-k8s-python:latest `
-  --min-replicas 1 `
-  --max-replicas 1 `
-  --enable-dapr `
-  --dapr-app-id pythonapp
+```powershell
+
+$TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
+  -Name pythonapp `
+  -Image dapriosamples/hello-k8s-python:latest
+
+
+New-AzContainerApp `
+  -Name pythonapp `
+  -Location $LOCATION `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -ManagedEnvironmentId $ENV_ID `
+  -TemplateContainer $TEMPLATE_OBJ `
+  -DaprAppId pythonapp ` 
+  -DaprEnabled `
+  -ScaleMaxReplica 1 `
+  -ScaleMinReplica 1 
+```
+
 ```
 
 ---
@@ -334,13 +377,8 @@ az monitor log-analytics query \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`
-(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
-
-az monitor log-analytics query `
-  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" `
-  --out table
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WORKSPACE_ID  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'"
+$queryResults.Results
 ```
 
 ---
@@ -371,8 +409,7 @@ az group delete \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az group delete `
-    --resource-group $RESOURCE_GROUP
+Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
 
 ---
