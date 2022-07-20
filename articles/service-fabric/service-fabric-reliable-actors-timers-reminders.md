@@ -211,7 +211,7 @@ To unregister a reminder, an actor calls the `UnregisterReminderAsync`(C#) or `u
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
-Task reminderUnregistration = UnregisterReminderAsync(reminder);
+Task reminderUnregistration = await UnregisterReminderAsync(reminder);
 ```
 ```Java
 ActorReminder reminder = getReminder("Pay cell phone bill");
