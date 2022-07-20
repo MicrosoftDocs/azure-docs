@@ -15,7 +15,7 @@ Syslog and other default forwarding actions are delivered with your system. More
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-information-screen.png" alt-text="Alert information.":::
 
-Defender for IoT administrators has permission to use forwarding rules.
+Defender for IoT administrators have permission to use forwarding rules.
 
 ## About forwarded alert information
 
@@ -33,7 +33,11 @@ Alerts provide information about an extensive range of security and operational 
 
 - Suspicious traffic detected
 
-Relevant information is sent to partner systems when forwarding rules are created.
+- Disconnected sensors
+
+- Remote backup failures
+
+Relevant information is sent to partner systems when forwarding rules are created in the sensor console or the [on-premises management console](how-to-work-with-alerts-on-premises-management-console.md#create-forwarding-rules).
 
 ## About Forwarding rules and certificates
 
