@@ -48,21 +48,7 @@ The FTP connector has different versions, based on [logic app type and host envi
 
     By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
 
-* FTP managed connector triggers might experience missing, incomplete, or delayed results when the "last modified" timestamp is preserved
-
-  * Missing results
-
-    FTP triggers work by polling, or checking, the FTP file system and looking for any files that changed since the last poll. The FTP managed connector triggers compare file versions using the file's last modified timestamp. If you create, add, or update file with a timestamp that's earlier than the currently tracked last modified timestamp, the FTP managed connector trigger won't detect this file. On the other hand, the FTP *built-in* connector trigger in Standard logic app workflows doesn't have this limitation.
-
-    So, if you use an external tool or client that creates, adds, or updates files on the FTP server, make sure that you disable any feature in the tool or client that preserves a file's last modified timestamp.
-
-  * Incomplete or delayed results
-
-    When an FTP trigger checks for a newly created, added, or updated file, the trigger also checks whether the file is complete. For example, a file might have changes in progress when the trigger checks the FTP server. To avoid returning an incomplete file, the trigger notes the file's timestamp, but doesn't immediately return the file. Instead, the trigger returns the file only when the trigger checks the server again.
-
-    Sometimes, this behavior might cause a delay that lasts as long as almost twice the trigger's polling interval. Due to this behavior, if you disable the FTP trigger's **Split On** setting, the FTP trigger might not return all files at the same time.
-
-For more information, review the FTP connector's [limitations](/connectors/ftp/#limitations) and [requirements](/connectors/ftp/#requirements).
+* FTP managed connector triggers might experience missing, incomplete, or delayed results when the "last modified" timestamp is preserved. On the other hand, the FTP *built-in* connector trigger in Standard logic app workflows doesn't have this limitation. For more information, review the FTP connector's [Limitations](/connectors/ftp/#limitations) section.
 
 ## Prerequisites
 
