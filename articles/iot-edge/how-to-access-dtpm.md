@@ -57,7 +57,7 @@ The following steps in this section show how to create a sample executable to ac
 
     ![Visual Studio add NuGet packages](./media/how-to-access-dtpm/vs-nuget-microsoft-tss.png)
 
-1. Open the _Program.cs_ file and replace the content with the [EFLOW TPM sample code - Program.cs](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/samples/tpm-read-nv/Program.cs)
+1. Edit the *Program.cs* file and replace the contents with the [EFLOW TPM sample code - Program.cs](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/samples/tpm-read-nv/Program.cs).
 
 1. Build the project and make sure there are no errors.
 
