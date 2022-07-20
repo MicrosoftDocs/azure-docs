@@ -22,8 +22,7 @@ Distribution Advisor (DA)  in Synapse SQL analyzes customer queries and recommen
 ```sql 
 SELECT @@version 
 ``` 
-- Ensure statistics are created and updated before running the advisor.
-- DA recommendations depend on table statistics being up to date. Check [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) articles for more details on statistics.
+- Ensure that statistics are available and up-to-date before running the advisor. For more details, [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) articles for more details on statistics.
 
 ## Create Distribution Advisor Stored Procedures
 
@@ -76,44 +75,46 @@ dbo.read_dist_recommendation will return recommendations in the following format
 
 ## Troubleshooting
 
-- Stale state from a previous run of the advisor:
+### Stale state from a previous run of the advisor
 
-    Symptom:
+##### Symptom:
 
-	You see this error message upon running the advisor.
-    ![troubleshooting-1](./media/distribution-advisor/troubleshooting-1.jpg)
+You see this error message upon running the advisor.
+![troubleshooting-1](./media/distribution-advisor/troubleshooting-1.jpg)
 
-	Mitigation:
+#####Mitigation:
 
-	- Verify that you are using single quotes '' to run the advisor on select queries.
-	- Start a new session in SSMS and run the advisor.
+- Verify that you are using single quotes '' to run the advisor on select queries.
+- Start a new session in SSMS and run the advisor.
 
-- Errors during running the advisor
+###Errors during running the advisor
 	
-	Symptom:
+##### Symptom:
 	
-	The ‘result’ pane shows CommandToInvokeAdvisorString below but does not show the RecommendationOutput below.
+The ‘result’ pane shows CommandToInvokeAdvisorString below but does not show the RecommendationOutput below.
 
-	You see this: 
+You see this: 
  
-	![troubleshooting-2](./media/distribution-advisor/troubleshooting-2.png)
+![troubleshooting-2](./media/distribution-advisor/troubleshooting-2.png)
 	
-	But not this:  
+But not this:  
 
-	![troubleshooting-3](./media/distribution-advisor/troubleshooting-3.png)
+![troubleshooting-3](./media/distribution-advisor/troubleshooting-3.png)
 	
-	Mitigation:
-	Check the output of CommandToInvokeAdvisorString above. Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing where clause here:  [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql)
+##### Mitigation:
 
-- Error during post-processing of recommendation output
-	
-    Symptom:
+Check the output of CommandToInvokeAdvisorString above. Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing where clause here:  [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql)
 
-	You see the following error message.
-    ![troubleshooting-4](./media/distribution-advisor/troubleshooting-4.png)
+### Error during post-processing of recommendation output
 	
-	Mitigation:
-	Ensure that you have the most up to date version of the stored procedure
+##### Symptom:
+
+You see the following error message.
+
+![troubleshooting-4](./media/distribution-advisor/troubleshooting-4.png)
+	
+##### Mitigation:
+Ensure that you have the most up to date version of the stored procedure
 
 
 ## Next steps
