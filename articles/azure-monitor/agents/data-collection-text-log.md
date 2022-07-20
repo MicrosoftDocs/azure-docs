@@ -169,7 +169,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 
     - `streamDeclarations`: Defines the columns of the incoming data. This must match the structure of the log file.
     - `filePatterns`: Specifies the location and file pattern of the log files to collect. This defines a separate pattern for Windows and Linux agents.
-    - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace. Data collection rules for Azure Monitor agent don't yet support transformations, so this value should currently be `source`.
+    - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace.
 
 
 4. Click **Save**.
