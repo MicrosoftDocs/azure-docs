@@ -111,7 +111,7 @@ If you enable the Servers plan on cross-subscription workspaces, connected VMs f
 
 ### Will I be charged for machines and connected AWS accounts without the Log Analytics agent installed?
 
-Yes. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, you're charged for all machines and connected AWS accounts in the subscription, including Azure virtual machines, Azure virtual machine scale sets instances, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
+Yes. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, you're charged for all machines and connected AWS accounts in the subscription, including Azure virtual machines, Azure virtual machine scale sets instances, and Azure Arc-enabled servers. Machines and connected AWS accounts that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
 
 ### If a Log Analytics agent reports to multiple workspaces, will I be charged twice?
 
