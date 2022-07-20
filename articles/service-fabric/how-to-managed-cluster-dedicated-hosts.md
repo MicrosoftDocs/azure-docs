@@ -95,14 +95,8 @@ Create a dedicated host group and add a role assignment to the host group with t
 ## Deploy Service Fabric managed cluster
 
 Create an Azure Service Fabric managed cluster with node type(s) configured to reference the Dedicated Host group ResourceId. The node type needs to be pinned to the same availability zone as the host group. 
-The template used in this guide is from [Azure-Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-ADH).
+1) Select the template from [Azure-Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH), which includes specification for Dedicated Host support.
 
-1) Store the paths of your ARM template and parameter files in variables.
-
-   ```powershell
-   $templateFilePath = "<full path to azuredeploy.json>" 
-   $parameterFilePath = "<full path to azuredeploy.parameters.json>" 
-   ```
 
 2) Provide your own values for the following template parameters:
 
@@ -115,22 +109,33 @@ The template used in this guide is from [Azure-Samples - Service Fabric cluster 
   * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
   * Node Type Name: Enter a unique name for your node type, such as nt1.
 
+3) Deploy an ARM template through one of the methods below:
+
+* ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template). Select the following image to sign in to Azure, and provide your own values for the template parameters, then deploy the template.
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-ADH%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+
+* ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template.
+
    ```powershell
+   $templateFilePath = "<full path to azuredeploy.json>" 
+   $parameterFilePath = "<full path to azuredeploy.parameters.json>"
+   $pass = (ConvertTo-SecureString -AsPlainText -Force "<adminPassword>")
+
     New-AzResourceGroupDeployment ` 
         -Name $DeploymentName ` 
         -ResourceGroupName $resourceGroupName ` 
         -TemplateFile $templateFilePath ` 
-        -TemplateParameterFile $parameterFilePath ` 
-        -Verbose
+        -TemplateParameterFile $parameterFilePath `
+        -adminPassword $pass `
+        -Debug -Verbose
    ```
-
-3) Deploy an ARM template through one of the methods below:
-
-* ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template)
-* ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0)
    
-Wait for the deployment to be completed successfully.
-
+    Wait for the deployment to be completed successfully.
+    
+    
 ## Troubleshooting
 
 1) The following error is thrown when SFRP does not have access to the host group. Review the role assignment steps above and ensure the assignment is done correctly.
