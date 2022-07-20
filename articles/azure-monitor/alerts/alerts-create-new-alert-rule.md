@@ -37,7 +37,7 @@ And then defining these elements for the resulting alert actions using:
 6. Select **Next: Condition>** at the bottom of the page.
 7. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. You can narrow the signal list using these fields. The **Signal type** determines which [type of alert](alerts-overview.md#types-of-alerts) rule you are creating. 
 8. Select the **Signal name**, and follow the steps below depending on the type of alert you are creating.   
- ### [Metric alert](#tab/metric)
+### [Metric alert](#tab/metric)
        
   1. In the **Configure signal logic** pane, select values for the following fields.
       
@@ -141,7 +141,7 @@ And then defining these elements for the resulting alert actions using:
     
      :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
     
-   ### [Activity log alert](#tab/activity-log)
+  ### [Activity log alert](#tab/activity-log)
 
   1. In the **Conditions** pane, select the **Chart period**.
   1. The **Preview** chart shows you the results of your selection.
@@ -216,7 +216,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
  > [!NOTE]
  > Azure CLI support is only available for the scheduledQueryRules API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
  
-   ### [Activity log alert](#tab/activity-log)
+  ### [Activity log alert](#tab/activity-log)
 
   To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/activity-log/alert).  
  
