@@ -19,7 +19,7 @@ The Dependency Agent collects data about processes running on the virtual machin
     - Dependency Agent supports the same [Windows versions Log Analytics Agent supports](/azure/azure-monitor/agents/agents-overview#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
     - For Linux, see [Dependency Agent Linux support](#dependency-agent-linux-support).
 
-## Upgrade options 
+## Upgrade Dependency Agent 
 
 You can upgrade the Dependency agent for Windows and Linux manually or automatically, depending on the deployment scenario and environment the machine is running in, using these methods:
 
@@ -29,13 +29,13 @@ You can upgrade the Dependency agent for Windows and Linux manually or automatic
 | Custom Azure VM images | Manual install of Dependency agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle.|
 | Non-Azure VMs | Manual install of Dependency agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
 
-## Upgrade Windows agent 
+### Upgrade Windows agent 
 
 Update the agent on a Windows VM from the command prompt, with a script or other automation solution, or by using the InstallDependencyAgent-Windows.exe Setup Wizard.  
 
 [Download the latest version of the Windows agent](https://aka.ms/dependencyagentwindows).
 
-### Using the Setup Wizard
+#### Using the Setup Wizard
 
 1. Sign on to the computer with an account that has administrative rights.
 
@@ -44,7 +44,7 @@ Update the agent on a Windows VM from the command prompt, with a script or other
 3. Follow the **Dependency Agent Setup** wizard to uninstall the previous version of the dependency agent and then install the latest version.
 
 
-### From the command line
+#### From the command line
 
 1. Sign on to the computer with an account that has administrative rights.
 
@@ -58,7 +58,7 @@ Update the agent on a Windows VM from the command prompt, with a script or other
 
 3. To confirm the upgrade was successful, check the `install.log` for detailed setup information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
-## Upgrade Linux agent 
+### Upgrade Linux agent 
 
 Upgrade from prior versions of the Dependency agent on Linux is supported and performed following the same command as a new installation.
 

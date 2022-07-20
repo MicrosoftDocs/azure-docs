@@ -1202,7 +1202,7 @@ items:
         href: vm/vminsights-enable-policy.md
       - name: Hybrid VMs
         href: vm/vminsights-enable-hybrid.md
-      - name: Upgrade Dependency agent
+      - name: Dependency Agent
         href: vm/vminsights-dependency-agent-maintenance.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
