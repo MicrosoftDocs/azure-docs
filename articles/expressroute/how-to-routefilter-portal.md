@@ -94,7 +94,7 @@ Attach the route filter to a circuit by selecting the **+ Add Circuit** button a
 
 If the connectivity provider configures peering for your ExpressRoute circuit, refresh the circuit from the ExpressRoute circuit page before you select the **+ Add Circuit** button.
 
-:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Screenshot that shows the Overview page with the Refresh action selected..":::
+:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Screenshot that shows the Overview page with the Refresh action selected.":::
 
 ## <a name="tasks"></a>Common tasks
 
@@ -108,7 +108,7 @@ You can view properties of a route filter when you open the resource in the port
 
 1. You can update the list of BGP community values attached to a circuit by selecting the **Manage rule** button.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Update Route filters with the Manage rule action.":::
+    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Screenshot that shows how to update Route filters with the Manage rule action.":::
 
 1. Select the service communities you want and then select **Save**.
 
@@ -125,7 +125,7 @@ To detach a circuit from the route filter, right-click on the circuit and select
 
 You can delete a route filter by selecting the **Delete** button. Ensure the Route filter isn't associated to any circuit before doing so.
 
-:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Delete a route filter.":::
+:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Screenshot that shows how to delete a route filter.":::
 
 ## Next Steps
 
