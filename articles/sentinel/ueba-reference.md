@@ -259,7 +259,7 @@ The following table describes the user identity data included in the **IdentityI
 | **TenantId**                    | string   | The tenant ID of the user.                                 |
 | **TimeGenerated**               | datetime | The time when the event was generated (UTC).               |
 | **Type**                        | string   | The name of the table.                                     |
-| **UserAccountControl**          | dynamic  | Security attributes of the user account in the AD domain. <br> Possible values:<br>- *AccountDisabled*<br>- *HomedirRequired*<br>- *AccountLocked*<br>- *PasswordNotRequired*<br>- *CannotChangePassword*<br>- *EncryptedTextPasswordAllowed*<br>- *TemporaryDuplicateAccount*<br>- *NormalAccount*<br>- *InterdomainTrustAccount*<br>- *WorkstationTrustAccount*<br>- *ServerTrustAccount*<br>- *PasswordNeverExpires*<br>- *MnsLogonAccount*<br>- *SmartcardRequired*<br>- *TrustedForDelegation*<br>- *DelegationNotAllowed*<br>- *UseDesKeyOnly*<br>- *DontRequirePreauthentication*<br>- *PasswordExpired*<br>- *TrustedToAuthenticationForDelegation*<br>- *PartialSecretsAccount*<br>- *UseAesKeys* |
+| **UserAccountControl**          | dynamic  | Security attributes of the user account in the AD domain. <br> Possible values (may contain more than one):<br>- *AccountDisabled*<br>- *HomedirRequired*<br>- *AccountLocked*<br>- *PasswordNotRequired*<br>- *CannotChangePassword*<br>- *EncryptedTextPasswordAllowed*<br>- *TemporaryDuplicateAccount*<br>- *NormalAccount*<br>- *InterdomainTrustAccount*<br>- *WorkstationTrustAccount*<br>- *ServerTrustAccount*<br>- *PasswordNeverExpires*<br>- *MnsLogonAccount*<br>- *SmartcardRequired*<br>- *TrustedForDelegation*<br>- *DelegationNotAllowed*<br>- *UseDesKeyOnly*<br>- *DontRequirePreauthentication*<br>- *PasswordExpired*<br>- *TrustedToAuthenticationForDelegation*<br>- *PartialSecretsAccount*<br>- *UseAesKeys* |
 | **UserState**                   | string   | The current state of the user account in Azure AD.<br>Possible values:<br>- *Active*<br>- *Disabled*<br>- *Dormant*<br>- *Lockout* |
 | **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC). |
 | **UserType**                    | string   | The user type.                                             |
@@ -269,4 +269,5 @@ The following table describes the user identity data included in the **IdentityI
 This document described the Microsoft Sentinel entity behavior analytics table schema.
 
 - Learn more about [entity behavior analytics](identify-threats-with-entity-behavior-analytics.md).
+- [Enable UEBA in Microsoft Sentinel](enable-entity-behavior-analytics.md).
 - [Put UEBA to use](investigate-with-ueba.md) in your investigations.
