@@ -18,10 +18,10 @@ Master data management (MDM) arose out of the necessity for businesses to improv
 Getting answers to basic questions such as “who are our most profitable customers?”, “what product(s) have the best margins?” or in some cases, “how many employees do we have”? become tough to answer – at least with any degree of accuracy.
 Basically, the need for accurate, timely information is acute, and as sources of data increase, managing it consistently and keeping data definitions up to date so all parts of a business use the same information is a never ending challenge.
 To meet such challenges, businesses turn to master data management (MDM).
-More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/)
+More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/) and [Profisee-Purview Use Cases and Azure Architecture](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
 
 ## Why Profisee?
-### PROFISEE MDM SAAS: TRUE SAAS EXPERIENCE 
+### PROFISEE MDM: TRUE SAAS EXPERIENCE 
 A fully managed instance of Profisee MDM hosted in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.
 
 - Platform and Management in One -
@@ -45,7 +45,7 @@ Available in Azure, AWS, Google Cloud or on-prem.
 - Fast to Deploy, Easy to Maintain -
 Fully containerized configuration streamlines patches and upgrades
 
-More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/) and [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
+More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
 
 ## Profisee <> Purview Reference Architecture
 ![Profisee <> Purview Reference Architecture](https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png)
