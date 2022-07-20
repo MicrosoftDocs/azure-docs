@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Manage SIM groups - Azure portal
 
-*SIM groups* allow you to sort SIMs into categories for easier management. If you only have a small number of SIMs, you may want to add them all to a single SIM group. Alternatively, you can create multiple SIM groups to sort your SIMs. For example, you could categorize your SIMs by their purpose (such as SIMs used by specific UE types like cameras or cellphones), or by their on-site location. In this how-to guide, you'll learn how to create, delete, and view SIM groups using the Azure portal.
+*SIM groups* allow you to sort SIMs into categories for easier management. Each SIM must be a member of a single SIM group. If you only have a small number of SIMs, you may want to add them all to the same SIM group. Alternatively, you can create multiple SIM groups to sort your SIMs. For example, you could categorize your SIMs by their purpose (such as SIMs used by specific UE types like cameras or cellphones), or by their on-site location. In this how-to guide, you'll learn how to create, delete, and view SIM groups using the Azure portal.
 
 ## Prerequisites
 
