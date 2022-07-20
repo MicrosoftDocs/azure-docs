@@ -47,7 +47,7 @@ Bold is preferred for calling out UI text. https://docs.microsoft.com/en-us/styl
 
     ![Visual Studio create new solution](./media/how-to-access-dtpm/vs-new-solution.png)
 
-1. Fill in the _Project Name_, _Location_ and _Solution Name_ fields and select _Next_.
+1. Fill in the **Project Name**, **Location** and **Solution Name** fields then select **Next**.
 
 1. Select a target framework. We recommend using the latest .NET 6.0 LTS version. Once the framework is selected, select _Create_.
 
