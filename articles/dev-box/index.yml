@@ -46,7 +46,7 @@ landingContent:
         links:
           - text: Provide access to projects for project admins
             url: how-to-project-admin.md
-          - text: Provide access to projects dev box users
+          - text: Provide access to projects for dev box users
             url: how-to-dev-box-user.md  
 
   # Card
