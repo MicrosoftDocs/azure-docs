@@ -423,7 +423,7 @@
   - name: Outbound E-Mail from SAP to Exchange Online
     href: exchange-online-integration-sap-email-outbound.md
   - name: Expose SAP Process Orchestration on Azure securely 
-    href: exposing-sap-po-on-azure.md    
+    href: expose-sap-process-orchestration-on-azure.md    
 - name: Reference
   items:
   - name: Azure CLI
