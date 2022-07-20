@@ -72,7 +72,7 @@ const containerName = process.env.AZURE_STORAGE_BLOB_CONTAINER_NAME;
 The following conceptual steps are required to create a SAS token with DefaultAzureCredential:
 
 * Set up DefaultAzureCredential
-    * Local development - use peronsal identity and set roles for storage
+    * Local development - use personal identity and set roles for storage
     * Azure cloud - create managed identity
 * Use DefaultAzureCredential to get the user delegation key with [UserDelegationKey](/rest/api/storageservices/create-user-delegation-sas)
 * Use the user delegation key to construct the SAS token with the appropriate fields with [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob#@azure-storage-blob-generateblobsasqueryparameters)
