@@ -41,7 +41,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
 
 ## Deploy the template
 
-1) Select the template from [Azure Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Ephemeral), which includes specification for Ephemeral OS disks support.
+1) Pick the template from [Service Fabric cluster sample template for Ephemeral OS disk](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Ephemeral), which includes specification for Ephemeral OS disks support.
 
 2) Provide your own values for the following template parameters:
 
