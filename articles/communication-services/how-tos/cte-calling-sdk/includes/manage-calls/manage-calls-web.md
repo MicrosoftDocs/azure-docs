@@ -148,9 +148,9 @@ Remote participants represent an endpoint connected to the ongoing Teams call or
 
 - `identifier`: Returns one of the following identifiers: `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, or `UnknownIdentifier`. 
 
-    ```js
-    const identifier = remoteParticipant.identifier;
-    ```
+```js
+const identifier = remoteParticipant.identifier;
+```
 
 - `state`: Returns a `string` that represents a state of a remote participant. The state can have one of the following values:
 
@@ -166,40 +166,40 @@ Remote participants represent an endpoint connected to the ongoing Teams call or
 |`Disconnected` | Final state | The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes. |
 
 
-    ```js
-    const state = remoteParticipant.state;
-    ```
+```js
+const state = remoteParticipant.state;
+```
 
 - `callEndReason`: Returns an object containing additional information about the reason the call ended. Property `code` returns a number associated with the reason, and `subCode` returns a number associated with the code and the reason. You can find more information about [error codes](../../../../concepts/troubleshooting-info.md#calling-sdk-error-codes).
 
-    ```js
-    const callEndReason = remoteParticipant.callEndReason;
-    const callEndReasonCode = callEndReason.code 
-    const callEndReasonSubCode = callEndReason.subCode 
-    ```
+```js
+const callEndReason = remoteParticipant.callEndReason;
+const callEndReasonCode = callEndReason.code 
+const callEndReasonSubCode = callEndReason.subCode 
+```
 
 - `isMuted`: Returns `Boolean` value representing a status of local mute.
 
-    ```js
-    const isMuted = remoteParticipant.isMuted;
-    ```
+```js
+const isMuted = remoteParticipant.isMuted;
+```
 
 - `isSpeaking`: Returns `Boolean` value representing the status of non-empty audio being sent. 
 
-    ```js
-    const isSpeaking = remoteParticipant.isSpeaking;
-    ```
+```js
+const isSpeaking = remoteParticipant.isSpeaking;
+```
 
 - `videoStreams`: Returns collection of `RemoteVideoStream` objects sent by participants.
 
-    ```js
-    const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
-    ```
+```js
+const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+```
 - `displayName`: Returns a `string` representing display name. Communication Services calling SDK does not set this value for Teams users. 
 
-    ```js
-    const displayName = remoteParticipant.displayName;
-    ```
+```js
+const displayName = remoteParticipant.displayName;
+```
 
 ## Call
 
