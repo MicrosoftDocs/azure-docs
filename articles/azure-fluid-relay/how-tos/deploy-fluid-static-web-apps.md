@@ -89,7 +89,7 @@ Run the `npm run build` command from the root directory to rebuild the app. This
 
 1. Inside Visual Studio Code, select the Azure logo in the Activity Bar to open the Azure extensions window.
 
-    :::image type="content" source="../content/extension-azure-logo.png" alt-text="An image of the Azure Logo on a white background.":::
+    :::image type="content" source="../images/extension-azure-logo.png" alt-text="An image of the Azure Logo on a white background.":::
 
     > [!NOTE]
     > You must sign in to Azure and GitHub in Visual Studio Code to continue. If you are not already authenticated, the extension will prompt you to sign in to both services during the creation process.
@@ -168,17 +168,17 @@ Run the `npm run build` command from the root directory to rebuild the app. This
 
 1. Once the app is created, a confirmation notification is shown in Visual Studio Code.
 
-    :::image type="content" source="../content/extension-confirmation.png" alt-text="An image of the notification shown in Visual Studio Code when the app is created. The notification reads: Successfully created new static web app my-first-static-web-app. GitHub Actions is building and deploying your app, it will be available once the deployment completes.":::
+    :::image type="content" source="../images/extension-confirmation.png" alt-text="An image of the notification shown in Visual Studio Code when the app is created. The notification reads: Successfully created new static web app my-first-static-web-app. GitHub Actions is building and deploying your app, it will be available once the deployment completes.":::
 
     As the deployment is in progress, the Visual Studio Code extension reports the build status to you.
 
-    :::image type="content" source="../content/extension-waiting-for-deployment.png" alt-text="An image of the Static Web Apps extension UI, which shows a list of static web apps under each subscription. The highlighted static web app has a status of Waiting for Deployment displayed next to it.":::
+    :::image type="content" source="../images/extension-waiting-for-deployment.png" alt-text="An image of the Static Web Apps extension UI, which shows a list of static web apps under each subscription. The highlighted static web app has a status of Waiting for Deployment displayed next to it.":::
 
     Once the deployment is complete, you can navigate directly to your website.
 
 1. To view the website in the browser, right-click on the project in the Static Web Apps extension, and select **Browse Site**.
 
-    :::image type="content" source="../content/extension-browse-site.png" alt-text="An image of the menu that is shown when right-clicking on a static web app. The Browse Site option is highlighted.":::
+    :::image type="content" source="../images/extension-browse-site.png" alt-text="An image of the menu that is shown when right-clicking on a static web app. The Browse Site option is highlighted.":::
 
 2. The location of your application code, Azure Function, and build output is part of the `azure-static-web-apps-xxx-xxx-xxx.yml` workflow file located in the `/.github/workflows` directory. This file is automatically created when you create the Static Web app. It defines a GitHub Actions to build and deploy your Static Web app.
 
@@ -189,4 +189,4 @@ If you're not going to continue to use this application, you can delete the Azur
 
 In the Visual Studio Code Explorer window, return to the _Static Web Apps_ section and right-click on **my-first-static-web-app** and select **Delete**.
 
-:::image type="content" source="../content/extension-delete.png" alt-text="An image of the menu that is shown when right-clicking on a static web app. The Delete option is highlighted.":::
+:::image type="content" source="../images/extension-delete.png" alt-text="An image of the menu that is shown when right-clicking on a static web app. The Delete option is highlighted.":::
