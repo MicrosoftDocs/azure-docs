@@ -84,6 +84,8 @@ Some organizations use a list of known ‘bad actor’ domains provided by their
 
 You can control both inbound and outbound access using Cross Tenant Access Settings. In addition, you can trust MFA, Compliant device, and hybrid Azure Active Directory joined device (HAADJ) claims from all or a subset of external Azure AD tenants. When you configure an organization specific policy, it applies to the entire Azure AD tenant and will cover all users from that tenant regardless of the user’s domain suffix. 
 
+You can enable collaboration across Microsoft clouds such as Microsoft Azure China 21Vianet or Microsoft Azure Government with additional configuration. Determine if any of your collaboration partners reside in a different Microsoft cloud. If so, you should [enable collaboration with these partners using Cross Tenant Access Settings](/azure/active-directory/external-identities/cross-cloud-settings).
+
 If you wish to allow inbound access to only specific tenants (allowlist), you can set the default policy to block access and then create organization policies to granularly allow access on a per user, group, and application basis.
 
 If you wish to block access to specific tenants (blocklist), you can set the default policy as allow and then create organization policies that block access to those specific tenants. 
