@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. Click **Upload metadata file**.
 
-	b. Click on **folder logo**  to select metadata file, which is explained to download in **[Configure AWS Single Sign-On SSO](#configure-aws-iam-identity-center-sso)** section and click **Add**.
+	b. Click on **folder logo**  to select metadata file, which is explained to download in **[Configure AWS Single Sign-On SSO](#configure-aws-single-sign-on-sso)** section and click **Add**.
 
 	![image2](common/browse-upload-metadata.png)
 
