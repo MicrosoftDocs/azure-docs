@@ -82,12 +82,12 @@ dbo.read_dist_recommendation will return recommendations in the following format
 You see this error message upon running the advisor.
 ![troubleshooting-1](./media/distribution-advisor/troubleshooting-1.jpg)
 
-#####Mitigation:
+##### Mitigation:
 
 - Verify that you are using single quotes '' to run the advisor on select queries.
 - Start a new session in SSMS and run the advisor.
 
-###Errors during running the advisor
+### Errors during running the advisor
 	
 ##### Symptom:
 	
@@ -99,8 +99,7 @@ You see this:
 	
 But not this:  
 
-![troubleshooting-3](./media/distribution-advisor/troubleshooting-3.png)
-	
+![troubleshooting-3](./media/distribution-advisor/troubleshooting-3.png)	
 ##### Mitigation:
 
 Check the output of CommandToInvokeAdvisorString above. Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing where clause here:  [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql)
