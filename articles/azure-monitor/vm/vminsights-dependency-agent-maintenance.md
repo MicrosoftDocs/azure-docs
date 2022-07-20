@@ -33,7 +33,7 @@ You can upgrade the Dependency agent for Windows and Linux manually or automatic
 
 Update the agent on a Windows VM from the command prompt, with a script or other automation solution, or by using the InstallDependencyAgent-Windows.exe Setup Wizard.  
 
-You can download the latest version of the Windows agent from [here](https://aka.ms/dependencyagentwindows).
+[Download the latest version of the Windows agent](https://aka.ms/dependencyagentwindows).
 
 ### Using the Setup Wizard
 
