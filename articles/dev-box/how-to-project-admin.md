@@ -1,5 +1,5 @@
 ---
-title: How to manage Dev Box projects
+title: Manage Dev Box projects
 titleSuffix: Microsoft Dev Box
 description: Learn how to manage multiple projects by delegating permissions to project admins.
 services: dev-box
@@ -10,9 +10,9 @@ ms.date: 06/29/2022
 ms.topic: how-to
 ---
 
-# How to manage Dev Box projects
+# Provide access to projects for project admins
 
-Each team in an organization operates in its own way. As a DevCenter Owner, you can create multiple projects in the DevCenter to align resources more closely with each team's specific requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. Project Admins can use the network connections and dev box definitions configured at the DevCenter level to create and manage dev box pools within their project.
+As a DevCenter Owner, you can create multiple projects in the DevCenter to align with each team's specific requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. Project Admins can use the network connections and dev box definitions configured at the DevCenter level to create and manage dev box pools within their project.
 
 A DevCenter Project Admin can manage a project by:
 
