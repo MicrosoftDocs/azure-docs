@@ -143,7 +143,7 @@ Here is what the condition looks like in code:
 
     ![Screenshot of Select an action pane with an action selected.](./media/storage-auth-abac-portal/condition-actions-select.png)
 
-1. Under Read a blog, click **Read content from a blob with tag conditions** and then click **Select**.
+1. Check the box next to **Read a blob**, then click **Select**.
 
 1. In the Build expression section, click **Add expression**.
 

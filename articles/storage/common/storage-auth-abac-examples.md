@@ -1235,7 +1235,7 @@ Here are the settings to add this condition using the Azure portal.
 > [!div class="mx-tableFixed"]
 > | Condition #1 | Setting |
 > | --- | --- |
-> | Actions | [Read content from a blob with tag conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
+> | Actions | [Read a blob conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
 > | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -1292,7 +1292,7 @@ Here are the settings to add this condition using the Azure portal.
 > [!div class="mx-tableFixed"]
 > | Condition #1 | Setting |
 > | --- | --- |
-> | Actions | [Read content from a blob with tag conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
+> | Actions | [Read a blob conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
 > | Attribute source | Resource |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
