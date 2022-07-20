@@ -43,7 +43,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Retrieve application details
 
-You now need to gather some information, which you'll use to get an Grafana API access token, and call Grafana APIs.
+You now need to gather some information, which you'll use to get a Grafana API access token, and call Grafana APIs.
 
 1. Find your tenant ID:
    1. In the Azure portal, enter *Azure Active Directory* in the **Search resources, services, and docs (G+ /)**.
