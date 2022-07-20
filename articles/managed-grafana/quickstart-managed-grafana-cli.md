@@ -21,7 +21,7 @@ Get started by creating an Azure Managed Grafana workspace using the Azure CLI. 
 
 ## Prerequisite
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
 ## Sign in to Azure
 

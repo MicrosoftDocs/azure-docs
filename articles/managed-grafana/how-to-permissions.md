@@ -18,7 +18,7 @@ In this article, you'll learn how to manually edit permissions for a specific re
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana instance. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 - An Azure resource with monitoring data and write permissions, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner)
 
