@@ -37,7 +37,7 @@ And then defining these elements for the resulting alert actions using:
 6. Select **Next: Condition>** at the bottom of the page.
 7. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. You can narrow the signal list using these fields. The **Signal type** determines which [type of alert](alerts-overview.md#types-of-alerts) rule you are creating. 
 8. Select the **Signal name**, and follow the steps below depending on the type of alert you are creating.   
-     ### [Metric alert](#tab/metric)
+      ### [Metric alert](#tab/metric)
            
       1. In the **Configure signal logic** pane, select values for the following fields. 
            
@@ -76,7 +76,7 @@ And then defining these elements for the resulting alert actions using:
          |Aggregation granularity| Select the interval over which data points are grouped using the aggregation type function.|
          |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.  |
           
-       1. Select **Done**.   
+      1. Select **Done**.   
     
       ### [Log alert](#tab/log)
        
@@ -198,7 +198,7 @@ And then defining these elements for the resulting alert actions using:
 You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-with-azure-cli). The code examples below are using [Azure Cloud Shell](../../cloud-shell/overview.md). You can see the full list of the [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor#azure-monitor-references).
 
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**, and at the prompt, use the following commands:
- ### [Metric alert](#tab/metric)
+  ### [Metric alert](#tab/metric)
 
   To create a metric alert rule, use the **az monitor metrics alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor metrics alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/metrics/alert).  
  
@@ -206,25 +206,24 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
    ```azurecli
    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
    ```
-      ### [Log alert](#tab/log)
+  ### [Log alert](#tab/log)
     
-      To create a log alert rule that monitors count of system event errors:
-       ```azurecli
-       az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > ago(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
-       ```
+  To create a log alert rule that monitors count of system event errors:
+    ```azurecli
+     az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > ago(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
+    ```
        
      > [!NOTE]
      > Azure CLI support is only available for the scheduledQueryRules API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
      
-     ### [Activity log alert](#tab/activity-log)
+  ### [Activity log alert](#tab/activity-log)
     
-      To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/activity-log/alert).  
+  To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/activity-log/alert).  
      
-      To create a new activity log alert rule, use the following commands:
-    
-       1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
-       2. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
-       3. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
+  To create a new activity log alert rule, use the following commands:
+     1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
+     1. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
+     1. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
     
 ---
 
