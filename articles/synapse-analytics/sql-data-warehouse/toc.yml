@@ -149,7 +149,7 @@ items:
     - name: Best practices
       href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Distribution Advisor 
-      href: ./sql/distribution-advisor
+      href: ../sql/distribution-advisor.md
     - name: JSON
       items:
       - name: JSON

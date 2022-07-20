@@ -327,7 +327,7 @@ items:
       - name: Best practices dedicated SQL pools
         href: sql/best-practices-dedicated-sql-pool.md
       - name: Distribution Advisor 
-        href: ./sql/distribution-advisor
+        href: sql/distribution-advisor.md
       - name: Materialized view
         items:
         - name: Performance tuning guidance
