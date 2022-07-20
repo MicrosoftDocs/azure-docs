@@ -81,33 +81,29 @@ Let's take an example of a sample manufacturing company working across multiple 
 - Make sure to give the exact same RG (Resource Group) in the deployment as you gave permissions to the managed identity in Step1.
 - Once deployment completes, click "Go to Resource Group" and open the Profisee AKS Cluster.
 - Profisee ARM Deployment Wizard - Managed Identity for installation; its role assignments and permissions should look like the image below.
-![Profisee Managed Identity Azure Role Assignments](./media/how-to-deploy-profisee-purview/Profisee_Managed_Identity_AzureRoleAssignments.png)
+:::image type="content" alt-text="Profisee Managed Identity Azure Role Assignments" source="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png":::
 - Profisee ARM Deployment Wizard - App Registration Configuration
-![Profisee Azure ARM Wizard App Registration Configuration](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_AppReg_Config.png)
+:::image type="content" alt-text="Profisee Azure ARM Wizard App Registration Configuration" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png":::
 - Profisee ARM Deployment Wizard - Profisee Configuration and supplying Admin account username
-![Profisee Azure ARM Wizard Step1 Profisee](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step1_Profisee.png)
+:::image type="content" alt-text="Profisee Azure ARM Wizard Step1 Profisee" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png":::
 - Profisee ARM Deployment Wizard - Kubernetes Configuration - You may choose an older version of Kubernetes but leave the field BLANK to deploy the LATEST version.
-![Profisee Azure ARM_Wizard Step2 Kubernetes](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step2_Kubernetes.png)
+:::image type="content" alt-text="Profisee Azure ARM_Wizard Step2 Kubernetes" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png":::
 - Profisee ARM Deployment Wizard - SQL Server
-![Profisee Azure ARM Wizard Step3 SQLServer](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step3_SQLServer.png)
+:::image type="content" alt-text="Profisee Azure ARM Wizard Step3 SQLServer" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png":::
 - Profisee ARM Deployment Wizard - Azure DNS
-![Profisee Azure ARM Wizard Step4 AzureDNS](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_AzureDNS.png)
+:::image type="content" alt-text="Profisee Azure ARM Wizard Step4 AzureDNS" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-d-azure-dns.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-d-azure-dns.png":::
 - Profisee ARM Deployment Wizard - Azure Storage
-![Profisee Azure ARM Wizard Step4 Storage](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step4_Storage.png)
-- Profisee ARM Deployment Wizard - Final Validation Stages
-![Profisee Azure ARM Wizard_Step5 Final_Template Validation](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation.png)
-- Profisee ARM Deployment Wizard - Final Validation
-![Profisee Azure ARM Wizard_Step5 Final Template Validation New](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Step5_Final_Template_Validation_New.png)
+:::image type="content" alt-text="Profisee Azure ARM Wizard Step5 Storage" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-e-storage.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-e-storage.png":::
+- Profisee ARM Deployment Wizard - Final Validation 
+:::image type="content" alt-text="Profisee Azure ARM Wizard_Step6 Final_Template Validation" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png":::
 - Around 5-10 Minutes into the ARM deployment
-![Deployment Progress Intermediate](./media/how-to-deploy-profisee-purview/DeploymentProgressA.png)
-- Final Stages of Deployment. You need to wait around 45-50 minutes for the deployment to complete installing Profisee
-![Deployment Progress Final](./media/how-to-deploy-profisee-purview/DeploymentProgressFinal.png)
-- Deployment Complete
-![Profisee Azure ARM Wizard Deployment Complete](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Deployment_Complete.png)
+:::image type="content" alt-text="Profisee Azure ARM Wizard Deployment Progress Intermediate" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-mid.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-mid.png":::
+- Final Stages of Deployment. You need to wait around 45-50 minutes for the deployment to complete installing Profisee. Completion of "InstallProfiseePlatform" stage also indicates deployment is complete!
+:::image type="content" alt-text="Profisee Azure ARM Wizard Deployment Complete" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-final.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-final.png":::
 - Open the resource group once deployment completes.
-![Profisee Azure ARM Wizard_Post Deploy_Click Open Resource Group](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_Post_Deploy_ClickOpen_Resource_Group.png)
+:::image type="content" alt-text="Profisee Azure ARM Wizard_Post Deploy_Click Open Resource Group" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png":::
 - Fetch the final deployment URL
-![Profisee Azure ARM Wizard Click Outputs Get FinalDeployment URL](./media/how-to-deploy-profisee-purview/ProfiseeAzureARM_Wizard_ClickOutputs_GetFinalDeploymentURL.png)
+:::image type="content" alt-text="Profisee Azure ARM Wizard Click Outputs Get FinalDeployment URL" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png":::
 - Populate and hydrate data to the newly installed profisee environment by installing FastApp. Go to your Profisee SaaS deployment URL and select **/Profisee/api/client**. It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client".
 
 ## Next Steps
