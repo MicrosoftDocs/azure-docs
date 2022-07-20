@@ -164,16 +164,15 @@ sudo apt install socat
 ```console
 socat -u tcp-listen:56001,fork create:/media/aqua/out.bin
 ```
-9. Once your contact has executed, copy the output file, 
+9. Once your contact has executed, copy the output file from the tmpfs into your home directory to avoid being overwritten when another contact is executed.
 ```console
-/media/aqua/out.bin out
+mkdir ~/aquadata
+cp /media/aqua/out.bin ~/aquadata/raw-$(date +"%FT%H%M%z").bin
 ```
- of the tmpfs and into your home directory to avoid being overwritten when another contact is executed.
 
  > [!NOTE]
  > For a 10 minute long contact with AQUA while it is transmitting with 15MHz of bandwidth, you should expect to receive somewhere in the order of 450MB of data.
    
 ## Next steps
 
-- [Configure a contact profile](contact-profile.md)
-- [Schedule a contact](schedule-contact.md)
+- [Collect and process Aqua satellite payload](satellite-imagery-with-orbital-ground-station.md)

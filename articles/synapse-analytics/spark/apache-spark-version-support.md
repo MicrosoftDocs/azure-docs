@@ -5,7 +5,7 @@ author: DaniBunny
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 07/12/2022
+ms.date: 07/19/2022
 ms.author: dacoelho 
 ms.reviewer: martinle
 ---
@@ -54,3 +54,13 @@ The following table lists the runtime name, Apache Spark version, and release da
 ## Runtime release stages
 
 For the complete runtime for Apache Spark lifecycle and support policies, refer to [Synapse runtime for Apache Spark lifecycle and supportability](./runtime-for-apache-spark-lifecycle-and-supportability.md).
+
+## Runtime patching
+
+Azure Synapse runtime for Apache Spark patches are rolled out monthly containing bug, feature and security fixes to the Apache Spark core engine, language environments, connectors and libraries.
+
+The patch policy differs based on the [runtime lifecycle stage](./runtime-for-apache-spark-lifecycle-and-supportability.md):
+1. Generally Available (GA) runtime: Receive no upgrades on major versions (i.e. 3.x -> 4.x). And will upgrade a minor version (i.e. 3.x -> 3.y) as long as there are no deprecation/regression impacts.
+2. Preview runtime: No major version upgrades unless strictly necessary. Minor versions (3.x -> 3.y) will be upgraded to add latest features to a runtime.
+3. Long Term Support (LTS) runtime will be patched with security fixes only.
+4. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
