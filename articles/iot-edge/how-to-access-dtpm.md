@@ -43,7 +43,7 @@ The following steps show you how to create a sample executable to access a TPM i
 
 Bold is preferred for calling out UI text. https://docs.microsoft.com/en-us/style-guide/procedures-instructions/formatting-text-in-instructions
 
-1. Search for _Console App, select it and select _Next_. 
+1. Choose **Console App** in the list of templates then select **Next**. 
 
     ![Visual Studio create new solution](./media/how-to-access-dtpm/vs-new-solution.png)
 
