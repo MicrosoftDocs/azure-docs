@@ -53,7 +53,7 @@ The following steps in this section show how to create a sample executable to ac
 
 1. Select _Browse_ and then search for "Microsoft.TSS".
 
-1. Select the "Microsoft.TSS" package and install it.
+1. Choose the **Microsoft.TSS** package from the list then select **Install**.
 
     ![Visual Studio add NuGet packages](./media/how-to-access-dtpm/vs-nuget-microsoft-tss.png)
 
