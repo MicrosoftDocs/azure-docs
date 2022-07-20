@@ -39,6 +39,19 @@ You cannot configure the subnets in the spoke VNets to only learn the routes fro
 
 Note that Azure Route Server per default will advertise all prefixes learnt from the NVA to ExpressRoute too. This might not be desired, for example because of the route limits of ExpressRoute or the Route Server itself. In that case, the NVA can announce its routes to the Route Server including the BGP community `no-advertise` (with value 65535:65282). When Azure Route Server receives routes with this BGP community, it will push them to the subnets, but it will not advertise them to any other BGP peer (like ExpressRoute or VPN gateways, or other NVAs).
 
+## Influencing Private Traffic through the NVA
+
+The previous sections detail influencing all traffic to be inspected by the Network Virtual Appliance by injecting a 0.0.0.0/0 default route from the Network Virtual Appliance to the route server.
+
+However, if you only wish to inspect only spoke to spoke and spokes to On Premises traffic through the Network Virtual Appliance you may consider the following:
+
+Azure Route Server will not advertise an equal or more specific route than the Vnet address space (including the subnets address space, or more specific like /32) learned from the Network Virtual Appliance. In other words, Azure Route Server will not inject these prefixes into the Virtual Network and will not install them of the NICs of the hubs or spokes. 
+
+Azure Route Server, however, will advertise a larger subnet than the Vnet address space that is learned from the Network Virtual Appliance. It is possible to advertise a Super net from the NVA as well as RFC 1918 private space to the Azure Route Server and these prefixes will be injected into the Hubs and the Spokes. Ultimately, the Network Virtual Appliance will contain the necessary routes to reach the Spokes and On Premises destinations. 
+
+----->Insert diagram
+
+
 ## SDWAN coexistence with ExpressRoute and Azure Firewall
 
 A particular case of the previous design is when customers insert the Azure Firewall in the traffic flow to inspect all traffic going to on-premises networks, either via ExpressRoute or via SD-WAN/VPN appliances. In this situation, all spoke subnets have route tables that prevent the spokes from learning any route from ExpressRoute or the Route Server, and have default routes (0.0.0.0/0) with the Azure Firewall as next hop, as the following diagram shows:
