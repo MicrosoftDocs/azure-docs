@@ -53,18 +53,21 @@
         href: concept-supported-protocols.md
 - name: How-to guides
   items:
-  - name: Visualize network assets
+  - name: Visualize devices
+    displayName: assets, network devices
     items:
-    - name: View assets from the Azure portal
-      href: how-to-manage-device-inventory-for-organizations.md
-    - name: View OT assets from a sensor console
-      href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-    - name: View OT assets on a sensor device map
+    - name: Manage device inventory
+      items:
+      - name: Manage device inventory from the Azure portal
+        href: how-to-manage-device-inventory-for-organizations.md
+      - name: Manage device inventory from an OT sensor console
+        href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+      - name: Manage device inventory from an on-premises management console
+        href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+    - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
-    - name: View OT assets on a sensor per zone
+    - name: View OT devices per zone
       href: how-to-view-information-per-zone.md
-    - name: View OT assets from an on-premises management console
-      href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
   - name: Manage alerts
     items:
     - name: Manage alerts from the Azure portal
@@ -162,6 +165,8 @@
           href: how-to-manage-individual-sensors.md
         - name: Control OT traffic monitoring
           href: how-to-control-what-traffic-is-monitored.md
+        - name: Detect Windows workstations and servers by script
+          href: detect-windows-endpoints-script.md
         - name: Configure active monitoring
           items:
           - name: Planning and prerequisites
@@ -204,6 +209,8 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
+  - name: Alert reference
+    href: alert-engine-messages.md
   - name: OT monitoring appliances
     items:
     - name: Overview
@@ -242,11 +249,9 @@
         href: appliance-catalog/hpe-edgeline-el300.md
       - name: Neousys Nuvo-500LP (SMB rugged)
         href: appliance-catalog/neousys-nuvo-5006lp.md
-  - name: Alert reference
-    href: alert-engine-messages.md
-  - name: Work with Defender for IoT APIs
+  - name: Defender for IoT APIs
     href: references-work-with-defender-for-iot-apis.md
-  - name: Work with Defender for IoT CLI commands
+  - name: Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
   - name: Frequently asked questions - service
     displayName: FAQ, regulation, internet, connection, hardware, appliances, ports, logs 
