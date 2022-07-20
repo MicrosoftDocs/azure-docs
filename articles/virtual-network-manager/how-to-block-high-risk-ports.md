@@ -57,9 +57,7 @@ Required. A how-to article explains how to do a task. The bulk of each H2 should
 a procedure.
 -->
 
-## Deploy Virtual Network environment
-
-
+## Deploy Virtual Network environment 3 VNETs
 
 ## Create a Virtual Network Manager
 <!-- Introduction paragraph -->
