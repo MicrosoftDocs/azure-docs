@@ -81,11 +81,11 @@ Let's take an example of a sample manufacturing company working across multiple 
 - Make sure to give the exact same RG (Resource Group) in the deployment as you gave permissions to the managed identity in Step1.
 - Once deployment completes, click "Go to Resource Group" and open the Profisee AKS Cluster.
 - Profisee ARM Deployment Wizard - Managed Identity for installation; its role assignments and permissions should look like the image below.
-:::image type="content" alt-text="Profisee Managed Identity Azure Role Assignments" source="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png":::
+:::image type="content" alt-text="Profisee Managed Identity Azure Role Assignments" source="/media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png" lightbox="/media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png":::
 - Profisee ARM Deployment Wizard - App Registration Configuration
-:::image type="content" alt-text="Profisee Azure ARM Wizard App Registration Configuration" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png":::
+:::image type="content" alt-text="Profisee Azure ARM Wizard App Registration Configuration" source="/media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png" lightbox="/media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png":::
 - Profisee ARM Deployment Wizard - Profisee Configuration and supplying Admin account username
-:::image type="content" alt-text="Profisee Azure ARM Wizard Step1 Profisee" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png":::
+:::image type="content" alt-text="Profisee Azure ARM Wizard Step1 Profisee" source="/media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png" lightbox="/media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png":::
 - Profisee ARM Deployment Wizard - Kubernetes Configuration - You may choose an older version of Kubernetes but leave the field BLANK to deploy the LATEST version.
 :::image type="content" alt-text="Profisee Azure ARM_Wizard Step2 Kubernetes" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png":::
 - Profisee ARM Deployment Wizard - SQL Server
