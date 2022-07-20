@@ -51,10 +51,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 3. In **Settings**, click on Enable in the Automatic provisioning section.
 
-	![Screenshot for automatic provisioning](media/aws-single-sign-on-provisioning-tutorial/automatic-provisioinng.png)
+	![Screenshot of enabling automatic provisioning.](media/aws-single-sign-on-provisioning-tutorial/automatic-provisioning.png)
 
 4. In the Inbound automatic provisioning dialog box, copy and save the **SCIM endpoint** and **Access Token** (visible after clicking on Show Token). . These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your AWS IAM Identity Center application in the Azure portal.
-	![Screenshot for inbound provisioning](media/aws-single-sign-on-provisioning-tutorial/inbound-provisioning.png)
+	![Screenshot of extracting provisioning configurations.](media/aws-single-sign-on-provisioning-tutorial/inbound-provisioning.png)
 
 ## Step 3. Add AWS IAM Identity Center from the Azure AD application gallery
 
@@ -81,7 +81,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 2. In the applications list, select **AWS IAM Identity Center**.
 
-	![The AWS IAM Identity Center link in the Applications list](common/all-applications.png)
+	![Screenshot of the AWS IAM Identity Center link in the Applications list.](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
