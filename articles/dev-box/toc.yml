@@ -9,30 +9,33 @@
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Configure the Microsoft Dev Box service (DevCenter owner)
+    - name: Set up Microsoft Dev Box service (DevCenter owner)
       href: quickstart-configure-dev-box-service.md
-    - name: Manage Dev Box projects (Project admin)
+    - name: Manage projects (Project admin)
       href: quickstart-configure-dev-box-project.md
-    - name: Create a Dev Box (Dev Box user)
+    - name: Create a dev box (Dev Box user)
       href: quickstart-create-dev-box.md
 - name: Tutorials
   expanded: true
   items: 
-    - name: Connect to a Microsoft Dev Box by using a remote desktop app
+    - name: Connect with Remote Desktop App
       href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Key concepts
+      href: concept-dev-box-concepts.md
 - name: How-to guides
   expanded: true
   items:
-    - name: Provide access to projects for project admins
+    - name: Provide access to project admins
       href: how-to-project-admin.md
-    - name: Provide access to projects for Dev Box Users
+    - name: Provide access to Dev Box users
       href: how-to-dev-box-user.md
     - name: Configure an Azure Compute Gallery
       href: how-to-configure-azure-compute-gallery.md
 - name: Reference
   items:
-      - name: Microsoft Dev Box concepts
-        href: concept-dev-box-concepts.md
 - name: Resources
   items: 
     - name: Azure roadmap
