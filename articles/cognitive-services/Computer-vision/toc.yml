@@ -6,6 +6,8 @@ items:
   items:
   - name: What is Computer Vision?
     href: overview.md
+  - name: Vision Studio
+    href: overview-vision-studio.md
   - name: Language support
     href: language-support.md
   - name: Pricing
@@ -92,6 +94,10 @@ items:
     href: quickstarts-sdk/image-analysis-client-library.md
   - name: Samples  
     href: /samples/browse/?products=azure&terms=analyze-image
+  - name: Responsible use of AI
+    items:
+    - name: Limited Access features
+      href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
     - name: Call the Image Analysis API
@@ -160,6 +166,20 @@ items:
     href: quickstarts-sdk/identity-client-library.md
   - name: Samples
     href: /samples/browse/?products=azure&term=face
+  - name: Responsible use of AI
+    items:
+    - name: Transparency notes
+      items:
+      - name: Face use cases
+        href: /legal/cognitive-services/face/transparency-note?context=/azure/cognitive-services/computer-vision/context/context
+      - name: Characteristics and limitations
+        href: /legal/cognitive-services/face/characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/face/guidance-integration-responsible-use?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Data privacy and security
+      href: /legal/cognitive-services/face/data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Limited Access features
+      href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
     - name: Detect and analyze faces
@@ -174,7 +194,7 @@ items:
       href: how-to/add-faces.md
     - name: Use the large-scale feature
       href: how-to/use-large-scale.md
-    - name: Use the PersonDirectory structure
+    - name: Use the PersonDirectory structure (preview)
       href: how-to/use-persondirectory.md
     - name: Use the HeadPose attribute
       href: how-to/use-headpose.md
@@ -242,6 +262,8 @@ items:
         href: spatial-analysis-container.md
       - name: Configure operations
         href: spatial-analysis-operations.md
+      - name: Use a local video file
+        href: spatial-analysis-local.md
       - name: Deploy a people counting web app
         href: Spatial-analysis-web-app.md
       - name: Logging and troubleshooting

@@ -4,9 +4,9 @@ description: Set up Power BI app offer technical configuration on Microsoft AppS
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 05/26/2021
+author: trkeya
+ms.author: trkeya
+ms.date: 06/20/2022
 ---
 
 # Set up Power BI app offer technical configuration

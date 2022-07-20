@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 05/26/2021
+ms.date: 06/14/2022
 ---
 
 # Configure Power BI app offer properties

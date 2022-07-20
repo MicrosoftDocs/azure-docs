@@ -13,19 +13,22 @@
     - name: NoSQL vs. relational databases
       href: ../relational-nosql.md?toc=/azure/cosmos-db/mongodb/toc.json
 - name: Quickstarts
+  expanded: true
   items:
-    - name: .NET
-      href: create-mongodb-dotnet.md
-    - name: Python 
+    - name: Develop app - .NET
+      href: quickstart-dotnet.md
+    - name: Develop app - Python 
       href: create-mongodb-python.md
-    - name: Java
+    - name: Develop app - Java
       href: create-mongodb-java.md
-    - name: Node.js
-      href: create-mongodb-nodejs.md
-    - name: Golang
+    - name: Develop app - Node.js
+      href: quickstart-javascript.md
+    - name: Develop app - Golang
       href: create-mongodb-go.md
 - name: Tutorials
   items:
+    - name: Migrate Node.js web app
+      href: create-mongodb-nodejs.md  
     - name: 1 - Create and manage data
       items:
         - name: Node.js console app
@@ -54,32 +57,44 @@
   items:
     - name: Azure CLI samples
       items: 
-      - name: Overview MongoDB API samples
-        href: cli-samples.md
-      - name: Create account, keyspace, and table
-        href: ../scripts/cli/mongodb/create.md
-      - name: Create serverless
-        href: ../scripts/cli/mongodb/serverless.md
-      - name: Create with autoscale
-        href: ../scripts/cli/mongodb/autoscale.md
-      - name: Perform throughput operations
-        href: ../scripts/cli/mongodb/throughput.md
-      - name: Lock resources from deletion
-        href: ../scripts/cli/mongodb/lock.md
-      - name: Overview common API samples
-        href: ../common-cli-samples.md?toc=/azure/cosmos-db/mongodb/toc.json
-      - name: Add or fail over regions
-        href: ../scripts/cli/common/regions.md?toc=/azure/cosmos-db/mongodb/toc.json
-      - name: Perform account key operations
-        href: ../scripts/cli/common/keys.md?toc=/azure/cosmos-db/mongodb/toc.json
-      - name: Secure with IP firewall
-        href: ../scripts/cli/common/ipfirewall.md?toc=/azure/cosmos-db/mongodb/toc.json
-      - name: Secure new account with service endpoints
-        href: ../scripts/cli/common/service-endpoints.md?toc=/azure/cosmos-db/mongodb/toc.json
-      - name: Secure existing account with service endpoints
-        href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=/azure/cosmos-db/mongodb/toc.json
+        - name: Overview MongoDB API samples
+          href: cli-samples.md
+        - name: Create database and collection
+          href: ../scripts/cli/mongodb/create.md
+        - name: Create serverless
+          href: ../scripts/cli/mongodb/serverless.md
+        - name: Create with autoscale
+          href: ../scripts/cli/mongodb/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/cli/mongodb/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/cli/mongodb/lock.md
+        - name: Overview common API samples
+          href: ../common-cli-samples.md?toc=/azure/cosmos-db/mongodb/toc.json
+        - name: Add or fail over regions
+          href: ../scripts/cli/common/regions.md?toc=/azure/cosmos-db/mongodb/toc.json
+        - name: Perform account key operations
+          href: ../scripts/cli/common/keys.md?toc=/azure/cosmos-db/mongodb/toc.json
+        - name: Secure with IP firewall
+          href: ../scripts/cli/common/ipfirewall.md?toc=/azure/cosmos-db/mongodb/toc.json
+        - name: Secure new account with service endpoints
+          href: ../scripts/cli/common/service-endpoints.md?toc=/azure/cosmos-db/mongodb/toc.json
+        - name: Secure existing account with service endpoints
+          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=/azure/cosmos-db/mongodb/toc.json
     - name: Azure PowerShell
       items:
+        - name: Overview MongoDB API samples
+          href: powershell-samples.md
+        - name: Create database and collection
+          href: ../scripts/powershell/mongodb/create.md
+        - name: Create with autoscale
+          href: ../scripts/powershell/mongodb/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/powershell/mongodb/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/powershell/mongodb/lock.md
+        - name: List and get databases and graphs
+          href: ../scripts/powershell/mongodb/list-get.md
         - name: Overview common API samples
           href: ../common-powershell-samples.md?toc=/azure/cosmos-db/mongodb/toc.json
         - name: Account keys or connection strings
@@ -244,6 +259,8 @@
           href: ../data-residency.md?toc=/azure/cosmos-db/mongodb/toc.json
     - name: Automatic recommendations
       href: ../automated-recommendations.md?toc=/azure/cosmos-db/mongodb/toc.json
+    - name: Change log
+      href: change-log.md
     - name: API version 4.2
       href: feature-support-42.md
     - name: API version 4.0
@@ -282,6 +299,20 @@
       href: connect-using-compass.md
     - name: Connect using Robo 3T
       href: connect-using-robomongo.md
+    - name: Develop applications
+      items:
+        - name: JavaScript
+          items: 
+            - name: Get started
+              href: how-to-javascript-get-started.md
+            - name: Manage databases
+              href: how-to-javascript-manage-databases.md
+            - name: Manage collections
+              href: how-to-javascript-manage-collections.md         
+            - name: Manage documents
+              href: how-to-javascript-manage-documents.md         
+            - name: Manage queries
+              href: how-to-javascript-manage-queries.md         
     - name: Connect using Mongoose
       href: connect-using-mongoose.md
     - name: Distribute reads globally
@@ -323,6 +354,8 @@
       displayName: custom commands
     - name: Configure role-based access control
       href: how-to-setup-rbac.md
+    - name: Configure account capabilities
+      href: how-to-configure-capabilities.md
     - name: Manage using Resource Manager templates
       href: resource-manager-template-samples.md
       displayName: ARM

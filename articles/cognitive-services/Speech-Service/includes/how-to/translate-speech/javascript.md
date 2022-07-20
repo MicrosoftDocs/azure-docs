@@ -11,47 +11,6 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript</a>. Depending on your platform, use the following instructions:
-- [Node.js](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk)
-- [Web browser](../../../speech-sdk.md?tabs=browser#get-the-speech-sdk)
-
-Additionally, depending on the target environment, use one of the following:
-
-# [script](#tab/script)
-
-Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript </a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file. Place it in a folder that your HTML file can access.
-
-```html
-<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
-```
-
-> [!TIP]
-> If you're targeting a web browser and using the `<script>` tag, you don't need the `sdk` prefix. The `sdk` prefix is an alias that's used to name the `require` module.
-
-# [import](#tab/import)
-
-```javascript
-import * from "microsoft-cognitiveservices-speech-sdk";
-```
-
-For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">Export and import</a>.
-
-# [require](#tab/require)
-
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">What is require?</a>.
-
----
-
 ## Create a translation configuration
 
 To call the translation service by using the Speech SDK, you need to create a [`SpeechTranslationConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig) instance. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.

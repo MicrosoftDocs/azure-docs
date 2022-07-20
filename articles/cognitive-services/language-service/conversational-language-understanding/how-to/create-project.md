@@ -99,13 +99,13 @@ You can export a Conversational Language Understanding project as a JSON file at
 
 [!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
 
-### [Rest APIs](#tab/rest-api)
+### [REST APIs](#tab/rest-api)
 
-[!INCLUDE [Rest APIs project details](../includes/rest-api/project-details.md)]
+[!INCLUDE [REST APIs project details](../includes/rest-api/project-details.md)]
 
 ---
 
-## Delete resources 
+## Delete project 
 
 ### [Language Studio](#tab/language-studio)
 

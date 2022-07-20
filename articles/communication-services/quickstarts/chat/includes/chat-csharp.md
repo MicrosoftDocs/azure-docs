@@ -12,15 +12,18 @@ ms.custom: include file
 ms.author: rifox
 ---
 
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat).
-
 ## Prerequisites
 Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
-- A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint and connection string** for this quickstart.
+- A [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity issue-access-token --scope chat --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -78,7 +81,7 @@ namespace ChatQuickstart
         static async System.Threading.Tasks.Task Main(string[] args)
         {
             // Your unique Azure Communication service endpoint
-            Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
+            Uri endpoint = new Uri("<replace with your resource endpoint>");
 
             CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
             ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
@@ -228,3 +231,6 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat).

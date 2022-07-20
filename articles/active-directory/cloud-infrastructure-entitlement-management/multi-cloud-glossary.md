@@ -4,8 +4,7 @@ description:  Permissions Management glossary
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/23/2022
@@ -13,10 +12,6 @@ ms.author: kenwith
 ---
 
 # The Permissions Management glossary
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This glossary provides a list of some of the commonly used cloud terms in Permissions Management. These terms will help Permissions Management users navigate through cloud-specific terms and cloud-generic terms.
 
