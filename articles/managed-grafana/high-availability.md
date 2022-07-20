@@ -12,7 +12,7 @@ ms.date: 6/18/2022
 
 An Azure Managed Grafana Preview instance in the Standard tier is hosted on a dedicated set of virtual machines (VMs). By default, two VMs are deployed to provide redundancy. Each VM runs a Grafana server. A network load balancer distributes browser requests amongst the Grafana servers. On the backend, the Grafana servers are connected to a shared database that stores the configuration and other persistent data for an entire Managed Grafana instance.
 
-:::image type="content" source="media/high-availability/high-availability.png" alt-text="Managed Grafana Standard tier instance setup.":::
+:::image type="content" source="media/high-availability/high-availability.png" alt-text="Diagram of the Managed Grafana Standard tier instance setup.":::
 
 The load balancer always keeps track of which Grafana servers are available. In a dual-server setup, if it detects that one server is down, the load balancer starts sending all requests to the remaining server. That server should be able to pick up the browser sessions previously served by the other one based on information saved in the shared database. In the meantime, the Managed Grafana service will work to repair the unhealthy server or bring up a new one.
 
