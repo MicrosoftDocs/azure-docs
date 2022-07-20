@@ -1,5 +1,5 @@
 ---
-title: Review access with review recommendations - Azure AD
+title: Review recommendations for Access reviews - Azure AD
 description: Learn how to review access of group members with review recommendations in Azure Active Directory access reviews.
 services: active-directory
 author: ajburnle
@@ -16,7 +16,7 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Review recommendations for group access reviews 
+# Review recommendations for Access reviews 
 
 Decision makers who review users' access and perform access reviews can use system based recommendations to help them decide whether to continue their access or deny their access to resources. For more information about how to use review recommendations, see [Enable decision helpers](create-access-review.md#next-settings).
 
