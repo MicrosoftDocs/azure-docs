@@ -46,11 +46,11 @@ This setting combined with HTTPS in the listener supports [end-to-end TLS](ssl-o
 
 This setting specifies the port where the back-end servers listen to traffic from the application gateway. You can configure ports ranging from 1 to 65535.
 
-## Trusted Root Certificate 
+## Trusted root certificate 
 
-If you select HTTPS as the backend protocol, the Application Gateway requires a Trusted Root Certificate to trust the backend pool for end-to-end SSL. By default, the **Use well known CA certificate** option is set to **No**. If you plan to use a self-signed certificate, or a certificate signed by an internal Certificate Authority, then you must provide the Application Gateway the matching public certificate that the backend pool will be using. This certificate must be uploaded directly to the Application Gateway in .CER format.
+If you select HTTPS as the back-end protocol, the Application Gateway requires a trusted root certificate to trust the back-end pool for end-to-end SSL. By default, the **Use well known CA certificate** option is set to **No**. If you plan to use a self-signed certificate, or a certificate signed by an internal Certificate Authority, then you must provide the Application Gateway the matching public certificate that the back-end pool will be using. This certificate must be uploaded directly to the Application Gateway in .CER format.
 
-If you plan to use a certificate on the backend pool that is signed by a trusted public Certificate Authority, then you can set the **Use well known CA certificate** option to **Yes** and skip uploading a public certificate.
+If you plan to use a certificate on the back-end pool that is signed by a trusted public Certificate Authority, then you can set the **Use well known CA certificate** option to **Yes** and skip uploading a public certificate.
 
 ## Request timeout
 
