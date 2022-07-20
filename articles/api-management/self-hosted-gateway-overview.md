@@ -13,7 +13,7 @@ ms.author: danlep
 
 # Self-hosted gateway overview
 
-The self-hosted gateway is an optional, containerized version of the managed gateway included in every API Management service. Deploy the self-hosted gateway to the same environments where you host your APIs to improve API traffic flow and address API security and compliance requirements.
+The self-hosted gateway is an optional, containerized version of the default managed gateway included in every API Management service. Deploy the self-hosted gateway to the same environments where you host your APIs to improve API traffic flow and address API security and compliance requirements.
 
 This article explains how the self-hosted gateway feature of Azure API Management enables hybrid and multi-cloud API management, presents its high-level architecture, and highlights its capabilities.
 
@@ -36,76 +36,6 @@ By default, all these components are deployed in Azure, causing all API traffic 
 Deploying self-hosted gateways into the same environments where the backend API implementations are hosted allows API traffic to flow directly to the backend APIs, which reduces latency, optimizes data transfer costs, and enables compliance while retaining the benefits of having a single point of management, observability, and discovery of all APIs within the organization regardless of where their implementations are hosted.
 
 :::image type="content" source="media/self-hosted-gateway-overview/with-gateways.png" alt-text="API traffic flow with self-hosted gateways":::
-
-## Feature comparison: Managed versus self-hosted gateways
-
-> [!NOTE]
-> * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](#packaging) for self-hosted gateways.
-> * See [Limitations](#limitations) for other limitations of self-hosted gateways.
-
-
-### Infrastructure
-
-| Feature  | Managed   | Self-hosted  |
-| --- | ----- | ---------- |
-| [Service tiers](api-management-features.md) | All | Developer, Premium |
-| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ |
-| [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌<sup>1</sup> |
-| [Virtual network injection](virtual-network-concepts.md)  |  ✔️ |  ❌ |
-| [Private endpoints](private-endpoint.md)  |  ✔️ |  ❌ |
-| [Availability zones](zone-redundancy.md)  |  ✔️ |  ❌ |
-| [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  ✔️ |  ❌ |
-| [CA root certificates](api-management-howto-ca-certificates.md) for certficated validation |  ✔️ |  ❌ |
-| [Managed domain certificated](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ |  ❌ |
-
-<sup>1</sup>Self-hosted gateways can use an [external Redis-compatible cache](api-management-howto-cache-external.md).
-
-### Backend APIs
-
-Managed and self-hosted gateways can host the same API types with the following differences.
-
-| Feature | Managed   | Self-hosted  |
-| --- | ----- | ---------- |
-| [Service Fabric integration](../service-fabric/service-fabric-api-management-overview.md) |  ✔️ |  ❌ |
-| [Passthrough GraphQL APIs](graphql-api.md) |  ✔️ |  ❌ |
-| [Synthetic GraphQL APIs](graphql-schema-resolve-api.md) |  ✔️ |  ❌ |
-| [Websocket APIs](websocket-api.md) |  ✔️ |  ❌ |
-
-
-### Policies
-
-Managed and self-hosted gateways support the same policies in policy definitions with the following differences.
-
-| Feature | Managed   | Self-hosted  |
-| --- | ----- | ---------- |
-| [Dapr integration policies](api-management-dapr-policies.md) |  ❌ |  ✔️ |
-| [get-authorization-context](api-management-access-restriction-policies.md#GetAuthorizationContext) |  ✔️ |  ❌ |
-| [Rate limit policies](api-management-access-restriction-policies.md) |  ✔️ |  ✔️<sup>1</sup> |
-| [set-graphql-resolver](graphql-policies.md#set-graphql-resolver) |  ✔️ |  ❌ |
-
-<sup>1</sup>By default, rate limit counts in self-hosted gateways are per-gateway, per-node.
-
-### Monitoring
-
-For details about monitoring options, see [Observability in Azure API Management](observability.md).
-
-| Feature | Managed   | Self-hosted  |
-| --- | ----- | ---------- |
-| [API analytics](howto-use-analytics.md) | ✔️ |  ❌ |
-| [Application Insights](api-management-howto-app-insights.md) | ✔️ |  ✔️ |
-| [Logging through Event Hubs](api-management-howto-log-event-hubs.md) | ✔️ |  ✔️ |
-| [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ |  ✔️ |
-| [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ |  ✔️ |
-| [Request logs in Azure Monitor](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ |  ❌<sup>1</sup> |
-| [Request tracing](api-management-howto-api-inspector.md) | ✔️ |  ✔️ |
-
-<sup>1</sup>The self-hosted gateway currently does not send resource logs (diagnostic logs) to Azure Monitor. However, you can [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.
-
-### Authentication and authorization
-
-| Feature | Managed   | Self-hosted  |
-| --- | ----- | ---------- |
-| [Authorizations](authorizations-overview.md) |  ✔️ |  ❌ |
 
 
 ## Packaging
@@ -221,8 +151,7 @@ When connectivity is restored, each self-hosted gateway affected by the outage w
 
 The following functionality found in the managed gateways is **not available** in the self-hosted gateways:
 
-- Upstream (backend side) TLS version and cipher management.
-- Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. You can configure [custom certificate authorities](api-management-howto-ca-certificates.md#create-custom-ca-for-self-hosted-gateway) for your self-hosted gateways and [client certificate validation](api-management-access-restriction-policies.md#validate-client-certificate) policies to enforce them.
+
 - TLS session resumption.
 - Client certificate renegotiation. To use [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md), API consumers must present their certificates as part of the initial TLS handshake. To ensure this behavior, enable the Negotiate Client Certificate setting when configuring a self-hosted gateway custom hostname (domain name).
 

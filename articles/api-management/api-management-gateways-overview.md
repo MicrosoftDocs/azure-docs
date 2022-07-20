@@ -1,0 +1,143 @@
+---
+title: API gateway overview | Azure API Management
+description: Learn more about the features of the API gateway component of Azure API Management.
+services: api-management
+documentationcenter: ''
+author: dlepow
+
+ms.service: api-management
+ms.topic: conceptual
+ms.date: 07/19/2022
+ms.author: danlep
+---
+
+# API gateway in Azure API Management
+
+This article provides information about the roles and features of the API Management *gateway* component.
+
+For an overview of API Management scenarios, components, and concepts, see [What is Azure API Management?](api-management-key-concepts.md).
+
+## Role of the gateway
+
+The API Management *gateway* (also called data plane) is the service component that's responsible for proxying API requests, applying policies, and collecting telemetry. 
+
+Specifically, the gateway:
+
+* Acts as a façade to backend services by accepting API calls and routing them to appropriate backends
+* Verifies [API keys](api-management-subscriptions.md) and other credentials such as [JWT tokens and certificates](api-management-access-restriction-policies.md) presented with requests
+* Enforces [usage quotas and rate limits](api-management-access-restriction-policies.md)
+* Optionally transforms requests and responses as specified in [policy statements](api-management-howto-policies.md)
+* If configured, [caches responses](api-management-howto-cache.md) to improve response latency and minimize the load on backend services
+* Emits logs, metrics, and traces for [monitoring, reporting, and troubleshooting](observability.md) 
+
+## Managed and self-hosted
+
+API Management offers both managed and self-hosted gateways:
+
+* **Managed** - The managed gateway is the default gateway component that is deployed in Azure for every API Management instance. With the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted.  
+
+* **Self-hosted** - The [self-hosted gateway](self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway that you can deploy to the same environments where you host your APIs. Available in the Developer and Premium service tiers, the self-hosted gateway can improve API traffic flow and address API security and compliance requirements. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure. 
+
+    The self-hosted gateway is [packaged](self-hosted-gateway-overview.md#packaging) as a Linux-based Docker container and is commonly deployed to Kubernetes, including to [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md) and [Azure Arc-enabled Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md).
+
+
+## Feature comparison: Managed versus self-hosted gateways
+
+The following table compares features available in the managed gateway versus those in the self-hosted gateway. Differences are also shown between the managed gateway for dedicated service tiers (Developer, Basic, Standard, Premium) and  for the Consumption tier.
+
+> [!NOTE]
+> * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](#packaging) for self-hosted gateways.
+> * See also self-hosted gateway [limitations](self-hosted-gateway-overview.md#limitations).
+
+
+### Infrastructure
+
+| Feature support  | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
+| --- | ----- | ----- | ---------- |
+| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ |
+| [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌<sup>1</sup> | ❌<sup>1</sup> |
+| [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ | ✔️ |
+| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ❌ |
+| [Private endpoints](private-endpoint.md)  |  ✔️ |  ✔️ | ❌ |
+| [Availability zones](zone-redundancy.md)  |  Premium |  ❌ | ✔️<sup>1</sup> |
+| [Multiregion deployment](api-management-howto-deploy-multi-region.md) |  Premium |  ❌ | ✔️<sup>1</sup> |
+| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>2</sup> |  
+| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
+| [Protocols and ciphers](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️<sup>4</sup> |
+
+<sup>1</sup>Depends on deployment options.<br/>
+<sup>2</sup>Requires configuration of local CA certificates.<br/>
+
+### Backend APIs
+
+| API | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
+| --- | ----- | ----- | ---------- |
+| [OpenAPI specification](import-api-from-oas.md) |  ✔️ | ✔️ | ✔️ |
+| [WSDL specification)](import-soap-api.md) |  ✔️ | ✔️ | ✔️ |
+| WADL specification |  ✔️ | ✔️ | ✔️ |
+| [Logic App](import-logic-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
+| [App Service](import-app-service-as-api.md) |  ✔️ | ✔️ | ✔️ |
+| [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
+| [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ |
+| [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
+| [Passthrough GraphQL](graphql-api.md) |  ✔️ | ✔️ | ❌ |
+| [Synthetic GraphQL](graphql-schema-resolve-api.md) |  ✔️ |  ❌ | ❌ |
+| [Passthrough WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
+
+
+### Policies
+
+Managed and self-hosted gateways support the same [policies](api-management-howto-policies.md) in policy definitions with the following differences.
+
+| Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
+| --- | ----- | ----- | ---------- |
+| [Dapr integration](api-management-dapr-policies.md) |  ❌ | ❌ | ✔️ |
+| [get-authorization-context](api-management-access-restriction-policies.md#GetAuthorizationContext) |  ✔️ |  ❌ | ❌ |
+| [Quota and rate limit](api-management-access-restriction-policies.md) |  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>2</sup>
+| [set-graphql-resolver](graphql-policies.md#set-graphql-resolver) |  ✔️ |  ❌ | ❌ |
+
+<sup>1</sup>The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
+<sup>2</sup>By default, rate limit counts in self-hosted gateways are per-gateway, per-node.
+
+### Monitoring
+
+For details about monitoring options, see [Observability in Azure API Management](observability.md).
+
+| Feature  | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
+| --- | ----- | ----- | ---------- |
+| [API analytics](howto-use-analytics.md) | ✔️ |  ❌ | ❌ |
+| [Application Insights](api-management-howto-app-insights.md) | ✔️ |  ✔️ | ✔️ |
+| [Logging through Event Hubs](api-management-howto-log-event-hubs.md) | ✔️ |  ✔️ | ✔️ |
+| [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ❌ | ✔️ |
+| [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ |  ❌ | ✔️ |
+| [Request logs in Azure Monitor](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ |  ❌ | ❌<sup>1</sup> |
+| [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ |  ❌ | ✔️ |
+| [Request tracing](api-management-howto-api-inspector.md) | ✔️ |  ✔️ | ✔️ |
+
+<sup>1</sup>The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.
+
+### Authentication and authorization
+
+| Feature  | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
+| --- | ----- | ----- | ---------- |
+| [Authorizations](authorizations-overview.md) |  ✔️ | ✔️ | ❌ |
+
+
+## Gateway throughput and scaling
+
+For estimated gateway throughput in the API Management service tiers, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+
+* In the dedicated service tiers, scale gateway capacity by adding and removing [units](upgrade-and-scale.md), or upgrade the service tier.
+* Units can't be added to or removed from a service in the Developer tier.
+* In the Standard and Premium tiers, optionally configure [Azure Monitor autoscale](api-management-howto-autoscale.ms).
+* An API Management service instance in the Consumption tier scales automatically based on the traffic.
+* In the Premium tier, optionally add and distribute gateway capacity across multiple [regions](api-management-howto-deploy-multi-region.md).
+
+> [!IMPORTANT]
+> Throughput is affected by the number and rate of concurrent client connections, the kind and number of configured policies, payload sizes, backend API performance, and other factors. Perform gateway load testing using anticipated production conditions to determine expected throughput accurately.
+
+## Next steps
+
+-   Learn more about [API Management in a Hybrid and Multi-Cloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
+-   Learn more about using the [capacity metric](api-management-capacity.md) for scaling decisions
+-   Learn about [observability capabilities](observability.md) in API Management
