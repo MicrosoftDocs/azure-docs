@@ -27,7 +27,7 @@ You can view and configure the following settings using the **Resource Menu**. T
 - [Overview](#overview)
 - [Activity log](#activity-log)
 - [Access control (IAM)](#access-control-iam)
-- [Tags](#tags)
+- [Tags](#tags) 
 - [Diagnose and solve problems](#diagnose-and-solve-problems)
 - [Events](#events) <!-- Need some text for this.  -->
 - [Settings](#settings)
@@ -36,11 +36,12 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Scale](#scale)
   - [Cluster size](#cluster-size)
   - [Data persistence](#data-persistence)
-  - (Preview) Identity <!-- Need some text for this.  -->
+  - [(Preview) Identity](#preview-identity)
+  - [Alerts](#alerts)
   - [Schedule updates](#schedule-updates)
   - [Geo-replication](#geo-replication)
   - [Virtual Network](#virtual-network)
-  - Private Endpoint <!-- Need some text for this.  -->
+  - [Private Endpoint](#private-endpoint) 
   - [Firewall](#firewall)
   - [Properties](#properties)
   - [Locks](#locks)
@@ -49,8 +50,7 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Export data](#importexport)
   - [Reboot](#reboot)
 - [Monitoring](#monitoring)
-  - [Insights](#insights) <!-- Need some text for this.  -->
-  - [Alerts](#alerts)
+  - [Insights](#insights)  - [Alerts](#alerts)
   - [Metrics](#metrics)
   - [Diagnostic settings](#diagnostic-settings)
   - [Advisor recommendations](#advisor-recommendations)
@@ -83,7 +83,10 @@ The **Tags** section helps you organize your resources. For more information, se
 Select **Diagnose and solve problems** to be provided with common issues and strategies for resolving them.
 
 ### Events
-<!-- Need contents -->
+
+Select **Events** to add event subscriptions to your cache. Use events to build reactive, event-driven apps with the fully managed event routing service that is built into Azure.
+
+The Event Grid helps you build automation into your cloud infrastructure, create serverless apps, and integrate across services and clouds. For more information, see [What is Azure Event Grid](/azure/event-grid/overview).
 
 ## Redis console
 
@@ -104,7 +107,7 @@ To issue commands against your cache instance, type the command you want into th
 
 > [!NOTE]
 >
-> Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. 
+> Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section.
 > For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
 >
 
@@ -144,7 +147,7 @@ The **Settings** section allows you to access and configure the following settin
 - [Data persistence](#data-persistence)
 - [Schedule updates](#schedule-updates)
 - [Geo-replication](#geo-replication)
-- [Private endpoint](#private-endpoint)<!-- Need some text for this.  -->
+- [Private endpoint](#private-endpoint)
 - [Virtual Network](#virtual-network)
 - [Firewall](#firewall)
 - [Properties](#properties)
@@ -238,9 +241,18 @@ For more information, see [How to configure persistence for a Premium Azure Cach
 > [!IMPORTANT]
 > Redis data persistence is only available for Premium caches.
 
+### (preview) Identity
+
+Use **(preview) Identity** to configure managed identities. Managed identities are a common tool used in Azure to help developers minimize the burden of managing secrets and login information. 
+
+Presently, you can only use managed identies for storage. For more information, see [Managed identity for storage (Preview)](cache-managed-identity.md).
+
+> [!NOTE]
+> Managed identity functionality is only available in the Premium tier for use with storage.
+
 ### Schedule updates
 
-The Schedule updates on the left allow you to choose a maintenance window for Redis server updates for your cache.
+The **Schedule updates** section on the left allows you to choose a maintenance window for Redis server updates for your cache.
 
 > [!IMPORTANT]
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
@@ -260,15 +272,16 @@ For more information and instructions, see [Azure Cache for Redis administration
 
 ### Virtual Network
 
-The **Virtual Network** section allows you to configure the virtual network settings for your cache. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md).
-
-<!-- only premium caches? What about Enterprise? -->
+The **Virtual Network** section allows you to configure the virtual network settings for your cache. Virtual networks are limited to Premium caches. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
 > Virtual network settings are only available for premium caches that were configured with VNet support during cache creation.
 
 ### Private endpoint
-<!-- Need content -->
+
+The **Private Endpoint** section allows you to configure the private endpoint settings for your cache. Private endpoint is supported on all cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets because private endpoints are easy to setup or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
+
+For more information, see [Azure Cache for Redis with Azure Private Link](/azure/azure-cache-for-redis/cache-private-link).
 
 ### Firewall
 
@@ -308,6 +321,7 @@ The settings in the **Administration** section allow you to perform the followin
 Import/Export is an Azure Cache for Redis data management operation that allows you to import and export data in the cache. You can import and export an Azure Cache for Redis Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. Use Import/Export to migrate between different Azure Cache for Redis instances or populate the cache with data before use.
 
 You can use import with Redis-compatible RDB files from any Redis server running in any cloud or environment:
+
 - including Redis running on Linux 
 - Windows
 - any cloud provider such as Amazon Web Services and others 
@@ -352,7 +366,11 @@ For more information on Azure Cache for Redis monitoring and diagnostics, see [H
 
 ### Insights
 
-Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics. For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts).
+Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics. 
+
+For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts).
+
+<!-- create link to new content for Insights when it is added by the monitor team -->
 
 ### Metrics
 
@@ -404,9 +422,14 @@ Organize your metrics into groups so that you display metric information in a co
 
 ## Automation
 
+Azure Automation delivers a cloud-based automation, operating system updates, and configuration service that supports consistent management across your Azure and non-Azure environments.
+
 ### Tasks
 
-<!-- need content -->
+Select **Tasks** to  help you manage Azure Cache for Redis resources more easily. These tasks vary in number and availability, based on the resource type. Presently, you can only use the **Send monthly cost for resource** template to create a task while in preview.
+
+For more information, see [Manage Azure resources and monitor costs by creating automation tasks](/azure/logic-apps/create-automation-tasks-azure-resources).
+
 
 ### Export template
 
