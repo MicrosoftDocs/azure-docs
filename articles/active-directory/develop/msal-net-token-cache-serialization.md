@@ -38,7 +38,10 @@ The recommendation is:
 
 ## [ASP.NET Core web apps and web APIs](#tab/aspnetcore)
 
-The [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package provides token cache serialization within the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library.
+The [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package provides token cache serialization within the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library. 
+
+If you are using the MSAL library directly in an ASP.NET Core app, consider moving to use [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web), which provides a simpler, higher-level API. Otherwise, please see the [Non-ASP.NET Core web apps and web APIs](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=aspnet#configuring-the-token-cache) which covers direct MSAL usage.
+
 
 | Extension method | Description  |
 | ---------------- | ------------ |
