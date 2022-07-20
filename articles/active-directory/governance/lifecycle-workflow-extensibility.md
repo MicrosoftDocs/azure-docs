@@ -43,7 +43,18 @@ For a complete guide on these steps, see: [Trigger Logic Apps based on custom ta
 
 ## Logic App parameters required for integration with the custom task extension
 
-When linking your Azure Logic App with the custom task extension task, there are certain parameters that must be completed before the link can be established. The following parameters must be set in the Logic App authorization policy before linking to a custom task extension:
+When linking your Azure Logic App with the custom task extension task, there are certain permissions and parameters that must be completed before the link can be established. 
+
+The roles on the Azure Logic app which allows it to be compatible with the custom task extension are as follows:
+
+- **Logic App contributor**
+- **Contributor**
+- **Owner**
+
+> [!NOTE]
+> The **Logic App Operator** role alone will not make a Logic App compatible with the custom task extension. For more information on the **Logic App contributor** role, see: [Logic App Contributor](/azure/role-based-access-control/built-in-roles#logic-app-contributor).
+
+The following parameters must be set in the Logic App authorization policy before linking to a custom task extension:
 
 |Parameter  |Description  |
 |---------|---------|

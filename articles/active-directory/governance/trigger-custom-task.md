@@ -49,6 +49,9 @@ To create a Logic App, you'd follow these steps:
 1. On the validation page that appears, confirm all the information that you provided, and  select **Create**.
 
 
+> [!NOTE]
+> The Logic App must be made within the same tenant as the custom task extension. For a list of compatible roles for Logic Apps with Lifecycle Workflows, see: [Logic App parameters required for integration with the custom task extension](lifecycle-workflow-extensibility.md#logic-app-parameters-required-for-integration-with-the-custom-task-extension).
+
 ## Configure Logic Apps for LCW use
 
 Once you have a Logic app you want to use with Lifecycle Workflows, you must make it compatible to run with the **Create a Custom Task Extension** task, this requires:
