@@ -299,7 +299,7 @@ PUT
           "order": 1,
           "packageReferenceId": "/subscriptions/{subscriptionId}/resourceGroups/<resource group>/providers/Microsoft.Compute/galleries/{gallery name}/applications/{application name}/versions/{version}",
           "configurationReference": "{path to configuration storage blob}",
-          "treatFailureAsDeploymentFailure: false
+          "treatFailureAsDeploymentFailure": false
         }
       ]
     }
@@ -327,7 +327,7 @@ virtualMachineScaleSets/\<**VMSSName**\>?api-version=2019-03-01
             "order": 1,
             "packageReferenceId": "/subscriptions/{subscriptionId}/resourceGroups/<resource group>/providers/Microsoft.Compute/galleries/{gallery name}/applications/{application name}/versions/{version}",
             "configurationReference": "{path to configuration storage blob}",
-            "treatFailureAsDeploymentFailure: false
+            "treatFailureAsDeploymentFailure": false
           }
         ]
       }
