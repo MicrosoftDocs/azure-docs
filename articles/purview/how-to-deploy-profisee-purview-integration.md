@@ -15,7 +15,7 @@ Master data management (MDM) is a key pillar of any unified data governance solu
 
 ## What, why and how of MDM - Master Data Management?
 Master data management (MDM) arose out of the necessity for businesses to improve the consistency and quality of their key data assets, such as products, assets, customers, location data, and so on. Many businesses today, especially global enterprises, have hundreds of separate applications and systems (like SAP, ERP and CRM) where data that crosses organizational departments or divisions can easily become fragmented, duplicated, and most commonly out of date. In such cases, answering even the most basic, but critical questions about any type of performance metric or KPI for a business accurately becomes difficult.
-Getting answers to basic questions such as “who are our most profitable customers?”, “what product(s) have the best margins?” or in some cases, “how many employees do we have”? become tough to answer – or at least with any degree of accuracy.
+Getting answers to basic questions such as “who are our most profitable customers?”, “what product(s) have the best margins?” or in some cases, “how many employees do we have”? become tough to answer – at least with any degree of accuracy.
 Basically, the need for accurate, timely information is acute and as sources of data increase, managing it consistently and keeping data definitions up to date so all parts of a business use the same information is a never ending challenge.
 To meet such challenges, businesses turn to master data management (MDM).
 More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/)
