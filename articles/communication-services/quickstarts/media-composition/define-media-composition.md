@@ -188,7 +188,7 @@ Sample grid layout json:
 The sample grid layout json will take the dominant speaker and put it in the first slot. Then, `jill`, `jon`, `janet` will fill the next three spots:
 :::image type="content" source="../media/2x2-grid.png" alt-text="Diagram showing how example of grid layout":::
 
-If only three participants are defined in the inputs, then the fourth cell would be a black image.
+If only three participants are defined in the inputs, then the fourth cell will be left blank.
 
 ### Auto Grid
 The auto grid layout is ideal for a multi-source scenario where you want to display all sources in the scene. This layout should be the default multi-source scene and would adjust based on the number of sources.
