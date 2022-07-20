@@ -69,7 +69,7 @@ Use the Image Analysis client library to analyze a remote image for tags, text d
         mavenCentral()
     }
     dependencies {
-        implementation(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.6-beta")
+        implementation(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.9-beta")
     }
     ```
 
@@ -108,6 +108,37 @@ Use the Image Analysis client library to analyze a remote image for tags, text d
    ```console
    gradle run
    ```
+
+## Output
+
+```console
+Azure Cognitive Services Computer Vision - Java Quickstart Sample
+
+Analyzing an image from a URL ...
+
+Tags:
+'person' with confidence 0.998895
+'human face' with confidence 0.997437
+'smile' with confidence 0.991973
+'outdoor' with confidence 0.985962
+'happy' with confidence 0.969785
+'clothing' with confidence 0.961570
+'friendship' with confidence 0.946441
+'tree' with confidence 0.917331
+'female person' with confidence 0.890976
+'girl' with confidence 0.888741
+'social group' with confidence 0.872044
+'posing' with confidence 0.865493
+'adolescent' with confidence 0.857371
+'love' with confidence 0.852553
+'laugh' with confidence 0.850097
+'people' with confidence 0.849922
+'lady' with confidence 0.844540
+'woman' with confidence 0.818172
+'group' with confidence 0.792975
+'wedding' with confidence 0.615252
+'dress' with confidence 0.517169
+```
 
 ## Clean up resources
 
