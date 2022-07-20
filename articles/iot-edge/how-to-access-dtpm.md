@@ -51,7 +51,7 @@ The following steps show you how to create a sample executable to access a TPM i
 
 1. Once the solution is loaded, right-click on the project and select _Manage NuGet Packages_.
 
-1. Select _Browse_ and then search for "Microsoft.TSS".
+1. Select **Browse** and then search for `Microsoft.TSS`.
 
 1. Choose the **Microsoft.TSS** package from the list then select **Install**.
 
