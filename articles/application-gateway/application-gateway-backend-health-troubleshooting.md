@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 03/17/2022
+ms.date: 07/20/2022
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -25,19 +25,15 @@ To check the health of your backend pool, you can use the
 The status retrieved by any of these methods can be any one of the following:
 
 - Healthy
-
 - Unhealthy
-
 - Unknown
 
-If the backend health status for a server is Healthy, it means that Application Gateway will forward the requests
-to that server. But if the backend
-health for all the servers in a backend pool is Unhealthy or unknown, you might encounter problems when you try to access
+If the backend health status for a server is healthy, it means that Application Gateway will forward the requests to that server. But if the backend health for all the servers in a backend pool is unhealthy or unknown, you might encounter problems when you try to access
 applications. This article describes the symptoms, cause, and resolution for each of the errors shown.
 
 ## Backend health status: Unhealthy
 
-If the backend health status is Unhealthy, the portal view will resemble the following screenshot:
+If the backend health status is **Unhealthy**, the portal view will resemble the following screenshot:
 
 ![Application Gateway backend health - Unhealthy](./media/application-gateway-backend-health-troubleshooting/appgwunhealthy.png)
 
@@ -76,15 +72,12 @@ BackendAddressPoolsText : [
                         ]
 ```
 
-After you receive an Unhealthy backend server status for all the servers in a backend pool, requests aren't forwarded to the servers, and Application Gateway returns a "502 Bad Gateway" error to the requesting client. To troubleshoot this issue, check the **Details** column on the **Backend Health** tab.
+After you receive an unhealthy backend server status for all the servers in a backend pool, requests aren't forwarded to the servers, and Application Gateway returns a "502 Bad Gateway" error to the requesting client. To troubleshoot this issue, check the **Details** column on the **Backend Health** tab.
 
 The message displayed in the **Details** column provides more detailed insights about the issue, and based on those, you can start troubleshooting the issue.
 
 > [!NOTE]
-> The default probe request is sent in the format of
-> `<protocol
-> ://127.0.0.1:<port
-> `. For example, `http://127.0.0.1:80` for an HTTP probe on port 80. Only HTTP status codes of 200 through 399 are considered healthy. The protocol and destination port are inherited from the HTTP settings. If you want Application Gateway to probe on a different protocol, host name, or path and to recognize a different status code as Healthy, configure a custom probe and associate it with the HTTP settings.
+> The default probe request is sent in the format of \<protocol\>://127.0.0.1:\<port\>. For example, `http://127.0.0.1:80` for an HTTP probe on port 80. Only HTTP status codes of 200 through 399 are considered healthy. The protocol and destination port are inherited from the HTTP settings. If you want Application Gateway to probe on a different protocol, host name, or path and to recognize a different status code as Healthy, configure a custom probe and associate it with the HTTP settings.
 
 ## Error messages
 
@@ -100,45 +93,24 @@ respond within the configured period (the timeout value), it's marked as Unhealt
 
 To increase the timeout value, follow these steps:
 
-1. Access the backend server directly and check the time taken for the
-   server to respond on that page. You can use any tool to access the backend server,
-   including a browser using developer tools.
-
-1. After you've figured out the time taken for the application to respond, select the **Health Probes** tab and then select the probe that's associated with your HTTP settings.
-
-1. Enter any timeout value that's greater than the application response time, in seconds.
-
-1. Save the custom probe settings and check whether the backend health shows as Healthy now.
+1. Access the backend server directly and check the time taken for the server to respond on that page. You can use any tool to access the backend server, including a browser using developer tools.
+2. After you've figured out the time taken for the application to respond, select the **Health Probes** tab and then select the probe that's associated with your HTTP settings.
+3. Enter any timeout value that's greater than the application response time, in seconds.
+4. Save the custom probe settings and check whether the backend health shows as Healthy now.
 
 ### DNS resolution error
 
-**Message:** Application Gateway could not create a probe for this
-backend. This usually happens when the FQDN of the backend has not been
-entered correctly. 
+**Message:** Application Gateway could not create a probe for this backend. This usually happens when the FQDN of the backend has not been entered correctly. 
 
-**Cause:** If the backend pool is of type IP Address/FQDN or App
-Service, Application Gateway resolves to the IP address of the FQDN
-entered through Domain Name System (DNS) (custom or Azure default) and tries to connect
-to the server on the TCP port mentioned in the HTTP Settings. But if
-this message is displayed, it suggests that Application Gateway couldn't successfully resolve the IP address of the FQDN entered.
+**Cause:** If the backend pool is of type IP Address/FQDN or App Service, Application Gateway resolves to the IP address of the FQDN entered through Domain Name System (DNS) (custom or Azure default) and tries to connect to the server on the TCP port mentioned in the HTTP Settings. But if this message is displayed, it suggests that Application Gateway couldn't successfully resolve the IP address of the FQDN entered.
 
 **Resolution:**
 
-1. Verify that the FQDN entered in the backend pool is correct and that it's a public domain, and then try to resolve it from your local machine.
-
-1. If you can resolve the IP address, there might be something wrong
-   with the DNS configuration in the virtual network.
-
-1. Check whether the virtual network is configured with a custom DNS server. If it is, check the DNS server about why it can't resolve to the IP address of the specified FQDN.
-
-1. If you're using Azure default DNS, check with your domain name registrar about whether proper A record or CNAME record mapping has been completed.
-
-1. If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart
-   Application Gateway and check again. To restart Application Gateway, you need to
-   [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway)
-   and
-   [start](/powershell/module/azurerm.network/start-azurermapplicationgateway)
-   by using the PowerShell commands described in these linked resources.
+1. Verify that the FQDN entered in the backend pool is correct and that it's a public domain, then try to resolve it from your local machine.
+2. If you can resolve the IP address, there might be something wrong with the DNS configuration in the virtual network.
+3. Check whether the virtual network is configured with a custom DNS server. If it is, check the DNS server about why it can't resolve to the IP address of the specified FQDN.
+4. If you're using Azure default DNS, check with your domain name registrar about whether proper A record or CNAME record mapping has been completed.
+5. If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart Application Gateway and check again. To restart Application Gateway, you need to [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway) and [start](/powershell/module/azurerm.network/start-azurermapplicationgateway) by using the PowerShell commands described in these linked resources.
 
 ### Updates to the DNS entries of the backend pool
 
@@ -175,25 +147,15 @@ az network application-gateway start -n <appgw_name> -g <rg_name>
 
 ### TCP connect error
 
-**Message:** Application Gateway could not connect to the backend.
-Please check that the backend responds on the port used for the probe.
-Also check whether any NSG/UDR/Firewall is blocking access to the Ip and
-port of this backend
+**Message:** Application Gateway could not connect to the backend. Please check that the backend responds on the port used for the probe. Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of this backend.
 
-**Cause:** After the DNS resolution phase, Application Gateway tries to
-connect to the backend server on the TCP port that's configured in the
-HTTP settings. If Application Gateway can't establish a TCP
-session on the port specified, the probe is marked as Unhealthy with this message.
+**Cause:** After the DNS resolution phase, Application Gateway tries to connect to the backend server on the TCP port that's configured in the HTTP settings. If Application Gateway can't establish a TCP session on the port specified, the probe is marked as Unhealthy with this message.
 
 **Solution:** If you receive this error, follow these steps:
 
-1. Check whether you can connect to the backend server on the port mentioned in the HTTP settings by using a browser or PowerShell. For example, run the following command: `Test-NetConnection -ComputerName www.bing.com -Port 443`
-
-1. If the port mentioned is not the desired port, enter the correct
-   port number for Application Gateway to connect to the backend server
-
-1. If you can't connect on the port from your local machine as well,
-   then:
+1. Check whether you can connect to the backend server on the port mentioned in the HTTP settings by using a browser or PowerShell. For example, run the following command: `Test-NetConnection -ComputerName www.bing.com -Port 443`.
+2. If the port mentioned is not the desired port, enter the correct port number for Application Gateway to connect to the backend server.
+3. If you can't connect on the port from your local machine as well, then:
 
    a.  Check the network security group (NSG) settings of the backend server's network adapter and subnet and whether inbound connections to the configured port are allowed. If they aren't, create a new rule to allow the connections. To learn how to create NSG rules, [see the documentation page](../virtual-network/tutorial-filter-network-traffic.md#create-security-rules).
 
@@ -213,7 +175,7 @@ session on the port specified, the probe is marked as Unhealthy with this messag
            Get-AzEffectiveRouteTable -NetworkInterfaceName "nic1" -ResourceGroupName "testrg"
    ```
 
-1. If you don't find any issues with NSG or UDR, check your backend server for application-related issues that are preventing clients from establishing a TCP session on the ports configured. A few things to check:
+4. If you don't find any issues with NSG or UDR, check your backend server for application-related issues that are preventing clients from establishing a TCP session on the ports configured. A few things to check:
 
    a.  Open a command prompt (Win+R -> cmd), enter `netstat`, and select Enter.
 
@@ -231,15 +193,11 @@ session on the port specified, the probe is marked as Unhealthy with this messag
 
 #### HTTP status code mismatch
 
-**Message:** Status code of the backend's HTTP response did not match
-the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}.
+**Message:** Status code of the backend's HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}.
 
-**Cause:** After the TCP connection has been established and a TLS handshake is done (if TLS is enabled), Application Gateway will send the probe as an HTTP GET request to the backend server. As described earlier, the default probe will be to <protocol>://127.0.0.1:<port>/, and it
-considers response status codes in the rage 200 through 399 as Healthy. If the server returns any other status code, it will be marked as Unhealthy with this message.
+**Cause:** After the TCP connection has been established and a TLS handshake is done (if TLS is enabled), Application Gateway will send the probe as an HTTP GET request to the backend server. As described earlier, the default probe will be to \<protocol\>://127.0.0.1:\<port\>/, and it considers response status codes in the rage 200 through 399 as Healthy. If the server returns any other status code, it will be marked as Unhealthy with this message.
 
-**Solution:** Depending on the backend server's response code, you can
-take the following steps. A few of the common status codes are listed
-here:
+**Solution:** Depending on the backend server's response code, you can take the following steps. A few of the common status codes are listed here:
 
 | **Error** | **Actions** |
 | --- | --- |
@@ -259,19 +217,13 @@ To create a custom probe, follow [these steps](./application-gateway-create-prob
 **Message:** Body of the backend's HTTP response did not match the
 probe setting. Received response body does not contain {string}.
 
-**Cause:** When you create a custom probe, you have an option to mark a
-backend server as Healthy by matching a string from the response body. For
-example, you can configure Application Gateway to accept "unauthorized"
-as a string to match. If the backend server response for the probe
-request contains the string **unauthorized**, it will be marked as Healthy. Otherwise, it will be marked as Unhealthy with this message.
+**Cause:** When you create a custom probe, you have an option to mark a backend server as Healthy by matching a string from the response body. For example, you can configure Application Gateway to accept "unauthorized" as a string to match. If the backend server response for the probe request contains the string **unauthorized**, it will be marked as Healthy. Otherwise, it will be marked as Unhealthy with this message.
 
 **Solution:** To resolve this issue, follow these steps:
 
 1. Access the backend server locally or from a client machine on the probe path, and check the response body.
-
-1. Verify that the response body in the Application Gateway custom probe configuration matches what's configured.
-
-1. If they don't match, change the probe configuration so that it has the correct string value to accept.
+2. Verify that the response body in the Application Gateway custom probe configuration matches what's configured.
+3. If they don't match, change the probe configuration so that it has the correct string value to accept.
 
 Learn more about [Application Gateway probe matching](./application-gateway-probe-overview.md#probe-matching).
 
@@ -280,67 +232,43 @@ Learn more about [Application Gateway probe matching](./application-gateway-prob
 
 ### Backend server certificate invalid CA
 
-**Message:** The server certificate used by the backend is not signed by
-a well-known Certificate Authority (CA). Allow the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
+**Message:** The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Allow the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
 
-**Cause:** End-to-end SSL with Application Gateway v2 requires the
-backend server's certificate to be verified in order to deem the server Healthy.
-For a TLS/SSL certificate to be trusted, that certificate of the backend
-server must be issued by a CA that's included in the trusted
-store of Application Gateway. If the certificate wasn't issued by a trusted CA (for example, if a self-signed certificate was used), users should upload the issuer's certificate to Application Gateway.
+**Cause:** End-to-end SSL with Application Gateway v2 requires the backend server's certificate to be verified in order to deem the server Healthy. For a TLS/SSL certificate to be trusted, that certificate of the backend server must be issued by a CA that's included in the trusted store of Application Gateway. If the certificate wasn't issued by a trusted CA (for example, if a self-signed certificate was used), users should upload the issuer's certificate to Application Gateway.
 
 **Solution:** Follow these steps to export and upload the trusted root certificate to Application Gateway. (These steps  are for Windows clients.)
 
- 1. Sign in to the machine where your application is hosted.
-
- 1. Select Win+R or right-click the **Start** button, and then select **Run**.
-
- 1. Enter `certmgr.msc` and select Enter. You can also search for Certificate Manager on the **Start** menu.
-
- 1. Locate the certificate, typically in `\Certificates - Current User\\Personal\\Certificates\`, and open it.
-
- 1. Select the root certificate and then select **View Certificate**.
-
- 1. In the Certificate properties, select the **Details** tab.
-
- 1. On the **Details** tab, select the **Copy to File** option and save the file in the Base-64 encoded X.509 (.CER) format.
-
- 1. Open the Application Gateway HTTP **Settings** page in the Azure portal.
-
- 1. Open the HTTP settings, select **Add Certificate**, and locate the certificate file that you just saved.
-
-1. Select **Save** to save the HTTP settings.
+1. Sign in to the machine where your application is hosted.
+2. Select Win+R or right-click the **Start** button, and then select **Run**.
+3. Enter `certmgr.msc` and select Enter. You can also search for Certificate Manager on the **Start** menu.
+4. Locate the certificate, typically in `\Certificates - Current User\\Personal\\Certificates\`, and open it.
+5. Select the root certificate and then select **View Certificate**.
+6. In the Certificate properties, select the **Details** tab.
+7. On the **Details** tab, select the **Copy to File** option and save the file in the Base-64 encoded X.509 (.CER) format.
+8. Open the Application Gateway HTTP **Settings** page in the Azure portal.
+9. Open the HTTP settings, select **Add Certificate**, and locate the certificate file that you just saved.
+10. Select **Save** to save the HTTP settings.
 
 Alternatively, you can export the root certificate from a client machine by directly accessing the server (bypassing Application Gateway) through browser and exporting the root certificate from the browser.
 
-For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see
-[Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
+For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see [Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
 ### Trusted root certificate mismatch
 
-**Message:** The root certificate of the server certificate used by the
-backend does not match the trusted root certificate added to the
-application gateway. Ensure that you add the correct root certificate to whitelist the backend.
+**Message:** The root certificate of the server certificate used by the backend does not match the trusted root certificate added to the application gateway. Ensure that you add the correct root certificate to whitelist the backend.
 
-**Cause:** End-to-end SSL with Application Gateway v2 requires the
-backend server's certificate to be verified in order to deem the server Healthy.
-For a TLS/SSL certificate to be trusted, the backend
-server certificate must be issued by a CA that's included in the trusted store of Application Gateway. If the certificate wasn't issued by a trusted CA (for example, a self-signed certificate was used), users should upload the issuer's certificate to Application Gateway.
+**Cause:** End-to-end SSL with Application Gateway v2 requires the backend server's certificate to be verified in order to deem the server Healthy. For a TLS/SSL certificate to be trusted, the backend server certificate must be issued by a CA that's included in the trusted store of Application Gateway. If the certificate wasn't issued by a trusted CA (for example, a self-signed certificate was used), users should upload the issuer's certificate to Application Gateway.
 
 The certificate that has been uploaded to Application Gateway HTTP settings must match the root certificate of the backend server certificate.
 
-**Solution:** If you receive this error message, there's a
-mismatch between the certificate that has been uploaded to Application Gateway and the one that was uploaded to the backend server.
+**Solution:** If you receive this error message, there's a mismatch between the certificate that has been uploaded to Application Gateway and the one that was uploaded to the backend server.
 
-Follow steps 1-11 in the preceding method to upload the correct trusted root certificate to Application Gateway.
+Follow steps 1-10 in the preceding section to upload the correct trusted root certificate to Application Gateway.
 
-For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see
-[Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
+For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see [Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
 > [!NOTE]
-> This error can also occur if the backend server doesn't exchange the complete chain of the cert, including the Root
-> Intermediate (if applicable)
-> Leaf during the TLS handshake. To verify, you can use OpenSSL commands from any client and connect to the backend server by using the configured settings in the Application Gateway probe.
+> This error can also occur if the backend server doesn't exchange the complete chain of the cert, including the Root Intermediate (if applicable) Leaf during the TLS handshake. To verify, you can use OpenSSL commands from any client and connect to the backend server by using the configured settings in the Application Gateway probe.
 
 For example:
 
@@ -388,17 +316,11 @@ To resolve the issue, follow these steps.
 For Windows:
 
 1. Sign in to the machine where your application is hosted.
-
-1. Select Win+R or right-click the **Start** button and
-   select **Run**.
-
-1. Enter **certmgr.msc** and select Enter. You can also search for Certificate Manager on the **Start** menu.
-
-1. Locate the certificate (typically in `\Certificates - Current User\\Personal\\Certificates`), and open the certificate.
-
-1. On the **Details** tab, check the certificate **Subject**.
-
-1. Verify the CN of the certificate from the details and enter the same in the host name field of the custom probe or in the HTTP settings (if **Pick hostname from backend HTTP settings** is selected). If that's not the desired host name for your website, you must get a certificate for that domain or enter the correct host name in the custom probe or HTTP setting configuration.
+2. Select Win+R or right-click the **Start** button and select **Run**.
+3. Enter **certmgr.msc** and select Enter. You can also search for Certificate Manager on the **Start** menu.
+4. Locate the certificate (typically in `\Certificates - Current User\\Personal\\Certificates`), and open the certificate.
+5. On the **Details** tab, check the certificate **Subject**.
+6. Verify the CN of the certificate from the details and enter the same in the host name field of the custom probe or in the HTTP settings (if **Pick hostname from backend HTTP settings** is selected). If that's not the desired host name for your website, you must get a certificate for that domain or enter the correct host name in the custom probe or HTTP setting configuration.
 
 For Linux using OpenSSL:
 
@@ -408,7 +330,7 @@ For Linux using OpenSSL:
    openssl x509 -in certificate.crt -text -noout
    ```
 
-1. From the properties displayed, find the CN of the certificate and enter the same in the host name field of the http settings. If that's not the desired host name for your website, you must get a certificate for that domain or enter the correct host name in the custom probe or HTTP setting configuration.
+2. From the properties displayed, find the CN of the certificate and enter the same in the host name field of the http settings. If that's not the desired host name for your website, you must get a certificate for that domain or enter the correct host name in the custom probe or HTTP setting configuration.
 
 ### Backend certificate is invalid
 
@@ -422,16 +344,12 @@ with your vendor and update the server settings with the new
 certificate. If it's a self-signed certificate, you must generate a valid certificate and upload the root certificate to the Application Gateway HTTP settings. To do that, follow these steps:
 
 1. Open your Application Gateway HTTP settings in the portal.
-
-1. Select the setting that has the expired certificate, select **Add Certificate**, and open the new certificate file.
-
-1. Remove the old certificate by using the **Delete** icon next to the certificate, and then select **Save**.
+2. Select the setting that has the expired certificate, select **Add Certificate**, and open the new certificate file.
+3. Remove the old certificate by using the **Delete** icon next to the certificate, and then select **Save**.
 
 ### Certificate verification failed
 
-**Message:** The validity of the backend certificate could not be
-verified. To find out the reason, check OpenSSL diagnostics for the
-message associated with error code {errorCode}
+**Message:** The validity of the backend certificate could not be verified. To find out the reason, check OpenSSL diagnostics for the message associated with error code {errorCode}
 
 **Cause:** This error occurs when Application Gateway can't verify the validity of the certificate.
 
@@ -446,50 +364,40 @@ If the backend health is shown as Unknown, the portal view will resemble the fol
 This behavior can occur for one or more of the following reasons:
 
 1. The NSG on the Application Gateway subnet is blocking inbound access to ports 65503-65534 (v1 SKU) or 65200-65535 (v2 SKU) from “Internet."
-1. The UDR on the Application Gateway subnet is set to the default route (0.0.0.0/0) and the next hop is not specified as "Internet."
-1. The default route is advertised by an ExpressRoute/VPN connection to a virtual network over BGP.
-1. The custom DNS server is configured on a virtual network that can't resolve public domain names.
-1. Application Gateway is in an Unhealthy state.
+2. The UDR on the Application Gateway subnet is set to the default route (0.0.0.0/0) and the next hop is not specified as "Internet."
+3. The default route is advertised by an ExpressRoute/VPN connection to a virtual network over BGP.
+4. The custom DNS server is configured on a virtual network that can't resolve public domain names.
+5. Application Gateway is in an Unhealthy state.
 
 **Solution:**
 
 1. Check whether your NSG is blocking access to the ports 65503-65534 (v1 SKU) or 65200-65535 (v2 SKU) from **Internet**:
 
    a.	On the Application Gateway **Overview** tab, select the **Virtual Network/Subnet** link.
-
    b.	On the **Subnets** tab of your virtual network, select the subnet where Application Gateway has been deployed.
-
    c.	Check whether any NSG is configured.
-
    d.	If an NSG is configured, search for that NSG resource on the **Search** tab or under **All resources**.
-
    e.	In the **Inbound Rules** section, add an inbound rule to allow destination port range 65503-65534 for v1 SKU or 65200-65535 v2 SKU with the **Source** set as **GatewayManager** service tag.
-
    f.	Select **Save** and verify that you can view the backend as Healthy. Alternatively, you can do that through [PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 
-1. Check whether your UDR has a default route (0.0.0.0/0) with the next hop not set as **Internet**:
+2. Check whether your UDR has a default route (0.0.0.0/0) with the next hop not set as **Internet**:
 
    a.	Follow steps 1a and 1b to determine your subnet.
-
    b.	Check whether there's any UDR configured. If there is, search for the resource on the search bar or under **All resources**.
-
    c.	Check whether there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance or the on-premises device can properly route the packet back to the internet destination without modifying the packet.
-
    d.	Otherwise, change the next hop to **Internet**, select **Save**, and verify the backend health.
 
-1. Default route advertised by the ExpressRoute/VPN connection to the virtual network over BGP:
+3. Default route advertised by the ExpressRoute/VPN connection to the virtual network over BGP:
 
    a.	If you have an ExpressRoute/VPN connection to the virtual network over BGP, and if you are advertising a default route, you must make sure that the packet is routed back to the internet destination without modifying it. You can verify by using the **Connection Troubleshoot** option in the Application Gateway portal.
-
    b.	Choose the destination manually as any internet-routable IP address like 1.1.1.1. Set the destination port as anything, and verify the connectivity.
-
    c.	If the next hop is virtual network gateway, there might be a default route advertised over ExpressRoute or VPN.
 
-1. If there's a custom DNS server configured on the virtual network, verify that the server (or servers) can resolve public domains. Public domain name resolution might be required in scenarios where Application Gateway must reach out to external domains like OCSP servers or to check the certificate’s revocation status.
+4. If there's a custom DNS server configured on the virtual network, verify that the server (or servers) can resolve public domains. Public domain name resolution might be required in scenarios where Application Gateway must reach out to external domains like OCSP servers or to check the certificate’s revocation status.
 
-1. To verify that Application Gateway is healthy and running, go to the **Resource Health** option in the portal and verify that the state is **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
+5. To verify that Application Gateway is healthy and running, go to the **Resource Health** option in the portal and verify that the state is **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
 
-1. If Internet and private traffic are going though an Azure Firewall hosted in a secured Virtual hub (using Azure Virtual WAN Hub):
+6. If Internet and private traffic are going though an Azure Firewall hosted in a secured Virtual hub (using Azure Virtual WAN Hub):
 
    a. To ensure the application gateway can send traffic directly to the Internet, configure the following user defined route:
 
