@@ -28,7 +28,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Discovery and provisioning | Auto provisioning of Defender profile | AKS | GA | - | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Discovery and provisioning | Auto provisioning of Azure policy add-on | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 
-<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### [**AWS (EKS)**](#tab/aws-eks)
 
@@ -46,7 +46,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Discovery and provisioning | Auto provisioning of Defender extension | - | - | - | - | - |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | - | - | - | - | - |
 
-<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### [**GCP (GKE)**](#tab/gcp-gke)
 
@@ -64,7 +64,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Discovery and provisioning | Auto provisioning of Defender extension | GKE | Preview | - | Agentless | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | GKE | Preview | - | Agentless | Defender for Containers |
 
-<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### [**On-prem/IaaS (Arc)**](#tab/iaas-arc)
 
@@ -82,7 +82,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Discovery and provisioning | Auto provisioning of Defender extension | Arc enabled K8s clusters | Preview | Preview | Agentless | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | Arc enabled K8s clusters | Preview | - | Agentless | Defender for Containers |
 
-<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+<sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ---
 
@@ -101,11 +101,23 @@ The **tabs** below show the features that are available, by environment, for Mic
 |--|--|
 | Kubernetes distributions and configurations | **Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br>• [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br> • [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br> • [Google Kubernetes Engine (GKE) Standard](https://cloud.google.com/kubernetes-engine/) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br>• [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)<br> |
 
-<sup><a name="footnote1"></a>1</sup>Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.<br>
+<sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.<br>
 <sup><a name="footnote2"></a>2</sup>To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
+### Proxy environments
+
+Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
+
+### ### Data collection
+
+Defender for Containers relies on the **Defender extension** for each domain listed above. Ensure your Kubernetes node is running on one of the verified supported operating systems for this agent:
+
+| Aspect | Supported operating systems |
+|--|--|
+| Verified supported operating systems | - Ubuntu 16.04 <br> - Ubuntu 18.04 <br> - Ubuntu 20.04 <br> - Ubuntu 22.04 <br> - Amazon Linux 2 (EKS) <br> - CentOS 8 <br> - Debian 10 <br> - Debian 11 <br> - GCOOS (GKE) <br> - Red Hat Enterprise <br> -Linux 8 |
 
 ## Next steps
 
