@@ -221,6 +221,8 @@
       href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
     - name: Develop read TPM secrets sample code
       href: how-to-access-dtpm.md
+    - name: Configure multiple NICs
+      href: how-to-configure-multiple-nics.md
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2022

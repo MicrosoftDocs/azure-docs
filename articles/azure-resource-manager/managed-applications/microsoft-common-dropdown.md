@@ -1,11 +1,11 @@
 ---
 title: DropDown UI element
 description: Describes the Microsoft.Common.DropDown UI element for Azure portal. Use to select from available options when deploying a managed application.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 

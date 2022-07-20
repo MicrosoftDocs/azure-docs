@@ -102,7 +102,7 @@ spID=$(az identity show \
 resourceID=$(az identity show \
   --resource-group myResourceGroup \
   --name myACIId \
-  --query id --output tsv)
+  --query id --output none)
 ```
 
 ### Grant user-assigned identity access to the key vault

@@ -115,7 +115,7 @@ Data with these errors won't be used for training. Imported data with errors wil
 
 **Auto-fixed**
 
-The following errors are fixed automatically, but you should confirm that the fixes have been made.
+The following errors are fixed automatically, but you should review and confirm the fixes are made correctly.
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
@@ -299,7 +299,7 @@ The updated version is automatically set as default. But you can change the defa
 
 If you want to test each engine version of your voice model, you can select a version from the drop-down list, then select **DefaultTests** under **Testing** to listen to the sample audios. If you want to upload your own test scripts to further test your current engine version, first make sure the version is set as default, then follow the [testing steps above](#test-your-voice-model).
 
-After you've updated the engine version for your voice model, you need to redeploy this new version. You can only deploy the default version. 
+After you've updated the engine version for your voice model, you need to [redeploy this new version](how-to-deploy-and-use-endpoint.md#switch-to-a-new-voice-model-in-your-product). You can only deploy the default version. 
 
 For more information, [learn more about the capabilities and limits of this feature, and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 

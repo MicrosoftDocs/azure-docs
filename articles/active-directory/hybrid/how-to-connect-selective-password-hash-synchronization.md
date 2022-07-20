@@ -118,7 +118,7 @@ the attribute **adminDescription** populated in Active Directory with the value 
 Once you completed the steps to configure the necessary synchronization rules, re-enable the synchronization scheduler with the following steps:
  1. In Windows PowerShell run:
 
-     `set-adsyncscheduler-synccycleenabled$true`
+     `set-adsyncscheduler -synccycleenabled:$true`
 
  2. Then confirm it has been successfully enabled by running:
 

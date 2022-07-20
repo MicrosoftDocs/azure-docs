@@ -87,7 +87,7 @@ aks-secrets-store-provider-azure-6pqmv   1/1     Running   0          4m24s
 aks-secrets-store-provider-azure-f5qlm   1/1     Running   0          4m25s
 ```
 
-Be sure that a Secrets Store CSI Driver pod and an Azure Key Vault Provider pod are running on each node in your cluster's node pools.
+Be sure that a Secrets Store CSI Driver pod and a Secrets Store Provider Azure pod are running on each node in your cluster's node pools.
 
 ## Create or use an existing Azure key vault
 
@@ -205,7 +205,7 @@ You might sometimes want to create a Kubernetes secret to mirror the mounted con
 When you create a `SecretProviderClass`, use the `secretObjects` field to define the desired state of the Kubernetes secret, as shown in the following example.
 
 > [!NOTE]
-> The example here is incomplete. You'll need to modify it to support your chosen method of access to your key vault identity.
+> The YAML examples here are incomplete. You'll need to modify them to support your chosen method of access to your key vault identity. For details, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods].
 
 The secrets will sync only after you start a pod to mount them. To rely solely on syncing with the Kubernetes secrets feature doesn't work. When all the pods that consume the secret are deleted, the Kubernetes secret is also deleted.
 
@@ -232,7 +232,7 @@ spec:
 After you've created the Kubernetes secret, you can reference it by setting an environment variable in your pod, as shown in the following example code:
 
 > [!NOTE]
-> The example here is incomplete. You'll need to modify it to support the Azure key vault identity access that you've chosen.
+> The example here demonstrates access to a secret through env variables and through volume/volumeMount. This is for illustrative purposes. These two methods can exist independently from the other.
 
 ```yml
 kind: Pod

@@ -47,7 +47,7 @@ With a private endpoint and Private Link, you can:
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md). 
-    - The API Management instance must be hosted on the [`stv2` compute platform](compute-infrastructure.md). For example, create a new instance or, if you already have an instance in the Premium service tier, enable [zone redundancy](zone-redundancy.md). 
+    - The API Management instance must be hosted on the [`stv2` compute platform](compute-infrastructure.md). For example, create a new instance or, if you already have an instance in the Premium service tier, enable [zone redundancy](../availability-zones/migrate-api-mgt.md). 
     - Do not deploy (inject) the instance into an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) virtual network.
 - A virtual network and subnet to host the private endpoint. The subnet may contain other Azure resources.
 - (Recommended) A virtual machine in the same or a different subnet in the virtual network, to test the private endpoint.

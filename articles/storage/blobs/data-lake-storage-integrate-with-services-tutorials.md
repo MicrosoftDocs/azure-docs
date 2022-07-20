@@ -19,7 +19,7 @@ This article contains links to tutorials that show you how to use various Azure 
 |---------------|-------------------|
 | Azure Synapse Analytics | [Get Started with Azure Synapse Analytics](../../synapse-analytics/get-started.md) |
 | Azure Data Factory | [Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) |
-| Azure Databricks | [Use with Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) |
+| Azure Databricks | [Use with Azure Databricks](/azure/databricks/data/data-sources/azure/adls-gen2/) |
 | Azure Databricks | [Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) |
 | Azure Databricks | [Access Data Lake Storage Gen2 data with Azure Databricks using Spark](data-lake-storage-use-databricks-spark.md)|
 | Azure Event Grid | [Implement the data lake capture pattern to update a Databricks Delta table](data-lake-storage-events.md) |

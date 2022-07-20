@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: inference server, local development, local debugging, devplatv2
-ms.date: 05/14/2021
+ms.date: 07/14/2022
 ---
 
 # Azure Machine Learning inference HTTP server (preview)
@@ -135,19 +135,57 @@ There are two ways to use Visual Studio Code (VSCode) and [Python Extension](htt
 1. User starts the AzureML Inference Server in a command line and use VSCode + Python Extension to attach to the process.
 1. User sets up the `launch.json` in the VSCode and start the AzureML Inference Server within VSCode.
 
+**launch.json**
+```json
+{
+    "name": "Debug score.py",
+    "type": "python",
+    "request": "launch",
+    "module": "azureml_inference_server_http.amlserver",
+    "args": [
+        "--entry_script",
+        "score.py"
+    ]
+}
+```
+
 In both ways, user can set breakpoint and debug step by step.
 
 ## Frequently asked questions
 
-### Do I need to reload the server when changing the score script?
+### 1. I encountered the following error during server startup:
+
+```bash
+
+TypeError: register() takes 3 positional arguments but 4 were given
+
+  File "/var/azureml-server/aml_blueprint.py", line 251, in register
+
+    super(AMLBlueprint, self).register(app, options, first_registration)
+
+TypeError: register() takes 3 positional arguments but 4 were given
+
+```
+
+You have **Flask 2** installed in your python environment but are running a server (< 0.7.0) that does not support Flask 2. To resolve, please upgrade to the latest version of server.
+
+### 2. I encountered an ``ImportError`` or ``ModuleNotFoundError`` on modules ``opencensus``, ``jinja2``, ``MarkupSafe``, or ``click`` during startup like the following:
+
+```bash
+ImportError: cannot import name 'Markup' from 'jinja2'
+```
+
+Older versions (<= 0.4.10) of the server did not pin Flask's dependency to compatible versions. This is fixed in the latest version of the server.
+
+### 3. Do I need to reload the server when changing the score script?
 
 After changing your scoring script (`score.py`), stop the server with `ctrl + c`. Then restart it with `azmlinfsrv --entry_script score.py`.
 
-### Which OS is supported?
+### 4. Which OS is supported?
 
 The Azure Machine Learning inference server runs on Windows & Linux based operating systems.
 
 ## Next steps
 
-* For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-and-where.md).
+* For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-managed-online-endpoints.md).
 * Learn about [Prebuilt docker images for inference](concept-prebuilt-docker-images-inference.md)
