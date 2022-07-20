@@ -55,7 +55,7 @@ The following table compares features available in the managed gateway versus th
 | Feature support  | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
 | --- | ----- | ----- | ---------- |
 | [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ |
-| [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌ | ❌> |
+| [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌ | ❌ |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ | ✔️ |
 | [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ❌ |
 | [Private endpoints](private-endpoint.md)  |  ✔️ |  ✔️ | ❌ |
