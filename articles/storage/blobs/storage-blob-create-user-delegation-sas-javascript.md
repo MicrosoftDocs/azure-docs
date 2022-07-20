@@ -37,7 +37,7 @@ Because anyone with the SAS token can use it to access the container and blobs, 
 
 ## Use the DefaultAzureCredential in Azure Cloud
 
-To authenticate to Azure, _without secrets_, set up **managed identity**. This allows your code to use [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#defaultazurecredential). 
+To authenticate to Azure, _without secrets_, set up **managed identity**. This allows your code to use [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential). 
 
 To set up managed identity for the Azure cloud:
 
@@ -74,7 +74,7 @@ The following conceptual steps are required to create a SAS token with DefaultAz
 * Set up DefaultAzureCredential
     * Local development - use peronsal identity and set roles for storage
     * Azure cloud - create managed identity
-* Use DefaultAzureCredential to get the user delegation key with [UserDelegationKey](https://review.docs.microsoft.com/en-us/rest/api/storageservices/create-user-delegation-sas)
+* Use DefaultAzureCredential to get the user delegation key with [UserDelegationKey](/rest/api/storageservices/create-user-delegation-sas)
 * Use the user delegation key to construct the SAS token with the appropriate fields with [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob#@azure-storage-blob-generateblobsasqueryparameters)
 
 ## Container: create SAS token with DefaultAzureCredential
