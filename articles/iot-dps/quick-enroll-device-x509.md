@@ -124,13 +124,13 @@ This section shows you how to create a .NET Core console application that adds a
 
 1. Open Visual Studio, and select **Create a new project**.
 
-2. In the **Create a new project** panel, select **Console Application*.
+2. In the **Create a new project** panel, select **Console App*.
 
 3. Select **Next**.
 
-4. For **Project name**, type *CreateEnrollmentGroup*.
+4. For **Project name**, type *CreateEnrollmentGroup*. Under **Location**, you can select the location for your app or keep the default.
 
-5. Select**Next**. Keep the default **Target framework**.
+5. Select**Next**. Keep the default **Target framework** (.NET 6.0). Check the **Do not use top-level statements** box.
 
 6. Select **Create**.
 
@@ -146,7 +146,7 @@ This section shows you how to create a .NET Core console application that adds a
 
     This step downloads, installs, and adds a reference to the [Azure IoT Provisioning Service Client SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
 
-11. Add the following `using` statements after the other `using` statements at the top of `Program.cs`:
+11. Add the following `using` statements just under the `namespace` declaration at the top of `Program.cs`:
 
     ```csharp
     using System.Security.Cryptography.X509Certificates;
@@ -291,22 +291,27 @@ This section shows you how to create a Node.js script that adds an enrollment gr
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. In the Azure IoT Java SDK, go to the sample folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_*.
+1. In the Azure IoT Java SDK, go to the sample folder *_azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample_*.
+
+    ```cmd\sh
+    cd azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample 
+    ```
 
 1. Open the file *_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_* in an editor of your choice.
 
 1. Replace `[Provisioning Connection String]` with the connection string that you copied in [Get the connection string for your provisioning service](#get-the-connection-string-for-your-provisioning-service).
 
-1. Replace the `PUBLIC_KEY_CERTIFICATE_STRING` constant string with the value of your intermediate certificate `'pem` file.
+1. Replace the `PUBLIC_KEY_CERTIFICATE_STRING` constant string with the value of your intermediate certificate `.pem` file.
 
     The syntax of certificate text must follow the pattern below with no extra spaces or characters.
 
     ```java
-    private static final String PUBLIC_KEY_CERTIFICATE_STRING = "-----BEGIN CERTIFICATE-----\n" +
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n" +
-        ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n" +
-    "-----END CERTIFICATE-----";
+    private static final String PUBLIC_KEY_CERTIFICATE_STRING = 
+            "-----BEGIN CERTIFICATE-----\n" +
+            "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n" +
+                ...
+            "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n" +
+            "-----END CERTIFICATE-----";
     ```
 
     Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into a **Git Bash** prompt, replace `your-intermediate-cert.pem` with the location of your certificate file, and press **ENTER**. This command will generate the syntax for the `PUBLIC_KEY_CERTIFICATE_STRING` string constant value and write it to the output.
@@ -317,13 +322,13 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
     Copy and paste the output certificate text for the constant value.
 
-1. The sample allows you to set an IoT hub in the enrollment group to provision the device to. For this sample, we'll let DPS choose from the hubs that have already been linked to the DPS instance according to the default allocation policy, Evenly weighted distribution. Comment out or delete the following statement in the _ServiceEnrollmentGroupSample.java_ file:
+1. The sample allows you to set an IoT hub in the enrollment group to provision the device to. For this article, we'll let DPS choose from the hubs that have already been linked to the DPS instance according to the default allocation policy, evenly-weighted distribution. Comment out or delete the following statement in the file:
 
     ```Java
     enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
     ```
 
-1. Study the sample code. It creates, updates, queries, and deletes a group enrollment for X.509 devices. To verify successful creation of the enrollment group in Azure portal, comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
+1. Study the sample code. It creates, updates, queries, and deletes an enrollment group for X.509 devices. To verify successful creation of the enrollment group in Azure portal, comment out the following lines of code near the end of the file:
 
     ```Java
     // ************************************** Delete info of enrollmentGroup ***************************************
@@ -331,7 +336,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
     provisioningServiceClient.deleteEnrollmentGroup(enrollmentGroupId);
     ```
 
-1. Save the file _ServiceEnrollmentGroupSample.java_.
+1. Save the _ServiceEnrollmentGroupSample.java_ file.
 
 :::zone-end
 
@@ -359,24 +364,22 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-java"
 
-1. Open a command window in Administrator mode, and go to the folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_*.
-
-2. In the command prompt, use this command:
+1. From the *_azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample_* folder in your command prompt, run the following command to build the sample:
 
     ```cmd\sh
     mvn install -DskipTests
     ```
 
-    This command downloads the Maven package [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine. This package includes the binaries for the Java service SDK, that the sample code needs to build. If you ran the _X.509 certificate generator_ tool in the preceding section, this package will be already downloaded on your machine.
+    This command downloads the [Provisioning service client Maven package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine.and builds the sample. This package includes the binaries for the Java service SDK.
 
-3. In the command prompt, run the script:
+1. Switch to the *target* folder and run the sample. Be aware that Tthe build in the previous step outputs .jar file in the *target* folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. You may need to replace the version in the command below.
 
     ```cmd\sh
     cd target
-    java -jar ./service-enrollment-group-sample-{version}-with-deps.jar
+    java -jar ./service-enrollment-group-sample-1.8.1-with-deps.jar
     ```
 
-4. Upon successful creation, the command window displays the properties of the new enrollment group.
+1. Upon successful creation, the command window displays the properties of the new enrollment group.
 
 :::zone-end
 
