@@ -21,10 +21,10 @@ The [Device Update for IoT Hub](..\iot-hub-device-update\understand-device-updat
 
 ## Testing the device
 1.	On the Connect + test page, select **"Yes"** for the **"Are you able to test Device Update for IoT Hub?"** question.
-   > [!Note]
-   > If you are not able to test Device Update and select No, you will still be able to run all other Secured-core tests, but your product will not be eligible for certification.
+      > [!Note]
+      > If you are not able to test Device Update and select No, you will still be able to run all other Secured-core tests, but your product will not be eligible for certification.
 
-   :::image type="content" source="./media/how-to-adu/connect-test.png" alt-text="Dialog to confirm that in the form that you are able to test device for IoT Hub.":::
+      :::image type="content" source="./media/how-to-adu/connect-test.png" alt-text="Dialog to confirm that in the form that you are able to test device for IoT Hub.":::
 
 2.	Proceed with connecting your device to the test infrastructure.
 
