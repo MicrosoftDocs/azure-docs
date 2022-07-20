@@ -74,9 +74,9 @@ Let's take an example of a sample manufacturing company working across multiple 
     - Data Curator Role added for the Purview account for the Purview specific Application Registration.  
 
 2. Go to https://github.com/Profisee/kubernetes and click [**Azure ARM**](https://github.com/profisee/kubernetes/blob/master/Azure-ARM/README.md#deploy-profisee-platform-on-to-aks-using-arm-template). 
-    - This is a load balanced AKS (Azure Kubernetes) deployment using an ingress controller.
+    - The ARM template will deploy Profisee on a load balanced AKS (Azure Kubernetes) infrastructure using an ingress controller.
     - The readme includes troubleshooting steps as well. 
-    - Read all the steps and troubleshooting wiki page very carefully.  
+    - Read all the steps and troubleshooting wiki page carefully.  
 
 3. Get the license file from Profisee by raising a support ticket on https://support.profisee.com/. Only pre-req for this step is your need to pre-determine the DNS resolved URL your Profisee setup on Azure. In other words, keep handy the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com". 
 For instance, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Supply this DNSHOSTNAME to Profisee support when you raise the support ticket and Profisee will revert with the license file. You'll need to supply this file during the next configuration steps below.  
