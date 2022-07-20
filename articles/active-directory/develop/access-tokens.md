@@ -44,7 +44,7 @@ Web APIs have one of the following versions selected as a default during registr
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiJlZjFkYTlkNC1mZjc3LTRjM2UtYTAwNS04NDBjM2Y4MzA3NDUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTUyMjIyOS8iLCJpYXQiOjE1MzcyMzMxMDYsIm5iZiI6MTUzNzIzMzEwNiwiZXhwIjoxNTM3MjM3MDA2LCJhY3IiOiIxIiwiYWlvIjoiQVhRQWkvOElBQUFBRm0rRS9RVEcrZ0ZuVnhMaldkdzhLKzYxQUdyU091TU1GNmViYU1qN1hPM0libUQzZkdtck95RCtOdlp5R24yVmFUL2tES1h3NE1JaHJnR1ZxNkJuOHdMWG9UMUxrSVorRnpRVmtKUFBMUU9WNEtjWHFTbENWUERTL0RpQ0RnRTIyMlRJbU12V05hRU1hVU9Uc0lHdlRRPT0iLCJhbXIiOlsid2lhIl0sImFwcGlkIjoiNzVkYmU3N2YtMTBhMy00ZTU5LTg1ZmQtOGMxMjc1NDRmMTdjIiwiYXBwaWRhY3IiOiIwIiwiZW1haWwiOiJBYmVMaUBtaWNyb3NvZnQuY29tIiwiZmFtaWx5X25hbWUiOiJMaW5jb2xuIiwiZ2l2ZW5fbmFtZSI6IkFiZSAoTVNGVCkiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMjIyNDcvIiwiaXBhZGRyIjoiMjIyLjIyMi4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJvaWQiOiIwMjIyM2I2Yi1hYTFkLTQyZDQtOWVjMC0xYjJiYjkxOTQ0MzgiLCJyaCI6IkkiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJsM19yb0lTUVUyMjJiVUxTOXlpMmswWHBxcE9pTXo1SDNaQUNvMUdlWEEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6ImFiZWxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJGVnNHeFlYSTMwLVR1aWt1dVVvRkFBIiwidmVyIjoiMS4wIn0.D3H6pMUtQnoJAGq6AHd
     ```
 
-- v2.0 for applications that support consumer accounts. The following example shows a v1.0 token (this token example won't validate bacause the keys have rotated prior to publication and personal information has been removed):  
+- v2.0 for applications that support consumer accounts. The following example shows a v1.0 token (this token example won't validate because the keys have rotated prior to publication and personal information has been removed):  
 
     ```
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiI2ZTc0MTcyYi1iZTU2LTQ4NDMtOWZmNC1lNjZhMzliYjEyZTMiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE1MzcyMzEwNDgsIm5iZiI6MTUzNzIzMTA0OCwiZXhwIjoxNTM3MjM0OTQ4LCJhaW8iOiJBWFFBaS84SUFBQUF0QWFaTG8zQ2hNaWY2S09udHRSQjdlQnE0L0RjY1F6amNKR3hQWXkvQzNqRGFOR3hYZDZ3TklJVkdSZ2hOUm53SjFsT2NBbk5aY2p2a295ckZ4Q3R0djMzMTQwUmlvT0ZKNGJDQ0dWdW9DYWcxdU9UVDIyMjIyZ0h3TFBZUS91Zjc5UVgrMEtJaWpkcm1wNjlSY3R6bVE9PSIsImF6cCI6IjZlNzQxNzJiLWJlNTYtNDg0My05ZmY0LWU2NmEzOWJiMTJlMyIsImF6cGFjciI6IjAiLCJuYW1lIjoiQWJlIExpbmNvbG4iLCJvaWQiOiI2OTAyMjJiZS1mZjFhLTRkNTYtYWJkMS03ZTRmN2QzOGU0NzQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhYmVsaUBtaWNyb3NvZnQuY29tIiwicmgiOiJJIiwic2NwIjoiYWNjZXNzX2FzX3VzZXIiLCJzdWIiOiJIS1pwZmFIeVdhZGVPb3VZbGl0anJJLUtmZlRtMjIyWDVyclYzeERxZktRIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoiZnFpQnFYTFBqMGVRYTgyUy1JWUZBQSIsInZlciI6IjIuMCJ9.pj4N-w_3Us9DrBLfpCt
@@ -64,7 +64,7 @@ Resources always own their tokens using the `aud` claim and are the only applica
 
 JWTs are split into three pieces:
 
-- **Header** - Provides information about how to [validate the token](#validating-tokens) including information about the type of token and how it was signed.
+- **Header** - Provides information about how to validate the token including information about the type of token and how it was signed.
 - **Payload** - Contains all of the important data about the user or application that's attempting to call the service.
 - **Signature** - Is the raw material used to validate the token.
 
@@ -87,7 +87,7 @@ Some claims are used to help the Microsoft identity platform secure tokens for r
 
 | Claim | Format | Description |
 |-------|--------|-------------|
-| `aud` | String, an Application ID URI or GUID | Identifies the intended audience of the token. The API must validate this value and reject the token if the value doesn't match. In v2.0 tokens, this value is always the client ID of the API. In v1.0 tokens it can be the client ID or the resource URI used in the request. The value can depend on how the client requested the token. |
+| `aud` | String, an Application ID URI or GUID | Identifies the intended audience of the token. The API must validate this value and reject the token if the value doesn't match. In v2.0 tokens, this value is always the client ID of the API. In v1.0 tokens, it can be the client ID or the resource URI used in the request. The value can depend on how the client requested the token. |
 | `iss` | String, a security token service (STS) URI | Identifies the STS that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token issued is a v2.0 token (see the `ver` claim), the URI ends in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. The application can use the GUID portion of the claim to restrict the set of tenants that can sign in to the application, if applicable. |
 |`idp`| String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account isn't in the same tenant as the issuer, such as guests. If the claim isn't present, the value of `iss` can be used instead. For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | `iat` | int, a Unix timestamp | Specifies when the authentication for this token occurred. |
@@ -183,7 +183,7 @@ Organizations that use [Conditional Access sign-in frequency (SIF)](../condition
 
 Here's an example of how default token lifetime variation works with sign-in frequency.  Let's say an organization sets sign-in frequency to occur every hour. The actual sign-in interval occurs anywhere between 1 hour to 2.5 hours because the token is issued with lifetime ranging from 60-90 minutes (due to token lifetime variation).
 
-If a user with a token with a one hour lifetime performs an interactive sign-in at 59 minutes (just before the sign-in frequency being exceeded), there's no credential prompt because the sign-in is below the SIF threshold.  If a new token is issued with a lifetime of 90 minutes, the user wouldn't see a credential prompt for an another hour and a half.  When a silent renewal attempted of the 90-minute token lifetime is made, Azure AD requires a credential prompt because the total session length has exceeded the sign-in frequency setting of 1 hour. In this example, the time difference between credential prompts due to the SIF interval and token lifetime variation would be 2.5 hours.
+If a user with a token with a one hour lifetime performs an interactive sign-in at 59 minutes (just before the sign-in frequency being exceeded), there's no credential prompt because the sign-in is below the SIF threshold.  If a new token is issued with a lifetime of 90 minutes, the user wouldn't see a credential prompt for another hour and a half.  When a silent renewal attempted of the 90-minute token lifetime is made, Azure AD requires a credential prompt because the total session length has exceeded the sign-in frequency setting of 1 hour. In this example, the time difference between credential prompts due to the SIF interval and token lifetime variation would be 2.5 hours.
 
 ## Validate tokens
 
@@ -254,7 +254,7 @@ Use the `roles` and `wids` claims to validate that the user has authorization to
 
 When a user stores data in the API from one tenant, they must sign into that tenant again to access that data. Never allow data in one tenant to be accessed from another tenant.
 
-Use the `amr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md). If `roles` or `groups` claims are requested in the access token, verify that the user is in the group allowed to do this action.
+Use the `amr` claim to verify the user has performed MFA. The enforcement of MFA is done using [Conditional Access](../conditional-access/overview.md). If `roles` or `groups` claims are requested in the access token, verify that the user is in the group allowed to do this action.
 
 For tokens retrieved using the implicit flow, query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.
 
@@ -286,7 +286,7 @@ Refresh tokens can be invalidated or revoked at any time, for different reasons.
 
 ### Token timeouts
 
-Using [token lifetime configuration](active-directory-configurable-token-lifetimes.md), the lifetime of refresh tokens can be altered. It's expected that some tokens can go without use. For example, the user doesn't open the application for three months and then the token expires. Applications can encounter scenarios where the login server rejects a refresh token due to its age.
+When an organization uses [token lifetime configuration](active-directory-configurable-token-lifetimes.md), the lifetime of refresh tokens can be altered. It's expected that some tokens can go without use. For example, the user doesn't open the application for three months and then the token expires. Applications can encounter scenarios where the login server rejects a refresh token due to its age.
 
 - MaxInactiveTime: If the refresh token hasn't been used within the time dictated by the MaxInactiveTime, the refresh token is no longer valid.
 - MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then reauthentication is required after the time set in the MaxAgeSession* elapses. Examples:
