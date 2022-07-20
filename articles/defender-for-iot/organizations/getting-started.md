@@ -35,7 +35,7 @@ Defender for IoT users require the following permissions:
 | View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
 | Recover passwords  | ✓  |  ✓ | ✓ | ✓ |
 
-For more information, see [Azure roles](/azure/role-based-access-control/rbac-and-directory-admin-roles).
+For more information, see [Azure roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### Supported service regions
 

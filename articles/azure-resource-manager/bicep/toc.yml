@@ -36,6 +36,9 @@
     - name: Bicep with GitHub Actions
       displayName: continuous, ci, cd, CI/CD
       href: deploy-github-actions.md
+    - name: Bicep with MSBuild
+      href: msbuild-bicep-file.md
+      displayName: continuous, ci, cd, CI/CD
 - name: Tutorials
   items:
   - name: Microsoft Learn - Bicep
@@ -336,6 +339,7 @@
   - name: Provide parameters
     items:
     - name: Parameter file
+      displayName: comments,metadata,
       href: parameter-files.md
     - name: Sensitive values
       displayName: key vault

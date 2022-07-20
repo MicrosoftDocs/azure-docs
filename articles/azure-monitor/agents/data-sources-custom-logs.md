@@ -11,10 +11,7 @@ ms.reviewer: shseth
 
 # Collect text logs with the Log Analytics agent in Azure Monitor
 
-> [!IMPORTANT]
-> This article describes collecting file-based text logs by using the Log Analytics agent. It shouldn't be confused with the [custom logs API](../logs/custom-logs-overview.md), which allows you to send data to Azure Monitor Logs by using a REST API.
-
-The Custom Logs data source for the Log Analytics agent in Azure Monitor allows you to collect events from text files on Windows and Linux computers. Many applications log information to text files instead of standard logging services, such as Windows Event log or Syslog. After the data is collected, you can either parse it into individual fields in your queries or extract it during collection to individual fields.
+The Custom Logs data source for the Log Analytics agent in Azure Monitor allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services, such as Windows Event log or Syslog. After the data is collected, you can either parse it into individual fields in your queries or extract it during collection to individual fields.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 

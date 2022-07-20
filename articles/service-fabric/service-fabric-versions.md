@@ -1,9 +1,12 @@
 ---
 title: Azure Service Fabric versions
 description: Learn about cluster versions in Azure Service Fabric and platform versions actively supported
-
-ms.topic: troubleshooting
-ms.date: 04/12/2021
+ms.topic: reference
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Service Fabric supported versions
