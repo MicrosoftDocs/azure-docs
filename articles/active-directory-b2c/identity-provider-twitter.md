@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 07/20/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -91,17 +91,18 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Create a policy key
 
-You need to store the secret key that you previously recorded in your Azure AD B2C tenant.
+You need to store the secret key that you previously recorded for Twitter app in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. On the Overview page, select **Identity Experience Framework**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. 
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. On the left menu, under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.
 1. For **Options**, choose `Manual`.
 1. Enter a **Name** for the policy key. For example, `TwitterSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-1. In **Secret**, enter your client secret that you previously recorded.
+1. For **Secret**, enter your *API key secret* value that you previously recorded.
 1. For **Key usage**, select `Encryption`.
 1. Click **Create**.
 
@@ -109,7 +110,7 @@ You need to store the secret key that you previously recorded in your Azure AD B
 
 To enable users to sign in using a Twitter account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-You can define a Twitter account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
+You can define a Twitter account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy. Refer to the custom policy starter pack that you downloaded in the Prerequisites of this article.
 
 1. Open the *TrustFrameworkExtensions.xml*.
 2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
@@ -154,7 +155,7 @@ You can define a Twitter account as a claims provider by adding it to the **Clai
     </ClaimsProvider>
     ```
 
-4. Replace the value of **client_id** with the *API key secret* that you previously recorded.
+4. Replace the value of **client_id** with the *API key* that you previously recorded.
 5. Save the file.
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
