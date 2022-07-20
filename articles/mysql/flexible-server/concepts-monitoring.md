@@ -17,6 +17,9 @@ Azure Database for MySQL Flexible Server provides monitoring of servers through 
 
 In this article, you will learn about the various metrics available for your flexible server that give insight into the behavior of your server.
 
+> [!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 ## Available metrics
 
 Azure Database for MySQL Flexible Server provides various metrics to understand how your workload is performing and based on this data, you can understand the impact on your server and application. For example, in flexible server, you can monitor **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to identify when there is a performance impact. From there, you may have to optimize your workload, scale vertically by changing compute tiers, or scaling horizontally by using read replica.
