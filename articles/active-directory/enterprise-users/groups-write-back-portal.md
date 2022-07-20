@@ -54,7 +54,7 @@ You can also configure writeback settings for a group on the property page for t
 :::image type="content" source="./media/groups-write-back-portal/groups-properties-view.png" alt-text="Screenshot of changing writeback settings in the group properties." lightbox="media/groups-write-back-portal/groups-properties-view.png":::
 
 >[!NOTE]
-After initial **Group writeback** configuration, the **Group writeback state** of groups is set to **No writeback**. This means:
+By default, the **Group writeback state** of groups is set to **No writeback**. This means:
 
 - **Microsoft 365 groups**: if the group ```IsEnabled = null``` and ```onPremisesGroupType = null```, to ensure backwards compatibility with older version of group writeback, the group is written back to your on-premises Active Directory as a distribution group.
 - **Azure AD security groups**: if the group ```IsEnabled = null``` and ```onPremisesGroupType = null``` then the group is not written back to your on-premises Active Directory.
