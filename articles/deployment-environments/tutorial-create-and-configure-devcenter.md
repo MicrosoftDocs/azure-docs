@@ -26,17 +26,18 @@ The following steps illustrate how to use the Azure portal to create and configu
 
 1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
 
-    :::image type="content" source="media/azure-deployment-environment-deventer.png" alt-text="Screenshot of sign in page.":::
+    :::image type="content" source="media/azure-deployment-environment-deventer.png" alt-text="Screenshot of sign-in page.":::
 
 1. Select on **+ Add** and in the **Basics** tab of **Create an Azure Deployment Environment DevCenter** window, perform the following actions:
-    |Name   |Value   |
-    |-------|--------|
+
+    |Name      |Value      |
+    |----------|-----------|
     |**Subscription**|Select the subscription in which you want to create the DevCenter.|
     |**Resource group**|either use an existing resource group or select **Create new**, and enter a name for the resource group.|
     |**Name**|Enter a name for the DevCenter.|
     |**Location**|Select the location/region in which you want the DevCenter to be created.|
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/123877585-17103700-d903-11eb-96f0-10100fdee30a.png" alt-text="Screenshot of Basics tab of Create a Azure Deployment Environment DevCenter.":::
+    :::image type="content" source="https://user-images.githubusercontent.com/68404454/123877585-17103700-d903-11eb-96f0-10100fdee30a.png" alt-text="Screenshot of Basics tab of Create the Azure Deployment Environment DevCenter.":::
 
 1. In the **Tags** tab, enter a **Name** and **Value** pair that you want to assign.
 
@@ -83,15 +84,16 @@ After you've created a DevCenter, the next step is to create a system-assigned m
 
 ## Attach a [Catalog](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md#catalogs)
 
-**Prerequisite** - Before attaching a Catalog, store the personal access token(PAT) as a [Key Vault secret](../key-vault/secrets/quick-create-portal?tabs=azure-portal) and copy the **Secret Identifier**. [Learn more about generating a PAT](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-catalog.md#get-the-repository-information-and-credentials). Ensure that the Identity attached to the DevCenter has [**Get** access to the **Secret**](../key-vault/general/assign-access-policy?tabs=azure-portal).
+**Prerequisite** - Before attaching a Catalog, store the personal access token(PAT) as a [Key Vault secret](../key-vault/secrets/quick-create-portal) and copy the **Secret Identifier**. [Learn more about generating a PAT](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-catalog.md#get-the-repository-information-and-credentials). Ensure that the Identity attached to the DevCenter has [**Get** access to the **Secret**](../key-vault/general/assign-access-policy?tabs=azure-portal).
 
 1. Select **Catalogs** in the left menu and select **+ Add Repo**.
 
     :::image type="content" source="https://user-images.githubusercontent.com/68404454/124190442-e6a5d580-da87-11eb-81cf-206050c45df1.png" alt-text="Screenshot of catalog tab.":::
 
 1. In **Add New Catalog** page, provide the following details and select **Add**.
-    |Name   |Value   |
-    |-------|--------|
+
+    |Name     |Value     |
+    |---------|----------|
     |**Name**|Provide a name for your catalog.|
     |**Git clone Uri**|Provide the URI to your GitHub or ADO repository.|
     |**Branch Name**|Provide the repository branch that you would like to connect.|
@@ -108,8 +110,9 @@ Environment types help you define the different types of environments your devel
 
 1. Select the **Environment types** in the left menu and select **+ Add**.
 1. On the **Add environment type** page, provide the following details and select **Add**.
-    |Name   |Value   |
-    |-------|--------|
+
+    |Name     |Value     |
+    |---------|----------|
     |**Name**|Select a name for the environment type.|
     |**Description**|You may choose to provide details about the environment type.|
     |**Tags**|Provide a **Name** and **Value**.|
