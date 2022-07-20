@@ -222,10 +222,15 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 9. Once the SAP service is restarted, check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
 
 **Logged as \<sidadm\>** 
-   `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods`
+   ```
+   sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods
+   ```
+   
 
 **Logged as different user** 
-   `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user "<adminUser>" "<adminPassword>"`
+   ```
+   sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user "<adminUser>" "<adminPassword>"
+   ```
 
    The output should look like :-
   ![Diagram shows the expected output of SAPcontrol command classic.](./media/azure-monitor-sap/azure-monitor-providers-netweaver-sap-control-output.png)
