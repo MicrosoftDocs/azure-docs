@@ -125,6 +125,6 @@ For full implementation details, see our fork of [PetClinic](https://github.com/
 ### [Enterprise tier](#tab/enterprise-tier)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
+> [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md)
 
 ---

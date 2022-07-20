@@ -18,7 +18,7 @@ This article shows you how to configure single sign-on (SSO) for Spring Cloud Ga
 
 ## Prerequisites
 
-- An Enterprise tier instance with Spring Cloud Gateway or API portal enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- An Enterprise tier instance with Spring Cloud Gateway or API portal enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 - Sufficient permissions to manage Azure AD applications.
 
 To enable SSO for Spring Cloud Gateway or API Portal, you need the following four properties configured:
