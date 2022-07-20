@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/06/2022
+ms.date: 06/20/2022
 ms.author: justinha
 
 ---
@@ -42,7 +42,7 @@ As you design the virtual network for Azure AD DS, the following considerations 
 
 A managed domain connects to a subnet in an Azure virtual network. Design this subnet for Azure AD DS with the following considerations:
 
-* A managed domain must be deployed in its own subnet. Don't use an existing subnet or a gateway subnet. This includes the usage of remote gateways settings in the virtual network peering which puts the managed domain in an unsupported state.
+* A managed domain must be deployed in its own subnet. Using an existing subnet, gateway subnet, or remote gateways settings in the virtual network peering is unsupported.
 * A network security group is created during the deployment of a managed domain. This network security group contains the required rules for correct service communication.
     * Don't create or use an existing network security group with your own custom rules.
 * A managed domain requires 3-5 IP addresses. Make sure that your subnet IP address range can provide this number of addresses.

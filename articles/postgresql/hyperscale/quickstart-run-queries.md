@@ -13,6 +13,8 @@ ms.date: 05/05/2022
 
 # Run queries
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 ## Prerequisites
 
 To follow this quickstart, you'll first need to:
@@ -118,4 +120,7 @@ and run distributed queries.
 Now you're ready to learn to build applications with Hyperscale (Citus).
 
 > [!div class="nextstepaction"]
-> [Build a scalable application >](howto-build-scalable-apps-overview.md)
+> [Build scalable applications >](howto-build-scalable-apps-overview.md)
+
+> [!div class="nextstepaction"]
+> [App stacks >](howto-app-stacks-overview.md)

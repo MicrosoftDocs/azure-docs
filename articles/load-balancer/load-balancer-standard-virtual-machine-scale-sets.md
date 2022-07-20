@@ -4,14 +4,14 @@ titleSuffix: Add rules for Azure Standard Load Balancer and virtual machine scal
 description: With this learning path, get started with Azure Standard Load Balancer and virtual machine scale sets.
 services: load-balancer
 documentationcenter: na
-author: irenehua
+author: mbender-ms
 ms.custom: seodec18
 ms.service: load-balancer
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2020
-ms.author: irenehua
+ms.author: mbender
 ---
 # Add rules for Azure Load Balancer with virtual machine scale sets
 

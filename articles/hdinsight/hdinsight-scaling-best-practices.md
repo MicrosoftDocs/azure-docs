@@ -5,7 +5,7 @@ ms.author: ashish
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/29/2020
+ms.date: 06/09/2022
 ---
 
 # Manually scale Azure HDInsight clusters

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 12/03/2021
+ms.date: 07/14/2022
 ---
 
 # Geographic availability and currency support for the commercial marketplace
@@ -160,8 +160,7 @@ A CSP can purchase an offer in Partner Center in their end customer's currency s
 | Vietnam                             | VN        | USD          | EUR, USD, VND |
 | Yemen                               | YE        | USD          | EUR, USD, YER |
 | Zambia                              | ZM        | USD          | EUR, USD, ZMW |
-| Zimbabwe                            | ZW        | USD          | EUR, USD|
-|   |   |   |
+| Zimbabwe                            | ZW        | USD          | EUR, USD |
 
 \* For customers in Brazil, the commercial marketplace through Cloud Solution Providers (CSP) uses USD.
 

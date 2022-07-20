@@ -6,11 +6,13 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 05/4/2022
+ms.date: 07/15/2022
 ms.custom: "mvc, references_regions"
 ---
 
 # Overview - Azure Database for PostgreSQL - Flexible Server
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
@@ -24,7 +26,7 @@ In this article, we will provide an overview and introduction to core concepts o
 
 ## Overview
 
-Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11, 12, and 13. The service is currently available in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11, 12, 13, and 14. The service is currently available in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 ![Flexible Server - Overview](./media/overview/overview-flexible-server.png)
 
@@ -37,7 +39,7 @@ Flexible servers are best suited for
   
 ## High availability
 
-The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a container inside a Linux virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability.
+The flexible server deployment model is designed to support high availability within a single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a container inside a Linux virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability.
 
 During planned or unplanned failover events, if the server goes down, the service maintains high availability of the servers using following automated procedure:
 
@@ -49,7 +51,7 @@ Picture below shows transition for VM and storage failure.
 
  :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Flexible server - VM and storage failures":::
 
-If zone redundant high availability is configured, the service provisions and maintains a warm standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
+If zone redundant high availability is configured, the service provisions and maintains a warm standby server across availability zone within the same Azure region. The data changes on the source server are synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
 
  :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Zone redundant high availability":::
 
@@ -75,7 +77,7 @@ The flexible server service allows you to stop and start server on-demand to low
 
 The flexible server service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default). The service encrypts data in-motion with transport layer security (SSL/TLS) enforced by default. The service enforces and supports TLS versions 1.2 only.
 
-Flexible servers allows full private access to the servers using Azure virtual network (VNet integration). Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints.
+Flexible servers allow full private access to the servers using Azure virtual network (VNet integration). Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints.
 
 ## Monitoring and alerting
 
@@ -95,15 +97,17 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Australia Southeast | :heavy_check_mark: | :x: | :x: |
 | Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | 
+| Canada East | :heavy_check_mark: | :x: | :x: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Germany West Central | :x: $$ | :x: $ | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Jio India West | :heavy_check_mark: (v3 only)| :x: | :x: |
 | Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 | Korea South | :heavy_check_mark: | :x: | :x: |
 | North Central US | :heavy_check_mark: | :x: | :x: |
@@ -111,23 +115,26 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Norway East | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| South India | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| South India | :x: $$ | :x: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :x: $  | :x: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
-| Switzerland North | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
+| Switzerland North | :heavy_check_mark: | :x: $ ** | :x: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
 | US Gov Arizona | :heavy_check_mark: | :x: | :x: |
 | US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK West | :heavy_check_mark: | :x: | :x: |
+| West Central US | :heavy_check_mark: | :x: | :x: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: | :x: |
-| West US 2 | :heavy_check_mark: | :x: $ | :x: |
+| West US 2 | :x: $$ | :x: $ | :x: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 
 $ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported. 
 
-** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Pre-existing servers deployed in AZ with *no preference* (which you can check on the Azure Portal), the standby will be provisioned in the same AZ. To configure zone-redundant high availability, perform a point-in-time restore of the server and enable HA on the restored server.
+$$ New server deployments are temporarily blocked in these regions. Already provisioned servers are fully supported.
+
+** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Any existing servers deployed in AZ with *no preference* (which you can check on the Azure portal) prior to the region started to support AZ, even when you enable zone-redundant HA, the standby will be provisioned in the same AZ (same-zone HA) as the primary server. To enable zone-redundant high availability, [follow the steps.](how-to-manage-high-availability-portal.md#enabling-zone-redundant-ha-after-the-region-supports-az).
 
 <!-- We continue to add more regions for flexible server. -->
 > [!NOTE]

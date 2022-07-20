@@ -3,14 +3,14 @@ title: Create an access review of groups and applications - Azure AD
 description: Learn how to create an access review of group members or application access in Azure Active Directory. 
 services: active-directory
 author: ajburnle
-manager: karenhoran
+manager: rkarlin
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2022
+ms.date: 07/18/2022
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -36,6 +36,8 @@ This article describes how to create one or more access reviews for group member
 - (Preview) Microsoft 365 and Security group owner.
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
+
+If you are reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
 
 ## Create a single-stage access review
 
@@ -73,7 +75,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     > [!NOTE]  
     > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
 
-1. Or if you are conducting group membership review, you can create access reviews only for inactive users in the group (preview). In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
+1. Or if you are conducting group membership review, you can create access reviews for only the inactive users in the group (preview). In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only, those who have not signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
 
 1. Select **Next: Reviews**.
 
@@ -129,12 +131,14 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. Use the **At end of review, send notification to** option to send notifications to other users or groups with completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, choose **Select User(s) or Group(s)** and add another user or group for which you want to receive the status of completion.
 
-1. In the **Enable review decision helpers** section, choose whether you want your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
+1. In the **Enable review decision helpers** section choose whether you want your reviewer to receive recommendations during the review process:
+    1. If you select **No sign-in within 30 days**, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
+    1. If you select **Peer outlier**, approvers will be recommended to keep or deny access to users based on the access the users' peers have. If a user doesn't have the same access as their peers, the system will recommend that the reviewer deny them access.
 
    > [!NOTE]
    > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant. 
 
-   ![Screenshot that shows the Enable reviewer decision helpers option.](./media/create-access-review/helpers.png)
+   ![Screenshot that shows the Enable reviewer decision helpers options.](./media/create-access-review/helpers.png)
 
 1. In the **Advanced settings** section, you can choose the following:
 

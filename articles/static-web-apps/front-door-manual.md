@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 07/05/2022
 ms.author: cshoe
 ---
 
@@ -35,15 +35,15 @@ In this tutorial, you learn how to:
 
 ## Add Azure Front Door
 
+When creating an Azure Front Door profile, you must select an origin from the same subscription as the selected the Front Door.
+
 1. Navigate to the Azure home screen.
 
 1. Select **Create a resource**.
 
 1. Search for **Front Door**.
 
-1. Select **Front Door Standard/Premium**.
-
-    Make sure to select the service labeled *Front Door Standard/Premium* and not the plain *Front Door* option.
+1. Select **Front Door and CDN profiles**.
 
 1. Select **Create**.
 
@@ -65,8 +65,10 @@ In this tutorial, you learn how to:
     | Endpoint name | Enter a unique name for your Front Door host. |
     | Origin type | Select **Custom**. |
     | Origin host name | Enter the hostname of your static web app that you set aside from the beginning of this tutorial. Make sure your value does not include a trailing slash or protocol. (For example, `desert-rain-04056.azurestaticapps.net`)  |
+    | Origin type | Select **Custom**. |
+    | Origin host name | Enter the host name for your website. For example, `contoso.com`. |
     | Caching | Check the **Enable caching** checkbox. |
-    | Query string caching behavior | Select **Use Query string** from the dropdown. |
+    | WAF policy | Select **Create new** or select an existing Web Application Firewall policy from the dropdown if you want to enable this feature. |
 
 1. Select **Review + create**.
 
@@ -77,8 +79,9 @@ In this tutorial, you learn how to:
 1. Select **Go to resource**.
 
 ## Disable cache for auth workflow
+
 > [!NOTE]
->The cache expiration, cache key query string and origin group override actions are deprecated. These deprecated actions can still work normally, but your rule set >cannot be changed. You need to replace them with new route configuration override action before changing your rule set.
+> The cache expiration, cache key query string and origin group override actions are deprecated. These actions can still work normally, but your rule set can't change. Replace these overrides with new route configuration override actions before changing your rule set.
 
 Add the following settings to disable Front Door's caching policies from trying to cache authentication and authorization-related pages.
 
@@ -110,9 +113,9 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 1. Select the **Add an action** dropdown.
 
-1. Select **Cache expiration**.
+1. Select **Route configuration override**.
 
-1. Select **Bypass cache** in the *Cache Behavior* dropdown.
+1. Select **Disabled** in the *Caching* dropdown.
 
 1. Select the **Save** button.
 
@@ -203,4 +206,4 @@ If you no longer want to use the resources created in this tutorial, delete the 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add an API](apis.md)
+> [Add an API](apis-overview.md)

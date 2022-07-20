@@ -1,12 +1,12 @@
 ---
-title: Encrypt credentials in Azure Data Factory 
-description: Learn how to encrypt and store credentials for your on-premises data stores on a machine with self-hosted integration runtime. 
+title: Encrypt credentials in Azure Data Factory
+description: Learn how to encrypt and store credentials for your on-premises data stores on a machine with self-hosted integration runtime.
 author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 01/27/2022
-ms.author: lle 
+ms.author: lle
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -22,13 +22,13 @@ You pass a JSON definition file with credentials to the <br/>[**New-AzDataFactor
 
 ## Create a linked service with encrypted credentials
 
-This example shows how to create a linked service to an on-premise SQL Server data source with encrypted credentials.
+This example shows how to create a linked service to an on-premises SQL Server data source with encrypted credentials.
 
 ### Create initial linked service JSON file description
 
-Create a JSON file named **SqlServerLinkedService.json** in any folder with the following content:  
+Create a JSON file named **SqlServerLinkedService.json** in any folder with the following content:
 
-Replace `<servername>`, `<databasename>`, `<username>`, and `<password>` with values for your SQL Server before saving the file. And, replace `<integration runtime name>` with the name of your integration runtime. 
+Replace `<servername>`, `<databasename>`, `<username>`, and `<password>` with values for your SQL Server before saving the file. And, replace `<integration runtime name>` with the name of your integration runtime.
 
 ```json
 {
@@ -57,7 +57,7 @@ New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactor
 Now, use the output JSON file from the previous command containing the encrypted credential to set up the **SqlServerLinkedService**.
 
 ```powershell
-Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
+Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json"
 ```
 
 ## Next steps

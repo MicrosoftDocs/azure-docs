@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 06/09/2022
 ms.author: cherylmc
 ---
 
@@ -84,4 +84,5 @@ You can select **View detailed metrics** to access the detailed **Metrics** page
 ## Next steps
 
 * To learn more, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
-* For a full description of all the Virtual WAN metrics, see [Monitoring Virtual WAN](monitor-virtual-wan.md).
+* For a full description of all the Virtual WAN metrics, see [Monitoring Virtual WAN data reference](monitor-virtual-wan-reference.md).
+* For additional Virtual WAN monitoring information, see [Monitoring Azure Virtual WAN](monitor-virtual-wan.md)

@@ -60,8 +60,8 @@ sections:
         answer: |
           The following configurations are supported:
              - Default or named standalone instances in a virtual machine.  
-             - Clustered instances or instances in an AlwaysOn configuration when either using the virtual name of the clustered resource or the AlwaysOn listener name.
-             - Currently, no cluster or AlwaysOn specific metrics are collected.    
+             - Clustered instances or instances in an Always On configuration when either using the virtual name of the clustered resource or the Always On listener name.
+             - Currently, no cluster or Always On specific metrics are collected.    
              - Azure SQL Database (PAAS) is currently not supported.    
           
       - question: |

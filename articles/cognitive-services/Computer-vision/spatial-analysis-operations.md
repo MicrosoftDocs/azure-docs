@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 
 Spatial Analysis lets you analyze video streams from camera devices in real time. For each camera device you configure, the Spatial Analysis operations will generate an output stream of JSON messages sent to your instance of Azure IoT Hub. 
 
-The Spatial Analysis container implements the following operations:
+The Spatial Analysis container implements the following operations. You can configure these operations in the deployment manifest of your container.
 
 | Operation Identifier| Description|
 |---------|---------|
@@ -48,7 +48,7 @@ The following are the parameters required by each of the Spatial Analysis operat
 | `INPUT_VIDEO_WIDTH` | Input video/stream's frame width (for example, 1920). This is an optional field and if provided, the frame will be scaled to this dimension while preserving the aspect ratio.|
 | `DETECTOR_NODE_CONFIG` | JSON indicating which GPU to run the detector node on. It should be in the following format: `"{ \"gpu_index\": 0 }",`|
 | `TRACKER_NODE_CONFIG` | JSON indicating whether to compute speed in the tracker node or not. It should be in the following format: `"{ \"enable_speed\": true }",`|
-| `CAMERA_CONFIG` | JSON indicating the calibrated camera parameters for multiple cameras. If the skill you used requires calibration and you already have the camera parameter, you can use this config to provide them directly. Should be in the following format: `"{ \"cameras\": [{\"source_id\": \"endcomputer.0.persondistancegraph.detector+end_computer1\", \"camera_height\": 13.105561256408691, \"camera_focal_length\": 297.60003662109375, \"camera_tiltup_angle\": 0.9738943576812744}] }"`, the `source_id` is used to identify each camera. It can be get from the `source_info` of the event we published. It will only take effect when `do_calibration=false` in `DETECTOR_NODE_CONFIG`.|
+| `CAMERA_CONFIG` | JSON indicating the calibrated camera parameters for multiple cameras. If the skill you used requires calibration and you already have the camera parameter, you can use this config to provide them directly. Should be in the following format: `"{ \"cameras\": [{\"source_id\": \"endcomputer.0.persondistancegraph.detector+end_computer1\", \"camera_height\": 13.105561256408691, \"camera_focal_length\": 297.60003662109375, \"camera_tiltup_angle\": 0.9738943576812744}] }"`, the `source_id` is used to identify each camera. It can be gotten from the `source_info` of the event we published. It will only take effect when `do_calibration=false` in `DETECTOR_NODE_CONFIG`.|
 | `CAMERACALIBRATOR_NODE_CONFIG` | JSON indicating which GPU to run the camera calibrator node on and whether to use calibration or not. It should be in the following format: `"{ \"gpu_index\": 0, \"do_calibration\": true, \"enable_orientation\": true}",`|
 | `CALIBRATION_CONFIG` | JSON indicating parameters to control how the camera calibration works. It should be in the following format: `"{\"enable_recalibration\": true, \"quality_check_frequency_seconds\": 86400}",`|
 | `SPACEANALYTICS_CONFIG` | JSON configuration for zone and line as outlined below.|
