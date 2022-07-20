@@ -151,7 +151,7 @@ For more information, see [Set up managed identity for compute cluster](how-to-c
 
 ## Use interactive authentication
 
-# [Python SDK v2](#tab/sdkv2)
+# [Python SDK v2](#tab/sdk)
 
 Interactive authentication uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). Most examples use `DefaultAzureCredential` to access your credentials. When a token is needed, it requests one using multiple identities (`EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCodeCredential`, `AzureCliCredential`, `AzurePowerShellCredential`) in turn, stopping when one provides a token. For more information, see the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class reference.
 
@@ -205,7 +205,7 @@ When using the Azure CLI, the `az login` command is used to authenticate the CLI
 
 ## Use service principal authentication
 
-# [Python SDK v2](#tab/sdkv2)
+# [Python SDK v2](#tab/sdk)
 
 Authenticating with a service principal uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). The `DefaultAzureCredential` class looks for the following environment variables and uses the values when authenticating as the service principal:
 
