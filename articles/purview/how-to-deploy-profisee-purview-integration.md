@@ -29,7 +29,7 @@ Leverage a true, end-to-end SaaS platform with one agreement and no third partie
 - Industry-leading Cloud Service -
 Hosted on Azure for industry-leading scalability and availability
 
-- The Fastest Path to Trusted Data -
+- The fastest path to trusted data -
 Leave the networking, firewalls and storage to us so you can deploy in minutes
 
 PROFISEE MDM: ULTIMATE PAAS FLEXIBILITY - Complete deployment flexibility and control, using the most efficient and low-maintenance option on [Microsoft Azure](https://azure.microsoft.com/) cloud-or on-prem.
