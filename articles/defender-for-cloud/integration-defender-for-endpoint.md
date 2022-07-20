@@ -23,7 +23,7 @@ With Microsoft Defender for Servers, you can deploy [Microsoft Defender for Endp
 >
 > At Ignite 2020, we launched the [Microsoft Defender for Cloud XDR suite](https://www.microsoft.com/security/business/threat-protection), and this EDR component was renamed **Microsoft Defender for Endpoint (MDE)**.
 
-You can learn about Defender for Cloud's integration with Microsoft Defender for Endpoint by watching this videos from the Defender for Cloud in the Field video series: [Defender for Servers integration with Microsoft Defender for Endpoint](episode-sixteen.md)
+You can learn about Defender for Cloud's integration with Microsoft Defender for Endpoint by watching this video from the Defender for Cloud in the Field video series: [Defender for Servers integration with Microsoft Defender for Endpoint](episode-sixteen.md)
 
 ## Availability
 
