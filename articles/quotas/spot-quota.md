@@ -1,11 +1,11 @@
 ---
-title: Request an increase for spot vCPU quotas
+title: Increase spot vCPU family quotas
 description: Learn how to request increases for spot vCPU quotas in the Azure portal.
 ms.date: 07/25/2022
 ms.topic: how-to
 ---
 
-# Request an increase for spot vCPU quotas
+# Increase spot vCPU family quotas
 
 Azure Resource Manager enforces two types of vCPU quotas for virtual machines:
 
