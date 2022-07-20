@@ -26,7 +26,7 @@
         href: quick-create-portal.md
       - name: Create Intel SGX VM with Marketplace
         href: quick-create-marketplace.md
-  - name: Container Computes
+  - name: Container Compute
     items:
     - name: Confidential VMs with enclaves
       items:
@@ -81,7 +81,7 @@
         href: virtual-machine-solutions-sgx.md
       - name: Application enclave VM FAQ
         href: faq-application-enclaves.yml 
-  - name: Container Computes
+  - name: Container Compute
     items:  
     - name: Container solutions overview
       href: confidential-computing-deployment-models.md
