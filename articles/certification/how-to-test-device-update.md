@@ -32,10 +32,10 @@ The [Device Update for IoT Hub](..\iot-hub-device-update\understand-device-updat
    :::image type="content" source="./media/how-to-adu/connect-and-test.png" alt-text="Dialog that shows the selected tests that will be validated.":::
 
 4.	Upload your .importmanifest.json file by selecting the **Choose File** button.  Select your file and then select the **Upload** button.  
-   > [!Note]
-   > The file extension must be .importmanifest.json.
+      > [!Note]
+      > The file extension must be .importmanifest.json.
    
-   :::image type="content" source="./media/how-to-adu/upload-manifest.png" alt-text="Dialog to instruct the user to upload the .importmanifest.json file by selecting the choose File button.":::
+      :::image type="content" source="./media/how-to-adu/upload-manifest.png" alt-text="Dialog to instruct the user to upload the .importmanifest.json file by selecting the choose File button.":::
 
 5.	Copy and Paste the SAS URL to the location of your .SWU file in the provided input box, then select the **Validate** button.
    :::image type="content" source="./media/how-to-adu/input-sasurl.png" alt-text="Dialog that shows how the SAS url is applied.":::
@@ -43,8 +43,8 @@ The [Device Update for IoT Hub](..\iot-hub-device-update\understand-device-updat
 6.	Once we’ve validated our service can reach the provided URL, select **Import**.   
    :::image type="content" source="./media/how-to-adu/finalize-import.png" alt-text="Dialog to inform the user that the SAS URL was reachable and that the user needs to click import.":::
 
-   > [!Note]
-   > If you receive an “Invalid SAS URL” message, generate a new SAS URL from your storage blob and try again.
+      > [!Note]
+      > If you receive an “Invalid SAS URL” message, generate a new SAS URL from your storage blob and try again.
 
 7. Select **Continue** to proceed
 
