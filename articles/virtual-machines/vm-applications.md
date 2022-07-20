@@ -266,7 +266,13 @@ Get-AzVM -name <VM name> -ResourceGroupName <resource group name> -Status | conv
 To get status of scale set extensions, use [Get-AzVMSS](/powershell/module/az.compute/get-azvmss):
 
 ```azurepowershell-interactive
-Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -Status | convertto-json -Depth 10  
+$result = Get-AzVmssVM -ResourceGroupName $rgName -VMScaleSetName $vmssName -InstanceView
+$resultSummary  = New-Object System.Collections.ArrayList
+$result | ForEach-Object {
+    $res = @{ instanceId = $_.InstanceId; vmappStatus = $_.InstanceView.Extensions | Where-Object {$_.Name -eq "VMAppExtension"}}
+    $resultSummary.Add($res) | Out-Null
+}
+$resultSummary | convertto-json -depth 5  
 ```
 
 ## Error messages
