@@ -405,6 +405,11 @@
             "source_path_from_root": "/articles/azure-monitor/logs/custom-logs-overview.md" ,
             "redirect_url": "/azure/azure-monitor/logs/logs-ingestion-api-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-insights-overview.md",
+            "redirect_url": "/azure/network-watcher/network-insights-overview",
+            "redirect_document_id": false
         }
     ]
 }

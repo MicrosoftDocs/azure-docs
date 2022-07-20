@@ -118,7 +118,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 
 1. If the Private Endpoint is linked to a [Private Link Service](./troubleshoot-private-link-connectivity.md) which is linked to a Load Balancer, check if the backend pool is reporting healthy. Fixing the Load Balancer health will fix the issue with connecting to the Private Endpoint.
 
-    - You can see a visual diagram or a [dependency view](../azure-monitor/insights/network-insights-overview.md#dependency-view) of the related resources, metrics, and insights by going to:
+    - You can see a visual diagram or a [dependency view](../network-watcher/network-insights-overview.md#dependency-view) of the related resources, metrics, and insights by going to:
         - Azure Monitor
         - Networks
         - Private endpoints

@@ -2,16 +2,18 @@
 title: Azure Monitor Network Insights
 description: An overview of Azure Monitor Network Insights, which provides a comprehensive view of health and metrics for all deployed network resources without any configuration.
 ms.topic: conceptual
-author: KumudD
-ms.author: kumud
+ms.service: network-watcher
+author: damendo
+ms.author: damendo
 ms.date: 11/25/2020
 ms.reviewer: shijain
+ms.custom: subject-monitoring
 
 ---
 
 # Azure Monitor Network Insights
 
-Azure Monitor Network Insights provides a comprehensive view of [health](../../service-health/resource-health-checks-resource-types.md) and [metrics](../essentials/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [flow logging for network security groups (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
+Azure Monitor Network Insights provides a comprehensive view of [health](../service-health/resource-health-checks-resource-types.md) and [metrics](../azure-monitor/essentials/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../network-watcher/connection-monitor-overview.md), [flow logging for network security groups (NSGs)](../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
 
 Azure Monitor Network Insights is structured around these key components of monitoring:
 - [Network health and metrics](#networkhealth)
@@ -70,7 +72,7 @@ Select **View detailed metrics** to open a preconfigured workbook that provides 
 
 ## <a name="connectivity"></a>Connectivity
 
-The **Connectivity** tab provides an easy way to visualize all tests configured via [Connection Monitor](../../network-watcher/connection-monitor-overview.md) and Connection Monitor (classic) for the selected set of subscriptions.
+The **Connectivity** tab provides an easy way to visualize all tests configured via [Connection Monitor](../network-watcher/connection-monitor-overview.md) and Connection Monitor (classic) for the selected set of subscriptions.
 
 ![Screenshot that shows the Connectivity tab in Azure Monitor Network Insights.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
 
@@ -88,7 +90,7 @@ You can select any item in the grid view. Select the icon in the **Reachability*
 The **Alert** box on the right side of the page provides a view of all alerts generated for the connectivity tests configured across all subscriptions. Select the alert counts to go to a detailed alerts page.
 
 ## <a name="traffic"></a>Traffic
-The **Traffic** tab provides access to all NSGs configured for [NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](../../network-watcher/traffic-analytics.md) for the selected set of subscriptions, grouped by location. The search functionality provided on this tab enables you to identify the NSGs configured for the searched IP address. You can search for any IP address in your environment. The tiled regional view will display all NSGs along with the NSG flow logs and Traffic Analytics configuration status.
+The **Traffic** tab provides access to all NSGs configured for [NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](../network-watcher/traffic-analytics.md) for the selected set of subscriptions, grouped by location. The search functionality provided on this tab enables you to identify the NSGs configured for the searched IP address. You can search for any IP address in your environment. The tiled regional view will display all NSGs along with the NSG flow logs and Traffic Analytics configuration status.
 
 [![Screenshot that shows the Traffic tab in Azure Monitor Network Insights.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
 
@@ -101,7 +103,7 @@ You can select any item in the grid view. Select the icon in the **Flowlog Confi
 The **Alert** box on the right side of the page provides a view of all Traffic Analytics workspace-based alerts across all subscriptions. Select the alert counts to go to a detailed alerts page.
 
 ## <a name="diagnostictoolkit"></a> Diagnostic Toolkit
-Diagnostic Toolkit provides access to all the diagnostic features available for troubleshooting the network. You can use this drop-down list to access features like [packet capture](../../network-watcher/network-watcher-packet-capture-overview.md), [VPN troubleshooting](../../network-watcher/network-watcher-troubleshoot-overview.md), [connection troubleshooting](../../network-watcher/network-watcher-connectivity-overview.md), [next hop](../../network-watcher/network-watcher-next-hop-overview.md), and [IP flow verify](../../network-watcher/network-watcher-ip-flow-verify-overview.md):
+Diagnostic Toolkit provides access to all the diagnostic features available for troubleshooting the network. You can use this drop-down list to access features like [packet capture](../network-watcher/network-watcher-packet-capture-overview.md), [VPN troubleshooting](../network-watcher/network-watcher-troubleshoot-overview.md), [connection troubleshooting](../network-watcher/network-watcher-connectivity-overview.md), [next hop](../network-watcher/network-watcher-next-hop-overview.md), and [IP flow verify](../network-watcher/network-watcher-ip-flow-verify-overview.md):
 
 ![Screenshot that shows the Diagnostic Toolkit tab.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
@@ -120,7 +122,7 @@ Resources that been onboarded are:
 * NIC
 
 ## Troubleshooting 
-For general troubleshooting guidance, see the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+For general troubleshooting guidance, see the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
 This section will help you diagnose and troubleshoot some common problems you might encounter when you use Azure Monitor Network Insights. 
 
 ### How do I resolve performance problems or failures?
@@ -128,12 +130,12 @@ This section will help you diagnose and troubleshoot some common problems you mi
 To learn about troubleshooting any networking-related problems you identify with Azure Monitor Network Insights, see the troubleshooting documentation for the malfunctioning resource. 
 
 Here are some links to troubleshooting articles for frequently used services. For more troubleshooting articles about these services, see the other articles in the Troubleshooting section of the table of contents for the service.
-* [Azure Virtual Network](../../virtual-network/virtual-network-troubleshoot-peering-issues.md)
-* [Azure Application Gateway](../../application-gateway/create-gateway-internal-load-balancer-app-service-environment.md)
-* [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-troubleshoot.md)
-* [Azure ExpressRoute](../../expressroute/expressroute-troubleshooting-expressroute-overview.md) 
-* [Azure Load Balancer](../../load-balancer/load-balancer-troubleshoot.md) 
-* [Azure NAT Gateway](../../virtual-network/nat-gateway/troubleshoot-nat.md)
+* [Azure Virtual Network](../virtual-network/virtual-network-troubleshoot-peering-issues.md)
+* [Azure Application Gateway](../application-gateway/create-gateway-internal-load-balancer-app-service-environment.md)
+* [Azure VPN Gateway](../vpn-gateway/vpn-gateway-troubleshoot.md)
+* [Azure ExpressRoute](../expressroute/expressroute-troubleshooting-expressroute-overview.md) 
+* [Azure Load Balancer](../load-balancer/load-balancer-troubleshoot.md) 
+* [Azure NAT Gateway](../virtual-network/nat-gateway/troubleshoot-nat.md)
 
 ### Why don't I see the resources for all the subscriptions I've selected?
 
@@ -157,5 +159,5 @@ You can edit the workbook you see in any side-panel or detailed metric view by u
 
 ## Next steps
 
-- Learn more about network monitoring: [What is Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md)
-- Learn the scenarios workbooks are designed to support, how to create reports and customize existing reports, and more: [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md)
+- Learn more about network monitoring: [What is Azure Network Watcher?](../network-watcher/network-watcher-monitoring-overview.md)
+- Learn the scenarios workbooks are designed to support, how to create reports and customize existing reports, and more: [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md)
