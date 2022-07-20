@@ -15,7 +15,7 @@ Get started by creating an Azure Managed Grafana workspace using the Azure porta
 
 ## Prerequisite
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
 > [!NOTE]
 > Azure Managed Grafana doesn't support personal [Microsoft accounts](https://account.microsoft.com) currently.
