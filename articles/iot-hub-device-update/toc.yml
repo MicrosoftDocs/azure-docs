@@ -61,6 +61,8 @@ items:
     href: components-enumerator.md   
   - name: Diagnostic features
     href: device-update-diagnostics.md
+  - name: Network security
+    href: network-security.md
   - name: Networking requirements
     href: device-update-networking.md
 - name: How-to guides

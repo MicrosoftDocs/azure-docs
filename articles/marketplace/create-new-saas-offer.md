@@ -16,6 +16,8 @@ As a commercial marketplace publisher, you can create a software as a service (S
 
 ## Before you begin
 
+Before you can publish an SaaS offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
+
 If you haven't already, read [Plan a SaaS offer](plan-saas-offer.md). It will explain the technical requirements for your SaaS app, and the information and assets you'll need when you create your offer. Unless you plan to publish a simple listing (**Contact me** listing option) in the commercial marketplace, your SaaS application must meet technical requirements around authentication.
 
 > [!IMPORTANT]
@@ -120,7 +122,8 @@ You can enable [unified discovery and delivery](plan-SaaS-offer.md) of your SaaS
 
 1. If you don't have a published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **No**.
 
-   If you have a published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **Yes**. You can then select **+Add another AppSource link** to add new links.  
+    If you have a published Office add-in, Teams app, or    SharePoint Framework solutions that work with your SaaS offer, select **Yes**. You can then select **+Add another AppSource link** to add new links.  
+
 1. Provide a valid AppSource link.
 1. Continue adding all the links by selecting **+Add another AppSource link**.
 1. The **Rank** value on the SaaS offer listing page indicates the order of the linked products. To change the order, select, hold, and move the **=** icon up and down the list.
