@@ -24,7 +24,7 @@ This article provides steps for creating copies of your MedTech service's device
 
 1. Select **"MedTech service"** on the left side of your Azure Health Data Services workspace under **Services**.
 
-   :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service-in-workspace.png" alt-text="Screenshot of select MedTech service." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service-in-workspace.png":::
+   :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service-button-in-workspace.png" alt-text="Screenshot of select MedTech service within the workspace." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service-button-in-workspace.png":::
 
 2. Select the name of the **MedTech service** that you'll be copying the device mapping from. In this example, we'll be making a copy of the device mapping from a MedTech service named **mt-azuredocsdemo**. You'll be selecting your own MedTech service as part of this process.
 
