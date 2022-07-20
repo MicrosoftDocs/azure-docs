@@ -32,7 +32,7 @@ This article describes how to develop a sample code in C# to read cryptographic 
 
 ## Create the dTPM executable
 
-The following steps in this section show how to create a sample executable to access a TPM index from the EFLOW VM. For more information about EFLOW TPM passthrough, see [Azure IoT Edge for Linux on Windows Security](./iot-edge-for-linux-on-windows-security.md).
+The following steps show you how to create a sample executable to access a TPM index from the EFLOW VM. For more information about EFLOW TPM passthrough, see [Azure IoT Edge for Linux on Windows Security](./iot-edge-for-linux-on-windows-security.md).
 
 > [!WARNING]
 > Enabling TPM passthrough to the virtual machine may increase security risks.
