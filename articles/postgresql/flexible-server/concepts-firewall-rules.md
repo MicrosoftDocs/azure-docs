@@ -33,6 +33,9 @@ For example, if your application connects with a Java Database Connectivity (JDB
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException:
 > org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "adminuser", database "postgresql", SSL
 
+> [!NOTE]
+> To access Azure Database for PostgreSQL from your local computer, ensure that the firewall on your network and local computer allow outgoing communication on TCP port 5432.
+
 ## Connect from Azure
 We recommend that you find the outgoing IP address of any application or service and explicitly allow access to those individual IP addresses or ranges. For example, you can find the outgoing IP address of an Azure App Service app, or use a public IP address that's tied to a virtual machine. 
 
