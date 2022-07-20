@@ -14,7 +14,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Trusted platform module (TPM) technology is a technology designed to provide hardware-based, security-related functions. A TPM chip is a secure crypto-processor that is designed to carry out cryptographic operations. The EFLOW virtual machine doesn't support vTPM. However the user can enable/disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM enabling two main scenarios:
+Trusted platform module (TPM) technology is a technology designed to provide hardware-based, security-related functions. A TPM chip is a secure crypto-processor that is designed to carry out cryptographic operations. The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine doesn't support vTPM. However, the user can enable or disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM. The TPM passthrough feature enables two main scenarios:
 
 - Use TPM technology for IoT Edge device provisioning using Device Provision Service (DPS)
 - Read-only access to cryptographic keys stored inside the TPM. 
