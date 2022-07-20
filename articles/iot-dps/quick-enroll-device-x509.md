@@ -85,7 +85,7 @@ To add and verify your root CA certificate to the Device Provisioning Service.
 
 3. Select your Device Provisioning Service.
 
-4. In the **Settings** menu, select **Certificates*.
+4. In the **Settings** menu, select **Certificates**.
 
 5. On the top menu, select **+ Add:**.
 
@@ -132,7 +132,7 @@ This section shows you how to create a .NET Core console application that adds a
 
 4. For **Project name**, type *CreateEnrollmentGroup*. Under **Location**, you can select the location for your app or keep the default.
 
-5. Select**Next**. Keep the default **Target framework** (.NET 6.0). Check the **Do not use top-level statements** box.
+5. Select **Next**. Keep the default **Target framework** (.NET 6.0). Check the **Do not use top-level statements** box.
 
 6. Select **Create**.
 
