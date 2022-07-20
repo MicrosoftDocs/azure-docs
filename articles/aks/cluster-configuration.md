@@ -18,7 +18,7 @@ AKS supports Ubuntu 18.04 as the default node operating system (OS) in general a
 
 ## Container runtime configuration
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater. For Windows Server 2019 node pools, `containerd` is generally available and can be used in node pools using Kubernetes 1.20 and greater, but Docker is still used by default.
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater. For Windows Server 2019 node pools, `containerd` is generally available and is used by default in Kubernetes 1.23 and greater. Docker is no longer supported as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
 
 [`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby (upstream Docker) version that AKS uses already leverages and is built on top of `containerd`, as shown above.
 
@@ -31,9 +31,9 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 `Containerd` works on every GA version of Kubernetes in AKS, and in every upstream kubernetes version above v1.19, and supports all Kubernetes and AKS features.
 
 > [!IMPORTANT]
-> Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. You can still use Docker node pools and clusters on older supported versions until those fall off support.
+> Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. You can still use Docker node pools and clusters on versions below 1.23, but Docker is no longer supported as of September 2022.
 > 
-> Using `containerd` with Windows Server 2019 node pools is generally available, although the default for node pools created on Kubernetes v1.22 and earlier is still Docker. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
+> Using `containerd` with Windows Server 2019 node pools is generally available, and is used by default in Kubernetes 1.23 and greater. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
 > 
 > It is highly recommended to test your workloads on AKS node pools with `containerd` prior to using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
@@ -57,6 +57,20 @@ Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported size
 
 Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [AKS Ubuntu 18.04 image](#os-configuration). This image supports all Gen2 SKUs and sizes.
 
+## Default OS disk sizing
+
+By default, when creating a new cluster or adding a new node pool to an existing cluster, the disk size is determined by the number for vCPUs, which is based on the VM SKU. The default values are shown in the following table: 
+
+|VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mpbs) |
+|--|--|--|--|
+| 1 - 7 | P10/128G | 500 | 100 |
+| 8 - 15 | P15/256G | 1100 | 125 |
+| 16 - 63 | P20/512G | 2300 | 150 |
+| 64+ | P30/1024G | 5000 | 200 |
+
+> [!IMPORTANT]
+> Default OS disk sizing is only used on new clusters or node pools when Ephemeral OS disks are not supported and a default OS disk size is not specified. The default OS disk size may impact the performance or cost of your cluster, but you can change the sizing of the OS disk at any time after cluster or node pool creation. This default disk sizing affects clusters or node pools created in July 2022 or later.
+
 ## Ephemeral OS
 
 By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss if the VM needs to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
@@ -70,17 +84,17 @@ Like the temporary disk, an ephemeral OS disk is included in the price of the vi
 
 When using ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure documentation](../virtual-machines/dv3-dsv3-series.md) in parentheses next to IO throughput ("cache size in GiB").
 
-Using the AKS default VM size [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series#dsv2-series) with the default OS disk size of 100GB as an example, this VM size supports ephemeral OS but only has 86GB of cache size. This configuration would default to managed disks if the user does not specify explicitly. If a user explicitly requested ephemeral OS, they would receive a validation error.
+Using the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) with the default OS disk size of 100GB as an example, this VM size supports ephemeral OS but only has 86GB of cache size. This configuration would default to managed disks if the user does not specify explicitly. If a user explicitly requested ephemeral OS, they would receive a validation error.
 
-If a user requests the same [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series#dsv2-series) with a 60GB OS disk, this configuration would default to ephemeral OS: the requested size of 60GB is smaller than the maximum cache size of 86GB.
+If a user requests the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) with a 60GB OS disk, this configuration would default to ephemeral OS: the requested size of 60GB is smaller than the maximum cache size of 86GB.
 
-Using [Standard_D8s_v3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series) with 100GB OS disk, this VM size supports ephemeral OS and has 200GB of cache space. If a user does not specify the OS disk type, the node pool would receive ephemeral OS by default. 
+Using [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) with 100GB OS disk, this VM size supports ephemeral OS and has 200GB of cache space. If a user does not specify the OS disk type, the node pool would receive ephemeral OS by default. 
 
-The latest generation of VM series does not have a dedicated cache, but only temporary storage. Let's assume to use the [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with the default OS disk size of 100 GiB as an example. This VM size supports ephemeral OS disks but only has 75 GiB of temporary storage. This configuration would default to managed OS disks if the user does not specify explicitly. If a user explicitly requested ephemeral OS disks, they would receive a validation error.
+The latest generation of VM series does not have a dedicated cache, but only temporary storage. Let's assume to use the [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with the default OS disk size of 100 GiB as an example. This VM size supports ephemeral OS disks but only has 75 GiB of temporary storage. This configuration would default to managed OS disks if the user does not specify explicitly. If a user explicitly requested ephemeral OS disks, they would receive a validation error.
 
-If a user requests the same [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration would default to ephemeral OS disks: the requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB. 
+If a user requests the same [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration would default to ephemeral OS disks: the requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB. 
 
-Using [Standard_E4bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) with 100 GiB OS disk, this VM size supports ephemeral OS and has 150 GiB of temporary storage. If a user does not specify the OS disk type, the node pool would receive ephemeral OS by default.
+Using [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) with 100 GiB OS disk, this VM size supports ephemeral OS and has 150 GiB of temporary storage. If a user does not specify the OS disk type, the node pool would receive ephemeral OS by default.
 
 Ephemeral OS requires at least version 2.15.0 of the Azure CLI.
 
@@ -204,6 +218,9 @@ az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -ots
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.
 - Read more about [Ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md).
 
+
+<!-- LINKS - external -->
+[aks-release-notes]: https://github.com/Azure/AKS/releases
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -1,12 +1,14 @@
 ---
 title: Manage Azure Service Fabric applications using sfctl
 description: Learn how to deploy and remove applications from an Azure Service Fabric cluster by using Azure Service Fabric CLI
-author: Christina-Kang
-
-ms.topic: conceptual
-ms.date: 07/31/2018
-ms.author: bikang
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Manage an Azure Service Fabric application by using Azure Service Fabric CLI (sfctl)
 
 Learn how to create and delete applications that are running in an Azure Service Fabric cluster.

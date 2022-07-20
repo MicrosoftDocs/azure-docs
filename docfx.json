@@ -222,7 +222,8 @@
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/automanage/*md": "orspod",
-        "articles/automation/**/*.md": "sgsneha",
+        "articles/automation/**/*.md": "SnehaSudhirG",
+        "articles/update-center/**/*.md": "SnehaSudhirG",
         "articles/azure-arc/**/*.md": "JnHs",
         "articles/azure-arc/servers/**/*.md": "johnmarco",
         "articles/azure-functions/**/*.md": "ggailey777",
@@ -1113,7 +1114,9 @@
         "articles/virtual-machines/windows/sql/**/*.md": "SQL Server on Azure VM",
         "articles/virtual-machines/windows/sql/**/*.yml": "SQL Server on Azure VM",
         "articles/virtual-machines/workloads/**/*.md": "Azure Virtual Machines",
-        "articles/virtual-machines/workloads/**/*.yml": "Azure Virtual Machines"
+        "articles/virtual-machines/workloads/**/*.yml": "Azure Virtual Machines",
+        "articles/azure-center-sap-solutions/*.md": "Azure Center for SAP solutions",
+        "articles/azure-center-sap-solutions/*.yml": "Azure Center for SAP solutions"
       }
     },
     "template": [

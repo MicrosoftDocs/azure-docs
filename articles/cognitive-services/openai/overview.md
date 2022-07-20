@@ -78,7 +78,7 @@ The total number of tokens processed in a given request depends on the length of
 
 ### Resources
 
-The Azure OpenAI service is a new product offering on Azure. You can get started with the Azure OpenAI service the same way as any other Azure product where you [create a resource](how-to/create-resource.md), or instance of the service, in your Azure Subscription. You can read more about Azure's [resource management design](/azure/azure-resource-manager/management/overview).
+The Azure OpenAI service is a new product offering on Azure. You can get started with the Azure OpenAI service the same way as any other Azure product where you [create a resource](how-to/create-resource.md), or instance of the service, in your Azure Subscription. You can read more about Azure's [resource management design](../../azure-resource-manager/management/overview.md).
 
 
 ### Deployments

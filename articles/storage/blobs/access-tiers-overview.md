@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 06/16/2022
+ms.date: 07/13/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -101,13 +101,14 @@ To explicitly set a blob's tier when you create it, specify the tier when you up
 
 After a blob is created, you can change its tier in either of the following ways:
 
-- By calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, either directly or via a [lifecycle management](#blob-lifecycle-management) policy. Calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is typically the best option when you're changing a blob's tier from a hotter tier to a cooler one.
+- By calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, either directly or via a [lifecycle management](#blob-lifecycle-management) policy. Calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is typically the best option when you're changing a blob's tier from a hotter tier to a cooler one. 
 - By calling the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blob from one tier to another. Calling [Copy Blob](/rest/api/storageservices/copy-blob) is recommended for most scenarios where you're rehydrating a blob from the Archive tier to an online tier, or moving a blob from Cool to Hot. By copying a blob, you can avoid the early deletion penalty, if the required storage interval for the source blob hasn't yet elapsed. However, copying a blob results in capacity charges for two blobs, the source blob and the destination blob.
 
 Changing a blob's tier from Hot to Cool or Archive is instantaneous, as is changing from Cool to Hot. Rehydrating a blob from the Archive tier to either the Hot or Cool tier can take up to 15 hours.
 
-Keep in mind the following points when moving a blob between the Cool and Archive tiers:
+Keep in mind the following points when changing a blob's tier:
 
+- You cannot call **Set Blob Tier** on a blob that uses an encryption scope. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
 - If a blob's tier is inferred as Cool based on the storage account's default access tier and the blob is moved to the Archive tier, there's no early deletion charge.
 - If a blob is explicitly moved to the Cool tier and then moved to the Archive tier, the early deletion charge applies.
 

@@ -20,7 +20,7 @@ Azure Video Indexer analyzes the video and audio content by running 30+ AI model
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow.":::
 
-To start extracting insights with Azure Video Indexer, you need to [create an account](connect-to-azure.md) and upload videos, see the [how can i get started](#how-can-i-get-started-with-azure-video-indexer) section below.
+To start extracting insights with Azure Video Indexer, you need to [create an account](connect-to-azure.md) and upload videos, see the [how can I get started](#how-can-i-get-started-with-azure-video-indexer) section below.
 
 ## Compliance, Privacy and Security
 

@@ -66,7 +66,7 @@ az network public-ip create \
 
 ## Create the backend servers
 
-A backend can have NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you create two virtual machines to use as backend servers for the application gateway. You also install IIS on the virtual machines to test the application gateway.
+A backend can have NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you create two virtual machines to use as backend servers for the application gateway. You also install NGINX on the virtual machines to test the application gateway.
 
 #### Create two virtual machines
 

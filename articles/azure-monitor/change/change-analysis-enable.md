@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 07/05/2022 
+ms.date: 07/11/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -19,14 +19,14 @@ The Change Analysis service:
     - Identify relevant changes in the troubleshooting or monitoring context.
 
 Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription to make the tracked properties and proxied settings change data available. The `Microsoft.ChangeAnalysis` resource is automatically registered as you either: 
-- Enter the Web App **Diagnose and Solve Problems** tool, or 
+- Enter any UI entry point, like the Web App **Diagnose and Solve Problems** tool, or 
 - Bring up the Change Analysis standalone tab.
 
 In this guide, you'll learn the two ways to enable Change Analysis for web app in-guest changes:
 - For one or a few web apps, enable Change Analysis via the UI.
 - For a large number of web apps (for example, 50+ web apps), enable Change Analysis using the provided PowerShell script.
 
-## Enable Change Analysis via the Azure portal UI
+## Enable web app in-guest change collection via Azure Portal
 
 For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#diagnose-and-solve-problems-tool) section.
 
@@ -52,14 +52,6 @@ For web app in-guest changes, separate enablement is required for scanning code 
     - The tool displays all web apps under an App Service plan, which you can toggle on and off individually. 
 
       :::image type="content" source="./media/change-analysis/change-analysis-on-2.png" alt-text="Screenshot of the Enable Change Analysis user interface expanded.":::   
-
-You can also view change data via the **Web App Down** and **Application Crashes** detectors. The graph summarizes:
-- The change types over time.
-- Details on those changes. 
-
-By default, the graph displays changes from within the past 24 hours help with immediate problems.
-
-:::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view.":::   
 
 ## Enable Change Analysis at scale using PowerShell
 
