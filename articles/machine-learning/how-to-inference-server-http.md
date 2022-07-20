@@ -167,7 +167,7 @@ TypeError: register() takes 3 positional arguments but 4 were given
 
 ```
 
-You have **Flask 2** installed in your python environment but are running a server (< 7.0.0) that does not support Flask 2. To resolve, please upgrade to the latest version of server.
+You have **Flask 2** installed in your python environment but are running a server (< 0.7.0) that does not support Flask 2. To resolve, please upgrade to the latest version of server.
 
 ### 2. I encountered an ``ImportError`` or ``ModuleNotFoundError`` on modules ``opencensus``, ``jinja2``, ``MarkupSafe``, or ``click`` during startup like the following:
 

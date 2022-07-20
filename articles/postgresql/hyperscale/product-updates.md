@@ -6,8 +6,8 @@ author: jonels-msft
 ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: overview
-ms.date: 06/17/2022
+ms.topic: conceptual
+ms.date: 07/11/2022
 ---
 
 # Product updates for PostgreSQL - Hyperscale (Citus)
