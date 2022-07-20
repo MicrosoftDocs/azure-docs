@@ -19,13 +19,13 @@ The following will take you step by step for how to add an Azure Dedicated Host 
 
 
 ## Prerequisites
-This guide builds upon the managed cluster quick start guide: [Deploy a Service Fabric managed cluster using Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/quickstart-managed-cluster-template)
+This guide builds upon the managed cluster quick start guide: [Deploy a Service Fabric managed cluster using Azure Resource Manager](quickstart-managed-cluster-template.md)
 
 Before you begin:
 
 * If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 * Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. For the sake of this guide, we will be using a two node types twelve-node Standard SKU cluster.
-* The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) to do role assignments in a host group. Please see [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites) for more information.
+* The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles#owner) to do role assignments in a host group. Please see [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](../role-based-access-control/role-assignments-portal?tabs=current#prerequisites) for more information.
 
 
 ## Review the template
@@ -34,7 +34,7 @@ The template used in this guide is from [Azure Samples - Service Fabric cluster 
 ## Create a client certificate
 Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step. 
 
-If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal). Note the certificate thumbprint as this will be required to deploy the template in the next step. 
+If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](../key-vault/certificates/quick-create-portal). Note the certificate thumbprint as this will be required to deploy the template in the next step. 
 
 ## Deploy Dedicated Host resources and configure access to Service Fabric Resource Provider
 
@@ -106,7 +106,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
   * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
   * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
   * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-  * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
+  * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal) to create a self-signed certificate.
   * Node Type Name: Enter a unique name for your node type, such as nt1.
 
 3) Deploy an ARM template through one of the methods below:
@@ -157,7 +157,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
             {  
                   "code": "QuotaExceeded",  
                   "message": "Operation could not be completed as it results in exceeding approved standardDSv3Family Cores quota.  
-            Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase [here](https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/). Please read more about quota limits [here](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests)” 
+            Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase [here](https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/). Please read more about quota limits [here](../azure-supportability/per-vm-quota-requests)” 
                 }
 
 ## Next steps
