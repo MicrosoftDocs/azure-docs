@@ -115,7 +115,7 @@ Data with these errors won't be used for training. Imported data with errors wil
 
 **Auto-fixed**
 
-The following errors are fixed automatically, but you should confirm that the fixes have been made.
+The following errors are fixed automatically, but you should review and confirm the fixes are made correctly.
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
