@@ -65,7 +65,7 @@ Azure Spring Apps has the following known limitations:
 
 Which one should I use and what are the limits within each tier?
 
-* Azure Spring Apps offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Apps. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Apps pricing details](https://azure.microsoft.com/pricing/details/spring-cloud/) for limits and feature level comparison.
+* Azure Spring Apps offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Apps. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Apps pricing details](https://azure.microsoft.com/pricing/details/spring-apps/) for limits and feature level comparison.
 
 ### What's the difference between Service Binding and Service Connector?
 
