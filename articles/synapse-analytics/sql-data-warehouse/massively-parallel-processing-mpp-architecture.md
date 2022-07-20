@@ -65,7 +65,12 @@ Data Movement Service (DMS) is the data transport technology that coordinates da
 
 A distribution is the basic unit of storage and processing for parallel queries that run on distributed data. When Synapse SQL runs a query, the work is divided into 60 smaller queries that run in parallel.
 
-Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A dedicated SQL pool (formerly SQL DW) with maximum compute resources has one distribution per Compute node. A dedicated SQL pool (formerly SQL DW) with minimum compute resources has all the distributions on one compute node.  
+Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A dedicated SQL pool (formerly SQL DW) with maximum compute resources has one distribution per Compute node. A dedicated SQL pool (formerly SQL DW) with minimum compute resources has all the distributions on one compute node. 
+
+>[!NOTE]
+> For recommendations on the best distribution strategy to use based on your workloads, see the [Synapse SQL Distribution Advisor (Preview)](../sql/distribution-advisor).
+>
+ 
 
 ## Hash-distributed tables
 
