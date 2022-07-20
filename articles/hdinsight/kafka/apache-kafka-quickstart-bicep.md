@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Apache Kafka using Bicep - HDInsight'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Bicep. You also learn about Kafka topics, subscribers, and consumers.
-author: yeturis 
+author: yeturis
 ms.author: sairamyeturi
 ms.service: hdinsight
 ms.topic: quickstart
