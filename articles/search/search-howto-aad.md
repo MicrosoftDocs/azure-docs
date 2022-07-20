@@ -18,7 +18,7 @@ ms.custom: subject-rbac-steps
 
 Search applications that are built on Azure Cognitive Search can now use Azure Active Directory (Azure AD) and Azure role-based access (Azure RBAC) for authenticated and authorized access. A key advantage of using Azure AD is that your credentials and API keys no longer need to be stored in your code. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search. To learn more about the advantages of using Azure AD in your applications, see [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md#benefits-of-integration).
 
-This article will show you how to configure your application for authentication with the [Microsoft identity platform](../active-directory/develop/v2-overview.md). To learn more about the OAuth 2.0 code grant flow used by Azure AD, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
+This article will show you how to configure your application for authentication with the [Microsoft identity platform](../active-directory/develop/v2-overview.md) using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md). To learn more about the OAuth 2.0 code grant flow used by Azure AD, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 ## Prepare your search service
 
@@ -63,15 +63,13 @@ The next step to using Azure AD for authentication is to create a [managed ident
 
 1. Search for **Managed Identities**.
 
-1. Select **App Registrations**.
-
 1. Select **+ Create**.
 
 1. Give your application a name and select a supported account type, which determines who can use the application. Then, select **Register**.
 
    :::image type="content" source="media/search-howto-aad/create-managed-identity.png" alt-text="Screenshot of the create managed identity wizard" border="true" :::
 
-Make a note of the client ID on the overview page of your managed identity. You'll need the client ID in a future step
+Make a note of the client ID on the overview page of your managed identity. You'll need the client ID in a future step.
 
 ## Assign a role to the managed identity
 
@@ -113,7 +111,7 @@ You can also [assign roles using PowerShell](./search-security-rbac.md?tabs=conf
 
 ## Set up Azure AD authentication in your client
 
-Once you have an Azure AD application created and you've granted it permissions to access your search service, you're ready you can add code to your application to authenticate a security principal and acquire an OAuth 2.0 token.
+Once you have a managed identity created and you've granted it permissions to access your search service, you're ready you can add code to your application to authenticate the security principal and acquire an OAuth 2.0 token.
 
 Azure AD authentication is also supported in the preview SDKs for [Java](https://search.maven.org/artifact/com.azure/azure-search-documents/11.5.0-beta.3/jar), [Python](https://pypi.org/project/azure-search-documents/11.3.0b3/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.3).
 
