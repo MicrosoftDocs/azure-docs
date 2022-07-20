@@ -97,7 +97,7 @@ Create a dedicated host group and add a role assignment to the host group with t
 Create an Azure Service Fabric managed cluster with node type(s) configured to reference the Dedicated Host group ResourceId. The node type needs to be pinned to the same availability zone as the host group. 
 The template used in this guide is from [Azure-Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-ADH).
 
-1) Store the paths of your ARM template and parameter files in variables, then deploy the template.
+1) Store the paths of your ARM template and parameter files in variables.
 
    ```powershell
    $templateFilePath = "<full path to azuredeploy.json>" 
