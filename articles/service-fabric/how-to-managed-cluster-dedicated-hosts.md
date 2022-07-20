@@ -24,7 +24,7 @@ This guide builds upon the managed cluster quick start guide: [Deploy a Service 
 Before you begin:
 
 * If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-* Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. For the sake of this guide, we will be using a six-node Standard SKU cluster.
+* Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. For the sake of this guide, we will be using a two node types twelve-node Standard SKU cluster.
 * The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) to do role assignments in a host group. Please see [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites) for more information.
 
 
@@ -36,20 +36,9 @@ Service Fabric managed clusters use a client certificate as a key for access con
 
 If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal). Note the certificate thumbprint as this will be required to deploy the template in the next step. 
 
-## Deploy Dedicated Host Resources
-Create a dedicated host group pinned to one availability zone and five fault domains using the provided [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH). The sample will ensure there is at least one dedicated host per fault domain.
-   ```powershell
-   New-AzResourceGroup -Name $ResourceGroupName -Location $location
-   New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\HostGroup-And-RoleAssignment.json" -TemplateParameterFile ".\HostGroup-And-RoleAssignment.parameters.json" -Debug -Verbose
-   ```
+## Deploy Dedicated Host resources and configure access to Service Fabric Resource Provider
 
->[!NOTE] 
-> 1) Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. See [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/) for more information.
-> 2) Each fault domain needs a dedicated host to be placed in it and Service Fabric managed clusters require five fault domains. Therefore, at least five dedicated hosts should be present in each dedicated host group.
-
-
-## Configure access for the Host group to Service Fabric Resource Provider
-Add a role assignment to the host group with the Service Fabric Resource Provider application. This assignment allows Service Fabric Resource Provider to deploy VMs on the Dedicated Hosts inside the host group, created on the previous step, to the managed cluster's virtual machine scale set. This is a one-time action. 
+Create a dedicated host group and add a role assignment to the host group with the Service Fabric Resource Provider application using the steps below. This role assignment allows Service Fabric Resource Provider to deploy VMs on the Dedicated Hosts inside the host group to the managed cluster's virtual machine scale set. This is a one-time action.
 
 1) Get SFRP provider Id and Service Principal for Service Fabric Resource Provider application.
 
@@ -63,13 +52,18 @@ Add a role assignment to the host group with the Service Fabric Resource Provide
 > Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
 
 
-2) Add role assignment to host group with contributor access. This role assignment can be created via PowerShell using the Id of the previous output as principal ID    and role definition name as "Contributor" where applicable. Please see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles.
-
+2) Create a dedicated host group pinned to one availability zone and five fault domains using the provided [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH). The sample will ensure there is at least one dedicated host per fault domain.
    ```powershell
-   New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Contributor" -Scope "<Host Group Id>"  
+   New-AzResourceGroup -Name $ResourceGroupName -Location $location
+   New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\HostGroup-And-RoleAssignment.json" -TemplateParameterFile ".\HostGroup-And-RoleAssignment.parameters.json" -Debug -Verbose
    ```
 
-   or this role assignment can be defined in the resources section template using the Principal ID and role definition ID: 
+>[!NOTE] 
+> 1) Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. See [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/) for more information.
+> 2) Each fault domain needs a dedicated host to be placed in it and Service Fabric managed clusters require five fault domains. Therefore, at least five dedicated hosts should be present in each dedicated host group.
+
+
+3) The [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds the role assignment to the host group with contributor access. This assignment is defined in the resources section of the template with the Principal ID determined in the first step and role definition ID.
 
    ```JSON
       "variables": {  
@@ -91,6 +85,11 @@ Add a role assignment to the host group with the Service Fabric Resource Provide
              } 
    ```
 
+   or you can also add the role assignment via PowerShell using the ID determined in the first step as principal ID and role definition name as "Contributor" where applicable. Please see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles.
+
+   ```powershell
+   New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Contributor" -Scope "<Host Group Id>"  
+   ```
 
 
 ## Deploy Service Fabric managed cluster
