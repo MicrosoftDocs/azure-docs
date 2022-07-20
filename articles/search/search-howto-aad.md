@@ -57,7 +57,9 @@ You can also change these settings programatically as described in the [Azure Co
 
 ## Create a managed identity
 
-The next step to using Azure AD for authentication is to create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) if you don't have one already. 
+The next step to using Azure AD for authentication is to create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) if you don't have one already. You can also use a different type of service principal object, but this article will focus on managed identities because they eliminate the need to manage credentials.
+
+To create a manged identity:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -65,11 +67,9 @@ The next step to using Azure AD for authentication is to create a [managed ident
 
 1. Select **+ Create**.
 
-1. Give your application a name and select a supported account type, which determines who can use the application. Then, select **Register**.
+1. Give your managed identity a name and select a region. Then, select **Create**.
 
    :::image type="content" source="media/search-howto-aad/create-managed-identity.png" alt-text="Screenshot of the create managed identity wizard" border="true" :::
-
-Make a note of the client ID on the overview page of your managed identity. You'll need the client ID in a future step.
 
 ## Assign a role to the managed identity
 
