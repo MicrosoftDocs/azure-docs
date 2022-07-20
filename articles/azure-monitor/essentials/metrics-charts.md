@@ -3,7 +3,6 @@ title: Advanced features of Metrics Explorer
 description: Metrics are a series of measured values and counts that Azure collects. Learn to use Metrics Explorer to investigate the health and usage of resources.
 author: vgorbenko
 services: azure-monitor
-
 ms.topic: conceptual
 ms.date: 06/09/2022
 ms.author: vitalyg

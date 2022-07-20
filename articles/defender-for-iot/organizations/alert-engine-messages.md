@@ -201,7 +201,7 @@ Malware engine alerts describe detected malicious network activity.
 | Malware Test File Detected - EICAR AV Success | An EICAR AV test file was detected in traffic between two devices (over any transport - TCP or UDP). The file isn't malware. It's used to confirm that the antivirus software is installed correctly. Demonstrate what happens when a virus is found, and check internal procedures and reactions when a virus is found. Antivirus software should detect EICAR as if it were a real virus. | Major |
 | Suspicion of Conficker Malware | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
 | Suspicion of Denial Of Service Attack | A source device attempted to initiate an excessive number of new connections to a destination device. This may indicate a Denial Of Service (DOS) attack against the destination device, and might interrupt device functionality, affect performance and service availability, or cause unrecoverable errors. | Critical |
-| Suspicion of Malicious Activity | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
+| Suspicion of Malicious Activity | Suspicious network activity was detected. This activity may be associated with an attack that triggered known 'Indicators of Compromise' (IOCs). Alert metadata should be reviewed by the security team. | Major |
 | Suspicion of Malicious Activity (BlackEnergy) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
 | Suspicion of Malicious Activity (DarkComet) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
 | Suspicion of Malicious Activity (Duqu) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
@@ -219,7 +219,7 @@ Malware engine alerts describe detected malicious network activity.
 | Suspicion of Remote Code Execution with PsExec | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
 | Suspicion of Remote Windows Service Management | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
 | Suspicious Executable File Detected on Endpoint | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
-| Suspicious Traffic Detected | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicious Traffic Detected | Suspicious network activity was detected. This activity may be associated with an attack that triggered known 'Indicators of Compromise' (IOCs). Alert metadata should be reviewed by the security team | Critical |
 | Backup Activity with Antivirus Signatures  | Traffic detected between the source device and the destination backup server triggered this alert. The traffic includes backup of antivirus software that might contain malware signatures. This is most likely legitimate backup activity. | Warning |
 
 ## Operational engine alerts
@@ -280,4 +280,5 @@ For more information, see:
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
 - [Alert management API reference for on-premises management consoles](api/management-alert-apis.md)
 - [Alert management API reference for OT monitoring sensors](api/sensor-alert-apis.md)
+- [Forward alert information](how-to-forward-alert-information-to-partners.md)
 

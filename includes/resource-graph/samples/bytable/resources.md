@@ -2,7 +2,7 @@
 author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 06/16/2022
+ms.date: 07/07/2022
 ms.author: timwarner
 ms.custom: generated
 ---
@@ -454,7 +454,7 @@ Returns the connected cluster ID of each Azure Arc-enabled Kubernetes cluster th
 
 ```kusto
 Resources
-| where type =~ 'Microsoft.Kubernetes/connectedClusters' | extend connectedClusterId = tolower(id) | project connectedClusterId
+| where type =~ 'Microsoft.Kubernetes/connectedClusters' | extend connectedClusterId = tolower(id) | project connectedClusterId 
 | join kind = leftouter
 	(KubernetesConfigurationResources
 	| where type == 'microsoft.kubernetesconfiguration/extensions'
@@ -573,7 +573,7 @@ Resources
 | join kind=leftouter(
 	Resources
 	| where type == 'microsoft.compute/virtualmachines/extensions'
-	| extend
+	| extend 
 		VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
 		ExtensionName = name
 ) on $left.JoinID == $right.VMId
@@ -825,7 +825,7 @@ Search-AzGraph -Query "ResourceContainers | where isnotempty(tags) | project tag
 
 ### List Arc-enabled servers not running latest released agent version
 
-This query returns all Arc-enabled servers running an outdated version of the Connected Machine agent. Agents with a status of **Expired** are excluded from the results. The query uses _leftouter_ `join` to bring together the Advisor recommendations raised about any Connected Machine agents identified as out of date, and Hybrid Computer machines to filter out any agents that haven't communicated with Azure over a period of time.
+This query returns all Arc-enabled servers running an outdated version of the Connected Machine agent. Agents with a status of **Expired** are excluded from the results. The query uses _leftouter_ `join` to bring together the Advisor recommendations raised about any Connected Machine agents identified as out of date, and Hybrid Computer machines to filter out any agent that haven't communicated with Azure over a period of time.
 
 ```kusto
 AdvisorResources
@@ -992,7 +992,7 @@ Search-AzGraph -Query "Resources | where type in ( 'microsoft.managedidentity/us
 
 ### List machines that are not running and the last compliance status
 
-Provides a list of machines that aren't powered on with their configuration assignments and the last reported compliance status.
+Provides a list of a machines that aren't powered on with their configuration assignments and the last reported compliance status.
 
 ```kusto
 Resources
@@ -1417,7 +1417,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ### Summarize virtual machine by the power states extended property
 
-This query uses the [extended properties](../../../../articles/governance/resource-graph/concepts/query-language.md#extended-properties-preview) on virtual machines to summarize by power states.
+This query uses the [extended properties](../../../../articles/governance/resource-graph/concepts/query-language.md#extended-properties) on virtual machines to summarize by power states.
 
 ```kusto
 Resources

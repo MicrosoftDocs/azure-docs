@@ -3,14 +3,14 @@ title: Review access to groups & applications in access reviews - Azure AD
 description: Learn how to review access of group members or application access in Azure Active Directory access reviews.
 services: active-directory
 author: ajburnle
-manager: karenhoran
+manager: rkarlin
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 6/22/2022
+ms.date: 7/18/2022
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Review access to groups and applications in Azure AD access reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD, and other Microsoft Online Services with a feature called Azure AD access reviews. This article will go over how a designated reviewer performs an access review for members of a group or users with access to an application. If you would like to review access to an access package, read [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md)
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft Online Services with a feature called Azure AD access reviews. This article will go over how a designated reviewer performs an access review for members of a group or users with access to an application. If you would like to review access to an access package read [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md)
 
 ## Perform access review using My Access
 You can review access to groups and applications via My Access, an end-user friendly portal for granting, approving, and reviewing access needs.
@@ -32,7 +32,7 @@ You can review access to groups and applications via My Access, an end-user frie
 
    ![Example email from Microsoft to review access to a group](./media/perform-access-review/access-review-email-preview.png)
 
-1. Select the **Start review** link to open the access review.git pu
+1. Click the **Start review** link to open the access review.git pu
 
 ### Navigate directly to My Access 
 
@@ -44,18 +44,18 @@ You can also view your pending access reviews by using your browser to open My A
 
 ## Review access for one or more users
 
-After you open My Access under Groups and Apps, you can see:
+After you open My Access under Groups and Apps you can see:
 
 - **Name** The name of the access review.
-- **Due** The due date for the review. After this date, denied users could be removed from the group or app being reviewed.
+- **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed.
 - **Resource** The name of the resource under review.
 - **Progress** The number of users reviewed over the total number of users part of this access review.
 
-Select on the name of an access review to get started.
+Click on the name of an access review to get started.
 
 ![Pending access reviews list for apps and groups](./media/perform-access-review/access-reviews-list-preview.png)
 
-Once that it opens, you'll see the list of users in scope for the access review. 
+Once that it opens, you will see the list of users in scope for the access review. 
 
 > [!NOTE] 
 > If the request is to review your own access, the page will look different. For more information, see [Review access for yourself to groups or applications](review-your-access.md).
@@ -72,13 +72,13 @@ There are two ways that you can approve or deny access:
 1. Select one or more users by clicking the circle next to their names.
 
 1. Select **Approve** or **Deny** on the bar above.
-    - If you're unsure if a user should continue to have access or not, you can select **Don't know**. The user gets to keep their access and your choice is recorded in the audit logs. It's important that you keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
+    - If you are unsure if a user should continue to have access or not, you can click **Don't know**. The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
 
     ![Open access review listing the users who need review](./media/perform-access-review/user-list-preview.png)
 
-1. The administrator of the access review may require that you supply a reason in the **Reason** box for your decision. Even when a reason isn't required. You can still provide a reason for your decision and the information that you include will be available to other approvers for review.
+1. The administrator of the access review may require that you supply a reason in the **Reason** box for your decision. Even when a reason is not required. You can still provide a reason for your decision and the information that you include will be available to other approvers for review.
 
-1. Select **Submit**.
+1. Click **Submit**.
     - You can change your response at any time until the access review has ended. If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user.
 
  > [!IMPORTANT]
@@ -87,15 +87,17 @@ There are two ways that you can approve or deny access:
 
 ### Review access based on recommendations
 
-To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
+To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. There are two ways recommendations are generated for the reviewer. One method the system uses to create recommendations is by the user's sign-in activity. If a user has been inactive for 30 days or more, the reviewer will be recommended to deny access. The other method is based on the access the user's peers have. If the user doesn't have the same access as their peers, the reviewer will be recommended to deny that user access. 
 
-1. Select one or more users and then select **Accept recommendations**.
+If you have **No sign-in within 30 days** or **Peer outlier** enabled, follow the steps below to accept recommendations:
+
+1. Select one or more users and then Click **Accept recommendations**.
 
     ![Open access review listing showing the Accept recommendations button](./media/perform-access-review/accept-recommendations-preview.png)
 
 1. Or to accept recommendations for all unreviewed users, make sure that no users are selected and click on the **Accept recommendations** button on the top bar.
 
-1. Select **Submit** to accept the recommendations.
+1. Click **Submit** to accept the recommendations.
 
 
 > [!NOTE]
@@ -105,9 +107,9 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 If multi-stage access reviews have been enabled by the administrator, there will be 2 or 3 total stages of review. Each stage of review will have a specified reviewer.
 
-You'll review access either manually or accept the recommendations based on sign-in activity for the stage you're assigned as the reviewer.
+You will review access either manually or accept the recommendations based on sign-in activity for the stage you are assigned as the reviewer.
 
-If you're the 2nd stage or 3rd stage reviewer, you'll also see the decisions made by the reviewers in the prior stage(s) if the administrator enabled this setting when creating the access review. The decision made by a 2nd or 3rd stage reviewer will overwrite the previous stage. So, the decision the 2nd stage reviewer makes will overwrite the first stage, and the 3rd stage reviewer's decision will overwrite the second stage.
+If you are the 2nd stage or 3rd stage reviewer, you will also see the decisions made by the reviewers in the prior stage(s) if the administrator enabled this setting when creating the access review. The decision made by a 2nd or 3rd stage reviewer will overwrite the previous stage. So, the decision the 2nd stage reviewer makes will overwrite the first stage, and the 3rd stage reviewer's decision will overwrite the second stage.
 
  ![Select user to show the multi-stage access review results](./media/perform-access-review/multi-stage-access-review.png)
 
@@ -120,37 +122,19 @@ Approve or deny access as outlined in [Review access for one or more users](#rev
 
 To review access of B2B direct connect users, use the following instructions:
 
-1. As the reviewer, you should receive an email that requests you to review access for the team or group. Select the link in the email, or navigate directly to https://myaccess.microsoft.com/.
+1. As the reviewer, you should receive an email that requests you to review access for the team or group. Click the link in the email, or navigate directly to https://myaccess.microsoft.com/.
 
 1. Follow the instructions in [Review access for one or more users](#review-access-for-one-or-more-users) to make decisions to approve or deny the users access to the Teams.
 
 > [!NOTE]
 > Unlike internal users and B2B Collaboration users, B2B direct connect users and Teams **don't** have recommendations based on last sign-in activity to make decisions when you perform the review. 
 
-If a Team you review has shared channels, all B2B direct connect users and teams that access those shared channels are part of the review. B2B collaboration users and internal users are included in this review. When a B2B direct connect user or team is denied access in an access review, the user will lose access to every shared channel in the Team. To learn more about B2B direct connect users, read [B2B direct connect](../external-identities/b2b-direct-connect-overview.md).
-
-## Review access for nested group memberships (preview)
-To review access of nested group members:
-
-1. Follow the link in the notification email or go directly to 
-https://myaccess.microsoft.com/ to complete the review. 
-
-1. If the review creator chooses to include groups in the review, you’ll see them listed in the 
-review as either a user or a group within the resource. 
-
-Resources include:
-- security groups
-- applications
-- Azure roles
-- Azure AD roles
-
-> [!Note]
-> M365 groups and access packages don't support nested groups, so you can't review access for these resource types in a nested group scenario.
+If a Team you review has shared channels, all B2B direct connect users and teams that access those shared channels are part of the review. This includes B2B collaboration users and internal users. When a B2B direct connect user or team is denied access in an access review, the user will lose access to every shared channel in the Team. To learn more about B2B direct connect users, read [B2B direct connect](../external-identities/b2b-direct-connect-overview.md).
 
 ## If no action is taken on access review
-When the access review is set up, the administrator can use advanced settings to determine what will happen in the event a reviewer doesn't respond to an access review request. 
+When the access review is setup, the administrator has the option to use advanced settings to determine what will happen in the event a reviewer doesn't respond to an access review request. 
 
-The administrator can set up the review so that if reviewers don't respond at the end of the review period, all unreviewed users can have an automatic decision made on their access. This decision can include the loss of access to the group or application under review.
+The administrator can set up the review so that if reviewers do not respond at the end of the review period, all unreviewed users can have an automatic decision made on their access. This includes the loss of access to the group or application under review.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Recommended ways for you to manage your Azure Virtual Desktop envir
 author: heidilohr
 
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 06/29/2022
 ms.author: helohr
 manager: femila
 ---
@@ -14,13 +14,13 @@ We recommend using [Microsoft Endpoint Manager](https://www.microsoft.com/endpoi
 
 ## Microsoft Endpoint Configuration Manager
 
-Microsoft Endpoint Configuration Manager versions 1906 and later can manage your domain-joined and Hybrid Azure Active Directory (AD)-joined session hosts. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#azure-virtual-desktop).
+Microsoft Endpoint Configuration Manager versions 1906 and later can manage your domain-joined and Hybrid Azure Active Directory (Azure AD)-joined session hosts. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#azure-virtual-desktop).
 
 ## Microsoft Intune
 
 Microsoft Intune can manage your Azure AD-joined and Hybrid Azure AD-joined session hosts. To learn more about using Intune to manage Windows 11 and Windows 10 single session hosts, see [Using Azure Virtual Desktop with Intune](/mem/intune/fundamentals/windows-virtual-desktop).
 
-For Windows 11 and Windows 10 multi-session hosts, Intune currently supports device-based configurations. To learn more about using Intune to manage multi-session hosts, see [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+For Windows 11 and Windows 10 multi-session hosts, Intune currently supports device-based configurations. User scope configurations are also currently in preview on Windows 11. To learn more about using Intune to manage multi-session hosts, see [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 > [!NOTE]
 > Managing Azure Virtual Desktop session hosts using Intune is currently supported in the Azure Public and Azure Government clouds.

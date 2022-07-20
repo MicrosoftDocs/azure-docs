@@ -11,13 +11,13 @@ keywords: azure, openshift, aro, red hat, azure CLI, azure portal, ovn, ovn-kube
 Customer intent: I need to configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters.
 ---
 
-# Configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters 
+# Configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters (preview)
 
 This article explains how to Configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters. 
 
-## About the OVN-Kubernetes default Container Network Interface (CNI) network provider (preview)
+## About the OVN-Kubernetes default Container Network Interface (CNI) network provider
 
-OVN-Kubernetes Container Network Interface (CNI) for Azure Red Hat OpenShift (ARO) cluster is now available for preview. 
+OVN-Kubernetes Container Network Interface (CNI) for Azure Red Hat OpenShift cluster is now available for preview. 
 
 The OpenShift Container Platform cluster uses a virtualized network for pod and service networks. The OVN-Kubernetes Container Network Interface (CNI) plug-in is a network provider for the default cluster network. OVN-Kubernetes, which is based on the Open Virtual Network (OVN), provides an overlay-based networking implementation. 
 
@@ -90,12 +90,11 @@ The process to create an Azure Red Hat OpenShift cluster with OVN is exactly the
 
 The following high-level procedure outlines the steps to create an Azure Red Hat OpenShift cluster with OVN as the network provider:
 
-1. Install the preview Azure CLI extension.
-2. Verify your permissions.
-3. Register the resource providers.
-4. Create a virtual network containing two empty subnets.
-5. Create an Azure Red Hat OpenShift cluster by using OVN CNI network provider.
-6. Verify the Azure Red Hat OpenShift cluster is using OVN CNI network provider.
+1. Verify your permissions.
+2. Register the resource providers.
+3. Create a virtual network containing two empty subnets.
+4. Create an Azure Red Hat OpenShift cluster by using OVN CNI network provider.
+5. Verify the Azure Red Hat OpenShift cluster is using OVN CNI network provider.
 
 ## Verify your permissions
 
@@ -122,7 +121,7 @@ az aro create --resource-group $RESOURCEGROUP \
               --master-subnet master-subnet \
               --worker-subnet worker-subnet \
               --sdn-type OVNKubernetes \
-              --pull-secret @pull-secret.txt \
+              --pull-secret @pull-secret.txt
 ```
 
 ## Verify an Azure Red Hat OpenShift cluster is using the OVN CNI network provider
@@ -134,3 +133,7 @@ oc get network.config/cluster -o jsonpath='{.status.networkType}{"\n"}'
 ```
 
 The value of `status.networkType` must be `OVNKubernetes`.
+
+## Recommended content
+
+[Tutorial: Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md)

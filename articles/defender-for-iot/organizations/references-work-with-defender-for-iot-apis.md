@@ -83,9 +83,14 @@ In all Defender for IoT timestamp values, **Epoch time** is equal to **1/1/1970*
 
 ## Next steps
 
+<<<<<<< HEAD
 For more information, see:
 
 - [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 - [Investigate all sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+=======
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+>>>>>>> b623759a39e437e75d29f3d86204bfdebb66cdbb

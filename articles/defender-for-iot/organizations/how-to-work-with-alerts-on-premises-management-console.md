@@ -178,13 +178,14 @@ Export alert information to a .csv file. You can export information of all alert
     Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
 
 1. Select which engines the rule should apply to.
-
-    
+ 
    Select the required engines, or choose them all. Alerts from selected engines will be sent. 
 
-1. Select the checkbox if you want the forwarding to rule to report system notifications.
-  
-1. Select the checkbox if you want the forwarding to rule to report alert notifications.
+1. Select which notifications you want to forward:
+ 
+    -	**Report system notifications:** disconnected sensors, remote backup failures.
+
+    -	**Report alert notifications:** date and time of alert, alert title, alert severity, source and destination name and IP, suspicious traffic and engine that detected the event.
 
 1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
 

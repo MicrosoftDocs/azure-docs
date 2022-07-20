@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 06/29/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Within a Conditional Access policy, an administrator can make use of access controls to either grant or block access to resources.
 
-![Conditional Access policy with a grant control requiring multi-factor authentication](./media/concept-conditional-access-grant/conditional-access-grant.png)
+:::image type="content" source="media/concept-conditional-access-session/conditional-access-session.png" alt-text="Screenshot of Conditional Access policy with a grant control requiring multifactor authentication." lightbox="media/concept-conditional-access-session/conditional-access-session.png":::
 
 ## Block access
 
@@ -31,7 +31,7 @@ Block is a powerful control that should be wielded with appropriate knowledge. P
 
 Administrators can choose to enforce one or more controls when granting access. These controls include the following options: 
 
-- [Require multi-factor authentication (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Require multifactor authentication (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
 - [Require approved client app](app-based-conditional-access.md)
@@ -45,11 +45,11 @@ When administrators choose to combine these options, they can choose the followi
 
 By default Conditional Access requires all selected controls.
 
-### Require multi-factor authentication
+### Require multifactor authentication
 
-Selecting this checkbox will require users to perform Azure AD Multi-Factor Authentication. More information about deploying Azure AD Multi-Factor Authentication can be found in the article [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+Selecting this checkbox will require users to perform Azure AD Multifactor Authentication. More information about deploying Azure AD Multifactor Authentication can be found in the article [Planning a cloud-based Azure AD Multifactor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
-[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multi-factor authentication in Conditional Access policies. 
+[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multifactor authentication in Conditional Access policies. 
 
 ### Require device to be marked as compliant
 
@@ -68,6 +68,8 @@ Devices must be registered in Azure AD before they can be marked as compliant. M
 
 > [!NOTE]
 > On Windows 7, iOS, Android, macOS, and some third-party web browsers Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD. When a user first signs in through the browser the user is prompted to select the certificate. The end user must select this certificate before they can continue to use the browser.
+
+You can use the Microsoft Defender for Endpoint app along with the Approved Client app policy in Intune to set device compliance policy Conditional Access policies. There's no exclusion required for the Microsoft Defender for Endpoint app while setting up Conditional Access. Although Microsoft Defender for Endpoint on Android & iOS  (App ID - dd47d17a-3194-4d86-bfd5-c6ae6f5651e3) isn't an approved app, it has permission to report device security posture. This permission enables the flow of compliance information to Conditional Access.
 
 ### Require hybrid Azure AD joined device
 

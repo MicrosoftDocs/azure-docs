@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.author: jamesfit
 author: jimmyfit
 ms.date: 02/07/2022
+ms. reviewer: shseth
 ---
 # Collecting Event Tracing for Windows (ETW) Events for analysis Azure Monitor Logs
 

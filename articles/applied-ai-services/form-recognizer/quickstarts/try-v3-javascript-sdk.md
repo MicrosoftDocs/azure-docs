@@ -23,11 +23,11 @@ Get started with Azure Form Recognizer using the JavaScript programming language
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
-In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
+In this quickstart you'll use the following features to analyze and extract data and values from forms and documents:
 
 * [🆕 **General document**](#general-document-model)—Analyze and extract key-value pairs, selection marks, and entities from documents.
 
-* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
 * [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
 
@@ -42,7 +42,7 @@ In this quickstart you'll use following features to analyze and extract data and
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
@@ -401,12 +401,12 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 
 That's it, congratulations!
 
-In this quickstart, you used the Form Recognizer JavaScript SDK to analyze various forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
+In this quickstart, you used the Form Recognizer JavaScript SDK to analyze various forms in different ways. Next, explore the Form Recognizer Studio and reference documentation to learn moe about Form Recognizer v3.0 API.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+>[!div class="nextstepaction"]
+> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [Form Recognizer JavaScript reference library](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.4/index.html)
+> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

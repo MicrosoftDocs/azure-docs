@@ -461,7 +461,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - Kernel Crash Dump (kdump).
 - Oracle ACFS (ASM Cluster File System).
-- The NVMe disks of Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md)).
+- NVMe disks such as those on [High performance computing VM sizes](../sizes-hpc.md) or [Storage optimized VM sizes](../sizes-storage.md).
 - A VM with "nested mount points"; that is, multiple mount points in a single path (such as "/1stmountpoint/data/2stmountpoint").
 - A VM with a data drive mounted on top of an OS folder.
 - A VM on which a root (OS disk) logical volume has been extended using a data disk.

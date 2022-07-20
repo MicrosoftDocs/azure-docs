@@ -26,6 +26,7 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Machine Learning | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
 |Azure Bot Service | All public regions | Supported only on Direct Line App Service extension | GA </br> [Learn how to create a private endpoint for Azure Bot Service](/azure/bot-service/dl-network-isolation-concept) |
+| Azure Cognitive Services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](/azure/cognitive-services/cognitive-services-virtual-networks#use-private-endpoints)  |
 
 ### Analytics
 
@@ -69,14 +70,15 @@ The following tables list the Private Link services and the regions where they'r
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn how to create a private endpoint for Azure Event Grid.](../event-grid/network-security.md) |
-|Azure Service Bus | All public region<br/>All Government regions  | Supported with premium tier of Azure Service Bus. [Select for tiers](../service-bus-messaging/service-bus-premium-messaging.md) | GA   <br/> [Learn how to create a private endpoint for Azure Service Bus.](../service-bus-messaging/private-link-service.md)    |
+|Azure Service Bus | All public region<br/>All Government regions  | Supported with premium tier of Azure Service Bus. [Select for tiers](../service-bus-messaging/service-bus-premium-messaging.md) | GA   <br/> [Learn how to create a private endpoint for Azure Service Bus.](../service-bus-messaging/private-link-service.md)  |
+| Azure API Management | All public regions<br/> All Government regions  |  | GA   <br/> [Connect privately to API Management using a private endpoint.](../event-grid/network-security.md) |
 
 ### Internet of Things (IoT)
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
-|  Azure Digital Twins         | All public regions supported by Azure Digital Twins     |  | Preview <br/> [Learn how to create a private endpoint for Azure Digital Twins.](../digital-twins/how-to-enable-private-link-portal.md)      |
+|  Azure Digital Twins         | All public regions supported by Azure Digital Twins     |  | Preview <br/> [Learn how to create a private endpoint for Azure Digital Twins.](/azure/api-management/private-endpoint)  |
 
 ### Management and Governance
 
@@ -84,7 +86,8 @@ The following tables list the Private Link services and the regions where they'r
 | ------------ | ----------------| ------------| ----------------|
 | Azure Automation  | All public regions<br/> All Government regions |  | GA </br> [Learn how to create a private endpoint for Azure Automation.](../automation/how-to/private-link-security.md)|
 |Azure Backup | All public regions<br/> All Government regions   |  | GA <br/> [Learn how to create a private endpoint for Azure Backup.](../backup/private-endpoints.md)   |
-|Microsoft Purview | Southeast Asia, Australia East, Brazil South, North Europe, West Europe, Canada Central, East US, East US 2, EAST US 2 EUAP, South Central US, West Central US, West US 2, Central India, UK South   | [Select for known limitations](../purview/catalog-private-link-troubleshoot.md#known-limitations) | GA <br/> [Learn how to create a private endpoint for Microsoft Purview.](../purview/catalog-private-link.md)   |
+| Microsoft Purview | Southeast Asia, Australia East, Brazil South, North Europe, West Europe, Canada Central, East US, East US 2, EAST US 2 EUAP, South Central US, West Central US, West US 2, Central India, UK South   | [Select for known limitations](../purview/catalog-private-link-troubleshoot.md#known-limitations) | GA <br/> [Learn how to create a private endpoint for Microsoft Purview.](../purview/catalog-private-link.md)   |
+| Azure Migrate | All public regions<br/> All Government regions |  | GA </br> [Discover and assess servers for migration using Private Link.](/azure/migrate/discover-and-assess-using-private-endpoints) |
 
 ### Security
 

@@ -261,7 +261,7 @@ To add authentication with the Microsoft identity platform (formerly Azure AD v2
      }).AddMicrosoftIdentityUI();
     ```
 
-3. In the `Configure` method in *Startup.cs*, enable authentication with a call to `app.UseAuthentication();`
+3. In the `Configure` method in *Startup.cs*, enable authentication with a call to `app.UseAuthentication();` and `app.MapControllers();`.
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -270,6 +270,9 @@ To add authentication with the Microsoft identity platform (formerly Azure AD v2
     // more code here
     app.UseAuthentication();
     app.UseAuthorization();
+    
+    app.MapRazorPages();
+    app.MapControllers();
     // more code here
    }
    ```
