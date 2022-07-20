@@ -247,11 +247,11 @@ Example remove command:
 ```
 rmdir /S /Q C:\\myapp
 ```
+## Treat failure as deployment failure
 
+The VM application extension always returns a *success* regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there's a problem with the extension or the underlying infrastructure. This is triggered by the "treat failure as deployment failure" flag which is set to `$false` by default and can be changed to `$true`. The failure flag can be configured in [PowerShell](/powershell/module/az.compute/add-azvmgalleryapplication#-treatfailureasdeploymentfailure) or [CLI](/cli/azure/vm/application#-treat-deployment-as-failure).
 
 ## Troubleshooting VM Applications
-
-The VM application extension always returns a success regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there's a problem with the extension or the underlying infrastructure. This is triggered by the "treat failure as deployment failure" which is set to `$false` by default and can be changed to `$true`. The failure flag can be configured in [PowerShell](/powershell/module/az.compute/add-azvmgalleryapplication#-treatfailureasdeploymentfailure) or [CLI](/cli/azure/vm/application#-treat-deployment-as-failure).
 
 To know whether a particular VM application was successfully added to the VM instance, check the message of the VM Application extension.
 
