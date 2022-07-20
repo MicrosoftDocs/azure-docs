@@ -1,5 +1,5 @@
 ---
-title: Create an SaaS offer in the commercial marketplace. 
+title: Create a SaaS offer in the commercial marketplace. 
 description: Create a new software as a service (SaaS) offer to list or sell in Microsoft AppSource, in Azure Marketplace, or through the Cloud Solution Provider (CSP) program in Azure Marketplace. 
 author: mingshen-ms
 ms.author: mingshen
@@ -10,22 +10,22 @@ ms.topic: how-to
 ms.date: 06/29/2022
 ---
 
-# Create an SaaS offer
+# Create a SaaS offer
 
-As a commercial marketplace publisher, you can create a software as a service (SaaS) offer so potential customers can buy your SaaS-based technical solution. This article explains the process to create an SaaS offer for the Microsoft commercial marketplace.
+As a commercial marketplace publisher, you can create a software as a service (SaaS) offer so potential customers can buy your SaaS-based technical solution. This article explains the process to create a SaaS offer for the Microsoft commercial marketplace.
 
 ## Before you begin
 
-Before you can publish an SaaS offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
+Before you can publish a SaaS offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 If you haven't already, read [Plan a SaaS offer](plan-saas-offer.md). It will explain the technical requirements for your SaaS app, and the information and assets you'll need when you create your offer. Unless you plan to publish a simple listing (**Contact me** listing option) in the commercial marketplace, your SaaS application must meet technical requirements around authentication.
 
 > [!IMPORTANT]
 > We recommend that you create a separate development/test (DEV) offer and a separate production (PROD) offer. This article describes how to create a PROD offer. For details about creating a DEV offer, see [Plan a test and development SaaS offer](plan-saas-dev-test-offer.md).
 
-## Create an SaaS offer
+## Create a SaaS offer
 
-Follow these steps to create an SaaS offer:
+Follow these steps to create a SaaS offer:
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -109,20 +109,20 @@ To configure the lead management in Partner Center:
 1. When you've configured the connection details, select **Connect**.
 1. Select **Save draft** before continuing to the next tab, **Properties**.
 
-## Configure Microsoft 365 App integration
+## Configure Microsoft 365 app integration
 
-You can enable [unified discovery and delivery](plan-SaaS-offer.md) of your SaaS offer and any related Microsoft 365 App consumption by linking them.
+You can enable [unified discovery and delivery](plan-SaaS-offer.md) of your SaaS offer and any related Microsoft 365 app consumption by linking them.
 
 ### Integrate with the Microsoft Graph API
 
 - If your SaaS offer doesn't integrate with the Microsoft Graph API, select **No**. Continue to link published Microsoft 365 app consumption clients.  
 - If your SaaS offer integrates with the Microsoft Graph API, select **Yes**. Next, provide the Azure AD app ID you created and registered to integrate with the Microsoft Graph API.
 
-### Link published Microsoft 365 App consumption clients
+### Link published Microsoft 365 app consumption clients
 
 1. If you don't have a published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **No**.
 
-    If you have a published Office add-in, Teams app, or    SharePoint Framework solutions that work with your SaaS offer, select **Yes**. You can then select **+Add another AppSource link** to add new links.  
+    If you have a published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **Yes**. You can then select **+Add another AppSource link** to add new links.  
 
 1. Provide a valid AppSource link.
 1. Continue adding all the links by selecting **+Add another AppSource link**.
