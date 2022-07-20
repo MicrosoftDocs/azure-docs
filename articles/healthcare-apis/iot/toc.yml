@@ -4,14 +4,14 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: About MedTech service
+  - name: About the MedTech service
     href: iot-connector-overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Get started with MedTech service
+  - name: Get started with the MedTech service
     href: get-started-with-iot.md
-  - name: Deploy MedTech service
+  - name: Deploy the MedTech service
     expanded: false
     items:
     - name: Using portal

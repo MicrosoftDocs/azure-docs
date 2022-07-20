@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 06/03/2022
 ms.topic: article
-author: shashankbarsin
-ms.author: shasb
 description: "Use Cluster Connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 ---
 
@@ -86,14 +84,6 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 ---
 
-## Enable Cluster Connect feature
-
-You can enable the Cluster Connect on any Azure Arc-enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
-
-```azurecli
-az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $RESOURCE_GROUP
-```
-
 ## Azure Active Directory authentication option
 
 ### [Azure CLI](#tab/azure-cli)
@@ -103,7 +93,7 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
    - For an Azure AD user account:
 
      ```azurecli
-     AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query objectId -o tsv)
+     AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query userPrincipalName -o tsv)
      ```
 
    - For an Azure AD application:
@@ -117,7 +107,7 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
    - If you are using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Azure AD entity (service principal or user) that needs to access this cluster. Example:
 
       ```console
-      kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
+      kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
       ```
 
    - If you are using Azure RBAC for authorization checks on the cluster, you can create an Azure role assignment mapped to the Azure AD entity. Example:
@@ -147,7 +137,7 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
    - If you are using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Azure AD entity (service principal or user) that needs to access this cluster. Example:
 
       ```console
-      kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
+      kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
       ```
 
    - If you are using Azure RBAC for authorization checks on the cluster, you can create an Azure role assignment mapped to the Azure AD entity. Example:
@@ -165,23 +155,31 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
 1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a service account in any namespace (the following command creates it in the default namespace):
 
    ```console
-   kubectl create serviceaccount admin-user
+   kubectl create serviceaccount demo-user
    ```
 
-1. Create ClusterRoleBinding or RoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
+1. Create ClusterRoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
 
     ```console
-    kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --serviceaccount default:admin-user
+    kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount default:demo-user
     ```
 
-1. Get the service account's token using the following commands:
+1. Create a service account token:
 
     ```console
-    SECRET_NAME=$(kubectl get serviceaccount admin-user -o jsonpath='{$.secrets[0].name}')
+    kubectl apply -f - <<EOF
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: demo-user-secret
+      annotations:
+        kubernetes.io/service-account.name: demo-user
+    type: kubernetes.io/service-account-token
+    EOF
     ```
 
     ```console
-    TOKEN=$(kubectl get secret ${SECRET_NAME} -o jsonpath='{$.data.token}' | base64 -d | sed $'s/$/\\\n/g')
+    $TOKEN=(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed $'s/$/\\\n/g')
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -189,23 +187,35 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
 1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a service account in any namespace (the following command creates it in the default namespace):
 
    ```console
-   kubectl create serviceaccount admin-user
+   kubectl create serviceaccount demo-user
    ```
 
 1. Create ClusterRoleBinding or RoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
 
     ```console
-    kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --serviceaccount default:admin-user
+    kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount default:demo-user
     ```
 
-1. Get the service account's token using the following commands:
+1. Create a service account token by :
 
     ```console
-    $SECRET_NAME = (kubectl get serviceaccount admin-user -o jsonpath='{$.secrets[0].name}')
+    kubectl apply -f demo-user-secret.yaml
+    ```
+    
+    Contents of `demo-user-secret.yaml`:
+
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: demo-user-secret
+      annotations:
+        kubernetes.io/service-account.name: demo-user
+    type: kubernetes.io/service-account-token
     ```
 
     ```console
-    $TOKEN = ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String((kubectl get secret $SECRET_NAME -o jsonpath='{$.data.token}'))))
+    $TOKEN = ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String((kubectl get secret demo-user-secret -o jsonpath='{$.data.token}'))))
     ```
 
 ---

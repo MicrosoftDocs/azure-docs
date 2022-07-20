@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 06/13/2022
+ms.date: 06/22/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -23,11 +23,11 @@ Get started with Azure Form Recognizer using the JavaScript programming language
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
-In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
+In this quickstart you'll use the following features to analyze and extract data and values from forms and documents:
 
 * [🆕 **General document**](#general-document-model)—Analyze and extract key-value pairs, selection marks, and entities from documents.
 
-* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
 * [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
 
@@ -42,7 +42,7 @@ In this quickstart you'll use following features to analyze and extract data and
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
@@ -50,7 +50,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ## Set up
 
-1. Create a new Node.js Express application: In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app named `form-recognizer-app`, and navigate to it.
+1. Create a new Node.js Express application: In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `form-recognizer-app`.
 
     ```console
     mkdir form-recognizer-app && cd form-recognizer-app
@@ -114,7 +114,7 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```javascript
 
@@ -128,48 +128,36 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
   const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
   async function main() {
-       // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocument("prebuilt-document", formUrl);
+    const poller = await client.beginAnalyzeDocument("prebuilt-document", formUrl);
 
-      const {
-          keyValuePairs,
-          entities
-      } = await poller.pollUntilDone();
+    const {
+        keyValuePairs,
+        entities
+    } = await poller.pollUntilDone();
 
-      if (keyValuePairs.length <= 0) {
-          console.log("No key-value pairs were extracted from the document.");
-      } else {
-          console.log("Key-Value Pairs:");
-          for (const {
-                  key,
-                  value,
-                  confidence
-              } of keyValuePairs) {
-              console.log("- Key  :", `"${key.content}"`);
-              console.log("  Value:", `"${value?.content ?? "<undefined>"}" (${confidence})`);
-          }
-      }
+    if (keyValuePairs.length <= 0) {
+        console.log("No key-value pairs were extracted from the document.");
+    } else {
+        console.log("Key-Value Pairs:");
+        for (const {
+                key,
+                value,
+                confidence
+            } of keyValuePairs) {
+            console.log("- Key  :", `"${key.content}"`);
+            console.log("  Value:", `"${value?.content ?? "<undefined>"}" (${confidence})`);
+        }
+    }
 
-      if (entities.length <= 0) {
-          console.log("No entities were extracted from the document.");
-      } else {
-          console.log("Entities:");
-          for (const entity of entities) {
-              console.log(
-                  `- "${entity.content}" ${entity.category} - ${entity.subCategory ?? "<none>"} (${
-            entity.confidence
-          })`
-              );
-          }
-      }
-  }
+}
 
-  main().catch((error) => {
-      console.error("An error occurred:", error);
-      process.exit(1);
-  });
+main().catch((error) => {
+    console.error("An error occurred:", error);
+    process.exit(1);
+});
+
 ```
 
 **Run your application**
@@ -224,7 +212,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To analyze a given file from a URL, you'll use the `beginAnalyzeDocuments` method and pass in `prebuilt-layout` as the model Id.
 
-**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```javascript
 
@@ -413,12 +401,12 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 
 That's it, congratulations!
 
-In this quickstart, you used the Form Recognizer JavaScript SDK to analyze various forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
+In this quickstart, you used the Form Recognizer JavaScript SDK to analyze various forms in different ways. Next, explore the Form Recognizer Studio and reference documentation to learn moe about Form Recognizer v3.0 API.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+>[!div class="nextstepaction"]
+> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [Form Recognizer JavaScript reference library](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.4/index.html)
+> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

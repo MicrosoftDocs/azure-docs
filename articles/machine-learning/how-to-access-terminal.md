@@ -25,7 +25,7 @@ Access the terminal of a compute instance in your workspace to:
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 
 ## Access a terminal
 
@@ -43,7 +43,7 @@ To access the terminal:
 
 In addition to the steps above, you can also access the terminal from:
 
-* RStudio (See [Add RStudio]([Create and manage an Azure Machine Learning compute instance]): Select the **Terminal** tab on top left.
+* RStudio (See [Add RStudio](how-to-create-manage-compute-instance.md?tabs=python#setup-rstudio-workbench)): Select the **Terminal** tab on top left.
 * Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
 * SSH to the machine, if you enabled SSH access when the compute instance was created.

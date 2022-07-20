@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: lostmygithubaccount
-ms.author: copeters
+author: s-polly
+ms.author: scottpolly
 ms.date: 04/08/2022
 ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
@@ -41,7 +41,7 @@ Check the Azure CLI extensions you've installed:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
 
-Ensure no conflicting extension using the `ml` namespace is installed, including the `azure-cli-ml` extension:
+Remove any existing installation of the of `ml` extension and also the CLI v1 `azure-cli-ml` extension:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_remove":::
 

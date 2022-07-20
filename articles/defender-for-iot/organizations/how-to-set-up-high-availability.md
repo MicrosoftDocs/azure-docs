@@ -184,7 +184,7 @@ Perform the update in the following order. Make sure each step is complete befor
 
     1. Find the domain associated with the primary appliance and copy it to your clipboard.
 
-    1. Remove the primary <!--original text said secondary, I think it's a mistake--> domain from the list of trusted hosts. Run:
+    1. Remove the primary domain from the list of trusted hosts. Run:
     
         ```bash
         sudo cyberx-management-trusted-hosts-remove -d [Primary domain]
@@ -196,7 +196,7 @@ Perform the update in the following order. Make sure each step is complete befor
         sudo cyberx-management-trusted-hosts-apply
         ```
 
-1. Update both the primary and secondary appliances to the new version. For more information, see [Update the software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
+1. Update both the primary and secondary appliances to the new version. For more information, see [Update an on-premises management console](update-ot-software.md#update-an-on-premises-management-console).
 
 1. Set up high availability again, on both the primary and secondary appliances. For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
 

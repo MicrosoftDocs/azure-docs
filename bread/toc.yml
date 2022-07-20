@@ -1003,6 +1003,10 @@
           - name: SAP
             tocHref: /azure/virtual-machines/workloads/sap/
             topicHref: /azure/virtual-machines/workloads/sap/get-started
+            items:
+              - name: Azure Center for SAP solutions
+                tocHref: /azure/center-sap-solutions/
+                topicHref: /azure/center-sap-solutions/index
           - name: Oracle
             tocHref: /azure/virtual-machines/workloads/oracle/
             topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
@@ -1079,6 +1083,6 @@
   - name: Load Testing
     tocHref: /azure/load-testing/
     topicHref: /azure/load-testing/overview-what-is-azure-load-testing
-  - name: Azure Spring Cloud
+  - name: Azure Spring Apps
     tocHref: /azure/spring-cloud/
     topicHref: /azure/spring-cloud/index

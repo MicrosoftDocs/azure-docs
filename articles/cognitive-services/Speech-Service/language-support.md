@@ -52,6 +52,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Azerbaijani (Azerbaijan)          | `az-AZ`         |
 | Basque (Spain)                    | `eu-ES`         |
 | Bengali (India)                   | `bn-IN`         |
+| Bosnian (Bosnia and Herzegovina)  | `bs-BA`         |
 | Bulgarian (Bulgaria)              | `bg-BG`         |
 | Burmese (Myanmar)                 | `my-MM`         |
 | Catalan (Spain)                   | `ca-ES`         |
@@ -116,6 +117,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Mongolian (Mongolia)              | `mn-MN`         |
 | Nepali (Nepal)                    | `ne-NP`         |
 | Norwegian (Bokmål, Norway)        | `nb-NO`         |
+| Pashto (Afghanistan)              | `ps-AF`         |
 | Persian (Iran)                    | `fa-IR`         |
 | Polish (Poland)                   | `pl-PL`         |
 | Portuguese (Brazil)               | `pt-BR`         |
@@ -126,6 +128,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Sinhala (Sri Lanka)               | `si-LK`         |
 | Slovak (Slovakia)                 | `sk-SK`         |
 | Slovenian (Slovenia)              | `sl-SI`         |
+| Somali (Somalia)                  | `so-SO`         |
 | Spanish (Argentina)               | `es-AR`         |
 | Spanish (Bolivia)                 | `es-BO`         |
 | Spanish (Chile)                   | `es-CL`         |
@@ -158,6 +161,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Ukrainian (Ukraine)               | `uk-UA`         |
 | Uzbek (Uzbekistan)                | `uz-UZ`         |
 | Vietnamese (Vietnam)              | `vi-VN`         |
+| Welsh (United Kingdom)          | `cy-GB`         |
 | Zulu (South Africa)               | `zu-ZA`         |
 
 ### [Plain text](#tab/plaintext)
@@ -394,11 +398,14 @@ You can use the locales in this table with [phrase list](improve-accuracy-phrase
 | English (India) | `en-IN` |
 | English (United Kingdom)) | `en-GB` |
 | English (United States) | `en-US` |
+| French (Canada) | `fr-CA` |
 | French (France) | `fr-FR` |
 | German (Germany) | `de-DE` |
 | Italian (Italy) | `it-IT` |
 | Japanese (Japan) | `ja-JP` |
+| Korean (Korea) | `ko-KR` |
 | Portuguese (Brazil) | `pt-BR` |
+| Spanish (Mexico) | `es-MX` |
 | Spanish (Spain) | `es-ES` |
 
 ---
@@ -430,6 +437,8 @@ The following table lists the prebuilt neural voices supported in each language.
 |---|---|---|---|---|
 | Afrikaans (South Africa) | `af-ZA` | Female | `af-ZA-AdriNeural` | General |
 | Afrikaans (South Africa) | `af-ZA` | Male | `af-ZA-WillemNeural` | General |
+| Albanian (Albania) | `sq-AL` | Female | `sq-AL-AnilaNeural` <sup>New</sup> | General |
+| Albanian (Albania) | `sq-AL` | Male | `sq-AL-IlirNeural` <sup>New</sup> | General |
 | Amharic (Ethiopia) | `am-ET` | Female | `am-ET-MekdesNeural` | General |
 | Amharic (Ethiopia) | `am-ET` | Male | `am-ET-AmehaNeural` | General |
 | Arabic (Algeria) | `ar-DZ` | Female | `ar-DZ-AminaNeural` | General |
@@ -444,10 +453,14 @@ The following table lists the prebuilt neural voices supported in each language.
 | Arabic (Jordan) | `ar-JO` | Male | `ar-JO-TaimNeural` | General |
 | Arabic (Kuwait) | `ar-KW` | Female | `ar-KW-NouraNeural` | General |
 | Arabic (Kuwait) | `ar-KW` | Male | `ar-KW-FahedNeural` | General |
+| Arabic (Lebanon) | `ar-LB` | Female | `ar-LB-LaylaNeural` <sup>New</sup> | General |
+| Arabic (Lebanon) | `ar-LB` | Male | `ar-LB-RamiNeural` <sup>New</sup> | General |
 | Arabic (Libya) | `ar-LY` | Female | `ar-LY-ImanNeural` | General |
 | Arabic (Libya) | `ar-LY` | Male | `ar-LY-OmarNeural` | General |
 | Arabic (Morocco) | `ar-MA` | Female | `ar-MA-MounaNeural` | General |
 | Arabic (Morocco) | `ar-MA` | Male | `ar-MA-JamalNeural` | General |
+| Arabic (Oman) | `ar-OM` | Female | `ar-OM-AyshaNeural` <sup>New</sup> | General |
+| Arabic (Oman) | `ar-OM` | Male | `ar-OM-AbdullahNeural` <sup>New</sup> | General |
 | Arabic (Qatar) | `ar-QA` | Female | `ar-QA-AmalNeural` | General |
 | Arabic (Qatar) | `ar-QA` | Male | `ar-QA-MoazNeural` | General |
 | Arabic (Saudi Arabia) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | General |
@@ -460,10 +473,14 @@ The following table lists the prebuilt neural voices supported in each language.
 | Arabic (United Arab Emirates) | `ar-AE` | Male | `ar-AE-HamdanNeural` | General |
 | Arabic (Yemen) | `ar-YE` | Female | `ar-YE-MaryamNeural` | General |
 | Arabic (Yemen) | `ar-YE` | Male | `ar-YE-SalehNeural` | General |
+| Azerbaijani (Azerbaijan) | `az-AZ` | Female | `az-AZ-BabekNeural` <sup>New</sup> | General |
+| Azerbaijani (Azerbaijan) | `az-AZ` | Male | `az-AZ-BanuNeural` <sup>New</sup> | General |
 | Bangla (Bangladesh) | `bn-BD` | Female | `bn-BD-NabanitaNeural` | General |
 | Bangla (Bangladesh) | `bn-BD` | Male | `bn-BD-PradeepNeural` | General |
-| Bengali (India) | `bn-IN` | Female | `bn-IN-TanishaaNeural` <sup>New</sup> | General |
-| Bengali (India) | `bn-IN` | Male | `bn-IN-BashkarNeural` <sup>New</sup> | General |
+| Bengali (India) | `bn-IN` | Female | `bn-IN-TanishaaNeural` | General |
+| Bengali (India) | `bn-IN` | Male | `bn-IN-BashkarNeural` | General |
+| Bosnian (Bosnia and Herzegovina) | `bs-BA` | Female | `bs-BA-VesnaNeural` <sup>New</sup> | General |
+| Bosnian (Bosnia and Herzegovina) | `bs-BA` | Male | `bs-BA-GoranNeural` <sup>New</sup> | General |
 | Bulgarian (Bulgaria) | `bg-BG` | Female | `bg-BG-KalinaNeural` | General |
 | Bulgarian (Bulgaria) | `bg-BG` | Male | `bg-BG-BorislavNeural` | General |
 | Burmese (Myanmar) | `my-MM` | Female | `my-MM-NilarNeural` | General |
@@ -525,10 +542,21 @@ The following table lists the prebuilt neural voices supported in each language.
 | English (South Africa) | `en-ZA` | Male | `en-ZA-LukeNeural` | General |
 | English (Tanzania) | `en-TZ` | Female | `en-TZ-ImaniNeural` | General |
 | English (Tanzania) | `en-TZ` | Male | `en-TZ-ElimuNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-AbbiNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-BellaNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-HollieNeural` | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-MaisieNeural` | General, child voice |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` <sup>Retired on 30 October 2021, see below</sup> | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-OliviaNeural` | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-SoniaNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-AlfieNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-ElliotNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-EthanNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-NoahNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-OliverNeural` | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-RyanNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-ThomasNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-AmberNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-AriaNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-AshleyNeural` | General |
@@ -557,16 +585,43 @@ The following table lists the prebuilt neural voices supported in each language.
 | French (Canada) | `fr-CA` | Female | `fr-CA-SylvieNeural` | General |
 | French (Canada) | `fr-CA` | Male | `fr-CA-AntoineNeural` | General |
 | French (Canada) | `fr-CA` | Male | `fr-CA-JeanNeural` | General |
+| French (France) | `fr-FR` | Female | `fr-FR-BrigitteNeural` | General |
+| French (France) | `fr-FR` | Female | `fr-FR-CelesteNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-CoralieNeural`  | General |
 | French (France) | `fr-FR` | Female | `fr-FR-DeniseNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) <sup>Public preview</sup> |
+| French (France) | `fr-FR` | Female | `fr-FR-EloiseNeural`  | General, child voice |
+| French (France) | `fr-FR` | Female | `fr-FR-JacquelineNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-JosephineNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-YvetteNeural`  | General |
+| French (France) | `fr-FR` | Male | `fr-FR-AlainNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-ClaudeNeural` | General |
 | French (France) | `fr-FR` | Male | `fr-FR-HenriNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-JeromeNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-MauriceNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-YvesNeural` | General |
 | French (Switzerland) | `fr-CH` | Female | `fr-CH-ArianeNeural` | General |
 | French (Switzerland) | `fr-CH` | Male | `fr-CH-FabriceNeural` | General |
 | Galician (Spain) | `gl-ES` | Female | `gl-ES-SabelaNeural` | General |
 | Galician (Spain) | `gl-ES` | Male | `gl-ES-RoiNeural` | General |
+| Georgian (Georgia) | `ka-GE` | Female | `ka-GE-EkaNeural` <sup>New</sup> | General |
+| Georgian (Georgia) | `ka-GE` | Male | `ka-GE-GiorgiNeural` <sup>New</sup> | General |
 | German (Austria) | `de-AT` | Female | `de-AT-IngridNeural` | General |
 | German (Austria) | `de-AT` | Male | `de-AT-JonasNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-AmalaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-ElkeNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-GiselaNeural` | General, child voice |
 | German (Germany) | `de-DE` | Female | `de-DE-KatjaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-KlarissaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-LouisaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-MajaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-TanjaNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-BerndNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-ChristophNeural` | General |
 | German (Germany) | `de-DE` | Male | `de-DE-ConradNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-KasperNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-KillianNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-KlausNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-RalfNeural` | General |
 | German (Switzerland) | `de-CH` | Female | `de-CH-LeniNeural` | General |
 | German (Switzerland) | `de-CH` | Male | `de-CH-JanNeural` | General |
 | Greek (Greece) | `el-GR` | Female | `el-GR-AthinaNeural` | General |
@@ -579,8 +634,8 @@ The following table lists the prebuilt neural voices supported in each language.
 | Hindi (India) | `hi-IN` | Male | `hi-IN-MadhurNeural` | General |
 | Hungarian (Hungary) | `hu-HU` | Female | `hu-HU-NoemiNeural` | General |
 | Hungarian (Hungary) | `hu-HU` | Male | `hu-HU-TamasNeural` | General |
-| Icelandic (Iceland) | `is-IS` | Female | `is-IS-GudrunNeural` <sup>New</sup> | General |
-| Icelandic (Iceland) | `is-IS` | Male | `is-IS-GunnarNeural` <sup>New</sup> | General |
+| Icelandic (Iceland) | `is-IS` | Female | `is-IS-GudrunNeural` | General |
+| Icelandic (Iceland) | `is-IS` | Male | `is-IS-GunnarNeural` | General |
 | Indonesian (Indonesia) | `id-ID` | Female | `id-ID-GadisNeural` | General |
 | Indonesian (Indonesia) | `id-ID` | Male | `id-ID-ArdiNeural` | General |
 | Irish (Ireland) | `ga-IE` | Female | `ga-IE-OrlaNeural` | General |
@@ -592,35 +647,39 @@ The following table lists the prebuilt neural voices supported in each language.
 | Japanese (Japan) | `ja-JP` | Male | `ja-JP-KeitaNeural` | General |
 | Javanese (Indonesia) | `jv-ID` | Female | `jv-ID-SitiNeural` | General |
 | Javanese (Indonesia) | `jv-ID` | Male | `jv-ID-DimasNeural` | General |
-| Kannada (India) | `kn-IN` | Female | `kn-IN-SapnaNeural` <sup>New</sup> | General |
-| Kannada (India) | `kn-IN` | Male | `kn-IN-GaganNeural` <sup>New</sup> | General |
-| Kazakh (Kazakhstan) | `kk-KZ` | Female | `kk-KZ-AigulNeural` <sup>New</sup> | General |
-| Kazakh (Kazakhstan) | `kk-KZ` | Male | `kk-KZ-DauletNeural` <sup>New</sup> | General |
+| Kannada (India) | `kn-IN` | Female | `kn-IN-SapnaNeural` | General |
+| Kannada (India) | `kn-IN` | Male | `kn-IN-GaganNeural` | General |
+| Kazakh (Kazakhstan) | `kk-KZ` | Female | `kk-KZ-AigulNeural` | General |
+| Kazakh (Kazakhstan) | `kk-KZ` | Male | `kk-KZ-DauletNeural` | General |
 | Khmer (Cambodia) | `km-KH` | Female | `km-KH-SreymomNeural` | General |
 | Khmer (Cambodia) | `km-KH` | Male | `km-KH-PisethNeural` | General |
 | Korean (Korea) | `ko-KR` | Female | `ko-KR-SunHiNeural` | General |
 | Korean (Korea) | `ko-KR` | Male | `ko-KR-InJoonNeural` | General |
-| Lao (Laos) | `lo-LA` | Female | `lo-LA-KeomanyNeural` <sup>New</sup> | General |
-| Lao (Laos) | `lo-LA` | Male | `lo-LA-ChanthavongNeural` <sup>New</sup> | General |
+| Lao (Laos) | `lo-LA` | Female | `lo-LA-KeomanyNeural` | General |
+| Lao (Laos) | `lo-LA` | Male | `lo-LA-ChanthavongNeural` | General |
 | Latvian (Latvia) | `lv-LV` | Female | `lv-LV-EveritaNeural` | General |
 | Latvian (Latvia) | `lv-LV` | Male | `lv-LV-NilsNeural` | General |
 | Lithuanian (Lithuania) | `lt-LT` | Female | `lt-LT-OnaNeural` | General |
 | Lithuanian (Lithuania) | `lt-LT` | Male | `lt-LT-LeonasNeural` | General |
-| Macedonian (Republic of North Macedonia) | `mk-MK` | Female | `mk-MK-MarijaNeural` <sup>New</sup> | General |
-| Macedonian (Republic of North Macedonia) | `mk-MK` | Male | `mk-MK-AleksandarNeural` <sup>New</sup> | General |
+| Macedonian (Republic of North Macedonia) | `mk-MK` | Female | `mk-MK-MarijaNeural` | General |
+| Macedonian (Republic of North Macedonia) | `mk-MK` | Male | `mk-MK-AleksandarNeural` | General |
 | Malay (Malaysia) | `ms-MY` | Female | `ms-MY-YasminNeural` | General |
 | Malay (Malaysia) | `ms-MY` | Male | `ms-MY-OsmanNeural` | General |
-| Malayalam (India) | `ml-IN` | Female | `ml-IN-SobhanaNeural` <sup>New</sup> | General |
-| Malayalam (India) | `ml-IN` | Male | `ml-IN-MidhunNeural` <sup>New</sup> | General |
+| Malayalam (India) | `ml-IN` | Female | `ml-IN-SobhanaNeural` | General |
+| Malayalam (India) | `ml-IN` | Male | `ml-IN-MidhunNeural` | General |
 | Maltese (Malta) | `mt-MT` | Female | `mt-MT-GraceNeural` | General |
 | Maltese (Malta) | `mt-MT` | Male | `mt-MT-JosephNeural` | General |
 | Marathi (India) | `mr-IN` | Female | `mr-IN-AarohiNeural` | General |
 | Marathi (India) | `mr-IN` | Male | `mr-IN-ManoharNeural` | General |
+| Mongolian (Mongolia) | `mn-MN` | Female | `mn-MN-YesuiNeural` <sup>New</sup> | General |
+| Mongolian (Mongolia) | `mn-MN` | Male | `mn-MN-BataaNeural` <sup>New</sup> | General |
+| Nepali (Nepal) | `ne-NP` | Female | `ne-NP-HemkalaNeural` <sup>New</sup> | General |
+| Nepali (Nepal) | `ne-NP` | Male | `ne-NP-SagarNeural` <sup>New</sup> | General |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Female | `nb-NO-IselinNeural` | General |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Female | `nb-NO-PernilleNeural` | General |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Male | `nb-NO-FinnNeural` | General |
-| Pashto (Afghanistan) | `ps-AF` | Female | `ps-AF-LatifaNeural` <sup>New</sup> | General |
-| Pashto (Afghanistan) | `ps-AF` | Male | `ps-AF-GulNawazNeural` <sup>New</sup> | General |
+| Pashto (Afghanistan) | `ps-AF` | Female | `ps-AF-LatifaNeural` | General |
+| Pashto (Afghanistan) | `ps-AF` | Male | `ps-AF-GulNawazNeural` | General |
 | Persian (Iran) | `fa-IR` | Female | `fa-IR-DilaraNeural` | General |
 | Persian (Iran) | `fa-IR` | Male | `fa-IR-FaridNeural` | General |
 | Polish (Poland) | `pl-PL` | Female | `pl-PL-AgnieszkaNeural` | General |
@@ -636,10 +695,10 @@ The following table lists the prebuilt neural voices supported in each language.
 | Russian (Russia) | `ru-RU` | Female | `ru-RU-DariyaNeural` | General |
 | Russian (Russia) | `ru-RU` | Female | `ru-RU-SvetlanaNeural` | General |
 | Russian (Russia) | `ru-RU` | Male | `ru-RU-DmitryNeural` | General |
-| Serbian (Serbia, Cyrillic) | `sr-RS` | Female | `sr-RS-SophieNeural` <sup>New</sup> | General |
-| Serbian (Serbia, Cyrillic) | `sr-RS` | Male | `sr-RS-NicholasNeural` <sup>New</sup> | General |
-| Sinhala (Sri Lanka) | `si-LK` | Female | `si-LK-ThiliniNeural` <sup>New</sup> | General |
-| Sinhala (Sri Lanka) | `si-LK` | Male | `si-LK-SameeraNeural` <sup>New</sup> | General |
+| Serbian (Serbia, Cyrillic) | `sr-RS` | Female | `sr-RS-SophieNeural` | General |
+| Serbian (Serbia, Cyrillic) | `sr-RS` | Male | `sr-RS-NicholasNeural` | General |
+| Sinhala (Sri Lanka) | `si-LK` | Female | `si-LK-ThiliniNeural` | General |
+| Sinhala (Sri Lanka) | `si-LK` | Male | `si-LK-SameeraNeural` | General |
 | Slovak (Slovakia) | `sk-SK` | Female | `sk-SK-ViktoriaNeural` | General |
 | Slovak (Slovakia) | `sk-SK` | Male | `sk-SK-LukasNeural` | General |
 | Slovenian (Slovenia) | `sl-SI` | Female | `sl-SI-PetraNeural` | General |
@@ -701,6 +760,8 @@ The following table lists the prebuilt neural voices supported in each language.
 | Swedish (Sweden) | `sv-SE` | Male | `sv-SE-MattiasNeural` | General |
 | Tamil (India) | `ta-IN` | Female | `ta-IN-PallaviNeural` | General |
 | Tamil (India) | `ta-IN` | Male | `ta-IN-ValluvarNeural` | General |
+| Tamil (Malaysia) | `ta-MY` | Female | `ta-MY-KaniNeural` <sup>New</sup> | General |
+| Tamil (Malaysia) | `ta-MY` | Male | `ta-MY-SuryaNeural` <sup>New</sup> | General |
 | Tamil (Singapore) | `ta-SG` | Female | `ta-SG-VenbaNeural` | General |
 | Tamil (Singapore) | `ta-SG` | Male | `ta-SG-AnbuNeural` | General |
 | Tamil (Sri Lanka) | `ta-LK` | Female | `ta-LK-SaranyaNeural` | General |
@@ -736,50 +797,54 @@ The following neural voices are in public preview.
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, 2 new multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, 1 new multiple style available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunfengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-AbbiNeural` | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-BellaNeural` | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-HollieNeural` | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-OliviaNeural` | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-MaisieNeural` | General, child voice |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-AlfieNeural` | General |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-ElliotNeural` | General |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-EthanNeural` | General |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-NoahNeural` | General |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-OliverNeural` | General |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-ThomasNeural` | General |
-| English (United States) | `en-US` | Male | `en-US-DavisNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, 1 new multiple style available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, 2 new multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN-liaoning` | Female | `zh-CN-liaoning-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
+| Chinese (Mandarin, Simplified) | `zh-CN-sichuan` | Male | `zh-CN-sichuan-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
 | English (United States) | `en-US` | Female | `en-US-JaneNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| English (United States) | `en-US` | Male | `en-US-JasonNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-NancyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-DavisNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-JasonNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-TonyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| French (France) | `fr-FR` | Female | `fr-FR-BrigitteNeural` | General |
-| French (France) | `fr-FR` | Female | `fr-FR-CelesteNeural`  | General |
-| French (France) | `fr-FR` | Female | `fr-FR-CoralieNeural`  | General |
-| French (France) | `fr-FR` | Female | `fr-FR-JacquelineNeural`  | General |
-| French (France) | `fr-FR` | Female | `fr-FR-JosephineNeural`  | General |
-| French (France) | `fr-FR` | Female | `fr-FR-YvetteNeural`  | General |
-| French (France) | `fr-FR` | Female | `fr-FR-EloiseNeural`  | General, child voice |
-| French (France) | `fr-FR` | Male | `fr-FR-AlainNeural` | General |
-| French (France) | `fr-FR` | Male | `fr-FR-ClaudeNeural` | General |
-| French (France) | `fr-FR` | Male | `fr-FR-JeromeNeural` | General |
-| French (France) | `fr-FR` | Male | `fr-FR-MauriceNeural` | General |
-| French (France) | `fr-FR` | Male | `fr-FR-YvesNeural` | General |
-| German (Germany) | `de-DE` | Female | `de-DE-AmalaNeural` | General |
-| German (Germany) | `de-DE` | Female | `de-DE-ElkeNeural` | General |
-| German (Germany) | `de-DE` | Female | `de-DE-KlarissaNeural` | General |
-| German (Germany) | `de-DE` | Female | `de-DE-LouisaNeural` | General |
-| German (Germany) | `de-DE` | Female | `de-DE-MajaNeural` | General |
-| German (Germany) | `de-DE` | Female | `de-DE-TanjaNeural` | General |
-| German (Germany) | `de-DE` | Female | `de-DE-GiselaNeural` | General, child voice |
-| German (Germany) | `de-DE` | Male | `de-DE-BerndNeural` | General |
-| German (Germany) | `de-DE` | Male | `de-DE-ChristophNeural` | General |
-| German (Germany) | `de-DE` | Male | `de-DE-KasperNeural` | General |
-| German (Germany) | `de-DE` | Male | `de-DE-KillianNeural` | General |
-| German (Germany) | `de-DE` | Male | `de-DE-KlausNeural` | General |
-| German (Germany) | `de-DE` | Male | `de-DE-RalfNeural` | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-FabiolaNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-FiammaNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-ImeldaNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-IrmaNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-PalmiraNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-PierinaNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-BenignoNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-CalimeroNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-CataldoNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-GianniNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-LisandroNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-RinaldoNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-BrendaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-ElzaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-GiovannaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-LeilaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-LeticiaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-ManuelaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-YaraNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-DonatoNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-FabioNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-HumbertoNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-JulioNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-NicolauNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-ValerioNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-BeatrizNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-CandelaNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-CarlotaNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-LarissaNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-MarinaNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-NuriaNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-RenataNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-CecilioNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-GerardoNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-LibertoNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-LucianoNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-PelayoNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-YagoNeural` <sup>New</sup> | General |
 
 
 ### Voice styles and roles
@@ -844,7 +909,7 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Czech (Czech) | `cs-CZ` | No |No|
 | Danish (Denmark) | `da-DK` | No |No|
 | Dutch (Netherlands) | `nl-NL` | No |No|
-| English (Australia) | `en-AU` | Yes |No|
+| English (Australia) | `en-AU` | Yes |Yes|
 | English (Canada) | `en-CA` | No |Yes|
 | English (India) | `en-IN` | No |No|
 | English (Ireland) | `en-IE` | No |No|
@@ -863,7 +928,7 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Hungarian (Hungary) | `hu-HU` | No |No|
 | Indonesian (Indonesia) | `id-ID` | No |No|
 | Italian (Italy) | `it-IT` | Yes |Yes|
-| Japanese (Japan) | `ja-JP` | Yes |No|
+| Japanese (Japan) | `ja-JP` | Yes |Yes|
 | Korean (Korea) | `ko-KR` | Yes |Yes|
 | Malay (Malaysia) | `ms-MY` | No |No|
 | Norwegian (Bokmål, Norway) | `nb-NO` | No |No|
@@ -899,18 +964,23 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 |Danish|`da-DK`|
 |Dutch|`nl-NL`|
 |English|`en-AU`<br/>`en-CA`<br/>`en-GH`<br/>`en-HK`<br/>`en-IN`<br/>`en-IE`<br/>`en-KE`<br/>`en-NZ`<br/>`en-NG`<br/>`en-PH`<br/>`en-SG`<br/>`en-ZA`<br/>`en-TZ`<br/>`en-GB`<br/>`en-US`|
+|Estonian|`et-EE`|
 |Finnish|`fi-FI`|
 |French|`fr-CA`<br/>`fr-FR`|
 |German|`de-DE`|
 |Greek|`el-GR`|
+|Gujarati|`gu-IN`|
 |Hindi|`hi-IN`|
 |Hungarian|`hu-HU`|
 |Indonesian|`id-ID`|
+|Irish|`ga-IE`|
 |Italian|`it-IT`|
 |Japanese|`ja-JP`|
 |Korean|`ko-KR`|
 |Latvian|`lv-LV`|
 |Lithuanian|`lt-LT`|
+|Maltese|`mt-MT`|
+|Marathi|`mr-IN`|
 |Norwegian|`nb-NO`|
 |Polish|`pl-PL`|
 |Portuguese|`pt-BR`<br/>`pt-PT`|
@@ -921,8 +991,10 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 |Spanish|`es-AR`<br/>`es-BO`<br/>`es-CL`<br/>`es-CO`<br/>`es-CR`<br/>`es-CU`<br/>`es-DO`<br/>`es-EC`<br/>`es-SV`<br/>`es-GQ`<br/>`es-GT`<br/>`es-HN`<br/>`es-MX`<br/>`es-NI`<br/>`es-PA`<br/>`es-PY`<br/>`es-PE`<br/>`es-PR`<br/>`es-ES`<br/>`es-UY`<br/>`es-US`<br/>`es-VE`|
 |Swedish|`sv-SE`|
 |Tamil|`ta-IN`|
+|Telugu|`te-IN`|
 |Thai|`th-TH`|
 |Turkish|`tr-TR`|
+|Ukrainian|`uk-UA`|
 
 ## Pronunciation assessment
 
