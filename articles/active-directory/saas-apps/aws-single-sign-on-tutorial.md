@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. Click **Upload metadata file**.
 
-	b. Click on **folder logo**  to select metadata file which is explained to download in **[Configure AWS Single Sign-On SSO](#configure-aws-iam-identity-center-sso)** section and click **Add**.
+	b. Click on **folder logo**  to select metadata file, which is explained to download in **[Configure AWS Single Sign-On SSO](#configure-aws-iam-identity-center-sso)** section and click **Add**.
 
 	![image2](common/browse-upload-metadata.png)
 
@@ -174,7 +174,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. Copy **AWS SSO Sign-in URL** value, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration section** in the Azure portal.
 
-    c. In the **Identity provider metadata** section, choose **Browse** to upload the metadata file which you have downloaded from the Azure portal.
+    c. In the **Identity provider metadata** section, choose **Browse** to upload the metadata file, which you have downloaded from the Azure portal.
 
     d. Choose **Next: Review**.
 
@@ -198,7 +198,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the **Email address** field, enter the `username@companydomain.extension`. For example, `B.Simon@contoso.com`.
 
-    c. In the **Confirm email address** field, re-enter the email address from the previous step.
+    c. In the **Confirm email address** field, reenter the email address from the previous step.
 
     d. In the First name field, enter `Jane`.
 
