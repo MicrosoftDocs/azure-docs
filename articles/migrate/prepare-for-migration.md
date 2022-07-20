@@ -68,7 +68,7 @@ There are some changes needed on VMs before you migrate them to Azure.
 
 - For some operating systems, Azure Migrate makes changes automatically during the replication/migration process.
 - For other operating systems, you need to configure settings manually.
-- It's important to configure settings manually before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
+- It's important to configure settings manually before you begin migration. Some of the changes may affect VM boot up, or connectivity to the VM may not be established. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 
 Review the tables to identify the changes you need to make.
 
@@ -114,7 +114,9 @@ Azure Migrate completes these actions automatically for these versions
 - Debian 10, 9, 8, 7
 - Oracle Linux 8, 7.7-CI, 7.7, 6
 
-For other versions, prepare machines as summarized in the table.  
+For other versions, prepare machines as summarized in the table. 
+> [!Note]
+> Some changes may affect the VM boot up, or connectivity to the VM may not be established.
 
 
 **Action** | **Details** | **Linux version**
