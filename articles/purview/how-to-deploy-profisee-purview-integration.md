@@ -27,7 +27,7 @@ More Details on [Profisee MDM](https://profisee.com/master-data-management-what-
 
 
 ## Why Microsoft Purview chose Profisee for Master Data Management (MDM)?
-### PROFISEE MDM: TRUE SAAS EXPERIENCE 
+### Profisee MDM: True SaaS experience 
 A fully managed instance of Profisee MDM hosted in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.
 
 - Platform and Management in One -
@@ -39,7 +39,7 @@ Hosted on Azure for industry-leading scalability and availability
 - The fastest path to trusted data -
 Leave the networking, firewalls and storage to us so you can deploy in minutes
 
-### PROFISEE MDM: ULTIMATE PAAS FLEXIBILITY 
+### Profisee MDM: Ultimate PaaS flexibility 
 Complete deployment flexibility and control, using the most efficient and low-maintenance option on [Microsoft Azure](https://azure.microsoft.com/) cloud-or on-prem.
 
 - Modern Cloud Architecture -
@@ -53,18 +53,18 @@ Fully containerized configuration streamlines patches and upgrades
 
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
 
-## Profisee <> Purview Reference Architecture
+## Microsoft Purview - Profisee Reference Architecture
 :::image type="content" alt-text="Profisee-Purview Reference Architecture Diagram" source="https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png" lightbox="https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png":::
 
-### Profisee <> Purview Reference Architecture - Guides/Reference Docs
-1. [Data Governance with Profisee and Microsoft Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
-1. [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and Power BI](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
-1. [MDM on Azure Overview](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
+### Microsoft Purview - Profisee Reference Architecture - Guides/Reference Docs
+  - [Data Governance with Profisee and Microsoft Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
+  - [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and Power BI](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
+  - [MDM on Azure Overview](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
 
-### Business & Technical Use Case (Example)
+### Example Scenario: Business & Technical Use Case
 Let's take an example of a sample manufacturing company working across multiple data sources; it uses ADF to load the business critical data sources into Profisee, which is when Profisee works its magic and finds out the golden records and matching records and then we finally are able to enrich the metadata with Purview (updates  made by Purview on Classifications, Sensitivity Labels, Glossary and all other Catalog features are reflected seamlessly into Profisee). Finally, they connect the enriched metadata detected by Purview and cleansed/curated data by Profisee with Power BI or Azure ML for advanced analytics.
 
-## Microsoft Purview - Profisee Integration SaaS Deployment on AKS Azure Kubernetes Infrastructure How-To Guide
+## Microsoft Purview - Profisee Integration SaaS Deployment on AKS Azure Kubernetes How-To Guide
 
 1. Create a managed identity in Azure. You must have a Managed Identity created to run the deployment. This Managed Identity must have the following permissions when running a deployment. After it's done, the Managed Identity can be deleted. Based on your ARM template choices, you'll need some or all of the following permissions assigned to your Managed Identity:
   - Contributor role to the Resource Group where AKS will be deployed. It can either be assigned directly to the Resource Group OR at Subscription level down.
@@ -83,11 +83,11 @@ Let's take an example of a sample manufacturing company working across multiple 
 
 ### Stages of a typical Profisee-Purview Deployment Run
 - Profisee ARM Deployment Wizard - Managed Identity for installation; its role assignments and permissions should look like the image below.
-:::image type="content" alt-text="Image 1 - Screenshot of Profisee Managed Identity Azure Role Assignments" source="media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png" lightbox="media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png":::
+:::image type="content" alt-text="Image 1 - Screenshot of Profisee Managed Identity Azure Role Assignments" source="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png":::
 - Profisee ARM Deployment Wizard - App Registration Configuration
-:::image type="content" alt-text="Image 2 - Screenshot of Profisee Azure ARM Wizard App Registration Configuration" source="media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png" lightbox="media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png":::
+:::image type="content" alt-text="Image 2 - Screenshot of Profisee Azure ARM Wizard App Registration Configuration" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png":::
 - Profisee ARM Deployment Wizard - Profisee Configuration and supplying Admin account username
-:::image type="content" alt-text="Image 3 - Screenshot of Profisee Azure ARM Wizard Step1 Profisee" source="media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png" lightbox="media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png":::
+:::image type="content" alt-text="Image 3 - Screenshot of Profisee Azure ARM Wizard Step1 Profisee" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png":::
 - Profisee ARM Deployment Wizard - Kubernetes Configuration - You may choose an older version of Kubernetes but leave the field BLANK to deploy the LATEST version.
 :::image type="content" alt-text="Image 4 - Screenshot of Profisee Azure ARM_Wizard Step2 Kubernetes" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png":::
 - Profisee ARM Deployment Wizard - SQL Server
@@ -109,6 +109,6 @@ Recommended: Keep it to "Yes, use default Azure DNS". Choosing Yes, the deployer
 :::image type="content" alt-text="Image 12 - Screenshot of Profisee Azure ARM Wizard Click Outputs Get FinalDeployment URL" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png":::
 - Populate and hydrate data to the newly installed profisee environment by installing FastApp. Go to your Profisee SaaS deployment URL and select **/Profisee/api/client**. It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client".
 
-## Next Steps
+## Next steps
 Through this guide, we learned how to set up and deploy a Microsoft Purview-Profisee integration.
 For more usage details on Profisee and Profisee FastApp, especially how to configure data models, data quality, MDM and various other features of Profisee - Register on [Profisee Academy Tutorials and Demos](https://profisee.com/demo/) for further detailed tutorials on the Profisee side of MDM!
