@@ -72,9 +72,9 @@ SBC pairing works on the Communication Services resource level. It means you can
 
 The connection points for Communication Services direct routing are the following three FQDNs:
 
-- **sip.pstnhub.microsoft.com — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
-- **sip2.pstnhub.microsoft.com — Secondary FQDN — geographically maps to the second priority region.
-- **sip3.pstnhub.microsoft.com — Tertiary FQDN — geographically maps to the third priority region.
+- **sip.pstnhub.microsoft.com** — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
+- **sip2.pstnhub.microsoft.com** — Secondary FQDN — geographically maps to the second priority region.
+- **sip3.pstnhub.microsoft.com** — Tertiary FQDN — geographically maps to the third priority region.
 
 These three FQDNs in order are required to:
 
