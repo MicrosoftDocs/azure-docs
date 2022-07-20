@@ -49,9 +49,9 @@ Bold is preferred for calling out UI text. https://docs.microsoft.com/en-us/styl
 
 1. Fill in the **Project Name**, **Location** and **Solution Name** fields then select **Next**.
 
-1. Select a target framework. We recommend using the latest .NET 6.0 LTS version. Once the framework is selected, select _Create_.
+1. Choose a target framework. The latest .NET 6.0 LTS version is preferred. After choosing a target framework, select **Create**. Visual Studio creates a new console app solution.
 
-1. Once the solution is loaded, right-click on the project and select _Manage NuGet Packages_.
+1. In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
 
 1. Select **Browse** and then search for `Microsoft.TSS`.
 
@@ -67,34 +67,34 @@ Bold is preferred for calling out UI text. https://docs.microsoft.com/en-us/styl
 
 1. In the **Publish** wizard, choose **Folder** > **Folder**. Select **Browse** and choose an output location for the executable file to be generated.  Select **Finish**. After the publish profile is created, select **Close**.
 
-1. On the new _Publish_ opened tab, select _Show all settings_, change the following configurations and select _Save_. 
-    - Target Runtime:  _linux-x64_.
-    - Deployment mode: _Self-contained_.
+1. On the **Publish** tab, select **Show all settings** link. Change the following configurations then select **Save**. 
+    - Target Runtime:  **linux-x64**.
+    - Deployment mode: **Self-contained**.
     
     ![Publish options](./media/how-to-access-dtpm/sample-publish-options.png)
  
-1. Select the _Publish_ button and wait for the executable to be created. 
+1. Select **Publish** then wait for the executable to be created. 
 
-If everything was successfully, you should see the new files created under your output folder.
+If publish succeeds, you should see the new files created in your output folder.
 
 ## Copy and run the executable
-Once the executable file and dependency files were created, you need to copy the folder to the EFLOW virtual machine. The following steps in this section show how to copy all the necessary files and how to run the executable inside the EFLOW virtual machine.
+Once the executable file and dependency files are created, you need to copy the folder to the EFLOW virtual machine. The following steps show you how to copy all the necessary files and how to run the executable inside the EFLOW virtual machine.
 
-1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
 
-1. Move to the parent folder that contains all the created files. 
-    For example, if you have all your files under the folder _TPM_ in the directory `C:\Users\User`. you can use the following command to move to that parent folder.
+1. Change directory to the parent folder that contains the published files. 
+    For example, if your published files are under the folder *TPM* in the directory `C:\Users\User`.  You can use the following command to change to the parent folder.
     ```powershell
     cd "C:\Users\User"
     ```
 
-1. Create a _tar_ file with all the files created in previous steps. For more information about PowerShell _.tar_ support, see [Tar and Curl Come to Windows](/virtualization/community/team-blog/2017/20171219-tar-and-curl-come-to-windows.md).
+1. Create a *tar* file with all the files created in previous steps. For more information about PowerShell *tar* support, see [Tar and Curl Come to Windows](/virtualization/community/team-blog/2017/20171219-tar-and-curl-come-to-windows).
     For example, if you have all your files under the folder _TPM_, you can use the following command to create the _TPM.tar_ file.
     ```powershell
      tar -cvzf TPM.tar ".\TPM"
     ```
 
-1. Once the _TPM.tar_ file was created successfully, use the `Copy-EflowVmFile` cmdlet to copy the _tar_ file created to the EFLOW VM.
+1. Once the *TPM.tar* file is created successfully, use the `Copy-EflowVmFile` cmdlet to copy the *tar* file created to the EFLOW VM.
     For example, if you have the _tar_ file name _TPM.tar_ in the directory `C:\Users\User`. you can use the following command to copy to the EFLOW VM.
     ```powershell
     Copy-EflowVmFile -fromFile "C:\Users\User\TPM.tar" -toFile "/home/iotedge-user/" -pushFile
@@ -105,26 +105,30 @@ Once the executable file and dependency files were created, you need to copy the
     Connect-EflowVm
     ```
 
-1. Move to the folder you copied the _tar_ file and check the file is available. If you used the example above, when connected to the EFLOW VM, you'll already be at the _iotedge-user_ root folder. Run `ls` to see all the files and folders in that folder.
+1. Change directory to the folder where you copied the *tar* file and check the file is available. If you used the example above, when connected to the EFLOW VM, you'll already be at the *iotedge-user* root folder. Run the `ls` command to list the files and folders.
 
 1. Run the following command to extract all the content from the _tar_ file.
     ```bash
     tar -xvzf TPM.tar
     ```
 
-1. If everything was successfully, you should see a new folder with all the extracted files. 
+1. After extraction, you should see a new folder with all the TPM files. 
+1. Change directory to the *TPM* folder.
+    ```bash
+    cd TPM
+    ```
 
-1. Add executable permission to the main executable file - For example, if your project name was _TPMRead_ you should have a file named _TPMRead_ and you should run the following command to make it executable.
+1. Add executable permission to the main executable file. For example, if your project name was *TPMRead*, your main executable is named *TPMRead*. Run the following command to make it executable.
     ```bash
     chmod +x TPMRead
     ```
 
-1. To solve ICU globalization [issue](https://github.com/dotnet/core/issues/2186#issuecomment-472629489), for example, if your project name is _TPMTest_ run the following command:
+1. To solve an [ICU globalization issue](https://github.com/dotnet/core/issues/2186#issuecomment-472629489), run the following command. For example, if your project name is *TPMTest* run:
     ```bash
      sed -i '/"configProperties": /a \\t"System.Globalization.Invariant\": true,' TPMTest.runtimeconfig.json
     ```
 
-1. Final step is to run the executable file. For example, if your project name is _TPMTest_ use the following command
+1. The last step is to run the executable file. For example, if your project name is *TPMTest*, run the following command:
     ```bash
     ./TPMTest
     ```
