@@ -163,14 +163,15 @@ To ensure consistent query execution times, consider forcing the build of the re
 This query uses the [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) DMV to list the replicated tables that have been modified, but not rebuilt.
 
 ```sql
-SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
-    ON c.object_id = t.object_id
-  JOIN sys.pdw_table_distribution_properties p
-    ON p.object_id = t.object_id
-  WHERE c.[state] = 'NotReady'
-    AND p.[distribution_policy_desc] = 'REPLICATE'
+SELECT SCHEMA_NAME(t.schema_id) SchemaName , [ReplicatedTable] = t.[name] , 
+'SELECT TOP 1 * FROM ' + '[' + SCHEMA_NAME(t.schema_id) + '].[' + t.[name] +']' AS RebuildStatement 
+FROM sys.tables t 
+JOIN sys.pdw_replicated_table_cache_state c 
+  ON c.object_id = t.object_id
+JOIN sys.pdw_table_distribution_properties p
+  ON p.object_id = t.object_id
+WHERE c.[state] = 'NotReady'
+AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
 
 To trigger a rebuild, run the following statement on each table in the preceding output.
