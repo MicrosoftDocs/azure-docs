@@ -10,7 +10,9 @@ ms.topic: overview
 ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
-keywords: automated data processing, document processing, automated data entry, forms processing
+adobe-target-activity:
+adobe-target-experience: Experience B
+adobe-target-content: overview-experiment
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
 <!-- markdownlint-disable MD033 -->

@@ -7,9 +7,11 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/11/2022
+ms.date: 07/20/2022
 ms.author: lajanuar
 recommendations: false
+robots: noindex
+
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
 <!-- markdownlint-disable MD033 -->
