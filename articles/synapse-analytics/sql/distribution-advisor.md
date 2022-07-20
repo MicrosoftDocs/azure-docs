@@ -55,7 +55,7 @@ go
 EXEC dbo.read_dist_recommendation;
 go
 ```
-The first parameter in dbo.write_dist_recommendation should be set to 0 and the second parameter is a semi-colon separated list of upto 100 queries that DA will analyze.
+The first parameter in dbo.write_dist_recommendation should be set to 0 and the second parameter is a semi-colon separated list of up to 100 queries that DA will analyze.
 
 ## View recommendations
 
@@ -74,9 +74,49 @@ dbo.read_dist_recommendation will return recommendations in the following format
 - Modify queries to run on new tables.
 - Execute queries on old and new tables to compare for performance improvements.
 
-## Next steps
-Also see the [Troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for common issues and solutions.
+## Troubleshooting
 
+- Stale state from a previous run of the advisor:
+
+    Symptom:
+
+	You see this error message upon running the advisor.
+    ![troubleshooting-1](./media/distribution-advisor/troubleshooting-1.jpg)
+
+	Mitigation:
+
+	- Verify that you a using single quotes '' to run the advisor on select queries.
+	- Start a new session in SSMS and run the advisor.
+
+- Errors during running the advisor
+	
+	Symptom:
+	
+	The ‘result’ pane shows CommandToInvokeAdvisorString below but does not show the RecommendationOutput below.
+
+	You see this: 
+ 
+	![troubleshooting-2](./media/distribution-advisor/troubleshooting-2.png)
+	
+	But not this:  
+
+	![troubleshooting-3](./media/distribution-advisor/troubleshooting-3.png)
+	
+	Mitigation:
+	Check the output of CommandToInvokeAdvisorString above. Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing where clause here:  [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql)
+
+- Error during post-processing of recommendation output
+	
+    Symptom:
+
+	You see the following error message.
+    ![troubleshooting-4](./media/distribution-advisor/troubleshooting-4.png)
+	
+	Mitigation:
+	Ensure that you have the most up to date version of the stored procedure
+
+
+## Next steps
 If you need information not provided in this article, search the [Microsoft Q&A question page for Azure Synapse](/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the Azure Synapse Analytics Product Group.  
 
 We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-synapse).
