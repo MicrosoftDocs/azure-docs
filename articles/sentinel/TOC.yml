@@ -3,9 +3,9 @@
 - name: Overview
   expanded: true
   items:
-  - name: About Microsoft Sentinel
+  - name: What is Microsoft Sentinel?
     href: overview.md
-  - name: What's new in Microsoft Sentinel?
+  - name: What's new
     href: whats-new.md
 - name: Quickstart
   items:
@@ -340,8 +340,12 @@
         href: notebooks-troubleshoot.md
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
-      - name: Large-scale security analytics with Azure Synapse
+      - name: Configure big data analytics settings
         href: notebooks-with-synapse.md
+      - name: Export and transform historical log data
+        href: notebooks-with-synapse-export-data.md
+      - name: Hunt on large historical datasets
+        href: notebooks-with-synapse-hunt.md
     - name: Hunt with bookmarks
       href: bookmarks.md
     - name: Hunt with livestream
@@ -368,6 +372,8 @@
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
       href: playbook-triggers-actions.md
+    - name: Migrate alert playbooks to automation rules
+      href: migrate-playbooks-to-automation-rules.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
   - name: Manage Microsoft Sentinel
@@ -500,8 +506,8 @@
       href: top-workbooks.md
     - name: Entities reference
       href: entities-reference.md
-    - name: UEBA enrichments
-      href: ueba-enrichments.md
+    - name: UEBA reference
+      href: ueba-reference.md
     - name: Anomalies reference
       href: anomalies-reference.md
     - name: Multistage attack detection scenarios

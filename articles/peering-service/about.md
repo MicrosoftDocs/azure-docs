@@ -5,9 +5,8 @@ services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 06/28/2022
+ms.date: 06/30/2022
 ms.author: halkazwini
 ---
 
@@ -60,7 +59,7 @@ Enterprises looking for internet-first access to the cloud or considering SD-WAN
 - Ability to select the preferred service provider to connect to the Microsoft cloud.
 - Traffic insights such as latency reporting and prefix monitoring.
 - Optimum network hops (AS hops) from the Microsoft cloud.
-- Route analytics and statistics: Events for ([BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) route anomalies (leak or hijack detection) and suboptimal routing.
+- Route analytics and statistics: Events for BGP route anomalies (leak or hijack detection) and suboptimal routing.
 
 ### Robust, reliable peering
 

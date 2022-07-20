@@ -301,6 +301,10 @@ FIPS-enabled nodes are currently are now supported on Linux-based node pools. Fo
 
 AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. AKS only modifies the network interfaces NSGs settings. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you must also ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more information, see [Network security groups](concepts-network.md#network-security-groups).
 
+## How does Time syncronization work in AKS?
+
+AKS nodes run the "chrony" service which pulls time from the localhost, which in turn sync time with ntp.ubuntu.com.  Containers running on pods get the time from the AKS nodes.  Applications launched inside a container use time from the container of the pod.
+
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md

@@ -38,7 +38,7 @@ Open the `pom.xml` file in your text editor. Add the following dependency elemen
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-communication-identity</artifactId>
-        <version>1.2.0-beta.1</version>
+        <version>[1.2.0,)</version>
     </dependency>
     <dependency>
       <groupId>com.microsoft.azure</groupId>
@@ -84,7 +84,7 @@ public class App
 }
 ```
 
-### Step 1: Receive the Azure Active Directory user token via the MSAL library
+### Step 1: Receive the Azure Active Directory user token and object ID via the MSAL library
 
 The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md).
 
@@ -99,6 +99,7 @@ PublicClientApplication pca = PublicClientApplication.builder(appId)
 String redirectUri = "http://localhost";
 Set<String> scope = new HashSet<String>();
 scope.add("https://auth.msft.communication.azure.com/Teams.ManageCalls");
+scope.add("https://auth.msft.communication.azure.com/Teams.ManageChats");
 
 InteractiveRequestParameters parameters = InteractiveRequestParameters
                     .builder(new URI(redirectUri))
@@ -106,6 +107,9 @@ InteractiveRequestParameters parameters = InteractiveRequestParameters
                     .build();
 
 IAuthenticationResult result = pca.acquireToken(parameters).get();
+String teamsUserAadToken = result.accessToken();
+String[] accountIds = result.account().homeAccountId().split("\\.");
+String userObjectId = accountIds[0];
 ```
 
 ### Step 2: Initialize the CommunicationIdentityClient
@@ -128,7 +132,8 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 Use the `getTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```java
-var accessToken = communicationIdentityClient.getTokenForTeamsUser(result.accessToken());
+GetTokenForTeamsUserOptions options = new GetTokenForTeamsUserOptions(teamsUserAadToken, appId, userObjectId);
+var accessToken = communicationIdentityClient.getTokenForTeamsUser(options);
 System.out.println("Token: " + accessToken.getToken());
 ```
 

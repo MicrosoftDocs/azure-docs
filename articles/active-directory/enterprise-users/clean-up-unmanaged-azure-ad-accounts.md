@@ -20,7 +20,7 @@ Azure Active Directory (Azure AD) supports self-service sign-up for
 email-verified users. Users can create Azure AD accounts if they can
 verify email ownership. To learn more, see, [What is self-service
 sign-up for Azure Active
-Directory?](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-self-service-signup)
+Directory?](./directory-self-service-signup.md)
 
 However, if a user creates an account, and the domain isn't verified in
 an Azure AD tenant, the user is created in an unmanaged, or viral
@@ -33,9 +33,9 @@ persist after the user leaves the organization.
 You can remove unmanaged Azure AD accounts from your Azure AD tenants
 and prevent these types of accounts from redeeming future invitations.
 
-1. Read how to enable [one-time
-    passcodes](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode#enable-email-one-time-passcode)
-    (OTP)
+1. Enable [email one-time
+    passcode](../external-identities/one-time-passcode.md#enable-email-one-time-passcode)
+    (OTP).
 
 2. Use the sample application in [Azure-samples/Remove-unmanaged-guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests) or
     go to
@@ -43,13 +43,13 @@ and prevent these types of accounts from redeeming future invitations.
     PowerShell module to identify viral users in an Azure AD tenant and
     reset user redemption status.
 
-Once the above steps are complete, when users with unmanaged Azure AD accounts try to access your tenant, they'll re-redeem their invitations. However, because Email OTP is enabled, Azure AD will prevent users from redeeming with an existing unmanaged Azure AD account and they’ll redeem with another account type. Google Federation and SAML/WS-Fed aren't enabled by default. So by default, these users will redeem with either an MSA or Email OTP, with MSA taking precedence. For a full explanation on the B2B redemption precedence, refer to the [redemption precedence flow chart](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow).
+Once the above steps are complete, when users with unmanaged Azure AD accounts try to access your tenant, they'll re-redeem their invitations. However, because Email OTP is enabled, Azure AD will prevent users from redeeming with an existing unmanaged Azure AD account and they’ll redeem with another account type. Google Federation and SAML/WS-Fed aren't enabled by default. So by default, these users will redeem with either an MSA or Email OTP, with MSA taking precedence. For a full explanation on the B2B redemption precedence, refer to the [redemption precedence flow chart](../external-identities/redemption-experience.md#invitation-redemption-flow).
 
 ## Overtaken tenants and domains
 
 Some tenants created as unmanaged tenants can be taken over and
 converted to a managed tenant. See, [take over an unmanaged directory as
-administrator in Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/domains-admin-takeover).
+administrator in Azure AD](./domains-admin-takeover.md).
 
 In some cases, overtaken domains might not be updated, for example, missing a DNS TXT record and therefore become flagged as unmanaged. Implications are:
 

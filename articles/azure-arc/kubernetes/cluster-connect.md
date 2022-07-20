@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 06/03/2022
 ms.topic: article
-author: shashankbarsin
-ms.author: shasb
 description: "Use Cluster Connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 ---
 
@@ -86,14 +84,6 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 ---
 
-## Enable Cluster Connect feature
-
-You can enable the Cluster Connect on any Azure Arc-enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
-
-```azurecli
-az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $RESOURCE_GROUP
-```
-
 ## Azure Active Directory authentication option
 
 ### [Azure CLI](#tab/azure-cli)
@@ -103,7 +93,7 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
    - For an Azure AD user account:
 
      ```azurecli
-     AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query objectId -o tsv)
+     AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query userPrincipalName -o tsv)
      ```
 
    - For an Azure AD application:
@@ -168,7 +158,7 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
    kubectl create serviceaccount demo-user
    ```
 
-1. Create ClusterRoleBinding or RoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
+1. Create ClusterRoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
 
     ```console
     kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount default:demo-user

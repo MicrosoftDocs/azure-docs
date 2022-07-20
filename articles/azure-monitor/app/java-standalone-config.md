@@ -73,10 +73,13 @@ If you specify a relative path, it will be resolved relative to the directory wh
 The file should contain only the connection string, for example:
 
 ```
-InstrumentationKey=...
+InstrumentationKey=...;IngestionEndpoint=...;LiveEndpoint=...
 ```
 
 Not setting the connection string will disable the Java agent.
+
+If you have multiple applications deployed in the same JVM and want them to send telemetry to different instrumentation
+keys, see [Instrumentation key overrides (preview)](#instrumentation-key-overrides-preview).
 
 ## Cloud role name
 
@@ -96,6 +99,9 @@ If cloud role name is not set, the Application Insights resource's name will be 
 
 You can also set the cloud role name using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`
 (which will then take precedence over cloud role name specified in the json configuration).
+
+If you have multiple applications deployed in the same JVM and want them to send telemetry to different cloud role
+names, see [Cloud role name overrides (preview)](#cloud-role-name-overrides-preview).
 
 ## Cloud role instance
 
@@ -214,7 +220,7 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
 }
 ```
 
-## Instrumentation keys overrides (preview)
+## Instrumentation key overrides (preview)
 
 This feature is in preview, starting from 3.2.3.
 
@@ -233,6 +239,31 @@ Instrumentation key overrides allow you to override the [default instrumentation
       {
         "httpPathPrefix": "/myapp2",
         "instrumentationKey": "87654321-0000-0000-0000-0FEEDDADBEEF"
+      }
+    ]
+  }
+}
+```
+
+## Cloud role name overrides (preview)
+
+This feature is in preview, starting from 3.3.0.
+
+Cloud role name overrides allow you to override the [default cloud role name](#cloud-role-name), for example:
+* Set one cloud role name for one http path prefix `/myapp1`.
+* Set another cloud role name for another http path prefix `/myapp2/`.
+
+```json
+{
+  "preview": {
+    "roleNameOverrides": [
+      {
+        "httpPathPrefix": "/myapp1",
+        "roleName": "12345678-0000-0000-0000-0FEEDDADBEEF"
+      },
+      {
+        "httpPathPrefix": "/myapp2",
+        "roleName": "87654321-0000-0000-0000-0FEEDDADBEEF"
       }
     ]
   }
@@ -267,8 +298,8 @@ For more information, check out the [telemetry processor](./java-standalone-tele
 
 ## Auto-collected logging
 
-Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
-is auto-collected.
+Log4j, Logback, JBoss Logging, and java.util.logging are auto-instrumented,
+and logging performed via these logging frameworks is auto-collected.
 
 Logging is only captured if it first meets the level that is configured for the logging framework,
 and second, also meets the level that is configured for Application Insights.
@@ -294,18 +325,18 @@ You can also set the level using the environment variable `APPLICATIONINSIGHTS_I
 
 These are the valid `level` values that you can specify in the `applicationinsights.json` file, and how they correspond to logging levels in different logging frameworks:
 
-| level             | Log4j  | Logback | JUL     |
-|-------------------|--------|---------|---------|
-| OFF               | OFF    | OFF     | OFF     |
-| FATAL             | FATAL  | ERROR   | SEVERE  |
-| ERROR (or SEVERE) | ERROR  | ERROR   | SEVERE  |
-| WARN (or WARNING) | WARN   | WARN    | WARNING |
-| INFO              | INFO   | INFO    | INFO    |
-| CONFIG            | DEBUG  | DEBUG   | CONFIG  |
-| DEBUG (or FINE)   | DEBUG  | DEBUG   | FINE    |
-| FINER             | DEBUG  | DEBUG   | FINER   |
-| TRACE (or FINEST) | TRACE  | TRACE   | FINEST  |
-| ALL               | ALL    | ALL     | ALL     |
+| level             | Log4j  | Logback | JBoss  | JUL     |
+|-------------------|--------|---------|--------|---------|
+| OFF               | OFF    | OFF     | OFF    | OFF     |
+| FATAL             | FATAL  | ERROR   | FATAL  | SEVERE  |
+| ERROR (or SEVERE) | ERROR  | ERROR   | ERROR  | SEVERE  |
+| WARN (or WARNING) | WARN   | WARN    | WARN   | WARNING |
+| INFO              | INFO   | INFO    | INFO   | INFO    |
+| CONFIG            | DEBUG  | DEBUG   | DEBUG  | CONFIG  |
+| DEBUG (or FINE)   | DEBUG  | DEBUG   | DEBUG  | FINE    |
+| FINER             | DEBUG  | DEBUG   | DEBUG  | FINER   |
+| TRACE (or FINEST) | TRACE  | TRACE   | TRACE  | FINEST  |
+| ALL               | ALL    | ALL     | ALL    | ALL     |
 
 > [!NOTE]
 > If an exception object is passed to the logger, then the log message (and exception object details)
@@ -437,6 +468,9 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
     "mongo": {
       "enabled": false
     },
+    "quartz": {
+      "enabled": false
+    },
     "rabbitmq": {
       "enabled": false
     },
@@ -481,9 +515,6 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
         "enabled": true
       },
       "grizzly": {
-        "enabled": true
-      },
-      "quartz": {
         "enabled": true
       },
       "springIntegration": {
@@ -582,6 +613,7 @@ longer network or ingestion service outages, you can increase this limit startin
     "diskPersistenceMaxSizeMb": 50
   }
 }
+```
 
 ## Self-diagnostics
 
