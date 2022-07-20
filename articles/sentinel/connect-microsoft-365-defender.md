@@ -70,7 +70,7 @@ SecurityIncident
 
 Use Microsoft Defender for Identity to sync user entities from your on-premises Active Directory to Microsoft Sentinel.
 
-Verify that you've satisified the [prerequisites](#prerequisites-for-active-directory-sync-via-mdi) for syncing on-premises Active Directory users through Microsoft Defender for Identity (MDI).
+Verify that you've satisfied the [prerequisites](#prerequisites-for-active-directory-sync-via-mdi) for syncing on-premises Active Directory users through Microsoft Defender for Identity (MDI).
 
 1. Select the **Go the UEBA configuration page** link.
 
