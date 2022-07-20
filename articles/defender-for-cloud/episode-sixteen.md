@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 07/20/2022
 ---
 
-# Remediate security recommendations with governance
+# Defender for Servers integration with Microsoft Defender for Endpoint
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Erel Hansav joins Yuri Diogenes to talk about the latest updates regarding the Defender for Servers integration with Microsoft Defender for Endpoint. Erel explains the architecture of this integration for the different versions of Windows Servers, how this integration takes place in the backend, the deployment options for Windows and Linux and the deployment at scale using Azure Policy.
 
