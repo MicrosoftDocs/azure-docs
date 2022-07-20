@@ -567,7 +567,7 @@
         },
         {
             "source_path": "expose-apps-gateway-azure-firewall.md",
-            "redirect_url": "/azure/spring-apps/expose-apps-gateway",
+            "redirect_url": "/azure/spring-apps/expose-apps-gateway-end-to-end-tls",
             "redirect_document_id": false
         },
         {
@@ -847,7 +847,7 @@
         },
         {
             "source_path": "spring-cloud-expose-apps-gateway-azure-firewall.md",
-            "redirect_url": "/azure/spring-apps/expose-apps-gateway-azure-firewall",
+            "redirect_url": "/azure/spring-apps/expose-apps-gateway-end-to-end-tls",
             "redirect_document_id": false
         },
         {
