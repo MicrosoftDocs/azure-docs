@@ -17,7 +17,7 @@ ms.custom: contperf-fy21q4, aaddev
 
 # Configure an application's publisher domain
 
-An application’s publisher domain informs the users where their information is being sent and acts as an input/prerequisite for [publisher verification](publisher-verification-overview.md). Depending on whether an app is a [multitenant app](/azure/architecture/guide/multitenant/overview), when it was registered, and it's verified publisher status, either the publisher domain or the verified publisher status is displayed to the user on the [application's consent prompt](application-consent-experience.md). Multitenant applications are applications that support accounts outside a single organizational directory. For example, a multitenant app might support all Azure Active Directory (Azure AD) work or school accounts, or it might support both Azure AD work or school accounts and Microsoft accounts.
+An application’s publisher domain informs the users where their information is being sent and acts as an input or prerequisite for [publisher verification](publisher-verification-overview.md). Depending on whether an app is a [multitenant app](/azure/architecture/guide/multitenant/overview), when it was registered, and its verified publisher status, either the publisher domain or the verified publisher status is displayed to the user on the [application's consent prompt](application-consent-experience.md). A multitenant app supports user accounts that are outside a single organizational directory. For example, a multitenant app might support all Azure Active Directory (Azure AD) work or school accounts, or it might support both Azure AD work or school accounts and personal Microsoft accounts.
 
 ## New applications
 
@@ -34,16 +34,16 @@ The following table summarizes the default behavior of the publisher domain valu
 | - `*.onmicrosoft.com`<br/>- `domain1.com`<br/>- `domain2.com` (primary) | `domain2.com` |
 
 1. If your multitenant app was registered *between May 21, 2019, and November 30, 2020*:  
-   - If the  application's publisher domain isn't set, or if it's set to a domain that ends in `.onmicrosoft.com`, the app's consent prompt shows **unverified** for the publisher domain value.
-   - If the application has a verified app domain, the consent prompt show the verified domain.
-   - If the application is publisher-verified, the publisher domain shows a [blue "verified" badge](publisher-verification-overview.md) that indicates the status.
+   - If the  application's publisher domain isn't set, or if it's set to a domain that ends in `.onmicrosoft.com`, the app's consent prompt shows *unverified* for the publisher domain value.
+   - If the application has a verified app domain, the consent prompt shows the verified domain.
+   - If the application is publisher verified, the publisher domain shows a [blue "verified" badge](publisher-verification-overview.md) that indicates the status.
 2. If your multitenant was registered *after November 30, 2020*:
-   - If the application isn't publisher-verified, the app shows **unverified** at the consent prompt. No publisher domain-related information appears.
-   - If the application is publisher-verified, it will show a [blue "verified" badge](publisher-verification-overview.md) indicating the same 
+   - If the application isn't publisher verified, the consent prompt for the app shows *unverified*. No publisher domain-related information appears.
+   - If the application is publisher verified, the app consent prompt shows a [blue *verified* badge](publisher-verification-overview.md).
 
 ## Applications created before May 21, 2019
 
-If your app was registered *before May 21, 2019*, your application's consent prompt shows **unverified**, even if you haven't set a publisher domain. We recommend that you set the publisher domain value so that users can see this information on your app's consent prompt.
+If your app was registered *before May 21, 2019*, your application's consent prompt shows *unverified*, even if you haven't set a publisher domain. We recommend that you set the publisher domain value so that users can see this information on your app's consent prompt.
 
 ## Set a publisher domain in the Azure portal
 
@@ -75,7 +75,7 @@ To verify a new publisher domain for your app:
             "applicationId": "<your-app-id>"
          },
          {
-            "applicationId": "<your-other-app-id>"
+            "applicationId": "<another-app-id>"
          }
       ]
     }
@@ -109,35 +109,35 @@ The behavior for applications created between May 21, 2019, and November 30, 202
 
 :::image type="content" source="./media/howto-configure-publisher-domain/new-app-behavior-table.png" alt-text="able that shows consent prompt behavior for apps created between May 21, 2019 and Nov 30, 2020.":::
 
-For multitenant applications created after November 30, 2020, only publisher verification status is surfaced in the consent prompt. The following table describes what is shown on the consent prompt depending on whether an app is verified or not. The consent prompt for single-tenant applications remain the same:
+For multitenant applications created after November 30, 2020, only publisher verification status is shown in the consent prompt. The following table describes what is shown on the consent prompt depending on whether an app is verified or not. The consent prompt for single-tenant applications remains the same:
 
-:::image type="content" source="./media/howto-configure-publisher-domain/new-app-behavior-publisher-verification-table.png" alt-text="Table that shows consent prompt behavior for apps created after Nov 30, 2020.":::
+:::image type="content" source="./media/howto-configure-publisher-domain/new-app-behavior-publisher-verification-table.png" alt-text="Screenshot that shows consent prompt results for apps created after Nov 30, 2020.":::
 
 ## Implications on redirect URIs
 
-Applications that sign in users with any work or school account or with a Microsoft account (multitenant) are subject to few restrictions when specifying redirect URIs.
+Applications that sign in users by using any work or school account or by using a Microsoft account (multitenant) are subject to a few restrictions for setting redirect URIs.
 
-### Single-root domain restriction
+### Single root domain restriction
 
-When the publisher domain value for multi-tenant apps is set to null, apps are restricted to share a single root domain for the redirect URIs. For example, the following combination of values isn't allowed because the root domain `contoso.com` doesn't match `fabrikam.com`.
+When the publisher domain value for a multitenant app is set to null, the app is restricted to sharing a single root domain for the redirect URIs. For example, the following combination of values isn't allowed because the root domain `contoso.com` doesn't match the root domain `fabrikam.com`.
 
-```
-"https://contoso.com",
+```console
+"https://contoso.com",  
 "https://fabrikam.com",
 ```
 
 ### Subdomain restrictions
 
-Subdomains are allowed, but you must explicitly register the root domain. For example, while the following URIs share a single root domain, the combination isn't allowed.
+Subdomains are allowed, but you must explicitly register the root domain. For example, although the following URIs share a single root domain, the combination isn't allowed:
 
-```
+```console
 "https://app1.contoso.com",
 "https://app2.contoso.com",
 ```
 
-However, if the developer explicitly adds the root domain, the combination is allowed.
+However, if the developer explicitly adds the root domain, the combination is allowed:
 
-```
+```console
 "https://contoso.com",
 "https://app1.contoso.com",
 "https://app2.contoso.com",
@@ -145,12 +145,12 @@ However, if the developer explicitly adds the root domain, the combination is al
 
 ### Exceptions
 
-The following cases aren't subject to the single-root domain restriction:
+The following cases aren't subject to the single root domain restriction:
 
 - Single-tenant apps or apps that target accounts in a single directory.
 - Use of localhost as redirect URIs.
-- Redirect URIs with custom schemes (non-HTTP or HTTPS).
+- Redirect URIs that have custom schemes (non-HTTP or HTTPS).
 
 ## Configure publisher domain programmatically
 
-Currently, there is no REST API or PowerShell support to configure publisher domain programmatically.
+Currently, you can't use REST API or PowerShell to programmatically set a publisher domain.
