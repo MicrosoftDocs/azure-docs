@@ -4,7 +4,7 @@ description: Learn about deploying Microsoft Defender for Endpoint from Microsof
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 06/19/2022
+ms.date: 07/20/2022
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -22,6 +22,8 @@ With Microsoft Defender for Servers, you can deploy [Microsoft Defender for Endp
 > Originally launched as **Windows Defender ATP**, in 2019, this EDR product was renamed **Microsoft Defender ATP**.
 >
 > At Ignite 2020, we launched the [Microsoft Defender for Cloud XDR suite](https://www.microsoft.com/security/business/threat-protection), and this EDR component was renamed **Microsoft Defender for Endpoint (MDE)**.
+
+You can learn about Defender for Cloud's integration with Microsoft Defender for Endpoint by watching this videos from the Defender for Cloud in the Field video series: [Defender for Servers integration with Microsoft Defender for Endpoint](episode-sixteen.md)
 
 ## Availability
 
