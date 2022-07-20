@@ -35,19 +35,21 @@ Because anyone with the SAS token can use it to access the container and blobs, 
 
 [Best practices for SAS tokens](../common/storage-sas-overview.md#best-practices-when-using-sas) 
 
-## Use the DefaultAzureCredential
+## Use the DefaultAzureCredential in Azure Cloud
 
-To authenticate to Azure, _without secrets_, set up managed identity. This allows your code to use [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#defaultazurecredential) in both local development and Azure cloud. 
+To authenticate to Azure, _without secrets_, set up **managed identity**. This allows your code to use [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#defaultazurecredential). 
 
 To set up managed identity for the Azure cloud:
 
 * Create a managed identity
 * Set the appropriate [Storage roles](/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac) for the identity
-* Configure your environment to work with your managed identity
+* Configure your Azure environment to work with your managed identity
 
 When these two tasks are complete, use the DefaultAzureCredential instead of a connection string or account key. This allows all your environments to use the _exact same source code_ without the issue of using secrets in source code.
 
-In your local development environment, your Azure identity (your personal or development account you use with Azure) needs to [authenticate to Azure](/javascript/api/overview/azure/identity-readme#authenticate-the-client-in-development-environment) to use the same code with [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
+## Use the DefaultAzureCredential in local development
+
+In your local development environment, your Azure identity (your personal or development account you use to sign in to [Azure portal](https://portal.azure.com)) needs to [authenticate to Azure](/javascript/api/overview/azure/identity-readme#authenticate-the-client-in-development-environment) to use the same code in local and cloud runtimes.
 
 ## Container: add required dependencies to your application
 
@@ -60,30 +62,30 @@ Include the required dependencies to create a container SAS token.
 The Blob Storage account name and container name are the minimum required values to create a container SAS token:
 
 ```
-// Get environment variables for managed identity
+// Get environment variables for DefaultAzureCredential
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const containerName = process.env.AZURE_STORAGE_BLOB_CONTAINER_NAME;
 ```
 
-## Create a SAS with managed identity
+## Create a SAS with DefaultAzureCredential
 
-The following conceptual steps are required to create a SAS token with managed identity:
+The following conceptual steps are required to create a SAS token with DefaultAzureCredential:
 
-* Use managed identity
-    * Create identity and set roles for storage
-    * Use an identity credential which acquires an OAuth 2.0 token from Azure AD
-* Use managed identity to get the user delegation key with [UserDelegationKey](https://review.docs.microsoft.com/en-us/rest/api/storageservices/create-user-delegation-sas)
+* Set up DefaultAzureCredential
+    * Local development - use peronsal identity and set roles for storage
+    * Azure cloud - create managed identity
+* Use DefaultAzureCredential to get the user delegation key with [UserDelegationKey](https://review.docs.microsoft.com/en-us/rest/api/storageservices/create-user-delegation-sas)
 * Use the user delegation key to construct the SAS token with the appropriate fields with [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob#@azure-storage-blob-generateblobsasqueryparameters)
 
-## Container: create SAS token with managed identity
+## Container: create SAS token with DefaultAzureCredential
 
-With managed identity configured, use the following code to create **User delegation SAS token** for an existing account and container:
+With identity configured, use the following code to create **User delegation SAS token** for an existing account and container:
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_CreateContainerSas" highlight="18, 25, 42":::
 
 The preceding code creates a flow of values in order to create the container SAS token:
 
-* Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with the managed identity, [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
+* Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with the [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
 * Use that client to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
 * Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string with [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob#@azure-storage-blob-generateblobsasqueryparameters)
 
@@ -108,7 +110,6 @@ Include the required dependencies to create n blob SAS token.
 The Blob Storage account name and container name are the minimum required values to create a blob SAS token:
 
 ```
-// Get environment variables for managed identity
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const containerName = process.env.AZURE_STORAGE_BLOB_CONTAINER_NAME;
 ```
@@ -120,15 +121,15 @@ When you need to create a blob SAS token, you need to have the blob name to crea
 const blobName = `${(0|Math.random()*9e6).toString(36)}.txt`;
 ```
 
-## Blob: create SAS token with managed identity
+## Blob: create SAS token with DefaultAzureCredential
 
-With managed identity configured, use the following code to create **User delegation SAS token** for an existing account and container:
+With identity configured, use the following code to create **User delegation SAS token** for an existing account and container:
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-blob-sas-token.js" id="Snippet_CreateBlobSas" highlight="18, 25, 43":::
 
 The preceding code creates a flow of values in order to create the container SAS token:
 
-* Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with the managed identity, [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
+* Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
 * Use that client to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
 * Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string. If the blob name wasn't specified in the options, the SAS token is a container token.
 
