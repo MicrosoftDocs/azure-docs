@@ -22,7 +22,9 @@ The Distribution Advisor (DA) feature of Azure Synapse SQL analyzes customer que
 
 - Ensure that statistics are available and up-to-date before running the advisor. For more details, [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) articles for more details on statistics.
 
-## 1. Create Distribution Advisor stored procedures
+## Analyze workload and generate distribution recommendations
+
+### 1. Create Distribution Advisor stored procedures
 
 To run the advisor easily, create two new stored procedures in the database. Run [the CreateDistributionAdvisor_T62.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/CreateDistributionAdvisor_T62.sql):
 
@@ -31,7 +33,7 @@ To run the advisor easily, create two new stored procedures in the database. Run
 | dbo.write_dist_recommendation | Defines queries that DA will analyze on. You can provide queries manually, or read from up to 100 past queries from the actual workloads in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql). |   
 | dbo.read_dist_recommendation  | Runs the advisor and generates recommendations.                                                       |  
 
-## 2a. Run the advisor on past workload in DMV
+### 2a. Run the advisor on past workload in DMV
 
 Run the following commands to read up to the last 100 queries in the workload for analysis and distribution recommendations: 
 
@@ -44,7 +46,7 @@ go
 
 To see which queries were analyzed by DA, run [the e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql).
 
-## 2b. Run the advisor on selected queries
+### 2b. Run the advisor on selected queries
 
 The first parameter in `dbo.write_dist_recommendation` should be set to `0`, and the second parameter is a semi-colon separated list of up to 100 queries that DA will analyze. In the below example, we want to see the distribution recommendation for two statements separated by semicolons, `select count (*) from t1;` and `select * from t1 join t2 on t1.a1 = t2.a1;`.
 
@@ -55,7 +57,7 @@ EXEC dbo.read_dist_recommendation;
 go
 ```
 
-## 3. View recommendations
+### 3. View recommendations
 
 The `dbo.read_dist_recommendation` system stored procedure will return recommendations in the following format when execution is completed:
 
@@ -66,13 +68,15 @@ The `dbo.read_dist_recommendation` system stored procedure will return recommend
 |Recommended_Distribution    |    Recommended distribution. This can be the same as `Current_Distribution` if there is no change recommended.|
 |Distribution_Change_Command    |   A CTAS T-SQL command to implement the recommendation.|
 
-## 4. Implement the advice
+### 4. Implement the advice
 
 - Run the CTAS command provided by Distribution Advisor to create new tables with the recommended distribution strategy.
 - Modify queries to run on new tables.
 - Execute queries on old and new tables to compare for performance improvements.
 
-## Troubleshooting
+## Troubleshooting the Distribution Advisor
+
+This section contains common troubleshooting scenarios and common mistakes that you may encounter.
 
 ### Stale state from a previous run of the advisor
 
