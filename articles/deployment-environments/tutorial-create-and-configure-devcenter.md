@@ -1,7 +1,7 @@
 ---
 title: Set up an Azure Deployment Environment
 description: This tutorial helps to create a DevCenter using the Azure portal.
-author: meghaanand
+author: anandmeg
 ms.author: meghaanand
 ms.topic: tutorial
 ms.service: deployment-environments
