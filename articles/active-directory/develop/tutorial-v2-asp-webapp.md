@@ -506,4 +506,5 @@ You can implement a custom method to validate issuers by using the **IssuerValid
 
 Learn about calling protected web APIs from web apps with the Microsoft identity platform:
 
-> [!div class="nextstepaction"] > [Web apps calling web APIs](scenario-web-app-sign-user-overview.md)
+> [!div class="nextstepaction"] 
+> [Web apps calling web APIs](scenario-web-app-sign-user-overview.md)
