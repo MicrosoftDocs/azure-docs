@@ -56,19 +56,19 @@ The previous sections described how to create, view and manage metric alert rule
 ### Get all classic metric alert rules in a resource group
 
 ```azurecli
-az monitor alert list --resource-group <group name>
+az monitor metrics alert list --resource-group <group name>
 ```
 
 ### See details of a particular classic metric alert rule
 
 ```azurecli
-az monitor alert show --resource-group <group name> --name <alert name>
+az monitor metrics alert show --resource-group <group name> --name <alert name>
 ```
 
 ### Create a classic metric alert rule
 
 ```azurecli
-az monitor alert create --name <alert name> --resource-group <group name> \
+az monitor metrics alert create --name <alert name> --resource-group <group name> \
     --action email <email1 email2 ...> \
     --action webhook <URI> \
     --target <target object ID> \
@@ -78,7 +78,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
 ### Delete a classic metric alert rule
 
 ```azurecli
-az monitor alert delete --name <alert name> --resource-group <group name>
+az monitor metrics alert delete --name <alert name> --resource-group <group name>
 ```
 
 ## With PowerShell
