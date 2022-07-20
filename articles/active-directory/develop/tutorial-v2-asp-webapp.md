@@ -427,7 +427,7 @@ When you're ready to run your test, use an Azure AD account (work, or school acc
 
 #### Permissions and consent in the Microsoft identity platform
 
-Applications that integrate with the Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. After a user authenticates with the Microsoft identity platform to access this application, they'll be prompted to consent to the permissions requested by the application ("View your basic profile", and "Maintain access to data you've given it access to"). After accepting these permissions, the user will continue on to the application results. However, the user may instead be prompted with a **Need admin consent** page if either of the following occur:
+Applications that integrate with the Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. After a user authenticates with the Microsoft identity platform to access this application, they'll be prompted to consent to the permissions requested by the application ("View your basic profile", and "Maintain access to data you've given it access to"). The user consent to permissions and continue to application results.. However, the user may instead be prompted with a **Need admin consent** page if either of the following occur:
 
 - The application developer adds any more permissions that require **Admin consent**.
 - Or the tenant is configured (in **Enterprise Applications -> User Settings**) where users can't consent to apps accessing company data on their behalf.
