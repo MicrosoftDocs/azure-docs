@@ -6,7 +6,7 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/04/2022
+ms.date: 07/18/2022
 ms.custom: references_regions
 ---
 <!-- 
