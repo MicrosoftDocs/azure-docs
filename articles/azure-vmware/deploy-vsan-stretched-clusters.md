@@ -32,17 +32,14 @@ To protect against split-brain scenarios and help measure site health, a managed
 
 In summary, stretched clusters simplify protection needs by providing the same trusted controls and capabilities in addition to the scale and flexibility of the Azure infrastructure.
 
-It's important to understand that stretched cluster private clouds only offer an extra layer of resiliency, and they don't address all failure scenarios.
-- For example: Stretch cluster private clouds don't protect against region-level failures within Azure or data loss scenarios caused by application issues or poorly planned storage policies.
-
-A stretched cluster provides protection against a single zonal failure but isn't designed to provide protection against double or progressive failures.
-- For example: Despite various layers of redundancy built into the fabric, if an inter-AZ failure results in the partitioning of the secondary site, vSphere HA starts powering off the workload VMs on the secondary site. See the Secondary site partitioning scenario in the diagram below.
-
-    **Secondary site partitioning**
+It's important to understand that stretched cluster private clouds only offer an extra layer of resiliency, and they don't address all failure scenarios. For example, Stretched Cluster private clouds:
+- Don't protect against region-level failures within Azure or data loss scenarios caused by application issues or poorly planned storage policies.
+- Provides protection against a single zonal failure but aren't designed to provide protection against double or progressive failures. For example:
+    - Despite various layers of redundancy built into the fabric, if an inter-AZ failure results in the partitioning of the secondary site, vSphere HA starts powering off the workload VMs on the secondary site. The following diagram shows the secondary site partitioning scenario.
     
-    :::image type="content" source="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png" alt-text="Diagram shows vSphere high availability powering off the workload virtual machines on the secondary site.":::
+        :::image type="content" source="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png" alt-text="Diagram shows vSphere high availability powering off the workload virtual machines on the secondary site.":::
 
-If the secondary site partitioning progressed into the failure of the primary site instead, or resulted in a complete partitioning, vSphere HA would attempt to restart the workload VMs on the secondary site. If vSphere HA attempted to restart the workload VMs on the secondary site, it would put the workload VMs in an unsteady state.
+    - If the secondary site partitioning progressed into the failure of the primary site instead, or resulted in a complete partitioning, vSphere HA would attempt to restart the workload VMs on the secondary site. If vSphere HA attempted to restart the workload VMs on the secondary site, it would put the workload VMs in an unsteady state.
 
 **Preferred site failure or complete partitioning**
 
@@ -67,7 +64,7 @@ To request support, send an email request to **avsStretchedCluster@microsoft.com
 
 When the request support details are received, quota will be reserved for a stretched cluster environment in the region requested. The subscription gets enabled to deploy a stretched cluster SDDC through the Azure portal. A confirmation email will be sent to the designated point of contact within two business days upon which you should be able to [self-deploy a stretched cluster private cloud via the Azure portal](https://docs.microsoft.com/azure/azure-vmware/tutorial-create-private-cloud?tabs=azure-portal#create-a-private-cloud). Be sure to select **Hosts in two availability zones** to ensure that a stretched cluster gets deployed in the region of your choice.
 
-:::image type="content" source="media/stretch-clusters/stretched-clusters-hosts-two-availability-zones.png" alt-text="Image showing where to select hosts in two availability zones.":::
+:::image type="content" source="media/stretch-clusters/stretched-clusters-hosts-two-availability-zones.png" alt-text="Screenshot shows where to select hosts in two availability zones.":::
 
 Once the private cloud is created, you can peer both availability zones (AZs) to your on-premises ExpressRoute circuit with Global Reach that helps connect your on-premises data center to the private cloud. Peering both the AZs will ensure that an AZ failure doesn't result in a loss of connectivity to your private cloud. Since an ExpressRoute Auth Key is valid for only one connection, repeat the [Create an ExpressRoute auth key in the on-premises ExpressRoute circuit](https://docs.microsoft.com/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud#create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit) process to generate another authorization.
 
