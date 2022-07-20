@@ -119,8 +119,8 @@ You can light up [unified discovery and delivery](plan-SaaS-offer.md) of your Sa
 
 ### Link published Microsoft 365 App consumption clients
 
-1. If you do not have published Office add-in, Teams app, or SharePoint Framework solutions that works with your SaaS offer, select **No**.
-1. If you have published Office add-in, Teams app, or SharePoint Framework solutions that works with your SaaS offer, select **Yes**, then select **+Add another AppSource link** to add new links.  
+1. If you do not have published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **No**.
+1. If you have published Office add-in, Teams app, or SharePoint Framework solutions that work with your SaaS offer, select **Yes**, then select **+Add another AppSource link** to add new links.  
 1. Provide a valid AppSource link.
 1. Continue adding all the links by select **+Add another AppSource link** and provide valid AppSource links.  
 1. The order the linked products are shown on the listing page of the SaaS offer is indicated by the Rank value, you can change it by select, hold, and move the = icon up and down the list. 
