@@ -46,7 +46,7 @@ API Management offers both managed and self-hosted gateways:
 The following table compares features available in the managed gateway versus those in the self-hosted gateway. Differences are also shown between the managed gateway for dedicated service tiers (Developer, Basic, Standard, Premium) and  for the Consumption tier.
 
 > [!NOTE]
-> * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](#packaging) for self-hosted gateways.
+> * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](self-hosted-gateway-overview.md#packaging) for self-hosted gateways.
 > * See also self-hosted gateway [limitations](self-hosted-gateway-overview.md#limitations).
 
 
@@ -129,7 +129,7 @@ For estimated gateway throughput in the API Management service tiers, see [API M
 
 * In the dedicated service tiers, scale gateway capacity by adding and removing [units](upgrade-and-scale.md), or upgrade the service tier.
 * Units can't be added to or removed from a service in the Developer tier.
-* In the Standard and Premium tiers, optionally configure [Azure Monitor autoscale](api-management-howto-autoscale.ms).
+* In the Standard and Premium tiers, optionally configure [Azure Monitor autoscale](api-management-howto-autoscale.md).
 * An API Management service instance in the Consumption tier scales automatically based on the traffic.
 * In the Premium tier, optionally add and distribute gateway capacity across multiple [regions](api-management-howto-deploy-multi-region.md).
 
