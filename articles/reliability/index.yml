@@ -11,15 +11,30 @@ metadata:
   ms.prod: non-product-specific
   ms.date: 07/12/2022
 
-landingContent:
-  - title: About Reliability in Azure Services
+landingContent: 
+  # Card
+  - title: About Azure services reliability
     linkLists:
       - linkListType: overview
         links:
-          - text: Reliability overview
-            url: overview-reliability.md
-          - text: Resiliency overview
-            url: overview-resiliency.md
-          - text: Availability overview
-            url:  overview-availability.md
- 
+          - text: What is reliability in Azure services?
+            url: overview.md
+  # Card
+  - title: Availability zone support
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Business continuity and management in Azure
+            url: business-continuity-management-program.md
+
+  # Service availability
+  - title: Service availability
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Availability of services by category
+            url: availability-service-by-category.md
+          - text: Availability of services by sovereign cloud
+            url: availability-service-by-sovereign-cloud.md
+          - text: Availability of services by region
+            url: https://azure.microsoft.com/global-infrastructure/services/
