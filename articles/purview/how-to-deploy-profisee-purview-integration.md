@@ -30,20 +30,20 @@ More Details on [Profisee MDM](https://profisee.com/master-data-management-what-
 ### Profisee MDM: True SaaS experience 
 A fully managed instance of Profisee MDM hosted in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.
 ```Platform and Management in One```
-Leverage a true, end-to-end SaaS platform with one agreement and no third parties
+Leverage a true, end-to-end SaaS platform with one agreement and no third parties.  
 ```Industry-leading Cloud Service```
-Hosted on Azure for industry-leading scalability and availability
+Hosted on Azure for industry-leading scalability and availability.  
 ```The fastest path to trusted data```
-Leave the networking, firewalls and storage to us so you can deploy in minutes
+Leave the networking, firewalls and storage to us so you can deploy in minutes.  
 
 ### Profisee MDM: Ultimate PaaS flexibility 
 Complete deployment flexibility and control, using the most efficient and low-maintenance option on [Microsoft Azure](https://azure.microsoft.com/) cloud-or on-prem.
 ```Modern Cloud Architecture```
-Platform available as a containerized Kubernetes service
+Platform available as a containerized Kubernetes service.  
 ```Complete Flexibility & Autonomy```
-Available in Azure, AWS, Google Cloud or on-prem.
+Available in Azure, AWS, Google Cloud or on-prem.  
 ```Fast to Deploy, Easy to Maintain```
-Fully containerized configuration streamlines patches and upgrades
+Fully containerized configuration streamlines patches and upgrades.  
 
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
 
