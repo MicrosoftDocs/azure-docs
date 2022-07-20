@@ -104,5 +104,5 @@ Let's take an example of a sample manufacturing company working across multiple 
 - Populate and hydrate data to the newly installed profisee environment by installing FastApp. Go to your Profisee SaaS deployment URL and hit "/Profisee/api/client". It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client".
 
 ## Next Steps
-Through this guide, we learnt how to set up and deploy Profisee <> Purview Integration on granular detailed level.
+Through this guide, we learned how to set up and deploy a Microsoft Purview-Profisee integration.
 For more usage details on Profisee and Profisee FastApp, especially how to configure data models, data quality, MDM and various other features of Profisee - Register on https://profisee.com/demo/ for further detailed tutorials!
