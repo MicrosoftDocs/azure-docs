@@ -29,23 +29,27 @@ If the NVA is used to provide connectivity to on-premises network via IPsec VPNs
 
 :::image type="content" source="./media/scenarios/route-injection-vpn.png" alt-text="This network diagram shows a basic hub and spoke topology with on-premises connectivity via a V P N N V A.":::
 
+## Influencing Private Traffic through the NVA
+
+The previous sections details influencing all traffic to be inspected by the Network Virtual Appliance by injecting a `0.0.0.0/0` default route from the Network Virtual Appliance to the route server. However, if you only wish to inspect only spoke-to-spoke and spoke-to-on-premises traffic through the Network Virtual Appliance you should consider that Azure Route Server will not advertise an equal or more specific route than the VNet address space (including the subnets address space, or more specific like /32) learned from the Network Virtual Appliance. In other words, Azure Route Server will not inject these prefixes into the Virtual Network and will not be programmed on the NICs of the hubs or spokes. 
+
+Azure Route Server, however, will advertise a larger subnet than the VNet address space that is learned from the Network Virtual Appliance. It is possible to advertise a supernet from the NVA such as the RFC 1918 address space (`10.0.0.0/8`, `192.168.0.0/16` and `172.16.0.0/12`) to the Azure Route Server and these prefixes will be injected into the hubs and spoke VNets. Ultimately, the Network Virtual Appliance will contain the necessary routes to reach the spokes and on-premises destinations. 
+
+----->Insert diagram
+
+> [!IMPORTANT]
+> If you have a scenario where prefixes with the same size are being advertised from Express Route and NVA (consider section below), Azure will prefer and program the routes learned from Express Route.
+>
+
 ## Connectivity to on-premises through Azure Virtual Network Gateways
 
-If a VPN or an ExpresRoute gateway exists in the same VNet as the Route Server and NVA to provide connectivity to on-premises networks, routes learned by these gateways will be programmed as well in the spoke VNets. These routes would override the default route injected by the Route Server, since they would be more specific (longer network masks). The following diagram describes the previous design, where an ExpressRoute gateway has been added.
+If a VPN or an ExpressRoute gateway exists in the same VNet as the Route Server and NVA to provide connectivity to on-premises networks, routes learned by these gateways will be programmed as well in the spoke VNets. These routes would override the default route injected by the Route Server, since they would be more specific (longer network masks). The following diagram describes the previous design, where an ExpressRoute gateway has been added.
 
 :::image type="content" source="./media/scenarios/route-injection-vpn-and-expressroute.png" alt-text="This network diagram shows a basic hub and spoke topology with on-premises connectivity via a V P N N V A and ExpressRoute.":::
 
 You cannot configure the subnets in the spoke VNets to only learn the routes from the Azure Route Server. Disabling "Virtual network gateway route propagation" in a route table associated to a subnet would prevent both types of routes (routes from the Virtual Network Gateway and routes from the Azure Route Server) to be injected on NICs in that subnet.
 
 Note that Azure Route Server per default will advertise all prefixes learnt from the NVA to ExpressRoute too. This might not be desired, for example because of the route limits of ExpressRoute or the Route Server itself. In that case, the NVA can announce its routes to the Route Server including the BGP community `no-advertise` (with value 65535:65282). When Azure Route Server receives routes with this BGP community, it will push them to the subnets, but it will not advertise them to any other BGP peer (like ExpressRoute or VPN gateways, or other NVAs).
-
-## Influencing Private Traffic through the NVA
-
-The previous sections details influencing all traffic to be inspected by the Network Virtual Appliance by injecting a `0.0.0.0/0` default route from the Network Virtual Appliance to the route server. However, if you only wish to inspect only spoke-to-spoke and spoke-to-on-premises traffic through the Network Virtual Appliance you should consider that Azure Route Server will not advertise an equal or more specific route than the VNet address space (including the subnets address space, or more specific like /32) learned from the Network Virtual Appliance. In other words, Azure Route Server will not inject these prefixes into the Virtual Network and will not install them of the NICs of the hubs or spokes. 
-
-Azure Route Server, however, will advertise a larger subnet than the VNet address space that is learned from the Network Virtual Appliance. It is possible to advertise a supernet from the NVA such as the RFC 1918 address space (`10.0.0.0/8`, `192.168.0.0/16` and `172.16.0.0/12`) to the Azure Route Server and these prefixes will be injected into the hubs and spoke VNets. Ultimately, the Network Virtual Appliance will contain the necessary routes to reach the spokes and on-premises destinations. 
-
------>Insert diagram
 
 
 ## SDWAN coexistence with ExpressRoute and Azure Firewall
