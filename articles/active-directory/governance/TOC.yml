@@ -73,7 +73,7 @@
     items:
     - name: Tasks and definitions (Preview)
       href: lifecycle-workflow-tasks.md   
-    - name: Custom tasks (Preview)
+    - name: Custom task Extension (Preview)
       href: lifecycle-workflow-extensibility.md
     - name: Versioning (Preview)
       href: lifecycle-workflow-versioning.md
