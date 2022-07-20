@@ -44,9 +44,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage Dev Box projects
+          - text: Provide access to projects for project admins
             url: how-to-project-admin.md
-          - text: Provide access to Dev Box Users
+          - text: Provide access to projects dev box users
             url: how-to-dev-box-user.md  
 
   # Card
@@ -62,7 +62,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Connect to a Microsoft Dev Box by using a Microsoft Remote Desktop app
+          - text: Connect to a Microsoft Dev Box by using a Remote Desktop app
             url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
 
  # <!-- Adding later 
