@@ -120,7 +120,7 @@ Dominant Speaker json:
 ```
 
 ## Layouts
-There are several layouts that are supported by Media Composition including grid, auto grid, presentation, presenter, and custom.
+Media Composition supports several layouts. These include grid, auto grid, presentation, presenter, and custom.
 
 ### Grid
 The grid layout will compose the specified media sources into a grid with a constant number of cells. You can customize the number of rows and columns that grid should have as well as specify the media source that should be place at each slot of the grid.
