@@ -105,7 +105,7 @@ items:
     - name: Analyze videos in real time
       href: how-to/analyze-video.md
     - name: Generate a smart-cropped thumbnail
-      href: generate-thumbnail.md
+      href: how-to/generate-thumbnail.md
   - name: Concepts
     items:
     - name: Object detection

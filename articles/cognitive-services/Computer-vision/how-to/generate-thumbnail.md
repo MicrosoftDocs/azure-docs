@@ -44,4 +44,4 @@ A successful response writes the thumbnail image to the file specified in `<thum
 
 If you'd like to call Image Analysis APIs using a native SDK in the language of your choice, follow the quickstart to get set up.
 
-[Quickstart (Image Analysis)](../quickstarts-sdl/image-analysis-client-library.md)
+[Quickstart (Image Analysis)](../quickstarts-sdk/image-analysis-client-library.md)

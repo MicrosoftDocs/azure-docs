@@ -23,7 +23,7 @@ Azure Custom Vision is an image recognition service that lets you build, deploy,
 You can use Custom Vision through a client library SDK, REST API, or through the [Custom Vision web portal](https://customvision.ai/). Follow a quickstart to get started.
 
 > [!div class="nextstepaction"]
-> [Quickstart (web portal)](getting-started-build-a-classifier.md.md)
+> [Quickstart (web portal)](getting-started-build-a-classifier.md)
 
 :::image type="content" source="media/overview/image-example.png" alt-text="Screenshot of an image on the Custom Vision website with predicted tags." :::
 
