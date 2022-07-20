@@ -142,7 +142,17 @@ Set a VM application to an existing VM using [az vm application set](/cli/azure/
 az vm application set \
 	--resource-group myResourceGroup \
 	--name myVM \
---app-version-ids /subscriptions/{subID}/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 \
+  --app-version-ids /subscriptions/{subID}/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 \
+  --treat-deployment-as-failure true
+```
+For setting multiple applications on a VM:
+
+```azurecli-interactive
+az vm applicaction set \
+	--resource-group myResourceGroup \
+	--name myVM \
+	--app-version-ids <appversionID1> <appversionID2> \
+	--treat-deployment-as-failure true
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -193,14 +203,14 @@ $applicationName = "myApp"
 $vmName = "myVM"
 $vm = Get-AzVM -ResourceGroupName $rgname -Name $vmName
 $appversion = Get-AzGalleryApplicationVersion `
-   -GalleryApplicationName $applicationname `
-   -GalleryName $galleryname `
+   -GalleryApplicationName $applicationName `
+   -GalleryName $galleryName `
    -Name $version `
-   -ResourceGroupName $rgname
+   -ResourceGroupName $rgName
 $packageid = $appversion.Id
 $app = New-AzVmGalleryApplication -PackageReferenceId $packageid
-Add-AzVmGalleryApplication -VM $vm -GalleryApplication $app
-Update-AzVM -ResourceGroupName $rgname -VM $vm
+Add-AzVmGalleryApplication -VM $vm -GalleryApplication $app -TreatFailureAsDeploymentFailure true
+Update-AzVM -ResourceGroupName $rgName -VM $vm
 ```
  
 Verify the application succeeded:
