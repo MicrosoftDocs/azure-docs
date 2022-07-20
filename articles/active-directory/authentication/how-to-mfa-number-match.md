@@ -144,6 +144,16 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 | includeTarget | featureTarget | A single entity that is included in this feature. |
 | State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
 
+#### Feature Target properties
+
+**PROPERTIES**
+
+| Property | Type | Description |
+|----------|------|-------------|
+| id | String | ID of the entity targeted. |
+| targetType | featureTargetType | The kind of entity targeted, such as group, role, or administrative unit. The possible values are: ‘group’, 'administrativeUnit’, ‘role’, unknownFutureValue’. |
+
+
 
 #### Example of how to enable number matching for all users
 
