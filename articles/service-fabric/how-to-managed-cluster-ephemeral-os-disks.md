@@ -79,7 +79,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
    
     Wait for the deployment to be completed successfully.
 
-4) To configure a node type to use Ephemeral OS disks in your own template: 
+4) To configure a node type to use Ephemeral OS disks through your own template: 
 * Use Service Fabric API version 2022-06-01-preview and above 
 * Edit the template, azuredeploy.json, and add the following properties under the node type section:
    ```JSON
