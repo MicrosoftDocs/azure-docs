@@ -21,6 +21,10 @@ This article shows you how to create a user delegation SAS token in the Azure Bl
 * Grant access to an existing **container**.
 * Grant access to create, use, and delete **blobs**.
 
+To create a user delegation SAS, a client must have permissions to call the Get User Delegation Key operation. The key returned by Get User Delegation Key is used to sign the user delegation SAS. The security principal that calls Get User Delegation Key must be assigned an RBAC role that includes the Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action.
+
+The permissions granted to a client who possesses the SAS are the intersection of the permissions that were granted to the security principal that requested the user delegation key and the permissions that were granted to the resource on the SAS token in the signed [permissions](/rest/api/storageservices/create-user-delegation-sas#specify-permissions) (sp) field. If a permission that's granted to the security principal via RBAC isn't also granted on the SAS token, that permission isn't granted to the client who attempts to use the SAS to access the resource.
+
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 
 [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
@@ -29,24 +33,21 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 Because anyone with the SAS token can use it to access the container and blobs, you should define the SAS token with the most restrictive permissions that still allow the token to complete the required tasks.
 
-[Best practices for SAS tokens](../common/storage-sas-overview.md#best-practices-when-using-sas) include:
+[Best practices for SAS tokens](../common/storage-sas-overview.md#best-practices-when-using-sas) 
 
-* Identity creating SAS token
-    * [Managed identity](/azure/active-directory/managed-identities-azure-resources/overview): managed identity allows your development, pipeline, and production environments to access Azure without relying on secrets used in code.
-    * Identity for each task: Because a user delegation SAS token is directly tied to Active Directory credentials, those credentials should also be the most restrictive possible for the tokens it creates. This may mean you need multiple credentials if you intend to have different scopes of permissions for your user delegation SAS tokens.
-* SAS token
-    * Most limited SAS token permission necessary such as create, read, write, update, and delete
-    * Time limits: 10 minutes is a suggested time limit
+## Use the DefaultAzureCredential
 
-## Set up managed identity
+To authenticate to Azure, _without secrets_, set up managed identity. This allows your code to use [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#defaultazurecredential) in both local development and Azure cloud. 
 
-To authenticate to Azure, _without secrets_, set up managed identity:
+To set up managed identity for the Azure cloud:
 
 * Create a managed identity
 * Set the appropriate [Storage roles](/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac) for the identity
 * Configure your environment to work with your managed identity
 
-When these two tasks are complete, use the DefaultAzureCredential as the _managed identity_ instead of a connection string or account key. This allows all your environments to use the exact same source code without the issue of using secrets in source code.
+When these two tasks are complete, use the DefaultAzureCredential instead of a connection string or account key. This allows all your environments to use the _exact same source code_ without the issue of using secrets in source code.
+
+In your local development environment, your Azure identity (your personal or development account you use with Azure) needs to [authenticate to Azure](/javascript/api/overview/azure/identity-readme#authenticate-the-client-in-development-environment) to use the same code with [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
 
 ## Container: add required dependencies to your application
 
@@ -64,6 +65,16 @@ const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const containerName = process.env.AZURE_STORAGE_BLOB_CONTAINER_NAME;
 ```
 
+## Create a SAS with managed identity
+
+The following conceptual steps are required to create a SAS token with managed identity:
+
+* Use managed identity
+    * Create identity and set roles for storage
+    * Use an identity credential which acquires an OAuth 2.0 token from Azure AD
+* Use managed identity to get the user delegation key with [UserDelegationKey](https://review.docs.microsoft.com/en-us/rest/api/storageservices/create-user-delegation-sas)
+* Use the user delegation key to construct the SAS token with the appropriate fields with [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob#@azure-storage-blob-generateblobsasqueryparameters)
+
 ## Container: create SAS token with managed identity
 
 With managed identity configured, use the following code to create **User delegation SAS token** for an existing account and container:
@@ -74,7 +85,7 @@ The preceding code creates a flow of values in order to create the container SAS
 
 * Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with the managed identity, [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
 * Use that client to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
-* Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string
+* Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string with [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob#@azure-storage-blob-generateblobsasqueryparameters)
 
 ## Container: use SAS token
 
