@@ -29,7 +29,7 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 
 ## Prerequisites
 
-* An [Azure Machine Learning workspace](../how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](../quickstart-create-resources.md)
 
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 

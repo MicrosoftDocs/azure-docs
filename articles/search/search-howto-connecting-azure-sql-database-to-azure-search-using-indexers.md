@@ -293,7 +293,7 @@ If you're using a [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) da
 
 * Uses the rowversion data type for the high water mark column in the indexer SQL query. Using the correct data type improves indexer query performance.
 
-* Subtracts one from the rowversion value before the indexer query runs. Views with one-to-many joins may have rows with duplicate rowversion values. Subtracting 1one ensures the indexer query doesn't miss these rows.
+* Subtracts one from the rowversion value before the indexer query runs. Views with one-to-many joins may have rows with duplicate rowversion values. Subtracting one ensures the indexer query doesn't miss these rows.
 
 To enable this property, create or update the indexer with the following configuration:
 

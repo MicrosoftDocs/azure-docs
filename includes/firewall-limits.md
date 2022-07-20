@@ -13,7 +13,7 @@
 | Resource | Limit |
 | --- | --- |
 | Data throughput |30 Gbps|
-|Rule limits|10,000 unique source/destinations in network and application rules|
+|Rule limits|10,000 unique source/destinations in network and application rules <br><br> **Unique source/destinations in network** = sum of (unique source addresses * unique destination addresses for each rule)|
 |Total size of rules within a single Rule Collection Group| 2 MB|
 |Number of Rule Collection Groups in a firewall policy|50|
 |Maximum DNAT rules|298 (for firewalls configured with a single Public IP address)<br><br> The DNAT limitation is due to the underlying platform. The maximum number of DNAT rules is 298. However, any additional public IP addresses reduce the number of the available DNAT rules. For example, two public IP addresses allow for 297 DNAT rules. If a rule's protocol is configured for both TCP and UDP, it counts as two rules.|

@@ -517,7 +517,7 @@ For more information, see Azure Attestation [public documentation](../../attesta
 | TLS 1.2 enforcement   | GA | GA |
 | BCDR support   | GA | - |
 | [Service tag integration](../../virtual-network/service-tags-overview.md) | GA | GA |
-| [Immutable log storage](../../attestation/audit-logs.md) | GA | GA |
+| [Immutable log storage](../../attestation/view-logs.md) | GA | GA |
 | Network isolation using private link | Public Preview | - |
 | [FedRAMP High certification](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) | GA | - |
 | Customer lockbox | GA | - |

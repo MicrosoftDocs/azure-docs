@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/29/2022
+ms.date: 06/28/2022
 ---
 
 # Configure a managed application plan
@@ -160,7 +160,7 @@ Indicate who should have management access to this managed application in each s
 Complete the following steps for Global Azure and Azure Government Cloud, as applicable.
 
 1. In the **Azure Active Directory Tenant ID** box, enter the Azure AD Tenant ID (also known as directory ID) containing the identities of the users, groups, or applications you want to grant permissions to.
-1. In the **Principal ID** box, provide the Azure AD object ID of the user, group, or application that you want to be granted permission to the managed resource group. Identify the user by their Principal ID, which can be found at the [Azure Active Directory users blade](https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers) on the Azure portal.
+1. In the **Principal ID** box, provide the Azure AD object ID of the user, group, or application that you want to be granted permission to the managed resource group. Select a user from the list at the [Azure Active Directory users blade](https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers) and copy the Object ID value of that user.
 1. From the **Role definition** list, select an Azure AD built-in role. The role you select describes the permissions the principal will have on the resources in the customer subscription.
 1. To add another authorization, select the **Add authorization (max 100)** link, and repeat steps 1 through 3.
 

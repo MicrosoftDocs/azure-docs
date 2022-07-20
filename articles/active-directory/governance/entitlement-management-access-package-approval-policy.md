@@ -44,9 +44,9 @@ For a demonstration of how to add a multi-stage approval to a request policy, wa
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
 
 
-## Change approval settings of an existing access package
+## Change approval settings of an existing access package assignment policy
 
-Follow these steps to specify the approval settings for requests for the access package:
+Follow these steps to specify the approval settings for requests for the access package through a policy:
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 

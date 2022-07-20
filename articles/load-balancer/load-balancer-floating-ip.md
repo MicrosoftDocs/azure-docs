@@ -93,7 +93,7 @@ To get the list of interface names you have on your VM, type this command:
 ```console
 ip addr
 ```
-For each loopback interface, repeat these commands, which assigns the floating IP to the loopback alias:
+For each loopback interface, repeat these commands, which assign the floating IP to the loopback alias:
 
 ```console
 sudo ip addr add floatingip/floatingipnetmask dev lo:0

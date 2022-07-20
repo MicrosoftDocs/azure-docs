@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 06/16/2022
+ms.date: 07/04/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -191,14 +191,15 @@ To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md
 
 ### UserErrorMarketPlaceVMNotSupported - VM creation failed due to Market Place purchase request being not present
 
-Error code: UserErrorMarketPlaceVMNotSupported
-Error message: VM creation failed due to Market Place purchase request being not present.
+**Error code**: UserErrorMarketPlaceVMNotSupported
 
-Azure Backup supports backup and restore of VMs which are available in Azure Marketplace. This error occurs when you are trying to restore a VM (with a specific Plan/Publisher setting) which is no longer available in Azure Marketplace, [Learn more here](/legal/marketplace/participation-policy#offering-suspension-and-removal).
+**Error message**: VM creation failed due to Market Place purchase request being not present.
 
-In this scenario, it may not be possible to create the VM from the restored disks.
+Azure Backup supports backup and restore of VMs that are available in Azure Marketplace. This error occurs when you try to restore a VM (with a specific Plan/Publisher setting), which is no longer available in Azure Marketplace. [Learn more here](../marketplace/deprecate-vm.md).
 
-If the publisher doesn't have any Marketplace information, you can use the data disks to retrieve your data and you can attach them to an existing VM.
+In this scenario, a partial failure happens where the disks are restored, but the VM isn't restored. This is because it's not possible to create a new VM from the restored disks.
+
+If the publisher doesn't have any Marketplace information, you can attach the restored disk(s) (that were created during partial failure) as data disks to an existing VM.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 

@@ -2,39 +2,31 @@
 title: Add or remove a group from another group - Azure AD
 description: Instructions about how to add or remove a group from another group using Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 6/22/2022
-ms.author: ajburnle
+ms.date: 10/19/2018
+ms.author: barclayn
 ms.custom: "it-pro, seodec18"
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
 # Add or remove a group from another group using Azure Active Directory
-This article helps you to add and remove a group from another group using Azure Active Directory. When a group is added to another group, it creates a nested group.
+This article helps you to add and remove a group from another group using Azure Active Directory.
 
 >[!Note]
 >If you're trying to delete the parent group, see [How to update or delete a group and its members](active-directory-groups-delete-group.md).
 
 ## Add a group to another group
-You can add an existing Security group to another existing Security group (also known as nested groups), which creates a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time.
+You can add an existing Security group to another existing Security group (also known as nested groups), creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time.
 
 >[!Important]
->We don't currently support:<br> 
->- Adding groups to a group synced with on-premises Active Directory.<br>
->- Adding Security groups to Microsoft 365 groups.<br>
->- Adding Microsoft 365 groups to Security groups or other Microsoft 365 groups.<br>
->- Assigning apps to nested groups.<br>
->- Applying licenses to nested groups.<br>
->- Adding distribution groups in nesting scenarios.<br>
->- Adding security groups as members of mail-enabled security groups.
-
+>We don't currently support:<ul><li>Adding groups to a group synced with on-premises Active Directory.</li><li>Adding Security groups to Microsoft 365 groups.</li><li>Adding Microsoft 365 groups to Security groups or other Microsoft 365 groups.</li><li>Assigning apps to nested groups.</li><li>Applying licenses to nested groups.</li><li>Adding distribution groups in nesting scenarios.</li><li>Adding security groups as members of mail-enabled security groups</li><li> Adding groups as members of a role-assignable group.</li></ul>
 
 ### To add a group as a member of another group
 

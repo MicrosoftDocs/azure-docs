@@ -552,7 +552,7 @@ Microsoft Azure provides a network infrastructure, which allows the mapping of a
 * Cross-premises Connectivity between a customer's on-premises network and the Azure network
 * Cross Azure Region or data center connectivity between Azure sites
 
-For more information, see the [Virtual Network documentation](/azure/virtual-network/).
+For more information, see the [Virtual Network documentation](../../../virtual-network/index.yml).
 
 There are many different possibilities to configure name and IP resolution in Azure. There is also an Azure DNS service, which can be used instead of setting up your own
 DNS server. More information can be found in [this article][virtual-networks-manage-dns-in-vnet] and on [this page](https://azure.microsoft.com/services/dns/).
@@ -1022,7 +1022,7 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 
 ##### Azure Storage tools
 
-* [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Storage Explorer](../../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 Professional editions of Azure Storage Explorers can be found here:
 

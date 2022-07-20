@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2022
+ms.date: 08/20/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -80,19 +80,6 @@ When reviewing guest user access to Microsoft 365 groups, you can either create 
 You can then decide whether to ask each guest to review their own access or to ask one or more users to review every guest's access.
  
  These scenarios are covered in the following sections.
-
-### Review access of nested group membership (Preview)
-For some scenarios, access to resources such as security groups, enterprise applications, and privileged roles can be granted through a security group assigned access to the resource. To learn more, go to [Add or remove a group from another group](../fundamentals/active-directory-groups-membership-azure-portal.md).
-
-Administrators can perform an access review of members of nested groups. When the administrator creates the review, they can choose whether their reviewers can make decisions on indirect members or only on direct members. An example of an indirect user is a user that has access to a security group that has access to another security group, application or role. 
-
-![Diagram showing example of nested group membership.](media/manage-access-review/nested-group-membership-access-review.png)
-
-If the administrator decides to only allow reviews on direct members, reviewers can approve and deny access for nested groups or role-assignable groups as an entity. If denied, the nested group or role-assignable group will lose access to the resource. 
-
-1. To create an access review of a nested group, go to [Create an access review of groups or applications](create-access-review.md#scope) and follow the guidance on nested groups.
-
-2. To review access of a nested group, go to [Review access for nested group memberships (preview)](perform-access-review.md#review-access-for-nested-group-memberships-preview).
  
 ### Ask guests to review their own membership in a group
  

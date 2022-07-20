@@ -24,8 +24,14 @@ items:
     href: how-to-api-calls.md
   - name: Monitor a Managed Grafana instance
     href: how-to-monitor-managed-grafana-workspace.md
+  - name: Troubleshoot common issues
+    href: troubleshoot-managed-grafana.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/grafana
+  - name: Bicep and ARM templates
+    href: /azure/templates/microsoft.dashboard/2021-09-01-preview/grafana
   - name: Control Plane
     href: /rest/api/managed-grafana
   - name: Data Plane

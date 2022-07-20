@@ -6,6 +6,7 @@ author: bwren
 ms.author: bwren
 ms.date: 5/19/2022
 ms.custom: references_regions
+ms.reviewer: shseth
 ---
 
 # Azure Monitor agent overview
@@ -75,7 +76,7 @@ The Azure Monitor agent can coexist (run side by side on the same machine) with 
 | Windows 10, 11 laptops | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent using a Windows MSI installer. The installs works on laptops but the agent is **not optimized yet** for battery, network consumption |
 
 ## Supported regions
-Azure Monitor agent is available in all public regions that support Log Analytics, as well as the Azure Government and China clouds. Air-gapped clouds are not yet supported.
+Azure Monitor agent is available in all public regions and Azure Government clouds. It is not yet supported in Air-gapped clouds.  See here for [product availability by region](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fglobal-infrastructure%2Fservices%2F%3Fproducts%3Dmonitor%26rar%3Dtrue%26regions%3Dall&data=05%7C01%7Cjeffwo%40microsoft.com%7Cf8f9cf9cebdd4cf5794308da6368792e%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637931597629278725%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=VJzaLPOJlBqyOHS0zmvyHMdviIjIGAWCmVD%2FWJZjUIA%3D&reserved=0)
 
 ## Supported operating systems
 For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).

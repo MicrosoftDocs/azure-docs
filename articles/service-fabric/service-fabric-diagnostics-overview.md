@@ -2,7 +2,11 @@
 title: Azure Service Fabric Monitoring and Diagnostics Overview 
 description: Learn about monitoring and diagnostics for Azure Service Fabric clusters, applications, and services.
 ms.topic: conceptual
-ms.date: 1/17/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Monitoring and diagnostics for Azure Service Fabric

@@ -94,6 +94,7 @@ API Management offers a free, managed TLS certificate for your domain, if you do
 #### Limitations
 
 * Currently can be used only with the Gateway endpoint of your API Management service
+* Not supported with the self-hosted gateway
 * Not supported in the following Azure regions: France South and South Africa West
 * Currently available only in the Azure cloud
 * Does not support root domain names (for example, `contoso.com`). Requires a fully qualified name such as `api.contoso.com`.
