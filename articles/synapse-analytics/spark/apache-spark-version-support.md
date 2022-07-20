@@ -63,4 +63,4 @@ The patch policy differs based on the [runtime lifecycle stage](./runtime-for-ap
 1. Generally Available (GA) runtime: Receive no upgrades on major versions (i.e. 3.x -> 4.x). And will upgrade a minor version (i.e. 3.x -> 3.y) as long as there are no deprecation/regression impacts.
 2. Preview runtime: No major version upgrades unless strictly necessary. Minor versions (3.x -> 3.y) will be upgraded to add latest features to a runtime.
 3. Long Term Support (LTS) runtime will be patched with security fixes only.
-4. Enf of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
+4. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
