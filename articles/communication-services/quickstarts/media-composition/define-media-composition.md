@@ -33,7 +33,7 @@ ACS Group Call json:
   "inputs": {
     "groupCallInput": {
       "kind": "groupCall",
-      "id": "CALL_ID"
+      "id": "5a22165a-f952-4a56-8009-6d39b8868971"
     }
   }
 }
@@ -57,14 +57,14 @@ ACS Rooms Input json:
   "inputs": {
     "roomCallInput": {
       "kind": "room",
-      "id": "ROOM_ID"
+      "id": "050298"
     }
   }
 }
 ```
 
 ### Single Source Inputs
-Unlike multi-source inputs, single source inputs reference a single media source and are used as such in layouts. If the single source input is from a multi-source input such as an ACS group call or teams meeting, it will reference the multi-source input's id in the `call` property. The following are examples of single source inputs:
+Unlike multi-source inputs, single source inputs reference a single media source. If the single source input is from a multi-source input such as an ACS group call or Teams meeting, it will reference the multi-source input's id in the `call` property. The following are examples of single source inputs:
 
 Participant json:
 ```json
@@ -123,7 +123,7 @@ Dominant Speaker json:
 Media Composition supports several layouts. These include grid, auto grid, presentation, presenter, and custom.
 
 ### Grid
-The grid layout will compose the specified media sources into a grid with a constant number of cells. You can customize the number of rows and columns the grid should have as well as specify the media source that should be place in each cell of the grid.
+The grid layout will compose the specified media sources into a grid with a constant number of cells. You can customize the number of rows and columns in the grid as well as specify the media source that should be place in each cell of the grid.
 
 Sample grid layout json:
 ```json
@@ -185,7 +185,7 @@ Sample grid layout json:
   }
 }
 ```
-The sample grid layout json will take the dominant speaker and put it in the first slot. Then, `jill`, `jon`, `janet` will fill the next three spots:
+The sample grid layout json will take the dominant speaker and put it in the first cell. Then, `jill`, `jon`, `janet` will fill the next three cells:
 :::image type="content" source="../media/2x2-grid.png" alt-text="Diagram showing how example of grid layout":::
 
 If only three participants are defined in the inputs, then the fourth cell will be left blank.
@@ -256,11 +256,11 @@ Sample presentation layout json:
 }
 ```
 
-The sample presentation layout will feature the `presenter` and place the rest of the audience members to the top of the scene:
+The sample presentation layout will feature the `presenter` and place the rest of the audience members at the top of the scene:
 :::image type="content" source="../media/top-presentation.png" alt-text="Diagram showing how example of presentation layout":::
 
 ### Presenter
-The presenter layout is a picture-in-picture layout composed of two inputs. One source is the background of the scene. This represents the content being presented or the main presenter. The secondary source is cropped and positioned at a corner of the scene. The support position can be one of: `bottomLeft`, `bottomRight`, `topLeft`, or `topRight`.
+The presenter layout is a picture-in-picture layout composed of two inputs. One source is the background of the scene. This represents the content being presented or the main presenter. The secondary source is the support and is cropped and positioned at a corner of the scene. The support position can be one of: `bottomLeft`, `bottomRight`, `topLeft`, or `topRight`.
 
 Sample presenter layout json:
 ```json
@@ -307,7 +307,7 @@ Sample presenter layout json:
 }
 ```
 
-The sample presenter layout will feature the `presenter` media source, which takes most of the scene. The support input will be cropped according to the `supportAspectRatio` and placed at the position specified, which is `topLeft`.
+The sample presenter layout will feature the `presenter` media source, which takes most of the scene. The support media source will be cropped according to the `supportAspectRatio` and placed at the position specified, which is `topLeft`.
 :::image type="content" source="../media/topLeft-presenter.png" alt-text="Diagram showing how example of presenter layout":::
 
 ### Custom
@@ -373,7 +373,6 @@ The custom layout example above will result in the following composition:
 
 ## Outputs
 After media has been composed according to a layout, they can be outputted to your audience in various ways. Currently, you can either send the composed stream to a call or to an RTMP server.
-
 
 ACS Group Call json:
 ```json
