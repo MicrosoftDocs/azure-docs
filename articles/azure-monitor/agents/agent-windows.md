@@ -21,7 +21,9 @@ The installation methods described in this article are typically used for virtua
 > [!NOTE]
 > Installing the Log Analytics agent will typically not require you to restart the machine.  
 
-## Supported operating systems
+## Requirements
+
+### Supported operating systems
 
 See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-systems) for a list of Windows versions supported by the Log Analytics agent.
 
@@ -37,10 +39,10 @@ The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020
 3. Update to the latest version of the Windows agent (version 10.20.18029).
 4. Recommended to configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
 
-## Network requirements
+### Network requirements
 See [Log Analytics agent overview](./log-analytics-agent.md#network-requirements) for the network requirements for the Windows agent.
  
-## Configure Agent to use TLS 1.2
+### Configure Agent to use TLS 1.2
 [TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) protocol ensures the security of data in transit for communication between the Windows agent and the Log Analytics service. If you're installing on an [operating system without TLS 1.2 enabled by default](../logs/data-security.md#sending-data-securely-using-tls-12), then you should configure TLS 1.2 using the steps below.
 
 1. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
@@ -59,7 +61,7 @@ Configure .NET Framework 4.6 or later to support secure cryptography, as by defa
 4. Create the DWORD value **SchUseStrongCrypto** under this subkey with a value of **1**. 
 5. Restart the system for the settings to take effect. 
 
-## Workspace ID and key
+### Workspace ID and key
 
 Regardless of the installation method used, you will require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
 

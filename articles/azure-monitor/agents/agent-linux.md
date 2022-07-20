@@ -17,7 +17,9 @@ The installation methods described in this article are typically used for virtua
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
-## Supported operating systems
+### Requirements
+
+### Supported operating systems
 
 See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-systems) for a list of Linux distributions supported by the Log Analytics agent.
 
@@ -64,7 +66,7 @@ Again, only if you're using an older version of the agent, the python2 executabl
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
     ```
 
-## Supported Linux hardening
+### Supported Linux hardening
 The OMS Agent has limited customization and hardening support for Linux.
 
 The following are currently supported: 
@@ -77,7 +79,7 @@ The following aren't supported:
 
 CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods aren't supported nor planned for OMS Agent. For instance, OS images like GitHub Enterprise Server which include customizations such as limitations to user account privileges aren't supported.
 
-## Agent prerequisites
+### Agent prerequisites
 
 The following table highlights the packages required for [supported Linux distros](#supported-operating-systems) that the agent will be installed on.
 
@@ -93,10 +95,10 @@ The following table highlights the packages required for [supported Linux distro
 >[!NOTE]
 >Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
 
-## Network requirements
+### Network requirements
 See [Log Analytics agent overview](./log-analytics-agent.md#network-requirements) for the network requirements for the Linux agent.
 
-## Workspace ID and key
+### Workspace ID and key
 
 Regardless of the installation method used, you'll require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
 
