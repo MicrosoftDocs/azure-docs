@@ -111,7 +111,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
-### ### Data collection
+### Data collection
 
 Defender for Containers relies on the **Defender extension** for each domain listed above. Ensure your Kubernetes node is running on one of the verified supported operating systems for this agent:
 
