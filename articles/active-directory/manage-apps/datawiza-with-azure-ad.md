@@ -123,4 +123,6 @@ DAB evaluates policies, calculates headers, and sends you to the upstream applic
 
 - [Configure Datawiza with Azure AD B2C](../../active-directory-b2c/partner-datawiza.md)
 
+- [Configure Azure AD SSO for an Oracle JD Edwards application using Datawiza Access Broker](datawiza-azure-ad-sso-oracle-jde.md)
+
 - [Datawiza documentation](https://docs.datawiza.com)
