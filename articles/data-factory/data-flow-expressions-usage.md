@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/05/2022
+ms.date: 07/19/2022
 ---
 
 # Data transformation expression usage in mapping data flow
@@ -2249,7 +2249,18 @@ Extracts a substring of a certain length from a position. Position is 1 based. I
 * ``substring('Cat in the hat', 100, 100) -> ''``  
 ___
 
+<a name="substringIndex" ></a>
 
+### <code>substringIndex</code>
+<code><b>substringIndex(<i>&lt;string to subset&gt;</i> : string, <i>&lt;delimiter&gt;</i> : string, &lt;count of delimiter occurences&gt;</i> : integral]) => string</b></code><br/><br/>
+Extracts the substring before `count` occurrences of the delimiter. If `count` is positive, everything to the left of the final delimiter (counting from the left) is returned. If `count` is negative, everything to the right of the final delimiter (counting from the right) is returned.  
+* ``substringIndex('111-222-333', '-', 1) -> '111'``  
+* ``substringIndex('111-222-333', '-', 2) -> '111-222'``  
+* ``substringIndex('111-222-333', '-', -1) -> '333'``  
+* ``substringIndex('111-222-333', '-', -2) -> '222-333'``  
+___   
+      
+      
 <a name="sum" ></a>
 
 ### <code>sum</code>
