@@ -28,7 +28,7 @@ Use the following table to find the correct upload method based on the blob clie
 
 |Client|Upload method|
 |--|--|
-|[BlobClient](/javascript/api/@azure/storage-blob/blobclient)|The SDK would needs to know the blob type you want to upload to. Because this is the base class for the other Blob clients, it does not have upload methods. It is mostly useful for operations that are common to the child blob classes. For uploading, create specific blob clients directly or get specific blob clients from ContainerClient.|
+|[BlobClient](/javascript/api/@azure/storage-blob/blobclient)|The SDK needs to know the blob type you want to upload to. Because BlobClient is the base class for the other Blob clients, it does not have upload methods. It is mostly useful for operations that are common to the child blob classes. For uploading, create specific blob clients directly or get specific blob clients from ContainerClient.|
 |[BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient)|This is the **most common upload client**:<br>* upload()<br>* stageBlock() and commitBlockList()|
 |[AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient)|* create()<br>* append()|
 |[PageBlobClient](/javascript/api/@azure/storage-blob/pageblobclient)|* create()<br>* appendPages()|
