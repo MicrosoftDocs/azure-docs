@@ -64,7 +64,7 @@ ACS Rooms Input json:
 ```
 
 ### Single Source Inputs
-Unlike multi-source inputs, single inputs reference a single media source and are used as such in layouts. If the single media source is destructed from a multi-source input such as an ACS group call or teams meeting, then it will reference the multi-source input id in the `call` property. The following are examples of single source inputs:
+Unlike multi-source inputs, single source inputs reference a single media source and are used as such in layouts. If the single source input is from a multi-source input such as an ACS group call or teams meeting, it will reference the multi-source input's id in the `call` property. The following are examples of single source inputs:
 
 Participant json:
 ```json
