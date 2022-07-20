@@ -18,7 +18,7 @@ Master data management (MDM) arose out of the necessity for businesses to improv
 Getting answers to basic questions such as “who are our most profitable customers?”, “what product(s) have the best margins?” or in some cases, “how many employees do we have”? become tough to answer – at least with any degree of accuracy.
 Basically, the need for accurate, timely information is acute, and as sources of data increase, managing it consistently and keeping data definitions up to date so all parts of a business use the same information is a never ending challenge.
 To meet such challenges, businesses turn to master data management (MDM).
-More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/) and [Profisee-Purview Use Cases and Azure Architecture](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
+More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/) and [Profisee-Purview MDM Concepts and Azure Architecture](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
 
 ## Why Profisee?
 ### PROFISEE MDM: TRUE SAAS EXPERIENCE 
