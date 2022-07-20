@@ -37,10 +37,8 @@ Your request will be reviewed, and you'll be notified if the request can be fulf
 
 If your request is not fulfilled, you'll see a link to create a support request. When you use this link, a support engineer will assist you with your increase request.
 
-
 ## Next steps
 
 Advance to the next article to learn how to increase VM-family vCPU quotas.
 > [!div class="nextstepaction"]
-> [Next steps button](per-vm-quota-requests.md)
-
+> [Increase VM-family vCPU quotas](per-vm-quota-requests.md)
