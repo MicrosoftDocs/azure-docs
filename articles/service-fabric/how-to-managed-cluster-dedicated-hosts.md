@@ -52,7 +52,7 @@ Create a dedicated host group and add a role assignment to the host group with t
 > Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
 
 
-2) Create a dedicated host group pinned to one availability zone and five fault domains using the provided [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH). The sample will ensure there is at least one dedicated host per fault domain.
+2) Create a dedicated host group pinned to one availability zone and five fault domains using the provided [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH). The sample will ensure there is at least one dedicated host per fault domain.
    ```powershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $location
    New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\HostGroup-And-RoleAssignment.json" -TemplateParameterFile ".\HostGroup-And-RoleAssignment.parameters.json" -Debug -Verbose
@@ -63,7 +63,7 @@ Create a dedicated host group and add a role assignment to the host group with t
 > 2) Each fault domain needs a dedicated host to be placed in it and Service Fabric managed clusters require five fault domains. Therefore, at least five dedicated hosts should be present in each dedicated host group.
 
 
-3) The [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. Please see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles. This role assignment is defined in the resources section of the template with the Principal ID determined in the first step and role definition ID. 
+3) The [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. Please see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles. This role assignment is defined in the resources section of the template with the Principal ID determined in the first step and role definition ID. 
 
    ```JSON
       "variables": {  
@@ -95,7 +95,7 @@ Create a dedicated host group and add a role assignment to the host group with t
 ## Deploy Service Fabric managed cluster
 
 Create an Azure Service Fabric managed cluster with node type(s) configured to reference the Dedicated Host group ResourceId. The node type needs to be pinned to the same availability zone as the host group. 
-1) Select the template from [Azure-Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH), which includes specification for Dedicated Host support.
+1) Pick the template from [Service Fabric cluster sample template for Dedicated Host](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH), which includes specification for Dedicated Host support.
 
 
 2) Provide your own values for the following template parameters:
