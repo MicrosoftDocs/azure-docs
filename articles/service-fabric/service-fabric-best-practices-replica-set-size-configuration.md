@@ -1,10 +1,12 @@
 ---
 title: Stateful service replica set size configuration
 description: Best practices for TargetReplicaSetSize and MinReplicaSetSize configuration
-author: jelenav
 ms.topic: conceptual
-ms.date: 02/04/2022
-ms.author: jelenav
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Stateful service replica set size configuration

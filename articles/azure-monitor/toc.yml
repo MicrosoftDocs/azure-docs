@@ -55,18 +55,18 @@ items:
     items:
     - name: Azure portal
       displayName: Custom logs
-      href: logs/tutorial-custom-logs.md
+      href: logs/tutorial-logs-ingestion-portal.md
     - name: Resource Manager templates
       displayName: Custom logs
-      href: logs/tutorial-custom-logs-api.md
-  - name: Ingestion-time transformations
+      href: logs/tutorial-logs-ingestion-api.md
+  - name: Workspace transformations
     items:
     - name: Azure portal
-      displayName: Ingestion-time transformations
-      href: logs/tutorial-ingestion-time-transformations.md
+      displayName: Workspace transformations
+      href: logs/tutorial-workspace-transformations-portal.md
     - name: Resource Manager templates
-      displayName: Ingestion-time transformations
-      href: logs/tutorial-ingestion-time-transformations-api.md
+      displayName: Workspace transformations
+      href: logs/tutorial-workspace-transformations-api.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -95,6 +95,8 @@ items:
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
+    - name: Data collection endpoints
+      href: essentials/data-collection-endpoint-sample.md
     - name: Diagnostic settings
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -127,17 +129,10 @@ items:
   items:
   - name: Continuous monitoring
     href: continuous-monitoring.md
-  - name: Data sources
-    href: agents/data-sources.md
+  - name: Observability
+    href: observability-data.md
   - name: Data platform
-    items:
-    - name: Overview
-      href: data-platform.md
-    - name: Metrics
-      href: essentials/data-platform-metrics.md
-    - name: Logs
-      displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
-      href: logs/data-platform-logs.md
+    href: data-platform.md
   - name: Usage and cost
     items:
     - name: View and estimate charges
@@ -156,14 +151,6 @@ items:
       href: logs/data-security.md
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
-    - name: Private Link networking
-      items:
-      - name: Private Link overview
-        href: logs/private-link-security.md
-      - name: Private Link design
-        href: logs/private-link-design.md
-      - name: Private Link configuration
-        href: logs/private-link-configure.md
     - name: Private storage
       href: logs/private-storage.md
     - name: Personal log data handling
@@ -227,7 +214,10 @@ items:
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
   - name: Azure Monitor Metrics
     items:
-    - name: Metrics Explorer
+    - name: Overview
+      displayname: Metrics, Azure Monitor Metrics
+      href: essentials/data-platform-metrics.md
+    - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
         href: essentials/metrics-getting-started.md
@@ -249,6 +239,9 @@ items:
         href: essentials/metrics-store-custom-rest-api.md
   - name: Azure Monitor Logs
     items:
+    - name: Overview
+      displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
+      href: logs/data-platform-logs.md    
     - name: Workspaces
       items:
       - name: Overview
@@ -424,12 +417,20 @@ items:
       - name: Create with Azure Policy
         displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
         href: essentials/diagnostic-settings-policy.md
+      - name: Migrate retention to Azure Storage lifecycle
+        href: essentials/migrate-to-azure-storage-lifecycle-policy.md
+
   - name: Data collection
     items:
+    - name: Overview
+      displayname: data collection, data collection rules
+      href: essentials/data-collection.md
+    - name: Data sources
+      href: data-sources.md
     - name: Data collection rules
       items:
       - name: Overview
-        displayName: Data collection rules
+        displayname: Data collection rules
         href: essentials/data-collection-rule-overview.md
       - name: Edit
         displayName: Data collection rules
@@ -437,37 +438,28 @@ items:
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
-      - name: Transformations
-        displayName: Data collection rules
-        href: essentials/data-collection-rule-transformations.md
     - name: Data collection endpoints
       href: essentials/data-collection-endpoint-overview.md
-    - name: Custom logs
+    - name: Transformations
       items:
       - name: Overview
-        href: logs/custom-logs-overview.md
+        displayname: Transformations
+        href: essentials/data-collection-transformations.md
+      - name: Structure
+        displayname: Transformations
+        href: essentials/data-collection-transformations-structure.md
       - name: Tutorial (portal)
-        href: logs/tutorial-custom-logs.md
+        href: logs/tutorial-workspace-transformations-portal.md
       - name: Tutorial (API)
-        href: logs/tutorial-custom-logs-api.md
-      - name: Migrate from Data Collector API
-        href: logs/custom-logs-migrate.md
-      - name: Data collector API
-        items:
-        - name: Overview
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data collector API
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data Collector API Pipeline example
-          href: logs/create-pipeline-datacollector-api.md
-    - name: Ingestion time transformations
+        href: logs/tutorial-workspace-transformations-api.md
+    - name: Private Link networking
       items:
-      - name: Overview
-        href: logs/ingestion-time-transformations.md
-      - name: Tutorial (portal)
-        href: logs/tutorial-ingestion-time-transformations.md
-      - name: Tutorial (API)
-        href: logs/tutorial-ingestion-time-transformations-api.md
+      - name: Private Link overview
+        href: logs/private-link-security.md
+      - name: Private Link design
+        href: logs/private-link-design.md
+      - name: Private Link configuration
+        href: logs/private-link-configure.md
     - name: Troubleshoot
       href: logs/data-collection-troubleshoot.md
   - name: Agents
@@ -498,10 +490,9 @@ items:
         - name: Collect text and IIS Logs
           displayName: data collection rule,Azure Monitor agent
           href: agents/data-collection-text-log.md
-      - name: Use data collection endpoints
+      - name: Enable network isolation
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Migrate from Log Analytics agent
-        href: agents/azure-monitor-agent-migration.md
         items:
         - name: Migration guidance
           href: agents/azure-monitor-agent-migration.md
@@ -1128,20 +1119,23 @@ items:
       href: profiler/profiler-overview.md
     - name: Enable Profiler
       items:        
-      - name: App Service
+      - name: Azure App Service
         href: profiler/profiler.md
       - name: Azure Functions app
         href: profiler/profiler-azure-functions.md
-      - name: Cloud Service
+      - name: Azure Cloud Service
         href: profiler/profiler-cloudservice.md
-      - name: Service Fabric Application
+      - name: Azure Service Fabric app
         href: profiler/profiler-servicefabric.md
-      - name: Azure VM
+      - name: Azure Virtual Machine
         href: profiler/profiler-vm.md
-      - name: Linux App services
+      - name: ASP.NET Core app hosted in Linux on App Service
         href: profiler/profiler-aspnetcore-linux.md
-      - name: ASP.NET Core Container
+      - name: ASP.NET Core app running in container
         href: profiler/profiler-containers.md
+    - name: View Profiler data
+      displayName: profiling, debugging, code performance, perf
+      href: profiler/profiler-data.md
     - name: Configure
       items:        
       - name: Configure Profiler
@@ -1327,7 +1321,7 @@ items:
   - name: Insights
     items:
     - name: Azure Cache for Redis
-      href: insights/redis-cache-insights-overview.md
+      href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
@@ -1345,20 +1339,37 @@ items:
       href: insights/resource-group-insights.md
     - name: Troubleshoot insights
       href: insights/troubleshoot-workbooks.md
+  - name: Logs ingestion API
+    items:
+    - name: Overview
+      displayName: data ingestion
+      href: logs/logs-ingestion-api-overview.md
+    - name: Tutorial (portal)
+      href: logs/tutorial-logs-ingestion-portal.md
+    - name: Tutorial (API)
+      href: logs/tutorial-logs-ingestion-api.md
+    - name: Migrate from Data Collector API
+      href: logs/custom-logs-migrate.md
+    - name: Data collector API
+      items:
+      - name: Overview
+        href: logs/data-collector-api.md
+      - name: Log Analytics Data collector API
+        href: logs/data-collector-api.md
+      - name: Log Analytics Data Collector API Pipeline example
+        href: logs/create-pipeline-datacollector-api.md
   - name: Workbooks
     items:
     - name: Overview
       href: visualize/workbooks-overview.md 
-    - name: Getting started with workbooks
+    - name: Get started with workbooks
       href: visualize/workbooks-getting-started.md    
-    - name: Creating a workbook
+    - name: Create a new workbook
       items:
-        - name: Using workbook templates
+        - name: Create a workbook with a template
           href: visualize/workbooks-templates.md
-        - name: Creating a new workbook
+        - name: Create a new workbook
           href: visualize/workbooks-create-workbook.md
-        - name: Workbook configuration options
-          href: visualize/workbooks-configurations.md
         - name: Data sources
           href: visualize/workbooks-data-sources.md         
         - name: Visualizations
@@ -1387,7 +1398,7 @@ items:
             href: visualize/workbooks-renderers.md
           - name: Link actions
             href: visualize/workbooks-link-actions.md  
-        - name: Working with parameters
+        - name: Parameters
           items:
           - name: Workbook parameters
             href: visualize/workbooks-parameters.md
@@ -1405,9 +1416,13 @@ items:
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
             href: visualize/workbooks-multi-value.md               
+        - name: Workbook configuration options
+          href: visualize/workbooks-configurations.md
+        - name: Commonly used components
+          href: visualize/workbooks-commonly-used-components.md
         - name: Workbook result limits
           href: visualize/workbooks-limits.md   
-    - name: Integrating with other Azure services
+    - name: Integrate with other Azure services
       items:
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md
@@ -1420,9 +1435,7 @@ items:
       - name: Move Workbook templates to another region
         href: visualize/workbook-templates-move-region.md
     - name: Workbook Samples
-      items:
-        - name: Sample Workbooks
-          href: visualize/workbooks-sample-links.md
+      href: visualize/workbooks-sample-links.md          
   - name: Other visualizations
     items:
     - name: Monitoring solutions

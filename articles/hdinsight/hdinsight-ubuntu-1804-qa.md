@@ -3,9 +3,9 @@ title: Azure HDInsight Ubuntu 18.04 update
 description: Learn about Azure HDInsight Ubuntu 18.04 OS changes.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.author: sairamyeturi
-author: yeturis
-ms.date: 05/25/2021
+ms.author: nijelsf
+author: reachnijel
+ms.date: 07/18/2022
 ---
 
 # HDInsight Ubuntu 18.04 OS update

@@ -153,13 +153,13 @@
       href: how-to-work-with-threat-intelligence-packages.md
     - name: OT system maintenance
       items:
+      - name: Update OT monitoring software
+        href: update-ot-software.md
+        displayName: upgrade
       - name: Manage OT sensors
         items:
         - name: Manage individual sensors
           href: how-to-manage-individual-sensors.md
-        - name: Update OT sensor software
-          href: update-ot-software.md
-          displayName: upgrade
         - name: Control OT traffic monitoring
           href: how-to-control-what-traffic-is-monitored.md
         - name: Configure active monitoring
@@ -206,23 +206,23 @@
   items:
   - name: OT monitoring appliances
     items:
-    - name: Corporate appliances
+    - name: Overview
+      href: appliance-catalog/appliance-catalog-overview.md
+    - name: Corporate environments
       items:
       - name: HPE ProLiant DL360
         href: appliance-catalog/hpe-proliant-dl360.md
-    - name: Enterprise appliances
+    - name: Large enterprises
       items:
-      - name: HPE ProLiant DL20/DL20 Plus
+      - name: HPE ProLiant DL20/DL20 Plus (4SFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
-    - name: SMB appliances
+    - name: Production line
       items:
-      - name: HPE ProLiant DL20 Plus
+      - name: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
-    - name: Rugged appliances
-      items:
-      - name: Dell Edge 5200
+      - name: Dell Edge 5200 (Rugged MIL-STD-810G)
         href: appliance-catalog/dell-edge-5200.md
-      - name: YS-techsystems YS-FIT2
+      - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
         href: appliance-catalog/ys-techsystems-ys-fit2.md
     - name: Virtual appliances
       items:
