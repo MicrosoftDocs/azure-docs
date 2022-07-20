@@ -327,7 +327,7 @@ The certificate that has been uploaded to Application Gateway HTTP settings must
 **Solution:** If you receive this error message, there's a
 mismatch between the certificate that has been uploaded to Application Gateway and the one that was uploaded to the backend server.
 
-Follow steps 1-11 in the preceding method to upload the correct trusted root certificate to Application Gateway.
+Follow steps 1-10 in the preceding method to upload the correct trusted root certificate to Application Gateway.
 
 For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see
 [Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
