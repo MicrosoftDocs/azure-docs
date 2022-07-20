@@ -18,16 +18,16 @@ Distribution Advisor (DA)  in Synapse SQL analyzes customer queries and recommen
 
 ## Prerequisites
 
-- Run the following to ensure that you are on version 10.0.15665 or higher.
+- Run the following to ensure that you are on version 10.0.15669 or higher.
 ```sql 
 SELECT @@version 
 ``` 
 - Ensure statistics are created and updated before running the advisor.
-- DA recommendations depend on table statistics being up to date. Please check [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) articles for more details on statistics.
+- DA recommendations depend on table statistics being up to date. Check [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) articles for more details on statistics.
 
 ## Create Distribution Advisor Stored Procedures
 
-To run the advisor easily, please run [this script](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/CreateDistributionAdvisor_T62.sql) to create 2 stored procedures:
+To run the advisor easily, please run [this script](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/CreateDistributionAdvisor_T62.sql) to create two stored procedures:
 
 | Command                       | Description                                                                                           |
 |-------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -85,7 +85,7 @@ dbo.read_dist_recommendation will return recommendations in the following format
 
 	Mitigation:
 
-	- Verify that you a using single quotes '' to run the advisor on select queries.
+	- Verify that you are using single quotes '' to run the advisor on select queries.
 	- Start a new session in SSMS and run the advisor.
 
 - Errors during running the advisor
