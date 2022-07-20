@@ -1,9 +1,9 @@
 ---
-Title: Configure Azure AD SSO for an Oracle JD Edwards application using Datawiza Access Broker
-Description: Enable Azure Active Directory SSO for Oracle JD Edwards application using Datawiza Access Broker
-Services: active-directory
-Author: gargi-sinha
-Manager: martinco
+title: Configure Azure AD SSO for an Oracle JD Edwards application using Datawiza Access Broker
+description: Enable Azure Active Directory SSO for Oracle JD Edwards application using Datawiza Access Broker
+services: active-directory
+author: gargi-sinha
+manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
