@@ -48,7 +48,7 @@ Fully containerized configuration streamlines patches and upgrades.
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
 
 ## Microsoft Purview - Profisee Reference Architecture
-:::image type="content" alt-text="Profisee-Purview Reference Architecture Diagram" source="./media/how-to-deploy-profisee-purview/profisee-purview-mdm-reference-architecture.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-purview-mdm-reference-architecture.png":::
+:::image type="content" alt-text="Diagram of Profisee-Purview Reference Architecture." source="./media/how-to-deploy-profisee-purview/profisee-purview-mdm-reference-architecture.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-purview-mdm-reference-architecture.png":::
 
 ### Microsoft Purview - Profisee Reference Architecture - Guides/Reference Docs
 - [Data Governance with Profisee and Microsoft Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
