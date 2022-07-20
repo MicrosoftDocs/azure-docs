@@ -55,7 +55,7 @@ The following table compares features available in the managed gateway versus th
 | Feature support  | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
 | --- | ----- | ----- | ---------- |
 | [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ |
-| [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌<sup>1</sup> | ❌<sup>1</sup> |
+| [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌ | ❌> |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ | ✔️ |
 | [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ❌ |
 | [Private endpoints](private-endpoint.md)  |  ✔️ |  ✔️ | ❌ |
@@ -63,7 +63,7 @@ The following table compares features available in the managed gateway versus th
 | [Multiregion deployment](api-management-howto-deploy-multi-region.md) |  Premium |  ❌ | ✔️<sup>1</sup> |
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>2</sup> |  
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
-| [Protocols and ciphers](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️<sup>4</sup> |
+| [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
 
 <sup>1</sup>Depends on deployment options.<br/>
 <sup>2</sup>Requires configuration of local CA certificates.<br/>
