@@ -65,6 +65,9 @@ Learn more:
  
 [Included CA Certificate List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)
 
+>[!IMPORTANT]
+>Azure Communication Services direct routing supports only TLS 1.2 (or a later version), make sure that the cipher suites you're using on an SBC are supported by Azure Front Door. Microsoft 365 and Azure Front Door have slight differences in cipher suite support. For details, see [What are the current cipher suites supported by Azure Front Door?](/azure/frontdoor/concept-end-to-end-tls#supported-cipher-suites).
+
 SBC pairing works on the Communication Services resource level. It means you can pair many SBCs to a single Communication Services resource. Still, you cannot pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
 
 
