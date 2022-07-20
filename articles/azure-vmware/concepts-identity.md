@@ -149,7 +149,16 @@ Unlike on-prem deployment, not all pre-defined NSX-T RBAC roles are supported wi
 > [!NOTE]
 > NSX-T LDAP Integration supported only with SDDC’s with NSX-T “cloudadmin” user.
 
-### Supported NSX-T RBAC roles  
+### Supported and Unsupported NSX-T RBAC roles  
+
+ In an Azure VMware Solution deployment, the following NSX-T predefined RBAC roles are supported with LDAP integration:
+ 
+- Auditor
+- Cloudadmin
+- LB Admin
+- LB Operator
+- VPN Admin
+- Network Operator 
 
  In an Azure VMware Solution deployment, the following NSX-T predefined RBAC roles are not supported with LDAP integration:
 
@@ -158,25 +167,10 @@ Unlike on-prem deployment, not all pre-defined NSX-T RBAC roles are supported wi
 - Netx Partner Admin
 - GI Partner Admin
 
-Currently these roles can be assigned to LDAP users on a software defined data center (SDDC) using “admin” user. However, this isn't supported with newer SDDC with “cloudadmin” user, as these roles have higher permissions for some NSX-T features than the “cloudadmin” user. NSX-T only allows users to assign RBAC roles with permissions lesser than or equal to their current role.
+You can create custom roles in NSX-T with permissions lesser than or equal to Cloudadmin role created by Microsoft. Following are examples on how to create a supported "Network Admin" and "Security Admin" role. 
 
-We recommend that you not use these RBAC roles with NSX-T to avoid breaking operational workflow for customers. Microsoft plans to swap the “admin” user with more restricted “cloudadmin” user for the existing SDDC. Instead, create and assign the following custom role that matches with the most common NSX RBAC roles requirement: Azure VMware Solution Enterprise Admin, Azure VMware Solution Network Admin, or Azure VMware Solution Security Admin.
-
-#### Create “AVS Enterprise Admin” role
-
-The customer can use a built-in CloudAdmin role or use the following steps to create this custom role.
-
-1. Navigate to **System** > **Users and Roles** > **Roles**.
-1. Clone **Enterprise Admin** and provide the name, **AVS Enterprise Admin**.
-1. **Modify** the permissions as seen in the **Permission** column for some of the features as shown in the following table.
-
-    | Category        | Subcategory                  | Feature                                                            | Permission                                                       |
-    |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
-    | Networking<br><br><br>      | Connectivity<br><br>Network Services          | Tier-0 Gateways<br> Tier-0 Gateways > OSPF<br>Forwarding Policy                      | Read-only<br>None<br>None                         |               |
-    | Security<br><br><br>      | Network Introspection<br>Endpoint Protection<br>Settings              |        <br><br>Service profiles                                                              | None<br>None<br>None     |
-    | System<br><br>     | Backup and Restore<br>Settings         |               <br>License configuration                       | Read-only<br>None                        |
-
-1. **Apply** the changes and **Save** the Role.
+> [!NOTE]
+> Custom role creation will fail if you assign a permission not allowed by Cloudadmin role.
 
 #### Create “AVS Network Admin” role
 
@@ -186,7 +180,7 @@ The customer can use a built-in CloudAdmin role or use the following steps to cr
 
 1. Clone **Network Admin** and provide the name, **AVS Network Admin**.
 
-1. **Modify** the permissions as seen in the **Permission** column for some of the features as shown in the following table.
+1. **Modify** the following permissions to "Read Only" or "None" as seen in the **Permission** column in the following table.
 
     | Category        | Subcategory                  | Feature                                                            | Permission                                                       |
     |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
@@ -202,7 +196,7 @@ The customer can use a built-in CloudAdmin role or use the following steps to cr
 
 1. Clone **Security Admin** and provide the name, “AVS Security Admin”.
 
-1. **Modify** the permissions as seen in the **Permission** column for some of the features as shown in the following table.
+1. **Modify** the following permissions to "Read Only" or "None" as seen in the **Permission** column in the following table.
 
 | Category        | Subcategory                  | Feature                                                            | Permission                                                       |
 |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
