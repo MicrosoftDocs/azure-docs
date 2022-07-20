@@ -177,6 +177,7 @@ New-AzGalleryApplicationVersion `
    -GalleryApplicationName $applicationName `
    -Name $version `
    -PackageFileLink "https://<storage account name>.blob.core.windows.net/<container name>/<filename>" `
+   -DefaultConfigFileLink "https://<storage account name>.blob.core.windows.net/<container name>/<filename>" `
    -Location "East US" `
    -Install "mv myApp .\myApp\myApp" `
    -Remove "rm .\myApp\myApp" `
