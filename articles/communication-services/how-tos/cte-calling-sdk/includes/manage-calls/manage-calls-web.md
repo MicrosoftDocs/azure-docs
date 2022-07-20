@@ -165,6 +165,7 @@ Remote participants represent an endpoint connected to the ongoing Teams call or
 |`InLobby` | After `Ringing`, `Connecting` or `EarlyMedia` | The participant is in the Teams meeting lobby.|
 |`Disconnected` | Final state | The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes. |
 
+
     ```js
     const state = remoteParticipant.state;
     ```
