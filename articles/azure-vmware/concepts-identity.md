@@ -26,7 +26,7 @@ You can view the privileges granted to the Azure VMware Solution CloudAdmin role
 1. Under **Access Control**, select **Roles**.
 1. From the list of roles, select **CloudAdmin** and then select **Privileges**.
 
-   :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="Image shows the roles and privileges for CloudAdmin in the vSphere Client.":::
+   :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="Screenshot shows the roles and privileges for CloudAdmin in the vSphere Client.":::
 
 The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter Server. For more information, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
@@ -140,16 +140,16 @@ You can view the permissions granted to the Azure VMware Solution cloudadmin rol
 > [!NOTE]
 > **Private clouds created before June 2022** will switch from **admin** role to **cloudadmin** role. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX-T credentials you've used for other integration.
 
-## NSX-T LDAP Integration for Role Based Access Control (RBAC)
+## NSX-T LDAP integration for role based access control (RBAC)
 
-In an Azure VMware Solution deployment, the NSX-T can be integrated with external LDAP directory service to add remote directory users or group, and assign them an NSX-T RBAC role, like on-prem deployment.  For more information on how to enable NSX-T LDAP integration, see the [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).
+In an Azure VMware Solution deployment, the NSX-T can be integrated with external LDAP directory service to add remote directory users or group, and assign them an NSX-T RBAC role, like on-premises deployment.  For more information on how to enable NSX-T LDAP integration, see the [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).
 
-Unlike on-prem deployment, not all pre-defined NSX-T RBAC roles are supported with Azure VMware solution to keep Azure VMware Solution IaaS control plane config management separate from tenant network and security configuration. Please see the next section, Supported NSX-T RBAC roles, for more details.
+Unlike on-premises deployment, not all pre-defined NSX-T RBAC roles are supported with Azure VMware solution to keep Azure VMware Solution IaaS control plane config management separate from tenant network and security configuration. Please see the next section, Supported NSX-T RBAC roles, for more details.
 
 > [!NOTE]
 > NSX-T LDAP Integration supported only with SDDC’s with NSX-T “cloudadmin” user.
 
-### Supported and Unsupported NSX-T RBAC roles  
+### Supported and unsupported NSX-T RBAC roles  
 
  In an Azure VMware Solution deployment, the following NSX-T predefined RBAC roles are supported with LDAP integration:
  
@@ -158,7 +158,7 @@ Unlike on-prem deployment, not all pre-defined NSX-T RBAC roles are supported wi
 - LB Admin
 - LB Operator
 - VPN Admin
-- Network Operator 
+- Network Operator
 
  In an Azure VMware Solution deployment, the following NSX-T predefined RBAC roles are not supported with LDAP integration:
 
@@ -167,12 +167,12 @@ Unlike on-prem deployment, not all pre-defined NSX-T RBAC roles are supported wi
 - Netx Partner Admin
 - GI Partner Admin
 
-You can create custom roles in NSX-T with permissions lesser than or equal to Cloudadmin role created by Microsoft. Following are examples on how to create a supported "Network Admin" and "Security Admin" role. 
+You can create custom roles in NSX-T with permissions lesser than or equal to Cloudadmin role created by Microsoft. Following are examples on how to create a supported "Network Admin" and "Security Admin" role.
 
 > [!NOTE]
 > Custom role creation will fail if you assign a permission not allowed by Cloudadmin role.
 
-#### Create “AVS Network Admin” role
+#### Create “AVS network admin” role
 
  Use the following steps to create this custom role.
 
@@ -188,7 +188,7 @@ You can create custom roles in NSX-T with permissions lesser than or equal to Cl
 
 1. **Apply** the changes and **Save** the Role.
 
-#### Create “AVS Security Admin” role
+#### Create “AVS security admin” role
 
  Use the following steps to create this custom role.
 
