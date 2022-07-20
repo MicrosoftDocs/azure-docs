@@ -1,5 +1,5 @@
 ---
-title: Deploy Purview-Profisee Integration for MDM Master Data Management 
+title: Deploy Microsoft Purview-Profisee integration for master data management (MDM)
 description: This guide describes how to deploy Profisee-Purview better together integration as a managed MDM Master Data Management solution for your data estate governance.
 author: abandyop
 ms.author: arindamba
