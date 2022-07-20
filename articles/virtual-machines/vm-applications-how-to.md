@@ -154,6 +154,7 @@ az vm applicaction set \
 	--app-version-ids <appversionID1> <appversionID2> \
 	--treat-deployment-as-failure true
 ```
+To verify application deployment status, refer to the [Get-AzVM](/powershell/module/az.compute/get-azvm) and [Get-AzVMSS](/powershell/module/az.compute/get-azvmss) commands.
 
 ### [PowerShell](#tab/powershell)
 
