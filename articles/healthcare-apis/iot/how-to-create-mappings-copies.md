@@ -26,10 +26,10 @@ This article provides steps for creating copies of your MedTech service's device
 
    :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service-in-workspace.png" alt-text="Screenshot of select MedTech service." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service-in-workspace.png":::
 
-2. Select the name of the **MedTech service** that you'll be copying the device mapping from. In this example, we'll be making a copy of the device mapping from a MedTech service name **mt-azuredocsdemo**. You'll be selecting your own MedTech service as part of this process.
+2. Select the name of the **MedTech service** that you'll be copying the device mapping from. In this example, we'll be making a copy of the device mapping from a MedTech service named **mt-azuredocsdemo**. You'll be selecting your own MedTech service as part of this process.
 
    > [!TIP]
-   > This process can also be used for copying and saving the contents of the **Destination** (also know as the FHIR destination) mapping also under **Settings**.
+   > This copy process can also be used for copying and saving the contents of the **Destination** (also know as the FHIR destination) mapping which is also under **Settings** within your workspace.
 
    :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service.png" alt-text="Screenshot of select the MedTech service that you'll be making mappings copies from." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service.png":::  
 
@@ -41,14 +41,14 @@ This article provides steps for creating copies of your MedTech service's device
 
    :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-device-mapping-contents.png" alt-text="Screenshot of select and copy contents of the mapping." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-device-mapping-contents.png":::
 
-5. Do a paste operation (for example: press **Ctrl + v**) into an editor application like Notepad or [Microsoft Visual Studio Code](https://code.visualstudio.com/) and do a save operation (for example: press **Ctrl + s**) to create a file. For this example, we'll be using Notepad. 
+5. Open an editor application like Notepad or [Microsoft Visual Studio Code](https://code.visualstudio.com/) and do a paste operation (for example: press **Ctrl + v**) and a save operation (for example: press **Ctrl + s**) to create a file copy of your MedTech service device mapping. For this example, we'll be using Notepad. 
 
    :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-save-in-notepad.png" alt-text="Screenshot of using Notepad with the device mapping copy." lightbox="media/iot-mappings-copies/iot-mappings-copies-save-in-notepad.png":::
 
-   1. Select the folder to save the file in.
-   2. Select a name your file.
+   1. Select a folder to save the file in.
+   2. Select a name for your file.
    3. Leave the remaining fields at their defaults (for example: **Save as type** and **Encoding**). 
-   4. Select the **Save** button to save your file. 
+   4. Select the **Save** button.
 
 ## Next steps
 
