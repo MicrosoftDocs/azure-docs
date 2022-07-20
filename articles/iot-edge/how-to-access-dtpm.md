@@ -61,7 +61,7 @@ The following steps in this section show how to create a sample executable to ac
 
 1. Select **Build** > **Build solution** to build the project.  Verify the build is successful.
 
-1. Right-click the project and select _Publish_.
+1. In **Solution Explorer**, right-click the project then select **Publish**.
 
 1. In the **Publish** wizard, choose **Folder** > **Folder**. Select **Browse** and choose an output location for the executable file to be generated.  Select **Finish**. After the publish profile is created, select **Close**.
 
