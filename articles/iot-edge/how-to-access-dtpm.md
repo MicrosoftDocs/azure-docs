@@ -63,7 +63,7 @@ The following steps in this section show how to create a sample executable to ac
 
 1. Right-click the project and select _Publish_.
 
-1. Select _Folder_ -> _Folder_ -> Chose _Folder location_ of the output location for the executable file to be generated and then select _Finish_. 
+1. In the **Publish** wizard, choose **Folder** > **Folder**. Select **Browse** and choose an output location for the executable file to be generated.  Select **Finish**. After the publish profile is created, select **Close**.
 
 1. On the new _Publish_ opened tab, select _Show all settings_, change the following configurations and select _Save_. 
     - Target Runtime:  _linux-x64_.
