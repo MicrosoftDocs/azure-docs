@@ -1,14 +1,13 @@
 ---
-title: Use transactions
+title: Use transactions with dedicated SQL pool in Azure Synapse Analytics
 description: Tips for implementing transactions with dedicated SQL pool in Azure Synapse Analytics for developing solutions.
-author: XiaoyuMSFT 
-manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: xiaoyul
-ms.reviewer: igorstan 
+author: KevinConanMSFT
+ms.author: kecona
+ms.reviewer: wiassaf 
 ---
 
 # Use transactions with dedicated SQL pool in Azure Synapse Analytics

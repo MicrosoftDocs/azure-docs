@@ -2,9 +2,9 @@
 title: Configure a lifecycle management policy
 titleSuffix: Azure Storage
 description: Configure a lifecycle management policy to automatically move data between hot, cool, and archive tiers during the data lifecycle.
-author: tamram
+author: normesta
 
-ms.author: tamram
+ms.author: normesta
 ms.date: 08/18/2021
 ms.service: storage
 ms.subservice: common

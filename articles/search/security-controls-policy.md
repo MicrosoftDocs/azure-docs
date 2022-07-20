@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Cognitive Search
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Cognitive Search. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 05/10/2022
+ms.date: 07/06/2022
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
@@ -19,7 +19,7 @@ appropriate solutions for well-understood best practices.
 For Azure Cognitive Search, there is currently one built-definition, listed below, that you can use
 in a policy assignment. The built-in is for logging and monitoring. By using this built-in
 definition in a [policy that you create](../governance/policy/assign-policy-portal.md), the system
-will scan for search services that do not have [diagnostic logging](monitor-azure-cognitive-search.md), and
+will scan for search services that do not have [resource logging](monitor-azure-cognitive-search.md), and
 then enable it accordingly.
 
 [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)

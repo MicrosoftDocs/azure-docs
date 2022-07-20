@@ -197,6 +197,10 @@ NSString* value =
 Customer Lockbox is available for this service:
 
 * Translator
+* Conversational language understanding
+* Custom text classification
+* Custom named entity recognition
+* Orchestration workflow
 
 For the following services, Microsoft engineers will not access any customer data in the E0 tier: 
 

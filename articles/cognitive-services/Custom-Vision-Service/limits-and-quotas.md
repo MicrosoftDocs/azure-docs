@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 07/05/2022
 ms.author: pafarley
 ---
 
@@ -43,4 +43,4 @@ The number of training images per project and tags per project are expected to i
 
 > [!NOTE]
 > Images smaller than than 256 pixels will be accepted but upscaled.
-> Image aspect ratio should not be larger than 25
+> Image aspect ratio should not be larger than 25:1.

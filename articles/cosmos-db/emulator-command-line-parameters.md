@@ -3,8 +3,9 @@ title: Command-line and PowerShell reference for Azure Cosmos DB Emulator
 description: Learn the command-line parameters for Azure Cosmos DB Emulator, how to control the emulator with PowerShell, and how to change the number of containers that you can create within the emulator.   
 ms.service: cosmos-db
 ms.topic: how-to
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperf-fy21q1
 ---

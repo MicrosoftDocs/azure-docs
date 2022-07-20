@@ -24,7 +24,7 @@ To learn how to view and delete user data in Custom Vision, see the following ta
 
 | Data | View operation | Delete operation |
 | ---- | ---------------- | ---------------- |
-| Account info (Subscription Keys) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Delete using Azure portal (Azure Subscriptions). Or using "Delete Your Account" button in CustomVision.ai settings page (Microsoft Account Subscriptions) | 
+| Account info (Keys) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Delete using Azure portal (Azure Subscriptions). Or using "Delete Your Account" button in CustomVision.ai settings page (Microsoft Account Subscriptions) | 
 | Iteration details | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
 | Iteration performance details | [GetIterationPerformance](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | List of iterations | [GetIterations](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |

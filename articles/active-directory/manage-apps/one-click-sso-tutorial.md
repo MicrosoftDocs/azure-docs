@@ -1,7 +1,6 @@
 ---
 title: One-click, single sign-on (SSO) configuration of your Azure Marketplace application
 description: Steps for one-click configuration of  SSO for your application from the Azure Marketplace.
-titleSuffix: Azure AD
 services: active-directory
 author: AllisonAm
 manager: CelesteDG

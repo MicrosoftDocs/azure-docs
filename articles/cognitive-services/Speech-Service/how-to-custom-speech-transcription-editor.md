@@ -31,7 +31,7 @@ Datasets in the **Training and testing dataset** tab can't be updated. You can i
 
 To import a dataset to the Editor, follow these steps:
 
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
 1. Select **Custom Speech** > Your project name > **Speech datasets** > **Editor**.
 1. Select **Import data**
 1. Select datasets. You can select audio data only, audio + human-labeled data, or both. For audio-only data, you can use the default models to automatically generate machine transcription after importing to the editor.
@@ -47,7 +47,7 @@ Once a dataset has been imported to the Editor, you can start editing the datase
 
 To edit a dataset's transcription in the Editor, follow these steps:
 
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
 1. Select **Custom Speech** > Your project name > **Speech datasets** > **Editor**.
 1. Select the link to a dataset by name.
 1. From the **Audio + text files** table, select the link to an audio file by name. 
@@ -63,7 +63,7 @@ Datasets in the Editor can be exported to the **Training and testing dataset** t
 
 To export datasets from the Editor, follow these steps:
 
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
 1. Select **Custom Speech** > Your project name > **Speech datasets** > **Editor**.
 1. Select the link to a dataset by name.
 1. Select one or more rows from the **Audio + text files** table.

@@ -4,7 +4,8 @@ description: Describes specific steps for using Azure Monitor to enable Continuo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/12/2018
+ms.date: 06/07/2022
+ms.reviewer: bwren
 
 ---
 
@@ -30,7 +31,7 @@ In order to gain observability across your entire environment, you need to enabl
 ## Enable monitoring for your entire infrastructure
 Applications are only as reliable as their underlying infrastructure. Having monitoring enabled across your entire infrastructure will help you achieve full observability and make it easier to discover a potential root cause when something fails. Azure Monitor helps you track the health and performance of your entire hybrid infrastructure including resources such as VMs, containers, storage, and network.
 
-- You automatically get [platform metrics, activity logs and diagnostics logs](agents/data-sources.md) from most of your Azure resources with no configuration.
+- You automatically get [platform metrics, activity logs and diagnostics logs](data-sources.md) from most of your Azure resources with no configuration.
 - Enable deeper monitoring for VMs with [VM insights](vm/vminsights-overview.md).
 -  Enable deeper monitoring for AKS clusters with [Container insights](containers/container-insights-overview.md).
 - Add [monitoring solutions](./monitor-reference.md) for different applications and services in your environment.

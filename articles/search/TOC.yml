@@ -19,10 +19,8 @@
       href: search-create-app-portal.md
     - name: Create a knowledge store
       href: knowledge-store-create-portal.md
-    - name: Translate text and recognize entities
+    - name: Create a skillset
       href: cognitive-search-quickstart-blob.md
-    - name: Apply OCR and image analysis
-      href: cognitive-search-quickstart-ocr.md
     - name: Query with Search Explorer
       href: search-explorer.md
   - name: Visual Studio Code 
@@ -180,12 +178,10 @@
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
-  - name: Service management
+  - name: Planning
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Create a service
-      href: search-create-service-portal.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
     - name: Plan capacity
@@ -196,12 +192,18 @@
       href: search-performance-optimization.md
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
+  - name: Service management
+    items:
+    - name: Create a service
+      href: search-create-service-portal.md
     - name: Manage in the portal
       href: search-manage.md
     - name: Manage with PowerShell
       href: search-manage-powershell.md
     - name: Manage with Azure CLI
       href: search-manage-azure-cli.md
+    - name: Manage with REST
+      href: search-manage-rest.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
   - name: Security
@@ -228,12 +230,12 @@
         href: troubleshoot-shared-private-link-resources.md
     - name: Outbound connections
       items:
-      - name: Connect using a managed identity
-        href: search-howto-managed-identities-data-sources.md
-      - name: Connect over an IP range
-        href: search-indexer-howto-access-ip-restricted.md
       - name: Connect as a trusted service
         href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Connect using a managed identity
+        href: search-howto-managed-identities-data-sources.md
+      - name: Connect through a firewall
+        href: search-indexer-howto-access-ip-restricted.md
       - name: Connect through private endpoints
         href: search-indexer-howto-access-private.md
     - name: Document-level security
@@ -360,7 +362,7 @@
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Azure SQL Server VMs
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-      - name: Power Query data sources
+      - name: Power Query (preview - retired)
         href: search-how-to-index-power-query-data-sources.md
       - name: SharePoint in Microsoft 365
         href: search-howto-index-sharepoint-online.md
@@ -408,8 +410,6 @@
         href: knowledge-store-projections-examples.md 
       - name: Projection example
         href: knowledge-store-projection-example-long.md
-      - name: View with Storage Browser
-        href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
         href: knowledge-store-connect-power-bi.md 
   - name: Queries
@@ -468,7 +468,7 @@
       href: search-performance-tips.md
     - name: Monitoring Cognitive Search
       href: monitor-azure-cognitive-search.md
-    - name: Visualize diagnostic logs
+    - name: Visualize resource logs
       href: search-monitor-logs-powerbi.md
     - name: Monitor queries
       href: search-monitor-queries.md

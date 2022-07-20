@@ -16,6 +16,10 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to keep up to date with the service.
 
+## May 2022
+
+### Estimated Minimum Budget
+- In Custom Vision Portal, users are now able to view the minimum estimated budget needed to train their project. This estimate (shown in hours) is calculated based on volume of images uploaded by user and domain selected by user.
 
 ## October 2020 
 

@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 04/30/2022
+ms.date: 07/19/2022
 ms.custom: references_regions 
 ms.reviewer: geg
 author: v-amallick
@@ -28,7 +28,7 @@ Here's how you can back up and restore Azure VMs with the Azure Backup service.
 --- | --- | --- | ---
 Direct backup of Azure VMs  | Back up the entire VM.  | No additional agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](../virtual-machines/extensions/agent-windows.md) that's running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
 Direct backup of Azure VMs (Windows only)  | Back up specific files/folders/volume. | Install the [Azure Recovery Services agent](backup-azure-file-folder-backup-faq.yml).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
-Back up Azure VM to backup server  | Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or to Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS then backs up to the backup vault. | Install the DPM/MABS protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data.
+Back up Azure VM to the backup server  | Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or to Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS then backs up to the backup vault. | Install the DPM/MABS protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data.
 
 Learn more about backup [using a backup server](backup-architecture.md#architecture-back-up-to-dpmmabs) and about [support requirements](backup-support-matrix-mabs-dpm.md).
 
@@ -50,6 +50,7 @@ Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't autom
 [Security features for hybrid backup](./backup-azure-security-feature.md) |Disabling security features isn't supported.
 Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM, however even if the time change is reverted, successful backup isn't guaranteed.
 Multiple Backups Per Day    |  Supported (in preview), using *Enhanced policy* (in preview). <br><br>   For hourly backup, the minimum RPO is 4 hours and the maximum is 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours respectively. Learn about how to [back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
+Back up a VM with deprecated plan when publisher has removed it from Azure Marketplace | Not supported. <br><br> Backup is possible. However, restore will fail. <br><br> If you've already configured backup for VM with deprecated virtual machine offer and encounter restore error, see [Troubleshoot backup errors with Azure VMs](backup-azure-vms-troubleshoot.md#usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present).
 
 ## Operating system support (Windows)
 
@@ -176,7 +177,8 @@ Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB
 Storage type | Standard HDD, Standard SSD, Premium SSD. <br><br>  Backup and restore of [ZRS disks](../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) is supported.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can't be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
-Disks with Write Accelerator enabled | Currently, Azure VM with WA disk backup is previewed in all Azure public regions. <br><br> To enroll your subscription for WA Disk, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com). <br><br> Snapshots don’t include WA disk snapshots for unsupported subscriptions as WA disk will be excluded. <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
+Disks with Write Accelerator enabled | Azure VM with WA disk backup is available in all Azure public regions starting from May 18, 2020. If WA disk backup is not required as part of VM backup, you can choose to remove with [**Selective disk** feature](selective-disk-backup-restore.md). <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
+Disks enabled for access with private EndPoint | Unsupported.
 Back up & Restore deduplicated VMs/disks | Azure Backup doesn't support deduplication. For more information, see this [article](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  - Azure Backup doesn't deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored because the vault doesn't understand the format. However, you can successfully perform the full VM restore.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.

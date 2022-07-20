@@ -4,6 +4,7 @@ description: Describes disaster recovery for Azure Arc-enabled SQL Managed Insta
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -11,11 +12,9 @@ ms.date: 04/06/2022
 ms.topic: conceptual
 ---
 
-# Azure Arc-enabled SQL Managed Instance - disaster recovery (preview)
+# Azure Arc-enabled SQL Managed Instance - disaster recovery 
 
 To configure disaster recovery in Azure Arc-enabled SQL Managed Instance, set up failover groups.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Background
 
@@ -66,14 +65,9 @@ The following image shows a properly configured distributed availability group:
 
 4. Create the failover group resource on both sites. 
 
-   If the managed instance names are identical between the two sites, you do not need to use the `--shared-name <name of failover group>` parameter.
 
-   If the managed instance names are different between the two sites, use the `--shared-name <name of failover group>` parameter. 
-
-   The following examples use the `--shared-name <name of failover group>...` to complete the task. The command seeds system databases in the disaster recovery instance, from the primary instance.
- 
    > [!NOTE]
-   > The `shared-name` value should be identical on both sites.
+   > Ensure the SQL instances have different names for both primary and secondary sites, and the `shared-name` value should be identical on both sites.
    
     ```azurecli
     az sql instance-failover-group-arc create --shared-name <name of failover group> --name <name for primary DAG resource> --mi <local SQL managed instance name> --role primary --partner-mi <partner SQL managed instance name>  --partner-mirroring-url tcp://<secondary IP> --partner-mirroring-cert-file <secondary.pem> --k8s-namespace <namespace> --use-k8s

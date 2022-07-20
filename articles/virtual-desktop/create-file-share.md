@@ -12,7 +12,7 @@ ms.custom: subject-rbac-steps
 
 In this article, you'll learn how to create an Azure file share authenticated by a domain controller on an existing Azure Virtual Desktop host pool. You can use this file share to store storage profiles.
 
-This process uses Active Directory Domain Services (AD DS), which is an on-prem directory service. If you're looking for information about how to create an FSLogix profile container with Azure AD DS, see [Create an FSLogix profile container with Azure Files](create-profile-container-adds.md).
+This process uses Active Directory Domain Services (AD DS), which is an on-premises directory service. If you're looking for information about how to create an FSLogix profile container with Azure AD DS, see [Create an FSLogix profile container with Azure Files](create-profile-container-adds.md).
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ Next, you'll need to enable Active Directory (AD) authentication. To enable this
 3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Active Directory (AD)** is set to **Enabled**.
 
      > [!div class="mx-imgBorder"]
-     > ![A screenshot of the Configuration page with Azure Active Directory (AD) enabled.](media/active-directory-enabled.png)
+     > ![A screenshot of the Configuration page with Active Directory (AD) enabled.](media/active-directory-enabled.png)
 
 ## Assign Azure RBAC permissions to Azure Virtual Desktop users
 

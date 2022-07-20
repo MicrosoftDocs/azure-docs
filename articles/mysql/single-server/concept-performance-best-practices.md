@@ -1,12 +1,12 @@
 ---
 title: Performance best practices - Azure Database for MySQL
 description: This article describes some recommendations to monitor and tune performance for your Azure Database for MySQL.
-author: Bashar-MSFT
-ms.author: bahusse
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 1/28/2021
+author: Bashar-MSFT
+ms.author: bahusse
+ms.date: 06/20/2022
 ---
 
 # Best practices for optimal performance of your Azure Database for MySQL - Single server

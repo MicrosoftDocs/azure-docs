@@ -9,7 +9,7 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 01/05/2022
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv2, cliv1
+ms.custom: devx-track-azurecli, cliv2, cliv1, event-tier1-build-2022
 ---
 
 # Manage Azure Machine Learning workspaces using Azure CLI
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli, cliv2, cliv1
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
 > [!NOTE]
-> Examples in this article refer to both CLI v1 and CLI v2 versions. If no version is specified for a command, it will work with either the v1 or CLI v2. The machine learning CLI v2 is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads.
+> Examples in this article refer to both CLI v1 and CLI v2 versions. If no version is specified for a command, it will work with either the v1 or CLI v2. 
 
 ## Prerequisites
 
@@ -159,7 +159,7 @@ az ml workspace create -w <workspace-name>
                        --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
-# [Bring existing resources (CLI v2 - preview)](#tab/bringexistingresources2)
+# [Bring existing resources (CLI v2)](#tab/bringexistingresources2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -244,7 +244,7 @@ az ml workspace create -w <workspace-name>
 
 For more details on how to use these commands, see the [CLI reference pages](/cli/azure/ml(v1)/workspace).
 
-# [CLI v2 - preview](#tab/vnetpleconfigurationsv2cli)
+# [CLI v2](#tab/vnetpleconfigurationsv2cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -336,7 +336,7 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# [CLI v2 - preview](#tab/vnetpleconfigurationsv2cli)
+# [CLI v2](#tab/vnetpleconfigurationsv2cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -357,7 +357,7 @@ az ml workspace create -g <resource-group-name> --file cmk.yml
 > Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription to manage the data encryption additional resources.
 
 > [!NOTE]
-> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](v1/concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
 
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
@@ -378,7 +378,7 @@ To get information about a workspace, use the following command:
 az ml workspace show -w <workspace-name> -g <resource-group-name>
 ```
 
-# [CLI v2 - preview](#tab/workspaceupdatev2)
+# [CLI v2](#tab/workspaceupdatev2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -402,7 +402,7 @@ To update a workspace, use the following command:
 az ml workspace update -w <workspace-name> -g <resource-group-name>
 ```
 
-# [CLI v2 - preview](#tab/workspaceupdatev2)
+# [CLI v2](#tab/workspaceupdatev2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -427,7 +427,7 @@ If you change access keys for one of the resources used by your workspace, it ta
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 ```
 
-# [CLI v2 - preview](#tab/workspacesynckeysv2)
+# [CLI v2](#tab/workspacesynckeysv2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -456,7 +456,7 @@ To delete a workspace after it is no longer needed, use the following command:
 az ml workspace delete -w <workspace-name> -g <resource-group-name>
 ```
 
-# [CLI v2 - preview](#tab/workspacedeletev2)
+# [CLI v2](#tab/workspacedeletev2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -504,3 +504,5 @@ For more information on the Azure CLI extension for machine learning, see the [a
 To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
 
 To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
+
+For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

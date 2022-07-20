@@ -33,6 +33,18 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "azure-dev-docs-pr",
+      "url": "https://github.com/MicrosoftDocs/azure-dev-docs-pr",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "terraform_samples",
+      "url": "https://github.com/Azure/terraform",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "quickstart-templates",
       "url": "https://github.com/Azure/azure-quickstart-templates",
       "branch": "master",
@@ -72,6 +84,12 @@
       "path_to_root": "azure_storage-snippets",
       "url": "https://github.com/Azure-Samples/AzureStorageSnippets",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-storage-bind-function-service",
+      "url": "https://github.com/Azure-Samples/msdocs-storage-bind-function-service",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -417,6 +435,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-video-indexer",
+      "url": "https://github.com/Azure-Samples/media-services-video-indexer",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
@@ -441,9 +465,15 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-march-cli-preview",
+      "path_to_root": "azureml-examples-sdk-preview",
       "url": "https://github.com/azure/azureml-examples",
-      "branch": "march-cli-preview",
+      "branch": "sdk-preview",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-online-endpoint-vnet",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -600,6 +630,12 @@
       "path_to_root": "samples-cosmosdb-dotnet-v3",
       "url": "https://github.com/Azure/azure-cosmos-dotnet-v3",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-cosmosdb-mongodb-javascript",
+      "url": "https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -849,6 +885,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-cosmos-tableapi-dotnet",
+      "url": "https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples",
+      "branch": "v12",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "msdocs-django-postgresql-sample-app",
       "url": "https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app",
       "branch": "main",
@@ -877,8 +919,37 @@
       "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
       "branch": "docs-snippets",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-node",
+      "url": "https://github.com/Azure-Samples/ms-identity-node",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-javascript-nodejs-desktop",
+      "url": "https://github.com/Azure-Samples/ms-identity-javascript-nodejs-desktop",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-dotnet-v3",
+      "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples",
+      "branch": "v3",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-db-table-dotnet-v12",
+      "url": "https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples",
+      "branch": "v12",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-mongodb-dotnet",
+      "url": "https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples",
+      "branch": "quickstart-test",
+      "branch_mapping": {}
     }
-
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],
@@ -895,13 +966,16 @@
   },
   "redirection_files": [
     ".openpublishing.redirection.json",
+    ".openpublishing.redirection.azure-arc-data.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.azure-attestation.json",
     ".openpublishing.redirection.azure-blob.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.iot-hub.json",
+    ".openpublishing.redirection.app-service.json",
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.sql-database.json",
     ".openpublishing.redirection.security-benchmark.json",
@@ -910,6 +984,7 @@
     ".openpublishing.redirection.azure-monitor.json",
     ".openpublishing.redirection.azure-percept.json",
     ".openpublishing.redirection.azure-productivity.json",
+    ".openpublishing.redirection.azure-australia.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
@@ -942,6 +1017,8 @@
     "articles/container-apps/.openpublishing.redirection.container-apps.json",
     "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
     "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
-    "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json"
+    "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
+    "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
+    "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json"
   ]
 }

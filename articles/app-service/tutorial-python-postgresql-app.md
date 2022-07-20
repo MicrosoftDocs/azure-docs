@@ -6,7 +6,7 @@ ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/09/2022
-ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22]
+ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22, event-tier1-build-2022
 ---
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
@@ -69,9 +69,14 @@ pip install -r requirements.txt
 > [!NOTE]
 > If you are following along with this tutorial with your own app, look at the *requirements.txt* file description in each project's *README.md* file ([Flask](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/blob/main/README.md), [Django](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app/blob/main/README.md)) to see what packages you'll need.
 
-Set environment variables to specify how to connect to a local PostgreSQL instance.
+This sample application requires an *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
-This sample application requires an *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+```
+DBNAME=<database name>
+DBHOST=<database-hostname>
+DBUSER=<db-user-name>
+DBPASS=<db-password>
+```
 
 For Django, you can use SQLite locally instead of PostgreSQL by following the instructions in the comments of the [*settings.py*](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app/blob/main/azureproject/settings.py) file.
 
@@ -110,14 +115,14 @@ python manage.py runserver
 
 ### [Flask](#tab/flask)
 
-In a web browser, go to the sample application at `http://localhost:5000` and add some restaurants and restaurant reviews to see how the app works.
+In a web browser, go to the sample application at `http://127.0.0.1:5000` and add some restaurants and restaurant reviews to see how the app works.
 
 :::image type="content" source="./media/tutorial-python-postgresql-app/run-flask-postgresql-app-localhost.png" alt-text="A screenshot of the Flask web app with PostgreSQL running locally showing restaurants and restaurant reviews.":::
 
 
 ### [Django](#tab/django)
 
-In a web browser, go to the sample application at `http://localhost:8000` and add some restaurants and restaurant reviews to see how the app works.
+In a web browser, go to the sample application at `http://127.0.0.1:8000` and add some restaurants and restaurant reviews to see how the app works.
 
 :::image type="content" source="./media/tutorial-python-postgresql-app/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django web app with PostgreSQL running locally showing restaurants and restaurant reviews.":::
 
@@ -265,9 +270,6 @@ To configure environment variables for the web app from VS Code, you must have t
 ----
 
 Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-> [!NOTE]
-> If you want to try an alternative approach to connect your app to the Postgres database in Azure, see the [Service Connector version](../service-connector/tutorial-django-webapp-postgres-cli.md) of this tutorial. Service Connector is a new Azure service that is currently in public preview. [Section 4.2](../service-connector/tutorial-django-webapp-postgres-cli.md#42-configure-environment-variables-to-connect-the-database) of that tutorial introduces a simplified process for creating the connection.
 
 ## 6 - Deploy your application code to Azure
 

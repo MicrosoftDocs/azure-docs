@@ -6,8 +6,8 @@ ms.author: dejv
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 05/02/2022
-ms.reviewer: cynthn
+ms.date: 05/31/2022
+ms.reviewer: mattmcinnes
 ms.custom: template-concept; references_regions
 ---
 
@@ -33,9 +33,10 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 **VM size support**:
 - B-series
-- Dav4-series, Dasv4-series
 - DCsv2-series
+- DCsv3-series, DCdsv3-series
 - Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series
+- Dav4-series, Dasv4-series
 - Ddv4-series, Ddsv4-series
 - Dv5-series, Dsv5-series
 - Ddv5-series, Ddsv5-series
@@ -103,17 +104,14 @@ HVCI is a powerful system mitigation that protects Windows kernel-mode processes
 With trusted launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 
-## Azure Defender for Cloud integration
+## Microsoft Defender for Cloud integration
 
 Trusted launch is integrated with Azure Defender for Cloud to ensure your VMs are properly configured. Azure Defender for Cloud will continually assess compatible VMs and issue relevant recommendations.
 
 - **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Azure Defender for Cloud will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
 - **Recommendation to enable vTPM** - If your VM has vTPM enabled, Azure Defender for Cloud can use it to perform Guest Attestation and identify advanced threat patterns. If Azure Defender for Cloud identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it.
 - **Recommendation to install guest attestation extension** - If your VM has secure boot and vTPM enabled but it doesn't have the guest attestation extension installed, Azure Defender for Cloud will issue a low severity recommendation to install the guest attestation extension on it. This extension allows Azure Defender for Cloud to proactively attest and monitor the boot integrity of your VMs. Boot integrity is attested via remote attestation.
-- **Attestation health assessment or Boot Integrity Monitoring** - If your VM has Secure Boot and vTPM enabled and attestation extension installed, Azure Defender for Cloud can remotely validate that your VM booted in a healthy way. This is known as boot integrity monitoring. Azure Defender for Cloud issues an assessment, indicating the status of remote attestation. Currently boot integrity monitoring is supported for both Windows and Linux singe virtual machines and uniform scale sets.
-
-
-## Microsoft Defender for Cloud integration
+- **Attestation health assessment or Boot Integrity Monitoring** - If your VM has Secure Boot and vTPM enabled and attestation extension installed, Azure Defender for Cloud can remotely validate that your VM booted in a healthy way. This is known as boot integrity monitoring. Azure Defender for Cloud issues an assessment, indicating the status of remote attestation. Currently boot integrity monitoring is supported for both Windows and Linux single virtual machines and uniform scale sets.
 
 If your VMs are properly set up with trusted launch, Microsoft Defender for Cloud can detect and alert you of VM health problems.
 
@@ -168,11 +166,69 @@ Trusted launch now allows images to be created and shared through the Azure Comp
 
 ### Does trusted launch support Azure Backup?
 
-Trusted launch now supports Azure Backup in preview. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
+Trusted launch now supports Azure Backup. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
 
 ### Does trusted launch support ephemeral OS disks?
 
-Trusted launch now supports ephemeral OS disks in preview. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
+Trusted launch supports ephemeral OS disks. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
+
+### How can I find VM sizes that support Trusted launch?
+
+See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#limitations).
+
+The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) does not support Trusted launch.
+
+#### CLI
+
+```azurecli
+subscription="<yourSubID>"
+region="westus"
+vmSize="Standard_NC12s_v3"
+
+az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
+```
+#### PowerShell
+
+```azurepowershell
+$region = "southeastasia"
+$vmSize = "Standard_M64"
+(Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
+```
+
+The response will be similar to the following form. `TrustedLaunchDisabled   True` in the output indicates that the Generation 2 VM size does not support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` is not part of the output, it implies that Trusted launch is supported for that VM size.
+
+```
+Name                                         Value
+----                                         -----
+MaxResourceVolumeMB                          8192000
+OSVhdSizeMB                                  1047552
+vCPUs                                        64
+MemoryPreservingMaintenanceSupported         False
+HyperVGenerations                            V1,V2
+MemoryGB                                     1000
+MaxDataDiskCount                             64
+CpuArchitectureType                          x64
+MaxWriteAcceleratorDisksAllowed              8
+LowPriorityCapable                           True
+PremiumIO                                    True
+VMDeploymentTypes                            IaaS
+vCPUsAvailable                               64
+ACUs                                         160
+vCPUsPerCore                                 2
+CombinedTempDiskAndCachedIOPS                80000
+CombinedTempDiskAndCachedReadBytesPerSecond  838860800
+CombinedTempDiskAndCachedWriteBytesPerSecond 838860800
+CachedDiskBytes                              1318554959872
+UncachedDiskIOPS                             40000
+UncachedDiskBytesPerSecond                   1048576000
+EphemeralOSDiskSupported                     True
+EncryptionAtHostSupported                    True
+CapacityReservationSupported                 False
+TrustedLaunchDisabled                        True
+AcceleratedNetworkingEnabled                 True
+RdmaEnabled                                  False
+MaxNetworkInterfaces                         8
+```
 
 ### What is VM Guest State (VMGS)?  
 
