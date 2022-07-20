@@ -26,7 +26,7 @@ Not only does this improve quality of data by eliminating mismatched data across
 More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/) and [Profisee-Purview MDM Concepts and Azure Architecture](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
 
 
-## Why Microsoft Purview chose Profisee?
+## Why Microsoft Purview chose Profisee for Master Data Management (MDM)?
 ### PROFISEE MDM: TRUE SAAS EXPERIENCE 
 A fully managed instance of Profisee MDM hosted in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.
 
