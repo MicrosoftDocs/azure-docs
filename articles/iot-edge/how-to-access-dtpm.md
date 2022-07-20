@@ -22,7 +22,7 @@ Trusted platform module (TPM) technology is a technology designed to provide har
 This article describes how to develop a sample code in C# to read cryptographic keys stored inside the TPM. 
 
 > [!IMPORTANT]
-> The access to the TPM keys it's limited to read-only. If you want to write keys to the TPM, you need to do it from the Windows host OS. 
+> The access to the TPM keys is limited to read-only. If you want to write keys to the TPM, you need to do it from the Windows host OS. 
 
 ## Prerequisites
 
