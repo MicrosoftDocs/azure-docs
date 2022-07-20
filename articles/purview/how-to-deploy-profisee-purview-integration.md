@@ -30,25 +30,25 @@ More Details on [Profisee MDM](https://profisee.com/master-data-management-what-
 ### Profisee MDM: True SaaS experience 
 A fully managed instance of Profisee MDM hosted in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.
 
-    - Platform and Management in One -
+    Platform and Management in One
 Leverage a true, end-to-end SaaS platform with one agreement and no third parties
 
-    - Industry-leading Cloud Service -
+    Industry-leading Cloud Service
 Hosted on Azure for industry-leading scalability and availability
 
-    - The fastest path to trusted data -
+    The fastest path to trusted data
 Leave the networking, firewalls and storage to us so you can deploy in minutes
 
 ### Profisee MDM: Ultimate PaaS flexibility 
 Complete deployment flexibility and control, using the most efficient and low-maintenance option on [Microsoft Azure](https://azure.microsoft.com/) cloud-or on-prem.
 
-    - Modern Cloud Architecture -
+    Modern Cloud Architecture
 Platform available as a containerized Kubernetes service
 
-    - Complete Flexibility & Autonomy -
+    Complete Flexibility & Autonomy
 Available in Azure, AWS, Google Cloud or on-prem.
 
-    - Fast to Deploy, Easy to Maintain -
+    Fast to Deploy, Easy to Maintain
 Fully containerized configuration streamlines patches and upgrades
 
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
@@ -57,9 +57,9 @@ More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://pro
 :::image type="content" alt-text="Profisee-Purview Reference Architecture Diagram" source="https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png" lightbox="https://user-images.githubusercontent.com/13808986/179245348-95aaa798-caa1-46d7-b7d2-38ba4b83ce9a.png":::
 
 ### Microsoft Purview - Profisee Reference Architecture - Guides/Reference Docs
-    - [Data Governance with Profisee and Microsoft Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
-    - [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and Power BI](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
-    - [MDM on Azure Overview](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
+- [Data Governance with Profisee and Microsoft Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
+- [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and Power BI](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
+- [MDM on Azure Overview](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
 
 ### Example Scenario: Business & Technical Use Case
 Let's take an example of a sample manufacturing company working across multiple data sources; it uses ADF to load the business critical data sources into Profisee, which is when Profisee works its magic and finds out the golden records and matching records and then we finally are able to enrich the metadata with Purview (updates  made by Purview on Classifications, Sensitivity Labels, Glossary and all other Catalog features are reflected seamlessly into Profisee). Finally, they connect the enriched metadata detected by Purview and cleansed/curated data by Profisee with Power BI or Azure ML for advanced analytics.
