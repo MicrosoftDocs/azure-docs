@@ -127,7 +127,7 @@ The following figure shows how publisher domain appears in app consent prompts f
 
 :::image type="content" source="./media/howto-configure-publisher-domain/old-app-behavior-table.png" border="false" alt-text="Diagram that shows consent prompt behavior for apps created before May 21, 2019.":::
 
-For apps that were created between May 21, 2019, and November 30, 2020, how the publisher domain appears in an app's consent prompt depends on the publisher domain and the type of application. The following figure describes what appears on the consent prompt with different combinations of configurations:
+For apps that were created between May 21, 2019, and November 30, 2020, how the publisher domain appears in an app's consent prompt depends on the publisher domain and the type of application. The following figure describes what appears on the consent prompt for different combinations of configurations:
 
 :::image type="content" source="./media/howto-configure-publisher-domain/new-app-behavior-table.png" border="false" alt-text="Diagram that shows consent prompt behavior for apps created between May 21, 2019, and November 30, 2020.":::
 

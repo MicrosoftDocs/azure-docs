@@ -16,15 +16,17 @@ ms.reviewer: ardhanap, jesakowi
 
 # Publisher verification
 
-Publisher verification helps app users and organization admins identify authentic and verified app developers who integrate their apps with the Microsoft identity platform.
+Publisher verification gives app users and organization admins information about the authenticity of a developer who publishes an app that integrates with the Microsoft identity platform.
 
-> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
-
-An app that's marked as publisher verified indicates that the publisher has verified their identity with Microsoft. Identity verification includes using a [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership) account that's been [verified](/partner-center/verification-responses) and associating the MPN account with an app registration.
+An app that's publisher verified means that the app's publisher has verified their identity with Microsoft. Identity verification includes using a [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership) account that's been [verified](/partner-center/verification-responses) and associating the MPN account with an app registration.
 
 When the publisher of an app has been verified, a blue *verified* badge appears in the Azure Active Directory (Azure AD) consent prompt for the app and on other webpages:
 
 :::image type="content" source="media/publisher-verification-overview/consent-prompt.png" alt-text="Screenshot that shows an example of a Microsoft app consent prompt.":::
+
+The following video describes the process:  
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
 
 Publisher verification primarily is for developers who build multitenant apps that use [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These types of apps can sign in a user by using OpenID Connect, or they can use OAuth 2.0 to request access to data by using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
 
