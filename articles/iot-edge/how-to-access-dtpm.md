@@ -39,7 +39,9 @@ The following steps show you how to create a sample executable to access a TPM i
 
 1. Open Visual Studio 2019 or 2022.
 
-1. Select _Create a new project_
+1. Select **Create a new project**.
+
+Bold is preferred for calling out UI text. https://docs.microsoft.com/en-us/style-guide/procedures-instructions/formatting-text-in-instructions
 
 1. Search for _Console App, select it and select _Next_. 
 
