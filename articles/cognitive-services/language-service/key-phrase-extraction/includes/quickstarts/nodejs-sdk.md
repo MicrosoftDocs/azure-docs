@@ -75,7 +75,7 @@ const textAnalyticsClient = new TextAnalyticsClient(endpoint, new AzureKeyCreden
 async function keyPhraseExtraction(client){
 
     const keyPhrasesInput = [
-        "My cat might need to see a veterinarian.",
+        "Dr. Smith has a very modern medical office, and she has great staff.",
     ];
     const keyPhraseResult = await client.extractKeyPhrases(keyPhrasesInput);
     
@@ -91,7 +91,7 @@ keyPhraseExtraction(textAnalyticsClient);
 
 ```console
 ID: 0
-        Document Key Phrases: cat,veterinarian
+    Document Key Phrases: modern medical office,Dr. Smith,great staff
 ```
 
 > [!div class="nextstepaction"]
