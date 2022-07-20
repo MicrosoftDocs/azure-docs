@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers 
-ms.date: 07/18/2022
+ms.date: 07/19/2022
 ---
 
 # ISV app license management for Power BI visual offers
@@ -42,7 +42,7 @@ ISV creates an offer in Partner Center and chooses to transact through Microsoft
 
 ### Step 2: ISV adds license enforcement to their Power BI visual solution package
 
-ISV creates a Power BI visual solution package for the offer that leverages Power BI runtime license to perform license enforcement as per the plan that the user has access to.
+ISV creates a Power BI visual solution package for the offer that leverages Power BI runtime license to perform [license enforcement](https://go.microsoft.com/fwlink/?linkid=2201222) as per the plan that the user has access to.
 
 ### Step 3: Customers purchase subscription to ISV products
 

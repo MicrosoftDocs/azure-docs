@@ -958,7 +958,12 @@ sections:
           Scenarios that may sway you toward OpenTelemetry sooner-than-later include sending telemetry to Azure Monitor + another vendor simultaneously, collecting and converging [existing instrumentation protocols](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver), or leveraging features available in the OpenTelemetry-Collector. For example, customers have reported using the [batch processor](https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor/batchprocessor), [tail-based sampler](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor), and/or [attributes processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor). While similar features exist in the existing Application Insights SDKs, some customers prefer to host this processing downstream in an agent.
           
           You can see our progress toward OpenTelemetry-Based Azure Monitor exporters for [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter), [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter), and [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/) in open-source repositories.
-      
+
+      - question: |
+          Is running Application Insights alongside competitor agents supported? (e.g., AppDynamics, DataDog, NewRelic, etc.)
+        answer: |
+          No. This is not something we plan to test or support.
+
       - question: |
           Can I use Preview builds in production environments?
         answer: |

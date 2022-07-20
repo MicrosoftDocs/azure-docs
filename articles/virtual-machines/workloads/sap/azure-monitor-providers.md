@@ -14,7 +14,9 @@ ms.author: radeltch
 
 ## Overview
 
-This article describes the various providers currently available for Azure Monitor for SAP Solutions.
+This article describes the various providers currently available for Azure Monitor for SAP solutions (AMS).
+
+This content applies to both versions of the service, AMS and AMS (classic).
 
 In the context of Azure Monitor for SAP Solutions, a *provider type* refers to a specific *provider*. For example, *SAP HANA*, which is configured for a specific component within the SAP landscape, like SAP HANA database. A provider contains the connection information for the corresponding component and helps to collect telemetry data from that component. One Azure Monitor for SAP Solutions resource (also known as SAP monitor resource) can be configured with multiple providers of the same provider type or multiple providers of multiple provider types.
    
@@ -28,8 +30,9 @@ For public preview, the following provider types are supported:
 - Microsoft SQL Server
 - High-availability cluster
 - Operating system (OS)
+- IBM Db2 (available with new version)
 
-![Azure Monitor for SAP solutions providers](https://user-images.githubusercontent.com/75772258/115047655-5a5b2c00-9ef6-11eb-9e0c-073e5e1fcd0e.png)
+![Diagram shows Azure Monitor for SAP solutions providers.](https://user-images.githubusercontent.com/75772258/115047655-5a5b2c00-9ef6-11eb-9e0c-073e5e1fcd0e.png)
 
 We recommend you configure at least one provider from the available provider types when deploying the SAP monitor resource. By configuring a provider, you start data collection from the corresponding component for which the provider is configured.   
 
@@ -41,15 +44,27 @@ You can configure one or more providers of provider type SAP NetWeaver to enable
 
 For the current release, the following SOAP web methods are the standard, out-of-box methods invoked by AMS.
 
-![image1](https://user-images.githubusercontent.com/75772258/114600036-820d8280-9cb1-11eb-9f25-d886ab1d5414.png)
+![Diagram shows SOAP methods.](https://user-images.githubusercontent.com/75772258/114600036-820d8280-9cb1-11eb-9f25-d886ab1d5414.png)
 
 In public preview, you can expect to see the following data with the SAP NetWeaver provider: 
-- System and instance availability
-- Work process usage
-- Queue usage
-- Enqueue lock statistics
 
-![image](https://user-images.githubusercontent.com/75772258/114581825-a9f2eb00-9c9d-11eb-8e6f-79cee7c5093f.png)
+- SAP system and application server availability, including: instance process availability of dispatcher, ICM, gateway, message server, Enqueue Server, IGS Watchdog
+- Work process usage statistics and trends
+- Enqueue Lock statistics and trends
+- Queue usage statistics and trends
+- SMON Metrics (/SDF/SMON )
+- SWNC Workload , Memory , Transaction, User , RFC Usage (St03n)
+- Short Dumps (ST22)
+- Object Lock (SM12)
+- Failed Updates (SM13)
+- System Logs Analysis(SM21)
+- Batch Jobs Statistics(SM37)
+- Outbound Queues(SMQ1)
+- Inbound Queues(SMQ2)
+- Transactional RFC(SM59)
+- STMS Change Transport System Metrics(STMS)
+
+![Diagram shows Netweaver Provider architecture.](https://user-images.githubusercontent.com/75772258/114581825-a9f2eb00-9c9d-11eb-8e6f-79cee7c5093f.png)
 
 ## Provider type: SAP HANA
 
@@ -68,7 +83,7 @@ Configuring the SAP HANA provider requires:
 
 We recommend you configure the SAP HANA provider against SYSTEMDB; however, more providers can be configured against other database tenants.
 
-![Azure Monitor for SAP solutions providers - SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
+![Diagram shows Azure Monitor for SAP solutions providers - SAP HANA architecture.](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
 
 ## Provider type: Microsoft SQL server
 
@@ -87,7 +102,7 @@ Configuring Microsoft SQL Server provider requires:
 - The SQL Server port number
 - The SQL Server username and password
 
-![Azure Monitor for SAP solutions providers - SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
+![Diagram shows Azure Monitor for SAP solutions providers - SQL architecture.](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
 
 ## Provider type: High-availability cluster
 You can configure one or more providers of provider type *High-availability cluster* to enable data collection from Pacemaker cluster within the SAP landscape. The High-availability cluster provider connects to Pacemaker using the [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) for **SUSE** based clusters and by using [Performance co-pilot](https://access.redhat.com/articles/6139852) for **RHEL** based clusters. AMS then pulls telemetry data from the database and pushes it to Log Analytics workspace in your subscription. The High-availability cluster provider collects data every 60 seconds from Pacemaker.  
@@ -98,7 +113,7 @@ In public preview, you can expect to see the following data with the High-availa
  - Trends
  - [others](https://github.com/ClusterLabs/ha_cluster_exporter/blob/master/doc/metrics.md) 
 
-![Azure Monitor for SAP solutions providers - High-availability cluster](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
+![Diagram shows Azure Monitor for SAP solutions providers - High-availability cluster architecture.](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
 To configure a High-availability cluster provider, two primary steps are involved:
 
@@ -145,6 +160,18 @@ To configure an OS (Linux) provider, two primary steps are involved:
 > [!Warning]
 > Ensure Node Exporter keeps running after node reboot. 
 
+## Provider type: IBM Db2
+
+You can configure one or more IBM Db2 providers. The following data is available with this provider type:
+
+- Database availability
+- Number of connections
+- Logical and physical reads
+- Waits and current locks
+- Top 20 runtime and executions 
+
+![Diagram shows Azure Monitor for SAP solutions providers - IBM Db2 architecture.](./media/azure-monitor-sap/azure-monitor-providers-db2.png)
+- 
 ## Next steps
 
 Learn how to deploy Azure Monitor for SAP Solutions from the Azure portal.
