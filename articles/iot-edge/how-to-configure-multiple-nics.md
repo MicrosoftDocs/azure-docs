@@ -41,17 +41,17 @@ The following steps in this section show how to assign a network interface to th
     ```
 1. Assign the virtual switch to the EFLOW VM.
     ```powershell
-    Add-EflowNetwork -Name "{switchName}" -SwitchType {switchType}
+    Add-EflowNetwork -vSwitchName "{switchName}" -vSwitchType {switchType}
     ```
-    For example, if you wanted to assign the external virtual switch named "OnlineOPCUA, you should use the following command
+    For example, if you wanted to assign the external virtual switch named **OnlineExt**, you should use the following command
     ```powershell
-    Add-EflowNetwork -Name "OnlineOPCUA" -SwitchType "External"
+    Add-EflowNetwork -vSwitchName "OnlineExt" -vSwitchType "External"
     ```
     :::image type="content" source="./media/how-to-configure-multiple-nics/ps-cmdlet-add-eflow-network.png" alt-text="EFLOW attach virtual switch":::
 
 1. Check that the virtual switch was correctly assigned to the EFLOW VM.
     ```powershell
-    Get-EflowNetwork -Name "{switchName}"
+    Get-EflowNetwork -vSwitchName "{switchName}"
     ```
 
 For more information about attaching a virtual switch to the EFLOW VM, see [PowerShell functions for Azure IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md).
@@ -66,25 +66,27 @@ Once the virtual switch was successfully assigned to the EFLOW VM, you need to c
 
     - If you're using DHCP, no Static IP parameters are needed.
         ```powershell
-        Add-EflowEndpoint -Name "{switchName}" -SwitchType {switchType} -vEndpointName "{EndpointName}"
+        Add-EflowVmEndpoint -vSwitchName "{switchName}" -vEndpointName "{EndpointName}"
         ```
 
     - If you're using Static IP
         ```powershell
-        Add-EflowEndpoint -Name "{switchName}" -SwitchType {switchType} -vEndpointName "{EndpointName}" -ip4Address "{staticIp4Address}" -ip4GatewayAddress "{gatewayIp4Address}" -ip4PrefixLength "{prefixLength}"
+        Add-EflowVmEndpoint -vSwitchName "{switchName}" -vEndpointName "{EndpointName}" -ip4Address "{staticIp4Address}" -ip4GatewayAddress "{gatewayIp4Address}" -ip4PrefixLength "{prefixLength}"
         ```
 
-        For example, if you wanted to create and assign the "OnlineOPCUA" endpoint with the external virtual switch named "OnlineOPCUA, and Static IP configurations (_ip4Address=192.168.0.103, ip4GatewayAddress=192.168.0.1, ip4PrefixLenght=24_) you should use the following command:
+        For example, if you wanted to create and assign the **OnlineEndpoint** endpoint with the external virtual switch named **OnlineExt**, and Static IP configurations (_ip4Address=192.168.0.103, ip4GatewayAddress=192.168.0.1, ip4PrefixLenght=24_) you should use the following command:
         ```powershell
-         Add-EflowEndpoint -Name "OnlineOPCUA" -SwitchType "External" -vEndpointName "OnlineOPCUA" -ip4Address "192.168.0.103" -ip4GatewayAddress "192.168.0.1" -ip4PrefixLength "24"
+        Add-EflowVmEndpoint -vSwitchName "OnlineExt" -vEndpointName "OnlineEndpoint" -ip4Address "192.168.0.103" -ip4GatewayAddress "192.168.0.1" -ip4PrefixLength "24"
         ```
 
         :::image type="content" source="./media/how-to-configure-multiple-nics/ps-cmdlet-add-eflow-endpoint.png" alt-text="EFLOW attach network endpoint":::
 
-1. Check that the network endpoint was correctly created and assigned to the EFLOW VM.
+1. Check that the network endpoint was correctly created and assigned to the EFLOW VM. You should see the two network interfaces assigned to the virtual machine.
     ```powershell
-    Get-EflowVmEndpoint -Name "{switchName}"
+    Get-EflowVmEndpoint
     ``` 
+    :::image type="content" source="./media/how-to-configure-multiple-nics/ps-cmdlet-get-eflow-vm-endpoint.png" alt-text="EFLOW get attached network interfaces":::
+
 
 For more information about creating and attaching a network endpoint to the EFLOW VM, see [PowerShell functions for Azure IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md).
 
@@ -103,7 +105,7 @@ The final step is to make sure the networking configurations were applied correc
     ifconfig
     ``` 
     
-    The default interface _eth0_ is the one used for all the VM management. You should see another interface, like _eth1, which is the new interface that was assigned to the VM. Following the examples above, if you previously assigned a new endpoint with the static IP 192.168.0.103 and
+    The default interface **eth0** is the one used for all the VM management. You should see another interface, like **eth1**, which is the new interface that was assigned to the VM. Following the examples above, if you previously assigned a new endpoint with the static IP 192.168.0.103 you should see the interface **eth1** with the _inet addr: 192.168.0.103_.
 
    ![EFLOW VM network interfaces](./media/how-to-configure-multiple-nics/ps-cmdlet-eflow-ifconfig.png)
 
