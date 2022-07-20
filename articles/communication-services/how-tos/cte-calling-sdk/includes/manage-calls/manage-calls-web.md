@@ -248,6 +248,7 @@ const callerIdentity = call.callerInfo.displayName;
 |`Disconnecting`| After any state | The transition state before the call goes to a `Disconnected` state.|
 | `Disconnected`| Final state | The final state of the call. If the network connection is lost, the state changes to `Disconnected` after two minutes.|
 
+
 ```js
 const callState = call.state;
 ```
