@@ -38,7 +38,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 **Type:** New feature  
 **Service category:** App Provisioning  
-**Product capability:** 3rd Party Integration  
+**Product capability:** Third Party Integration  
  
 
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
@@ -96,7 +96,7 @@ Create "nested" groups with Azure AD Dynamic Groups! This feature enables you to
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration  
+**Product capability:** Third Party Integration  
 
  
 
@@ -124,7 +124,7 @@ For listing your application in the Azure AD app gallery, see the details here h
 
  
 
-We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account cannot bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true). 
+We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true). 
 
 We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad). 
  
@@ -192,7 +192,7 @@ For more information on how to use this feature, see: [Dynamic membership rule f
 **Product capability:** Platform  
 
  
-Azure Service Health will soon support service outage notifications to Tenant Admins for Azure Active Directory issues in the near future. These outages will also appear on the Azure AD admin portal overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information will be available when this capability is released. The expected release is for June 2022.
+Azure Service Health will soon support service outage notifications to Tenant Admins for Azure Active Directory issues soon. These outages will also appear on the Azure AD admin portal overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information will be available when this capability is released. The expected release is for June 2022.
  
 ---
 
@@ -202,7 +202,7 @@ Azure Service Health will soon support service outage notifications to Tenant Ad
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration  
+**Product capability:** Third Party Integration  
  
 
 
@@ -238,7 +238,7 @@ When editing a collection using the My Apps portal, users can now add their own 
 
 **Type:** New feature  
 **Service category:** App Provisioning  
-**Product capability:** 3rd Party Integration  
+**Product capability:** Third Party Integration  
  
 
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
@@ -458,7 +458,7 @@ We highly recommend enabling this new protection when using Azure AD Multi-Facto
 **Service category:** Enterprise Apps  
 **Product capability:** Third Party Integration
 
-In April 2022 we added the following 24 new applications in our App gallery with Federation support:
+In April 2022, we added the following 24 new applications in our App gallery with Federation support:
 [X-1FBO](https://www.x1fbo.com/), [select Armor](https://app.clickarmor.ca/), [Smint.io Portals for SharePoint](https://www.smint.io/portals-for-sharepoint/), [Pluto](../saas-apps/pluto-tutorial.md), [ADEM](../saas-apps/adem-tutorial.md), [Smart360](../saas-apps/smart360-tutorial.md), [MessageWatcher SSO](https://messagewatcher.com/), [Beatrust](../saas-apps/beatrust-tutorial.md), [AeyeScan](https://aeyescan.com/azure_sso), [ABa Customer](https://abacustomer.com/), [Twilio Sendgrid](../saas-apps/twilio-sendgrid-tutorial.md), [Vault Platform](../saas-apps/vault-platform-tutorial.md), [Speexx](../saas-apps/speexx-tutorial.md), [Clicksign](https://app.clicksign.com/signin), [Per Angusta](../saas-apps/per-angusta-tutorial.md), [EruditAI](https://dashboard.erudit.ai/login), [MetaMoJi ClassRoom](https://business.metamoji.com/), [Numici](https://app.numici.com/), [MCB.CLOUD](https://identity.mcb.cloud/Identity/Account/Manage), [DepositLink](https://depositlink.com/external-login), [Last9](https://last9.io/), [ParkHere Corporate](../saas-apps/parkhere-corporate-tutorial.md), [Keepabl](../saas-apps/keepabl-tutorial.md), [Swit](../saas-apps/swit-tutorial.md)
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
@@ -653,7 +653,7 @@ With Azure Active Directory (Azure AD) Access Reviews, you can create a download
 **Product capability:** Identity Security & Protection  
  
 
-Azure AD Identity Protection is extending its core capabilities of detecting, investigating, and remediating identity-based risk to workload identities. This allows organizations to better protect their applications, service principals, and managed identities. We are also extending Conditional Access so you can block at-risk workload identities. [Learn more](../identity-protection/concept-workload-identity-risk.md)
+Azure AD Identity Protection is extending its core capabilities of detecting, investigating, and remediating identity-based risk to workload identities. This allows organizations to better protect their applications, service principals, and managed identities. We're also extending Conditional Access so you can block at-risk workload identities. [Learn more](../identity-protection/concept-workload-identity-risk.md)
  
 
 ---
@@ -693,7 +693,7 @@ Use multi-stage reviews to create Azure AD access reviews in sequential stages, 
 **Product capability:** Third Party Integration  
  
 
-In February 2022 we added the following 20 new applications in our App gallery with Federation support:
+In February 2022, we added the following 20 new applications in our App gallery with Federation support:
 
 [Embark](../saas-apps/embark-tutorial.md),  [FENCE-Mobile RemoteManager SSO](../saas-apps/fence-mobile-remotemanager-sso-tutorial.md), [カオナビ](../saas-apps/kao-navi-tutorial.md), [Adobe Identity Management (OIDC)](../saas-apps/adobe-identity-management-tutorial.md), [AppRemo](../saas-apps/appremo-tutorial.md), [Live Center](https://livecenter.norkon.net/Login), [Offishall](https://app.offishall.io/), [MoveWORK Flow](https://www.movework-flow.fm/login), [Cirros SL](https://www.cirros.net/), [ePMX Procurement Software](https://azure.epmxweb.com/admin/index.php?), [Vanta O365](https://app.vanta.com/connections), [Hubble](../saas-apps/hubble-tutorial.md), [Medigold Gateway](https://gateway.medigoldcore.com), [クラウドログ](../saas-apps/crowd-log-tutorial.md),[Amazing People Schools](../saas-apps/amazing-people-schools-tutorial.md), [Salus](https://salus.com/login), [XplicitTrust Network Access](https://console.xplicittrust.com/#/dashboard), [Spike Email - Mail & Team Chat](https://spikenow.com/web/), [AltheaSuite](https://planmanager.altheasuite.com/), [Balsamiq Wireframes](../saas-apps/balsamiq-wireframes-tutorial.md).
 
@@ -713,7 +713,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 **Product capability:** Identity Security & Protection  
  
 
-Identity Protection has added two new detections from Microsoft Defender for Cloud Apps, (formerly MCAS). The Mass Access to Sensitive Files detection detects anomalous user activity, and the Unusual Addition of Credentials to an OAuth app detects suspicious service principal activity.[Learn more](../identity-protection/concept-identity-protection-risks.md)
+Identity Protection has added two new detections from Microsoft Defender for Cloud Apps, formerly MCAS. The Mass Access to Sensitive Files detection detects anomalous user activity, and the Unusual Addition of Credentials to an OAuth app detects suspicious service principal activity.[Learn more](../identity-protection/concept-identity-protection-risks.md)
  
 
 ---
