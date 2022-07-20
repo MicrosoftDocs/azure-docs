@@ -43,6 +43,8 @@
     items: 
     - name: Application gallery
       href: overview-application-gallery.md
+    - name: Request to publish applications
+      href: v2-howto-app-gallery-listing.md
     - name: Application integration
       href: plan-an-application-integration.md
     - name: Application ownership
@@ -152,8 +154,6 @@
           href: migrate-okta-sync-provisioning-to-azure-active-directory.md
         - name: Migrate Okta federation to Azure AD managed authentication
           href: migrate-okta-federation-to-azure-active-directory.md
-    - name: Request to publish applications
-      href: v2-howto-app-gallery-listing.md
     - name: Secure legacy apps 
       items:
       - name: Secure hybrid access with Azure AD 

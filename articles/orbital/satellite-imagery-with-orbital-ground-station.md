@@ -48,8 +48,8 @@ Register with the [NASA DRL](https://directreadout.sci.gsfc.nasa.gov/) to downlo
 Transfer the installation binaries to the receiver-vm:
 
 ```console
-mkdir ~/software/
-scp RT-STPS_6.0*.tar.gz azureuser@receiver-vm:~/software/rt-stps/.
+ssh azureuser@receiver-vm 'mkdir -p ~/software'
+scp RT-STPS_6.0*.tar.gz azureuser@receiver-vm:~/software/.
 ```
 
 Alternatively, you can upload your installation binaries to a container in Azure Storage and download them to the receiver-vm using [AzCopy](../storage/common/storage-use-azcopy-v10.md)
@@ -57,7 +57,7 @@ Alternatively, you can upload your installation binaries to a container in Azure
 ### Install rt-stps
 
 ```console
-sudo yum install java (find version of java)
+sudo yum install java-11-openjdk
 cd ~/software
 tar -xzvf RT-STPS_6.0.tar.gz
 cd ./rt-stps
@@ -83,7 +83,7 @@ tar -xzvf RT-STPS_6.0_testdata.tar.gz
 cd ~/software/rt-stps
 rm ./data/*
 ./bin/batch.sh config/npp.xml ./testdata/input/rt-stps_npp_testdata.dat
-#Verify that files exist
+# Verify that files exist
 ls -la ./data
 ```
 
