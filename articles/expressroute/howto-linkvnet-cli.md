@@ -3,14 +3,13 @@ title: 'Tutorial: Link a VNet to an ExpressRoute circuit - Azure CLI'
 description: This tutorial shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure CLI.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 08/10/2021
+ms.date: 07/18/2022
 ms.author: duau
-
+ms.custom: template-tutorial
 ---
-# Tutorial: Connect a virtual network to an ExpressRoute circuit using CLI
+# Tutorial: Connect a virtual network to an ExpressRoute circuit using Azure CLI
 
 This tutorial shows you how to link virtual networks (VNets) to Azure ExpressRoute circuits using Azure CLI. To link using Azure CLI, the virtual networks must be created using the Resource Manager deployment model. They can either be in the same subscription, or part of another subscription. If you want to use a different method to connect your VNet to an ExpressRoute circuit, you can select an article from the following list:
 
@@ -18,7 +17,6 @@ This tutorial shows you how to link virtual networks (VNets) to Azure ExpressRou
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
-> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
@@ -43,6 +41,8 @@ In this tutorial, you learn how to:
 * If you enable the ExpressRoute premium add-on, you can link virtual networks outside of the geopolitical region of the ExpressRoute circuit. The premium add-on will also allow you to connect more than 10 virtual networks to your ExpressRoute circuit depending on the bandwidth chosen. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
 
 * In order to create the connection from the ExpressRoute circuit to the target ExpressRoute virtual network gateway, the number of address spaces advertised from the local or peered virtual networks needs to be equal to or less than **200**. Once the connection has been successfully created, you can add additional address spaces, up to 1,000, to the local or peered virtual networks.
+
+* Review guidance for [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
 ## Connect a virtual network in the same subscription to a circuit
 
@@ -194,7 +194,10 @@ az network vpn-connection delete --name ERConnection --resource-group ExpressRou
 
 ## Next steps
 
-In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and a different subscription. For more information about the ExpressRoute gateway, see: 
+In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about the ExpressRoute gateway, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+
+To learn how to configure route filters for Microsoft peering using Azure CLI, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md)
+> [Configure route filters for Microsoft peering](how-to-routefilter-cli.md)
+

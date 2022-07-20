@@ -52,6 +52,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Azerbaijani (Azerbaijan)          | `az-AZ`         |
 | Basque (Spain)                    | `eu-ES`         |
 | Bengali (India)                   | `bn-IN`         |
+| Bosnian (Bosnia and Herzegovina)  | `bs-BA`         |
 | Bulgarian (Bulgaria)              | `bg-BG`         |
 | Burmese (Myanmar)                 | `my-MM`         |
 | Catalan (Spain)                   | `ca-ES`         |
@@ -116,6 +117,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Mongolian (Mongolia)              | `mn-MN`         |
 | Nepali (Nepal)                    | `ne-NP`         |
 | Norwegian (Bokmål, Norway)        | `nb-NO`         |
+| Pashto (Afghanistan)              | `ps-AF`         |
 | Persian (Iran)                    | `fa-IR`         |
 | Polish (Poland)                   | `pl-PL`         |
 | Portuguese (Brazil)               | `pt-BR`         |
@@ -126,6 +128,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Sinhala (Sri Lanka)               | `si-LK`         |
 | Slovak (Slovakia)                 | `sk-SK`         |
 | Slovenian (Slovenia)              | `sl-SI`         |
+| Somali (Somalia)                  | `so-SO`         |
 | Spanish (Argentina)               | `es-AR`         |
 | Spanish (Bolivia)                 | `es-BO`         |
 | Spanish (Chile)                   | `es-CL`         |
@@ -158,6 +161,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Ukrainian (Ukraine)               | `uk-UA`         |
 | Uzbek (Uzbekistan)                | `uz-UZ`         |
 | Vietnamese (Vietnam)              | `vi-VN`         |
+| Welsh (United Kingdom)          | `cy-GB`         |
 | Zulu (South Africa)               | `zu-ZA`         |
 
 ### [Plain text](#tab/plaintext)
@@ -394,11 +398,14 @@ You can use the locales in this table with [phrase list](improve-accuracy-phrase
 | English (India) | `en-IN` |
 | English (United Kingdom)) | `en-GB` |
 | English (United States) | `en-US` |
+| French (Canada) | `fr-CA` |
 | French (France) | `fr-FR` |
 | German (Germany) | `de-DE` |
 | Italian (Italy) | `it-IT` |
 | Japanese (Japan) | `ja-JP` |
+| Korean (Korea) | `ko-KR` |
 | Portuguese (Brazil) | `pt-BR` |
+| Spanish (Mexico) | `es-MX` |
 | Spanish (Spain) | `es-ES` |
 
 ---
@@ -793,8 +800,8 @@ The following neural voices are in public preview.
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunfengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, 1 new multiple style available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, 2 new multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinese (Mandarin, Simplified) | `zh-CN-LN` | Female | `zh-CN-LN-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
-| Chinese (Mandarin, Simplified) | `zh-CN-SC` | Male | `zh-CN-SC-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
+| Chinese (Mandarin, Simplified) | `zh-CN-liaoning` | Female | `zh-CN-liaoning-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
+| Chinese (Mandarin, Simplified) | `zh-CN-sichuan` | Male | `zh-CN-sichuan-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
 | English (United States) | `en-US` | Female | `en-US-JaneNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-NancyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-DavisNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -902,7 +909,7 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Czech (Czech) | `cs-CZ` | No |No|
 | Danish (Denmark) | `da-DK` | No |No|
 | Dutch (Netherlands) | `nl-NL` | No |No|
-| English (Australia) | `en-AU` | Yes |No|
+| English (Australia) | `en-AU` | Yes |Yes|
 | English (Canada) | `en-CA` | No |Yes|
 | English (India) | `en-IN` | No |No|
 | English (Ireland) | `en-IE` | No |No|
@@ -921,7 +928,7 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Hungarian (Hungary) | `hu-HU` | No |No|
 | Indonesian (Indonesia) | `id-ID` | No |No|
 | Italian (Italy) | `it-IT` | Yes |Yes|
-| Japanese (Japan) | `ja-JP` | Yes |No|
+| Japanese (Japan) | `ja-JP` | Yes |Yes|
 | Korean (Korea) | `ko-KR` | Yes |Yes|
 | Malay (Malaysia) | `ms-MY` | No |No|
 | Norwegian (Bokmål, Norway) | `nb-NO` | No |No|
@@ -957,18 +964,23 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 |Danish|`da-DK`|
 |Dutch|`nl-NL`|
 |English|`en-AU`<br/>`en-CA`<br/>`en-GH`<br/>`en-HK`<br/>`en-IN`<br/>`en-IE`<br/>`en-KE`<br/>`en-NZ`<br/>`en-NG`<br/>`en-PH`<br/>`en-SG`<br/>`en-ZA`<br/>`en-TZ`<br/>`en-GB`<br/>`en-US`|
+|Estonian|`et-EE`|
 |Finnish|`fi-FI`|
 |French|`fr-CA`<br/>`fr-FR`|
 |German|`de-DE`|
 |Greek|`el-GR`|
+|Gujarati|`gu-IN`|
 |Hindi|`hi-IN`|
 |Hungarian|`hu-HU`|
 |Indonesian|`id-ID`|
+|Irish|`ga-IE`|
 |Italian|`it-IT`|
 |Japanese|`ja-JP`|
 |Korean|`ko-KR`|
 |Latvian|`lv-LV`|
 |Lithuanian|`lt-LT`|
+|Maltese|`mt-MT`|
+|Marathi|`mr-IN`|
 |Norwegian|`nb-NO`|
 |Polish|`pl-PL`|
 |Portuguese|`pt-BR`<br/>`pt-PT`|
@@ -979,8 +991,10 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 |Spanish|`es-AR`<br/>`es-BO`<br/>`es-CL`<br/>`es-CO`<br/>`es-CR`<br/>`es-CU`<br/>`es-DO`<br/>`es-EC`<br/>`es-SV`<br/>`es-GQ`<br/>`es-GT`<br/>`es-HN`<br/>`es-MX`<br/>`es-NI`<br/>`es-PA`<br/>`es-PY`<br/>`es-PE`<br/>`es-PR`<br/>`es-ES`<br/>`es-UY`<br/>`es-US`<br/>`es-VE`|
 |Swedish|`sv-SE`|
 |Tamil|`ta-IN`|
+|Telugu|`te-IN`|
 |Thai|`th-TH`|
 |Turkish|`tr-TR`|
+|Ukrainian|`uk-UA`|
 
 ## Pronunciation assessment
 

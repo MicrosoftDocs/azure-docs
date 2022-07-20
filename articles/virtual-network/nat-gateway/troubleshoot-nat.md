@@ -55,7 +55,7 @@ Refer to the table below for which tools to use to validate NAT gateway connecti
 | Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
 | Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
-To analyze outbound traffic from NAT gateway, use NSG flow logs.
+To analyze outbound traffic from NAT gateway, use NSG flow logs. NSG flow logs provide information on when a connection from your virtual network takes place, from where (source IP and port) to which destination (destination IP and port) along with the state of the connection, the traffic flow direction and size of the traffic (packets and bytes sent). 
 * To learn more about NSG flow logs, see [NSG flow log overview](../../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 * For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
 * For guides on how to read NSG flow logs, see [Working with NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#working-with-flow-logs).
@@ -75,6 +75,15 @@ NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway sub
 ### IPv6 coexistence
 
 [Virtual Network NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT gateway cannot be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. NAT gateway can be deployed on a dual stack subnet, but will still only use IPv4 Public IP addresses for directing outbound traffic. Deploy NAT gateway on a dual stack subnet when you need IPv6 resources to exist in the same subnet as IPv4 resources.
+
+### Cannot attach NAT gateway to a subnet that contains a VM NIC in a failed state
+
+When you try to associate NAT gateway to a subnet that contains a virtual machine network interface (NIC) in a failed state, you will receive an error message indicating that this action cannot be performed. You must first get the VM NIC out of the failed state before you can attach NAT gateway to the subnet.
+
+To troubleshoot NICs in a failed state, follow these steps
+1. Determine the provisioning state of your NICs using the [Get-AzNetworkInterface Powershell command](/powershell/module/az.network/get-aznetworkinterface#example-2-get-all-network-interfaces-with-a-specific-provisioning-state) and setting the value of the "provisioningState" to "Succeeded".
+2. Perform [GET/SET powershell commands](/powershell/module/az.network/set-aznetworkinterface#example-1-configure-a-network-interface) on the network interface to update the provisioning state.
+3. Check the results of this operation by checking the provisioining state of your NICs again (follow commands from step 1).
 
 ## SNAT exhaustion due to NAT gateway configuration
 
@@ -98,7 +107,7 @@ The table below describes two common scenarios in which outbound connectivity ma
 
 ### TCP idle timeout timers set higher than the default value
 
-The NAT gateway TCP idle timeout timer is set to 4 minutes by default but is configurable up to 120 minutes. If this setting is changed to a higher value than the default, NAT gateway will hold on to flows longer and can create [additional pressure on SNAT port inventory](nat-gateway-resource.md#timers). The table below describes a common scenarion in which a high TCP idle timeout may be causing SNAT exhaustion and provides possible mitigation steps to take:
+The NAT gateway TCP idle timeout timer is set to 4 minutes by default but is configurable up to 120 minutes. If this setting is changed to a higher value than the default, NAT gateway will hold on to flows longer and can create [additional pressure on SNAT port inventory](nat-gateway-resource.md#timers). The table below describes a common scenario in which a high TCP idle timeout may be causing SNAT exhaustion and provides possible mitigation steps to take:
 
 | Scenario | Evidence | Mitigation |
 |---|---|---|
@@ -142,7 +151,9 @@ A couple important notes about the NAT gateway and Azure App Services integratio
 
 ### Port 25 cannot be used for regional VNet integration with NAT gateway
 
-Port 25 is an SMTP port that is used to send email. Azure app services regional Virtual network integration cannot use port 25 by design. In a scenario where regional Virtual network integration is enabled for NAT gateway to connect an application to an email SMTP server, traffic will be blocked on port 25 despite NAT gateway working with all other ports for outbound traffic. This block on port 25 cannot be removed.
+Port 25 is an SMTP port that is used to send email. Azure app services regional Virtual network integration cannot use port 25 by design. While it is possible to have the block on port 25 removed, having this block removed will still not allow you to use port 25 with your Azure App services. Azure App services regional virtual network integration cannot use port 25 by design.  
+
+If NAT gateway is enabled on the integration subnet with your Azure App services, NAT gateway can still be used to connect outbound to the internet on other ports except port 25.  
 
 **Work around solution:**
 * Set up port forwarding to a Windows VM to route traffic to Port 25. 

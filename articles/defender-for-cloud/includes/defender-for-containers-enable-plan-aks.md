@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 07/05/2022
+ms.date: 07/14/2022
 ---
 
 ## Enable the plan
@@ -95,7 +95,7 @@ Request query parameters:
 | SubscriptionId | Cluster's subscription ID          | Yes       |
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
-| ApiVersion     | API version, must be >= 2022-06-01 and <= 2022-04-01 | Yes       |
+| ApiVersion     | API version, must be >= 2022-06-01 | Yes       |
 
 Request Body:
 
@@ -104,9 +104,11 @@ Request Body:
   "location": "{{Location}}",
   "properties": {
     "securityProfile": {
-            "azureDefender": {
+            "defender": {
                 "logAnalyticsWorkspaceResourceId": "{{LAWorkspaceResourceId}}",
-                "enabled": true
+                "securityMonitoring": {
+                    "enabled": true,
+                }
             }
         }
     }
@@ -118,8 +120,8 @@ Request body parameters:
 | Name | Description | Mandatory |
 |--|--|--|
 | location | Cluster's location | Yes |
-| properties.securityProfile.azureDefender.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
-| properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID | Yes |
+| properties.securityProfile.defender.securityMonitoring.enabled | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes |
+| properties.securityProfile.defender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID | Yes |
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
 
@@ -159,12 +161,12 @@ Request body parameters:
 
     | Property | Description |
     |----------|-------------|
-    | logAnalyticsWorkspaceResourceID | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md) |
+    | logAnalyticsWorkspaceResourceId | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md) |
 
     You can include these settings in a JSON file and specify the JSON file in the `az aks create` and `az aks update` commands with this parameter: `--defender-config <path-to-JSON-file>`. The format of the JSON file must be:
 
     ```json
-    {"logAnalyticsWorkspaceResourceID": "<workspace-id>"}
+    {"logAnalyticsWorkspaceResourceId": "<workspace-id>"}
     ```
 
     Learn more about AKS CLI commands in [az aks](/cli/azure/aks).
@@ -191,17 +193,19 @@ To install the 'SecurityProfile' on an existing cluster with Resource Manager:
 ```
 { 
     "type": "Microsoft.ContainerService/managedClusters", 
-    "apiVersion": "2021-07-01", 
+    "apiVersion": "2022-06-01", 
     "name": "string", 
     "location": "string",
     "properties": {
         …
         "securityProfile": { 
-            "azureDefender": { 
-                "enabled": true, 
-                "logAnalyticsWorkspaceResourceId": “logAnalyticsWorkspaceResourceId "
+            "defender": { 
+                "logAnalyticsWorkspaceResourceId": “logAnalyticsWorkspaceResourceId",
+                "securityMonitoring": {
+                    "enabled": true
+                }
             }
-        },
+        }
     }
 }
 ```

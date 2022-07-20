@@ -54,7 +54,9 @@ To create a mapping in your IoT Central application, choose one of the following
 
     :::image type="content" source="media/howto-map-data/raw-data.png" alt-text="Screenshot that shows the **Add alias** option on the **Raw data** view.":::
 
-The left-hand side of the **Map data** panel shows the latest message from your device. Hover to mouse pointer over any part of the data and select **Add Alias**. The JSONPath expression is copied to **JSON path**. Add an **Alias** name with no more than 64 characters. Add as many mappings as you need and then select **Save**:
+The left-hand side of the **Map data** panel shows the latest message from your device. Hover to mouse pointer over any part of the data and select **Add Alias**. The JSONPath expression is copied to **JSON path**. Add an **Alias** name with no more than 64 characters. You can't use the alias to refer to a field in a complex object defined in the device template.
+
+Add as many mappings as you need and then select **Save**:
 
 :::image type="content" source="media/howto-map-data/map-data.png" alt-text="Screenshot of the **Map data** view showing the Json path and alias.":::
 
@@ -72,9 +74,9 @@ To verify that IoT Central is mapping the telemetry, navigate to **Raw data** vi
 
 If you don't see your mapped data after refreshing the **Raw data** several times, check that the JSONPath expression you're using matches the structure of the telemetry message.
 
-For IoT Edge devices, the data mapping applies to the telemetry from all the IoT Edge modules and hub. You can't apply mappings to a specific IoT edge module.
+For IoT Edge devices, the data mapping applies to the telemetry from all the IoT Edge modules and hub. You can't apply mappings to a specific Azure IoT Edge module.
 
-For devices assigned to a device template, you can't map data for components or inherited interfaces. However, you can map any data from your device before you assign it to a device template.
+For devices assigned to a device template, you can't map data for components or inherited interfaces. However, you can [map any data from your device before you assign it to a device template](#map-unmodeled-telemetry).
 
 ## Manage mappings
 
@@ -83,6 +85,71 @@ To view, edit, or delete mappings, navigate to the **Mapped aliases** page. Sele
 :::image type="content" source="media/howto-map-data/mapped-aliases.png" alt-text="Screenshot that shows the **Mapped aliases** view with the edit and delete buttons.":::
 
 By default, data exports from IoT Central include mapped data. To exclude mapped data, use a [data transformation](howto-transform-data-internally.md) in your data export.
+
+## Map unmodeled telemetry
+
+You can map unmodeled telemetry, including telemetry from unmodeled components. For example, given the `workingSet` telemetry defined in the root component and the `temperature` telemetry defined in a thermostat component shown in the following example:
+
+```json
+{
+  "_unmodeleddata": {
+    "workingSet": 74
+  },
+  "_eventtype": "Telemetry",
+  "_timestamp": "2022-07-18T09:22:40.257Z"
+}
+
+{
+  "_unmodeleddata": {
+    "thermostat2": {
+      "__t": "c",
+      "temperature": 44
+    }
+  },
+  "_eventtype": "Telemetry",
+  "_timestamp": "2022-07-18T09:21:48.69Z"
+}
+```
+
+You can map this telemetry using the following mapping definitions:
+
+* `$["workingSet"] ws`
+* `$["temperature"] temp`
+
+> [!NOTE]
+> Don't include the component name in the mapping definition.
+
+The results of these mapping rules look like the following examples:
+
+```json
+{
+  "telemetries": {
+    "workingSet": 84,
+    "_mappeddata": {
+      "ws": 84
+    }
+  }
+}
+
+{
+  "_unmodeleddata": {
+    "thermostat2": {
+      "__t": "c",
+      "temperature": 12
+    },
+    "_mappeddata": {
+      "thermostat2": {
+        "__t": "c",
+        "temp": 12
+      }
+    }
+  },
+  "_eventtype": "Telemetry",
+  "_timestamp": "2022-07-18T09:31:21.088Z"
+}
+```
+
+Now you can use the mapped aliases to display telemetry on a chart or dashboard. You can also use the mapped aliases when you export telemetry.
 
 ## Next steps
 
