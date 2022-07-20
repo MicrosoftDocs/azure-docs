@@ -33,8 +33,6 @@ Before you start, make sure that you have:
 
 If an OT network sensor has already learned the device, running the script will retrieve its information and enrichment data.
 
-<!---WHAT DID THIS MEAN? The sensor should have already learned the Windows device. This means that if the device already exists, the script will retrieve its information.-->
-
 ## Run the script
 
 This procedure describes how to obtain, deploy, and run the script on the Windows workstation and servers that you want to monitor in Defender for IoT.

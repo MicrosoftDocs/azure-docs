@@ -55,18 +55,12 @@ As you manage your network devices, you may need to update their details. For ex
 
 Editable fields include:
 
-:::row:::
-   :::column span="":::
-      - Authorized status
-      - Device name
-      - Device type
-   :::column-end:::
-   :::column span="":::
-      - OS
-      - Purdue layer
-      - Description
-   :::column-end:::
-:::row-end:::
+- Authorized status
+- Device name
+- Device type
+- OS
+- Purdue layer
+- Description
 
 For more information, see [Device inventory column reference](#device-inventory-column-reference).
 

@@ -22,7 +22,7 @@ This procedure describes how to view detected devices in the **Device inventory*
 
 1. In Defender for IoT in the Azure portal, select **Device inventory**.
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Select device inventory from the left side menu under Defender for IoT." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png":::
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Screenshot of the Device inventory page in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png":::
 
     Use any of the following options to modify or filter the devices shown:
 
@@ -37,7 +37,7 @@ This procedure describes how to view detected devices in the **Device inventory*
 
     For example:
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Screenshot of a device details pane and the View full details button in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
 
 For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
