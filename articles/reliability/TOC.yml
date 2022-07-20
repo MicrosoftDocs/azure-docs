@@ -107,10 +107,6 @@
     items:
     - name: Create an Azure Active Directory Domain Services instance
       href: ../active-directory-domain-services/tutorial-create-instance.md
-- name: Use Azure Site Recovery
-  href: ../site-recovery/index.yml
-- name: Use Azure Backup
-  href: ../backup/index.yml
 - name: Service availability
   items:
   - name: Availability of services by category
@@ -121,6 +117,10 @@
     href: https://azure.microsoft.com/en-us/global-infrastructure/services/
 - name: Resources
   items:
+  - name: Use Azure Site Recovery
+    href: ../site-recovery/index.yml
+  - name: Use Azure Backup
+    href: ../backup/index.yml
   - name: Microsoft Azure Well-Architected Framework
     href: /azure/architecture/framework/
   - name: Terminology
