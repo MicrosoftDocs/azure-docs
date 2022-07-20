@@ -130,6 +130,10 @@ items:
       href: insights-permissions.md
 - name: How-to guides
   items:
+  - name: Master Data Management
+    items:
+    - name: Profisee
+      href: how-to-deploy-profisee-purview-integration.md
   - name: Manage collections
     href: how-to-create-and-manage-collections.md
   - name: Manage sources
