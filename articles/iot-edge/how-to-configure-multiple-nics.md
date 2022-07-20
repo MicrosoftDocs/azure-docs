@@ -14,7 +14,7 @@ ms.author: patricka
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-By default, the Azure IoT Edge for Linux on Windows (EFLOW) virtual machine has a single network interface card assigned. However, you can configure the EFLOW VM with multiple network interfaces. EFLOW supports attaching multiple network interfaces to the virtual machine. In some scenarios, you may have a networking division or separation into different network or zones. In order to connect the EFLOW virtual machine to the different networks, you may need to attach different network interface cards to the EFLOW virtual machine. 
+By default, the Azure IoT Edge for Linux on Windows (EFLOW) virtual machine has a single network interface card (NIC) assigned. However, you can configure the EFLOW VM with multiple network interfaces by using the EFLOW support for attaching multiple network interfaces to the virtual machine. This functionality may be helpful in numerous scenarios where you may have a networking division or separation into different networks or zones. In order to connect the EFLOW virtual machine to the different networks, you may need to attach different network interface cards to the EFLOW virtual machine. 
 
 This article describes how to configure the Azure IoT Edge for Linux on Windows VM to support multiple NICs and connect to multiple networks. This process is divided into the following steps:
 
