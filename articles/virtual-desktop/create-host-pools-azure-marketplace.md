@@ -139,15 +139,16 @@ To set up your virtual machine within the Azure portal host pool setup process:
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the Trusted Launch security features available to select from.](https://user-images.githubusercontent.com/62080236/146099320-24cbfdfe-c5ec-43c1-b6b9-ad02378c3709.png)
 
-6. Next, choose the image that needs to be used to create the virtual machine. You can choose either **Gallery** or **Storage blob**.
+6. Next, choose the image that needs to be used to create the virtual machine. You can choose **Gallery** for new host pool deployments with **Storage blob** no longer available.
 
-    - If you choose **Gallery**, select one of the recommended images from the drop-down menu:
+    - After choosing **Gallery**, select a Windows image that meets your requirements from the drop-down menu:
 
-      - Windows 10 Enterprise multi-session, Version 1909
-      - Windows 10 Enterprise multi-session, Version 1909 + Microsoft 365 Apps
+      - Windows 11 Enterprise multi-session (Gen2)
+      - Windows 11 Enterprise multi-session + Microsoft 365 Apps (Gen2)
+      - Windows 10 Enterprise multi-session, Version 21H2 (Gen2)
+      - Windows 10 Enterprise multi-session, Version 21H2 + Microsoft 365 Apps (Gen2)
       - Windows Server 2019 Datacenter
-      - Windows 10 Enterprise multi-session, Version 2004
-      - Windows 10 Enterprise multi-session, Version 2004 + Microsoft 365 Apps
+     
 
       If you don't see the image you want, select **See all images**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers. Make sure that the image you choose is one of the [supported OS images](prerequisites.md#operating-systems-and-licenses).
 
@@ -159,7 +160,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
       > [!div class="mx-imgBorder"]
       > ![A screenshot of the My Items tab.](media/my-items.png)
 
-    - If you choose **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
+    - If you are adding a VM to a host pool that allows **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
    
    The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](./faq.yml#which-availability-option-is-best-for-me-).
 
@@ -186,7 +187,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
     If you choose **Advanced**, select an existing network security group that you've already configured.
 
-12. After that, select whether you want the virtual machines to be joined to **Active Directory** or **Azure Active Directory** (Preview).
+12. After that, select whether you want the virtual machines to be joined to **Active Directory** or **Azure Active Directory**.
 
     - For Active Directory, provide an account to join the domain and choose if you want to join a specific domain and organizational unit.
 
