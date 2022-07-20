@@ -61,6 +61,5 @@ By default, the **Group writeback state** of groups is set to **No writeback**. 
 
 ## Next steps
 
-Check out the groups REST API documentation for the [preview writeback property on the settings template](../hybrid/how-to-connect-group-writeback.md).
-
-For more about group writeback operations, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback.md)
+- Check out the groups REST API documentation for the [preview writeback property on the settings template](/graph/api/resources/group?view=graph-rest-beta).
+- For more about group writeback operations, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback.md)
