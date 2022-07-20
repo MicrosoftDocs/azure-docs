@@ -42,7 +42,7 @@ In Microsoft Sentinel, select **Data connectors**, select **Microsoft 365 Defend
 
 The  **Configuration** section has three parts:
 
-1. [**Connect incidents and alerts**](#connect-incidents-and-alerts) enables the basic integration between M365 Defender and Microsoft Sentinel, synchronizing incidents and their alerts between the two platforms.
+1. [**Connect incidents and alerts**](#connect-incidents-and-alerts) enables the basic integration between Microsoft 365 Defender and Microsoft Sentinel, synchronizing incidents and their alerts between the two platforms.
 
 1. [**Connect entities**](#connect-entities) enables the integration of on-premises Active Directory user identities into Microsoft Sentinel through Microsoft Defender for Identity.
 
