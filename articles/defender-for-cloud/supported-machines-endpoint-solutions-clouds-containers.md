@@ -113,7 +113,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 ### Data collection
 
-Defender for Containers relies on the **Defender extension** for each domain listed above. Ensure your Kubernetes node is running on one of the verified supported operating systems for this agent:
+Defender for Containers relies on the **Defender extension** for each domain listed above. Ensure your Kubernetes node is running on one of the verified supported operating systems:
 
 | Aspect | Supported operating systems |
 |--|--|
