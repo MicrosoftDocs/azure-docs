@@ -39,12 +39,13 @@ And then defining these elements for the resulting alert actions using:
 8. Select the **Signal name**, and follow the steps below depending on the type of alert you are creating.   
  ### [Metric alert](#tab/metric)
        
-  1. In the **Configure signal logic** pane, select values for the following fields.
-      
+  1. In the **Configure signal logic** pane, select values for the following fields. 
+       
      |Field |Description |
      |---------|---------|
      |Select time series|Select the time series to include in the results. |
      |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
+  
   1. The **Preview** section shows you the results.
   1. (Optional) Depending on the signal type, you may see the **Split by dimensions** section.
      
@@ -62,19 +63,19 @@ And then defining these elements for the resulting alert actions using:
       |Include all future values| Select this field to include any future values added to the selected dimension.  |
    
 
-   1. In the **Alert logic** section:
-        
+  1. In the **Alert logic** section:
+         
      |Field |Description |
      |---------|---------|
-     |Threshold| Select if threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold evaluates the rule using the threshold value that you configure.<br>Dynamic Thresholds use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds).|
-     |Operator|Select the operator for comparing the metric value against the threshold.|
-     |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.          |
-     |Threshold value| If you selected a **static** threshold, enter the threshold value for the condition logic.        |
-     |Unit| If you selected a **static** threshold, enter the unit for the condition logic.        |
-     |Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
-     |Aggregation granularity|Select the interval over which data points are grouped using the aggregation type function.         |
+     |Threshold|Select if threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold evaluates the rule using the threshold value that you configure.<br>Dynamic Thresholds use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds). |
+     |Operator|Select the operator for comparing the metric value against the threshold. |
+     |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max. |
+     |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic. |
+     |Unit| If you selected a **static** threshold, enter the unit for the condition logic. |
+     |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
+     |Aggregation granularity| Select the interval over which data points are grouped using the aggregation type function.|
      |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.  |
-       
+      
    1. Select **Done**.   
 
   ### [Log alert](#tab/log)
@@ -88,7 +89,6 @@ And then defining these elements for the resulting alert actions using:
      :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
 
   1. In the **Measurement** section, select values for these fields:
-
      |Field  |Description  |
      |---------|---------|
      |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.      |
@@ -105,7 +105,7 @@ And then defining these elements for the resulting alert actions using:
      You can also decide **not** to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.  
   
      Select values for these fields:
-    
+
      |Field  |Description  |
      |---------|---------|
      |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
@@ -116,7 +116,7 @@ And then defining these elements for the resulting alert actions using:
      :::image type="content" source="media/alerts-log/alerts-create-log-rule-dimensions.png" alt-text="Screenshot of the splitting by dimensions section of a new log alert rule.":::
     
   1. In the **Alert logic** section, select values for these fields:
-
+  
      |Field  |Description  |
      |---------|---------|
      |Operator| The query results are transformed into a number. In this field, select the operator to use to compare the number against the threshold.|
@@ -128,7 +128,7 @@ And then defining these elements for the resulting alert actions using:
   1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy. 
 
      Select values for these fields under **Number of violations to trigger the alert**:
-        
+
      |Field  |Description  |
      |---------|---------|
      |Number of violations|The number of violations that trigger the alert.|
@@ -145,8 +145,8 @@ And then defining these elements for the resulting alert actions using:
 
   1. In the **Conditions** pane, select the **Chart period**.
   1. The **Preview** chart shows you the results of your selection.
-  1. In the **Alert logic** section:
-        
+  1. In the **Alert logic** section:        
+  
      |Field |Description |
      |---------|---------|
      |Event level| Select the level of the events that this alert rule monitors. Values are: **Critical**, **Error**, **Warning**, **Informational**, **Verbose** and **All**.|
@@ -222,9 +222,9 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
  
   To create a new activity log alert rule, use the following commands:
 
-    1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
-    2. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
-    3. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
+   1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
+   2. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
+   3. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
 
 ---
 
