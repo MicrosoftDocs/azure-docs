@@ -24,7 +24,7 @@ If you do not want to [restore individual files from a single-file snapshot](sna
 * If no destination path is provided during the restore operation, the given file(s) is restored in the original file location. If the file already exists, it will be overwritten.
     * If the file being restored has a multi-level directory depth (for example, `/dir1/dir2/file.txt`), all of the parent directories must be present in the active file system for the restore operation to succeed. The restore cannot create new directories. 
 * If the destination path provided is invalid (non-existent in the Active file system), the operation will fail.
-* A maximum of eight (8) files can be restored in a single operation.
+* A maximum of eight (8) files can be restored to a volume in a single operation. You must wait for a restore operation to complete to restore more volumes to that volume.
 * The file list field has a character limit of 1024 characters. 
 * The target volume for the restore operation must have enough logical free space available to accommodate all the files being restored.
 * The restore operation will not work if a directory or a soft link path is entered in the file list field.
@@ -58,6 +58,7 @@ The single file backup restore feature is currently in public preview. If you ar
 
 ## Next steps
 
+* [Understand Azure NetApp Files backup](backup-introduction.md)
 * [Requirements and considerations for Azure NetApp Files](backup-requirements-considerations.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure policy-based backups](backup-configure-policy-based.md)
