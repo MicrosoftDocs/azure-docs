@@ -28,7 +28,7 @@ landingContent:
             url: quickstart-managed-grafana-portal.md
           - text: Create a Managed Grafana instance from the CLI
             url: quickstart-managed-grafana-cli.md
-  - title: Configure a dashboard
+  - title: Configure Azure Managed Grafana
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -37,7 +37,7 @@ landingContent:
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
 
-  - title: Manage your dashboard
+  - title: Manage Azure Managed Grafana
     linkLists:
       - linkListType: how-to-guide
         links:
