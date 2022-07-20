@@ -25,7 +25,7 @@ Azure Communication Services Media Composition is made up of three parts: inputs
 To retrieve the media sources that will be used in the layout composition, you'll need to define inputs. Inputs can be either multi-source or single source.
 
 ### Multi-Source Inputs
-Teams meetings, ACS calls and ACS Rooms are usually made up of multiple individual, we define this as multi-source inputs. They can be used in layouts as a single input or destructured to reference a single participant.
+Teams meetings, ACS calls and ACS Rooms are usually made up of multiple individuals. We define these as multi-source inputs. They can be used in layouts as a single input or destructured to reference a single participant.
 
 ACS Group Call json:
 ```json
