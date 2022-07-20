@@ -5,6 +5,7 @@
   - name: About Azure confidential ledger
     href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Portal
     href: quickstart-portal.md
@@ -36,10 +37,15 @@
     href: register-application.md
 - name: References
   items:
+
   - name: FAQ
     href: faq.yml
+  - name: Azure confidential ledger REST API reference
+    href: /rest/api/confidentialledger/
   - name: .NET client library
-    href: /dotnet/api/overview/azure/storage.confidentialledger-readme-pre 
+    href: /dotnet/api/overview/azure/confidentialledger 
+  - name: Javascript client library
+    href: /javascript/api/overview/azure/azureconfidentialledger
   - name: Java preview client library
     href: /java/api/overview/azure/data-confidentialledger-readme
 - name: Resources
