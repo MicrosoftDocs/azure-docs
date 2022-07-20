@@ -260,7 +260,7 @@ The sample presentation layout will feature the `presenter` and place the rest o
 :::image type="content" source="../media/top-presentation.png" alt-text="Diagram showing how example of presentation layout":::
 
 ### Presenter
-The presenter layout is a picture-in-picture layout composed of two inputs. One source is the background of the scene. This represents the content being presented or the main presenter. The secondary source is cropped and positioned at a corner of the scene. The support port position can be one of: `bottomLeft`, `bottomRight`, `topLeft`, or `topRight`.
+The presenter layout is a picture-in-picture layout composed of two inputs. One source is the background of the scene. This represents the content being presented or the main presenter. The secondary source is cropped and positioned at a corner of the scene. The support position can be one of: `bottomLeft`, `bottomRight`, `topLeft`, or `topRight`.
 
 Sample presenter layout json:
 ```json
