@@ -18,7 +18,7 @@ keywords: automated data processing, document processing, automated data entry, 
 <!-- markdownlint-disable MD036 -->
 # What is Azure Form Recognizer?
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that analyzes forms and documents, extracts text and data, and maps field relationships as key-value pairs.
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that analyzes forms and documents, extracts text and data, and maps field relationships as key-value pairs. To learn more about each model, *see* concepts pages:
 
 | Model type | Model name |
 |------------|-----------|
@@ -26,9 +26,9 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 | **Prebuilt models** | &#9679; [**W-2 form model**](concept-w2.md) </br>&#9679; [**Invoice model**](concept-invoice.md)</br>&#9679; [**Receipt model**](concept-receipt.md) </br>&#9679; [**ID document model**](concept-id-document.md) </br>&#9679; [**Business card model**](concept-business-card.md) </br>
 | **Custom models** | &#9679; [**Custom model**](concept-custom.md) </br>&#9679; [**Composed model**](concept-model-overview.md)|
 
-## Which Form Recognizer feature should I use?
+## Which Form Recognizer model should I use?
 
-This section helps you decide which Form Recognizer v3.0 supported feature you should use for your application:
+This section helps you decide which Form Recognizer v3.0 supported model you should use for your application:
 
 | Type of document | Data to extract |Document format | Your best solution |
 | -----------------|-------------------| ----------|-------------------|
@@ -48,13 +48,13 @@ This section helps you decide which Form Recognizer v3.0 supported feature you s
 > * If you're still unsure as to which model to use, try the General document model. 
 > * The General document model extracts all the same fields as the layout model (pages, tables, styles) as well as key-value pairs It's powered by the Read OCR model to detect lines, words, locations, and languages.
 
-## Form Recognizer features and development options
+## Form Recognizer models and development options
 
 ### [Form Recognizer preview (v3.0)](#tab/v3-0)
 
-The following features  and development options are supported by the Form Recognizer service v3.0. You can Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. Use the links in the table to learn more about each feature and browse the API references.
+The following models  and development options are supported by the Form Recognizer service v3.0. You can Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. Use the links in the table to learn more about each model and browse the API references.
 
-| Feature | Description |Automation use cases | Development options |
+| Model | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
 |[🆕 **Read**](concept-read.md)|Extract text lines, words, detected languages, and handwritten style if detected.| <ul><li>Contract processing. </li><li>Financial or medical report processing.</li></ul>|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul> |
 |[🆕 **General document model**](concept-general-document.md)|Extract text, tables, structure, and key-value pairs.|<ul><li>Key-value pair extraction.</li><li>Form processing.</li><li>Survey data collection and analysis.</li></ul>|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/document)</li><li>[**REST API**](quickstarts/try-v3-rest-api.md#reference-table)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md#general-document-model)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md#general-document-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#general-document-model)</li><li>[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#general-document-model)</li></ul> |
@@ -74,9 +74,9 @@ The following features  and development options are supported by the Form Recogn
  > * The v3.0 Studio supports any model trained with v2.1 labeled data.
  > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
 
-The following features are supported by Form Recognizer v2.1. Use the links in the table to learn more about each feature and browse the API references.
+The following models are supported by Form Recognizer v2.1. Use the links in the table to learn more about each model and browse the API references.
 
-| Feature | Description | Development options |
+| Model| Description | Development options |
 |----------|--------------|-------------------------|
 |[**Layout API**](concept-layout.md) | Extraction and analysis of text, selection marks, tables, and bounding box coordinates, from forms and documents. | <ul><li>[**Form Recognizer labeling tool**](quickstarts/try-sample-label-tool.md#analyze-layout)</li><li>[**REST API**](quickstarts/get-started-sdk-rest-api.md#try-it-layout-model)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Custom model**](concept-custom.md) | Extraction and analysis of data from forms and documents specific to distinct business data and use cases.| <ul><li>[**Form Recognizer labeling tool**](quickstarts/try-sample-label-tool.md#train-a-custom-form-model)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md)</li><li>[**Client-library SDK**](how-to-guides/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
