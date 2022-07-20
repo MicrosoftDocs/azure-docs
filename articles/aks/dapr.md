@@ -154,7 +154,7 @@ az k8s-extension create --cluster-type managedClusters \
 --version X.X.X
 ```
 
-## Limiting the extension to certain nodes (`nodeSelector`)
+## Limiting the extension to certain nodes
 
 In some configurations you may only want to run Dapr on certain nodes. This can be accomplished by passing a `nodeSelector` in the extension configuration. Note that if the desired `nodeSelector` contains `.`, you must escape them from the shell and the extension. For example, the following configuration will install Dapr to only nodes with `topology.kubernetes.io/zone: "us-east-1c"`:
 
@@ -170,7 +170,7 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings "global.nodeSelector.kubernetes\.io/zone: us-east-1c"
 ```
 
-For managing OS and architecture, use the configuration `global.daprControlPlaneOs` and `global.daprControlPlaneArch`:
+For managing OS and architecture, use the [supported versions](https://github.com/dapr/dapr/blob/b8ae13bf3f0a84c25051fcdacbfd8ac8e32695df/docker/docker.mk#L50) of the `global.daprControlPlaneOs` and `global.daprControlPlaneArch` configuration:
 
 ```azure-cli-interactive
 az k8s-extension create --cluster-type managedClusters \
