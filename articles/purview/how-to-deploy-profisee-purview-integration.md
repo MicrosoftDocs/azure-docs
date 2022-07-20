@@ -87,9 +87,9 @@ Let's take an example of a sample manufacturing company working across multiple 
 - Profisee ARM Deployment Wizard - Profisee Configuration and supplying Admin account username
 :::image type="content" alt-text="Profisee Azure ARM Wizard Step1 Profisee" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png":::
 - Profisee ARM Deployment Wizard - Kubernetes Configuration - You may choose an older version of Kubernetes but leave the field BLANK to deploy the LATEST version.
-:::image type="content" alt-text="Profisee Azure ARM_Wizard Step2 Kubernetes" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png":::
+:::image type="content" alt-text="Profisee Azure ARM_Wizard Step2 Kubernetes" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png":::
 - Profisee ARM Deployment Wizard - SQL Server
-:::image type="content" alt-text="Profisee Azure ARM Wizard Step3 SQLServer" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png":::
+:::image type="content" alt-text="Profisee Azure ARM Wizard Step3 SQLServer" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png":::
 - Profisee ARM Deployment Wizard - Azure DNS
 :::image type="content" alt-text="Profisee Azure ARM Wizard Step4 AzureDNS" source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-d-azure-dns.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-d-azure-dns.png":::
 - Profisee ARM Deployment Wizard - Azure Storage
