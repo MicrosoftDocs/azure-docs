@@ -75,18 +75,16 @@ landingContent:
         links:
           - text: Data source gallery
             url: search-data-sources-gallery.md
-          - text: Indexes
-            url: search-what-is-an-index.md
-          - text: Indexers
-            url: search-indexer-overview.md
       - linkListType: how-to-guide
         links:
           - text: Index from Azure Blob Storage
             url: search-blob-storage-integration.md
           - text: Index from Azure SQL Database
             url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-          - text: Index from Cosmos DB
+          - text: Index from Azure Cosmos DB
             url: search-howto-index-cosmosdb.md
+          - text: Index any data
+            url: tutorial-optimize-indexing-push-api.md
 
   # Card
   - title: Enrich with AI
