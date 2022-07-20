@@ -3,7 +3,7 @@ title: API server authorized IP ranges in Azure Kubernetes Service (AKS)
 description: Learn how to secure your cluster using an IP address range for access to the API server in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/20/2022
+ms.date: 07/20/2022
 
 
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
@@ -128,6 +128,12 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+> [!IMPORTANT]
+> When running this command using the PowerShell in Azure Cloud Shell or from your local computer,
+> the double-quote string value for the *--api-server-authorized-ip-rangers* argument needs to be [enclosed
+> in single quotes](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#including-quote-characters-in-a-string).
+> Otherwise, an error message is returned indicating an expected argument is missing.
 
 ## Find existing authorized IP ranges
 
