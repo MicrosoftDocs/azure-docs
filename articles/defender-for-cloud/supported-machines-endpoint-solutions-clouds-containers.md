@@ -113,7 +113,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 ### Supporting operating systems
 
-Defender for Containers relies on the **Defender extension** for runtime protection and vulnerabity assessment. Ensure your Kubernetes node is running on one of the verified supported operating systems:
+Defender for Containers relies on the **Defender extension** for [runtime protection and vulnerability assessment](#on-premiaas-arctabiaas-arc). Ensure your Kubernetes node is running on one of the verified supported operating systems:
 
 - Ubuntu 16.04 
 - Ubuntu 18.04
