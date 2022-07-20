@@ -14,13 +14,13 @@ Start a synchronous one-to-one or group call with `startCall` API on `teamsCallA
 > [!NOTE]
 > Start a group call with `teamsCallAgent` requires chat's `threadId` when calling `startCall` method. Created `TeamsCall` instance has property `threadId` capturing this thread. Communication Services Calling SDK does not keep participants in chat and call roster in sync. Microsft encourages developers to keep the roster in sync for the best user experience. Learn how to [manage chat thread](#manage-chat-thread). 
 
-Start an one-to-one Voice-over IP (VoIP) call to Teams user:
+Start a one-to-one Voice-over IP (VoIP) call to Teams user:
 ```js
 const userCallee = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' };
 const oneToOneCall = teamsCallAgent.startCall(userCallee);
 ```
 
-Start an one-to-one phone call to E.164 phone number:
+Start a one-to-one phone call to E.164 phone number:
 ```js
 const phoneCallee = { phoneNumber: '<PHONE_NUMBER_E164_FORMAT>' }
 const oneToOneCall = callAgent.startCall(phoneCallee );
