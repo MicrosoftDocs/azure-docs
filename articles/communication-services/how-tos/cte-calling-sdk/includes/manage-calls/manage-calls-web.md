@@ -57,7 +57,7 @@ Join Teams meeting with meeting URL:
 const meetingCall = callAgent.join({ meetingLink: '<MEETING_LINK>' });
 ```
 
-Join Teas meeting with combination of thread ID, organizer ID, tenant ID, and message ID:
+Join Teams meeting with combination of thread ID, organizer ID, tenant ID, and message ID:
 ```js
 const meetingCall = callAgent.join({ threadId: '<THREAD_ID>', organizerId: '<ORGANIZER_ID>', tenantId: '<TENANT_ID>', messageId: '<MESSAGE_ID>' });
 ```
