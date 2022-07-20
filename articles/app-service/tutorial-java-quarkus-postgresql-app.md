@@ -14,7 +14,7 @@ ms.custom: mvc
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
 When you are finished, you will have a [Quarkus](https://quarkus.io) application storing data in [PostgreSQL](/azure/postgresql) database running on [Azure App Service on Linux](overview.md).
 
-![Screenshot of Quarkus application storing data in PostgreSQL](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png)
+![Screenshot of Quarkus application storing data in PostgreSQL.](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png)
 
 In this tutorial, you learn how to:
 
@@ -49,7 +49,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 ## Create an App Service on Azure
 
-1. Sign in to your Azure CLI, and optionally set your subscription if you have more than one connected to your sign in credentials.
+1. Sign in to your Azure CLI, and optionally set your subscription if you have more than one connected to your sign-in credentials.
 
     ```azurecli
     az login
@@ -196,7 +196,7 @@ INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hiber
 
 You can access Quarkus app locally by typing the `w` character into the console, or using this link once the app is started: `http://localhost:8080/`.
 
-![Screenshot of Quarkus application storing data in PostgreSQL](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png)
+![Screenshot of Quarkus application storing data in PostgreSQL.](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png)
 
 If you see exceptions in the output, double-check that the configuration values for `%dev` are correct.
 
@@ -258,7 +258,7 @@ az webapp browse \
 
 You should see the app running with the remote URL in the address bar:
 
-![Screenshot of Quarkus application storing data in PostgreSQL running remotely](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-remotely.png)
+![Screenshot of Quarkus application storing data in PostgreSQL running remotely.](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-remotely.png)
 
 If you see errors, use the following section to access the log file from the running app:
 
