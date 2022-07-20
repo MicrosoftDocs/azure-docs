@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 07/19/2022
+ms.date: 07/20/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,6 +21,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in July include:
 
 - [General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection](#general-availability-ga-of-the-cloud-native-security-agent-for-kubernetes-runtime-protection)
+- [Vulnerability assessment adds support for the detection of language specific packages](#vulnerability-assessment-adds-support-for-the-detection-of-language-specific-packages)
+
 ### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
 
 We're excited to share that the Cloud-native security agent for Kubernetes runtime protection is now generally available (GA)!
@@ -40,6 +42,19 @@ Learn more about the Defender for Container's [feature availability](supported-m
 You can also review [all available alerts](alerts-reference.md#alerts-k8scluster).
 
 Note, if you're using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
+
+## Vulnerability assessment adds support for the detection of language specific packages
+
+Currently, Defender for Containers only provides vulnerability assessment (VA) for packages that are deployed with the OS package manager.
+
+We are adding support for detection of language specific packages for the following programming languages: 
+- Java 
+- Python
+- Node.js
+- Golang 
+- .NET (for Linux images only as a public preview)
+
+
 
 ## June 2022
 
