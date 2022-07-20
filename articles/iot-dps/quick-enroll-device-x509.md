@@ -93,6 +93,8 @@ To add and verify your root CA certificate to the Device Provisioning Service.
 
 7. Select **Set certificate status to verified on upload**.
 
+    :::image type="content" source="./media/quick-enroll-device-x509/add-certificate.png" alt-text="Screenshot that shows adding the root CA certificate to a DPS instance.":::
+
 8. Select **Save**.
 
 ## Get the connection string for your provisioning service
@@ -393,19 +395,19 @@ To verify that the enrollment group has been created:
 
 :::zone pivot="programming-language-csharp"
 
-:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-csharp.png" alt-text="Verify enrollment for C# group in the portal.":::
+:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-csharp.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
 
 :::zone-end
 
 :::zone pivot="programming-language-nodejs"
 
-![Enrollment properties in the portal](media/quick-enroll-device-x509/verify-enrollment-nodejs.png)
+:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-nodejs.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
 
 :::zone-end
 
 :::zone pivot="programming-language-java"
 
-:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-java.png" alt-text="Verify enrollment for Java group in the portal.":::
+:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-java.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
 
 :::zone-end
 
