@@ -107,17 +107,25 @@ The **tabs** below show the features that are available, by environment, for Mic
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-### Proxy environments
+### Outbound proxy
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
-### Data collection
+### Supporting operating systems
 
-Defender for Containers relies on the **Defender extension** for each domain listed above. Ensure your Kubernetes node is running on one of the verified supported operating systems:
+Defender for Containers relies on the **Defender extension** for runtime protection and vulnerabity assessment. Ensure your Kubernetes node is running on one of the verified supported operating systems:
 
-| Aspect | Supported operating systems |
-|--|--|
-| Verified supported operating systems | - Ubuntu 16.04 <br> - Ubuntu 18.04 <br> - Ubuntu 20.04 <br> - Ubuntu 22.04 <br> - Amazon Linux 2 (EKS) <br> - CentOS 8 <br> - Debian 10 <br> - Debian 11 <br> - GCOOS (GKE) <br> - Red Hat Enterprise <br> -Linux 8 |
+- Ubuntu 16.04 
+- Ubuntu 18.04
+- Ubuntu 20.04
+- Ubuntu 22.04
+- Amazon Linux 2 (EKS)
+- CentOS 8
+- Debian 10
+- Debian 11
+- GCOOS (GKE)
+- Red Hat Enterprise
+- Linux 8
 
 ## Next steps
 

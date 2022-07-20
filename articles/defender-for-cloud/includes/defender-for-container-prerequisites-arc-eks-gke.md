@@ -20,5 +20,3 @@ For Azure public cloud deployments:
 | apt default repositories Debian | - |
 
 You'll also need to validate the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
-
-To learn more about the supported operating systems, availability for Defender for Containers see the [Defender for Containers feature availability](../supported-machines-endpoint-solutions-clouds-containers.md).

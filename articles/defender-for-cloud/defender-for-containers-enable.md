@@ -30,7 +30,7 @@ You can learn more by watching these videos from the Defender for Cloud in the F
 > [!NOTE]
 > Defender for Containers' support for Arc-enabled Kubernetes clusters, AWS EKS, and GCP GKE. This is a preview feature.
 >
-> [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
+> To learn more about the supported operating systems, feature availability and outbound proxy and more see the [Defender for Containers feature availability](../supported-machines-endpoint-solutions-clouds-containers.md).
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
