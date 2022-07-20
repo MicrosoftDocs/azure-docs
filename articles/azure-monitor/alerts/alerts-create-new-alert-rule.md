@@ -89,6 +89,7 @@ And then defining these elements for the resulting alert actions using:
      :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
 
   1. In the **Measurement** section, select values for these fields:
+  
      |Field  |Description  |
      |---------|---------|
      |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.      |
