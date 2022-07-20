@@ -1,6 +1,6 @@
 ---
 title: Configure an app's publisher domain
-description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
+description: Learn how to configure an app's publisher domain to let users know where their information is being sent.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -15,9 +15,9 @@ ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: contperf-fy21q4, aaddev
 ---
 
-# Configure an application's publisher domain
+# Configure an app's publisher domain
 
-An application’s publisher domain informs users where their information is being sent. The publisher domain also acts as an input or prerequisite for [publisher verification](publisher-verification-overview.md).
+An app’s publisher domain informs users where their information is being sent. The publisher domain also acts as an input or prerequisite for [publisher verification](publisher-verification-overview.md).
 
 In an app's [consent prompt](application-consent-experience.md), either the publisher domain or the publisher verification status appears. Which information is shown depends on whether the app is a [multitenant app](/azure/architecture/guide/multitenant/overview), when the app was registered, and the app's publisher verification status.
 
@@ -60,7 +60,7 @@ If your multitenant was registered *after November 30, 2020*:
 - If the app isn't publisher verified, the consent prompt for the app shows *unverified*. No publisher domain-related information appears.
 - If the app is publisher verified, the app consent prompt shows a [blue *verified* badge](publisher-verification-overview.md).
 
-#### Applications created before May 21, 2019
+#### Apps created before May 21, 2019
 
 If your app was registered *before May 21, 2019*, your app's consent prompt shows *unverified*, even if you haven't set a publisher domain. We recommend that you set the publisher domain value so that users can see this information in your app's consent prompt.
 
@@ -82,7 +82,7 @@ To set a publisher domain for your app by using the Azure portal:
    - **Select a verified domain**
    - **Verify a new domain**
 
-   If your domain isn't registered in the tenant, only the option to verify a new domain for your application appears.
+   If your domain isn't registered in the tenant, only the option to verify a new domain for your app appears.
 
 ### Verify a new domain for your app
 
@@ -127,11 +127,11 @@ The following figure shows how publisher domain appears in app consent prompts f
 
 :::image type="content" source="./media/howto-configure-publisher-domain/old-app-behavior-table.png" border="false" alt-text="Diagram that shows consent prompt behavior for apps created before May 21, 2019.":::
 
-For apps that were created between May 21, 2019, and November 30, 2020, how the publisher domain appears in an app's consent prompt depends on the publisher domain and the type of application. The following figure describes what appears on the consent prompt for different combinations of configurations:
+For apps that were created between May 21, 2019, and November 30, 2020, how the publisher domain appears in an app's consent prompt depends on the publisher domain and the type of app. The following figure describes what appears on the consent prompt for different combinations of configurations:
 
 :::image type="content" source="./media/howto-configure-publisher-domain/new-app-behavior-table.png" border="false" alt-text="Diagram that shows consent prompt behavior for apps created between May 21, 2019, and November 30, 2020.":::
 
-For multitenant applications that were created after November 30, 2020, only publisher verification status is shown in an app's consent prompt. The following table describes what appears in a consent prompt depending on whether an app is verified. The consent prompt for single-tenant apps remains the same.
+For multitenant apps that were created after November 30, 2020, only publisher verification status is shown in an app's consent prompt. The following table describes what appears in a consent prompt depending on whether an app is verified. The consent prompt for single-tenant apps remains the same.
 
 :::image type="content" source="./media/howto-configure-publisher-domain/new-app-behavior-publisher-verification-table.png" border="false" alt-text="Diagram that shows  consent prompt results for apps that were created after November 30, 2020.":::
 

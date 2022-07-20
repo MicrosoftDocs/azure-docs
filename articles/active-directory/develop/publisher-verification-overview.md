@@ -36,7 +36,7 @@ Publisher verification for an app has the following benefits:
 
 - **Increased transparency and risk reduction for customers**. Publisher verification helps customers identify apps that are published by developers they trust to reduce risk in the organization.
 
-- **Improved branding**. A blue *verified* badge appears in the Azure AD [consent prompt](application-consent-experience.md), on the enterprise apps page, and in other app elements that users and admins see.
+- **Improved branding**. A blue *verified* badge appears in the Azure AD app [consent prompt](application-consent-experience.md), on the enterprise apps page, and in other app elements that users and admins see.
 
 - **Smoother enterprise adoption**. Organization admins can configure [user consent policies](../manage-apps/configure-user-consent.md) that include publisher verification status as primary policy criteria.
 
@@ -58,7 +58,7 @@ App developers must meet a few requirements to complete the publisher verificati
 
 - The app must be registered in an Azure AD tenant and have a [publisher domain](howto-configure-publisher-domain.md) set.
 
-- The domain of the email address that's used during MPN account verification must either match the publisher domain configured on the app or be a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) that's added to the Azure AD tenant.
+- The domain of the email address that's used during MPN account verification must either match the publisher domain that's set for the app or be a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) that's added to the Azure AD tenant.
 
 - The user who initiates verification must be authorized to make changes both to the app registration in Azure AD and to the MPN account in Partner Center.
 
@@ -74,7 +74,7 @@ Developers who have already met these requirements can be verified in minutes. N
 
 ## Publisher verification in national clouds
 
-Publisher verification currently isn't supported in national clouds. Applications that are registered in national cloud tenants can't be publisher verified at this time.
+Publisher verification currently isn't supported in national clouds. Apps that are registered in national cloud tenants can't be publisher verified at this time.
 
 ## Frequently asked questions
 
