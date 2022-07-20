@@ -1,5 +1,5 @@
 ---
-title: Create a BGP peering with virtual hub(Preview) - Azure portal
+title: Create a BGP peering with virtual hub - Azure portal
 titleSuffix: Azure Virtual WAN
 description: Learn how to create a BGP peering with Virtual WAN hub router.
 services: virtual-wan
@@ -7,25 +7,17 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 07/20/2022
 ms.author: cherylmc
 
 ---
-# How to create BGP peering with virtual hub (Preview) - Azure portal
+# How to create BGP peering with virtual hub- Azure portal
 
 This article helps you configure an Azure Virtual WAN hub router to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. The virtual hub router learns routes from the NVA in a spoke VNet that is connected to a virtual WAN hub. The virtual hub router also advertises the virtual network routes to the NVA. For more information, see [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md).
-
-[!INCLUDE [Gated public preview SLA link](../../includes/virtual-wan-gated-public-preview-sla.md)]
 
 :::image type="content" source="./media/create-bgp-peering-hub-portal/diagram.png" alt-text="Diagram of configuration.":::
 
 ## Prerequisites
-
-> [!IMPORTANT]
-> The BGP peering with Virtual WAN hub feature is currently in gated public preview. If you are interested in trying this feature, please email **previewbgpwithvhub@microsoft.com** along with the Resource ID of your Virtual WAN resource. 
->
-> To locate the Resource ID, open the Azure portal, navigate to your Virtual WAN resource, and click **Settings > Properties > Resource ID.**<br> Example: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>`
->
 
 Verify that you have met the following criteria before beginning your configuration:
 
@@ -49,7 +41,7 @@ In this section, you create a connection between your hub and VNet.
 
 ## Configure a BGP peer
 
-1.	Open the [Azure preview portal](https://aka.ms/azurecortexv2) using [https://aka.ms/azurecortexv2](https://aka.ms/azurecortexv2). The BGP peering with Virtual WAN hub feature is currently in managed preview and the configuration pages are not available in the regular Azure portal.
+1.	Sign in to the [Azure portal](https://portal.azure.com).
 
 1.	On the portal page for your virtual WAN, in the **Connectivity** section, select **Hubs** to view the list of hubs. Click a hub to configure a BGP peer.
 
