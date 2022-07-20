@@ -59,7 +59,7 @@ The following steps in this section show how to create a sample executable to ac
 
 1. Edit the *Program.cs* file and replace the contents with the [EFLOW TPM sample code - Program.cs](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/samples/tpm-read-nv/Program.cs).
 
-1. Build the project and make sure there are no errors.
+1. Select **Build** > **Build solution** to build the project.  Verify the build is successful.
 
 1. Right-click the project and select _Publish_.
 
