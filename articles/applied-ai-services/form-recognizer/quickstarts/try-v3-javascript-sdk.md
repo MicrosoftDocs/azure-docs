@@ -112,7 +112,6 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * For this example, you'll need a **form document file from a URL**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file from a URL, you'll use the `beginAnalyzeDocuments` method and pass in `prebuilt-document` as the model Id.
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
-> * To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
 **Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
