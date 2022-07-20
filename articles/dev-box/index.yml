@@ -18,7 +18,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Azure Load Testing
+  - title: About Microsoft Dev Box
     linkLists:
       - linkListType: overview
         links:
