@@ -21,7 +21,7 @@ This article shows you how to create a user delegation SAS token in the Azure Bl
 * Grant access to an existing **container**.
 * Grant access to create, use, and delete **blobs**.
 
-To create a user delegation SAS, a client must have permissions to call the Get User Delegation Key operation. The key returned by Get User Delegation Key is used to sign the user delegation SAS. The security principal that calls Get User Delegation Key must be assigned an RBAC role that includes the Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action.
+To create a user delegation SAS, a client must have permissions to call the [blobServiceClient.getUserDelegationKey](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-getuserdelegationkey) operation. The key returned by this operation is used to sign the user delegation SAS. The security principal that calls this operation must be assigned an RBAC role that includes the Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action.
 
 The permissions granted to a client who possesses the SAS are the intersection of the permissions that were granted to the security principal that requested the user delegation key and the permissions that were granted to the resource on the SAS token in the signed [permissions](/rest/api/storageservices/create-user-delegation-sas#specify-permissions) (sp) field. If a permission that's granted to the security principal via RBAC isn't also granted on the SAS token, that permission isn't granted to the client who attempts to use the SAS to access the resource.
 
@@ -86,7 +86,7 @@ With identity configured, use the following code to create **User delegation SAS
 The preceding code creates a flow of values in order to create the container SAS token:
 
 * Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with the [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
-* Use that client to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
+* Use the [blobServiceClient.getUserDelegationKey](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-getuserdelegationkey) operation to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
 * Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string with [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob#@azure-storage-blob-generateblobsasqueryparameters)
 
 ## Container: use SAS token
@@ -130,7 +130,7 @@ With identity configured, use the following code to create **User delegation SAS
 The preceding code creates a flow of values in order to create the container SAS token:
 
 * Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
-* Use that client to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
+* Use the [blobServiceClient.getUserDelegationKey](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-getuserdelegationkey) operation to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
 * Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string. If the blob name wasn't specified in the options, the SAS token is a container token.
 
 ## Blob: use SAS token
