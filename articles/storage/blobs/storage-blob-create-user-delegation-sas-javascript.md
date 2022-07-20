@@ -83,11 +83,13 @@ With identity configured, use the following code to create **User delegation SAS
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs-from-container-sas-token.js" id="Snippet_CreateContainerSas" highlight="18, 25, 42":::
 
-The preceding code creates a flow of values in order to create the container SAS token:
+The preceding server code creates a flow of values in order to create the container SAS token:
 
 * Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with the [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
 * Use the [blobServiceClient.getUserDelegationKey](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-getuserdelegationkey) operation to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
 * Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string with [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob#@azure-storage-blob-generateblobsasqueryparameters)
+
+Once you're created the container SAS token, you can provide it to the client that will consume the token. The client can then use it to list the blobs in a container. A [client code example](#container-use-sas-token) shows how to test the SAS as a consumer.
 
 ## Container: use SAS token
 
@@ -132,6 +134,8 @@ The preceding code creates a flow of values in order to create the container SAS
 * Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
 * Use the [blobServiceClient.getUserDelegationKey](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-getuserdelegationkey) operation to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
 * Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string. If the blob name wasn't specified in the options, the SAS token is a container token.
+
+Once you're created the blob SAS token, you can provide it to the client that will consume the token. The client can then use it to upload a blob. A [client code example](#blob-use-sas-token) shows how to test the SAS as a consumer.
 
 ## Blob: use SAS token
 
