@@ -1611,7 +1611,12 @@ groups:
     title: Basic/Standard tier
   - id: sc-enterprise-tier
     title: Enterprise tier
-# Owner: jomondi
+########### BEGIN APPLICATION MANAGEMENT
+# Service:       Active Directory (active-directory)
+# Sub-service:   APPLICATION MANAGEMENT(manage-apps)
+# Referenced by: /articles/active-directory/manage-apps/*
+# Owner(s):      jomondi, celested
+## Home realm discovery ##
 - id: home-realm-discovery
   title: hrd-policy
   prompt: Choose an option
@@ -1620,6 +1625,41 @@ groups:
     title: PowerShell
   - id: graph-hrd
     title: Graph
+## Generic how-to doc template
+- id: enterprise-apps
+  title: Manage Enterpise apps
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure Portal
+  - id: aad-PowerShell
+    title: Azure AD PowerShell
+  - id: ms-PowerShell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+## Generic how-to doc template without graph
+- id: enterprise-apps
+  title: Manage Enterpise apps
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure Portal
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+## Create service principal with appId
+- id: enterprise-apps-cli
+  title: Enterpise apps
+  prompt: Choose an option
+  pivots:
+  - id: msgraph-powershell
+    title: Microsoft graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+  - id: azure-cli
+    title: Azure CLI
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version
