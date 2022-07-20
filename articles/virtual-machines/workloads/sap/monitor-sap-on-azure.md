@@ -96,6 +96,17 @@ SAP NetWeaver telemetry:
 - Work process usage statistics and trends
 - Enqueue Lock statistics and trends
 - Queue usage statistics and trends
+- SMON Metrics (/SDF/SMON )
+- SWNC Workload , Memory , Transaction, User , RFC Usage (St03n)
+- Short Dumps (ST22)
+- Object Lock (SM12)
+- Failed Updates (SM13)
+- System Logs Analysis(SM21)
+- Batch Jobs Statistics(SM37)
+- Outbound Queues(SMQ1)
+- Inbound Queues(SMQ2)
+- Transactional RFC(SM59)
+- STMS Change Transport System Metrics(STMS)
 - 
 IBM Db2 telemetry:
 - DB availability
