@@ -14,14 +14,14 @@ ms.date: 7/20/2022
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Assign roles to the service principal of your application and Azure Managed Grafana instance
+> * Assign an Azure Managed Grafana role to the service principal of your application
 > * Retrieve application details
 > * Get an access token
-> * Call a Grafana API
+> * Call Grafana APIs
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 * An Azure Managed Grafana workspace. [Create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 * An Azure Active Directory (Azure AD) application with a service principal. [Create an Azure AD application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). For simplicity, use an application located in the same Azure AD tenant as your Managed Grafana instance.
 
@@ -29,24 +29,24 @@ In this tutorial, you learn how to:
 
 Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
 
-## Assign a Managed Grafana role to the service principal of your application
+## Assign an Azure Managed Grafana role to the service principal of your application
 
 1. In the Azure portal, open your Managed Grafana instance.
 1. Select **Access control (IAM)** in the navigation menu.
-1. Select **Add**, then **Add role assignment**
+1. Select **Add**, then **Add role assignment**.
 1. Select the **Grafana Editor** role and then **Next**.
 1. Under **Assign access to**, select **User,group, or service principal**.
-1. Select **Select members** and select your service principal and select **Select**.
-1. Select **Review + assign**
+1. Select **Select members**, select your service principal, and hit **Select**.
+1. Select **Review + assign**.
 
     :::image type="content" source="media/tutorial-api/role-assignment.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
 
 ## Retrieve application details
 
-You now need to gather some information, which you'll use to get an access token and call Grafana APIs.
+You now need to gather some information, which you'll use to get an Grafana API access token, and call Grafana APIs.
 
 1. Find your tenant ID:
-   1. In the Azure portal, type Azure Active Directory in the **Search resources, services, and docs (G+ /)**.
+   1. In the Azure portal, enter *Azure Active Directory* in the **Search resources, services, and docs (G+ /)**.
    1. Select **Azure Active Directory**.
    1. Select **Properties** from the left menu.
    1. Locate the field **Tenant ID** and save its value.
@@ -63,18 +63,18 @@ You now need to gather some information, which you'll use to get an access token
 1. Create an application secret:
    1. In the Azure portal, in Azure Active Directory, select **App registrations** from the left menu.
    1. Select your app.
-   1. Select **Certificates and secrets** from the left menu.
+   1. Select **Certificates & secrets** from the left menu.
    1. Select **New client secret**.
    1. Create a new client secret and save its value.
 
     :::image type="content" source="./media/tutorial-api/create-new-secret.png" alt-text="Screenshot of the Azure portal, creating a secret.":::
 
     > [!NOTE]
-    > You can only access the secret's value immediately after creating the secret. Copy the value before leaving the page to use it in the next step of this tutorial.
+    > You can only access a secret's value immediately after creating it. Copy the value before leaving the page to use it in the next step of this tutorial.
 
 1. Find your Grafana endpoint URL:
 
-   1. In the Azure portal, type *Azure Managed Grafana* in the **Search resources, services, and docs (G+ /)** bar.
+   1. In the Azure portal, enter *Azure Managed Grafana* in the **Search resources, services, and docs (G+ /)** bar.
    1. Select **Azure Managed Grafana** and open your Managed Grafana workspace.
    1. Select **Overview** from the left menu and save the **Endpoint** value.
 
@@ -104,9 +104,9 @@ Here's an example of response:
 }
 ```
 
-## Call a Grafana API
+## Call Grafana APIs
 
-You can now call the Grafana API using the access token retrieved in the previous step as the Authorization header. For example:
+You can now call Grafana APIs using the access token retrieved in the previous step as the Authorization header. For example:
 
 ```bash
 curl -X GET \
@@ -122,14 +122,14 @@ If you're not going to continue to use these resources, delete them with the fol
 
 1. Delete Azure Managed Grafana:
    1. In the Azure portal, in Azure Managed Grafana, select **Overview** from the left menu.
-   1. Select **Delete**
-   1. Enter the resource name to confirm deletion and select **Delete**
+   1. Select **Delete**.
+   1. Enter the resource name to confirm deletion and select **Delete**.
 
 1. Delete the Azure AD application:
    1. In the Azure portal, in Azure Active Directory, select **App registrations** from the left menu.
    1. Select your app.
-   1. In the **Overview** tab, select **Delete**
-   1. Select **Delete**
+   1. In the **Overview** tab, select **Delete**.
+   1. Select **Delete**.
 
 ## Next steps
 
