@@ -25,6 +25,14 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 | azure-eventhubs version 3 (legacy) | [GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/) |
 | Samples in the Azure Samples repository | [GitHub location](https://github.com/orgs/Azure-Samples/repositories?q=event-hubs&type=all&language=java) |
 
+## Spring samples
+
+| Version                                        | Samples location |
+| ------- | ---------------- | 
+| spring-cloud-azure-starter-eventhubs version 4 | [GitHub location](https://aka.ms/spring/samples/eventhubs/sdk-client) | 
+| spring-cloud-azure-starter-integration-eventhubs version 4 | [GitHub location](https://aka.ms/spring/samples/eventhubs/spring-integration) |
+| spring-cloud-azure-stream-binder-eventhubs version 4 | [GitHub location](https://aka.ms/spring/samples/eventhubs/spring-cloud-stream) |
+
 ## Python samples
 
 | Version | Samples location |
