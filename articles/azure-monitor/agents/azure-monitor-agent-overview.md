@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor agent, which collects monitoring data
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 5/19/2022
+ms.date: 7/21/2022
 ms.custom: references_regions
 ms.reviewer: shseth
 ---
@@ -117,7 +117,7 @@ The following table shows the current support for the Azure Monitor agent with A
 | Solution | Current support | More information |
 |:---|:---|:---|
 | [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Microsoft Defender for Cloud Private Preview.  | [Sign-up link](https://aka.ms/AMAgent) |
-| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (Private Preview) that doesn't require an agent. | [Sign-up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
+| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 - Public preview | [Update management center (preview) documentation](/azure/update-center/) |
 
 ## Costs
 There's no cost for the Azure Monitor agent, but you might incur charges for the data ingested. For details on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
@@ -135,12 +135,9 @@ The Azure Monitor agent supports Azure service tags (both *AzureMonitor* and *Az
 | Azure Commercial |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes |
 | Azure Commercial |`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |
 | Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |
-| Azure Government |global.handler.control.monitor.azure.us |Access control service|Port 443 |Outbound|Yes |
-| Azure Government |`<virtual-machine-region-name>`.handler.control.monitor.azure.us |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |
-| Azure Government |`<log-analytics-workspace-id>`.ods.opinsights.azure.us |Ingest logs data |Port 443 |Outbound|Yes |
-| Azure China |global.handler.control.monitor.azure.cn |Access control service|Port 443 |Outbound|Yes |
-| Azure China |`<virtual-machine-region-name>`.handler.control.monitor.azure.cn |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |
-| Azure China |`<log-analytics-workspace-id>`.ods.opinsights.azure.cn |Ingest logs data |Port 443 |Outbound|Yes |
+| Azure Commercial | management.azure.com | Only needed if sending timeseries data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes |
+| Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
+| Azure China | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
 
 
 If using private links on the agent, you must also add the [DCE endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)
