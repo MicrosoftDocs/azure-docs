@@ -11,9 +11,14 @@ ms.custom: devx-track-azurepowershell
 
 # Azure Automation account authentication overview
 
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 16, 2025 and will be replaced with Managed Identities.
+While we continue to support Run As account for both existing and new Automation accounts from the Azure portal and PowerShell, we recommend you to switch to [Managed identities](/automation-security-overview.md#managed-identities) for runbook authentication. For more information, see [migrating from an existing Run As accounts to managed identity](/migrate-run-as-accounts-managed-identity?tabs=ua-managed-identity#sample-scripts).
+
 Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS). You can use runbooks to automate your tasks, or a Hybrid Runbook Worker if you have business or operational processes to manage outside of Azure. Working in any one of these environments require permissions to securely access the resources with the minimal rights required.
 
 This article covers authentication scenarios supported by Azure Automation and tells how to get started based on the environment or environments that you need to manage.
+
 
 ## Automation account
 

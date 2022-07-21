@@ -22,6 +22,14 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
 
+## July 2022
+
+### Support for Run As accounts
+
+**Type:** Plan for change
+
+Azure Automation Run As Account will retire on September 16, 2025 and will be replaced with Managed Identities. We recommend you to switch to Managed identities for runbook authentication. For more information, see [migrating from an existing Run As accounts to managed identity](/azure/automation/migrate-run-as-accounts-managed-identity?tabs=ua-managed-identity#sample-scripts).
+ 
 ## March 2022
 
 ###  Forward diagnostic audit data to Azure Monitor logs

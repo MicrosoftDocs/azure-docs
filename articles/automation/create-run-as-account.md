@@ -9,6 +9,11 @@ ms.topic: conceptual
 
 # How to create an Azure Automation Run As account
 
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 16, 2025 and will be replaced with Managed Identities.
+While we continue to support Run As account for both existing and new Automation accounts from the Azure portal and PowerShell, we recommend you to switch to [Managed identities](/automation-security-overview.md#managed-identities) for runbook authentication. For more information, see [migrating from an existing Run As accounts to managed identity](/migrate-run-as-accounts-managed-identity?tabs=ua-managed-identity#sample-scripts).
+
+
 Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. This article describes how to create a Run As or Classic Run As account from the Azure portal or Azure PowerShell.
 
 When you create the Run As or Classic Run As account in the Azure portal, by default it uses a self-signed certificate. If you want to use a certificate issued by your enterprise or third-party certification authority (CA), can use the [PowerShell script to create a Run As account](#powershell-script-to-create-a-run-as-account).

@@ -10,6 +10,11 @@ ms.custom: devx-track-azurepowershell
 
 # Run Automation runbooks on a Hybrid Runbook Worker
 
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 16, 2025 and will be replaced with Managed Identities.
+While we continue to support Run As account for both existing and new Automation accounts from the Azure portal and PowerShell, we recommend you to switch to [Managed identities](/automation-security-overview.md#managed-identities) for runbook authentication. For more information, see [migrating from an existing Run As accounts to managed identity](/migrate-run-as-accounts-managed-identity?tabs=ua-managed-identity#sample-scripts).
+
+
 Runbooks that run on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) typically manage resources on the local computer or against resources in the local environment where the worker is deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud. Even though they are used differently, runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker are identical in structure.
 
 When you author a runbook to run on a Hybrid Runbook Worker, you should edit and test the runbook on the machine that hosts the worker. The host machine has all the PowerShell modules and network access required to manage the local resources. Once you test the runbook on the Hybrid Runbook Worker machine, you can then upload it to the Azure Automation environment, where it can be run on the worker.
