@@ -109,7 +109,12 @@ sections:
       - question: |
           Can I control access to operations based on user identity?
         answer: |
-          [Role-based authorization](search-security-rbac.md) for data plane operations over content is now in public preview. 
+          [Role-based authorization](search-security-rbac.md) for data plane operations over content is now in public preview.
+
+      - question: |
+          Can I access a search service behind an IP firewall or private endpoints through the Azure Portal?
+        answer: |
+          Starting on August 22 2022, additional action is required to access search services behind an IP firewall or private endpoints through the Azure Portal. Learn more about how to access a search service [behind an IP firewall](./service-configure-firewall.md#allow-access-from-your-client) or [private endpoints](./service-create-private-endpoint.md#portal-access-private-search-service) through the Azure Portal.
 
 additionalContent: |
 

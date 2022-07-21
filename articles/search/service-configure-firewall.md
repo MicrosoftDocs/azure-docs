@@ -42,7 +42,7 @@ When IP rules are configured, some features of the Azure portal are disabled. Yo
 
 Client applications that push indexing and query requests to the search service must be represented in an IP range. On Azure, you can generally determine the IP address by pinging the FQDN of a service (for example, `ping <your-search-service-name>.search.windows.net` will return the IP address of a search service).
 
-The portal has similar restrictions to other client applications. Add your client IP address to allow access to the service from the Azure Portal on your current computer. Navigate to the **Networking** section on the left navigation pane. Change **Public Network Access** to **Selected networks**, and then check **Add your client IP address** under **Firewall**.
+The portal has similar restrictions to other client applications.  Starting August 22 2022, it is possible to add your client IP address to allow access to the service from the Azure Portal on your current computer. Navigate to the **Networking** section on the left navigation pane. Change **Public Network Access** to **Selected networks**, and then check **Add your client IP address** under **Firewall**.
 
    :::image type="content" source="media\service-configure-firewall\azure-portal-firewall.png" alt-text="Screenshot of adding client ip to search service firewall" border="true":::
 
