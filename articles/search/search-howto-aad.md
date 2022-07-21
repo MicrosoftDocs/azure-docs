@@ -69,7 +69,7 @@ To create a manged identity:
 
 1. Give your managed identity a name and select a region. Then, select **Create**.
 
-   :::image type="content" source="media/search-howto-aad/create-managed-identity.png" alt-text="Screenshot of the create managed identity wizard" border="true" :::
+   :::image type="content" source="media/search-howto-aad/create-managed-identity.png" alt-text="Screenshot of the create managed identity wizard." border="true" :::
 
 ## Assign a role to the managed identity
 
