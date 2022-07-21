@@ -4,7 +4,7 @@ description: Describes the data available to monitor the health and performance 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/19/2022
+ms.date: 07/21/2022
 ms.reviewer: shseth
 
 ---
@@ -85,8 +85,8 @@ The [Azure Activity log](essentials/platform-logs-overview.md) includes service 
 
 | Destination | Description | Reference |
 | ----------- | ----------- | --------- |
-| Azure Resource Manager tracked properties | Change Analysis provides a historical record of how the Azure resources that host your application have changed over time, using Azure Resource Graph | [How Resource Graph complements Azure Resource Manager](../governance/resource-graph/overview.md#how-resource-graph-complements-azure-resource-manager) |
-| Proxied configurations | Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app. | [Link?]() |
+| Azure Resource Manager control plane changes | Change Analysis provides a historical record of how the Azure resources that host your application have changed over time, using Azure Resource Graph | [How Resource Graph complements Azure Resource Manager](../governance/resource-graph/how-to/get-resource-changes.md) |
+| Resource configurations and settings changes | Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app. | [Azure Resource Manager proxied setting changes](./change/change-analysis.md#azure-resource-manager-proxied-setting-changes) |
 | Web app in-guest changes | Every 30 minutes, Change Analysis captures the deployment and configuration state of an application. | [Diagnose and solve problems tool for Web App](./change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool-for-web-app) |
 
 ## Azure resources
