@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 07/19/2022
+ms.date: 07/21/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022
 ---
 
@@ -82,6 +82,9 @@ When installing the Dapr extension, use the flag value that corresponds to your 
 
 - **AKS cluster**: `--cluster-type managedClusters`. 
 - **Arc-enabled Kubernetes cluster**: `--cluster-type connectedClusters`.
+
+> [!NOTE]
+> If you're using Dapr OSS on your AKS cluster and would like to install the Dapr extension for AKS, read more about [how to successfully migrate to the Dapr extension][dapr-migration]. 
 
 Create the Dapr extension, which installs Dapr on your AKS or Arc-enabled Kubernetes cluster. For example, for an AKS cluster:
 
@@ -280,6 +283,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [arc-k8s-cluster]: ../azure-arc/kubernetes/quickstart-connect-cluster.md
 [update-extension]: ./cluster-extensions.md#update-extension-instance
 [install-cli]: /cli/azure/install-azure-cli
+[dapr-migration]: ./dapr-migration.md
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
