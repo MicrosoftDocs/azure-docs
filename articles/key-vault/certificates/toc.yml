@@ -28,6 +28,8 @@ items:
     href: quick-create-go.md
   - name: Java
     href: quick-create-java.md
+  - name: Spring
+    href: https://aka.ms/spring/msdocs/keyvault/certificates/quickstart
 - name: Samples
   items:
   - name: Key Vault Code Samples
@@ -68,6 +70,8 @@ items:
     href: /dotnet/api/overview/azure/security.keyvault.certificates-readme
   - name: Java
     href: /java/api/overview/azure/keyvault
+  - name: Spring
+    href: https://aka.ms/spring/msdocs/keyvault/certificates/reference
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python
