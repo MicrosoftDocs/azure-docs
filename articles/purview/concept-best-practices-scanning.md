@@ -156,7 +156,7 @@ After you register your source in the relevant [collection](./how-to-create-and-
 
 - If a field or column, table, or a file is removed from the source system after the scan was executed, it will only be reflected (removed) in Microsoft Purview after the next scheduled full or incremental scan.
 - An asset can be deleted from a Microsoft Purview catalog by using the **Delete** icon under the name of the asset. This action won't remove the object in the source. If you run a full scan on the same source, it would get reingested in the catalog. If you've scheduled a weekly or monthly scan instead (incremental), the deleted asset won't be picked unless the object is modified at the source. An example is if a column is added or removed from the table.
-- To understand the behavior of subsequent scans after *manually* editing a data asset or an underlying schema through the Microsoft Purview governance portal, see [Catalog asset details](./catalog-asset-details.md#scans-on-edited-assets).
+- To understand the behavior of subsequent scans after *manually* editing a data asset or an underlying schema through the Microsoft Purview governance portal, see [Catalog asset details](./catalog-asset-details.md#editing-assets).
 -  For more information, see the tutorial on [how to view, edit, and delete assets](./catalog-asset-details.md).
 
 ## Next steps

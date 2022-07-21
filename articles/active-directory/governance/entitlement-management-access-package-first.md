@@ -3,7 +3,7 @@ title: Tutorial - Manage access to resources in Azure AD entitlement management
 description: Step-by-step tutorial for how to create your first access package using the Azure portal in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 07/11/2022
-ms.author: ajburnle
+ms.author: owinfreyatl
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
