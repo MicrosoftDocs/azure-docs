@@ -116,5 +116,5 @@ sudo ufw allow 80/tcp
 
 ## Next steps
 
-- Learn about [using multiple frontends](load-balancer-multivip-overview) with Azure Load Balancer.
+- Learn about [using multiple frontends](load-balancer-multivip-overview.md) with Azure Load Balancer.
 - Learn about [Azure Load Balancer outbound connections](load-balancer-outbound-connections.md).
