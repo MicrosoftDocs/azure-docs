@@ -38,7 +38,7 @@ We recommend that you check the following before you start troubleshooting Micro
 **Error message**: Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service. (ID: 34513)
 
 > [!NOTE]
-> Please ensure the MARS agent is up to date for the vault credentials to work. Older versions can lead to validation errors.
+> Ensure to update the MARS agent for vault credentials to work successfully. The older versions can cause validation errors.
 
 | Causes | Recommended actions |
 | ---     | ---    |
