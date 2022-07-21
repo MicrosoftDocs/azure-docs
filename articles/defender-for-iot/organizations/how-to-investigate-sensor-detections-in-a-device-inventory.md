@@ -106,11 +106,7 @@ On the **Device inventory** page:
 
 1. Select **Add filter**.
 1. Select **Last Activity** in the column field.
-1. Choose the time period in the **Filter** field.
-
-    :::image type="content" source="media/how-to-inventory-sensor/save-filter.png" alt-text="Screenshot that shows the last activity filter in Inventory.":::
-
-    Filtering options include seven days or more, 14 days or more, 30 days or more, or 90 days or more.
+1. Choose the time period in the **Filter** field. Filtering options include seven days or more, 14 days or more, 30 days or more, or 90 days or more.
 
 > [!TIP]
 > We recommend that you [delete](#delete-devices) inactive devices to display a more accurate representation of current network activity, better evaluate [committed devices](architecture.md#what-is-a-defender-for-iot-committed-device), and reduce clutter on your screen.

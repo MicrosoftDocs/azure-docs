@@ -79,7 +79,7 @@ Defender for IoT’s new purchase experience and the Enterprise IoT integration 
 > [!NOTE]
 > The Enterprise IoT network sensor and all detections remain in Public Preview.
 
-## Device inventory enhancements
+### Device inventory enhancements
 
 Starting in sensor versions 22.2.4, you can now take the following actions from the sensor console's **Device inventory** page:
 
