@@ -85,6 +85,8 @@ In the sensor console's **Device inventory** page, the **Last seen** value in th
 
 :::image type="content" source="media/release-notes/last-activity-new.png" alt-text="Screenshot of the new Last activity field showing in the sensor console's device details pane on the Device inventory page.":::
 
+For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
+
 ### OT appliance hardware profile updates
 
 We've refreshed the naming conventions for our OT appliance hardware profiles for greater transparency and clarity.
