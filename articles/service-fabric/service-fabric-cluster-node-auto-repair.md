@@ -18,19 +18,19 @@ Service Fabric managed cluster continuously monitors the health of nodes and rec
 SFMC performs the following repair actions on the underlying Virtual Machine (VM) if Service Fabric node is detected down for 24 hours:
 
 1) Reboot the underlying VM for the node.
-2) If reboot doesn't bring the node up, redeploy the node.   
-3) If redeploy is unsuccessful to bring the node up, deallocate and start the VM back. 
-4) If the deallocation doesn't bring the node up, reimage the node.
+2) If reboot doesn't bring up the node, redeploy the node.   
+3) If redeploy is unsuccessful to bring up the node, deallocate and start the VM back. 
+4) If the deallocation doesn't bring up the node, reimage the node.
 
-SFMC waits for nodes to come back up after each action, and if a node does not come up, SFMC proceeds to the next action. Node auto-repair actions typically take approximately 30 minutes once started, but can take upwards of three hours to iterate through and complete the full set of actions described. No further retries are made if the node is still down after SFMC has tried all the repair actions above. Alternative remediations will be investigated by SF engineers if auto-repair doesn't bring the node up. 
+SFMC waits for nodes to come back up after each action, and if a node doesn't come up, SFMC proceeds to the next action. Node auto-repair actions typically take approximately 30 minutes once started, but can take upwards of three hours to iterate through and complete the full set of actions described. No further retries are made if the node is still down after SFMC has tried all the repair actions above. Alternative remediations will be investigated by SF engineers if auto-repair doesn't bring the node up. 
 
-If SFMC finds multiple nodes to be down during a health check, each node gets repaired individually before another repair begins. SFMC attempts to repair nodes in the same order that they are detected down.
+If SFMC finds multiple nodes to be down during a health check, each node gets repaired individually before another repair begins. SFMC attempts to repair nodes in the same order that they're detected down.
 
 While node auto-repair covers the above scenario described, customers should continue to monitor the health of their cluster and its resources. The goal of this feature is to take off some of the burden of cluster management and operations.
 
 ## Future Roadmap
 
-This is first iteration of node auto-repair capability, and we will continue to improve and expand the scope in future.
+This launch is the first iteration of node auto-repair capability, and SFMC will continue to improve and expand the scope in future.
 
 ## Next steps
 > [!div class="nextstepaction"]
