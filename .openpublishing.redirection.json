@@ -40277,6 +40277,11 @@
       "source_path_from_root": "/articles/virtual-machines/windows/winrm.md",
       "redirect_url": "/azure/virtual-machines/windows/connect-winrm",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/applied-ai-services/form-recognizer/tutorial-ai-builder.md",
+      "redirect_url": "/ai-builder/create-form-processing-model",
+      "redirect_document_id": false
     }
   ]
 }
