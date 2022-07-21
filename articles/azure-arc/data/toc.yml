@@ -58,6 +58,8 @@ items:
             href: create-data-controller-direct-azure-portal.md
           - name: Azure CLI
             href: create-data-controller-direct-cli.md
+          - name: Resource sync
+            href: resource-sync.md
         - name: Configure monitor certificates
           href: monitor-certificates.md
     - name: Common experiences across Azure Arc-enabled data services

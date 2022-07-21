@@ -9,6 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: guybo
+ms.reviewer: mattmcinnes
 ---
 
 # Endorsed Linux distributions on Azure

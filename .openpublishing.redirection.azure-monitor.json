@@ -360,6 +360,51 @@
             "source_path_from_root": "/articles/azure-monitor/insights/azure-cli-application-insights-component.md" ,
             "redirect_url": "/cli/azure/monitor/app-insights",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/redis-cache-insights-overview.md" ,
+            "redirect_url": "/azure/azure-cache-for-redis/redis-cache-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/ingestion-time-transformations.md" ,
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-transformations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-ingestion-time-transformations.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-workspace-transformations-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-ingestion-time-transformations-api.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-workspace-transformations-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-custom-logs.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-logs-ingestion-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-custom-logs-api.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-logs-ingestion-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/agents/data-sources.md" ,
+            "redirect_url": "/azure/azure-monitor/essentials/data-sources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/data-collection-rule-transformations.md" ,
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-transformations-structure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/custom-logs-overview.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/logs-ingestion-api-overview",
+            "redirect_document_id": false
         }
     ]
 }

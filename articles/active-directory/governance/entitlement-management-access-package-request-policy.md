@@ -3,7 +3,7 @@ title: Change request settings for an access package in Azure AD entitlement man
 description: Learn how to change request settings for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 07/01/2021
-ms.author: ajburnle
+ms.author: owinfreyatl
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 

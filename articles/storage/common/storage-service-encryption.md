@@ -75,13 +75,13 @@ The Azure Blob Storage client libraries for .NET, Java, and Python support encry
 
 The Blob Storage and Queue Storage client libraries uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. There are two versions of client-side encryption available in the client libraries:
 
-- Version 2 uses [Galois/Counter Mode (GCM)](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode with AES.
-- Version 1 uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES.
+- Version 2 uses [Galois/Counter Mode (GCM)](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode with AES. The Blob Storage and Queue Storage SDKs support client-side encryption with v2.
+- Version 1 uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. The Blob Storage, Queue Storage, and Table Storage SDKs support client-side encryption with v1.
 
 > [!WARNING]
-> Using version 1 of client-side encryption is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog). If you are currently using version 1, we recommend that you update your application to use version 2 and migrate your data.
+> Using client-side encryption v1 is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog). If you are currently using v1, we recommend that you update your application to use client-side encryption v2 and migrate your data.
 >
-> The Azure Table Storage SDK supports only version 1 of client-side encryption. Using client-side encryption with Table Storage is not recommended.
+> The Azure Table Storage SDK supports only client-side encryption v1. Using client-side encryption with Table Storage is not recommended.
 
 The following table shows which client libraries support which versions of client-side encryption and provides guidelines for migrating to client-side encryption v2.
 
