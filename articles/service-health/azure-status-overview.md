@@ -11,7 +11,7 @@ ms.date: 05/26/2022
 
 :::image type="content" source="./media/azure-status-overview/azure-status.PNG" alt-text="Top level Azure Status page.":::
 
-This experience was updated on July 25, 2022.  For more information, see [What's New in Azure Service Health](whats-new#azure-service-health-portal-experience-update) 
+This experience was updated on July 25, 2022.  For more information, see [What's New in Azure Service Health](whats-new.md#azure-service-health-portal-experience-update) 
 
 ## Azure status updates
 
@@ -23,13 +23,19 @@ The Azure status page gets updated in real time as the health of Azure services 
 
 The status banner on the Azure Status page highlights active incidents affecting Azure services.
 
-:::image type="content" source="./media/azure-status-overview/banner.png" alt-text="Azure status refresh page.":::
+:::image type="content" source="./media/azure-status-overview/banner.png" alt-text="Azure status banner example":::
 
 ## Current Impact tab
 
 Azure status page shows the current impact of an active event on the entirety of Azure. Use [Azure Service Health](service-health-overview.md) to see view other issues that may be impacting your services.  
 
-:::image type="content" source="./media/azure-status-overview/banner.png" alt-text="Azure status refresh page.":::
+:::image type="content" source="./media/azure-status-overview/current-impact.png" alt-text="Azure status current impact tab":::
+
+## Azure status history
+
+While the Azure status page always shows the latest health information, you can view older events using the Azure status history page. The history page contains all RCAs for incidents that occurred on November 20th, 2019 or later.  RCAs prior to November 20th, 2019 are not available. From this point forward, the history page will show RCAs up to five years old. 
+
+:::image type="content" source="./media/azure-status-overview/status-history.png" alt-text="Azure status history page":::
 
 ## RSS Feed
 
