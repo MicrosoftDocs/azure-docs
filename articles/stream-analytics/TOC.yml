@@ -199,6 +199,8 @@
       href: stream-analytics-clean-up-your-job.md
     - name: Autoscale jobs
       href: stream-analytics-autoscale.md
+    - name: Add SQL Database as output
+      href: sql-db-table.md
     - name: Use SQL reference data
       href: sql-reference-data.md
     - name: Update credentials
