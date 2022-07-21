@@ -1,11 +1,14 @@
 ---
 title: Service Fabric cluster capacity planning considerations
 description: Node types, durability, reliability, and other things to consider when planning your Service Fabric cluster.
-
-ms.topic: conceptual
-ms.date: 06/23/2022
-ms.author: pepogors
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric cluster capacity planning considerations
 
 Cluster capacity planning is important for every Service Fabric production environment. Key considerations include:
@@ -156,9 +159,9 @@ The capacity needs of your cluster will be determined by your specific workload 
 
 By default, local SSD is configured to 64 GB. This can be configured in the MaxDiskQuotaInMB setting of the Diagnostics section of cluster settings.
 
-For instructions on how to adjust the cluster settings of a cluster hosted in Azure, see [Upgrade the configuration of a cluster in Azure](/azure/service-fabric/service-fabric-cluster-config-upgrade-azure#customize-cluster-settings-using-resource-manager-templates)
+For instructions on how to adjust the cluster settings of a cluster hosted in Azure, see [Upgrade the configuration of a cluster in Azure](./service-fabric-cluster-config-upgrade-azure.md#customize-cluster-settings-using-resource-manager-templates)
 
-For instructions on how to adjust the cluster settings of a standalone cluster hosted in Windows, see [Upgrade the configuration of a standalone cluster](/azure/service-fabric/service-fabric-cluster-config-upgrade-windows-server#customize-cluster-settings-in-the-clusterconfigjson-file)
+For instructions on how to adjust the cluster settings of a standalone cluster hosted in Windows, see [Upgrade the configuration of a standalone cluster](./service-fabric-cluster-config-upgrade-windows-server.md#customize-cluster-settings-in-the-clusterconfigjson-file)
 
 When choosing other [VM sizes](../virtual-machines/sizes-general.md) for production workloads, keep in mind the following constraints:
 
