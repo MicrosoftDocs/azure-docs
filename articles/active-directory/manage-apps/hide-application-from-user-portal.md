@@ -61,9 +61,8 @@ Use the following steps to hide all Microsoft 365 applications from the My Apps 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator for your directory.
 1. Select **Azure Active Directory**.
-1. Select **Users**.
+1. Select **Enterprise applications**.
 1. Select **User settings**.
-1. Under **Enterprise applications**, select **Manage how end users launch and view their applications.**
 1. For **Users can only see Office 365 apps in the Office 365 portal**, select **Yes**.
 1. Select **Save**.
 
