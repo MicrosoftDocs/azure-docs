@@ -63,7 +63,7 @@ Create a dedicated host group and add a role assignment to the host group with t
 > 2) Each fault domain needs a dedicated host to be placed in it and Service Fabric managed clusters require five fault domains. Therefore, at least five dedicated hosts should be present in each dedicated host group.
 
 
-3) The [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. See [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles. This role assignment is defined in the resources section template with Principal ID determined from the first step and role definition ID. 
+3) The [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. See [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles. This role assignment is defined in the resources section of template with role definition ID and Principal ID determined from the first step. 
 
    ```JSON
       "variables": {  
@@ -71,6 +71,7 @@ Create a dedicated host group and add a role assignment to the host group with t
            "contributorRoleId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
            "SFRPAadServicePrincipalId": " <Service Fabric Resource Provider ID> -"
          },
+      "resources": [
       {  
                "apiVersion": "[variables('authorizationApiVersion')]",  
                "type": "Microsoft.Compute/Hostgroups/providers/roleAssignments",  
@@ -82,10 +83,11 @@ Create a dedicated host group and add a role assignment to the host group with t
                    "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', variables('contributorRoleId'))]",  
                    "principalId": "[variables('SFRPAadServicePrincipalId')]"  
                }  
-             } 
+             }
+             ]
    ```
 
-   or you can also add the role assignment via PowerShell using the ID determined in the first step as principal ID and role definition name as "Contributor" where applicable.
+   or you can also add role assignment via PowerShell using Principal ID determined from the first step and role definition name as "Contributor" where applicable.
 
    ```powershell
    New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Contributor" -Scope "<Host Group Id>"  
@@ -100,9 +102,9 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
 
 2) Provide your own values for the following template parameters:
 
-  * Subscription: Select the same Azure subscription as that of the host group.
+  * Subscription: Select the same Azure subscription as the host group subscription.
   * Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
-  * Location: Select the same location as that of the host group.
+  * Location: Select the same location as the host group location.
   * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
   * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
   * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
