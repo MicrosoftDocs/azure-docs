@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy command.
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 06/09/2022
+ms.date: 07/21/2022
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft

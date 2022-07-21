@@ -4,7 +4,7 @@ description: See examples of how to use blob index tags to categorize, manage, a
 author: normesta
 
 ms.author: normesta
-ms.date: 03/30/2022
+ms.date: 07/21/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to

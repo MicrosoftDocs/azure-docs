@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy set-prop
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/13/2022
+ms.date: 07/21/2022
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -67,48 +67,54 @@ Change blob-tags of blob to {key = "abc", val = "def"} and {key = "ghi", val = "
 
 `azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --blob-tags=abc=def&ghi=jkl`
 
-While setting tags on the blobs, there are other permissions('t' for tags) in SAS without which the service will give authorization error back.
+While setting tags on the blobs, there are other permissions('t' for tags) with SAS. Without those tags, the service will return an authorization error.
 
 Clear all existing blob-tags of blob:
 
 `azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --blob-tags=clear`
 
-While setting tags on the blobs, there are other permissions('t' for tags) in SAS without which the service will give authorization error back.
+While setting tags on the blobs, there are other permissions('t' for tags) with SAS. Without those tags, the service will return an authorization error.
 
 ## Options
 
-`--metadata` string  Set the given location with these key-value pairs (separated by ';') as metadata.
+`--blob-tags` string            Set tags on blobs to categorize data in your storage account (separated by '&')
 
-`--from-to` Optionally specifies the source destination combination. Valid values: BlobNone, FileNone, BlobFSNone
+`--block-blob-tier` string      Changes the access tier of the blobs to the given tier (default "None")
 
-`--include-pattern` Include only files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
+`--dry-run`                     Prints the file paths that would be affected by this command. This flag doesn't affect the actual files.
 
-`--include-path` Include only these paths when setting property. This option doesn't support wildcard characters (*). Checks relative path prefix. For example: myFolder;myFolder/subDirName/file.pdf
+`--exclude-path` string         Exclude these paths when removing. This option doesn't support wildcard characters (*). Checks relative path prefix. For example: myFolder;myFolder/subDirName/file.pdf
 
-`--exclude-pattern` Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
+`--exclude-pattern` string      Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
 
-`--exclude-path` Exclude these paths when removing. This option doesn't support wildcard characters (*). Checks relative path prefix. For example: myFolder;myFolder/subDirName/file.pdf
+`--from-to` string              Optionally specifies the source destination combination. Valid values: BlobNone, FileNone, BlobFSNone
 
-`--list-of-files` Defines the location of text file, which has the list of only files to be copied.
+`-h`, `--help`                        help for set-properties
 
-`--block-blob-tier` Changes the access tier of the blobs to the given tier
+`--include-path` string         Include only these paths when setting property. This option doesn't support wildcard characters (*). Checks relative path prefix. For example: `myFolder;myFolder/subDirName/file.pdf`
 
-`--page-blob-tier` Upload page blob to Azure Storage using this blob tier. (default 'None').
+`--include-pattern` string      Include only files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
 
-`--recursive` Look into subdirectories recursively when uploading from local file system.
+`--list-of-files` string        Defines the location of the text file that has the list of files to be copied.
 
-`--rehydrate-priority` Optional flag that sets rehydrate priority for rehydration. Valid values: Standard, High. Default- standard
+`--metadata` string             Set the given location with these key-value pairs (separated by ';') as metadata.
 
-`--dry-run` Prints the file paths that would be affected by this command. This flag doesn't affect the actual files.
+`--page-blob-tier` string       Upload page blob to Azure Storage using this blob tier. (default 'None'). (default "None")
 
-`--blob-tags` Set tags on blobs to categorize data in your storage account (separated by '&').
+`--recursive`                   Look into subdirectories recursively when uploading from local file system.
+
+`--rehydrate-priority` string   Optional flag that sets rehydrate priority for rehydration. Valid values: Standard, High. Default- standard (default "Standard")
 
 
 ## Options inherited from parent commands
 
 `--cap-mbps float`    Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it's omitted, the throughput isn't capped.
 
+`--log-level`      (string)    Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default 'INFO'). (default "INFO")
+
 `--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
+
+`--output-level`  (string)     Define the output verbosity. Available levels: essential, quiet. (default "default")
 
 `--trusted-microsoft-suffixes`    (string)    Specifies other domain suffixes where Azure Active Directory log in tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
