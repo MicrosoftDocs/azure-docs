@@ -22,24 +22,24 @@ This section describes how you can configure your job to write to a table in you
 
 1. In your Stream Analytics job, select **Outputs** under **Job topology**. Click **Add** and choose **SQL Database**.
 
-   :::image type="content" source="./media/sql-db-output-managed-identity/sql-database-output.png" alt-text="Screenshot showing SQL DB output in Stream Analytics" lightbox="./media/sql-db-output-managed-identity/sql-database-output.png":::
+   :::image type="content" source="./media/sql-db-output-managed-identity/sql-database-output.png" alt-text="Screenshot showing SQL DB output in Stream Analytics." lightbox="./media/sql-db-output-managed-identity/sql-database-output.png":::
 
 2. Select an output alias that will be used in your job’s query. Provide your database name and authentication mode. You can learn more about [SQL output configuration options](sql-database-output.md).
 
 3. Enter a **table name** that you want to create in your Azure SQL Database. Click **Save**. Note: Saving this output doesn’t create the table in your SQL Database. Next steps provide more details on when the table gets created.
 
-   :::image type="content" source="./media/sql-db-output-managed-identity/new-table-name.png" alt-text="Screenshot showing SQL DB output configuration in Stream Analytics" lightbox="./media/sql-db-output-managed-identity/new-table-name.png":::
+   :::image type="content" source="./media/sql-db-output-managed-identity/new-table-name.png" alt-text="Screenshot showing SQL DB output configuration in Stream Analytics." lightbox="./media/sql-db-output-managed-identity/new-table-name.png":::
 
 4. Select **Query** under **Job Topology** and use the alias in your query to write the output in the table name you provided in previous step. Click **Test query** to test the query logic and view **Test results** which shows schema of the output that will be produced by the job. 
 Note: To test your query, you need to have either incoming streaming data in your input source, or you can upload sample data to test query. You can learn more about [Test Stream Analytics query](stream-analytics-test-query.md).
 
-   :::image type="content" source="./media/sql-db-output-managed-identity/input-preview.png" alt-text="Screenshot showing query testing in Stream Analytics" lightbox="./media/sql-db-output-managed-identity/input-preview.png":::
+   :::image type="content" source="./media/sql-db-output-managed-identity/input-preview.png" alt-text="Screenshot showing query testing in Stream Analytics." lightbox="./media/sql-db-output-managed-identity/input-preview.png":::
 
-   :::image type="content" source="./media/sql-db-output-managed-identity/output-preview.png" alt-text="Screenshot showing query tests results in Stream Analytics" lightbox="./media/sql-db-output-managed-identity/output-preview.png":::
+   :::image type="content" source="./media/sql-db-output-managed-identity/output-preview.png" alt-text="Screenshot showing query tests results in Stream Analytics." lightbox="./media/sql-db-output-managed-identity/output-preview.png":::
 
 5. Click **SQL table schema** to view the column name and type. Click **Create table** and your table will be created in the SQL database.
 
-   :::image type="content" source="./media/sql-db-output-managed-identity/create-table-popup.png" alt-text="Screenshot showing creating a table in SQL database from Stream Analytics" lightbox="./media/sql-db-output-managed-identity/create-table-popup.png":::
+   :::image type="content" source="./media/sql-db-output-managed-identity/create-table-popup.png" alt-text="Screenshot showing creating a table in SQL database from Stream Analytics." lightbox="./media/sql-db-output-managed-identity/create-table-popup.png":::
 
    If your Stream Analytics query is modified to produce different schema, you'll need to alter your table definition in your SQL Database. This ensures that the Stream Analytics job doesn’t encounter data conversion errors while trying to write to the sink.
 
@@ -51,24 +51,24 @@ This section describes how you can configure your job to write to a table that a
 
 1. In your Stream Analytics job, select **Outputs** under **Job topology**. Click **Add** and choose **SQL Database**.
 
-   :::image type="content" source="./media/sql-db-output-managed-identity/sql-database-output.png" alt-text="Screenshot showing SQL DB output in Stream Analytics" lightbox="./media/sql-db-output-managed-identity/sql-database-output.png":::
+   :::image type="content" source="./media/sql-db-output-managed-identity/sql-database-output.png" alt-text="Screenshot showing SQL DB output in Stream Analytics." lightbox="./media/sql-db-output-managed-identity/sql-database-output.png":::
 
 2. Select an output alias that will be used in your job’s query. Provide your database name and authentication mode. You can learn more about [SQL output configuration options](sql-database-output.md).
 
 3. You can pick an existing table from the selected SQL Database by entering your SQL Authentication details. This will load a list of table names from your Database. Select the table name from the list or manually enter table name and **Save**.
 
-   :::image type="content" source="./media/sql-db-output-managed-identity/existing-table.png" alt-text="Screenshot showing existing table in SQL database" lightbox="./media/sql-db-output-managed-identity/existing-table.png":::
+   :::image type="content" source="./media/sql-db-output-managed-identity/existing-table.png" alt-text="Screenshot showing existing table in SQL database." lightbox="./media/sql-db-output-managed-identity/existing-table.png":::
 
 4. Select **Query** under **Job Topology** and use the alias name in your query to write the output in the selected table. Click **Test query** to test the query logic and view **Test results**. 
 Note: To test your query, you need to have either incoming streaming data in Event Hub/IoT Hub, or you can upload sample data to test query. You can learn more about [Test Stream Analytics query](stream-analytics-test-query.md).
 
-   :::image type="content" source="./media/sql-db-output-managed-identity/input-preview.png" alt-text="Screenshot showing query testing in Stream Analytics" lightbox="./media/sql-db-output-managed-identity/input-preview.png":::
+   :::image type="content" source="./media/sql-db-output-managed-identity/input-preview.png" alt-text="Screenshot showing query testing in Stream Analytics." lightbox="./media/sql-db-output-managed-identity/input-preview.png":::
 
-   :::image type="content" source="./media/sql-db-output-managed-identity/output-preview.png" alt-text="Screenshot showing query tests results in Stream Analytics" lightbox="./media/sql-db-output-managed-identity/output-preview.png":::
+   :::image type="content" source="./media/sql-db-output-managed-identity/output-preview.png" alt-text="Screenshot showing query tests results in Stream Analytics." lightbox="./media/sql-db-output-managed-identity/output-preview.png":::
 
 5. In **SQL table schema** tab, you can see a column name and its type from incoming data and in the selected table. You can see the status whether the incoming data type and selected SQL table match or not. If it's not a match, you'll be prompted to update your query to match table schema. 
 
-   :::image type="content" source="./media/sql-db-output-managed-identity/schema-match.png" alt-text="Screenshot showing schema comparison in Stream Analytics" lightbox="./media/sql-db-output-managed-identity/schema-match.png":::
+   :::image type="content" source="./media/sql-db-output-managed-identity/schema-match.png" alt-text="Screenshot showing schema comparison in Stream Analytics." lightbox="./media/sql-db-output-managed-identity/schema-match.png":::
 
 6. Once your query is final, select **Overview** and **Start** the job. You can then navigate to the SQL Database table to see your streaming query output.
 
