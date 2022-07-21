@@ -51,15 +51,15 @@ Azure resources emit [metrics](../essentials/data-platform-metrics.md) that can 
 
 Workbooks support querying for resources and their metadata by using Azure Resource Graph. This functionality is primarily used to build custom query scopes for reports. The resource scope is expressed via a KQL subset that Resource Graph supports, which is often sufficient for common use cases.
 
-To make a query control use this data source, use the **Query type** dropdown and select **Azure Resource Graph**. Then select the subscriptions to target. Use **Query control** to add the Resource Graph KQL subset that selects an interesting resource subset.
+To make a query control that uses this data source, use the **Query type** dropdown and select **Azure Resource Graph**. Then select the subscriptions to target. Use **Query control** to add the Resource Graph KQL subset that selects an interesting resource subset.
 
 ![Screenshot that shows an Azure Resource Graph KQL query.](./media/workbooks-data-sources/azure-resource-graph.png)
 
 ## Azure Resource Manager
 
-Azure Workbooks supports Azure Resource Manager REST operations. With this capability, you can query the management.azure.com endpoint without the need to provide your own authorization header token.
+Azure Workbooks supports Azure Resource Manager REST operations so that you can query the management.azure.com endpoint without providing your own authorization header token.
 
-To make a query control use this data source, use the **Data source** dropdown and select **Azure Resource Manager**. Enter the appropriate parameters for **Http method**, **url path**, **headers**, **url parameters**, and **body**.
+To make a query control that uses this data source, use the **Data source** dropdown and select **Azure Resource Manager**. Provide the appropriate parameters, such as **Http method**, **url path**, **headers**, **url parameters**, and **body**.
 
 > [!NOTE]
 > Only GET, POST, and HEAD operations are currently supported.
@@ -116,7 +116,7 @@ Workbooks support these merges:
 
 Workbooks support getting data from any external source. If your data lives outside Azure, you can bring it to workbooks by using this data source type.
 
-To make a query control by using this data source, use the **Data source** dropdown and select **Custom Endpoint**. Provide the appropriate parameters such as **Http method**, **url**, **headers**, **url parameters**, and **body**. Make sure your data source supports [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). Otherwise, the request will fail.
+To make a query control that uses this data source, use the **Data source** dropdown and select **Custom Endpoint**. Provide the appropriate parameters, such as **Http method**, **url**, **headers**, **url parameters**, and **body**. Make sure your data source supports [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). Otherwise, the request will fail.
 
 To avoid automatically making calls to untrusted hosts when you use templates, you need to mark the used hosts as trusted. You can either select **Add as trusted** or add it as a trusted host in workbook settings. These settings will be saved in [browsers that support IndexDb with web workers](https://caniuse.com/#feat=indexeddb).
 
@@ -126,7 +126,7 @@ This provider supports [JSONPath](workbooks-jsonpath.md).
 
 Azure Monitor has functionality that proactively monitors the availability and performance of Windows or Linux guest operating systems. Azure Monitor models key components and their relationships, criteria for how to measure the health of those components, and which components alert you when an unhealthy condition is detected. With workbooks, you can use this information to create rich interactive reports.
 
-To make a query control by using this data source, use the **Query type** dropdown to select **Workload Health**. Then select subscription, resource group, or VM resources to target. Use the health filter dropdowns to select an interesting subset of health incidents for your analytic needs.
+To make a query control that uses this data source, use the **Query type** dropdown to select **Workload Health**. Then select subscription, resource group, or VM resources to target. Use the health filter dropdowns to select an interesting subset of health incidents for your analytic needs.
 
 ![Screenshot that shows an alerts query.](./media/workbooks-data-sources/workload-health.png)
 
@@ -134,7 +134,7 @@ To make a query control by using this data source, use the **Query type** dropdo
 
 Workbooks support getting Azure resource health and combining it with other data sources to create rich, interactive health reports.
 
-To make a query control by using this data source, use the **Query type** dropdown and select **Azure health**. Then select the resources to target. Use the health filter dropdowns to select an interesting subset of resource issues for your analytic needs.
+To make a query control that uses this data source, use the **Query type** dropdown and select **Azure health**. Then select the resources to target. Use the health filter dropdowns to select an interesting subset of resource issues for your analytic needs.
 
 ![Screenshot that shows an alerts query that shows the health filter lists.](./media/workbooks-data-sources/resource-health.png)
 
@@ -156,7 +156,7 @@ Simple JSON arrays or objects will automatically be converted into grid rows and
 
 ## Change Analysis (preview)
 
-To make a query control by using [Application Change Analysis](../app/change-analysis.md) as the data source, use the **Data source** dropdown and select **Change Analysis (preview)**. Then select a single resource. Changes for up to the last 14 days can be shown. Use the **Level** dropdown to filter between **Important**, **Normal**, and **Noisy** changes. This dropdown supports workbook parameters of the type [drop down](workbooks-dropdowns.md).
+To make a query control that uses [Application Change Analysis](../app/change-analysis.md) as the data source, use the **Data source** dropdown and select **Change Analysis (preview)**. Then select a single resource. Changes for up to the last 14 days can be shown. Use the **Level** dropdown to filter between **Important**, **Normal**, and **Noisy** changes. This dropdown supports workbook parameters of the type [drop down](workbooks-dropdowns.md).
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot that shows a workbook with Change Analysis.](./media/workbooks-data-sources/change-analysis-data-source.png)
