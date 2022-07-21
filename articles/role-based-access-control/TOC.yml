@@ -133,6 +133,9 @@
       href: custom-roles-cli.md
     - name: REST API
       href: custom-roles-rest.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: custom-roles-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: custom-roles-template.md

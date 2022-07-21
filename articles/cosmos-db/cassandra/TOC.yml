@@ -15,6 +15,7 @@
     - name: NoSQL vs. relational databases
       href: ../relational-nosql.md?toc=/azure/cosmos-db/cassandra/toc.json
 - name: Quickstarts
+  expanded: true
   items:
     - name: .NET
       href: manage-data-dotnet.md

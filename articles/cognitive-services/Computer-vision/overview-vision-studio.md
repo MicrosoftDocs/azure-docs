@@ -26,6 +26,7 @@ To use Vision Studio, you'll need an Azure subscription and a resource for Cogni
 1. Create an Azure Subscription if you don't have one already. You can [create one for free](https://azure.microsoft.com/free/ai/).
 
 1. Go to the [Vision Studio website](https://portal.vision.cognitive.azure.com/). If it's your first time logging in, you'll see a popup window appear that prompts you to sign in to Azure and then choose or create a Vision resource. You have the option to skip this step and do it later.
+
     :::image type="content" source="./Images/vision-studio-wizard-1.png" alt-text="Screenshot of Vision Studio startup wizard.":::
 
 1.	Select **Choose resource**, then select an existing resource within your subscription. If you'd like to create a new one, select **Create a new resource**. Then enter information for your new resource, such as a name, location, and resource group. 
@@ -54,8 +55,8 @@ Each of these features has one or more try-it-out experiences in Vision Studio t
 ## Cleaning up resources
 
 If you want to remove a Cognitive Services resource after using Vision Studio, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can't delete your resource directly from Vision Studio, so use one of the following methods:
-* [Using the Azure portal](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#clean-up-resources)
-* [Using the Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#clean-up-resources)
+* [Using the Azure portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#clean-up-resources)
+* [Using the Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows#clean-up-resources)
 
 > [!TIP]
 > In Vision Studio, you can find your resource's details (such as its name and pricing tier) as well as switch resources by selecting the Settings icon in the top-right corner of the Vision Studio screen).

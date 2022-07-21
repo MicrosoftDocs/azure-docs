@@ -1,6 +1,6 @@
 ---
 title: Java app to connect and query Hyperscale (Citus)
-description: Learn building a simple app on Hyperscale (Citus) using java
+description: Learn building a simple app on Hyperscale (Citus) using Java
 ms.author: sasriram
 author: saimicrosoft
 ms.service: postgresql

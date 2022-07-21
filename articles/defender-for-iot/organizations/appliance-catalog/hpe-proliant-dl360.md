@@ -11,7 +11,7 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | Corporate  |
+|**Hardware profile** | C5600  |
 |**Performance** | Max bandwidth: 3Gbp/s <br> Max devices: 12,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
 |**Status** | Supported, Available preconfigured|
@@ -133,9 +133,9 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 
 1. Select **Esc** twice to close the **System Configuration** form.
 
-1. Select **Embedded RAID 1: HPE Smart Array P408i-a SR Gen 10** > **Array Configuration** > **Create Array**.
+1. Select **Embedded RAID1: HPE Smart Array P408i-a SR Gen 10** > **Array Configuration** > **Create Array**.
 
-1. In the **Create Array** form, select all the options.
+1. In the **Create Array** form, select all the drives, and enable RAID Level 5.
 
 > [!NOTE]
 > For **Data-at-Rest** encryption, see the HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED).

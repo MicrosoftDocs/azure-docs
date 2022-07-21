@@ -172,6 +172,8 @@
   - name: Regions
     displayName: location
     href: regions.md
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-video-indexer.html
   - name: FAQ
     href: faq.yml
   - name: Compliance
@@ -180,7 +182,7 @@
     href: release-notes.md
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=video-indexer
-  - name: User voice
+  - name: Azure ideas
     href: https://aka.ms/UserVoiceVI
   - name: Blogs
     href: https://azure.microsoft.com/blog/tag/video-indexer/

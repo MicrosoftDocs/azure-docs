@@ -26,9 +26,9 @@
     - name: Jupyter Notebook
       href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook
     - name: Azure samples (univariate)
-      href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/quickstarts
+      href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/samples-univariate
     - name: Azure samples (multivariate)
-      href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/quickstarts-multivariate
+      href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/samples-multivariate
 - name: How-to guides
   items:
     - name: Identify anomalies in your data (univariate)
