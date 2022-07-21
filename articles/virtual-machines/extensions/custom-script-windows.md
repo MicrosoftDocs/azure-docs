@@ -36,6 +36,8 @@ The Custom Script Extension for Windows will run on these supported operating sy
 * Windows Server 2016 Core
 * Windows Server 2019
 * Windows Server 2019 Core
+* Windows Server 2022
+* Windows Server 2022 Core
 * Windows 11
 
 ### Script location

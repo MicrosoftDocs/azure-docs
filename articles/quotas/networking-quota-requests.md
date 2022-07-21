@@ -1,7 +1,7 @@
 ---
 title: Increase networking quotas
 description: Learn how to request a networking quota increase in the Azure portal.
-ms.date: 03/25/2022
+ms.date: 07/22/2022
 ms.topic: how-to
 ---
 
@@ -58,9 +58,9 @@ Follow these steps to request a networking quota increase from Azure Home.
 
 After your networking quota increase request has been submitted, a support engineer will contact you and assist you with the request.
 
-For more information about support requests, see [Create an Azure support request](how-to-create-azure-support-request.md).
+For more information about support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Next steps
 
-- Review details on [networking limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
-- Learn about [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Review details on [networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+- Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
