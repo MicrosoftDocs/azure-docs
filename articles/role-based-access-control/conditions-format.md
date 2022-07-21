@@ -91,7 +91,7 @@ else
 
 ### Suboperations
 
-Some actions have suboperations. For example, the "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read" data action has the suboperation "List blobs". Conditions with suboperations have the following format.
+Some actions have suboperations. For example, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` data action has the suboperation "List blobs". Conditions with suboperations have the following format.
 
 ![Format for an action with a suboperation.](./media/conditions-format/format-suboperation.png)
 

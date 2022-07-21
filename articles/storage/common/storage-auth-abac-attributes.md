@@ -81,7 +81,7 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 ### Read content from a blob with tag conditions
 
 > [!IMPORTANT]
-> Although “Read content from a blob with tag conditions” is currently supported for compatibility with conditions implemented during the ABAC feature preview, that suboperation has been deprecated and Microsoft recommends using the [“Read a blob”](#read-a-blob) action instead.
+> Although `Read content from a blob with tag conditions` is currently supported for compatibility with conditions implemented during the ABAC feature preview, that suboperation has been deprecated and Microsoft recommends using the [“Read a blob”](#read-a-blob) action instead.
 >
 > When configuring ABAC conditions in the Azure portal, you might see "DEPRECATED: Read content from a blob with tag conditions". Remove the operation and replace it with the “Read a blob” operation instead.
 >
