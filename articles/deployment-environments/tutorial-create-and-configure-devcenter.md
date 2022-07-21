@@ -26,7 +26,7 @@ The following steps illustrate how to use the Azure portal to create and configu
 
 1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
 
-    :::image type="content" source="media/azure-deployment-environment-deventer.png" alt-text="Screenshot of sign-in page.":::
+    :::image type="content" source="media/create-devcenter.png" alt-text="Screenshot of sign-in page.":::
 
 1. Select on **+ Add** and in the **Basics** tab of **Create an Azure Deployment Environment DevCenter** window, perform the following actions:
 
@@ -37,23 +37,23 @@ The following steps illustrate how to use the Azure portal to create and configu
     |**Name**|Enter a name for the DevCenter.|
     |**Location**|Select the location/region in which you want the DevCenter to be created.|
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/123877585-17103700-d903-11eb-96f0-10100fdee30a.png" alt-text="Screenshot of Basics tab of Create the Azure Deployment Environment DevCenter.":::
+    :::image type="content" source="media/create-devcenter-basics.png" alt-text="Screenshot of Basics tab of Create the Azure Deployment Environment DevCenter.":::
 
 1. In the **Tags** tab, enter a **Name** and **Value** pair that you want to assign.
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/123877734-5f2f5980-d903-11eb-932c-ff76918145ff.png" alt-text="Screenshot of Tags tab.":::
+    :::image type="content" source="media/create-devcenter-tags.png" alt-text="Screenshot of Tags tab.":::
 
 1. In the **Review** tab, validate all the details and select **Create**.
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/123877892-ad445d00-d903-11eb-812e-2e401350f930.png" alt-text="Screenshot of Review tab.":::
+    :::image type="content" source="media/create-devcenter-review.png" alt-text="Screenshot of Review tab.":::
 
 1. Confirm that the DevCenter is created successfully by checking the **Notifications**. Select **Go to resource**.
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/123880317-04e4c780-d908-11eb-83b1-b035048c4a56.png" alt-text="Screenshot of Notification.":::
+    :::image type="content" source="media/create-decenter-notification.png" alt-text="Screenshot of Notification.":::
 
 1. Confirm that you see the **DevCenter** page.
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/123880540-82a8d300-d908-11eb-9a32-a2e90153525e.png" alt-text="Screenshot of DevCenter page.":::
+    :::image type="content" source="media/devcenter-overview.png" alt-text="Screenshot of DevCenter page.":::
 
 ## Attach an [Identity](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md#identities)
 
@@ -84,7 +84,7 @@ After you've created a DevCenter, the next step is to create a system-assigned m
 
 ## Attach a [Catalog](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md#catalogs)
 
-**Prerequisite** - Before attaching a Catalog, store the personal access token(PAT) as a [Key Vault secret](../key-vault/secrets/quick-create-portal) and copy the **Secret Identifier**. [Learn more about generating a PAT](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-catalog.md#get-the-repository-information-and-credentials). Ensure that the Identity attached to the DevCenter has [**Get** access to the **Secret**](../key-vault/general/assign-access-policy?tabs=azure-portal).
+**Prerequisite** - Before attaching a Catalog, store the personal access token(PAT) as a [Key Vault secret](../key-vault/secrets/quick-create-portal.md) and copy the **Secret Identifier**. [Learn more about generating a PAT](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-catalog.md#get-the-repository-information-and-credentials). Ensure that the Identity attached to the DevCenter has [**Get** access to the **Secret**](../key-vault/general/assign-access-policy.md).
 
 1. Select **Catalogs** in the left menu and select **+ Add Repo**.
 
