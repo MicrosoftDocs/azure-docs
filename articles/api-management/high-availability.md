@@ -36,7 +36,7 @@ When you enable zone redundancy in a region, consider the number of API Manageme
 
 ## Multi-region deployment
 
-With [multi-region deployment](api-management-howto-deploy-multi-regions.md), you add regional gateways to your existing API Management instance in any number of supported Azure regions. The service instance's management plane and developer portal remain hosted only in the *primary* region, the region where you originally deployed the service. Gateway configurations such as APIs and policy definitions are regularly synchronized between the primary and secondary regions you add.
+With [multi-region deployment](api-management-howto-deploy-multi-region.md), you add regional gateways to your existing API Management instance in any number of supported Azure regions. The service instance's management plane and developer portal remain hosted only in the *primary* region, the region where you originally deployed the service. Gateway configurations such as APIs and policy definitions are regularly synchronized between the primary and secondary regions you add.
 
 
 * Multi-region deployment ensures the availability of the API gateway in more than one region and provides service availability if one region goes offline.
@@ -82,4 +82,3 @@ For details, see the blog post [Back-end API redundancy with Azure API Manager](
 * Learn more about [resiliency in Azure](../availability-zones/overview.md)
 * Learn more about [designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
 * Read [API Management and reliability](/azure/architecture/framework/services/networking/api-management/reliability) in the Azure Well-Architected Framework
-* 
