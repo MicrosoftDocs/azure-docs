@@ -215,8 +215,8 @@ Added 10 new languages and variants for Neural text-to-speech:
 | Malayalam (India) | `ml-IN` | Male | `ml-IN-MidhunNeural` <sup>New</sup> | General |
 | Pashto (Afghanistan) | `ps-AF` | Female | `ps-AF-LatifaNeural` <sup>New</sup> | General |
 | Pashto (Afghanistan) | `ps-AF` | Male | `ps-AF-GulNawazNeural` <sup>New</sup> | General |
-| Serbian (Serbia, Cyrillic) | `sr-RS` | Female | `sr-RS-SophieNeural` <sup>New</sup> | General |
-| Serbian (Serbia, Cyrillic) | `sr-RS` | Male | `sr-RS-NicholasNeural` <sup>New</sup> | General |
+| Serbian (Serbia, Latin) | `sr-RS` | Female | `sr-RS-SophieNeural` <sup>New</sup> | General |
+| Serbian (Serbia, Latin) | `sr-RS` | Male | `sr-RS-NicholasNeural` <sup>New</sup> | General |
 | Sinhala (Sri Lanka) | `si-LK` | Female | `si-LK-ThiliniNeural` <sup>New</sup> | General |
 | Sinhala (Sri Lanka) | `si-LK` | Male | `si-LK-SameeraNeural` <sup>New</sup> | General |
 
