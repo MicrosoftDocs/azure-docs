@@ -1,21 +1,19 @@
 ---
-title: Monitor SAP on Azure (preview) | Microsoft Docs
+title: What is Azure Monitor for SAP solutions? (preview)
 description: Start here to learn how to monitor SAP on Azure.
 author: lauradolan
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
-ms.topic: article
+ms.topic: overview
 ms.custom: subject-monitoring
-ms.date: 10/13/2021
+ms.date: 07/21/2022
 ms.author: ladolan
 
 ---
 
-# Monitor SAP on Azure (preview)
+# What is Azure Monitor for SAP solutions? (preview)
 
-> [!IMPORTANT]
-> Azure Monitor for SAP solutions is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
 When you have critical applications and business processes relying on Azure resources, you'll want to monitor those resources for their availability, performance, and operation. 
 
