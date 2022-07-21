@@ -50,7 +50,7 @@ Let's create a VM from the IoT Edge VM deployment repository in GitHub, then con
 
 1. Select the **Deploy to Azure** button, which initiates a custom VM for you in the Azure portal. This VM is based on an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) template.
 
-     :::image type="content" source="/media/configure-connect-verify-gpu/deploy-to-azure-button.png" alt-text="Screenshot of the 'Deploy to Azure' button in GitHub.":::
+   :::image type="content" source="/media/configure-connect-verify-gpu/deploy-to-azure-button.png" alt-text="Screenshot of the 'Deploy to Azure' button in GitHub.":::
 
 1. Fill out the **Custom deployment** fields with your Azure credentials and resources:
 
@@ -154,7 +154,9 @@ If you have an existing module on your IoT Edge device, adding a configuration u
 
 1. Select **Update** at the bottom of the page.
 
-1. Select **Review + create**, then **Create**.
+1. Select **Review + create**. The new `HostConfig` object is now visible in the `settings` of your module.
+
+1. Select **Create**.
 
 1. To confirm the new configuration works, run this command from your VM:
 
