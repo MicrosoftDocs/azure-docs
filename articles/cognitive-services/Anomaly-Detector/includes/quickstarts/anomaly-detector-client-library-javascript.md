@@ -33,9 +33,6 @@ Use the Anomaly Detector client library for JavaScript to:
 
 [!INCLUDE [anomaly-detector-environment-variables](../environment-variables.md)]
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
-
 ### Create a new Node.js application
 
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 

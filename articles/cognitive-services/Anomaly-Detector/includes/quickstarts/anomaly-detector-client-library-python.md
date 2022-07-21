@@ -34,9 +34,6 @@ Use the Anomaly Detector client library for Python to:
 
 [!INCLUDE [anomaly-detector-environment-variables](../environment-variables.md)]
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
-
 ### Create a new Python application
 
  Create a new Python file and import the following libraries.
