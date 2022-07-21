@@ -31,7 +31,7 @@ Defender for Cloud offers a number of enhanced security features that can help p
 - [How can I track who in my organization enabled a Microsoft Defender plan in Defender for Cloud?](#how-can-i-track-who-in-my-organization-enabled-a-microsoft-defender-plan-in-defender-for-cloud)
 - [What are the plans offered by Defender for Cloud?](#what-are-the-plans-offered-by-defender-for-cloud)
 - [How do I enable Defender for Cloud's enhanced security for my subscription?](#how-do-i-enable-defender-for-clouds-enhanced-security-for-my-subscription)
-- [Can I enable Microsoft Defender for Servers on a subset of servers in my subscription?](#can-i-enable-microsoft-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Can I enable Microsoft Defender for Servers on a subset of servers?](#can-i-enable-microsoft-defender-for-servers-on-a-subset-of-servers)
 - [If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Defender for Servers?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-defender-for-servers)
 - [My subscription has Microsoft Defender for Servers enabled, do I pay for not-running servers?](#my-subscription-has-microsoft-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
 - [Will I be charged for machines without the Log Analytics agent installed?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
@@ -66,9 +66,9 @@ You can use any of the following ways to enable enhanced security for your subsc
 | Azure Policy                                    | [Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
 
 
-### Can I enable Microsoft Defender for Servers on a subset of servers in my subscription?
+### Can I enable Microsoft Defender for Servers on a subset of servers?
 
-No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, all of the machines, on your Azure subscription or connected AWS account will be protected by Defender for Servers.
+No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on an Azure subscription or a connected AWS account, all of the connected machines will be protected by Defender for Servers.
 
 Another alternative, is to enable Microsoft Defender for Servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. 
 
