@@ -739,7 +739,7 @@ sections:
       - question: |
           How do I troubleshoot other issues?
         answer: |
-          Visit [Troubleshooting common issue with virtual machine scale sets](https://docs.microsoft.com/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page.
+          Visit [Troubleshooting common issue with virtual machine scale sets](/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page.
 
   - name: Virtual machine properties
     questions:

@@ -2,9 +2,13 @@
 title: Create a Linux container app on Service Fabric in Azure
 description: In this quickstart, you will build a Docker image with your application, push the image to a container registry, and then deploy your container to a Service Fabric cluster.
 ms.topic: quickstart
-ms.date: 05/12/2022
-ms.custom: mvc, devx-track-azurecli, mode-other
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Quickstart: Deploy Linux containers to Service Fabric
 
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers.

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/api-management/zone-redundancy.md",
+      "redirect_url": "/azure/availability-zones/migrate-api-mgt",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/find-unattached-nics.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/find-unattached-nics",
       "redirect_document_id": false
@@ -5907,6 +5912,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/manage-runas-account.md",
+      "redirect_url": "/azure/automation/manage-run-as-account",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
       "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
       "redirect_document_id": true
@@ -6909,6 +6919,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-bindings-event-iot-output.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs-output",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/monitor-metrics.md",
+      "redirect_url": "/azure/azure-functions/monitor-functions",
       "redirect_document_id": false
     },
     {

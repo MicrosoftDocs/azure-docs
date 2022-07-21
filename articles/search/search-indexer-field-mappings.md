@@ -24,7 +24,7 @@ Field mappings also provide light-weight data conversion through mapping functio
 
 Field mappings enable the following scenarios:
 
-+ Rename fields or handle name discrepancies. Suppose your data source has a field named `_id`. Given that Azure Cognitive Search doesn't allow field names that start with an underscore, a field mapping lets you effectively rename a field.
++ Rename fields or handle name discrepancies. Suppose your data source has a field named `_city`. Given that Azure Cognitive Search doesn't allow field names that start with an underscore, a field mapping lets you effectively rename a field.
 
 + Data type discrepancies. Cognitive Search has a smaller set of [supported data types](/rest/api/searchservice/supported-data-types) than many data sources. If you're importing SQL data, a field mapping allows you to [map the SQL data type](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-data-types) you want in a search index.
 
@@ -88,7 +88,7 @@ api-key: [admin key]
 {
     "dataSourceName" : "mydatasource",
     "targetIndexName" : "myindex",
-    "fieldMappings" : [ { "sourceFieldName" : "_id", "targetFieldName" : "id" } ]
+    "fieldMappings" : [ { "sourceFieldName" : "_city", "targetFieldName" : "city" } ]
 }
 ```
 
@@ -116,7 +116,7 @@ var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.
     Parameters = parameters,
     FieldMappings =
     {
-        new FieldMapping("_id") {TargetFieldName = "HotelId", FieldMappingFunction.Base64Encode()},
+        new FieldMapping("_hotelId") {TargetFieldName = "HotelId", FieldMappingFunction.Base64Encode()},
         new FieldMapping("Amenities") {TargetFieldName = "Tags"}
     }
 };

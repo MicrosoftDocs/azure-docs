@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 10/29/2021
+ms.date: 07/13/2022
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -37,7 +37,7 @@ Installing can be done with a few commands.  Open a terminal and run the followi
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
 
-* **11 (Bullseye)**:
+* **11 - Bullseye (arm32v7)**:
 
     ```bash
     curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb

@@ -8,20 +8,18 @@ ms.custom: mode-other
 ---
 #  Connect your AWS accounts to Microsoft Defender for Cloud
 
-With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+To protect your AWS-based resources, you can connect an AWS account with either:
 
-To protect your AWS-based resources, you can connect an account with one of two mechanisms:
+- **Native cloud connector** (recommended) - Provides an agentless connection to your AWS account that you can extend with Defender for Cloud's Defender plans to secure your AWS resources:
 
-- **Classic cloud connectors experience** - As part of the initial multicloud offering, we introduced these cloud connectors as a way to connect your AWS and GCP projects. If you've already configured an AWS connector through the classic cloud connectors experience, we recommend deleting these connectors (as explained in [Remove classic connectors](#remove-classic-connectors)), and connecting the account again using the newer mechanism. If you don't do this before creating the new connector through the environment settings page, do so afterwards to avoid seeing duplicate recommendations.
+    - [**Cloud Security Posture Management (CSPM)**](overview-page.md) assesses your AWS resources according to AWS-specific security recommendations and reflects your security posture in your secure score. The [asset inventory](asset-inventory.md) gives you one place to see all of your protected AWS resources. The [regulatory compliance dashboard](regulatory-compliance-dashboard.md) shows your compliance with built-in standards specific to AWS, including AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices.
+    - [**Microsoft Defender for Servers**](defender-for-servers-introduction.md) brings threat detection and advanced defenses to [supported Windows and Linux EC2 instances](supported-machines-endpoint-solutions-clouds-servers.md?tabs=tab/features-multicloud).
+    - [**Microsoft Defender for Containers**](defender-for-containers-introduction.md) brings threat detection and advanced defenses to [supported Amazon EKS clusters](supported-machines-endpoint-solutions-clouds-containers.md).
+    - [**Microsoft Defender for SQL**](defender-for-sql-introduction.md) brings threat detection and advanced defenses to your SQL Servers running on AWS EC2, AWS RDS Custom for SQL Server.
 
-- **Environment settings page** (recommended) - This page provides a greatly improved, simpler, onboarding experience (including auto provisioning). This mechanism also extends Defender for Cloud's enhanced security features to your AWS resources:
-
-    - **Defender for Cloud's CSPM features** extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature helping you manage your AWS resources alongside your Azure resources.
-    - **Microsoft Defender for Containers** brings threat detection and advanced defenses to your Amazon EKS clusters. This plan includes Kubernetes threat protection, behavioral analytics, Kubernetes best practices, admission control recommendations and more. You can view the full list of available features in [Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
-    - **Microsoft Defender for Servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [feature availability table](supported-machines-endpoint-solutions-clouds-servers.md?tabs=tab/features-multicloud).
-    - **Microsoft Defender for SQL** brings threat detection and advanced defenses to your SQL Servers running on AWS EC2, AWS RDS Custom for SQL Server. This plan includes the advanced threat protection and vulnerability assessment scanning. You can view the [full list of available features](defender-for-sql-introduction.md).
+- **Classic cloud connector** - Requires configuration in your AWS account to create a user that Defender for Cloud can use to connect to your AWS environment. If you have classic cloud connectors, we recommend that you [delete these connectors](#remove-classic-connectors) and use the native connector to reconnect to the account. Using both the classic and native connectors can produce duplicate recommendations.
 
 For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
@@ -31,7 +29,6 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series: 
 - [New AWS connector](episode-one.md)
-
 
 ::: zone pivot="env-settings"
 
@@ -44,8 +41,9 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 |Required roles and permissions:|**Contributor** permission for the relevant Azure subscription. <br> **Administrator** on the AWS account.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
-
 ## Prerequisites
+
+The native cloud connector requires:
 
 - Access to an AWS account.
 
@@ -105,27 +103,11 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 
 ## Connect your AWS account
 
-Follow the steps below to create your AWS cloud connector. 
+**To connect your AWS account to Defender for Cloud with a native connector**:
 
-### Remove 'classic' connectors
+1. If you have any classic connectors, [remove them](#remove-classic-connectors).
 
-If you have any existing connectors created with the classic cloud connectors experience, remove them first:
-
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-
-1. Navigate to **Defender for Cloud** > **Environment settings**.
-
-1. Select the option to switch back to the classic connectors experience.
-
-    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
-
-1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
-
-1. On AWS, delete the role ARN, or the credentials created for the integration.
-
-### Create a new connector
-
-**To create a new connector**:
+    Using both the classic and native connectors can produce duplicate recommendations.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -179,6 +161,22 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
+### Remove 'classic' connectors
+
+If you have any existing connectors created with the classic cloud connectors experience, remove them first:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Defender for Cloud** > **Environment settings**.
+
+1. Select the option to switch back to the classic connectors experience.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
+
+1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
+
+1. On AWS, delete the role ARN, or the credentials created for the integration.
+
 ::: zone-end
 
 
@@ -189,7 +187,7 @@ Defender for Cloud will immediately start scanning your AWS resources and you'll
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#plan-2-formerly-defender-for-servers)|
 |Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
@@ -353,44 +351,44 @@ The following IAM permissions are needed to discover AWS resources:
 
 | DataCollector | AWS Permissions  |
 |--|--|
-| API Gateway | apigateway:GET |
-| Application Auto Scaling | application-autoscaling:Describe* |
-| Auto scaling | autoscaling-plans:Describe* <br> autoscaling:Describe* |
-| Certificate manager | acm-pca:Describe* <br> acm-pca:List* <br> acm:Describe* <br>acm:List* |
-| CloudFormation | cloudformation:Describe* <br> cloudformation:List* |
-| CloudFront | cloudfront:DescribeFunction <br> cloudfront:GetDistribution <br> cloudfront:GetDistributionConfig <br>cloudfront:List* |
-| CloudTrail | cloudtrail:Describe* <br> cloudtrail:GetEventSelectors <br> cloudtrail:List* <br> cloudtrail:LookupEvents |
-| CloudWatch | cloudwatch:Describe* <br> cloudwatch:List* |
-| CloudWatch logs | logs:DescribeLogGroups <br> logs:DescribeMetricFilters |
-| CodeBuild | codebuild:DescribeCodeCoverages <br> codebuild:DescribeTestCases <br> codebuild:List* |
-| Config Service | config:Describe* <br> config:List* |
-| DMS – database migration service | dms:Describe* <br> dms:List* |
-| DAX | dax:Describe* |
-| DynamoDB | dynamodb:Describe* <br> dynamodb:List* |
-| Ec2 | ec2:Describe* <br> ec2:GetEbsEncryptionByDefault |
-| ECR | ecr:Describe* <br> ecr:List* |
-| ECS | ecs:Describe* <br> ecs:List* |
-| EFS | elasticfilesystem:Describe* |
-| EKS | eks:Describe* <br> eks:List* |
-| Elastic Beanstalk | elasticbeanstalk:Describe* <br> elasticbeanstalk:List* |
-| ELB – elastic load balancing (v1/2) | elasticloadbalancing:Describe* |
-| Elastic search | es:Describe* <br> es:List* |
-| EMR – elastic map reduce | elasticmapreduce:Describe* <br> elasticmapreduce:GetBlockPublicAccessConfiguration <br> elasticmapreduce:List* <br> elasticmapreduce:View* |
-| GuardDute | guardduty:DescribeOrganizationConfiguration <br> guardduty:DescribePublishingDestination <br> guardduty:List* |
-| IAM | iam:Generate* <br> iam:Get* <br> iam:List*<br> iam:Simulate* |
-| KMS | kms:Describe* <br> kms:List* |
-| LAMDBA | lambda:GetPolicy <br> lambda:List* |
-| Network firewall | network-firewall:DescribeFirewall <br> network-firewall:DescribeFirewallPolicy <br> network-firewall:DescribeLoggingConfiguration <br> network-firewall:DescribeResourcePolicy <br> network-firewall:DescribeRuleGroup <br> network-firewall:DescribeRuleGroupMetadata <br> network-firewall:ListFirewallPolicies <br> network-firewall:ListFirewalls <br> network-firewall:ListRuleGroups <br> network-firewall:ListTagsForResource |
-| RDS | rds:Describe* <br> rds:List* |
-| RedShift | redshift:Describe* |
-| S3 and S3Control | s3:DescribeJob <br> s3:GetEncryptionConfiguration <br> s3:GetBucketPublicAccessBlock <br> s3:GetBucketTagging <br> s3:GetBucketLogging <br> s3:GetBucketAcl <br> s3:GetBucketLocation <br> s3:GetBucketPolicy <br> s3:GetReplicationConfiguration <br> s3:GetAccountPublicAccessBlock <br> s3:GetObjectAcl <br> s3:GetObjectTagging <br> s3:List* |
-| SageMaker | sagemaker:Describe* <br> sagemaker:GetSearchSuggestions <br> sagemaker:List* <br> sagemaker:Search |
-| Secret manager | secretsmanager:Describe* <br> secretsmanager:List* |
-| Simple notification service – SNS | sns:Check* <br> sns:List* |
-| SSM | ssm:Describe* <br> ssm:List* |
-| SQS | sqs:List* <br> sqs:Receive* |
-| STS | sts:GetCallerIdentity |
-| WAF | waf-regional:Get* <br> waf-regional:List* <br> waf:List* <br> wafv2:CheckCapacity <br> wafv2:Describe* <br> wafv2:List* |
+| API Gateway | `apigateway:GET` |
+| Application Auto Scaling | `application-autoscaling:Describe*` |
+| Auto scaling | `autoscaling-plans:Describe*` <br> `autoscaling:Describe*` |
+| Certificate manager | `acm-pca:Describe*` <br> `acm-pca:List*` <br> `acm:Describe* <br>acm:List*` |
+| CloudFormation | `cloudformation:Describe*` <br> `cloudformation:List*` |
+| CloudFront | `cloudfront:DescribeFunction` <br> `cloudfront:GetDistribution` <br> `cloudfront:GetDistributionConfig` <br> `cloudfront:List*` |
+| CloudTrail | `cloudtrail:Describe*` <br> `cloudtrail:GetEventSelectors` <br> `cloudtrail:List*` <br> `cloudtrail:LookupEvents` |
+| CloudWatch | `cloudwatch:Describe*` <br> `cloudwatch:List*` |
+| CloudWatch logs | `logs:DescribeLogGroups` <br> `logs:DescribeMetricFilters` |
+| CodeBuild | `codebuild:DescribeCodeCoverages` <br> `codebuild:DescribeTestCases` <br> `codebuild:List*` |
+| Config Service | `config:Describe*` <br> `config:List*` |
+| DMS – database migration service | `dms:Describe*` <br> `dms:List*` |
+| DAX | `dax:Describe*` |
+| DynamoDB | `dynamodb:Describe*` <br> `dynamodb:List*` |
+| Ec2 | `ec2:Describe*` <br> `ec2:GetEbsEncryptionByDefault` |
+| ECR | `ecr:Describe*` <br> `ecr:List*` |
+| ECS | `ecs:Describe*` <br> `ecs:List*` |
+| EFS | `elasticfilesystem:Describe*` |
+| EKS | `eks:Describe*` <br> `eks:List*` |
+| Elastic Beanstalk | `elasticbeanstalk:Describe*` <br> `elasticbeanstalk:List*` |
+| ELB – elastic load balancing (v1/2) | `elasticloadbalancing:Describe*` |
+| Elastic search | `es:Describe*` <br> `es:List*` |
+| EMR – elastic map reduce | `elasticmapreduce:Describe*` <br> `elasticmapreduce:GetBlockPublicAccessConfiguration` <br> `elasticmapreduce:List*` <br> `elasticmapreduce:View*` |
+| GuardDute | `guardduty:DescribeOrganizationConfiguration` <br> `guardduty:DescribePublishingDestination` <br> `guardduty:List*` |
+| IAM | `iam:Generate*` <br> `iam:Get*` <br> `iam:List*` <br> `iam:Simulate*` |
+| KMS | `kms:Describe*` <br> `kms:List*` |
+| LAMDBA | `lambda:GetPolicy` <br> `lambda:List*` |
+| Network firewall | `network-firewall:DescribeFirewall` <br> `network-firewall:DescribeFirewallPolicy` <br> `network-firewall:DescribeLoggingConfiguration` <br> `network-firewall:DescribeResourcePolicy` <br> `network-firewall:DescribeRuleGroup` <br> `network-firewall:DescribeRuleGroupMetadata` <br> `network-firewall:ListFirewallPolicies` <br> `network-firewall:ListFirewalls` <br> `network-firewall:ListRuleGroups` <br> `network-firewall:ListTagsForResource` |
+| RDS | `rds:Describe*` <br> `rds:List*` |
+| RedShift | `redshift:Describe*` |
+| S3 and S3Control | `s3:DescribeJob` <br> `s3:GetEncryptionConfiguration` <br> `s3:GetBucketPublicAccessBlock` <br> `s3:GetBucketTagging` <br> `s3:GetBucketLogging` <br> `s3:GetBucketAcl` <br> `s3:GetBucketLocation` <br> `s3:GetBucketPolicy` <br> `s3:GetReplicationConfiguration` <br> `s3:GetAccountPublicAccessBlock` <br> `s3:GetObjectAcl` <br> `s3:GetObjectTagging` <br> `s3:List*` |
+| SageMaker | `sagemaker:Describe*` <br> `sagemaker:GetSearchSuggestions` <br> `sagemaker:List*` <br> `sagemaker:Search` |
+| Secret manager | `secretsmanager:Describe*` <br> `secretsmanager:List*` |
+| Simple notification service – SNS | `sns:Check*` <br> `sns:List*` |
+| SSM | `ssm:Describe*` <br> `ssm:List*` |
+| SQS | `sqs:List*` <br> `sqs:Receive*` |
+| STS | `sts:GetCallerIdentity` |
+| WAF | `waf-regional:Get*` <br> `waf-regional:List*` <br> `waf:List*` <br> `wafv2:CheckCapacity` <br> `wafv2:Describe*` <br> `wafv2:List*` |
 
 ## Learn more
 

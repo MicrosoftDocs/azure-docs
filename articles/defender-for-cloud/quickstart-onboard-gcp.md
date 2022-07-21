@@ -9,20 +9,18 @@ ms.custom: mode-other
 
 #  Connect your GCP projects to Microsoft Defender for Cloud
 
-With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+To protect your GCP-based resources, you can connect a GCP project with either:
 
-To protect your GCP-based resources, you can connect an account in two different ways:
+- **Native cloud connector** (recommended) - Provides an agentless connection to your GCP account that you can extend with Defender for Cloud's Defender plans to secure your GCP resources:
 
-- **Classic cloud connectors experience** - As part of the initial multicloud offering, we introduced these cloud connectors as a way to connect your AWS and GCP projects.
+    - [**Cloud Security Posture Management (CSPM)**](overview-page.md) assesses your GCP resources according to GCP-specific security recommendations and reflects your security posture in your secure score. The resources are shown in Defender for Cloud's [asset inventory](asset-inventory.md) and are assessed for compliance with built-in standards specific to GCP.
+    - [**Microsoft Defender for Servers**](defender-for-servers-introduction.md) brings threat detection and advanced defenses to [supported Windows and Linux EC2 instances](supported-machines-endpoint-solutions-clouds-servers.md?tabs=tab/features-multicloud). This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
+    - [**Microsoft Defender for Containers**](defender-for-containers-introduction.md) brings threat detection and advanced defenses to [supported Amazon EKS clusters](supported-machines-endpoint-solutions-clouds-containers.md). This plan includes Kubernetes threat protection, behavioral analytics, Kubernetes best practices, admission control recommendations and more.
+    - [**Microsoft Defender for SQL**](defender-for-sql-introduction.md) brings threat detection and advanced defenses to your SQL Servers running on GCP compute engine instances, including the advanced threat protection and vulnerability assessment scanning.
 
-- **Environment settings page** (Recommended) - This page provides the onboarding experience (including auto provisioning). This mechanism also extends Defender for Cloud's enhanced security features to your GCP resources:
-
-    - **Defender for Cloud's CSPM features** extends to your GCP resources. This agentless plan assesses your GCP resources according to GCP-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to GCP. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature helping you manage your GCP resources alongside your Azure resources.
-    - **Microsoft Defender for Servers** brings threat detection and advanced defenses to your GCP VM instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [Supported features for virtual machines and servers table](supported-machines-endpoint-solutions-clouds-servers.md)
-    - **Microsoft Defender for Containers** - Microsoft Defender for Containers brings threat detection and advanced defenses to your Google's Kubernetes Engine (GKE) Standard clusters. This plan includes Kubernetes threat protection, behavioral analytics, Kubernetes best practices, admission control recommendations and more. You can view the full list of available features in [Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
-    - **Microsoft Defender for SQL** brings threat detection and advanced defenses to your SQL Servers running on GCP compute engine instances. This plan includes the advanced threat protection and vulnerability assessment scanning. You can view the [full list of available features](defender-for-sql-introduction.md).
+- **Classic cloud connector** - Requires configuration in your GCP project to create a user that Defender for Cloud can use to connect to your GCP environment. If you have classic cloud connectors, we recommend that you [delete these connectors](#remove-classic-connectors) and use the native connector to reconnect to the account. Using both the classic and native connectors can produce duplicate recommendations.
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
@@ -37,20 +35,6 @@ To protect your GCP-based resources, you can connect an account in two different
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription <br> **Owner** on the GCP organization or project| 
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 
-## Remove 'classic' connectors
-
-If you have any existing connectors created with the classic cloud connectors experience, remove them first:
-
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-
-1. Navigate to **Defender for Cloud** > **Environment settings**.
-
-1. Select the option to switch back to the classic connectors experience.
-
-    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
-
-1. For each connector, select the three dot button at the end of the row, and select **Delete**.
-
 ## Connect your GCP projects
 
 When connecting your GCP projects to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
@@ -61,7 +45,7 @@ When connecting your GCP projects to specific Azure subscriptions, consider the 
 
 Follow the steps below to create your GCP cloud connector. 
 
-**To connect your GCP project**:
+**To connect your GCP project to Defender for Cloud with a native connector**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -132,7 +116,7 @@ After creating a connector, a scan will start on your GCP environment. New recom
 
 ## (Optional) Configure selected plans
 
-By default, all plans are toggled to `On`, on the plans select screen.
+By default, all plans are `On`. You can disable plans that you don't need.
 
 :::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on.":::
 
@@ -264,6 +248,20 @@ Microsoft Defender for Containers brings threat detection, and advanced defenses
 
 1. Continue from step number 8, of the [Connect your GCP projects](#connect-your-gcp-projects) instructions. 
 
+### Remove 'classic' connectors
+
+If you have any existing connectors created with the classic cloud connectors experience, remove them first:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Defender for Cloud** > **Environment settings**.
+
+1. Select the option to switch back to the classic connectors experience.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
+
+1. For each connector, select the three dot button at the end of the row, and select **Delete**.
+
 ::: zone-end
 
 ::: zone pivot="classic-connector"
@@ -273,7 +271,7 @@ Microsoft Defender for Containers brings threat detection, and advanced defenses
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#plan-2-formerly-defender-for-servers)|
 |Required roles and permissions:|**Owner** or **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 

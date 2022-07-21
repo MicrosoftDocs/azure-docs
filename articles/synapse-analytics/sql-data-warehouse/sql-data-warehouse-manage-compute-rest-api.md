@@ -28,9 +28,9 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 Content-Type: application/json; charset=UTF-8
 
 {
-	location: "West Central US",
+    "location": "West Central US",
     "sku": {
-    "name": "DW200c"
+        "name": "DW200c"
     }
 }
 ```
