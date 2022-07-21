@@ -16,51 +16,70 @@ This article introduces service capabilities and considerations to ensure that y
 
 API Management supports the following key service capabilities that are recommended for [reliable](../availability-zones/overview.md) Azure solutions. Use them individually, or together, to improve the availability of your API Management solution:
 
-* Availability zones, to provide resilience to datacenter-level outages
-* Multiregion deployment, to provide resilience to regional outages.
+* **Availability zones**, to provide resilience to datacenter-level outages
+
+* **Multi-region deployment**, to provide resilience to regional outages
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-
 ## Availability zones
 
-Azure [availability zones](../availability-zones/az-overview.md) are physically separate locations within an Azure region that are tolerant to datacenter-level failures. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions.
+Azure [availability zones](../availability-zones/az-overview.md) are physically separate locations within an Azure region that are tolerant to datacenter-level failures. Each zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions.  
 
 
-When enabling [zone redundancy](../availability-zones/migrate-api-mgt.md) for an API Management instance in a supported region, consider the number of [units] you want. Minimally, select the same number of units as the number of availability zones you want to enable, or a multiple so that the units are distributed evenly across the zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
+Enabling [zone redundancy](../availability-zones/migrate-api-mgt.md) for an API Management instance in a supported region provides redundancy for all [service components](api-management-key-concepts.md#api-management-components): gateway, management plane, and developer portal. Azure automatically replicates all service components across the zones that you select. 
+
+When you enable zone redundancy in a region, consider the number of API Mangement scale [units](upgrade-and-scale.md) that need to be distributed. Minimally, configure the same number of units as the number of availability zones, or a multiple so that the units are distributed evenly across the zones. For example, if you select 3 availability zones in a region, you could have 3 units so that each zone hosts one unit.
 
 > [!NOTE]
-> Use the [capacity](api-management-capacity.md) metric and your own testing to decide on the number of service units that will provide the required gateway performance. Learn more about [scaling and upgrading](upgrade-and-scale.md) your service instance.
+> Use the [capacity](api-management-capacity.md) metric and your own testing to decide on the number of scale units that will provide the gateway performance for your needs. Learn more about [scaling and upgrading](upgrade-and-scale.md) your service instance.
 
-## Multiregion deployment
+## Multi-region deployment
 
-With [multiregion deployment](api-management-howto-deploy-multi-regions.md), API publishers can add gateways to their API Management instance in any number of supported Azure regions. The service instance's management plane and developer portal remain hosted only in the *primary* region, the region originally used for the service deployment. Gateway configurations such as APIs and policy definitions are regularly synchronized between the gateways in the primary and secondary regions.
+With [multi-region deployment](api-management-howto-deploy-multi-regions.md), you add regional gateways to your existing API Management instance in any number of supported Azure regions. The service instance's management plane and developer portal remain hosted only in the *primary* region, the region where you originally deployed the service. Gateway configurations such as APIs and policy definitions are regularly synchronized between the primary and secondary regions you add.
 
 
-* Multiregion deployment ensures the availability of the API gateway in more than one region, providing service availability if one region goes offline
+* Multi-region deployment ensures the availability of the API gateway in more than one region and provides service availability if one region goes offline.
 
-* API Management routes API requests to regional gateways based on lowest latency, which can reduce latency experienced by geographically distributed API consumers
+* API Management routes API requests to regional gateways based on lowest latency, which can reduce latency experienced by geographically distributed API consumers.
 
 * If a region goes offline, API requests are automatically routed around the failed region to the next closest gateway.
 
 * If the primary region goes offline, the API Management management plane and developer portal become unavailable, but secondary regions continue to serve API requests using the most recent gateway configuration. 
 
-## Availability zones
+## Combine availability zones and multi-region deployment
 
-Optionally enable [zone redundancy](../availability-zones/migrate-api-mgt.md) to improve the availability and resiliency of the Primary or Secondary regions.
+The combination of availability zones for redundancy within a region, and multi-region deployments to improve the gateway availability if there is a regional outage, helps enhance both the reliability and performance of your API Management instance.
+
+Examples:
+
+* Use availability zones to improve the resilience of the primary region in a multi-region deployment
+
+* Distribute scale units across availability zones and regions to enhance regional gateway performance
+
 
 ## SLA considerations
 
-API Management provides an SLA of 99.99% when you deploy at least one unit in two or more availability zones or regions.
+API Management provides an SLA of 99.99% when you deploy at least one unit in two or more availability zones or regions. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 > [!NOTE]
-> While Azure continually strives for highest possible resiliency in SLA for the cloud platform, you must define your own target SLAs for other components of your solution, such as backend APIs.
+> While Azure continually strives for highest possible resiliency in SLA for the cloud platform, you must define your own target SLAs for other components of your solution.
 
+## Backend availability
 
+Depending on where and how your backend services are hosted, you may need to set up redundant backends in different regions to meet your requirements for service availability. You can manage backend failover through API Management to maintain availability. For example:  
 
-API Management routes the requests to a regional _gateway_ based on [the lowest latency](../traffic-manager/traffic-manager-routing-methods.md#performance). Although it is not possible to override this setting in API Management, you can use your own Traffic Manager with custom routing rules.
+* In multi-region deployments, use [policies to route requests](api-management-howto-deploy-multi-region.md#-route-api-calls-to-regional-backend-services) through regional gateways to regional backends. 
+
+* Configure policies to route requests conditionally to different backends in case of backend failure in a particular region.
+
+* Use caching to reduce failing calls.
+
+For details, see the blog post [Back-end API redundancy with Azure API Manager](https://devblogs.microsoft.com/premier-developer/back-end-api-redundancy-with-azure-api-manager/).
 
 ## Next steps
 
 * Learn more about [resiliency in Azure](../availability-zones/overview.md)
 * Learn more about [designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
+* Read [API Management and reliability](/azure/architecture/framework/services/networking/api-management/reliability) in the Azure Well-Architected Framework
+* 

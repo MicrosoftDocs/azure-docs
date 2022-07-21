@@ -66,6 +66,9 @@
         href: api-management-howto-policies.md
       - name: Self-hosted gateway
         href: self-hosted-gateway-overview.md
+      - name: High availability
+        href: high-availability.md
+        displayName: reliability, resilience, resiliency  
       - name: Networking
         href: virtual-network-concepts.md
       - name: Security
@@ -76,6 +79,7 @@
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
       - name: Observability
         href: observability.md
+        displayName: monitoring
       - name: APIs
         items:
             - name: API design ebook
