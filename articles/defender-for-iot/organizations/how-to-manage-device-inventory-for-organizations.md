@@ -1,7 +1,7 @@
 ---
 title: Manage your device inventory from the Azure portal
 description: Learn how to view and manage OT and IoT devices (assets) from the Device inventory page in the Azure portal.
-ms.date: 07/21/2022
+ms.date: 06/27/2022
 ms.topic: how-to
 ---
 
@@ -41,6 +41,25 @@ This procedure describes how to view detected devices in the **Device inventory*
 
 For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
+### Identify devices that aren't connecting successfully
+
+If you suspect that certain devices aren't actively communicating with Azure, we recommend that you verify whether those devices have communicated with Azure recently at all. For example:
+
+1. In the **Device inventory** page, make sure that the **Last activity** column is shown.
+
+    Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: > **Add column** > **Last Activity** > **Save**.
+
+1. Select the **Last activity** column to sort the grid by that column.
+
+1. Filter the grid to show active devices during a specific time period:
+
+    1. Select **Add filter**.
+    1. In the **Column** field, select **Last activity**.
+    1. Select a predefined time range, or define a custom range to filter for.
+    1. Select **Apply**.
+
+1. Search for the devices you're verifying in the filtered list of devices.
+
 ## Edit device details
 
 As you manage your network devices, you may need to update their details. For example, you may want to modify security value as assets change, or personalize the inventory to better identify devices, or if a device was classified incorrectly.
@@ -79,18 +98,6 @@ The following device fields are supported for editing in the **Device inventory*
 |**Programming device**     | Toggle the **Programming Device** option on or off as needed for your device.        |
 
 For more information, see [Device inventory column reference](#device-inventory-column-reference).
-
-## Identify devices that haven't recently communicated with the Azure cloud
-
-If you are under the impression that certain devices aren't actively communicating, there's a way to check, and see which devices haven't communicated in a specified time period.
-
-**To identify all devices that have not communicated recently**:
-
-1. Open the [Azure portal](https://portal.azure.com).
-
-1. Navigate to **Defender for IoT** > **Device inventory**.
-
-1. Select **Edit columns** > **Add column** > **Last Activity** > **Save**.
 
 ## Export the device inventory to CSV
 
