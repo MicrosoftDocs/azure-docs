@@ -6,12 +6,12 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 07/22/2022
-ms.reviewer: gardnerjr 
+ms.reviewer: gardnerjr
 
 ---
 
 # Convert view designer dashboards to workbooks
-[View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. View designer has been transitioned to workbooks to provide a flexible canvas for data analysis and creation of rich visual reports within the Azure portal. This article helps you make the transition from View designer to Workbooks. While this article describes simple steps to recreate some of the commonly used view designer views, workbooks allow you to create and design any of your own custom visualizations and metrics. 
+[View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. View designer has been transitioned to workbooks to provide a flexible canvas for data analysis and creation of rich visual reports within the Azure portal. This article helps you make the transition from View designer to Workbooks. While this article describes simple steps to recreate some of the commonly used view designer views, workbooks allow you to create and design any of your own custom visualizations and metrics.
 
 
 ## Workbooks overview
@@ -29,7 +29,7 @@ You can use workbooks to:
 
 View designer offers the ability to generate different query-based views and visualizations. However, many high-level customizations remain limited, such as formatting the grids and tile layouts or selecting alternative graphics to represent your data. View designer is restricted to a total of nine distinct tiles to represent your data.
 
-Workbooks is a platform that unlocks the full potential of your data. workbooks not only retain all the capabilities, but also supports more functionality through text, metrics, parameters, and much more. For example, workbooks allow users to consolidate dense grids and add search bars to easily filter and analyze the data. 
+Workbooks is a platform that unlocks the full potential of your data. workbooks not only retain all the capabilities, but also supports more functionality through text, metrics, parameters, and much more. For example, workbooks allow users to consolidate dense grids and add search bars to easily filter and analyze the data.
 
 ### Advantages of using Workbooks over View Designer
 
@@ -42,55 +42,52 @@ Workbooks is a platform that unlocks the full potential of your data. workbooks 
 
 The following screenshot is from the [Workspace usage template](https://go.microsoft.com/fwlink/?linkid=874159&resourceId=Azure%20Monitor&featureName=Workbooks&itemId=community-Workbooks%2FAzure%20Monitor%20-%20Workspaces%2FWorkspace%20Usage&workbookTemplateName=Workspace%20Usage&func=NavigateToPortalFeature&type=workbook) and shows an example of what workbooks are capable of creating:
 
-
-    :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbook-template-example.jpg" alt-text="Screenshot of a workbook template.":::
+:::image type="content" source="media/workbooks-view-designer-conversion-overview/workbook-template-example.jpg" alt-text="Screenshot of a workbook template.":::
 
 ## Differences between View Designer and Workbooks
 
 While View Designer manages views through the workspace summary, workbooks have a gallery that displays saved workbooks and templates for your workspace. Users can utilize the gallery to access, modify, and create views.
 
-    :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-gallery.png" alt-text="Screenshot of a workbooks gallery.":::
+:::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-gallery.png" alt-text="Screenshot of a workbooks gallery.":::
 
 The [getting started](workbooks-getting-started.md) article can guide you for all of the common workbook tasks, like starting, opening or saving a workbook.
-
-### Convert View Designer workspaces 
+### Convert View Designer workspaces
 
 View designer has a fixed static style of representation, while workbooks enable freedom to include and modify how the data is represented. The examples below show commonly used View Designer styles and how they can be converted to workbooks.
 
 #### Vertical workspace
 
-Use the [example JSON](workbooks-view-designer-conversions.md#vertical-workspace) to create a workbook that looks similar to a View Designer vertical workspace. 
+Use the [example JSON](workbooks-view-designer-conversions.md#vertical-workspace) to create a workbook that looks similar to a View Designer vertical workspace.
 
-    :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-view-designer-vertical.png" alt-text="Screenshot of a workbook that looks like a vertical View Designer layout.":::
-
+:::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-view-designer-vertical.png" alt-text="Screenshot of a workbook that looks like a vertical View Designer layout.":::
 
 #### Tabbed workspace
 
-Use the [example JSON](workbooks-view-designer-conversions.md#vertical-workspace) to create a workbook that looks similar to a View Designer tabbed workspace. 
+Use the [example JSON](workbooks-view-designer-conversions.md#vertical-workspace) to create a workbook that looks similar to a View Designer tabbed workspace.
 
 This is a workbook with a data type distribution tab:
 
-    :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-tab-distribution.png" alt-text="Screenshot of a workbook with a distribution tab.":::
+:::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-tab-distribution.png" alt-text="Screenshot of a workbook with a distribution tab.":::
 
 This is a workbook with a data types over time tab:
 
-    :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-tab-over-time.png" alt-text="Screenshot of a workbook with a data types over time tab.":::
+:::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-tab-over-time.png" alt-text="Screenshot of a workbook with a data types over time tab.":::
 
 ### The View Designer overview tile
 
 In View Designer, you can use the overview tile to represent and summarize the overall state. These are presented in seven tiles, ranging from numbers to charts. In workbooks, you can create similar visualizations and pin them to your [Azure portal Dashboard](/azure/azure-portal/azure-portal-dashboards). Just like the overview tiles in the Workspace summary, pinned workbook items will link directly to the workbook view.
 
-You can also take advantage of the high level of customization features provided with Azure Dashboard, which allows auto refresh, moving, sizing, and more filtering for your pinned items and visualizations. 
+You can also take advantage of the high level of customization features provided with Azure Dashboard, which allows auto refresh, moving, sizing, and more filtering for your pinned items and visualizations.
 
-    :::image type="content" source="media/workbooks-view-designer-conversion-overview/dashboard.png" alt-text="Screenshot of an Azure Dashboard.":::
+:::image type="content" source="media/workbooks-view-designer-conversion-overview/dashboard.png" alt-text="Screenshot of an Azure Dashboard.":::
 
-To pin a workbook item: 
+To pin a workbook item:
 
 1. Create a new Azure Dashboard or select an existing Azure Dashboard.
 1. Follow the instructions to [pin a visualization](workbooks-getting-started.md#pin-a-visualization).
 1. Check the option to **Always show the pin icon on this step**. A pin icon appears in the upper right hand corner of your workbook item. This pin enables you to pin specific visualizations to your dashboard, just like the overview tiles.
 
-    :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-pin-step.png" alt-text="Screenshot of a pinned item in a workbook.":::
+:::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-pin-step.png" alt-text="Screenshot of a pinned item in a workbook.":::
 
 You may also want to pin multiple visualizations from the workbook or the entire workbook content to a dashboard.
 
@@ -98,18 +95,17 @@ To pin the entire workbook:
 1. Enter Edit mode by selecting **Edit** in the top toolbar.
 1. Use the pin icon to pin the entire workbook item or any of the individual elements and visualizations within the workbook.
 
-    :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-pin-all.png" alt-text="Screenshot of a workbook with all elements pinned.":::
+:::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-pin-all.png" alt-text="Screenshot of a workbook with all elements pinned.":::
 
 #### View Designer 'Donut & List' tile
 
 View designer tiles typically consist of two sections, a visualization and a list that matches the data from the visualization, for example the **Donut & List** tile.
 
-    :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-view-designer-donut.png" alt-text="Screenshot of a View Designer donut tile.":::
+:::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-view-designer-donut.png" alt-text="Screenshot of a View Designer donut tile.":::
 
 With workbooks, we allow the user to choose to query one or both sections of the view. Formulating queries in workbooks is a simple two-step process. First, the data is generated from the query, and second, the data is rendered as a visualization.  An example of how this view would be recreated in workbooks is as follows:
 
 :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-convert-donut.png" alt-text="Screenshot of a workbook similar to a view designer donut tile.":::
-
 
 ## Next steps
 

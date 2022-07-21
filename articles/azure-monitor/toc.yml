@@ -1437,7 +1437,7 @@ items:
     - name: Transition from View designer to workbooks
       items:
       - name: Overview
-        href: workbooks-view-designer-conversion-overview
+        href: workbooks-view-designer-conversion-overview.md
       - name: Convert View Deginer workspaces to workbooks
         href: workbooks-view-designer-conversions.md 
     - name: Workbook Samples
