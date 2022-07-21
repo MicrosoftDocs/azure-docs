@@ -33,11 +33,10 @@ To understand the behavior of No writeback in the portal, check the properties o
 | No writeback | isEnabled=false | Group won't be written back to on-premises Active Directory|
 | No writeback | IsEnabled = null & onPremisesGroupType = null | If a Microsoft 365 group – it will be written back to on-premises Active Directory as a distribution group. </br> If an Azure AD security group – it will not be written back to on premises Active Directory. |
 
->[!NOTE]
-> By default, the **Group writeback state** of groups is set to **No writeback**. This means: 
->
-> - **Microsoft 365 groups**: if the group ```IsEnabled = null``` and ```onPremisesGroupType = null```, to ensure backwards compatibility with older version of group writeback, the group is written back to your on-premises Active Directory as a distribution group.
-> - **Azure AD security groups**: if the group ```IsEnabled = null``` and ```onPremisesGroupType = null``` then the group is not written back to your on-premises Active Directory.
+By default, the **Group writeback state** of groups is set to **No writeback**. This means:
+
+- **Microsoft 365 groups**: if the group ```IsEnabled = null``` and ```onPremisesGroupType = null```, to ensure backwards compatibility with older version of group writeback, the group is written back to your on-premises Active Directory as a distribution group.
+- **Azure AD security groups**: if the group ```IsEnabled = null``` and ```onPremisesGroupType = null``` then the group is not written back to your on-premises Active Directory.
 
 ## Show writeback columns
 
