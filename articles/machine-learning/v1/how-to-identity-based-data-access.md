@@ -218,7 +218,7 @@ This authentication mode allows you to:
 > * User identity and compute managed identity cannot be used for authentication within same job.
 
 > [!WARNING]
-> This feature is __public preview__ and is __not secure for production workloads__.
+> This feature is __public preview__ and is __not secure for production workloads__. Ensure that only trusted users have permissions to access your workspace and storage accounts.
 >
 > Preview features are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 >
