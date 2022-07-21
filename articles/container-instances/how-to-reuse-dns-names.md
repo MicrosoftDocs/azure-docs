@@ -46,11 +46,11 @@ You now have the choice when creating an ACI to choose what level of reuse you w
 
 The process for deploying your container instance remains same. If you want the full process of how to deploy a container instance, see the quickstart featuring your preferred deployment method. For example, the [ARM template quickstart](container-instances-quickstart-template.md).
 
-For Azure portal users, you can set the DNS name reuse policy on the **Networking** tab during the container instance creation process using the **DNS name label scope reuse** field.
+For [Azure portal](https://portal.azure.com) users, you can set the DNS name reuse policy on the **Networking** tab during the container instance creation process using the **DNS name label scope reuse** field.
 
 ![Screenshot of DNS name reuse policy dropdown menu, PNG.](./media/how-to-reuse-dns-names/portal-dns-name-reuse-policy.png)
 
-For ARM template users, see the [Resource Manager reference](/azure/templates/microsoft.containerinstance/containergroups) to see how the dnsNameLabelReusePolicy field fits into the existing schema.
+For ARM template users, see the [Resource Manager reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.containerinstance/containergroups) to see how the dnsNameLabelReusePolicy field fits into the existing schema.
 
 For YAML template users, see the [YAML reference](container-instances-reference-yaml.md) to see how the dnsNameLabelReusePolicy field fits into the existing schema.
 
