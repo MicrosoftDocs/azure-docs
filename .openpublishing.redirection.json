@@ -10462,8 +10462,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md",
-      "redirect_url": "",
+      "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md", 
+      "redirect_url": "/troubleshoot/azure/general/region-access-request-process",
       "redirect_document_id": true
     },
     {
