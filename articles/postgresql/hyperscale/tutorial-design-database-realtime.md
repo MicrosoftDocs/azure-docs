@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 06/29/2022
 #Customer intent: As a developer, I want to parallelize queries so that I can make a real-time dashboard application.
 ---
 

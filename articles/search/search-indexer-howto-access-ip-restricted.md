@@ -22,7 +22,7 @@ This article explains how to find the IP address of your search service and conf
 
 ## Get a search service IP address
 
-1. Determine the fully qualified domain name (FQDN) of your search service. This will look like `<search-service-name>.search.windows.net`. You can find the FQDN by looking up your search service on the Azure portal.
+1. Get the fully qualified domain name (FQDN) of your search service. This will look like `<search-service-name>.search.windows.net`. You can find the FQDN by looking up your search service on the Azure portal.
 
    :::image type="content" source="media\search-indexer-howto-secure-access\search-service-portal.png" alt-text="Screenshot of the search service Overview page." border="true":::
 
@@ -30,7 +30,7 @@ This article explains how to find the IP address of your search service and conf
 
 1. Copy the IP address so that you can specify it on an inbound rule in the next step. In the example below, the IP address that you should copy is "150.0.0.1".
 
-   ```azurepowershell
+   ```bash
    nslookup contoso.search.windows.net
    Server:  server.example.org
    Address:  10.50.10.50
@@ -43,13 +43,15 @@ This article explains how to find the IP address of your search service and conf
 
 ## Get IP addresses for "AzureCognitiveSearch" service tag
 
-We also require customers to create an inbound rule that allows requests from the [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment) to ensure we optimize the resource availability for search services. This step explains how to get the range of IP addresses needed for this inbound rule.
+You'll also need to create an inbound rule that allows requests from the [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment). This environment is managed by Microsoft and it's used to offload processing intensive jobs that could otherwise overwhelm your search service. This section explains how to get the range of IP addresses needed to create this inbound rule.
 
-An IP address range is defined for each region that supports Azure Cognitive Search. You can get this IP address range from the `AzureCognitiveSearch` service tag.
+An IP address range is defined for each region that supports Azure Cognitive Search. You'll need to specify the full range to ensure the success of requests originating from the multi-tenant execution environment. 
 
-1. Get the IP address ranges for the `AzureCognitiveSearch` service tag using either the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or the [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+You can get this IP address range from the `AzureCognitiveSearch` service tag.
 
-1. If the search service is the Azure Public cloud, download the [Azure Public JSON file](https://www.microsoft.com/download/details.aspx?id=56519).
+1. Use either the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or the [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
+  If the search service is the Azure Public cloud, download the [Azure Public JSON file](https://www.microsoft.com/download/details.aspx?id=56519).
 
 1. Open the JSON file and search for "AzureCognitiveSearch". For a search service in WestUS2, the IP addresses for the multi-tenant indexer execution environment are:
 
@@ -79,9 +81,11 @@ An IP address range is defined for each region that supports Azure Cognitive Sea
 
 1. For IP addresses have the "/32" suffix, drop the "/32" (40.91.93.84/32 becomes 40.91.93.84 in the rule definition). All other IP addresses can be used verbatim.
 
+1. Copy all of the IP addresses for the region.
+
 ## Add IP addresses to IP firewall rules
 
-Now that you have the necessary IP addresses, you can set up the inbound rule. The easiest way to add IP address ranges to a storage account's firewall rule is through the Azure portal. 
+Now that you have the necessary IP addresses, you can set up the inbound rules. The easiest way to add IP address ranges to a storage account's firewall rule is through the Azure portal. 
 
 1. Locate the storage account on the portal and open **Networking** on the left navigation pane.
 
@@ -89,11 +93,11 @@ Now that you have the necessary IP addresses, you can set up the inbound rule. T
 
    :::image type="content" source="media\search-indexer-howto-secure-access\storage-firewall.png" alt-text="Screenshot of Azure Storage Firewall and virtual networks page" border="true":::
 
-1. Add the IP addresses obtained previously in the address range and select **Save**. You should have rules for the search service, Azure portal (optional), plus all of the IP ranges for the "AzureCognitiveSearch" service tag for your region
+1. Add the IP addresses obtained previously in the address range and select **Save**. You should have rules for the search service, Azure portal (optional), plus all of the IP addresses for the "AzureCognitiveSearch" service tag for your region.
 
    :::image type="content" source="media\search-indexer-howto-secure-access\storage-firewall-ip.png" alt-text="Screenshot of the IP address section of the page." border="true":::
 
-It can take five to ten minutes for the firewall rules to be updated, after which indexers should be able to access the data in the storage account.
+It can take five to ten minutes for the firewall rules to be updated, after which indexers should be able to access storage account data behind the firewall.
 
 ## Next Steps
 

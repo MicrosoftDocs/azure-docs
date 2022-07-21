@@ -12,7 +12,7 @@ To quickly manage and deploy applications for Kubernetes, you can use the [open-
 This article shows you how to host Helm charts repositories in an Azure container registry, using Helm 3 commands and storing charts as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts]. You can also store an existing Helm chart from another Helm repo.
 
 > [!IMPORTANT]
-> This article has been updated with Helm 3 commands as of version **3.7.1**. Helm 3.7.1 includes changes to Helm CLI commands and OCI support introduced in earlier versions of Helm 3. 
+> This article has been updated with Helm 3 commands. Helm 3.7 includes changes to Helm CLI commands and OCI support introduced in earlier versions of Helm 3. By design `helm` moves forward with version. We recommend to use **3.7.2** or later. 
 
 ## Helm 3 or Helm 2?
 
@@ -61,7 +61,7 @@ If you've previously stored and deployed charts using Helm 2 and Azure Container
 The following resources are needed for the scenario in this article:
 
 - **An Azure container registry** in your Azure subscription. If needed, create a registry using the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm client version 3.7.1 or later** - Run `helm version` to find your current version. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]. If you upgrade from an earlier version of Helm 3, review the [release notes](https://github.com/helm/helm/releases).
+- **Helm client version 3.7 or later** - Run `helm version` to find your current version. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]. If you upgrade from an earlier version of Helm 3, review the [release notes](https://github.com/helm/helm/releases).
 - **A Kubernetes cluster** where you will install a Helm chart. If needed, create an AKS cluster [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
 - **Azure CLI version 2.0.71 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -216,9 +216,9 @@ Output is similar to:
 Run the [az acr repository show-manifests][az-acr-repository-show-manifests] command to see details of the chart stored in the repository. For example:
 
 ```azurecli
-az acr repository show-manifests \
-  --name $ACR_NAME \
-  --repository helm/hello-world --detail
+az acr manifest list-metadata \
+  --registry $ACR_NAME \
+  --name helm/hello-world
 ```
 
 Output, abbreviated in this example, shows a `configMediaType` of `application/vnd.cncf.helm.config.v1+json`:

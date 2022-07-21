@@ -124,7 +124,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 >
 > If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) Microsoft Learn module.
 
-1. If you haven't done so already, [download and install Go](https://go.dev/doc/install]).
+1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
 
     * Download the Go version for your operating system.
     * Once the download is complete, run the installer.

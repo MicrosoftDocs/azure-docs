@@ -139,4 +139,4 @@ The following features were explained and demonstrated:
 
 In this guide, you learned how to add face data to a **PersonGroup**. Next, learn how to use the enhanced data structure **PersonDirectory** to do more with your face data.
 
-- [Use the PersonDirectory structure](use-persondirectory.md)
+- [Use the PersonDirectory structure (preview)](use-persondirectory.md)

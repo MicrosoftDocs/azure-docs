@@ -1,6 +1,6 @@
 ---
-title: Invite users to Azure Video Indexer (former Azure Video Indexer) - Azure
-description: This article shows how to invite users to Azure Video Indexer (former Azure Video Indexer).
+title: Invite users to Azure Video Indexer
+description: This article shows how to invite users to Azure Video Indexer.
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.custom: mode-other

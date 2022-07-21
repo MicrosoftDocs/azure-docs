@@ -187,7 +187,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## Importing the airline and weather data to Spark DataFrames
 
-Now we use the SparkR [read.df()](https://spark.apache.org/docs/latest/api/R/read.df.html) function to import the weather and airline data to Spark DataFrames. This function, like many other Spark methods, is executed lazily, meaning that they're queued for execution but not executed until required.
+Now we use the SparkR [read.df()](https://spark.apache.org/docs/3.3.0/api/R/reference/read.df.html) function to import the weather and airline data to Spark DataFrames. This function, like many other Spark methods, is executed lazily, meaning that they're queued for execution but not executed until required.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -260,7 +260,7 @@ weatherDF <- rename(weatherDF,
 
 ## Joining the weather and airline data
 
-We now use the SparkR [join()](https://spark.apache.org/docs/latest/api/R/join.html) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there's no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
+We now use the SparkR [join()](https://spark.apache.org/docs/3.3.0/api/R/reference/join.html) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there's no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')

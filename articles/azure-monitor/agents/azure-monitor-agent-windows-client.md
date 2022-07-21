@@ -52,7 +52,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 	-	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
 	-	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opsinsights.azure.com)
     (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
-6. Existing data collection rule(s) you wish to associate with the devices. If it doesn't exist already, [follow the guidance here to create data collection rule(s)](./data-collection-rule-azure-monitor-agent.md#create-rule-and-associationusingrestapi). **Do not associate the rule to any resources yet**.
+6. Existing data collection rule(s) you wish to associate with the devices. If it doesn't exist already, [follow the guidance here to create data collection rule(s)](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association). **Do not associate the rule to any resources yet**.
 
 ## Install the agent
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
@@ -172,7 +172,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 
 #### 3. Associate DCR to Monitored Object
-Now we associate the Data Collection Rules (DCR) to the Monitored Object by creating a Data Collection Rule Associations. If you haven't already, [follow instructions here](./data-collection-rule-azure-monitor-agent.md#create-rule-and-associationusingrestapi) to create data collection rule(s) first.
+Now we associate the Data Collection Rules (DCR) to the Monitored Object by creating Data Collection Rule Associations. If you haven't already, [follow instructions here](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) to create data collection rules first.
 **Permissions required**: Anyone who has ‘Monitored Object Contributor’ at an appropriate scope can perform this operation, as assigned in step 1.
 
 **Request URI**

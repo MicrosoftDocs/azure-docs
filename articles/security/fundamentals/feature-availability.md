@@ -147,7 +147,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Auto provisioning for agents and extensions](../../defender-for-cloud/enable-data-collection.md)                                                                  | GA             | GA                             |
 | <li> [Asset inventory](../../defender-for-cloud/asset-inventory.md)                                                                                                                     | GA             | GA                             |
 | <li> [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](../../defender-for-cloud/custom-dashboards-azure-workbooks.md)                               | GA             | GA                             |
-| <li> [Integration with Microsoft Defender for Cloud Apps](../../defender-for-cloud/other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps-)                                       | GA             | Not Available                  |
+| <li> [Integration with Microsoft Defender for Cloud Apps](../../defender-for-cloud/other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                                       | GA             | Not Available                  |
 | **Microsoft Defender plans and extensions**                                                                                                                                          |                |                                |
 | <li> [Microsoft Defender for servers](../../defender-for-cloud/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             |
 | <li> [Microsoft Defender for App Service](../../defender-for-cloud/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  |
@@ -392,7 +392,7 @@ The following tables display the current Microsoft Sentinel feature availability
 
 <sup><a name="footnote1"></a>1</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
-### Microsoft 365 data connectors
+### Microsoft Purview Data Connectors
 
 Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government.
 
@@ -517,7 +517,7 @@ For more information, see Azure Attestation [public documentation](../../attesta
 | TLS 1.2 enforcement   | GA | GA |
 | BCDR support   | GA | - |
 | [Service tag integration](../../virtual-network/service-tags-overview.md) | GA | GA |
-| [Immutable log storage](../../attestation/audit-logs.md) | GA | GA |
+| [Immutable log storage](../../attestation/view-logs.md) | GA | GA |
 | Network isolation using private link | Public Preview | - |
 | [FedRAMP High certification](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) | GA | - |
 | Customer lockbox | GA | - |

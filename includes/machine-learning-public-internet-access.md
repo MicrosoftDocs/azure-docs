@@ -14,14 +14,14 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 
 | Direction | Ports | Service tag | Purpose |
 | ----- |:-----:| ----- | ----- |
-| Inbound | 29876-29877 | BatchNodeManagement | Create, update, and delete of Azure Machine Learning compute instance and compute cluster. |
-| Inbound | 44224 | AzureMachineLearning | Create, update, and delete of Azure Machine Learning compute instance. |
+| Inbound | 29876-29877 | BatchNodeManagement | Create, update, and delete of Azure Machine Learning compute instance and compute cluster. It is not required if you use No Public IP option.|
+| Inbound | 44224 | AzureMachineLearning | Create, update, and delete of Azure Machine Learning compute instance. It is not required if you use No Public IP option.|
 | Outbound | 443 | AzureMonitor | Used to log monitoring and metrics to App Insights and Azure Monitor. |
 | Outbound | 80, 443 | AzureActiveDirectory | Authentication using Azure AD. |
 | Outbound | 443, 8787, 18881 | AzureMachineLearning | Using Azure Machine Learning services. |
 | Outbound | 443 | AzureResourceManager | Creation of Azure resources with Azure Machine Learning. |
-| Outbound | 443 | Storage.region | Access data stored in the Azure Storage Account for the Azure Batch service. |
-| Outbound | 443 | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). | 
+| Outbound | 443, 445 (*)| Storage.region | Access data stored in the Azure Storage Account for compute cluster and compute instance. <br>(*) 445 is only required if you have a firewall between your virtual network for Azure ML and a private endpoint for your storage accounts.|
+| Outbound | 443 | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. | 
 | Outbound | 443 | ContainerRegistry.region | Access docker images provided by Microsoft. |
 | Outbound | 443 | MicrosoftContainerRegistry.region</br>**Note** that this  tag has a dependency on the **AzureFrontDoor.FirstParty** tag | Access docker images provided by Microsoft. Setup of the Azure Machine Learning router for Azure Kubernetes Service. |
 | Outbound | 443 | Keyvault.region | Access the key vault for the Azure Batch service. Only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled. |

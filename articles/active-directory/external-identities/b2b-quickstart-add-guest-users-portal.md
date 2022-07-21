@@ -82,7 +82,7 @@ Now sign in as the guest user to see the invitation.
 
 When no longer needed, delete the test guest user.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that's been assigned the Global administrator, Guest, inviter, or User administrator role.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that's been assigned the Global administrator or User administrator role.
 1. Select the **Azure Active Directory** service.
 1. Under **Manage**, select **Users**.
 1. Select the test user, and then select **Delete user**.

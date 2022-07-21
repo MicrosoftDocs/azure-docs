@@ -80,7 +80,9 @@ Azure Video Indexer is now part of [Network Service Tags](network-security.md). 
 
 ### Celebrity recognition toggle 
 
-You can now enable or disable the celebrity recognition model on the account level (on classic account only). To turn on or off the model, go to the account settings > and toggle on/off the model. Once you disable the model, Video Indexer insights will not include the output of celebrity model and will not run the celebrity model pipeline. 
+You can now enable or disable the celebrity recognition model on the account level (on classic account only). To turn on or off the model, go to the **Model customization** > toggle on/off the model. Once you disable the model, Video Indexer insights will not include the output of celebrity model and will not run the celebrity model pipeline. 
+
+:::image type="content" source="./media/release-notes/celebrity-recognition.png" alt-text="Screenshot showing the celebrity recognition toggle.":::
 
 ### Azure Video Indexer repository name 
 

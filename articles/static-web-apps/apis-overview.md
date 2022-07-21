@@ -33,10 +33,18 @@ The following Azure services can be integrated with Azure Static Web Apps:
 - **Managed APIs**: By default, Azure Static Web Apps automatically integrates with Azure Functions as an API backend. You deploy an API with your static web app without managing a separate Azure Functions resource.
 - **Bring your own APIs**: You can integrate your static web app with existing APIs hosted in Azure Functions, API Management, App Service, or Container Apps. You manage and deploy the API resources yourself.
 
-Each static web app environment can only be configured with one type of backend API at a time.
-
 > [!NOTE]
 > Bring your own APIs is only available in the Azure Static Web Apps Standard plan. Built-in, managed Azure Functions APIs are available in all Azure Static Web Apps plans.
+
+## <a name="constraints"></a>API constraints
+
+The following constraints apply to all API backends:
+
+- Each static web app environment can only be configured with one type of backend API at a time.
+- The API route prefix must be `/api`.
+- Route rules for APIs only support [redirects](configuration.md#defining-routes) and [securing routes with roles](configuration.md#securing-routes-with-roles).
+- Only HTTP requests are supported for APIs. WebSocket, for example, is not supported.
+- The maximum duration of each API request 45 seconds.
 
 ## Next steps
 

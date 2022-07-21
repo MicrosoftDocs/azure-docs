@@ -1,9 +1,14 @@
 ---
 title: Specify environment variables for services
 description: Shows you how to use environment variables for applications in Service Fabric
-ms.topic: conceptual
-ms.date: 12/06/2017
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # How to specify environment variables for services in Service Fabric
 
 This article shows you how to specify environment variables for a service or container in Service Fabric.

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/19/2021
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory cmdlets for configuring group settings
 
-This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Microsoft 365 groups (sometimes called unified groups).
+This article contains instructions for using PowerShell cmdlets to create and update groups in Azure Active Directory (Azure AD), part of Microsoft Entra. This content applies only to Microsoft 365 groups (sometimes called unified groups).
 
 > [!IMPORTANT]
 > Some settings require an Azure Active Directory Premium P1 license. For more information, see the [Template settings](#template-settings) table.

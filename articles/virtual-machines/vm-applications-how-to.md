@@ -75,7 +75,7 @@ Choose an option below for creating your VM application definition and version:
 1. On the page for the application, select **Create a VM application version**. The **Create a VM Application Version** page will open.
 1. Enter a version number like 1.0.0.
 1. Select the region where you've uploaded your application package.
-1. Under **Source application package**, select **Browse**. Select the storage account, then the container where your package is located. Select the package from the list and then click **Select** when you're done.
+1. Under **Source application package**, select **Browse**. Select the storage account, then the container where your package is located. Select the package from the list and then click **Select** when you're done. Alternatively, you can paste the SAS URI in this field if preferred.
 1. Type in the **Install script**. You can also provide the **Uninstall script** and **Update script**. See the [Overview](vm-applications.md#command-interpreter) for information on how to create the scripts.
 1. If you have a default configuration file uploaded to a storage account, you can select it in **Default configuration**.
 1. Select **Exclude from latest** if you don't want this version to appear as the latest version when you create a VM.

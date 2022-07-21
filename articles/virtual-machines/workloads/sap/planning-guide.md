@@ -355,9 +355,7 @@ The entry point for SAP workload on Azure documentation is found at [Get started
 
 
 > [!IMPORTANT]
-> Wherever possible a link to the referring SAP Installation Guides or other SAP documentation is used (Reference InstGuide-01, see <http://service.sap.com/instguides>). When it comes to the prerequisites, installation process, or details of specific SAP functionality the SAP documentation and guides should always be read carefully, as the Microsoft documents only covers specific tasks for SAP software installed and operated in a Microsoft Azure Virtual Machine.
->
->
+> Wherever possible a link to the referring SAP Installation Guides or other SAP documentation is used (Reference InstGuide-01 via the [SAP Help Portal](http://service.sap.com/instguides)). When it comes to the prerequisites, installation process, or details of specific SAP functionality the SAP documentation and guides should always be read carefully, as the Microsoft documents only covers specific tasks for SAP software installed and operated in an Azure virtual machine.
 
 The following SAP Notes are related to the topic of SAP on Azure:
 
@@ -554,7 +552,7 @@ Microsoft Azure provides a network infrastructure, which allows the mapping of a
 * Cross-premises Connectivity between a customer's on-premises network and the Azure network
 * Cross Azure Region or data center connectivity between Azure sites
 
-More information can be found here: <https://azure.microsoft.com/documentation/services/virtual-network/>
+For more information, see the [Virtual Network documentation](../../../virtual-network/index.yml).
 
 There are many different possibilities to configure name and IP resolution in Azure. There is also an Azure DNS service, which can be used instead of setting up your own
 DNS server. More information can be found in [this article][virtual-networks-manage-dns-in-vnet] and on [this page](https://azure.microsoft.com/services/dns/).
@@ -730,7 +728,7 @@ See example here:
 
 Deployment of the Azure Extension for SAP (see chapter [Azure Extension for SAP][planning-guide-9.1] in this document) is only possible via PowerShell or CLI. Therefore it is mandatory to set up and configure PowerShell or CLI when deploying or administering an SAP NetWeaver system in Azure.
 
-As Azure provides more functionality, new PowerShell cmdlets are going to be added that requires an update of the cmdlets. Therefore it makes sense to check the Azure Download site at least once the month <https://azure.microsoft.com/downloads/> for a new version of the cmdlets. The new version is installed on top of the older version.
+As Azure provides more functionality, new PowerShell cmdlets are going to be added that requires an update of the cmdlets. Therefore, you should check the [Azure Downloads site](https://azure.microsoft.com/downloads/) at least monthly for a new version of the cmdlets. The new version is installed on top of the older version.
 
 For a general list of Azure-related PowerShell commands check here: [Azure PowerShell documentation][azure-ps].
 
@@ -1024,12 +1022,12 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 
 ##### Azure Storage tools
 
-* <https://storageexplorer.com/>
+* [Azure Storage Explorer](../../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 Professional editions of Azure Storage Explorers can be found here:
 
-* <https://www.cerebrata.com/>
-* <https://clumsyleaf.com/products/cloudxplorer>
+* [Cerebrata](https://www.cerebrata.com/)
+* [Cloud Xplorer](https://clumsyleaf.com/products/cloudxplorer)
 
 The copy of a VHD itself within a storage account is a process, which takes only a few seconds (similar to SAN hardware creating snapshots with lazy copy and
 copy on write). After you have a copy of the VHD file, you can attach it to a virtual machine or use it as an image to attach copies of the VHD to virtual machines.
@@ -1590,9 +1588,8 @@ In the table below typical SAP communication ports are listed. Basically it is s
 
 **) sid = SAP-System-ID
 
-More detailed information on ports required for different SAP products or services by SAP products can be found here
-<https://scn.sap.com/docs/DOC-17124>.
-With this document, you should be able to open dedicated ports in the VPN device necessary for specific SAP products and scenarios.
+For more information, see [TCP/IP Ports Used by SAP Applications]
+(https://scn.sap.com/docs/DOC-17124). Using this document, you can open dedicated ports in the VPN device necessary for specific SAP products and scenarios.
 
 Other security measures when deploying VMs in such a scenario could be to create a [Network Security Group][virtual-networks-nsg] to define access rules.
 
@@ -1648,16 +1645,13 @@ How to:
 >
 > ![Linux logo.][Logo_Linux] Linux
 >
-> Here are some examples of documentation about configuring network printers in Linux or including
-> a chapter regarding printing in Linux. It will work the same way in an Azure Linux VM as long as
-> the VM is part of a VPN:
+> Here are some examples of documentation about configuring network printers in Linux or that include a chapter about printing in Linux. It works the same way in an Azure Linux VM as long as the VM is part of a VPN:
 >
-> * SLES <https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share>
-> * RHEL or Oracle Linux <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/system_administrators_guide/index#sec-Starting_Print_Settings_Config>
->
->
+> * [SLES - Printing via SMB (Samba) Share or Windows Share](https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share)
+> * [RHEL or Oracle Linux - Starting the Print Settings Configuration Tool](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/system_administrators_guide/index#sec-Starting_Print_Settings_Config)
 
 ---
+
 ##### USB Printer (printer forwarding)
 
 In Azure the ability of the Remote Desktop Services to provide users the access to their local printer devices in a remote session is not available.
@@ -1665,9 +1659,7 @@ In Azure the ability of the Remote Desktop Services to provide users the access 
 ---
 > ![Windows logo.][Logo_Windows] Windows
 >
-> More details on printing with Windows can be found here: <https://technet.microsoft.com/library/jj590748.aspx>.
->
->
+> For more information, see [Printer sharing technical details](https://technet.microsoft.com/library/jj590748.aspx>)
 
 ---
 #### Integration of SAP Azure Systems into Correction and Transport System (TMS) in Cross-Premises
@@ -1775,8 +1767,7 @@ The setup of an SAP Portal in an Azure Virtual Machine does not differ from an o
 
 A special deployment scenario by some customers is the direct exposure of the SAP Enterprise Portal to the Internet while the virtual machine host is connected to the company network via site-to-site VPN tunnel or ExpressRoute. For such a scenario, you have to make sure that specific ports are open and not blocked by firewall or network security group.
 
-The initial portal URI is http(s):`<Portalserver`>:5XX00/irj where the port is formed as documented by SAP in
-<https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+The initial portal URI is http(s):`<Portalserver`>:5XX00/irj where the port is formed as documented by SAP in [AS Java Ports](https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm).
 
 ![Endpoint configuration][planning-guide-figure-2800]
 
@@ -1805,11 +1796,11 @@ We can separate the discussion about SAP high availability in Azure into two par
 
 and how it can be combined with Azure infrastructure HA.
 
-SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper from SAP describes standard SAP High Availability configurations in virtualized environments on Windows: <https://scn.sap.com/docs/DOC-44415>. There is no sapinst-integrated SAP-HA configuration for Linux like it exists for Windows. Regarding SAP HA on-premises for Linux find more information here: <https://scn.sap.com/docs/DOC-8541>.
+SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper from SAP describes [standard SAP High Availability configurations in virtualized environments on Windows](https://scn.sap.com/docs/DOC-44415). There is no sapinst-integrated SAP-HA configuration for Linux. For more information about SAP HA on-premises for Linux, see [SAP High Availability Partner Information](https://scn.sap.com/docs/DOC-8541).
 
 ### Azure Infrastructure High Availability
 
-There is currently a single-VM SLA of 99.9%. To get an idea how the availability of a single VM might look like, you can build the product of the different available Azure SLAs: <https://azure.microsoft.com/support/legal/sla/>.
+There is currently a single-VM SLA of 99.9%. To get an idea what the availability of a single VM might look like, you can build the product of the different available [Azure SLAs](https://azure.microsoft.com/support/legal/sla/).
 
 The basis for the calculation is 30 days per month, or 43200 minutes. Therefore, 0.05% downtime corresponds to 21.6 minutes. As usual, the availability of the different services will multiply in the following way:
 
@@ -1969,10 +1960,8 @@ Dependent on the SAP configuration chosen (2-Tier or 3-Tier) there could be a ne
 
 The offline backup would basically require a shutdown of the VM through the Azure portal and a copy of the base VM disk plus all attached disks to the VM. This would preserve a point in time image of the VM and its associated disk. It is recommended to copy the backups into a different Azure Storage Account. Hence the procedure described in chapter [Copying disks between Azure Storage Accounts][planning-guide-5.4.2] of this document would apply.
 
-
 A restore of that state would consist of deleting the base VM as well as the original disks of the base VM and mounted disks, copying back the saved disks to the original Storage Account or resource group for managed disks and then redeploying the system.
-This article shows an example how to script this process in PowerShell:
-<https://www.westerndevs.com/_/azure-snapshots/>
+For more information, see [how to script this process in PowerShell](https://www.westerndevs.com/_/azure-snapshots/).
 
 Make sure to install a new SAP license since restoring a VM backup as described above creates a new hardware key.
 
@@ -1989,10 +1978,7 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 >
 > ![Windows logo.][Logo_Windows] Windows
 >
-> Theoretically, VMs that run databases can be backed up in a consistent manner as well if the DBMS system supports the Windows VSS
-> (Volume Shadow Copy Service <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>) as, for example, SQL Server does.
-> However, be aware that based on Azure VM backups point-in-time restores of databases are not possible. Therefore, the
-> recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup.
+> Theoretically, VMs that run databases can be backed up in a consistent manner as well if the DBMS system supports the [Windows Volume Shadow Copy Service](/windows/win32/vss/volume-shadow-copy-service-portal) (VSS) as, for example, SQL Server does. However, be aware that based on Azure VM backups point-in-time restores of databases are not possible. Therefore, the recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup.
 >
 > To get familiar with Azure Virtual Machine Backup start here:
 > [Back up an Azure VM from the VM settings](/../../../azure/backup/backup-azure-vms).
@@ -2003,12 +1989,7 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 >
 > ![Linux logo.][Logo_Linux] Linux
 >
-> There is no equivalent to Windows VSS in Linux. Therefore only file-consistent backups are possible but not
-> application-consistent backups. The SAP DBMS backup should be done using DBMS functionality. The file system
-> which includes the SAP-related data can be saved, for example, using tar as described here:
-> <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
->
->
+> There is no equivalent to Windows VSS in Linux. Therefore only file-consistent backups are possible but not application-consistent backups. The SAP DBMS backup should be done using DBMS functionality. The file system that includes the SAP-related data can be saved, for example, using tar as described in [Backing Up and Restoring your SAP System on UNIX](https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm).
 
 ### Azure as DR site for production SAP landscapes
 

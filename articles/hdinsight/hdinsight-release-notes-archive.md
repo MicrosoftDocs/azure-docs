@@ -1960,7 +1960,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-96712              | [FLUME-3194](https://issues.apache.org/jira/browse/FLUME-3194)                                                                                                                                             | upgrade derby to the latest (1.14.1.0) version                                                                        |
 | BUG-96713              | [FLUME-2678](https://issues.apache.org/jira/browse/FLUME-2678)                                                                                                                                             | Upgrade xalan to 2.7.2 to take care of CVE-2014-0107 vulnerability                                                    |
 | BUG-96714              | [FLUME-2050](https://issues.apache.org/jira/browse/FLUME-2050)                                                                                                                                             | Upgrade to log4j2 (when GA)                                                                                           |
-| BUG-96737              | N/A                                                                                                                                                                                                        | Use java io filesystem methods to access local files                                                                  |
+| BUG-96737              | N/A                                                                                                                                                                                                        | Use Java io filesystem methods to access local files                                                                  |
 | BUG-96925              | N/A                                                                                                                                                                                                        | Upgrade Tomcat from 6.0.48 to 6.0.53 in Hadoop                                                                        |
 | BUG-96977              | [FLUME-3132](https://issues.apache.org/jira/browse/FLUME-3132)                                                                                                                                             | Upgrade tomcat jasper library dependencies                                                                            |
 | BUG-97022              | [HADOOP-14799](https://issues.apache.org/jira/browse/HADOOP-14799), [HADOOP-14903](https://issues.apache.org/jira/browse/HADOOP-14903), [HADOOP-15265](https://issues.apache.org/jira/browse/HADOOP-15265) | Upgrading Nimbus-JOSE-JWT library with version above 4.39                                                             |
@@ -2368,9 +2368,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 -   **OMS Portal:** We have removed the link from HDInsight resource page that was pointing to OMS portal. Azure Monitor logs initially used its own portal called the OMS portal to manage its configuration and analyze collected data. All functionality from this portal has been moved to the Azure portal where it will continue to be developed. HDInsight has deprecated the support for OMS portal. Customers will use HDInsight Azure Monitor logs integration in Azure portal.
 
--   **Spark 2.3**
-
-    -   <https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations>
+-   **Spark 2.3:** [Spark Release 2.3.0 deprecations](https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations)
 
 ### ​Upgrading
 
