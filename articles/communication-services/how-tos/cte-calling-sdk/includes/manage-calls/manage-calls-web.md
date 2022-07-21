@@ -167,10 +167,10 @@ const identifier = remoteParticipant.identifier;
 
 
 States of remote participants in one-to-one or group calls:
-![Diagram of call's for one-to-one or group call states.](../media/ParticipantInCallStates.svg)
+![Diagram of remote participant's call states for one-to-one or group calls.](../media/ParticipantInCallStates.svg)
 
 States of remote participants in Teams meetings:
-![Diagram of call's for Teams meeting states.](../media/ParticipantInMeetingStates.svg)
+![Diagram of remote participant's call states for Teams meetings.](../media/ParticipantInMeetingStates.svg)
 
 ```js
 const state = remoteParticipant.state;
@@ -258,10 +258,10 @@ const callerIdentity = call.callerInfo.displayName;
 | `Disconnected`| Final state | The final state of the call. If the network connection is lost, the state changes to `Disconnected` after two minutes.|
 
 States for one-to-one or group calls:
-![Diagram of call's for one-to-one or group call states.](../media/CallStates.svg)
+![Diagram with call's states for one-to-one or group call.](../media/CallStates.svg)
 
 States for Teams meetings:
-![Diagram of call's for Teams meeting states.](../media/MeetingStates.svg)
+![Diagram with call's states for Teams meeting.](../media/MeetingStates.svg)
 
 ```js
 const callState = call.state;
