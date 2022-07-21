@@ -404,7 +404,7 @@
       href: automation-bom-templates-db.md
 - name: Azure Center for SAP solutions
   href: ../../../center-sap-solutions/toc.yml
-- name: Azure Monitor for SAP Solutions
+- name: Azure Monitor for SAP solutions
   items:
   - name: Monitor SAP on Azure
     href: monitor-sap-on-azure.md
