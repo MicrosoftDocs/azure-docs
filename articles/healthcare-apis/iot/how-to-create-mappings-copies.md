@@ -28,14 +28,14 @@ This article provides steps for creating copies of your MedTech service's device
 
 2. Select the name of the **MedTech service** that you'll be copying the device mapping from. In this example, we'll be making a copy of the device mapping from a MedTech service named **mt-azuredocsdemo**. You'll be selecting your own MedTech service as part of this process.
 
-   > [!TIP]
-   > This copy process can also be used for copying and saving the contents of the **Destination** (also know as the FHIR destination) mapping which is also under **Settings** within your workspace.
-
    :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service.png" alt-text="Screenshot of select the MedTech service that you'll be making mappings copies from." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service.png":::  
 
 3. Select the **Device mapping** button under **Settings**.
 
    :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-device-mapping.png" alt-text="Screenshot of select Device mapping button." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-device-mapping.png":::
+
+   > [!TIP]
+   > This process can also be used for copying and saving the contents of the **Destination** (also know as the FHIR destination) mapping which is also under **Settings** within your workspace.
 
 4. Select the contents of the device mapping (for example: press **Ctrl + a**) and do a copy operation (for example: press **Ctrl + c**). 
 
