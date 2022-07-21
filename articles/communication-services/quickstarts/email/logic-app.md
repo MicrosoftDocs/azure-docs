@@ -26,7 +26,7 @@ This quickstart will show how to send emails using the Azure Communication Servi
 
 - An active Logic Apps resource (logic app), or [create a blank logic app but with the trigger that you want to use](../../../logic-apps/quickstart-create-first-logic-app-workflow.md). Currently, the Azure Communication Services Email connector provides only actions, so your logic app requires a trigger, at minimum.
 
-- An Azure Communication Services Email resource with a [configured domain](https://docs.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource) or [custom domain](https://docs.microsoft.com/azure/communication-services/quickstarts/email/add-custom-verified-domains).
+- An Azure Communication Services Email resource with a [configured domain](../email/create-email-communication-resource.md) or [custom domain](../email/add-custom-verified-domains.md).
 
 - An Azure Communication Services resource [connected with an Azure Email domain](https://docs.microsoft.com/azure/communication-services/quickstarts/email/connect-email-communication-resource).
 

@@ -15,7 +15,7 @@ ms.custom: mode-other
 # Quickstart: Create and Manage Azure Communication Services users and access tokens in Microsoft Power Automate
 
 Access tokens let Azure Communication Services connectors authenticate directly against Azure Communication Services as a particular identity.  You'll need to create access tokens if you want to perform actions like send a message in a chat using the [Azure Communication Services Chat](../chat/logic-app.md) connector.
-This quickstart shows how to [create a user](#create-user), [delete a user](#delete-a-user), [issue a user an access token](#create-access-token) and [remove user access token](#revoke-user-access-tokens) using the [Azure Communication Services Identity](https://powerautomate.microsoft.com/connectors/details/shared_acsidentity/azure-communication-services-identity/) connector.
+This quickstart shows how to [create a user](#create-user), [delete a user](#delete-a-user), [issue a user an access token](#issue-a-user-access-token) and [remove user access token](#revoke-user-access-tokens) using the [Azure Communication Services Identity](https://powerautomate.microsoft.com/connectors/details/shared_acsidentity/azure-communication-services-identity/) connector.
 
 :::image type="content" source="./media/logic-app/azure-communications-services-connector.png" alt-text="Screenshot that shows the Azure Communication Services Identity connector.":::
 
@@ -48,9 +48,9 @@ Add a new step in your workflow by using the Azure Communication Services Identi
     This action will output a User ID, which is a Communication Services user identity.
     Additionally, if you click “Show advanced options” and select the Token Scope the action will also output an access token and its expiration time with the specified scope.
 
-    :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user-action.png" alt-text="Screenshot that shows the Keys page within an Azure Communication Services Resource.":::
+    :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user-action.png" alt-text="Screenshot that shows the Azure Communication Services connector Create user action.":::
 
-    :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user-action-advanced.png" alt-text="Screenshot that shows the Keys page within an Azure Communication Services Resource.":::
+    :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user-action-advanced.png" alt-text="Screenshot that shows the Azure Communication Services connector Create user action advanced options.":::
 
 
 ## Issue a user access token
@@ -61,7 +61,7 @@ After you have a Communication Services identity, you can use the Issue a user a
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-issue-access-token-action.png" alt-text="Screenshot that shows the Azure Communication Services Identity connector Issue access token action.":::
 
  
-1.	Then, you can use the User ID output from the previous Create a user <link> step.
+1.	Then, you can use the User ID output from the previous [Create a user](#create-user) step.
 
 1.	Specify the token scope: voip or chat. [Learn more about tokens and authentication](../../../../articles/communication-services/concepts/authentication).
  

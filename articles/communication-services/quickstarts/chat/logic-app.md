@@ -46,11 +46,11 @@ Add a new step in your workflow by using the Azure Communication Services Identi
     This action will output a User ID, which is a Communication Services user identity.
     Additionally, if you click “Show advanced options” and select the Token Scope the action will also output an access token and its expiration time with the specified scope.
 
-    :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user-action.png" alt-text="Screenshot that shows the Azure Communication Services Identity connector Create user action.":::
+    :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user-action.png" alt-text="Screenshot that shows the Azure Communication Services Identity connector Create user action options.":::
 
 1.	Select “chat”
 
-    :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user-action-advanced.png" alt-text="Screenshot that shows the Keys page within an Azure Communication Services Resource.":::
+    :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user-action-advanced.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector advanced options.":::
 
 1.	Click Create. This will output the User Id and an Access Token
 
@@ -89,7 +89,7 @@ To verify you have correctly sent a message, we will add one more action to list
 
 1.	In the Choose an operation search box, enter Communication Services Chat. From the actions list, select List chat thread messages.
 
-    :::image type="content" source="./media/logic-app/azure-communications-services-connector-list-chat-messages.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action.":::
+    :::image type="content" source="./media/logic-app/azure-communications-services-connector-list-chat-messages.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector List chat messages action.":::
  
 1.	Provide the Access token and Thread ID as follows
  
