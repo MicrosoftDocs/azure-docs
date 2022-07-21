@@ -16,14 +16,14 @@ This quickstart is an introduction to Azure Digital Twins, showing how Azure Dig
 
 In this quickstart, you'll look at pre-built sample *models* that digitally define the concepts of a *Building*, a *Floor*, and a *Room*, and use these model definitions to create digital *twins* that represent specific floors and rooms from a physical building. These individual twin elements will be connected into a virtual *twin graph* that reflects their relationships to each other, to form a complete digital representation of the sample building. The sample graph you'll be working with represents a building that contains two floors, and each floor contains one room. The graph will look like this image:
 
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Screenshot of a graph made of four circular nodes connected by arrows in Azure Digital Twins Explorer.":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-2.png" alt-text="Screenshot of a graph made of four circular nodes connected by arrows in Azure Digital Twins Explorer.":::
 
 Here are the steps you'll use to explore the graph in this article:
 
 1. Create an Azure Digital Twins instance, and open it in Azure Digital Twins Explorer.
 1. Upload prebuilt models and graph data to construct the sample scenario.
-1. Explore and query the scenario graph that's created.
-1. Make changes to the graph.
+1. Explore and expand the sample graph.
+1. Simulate changing IoT data, and query the graph to see results.
 1. Review your learnings from the experience.
 
 >[!NOTE]
@@ -59,9 +59,9 @@ After deployment completes, use the **Go to resource** button to navigate to the
 
 [!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
 
-## Upload the sample materials
+## Build out the sample scenario
 
-Next, you'll import the sample models and twin graph into Azure Digital Twins Explorer. You'll use the model files and the graph file that you downloaded to your machine in the [Prerequisites](#prerequisites) section.
+Next, you'll use Azure Digital Twins Explorer to set up the sample models and twin graph. You'll start by importing the model files and the twin graph file that you downloaded to your machine in the [Prerequisites](#prerequisites) section. Then, you'll finish the scenario by creating one more twin manually.
 
 ### Models
 
@@ -86,7 +86,7 @@ Azure Digital Twins Explorer will upload these model files to your Azure Digital
 
 You can select **View Model** for either model to see the DTDL code that defines each model type.
 
-    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing the Models panel with three model definitions listed inside: Building, Floor, and Room." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing the Models panel with three model definitions listed inside: Building, Floor, and Room." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
 
 ### Twins and the twin graph
 
@@ -126,56 +126,66 @@ In Azure Digital Twins Explorer, follow these steps to import the sample graph (
 
 This action runs the default query to select and display all digital twins. Azure Digital Twins Explorer retrieves all twins and relationships from the service. It draws the graph defined by them in the **Twin Graph** panel.
 
-## Explore the graph
+Now you can see the uploaded graph of the sample scenario. The circles (graph "nodes") represent digital twins. The lines represent relationships. The BuildingA twin "contains" the Floor0 and Floor1 twins, the Floor0 twin "contains" Room0, and the Floor1 twin "contains" Room1. If you're using a mouse, you can click and drag in the graph to move elements around.
 
-Now you can see the uploaded graph of the sample scenario.
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-1.png" alt-text="Screenshot of Azure Digital Twins Explorer showing the uploaded graph.'":::
 
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing the Graph View panel with a twin graph inside.'":::
+#### Add another twin
 
-The circles (graph "nodes") represent digital twins. The lines represent relationships. The BuildingA twin "contains" the Floor0 and Floor1 twins, the Floor0 twin "contains" Room0, and the Floor1 twin "contains" Room1.
+You can continue to edit the structure of a digital twin graph after its initial creation. Imagine that another room has recently been constructed on Floor1 of this example building. In this section, you'll add a new twin to the graph, to represent the new room.
 
-If you're using a mouse, you can click and drag in the graph to move elements around.
+Start by selecting the model that defines the type of twin you want to create. In the **Models** panel on the left, open the options menu for the **Room** model. Select **Create a Twin** to create a new instance of this model type.
+
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/create-twin.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing the Models panel, and the option to Create a Twin from the Room model." lightbox="media/quickstart-azure-digital-twins-explorer/create-twin.png":::
+
+Enter *Room2* for the **New Twin name** and select **Save**. This will create a new digital twin, which is not yet connected by relationships to the rest of the graph.
+
+Next, you'll add a relationship to express that Floor1 contains Room2. Use the CTRL/CMD or SHIFT keys to simultaneously select Floor1 and Room2 in the graph. When both twins are selected, right-click Room2 and choose **Add relationships**.
+
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/add-relationships.png" alt-text="Screenshot of the Azure Digital Twins Explorer, adding a relationship between Floor1 and Room2." lightbox="media/quickstart-azure-digital-twins-explorer/add-relationships.png":::
+
+This will open a **Create Relationship** dialog that's pre-filled with the details of a "contains"-type relationship from Floor1 to Room2. Select **Save**.
+
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/create-relationship-save.png" alt-text="Screenshot of the Create Relationship options." lightbox="media/quickstart-azure-digital-twins-explorer/create-relationship-save.png":::
+
+Now Room2 is a connected part of the graph. If you're using a mouse, you can click and drag twins in the graph to arrange them in a configuration that you like.
+
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-2.png" alt-text="Screenshot of Azure Digital Twins Explorer showing the graph, which now includes Room2.'":::
 
 ### View twin properties
 
 You can select a twin to see a list of its properties and their values in the **Twin Properties** panel.
 
-Here are the properties of Room0:
+Here are the properties of Room0. Notice that Room0 has a temperature of 70.
 
-    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room0.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Twin Properties panel, which shows $dtId, Temperature, and Humidity properties for Room0." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room0.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room0.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Twin Properties panel, which shows $dtId, Temperature, and Humidity properties for Room0." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room0.png":::
 
-Room0 has a temperature of 70.
+Here are the properties of Room1. Notice that Room1 has a temperature of 80.
 
-Here are the properties of Room1:
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room1.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Twin Properties panel, which shows $dtId, Temperature, and Humidity properties for Room1." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room1.png":::
 
-    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room1.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Twin Properties panel, which shows $dtId, Temperature, and Humidity properties for Room1." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room1.png":::
+Room2 doesn't have values set for its properties yet, since this twin was created manually. To set values for its properties, edit the fields so that humidity is 50 and temperature is 72. Select the **Save** icon. 
 
-Room1 has a temperature of 80.
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room2.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Twin Properties panel, where Temperature and Humidity are being set for Room2." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room2.png":::
 
-### Query the graph
+## Query changing data
 
-In Azure Digital Twins, you can query your twin graph to answer questions about your environment, using the SQL-style *Azure Digital Twins query language*.
+In Azure Digital Twins, you can query your twin graph to answer questions about your environment, using the SQL-style *Azure Digital Twins query language*. One way to query the twins in your graph is by their properties. Querying based on properties can help answer questions about—or identify outliers in—your environment. In a fully-connected, data-driven scenario, the properties of your twins will change frequently in response to IoT data from the sensors in your environment. In this quickstart, you'll change the values manually to simulate a changing sensor reading.
 
-One way to query the twins in your graph is by their properties. Querying based on properties can help answer questions about your environment. For example, you can find outliers in your environment that might need attention.
-
-In this section, you'll run a query to answer the question of how many twins in your environment have a temperature above 75.
-
-To see the answer, run the following query in the **Query Explorer** panel.
+Start by running a query to answer the question of how many twins in your environment have a temperature above 75. Run the following query in the **Query Explorer** panel.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="TemperatureQuery":::
 
-Recall from viewing the twin properties earlier that Room0 has a temperature of 70, and Room1 has a temperature of 80. The building and floor twins don't have a Temperature property at all. For these reasons, only Room1 shows up in the results here.
+Recall from viewing the twin properties earlier that Room0 has a temperature reading of 70, Room1 has a temperature reading of 80, and Room2 has a temperature reading of 72. The building and floor twins don't have a Temperature property at all. For these reasons, only Room1 shows up in the results here.
     
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing the results of property query, which shows only Room1." lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png":::
 
 >[!TIP]
 > Other comparison operators (<,>, =, or !=) are also supported within the preceding query. You can try plugging these operators, different values, or different twin properties into the query to try out answering your own questions.
 
-## Edit data in the graph
+### Edit temperature data
 
-In a fully connected Azure Digital Twins solution, the twins in your graph can receive live updates from real IoT devices and update their properties to stay synchronized with your real-world environment. You can also manually set the properties of the twins in your graph, using Azure Digital Twins Explorer or another development interface (like the APIs or Azure CLI).
-
-For simplicity, you'll use Azure Digital Twins Explorer here to manually set the temperature of Room0 to 76.
+In a fully-connected Azure Digital Twins solution, the twins in your graph can receive live updates from real IoT devices and update their properties to stay synchronized with your real-world environment. You can also manually set the properties of the twins in your graph, using Azure Digital Twins Explorer or another development interface (like the APIs or Azure CLI). For simplicity, you'll use Azure Digital Twins Explorer here to manually set the temperature reading of Room0 to 76.
 
 First, rerun the following query to select all digital twins. This will display the full graph once more in the **Twin Graph** panel.
 
@@ -185,27 +195,27 @@ Select **Room0** to bring up its property list in the **Twin Properties** panel.
 
 The properties in this list are editable. Select the temperature value of **70** to enable entering a new value. Enter *76* and select the **Save** icon to update the temperature.
 
-    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting that the Twin Properties panel is showing properties that can be edited for Room0." lightbox="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting that the Twin Properties panel is showing properties that can be edited for Room0." lightbox="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png":::
 
 After a successful property update, you'll see a **Patch Information** box showing the patch code that was used behind the scenes with the [Azure Digital Twins APIs](concepts-apis-sdks.md) to make the update.
 
-    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/patch-information.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing Patch Information for the temperature update." lightbox="media/quickstart-azure-digital-twins-explorer/patch-information.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/patch-information.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing Patch Information for the temperature update." lightbox="media/quickstart-azure-digital-twins-explorer/patch-information.png":::
 
 **Close** the patch information. 
 
-### Query to see the result
+### Query to see the new result
 
 To verify that the graph successfully registered your update to the temperature for Room0, rerun the query from earlier to get all the twins in the environment with a temperature above 75.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="TemperatureQuery":::
 
-Now that the temperature of Room0 has been changed from 70 to 76, both twins should show up in the result.
+Now that the temperature of Room0 has been changed from 70 to 76, both Room0 and Room1 should show up in the result.
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing the results of property query, which shows both Room0 and Room1." lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png":::
 
 ## Review and contextualize learnings
 
-In this quickstart, you created an Azure Digital Twins instance and used Azure Digital Twins Explorer to populate it with a sample scenario.
+In this quickstart, you created an Azure Digital Twins instance and used Azure Digital Twins Explorer to populate it with a sample scenario. You also added a digital twin manually.
 
 You then explored the graph, by:
 
