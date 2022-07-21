@@ -66,9 +66,11 @@ When the request support details are received, quota will be reserved for a stre
 
 Once the private cloud is created, you can peer both availability zones (AZs) to your on-premises ExpressRoute circuit with Global Reach that helps connect your on-premises data center to the private cloud. Peering both the AZs will ensure that an AZ failure doesn't result in a loss of connectivity to your private cloud. Since an ExpressRoute Auth Key is valid for only one connection, repeat the [Create an ExpressRoute auth key in the on-premises ExpressRoute circuit](https://docs.microsoft.com/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud#create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit) process to generate another authorization.
 
-:::image type="content" source="media/stretch-clusters/express-route-availability-zones.png" alt-text="Screenshot shows how to generate Express Route authorizations for both availability zones.":::
+:::image type="content" source="media/stretch-clusters/express-route-availability-zones.png" alt-text="Screenshot shows how to generate Express Route authorizations for both availability zones."lightbox="media/stretch-clusters/express-route-availability-zones.png":::
 
-Next, repeat the process to [peer](https://docs.microsoft.com/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud#peer-private-cloud-to-on-premises) the two availability zones to the on-premises ExpressRoute circuit.
+Next, repeat the process to [peer ExpressRoute Global Reach](https://docs.microsoft.com/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud#peer-private-cloud-to-on-premises) two availability zones to the on-premises ExpressRoute circuit.
+
+:::image type="content" source="media/stretch-clusters/express-route-global-reach-peer-availability-zones.png" alt-text="Screenshot shows page to peer both availability zones to on-premises Express Route Global Reach."lightbox="media/stretch-clusters/express-route-global-reach-peer-availability-zones.png":::
 
 ## Supported scenarios
 
