@@ -237,7 +237,7 @@
         href: awarego-tutorial.md
       - name: AWS ClientVPN
         href: aws-clientvpn-tutorial.md
-      - name: AWS IAM Identity Center
+      - name: AWS Single Sign-On
         href: aws-single-sign-on-tutorial.md
       - name: Axiad Cloud
         href: axiad-cloud-tutorial.md
