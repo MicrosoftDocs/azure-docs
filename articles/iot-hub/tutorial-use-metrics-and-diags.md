@@ -205,6 +205,7 @@ To set up metric alerts:
    1. On the **Configure signal logic** pane, set or confirm the following fields under **Alert logic** (you can ignore the chart):
 
       | Parameter | Value |
+      | --------- | ----- |
       | **Threshold** | *Static* |
       | **Operator** | *Greater than* |
       | **Aggregation type** | *Total* |
@@ -258,6 +259,7 @@ To set up metric alerts:
    * On the **Configure signal logic** pane, set or confirm the following fields (you can ignore the chart):
 
      | Parameter | Value |
+     | --------- | ----- |
      | **Threshold** | *Static* |
      | **Operator** | *Greater than* |
      | **Aggregation type** | *Total* |
