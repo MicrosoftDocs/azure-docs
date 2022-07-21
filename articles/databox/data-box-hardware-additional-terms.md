@@ -59,4 +59,4 @@ While Customer is in possession of a Data Box Device, Customer may, at its sole 
 ## Next steps
 
 - [Azure Data Box Overview](data-box-overview.md)
-- [Azure Data Box pricing](https://azure.microsoft.com/en-us/pricing/details/databox/)
+- [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/databox/)
