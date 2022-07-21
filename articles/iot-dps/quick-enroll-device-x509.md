@@ -36,7 +36,7 @@ This article shows you how to programmatically create an individual enrollment a
 
 * Install [Visual Studio 2019](https://www.visualstudio.com/vs/).
 
-* Install [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET 6.0 SDK or later](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
@@ -113,7 +113,7 @@ For the sample in this article, you'll need to copy the connection string for yo
 
 6. In the **Access Policy** panel, copy and save the primary key connection string.
 
-    ![Get provisioning service connection string from the portal](media/quick-enroll-device-x509/get-service-connection-string.png)
+    :::image type="content" source="./media/quick-enroll-device-x509/get-service-connection-string.png" alt-text="Screenshot that shows the location of the provisioning service connection string in the portal.":::
 
 ## Create the enrollment group sample
 

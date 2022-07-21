@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Enroll individual device to Azure Device Provisioning Service using TPM attestation
-description: Quickstart - Enroll an individual device to Azure IoT Hub Device Provisioning Service (DPS) using TPM attestation.
+title: How to programmatically create an Azure Device Provisioning Service individual enrollment for TPM attestation
+description: This article shows you how to programmatically create an individual enrollment entry for a device that uses TPM attestation.
 author: kgremban
 ms.author: kgremban
 ms.date: 04/28/2022
@@ -12,9 +12,9 @@ ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set2
 ---
  
-# Quickstart: Enroll individual device to IoT Hub Device Provisioning Service using TPM attestation
+# Programmatically create a Device Provisioning Service individual enrollment for TPM attestation
 
-This article shows you how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. You can optionally enroll a simulated TPM device to the provisioning service by using this individual enrollment entry. 
+This article shows you how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. After you've created the individual enrollment, you can optionally enroll a simulated TPM device to the provisioning service through this enrollment entry.
 
 Although these steps work on both Windows and Linux computers, this article uses a Windows development computer.
 
@@ -28,13 +28,16 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 * Install [Visual Studio 2019](https://www.visualstudio.com/vs/).
 
-* Install [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET 6.0 SDK or later](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
     ```
 
-* (Optional) If you want to enroll a simulated device at the end of this quickstart, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md) up to the step where you get an endorsement key for the device. Save the endorsement key, registration ID, and, optionally, the device ID.
+* (Optional) If you want to enroll a simulated device at the end of this quickstart, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) up to the step where you get an endorsement key for the device. Save the endorsement key, registration ID, and, optionally, the device ID.
+
+    > [!NOTE]
+    > Don't follow the steps to create an individual enrollment by using the Azure portal.
 
 :::zone-end
 
@@ -42,7 +45,10 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 * Install [Node.js v4.0+](https://nodejs.org).
 
-* (Optional) Create an endorsement key. Follow the steps in [Create and provision a simulated device](quick-create-simulated-device-tpm.md) until you get the key.
+* (Optional) Create an endorsement key. Follow the steps in [Create and provision a simulated device](quick-create-simulated-device-tpm.md?pivots=programming-language-nodejs) until you get the key.
+
+    > [!NOTE]
+    > Don't follow the steps to create an individual enrollment by using the Azure portal.
 
 :::zone-end
 
@@ -54,11 +60,7 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 * Install [Git](https://git-scm.com/download/) and make sure the the path is added to the environment variable `PATH`.
 
-
 :::zone-end
-
-> [!NOTE]
-> Don't follow the steps to create an individual enrollment by using the Azure portal.
 
 :::zone pivot="programming-language-java"
 
@@ -277,16 +279,16 @@ This section shows you how to create a .NET Core console app that adds an indivi
     private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
     ```
 
-   2. Add the TPM device details:
-       1. Get the *Registration ID* and the *TPM endorsement key* for a TPM device simulation, by following the steps leading to the section [Simulate TPM device](quick-create-simulated-device-tpm.md#simulatetpm).
-       2. Use the **_Registration ID_** and the **_Endorsement Key_** from the output of the preceding step, to replace the `[RegistrationId]` and `[TPM Endorsement Key]` in the sample code file **_ServiceEnrollmentSample.java_**:
-    
-           ```Java
-           private static final String REGISTRATION_ID = "[RegistrationId]";
-           private static final String TPM_ENDORSEMENT_KEY = "[TPM Endorsement Key]";
-           ```
+3. Add the TPM device details:
+    1. Get the *Registration ID* and the *TPM endorsement key* for a TPM device simulation, by following the steps leading to the section [Simulate TPM device](quick-create-simulated-device-tpm.md#simulatetpm).
+    2. Use the **_Registration ID_** and the **_Endorsement Key_** from the output of the preceding step, to replace the `[RegistrationId]` and `[TPM Endorsement Key]` in the sample code file **_ServiceEnrollmentSample.java_**:
 
-3. To configure your provisioning service from within the sample code, proceed to the next step. If you  do not want to configure it, make sure to comment out or delete the following statements in the _ServiceEnrollmentSample.java_ file:
+        ```Java
+        private static final String REGISTRATION_ID = "[RegistrationId]";
+        private static final String TPM_ENDORSEMENT_KEY = "[TPM Endorsement Key]";
+        ```
+
+4. To configure your provisioning service from within the sample code, proceed to the next step. If you  do not want to configure it, make sure to comment out or delete the following statements in the _ServiceEnrollmentSample.java_ file:
 
     ```Java
     / / The following parameters are optional. Remove it if you don't need.
@@ -295,7 +297,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
     individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
     ```
 
-4. This step shows you how to configure your provisioning service in the sample code.
+5. This step shows you how to configure your provisioning service in the sample code.
 
     1. Go to the [Azure portal](https://portal.azure.com).
 
@@ -309,7 +311,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
     private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
     ```
 
-5. Study the sample code. It creates, updates, queries, and deletes an individual TPM device enrollment. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentSample.java_ file:
+6. Study the sample code. It creates, updates, queries, and deletes an individual TPM device enrollment. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentSample.java_ file:
 
     ```Java
     // *********************************** Delete info of individualEnrollment ************************************
@@ -317,7 +319,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
     provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
     ```
 
-6. Save the file _ServiceEnrollmentSample.java_.
+7. Save the file _ServiceEnrollmentSample.java_.
 
 :::zone-end
 
