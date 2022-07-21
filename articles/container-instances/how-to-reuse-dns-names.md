@@ -11,7 +11,7 @@ ms.date: 05/25/2022
 
 # Deploy an Azure Container Instances (ACI) container group with DNS name reuse policy (preview)
 
-DNS name reuse is very convenient for DevOps within any modern company. The idea of redeploying an application by reusing the DNS name fulfills an on-demand philosophy that secures cloud development. Therefore, it's important to note that DNS names that are available to anyone become a problem when one customer releases a name only to have that same name taken by another customer. This is called subdomain takeover. A customer releases a resource using a particular name, and another customer creates a new resource with that same DNS name. If there were any records pointing to the old resource, they now also point to the new resource.
+DNS name reuse is convenient for DevOps within any modern company. The idea of redeploying an application by reusing the DNS name fulfills an on-demand philosophy that secures cloud development. Therefore, it's important to note that DNS names that are available to anyone become a problem when one customer releases a name only to have that same name taken by another customer. This is called subdomain takeover. A customer releases a resource using a particular name, and another customer creates a new resource with that same DNS name. If there were any records pointing to the old resource, they now also point to the new resource.
 
 In order to avoid this, ACI will now allow customers to reuse DNS names while preventing DNS names from being reused by different customers. ACI secures DNS names by randomly generating a hash value to associate with the DNS name, making it difficult for another customer to accidentally create an ACI with the same name and get linked to the past customer's ACI information.
 
@@ -29,17 +29,15 @@ In order to avoid this, ACI will now allow customers to reuse DNS names while pr
 
 ## Understand the DNS name reuse policy
 
-You now has the choice when creating an ACI to choose what level of reuse you want your DNS name label to have.
+You now have the choice when creating an ACI to choose what level of reuse you want your DNS name label to have.
 
-| Policy Name | Policy Definition |
+| Policy name | Policy definition |
 | - | - |
 | unsecure | **Default** Hash will be generated based on only the DNS name, so avoiding subdomain takeover is not guaranteed if another customer uses the same DNS name. |
 | tenantReuse | Hash will be generated based on the DNS name and the tenant ID. |
 | subscriptionReuse | Hash will be generated based on the DNS name and the tenant ID and subscription ID. |
 | resourceGroupReuse | Hash will be generated based on the DNS name and the tenant ID, subscription ID, and resource group name. |
 | noReuse | Hash will not be generated. |
-
- "subscriptionReuse", "tenantReuse", "resourceGroupReuse", "NoReuse", and of course if nothing is selected it defaults to unsecure.
 
 ## Create a container instance
 
@@ -58,4 +56,4 @@ For YAML template users, see the [YAML reference](container-instances-reference-
 
 ## Next steps
 
-See the Azure quickstart template [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet), to deploy a container group within a virtual network.
+See the Azure Quickstart Template [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet), to deploy a container group within a virtual network.
