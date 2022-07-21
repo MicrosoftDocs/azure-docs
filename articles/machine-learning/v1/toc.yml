@@ -64,6 +64,9 @@
     - name: Use automated ML (Python)
       displayName: SDK, automl
       href: how-to-configure-auto-train-v1.md
+    - name: Local inference using ONNX
+      displayName: SDK, automl
+      href: how-to-inference-onnx-automl-image-models-v1.md
   - name: Create & manage compute cluster
     displayName: compute target, low priority, managed identity
     href: how-to-create-attach-compute-cluster.md
