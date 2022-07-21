@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 05/25/2021
+ms.date: 07/21/2022
 #Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
 ---
 
@@ -30,23 +30,23 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019, 2017, or 2015 - Community edition](https://aka.ms/download-visual-studio). The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This quickstart uses Visual Studio Community 2017.
+  * [Visual Studio 2019, 2017, or 2015 - Community edition](https://aka.ms/download-visual-studio). This quickstart uses Visual Studio Community 2017. Currently, Visual Studio 2022 doesn't include support for the Azure Logic Apps extension.
 
     > [!IMPORTANT]
-    > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
+    > If you use Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload. 
 
   * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). Learn more about [Azure SDK for .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * The latest Azure Logic Apps Tools for the Visual Studio extension for the version that you want:
+  * The latest Azure Logic Apps Tools for the Visual Studio extension for the version that you want, which is currently unavailable for Visual Studio 2022:
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
     * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
-  
+
     You can either download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
 
 * Access to the web while using the embedded Logic App Designer
