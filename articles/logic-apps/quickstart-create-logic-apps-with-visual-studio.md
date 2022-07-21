@@ -39,7 +39,7 @@ In this quickstart, you create the same logic app workflow with Visual Studio as
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * The latest Azure Logic Apps Tools for the Visual Studio extension for the version that you want, which is currently unavailable for Visual Studio 2022:
+  * The corresponding Azure Logic Apps Tools for the Visual Studio extension, currently unavailable for Visual Studio 2022:
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
