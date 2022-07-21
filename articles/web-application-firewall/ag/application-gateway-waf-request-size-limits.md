@@ -34,7 +34,7 @@ For CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows when usin
    - 2MB request body size limit
    - 4GB file upload limit 
 
-To set request size limits in the Azure portal, configure **Global parameters** in the WAF policy resource's **Policy settings** page:
+Only requests with Content-Type of multipart/form-data are considered as file upload and the file part of the body content evaluated versus the file upload limits. For all other content types, request body size limit applies. To set request size limits in the Azure portal, configure **Global parameters** in the WAF policy resource's **Policy settings** page:
 
 :::image type="content" source="../media/application-gateway-waf-request-size-limits/waf-policy-limits.png" alt-text="Screenshot of the Azure portal that shows the request size limits configuration for the W A F policy.":::
 
