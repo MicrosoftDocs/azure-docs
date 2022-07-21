@@ -1,17 +1,19 @@
 ---
-title: Configure SAP HANA provider for Azure Monitor for SAP solutions (Preview)
+title: Configure SAP HANA provider for Azure Monitor for SAP solutions (preview)
 description: Learn how to configure the SAP HANA provider for Azure Monitor for SAP solutions (AMS) through the Azure portal.
 author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
-ms.date: 07/06/2022
+ms.date: 07/21/2022
 ms.author: sujaj
 
 ---
 
 
-# Configure SAP HANA provider for AMS
+# Configure SAP HANA provider for Azure Monitor for SAP solutions (preview)
+
+[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
 This article explains how to configure the SAP HANA provider for Azure Monitor for SAP solutions (AMS) through the Azure portal. There are instructions to set up the [current version](#configure-ams) and the [classic version](#configure-ams-classic) of AMS.
 
