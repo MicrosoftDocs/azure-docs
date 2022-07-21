@@ -220,9 +220,9 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 |Property |Type |Description |
 |---------|---------|---------|
 | `requestId`| string | Mapped to the original request when the payload was posted to the Verifiable Credentials service.|
-| `code` |string |The code returned when the request has an error. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the issuance flow.</li><li>`issuance_successful`: The issuance of the verifiable credentials was successful.</li><li>`Issuance_error`: There was an error during issuance. For details, see the `error` property.</li></ul>    |
+| `code` |string |The code returned when the request has an error. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the issuance flow.</li><li>`issuance_successful`: The issuance of the verifiable credentials was successful.</li><li>`issuance_error`: There was an error during issuance. For details, see the `error` property.</li></ul>    |
 | `state` |string| Returns the state value that you passed in the original payload.   |
-| `error`| error | When the `code` property value is `Issuance_error`, this property contains information about the error.| 
+| `error`| error | When the `code` property value is `issuance_error`, this property contains information about the error.| 
 | `error.code` | string| The return error code. |
 | `error.message`| string| The error message. |
 
