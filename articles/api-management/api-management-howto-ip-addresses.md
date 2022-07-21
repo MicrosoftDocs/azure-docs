@@ -105,8 +105,7 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * (Developer and Premium tiers) Azure Virtual Network is added to or removed from the service.
 * (Developer and Premium tiers) API Management service is switched between external and internal VNet deployment mode.
 * (Premium tier) [Availability zones](../availability-zones/migrate-api-mgt.md) are enabled, added, or removed.
+* (Premium tier) In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
 
     > [!IMPORTANT]
     > When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different [public IP address](api-management-using-with-vnet.md?tabs=stv2#prerequisites) resource than the one configured previously. You may swap back to the original IP address if needed.
-
-In [multi-regional deployments](api-management-howto-deploy-multi-region.md) in the Premium tier, the regional IP address changes if a region is vacated and then reinstated.
