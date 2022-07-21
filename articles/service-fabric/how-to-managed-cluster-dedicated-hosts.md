@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 7/14/2022
 ---
 
-# Introduction to Dedicated Hosts on Service Fabric managed clusters
+# Introduction to Dedicated Hosts on Service Fabric managed clusters (Preview)
 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. The server is dedicated to your organization and workloads and capacity is not shared with anyone else. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
 
 Using Azure Dedicated Hosts for nodes with your Service Fabric managed cluster (SFMC) has the following benefits:
