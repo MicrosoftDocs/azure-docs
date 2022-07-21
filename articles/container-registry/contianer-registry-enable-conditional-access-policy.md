@@ -12,7 +12,7 @@ The [Conditional Access Policy](/azure/active-directory/conditional-access/overv
 
 The policy enables the security to meet the organizations compliance requirements and keep the data and user accounts safe.
 
-Learn more about [Conditional Access Policy](conditional-access/overview.md), the [Conditional Access Policy conditions](conditional-access/overview.md#common-signals,) you will take it into account to make [Conditional Access Policy decisions.](/azure/active-directory/conditional-access/overview.md#common-decisions)
+Learn more about [Conditional Access Policy](conditional-access/overview.md), the [conditions](conditional-access/overview.md#common-signals,) you will take it into consideration to make [policy decisions.](/azure/active-directory/conditional-access/overview.md#common-decisions)
 
 ## Prerequisites
 
@@ -22,16 +22,14 @@ Learn more about [Conditional Access Policy](conditional-access/overview.md), th
 
 ## Azure Container Registry (ACR) introduces the conditional access policy
 
-You can refer to the ACR's conditional access policy in the
-[azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md).  
+You can refer to the ACR's conditional access policy in the [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md).  
 
-Also learn more about:
+Also, we recommend to learn more about:
 
 >* The [policy assignment structure](/azure/governance/policy/concepts/assignment-structure#enforcement-mode)
->*  Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
 >* Enable conditional policy using [Azure portal](../governance/policy/assign-policy-portal.md) 
 >* Enable conditional policy using [Azure CLI](../governance/policy/assign-policy-azurecli.md)
-
+>*  Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
 ### Enable conditional access policy in ACR - portal
 
 You can enable registry's conditional policy in the [Azure portal](https://portal.azure.com). 
@@ -47,7 +45,7 @@ You can enable registry's conditional policy in the [Azure portal](https://porta
 :::image type="content" source="../media/container-registry-enable-conditional-policy/02-assign-policy.png" alt-text="Screenshot to search and filter ACR built-in policy definition." border="false":::
 
 >* Use the filters to limit compliance states or to search for policies.
->* Confirm your settings and set Policy enforcement as **enabled**
+>* Confirm your settings and set policy enforcement as **enabled**
 >* Select **Review+Create**
 
 ### Enable conditional access in ACR - Azure CLI
@@ -66,7 +64,6 @@ az policy assignment create --name 'ACR_AADAuthenticationAsArmPolicy_AuditDeny' 
 az policy assignment list --query "[?displayName=='Container registries should have ARM audience token authentication disabled'].id"
 ```
 
-
 ## Clean up resources
 
 1. Run the [az policy assignment delete](/cli/azure/policy/assignment#az-policy-assignment-delete) command in the Azure CLI to remove the assignment created, as below:
@@ -75,11 +72,12 @@ az policy assignment list --query "[?displayName=='Container registries should h
 az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
-
 ## Next steps
 
 To learn more about assigning policies to validate that new resources are compliant, continue to the
 tutorial for:
 
 > [!div class="nextstepaction"]
-> [Creating and managing policies](./tutorials/create-and-manage.md)
+> [Create and manage policies](./tutorials/create-and-manage.md)
+> Create a [custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md).
+> Learn more about [governance capabilities](../governance/index.yml).
