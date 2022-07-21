@@ -13,7 +13,7 @@ Using Azure Dedicated Hosts for nodes with your Service Fabric managed cluster (
 * Host-level hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
 * Control over maintenance events initiated by the Azure platform. While most maintenance events have little to no impact on virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt into a maintenance window to reduce the impact on service.
 
-You can choose the SKU for Dedicated Hosts Virtual Machines based on your workload requirements. For information on pricing, see [Pricing - Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/). 
+You can choose the SKU for Dedicated Hosts Virtual Machines based on your workload requirements. For more information, see [Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/). 
 
 The following guide will take you step by step for how to add an Azure Dedicated Host to a Service Fabric managed cluster with an Azure Resource Manager template.
 
@@ -24,8 +24,8 @@ This guide builds upon the managed cluster quick start guide: [Deploy a Service 
 Before you begin:
 
 * If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-* Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. For the sake of this guide, we will be using a two node types twelve-node Standard SKU cluster.
-* The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) to do role assignments in a host group. See [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites) for more information.
+* Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. For the sake of this guide, we will be using a two node types 12-node Standard SKU cluster.
+* The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) to do role assignments in a host group. For more information, see [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites).
 
 
 ## Review the template
@@ -59,11 +59,11 @@ Create a dedicated host group and add a role assignment to the host group with t
    ```
 
 >[!NOTE] 
-> 1) Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. See [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/) for more information.
+> 1) Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. For more information, see [Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
 > 2) Each fault domain needs a dedicated host to be placed in it and Service Fabric managed clusters require five fault domains. Therefore, at least five dedicated hosts should be present in each dedicated host group.
 
 
-3) The [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. See [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles. This role assignment is defined in the resources section of template with Principal ID determined from the first step and a role definition ID. 
+3) The [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all). This role assignment is defined in the resources section of template with Principal ID determined from the first step and a role definition ID. 
 
    ```JSON
       "variables": {  
