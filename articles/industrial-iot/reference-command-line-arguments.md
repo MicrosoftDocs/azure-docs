@@ -36,8 +36,8 @@ To control the application, you can use any of several of environment variables:
 > [!NOTE] 
 > Command-line arguments overrule environment variable settings.
 
-| Argument | Description |
-| --- | --- | 
+|Argument|Description|
+|---|---| 
 | `--pf, --publishfile=VALUE` | The file name to use to configure the nodes to publish.<br>Default: '/appdata/publishednodes.json' |
 | `--tc, --telemetryconfigfile=VALUE` | The file name to use to configure the ingested telemetry.<br>Default: '' |
 | `-s, --site=VALUE` | The site that OPC Publisher is working in. If it's specified, this domain is appended (delimited by a ':' to the 'ApplicationURI' property when telemetry is sent to Iot Hub. The value must follow the syntactical rules of a DNS hostname.<br>Default: \<not set> |
