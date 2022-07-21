@@ -5,12 +5,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/21/2022
+ms.date: 07/11/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
 [Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
+
+Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you will use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
 
 ## Prerequisites
@@ -18,7 +20,7 @@ ms.custom: ignite-fall-2021
 * The current version of [cURL](https://curl.haxx.se/).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!NOTE]
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
@@ -64,7 +66,7 @@ curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-ver
             {
                 "id":"1",
                 "language":"en",
-                "text": "The customer service here is really good."
+                "text": "The food and service were unacceptable. The concierge was nice, however."
             }
         ]
     }
@@ -80,34 +82,82 @@ curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-ver
 	"results": {
 		"documents": [{
 			"id": "1",
-			"sentiment": "positive",
+			"sentiment": "mixed",
 			"confidenceScores": {
-				"positive": 1.0,
+				"positive": 0.47,
 				"neutral": 0.0,
-				"negative": 0.0
+				"negative": 0.52
 			},
 			"sentences": [{
-				"sentiment": "positive",
+				"sentiment": "negative",
 				"confidenceScores": {
-					"positive": 1.0,
+					"positive": 0.0,
 					"neutral": 0.0,
-					"negative": 0.0
+					"negative": 0.99
 				},
 				"offset": 0,
-				"length": 41,
-				"text": "The customer service here is really good.",
+				"length": 40,
+				"text": "The food and service were unacceptable. ",
+				"targets": [{
+					"sentiment": "negative",
+					"confidenceScores": {
+						"positive": 0.0,
+						"negative": 1.0
+					},
+					"offset": 4,
+					"length": 4,
+					"text": "food",
+					"relations": [{
+						"relationType": "assessment",
+						"ref": "#/documents/0/sentences/0/assessments/0"
+					}]
+				}, {
+					"sentiment": "negative",
+					"confidenceScores": {
+						"positive": 0.0,
+						"negative": 1.0
+					},
+					"offset": 13,
+					"length": 7,
+					"text": "service",
+					"relations": [{
+						"relationType": "assessment",
+						"ref": "#/documents/0/sentences/0/assessments/0"
+					}]
+				}],
+				"assessments": [{
+					"sentiment": "negative",
+					"confidenceScores": {
+						"positive": 0.0,
+						"negative": 1.0
+					},
+					"offset": 26,
+					"length": 12,
+					"text": "unacceptable",
+					"isNegated": false
+				}]
+			}, {
+				"sentiment": "positive",
+				"confidenceScores": {
+					"positive": 0.94,
+					"neutral": 0.01,
+					"negative": 0.05
+				},
+				"offset": 40,
+				"length": 32,
+				"text": "The concierge was nice, however.",
 				"targets": [{
 					"sentiment": "positive",
 					"confidenceScores": {
 						"positive": 1.0,
 						"negative": 0.0
 					},
-					"offset": 4,
-					"length": 16,
-					"text": "customer service",
+					"offset": 44,
+					"length": 9,
+					"text": "concierge",
 					"relations": [{
 						"relationType": "assessment",
-						"ref": "#/documents/0/sentences/0/assessments/0"
+						"ref": "#/documents/0/sentences/1/assessments/0"
 					}]
 				}],
 				"assessments": [{
@@ -116,16 +166,16 @@ curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-ver
 						"positive": 1.0,
 						"negative": 0.0
 					},
-					"offset": 36,
+					"offset": 58,
 					"length": 4,
-					"text": "good",
+					"text": "nice",
 					"isNegated": false
 				}]
 			}],
 			"warnings": []
 		}],
 		"errors": [],
-		"modelVersion": "2021-10-01"
+		"modelVersion": "2022-06-01"
 	}
 }
 ```

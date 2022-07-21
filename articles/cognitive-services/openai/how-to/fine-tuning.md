@@ -236,7 +236,7 @@ When you're done with your fine-tuned model, you can delete the deployment and f
 
 ### Delete your model deployment
 
-To delete a deployment, you can use the [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete), Azure OpenAI Studio or [REST APIs](../reference.md#delete-a-deployment). here's an example of how to delete your deployment with the Azure CLI:
+To delete a deployment, you can use the [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete), Azure OpenAI Studio or [REST APIs](../reference.md#delete-a-deployment). here's an example of how to delete your deployment with the Azure CLI:
 
 ```console
 az cognitiveservices account deployment delete --name

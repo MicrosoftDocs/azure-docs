@@ -154,7 +154,7 @@ Install IoT Edge for Linux on Windows on your target device.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 > [!NOTE]
@@ -227,4 +227,4 @@ Install IoT Edge for Linux on Windows on your target device.
    After a successful deployment, you are ready to provision your device.
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->

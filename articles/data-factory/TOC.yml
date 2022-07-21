@@ -733,6 +733,8 @@ items:
       href: data-flow-assert.md   
     - name: Conditional split
       href: data-flow-conditional-split.md
+    - name: Cast
+      href: data-flow-cast.md
       displayName: split
     - name: Derived column
       href: data-flow-derived-column.md
@@ -1050,8 +1052,8 @@ items:
       items:
       - name: SSIS migration overview
         href: scenario-ssis-migration-overview.md
-      - name: SSISDB migration to Azure SQL Managed Instance
-        href: scenario-ssis-migration-ssisdb-mi.md
+      - name: SSIS migration assessment rules
+        href: scenario-ssis-migration-rules.md
     - name: SAP knowledge center
       items:
       - name: Overview
@@ -1111,6 +1113,8 @@ items:
       href: data-flow-reserved-capacity-overview.md
     - name: Data flow understand reservation charges
       href: data-flow-understand-reservation-charges.md
+    - name: Better understand different integration runtime charges
+      href: better-understand-different-integration-runtime-charges.md
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
       displayName: diu
