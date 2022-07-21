@@ -51,7 +51,7 @@ Name     ResourceGroup    MasterVersion    Upgrades
 default  myResourceGroup  1.18.10          1.19.1, 1.19.3
 ```
 
-The following output shows that no upgrades are available:
+The following output shows that no upgrades are available (or it may also be possible that cli is not upgraded):
 
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.

@@ -416,7 +416,7 @@ if __name__ == "__main__":
 
 ## Step 6: Run your web app
 
-In the Terminal, run the app by entering the following command, which runs the Flask development server. The development server looks for `app.py` by default. Then, open your browser and navigate to the web app URL: <http://localhost:5000>.
+In the Terminal, run the app by entering the following command, which runs the Flask development server. The development server looks for `app.py` by default. Then, open your browser and navigate to the web app URL: `http://localhost:5000`.
 
 # [Linux](#tab/linux)    
 

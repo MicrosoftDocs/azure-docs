@@ -286,14 +286,14 @@ Start emulator from an administrator [command prompt](emulator-command-line-para
 
 Start emulator from an administrator [command prompt](emulator-command-line-parameters.md)with "/EnableGremlinEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-1. [Install apache-tinkerpop-gremlin-console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
+1. [Install apache-tinkerpop-gremlin-console-3.6.0](https://archive.apache.org/dist/tinkerpop/3.6.0).
 
 1. From the emulator's data explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
 
 1. Run the following commands in a regular command prompt window:
 
    ```bash
-   cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
+   cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.6.0-bin\apache-tinkerpop-gremlin-console-3.6.0
   
    copy /y conf\remote.yaml conf\remote-localcompute.yaml
    notepad.exe conf\remote-localcompute.yaml
