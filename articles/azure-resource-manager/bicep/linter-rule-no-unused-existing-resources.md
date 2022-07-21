@@ -17,7 +17,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-To reduce confusion in your template, delete any [existing resources](./existing-resource.md) that are defined but not used. This test finds any existing resource that aren't used anywhere in the template.
+To reduce confusion in your template, delete any [existing resources](./existing-resource.md) that are defined but not used. This test finds any existing resource that isn't used anywhere in the template.
 
 ## Next steps
 
