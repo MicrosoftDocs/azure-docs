@@ -131,7 +131,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 | Property | Type | Description |
 |----------|------|-------------|
 | numberMatchingRequiredState | authenticationMethodFeatureConfiguration | Require number matching for MFA notifications. Value is ignored for phone sign-in notifications. |
-| displayAppInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown application context in Microsoft Authenticator notification. |
+| displayAppInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown application name in Microsoft Authenticator notification. |
 | displayLocationInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown geographic location context in Microsoft Authenticator notification. |
 
 #### Authentication Method Feature Configuration properties
@@ -153,18 +153,21 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 | id | String | ID of the entity targeted. |
 | targetType | featureTargetType | The kind of entity targeted, such as group, role, or administrative unit. The possible values are: ‘group’, 'administrativeUnit’, ‘role’, unknownFutureValue’. |
 
-
+>[!NOTE]
+>Number matching can be enabled only for a single group. 
 
 #### Example of how to enable number matching for all users
 
-You will need to change the **numberMatchingRequiredState** from **default** to **enabled**. 
+In **featureSettings**, you will need to change the **numberMatchingRequiredState** from **default** to **enabled**. 
 
 Note that the value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we will use **any**, but if you do not want to allow passwordless, use **push**. 
 
 >[!NOTE]
 >For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
 
-You might need to patch the entire includeTarget to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **numberMatchingRequiredState**. 
+You might need to patch the entire schema to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **numberMatchingRequiredState** under **featureSettings**. 
+
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s includeTargets will see the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see a number match.
 
 ```json
 //Retrieve your existing policy via a GET. 
@@ -176,14 +179,26 @@ You might need to patch the entire includeTarget to prevent overwriting any prev
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
+    "featureSettings": {
+        "numberMatchingRequiredState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "all_users"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
+            }
+      }
+    },
     "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
             "id": "all_users",
-            "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
-            "numberMatchingRequiredState": "enabled"
+            "isRegistrationRequired": false,
+            "authenticationMode": "any",        
         }
     ]
 }
@@ -196,28 +211,39 @@ GET - https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticatio
  
 #### Example of how to enable number matching for a single group
  
-We will need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
-You will need to change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+In **featureSettings**, you will need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
+Inside the **includeTarget**, you will need to change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
 
-You need to PATCH the entire includeTarget to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
+You need to PATCH the entire configuration to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
+
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s includeTargets will see the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see a number match.
 
 ```json
-//Copy paste the below in the Request body section as shown below.
-//Leverage the Response body to create the Request body section. Then update the Request body similar to the Request body as shown below.
-//Change query to PATCH and run query
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
+    "featureSettings": {
+        "numberMatchingRequiredState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
+            }
+        }
+    },
     "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
-            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a",
-            "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
-            "numberMatchingRequiredState": "enabled"
+            "id": "all_users",
+            "isRegistrationRequired": false,
+            "authenticationMode": "any"
         }
     ]
 }
@@ -226,18 +252,45 @@ You need to PATCH the entire includeTarget to prevent overwriting any previous c
 To verify, RUN GET again and verify the ObjectID
 GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
  
+#### Example of removing the excluded group from number matching
 
-#### Example of error when enabling number matching for multiple groups
+In **featureSettings**, you will need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
+You need to change the **id** of the **excludeTarget** to `00000000-0000-0000-0000-000000000000`.
 
-The PATCH request will fail with 400 Bad Request and the error will contain the following message: 
+You need to PATCH the entire configuration to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
 
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s includeTargets will be excluded from the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see a number match.
 
-`Persistance of policy failed with error: You cannot enable multiple targets for feature 'Require Number Matching'. Choose only one of the following includeTargets to enable: aede0efe-c1b4-40dc-8ae7-2c402f23e312,aede0efe-c1b4-40dc-8ae7-2c402f23e317.`
-
-### Test the end user experience
-Add the test user account to the Authenticator app. The account does **not** need to be enabled for phone sign-in. 
-
-See the end user experience of an Authenticator MFA push notification with number matching by signing into aka.ms/MFAsetup. 
+```json
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
+    "id": "MicrosoftAuthenticator",
+    "state": "enabled",
+    "featureSettings": {
+        "numberMatchingRequiredState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": " 00000000-0000-0000-0000-000000000000"
+            }
+        }
+    },
+    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets": [
+        {
+            "targetType": "group",
+            "id": "all_users",
+            "isRegistrationRequired": false,
+            "authenticationMode": "any"
+        }
+    ]
+}
+```
 
 ### Turn off number matching
 
