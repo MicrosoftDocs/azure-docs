@@ -11,14 +11,14 @@ ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
-# Quickstart: Deploy Azure Monitor for SAP Solutions with Azure PowerShell
+# Quickstart: Deploy Azure Monitor for SAP solutions with Azure PowerShell
 
 This article describes how you can create Azure Monitor for SAP solutions (AMS) resources using the
 [Az.HanaOnAzure](/powershell/module/az.hanaonazure/#sap-hana-on-azure) PowerShell module.
 
 This content only applies to the AMS (classic) version of the service.
 > [!CAUTION]
-> Azure Monitor for SAP Solutions is currently in public preview. This preview version is provided without a service level agreement. It's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Monitor for SAP solutions is currently in public preview. This preview version is provided without a service level agreement. It's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Requirements
 
@@ -140,7 +140,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-Learn more about Azure Monitor for SAP Solutions.
+Learn more about Azure Monitor for SAP solutions.
 
 > [!div class="nextstepaction"]
 > [Monitor SAP on Azure](monitor-sap-on-azure.md)
