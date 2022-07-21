@@ -82,14 +82,18 @@ landingContent:
           - text: Configure a service and SIM policy - ARM template
             url: configure-service-sim-policy-arm-template.md
   # Card
-  - title: Provision SIMs
+  - title: Provision and manage SIMs
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Provision SIMs - Azure portal
+          - text: Provision new SIMs - Azure portal
             url: provision-sims-azure-portal.md
-          - text: Provision SIMs - ARM template
+          - text: Provision new SIMs - ARM template
             url: provision-sims-arm-template.md
+          - text: Manage existing SIMs
+            url: manage-existing-sims.md
+          - text: Manage SIM groups
+            url: manage-sim-groups.md
   # Card
   - title: Monitor your private mobile network
     linkLists:

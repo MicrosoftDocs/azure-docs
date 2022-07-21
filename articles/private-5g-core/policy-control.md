@@ -80,12 +80,12 @@ Each service includes:
 
 ### SIM policies
 
-*SIM policies* let you define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. You'll need to assign a SIM to a SIM policy before the SIM can use the private mobile network.
+*SIM policies* let you define different sets of policies and interoperability settings that can each be assigned to one or more SIMs. You'll need to assign a SIM policy to a SIM before the UE using that SIM can access the private mobile network.
 
 Each SIM policy includes:
 
-- Top-level settings that are applied to every SIM assigned to the SIM policy. These settings include the UE aggregated maximum bit rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
-- A *network scope*, which defines how SIMs assigned to this SIM policy will connect to the data network. You can use the network scope to determine the following settings:
+- Top-level settings that are applied to every SIM using the SIM policy. These settings include the UE aggregated maximum bit rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
+- A *network scope*, which defines how SIMs using this SIM policy will connect to the data network. You can use the network scope to determine the following settings:
 
   - The services (as described in [Services](#services)) offered to SIMs on this data network.
   - A set of QoS characteristics that will be used to form the default QoS flow for PDU sessions (or EPS bearer for PDN connections in 4G networks).
@@ -105,7 +105,7 @@ When you first come to design the policy control configuration for your own priv
 1. Learn about each of the available options for a service in [Collect the required information for a service](collect-required-information-for-service.md). Compare these options with the requirements of the SDFs to decide on the services you'll need.
 1. Collect the appropriate policy configuration values you'll need for each service, using the information in [Collect the required information for a service](collect-required-information-for-service.md).
 1. Configure each of your services as described in [Configure a service - Azure portal](configure-service-azure-portal.md).
-1. Group your SIMs according to the services they'll require. For each group, configure a SIM policy and assign it to the correct SIMs by carrying out the following procedures:
+1. Categorize your SIMs according to the services they'll require. For each category, configure a SIM policy and assign it to the correct SIMs by carrying out the following procedures:
 
     1. [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md)
     1. [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md)

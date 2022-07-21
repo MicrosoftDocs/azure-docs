@@ -68,10 +68,14 @@ items:
       href: configure-service-sim-policy-arm-template.md
   - name: SIMs
     items:
-    - name: Provision SIMs - Azure portal
+    - name: Provision new SIMs - Azure portal
       href: provision-sims-azure-portal.md
-    - name: Provision SIMs - ARM template
+    - name: Provision new SIMs - ARM template
       href: provision-sims-arm-template.md
+    - name: Manage existing SIMs
+      href: manage-existing-sims.md
+    - name: Manage SIM groups
+      href: manage-sim-groups.md
   - name: Log Analytics
     items:
     - name: Enable Log Analytics for a packet core instance
