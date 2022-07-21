@@ -1,7 +1,7 @@
 ---
 title:  Quotas overview
 description: Learn about to view quotas and request increases in the Azure portal.
-ms.date: 07/25/2022
+ms.date: 07/22/2022
 ms.topic: how-to
 ---
 

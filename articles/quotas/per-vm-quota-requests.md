@@ -1,7 +1,7 @@
 ---
 title: Increase VM-family vCPU quotas
 description: Learn how to request an increase in the vCPU quota limit for a VM family in the Azure portal, which increases the total regional vCPU limit by the same amount.
-ms.date: 07/25/2022
+ms.date: 07/22/2022
 ms.topic: how-to
 ---
 

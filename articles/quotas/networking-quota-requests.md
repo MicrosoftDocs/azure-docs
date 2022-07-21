@@ -1,7 +1,7 @@
 ---
 title: Increase networking quotas
 description: Learn how to request a networking quota increase in the Azure portal.
-ms.date: 07/25/2022
+ms.date: 07/22/2022
 ms.topic: how-to
 ---
 

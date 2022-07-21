@@ -1,7 +1,7 @@
 ---
 title: Increase spot vCPU family quotas
 description: Learn how to request increases for spot vCPU quotas in the Azure portal.
-ms.date: 07/25/2022
+ms.date: 07/22/2022
 ms.topic: how-to
 ---
 
