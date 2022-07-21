@@ -49,6 +49,8 @@ You must enable the feature for your subscription before you use the EncryptionA
     az feature register --name EncryptionAtHost  --namespace Microsoft.Compute 
 
     ```
+    
+    ---
 
 1.	Confirm that the registration state is **Registered** (takes a few minutes) using the command below before trying out the feature.
     
@@ -63,6 +65,8 @@ You must enable the feature for your subscription before you use the EncryptionA
     ```azurecli
     az feature show --name EncryptionAtHost --namespace Microsoft.Compute
     ```
+    
+    ---
 
 Sign in to the Azure portal using the [provided link](https://aka.ms/diskencryptionupdates).
 
