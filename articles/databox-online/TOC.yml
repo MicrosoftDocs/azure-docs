@@ -510,7 +510,7 @@
   - name: Shared release notes
     items:
     - name: 2207 - Current
-      href: azure-stack-edge-gpu-2205-release-notes.md
+      href: azure-stack-edge-gpu-2207-release-notes.md
     - name: 2205 
       href: azure-stack-edge-gpu-2205-release-notes.md
     - name: 2203 
