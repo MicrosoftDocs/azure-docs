@@ -4002,7 +4002,7 @@ Here's how the example returned array might look where the outer `outputs` objec
 
 ### reverse
 
-Reverse the order of items in a colleciton. When used with [sort()](#sort), this function allows a collection to be sorted in descending order.
+Reverse the order of items in a collection. When you use this function with [sort()](#sort), you can sort a collection in descending order.
 
 ```
 reverse([<collection>])
