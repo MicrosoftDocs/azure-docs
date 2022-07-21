@@ -34,9 +34,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
     ![Diagram that shows Azure Monitor for SAP solutions Quick Start 2.](./media/azure-monitor-sap/azure-monitor-quickstart-2-new.png)
 
 
-###### For Azure Monitor for SAP solutions (Classic)
+###### For Azure Monitor for SAP solutions (classic)
 
-1. In Azure **Marketplace** or **Search**, select **Azure Monitor for SAP solutions (Classic)**.
+1. In Azure **Marketplace** or **Search**, select **Azure Monitor for SAP solutions (classic)**.
 
   ![Diagram shows Azure Monitor for SAP solutions classic quick start page.](./media/azure-monitor-sap/azure-monitor-quickstart-classic.png)
 
@@ -48,7 +48,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    When you're selecting a virtual network, ensure that the systems you want to monitor are reachable from within that virtual network. 
 
    > [!IMPORTANT]
-   > Selecting **Share** for **Share data with Microsoft support** enables our support teams to help you with troubleshooting. This feature is available only for Azure Monitor for SAP solutions (Classic)
+   > Selecting **Share** for **Share data with Microsoft support** enables our support teams to help you with troubleshooting. This feature is available only for Azure Monitor for SAP solutions (classic)
 
 
 
