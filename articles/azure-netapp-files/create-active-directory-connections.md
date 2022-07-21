@@ -375,6 +375,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
  
 ## Next steps  
 
+* [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guideslines-active-directory-domain-service-site.md)
 * [Modify Active Directory connections](modify-active-directory-connections.md)
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
