@@ -14,7 +14,7 @@ ms.reviewer: shseth
 Virtual machines and other compute resources require an agent to collect monitoring data required to measure the performance and availability of their guest operating system and workloads. Many legacy agents exist today for this purpose. Eventually, they'll all be replaced by the new consolidated [Azure Monitor agent](./azure-monitor-agent-overview.md). This article describes the legacy agents and the new Azure Monitor agent.
 
 The general recommendation is to use the Azure Monitor agent if you aren't bound by [these limitations](./azure-monitor-agent-overview.md#current-limitations) because it consolidates the features of all the legacy agents listed here and provides [other benefits](#azure-monitor-agent).
-If you do require the limitations today, you may continue to use the other legacy agents listed here until **August 2024**. [Learn more](./azure-monitor-agent-overview.md)
+If you do require the limitations today, you may continue to use the other legacy agents listed here until **August 2024**. [Learn more](./azure-monitor-agent-overview.md).
 
 ## Summary of agents
 
@@ -24,11 +24,11 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 
 | | Azure Monitor agent | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:----|:---|:---|:---|
-| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)<br>[Windows Client OS (preview)](./azure-monitor-agent-windows-client.md)  | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
+| **Environments supported** | Azure<br><br>Other cloud (Azure Arc)<br><br>On-premises (Azure Arc)<br><br>[Windows Client OS (preview)](./azure-monitor-agent-windows-client.md)  | Azure | Azure<br><br>Other cloud<br><br>On-premises | Azure<br><br>Other cloud<br><br>On-premises | 
 | **Agent requirements**  | None | None | None | Requires Log Analytics agent |
-| **Data collected** | Event logs<br>Performance<br>File-based logs (preview)<br> | Event logs<br>ETW events<br>Performance<br>File-based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event logs<br>Performance<br>File-based logs<br>IIS logs<br>Insights and solutions<br>Other services | Process dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Azure Monitor Metrics<br>Event hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics Explorer<br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) | Metrics Explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel | VM insights<br>Service Map |
+| **Data collected** | Event logs<br><br>Performance<br><br>File-based logs (preview)<br> | Event logs<br><br>ETW events<br><br>Performance<br><br>File-based logs<br><br>IIS logs<br><br>.NET app logs<br><br>Crash dumps<br><br>Agent diagnostics logs | Event logs<br><br>Performance<br><br>File-based logs<br><br>IIS logs<br><br>Insights and solutions<br><br>Other services | Process dependencies<br><br>Network connection metrics |
+| **Data sent to** | Azure Monitor Logs<br><br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br><br>Azure Monitor Metrics<br><br>Event hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
+| **Services and**<br>**features**<br>**supported** | Log Analytics<br><br>Metrics Explorer<br><br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) | Metrics Explorer | VM insights<br><br>Log Analytics<br><br>Azure Automation<br><br>Microsoft Defender for Cloud<br><br>Microsoft Sentinel | VM insights<br><br>Service Map |
 
 ### Linux agents
 
