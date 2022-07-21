@@ -87,7 +87,7 @@ The Azure Monitor agent can coexist (run side by side on the same machine) with 
 
 ## Supported regions
 
-The Azure Monitor agent is available in all public regions and Azure Government clouds. It's not yet supported in Air-gapped clouds. For more information, see [Product availability by region](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fglobal-infrastructure%2Fservices%2F%3Fproducts%3Dmonitor%26rar%3Dtrue%26regions%3Dall&data=05%7C01%7Cjeffwo%40microsoft.com%7Cf8f9cf9cebdd4cf5794308da6368792e%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637931597629278725%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=VJzaLPOJlBqyOHS0zmvyHMdviIjIGAWCmVD%2FWJZjUIA%3D&reserved=0)
+Azure Monitor agent is available in all public regions and Azure Government clouds. It's not yet supported in air-gapped clouds. For more information, see [Product availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&rar=true&regions=all).
 
 ## Supported operating systems
 

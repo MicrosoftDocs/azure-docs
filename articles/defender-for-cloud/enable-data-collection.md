@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 07/06/2022
 ms.custom: mode-other
 ---
-# Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
+# Quickstart: Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to auto-provision the necessary agents and extensions used by Defender for Cloud to your resources.
 
@@ -127,7 +127,9 @@ Defender for Cloud's auto provisioning settings has a toggle for each type of su
 > Learn more about Azure Policy effects including deploy if not exists in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
 
 
-## Enable auto provisioning of the Log Analytics agent and extensions <a name="auto-provision-mma"></a>
+<a name="auto-provision-mma"></a>
+
+## Enable auto provisioning of the Log Analytics agent and extensions
 
 When auto provisioning is on for the Log Analytics agent, Defender for Cloud deploys the agent on all supported Azure VMs and any new ones created. For the list of supported platforms, see [Supported platforms in Microsoft Defender for Cloud](security-center-os-coverage.md).
 
@@ -208,7 +210,9 @@ To enable auto provisioning of the Log Analytics agent:
    > If you select **Yes**, don't delete the workspace(s) created by Defender for Cloud until all VMs have been reconnected to the new target workspace. This operation fails if a workspace is deleted too early.
 
 
-## Windows security event options for the Log Analytics agent <a name="data-collection-tier"></a> 
+<a name="data-collection-tier"></a>
+
+## Windows security event options for the Log Analytics agent 
 
 When you select a data collection tier in Microsoft Defender for Cloud, the security events of the selected tier are stored in your Log Analytics workspace so that you can investigate, search, and audit the events in your workspace. The Log Analytics agent also collects and analyzes the security events required for Defender for Cloud’s threat protection.
 
@@ -263,7 +267,9 @@ You can define the level of security event data to store at the workspace level.
 
 1. Select the amount of raw event data to store and select **Save**.
 
-## Manual agent provisioning <a name="manual-agent"></a>
+<a name="manual-agent"></a>
+
+## Manual agent provisioning
  
 To manually install the Log Analytics agent:
 
@@ -297,7 +303,9 @@ To manually install the Log Analytics agent:
 > [!TIP]
 > For more information about onboarding, see [Automate onboarding of Microsoft Defender for Cloud using PowerShell](powershell-onboarding.md).
 
-## Auto provisioning in cases of a pre-existing agent installation <a name="preexisting"></a>
+<a name="preexisting"></a>
+
+## Auto provisioning in cases of a pre-existing agent installation
 
 The following use cases explain how auto provisioning works in cases when there's already an agent or extension installed.
 
@@ -317,7 +325,9 @@ The following use cases explain how auto provisioning works in cases when there'
     - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Microsoft Defender for Cloud](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](./faq-azure-monitor-logs.yml).
  
 
-## Disable auto provisioning <a name="offprovisioning"></a>
+<a name="offprovisioning"></a>
+
+## Disable auto provisioning
 
 When you disable auto provisioning, agents won't be provisioned on new VMs.
 
