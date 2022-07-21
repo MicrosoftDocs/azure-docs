@@ -12,13 +12,13 @@ services: iot-edge
 
 # Tutorial: Configure, connect, and verify an IoT Edge module for a GPU
 
-This tutorial shows you how to build a GPU-enabled virtual machine (VM) that can run an IoT Edge device that allocates work from one of its modules to your GPU. 
+This tutorial shows you how to build a GPU-enabled virtual machine (VM). From the VM, you'll see how to run an IoT Edge device that allocates work from one of its modules to your GPU. 
 
 We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to:
 * build a GPU-capable VM
 * install the [NVIDIA driver extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) on the VM
 * configure a module on an IoT Edge device to allocate work to a GPU
-* run a module to show it's processing on the GPU
+* run a module to show that it's processing on the GPU
 
 ## Prerequisites
 
@@ -42,15 +42,15 @@ For more information on creating an IoT Edge device, see [Quickstart: Deploy you
 
 ## Create an NVIDIA-compatible virtual machine
 
-To allocate processing power to your GPU, virtual machine (VM) size is important. Not all sizes will accomodate GPU processing. There are different sizes for different workloads. See [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) or [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/) for more information.
+To allocate processing power to your GPU, virtual machine (VM) size is important. Not all sizes will accommodate GPU processing. There are different sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) or [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
 
-Let's create a VM from the IoT Edge VM deployment repository in Github, then configure it to be GPU-enabled.
+Let's create a VM from the IoT Edge VM deployment repository in GitHub, then configure it to be GPU-enabled.
 
-1. Go to the IoT Edge VM deploy repository in Github: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.3).
+1. Go to the IoT Edge VM deploy repository in GitHub: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.3).
 
 1. Select the **Deploy to Azure** button, which initiates a custom VM for you in the Azure portal. This VM is based on an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) template.
 
-   :::image type="content" source="/media/configure-connect-verify-gpu/deploy-to-azure-button.png" alt-text="Screenshot of the 'Deploy to Azure' button in Github.":::
+   :::image type="content" source="/media/configure-connect-verify-gpu/deploy-to-azure-button.png" alt-text="Screenshot of the 'Deploy to Azure' button in GitHub.":::
 
 1. Fill out the **Custom deployment** fields with your Azure credentials and resources:
 
@@ -58,7 +58,7 @@ Let's create a VM from the IoT Edge VM deployment repository in Github, then con
    | :----------------------- | -------------------------------------- |
    | Subscription             | Choose your Azure account subscription.|
    | Resource group           | Add your Azure resource group.         |
-   | Region                   | `East US` <br> GPU VMs are not available in all regions of the US.                                                                 |
+   | Region                   | `East US` <br> GPU VMs aren't available in all regions of the US.                                                                 |
    | Dns Label Prefix         | Create a name for your VM.             |
    | Admin Username           | `adminUser` <br> Alternatively, create your own user name.                                                               |
    | Device Connection String | Copy your connection string from your IoT Edge device, then paste here.                                                               |
@@ -108,7 +108,7 @@ Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it 
    az vm extension list --resource-group <YOUR-RESOURCE-GROUP> --vm-name <YOUR-VM-NAME> -o table
    ```
 
-1. Log into your VM and run the NVIDIA command to confirm the NVIDIA drivers are installed:
+1. Log in to your VM and run the NVIDIA command to confirm the NVIDIA drivers are installed:
 
    ```ssh
    nvidia-smi
@@ -164,7 +164,7 @@ If you have an existing module on your IoT Edge device, adding a configuration u
 
    You should see a non-null value for `DeviceRequests` printed in the console.
 
-To understand the `DeviceRequests` parameter better, view the source code: [moby/host_config.go at master · moby/moby (github.com)](https://github.com/moby/moby/blob/master/api/types/container/host_config.go)
+To understand the `DeviceRequests` parameter better, view the source code: [moby/host_config.go](https://github.com/moby/moby/blob/master/api/types/container/host_config.go)
 
 ### Enable a GPU in a prefabricated NVIDIA module
 
@@ -184,7 +184,7 @@ The NVIDIA modules are already in Docker containers. Let's add an NIVDIA module 
 
 1. Select the **Environment Variables** tab.
 
-1. Add the environment variable name `NVIDIA_VISIBLE_DEVICES` with the value `0`. The value represents a list of your modules on your device, with `0` being the beginning of the list. This is how many devices you want assigned to a GPU. Since we only have one module here, we want the first one on our list to be GPU-enabled.
+1. Add the environment variable name `NVIDIA_VISIBLE_DEVICES` with the value `0`. The value represents a list of your modules on your device, with `0` being the beginning of the list. This value is how many devices you want assigned to a GPU. Since we only have one module here, we want the first one on our list to be GPU-enabled.
 
    | Name                   | Type | Value |
    | :--------------------- | ---- | ----- |
@@ -196,4 +196,4 @@ The NVIDIA modules are already in Docker containers. Let's add an NIVDIA module 
 
 1. Select the "Create" button to create the module.
 
-1. Select the **Rrefresh** button on the top bar menu of your VM. You should see your new module appear.
+1. Select the **Refresh** button on the top bar menu of your VM. You should see your new module appear.
