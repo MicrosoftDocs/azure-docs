@@ -7,15 +7,29 @@ ms.date: 05/26/2022
 ---
 # Azure status overview
 
-[Azure status](https://status.azure.com/status/) provides you with a global view of the health of Azure services and regions. With Azure status, you can get information on service availability. Azure status is available to everyone to view all services that report their service health, as well as incidents with wide-ranging impact. If you're a current Azure user, however, we strongly encourage you to use the personalized experience in [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health includes all outages, upcoming planned maintenance activities, and service advisories.
+[Azure status](https://azure.status.com/) provides you with a global view of the health of Azure services and regions. With Azure status, you can get information on service availability. Azure status is available to everyone to view all services that report their service health, as well as incidents with wide-ranging impact. If you're a current Azure user, however, we strongly encourage you to use the personalized experience in [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health includes all outages, upcoming planned maintenance activities, and service advisories.
 
-![Azure status page](./media/azure-status-overview/azure-status.PNG)
+:::image type="content" source="./media/azure-status-overview/azure-status.PNG" alt-text="Top level Azure Status page.":::
+
+This experience was updated on July 25, 2022.  For more information, see [What's New in Azure Service Health](whats-new#azure-service-health-portal-experience-update) 
 
 ## Azure status updates
 
 The Azure status page gets updated in real time as the health of Azure services change. If you leave the Azure status page open, you can control the rate at which the page refreshes with new data. At the top, you can see the last time the page was updated.
 
-![Azure status refresh](./media/azure-status-overview/update.PNG)
+:::image type="content" source="./media/azure-status-overview/update.PNG" alt-text="Azure status refresh page.":::
+
+## Azure status banner
+
+The status banner on the Azure Status page highlights active incidents affecting Azure services.
+
+:::image type="content" source="./media/azure-status-overview/banner.png" alt-text="Azure status refresh page.":::
+
+## Current Impact tab
+
+Azure status page shows the current impact of an active event on the entirety of Azure. Use [Azure Service Health](service-health-overview.md) to see view other issues that may be impacting your services.  
+
+:::image type="content" source="./media/azure-status-overview/banner.png" alt-text="Azure status refresh page.":::
 
 ## RSS Feed
 

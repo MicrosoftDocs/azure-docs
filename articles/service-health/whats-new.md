@@ -10,10 +10,10 @@ ms.date: 07/20/2022
 This article lists recent changes in the Azure Service Health service. 
 
 ## Azure Status page location changed
-The Azure status page location is now [azure.status.microsoft](azure.status.microsoft). Previously it was status.azure.com. Going to the older page automatically redirects to the new one. 
+On July 25th, 2022 the Azure status page location changed to [azure.status.microsoft](azure.status.microsoft) from status.azure.com. The older page automatically redirects to the new one. 
 
 ## User interface changes in Azure Status page
-The following changes were made
+The following changes were made on July 25th, 2022: 
  - A new tab named **Current Impact** was added to the Azure Status page. For more information see [link to updated page](filename to update page).
  - A new banner was added to the page. 
  - The health history UI has been updated. 
