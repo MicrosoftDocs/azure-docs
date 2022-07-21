@@ -7,11 +7,11 @@ ms.author: ankujain
 ---
 # Azure Service Fabric managed cluster (SFMC) node auto-repair
 
-Service Fabric managed cluster (SFMC) has added a capability to help keep a cluster healthy automatically via node auto-repair further reducing operational management required. This new capability will detect when nodes are down in a cluster and attempt to repair them without customer intervention required. In this document, you'll learn how automatic node repair works for Service Fabric managed cluster nodes.
+Service Fabric managed cluster (SFMC) has added a capability to help keep a cluster healthy automatically via node auto-repair, further reducing operational management required. This new capability will detect when nodes are down in a cluster and attempt to repair them without customer intervention. In this document, you'll learn how automatic node repair works for Service Fabric managed cluster nodes.
 
 ## How SFMC checks when nodes are down 
 
-Service Fabric managed cluster continuously monitors the health of nodes and records the time when a node goes up and down. If a node is detected to be down for 24 hours, SFMC initiates automatic repair actions on the node. This time window is set to 24 hours at launch and can be optimized in future.
+Service Fabric managed cluster continuously monitors the health of nodes and records the time when a node goes up and down. If a node is detected to be down for a pre-defined period, SFMC initiates automatic repair actions on the node. This pre-defined period is currently configured to be 24 hours at launch and can be optimized in future.
 
 ## How automatic repair works
 
