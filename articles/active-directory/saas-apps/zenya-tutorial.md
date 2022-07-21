@@ -33,7 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Zenya supports **SP** initiated SSO.
-* Zenya supports [Automated user provisioning](iprova-provisioning-tutorial.md).
+* Zenya supports [Automated user provisioning](zenya-provisioning-tutorial.md).
 
 ## Add Zenya from the gallery
 
@@ -70,7 +70,7 @@ In this section, you retrieve information from Zenya to configure Azure AD singl
      `https://<SUBDOMAIN>.iprova.be/saml2info`  
      `https://<SUBDOMAIN>.iprova.eu/saml2info` 
 
-	![View the Zenya SAML2 info page](media/iprova-tutorial/information.png)
+	![View the Zenya SAML2 info page](media/zenya-tutorial/information.png)
 
 1. Leave the browser tab open while you proceed with the next steps in another browser tab.
 
@@ -144,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. Scroll down to **Access control**.
 
-	![Zenya Access control settings](media/iprova-tutorial/access-control.png)
+	![Zenya Access control settings](media/zenya-tutorial/access-control.png)
 
 7. Find the setting **Users are automatically logged on with their network accounts**, and change it to **Yes, authentication via SAML**. Additional options now appear.
 
@@ -154,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 10. Zenya asks if you want to download federation data from a URL or upload it from a file. Select the **From URL** option.
 
-	![Download Azure AD metadata](media/iprova-tutorial/metadata.png)
+	![Download Azure AD metadata](media/zenya-tutorial/metadata.png)
 
 11. Paste the metadata URL you saved in the last step of the "Configure Azure AD single sign-on" section.
 
@@ -195,7 +195,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 10. Scroll down to the end of the page, and select **Finish**.
 
 > [!NOTE]
-> Zenya also supports automatic user provisioning, you can find more details [here](./iprova-provisioning-tutorial.md) on how to configure automatic user provisioning.
+> Zenya also supports automatic user provisioning, you can find more details [here](./zenya-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
