@@ -167,7 +167,7 @@ The following tables display the messages displayed in the portal during custom 
 | NotFindRoutingRegistryToGetCertificate | Cannot find the public key for the IP prefix using the registration data access protocol (RDAP) of the regional internet registry (RIR). |
 | CIDRInAuthorizationMessageNotMatchCustomerIP | The CIDR in the authorization message does not match the submitted IP address. |
 | ExpiryDateFormatInvalidOrNotInThefuture | The expiration date provided in the authorization message is in the wrong format or expired. Expected format is yyyymmdd. |
-| AuthMessageFormatInvalid | Authorization message format is not valid. Expected format is xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd. |
+| AuthMessageFormatInvalid | Authorization message format is not valid. Expected format is xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx1.2.3.0/24yyyymmdd. |
 | CannotParseValidCertificateFromRIRPage | Cannot parse the public key for the IP prefix using the registration data access protocol (RDAP) of the regional internet registry (RIR). |
 | ROANotFound | Unable to find route origin authorization (ROA) for validation. |
 | CertFromRIRPageExpired | The public key provided by the registration data access protocol (RDAP) of the regional internet registry (RIR) is expired. |
@@ -186,6 +186,7 @@ The following tables display the messages displayed in the portal during custom 
 
 #### Decommission status
 
+| Status message | Explanation |
 | InternetDecommissioningInProgress | The range is currently being decommissioned. The range will no longer be advertised to the internet. |
 | RegionalDecommissioningInProgress | The range is no longer advertised to the internet and is currently being decommissioned. The range will no longer be advertised regionally within Azure. |
 
