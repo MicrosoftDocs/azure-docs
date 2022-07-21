@@ -11,6 +11,8 @@
     items:
     - name: Azure portal
       href: stream-analytics-quick-create-portal.md
+    - name: Visual Studio Code
+      href: quick-create-visual-studio-code.md
     - name: Azure CLI
       href: quick-create-azure-cli.md
     - name: Bicep
@@ -21,8 +23,6 @@
       href: quick-create-azure-resource-manager.md
     - name: PowerShell
       href: stream-analytics-quick-create-powershell.md
-    - name: Visual Studio Code
-      href: quick-create-visual-studio-code.md
   - name: Create a cluster
     items:
     - name: Azure portal
