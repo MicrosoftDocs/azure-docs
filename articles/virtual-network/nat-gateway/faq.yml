@@ -24,7 +24,7 @@ sections:
 
       - question: How can I use custom IP prefixes (BYOIP) with Virtual Network NAT gateway?
         answer: |
-          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway resource. See [Custom IP address prefix (BYOIP)](/azure/virtual-network/ip-services/custom-ip-address-prefix) to learn more. 
+          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway resource. See [Custom IP address prefix (BYOIP)](../ip-services/custom-ip-address-prefix.md) to learn more. 
       
       - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
         answer: |
@@ -99,6 +99,10 @@ sections:
       - question: How do I delete a Virtual Network NAT gateway resource?
         answer: |
           To delete a Virtual Network NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted.
+      
+      - question: Is there a drop in packets when a virtual network configured with Load balancer outbound rules switches to NAT gateway after being configured to a subnet?
+        answer: |
+          No, there will be no drop in packets. Existing connections with Load balancer will continue to work until those connections officially close. After NAT gateway is added to the subnet of the virtual network, all new connections will then use NAT gateway for making outbound connections. 
       
       - question: Can I use Virtual Network NAT gateway with Azure App Services? 
         answer: |

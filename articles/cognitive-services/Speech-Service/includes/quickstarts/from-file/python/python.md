@@ -40,7 +40,7 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 ### Sample code
 
 > [!NOTE]
-> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+> The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../../how-to-recognize-speech.md) for information on choosing the source language.
 
 ```python
 import azure.cognitiveservices.speech as speechsdk

@@ -15,4 +15,4 @@ ms.date: 04/16/2020
 
 ## Next steps
 
-* Learn [how manage Azure resources](How-To/set-up-qnamaker-service-azure.md)
+* Learn [how to manage Azure resources](How-To/set-up-qnamaker-service-azure.md)

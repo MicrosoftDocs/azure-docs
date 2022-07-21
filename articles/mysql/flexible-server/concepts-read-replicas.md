@@ -1,12 +1,12 @@
 ---
 title: Read replicas - Azure Database for MySQL - Flexible Server
 description: 'Learn about read replicas in Azure Database for MySQL Flexible Server: creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
+author: VandhanaMehta
+ms.author: vamehta
+ms.custom: event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
@@ -149,7 +149,8 @@ If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas
 | Deleted source and standalone servers | When a source server is deleted, replication is stopped to all read replicas. These replicas automatically become standalone servers and can accept both reads and writes. The source server itself is deleted. |
 | User accounts | Users on the source server are replicated to the read replicas. You can only connect to a read replica using the user accounts available on the source server. |
 | Server parameters | To prevent data from becoming out of sync and to avoid potential data loss or corruption, some server parameters are locked from being updated when using read replicas. <br> The following server parameters are locked on both the source and replica servers:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parameter is locked on the replica servers. <br> To update one of the above parameters on the source server, delete replica servers, update the parameter value on the source, and recreate replicas.
-<br> When configuring session level parameters such as ‘foreign_keys_checks’ on the read replica, ensure the parameter values being set on the read replica are consistent with that of the source server.|
+|Session level parameters | When configuring session level parameters such as ‘foreign_keys_checks’ on the read replica, ensure the parameter values being set on the read replica are consistent with that of the source server.|
+|Adding AUTO_INCREMENT Primary Key column to the existing table in the source server.|We don’t recommend altering table with AUTO_INCREMENT post read replica creation, as it breaks the replication. But in case you would like to add the auto increment column post creating a replica server. We recommend these two approaches:  <br> - Create a new table with the same schema of table you want to modify. In the new table alter the column with AUTO_INCREMENT and then from the original table restore the data. Drop old table and rename it in the source, this doesn’t need us to delete the replica server but may need large insert cost to creating backup table. <br> -    The other quicker method is to recreate the replica after adding all auto increment columns.|
 | Other | - Creating a replica of a replica is not supported. <br> - In-memory tables may cause replicas to become out of sync. This is a limitation of the MySQL replication technology. Read more in the [MySQL reference documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) for more information. <br>- Ensure the source server tables have primary keys. Lack of primary keys may result in replication latency between the source and replicas.<br>- Review the full list of MySQL replication limitations in the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
 
 ## Next steps

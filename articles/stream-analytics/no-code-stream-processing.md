@@ -25,7 +25,7 @@ You can:
 - Perform data preparation operations like joins and filters
 - Tackle advanced scenarios such as time-window aggregations (tumbling, hopping, and session windows) for group-by operations
 
-After you create and run your Stream Analytics jobs, you can easily operationalize production workloads. Use the right set of [built-in metrics](stream-analytics-monitoring.md) for monitoring and troubleshooting purposes. Stream Analytics jobs are billed according to the [pricing model](https://azure.microsoft.com/pricing/details/stream-analytics/) when they're running.
+After you create and run your Stream Analytics jobs, you can easily operationalize production workloads. Use the right set of [built-in metrics](stream-analytics-job-metrics.md) for monitoring and troubleshooting purposes. Stream Analytics jobs are billed according to the [pricing model](https://azure.microsoft.com/pricing/details/stream-analytics/) when they're running.
 
 ## Prerequisites
 
@@ -258,7 +258,7 @@ You can see the list of all Stream Analytics jobs created by no-code drag and dr
 - Status – The status of the job. Select Refresh on top of the list to see the latest status.
 - Streaming units – The number of Streaming units selected when you started the job.
 - Output watermark - An indicator of liveliness for the data produced by the job. All events before the timestamp are already computed.
-- Job monitoring – Select **Open metrics** to see the metrics related to this Stream Analytics job. For more information about the metrics you can use to monitor your Stream Analytics job, see [Metrics available for Stream Analytics](stream-analytics-monitoring.md#metrics-available-for-stream-analytics).
+- Job monitoring – Select **Open metrics** to see the metrics related to this Stream Analytics job. For more information about the metrics you can use to monitor your Stream Analytics job, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md).
 - Operations – Start, stop, or delete the job.
 
 ## Next steps

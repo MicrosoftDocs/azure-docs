@@ -7,8 +7,9 @@ ms.subservice: single-server
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 06/20/2022
 ---
+
 # What's new in Azure Database for MySQL - Single Server?
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
@@ -21,6 +22,10 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 Enabled the ability to change the server parameter innodb_ft_server_stopword_table from Portal/CLI.
 Users can now change the value of the innodb_ft_server_stopword_table parameter using the Azure portal and CLI. This parameter helps to configure your own InnoDB FULLTEXT index stopword list for all InnoDB tables. For more information, see [innodb_ft_server_stopword_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_server_stopword_table).
+
+**Known Issues**
+
+Customers using PHP driver with [enableRedirect](./how-to-redirection.md) can no longer connect to the Azure Database for MySQL Single Server, as the CA certificates of the host servers were changed from BaltimoreCyberTrustRoot to DigiCertGlobalRootG2 to address compliance requirements. For successful connections to your database using PHP driver with enableRedirect please visit this [link](./concepts-certificate-rotation.md#do-i-need-to-make-any-changes-on-my-client-to-maintain-connectivity).
 
 ## March 2022
 

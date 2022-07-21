@@ -79,6 +79,12 @@ The following limits apply only for networking resources managed through Azure R
 <sup>1</sup> The limit is up to 1,200 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set placement groups.
 <sup>2</sup> An exception to this limit is that 2 public load balancers can be in front of a VM if an IPv4 address config is used for one load balancer and IPv6 address config is used for the second.
 
+**Gateway Load Balancer**
+
+| Resource                                | Limit        |
+|-----------------------------------------|------------------------------|
+| Resources chained per Load Balancer (LB frontend configurations or VM NIC IP configurations combined) | 100 |
+ 
 **Basic Load Balancer**
 
 | Resource                                | Limit        |

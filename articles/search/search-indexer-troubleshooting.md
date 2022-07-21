@@ -8,7 +8,7 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 06/24/2022
 ---
 
 # Indexer troubleshooting guidance for Azure Cognitive Search
@@ -72,7 +72,7 @@ When you are receiving any of those errors:
 * Make sure your source is accessible by trying to connect to it directly and not through the search service
 * Check your source in the Azure portal for any current errors or outages
 * Check for any network outages in [Azure Status](https://status.azure.com/status)
-* Check you are using public DNS for name resolution and not an [Azure Private DNS](/dns/private-dns-overview)
+* Check you are using public DNS for name resolution and not an [Azure Private DNS](../dns/private-dns-overview.md)
 
 
 ## Azure SQL Database serverless indexing (error code 40613)
@@ -213,6 +213,20 @@ api-key: [admin key]
 ## Missing content from Cosmos DB
 
 Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+
+
+## Indexer reflects a different document count than data source or index
+
+Indexer may show a different document count than either the data source, the index or count in your code in a point in time, depending on specific circumstances. Here are some possible causes of why this may occur:
+
+- The indexer has a Deleted Document Policy. The deleted documents get counted on the indexer end if they are indexed before they get deleted.
+- If the ID column in the data source is not unique. This is for data sources that have the concept of column, such as Cosmos DB.
+- If the data source definition has a different query than the one you are using to estimate the number of records. In example, in your data base you are querying all your data base record count, while in the data source definition query you may be selecting just a subset of records to index.
+- The counts are being checked in different intervals for each component of the pipeline: data source, indexer and index.
+- The index may take some minutes to show the real document count. 
+- The data source has a file that's mapped to many documents. This condition can occur when [indexing blobs](search-howto-index-json-blobs.md) and "parsingMode" is set to **`jsonArray`** and **`jsonLines`**.
+- Due to [documents processed multiple times](#documents-processed-multiple-times).
+ 
 
 ## Documents processed multiple times
 

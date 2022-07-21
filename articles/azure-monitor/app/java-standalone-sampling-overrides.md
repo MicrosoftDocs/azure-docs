@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 03/22/2021
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Sampling overrides (preview) - Azure Monitor Application Insights for Java

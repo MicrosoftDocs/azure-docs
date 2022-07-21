@@ -1,6 +1,6 @@
 ---
-title: Deploy an application with the Dapr cluster extension for Azure Kubernetes Service (AKS)
-description: Use the Dapr cluster extension for Azure Kubernetes Service (AKS) to deploy an application
+title: Deploy an application with the Dapr cluster extension for Azure Kubernetes Service (AKS) or Arc-enabled Kubernetes
+description: Use the Dapr cluster extension for Azure Kubernetes Service (AKS) or Arc-enabled Kubernetes to deploy an application
 author: nickomang
 ms.author: nickoman
 ms.service: container-service
@@ -9,15 +9,15 @@ ms.date: 05/03/2022
 ms.custom: template-quickstart, mode-other, event-tier1-build-2022
 ---
 
-# Quickstart: Deploy an application using the Dapr cluster extension for Azure Kubernetes Service (AKS)
+# Quickstart: Deploy an application using the Dapr cluster extension for Azure Kubernetes Service (AKS) or Arc-enabled Kubernetes
 
-In this quickstart, you will get familiar with using the [Dapr cluster extension][dapr-overview] in an AKS cluster. You will be deploying a hello world example, consisting of a Python application that generates messages and a Node application that consumes and persists them.
+In this quickstart, you will get familiar with using the [Dapr cluster extension][dapr-overview] in an AKS or Arc-enabled Kubernetes cluster. You will be deploying a hello world example, consisting of a Python application that generates messages and a Node application that consumes and persists them.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed](/cli/azure/install-azure-cli).
-* An AKS cluster with the [Dapr cluster extension][dapr-overview] enabled
+* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] installed.
+* An AKS or Arc-enabled Kubernetes cluster with the [Dapr cluster extension][dapr-overview] enabled
 
 ## Clone the repository
 
@@ -201,11 +201,23 @@ You should see the latest JSON in the response.
 
 ## Clean up resources
 
-Use the [az group delete][az-group-delete] command to remove the resource group, the AKS cluster, namespace, and all related resources.
+### [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+Use the [az group delete][az-group-delete] command to remove the resource group, the cluster, the namespace, and all related resources.
+
+```azurecli
 az group delete --name MyResourceGroup
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Use the [Remove-AzResourceGroup][remove-azresourcegroup] command to remove the resource group, the cluster, the namespace, and all related resources.
+
+```azurepowershell
+Remove-AzResourceGroup -Name MyResourceGroup
+```
+
+---
 
 ## Next steps
 
@@ -215,9 +227,12 @@ After successfully deploying this sample application:
 
 <!-- LINKS -->
 <!-- INTERNAL -->
+[azure-cli-install]: /cli/azure/install-azure-cli
+[azure-powershell-install]: /powershell/azure/install-az-ps
 [cluster-extensions]: ./cluster-extensions.md
 [dapr-overview]: ./dapr.md
 [az-group-delete]: /cli/azure/group#az-group-delete
+[remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 
 <!-- EXTERNAL -->
 [hello-world-gh]: https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes

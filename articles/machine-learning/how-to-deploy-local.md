@@ -26,7 +26,7 @@ Scenarios for local deployment include:
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
 - A model and an environment. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](tutorial-train-deploy-notebook.md).
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 - A conda manager, like Anaconda or Miniconda, if you want to mirror Azure Machine Learning package dependencies.
@@ -245,7 +245,7 @@ model = Model.register(model_path="sklearn_regression_model.pkl",
 
 You can then find your newly registered model on the Azure Machine Learning **Model** tab:
 
-:::image type="content" source="media/how-to-deploy-local/registered-model.png" alt-text="Screenshot of Azure Machine Learning Model tab, showing an uploaded model.":::
+:::image type="content" source="media/how-to-deploy-local/registered-model.png" alt-text="Screenshot of Azure Machine Learning Model tab, showing an uploaded model." lightbox="media/how-to-deploy-local/registered-model.png":::
 
 For more information on uploading and updating models and environments, see [Register model and deploy locally with advanced usages](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local-advanced.ipynb).
 

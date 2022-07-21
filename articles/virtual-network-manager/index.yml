@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Virtual Network Manager?
             url: overview.md
+          - text: Common use cases for Azure Virtual Network Manager
+            url: concept-use-cases.md
       - linkListType: concept
         links:
           - text: FAQ

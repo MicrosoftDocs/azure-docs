@@ -348,8 +348,11 @@ Parquet and Delta Lake files contain type descriptions for every column. The fol
 | INT64 |INT(64, true) |bigint |
 | INT64 |INT(64, false) |decimal(20,0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TIME (MICROS) |time - TIME(NANOS) is not supported |
-|INT64 |TIMESTAMP (MILLIS / MICROS) |datetime2 - TIMESTAMP(NANOS) is not supported |
+| INT64 |TIME (MICROS) | time |
+| INT64 |TIME (NANOS) | Not supported |
+| INT64 |TIMESTAMP ([normalized to utc](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#instant-semantics-timestamps-normalized-to-utc)) (MILLIS / MICROS) | datetime2 |
+| INT64 |TIMESTAMP ([not normalized to utc](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#local-semantics-timestamps-not-normalized-to-utc)) (MILLIS / MICROS) | bigint - make sure that you explicitly adjust `bigint` value with the timezone offset before converting it to a datetime value. |
+| INT64 |TIMESTAMP (NANOS) | Not supported |
 |[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LIST |varchar(8000), serialized into JSON |
 |[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(8000), serialized into JSON |
 

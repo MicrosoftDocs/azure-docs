@@ -1,46 +1,46 @@
 ---
-title: Monitor managed online endpoints
+title: Monitor online endpoints
 titleSuffix: Azure Machine Learning
-description: Monitor managed online endpoints and create alerts with Application Insights.
+description: Monitor online endpoints and create alerts with Application Insights.
 services: machine-learning
 ms.service: machine-learning
 ms.author: larryfr
 author: blackmist
 ms.subservice: mlops
-ms.date: 10/21/2021
+ms.date: 06/01/2022
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
 
-# Monitor managed online endpoints
+# Monitor online endpoints
 
-In this article, you learn how to monitor [Azure Machine Learning managed online endpoints](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
+In this article, you learn how to monitor [Azure Machine Learning online endpoints](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your online endpoints.
 
 In this article you learn how to:
 
 > [!div class="checklist"]
-> * View metrics for your managed online endpoint
+> * View metrics for your online endpoint
 > * Create a dashboard for your metrics
 > * Create a metric alert
 
 ## Prerequisites
 
-- Deploy an Azure Machine Learning managed online endpoint.
+- Deploy an Azure Machine Learning online endpoint.
 - You must have at least [Reader access](../role-based-access-control/role-assignments-portal.md) on the endpoint.
 
 ## View metrics
 
-Use the following steps to view metrics for a managed endpoint or deployment:
+Use the following steps to view metrics for an online endpoint or deployment:
 1. Go to the [Azure portal](https://portal.azure.com).
-1. Navigate to the managed online endpoint or deployment resource.
+1. Navigate to the online endpoint or deployment resource.
 
-    Managed online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
+    online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
 
 1. In the left-hand column, select **Metrics**.
 
 ## Available metrics
 
-Depending on the resource that you select, the metrics that you see will be different. Metrics are scoped differently for managed online endpoints and managed online deployments.
+Depending on the resource that you select, the metrics that you see will be different. Metrics are scoped differently for online endpoints and online deployments.
 
 ### Metrics at endpoint scope
 
@@ -61,7 +61,7 @@ Split on the following dimensions:
 
 #### Bandwidth throttling
 
-Bandwidth will be throttled if the limits are exceeded (see managed online endpoints section in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)). To determine if requests are throttled:
+Bandwidth will be throttled if the limits are exceeded for _managed_ online endpoints (see managed online endpoints section in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)). To determine if requests are throttled:
 - Monitor the "Network bytes" metric
 - The response trailers will have the fields: `ms-azureml-bandwidth-request-delay-ms` and `ms-azureml-bandwidth-response-delay-ms`. The values of the fields are the delays, in milliseconds, of the bandwidth throttling.
 
@@ -80,11 +80,11 @@ Split on the following dimension:
 
 ## Create a dashboard
 
-You can create custom dashboards to visualize data from multiple sources in the Azure portal, including the metrics for your managed online endpoint. For more information, see [Create custom KPI dashboards using Application Insights](../azure-monitor/app/tutorial-app-dashboards.md#add-custom-metric-chart).
+You can create custom dashboards to visualize data from multiple sources in the Azure portal, including the metrics for your online endpoint. For more information, see [Create custom KPI dashboards using Application Insights](../azure-monitor/app/tutorial-app-dashboards.md#add-custom-metric-chart).
     
 ## Create an alert
 
-You can also create custom alerts to notify you of important status updates to your managed online endpoint:
+You can also create custom alerts to notify you of important status updates to your online endpoint:
 
 1. At the top right of the metrics page, select **New alert rule**.
 

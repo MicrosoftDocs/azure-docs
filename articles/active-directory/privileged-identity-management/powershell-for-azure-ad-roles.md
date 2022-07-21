@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # PowerShell for Azure AD roles in Privileged Identity Management
 
-This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to manage Azure AD roles in Privileged Identity Management (PIM). It also tells you how to get set up with the Azure AD PowerShell module.
+This article tells you how to use PowerShell cmdlets to manage Azure AD roles using Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra. It also tells you how to get set up with the Azure AD PowerShell module.
 
 ## Installation and Setup
 

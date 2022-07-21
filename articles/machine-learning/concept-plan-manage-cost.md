@@ -156,7 +156,7 @@ Use the following tips to help you manage and optimize your compute resource cos
 
 - Configure your training clusters for autoscaling
 - Set quotas on your subscription and workspaces
-- Set termination policies on your training run
+- Set termination policies on your training job
 - Use low-priority virtual machines (VM)
 - Schedule compute instances to shut down and start up automatically
 - Use an Azure Reserved VM Instance

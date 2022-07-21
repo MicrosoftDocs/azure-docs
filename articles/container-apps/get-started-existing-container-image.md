@@ -62,7 +62,7 @@ The example shown in this article demonstrates how to use a custom container ima
 - Define environment variables
 - Set container CPU or memory requirements
 - Enable and configure Dapr
-- Enable internal or internal ingress
+- Enable external or internal ingress
 - Provide minimum and maximum replica values or scale rules
 
 For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help`.
@@ -189,7 +189,8 @@ az monitor log-analytics query \
 ```powershell
 $LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
 
-az monitor log-analytics query \
+
+az monitor log-analytics query `
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated" `
   --out table

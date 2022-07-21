@@ -2,8 +2,8 @@
 title: "Common issues - Azure Database Migration Service"
 description: Learn about how to troubleshoot common known issues/errors associated with using Azure Database Migration Service.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: dbamaster
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
