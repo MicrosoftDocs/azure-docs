@@ -4,8 +4,7 @@ description: Explains how to prepare an Azure AD tenant for deletion, including 
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager:rkarlin
-
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
