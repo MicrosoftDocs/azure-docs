@@ -85,11 +85,11 @@ Starting in sensor versions 22.2.4, you can now take the following actions from 
 
 - **Merge duplicate devices**. You may need to merge devices if the sensor has discovered separate network entities that are associated with a single, unique device. Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
 
-    For more information, see [Merge devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices).
+- **Delete single devices**. Now, you can delete a single device that hasn't communicated for at least 10 minutes.
 
-- **Delete individual devices**. In addition, you can now delete one or more specific devices that haven't communicated for at least 10 minutes. For more information, see [Delete devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices).
+- **Delete inactive devices by admin users**. Now, all admin users, in addition to the **cyberx** user, can delete inactive devices.
 
-
+For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
 
 ### OT appliance hardware profile updates
 
