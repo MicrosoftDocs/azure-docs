@@ -147,10 +147,10 @@ This section shows you how to create a .NET Core console app that adds an indivi
 1. Replace the namespace statement at the top of the file with the following: 
 
     ```csharp
-    namespace CreateIndividualEnrollment
+    namespace CreateIndividualEnrollment;
     ```
 
-1. Add the following `using` statements just under the `namespace` statement at the top of the file:
+1. Add the following `using` statements at the top of the file **above** the `namespace` statement:
   
     ```csharp
     using System.Threading.Tasks;
@@ -174,9 +174,9 @@ This section shows you how to create a .NET Core console app that adds an indivi
     private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
     ```
 
-1. Replace the `ProvisioningServiceConnectionString` placeholder value with the connection string of the provisioning service that you copied in the previous section.
+    * Replace the `ProvisioningServiceConnectionString` placeholder value with the connection string of the provisioning service that you copied in the previous section.
 
-1. If you're using this article together with the [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) quickstart to provision a simulated device, replace the endorsement key and registration ID with the values that you noted in that quickstart. You can replace the device ID with the value suggested in that quickstart, use your own value, or use the default value in this sample.
+    * If you're using this article together with the [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) quickstart to provision a simulated device, replace the endorsement key with the value that you noted in that quickstart. You can replace the device ID and registration ID with the values suggested in that quickstart, use your own values, or use the default values in this sample.
 
 1. Add the following method to the `Program` class.  This code creates an individual enrollment entry and then calls the `CreateOrUpdateIndividualEnrollmentAsync` method on the `ProvisioningServiceClient` to add the individual enrollment to the provisioning service.
 
@@ -189,7 +189,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
                 ProvisioningServiceClient.CreateFromConnectionString(ProvisioningConnectionString))
         {
             #region Create a new individualEnrollment config
-            Console.WriteLine("\nCreating a new individualEnrollment...");
+            Console.WriteLine("\nCreating a new individualEnrollment object...");
             Attestation attestation = new TpmAttestation(TpmEndorsementKey);
             IndividualEnrollment individualEnrollment =
                     new IndividualEnrollment(
@@ -202,7 +202,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
             #endregion
     
             #region Create the individualEnrollment
-            Console.WriteLine("\nAdding new individualEnrollment...");
+            Console.WriteLine("\nAdding the individualEnrollment to the provisioning service...");
             IndividualEnrollment individualEnrollmentResult =
                 await provisioningServiceClient.CreateOrUpdateIndividualEnrollmentAsync(individualEnrollment).ConfigureAwait(false);
             Console.WriteLine("\nIndividualEnrollment created with success.");
