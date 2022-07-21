@@ -108,7 +108,7 @@ To find more information about the capabilities of the new workbook solution che
 > [!NOTE]
 > Azure Monitor Network Insights workbook is the recommended solution for accessing metric and log analytics for your Application Gateway resources.
 
-1. Ensure [diagnostics settings are enabled](#enable-azure-application-gateway-diagnostics-in-the-portal) to store logs into a Log Analytics workspace. If it is already configured, Azure Monitor Network Insights workbook will be able to consume data from the same location and no additional changes are required.
+1. Ensure [diagnostics settings are enabled](#enable-azure-application-gateway-diagnostics-in-the-portal) to store logs into a Log Analytics workspace. If it is already configured, Azure Monitor Network Insights workbook will be able to consume data from the same location and no more changes are required.
 
 > [!NOTE]
 > All past data is already available within the workbook from the point diagnostic settings were originally enabled. There is no data transfer required.
