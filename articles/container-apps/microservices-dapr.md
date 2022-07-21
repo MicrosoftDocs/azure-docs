@@ -330,8 +330,6 @@ New-AzContainerApp `
   -ScaleMinReplica 1 
 ```
 
-```
-
 ---
 
 By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-python).
