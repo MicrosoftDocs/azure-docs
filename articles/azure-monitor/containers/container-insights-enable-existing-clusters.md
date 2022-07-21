@@ -148,7 +148,6 @@ To enable monitoring directly from one of your AKS clusters in the Azure portal,
 After you've enabled monitoring, it might take about 15 minutes before you can view operational data for the cluster.
 
 ## [Resource Manager template](#tab/arm)
-
 This method includes two JSON templates. One template specifies the configuration to enable monitoring, and the other contains parameter values that you configure to specify the following:
 
 * The AKS container resource ID.
@@ -156,22 +155,19 @@ This method includes two JSON templates. One template specifies the configuratio
 
 >[!NOTE]
 >The template needs to be deployed in the same resource group as the cluster.
->
-
-The Log Analytics workspace has to be created before you enable monitoring using Azure PowerShell or CLI. To create the workspace, you can set it up through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
-
-If you are unfamiliar with the concept of deploying resources by using a template, see:
-
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
-* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
-
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-### Create and execute a template
 
 
+### Prerequisites
+The Log Analytics workspace must be created before you deploy the Resource Manager template.
 
-1. Copy and paste the following JSON syntax into your file:
+
+### Create or download templates
+
+1. Save the template as **existingClusterOnboarding.json**
+ 
+  - If you want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication), then download the template at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file).
+
+  - If you don't want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication), then use the following JSON.
 
     ```json
     {
@@ -227,42 +223,24 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     }
     ```
 
-2. Save this file as **existingClusterOnboarding.json** to a local folder.
+2. Download the parameter file at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file) and save as **existingClusterParam.json**.
 
-3. Paste the following JSON syntax into your file:
+3. Edit the values in the parameter file.
 
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "aksResourceId": {
-          "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-        },
-        "aksResourceLocation": {
-          "value": "<aksClusterLocation>"
-        },
-        "workspaceResourceId": {
-          "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
-        },
-        "aksResourceTagValues": {
-          "value": {
-            "<existing-tag-name1>": "<existing-tag-value1>",
-            "<existing-tag-name2>": "<existing-tag-value2>",
-            "<existing-tag-nameN>": "<existing-tag-valueN>"
-          }
-        }
-      }
-    }
-    ```
+  - For **aksResourceId** and **aksResourceLocation**, use the values on the **AKS Overview** page for the AKS cluster. 
+  - For **workspaceResourceId**, use the resource ID of your Log Analytics workspace.
+  - For **aksResourceTagValues**, use the existing tag values specified for the AKS cluster.
 
-4. Edit the values for **aksResourceId** and **aksResourceLocation** using the values on the **AKS Overview** page for the AKS cluster. The value for **workspaceResourceId** is the full resource ID of your Log Analytics workspace, which includes the workspace name.
 
-    Edit the values for **aksResourceTagValues** to match the existing tag values specified for the AKS cluster.
+### Deploy template
 
-5. Save this file as **existingClusterParam.json** to a local folder.
+If you are unfamiliar with the concept of deploying resources by using a template, see:
 
-6. You are ready to deploy this template.
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
+
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+
 
    * To deploy with Azure PowerShell, use the following commands in the folder that contains the template:
 
