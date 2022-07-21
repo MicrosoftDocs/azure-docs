@@ -203,7 +203,7 @@ A deployment is a set of resources required for hosting the model that does the 
 Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 
 * `name` - Name of the endpoint
-* `input_path` - Path where input data is present
+* `input` - Path where input data is present
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
 1. Invoke the endpoint:

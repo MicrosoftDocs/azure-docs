@@ -1020,6 +1020,8 @@
     - name: Migrate to Availability Zones
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones 
       href: ../availability-zones/migrate-vm.md
+  - name: Virtual machine scale sets
+    href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
   - name: Proximity Placement Groups
     items:
     - name: Overview
@@ -1034,31 +1036,6 @@
     - name: Portal
       displayName: proximity placement groups, ppg
       href: ./windows/proximity-placement-groups-portal.md
-  - name: Virtual machine scale sets
-    items:
-    - name: Overview
-      displayName: Flexible orchestration mode for virtual machine scale sets
-      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
-    - name: Portal
-      displayName: Flexible orchestration mode for virtual machine scale sets
-      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-portal.md
-    - name: CLI
-      displayName: Flexible orchestration mode for virtual machine scale sets
-      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli.md
-    - name: PowerShell
-      displayName: Flexible orchestration mode for virtual machine scale sets
-      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-powershell.md
-    - name: ARM template
-      displayName: Flexible orchestration mode for virtual machine scale sets
-      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-rest-api.md
-    - name: Autoscale
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-    - name: Orchestration modes
-      displayName: VMSS, flex, scale set, scale, virtual machine scale set
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-    - name: Migration and considerations
-      displayName: VMSS, flex, scale set, scale, virtual machine scale set
-      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources.md
   - name: Understand VM reboots
     href: understand-vm-reboots.md
   - name: Azure Regions
@@ -1231,8 +1208,10 @@
             href: ./windows/disk-encryption-windows-aad.md
   - name: Performance and cost optimization
     items:
-    - name: Ultra disks
+    - name: Deploy an ultra disk
       href: disks-enable-ultra-ssd.md
+    - name: Deploy a premium SSD v2
+      href: disks-deploy-premium-v2.md
       displayname: Performance, cost, perf, disks, disk
     - name: Virtual machine and disk performance
       href: disks-performance.md
@@ -1886,7 +1865,7 @@
         href: ../azure-monitor/vm/vminsights-performance.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Analyze data with log queries
         displayName: Azure monitor, monitoring
-        href: /azure/azure-monitor/vm/vminsights-log-query
+        href: ../azure-monitor/vm/vminsights-log-query.md
       - name: Visualize data with workbooks
         displayName: Azure monitor, monitoring
         href: ../azure-monitor/vm/vminsights-workbooks.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
@@ -1939,8 +1918,6 @@
     - name: Overview
       href: ../backup/backup-azure-vms-introduction.md?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
-    - name: Creating restore points
-      href: virtual-machines-create-restore-points.md
     - name: Quickstarts
       items:
       - name: CLI
@@ -1985,6 +1962,28 @@
       href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md?context=/azure/virtual-machines/context/context
     - name: Fail back a VM to the primary region
       href: ../site-recovery/azure-to-azure-tutorial-failback.md?context=/azure/virtual-machines/context/context
+  - name: VM restore points
+    items:
+    - name: Overview
+      href: virtual-machines-create-restore-points.md
+    - name: Quickstarts
+      items:
+      - name: Create VM restore points
+        href: create-restore-points.md
+    - name: Manage VM restore points
+      href: manage-restore-points.md 
+    - name: Tutorials
+      items: 
+      - name: CLI
+        href: virtual-machines-create-restore-points-cli.md
+      - name: PowerShell
+        href: virtual-machines-create-restore-points-powershell.md
+      - name: Portal
+        href: virtual-machines-create-restore-points-portal.md
+    - name: Support matrix
+      href: concepts-restore-points.md
+    - name: Troubleshooting
+      href: restore-point-troubleshooting.md  
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group

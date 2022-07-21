@@ -68,7 +68,7 @@ If you are managing Microsoft Sentinel resources for multiple customers, you can
 
 ## Create cross-tenant workbooks
 
-[Azure Monitor Workbooks in Microsoft Sentinel](../../sentinel/overview.md#workbooks) help you visualize and monitor data from your connected data sources to gain insights. You can use the built-in workbook templates in Microsoft Sentinel, or create custom workbooks for your scenarios.
+[Azure Monitor workbooks in Microsoft Sentinel](../../sentinel/monitor-your-data.md) help you visualize and monitor data from your connected data sources to gain insights. You can use the built-in workbook templates in Microsoft Sentinel, or create custom workbooks for your scenarios.
 
 You can deploy workbooks in your managing tenant and create at-scale dashboards to monitor and query data across customer tenants. For more information, see [Cross-workspace workbooks](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks).
 
