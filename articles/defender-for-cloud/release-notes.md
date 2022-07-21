@@ -90,6 +90,8 @@ Today's increasing threats to organizations stretch the limits of security perso
 
 Now with the governance experience, security teams can assign remediation of security recommendations to the resource owners and require a remediation schedule. They can have full transparency into the progress of the remediation and get notified when tasks are overdue.
 
+This feature is free while it is in the preview phase.
+
 Learn more about the governance experience in [Driving your organization to remediate security issues with recommendation governance](governance-rules.md).
 
 ### Filter security alerts by IP address
