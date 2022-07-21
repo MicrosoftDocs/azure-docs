@@ -53,7 +53,7 @@ Under **Admin consent requests**,  select **Yes** for **Users can request admin 
 
 ## Enable the admin consent workflow using Microsoft Graph
 
-To configure the admin consent workflow programmatically, use the [Update adminConsentRequestPolicy]() API in Microsoft Graph.
+To configure the admin consent workflow programmatically, use the [Update adminConsentRequestPolicy](/graph/api/adminconsentrequestpolicy-update) API in Microsoft Graph.
 
 ## Next steps
 
