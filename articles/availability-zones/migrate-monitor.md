@@ -74,7 +74,7 @@ The new cluster isn’t billed during its first day to avoid double billing duri
 Learn more about:
 
 > [!div class="nextstepaction"]
-> [Azure Monitor Logs Dedicated Clusters](../azure-monitor/logs/logs-dedicated-clusters) and the capabilities they provide.
+> [Azure Monitor Logs Dedicated Clusters](../azure-monitor/logs/logs-dedicated-clusters.md) and the capabilities they provide.
 
 > [!div class="nextstepaction"]
 > [Azure Services that support Availability Zones](az-region.md)
