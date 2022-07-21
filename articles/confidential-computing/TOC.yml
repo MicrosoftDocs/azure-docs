@@ -87,7 +87,7 @@
       href: confidential-computing-deployment-models.md
     - name: Application enclave nodes on AKS
       items:
-      - name: Application enclave DCSv2/DCsv3 VM nodes Intel SGX
+      - name: Application enclave Intel SGX DCSv2/DCsv3 nodes 
         href: confidential-nodes-aks-overview.md
       - name: Deploy application enclave nodes on AKS
         href: confidential-enclave-nodes-aks-get-started.md
