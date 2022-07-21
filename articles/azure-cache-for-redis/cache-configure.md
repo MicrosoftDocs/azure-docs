@@ -27,9 +27,9 @@ You can view and configure the following settings using the **Resource Menu**. T
 - [Overview](#overview)
 - [Activity log](#activity-log)
 - [Access control (IAM)](#access-control-iam)
-- [Tags](#tags) 
+- [Tags](#tags)
 - [Diagnose and solve problems](#diagnose-and-solve-problems)
-- [Events](#events) <!-- Need some text for this.  -->
+- [Events](#events)
 - [Settings](#settings)
   - [Access keys](#access-keys)
   - [Advanced settings](#advanced-settings)
@@ -41,7 +41,7 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Schedule updates](#schedule-updates)
   - [Geo-replication](#geo-replication)
   - [Virtual Network](#virtual-network)
-  - [Private Endpoint](#private-endpoint) 
+  - [Private Endpoint](#private-endpoint)
   - [Firewall](#firewall)
   - [Properties](#properties)
   - [Locks](#locks)
@@ -50,13 +50,14 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Export data](#importexport)
   - [Reboot](#reboot)
 - [Monitoring](#monitoring)
-  - [Insights](#insights)  - [Alerts](#alerts)
+  - [Insights](#insights)  
+  - [Alerts](#alerts)
   - [Metrics](#metrics)
   - [Diagnostic settings](#diagnostic-settings)
   - [Advisor recommendations](#advisor-recommendations)
   - [Workbooks](#workbooks)
 - Automation
-  - Tasks (preview) <!-- Need some text for this.  -->
+  - [Tasks (preview)](#tasks)
   - [Export template](#export-template)
 - Support & troubleshooting settings
   - [Resource health](#resource-health)
@@ -243,7 +244,7 @@ For more information, see [How to configure persistence for a Premium Azure Cach
 
 ### (preview) Identity
 
-Use **(preview) Identity** to configure managed identities. Managed identities are a common tool used in Azure to help developers minimize the burden of managing secrets and login information. 
+Use **(preview) Identity** to configure managed identities. Managed identities are a common tool used in Azure to help developers minimize the burden of managing secrets and login information.
 
 Presently, you can only use managed identies for storage. For more information, see [Managed identity for storage (Preview)](cache-managed-identity.md).
 
@@ -322,9 +323,9 @@ Import/Export is an Azure Cache for Redis data management operation that allows 
 
 You can use import with Redis-compatible RDB files from any Redis server running in any cloud or environment:
 
-- including Redis running on Linux 
+- including Redis running on Linux
 - Windows
-- any cloud provider such as Amazon Web Services and others 
+- any cloud provider such as Amazon Web Services and others
 
 Importing data is an easy way to create a cache with pre-populated data. During the import process, Azure Cache for Redis loads the RDB files from Azure storage into memory, and then inserts the keys into the cache.
 
@@ -332,7 +333,6 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
 
 > [!IMPORTANT]
 > Import/Export is only available for Premium tier caches. For more information and instructions, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
->
 >
 
 ### Reboot
@@ -366,7 +366,7 @@ For more information on Azure Cache for Redis monitoring and diagnostics, see [H
 
 ### Insights
 
-Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics. 
+Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics.
 
 For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts).
 
@@ -391,16 +391,15 @@ By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-mon
 
 The **Advisor recommendations** on the left displays recommendations for your cache. During normal operations, no recommendations are displayed.
 
-:::image type="content" source="media/cache-configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the recommendations are displayed.":::
+:::image type="content" source="media/cache-configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the Advisor recommendations are displayed but there are no current ones.":::
 
 If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert is displayed in the **Overview** of the Resource menu.
 
-:::image type="content" source="media/cache-configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in the Azure Cache for Redis section.":::
-<!-- Might want a better recommendation in the image. -->
+:::image type="content" source="media/cache-configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in when Overview is selected in the Resource menu.":::
 
 Further information can be found on the **Recommendations** in the working pane of the Azure portal.
 
-:::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Recommendations":::
+:::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations":::
 <!-- How do we trigger an event that causes a good recommendation for the image? -->
 
 You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu.
@@ -429,7 +428,6 @@ Azure Automation delivers a cloud-based automation, operating system updates, an
 Select **Tasks** to  help you manage Azure Cache for Redis resources more easily. These tasks vary in number and availability, based on the resource type. Presently, you can only use the **Send monthly cost for resource** template to create a task while in preview.
 
 For more information, see [Manage Azure resources and monitor costs by creating automation tasks](/azure/logic-apps/create-automation-tasks-azure-resources).
-
 
 ### Export template
 
@@ -543,7 +541,6 @@ For more information about databases, see [What are Redis databases?](cache-deve
 >- REPLICAOF
 >- ACL
 >- CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
->
 >
 
 For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
