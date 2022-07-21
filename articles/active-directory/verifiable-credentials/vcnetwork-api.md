@@ -8,7 +8,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
-ms.date: 07/19/2022
+ms.date: 07/22/2022
 ms.author: barclayn
 
 #Customer intent: As a verifiable credentials developer, I want to configure verifying credentials from another party 
@@ -20,7 +20,8 @@ ms.author: barclayn
 
 The Microsoft Entra Verified ID Network API enables you to search for published credentials in the [Entra Verified ID Network](vc-network.md). 
 
-> The API is intended for developers comfortable with RESTful APIs. 
+>[!NOTE] 
+>The API is intended for developers comfortable with RESTful APIs.
 
 ## Base URL
 
