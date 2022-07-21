@@ -27,7 +27,7 @@ You can submit a request for a quota increase directly from **My quotas**. Follo
 1. On the Overview page, select a provider, such as **Compute**.
 
    > [!NOTE]
-   > For all other providers, you'll see a **Request increase** column instead of the **Adjustable** column described below. There, you can request an increase for a specific quota, or create a support request for the increase.
+   > For all providers other than Compute, you'll see a **Request increase** column instead of the **Adjustable** column described below. There, you can request an increase for a specific quota, or create a support request for the increase.
 
 1. On the **My quotas** page, under **Quota name**, select the quota you want to increase. Make sure that the **Adjustable** column shows **Yes** for this quota.
 1. Near the top of the page, select **Request quota increase**, then select **Enter a new limit**.
