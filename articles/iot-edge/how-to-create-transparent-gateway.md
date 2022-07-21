@@ -114,7 +114,7 @@ If you don't have your own certificate authority and want to use demo certificat
 
 # [IoT Edge](#tab/iotedge)
 
-If you created the certificates on a different machine, copy them over to your IoT Edge device then proceed with the next steps.
+If you created the certificates on a different machine, copy them over to your IoT Edge device then proceed with the next steps. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/). Choose one of these methods that best matches your scenario.
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
