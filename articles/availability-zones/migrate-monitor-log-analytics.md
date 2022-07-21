@@ -44,13 +44,11 @@ There are no downtime requirements.
 
 ## Migration process: Moving to a dedicated cluster
 
-### How to move to a dedicated cluster with availability zones support
-
-#### Determine the current cluster for your workspace
+### Step 1: Determine the current cluster for your workspace
 
 To determine the current workspace link status for your workspace, use [CLI, PowerShell or REST](../azure-monitor/logs/logs-dedicated-clusters.md#check-workspace-link-status) to retrieve the [cluster details](../azure-monitor/logs/logs-dedicated-clusters.md#check-cluster-provisioning-status). If the cluster uses an availability zone, then it will have a property called `isAvailabilityZonesEnabled` with a value of `true`. Once a cluster is created, this property cannot be altered.
 
-#### Create a dedicated cluster with availability zone support
+### Step 2: Create a dedicated cluster with availability zone support
 
 Move your workspace to an availability zone by [creating a new dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md#create-a-dedicated-cluster) in a region that supports availability zones. The cluster will automatically be enabled for availability zones. Then [link your workspace to the new cluster](../azure-monitor/logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 
@@ -61,7 +59,7 @@ Transitioning to a new cluster can be a gradual process. Don't remove the previo
 
 Any queries against your workspace will query both clusters as required to provide you with a single, unified result set. That means that all Azure Monitor features relying on the workspace such as workbooks and dashboards will keep getting the full, unified result set based on data from both clusters.
 
-#### Billing
+## Billing
 There is a [cost for using a dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md#create-a-dedicated-cluster). It requires a daily capacity reservation of 500 GB. 
 
 If you already have a dedicated cluster and choose to retain it to access its data, you’ll be charged for both dedicated clusters. Starting August 4, 2021, the minimum required capacity reservation for dedicated clusters is reduced from 1000GB/Daily to 500GB/Daily, so we’d recommend applying that minimum to your old cluster to reduce charges.
