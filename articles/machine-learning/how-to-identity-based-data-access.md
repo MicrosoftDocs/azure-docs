@@ -197,9 +197,9 @@ This authentication mode allows you to:
 > * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI](how-to-configure-cli.md)
 > * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
 > * User identity and compute managed identity cannot be used for authentication within same job.
-
-> [!IMPORTANT]
-> This feature is public preview only, it's not secure for production use. If you need to access sensitive data, please do not use this feature.
+> * This feature is __public preview__. Preview features are provided without a service-level agreement, and are __not recommended for production workloads__. Certain features might not be supported or might have constrained capabilities. 
+>
+>     For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The following steps outline how to set up identity-based data access for training jobs on compute clusters. 
 
