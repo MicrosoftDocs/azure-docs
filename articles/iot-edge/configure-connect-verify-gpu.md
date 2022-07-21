@@ -50,7 +50,7 @@ Let's create a VM from the IoT Edge VM deployment repository in GitHub, then con
 
 1. Select the **Deploy to Azure** button, which initiates a custom VM for you in the Azure portal. This VM is based on an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) template.
 
-   :::image type="content" source="/media/configure-connect-verify-gpu/deploy-to-azure-button.png" alt-text="Screenshot of the 'Deploy to Azure' button in GitHub.":::
+     :::image type="content" source="/media/configure-connect-verify-gpu/deploy-to-azure-button.png" alt-text="Screenshot of the 'Deploy to Azure' button in GitHub.":::
 
 1. Fill out the **Custom deployment** fields with your Azure credentials and resources:
 
@@ -128,7 +128,7 @@ If you have an existing module on your IoT Edge device, adding a configuration u
 
 1. Select the **Set modules** tab at the top.
 
-1. Select your module in the **IoT Edge Modules** list.
+1. Select the module you want to enable for GPU use in the **IoT Edge Modules** list.
 
 1. A side panel opens, choose the **Container Create Options** tab.
 
@@ -177,7 +177,7 @@ The NVIDIA modules are already in Docker containers. Let's add an NIVDIA module 
 
 1. Select **+ Add** under the IoT Edge modules heading and choose **IoT Edge Module**
 
-1. Provide a name in the **IoT Edge Nodule Name** field.
+1. Provide a name in the **IoT Edge Module Name** field.
 
 1. Under the **Module Settings** tab, add `nvidia/digits:6.0` to the **Image URI** field.
 
@@ -195,4 +195,4 @@ The NVIDIA modules are already in Docker containers. Let's add an NIVDIA module 
 
 1. Select the **Create** button to create the module.
 
-1. Select the **Refresh** button on the top bar menu of your VM. You should see your new module appear.
+1. Select the **Refresh** button to update your module list.
