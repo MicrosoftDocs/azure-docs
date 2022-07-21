@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/07/2022
+ms.date: 07/21/2022
 
 ---
 
@@ -61,7 +61,7 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
     metadata:
       name: azure-blob-storage
       annotations:
-            volume.beta.kubernetes.io/storage-class: blob-nfs
+            volume.beta.kubernetes.io/storage-class: blob-nfs-premium
     spec:
       accessModes:
       - ReadWriteMany
@@ -86,8 +86,8 @@ kubectl get pvc azure-blob-storage
 The output of the command resembles the following example:
 
 ```bash
-NAME                 STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-azure-blob-storage   Bound    pvc-b88e36c5-c518-4d38-a5ee-337a7dda0a68   5Gi        RWX            blob-nfs       92m
+NAME                 STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS           AGE
+azure-blob-storage   Bound    pvc-b88e36c5-c518-4d38-a5ee-337a7dda0a68   5Gi        RWX            blob-nfs-premium       92m
 ```
 
 ## Use the persistent volume claim
@@ -147,7 +147,7 @@ The following YAML creates a pod that uses the persistent volume claim **azure-b
 
 ## Create a custom storage class
 
-The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. To demonstrate two examples are shown, one based on using the NFS protocol, and the other using blobfuse.
+The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. To demonstrate, two examples are shown. One based on using the NFS protocol, and the other using blobfuse.
 
 ### Storage class using NFS protocol
 
@@ -159,7 +159,7 @@ In this example, the following manifest configures mounting a Blob storage conta
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
-      name: blob-nfs
+      name: blob-nfs-premium
     provisioner: blob.csi.azure.com
     parameters:
       protocol: nfs
@@ -178,7 +178,7 @@ In this example, the following manifest configures mounting a Blob storage conta
     The output of the command resembles the following example:
 
     ```bash
-    storageclass.storage.k8s.io/blob-nfs created
+    storageclass.storage.k8s.io/blob-nfs-premium created
     ```
 
 ### Storage class using blobfuse
@@ -191,7 +191,7 @@ In this example, the following manifest configures using blobfuse and mount a Bl
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
-      name: blob-fuse
+      name: blob-fuse-premium
     provisioner: blob.csi.azure.com
     parameters:
       skuName: Standard_GRS  # available values: Standard_LRS, Premium_LRS, Standard_GRS, Standard_RAGRS
@@ -219,7 +219,7 @@ In this example, the following manifest configures using blobfuse and mount a Bl
     The output of the command resembles the following example:
 
     ```bash
-    storageclass.storage.k8s.io/blob-fuse created
+    storageclass.storage.k8s.io/blob-fuse-premium created
     ```
 
 ## Next steps

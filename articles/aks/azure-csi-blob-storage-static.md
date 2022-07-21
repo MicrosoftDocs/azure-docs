@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/07/2022
+ms.date: 07/21/2022
 
 ---
 
@@ -130,7 +130,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
         requests:
           storage: 10Gi
       volumeName: pv-blob
-      storageClassName: blob-nfs
+      storageClassName: blob-nfs-premium
       ```
 
 4. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
@@ -179,7 +179,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
       accessModes:
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Retain  # If set as "Delete" container would be removed after pvc deletion
-      storageClassName: blob-fuse
+      storageClassName: blob-fuse-premium
       mountOptions:
         - -o allow_other
         - --file-cache-timeout-in-seconds=120
@@ -216,7 +216,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
         requests:
           storage: 10Gi
       volumeName: pv-blob
-      storageClassName: blob-fuse
+      storageClassName: blob-fuse-premium
     ```
 
 5. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
