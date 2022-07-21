@@ -111,7 +111,7 @@ You can also [assign roles using PowerShell](./search-security-rbac.md?tabs=conf
 
 ## Set up Azure AD authentication in your client
 
-Once you have a managed identity created and you've granted it permissions to access your search service, you're ready you can add code to your application to authenticate the security principal and acquire an OAuth 2.0 token.
+Once you have a managed identity created and you've granted it permissions to access your search service, you're ready to add code to your application to authenticate the security principal and acquire an OAuth 2.0 token.
 
 Azure AD authentication is also supported in the preview SDKs for [Java](https://search.maven.org/artifact/com.azure/azure-search-documents/11.5.0-beta.3/jar), [Python](https://pypi.org/project/azure-search-documents/11.3.0b3/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.3).
 
