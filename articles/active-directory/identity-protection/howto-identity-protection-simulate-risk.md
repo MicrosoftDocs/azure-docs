@@ -84,7 +84,7 @@ The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 
 ## Leaked Credentials for Workload Identities
 
-
+This risk detection indicates that the appplication's valid credentials have been leaked. This leak can occur when someone checks in the credentials in public code artifact on GitHub. Therefore, to the simulation this detection, you need a GitHub account and can [sign up a GitHub account](https://docs.github.com/en/get-started/signing-up-for-github) if you don't have one already.
 
 **To simulate Leaked Credentials in GitHub for Workload Identities, perform the following steps**:
 1. Navigate to the [Azure portal](https://portal.azure.com).
