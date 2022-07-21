@@ -176,7 +176,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 1. Then you will see filtered logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
 
-   [ ![Logs Analytics query](media/quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-query.png) ](media/quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-query.png#lightbox)
+   [ ![Logs Analytics query](media/quickstart-logs-metrics-tracing/logs-query.png) ](media/quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 
 ## Metrics
 
