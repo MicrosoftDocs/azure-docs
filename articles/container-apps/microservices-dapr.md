@@ -67,7 +67,8 @@ To create the environment, run the following command:
 
 ```powershell
 
-New-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT `
+New-AzContainerAppManagedEnv `
+  -EnvName $CONTAINERAPPS_ENVIRONMENT `
   -ResourceGroupName $RESOURCE_GROUP `
   -AppLogConfigurationDestination "log-analytics" `
   -Location $LOCATION `
@@ -408,7 +409,7 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
 

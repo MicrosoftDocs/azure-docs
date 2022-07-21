@@ -42,7 +42,7 @@ az containerapp env create \
 
 # [PowerShell](#tab/powershell)
 
-A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
 ```powershell
 New-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace -Location $Location -PublicNetworkAccessForIngestion "Enabled" -PublicNetworkAccessForQuery "Enabled"
@@ -110,10 +110,10 @@ az containerapp create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$CONTAINER_IMAGE_NAME=<CONTAINER_IMAGE_NAME>
-$REGISTRY_SERVER=<REGISTRY_SERVER>
-$REGISTRY_USERNAME=<REGISTRY_USERNAME>
-$REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
+$CONTAINER_IMAGE_NAME="<CONTAINER_IMAGE_NAME>"
+$REGISTRY_SERVER="<REGISTRY_SERVER>"
+$REGISTRY_USERNAME="<REGISTRY_USERNAME>"
+$REGISTRY_PASSWORD="<REGISTRY_PASSWORD>"
 ```
 
 (Replace the \<placeholders\> with your values.)
@@ -228,7 +228,6 @@ az group delete \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-
 Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
 
