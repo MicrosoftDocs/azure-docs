@@ -92,6 +92,7 @@ subscription_id = "<SUBSCRIPTION_ID>"
 resource_group = "<RESOURCE_GROUP>"
 workspace = "<AML_WORKSPACE_NAME>"
 
+# Client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
 ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
 
 job = command(
@@ -119,7 +120,7 @@ Here's a description of how the control script works:
       `ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)`
    :::column-end:::
    :::column span="2":::
-      [MlClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and it's assets and resources
+      [MlClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and it's assets and resources.
    :::column-end:::
 :::row-end:::
 :::row:::

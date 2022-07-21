@@ -181,6 +181,7 @@ if __name__ == "__main__":
     resource_group = "<RESOURCE_GROUP>"
     workspace = "<AML_WORKSPACE_NAME>"
 
+    # Client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
 
     env_name = "pytorch-env"

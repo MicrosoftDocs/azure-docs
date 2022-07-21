@@ -74,7 +74,7 @@ Our training script is currently set to download the CIFAR10 dataset on each run
             '--momentum',
             type=float,
             default=0.9,
-           help='Momentum for SGD'
+            help='Momentum for SGD'
         )
         args = parser.parse_args()
         print("===== DATA =====")
@@ -184,6 +184,7 @@ if __name__ == "__main__":
     resource_group = "<RESOURCE_GROUP>"
     workspace = "<AML_WORKSPACE_NAME>"
 
+    # Client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
     # the key here should match the key passed to the command
     my_job_inputs = {
@@ -231,7 +232,7 @@ The control script is similar to the one from [part 2 of this series](tutorial-1
 :::row-end:::
 :::row:::
    :::column span="":::
-      command="python train.py --data_path ${{inputs.data_path}}",
+      `command="python train.py --data_path ${{inputs.data_path}}"`
    :::column-end:::
    :::column span="2":::
       `--data_path` matches the argument defined in the updated training script. `${{inputs.data_path}}` passes the input defined by the input dictionary, and the keys must match.
