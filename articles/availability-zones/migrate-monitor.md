@@ -23,7 +23,7 @@ This guide describes how to migrate Log Analytics workspaces from non-availabili
 For availability zone support, your workspace must be:
 
 * Located on one of the [supported regions](#regions).
-* Linked to an [Azure Monitor dedicated cluster](logs-dedicated-clusters.md) cluster, and set to use availability zones.
+* Linked to an [Azure Monitor dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md) cluster, and set to use availability zones.
 
 ### Regions
 
