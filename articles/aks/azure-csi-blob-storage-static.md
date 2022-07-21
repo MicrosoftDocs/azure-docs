@@ -77,7 +77,7 @@ Next, create a container for storing blobs following the steps in the [Manage bl
 
 ## Mount Blob storage as a volume using NFS
 
-Mounting blob storage using the NFS v3 protocol doesn't authenticate using an account key. Your AKS cluster needs to reside in the same or peered virtual network as the agent node. The only way to secure the data in your storage account is by using a virtual network and other network security settings. For more information on how to set up NFS access to your storage account, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md).
+Mounting Blob storage using the NFS v3 protocol doesn't authenticate using an account key. Your AKS cluster needs to reside in the same or peered virtual network as the agent node. The only way to secure the data in your storage account is by using a virtual network and other network security settings. For more information on how to set up NFS access to your storage account, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md).
 
 The following example demonstrates how to mount a Blob storage container as a persistent volume using the NFS protocol.
 
@@ -94,7 +94,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
       accessModes:
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Retain  # If set as "Delete" container would be removed after pvc deletion
-      storageClassName: blob-nfs
+      storageClassName: azureblob-nfs-premium
       mountOptions:
         - nconnect=8  # only supported on linux kernel version >= 5.3
       csi:
@@ -130,7 +130,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
         requests:
           storage: 10Gi
       volumeName: pv-blob
-      storageClassName: blob-nfs-premium
+      storageClassName: azureblob-nfs-premium
       ```
 
 4. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
@@ -141,9 +141,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
 
 ## Mount Blob storage as a volume using Blobfuse
 
-### Authenticate using an Azure access key or SAS tokens
-
-Kubernetes needs credentials to access the Blob storage container created earlier. These credentials are stored in a Kubernetes secret, which is referenced when you create a Kubernetes pod.
+Kubernetes needs credentials to access the Blob storage container created earlier, which is either an Azure access key or SAS tokens. These credentials are stored in a Kubernetes secret, which is referenced when you create a Kubernetes pod.
 
 1. Use the `kubectl create secret command` to create the secret. You can authenticate using a [Kubernetes secret][kubernetes-secret] or [shared access signature][sas-tokens] (SAS) tokens.
 
@@ -179,7 +177,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
       accessModes:
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Retain  # If set as "Delete" container would be removed after pvc deletion
-      storageClassName: blob-fuse-premium
+      storageClassName: azureblob-fuse-premium
       mountOptions:
         - -o allow_other
         - --file-cache-timeout-in-seconds=120
@@ -216,7 +214,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
         requests:
           storage: 10Gi
       volumeName: pv-blob
-      storageClassName: blob-fuse-premium
+      storageClassName: azureblob-fuse-premium
     ```
 
 5. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:

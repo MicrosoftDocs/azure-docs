@@ -47,7 +47,7 @@ az extension update --name aks-preview
 
 ## Disable CSI storage drivers on a new cluster
 
-`--disable-disk-driver` allows you disable the [Azure Disks CSI driver][azure-disk-csi]. `--disable-file-driver` allows you to disable the [Azure Files CSI driver][azure-files-csi]. `--disable-snapshot-controller` allows you to disable the [snapshot controller][snapshot-controller ].
+`--disable-disk-driver` allows you to disable the [Azure Disks CSI driver][azure-disk-csi]. `--disable-file-driver` allows you to disable the [Azure Files CSI driver][azure-files-csi]. `--disable-snapshot-controller` allows you to disable the [snapshot controller][snapshot-controller ].
 
 To disable CSI storage drivers on a new cluster, use `--disable-disk-driver`, `--disable-file-driver`, and `--disable-snapshot-controller`.
 

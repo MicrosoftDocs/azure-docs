@@ -182,9 +182,9 @@ The reclaim policy on both storage classes ensures that the underlying Azure Blo
 Use the [kubectl get sc][kubectl-get] command to see the storage classes. The following example shows the `blob-fuse` and `blob-nfs` storage classes available within an AKS cluster:
 
 ```bash
-NAME                    PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
-blob-fuse               blob.csi.azure.com   Delete          Immediate              true                   23h
-blob-nfs                blob.csi.azure.com   Delete          Immediate              true                   23h
+NAME                                  PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION     AGE
+azureblob-fuse-premium               blob.csi.azure.com   Delete          Immediate              true                   23h
+azureblob-nfs-premium                blob.csi.azure.com   Delete          Immediate              true                   23h
 ```
 
 To use these storage classes, create a PVC and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Blob storage container for the desired SKU, size, and protocol to communicate with it. When you create a pod definition, the PVC is specified to request the desired storage.

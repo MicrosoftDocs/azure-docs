@@ -61,7 +61,7 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
     metadata:
       name: azure-blob-storage
       annotations:
-            volume.beta.kubernetes.io/storage-class: blob-nfs-premium
+            volume.beta.kubernetes.io/storage-class: azureblob-nfs-premium
     spec:
       accessModes:
       - ReadWriteMany
@@ -86,8 +86,8 @@ kubectl get pvc azure-blob-storage
 The output of the command resembles the following example:
 
 ```bash
-NAME                 STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS           AGE
-azure-blob-storage   Bound    pvc-b88e36c5-c518-4d38-a5ee-337a7dda0a68   5Gi        RWX            blob-nfs-premium       92m
+NAME                 STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS                AGE
+azure-blob-storage   Bound    pvc-b88e36c5-c518-4d38-a5ee-337a7dda0a68   5Gi        RWX            azureblob-nfs-premium       92m
 ```
 
 ## Use the persistent volume claim
@@ -159,7 +159,7 @@ In this example, the following manifest configures mounting a Blob storage conta
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
-      name: blob-nfs-premium
+      name: azureblob-nfs-premium
     provisioner: blob.csi.azure.com
     parameters:
       protocol: nfs
@@ -191,7 +191,7 @@ In this example, the following manifest configures using blobfuse and mount a Bl
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
-      name: blob-fuse-premium
+      name: azureblob-fuse-premium
     provisioner: blob.csi.azure.com
     parameters:
       skuName: Standard_GRS  # available values: Standard_LRS, Premium_LRS, Standard_GRS, Standard_RAGRS
