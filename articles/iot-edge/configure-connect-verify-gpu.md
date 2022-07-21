@@ -26,15 +26,15 @@ services: iot-edge
 
 If you need to quickly create an IoT Edge device, use the following command. Use the [Azure Cloud Shell](/azure/cloud-shell/overview) located in the Azure portal. Create a new device name for `<DEVICE-NAME>` and replace the IoT `<IOT-HUB-NAME>` with your own. 
 
-    ```azurecli
-    az iot hub device-identity create --device-id <YOUR-DEVICE-NAME> --edge-enabled --hub-name <YOUR-IOT-HUB-NAME>
-    ```
+```azurecli
+az iot hub device-identity create --device-id <YOUR-DEVICE-NAME> --edge-enabled --hub-name <YOUR-IOT-HUB-NAME>
+```
 
-For more information on creating an IoT Edge device, see [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux?view=iotedge-2020-11). Later in this tutorial, we'll add an NVIDIA module to our IoT Edge device.
+For more information on creating an IoT Edge device, see [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](/quickstart-linux). Later in this tutorial, we'll add an NVIDIA module to our IoT Edge device.
 
 ## Create an NVIDIA-compatible virtual machine
 
-To allocate processing power to your GPU, virtual machine (VM) size is important. Not all sizes will accomodate GPU processing. There are different sizes for different workloads. See [GPU optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu) or [Virtual machines selector](https://azure.microsoft.com/en-us/pricing/vm-selector/) for more information.
+To allocate processing power to your GPU, virtual machine (VM) size is important. Not all sizes will accomodate GPU processing. There are different sizes for different workloads. See [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) or [Virtual machines selector](https://azure.microsoft.com/en-us/pricing/vm-selector/) for more information.
 
 Let's create a VM from the IoT Edge VM deployment repository in Github, then configure it to be GPU-enabled.
 
@@ -59,7 +59,7 @@ Let's create a VM from the IoT Edge VM deployment repository in Github, then con
 
      > [!TIP]
      >
-     > Check which GPU VMs are supported in each region: [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?regions=us-central,us-east,us-east-2,us-north-central,us-south-central,us-west-central,us-west,us-west-2,us-west-3&products=virtual-machines).
+     > Check which GPU VMs are supported in each region: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=us-central,us-east,us-east-2,us-north-central,us-south-central,us-west-central,us-west,us-west-2,us-west-3&products=virtual-machines).
      >
      > To check [which region your Azure subscription allows](/azure/azure-resource-manager/troubleshooting/error-sku-not-available?tabs=azure-cli#solution), try this Azure command from the Azure portal. The `N` in `Standard_N` means it's a GPU-enabled VM.
      > ```azurecli
