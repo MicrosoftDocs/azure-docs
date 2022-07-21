@@ -217,6 +217,9 @@ This authentication mode allows you to:
 > * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
 > * User identity and compute managed identity cannot be used for authentication within same job.
 
+> [!IMPORTANT]
+> This feature is public preview only, it's not secure for production use. If you need to access sensitive data, please do not use this feature.
+
 The following steps outline how to set up identity-based data access for training jobs on compute clusters. 
 
 1. Grant the user identity access to storage resources. For example,  grant StorageBlobReader access to the specific storage account you want to use or grant ACL-based permission to specific folders or files in Azure Data Lake Gen 2 storage.
