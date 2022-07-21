@@ -1,15 +1,17 @@
 ---
-title: Set up network for Azure Monitor for SAP solutions (Preview)
+title: Set up network for Azure Monitor for SAP solutions (preview)
 description: This article provides details to consider network setup while setting up Azure monitor for SAP solutions.
 author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
-ms.date: 07/06/2022
+ms.date: 07/21/2022
 ms.author: sujaj
 
 ---
-# Set up network for Azure monitor for SAP solutions
+# Set up network for Azure monitor for SAP solutions (preview)
+
+[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
 Before you can deploy Azure Monitor for SAP solutions (AMS), you need to configure an Azure virtual network with all necessary settings.
 
