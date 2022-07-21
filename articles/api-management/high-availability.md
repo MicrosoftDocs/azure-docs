@@ -29,7 +29,7 @@ Azure [availability zones](../availability-zones/az-overview.md) are physically 
 
 Enabling [zone redundancy](../availability-zones/migrate-api-mgt.md) for an API Management instance in a supported region provides redundancy for all [service components](api-management-key-concepts.md#api-management-components): gateway, management plane, and developer portal. Azure automatically replicates all service components across the zones that you select. 
 
-When you enable zone redundancy in a region, consider the number of API Mangement scale [units](upgrade-and-scale.md) that need to be distributed. Minimally, configure the same number of units as the number of availability zones, or a multiple so that the units are distributed evenly across the zones. For example, if you select 3 availability zones in a region, you could have 3 units so that each zone hosts one unit.
+When you enable zone redundancy in a region, consider the number of API Management scale [units](upgrade-and-scale.md) that need to be distributed. Minimally, configure the same number of units as the number of availability zones, or a multiple so that the units are distributed evenly across the zones. For example, if you select 3 availability zones in a region, you could have 3 units so that each zone hosts one unit.
 
 > [!NOTE]
 > Use the [capacity](api-management-capacity.md) metric and your own testing to decide on the number of scale units that will provide the gateway performance for your needs. Learn more about [scaling and upgrading](upgrade-and-scale.md) your service instance.
@@ -67,11 +67,11 @@ API Management provides an SLA of 99.99% when you deploy at least one unit in tw
 
 ## Backend availability
 
-Depending on where and how your backend services are hosted, you may need to set up redundant backends in different regions to meet your requirements for service availability. You can manage backend failover through API Management to maintain availability. For example:  
+Depending on where and how your backend services are hosted, you may need to set up redundant backends in different regions to meet your requirements for service availability. You can manage regional backends and handle failover through API Management to maintain availability. For example:  
 
 * In multi-region deployments, use [policies to route requests](api-management-howto-deploy-multi-region.md#-route-api-calls-to-regional-backend-services) through regional gateways to regional backends. 
 
-* Configure policies to route requests conditionally to different backends in case of backend failure in a particular region.
+* Configure policies to route requests conditionally to different backends if there is backend failure in a particular region.
 
 * Use caching to reduce failing calls.
 
