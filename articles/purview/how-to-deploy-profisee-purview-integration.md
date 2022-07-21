@@ -11,7 +11,7 @@ ms.custom: template-how-to
 ---
 
 # Microsoft Purview - Profisee Integration
-Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview now supports master data management with partners such as Profisee, CluedIn, Tamr, and Semarchy. This tutorial compiles reference and integration deployment materials in one place to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
+Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview supports master data management with our partner [Profisee](https://profisee.com/profisee-advantage/). This tutorial compiles reference and integration deployment materials in one place to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
 
 ## What, why and how of MDM - Master Data Management?
 
@@ -26,7 +26,7 @@ Not only does this improve quality of data by eliminating mismatched data across
 More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/) and [Profisee-Purview MDM Concepts and Azure Architecture](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
 
 
-## Why Microsoft Purview chose Profisee for Master Data Management (MDM)?
+## Why Profisee for Master Data Management (MDM)?
 ### Profisee MDM: True SaaS experience 
 A fully managed instance of Profisee MDM hosted in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.
 - ```Platform and Management in One```
