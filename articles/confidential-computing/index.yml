@@ -98,8 +98,8 @@ landingContent:
         links:
           - text: CLI based provisioning with a hello from enclave container app on AKS
             url: confidential-enclave-nodes-aks-get-started.md
-          - text: Confidential containers with Intel SGX enclaves architecture
-            url: enclave-aware-containers.md
+          - text: Confidential containers with Intel SGX quickstart
+            url: confidential-containers-enclaves.md
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
           - text: Confidential Node Pools on AKS
