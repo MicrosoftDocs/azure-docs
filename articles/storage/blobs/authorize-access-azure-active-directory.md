@@ -3,12 +3,12 @@ title: Authorize access to blobs using Active Directory
 titleSuffix: Azure Storage
 description: Authorize access to Azure blobs using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.author: tamram
+ms.author: jammart
 ms.subservice: common
 ---
 

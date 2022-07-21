@@ -63,6 +63,9 @@ Open Postman and follow these steps:
 
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body settings." border="true":::
 
+   > [!NOTE]
+   > If you don't want to pass data into the function, you must still pass an empty dictionary `{}` as the body of the POST request.
+
 1. Select **Send**.
         
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Send a request with Postman." border="true":::

@@ -1,6 +1,6 @@
 ---
 title: Manage app groups for Azure Virtual Desktop (classic) - Azure
-description: Learn how to set up Azure Virtual Desktop (classic) tenants in Azure Active Directory (AD).
+description: Learn how to set up Azure Virtual Desktop (classic) tenants in Azure Active Directory (Azure AD).
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 08/16/2021

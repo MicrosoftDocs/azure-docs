@@ -17,7 +17,7 @@ This article covers the language components supported by Resource Graph:
 
 - [Understanding the Azure Resource Graph query language](#understanding-the-azure-resource-graph-query-language)
   - [Resource Graph tables](#resource-graph-tables)
-  - [Extended properties (preview)](#extended-properties-preview)
+  - [Extended properties](#extended-properties)
   - [Resource Graph custom language elements](#resource-graph-custom-language-elements)
     - [Shared query syntax (preview)](#shared-query-syntax-preview)
   - [Supported KQL language elements](#supported-kql-language-elements)
@@ -96,7 +96,7 @@ Resources
 > When limiting the `join` results with `project`, the property used by `join` to relate the two
 > tables, _subscriptionId_ in the above example, must be included in `project`.
 
-## Extended properties (preview)
+## Extended properties
 
 As a _preview_ feature, some of the resource types in Resource Graph have additional type-related
 properties available to query beyond the properties provided by Azure Resource Manager. This set of

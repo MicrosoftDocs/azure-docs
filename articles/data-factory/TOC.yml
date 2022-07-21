@@ -200,6 +200,9 @@ items:
   - name: Pipelines and activities
     href: concepts-pipelines-activities.md
     displayName: retry, timeout
+  - name: Nested activities
+    href: concepts-nested-activities.md
+    displayName: nested, nesting
   - name: Linked services
     href: concepts-linked-services.md
   - name: Datasets
@@ -727,9 +730,11 @@ items:
       href: data-flow-alter-row.md
       displayName: upsert, update, insert, delete
     - name: Assert
-      href: data-flow-assert.md
+      href: data-flow-assert.md   
     - name: Conditional split
       href: data-flow-conditional-split.md
+    - name: Cast
+      href: data-flow-cast.md
       displayName: split
     - name: Derived column
       href: data-flow-derived-column.md
@@ -1047,8 +1052,8 @@ items:
       items:
       - name: SSIS migration overview
         href: scenario-ssis-migration-overview.md
-      - name: SSISDB migration to Azure SQL Managed Instance
-        href: scenario-ssis-migration-ssisdb-mi.md
+      - name: SSIS migration assessment rules
+        href: scenario-ssis-migration-rules.md
     - name: SAP knowledge center
       items:
       - name: Overview
@@ -1057,6 +1062,24 @@ items:
         href: industry-sap-connectors.md
       - name: SAP templates
         href: industry-sap-templates.md
+      - name: SAP change data capture (CDC)
+        items:
+        - name: 1 - Introduction and architecture
+          href: sap-change-data-capture-introduction-architecture.md
+        - name: 2 - Prerequisites and configuration
+          href: sap-change-data-capture-prerequisites-configuration.md
+        - name: 3 - Self-hosted integration runtime preparation
+          href: sap-change-data-capture-shir-preparation.md
+        - name: 4 - Linked service and source dataset creation
+          href: sap-change-data-capture-prepare-linked-service-source-dataset.md
+        - name: 5 - Debug copy activity issues
+          href: sap-change-data-capture-debug-shir-logs.md
+        - name: 6 - Data partitioning template
+          href: sap-change-data-capture-data-partitioning-template.md
+        - name: 7 - Data Replication template
+          href: sap-change-data-capture-data-replication-template.md
+        - name: 8 - Managing the solution
+          href: sap-change-data-capture-management.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -1090,6 +1113,8 @@ items:
       href: data-flow-reserved-capacity-overview.md
     - name: Data flow understand reservation charges
       href: data-flow-understand-reservation-charges.md
+    - name: Better understand different integration runtime charges
+      href: better-understand-different-integration-runtime-charges.md
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
       displayName: diu

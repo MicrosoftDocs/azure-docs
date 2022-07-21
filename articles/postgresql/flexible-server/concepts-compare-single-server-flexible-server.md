@@ -6,7 +6,7 @@ author: sr-msft
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 06/16/2022
+ms.date: 07/05/2022
 ---
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
@@ -28,7 +28,7 @@ The following table provides a list of high-level features and capabilities comp
 | **General**  | | |
 | General availability | GA since 2018 | GA since 2021|
 | PostgreSQL | Community | Community |
-| Supported versions | 10, 11 | 11, 12, 13 |
+| Supported versions | 10, 11 | 11, 12, 13, 14 |
 | Underlying O/S | Windows | Linux  |
 | AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|
@@ -79,7 +79,7 @@ The following table provides a list of high-level features and capabilities comp
 | Support for logical decoding | Yes | Yes |
 | Support for native logical replication | No | Yes |
 | Support for PgLogical extension | No | Yes |
-| Support logical replication with HA | N/A | Limited |
+| Support logical replication with HA | N/A | [Limited](concepts-high-availability.md#high-availability---limitations) |
 | **Disaster Recovery** | | |
 | Cross region DR | Using read replicas, geo-redundant backup | Geo-redundant backup (Preview) in select regions|
 | DR using replica | Using async physical replication | N/A |

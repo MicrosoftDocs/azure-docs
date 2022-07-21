@@ -217,6 +217,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-sample-links.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-access.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-examples.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-options.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-overview.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-tasks.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-tiles.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-interactive.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-configurations",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-groups.md",   
             "redirect_url": "/azure/azure-monitor/visualize/workbooks-create-workbook",
             "redirect_document_id": false
@@ -287,6 +327,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-action-rules.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-processing-rules",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/insights/data-explorer.md" ,
             "redirect_url": "/azure/data-explorer/data-explorer-insights",
             "redirect_document_id": false
@@ -314,6 +359,51 @@
         {
             "source_path_from_root": "/articles/azure-monitor/insights/azure-cli-application-insights-component.md" ,
             "redirect_url": "/cli/azure/monitor/app-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/redis-cache-insights-overview.md" ,
+            "redirect_url": "/azure/azure-cache-for-redis/redis-cache-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/ingestion-time-transformations.md" ,
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-transformations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-ingestion-time-transformations.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-workspace-transformations-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-ingestion-time-transformations-api.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-workspace-transformations-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-custom-logs.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-logs-ingestion-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-custom-logs-api.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/tutorial-logs-ingestion-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/agents/data-sources.md" ,
+            "redirect_url": "/azure/azure-monitor/essentials/data-sources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/data-collection-rule-transformations.md" ,
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-transformations-structure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/custom-logs-overview.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/logs-ingestion-api-overview",
             "redirect_document_id": false
         }
     ]

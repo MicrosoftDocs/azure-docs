@@ -9,8 +9,8 @@ metadata:
   description: Azure Storage documentation hub page. Points to service documentation for cloud and hybrid storage solutions, and services to transfer, share, and back up data. 
   ms.service: storage
   ms.topic: hub-page
-  author: tamram
-  ms.author: tamram
+  author: normesta
+  ms.author: normesta
   ms.date: 03/09/2022
 
 
