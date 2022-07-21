@@ -25,7 +25,7 @@ The gallery opens. Select a saved workbook or a template from the gallery, or se
 
 ## Save a workbook
 To save a workbook, save the report with a specific title, subscription, resource group, and location.
-The workbook will autofill to the same settings as the LA workspace, with the same subscription, resource group, however, users may change these report settings. Workbooks are shared resources that require write access to the parent resource group to be saved.
+The workbook is auto-filled with the same settings as the LA workspace, with the same subscription and resource group. You can change the report settings if you want. Workbooks are saved to 'My Reports' by default, and are only accessible by the individual user, but they can be saved directly to shared reports or shared later on. Workbooks are shared resources and they require write access to the parent resource group to be saved.
 
 ## Share a workbook template
 
