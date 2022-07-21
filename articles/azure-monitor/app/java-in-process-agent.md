@@ -55,7 +55,7 @@ Download the [applicationinsights-agent-3.3.0.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.3.0.jar` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.3.0.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
