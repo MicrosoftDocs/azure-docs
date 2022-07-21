@@ -64,7 +64,7 @@
         href: api-management-terminology.md
       - name: API Management policies
         href: api-management-howto-policies.md
-      - name: API Management gateway
+      - name: API gateway
         href: api-management-gateways-overview.md
       - name: Self-hosted gateway
         href: self-hosted-gateway-overview.md

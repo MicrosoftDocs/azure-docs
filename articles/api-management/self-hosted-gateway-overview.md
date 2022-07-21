@@ -13,9 +13,11 @@ ms.author: danlep
 
 # Self-hosted gateway overview
 
-The self-hosted gateway is an optional, containerized version of the default managed gateway included in every API Management service. Deploy the self-hosted gateway to the same environments where you host your APIs to improve API traffic flow and address API security and compliance requirements.
+The self-hosted gateway is an optional, containerized version of the default managed gateway included in every API Management service. It's useful for scenarios such as placing gateways in the same environments where you host your APIs. Use the self-hosted gateway to improve API traffic flow and address API security and compliance requirements.
 
 This article explains how the self-hosted gateway feature of Azure API Management enables hybrid and multi-cloud API management, presents its high-level architecture, and highlights its capabilities.
+
+For an overview of the features across the various gateway offerings, see the [API Gateway overview](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways).
 
 ## Hybrid and multi-cloud API management
 
@@ -150,7 +152,6 @@ When connectivity is restored, each self-hosted gateway affected by the outage w
 ### Limitations
 
 The following functionality found in the managed gateways is **not available** in the self-hosted gateways:
-
 
 - TLS session resumption.
 - Client certificate renegotiation. To use [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md), API consumers must present their certificates as part of the initial TLS handshake. To ensure this behavior, enable the Negotiate Client Certificate setting when configuring a self-hosted gateway custom hostname (domain name).

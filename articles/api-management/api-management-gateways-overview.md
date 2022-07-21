@@ -15,7 +15,11 @@ ms.author: danlep
 
 This article provides information about the roles and features of the API Management *gateway* component.
 
-For an overview of API Management scenarios, components, and concepts, see [What is Azure API Management?](api-management-key-concepts.md).
+Related information:
+
+* For an overview of API Management scenarios, components, and concepts, see [What is Azure API Management?](api-management-key-concepts.md).
+
+* For more information about the API Management service tiers and features, see [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
 
 ## Role of the gateway
 
@@ -34,16 +38,20 @@ Specifically, the gateway:
 
 API Management offers both managed and self-hosted gateways:
 
-* **Managed** - The managed gateway is the default gateway component that is deployed in Azure for every API Management instance. With the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted.  
+* **Managed** - The managed gateway is the default gateway component that is deployed in Azure for every API Management instance in every service tier. With the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted. 
 
-* **Self-hosted** - The [self-hosted gateway](self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway that you can deploy to the same environments where you host your APIs. Available in the Developer and Premium service tiers, the self-hosted gateway can improve API traffic flow and address API security and compliance requirements. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure. 
+    > [!NOTE]
+    > Because of differences in the underlying service architecture, the Consumption tier gateway currently lacks some capabilities of the dedicated gateway. For details, see the section [Feature comparison: Managed versus self-hosted gateways](#feature-comparison-managed-versus-self-hosted-gateways).
+    >     
 
-    The self-hosted gateway is [packaged](self-hosted-gateway-overview.md#packaging) as a Linux-based Docker container and is commonly deployed to Kubernetes, including to [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md) and [Azure Arc-enabled Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md).
+* **Self-hosted** - The [self-hosted gateway](self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway. It's useful for scenarios such as placing gateways in the same environments where you host your APIs. Available in the Developer and Premium service tiers, the self-hosted gateway can improve API traffic flow and address API security and compliance requirements. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure. 
+
+    The self-hosted gateway is [packaged](self-hosted-gateway-overview.md#packaging) as a Lidnux-based Docker container and is commonly deployed to Kubernetes, including to [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md) and [Azure Arc-enabled Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md).
 
 
 ## Feature comparison: Managed versus self-hosted gateways
 
-The following table compares features available in the managed gateway versus those in the self-hosted gateway. Differences are also shown between the managed gateway for dedicated service tiers (Developer, Basic, Standard, Premium) and  for the Consumption tier.
+The following table compares features available in the managed gateway versus those in the self-hosted gateway. Differences are also shown between the managed gateway for dedicated service tiers (Developer, Basic, Standard, Premium) and for the Consumption tier.
 
 > [!NOTE]
 > * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](self-hosted-gateway-overview.md#packaging) for self-hosted gateways.
@@ -57,16 +65,16 @@ The following table compares features available in the managed gateway versus th
 | [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ |
 | [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌ | ❌ |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ | ✔️ |
-| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ❌ |
+| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ✔️<sup>1</sup> |
 | [Private endpoints](private-endpoint.md)  |  ✔️ |  ✔️ | ❌ |
 | [Availability zones](zone-redundancy.md)  |  Premium |  ❌ | ✔️<sup>1</sup> |
-| [Multiregion deployment](api-management-howto-deploy-multi-region.md) |  Premium |  ❌ | ✔️<sup>1</sup> |
+| [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium |  ❌ | ✔️<sup>1</sup> |
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>2</sup> |  
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
 
-<sup>1</sup>Depends on deployment options.<br/>
-<sup>2</sup>Requires configuration of local CA certificates.<br/>
+<sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
+<sup>2</sup> Requires configuration of local CA certificates.<br/>
 
 ### Backend APIs
 
@@ -80,24 +88,25 @@ The following table compares features available in the managed gateway versus th
 | [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ |
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
-| [Passthrough GraphQL](graphql-api.md) |  ✔️ | ✔️ | ❌ |
+| [Passthrough GraphQL](graphql-api.md) |  ✔️ | ✔️<sup>1</sup> | ❌ |
 | [Synthetic GraphQL](graphql-schema-resolve-api.md) |  ✔️ |  ❌ | ❌ |
 | [Passthrough WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
 
+<sup>1</sup> GraphQL subscriptions aren't supported in the Consumption tier.
 
 ### Policies
 
-Managed and self-hosted gateways support the same [policies](api-management-howto-policies.md) in policy definitions with the following differences.
+Managed and self-hosted gateways support all available [policies](api-management-howto-policies.md) in policy definitions with the following exceptions.
 
 | Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
 | --- | ----- | ----- | ---------- |
 | [Dapr integration](api-management-dapr-policies.md) |  ❌ | ❌ | ✔️ |
-| [get-authorization-context](api-management-access-restriction-policies.md#GetAuthorizationContext) |  ✔️ |  ❌ | ❌ |
+| [Get authorization context](api-management-access-restriction-policies.md#GetAuthorizationContext) |  ✔️ |  ❌ | ❌ |
 | [Quota and rate limit](api-management-access-restriction-policies.md) |  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>2</sup>
-| [set-graphql-resolver](graphql-policies.md#set-graphql-resolver) |  ✔️ |  ❌ | ❌ |
+| [Set GraphQL resolver](graphql-policies.md#set-graphql-resolver) |  ✔️ |  ❌ | ❌ |
 
-<sup>1</sup>The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
-<sup>2</sup>By default, rate limit counts in self-hosted gateways are per-gateway, per-node.
+<sup>1</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
+<sup>2</sup> By default, rate limit counts in self-hosted gateways are per-gateway, per-node.
 
 ### Monitoring
 
