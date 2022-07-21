@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor for SAP Solutions providers| Microsoft Docs
+title: Azure Monitor for SAP solutions providers| Microsoft Docs
 description: This article provides answers to frequently asked questions about Azure monitor for SAP solutions providers.
 author: rdeltcheva
 ms.service: virtual-machines-sap
@@ -10,7 +10,7 @@ ms.author: radeltch
 
 ---
 
-# Azure Monitor for SAP Solutions providers (preview)
+# Azure Monitor for SAP solutions providers (preview)
 
 ## Overview
 
@@ -18,7 +18,7 @@ This article describes the various providers currently available for Azure Monit
 
 This content applies to both versions of the service, AMS and AMS (classic).
 
-In the context of Azure Monitor for SAP Solutions, a *provider type* refers to a specific *provider*. For example, *SAP HANA*, which is configured for a specific component within the SAP landscape, like SAP HANA database. A provider contains the connection information for the corresponding component and helps to collect telemetry data from that component. One Azure Monitor for SAP Solutions resource (also known as SAP monitor resource) can be configured with multiple providers of the same provider type or multiple providers of multiple provider types.
+In the context of Azure Monitor for SAP solutions, a *provider type* refers to a specific *provider*. For example, *SAP HANA*, which is configured for a specific component within the SAP landscape, like SAP HANA database. A provider contains the connection information for the corresponding component and helps to collect telemetry data from that component. One Azure Monitor for SAP solutions resource (also known as SAP monitor resource) can be configured with multiple providers of the same provider type or multiple providers of multiple provider types.
    
 You can choose to configure different provider types to enable data collection from the corresponding component in their SAP landscape. For example, you can configure one provider for SAP HANA provider type, another provider for high-availability cluster provider type, and so on.  
 
@@ -151,7 +151,7 @@ To configure an OS (Linux) provider, two primary steps are involved:
 
 2. Configure an OS (Linux) provider for each BareMetal or VM node instance in your environment. 
    To configure the OS (Linux) provider, the following information is required: 
-      - Name. A name for this provider. It should be unique for this Azure Monitor for SAP Solutions instance. 
+      - Name. A name for this provider. It should be unique for this Azure Monitor for SAP solutions instance. 
       - Node Exporter endpoint. Usually `http://<servername or ip address>:9100/metrics`. 
 
 > [!NOTE]
@@ -174,7 +174,7 @@ You can configure one or more IBM Db2 providers. The following data is available
 - 
 ## Next steps
 
-Learn how to deploy Azure Monitor for SAP Solutions from the Azure portal.
+Learn how to deploy Azure Monitor for SAP solutions from the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Monitor for SAP Solutions by using the Azure portal](./azure-monitor-sap-quickstart.md)
+> [Deploy Azure Monitor for SAP solutions by using the Azure portal](./azure-monitor-sap-quickstart.md)

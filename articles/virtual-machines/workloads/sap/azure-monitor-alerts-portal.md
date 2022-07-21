@@ -1,6 +1,6 @@
 ---
-title: Configure Alerts in Azure Monitor for SAP Solutions by using the Azure portal(Preview)
-description: Learn how to use a browser method for configuring alerts in Azure Monitor for SAP Solutions.
+title: Configure Alerts in Azure Monitor for SAP solutions by using the Azure portal(Preview)
+description: Learn how to use a browser method for configuring alerts in Azure Monitor for SAP solutions.
 author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.subservice: baremetal-sap
 ms.date: 08/30/2021
 ---
 
-# Configure Alerts in Azure Monitor for SAP Solutions by using the Azure portal
+# Configure Alerts in Azure Monitor for SAP solutions by using the Azure portal
 
 In this article, we'll walk through steps to configure alerts in Azure Monitor for SAP solutions (AMS). We'll configure alerts and notifications from the [Azure portal](https://azure.microsoft.com/features/azure-portal) using its browser-based interface.
 
@@ -17,7 +17,7 @@ This content applies to both versions of the service, AMS and AMS (classic).
 
 ## Prerequisites
 
-Deploy the Azure Monitor for SAP Solutions resource with at least one provider. You can configure providers for: 
+Deploy the Azure Monitor for SAP solutions resource with at least one provider. You can configure providers for: 
 - SAP Application (NetWeaver)
 - SAP HANA
 - Microsoft SQL server
@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an alert rule
 
-1.	In the Azure portal, browse and select your Azure Monitor for SAP Solutions resource. Ensure you have at least one provider configured for this resource. 
+1.	In the Azure portal, browse and select your Azure Monitor for SAP solutions resource. Ensure you have at least one provider configured for this resource. 
 2.	Navigate to workbooks of your choice. For example, SAP HANA and select a HANA instance.
 
     :::image type="content" source="./media/ams-alerts/ams-alert-1.png" alt-text="Screenshot showing placement of alert button." lightbox="./media/ams-alerts/ams-alert-1.png":::
@@ -59,7 +59,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 
-Learn more about Azure Monitor for SAP Solutions.
+Learn more about Azure Monitor for SAP solutions.
 
 > [!div class="nextstepaction"]
 > [Monitor SAP on Azure](monitor-sap-on-azure.md)
