@@ -21,7 +21,7 @@ landingContent:
 ##ROW 1
 # Start card title with a verb
   # Card (optional)
-  - title: Azure Confidential Computing
+  - title: Azure confidential computing
     linkLists:
       - linkListType: overview
         links:
