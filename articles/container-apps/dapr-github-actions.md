@@ -10,9 +10,9 @@ ms.date: 07/21/2022
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Deploy a Dapr application to Azure Container Apps using Github Actions
+# Tutorial: Deploy a Dapr application to Azure Container Apps using GitHub Actions
 
-[GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. In this tutorial, you leverage the Github Actions integration with Azure Container Apps to generate a workflow for deploying revision-scope changes on a microservice application that uses [Dapr](https://docs.dapr.io). 
+[GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. In this tutorial, you use the GitHub Actions integration with Azure Container Apps to generate a workflow for deploying revision-scope changes on a microservice application that uses [Dapr](https://docs.dapr.io). 
 
 Dapr is an open source project that helps developers with the inherent challenges presented by distributed applications, such as state management and service invocation. Azure Container Apps integrates with a [managed version of Dapr](./dapr-overview.md).
 
@@ -29,7 +29,7 @@ The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-
 :::image type="content" source="media/dapr-github-actions/arch.png" alt-text="Diagram demonstrating microservices app.":::
 
 > [!NOTE]
-> This tutorial focuses on the baseline solution deployment outlined below. If you are interested in building and running the solution on your own, [follow the README instructions within the repo](https://github.com/azure-samples/container-apps-store-api-microservice#build-and-run).
+> This tutorial focuses on the baseline solution deployment outlined below. If you're interested in building and running the solution on your own, [follow the README instructions within the repo](https://github.com/azure-samples/container-apps-store-api-microservice#build-and-run).
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ az upgrade
 
 ---
 
-Now that you have validated your Azure CLI set up, bring the application code to your local machine.
+Now that you've validated your Azure CLI setup, bring the application code to your local machine.
 
 ## Get application code
 
@@ -136,9 +136,9 @@ The GitHub Actions workflow YAML file in the `/.github/workflows/` folder execut
 
 | Section                | Tasks                                                             |
 | ---------------------- | ----------------------------------------------------------------- |
-| **Authentication**     | Login to a private container registry (GitHub Container Registry) |
+| **Authentication**     | Log in to a private container registry (GitHub Container Registry) |
 | **Build**              | Build & push the container images for each microservice           |
-| **Authentication**     | Login to Azure                                                    |
+| **Authentication**     | Log in to Azure                                                    |
 | **Deploy using bicep** | 1. Create a resource group  <br>2. Deploy Azure Resources for the solution using bicep            |
 
 The following resources deploy via the bicep template in the `/deploy` path of the repository:
@@ -149,7 +149,7 @@ The following resources deploy via the bicep template in the `/deploy` path of t
 - Store API container app
 - Order service container app
 - Inventory container app
-- CosmosDB
+- Cosmos DB
 
 ### Create a service principal
 
@@ -192,7 +192,7 @@ Copy the JSON object output and save it to a file on your machine. You use this 
 
 ### Create a GitHub Personal Access Token (PAT)
 
-Since you are using a private GitHub Container Registry to host the container images, you need to generate a GitHub PAT with the `write:packages` scope. With this scope, you can:
+Since you're using a private GitHub Container Registry to host the container images, you need to generate a GitHub PAT with the `write:packages` scope. With this scope, you can:
 
 - Upload and download your container images within the GitHub Action workflow
 - Connect to your registry from Azure Container Apps, later in the tutorial.
@@ -203,7 +203,7 @@ Navigate to GitHub and verify you're logged in.
 1. In the left sidebar, click **Developer Settings** > **Personal Access Tokens**.
 1. Click **Generate new token**. You may be asked to enter your GitHub password.
 
-   :::image type="content" source="media/dapr-github-actions/pat-generate.png" alt-text="Screenshot of the Personal Access Token page and the generate new token button.":::
+   :::image type="content" source="media/dapr-github-actions/pat-generate.png" alt-text="Screenshot of the Personal Access Token page and generate new token button.":::
 
 1. In the **Note** field, provide a descriptive name.
 1. Leave the **Expiration** value at default.
@@ -258,7 +258,7 @@ After the workflow successfully completes, verify the application is running in 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. In the search field, enter **my-containerapp-store** and select the **my-containerapp-store** resource group.
 
-   :::image type="content" source="media/dapr-github-actions/search-resource-group.png" alt-text="Screenshot of searching for and finding the my container app store resoure group.":::
+   :::image type="content" source="media/dapr-github-actions/search-resource-group.png" alt-text="Screenshot of searching for and finding my container app store resource group.":::
 
 1. Navigate to the container app called **node-app**.
 
@@ -274,7 +274,7 @@ After the workflow successfully completes, verify the application is running in 
   
        :::image type="content" source="media/dapr-github-actions/create-order.png" alt-text="Screenshot of creating an order via the application url.":::
 
-    If the order is persisted, you are redirected to a page that says "Order created!"  
+    If the order is persisted, you're redirected to a page that says "Order created!"  
 
 1. Navigate back to the previous page.
 
@@ -288,7 +288,7 @@ After the workflow successfully completes, verify the application is running in 
 
 ## Modify the source code to trigger a new revision
 
-Once the source code is changed and committed, the Github build/deploy workflow builds and pushes a new container image to GitHub Container Registry. Changing the container image is considered a [revision-scope](revisions.md#revision-scope-changes) change and results in a new container app revision. 
+Once the source code is changed and committed, the GitHub build/deploy workflow builds and pushes a new container image to GitHub Container Registry. Changing the container image is considered a [revision-scope](revisions.md#revision-scope-changes) change and results in a new container app revision. 
 
 > [!NOTE]
 > A new revision is created for a container app when the update contains [revision-scope](revisions.md#revision-scope-changes) changes. [Application-scope](revisions.md#application-scope-changes) changes do not create a new revision.
@@ -374,7 +374,7 @@ For this tutorial, you add a **Delete Order** operation to your store.
    ```
    ---
 
-1. Add a route for the delete action after the create action in the file. With the following route, a Dapr service invocation calls to the `python-service` to delete the order from the CosmosDB state store:
+1. Add a route for the delete action after the create action in the file. With the following route, a Dapr service invocation calls to the `python-service` to delete the order from the Cosmos DB state store:
 
    ```js
    router.post('/delete', async function(req, res ) {
@@ -470,7 +470,7 @@ For this tutorial, you add a **Delete Order** operation to your store.
 
 ### View the new revision
 
-1. In the GitHub UI of your fork, select the **Actions** tab to verify the Github **Build and Deploy** workflow is running. 
+1. In the GitHub UI of your fork, select the **Actions** tab to verify the GitHub **Build and Deploy** workflow is running. 
 
 1. Once the workflow is complete, navigate to the **my-containerapp-store** resource group in the Azure portal.
 
