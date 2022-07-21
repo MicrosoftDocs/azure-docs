@@ -1,11 +1,11 @@
 ---
 title: VirtualNetworkCombo UI element
 description: Describes the Microsoft.Network.VirtualNetworkCombo UI element for Azure portal.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 06/28/2018
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 # Microsoft.Network.VirtualNetworkCombo UI element

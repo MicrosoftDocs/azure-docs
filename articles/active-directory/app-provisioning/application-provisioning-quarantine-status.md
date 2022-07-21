@@ -82,7 +82,7 @@ After the first failure, the first retry happens within the next 2 hours (usuall
 - The fifth retry happens 48 hours after the first failure.
 - The sixth retry happens 72 hours after the first failure.
 - The seventh retry happens 96 hours after the first failure.
-- The eigth retry happens 120 hours after the first failure.
+- The eighth retry happens 120 hours after the first failure.
 
 This cycle is repeated every 24 hours until the 30th day when retries are stopped and the job is disabled. 
 

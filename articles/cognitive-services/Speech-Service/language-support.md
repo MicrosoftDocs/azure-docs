@@ -128,6 +128,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Sinhala (Sri Lanka)               | `si-LK`         |
 | Slovak (Slovakia)                 | `sk-SK`         |
 | Slovenian (Slovenia)              | `sl-SI`         |
+| Somali (Somalia)                  | `so-SO`         |
 | Spanish (Argentina)               | `es-AR`         |
 | Spanish (Bolivia)                 | `es-BO`         |
 | Spanish (Chile)                   | `es-CL`         |
@@ -160,6 +161,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Ukrainian (Ukraine)               | `uk-UA`         |
 | Uzbek (Uzbekistan)                | `uz-UZ`         |
 | Vietnamese (Vietnam)              | `vi-VN`         |
+| Welsh (United Kingdom)          | `cy-GB`         |
 | Zulu (South Africa)               | `zu-ZA`         |
 
 ### [Plain text](#tab/plaintext)
@@ -798,8 +800,8 @@ The following neural voices are in public preview.
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunfengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, 1 new multiple style available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, 2 new multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinese (Mandarin, Simplified) | `zh-CN-LN` | Female | `zh-CN-LN-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
-| Chinese (Mandarin, Simplified) | `zh-CN-SC` | Male | `zh-CN-SC-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
+| Chinese (Mandarin, Simplified) | `zh-CN-liaoning` | Female | `zh-CN-liaoning-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
+| Chinese (Mandarin, Simplified) | `zh-CN-sichuan` | Male | `zh-CN-sichuan-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
 | English (United States) | `en-US` | Female | `en-US-JaneNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-NancyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-DavisNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -907,7 +909,7 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Czech (Czech) | `cs-CZ` | No |No|
 | Danish (Denmark) | `da-DK` | No |No|
 | Dutch (Netherlands) | `nl-NL` | No |No|
-| English (Australia) | `en-AU` | Yes |No|
+| English (Australia) | `en-AU` | Yes |Yes|
 | English (Canada) | `en-CA` | No |Yes|
 | English (India) | `en-IN` | No |No|
 | English (Ireland) | `en-IE` | No |No|
@@ -926,7 +928,7 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Hungarian (Hungary) | `hu-HU` | No |No|
 | Indonesian (Indonesia) | `id-ID` | No |No|
 | Italian (Italy) | `it-IT` | Yes |Yes|
-| Japanese (Japan) | `ja-JP` | Yes |No|
+| Japanese (Japan) | `ja-JP` | Yes |Yes|
 | Korean (Korea) | `ko-KR` | Yes |Yes|
 | Malay (Malaysia) | `ms-MY` | No |No|
 | Norwegian (Bokmål, Norway) | `nb-NO` | No |No|

@@ -70,7 +70,7 @@ You may also decide not to split when you want a condition applied to multiple r
 
 You can monitor at scale by applying the same metric alert rule to multiple resources of the same type for resources that exist in the same Azure region. Individual notifications are sent for each monitored resource.
 
-These platform metrics for these services in the following Azure clouds are supported:
+The platform metrics for these services in the following Azure clouds are supported:
 
 | Service                      | Global Azure | Government | China   |
 |:-----------------------------|:-------------|:-----------|:--------|
@@ -85,7 +85,9 @@ These platform metrics for these services in the following Azure clouds are supp
 | Recovery Services vaults     | Yes      | No     | No  |
 
   > [!NOTE]
-  > Platform metrics are not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
+  > Multi-resource metric alerts are not supported for the following scenarios:
+  > - Alerting on virtual machines' guest metrics
+  > - Alerting on virtual machines' network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
 
 You can specify the scope of monitoring with a single metric alert rule in one of three ways. For example, with virtual machines you can specify the scope as:  
 
