@@ -104,12 +104,9 @@ For production scenarios, you should generate these files with your own certific
 
 If you don't have your own certificate authority and want to use demo certificates, follow the instructions in [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md) to create your files. On that page, you need to take the following steps:
 
-   1. To start, set up the scripts for generating certificates on your device.
-   2. Create a root CA certificate. At the end of those instructions, you'll have a root CA certificate file:
-      * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
-   3. Create IoT Edge device CA certificates. At the end of those instructions, you'll have a device CA certificate and its private key:
-      * `<path>/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem` and
-      * `<path>/private/iot-edge-device-ca-<cert name>.key.pem`
+1. To start, set up the scripts for generating certificates on your device.
+1. Create a root CA certificate. At the end of those instructions, you'll have a root CA certificate file `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+1. Create IoT Edge device CA certificates. At the end of those instructions, you'll have a device CA certificate `<path>/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem` its private key `<path>/private/iot-edge-device-ca-<cert name>.key.pem`.
 
    # [IoT Edge](#tab/iotedge)
 
