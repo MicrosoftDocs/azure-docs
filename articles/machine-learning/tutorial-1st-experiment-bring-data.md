@@ -180,12 +180,18 @@ from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
 
 if __name__ == "__main__":
+    # default authentication flow for Azure applications
+    default_azure_credential = DefaultAzureCredential()
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
     workspace = "<AML_WORKSPACE_NAME>"
 
     # Client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
-    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ml_client = MLClient(
+        default_azure_credential,
+        subscription_id,
+        resource_group,
+        workspace)
     # the key here should match the key passed to the command
     my_job_inputs = {
         "data_path": Input(type=AssetTypes.URI_FOLDER, path="./data")

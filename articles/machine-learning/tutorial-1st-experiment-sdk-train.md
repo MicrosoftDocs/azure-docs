@@ -177,12 +177,18 @@ from azure.identity import DefaultAzureCredential
 from azure.ai.ml.entities import Environment
 
 if __name__ == "__main__":
+    # default authentication flow for Azure applications
+    default_azure_credential = DefaultAzureCredential()
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
     workspace = "<AML_WORKSPACE_NAME>"
 
     # Client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
-    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ml_client = MLClient(
+        default_azure_credential,
+        subscription_id,
+        resource_group,
+        workspace)
 
     env_name = "pytorch-env"
     env_docker_image = Environment(
