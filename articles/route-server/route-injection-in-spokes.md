@@ -35,7 +35,7 @@ The previous sections details influencing all traffic to be inspected by the Net
 
 Azure Route Server, however, will advertise a larger subnet than the VNet address space that is learned from the Network Virtual Appliance. It is possible to advertise a supernet from the NVA such as the RFC 1918 address space (`10.0.0.0/8`, `192.168.0.0/16` and `172.16.0.0/12`) to the Azure Route Server and these prefixes will be injected into the hubs and spoke VNets. Ultimately, the Network Virtual Appliance will contain the necessary routes to reach the spokes and on-premises destinations. 
 
-![hubnspoke noARS](./media/scenarios/Influencing-Private-Traffic-NVA.png)
+:::image type="content" source="./media/scenarios/Influencing-Private-Traffic-NVA.png" alt-text="This network diagram depicts the injection of private prefixes through Azure Route Server and N V A.":::
 
 
 > [!IMPORTANT]
