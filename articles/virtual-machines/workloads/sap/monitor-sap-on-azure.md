@@ -34,13 +34,11 @@ You can monitor different components of an SAP landscape, such as Azure virtual 
 
 The following table provides a quick comparison of the Azure Monitor for SAP solutions (Classic) and Azure Monitor for SAP solutions. 
 
-|| Azure Monitor for SAP solutions             | Azure Monitor for SAP solutions (Classic) |
-|--------------------|---------------------------------------------|-------------------------------------------|
-| Architecture Style | Azure Function based Collector architecture | VM based collector architecture           |
-| Supported Database | Microsoft SQL Server<br>SAP HANA<br>IBM Db2 | Microsoft SQL Server<br>SAP HANA   
-|     
 
-
+| Azure Monitor for SAP solutions | Azure Monitor for SAP solutions (classic) |
+| ------------------------------- | ----------------------------------------- |
+| Azure Functions-based collector architecture | VM-based collector architecture |
+| Support for Microsoft SQL Server, SAP HANA, and IBM Db2 databases | Support for Microsoft SQL Server, and SAP HANA databases |
 
 Azure Monitor for SAP Solutions uses the [Azure Monitor](../../../azure-monitor/overview.md) capabilities of [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). With it, you can:
 
