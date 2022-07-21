@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/23/2021
+ms.date: 07/21/2022
 ms.author: lenalepa
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
@@ -34,6 +34,7 @@ Use the following steps to hide an application from My Apps portal and Microsoft
 1. Select **Enterprise applications**.
 1. Under **Application Type**, select **Enterprise Applications**, if it isn't already selected.
 1. Search for the application you want to hide, and select the application.
+1. In the left navigation pane, select **Properties**.
 1. Select **No** for the **Visible to users?** question.
 1. Select **Save**.
 
