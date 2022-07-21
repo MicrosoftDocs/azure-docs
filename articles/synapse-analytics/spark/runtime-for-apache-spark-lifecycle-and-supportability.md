@@ -35,6 +35,7 @@ The following chart captures a typical lifecycle path for a Synapse runtime for 
 
 \* *Expected duration of a runtime in each stage. These timelines are provided as an example for a given runtime, and may vary depending on various factors. Lifecycle timelines are subject to change at Microsoft discretion.*
 
+\** *Your use of runtimes is governed by the terms applicable to your Azure subscription.*
 
 > [!IMPORTANT]
 >
