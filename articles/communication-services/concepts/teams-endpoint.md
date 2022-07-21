@@ -18,7 +18,7 @@ ms.subservice: teams-interop
 
 You can use Azure Communication Services and Graph API to integrate communication as Teams user into your products to communicate with other people in and outside your organization. With Azure Communication Services supporting Teams identities and Graph API, you can customize a voice, video, chat, and screen-sharing experience for Teams users.
 
-You can use the Azure Communication Services Identity SDK to exchange Azure Active Directory (Azure AD) access tokens of Teams users for Communication Identity access tokens. The diagrams in the next sections demonstrate multitenant use cases, where fictional company Fabrikam is the customer of fictional company Contoso.
+You can use the Azure Communication Services Identity SDK to exchange Azure Active Directory (Azure AD) access tokens of Teams users for Communication Identity access tokens. The diagrams in the next sections demonstrate multitenant use cases, where fictional company Fabrikam is the customer of fictional company Contoso.Contoso builds multi-tenant SaaS product that Fabrikam's administrator purchases for its employees.
 
 ## Calling 
 
