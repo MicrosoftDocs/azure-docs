@@ -19,13 +19,27 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server/Replication appliance** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 62](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | 9.49.6395.1 | 5.1.7418.0 | 9.49.6395.1 | 5.1.7418.0 | 2.0.9248.0
 [Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 9.48.6349.1 | 5.1.7387.0 | 9.48.6349.1 | 5.1.7387.0 | 2.0.9245.0
 [Rollup 60](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) | 9.47.6219.1 | 5.1.7127.0 | 9.47.6219.1 | 5.1.7127.0 | 2.0.9241.0
 [Rollup 59](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | 9.46.6149.1 | 5.1.7029.0 | 9.46.6149.1 | 5.1.7030.0 | 2.0.9239.0
 [Rollup 58](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 9.45.6096.1 | 5.1.6952.0 | 9.45.6096.1 | 5.1.6952.0 | 2.0.9237.0
-[Rollup 57](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 9.44.6068.1 | 5.1.6899.0 | 9.44.6068.1 | 5.1.6899.0 | 2.0.9236.0
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (July 2022)
+
+### Update Rollup 62
+
+[Update rollup 62](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for RHEL 8.6 and CentOS 8.6 Linux distros.
+**VMware VM/physical disaster recovery to Azure** | Added support for RHEL 8.6 and CentOS 8.6 Linux distros.<br/><br/> Added support for configuring proxy bypass rules for VMware and Hyper-V replications, using private endpoints.<br/><br/> Added fixes related to various security issues present in the classic experience.
+**Hyper-V disaster recovery to Azure** | Added support for configuring proxy bypass rules for VMware and Hyper-V replications, using private endpoints.
 
 ## Updates (March 2022)
 

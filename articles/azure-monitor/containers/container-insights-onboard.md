@@ -23,6 +23,9 @@ Container insights supports the following environments:
 ## Supported Kubernetes versions
 The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md).
 
+>[!NOTE]
+> Container insights support for Windows Server 2022 operating system in public preview.
+
 ## Prerequisites
 Before you start, make sure that you've met the following requirements:
 

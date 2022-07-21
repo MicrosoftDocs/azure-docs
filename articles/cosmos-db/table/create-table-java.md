@@ -219,7 +219,7 @@ The connection string for your Cosmos DB account is considered an app secret and
 
 ## 4 - Include the azure-data-tables package
 
-To access the Cosmos DB Tables API from a java application, include the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) package.
+To access the Cosmos DB Tables API from a Java application, include the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) package.
 
 ```xml
 <dependency>

@@ -4,7 +4,7 @@ description: Learn about deploying Microsoft Defender for Endpoint from Microsof
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 06/19/2022
+ms.date: 07/20/2022
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -23,19 +23,21 @@ With Microsoft Defender for Servers, you can deploy [Microsoft Defender for Endp
 >
 > At Ignite 2020, we launched the [Microsoft Defender for Cloud XDR suite](https://www.microsoft.com/security/business/threat-protection), and this EDR component was renamed **Microsoft Defender for Endpoint (MDE)**.
 
+You can learn about Defender for Cloud's integration with Microsoft Defender for Endpoint by watching this video from the Defender for Cloud in the Field video series: [Defender for Servers integration with Microsoft Defender for Endpoint](episode-sixteen.md)
+
 ## Availability
 
 | Aspect                                       | Details                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                               | General availability (GA)                                                                                                                                    |
-| Pricing:                                     | Requires [Microsoft Defender for Servers Plan 1 or Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans)                                                                                                                                                                                                           |
+| Pricing:                                     | Requires [Microsoft Defender for Servers Plan 1 or Plan 2](defender-for-servers-introduction.md#available-defender-for-server-plans)                                                                                                                                                                                                           |
 | Supported environments:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines running Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure VMs running Linux ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure VMs running Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Azure Virtual Desktop](../virtual-desktop/overview.md) (formerly Windows Virtual Desktop), [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure VMs running Windows 11 or Windows 10 (except if running Azure Virtual Desktop or Windows 10 Enterprise multi-session)           |
 | Required roles and permissions:              | * To enable/disable the integration: **Security admin** or **Owner**<br>* To view Defender for Endpoint alerts in Defender for Cloud: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
-| Clouds:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government (Windows only)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts                                                         |
+| Clouds:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government (Windows only)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts     <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects                                                      |
 
 ## Benefits of integrating Microsoft Defender for Endpoint with Defender for Cloud
 
-[Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) protects your Windows and Linux machines whether they're hosted in Azure, hybrid clouds (on-premises), or AWS. Protections include:
+[Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) protects your Windows and Linux machines whether they're hosted in Azure, hybrid clouds (on-premises), or multicloud. Protections include:
 
 - **Advanced post-breach detection sensors**. Defender for Endpoint's sensors collect a vast array of behavioral signals from your machines.
 
@@ -325,7 +327,7 @@ If you enabled the integration, but still don't see the extension running on you
 Defender for Endpoint is included at no extra cost with **Microsoft Defender for Servers**. Alternatively, it can be purchased separately for 50 machines or more.
 
 ### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?
-If you already have a license for **Microsoft Defender for Endpoint for Servers** , you won't pay for that part of your [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans) license. Learn more about [the Microsoft 365 license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
+If you already have a license for **Microsoft Defender for Endpoint for Servers** , you won't pay for that part of your [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#plan-2-formerly-defender-for-servers) license. Learn more about [the Microsoft 365 license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
 
 To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
 

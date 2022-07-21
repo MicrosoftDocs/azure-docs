@@ -133,6 +133,9 @@
               href: configure-token-lifetimes.md
             - name: Configure role claim
               href: active-directory-enterprise-app-role-management.md
+            - name: SAML app multi-instancing
+              displayName: Configure SAML app multi-instancing for an application
+              href: reference-app-multi-instancing.md
         - name: Handle browser cookie restrictions
           items:
             - name: Handle ITP in Safari

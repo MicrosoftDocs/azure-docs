@@ -28,6 +28,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-configuration-store-kv/).
 
+> [!NOTE]
+> Bicep files use the same underlying engine as ARM templates. All of the tips, notes, and important information found in the [ARM template quickstart](./quickstart-resource-manager.md) apply here. It's recommended to reference this information when working with Bicep files.
+
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/main.bicep":::
 
 Two Azure resources are defined in the Bicep file:

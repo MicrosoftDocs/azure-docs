@@ -71,6 +71,8 @@
       href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
     - name: Capture Event Hubs data in Parquet format
       href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md
+    - name: Store captured Avro data in Synapse Analytics
+      href: store-captured-data-data-warehouse.md      
       maintainContext: true
     - name: Build real time dashboards with Power BI
       href: ../stream-analytics/no-code-power-bi-tutorial.md
@@ -87,7 +89,11 @@
 - name: Concepts
   items:
     - name: Event Hubs Capture
-      href: event-hubs-capture-overview.md
+      items:
+      - name: Capture event data in Event Hubs
+        href: event-hubs-capture-overview.md
+      - name: Explore captured Avro files
+        href: explore-captured-avro-files.md
     - name: Application groups
       href: resource-governance-overview.md     
     - name: Tiers 

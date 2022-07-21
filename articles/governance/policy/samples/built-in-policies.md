@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 06/29/2022
+ms.date: 07/20/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -58,6 +58,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Azure Data Explorer
 
 [!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
+
+## Azure Databricks
+
+[!INCLUDE [azure-policy-reference-policies-azure-databricks](../../../../includes/policy/reference/bycat/policies-azure-databricks.md)]
 
 ## Azure Edge Hardware Center
 
@@ -138,6 +142,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Event Hub
 
 [!INCLUDE [azure-policy-reference-policies-event-hub](../../../../includes/policy/reference/bycat/policies-event-hub.md)]
+
+## Fluid Relay
+
+[!INCLUDE [azure-policy-reference-policies-fluid-relay](../../../../includes/policy/reference/bycat/policies-fluid-relay.md)]
 
 ## General
 
