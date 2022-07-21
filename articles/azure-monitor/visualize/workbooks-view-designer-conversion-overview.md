@@ -109,4 +109,4 @@ With workbooks, we allow the user to choose to query one or both sections of the
 
 ## Next steps
 
-- [Conversion options](workbooks-view-designer-conversion-options.md)
+- [Sample conversions](workbooks-view-designer-conversions.md)
