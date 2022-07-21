@@ -58,7 +58,7 @@ You can create a linked service for Data Lake Storage Gen2 or Blob Storage. Curr
     ![Screenshot of selections for creating a linked service by using a managed identity.](./media/synapse-file-mount-api/synapse-link-service-using-managed-identity.png)
 
 > [!NOTE]
-> If you create a linked service by using a managed identity as authentication method, make sure that the workspace MSI file has the Storage Blob Data Contributor role of the mounted container. 
+> If you create a linked service by using a managed identity as the authentication method, make sure that the workspace MSI file has the Storage Blob Data Contributor role of the mounted container. 
 > 
 > Always check the linked service connection to guarantee that the linked service is created successfully. 
 
@@ -247,7 +247,7 @@ mssparkutils.fs.unmount("/test")
 
 + The `mssparkutils fs help` function hasn't added the description about the mount/unmount part yet. 
 
-+ We plan to support an automatic unmount mechanism to remove the mount point when the application run finished. It's not implemented yet. If you want to unmount the mount point to release the disk space, you need to explicitly call unmount API in your code. Otherwise, the mount point will still exist in the node even after the application run finishes. 
++ We plan to support an automatic unmount mechanism to remove the mount point when the application run finishes. It's not implemented yet. If you want to unmount the mount point to release the disk space, you need to explicitly call an unmount API in your code. Otherwise, the mount point will still exist in the node after the application run finishes. 
 
 + Mounting a Data Lake Storage Gen1 storage account is not supported for now. 
 
