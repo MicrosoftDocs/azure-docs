@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.topic: article
 author: rigonzales
 ms.author: rigonzales
-ms.date: 07/19/2022
+ms.date: 07/21/2022
 ---
 
 # Create and manage private offers via API
@@ -91,7 +91,7 @@ The response appears in the following sample format:
 {
   "value": [
     {
-      "$schema": "https://product-ingestion.azureedge.net/schema/product/2022-07-01",
+      "$schema": "https://schema.mp.microsoft.com/schema/product/2022-07-01",
       "id": "string",
       "identity": {
         "externalId": "string"
@@ -116,7 +116,7 @@ The response appears in the following sample format:
 {
   "value": [
     {
-      "$schema": "https://product-ingestion.azureedge.net/schema/plan/2022-07-01",
+      "$schema": "https://schema.mp.microsoft.com/schema/plan/2022-07-01",
       "product": "string",
       "id": "string",
       "identity": {
@@ -196,10 +196,10 @@ Provide the details of the private offer using the ISV to Customer private offer
 
 ```json
 {
- "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-07-01",
+ "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01",
   "resources": [ 
     {
-       "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-07-01", 
+       "$schema": "https://schema.mp.microsoft.com/schema/private-offer/2022-07-01", 
        "name": "privateOffercustomer1705",
        "state": "live",
        "privateOfferType": "customerPromotion",
@@ -232,7 +232,7 @@ Sample absolute pricing resource:
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/price-and-availability-private-offer-plan/2022-07-01",
+    "$schema": "https://schema.mp.microsoft.com/schema/price-and-availability-private-offer-plan/2022-07-01",
     "resourceName": "newSimpleAbsolutePricing",
     "product": "product/7ba807c8-386a-4efe-80f1-b97bf8a554f8",
     "plan": "plan/987654",
@@ -300,7 +300,7 @@ The response will contain the jobId you can use later to poll the status:
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-07-01",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
@@ -341,10 +341,10 @@ Provide the details of the private offer using the **ISV to reseller margin priv
 
 ```json
 {
- "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-07-01", 
+ "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01", 
   "resources": [ 
     { 
-       "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-07-01", 
+       "$schema": "https://schema.mp.microsoft.com/schema/private-offer/2022-07-01", 
        "privateOfferType": "cspPromotion",
        "name": "privateOffercsp1034",
        "state": "live",
@@ -391,7 +391,7 @@ The response will contain the jobId you can use later to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-07-01",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
@@ -430,10 +430,10 @@ $version - required. This is the version of the schema that is being used in the
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-07-01"
+    "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01"
      "resources": [
         {
-            "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-07-01",
+            "$schema": "https://schema.mp.microsoft.com/schema/private-offer/2022-07-01",
             "id": "private-offer/456e-a345-c457-1234",
             "name": "privateOffercustomer1705",
             "state": "deleted"
@@ -448,7 +448,7 @@ The response will contain the jobId you can use later to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-07-01",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
@@ -489,10 +489,10 @@ $version - required. This is the version of the schema that is being used in the
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-07-01"
+    "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01"
      "resources": [
          {
-            "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-07-01",
+            "$schema": "https://schema.mp.microsoft.com/schema/private-offer/2022-07-01",
             "id": "private-offer/456e-a345-c457-1234",
             "name": "privateOffercustomer1705", 
             "state": "withdrawn"
@@ -507,7 +507,7 @@ The response will contain the jobId you can later use to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-07-01",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
@@ -551,10 +551,10 @@ You can use the same schemas as the two methods to create a new private offer de
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-07-01",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01",
      "resources": [ 
        { 
-          "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-07-01", 
+          "$schema": "https://schema.mp.microsoft.com/schema/private-offer/2022-07-01", 
           "name": "publicApiCustAPIUpgrade1",
           "state": "live",
           "privateOfferType": "customerPromotion",
@@ -581,7 +581,7 @@ The response will contain the jobId you can use later to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-07-01",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
@@ -638,7 +638,7 @@ Sample outputs:
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-07-01",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "running",
     "jobResult": "pending",
@@ -652,7 +652,7 @@ Sample outputs:
 
 ```json
 {
-    "$schema": " https://product-ingestion.azureedge.net/schema/configure-status/2022-07-01",
+    "$schema": " https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "b3f49dff-381f-480d-a10e-17f4ce49b65f",
     "jobStatus": "completed",
     "jobResult": "succeeded",
@@ -671,7 +671,7 @@ Sample outputs:
 
 ```json
 {
-    "$schema": " https://product-ingestion.azureedge.net/schema/configure-status/2022-07-01",
+    "$schema": " https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "completed",
     "jobResult": "failed",
@@ -728,7 +728,7 @@ You'll receive the full details of the private offer.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-07-01",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01",
     "resources": [
         {
             "id": "private-offer/07380dd9-bcbb-cccbb-bbccbc",
