@@ -695,8 +695,8 @@ The following table lists the prebuilt neural voices supported in each language.
 | Russian (Russia) | `ru-RU` | Female | `ru-RU-DariyaNeural` | General |
 | Russian (Russia) | `ru-RU` | Female | `ru-RU-SvetlanaNeural` | General |
 | Russian (Russia) | `ru-RU` | Male | `ru-RU-DmitryNeural` | General |
-| Serbian (Serbia, Latin) | `sr-RS` | Female | `sr-RS-SophieNeural` | General |
-| Serbian (Serbia, Latin) | `sr-RS` | Male | `sr-RS-NicholasNeural` | General |
+| Serbian (Serbia, Cyrillic) | `sr-RS` | Female | `sr-RS-SophieNeural` | General |
+| Serbian (Serbia, Cyrillic) | `sr-RS` | Male | `sr-RS-NicholasNeural` | General |
 | Sinhala (Sri Lanka) | `si-LK` | Female | `si-LK-ThiliniNeural` | General |
 | Sinhala (Sri Lanka) | `si-LK` | Male | `si-LK-SameeraNeural` | General |
 | Slovak (Slovakia) | `sk-SK` | Female | `sk-SK-ViktoriaNeural` | General |
