@@ -15,11 +15,11 @@ Similar to Azure locations, end users within the tenant who have access to Custo
 
 [ ![Arc platform layers](./media/conceptual-arc-platform-layers.png) ](./media/conceptual-arc-platform-layers.png#lightbox)
 
-You can visualize custom locations as an abstraction layer on top of Azure Arc-enabled Kubernetes cluster, cluster connect, and cluster extensions. Custom locations creates the granular [RoleBindings and ClusterRoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) necessary for other Azure services to access the cluster. These other Azure services require cluster access to manage resources that the customer wants to deploy on their clusters.
+You can visualize custom locations as an abstraction layer on top of Azure Arc-enabled Kubernetes cluster, cluster connect, and cluster extensions. Custom locations create the granular [RoleBindings and ClusterRoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) necessary for other Azure services to access the cluster. These other Azure services require cluster access to manage resources that the customer wants to deploy on their clusters.
 
 ## Architecture
 
-When the admin [enables the custom locations feature on the cluster](custom-locations.md), a ClusterRoleBinding is created on the cluster, authorizing the Azure AD application used by the custom locations resource provider. Once authorized, the custom locations resource provider can create ClusterRoleBindings or RoleBindings needed by other Azure resource providers to create custom resources on this cluster. The cluster extensions installed on the cluster determines the list of resource providers to authorize.
+When the admin [enables the custom locations feature on the cluster](custom-locations.md), a ClusterRoleBinding is created on the cluster, authorizing the Azure AD application used by the custom locations resource provider. Once authorized, the custom locations resource provider can create ClusterRoleBindings or RoleBindings needed by other Azure resource providers to create custom resources on this cluster. The cluster extensions installed on the cluster determine the list of resource providers to authorize.
 
 [ ![Use custom locations](./media/conceptual-custom-locations-usage.png) ](./media/conceptual-custom-locations-usage.png#lightbox)
 

@@ -77,7 +77,7 @@ Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the f
 
 This is because a service principal doesn't have permissions to get information of the application used by the Azure Arc service. To avoid this error, execute the following steps:
 
-1. Sign in into Azure CLI using your user account. Fetch the Object ID of the Azure AD application used by Azure Arc service:
+1. Sign in to Azure CLI using your user account. Fetch the Object ID of the Azure AD application used by Azure Arc service:
 
     ```azurecli
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
@@ -230,5 +230,5 @@ az customlocation delete -n <customLocationName> -g <resourceGroupName> --namesp
 
 - Securely connect to the cluster using [Cluster Connect](cluster-connect.md).
 - Continue with [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) for end-to-end instructions on installing extensions, creating custom locations, and creating the App Service Kubernetes environment.
-- Create an event grid topic and an event subscription for [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
+- Create an Event Grid topic and an event subscription for [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
 - Learn more about currently available [Azure Arc-enabled Kubernetes extensions](extensions.md#currently-available-extensions).
