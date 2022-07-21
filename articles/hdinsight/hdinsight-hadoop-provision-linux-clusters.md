@@ -250,20 +250,20 @@ Most of the HDInsight applications are installed on an empty edge node.  An empt
 
 On each of the **NodeManager** machines, **LocalResources** are ultimately localized in the following target directories. 
 
-By  normal configuration only the default disk is added as the local disk in NM. For large applications this disk space may not be enough and it can result in job failure.
+By  normal configuration only the default disk is added as the local disk in NodeManager. For large applications this disk space may not be enough and it can result in job failure.
 
 If the cluster is expected to run large data application, you can choose to add extra disks to the **NodeManager**.
 
-You can choose the number of disks per VM and each will be of 1 TB size.
+You can add number of disks per VM and each disk will be of 1 TB size.
 
 :::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/disk-attach.png" alt-text="Screenshot showing how to add disk attach feature":::
 
-From **Configuration + pricing** tab
-
+1. From **Configuration + pricing** tab
 1. Select **Enable managed disk** option
-1. Enter the numbet of disks
-1. Choose your workedr node
-1. From **Review + create** tab, under **Cluster configuration** you can verify the number of **Disks**
+1. From Standard Disk partition, Enter the **Numbet of disks**
+1. Choose your **Workedr node**
+
+You can verify the number of disks from **Review + create** tab, under **Cluster configuration**
 
 ### Script actions
 
