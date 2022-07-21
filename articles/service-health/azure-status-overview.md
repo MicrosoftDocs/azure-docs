@@ -7,7 +7,7 @@ ms.date: 05/26/2022
 ---
 # Azure status overview
 
-[Azure status](https://azure.status.com/) provides you with a global view of the health of Azure services and regions. With Azure status, you can get information on service availability. Azure status is available to everyone to view all services that report their service health, as well as incidents with wide-ranging impact. If you're a current Azure user, however, we strongly encourage you to use the personalized experience in [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health includes all outages, upcoming planned maintenance activities, and service advisories.
+[Azure status](https://azure.status.microsoft/) provides you with a global view of the health of Azure services and regions. With Azure status, you can get information on service availability. Azure status is available to everyone to view all services that report their service health, as well as incidents with wide-ranging impact. If you're a current Azure user, however, we strongly encourage you to use the personalized experience in [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health includes all outages, upcoming planned maintenance activities, and service advisories.
 
 :::image type="content" source="./media/azure-status-overview/azure-status.PNG" alt-text="Top level Azure Status page.":::
 
@@ -33,7 +33,7 @@ Azure status page shows the current impact of an active event on the entirety of
 
 ## RSS Feed
 
-Azure status also provides [an RSS feed](https://status.azure.com/status/feed/) of changes to the health of Azure services that you can subscribe to.
+Azure status also provides [an RSS feed](https://azure.status.microsoft/status/feed/) of changes to the health of Azure services that you can subscribe to.
 
 ## When does Azure publish communications to the Status page?
  
@@ -45,9 +45,9 @@ Most of our service issue communications are provided as targeted notifications 
  
 ## When does Azure publish RCAs to the Status History page?
 
-While the [Azure status page](https://status.azure.com/status) always shows the latest health information, you can view older events using the [Azure status history page](https://status.azure.com/status/history/). The history page contains all RCAs (Root Cause Analyses) for incidents that occurred on November 20, 2019 or later and will - from that date forward - provide a 5-year RCA history. RCAs prior to November 20, 2019 aren't available.
+While the [Azure status page](https://azure.status.microsoft/status) always shows the latest health information, you can view older events using the [Azure status history page](https://azure.status.microsoft/status/history/). The history page contains all RCAs (Root Cause Analyses) for incidents that occurred on November 20, 2019 or later and will - from that date forward - provide a 5-year RCA history. RCAs prior to November 20, 2019 aren't available.
  
-After June 1st 2022, the [Azure status history page](https://status.azure.com/status/history/) will only be used to provide RCAs for scenario 1 above. We're committed to publishing RCAs publicly for service issues that had the broadest impact, such as those with both a multi-service and multi-region impact. We publish to ensure that all customers and the industry at large can learn from our retrospectives on these issues, and understand what steps we're taking to make such issues less likely and/or less impactful in future. 
+After June 1st 2022, the [Azure status history page](https://azure.status.microsoft/status/history/) will only be used to provide RCAs for scenario 1 above. We're committed to publishing RCAs publicly for service issues that had the broadest impact, such as those with both a multi-service and multi-region impact. We publish to ensure that all customers and the industry at large can learn from our retrospectives on these issues, and understand what steps we're taking to make such issues less likely and/or less impactful in future. 
  
 For scenarios 2 and 3 above - We may communicate publicly on the Status page during impact to work around when our standard, targeted communications aren't able to reach all impacted customers. After the issue is mitigated, we'll conduct a thorough impact analysis to determine exactly which customer subscriptions were impacted. In such scenarios, we'll provide the relevant PIR only to affected customers via [Azure Service Health](https://azure.microsoft.com/features/service-health/) in the Azure portal.
 
