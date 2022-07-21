@@ -38,7 +38,7 @@ Once you find the asset you're looking for, you can view all of the asset inform
 ## Asset overview
 The overview section of the asset details gives a summarized view of an asset. The sections that follow explains the different parts of the overview page.
 
-:::image type="content" source="media/catalog-asset-details/asset-detail-overview.png" alt-text="Asset details overview":::
+:::image type="content" source="media/catalog-asset-details/asset-detail-overview.png" alt-text="Screenshot that shows the asset details overview page.":::
 
 ### Asset description
 
@@ -48,7 +48,7 @@ An asset description gives a synopsis of what the asset represents. You can add 
 
 Microsoft Purview enables users to add rich formatting to asset descriptions such as adding bolding, underlining, or italicizing text. Users can also create tables, bulleted lists, or hyperlinks to external resources.
 
-:::image type="content" source="media/catalog-asset-details/rich-text-editor.png" alt-text="Rich text editor":::
+:::image type="content" source="media/catalog-asset-details/rich-text-editor.png" alt-text="Screenshot that shows the rich text editor.":::
 
 Below are the rich text formatting options:
 
@@ -95,7 +95,7 @@ You can view the full asset hierarchy within the overview tab. As an example: if
 
 Below are a list of actions you can take from an asset details page. Actions available to you vary depending on your permissions and the type of asset you're looking at. Available actions are generally available on the global actions bar. 
 
-:::image type="content" source="media/catalog-asset-details/asset-details-actions.png" alt-text="Actions available in asset details page":::
+:::image type="content" source="media/catalog-asset-details/asset-details-actions.png" alt-text="Screenshot that shows actions available on the asset details page.":::
 
 ### Editing assets
 

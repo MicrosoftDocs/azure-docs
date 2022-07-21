@@ -26,11 +26,11 @@ In Microsoft Purview Studio, an organization's managed attributes are managed in
 
 1. Open the data map application and navigate to **Managed attributes (preview)** in the **Annotation management** section.
 1. Select **New**. Choose whether you wish to start by creating an attribute group or a managed attribute.
-    :::image type="content" source="media/how-to-managed-attributes/create-new-managed-attribute.png" alt-text="Create a new managed attribute or attribute group":::
+    :::image type="content" source="media/how-to-managed-attributes/create-new-managed-attribute.png" alt-text="Screenshot that shows how to create a new managed attribute or attribute group.":::
 1. To create an attribute group, enter a name and a description.
-    :::image type="content" source="media/how-to-managed-attributes/create-attribute-group.png" alt-text="Create an attribute group":::
+    :::image type="content" source="media/how-to-managed-attributes/create-attribute-group.png" alt-text="Screenshot that shows how to create an attribute group.":::
 1. Managed attributes have a name, attribute group, data type, and associated asset types. Attribute groups can be created in-line during the managed attribute creation process. Associated asset types are the asset types you can apply the attribute to. For example, if you select "Azure SQL Table" for an attribute, you can apply it to Azure SQL Table assets, but not Azure Synapse Dedicated Table assets.
-    :::image type="content" source="media/how-to-managed-attributes/create-managed-attribute.png" alt-text="Create a managed attribute":::
+    :::image type="content" source="media/how-to-managed-attributes/create-managed-attribute.png" alt-text="Screenshot that shows how to create a managed attribute.":::
 1. Select **Create** to save your attribute.
 
 ### Expiring managed attributes
@@ -39,11 +39,11 @@ In the managed attribute management experience, managed attributes can't be dele
 
 Both attribute groups and individual managed attributes can be expired. To mark an attribute group or managed attribute as expired, select the **Edit** icon.
 
-:::image type="content" source="media/how-to-managed-attributes/expire-attribute-group.png" alt-text="Edit an attribute group":::
+:::image type="content" source="media/how-to-managed-attributes/expire-attribute-group.png" alt-text="Screenshot that shows how to edit an attribute group.":::
 
 Select **Mark as expired** and confirm your change. Once expired, attribute groups and managed attributes can't be reactivated.
 
-:::image type="content" source="media/how-to-managed-attributes/mark-as-expired.png" alt-text="Expire an attribute group":::
+:::image type="content" source="media/how-to-managed-attributes/mark-as-expired.png" alt-text="Screenshot that shows the expire an attribute group.":::
 
 ## Apply managed attributes to assets in Microsoft Purview Studio
 
@@ -51,7 +51,7 @@ Managed attributes can be applied in the [asset details page](catalog-asset-deta
 
 1. Navigate to an asset by either searching or browsing the data catalog. Open the asset details page.
 1. Select **Edit** on the asset's action bar.
-    :::image type="content" source="media/how-to-managed-attributes/edit-asset.png" alt-text="Edit an asset":::
+    :::image type="content" source="media/how-to-managed-attributes/edit-asset.png" alt-text="Screenshot that shows how to edit an asset.":::
 1. In the managed attributes section of the editing experience, select **Add attribute**.
 1. Choose the attribute you wish to apply. Attributes are grouped by their attribute group.
 1. Choose the value or values of the applied attribute.
