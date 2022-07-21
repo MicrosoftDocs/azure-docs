@@ -187,6 +187,7 @@ The following tables display the messages displayed in the portal during custom 
 #### Decommission status
 
 | Status message | Explanation |
+| -------------- | ----------- |
 | InternetDecommissioningInProgress | The range is currently being decommissioned. The range will no longer be advertised to the internet. |
 | RegionalDecommissioningInProgress | The range is no longer advertised to the internet and is currently being decommissioned. The range will no longer be advertised regionally within Azure. |
 
