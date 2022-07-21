@@ -6,7 +6,7 @@ services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager:rkarlin
 editor: ''
 
 ms.service: active-directory
