@@ -1,5 +1,5 @@
 ---
-title: Monitor SAP on Azure data reference (Preview)
+title: Data reference for Azure Monitor for SAP solutions (preview)
 description: Important reference material needed when you monitor SAP on Azure. 
 author: lauradolan
 ms.topic: reference
@@ -7,10 +7,12 @@ ms.author: ladolan
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap 
 ms.custom: subject-monitoring
-ms.date: 08/27/2021
+ms.date: 07/21/2022
 ---
 
-# Monitor SAP on Azure (preview) data reference
+# Data reference for Azure Monitor for SAP solutions (preview)
+
+[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
 This article provides a reference of log data collected to analyze the performance and availability of Azure Monitor for SAP solutions. See [Monitor SAP on Azure (preview)](monitor-sap-on-azure.md) for details on collecting and analyzing monitoring data for SAP on Azure.
 
