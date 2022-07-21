@@ -8,8 +8,7 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 07/20/2022
 ms.author: duau
-ms.custom: seodec18, devx-track-azurepowershell
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
 ---
 # Tutorial: Configure route filters for Microsoft peering using PowerShell
 
