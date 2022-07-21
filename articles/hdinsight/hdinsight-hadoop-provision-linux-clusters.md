@@ -4,7 +4,7 @@ description: Set up Hadoop, Kafka, Spark, HBase, or Storm clusters for HDInsight
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
-ms.date: 03/30/2022
+ms.date: 07/22/2022
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -256,7 +256,14 @@ If the cluster is expected to run large data application, you can choose to add 
 
 You can choose the number of disks per VM and each will be of 1 TB size.
 
-::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/disk-attach.png" alt-text="Screenshot showing how to add disk attach feature":::
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/disk-attach.png" alt-text="Screenshot showing how to add disk attach feature":::
+
+From **Configuration + pricing** tab
+
+1. Select **Enable managed disk** option
+1. Enter the numbet of disks
+1. Choose your workedr node
+1. From **Review + create** tab, under **Cluster configuration** you can verify the number of **Disks**
 
 ### Script actions
 
