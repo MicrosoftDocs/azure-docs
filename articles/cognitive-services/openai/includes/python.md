@@ -93,8 +93,8 @@ Since our example of `When I go to the store, I want a` provides very little con
 
 If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-- [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+- [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+- [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 

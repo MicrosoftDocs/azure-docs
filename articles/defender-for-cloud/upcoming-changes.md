@@ -27,7 +27,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** June 2022
+**Estimated date for change:** August 2022
 
 In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, [see the release note](release-notes-archive.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 

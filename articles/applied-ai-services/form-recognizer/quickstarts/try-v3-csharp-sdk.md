@@ -567,12 +567,12 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 
 That's it, congratulations!
 
-In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the Form Recognizer Studio and reference documentation to learn about Form Recognizer API in more depth.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+>[!div class="nextstepaction"]
+> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [Form Recognizer .NET/C# reference library](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.4/index.html)
+> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

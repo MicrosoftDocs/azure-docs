@@ -358,14 +358,19 @@ Here's an example of what a parameter template definition looks like:
     },
     "Microsoft.Synapse/workspaces/pipelines": {
         "properties": {
-            "activities": [
-                {
-                    "typeProperties": {
-                        "waitTimeInSeconds": "-::int",
-                        "headers": "=::object"
-                    }
+            "activities": [{
+                "typeProperties": {
+                    "waitTimeInSeconds": "-::int",
+                    "headers": "=::object",
+                    "activities": [
+                        {
+                            "typeProperties": {
+                                "url": "-:-webUrl:string"
+                            }
+                        }
+                    ]
                 }
-            ]
+            }]
         }
     },
     "Microsoft.Synapse/workspaces/integrationRuntimes": {
@@ -391,7 +396,10 @@ Here's an example of what a parameter template definition looks like:
         "*": {
             "properties": {
                 "typeProperties": {
-                    "*": "="
+                    "accountName": "=",
+                    "username": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "secretAccessKey": "|"
                 }
             }
         },
@@ -401,12 +409,32 @@ Here's an example of what a parameter template definition looks like:
                     "dataLakeStoreUri": "="
                 }
             }
+        },
+        "AzureKeyVault": {
+            "properties": {
+                "typeProperties": {
+                    "baseUrl": "|:baseUrl:secureString"
+                },
+                "parameters": {
+                    "KeyVaultURL": {
+                        "type": "=",
+                        "defaultValue": "|:defaultValue:secureString"
+                    }
+                }
+            }
         }
     },
     "Microsoft.Synapse/workspaces/datasets": {
         "properties": {
             "typeProperties": {
                 "*": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/credentials" : {
+        "properties": {
+            "typeProperties": {
+                "resourceId": "="
             }
         }
     }

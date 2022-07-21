@@ -6,7 +6,7 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
-ms.date: 07/08/2021
+ms.date: 07/18/2022
 ---
 
 # Deploy Azure Monitor for SAP Solutions by using the Azure portal
@@ -36,7 +36,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### SAP NetWeaver provider
 
-The SAP start service provides a host of services, including monitoring the SAP system. We're using SAPControl, which is a SOAP web service interface that exposes these capabilities. The SAPControl web service interface differentiates between [protected and unprotected](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv) web service methods. 
+The SAP start service provides a host of services, including monitoring the SAP system. We're using SAPControl, which is a SOAP web service interface that exposes these capabilities. The SAPControl web service interface differentiates between [protected and unprotected](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv) web service methods. For how to configure authorization for SAPControl, see [SAP Note 1563660](https://launchpad.support.sap.com/#/notes/0001563660).
 
 To fetch specific metrics, you need to unprotect some methods for the current release. Follow these steps for each SAP system:
 

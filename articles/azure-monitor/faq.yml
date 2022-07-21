@@ -49,7 +49,7 @@ sections:
       - question: |
           Can Azure Monitor monitor on-premises resources?
         answer: |
-          Yes, in addition to collecting monitoring data from Azure resources, Azure Monitor can collect data from virtual machines and applications in other clouds and on-premises. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
+          Yes, in addition to collecting monitoring data from Azure resources, Azure Monitor can collect data from virtual machines and applications in other clouds and on-premises. See [Sources of monitoring data for Azure Monitor](data-sources.md).
           
       - question: |
           Does Azure Monitor integrate with System Center Operations Manager?
@@ -66,7 +66,7 @@ sections:
       - question: |
           Where does Azure Monitor get its data?
         answer: |
-          Azure Monitor collects data from various sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
+          Azure Monitor collects data from various sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](data-sources.md).
           
       - question: |
           What data is collected by Azure Monitor?
@@ -211,8 +211,7 @@ sections:
           The legacy agents include:
           - Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs.  
           - The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. These agents will be deprecated by August, 2024.
-          - The Dependency agent requires the Log Analytics agent and collected process details and dependencies.           
-          
+                  
       - question: |
           Does my agent traffic use my ExpressRoute connection?
         answer: |

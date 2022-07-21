@@ -233,12 +233,6 @@ The following table shows the configuration settings for customizations:
 
 | Field | Description |
 | ----- | ----------- |
-|Display name | Override display name from model. |
-|Semantic type | Override semantic type from model. |
-|Unit | Override unit from model. |
-|Display unit | Override from model. |
-|Comment | Override from model. |
-|Description | Override from model. |
 |Color | IoT Central-specific option. |
 |Min value | Set minimum value - IoT Central-specific option. |
 |Max value | Set maximum value - IoT Central-specific option. |

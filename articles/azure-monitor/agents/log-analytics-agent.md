@@ -35,7 +35,7 @@ There are multiple methods to install the Log Analytics agent and connect your m
 
 ### Azure virtual machine
 
-- Use [VM insights](../vm/vminsights-enable-overview.md) to install the agent for a [single machine using the Azure portal](../vm/vminsights-enable-portal.md) or for [multiple machines at scale](../vm/vminsights-enable-policy.md). This will install the Log Analytics agent and [Dependency agent](agents-overview.md#dependency-agent). 
+- Use [VM insights](../vm/vminsights-enable-overview.md) to install the agent for a [single machine using the Azure portal](../vm/vminsights-enable-portal.md) or for [multiple machines at scale](../vm/vminsights-enable-policy.md). This installs the Log Analytics agent and [Dependency agent](../vm/vminsights-dependency-agent-maintenance.md). 
 - Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md) can be installed with the Azure portal, Azure CLI, Azure PowerShell, or a Azure Resource Manager template.
 - [Microsoft Defender for Cloud can provision the Log Analytics agent](../../security-center/security-center-enable-data-collection.md) on all supported Azure VMs and any new ones that are created if you enable it to monitor for security vulnerabilities and threats.
 - Install for individual Azure virtual machines [manually from the Azure portal](../vm/monitor-virtual-machine.md?toc=%2fazure%2fazure-monitor%2ftoc.json).

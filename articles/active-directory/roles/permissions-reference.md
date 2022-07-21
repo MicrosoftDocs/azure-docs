@@ -1077,6 +1077,7 @@ Users in this role can read settings and administrative information across Micro
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Global Reader is supported [for central reporting](/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 > - [SharePoint](https://admin.microsoft.com/sharepoint) - Global Reader currently can't access SharePoint using PowerShell.
 > - [Power Platform admin center](https://admin.powerplatform.microsoft.com) - Global Reader is not yet supported in the Power Platform admin center.
+> - Microsoft Purview doesn't support the Global Reader role.
 >
 > These features are currently in development.
 >

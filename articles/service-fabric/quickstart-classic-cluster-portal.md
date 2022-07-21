@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.service: service-fabric
 services: service-fabric
 ms.author: tomcassidy
-ms.date: 03/02/2022
+ms.date: 07/11/2022
 ---
 
 # Quickstart: Deploy a Service Fabric cluster using the Azure portal

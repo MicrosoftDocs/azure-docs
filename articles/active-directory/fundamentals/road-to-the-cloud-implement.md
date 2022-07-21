@@ -24,9 +24,7 @@ You can enrich user attributes in Azure AD to make more user attributes availabl
 
 * App provisioning - The data source of app provisioning is Azure AD and necessary user attributes must be in there.
 
-* Application authorization - Token issued by Azure AD can include claims generated from user attributes. 
-
-* Application can make authorization decision based on the claims in token.
+* Application authorization - Token issued by Azure AD can include claims generated from user attributes so that applications can make authorization decision based on the claims in token.
 
 * Group membership population and maintenance - Dynamic groups enables dynamic population of group membership based on user attributes such as department information.
 
@@ -45,6 +43,8 @@ These links provide additional information on this topic but are not specific to
 * [Tutorial - Customize Azure Active Directory attribute mappings in Application Provisioning](../app-provisioning/customize-application-attributes.md)
 
 * [Provide optional claims to Azure AD apps - Microsoft identity platform](../develop/active-directory-optional-claims.md)
+
+These links provide additional information relevant to groups:
 
 * [Create or edit a dynamic group and get status - Azure AD](../enterprise-users/groups-create-rule.md)
 
@@ -91,7 +91,7 @@ The organization has a process to evaluate Azure AD alternatives when considerin
 
      * [Azure Files](../../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB or NFS protocol. Customers can use native [Azure AD authentication to Azure Files](../../virtual-desktop/create-profile-container-azure-ad.md) over the internet without line of sight to a DC.
 
-     * Azure AD also works with third party applications in our [Application Gallery](/security/business/identity-access-management/integrated-apps-azure-ad)
+     * Azure AD also works with third party applications in our [Application Gallery](/microsoft-365/enterprise/integrated-apps-and-azure-ads)
 
    * Print Servers
 

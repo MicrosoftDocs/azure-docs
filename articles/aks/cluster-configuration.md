@@ -57,6 +57,20 @@ Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported size
 
 Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [AKS Ubuntu 18.04 image](#os-configuration). This image supports all Gen2 SKUs and sizes.
 
+## Default OS disk sizing
+
+By default, when creating a new cluster or adding a new node pool to an existing cluster, the disk size is determined by the number for vCPUs, which is based on the VM SKU. The default values are shown in the following table: 
+
+|VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mpbs) |
+|--|--|--|--|
+| 1 - 7 | P10/128G | 500 | 100 |
+| 8 - 15 | P15/256G | 1100 | 125 |
+| 16 - 63 | P20/512G | 2300 | 150 |
+| 64+ | P30/1024G | 5000 | 200 |
+
+> [!IMPORTANT]
+> Default OS disk sizing is only used on new clusters or node pools when Ephemeral OS disks are not supported and a default OS disk size is not specified. The default OS disk size may impact the performance or cost of your cluster, but you can change the sizing of the OS disk at any time after cluster or node pool creation. This default disk sizing affects clusters or node pools created in July 2022 or later.
+
 ## Ephemeral OS
 
 By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss if the VM needs to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
@@ -70,17 +84,17 @@ Like the temporary disk, an ephemeral OS disk is included in the price of the vi
 
 When using ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure documentation](../virtual-machines/dv3-dsv3-series.md) in parentheses next to IO throughput ("cache size in GiB").
 
-Using the AKS default VM size [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series#dsv2-series) with the default OS disk size of 100GB as an example, this VM size supports ephemeral OS but only has 86GB of cache size. This configuration would default to managed disks if the user does not specify explicitly. If a user explicitly requested ephemeral OS, they would receive a validation error.
+Using the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) with the default OS disk size of 100GB as an example, this VM size supports ephemeral OS but only has 86GB of cache size. This configuration would default to managed disks if the user does not specify explicitly. If a user explicitly requested ephemeral OS, they would receive a validation error.
 
-If a user requests the same [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series#dsv2-series) with a 60GB OS disk, this configuration would default to ephemeral OS: the requested size of 60GB is smaller than the maximum cache size of 86GB.
+If a user requests the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) with a 60GB OS disk, this configuration would default to ephemeral OS: the requested size of 60GB is smaller than the maximum cache size of 86GB.
 
-Using [Standard_D8s_v3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series) with 100GB OS disk, this VM size supports ephemeral OS and has 200GB of cache space. If a user does not specify the OS disk type, the node pool would receive ephemeral OS by default. 
+Using [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) with 100GB OS disk, this VM size supports ephemeral OS and has 200GB of cache space. If a user does not specify the OS disk type, the node pool would receive ephemeral OS by default. 
 
-The latest generation of VM series does not have a dedicated cache, but only temporary storage. Let's assume to use the [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with the default OS disk size of 100 GiB as an example. This VM size supports ephemeral OS disks but only has 75 GiB of temporary storage. This configuration would default to managed OS disks if the user does not specify explicitly. If a user explicitly requested ephemeral OS disks, they would receive a validation error.
+The latest generation of VM series does not have a dedicated cache, but only temporary storage. Let's assume to use the [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with the default OS disk size of 100 GiB as an example. This VM size supports ephemeral OS disks but only has 75 GiB of temporary storage. This configuration would default to managed OS disks if the user does not specify explicitly. If a user explicitly requested ephemeral OS disks, they would receive a validation error.
 
-If a user requests the same [Standard_E2bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration would default to ephemeral OS disks: the requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB. 
+If a user requests the same [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration would default to ephemeral OS disks: the requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB. 
 
-Using [Standard_E4bds_v5](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) with 100 GiB OS disk, this VM size supports ephemeral OS and has 150 GiB of temporary storage. If a user does not specify the OS disk type, the node pool would receive ephemeral OS by default.
+Using [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) with 100 GiB OS disk, this VM size supports ephemeral OS and has 150 GiB of temporary storage. If a user does not specify the OS disk type, the node pool would receive ephemeral OS by default.
 
 Ephemeral OS requires at least version 2.15.0 of the Azure CLI.
 
