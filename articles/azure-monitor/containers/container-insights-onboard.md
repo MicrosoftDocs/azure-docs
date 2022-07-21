@@ -74,7 +74,7 @@ The following table lists the additional firewall configuration required for man
 |Agent resource| Purpose | Port |
 |--------------|------|---|
 | global.handler.control.monitor.azure.com | Access control service | 443 |
-| <cluster-region-name>.handler.control.monitor.azure.com | Fetch data collection rules for specific AKS cluster | 443 |
+| \<cluster-region-name\>.handler.control.monitor.azure.com | Fetch data collection rules for specific AKS cluster | 443 |
 
 
 The following table lists the proxy and firewall configuration information for Azure China 21Vianet:
@@ -91,7 +91,7 @@ The following table lists the additional firewall configuration required for man
 |Agent resource| Purpose | Port |
 |--------------|------|---|
 | global.handler.control.monitor.azure.cn | Access control service | 443 |
-| <cluster-region-name>.handler.control.monitor.azure.cn | Fetch data collection rules for specific AKS cluster | 443 |
+| \<cluster-region-name\>.handler.control.monitor.azure.cn | Fetch data collection rules for specific AKS cluster | 443 |
 
 The following table lists the proxy and firewall configuration information for Azure US Government:
 
@@ -106,7 +106,7 @@ The following table lists the additional firewall configuration required for man
 |Agent resource| Purpose | Port |
 |--------------|------|---|
 | global.handler.control.monitor.azure.us | Access control service | 443 |
-| <cluster-region-name>.handler.control.monitor.azure.us | Fetch data collection rules for specific AKS cluster | 443 |
+| \<cluster-region-name\>.handler.control.monitor.azure.us | Fetch data collection rules for specific AKS cluster | 443 |
 
 
 ## Authentication
@@ -136,16 +136,16 @@ To enable Container insights, use one of the methods that's described in the fol
 
 | Deployment state | Method |
 |------------------|--------|
-| New Kubernetes cluster | [Enable monitoring for a new AKS cluster using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md)|
+| New Kubernetes cluster | [Enable monitoring for a new AKS cluster using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md) |
 | | [Enable for a new AKS cluster by using the open-source tool Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)|
 | | [Enable for a new OpenShift cluster by using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) |
 | | [Enable for a new OpenShift cluster by using the Azure CLI](/azure/openshift/#az-openshift-create) |
-| Existing AKS cluster | [Enable monitoring for an existing AKS cluster using the Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | 
+| Existing AKS cluster | [Enable monitoring for an existing AKS cluster using the Azure CLI](container-insights-enable-existing-clusters.md?tabs=azure-powershell) | 
 | |[Enable for an existing AKS cluster using Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) |
-| | [Enable for an existing AKS cluster from Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| 
-| | [Enable  directly from an AKS cluster in the Azure portal](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)|
-| | [Enable for AKS cluster using an Azure Resource Manager template](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| 
-| Existing non-AKS Kubernetes cluster | [Enable for non-AKS Kubernetes cluster hosted outside of Azure and enabled with Azure Arc using the Azure CLI](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-cli). | 
+| | [Enable for an existing AKS cluster from Azure Monitor portal](container-insights-enable-existing-clusters.md?tabs=portal-azure-monitor)| 
+| | [Enable  directly from an AKS cluster in the Azure portal](container-insights-enable-existing-clusters.md?tabs=portal-aks)|
+| | [Enable for AKS cluster using an Azure Resource Manager template](container-insights-enable-existing-clusters.md?tabs=aks)| 
+| Existing non-AKS Kubernetes cluster | [Enable for non-AKS Kubernetes cluster hosted outside of Azure and enabled with Azure Arc using the Azure CLI](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-cli). |
 | | [Enable for non-AKS Kubernetes cluster hosted outside of Azure and enabled with Azure Arc using a preconfigured Azure Resource Manager template](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-resource-manager) |
 | | [Enable for non-AKS Kubernetes cluster hosted outside of Azure and enabled with Azure Arc from the multicluster page Azure Monitor](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-portal) | 
 
