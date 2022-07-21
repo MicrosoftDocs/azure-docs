@@ -75,7 +75,7 @@ If you don't have a device ready, you can create one in an Azure virtual machine
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
 >[!WARNING]
-> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an External virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
+> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an _external_ virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
 
 A Windows device with IoT Edge for Linux on Windows installed.
 
@@ -117,42 +117,42 @@ If you created the certificates on a different machine, copy them over to your I
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
-Now you need to copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine to proceed with the next steps.
+Now, you need to copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine.
 
-1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
-1. Connect to the EFLOW virtual machine.
-    ```powershell
-    Connect-EflowVm
-    ```
-
-1. Create the certificates directory - You can select any of the writeable directories. For this tutorial, we'll use the _iotedge-user_ home folder.
-    ```bash
-    cd ~
-    mkdir certs
-    cd certs
-    mkdir certs
-    mkdir private
-    ```
-
-1. Exit the EFLOW VM connection.
-    ```bash
-    exit
-    ```
-
-1. Copy the certificates to the EFLOW virtual machine.
-    ```powershell
-    # Copy the IoT Edge device CA certificates
-    Copy-EflowVMFile -fromFile <path>\certs\iot-edge-device-ca-<cert name>-full-chain.cert.pem -toFile /home/iotedge-user/certs/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem -pushFile
-    Copy-EflowVMFile -fromFile <path>\private\iot-edge-device-ca-<cert name>.key.pem -toFile /home/iotedge-user/certs/private/iot-edge-device-ca-<cert name>.key.pem -pushFile
-   
-    # Copy the root CA certificate
-    Copy-EflowVMFile -fromFile <path>\certs\azure-iot-test-only.root.ca.cert.pem -toFile /home/iotedge-user/certs/certs/azure-iot-test-only.root.ca.cert.pem -pushFile
-    ```
-
-1. Connect to the EFLOW VM and change the permissions of the certificate files as the commands above copies the certificates with root only access permissions.
-    ```powershell
-    Invoke-EflowVmCommand "sudo chown -R iotedge /home/iotedge-user/certs/"
-    Invoke-EflowVmCommand "sudo chmod 0644 /home/iotedge-user/certs/"  
+    1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
+    1. Connect to the EFLOW virtual machine.
+        ```powershell
+        Connect-EflowVm
+        ```
+    
+    1. Create the certificates directory. You can select any writeable directory. For this tutorial, we'll use the _iotedge-user_ home folder.
+        ```bash
+        cd ~
+        mkdir certs
+        cd certs
+        mkdir certs
+        mkdir private
+        ```
+    
+    1. Exit the EFLOW VM connection.
+        ```bash
+        exit
+        ```
+    
+    1. Copy the certificates to the EFLOW virtual machine.
+        ```powershell
+        # Copy the IoT Edge device CA certificates
+        Copy-EflowVMFile -fromFile <path>\certs\iot-edge-device-ca-<cert name>-full-chain.cert.pem -toFile /home/iotedge-user/certs/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem -pushFile
+        Copy-EflowVMFile -fromFile <path>\private\iot-edge-device-ca-<cert name>.key.pem -toFile /home/iotedge-user/certs/private/iot-edge-device-ca-<cert name>.key.pem -pushFile
+       
+        # Copy the root CA certificate
+        Copy-EflowVMFile -fromFile <path>\certs\azure-iot-test-only.root.ca.cert.pem -toFile /home/iotedge-user/certs/certs/azure-iot-test-only.root.ca.cert.pem -pushFile
+        ```
+    
+    1. Invoke the following commands on the EFLOW VM to grant iotedge permissions to the certificate files since `Copy-EflowVMFile` copies files with root only access permissions.
+        ```powershell
+        Invoke-EflowVmCommand "sudo chown -R iotedge /home/iotedge-user/certs/"
+        Invoke-EflowVmCommand "sudo chmod 0644 /home/iotedge-user/certs/"  
     ```
 ----
 
@@ -165,8 +165,8 @@ Now you need to copy the certificates to the Azure IoT Edge for Linux on Windows
    * Linux: `/etc/iotedge/config.yaml`
    * IoT Edge for Linux on Windows: `/etc/iotedge/config.yaml`
 
->[!TIP]
-> If you are using IoT Edge for Linux on Windows (EFLOW) you'll have to connect to the EFLOW virtual machine and change the file inside the VM. You can connect to the EFLOW VM using the PowerShell cmdlet `Connect-EflowVm` and then use your preferred editor.
+    >[!TIP]
+    > If you are using IoT Edge for Linux on Windows (EFLOW) you'll have to connect to the EFLOW virtual machine and change the file inside the VM. You can connect to the EFLOW VM using the PowerShell cmdlet `Connect-EflowVm` and then use your preferred editor.
 
 1. Find the **Certificate settings** section of the file. Uncomment the four lines starting with **certificates:** and provide the file URIs to your three files as values for the following properties:
    * **device_ca_cert**: device CA certificate
@@ -188,7 +188,7 @@ Now you need to copy the certificates to the Azure IoT Edge for Linux on Windows
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
-1.On your IoT Edge device, open the config file: `/etc/aziot/config.toml` - If you're using IoT Edge for Linux on Windows, you'll have to connect to the EFLOW virtual machine using the `Connect-EflowVm` PowerShell cmdlet.
+1. On your IoT Edge device, open the config file: `/etc/aziot/config.toml`. If you're using IoT Edge for Linux on Windows, you'll have to connect to the EFLOW virtual machine using the `Connect-EflowVm` PowerShell cmdlet.
 
    >[!TIP]
    >If the config file doesn't exist on your device yet, then use `/etc/aziot/config.toml.edge.template` as a template to create one.
@@ -258,7 +258,7 @@ Standard IoT Edge devices don't need any inbound connectivity to function, becau
 
 # [IoT Edge](#tab/iotedge)
 
-For a gateway scenario to work, at least one of the IoT Edge hub's supported protocols must be open for inbound traffic from downstream devices. The supported protocols are MQTT, AMQP, HTTPS, MQTT over WebSockets, and AMQP over WebSockets.
+For a gateway scenario to work, at least one of the IoT Edge Hub's supported protocols must be open for inbound traffic from downstream devices. The supported protocols are MQTT, AMQP, HTTPS, MQTT over WebSockets, and AMQP over WebSockets.
 
 | Port | Protocol |
 | ---- | -------- |
@@ -268,7 +268,7 @@ For a gateway scenario to work, at least one of the IoT Edge hub's supported pro
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
-For a gateway scenario to work, at least one of the IoT Edge hub's supported protocols must be open for inbound traffic from downstream devices. The supported protocols are MQTT, AMQP, HTTPS, MQTT over WebSockets, and AMQP over WebSockets.
+For a gateway scenario to work, at least one of the IoT Edge Hub's supported protocols must be open for inbound traffic from downstream devices. The supported protocols are MQTT, AMQP, HTTPS, MQTT over WebSockets, and AMQP over WebSockets.
 
 | Port | Protocol |
 | ---- | -------- |
@@ -276,7 +276,7 @@ For a gateway scenario to work, at least one of the IoT Edge hub's supported pro
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT+WS <br> AMQP+WS |
 
-Finally, you must open the EFLOW virtual machine ports. You can open the three ports mentioned above using the following PowerShell cmdlet
+Finally, you must open the EFLOW virtual machine ports. You can open the three ports mentioned above using the following PowerShell cmdlets.
 
    ```powershell
    # Open MQTT port
