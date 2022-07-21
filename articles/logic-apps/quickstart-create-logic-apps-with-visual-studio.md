@@ -216,7 +216,7 @@ When you have an existing Azure Resource Group project, you can add a new blank 
 
 1. To add a resource to the template file, select **Add Resource** at the top of the JSON Outline window. Or in the JSON Outline window, open the **resources** shortcut menu, and select **Add New Resource**.
 
-   ![Screenshot showing the "JSON Outline" window](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
+   ![Screenshot showing the "JSON Outline" window.](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
 1. In the **Add Resource** dialog box, in the search box, find `logic app`, and select **Logic App**. Name your logic app resource, and select **Add**.
 
