@@ -9,33 +9,37 @@ ms.custom: references_regions
 ms.reviewer: shseth
 ---
 
-# Azure Monitor agent overview
+# Azure Monitor Agent overview
 
-[Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md).
-This article provides an overview of the Azure Monitor agent.
+[Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). This article provides an overview of the Azure Monitor agent.
 
 Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
-## Benefits and current limitations
-The Azure Monitor agent will replace all legacy monitoring agents currently used by Azure Monitor:
+## Can I use the new agent?
+
+Azure Monitor Agent replaces all legacy monitoring agents currently used by Azure Monitor:
 
 - [Log Analytics agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports VM insights and monitoring solutions.
 - [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
 - [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
 
-**Currently**, Azure Monitor agent consolidates features from the Telegraf agent and Log Analytics agent, but does not support all Log Analytics solutions. For more information, see [supported features and services](#supported-services-and-features).
+Currently, Azure Monitor agent consolidates features from the Telegraf agent and Log Analytics agent, but does not support all Log Analytics solutions. For more information, see [supported features and services](#supported-services-and-features).
 
 In the future, Azure Monitor agent will also consolidate features from the Diagnostic extensions.
 
-The Azure Monitor agent provides the following benefits over the existing agents:
+## Benefits
 
-- **A single agent** that consolidates all features necessary to address all telemetry data collection needs across servers and client devices (running Windows 10, 11). This is goal, though AMA is currently converging with the Log Analytics agents.
+The Azure Monitor Agent provides the following benefits over the existing agents:
+
+- **A single agent** that collects all telemetry data across servers and client devices running Windows 10, 11. This is goal, though AMA is currently converging with the Log Analytics agents.
 - **Cost savings:**
-  -	Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md) to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics agent supports
-  -	Use XPath queries to filter Windows events that get collected. This helps further reduce ingestion and storage costs.
-- **Simplified management of data collection:** Send data from Windows and Linux VMs to multiple Log Analytics workspaces (i.e. "multi-homing") and/or other [supported destinations](#data-sources-and-destinations). Additionally, every action across the data collection lifecycle, from onboarding to deployment to updates, is significantly easier, scalable, and centralized (in Azure) using data collection rules
-- **Management of dependent solutions or services:** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the legacy Log Analytics agents. Moreover this management experience is identical for machines in Azure or on-premises/other clouds via Azure Arc, at no added cost.
-- **Security and performance** - For authentication and security, it uses Managed Identity (for virtual machines) and AAD device tokens (for clients) which are both much more secure and ‘hack proof’ than certificates or workspace keys that legacy agents use. This agent performs better at higher EPS (events per second upload rate)  compared to legacy agents.
+  -	Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md) to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics agent supports.
+  -	Use XPath queries to filter out Windows events you don't need. This helps further reduce ingestion and storage costs.
+- **Simplified management of data collection:** 
+    - Send data from Windows and Linux VMs to multiple Log Analytics workspaces ("multi-homing") and other [supported destinations](#data-sources-and-destinations). 
+    - Every action across the data collection lifecycle, from onboarding to deployment to updates, is significantly easier, more scalable, and centralized using data collection rules.
+- **Manage dependent solutions and services:** Azure Monitor Agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the legacy Log Analytics agents. This management experience is identical for machines in Azure, on-premises, and in other clouds using Azure Arc, at no added cost.
+- **Security and performance:** For authentication and security, Azure Monitor Agent uses a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) (for virtual machines) and AAD device tokens (for clients), which are both much more secure and ‘hack proof’ than certificates or workspace keys that legacy agents use. This agent performs better at a higher EPS (events per second) upload rate compared to legacy agents. 
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent.
@@ -45,7 +49,9 @@ The methods for defining data collection for the existing agents are distinctly 
 
 The Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They're independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](data-collection-rule-azure-monitor-agent.md).
 
-## Should I switch to the Azure Monitor agent?
+## Use Azure Monitor Agent now or install together with legacy agents
+
+### Should I switch to the Azure Monitor agent?
 To start transitioning your VMs off the current agents to the new agent, consider the following factors:
 
 - **Environment requirements:** The Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environment support, and networking requirements will only be provided in this new agent. If the Azure Monitor agent supports your current environment, start transitioning to it.
@@ -59,7 +65,8 @@ To start transitioning your VMs off the current agents to the new agent, conside
 
   Azure Monitor's Log Analytics agent is retiring on 31 August 2024. The current agents will be supported until the retirement date.
 
-## Coexistence with other agents
+### Install together with legacy agents 
+
 The Azure Monitor agent can coexist (run side by side on the same machine) with the legacy Log Analytics agents so that you can continue to use their existing functionality during evaluation or migration. While this allows you to begin transition given the limitations, you must review the below points carefully:
 - Be careful in collecting duplicate data because it could skew query results and affect downstream features like alerts, dashboards or workbooks. For example, VM insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You might also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data. As such, ensure you're not collecting the same data from both agents. If you are, ensure they're **collecting from different machines** or **going to separate destinations**.
 - Besides data duplication, this would also generate more charges for data ingestion and retention.
@@ -123,9 +130,6 @@ The following table shows the current support for the Azure Monitor agent with A
 ## Costs
 There's no cost for the Azure Monitor agent, but you might incur charges for the data ingested. For details on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-
-## Security
-The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
 
 ## Networking
 The Azure Monitor agent supports Azure service tags (both *AzureMonitor* and *AzureResourceManager* tags are required). It supports connecting via **direct proxies, Log Analytics gateway, and private links** as described below.
