@@ -15,6 +15,8 @@ ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy2
 
 # Tutorial: Train your first machine learning model (part 2 of 3)
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 This tutorial shows you how to train a machine learning model in Azure Machine Learning. This tutorial is _part 2 of a three-part tutorial series_.
 
 In [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series, you learned how to use a control script to run a job in the cloud.
