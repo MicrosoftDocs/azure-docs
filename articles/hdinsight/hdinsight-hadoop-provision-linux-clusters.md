@@ -217,6 +217,8 @@ Different cluster types have different node types, numbers of nodes, and node si
 
 * Hadoop cluster type default:
    * Two *head nodes*
+
+
    * Four *Worker nodes*
 
 If you're just trying out HDInsight, we recommend you use one Worker node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
