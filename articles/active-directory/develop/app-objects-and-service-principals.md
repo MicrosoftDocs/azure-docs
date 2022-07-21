@@ -35,7 +35,7 @@ The application object describes three aspects of an application:
 
 - How the service can issue tokens in order to access the application 
 - The resources that the application might need to access
-- The actions that the application can take.
+- The actions that the application can take
 
 You can use the **App registrations** page in the [Azure portal][azure-portal] to list and manage the application objects in your home tenant.
 
