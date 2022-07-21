@@ -172,47 +172,46 @@ The following tables list the operating systems that are supported by the Azure 
 > [!NOTE]
 > For Dependency agent, check for supported kernel versions. For more information, see the "Dependency agent Linux kernel support" table.
 
-| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Dependency agent | Diagnostics extension <sup>2</sup>| 
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Dependency agent | Diagnostics extension <sup></sup>| 
 |:---|:---:|:---:|:---:|:---:
 | AlmaLinux                                                   | X | X |   |   |
 | Amazon Linux 2017.09                                        |   | X |   |   |
 | Amazon Linux 2                                              |   | X |   |   |
-| CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
+| CentOS Linux 8                                              | X <sup>2</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
 | CentOS Linux 6.5+                                           |   | X | X | X |
 | Debian 11 <sup>1</sup>                                      | X |   |   |   |
 | Debian 10 <sup>1</sup>                                      | X |   |   |   |
-| Debian 9                                                    | X | X | x | X |
+| Debian 9                                                    | X | X | X | X |
 | Debian 8                                                    |   | X | X |   |
 | Debian 7                                                    |   |   |   | X |
 | OpenSUSE 13.1+                                              |   |   |   | X |
-| Oracle Linux 8                                              | X <sup>3</sup> | X |   |   |
+| Oracle Linux 8                                              | X <sup>2</sup> | X |   |   |
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
 | Red Hat Enterprise Linux Server 8.5, 8.6                    | X | X |  |   |
-| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>3</sup> | X | X |   |
+| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>2</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
 | Rocky Linux                                                 | X | X |   |   |
-| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
-| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
+| SUSE Linux Enterprise Server 15.2                           | X <sup>2</sup> |   |   |   |
+| SUSE Linux Enterprise Server 15.1                           | X <sup>2</sup> | X |   |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
 | Ubuntu 22.04 LTS                                            | X |   |   |   |
-| Ubuntu 20.04 LTS                                            | X | X | X | X <sup>4</sup> |
+| Ubuntu 20.04 LTS                                            | X | X | X | X <sup>3</sup> |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X |   | X |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
-<sup>2</sup> <br>
-<sup>3</sup> Known issue collecting Syslog events in versions prior to 1.9.0.<br>
-<sup>4</sup> Not all kernel versions are supported. Check the supported kernel versions in the following table.
+<sup>2</sup> Known issue collecting Syslog events in versions prior to 1.9.0.<br>
+<sup>3</sup> Not all kernel versions are supported. Check the supported kernel versions in the following table.
 
 #### Dependency agent Linux kernel support
 
