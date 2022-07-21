@@ -11,7 +11,7 @@ Service Fabric managed cluster (SFMC) has added a capability to help keep a clus
 
 ## How SFMC checks when nodes are down 
 
-Service Fabric managed cluster continuously monitors the health of nodes and records the time when a node goes up and down. If a node is detected to be down for 24 hours, SFMC initiates automatic repair actions on the node. This time window is set to 24 hours at launch and can be adjusted in future.
+Service Fabric managed cluster continuously monitors the health of nodes and records the time when a node goes up and down. If a node is detected to be down for 24 hours, SFMC initiates automatic repair actions on the node. This time window is set to 24 hours at launch and can be optimized in future.
 
 ## How automatic repair works
 
