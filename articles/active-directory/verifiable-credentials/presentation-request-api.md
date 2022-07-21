@@ -8,7 +8,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
-ms.date: 07/19/2022
+ms.date: 07/21/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application.
@@ -19,7 +19,7 @@ ms.author: barclayn
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 Microsoft Entra Verified ID includes the Request Service REST API. This API allows you to issue and verify a credential. This article specifies the Request Service REST API for a presentation request. The presentation request asks the user to present a verifiable credential, and then verify the credential.
-Another article describes [how to call the Request Service REST API](get-started-request-api.md). 
+Another article describes [how to call the Request Service REST API](get-started-request-api.md).
 
 ## HTTP request
 
@@ -36,7 +36,7 @@ The Request Service REST API presentation request requires the following HTTP he
 |`Authorization`| Attach the access token as a bearer token to the authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
 |`Content-Type`| `Application/json`|
 
-Construct an HTTP POST request to the Request Service REST API. The `tenantId` isn't needed in the URL anymore as it is present as a claim in the `access_token`.
+Construct an HTTP POST request to the Request Service REST API. The `tenantId` isn't needed in the URL anymore since it is present as a claim in the `access_token`.
 
 ```http
 https://verifiedid.did.msidentity.com/v1.0/verifiableCredentials/createPresentationRequest
@@ -110,7 +110,7 @@ The payload contains the following properties.
 |Parameter |Type  | Description |
 |---------|---------|---------|
 | `includeQRCode` |  Boolean | Determines whether a QR code is included in the response of this request. Present the QR code and ask the user to scan it. Scanning the QR code launches the authenticator app with this presentation request. Possible values are `true` (default) or `false`. When you set the value to `false`, use the return `url` property to render a deep link.  |
-| `includeReceipt` |  Boolean | Determines whether a receipt should be included in the response of this request. Possible values are `true` or `false` (default). The receipt contains the original payload sent from the authenticator to the Verifiable Credentials service. The receipt is useful for troubleshooting or if you have the need to ge the full details of the payload. There is otherwise no need be set this to `true `by default. In the `OpenId Connect SIOP` request, the receipt contains the ID token from the original request. |
+| `includeReceipt` |  Boolean | Determines whether a receipt should be included in the response of this request. Possible values are `true` or `false` (default). The receipt contains the original payload sent from the authenticator to the Verifiable Credentials service. The receipt is useful for troubleshooting or if you have the need to ge the full details of the payload. There's otherwise no need be set this value to `true `by default. In the `OpenId Connect SIOP` request, the receipt contains the ID token from the original request. |
 | `authority` | string|  Your decentralized identifier (DID) of your verifier Azure AD tenant. For more information, see [Gather tenant details to set up your sample application](verifiable-credentials-configure-verifier.md#gather-tenant-details-to-set-up-your-sample-application).|
 | `registration` | [RequestRegistration](#requestregistration-type)|  Provides information about the verifier. |
 |`callback`|  [Callback](#callback-type)| Mandatory. Allows the developer to update the UI during the verifiable credential presentation process. When the user completes the process, continue the process after the results are returned to the application.|
@@ -148,7 +148,7 @@ The `RequestCredential` provides information about the requested credentials the
 | `type`| string| The verifiable credential type. The `type` must match the type as defined in the `issuer` verifiable credential manifest (for example, `VerifiedCredentialExpert`). To get the issuer manifest, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md). Copy the **Issue credential URL**, open it in a web browser, and check the **id** property. |
 | `purpose`| string | Provide information about the purpose of requesting this verifiable credential. |
 | `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. |
-| `configuration.validation` | [Configuration.Validation](#configuration.validation-type) | Optional. Settings for the presentation validation.|
+| `configuration.validation` | [Configuration.Validation](#configuration.validation-type) | Optional settings for presentation validation.|
 
 ### Configuration.Validation type
 
@@ -156,8 +156,8 @@ The `Configuration.Validation` provides information about the presented credenti
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `allowRevoked` |  Boolean | Determines if a revoked credential should be accepted. Default is `false` (it should not be accepted). |
-| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `true` (it should be validated). Setting this flag to `false` means you will accept credentials from unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
+| `allowRevoked` |  Boolean | Determines if a revoked credential should be accepted. Default is `false` (it shouldn't be accepted). |
+| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `true` (it should be validated). Setting this flag to `false` means you'll accept credentials from unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
 
 ## Successful response
 
@@ -185,7 +185,7 @@ When your app receives the response, the app needs to present the QR code to the
 
 ## Error response
 
-If there is an error with the request, an [error responses](error-codes.md) will be returned and should be handled appropriately by the app. 
+If there's an error with the request, an [error responses](error-codes.md) is returned, and should be handled appropriately by the app.
 
 ## Callback events
 
@@ -198,7 +198,7 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 | `state` |string| Returns the state value that you passed in the original payload.   |
 | `subject`|string | The verifiable credential user DID.|
 | `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type(s).</li><li>The issuer's DID</li><li>The claims retrieved.</li><li>The verifiable credential issuer's domain. </li><li>The verifiable credential issuer's domain validation status. </li></ul> |
-| `receipt`| string | Optional. The receipt contains the original payload sent from the wallet to the Verifiable Credentials service. The receipt should be used for troubleshooting/debugging only. The format in the receipt is not fix and can change based on the wallet and version used.|
+| `receipt`| string | Optional. The receipt contains the original payload sent from the wallet to the Verifiable Credentials service. The receipt should be used for troubleshooting/debugging only. The format in the receipt isn't fix and can change based on the wallet and version used.|
 
 The following example demonstrates a callback payload when the authenticator app starts the presentation request:
 
