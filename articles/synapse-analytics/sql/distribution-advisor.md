@@ -24,6 +24,8 @@ The Distribution Advisor (DA) feature of Azure Synapse SQL analyzes customer que
 
 ## Analyze workload and generate distribution recommendations
 
+The follow tutorial explains the a sample use case for using the Distribution Advisor feature to analyze customer queries and recommend the best distribution strategies.
+
 ### 1. Create Distribution Advisor stored procedures
 
 To run the advisor easily, create two new stored procedures in the database. Run [the CreateDistributionAdvisor_T62.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/CreateDistributionAdvisor_T62.sql):
