@@ -196,3 +196,13 @@ landingContent:
           url: how-to-data-owner-policies-storage.md
         - text: Data owner policies on resource groups or subscriptions
           url: how-to-data-owner-policies-resource-group.md
+
+  #Card
+  - title: Master Data Management - MDM
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Profisee MDM Master Data Management
+          url: how-to-deploy-profisee-purview-integration.md
+        
+ 

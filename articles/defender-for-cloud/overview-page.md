@@ -1,17 +1,13 @@
 ---
 title: Microsoft Defender for Cloud's main dashboard or 'overview' page
 description: Learn about the features of the Defender for Cloud overview page
-ms.date: 11/09/2021
+ms.date: 07/20/2022
 ms.topic: overview
 ---
 
 # Microsoft Defender for Cloud's overview page
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-When you open Microsoft Defender for Cloud, the first page to appear is the overview page.
-
-This interactive dashboard provides a unified view into the security posture of your hybrid cloud workloads. Additionally, it shows security alerts, coverage information, and more.
+The Microsoft Defender for Cloud's overview page is an interactive dashboard that provides a unified view into the security posture of your hybrid cloud workloads. Additionally, it shows security alerts, coverage information, and more.  
 
 You can select any element on the page to get more detailed information.
 
