@@ -2,7 +2,7 @@
 title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 07/21/2022
 ---
 
 # Use Bicep linter
@@ -24,6 +24,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [max-variables](./linter-rule-max-variables.md)
 - [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
 - [no-unnecessary-dependson](./linter-rule-no-unnecessary-dependson.md)
+- [no-unused-existing-resources](./linter-rule-no-unused-existing-resources.md)
 - [no-unused-params](./linter-rule-no-unused-parameters.md)
 - [no-unused-vars](./linter-rule-no-unused-variables.md)
 - [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
