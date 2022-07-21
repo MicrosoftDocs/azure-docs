@@ -28,7 +28,7 @@ This quickstart will show how to send emails using the Azure Communication Servi
 
 - An Azure Communication Services Email resource with a [configured domain](../email/create-email-communication-resource.md) or [custom domain](../email/add-custom-verified-domains.md).
 
-- An Azure Communication Services resource [connected with an Azure Email domain](https://docs.microsoft.com/azure/communication-services/quickstarts/email/connect-email-communication-resource).
+- An Azure Communication Services resource [connected with an Azure Email domain](../email/connect-email-communication-resource.md).
 
 
 

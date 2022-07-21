@@ -63,7 +63,7 @@ After you have a Communication Services identity, you can use the Issue a user a
  
 1.	Then, you can use the User ID output from the previous [Create a user](#create-user) step.
 
-1.	Specify the token scope: voip or chat. [Learn more about tokens and authentication](../../../../articles/communication-services/concepts/authentication).
+1.	Specify the token scope: voip or chat. [Learn more about tokens and authentication](../../concepts/authentication.md).
  
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-issue-access-token-action-token-scope.png" alt-text="Screenshot that shows the Azure Communication Services Identity connector Issue access token action, specifying the token scope.":::
 
