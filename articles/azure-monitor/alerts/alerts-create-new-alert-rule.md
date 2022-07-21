@@ -179,10 +179,8 @@ And then defining these elements for the resulting alert actions using:
     :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 
 > [!NOTE]
-> This article describes creating alert rules using the alert rule wizard.
-> The new alert rule experience is a little different than the old experience. Please note these changes:
-> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited solution, since the email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results.
->    To get detailed context information about the alert so that you can decide on the appropriate action :
+> This article describes creating alert rules using the alert rule wizard.The new alert rule experience is a little different than the old experience. Please note these changes:
+> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited solution, since the email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action :
 >     - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
 >     - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
 >     - If you need the raw search results or for any other advanced customizations, use Logic Apps.
