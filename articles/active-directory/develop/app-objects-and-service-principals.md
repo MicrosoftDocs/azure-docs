@@ -21,7 +21,7 @@ This article describes application registration, application objects, and servic
 
 ## Application registration
 
-To delegate identity and access management functions to Azure AD, an application must be registered with an Azure AD tenant. When you register your application with Azure AD, you're creating an identity configuration for your application that allows it to integrate with Azure AD. When you register an app in the Azure portal, you choose whether it's a single tenant (only accessible in your tenant), or multi-tenant (accessible in other tenants), and can optionally set a redirect URI (where the access token is sent to). For step-by-step instructions on registering an app, see the [app registration quickstart](quickstart-register-app.md).
+To delegate identity and access management functions to Azure AD, an application must be registered with an Azure AD tenant. When you register your application with Azure AD, you're creating an identity configuration for your application that allows it to integrate with Azure AD. When you register an app in the Azure portal, you choose whether it's a [single tenant](single-and-multi-tenant-apps.md#who-can-sign-in-to-your-app), or [multi-tenant](single-and-multi-tenant-apps.md#who-can-sign-in-to-your-app), and can optionally set a [redirect URI](reply-url.md). For step-by-step instructions on registering an app, see the [app registration quickstart](quickstart-register-app.md).
 
 When you've completed the app registration, you've a globally unique instance of the app (the application object) which lives within your home tenant or directory. You also have a globally unique ID for your app (the app or client ID). In the portal, you can then add secrets or certificates and scopes to make your app work, customize the branding of your app in the sign-in dialog, and more.
 
@@ -31,9 +31,13 @@ If you register an application in the portal, an application object and a servic
 
 An Azure AD application is defined by its one and only application object, which resides in the Azure AD tenant where the application was registered (known as the application's "home" tenant). An application object is used as a template or blueprint to create one or more service principal objects. A service principal is created in every tenant where the application is used. Similar to a class in object-oriented programming, the application object has some static properties that are applied to all the created service principals (or application instances).
 
-The application object describes three aspects of an application: how the service can issue tokens in order to access the application, resources that the application might need to access, and the actions that the application can take.
+The application object describes three aspects of an application: 
 
-You can use the **App registrations** blade in the [Azure portal][azure-portal] to list and manage the application objects in your home tenant.
+- How the service can issue tokens in order to access the application 
+- The resources that the application might need to access
+- The actions that the application can take.
+
+You can use the **App registrations** page in the [Azure portal][azure-portal] to list and manage the application objects in your home tenant.
 
 ![App registrations blade](./media/app-objects-and-service-principals/app-registrations-blade.png)
 
@@ -55,7 +59,7 @@ There are three types of service principal:
 
 The Microsoft Graph [ServicePrincipal entity][ms-graph-sp-entity] defines the schema for a service principal object's properties.
 
-You can use the **Enterprise applications** blade in the Azure portal to list and manage the service principals in a tenant. You can see the service principal's permissions, user consented permissions, which users have done that consent, sign in information, and more.
+You can use the **Enterprise applications** page in the Azure portal to list and manage the service principals in a tenant. You can see the service principal's permissions, user consented permissions, which users have done that consent, sign in information, and more.
 
 ![Enterprise apps blade](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
 
