@@ -19,7 +19,7 @@ There are three types of resource logs: Connectivity, Messaging, and HTTP reques
 - **Messaging** logs provide tracing information for the Azure Web PubSub hub messages received and sent via Azure Web PubSub service. For example, tracing ID and message type of the message.
 - **HTTP requests** logs provide tracing information for HTTP requests to the Azure Web PubSub service. For example, HTTP method and status code. Typically the HTTP request is recorded when it arrives at or leave from service.
 
-## Capture resource logs by using the live trace tool 
+## <a id="capture-resource-logs-with-live-trace-tool">Capture resource logs by using the live trace tool</a>
 
 The Azure Web PubSub service live trace tool has ability to collect resource logs in real time, which is helpful for troubleshooting problems in your development environment. The live trace tool can capture connectivity logs, messaging logs, and HTTP request logs.
 
@@ -42,7 +42,7 @@ The Azure Web PubSub service live trace tool has ability to collect resource log
 
 ### Capture the resource logs
 
-The Live Trace tool provides functionality to help you capture the resource logs for troubleshooting.
+The live trace tool provides functionality to help you capture the resource logs for troubleshooting.
 
 * **Capture**: Begin to capture the real-time resource logs from Azure Web PubSub.
 * **Clear**: Clear the captured real-time resource logs.
@@ -150,17 +150,17 @@ The following code is an example of an archive log JSON string:
 
 ### Archive to Azure Log Analytics
 
-Once you check `Send to Log Analytics`, and select target Azure Log Analytics, the logs will be stored in the target. To view resource logs, follow these steps:
+Once you check `Send to Log Analytics`, and select target Azure Log Analytics, the logs will be stored in the target. To view the resource logs, follow these steps:
 
 1. Select `Logs` in your target Log Analytics.
 
     :::image type="content" alt-text="Log Analytics menu item" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png":::
 
-2. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest` and select time range to query [connectivity log](#connectivity-logs), [messaging log](#messaging-logs) or [http request logs](#http-request-logs) correspondingly. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
+2. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest` and select time range to query connectivity log, messaging log, or http request logs, correspondingly. For advanced queries, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
     :::image type="content" alt-text="Query log in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
 
-To use sample query for SignalR service, follow the steps below.
+To use a sample query for SignalR service, follow the steps below.
 1. Select `Logs` in your target Log Analytics.
 2. Select `Queries` to open query explorer.
 3. Select `Resource type` to group sample queries in resource type.
@@ -186,7 +186,7 @@ TransportType | Transport type of the connection. Allowed values are: `Websocket
 
 ## Troubleshoot with the resource logs
 
-When finding connection unexpected growing or dropping situation, you can take advantage of resource logs to troubleshoot. Typical issues are often about connections' unexpected quantity changes, connections reach connection limits and authorization failure.
+If you find unexpected changes in the number of connections, either increasing or decreasing, you can take advantage of resource logs to troubleshoot the problem. Typical issues are often about connections' unexpected quantity changes, connections reach connection limits, and authorization failure.
 
 ### Unexpected changes in number of connections
 
