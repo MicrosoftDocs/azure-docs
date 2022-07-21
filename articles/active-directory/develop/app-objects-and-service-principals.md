@@ -69,8 +69,8 @@ The application object is the _global_ representation of your application for us
 
 An application object has:
 
-- A 1:1 relationship with the software application, and
-- A 1: many relationships with its corresponding service principal object(s).
+- A one-to-one relationship with the software application, and
+- A one-to-many relationship with its corresponding service principal object(s)
 
 A service principal must be created in each tenant where the application is used, enabling it to establish an identity for sign-in and/or access to resources being secured by the tenant. A single-tenant application has only one service principal (in its home tenant), created and consented for use during application registration. A multi-tenant application also has a service principal created in each tenant where a user from that tenant has consented to its use.
 
