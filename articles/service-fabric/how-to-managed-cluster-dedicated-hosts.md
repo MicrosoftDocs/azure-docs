@@ -63,7 +63,7 @@ Create a dedicated host group and add a role assignment to the host group with t
 > 2) Each fault domain needs a dedicated host to be placed in it and Service Fabric managed clusters require five fault domains. Therefore, at least five dedicated hosts should be present in each dedicated host group.
 
 
-3) The [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. See [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles. This role assignment is defined in the resources section of template with role definition ID and Principal ID determined from the first step. 
+3) The [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. See [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all) for more information on Azure roles. This role assignment is defined in the resources section of template with Principal ID determined from the first step and a role definition ID. 
 
    ```JSON
       "variables": {  
