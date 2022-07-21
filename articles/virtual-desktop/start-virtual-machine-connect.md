@@ -34,8 +34,8 @@ To use Start VM on Connect, make sure you follow these guidelines:
     - The [iOS client](./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.5 or later)
     - The [Microsoft Store client](./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.2005.0 or later)
     - Thin clients listed in [Thin client support](./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
-- You must grant Azure Virtual Desktop access to power on session host VMs, check their status, and report diagnostic information.
 - If you want to configure Start VM on Connect using PowerShell, you'll need to have [the Az.DesktopVirtualization PowerShell module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization) (version 2.1.0 or later) installed on the device you use to run the commands.
+- You must grant Azure Virtual Desktop access to power on session host VMs, check their status, and report diagnostic information. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
 
 ## Assign the Desktop Virtualization Power On Contributor role with the Azure portal
 
