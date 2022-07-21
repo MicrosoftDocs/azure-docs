@@ -133,7 +133,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
 ### Managed identity with a VM
 
-1. Enable a [system-assigned managed identity for Azure resources on the VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
+1. Enable a [system-assigned managed identity for Azure resources on the VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
 1. From the [Azure portal](https://portal.azure.com), select your workspace and then select __Access Control (IAM)__.
 1. Select __Add__, __Add Role Assignment__ to open the __Add role assignment page__.
@@ -254,8 +254,8 @@ ws = Workspace(subscription_id="your-sub-id",
 
 ## Use Conditional Access
 
-As an administrator, you can enforce [Azure AD Conditional Access policies](../..active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
-can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to Machine Learning Cloud app.
+As an administrator, you can enforce [Azure AD Conditional Access policies](/azure/active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
+can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to Machine Learning Cloud app.
 
 ## Next steps
 

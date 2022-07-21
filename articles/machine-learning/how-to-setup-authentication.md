@@ -197,6 +197,7 @@ print(ml_client)
 ```
 
 # [Azure CLI](#tab/cli)
+
 When using the Azure CLI, the `az login` command is used to authenticate the CLI session. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ---
