@@ -27,10 +27,10 @@ Azure CLI
 
 * Use steps in this article to move the registry to a different region in the same subscription. More configuration may be needed to move a registry to a different Azure subscription in the same Active Directory tenant.
 * Exporting and using a Resource Manager template can help re-create many registry settings. You can edit the template to configure more settings, or update the target registry after creation.
-* You can also use a Resource Manager to move the registry to a different region to the [new resource group or a new subscription.](../articles/azure-resource-manager/management/move-resource-group-and-subscription.md).
 * Currently, Azure Container Registry doesn't support a registry move to a different Active Directory tenant. This limitation applies to both registries encrypted with a [customer-managed key](container-registry-customer-managed-keys.md) and unencrypted registries.
 * If you are unable to move a registry is outlined in this article, create a new registry, manually recreate settings, and [Import registry content in the target registry](#import-registry-content-in-target-registry).
-* To move 
+* You can find the steps to move resources of registry to a new resource group in the same subscription or move resources to a new subscription [here.](../articles/azure-resource-manager/management/move-resource-group-and-subscription.md)
+
 
 ## Export template from source registry 
 
