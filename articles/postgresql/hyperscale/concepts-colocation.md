@@ -101,7 +101,7 @@ application.
 
 Running the queries must consult data in shards scattered across nodes.
 
-:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Inefficient queries":::
+:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Inefficient queries" border="false":::
 
 In this case, the data distribution creates substantial drawbacks:
 
@@ -146,7 +146,7 @@ query can be answered by using the set of colocated shards that contain the data
 for that particular tenant. A single PostgreSQL node can answer the query in
 a single step.
 
-:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Better query":::
+:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Better query" border="false":::
 
 In some cases, queries and table schemas must be changed to include the tenant ID in unique constraints and join conditions. This change is usually straightforward.
 
