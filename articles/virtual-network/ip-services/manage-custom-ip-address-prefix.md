@@ -174,7 +174,7 @@ The following tables display the messages displayed in the portal during custom 
 | InvalidPrefixLengthInROA | The prefix length provided does not match the prefix in the route origin authorization (ROA). |
 | RIRNotSupport | Only prefixes registered at ARIN, RIPE, APNIC, AFRINIC, and LACNIC are supported. |
 | InvalidCIDRFormat | The CIDR format is not valid. Expected format is 10.10.10.0/16. |
-| InvalidCIDRFormatInAuthorizationMessage | The format of the CIDR in the authorization message is not valid. Expected format is xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd. |
+| InvalidCIDRFormatInAuthorizationMessage | The format of the CIDR in the authorization message is not valid. Expected format is xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx1.2.3.0/24yyyymmdd. |
 | OperationFailedPleaseRetryLaterOrContactSupport | Unknown error. Contact support. |
 
 #### Commission status
