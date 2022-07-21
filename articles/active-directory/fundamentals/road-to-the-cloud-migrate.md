@@ -104,7 +104,7 @@ Non-Windows workstations can be integrated with Azure AD to enhance user experie
 
     * Deploy [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md)
 
-    * Deploy [Platform SSO for macOS 13](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-simplifies-endpoint-manager-enrollment-for-apple/ba-p/3570319) once it is available
+    * Plan to deploy [Platform SSO for macOS 13](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-simplifies-endpoint-manager-enrollment-for-apple/ba-p/3570319)
 
 * Linux
 
