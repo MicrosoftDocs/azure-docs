@@ -66,7 +66,7 @@ The application object is the _global_ representation of your application for us
 An application object has:
 
 - A 1:1 relationship with the software application, and
-- A 1:many relationship with its corresponding service principal object(s).
+- A 1:many relationships with its corresponding service principal object(s).
 
 A service principal must be created in each tenant where the application is used, enabling it to establish an identity for sign-in and/or access to resources being secured by the tenant. A single-tenant application has only one service principal (in its home tenant), created and consented for use during application registration. A multi-tenant application also has a service principal created in each tenant where a user from that tenant has consented to its use.
 
@@ -88,7 +88,7 @@ In this example scenario:
 
 | Step | Description                                                                                                                                                                                                                                                                                           |
 | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | Is the process of creating the application and service principal objects in the application's home tenant.                                                                                                                                                                                            |
+| 1    | The process of creating the application and service principal objects in the application's home tenant.                                                                                                                                                                                            |
 | 2    | When Contoso and Fabrikam administrators complete consent, a service principal object is created in their company's Azure AD tenant and assigned the permissions that the administrator granted. Also note that the HR app could be configured/designed to allow consent by users for individual use. |
 | 3    | The consumer tenants of the HR application (Contoso and Fabrikam) each have their own service principal object. Each represents their use of an instance of the application at runtime, governed by the permissions consented by the respective administrator.                                        |
 
