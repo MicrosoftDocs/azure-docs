@@ -61,7 +61,7 @@ You can add the public cert to your application configuration within the Azure p
 
 1. On the **Token encryption** page, select **Import Certificate** to import the .cer file that contains your public X.509 certificate.
 
-    ![Import the .cer file that contains the X.509 certificate](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Screenshot shows how to import a certificate file using Azure Portal.](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. Once the certificate is imported, and the private key is configured for use on the application side, activate encryption by selecting the **...** next to the thumbprint status, and then select **Activate token encryption** from the options in the dropdown menu.
 
@@ -87,53 +87,9 @@ You'll need the application's object ID to configure token encryption using Micr
 
 When you configure a keyCredential using Graph, PowerShell, or in the application manifest, you should generate a GUID to use for the keyId.
 
-### To configure token encryption using Microsoft Graph
+To configure token encryption, follow these steps:
 
-1. Update the application's `keyCredentials` with an X.509 certificate for encryption. The following example shows how to do this.
-
-    ```
-    Patch https://graph.microsoft.com/beta/applications/<application objectid>
-
-    { 
-       "keyCredentials":[ 
-          { 
-             "type":"AsymmetricX509Cert","usage":"Encrypt",
-             "keyId":"fdf8c5d8-f727-43fd-beaf-0f1521cf3d35",    (Use a GUID generator to obtain a value for the keyId)
-             "key": "MIICADCCAW2gAwIBAgIQ5j9/b+n2Q4pDvQUCcy3…"  (Base64Encoded .cer file)
-          }
-        ]
-    }
-    ```
-
-1. Identify the encryption certificate that's active for encrypting tokens. The following example shows how to do this.
-
-    ```
-    Patch https://graph.microsoft.com/beta/applications/<application objectid> 
-
-    { 
-       "tokenEncryptionKeyId":"fdf8c5d8-f727-43fd-beaf-0f1521cf3d35" (The keyId of the keyCredentials entry to use)
-    }
-    ```
-
-### To configure token encryption using PowerShell
-
-1. Use the latest Azure AD PowerShell module to connect to your tenant.
-
-1. Set the token encryption settings using the **[Set-AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview&preserve-view=true)** command.
-
-    ```
-    Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
-    ```
-
-1. Read the token encryption settings using the following commands.
-
-    ```powershell
-    $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
-    $app.KeyCredentials
-    $app.TokenEncryptionKeyId
-    ```
-
-### To configure token encryption using the application manifest
+# [Portal](#tab/azure-portal)
 
 1. From the Azure portal, go to **Azure Active Directory > App registrations**.
 
@@ -211,6 +167,56 @@ When you configure a keyCredential using Graph, PowerShell, or in the applicatio
       "tokenEncryptionKeyId": "6b9c6e80-d251-43f3-9910-9f1f0be2e851" 
     }  
     ```
+
+# [PowerShell](#tab/azure-powershell)
+
+1. Use the latest Azure AD PowerShell module to connect to your tenant.
+
+1. Set the token encryption settings using the **[Set-AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview&preserve-view=true)** command.
+
+    ```powershell
+    Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
+    ```
+
+1. Read the token encryption settings using the following commands.
+
+    ```powershell
+    $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
+    $app.KeyCredentials
+    $app.TokenEncryptionKeyId
+    ```
+
+
+# [Microsoft Graph](#tab/microsoft-graph)
+
+1. Update the application's `keyCredentials` with an X.509 certificate for encryption. The following example shows how to do this.
+
+    ```HTTP
+    PATCH https://graph.microsoft.com/beta/applications/<application objectid>
+
+    { 
+       "keyCredentials":[ 
+          { 
+             "type":"AsymmetricX509Cert","usage":"Encrypt",
+             "keyId":"fdf8c5d8-f727-43fd-beaf-0f1521cf3d35",    (Use a GUID generator to obtain a value for the keyId)
+             "key": "MIICADCCAW2gAwIBAgIQ5j9/b+n2Q4pDvQUCcy3…"  (Base64Encoded .cer file)
+          }
+        ]
+    }
+    ```
+
+1. Identify the encryption certificate that's active for encrypting tokens. The following example shows how to do this.
+
+    ```HTTP
+    PATCH https://graph.microsoft.com/beta/applications/<application objectid> 
+
+    { 
+       "tokenEncryptionKeyId":"fdf8c5d8-f727-43fd-beaf-0f1521cf3d35" (The keyId of the keyCredentials entry to use)
+    }
+    ```
+
+---
+
 
 ## Next steps
 
