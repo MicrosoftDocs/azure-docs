@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Monitor for SAP Solutions with the Azure portal
-description: Learn how to use a browser method for deploying Azure Monitor for SAP Solutions.
+title: Deploy Azure Monitor for SAP solutions with the Azure portal
+description: Learn how to use a browser method for deploying Azure Monitor for SAP solutions.
 author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.subservice: baremetal-sap
 ms.date: 07/18/2022
 ---
 
-# Deploy Azure Monitor for SAP Solutions by using the Azure portal
+# Deploy Azure Monitor for SAP solutions by using the Azure portal
 
 In this article, we'll walk through deploying Azure Monitor for SAP solutions (AMS) from the [Azure portal](https://azure.microsoft.com/features/azure-portal). Using the portal's browser-based interface, we'll deploy AMS and configure providers.
 
@@ -22,7 +22,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ###### For Azure Monitor for SAP solutions
 
-1. In Azure **Search**, select **Azure Monitor for SAP Solutions**.
+1. In Azure **Search**, select **Azure Monitor for SAP solutions**.
 
     ![Diagram that shows Azure Monitor for SAP solutions Quick Start.](./media/azure-monitor-sap/azure-monitor-quickstart-1-new.png)
 
@@ -34,9 +34,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
     ![Diagram that shows Azure Monitor for SAP solutions Quick Start 2.](./media/azure-monitor-sap/azure-monitor-quickstart-2-new.png)
 
 
-###### For Azure Monitor for SAP solutions (Classic)
+###### For Azure Monitor for SAP solutions (classic)
 
-1. In Azure **Marketplace** or **Search**, select **Azure Monitor for SAP Solutions (Classic)**.
+1. In Azure **Marketplace** or **Search**, select **Azure Monitor for SAP solutions (classic)**.
 
   ![Diagram shows Azure Monitor for SAP solutions classic quick start page.](./media/azure-monitor-sap/azure-monitor-quickstart-classic.png)
 
@@ -48,13 +48,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
    When you're selecting a virtual network, ensure that the systems you want to monitor are reachable from within that virtual network. 
 
    > [!IMPORTANT]
-   > Selecting **Share** for **Share data with Microsoft support** enables our support teams to help you with troubleshooting. This feature is available only for Azure Monitor for SAP solutions (Classic)
+   > Selecting **Share** for **Share data with Microsoft support** enables our support teams to help you with troubleshooting. This feature is available only for Azure Monitor for SAP solutions (classic)
 
 
 
 ## Next steps
 
-Learn more about Azure Monitor for SAP Solutions.
+Learn more about Azure Monitor for SAP solutions.
 
 > [!div class="nextstepaction"]
 > [Configure AMS Providers](configure-netweaver-azure-monitor-sap-solutions.md)

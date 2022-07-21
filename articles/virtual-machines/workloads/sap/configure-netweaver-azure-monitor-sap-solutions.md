@@ -258,7 +258,7 @@ To install the NetWeaver provider in the Azure portal:
 
 1. Sign in to the Azure portal. 
 
-1. Go to the **Azure Monitor for SAP Solutions** service.
+1. Go to the **Azure Monitor for SAP solutions** service.
 
 1. Select **Create** to add a new AMS resource.
 
