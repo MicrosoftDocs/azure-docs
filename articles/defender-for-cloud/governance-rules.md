@@ -6,7 +6,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 07/03/2022
+ms.date: 07/21/2022
 ---
 # Drive your organization to remediate security recommendations with governance
 
@@ -28,7 +28,7 @@ You can then review the progress of the tasks by subscription, recommendation, o
 |Aspect|Details|
 |----|:----|
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
-|Pricing:|Free|
+|Pricing:|Free while in preview|
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
 
