@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Introducing the Media Composition Inputs, Layouts, and Outputs
+title: Quickstart - Introducing the Media Composition inputs, layouts, and outputs
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn about the different Media Composition Inputs, Layouts, and Outputs
+description: In this quickstart, you'll learn about the different Media Composition inputs, layouts, and outputs.
 author: peiliu
 manager: alexokun
 services: azure-communication-services
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-# Quickstart: Introducing the Media Composition Inputs, Layouts, and Outputs
+# Quickstart: Introducing the Media Composition inputs, layouts, and outputs
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 Azure Communication Services Media Composition is made up of three parts: inputs, layouts, and outputs. Follow this document to learn more about the options available and how to define each of the parts.
@@ -24,7 +24,7 @@ Azure Communication Services Media Composition is made up of three parts: inputs
 ## Inputs
 To retrieve the media sources that will be used in the layout composition, you'll need to define inputs. Inputs can be either multi-source or single source.
 
-### Multi-Source Inputs
+### Multi-source inputs
 Teams meetings, ACS calls and ACS Rooms are usually made up of multiple individuals. We define these as multi-source inputs. They can be used in layouts as a single input or destructured to reference a single participant.
 
 ACS Group Call json:
@@ -63,8 +63,8 @@ ACS Rooms Input json:
 }
 ```
 
-### Single Source Inputs
-Unlike multi-source inputs, single source inputs reference a single media source. If the single source input is from a multi-source input such as an ACS group call or Teams meeting, it will reference the multi-source input's id in the `call` property. The following are examples of single source inputs:
+### Single source inputs
+Unlike multi-source inputs, single source inputs reference a single media source. If the single source input is from a multi-source input such as an ACS group call or Teams meeting, it will reference the multi-source input's ID in the `call` property. The following are examples of single source inputs:
 
 Participant json:
 ```json
@@ -186,11 +186,11 @@ Sample grid layout json:
 }
 ```
 The sample grid layout json will take the dominant speaker and put it in the first cell. Then, `jill`, `jon`, `janet` will fill the next three cells:
-:::image type="content" source="../media/2x2-grid.png" alt-text="Diagram showing how example of grid layout":::
+:::image type="content" source="../media/two-by-two-grid-layout.png" alt-text="A diagram showing an example of the grid layout.":::
 
 If only three participants are defined in the inputs, then the fourth cell will be left blank.
 
-### Auto Grid
+### Auto grid
 The auto grid layout is ideal for a multi-source scenario where you want to display all sources in the scene. This layout should be the default multi-source scene and would adjust based on the number of sources.
 
 Sample auto grid layout json:
@@ -216,7 +216,7 @@ Sample auto grid layout json:
 }
 ```
 The sample auto grid layout will take all the media sources in the `meeting` input and compose them into an optimized grid:
-:::image type="content" source="../media/autogrid.png" alt-text="Diagram showing how example of autogrid layout":::
+:::image type="content" source="../media/five-cell-auto-grid.png" alt-text="A diagram showing an example of the auto grid layout.":::
 
 ### Presentation
 The presentation layout features the presenter that covers the majority of the scene. The other sources are the audience members and are arranged in either a row or column in the remaining space. The position of the audience can be one of: `top`, `bottom`, `left`, or `right`.
@@ -257,7 +257,7 @@ Sample presentation layout json:
 ```
 
 The sample presentation layout will feature the `presenter` and place the rest of the audience members at the top of the scene:
-:::image type="content" source="../media/top-presentation.png" alt-text="Diagram showing how example of presentation layout":::
+:::image type="content" source="../media/top-presentation.png" alt-text="A diagram showing an example of the presentation layout.":::
 
 ### Presenter
 The presenter layout is a picture-in-picture layout composed of two inputs. One source is the background of the scene. This represents the content being presented or the main presenter. The secondary source is the support and is cropped and positioned at a corner of the scene. The support position can be one of: `bottomLeft`, `bottomRight`, `topLeft`, or `topRight`.
@@ -308,7 +308,7 @@ Sample presenter layout json:
 ```
 
 The sample presenter layout will feature the `presenter` media source, which takes most of the scene. The support media source will be cropped according to the `supportAspectRatio` and placed at the position specified, which is `topLeft`.
-:::image type="content" source="../media/topLeft-presenter.png" alt-text="Diagram showing how example of presenter layout":::
+:::image type="content" source="../media/top-left-presenter.png" alt-text="A diagram showing an example of the presenter layout.":::
 
 ### Custom
 If none of the pre-defined layouts fit your needs, then you can use custom layouts to fit your exact scenario. With custom layouts, you can define sources with different sizes and place them at any position on the scene.
@@ -369,7 +369,7 @@ If none of the pre-defined layouts fit your needs, then you can use custom layou
 ```
 
 The custom layout example above will result in the following composition:
-:::image type="content" source="../media/custom-2x2GridWithSingleCellOverlayed.png" alt-text="Diagram showing how example of custom layout":::
+:::image type="content" source="../media/custom-grid-with-single-cell-overlayed.png" alt-text="A diagram showing an example of the custom layout.":::
 
 ## Outputs
 After media has been composed according to a layout, they can be outputted to your audience in various ways. Currently, you can either send the composed stream to a call or to an RTMP server.
@@ -427,4 +427,15 @@ RTMP Output json
   }
 }
 ```
+
+## Next steps
+
+In this section you learned how to:
+> [!div class="checklist"]
+> - Create a multi-source or single source input
+> - Create various predefined and custom layouts
+> - Create an output
+
+You may also want to:
+ - Learn about [media composition concept](../../concepts/voice-video-calling/media-comp.md)
 <!--  -->
