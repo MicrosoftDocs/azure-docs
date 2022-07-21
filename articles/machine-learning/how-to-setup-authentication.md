@@ -55,7 +55,7 @@ Once you've created the Azure AD accounts, see [Manage access to Azure Machine L
 
 ## Configure a service principal
 
-To use a service principal (SP), you must first create the SP and grant it access to your workspace. As mentioned earlier, Azure role-based access control (Azure RBAC) is used to control access, so you must also decide what access to grant the SP.
+To use a service principal (SP), you must first create the SP. Then grant it access to your workspace. As mentioned earlier, Azure role-based access control (Azure RBAC) is used to control access, so you must also decide what access to grant the SP.
 
 > [!IMPORTANT]
 > When using a service principal, grant it the __minimum access required for the task__ it is used for. For example, you would not grant a service principal owner or contributor access if all it is used for is reading the access token for a web deployment.
@@ -85,7 +85,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
     az ad sp create-for-rbac --sdk-auth --name ml-auth --role Contributor --scopes /subscriptions/<subscription id>
     ```
 
-    The output will be a JSON similar to the following. Take note of the `clientId`, `clientSecret`, and `tenantId` fields, as you will need them for other steps in this article.
+    The output will be a JSON similar to the following. Take note of the `clientId`, `clientSecret`, and `tenantId` fields, as you'll need them for other steps in this article.
 
     ```json
     {
@@ -108,7 +108,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
     az ad sp show --id your-client-id
     ```
 
-    The following JSON is a simplified example of the output from the command. Take note of the `objectId` field, as you will need its value for the next step.
+    The following JSON is a simplified example of the output from the command. Take note of the `objectId` field, as you'll need its value for the next step.
 
     ```json
     {
