@@ -7,7 +7,7 @@ author: jimmart-dev
 ms.service: storage
 ms.topic: overview
 ms.date: 09/05/2019
-ms.author: jimmart-dev
+ms.author: jammart
 ms.subservice: blobs
 ---
 

@@ -3,7 +3,7 @@ title: Deploy disaster recovery using JetStream DR
 description: Learn how to implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 04/11/2022
+ms.date: 07/15/2022
 ms.custom: references_regions
 ---
 
@@ -146,8 +146,6 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
   - [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)
   
 For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/pre-installation-guidelines/).
-
-
 
 ## Install JetStream DR on Azure VMware Solution  
  

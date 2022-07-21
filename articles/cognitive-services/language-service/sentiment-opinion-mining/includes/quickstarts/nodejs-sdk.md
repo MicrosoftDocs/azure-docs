@@ -69,35 +69,12 @@ const endpoint = '<paste-your-endpoint-here>';
 // Authenticate the client with your key and endpoint.
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 
-// Example method for detecting sentiment in text.
-async function sentimentAnalysis(client){
-
-    const sentimentInput = [
-        "I had the best day of my life. I wish you were there with me."
-    ];
-    const sentimentResult = await client.analyzeSentiment(sentimentInput);
-
-    sentimentResult.forEach(document => {
-        console.log(`ID: ${document.id}`);
-        console.log(`\tDocument Sentiment: ${document.sentiment}`);
-        console.log(`\tDocument Scores:`);
-        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
-        console.log(`\tSentences Sentiment(${document.sentences.length}):`);
-        document.sentences.forEach(sentence => {
-            console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
-            console.log(`\t\tSentences Scores:`);
-            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
-        });
-    });
-}
-sentimentAnalysis(textAnalyticsClient)
-
-// Example method for detecting opinions in text.
+// Example method for detecting sentiment and opinions in text.
 async function sentimentAnalysisWithOpinionMining(client){
 
   const sentimentInput = [
     {
-      text: "The food and service were unacceptable, but the concierge were nice",
+      text: "The food and service were unacceptable. The concierge was nice, however.",
       id: "0",
       language: "en"
     }
@@ -141,42 +118,33 @@ sentimentAnalysisWithOpinionMining(textAnalyticsClient);
 ## Output
 
 ```console
-ID: 0
-        Document Sentiment: positive
-        Document Scores:
-                Positive: 1.00  Negative: 0.00  Neutral: 0.00
-        Sentences Sentiment(2):
-                Sentence sentiment: positive
-                Sentences Scores:
-                Positive: 1.00  Negative: 0.00  Neutral: 0.00
-                Sentence sentiment: neutral
-                Sentences Scores:
-                Positive: 0.21  Negative: 0.02  Neutral: 0.77
-
 - Document 0
-        Document text: The food and service were unacceptable, but the concierge were nice
-        Overall Sentiment: positive
-        Sentiment confidence scores: { positive: 0.84, neutral: 0, negative: 0.16 }
-        Sentences
-        - Sentence sentiment: positive
-          Confidence scores: { positive: 0.84, neutral: 0, negative: 0.16 }
-          Mined opinions
-                - Target text: food
-                  Target sentiment: negative
-                  Target confidence scores: { positive: 0.01, negative: 0.99 }
-                  Target assessments
-                        - Text: unacceptable
-                          Sentiment: negative
-                - Target text: service
-                  Target sentiment: negative
-                  Target confidence scores: { positive: 0.01, negative: 0.99 }
-                  Target assessments
-                        - Text: unacceptable
-                          Sentiment: negative
-                - Target text: concierge
-                  Target sentiment: positive
-                  Target confidence scores: { positive: 1, negative: 0 }
-                  Target assessments
-                        - Text: nice
-                          Sentiment: positive
+  Document text: The food and service were unacceptable. The concierge was nice, however.
+  Overall Sentiment: mixed
+  Sentiment confidence scores: { positive: 0.47, neutral: 0, negative: 0.52 }
+  Sentences
+  - Sentence sentiment: negative
+    Confidence scores: { positive: 0, neutral: 0, negative: 0.99 }
+    Mined opinions
+          - Target text: food
+            Target sentiment: negative
+            Target confidence scores: { positive: 0, negative: 1 }
+            Target assessments
+                  - Text: unacceptable
+                    Sentiment: negative
+          - Target text: service
+            Target sentiment: negative
+            Target confidence scores: { positive: 0, negative: 1 }
+            Target assessments
+                  - Text: unacceptable
+                    Sentiment: negative
+  - Sentence sentiment: positive
+    Confidence scores: { positive: 0.94, neutral: 0.01, negative: 0.05 }
+    Mined opinions
+          - Target text: concierge
+            Target sentiment: positive
+            Target confidence scores: { positive: 1, negative: 0 }
+            Target assessments
+                  - Text: nice
+                    Sentiment: positive
 ```

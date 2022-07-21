@@ -7,7 +7,7 @@ author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/26/2019
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 

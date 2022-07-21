@@ -26,6 +26,7 @@ Below is the list of URLs your session host VMs need to access for Azure Virtual
 | `*.prod.warm.ingest.monitor.core.windows.net` | 443 | Agent traffic | AzureMonitor |
 | `catalogartifact.azureedge.net` | 443 | Azure Marketplace | AzureFrontDoor.Frontend |
 | `kms.core.windows.net` | 1688 | Windows activation | Internet |
+| `azkms.core.windows.net` | 1688 | Windows activation | Internet |
 | `mrsglobalsteus2prod.blob.core.windows.net` | 443 | Agent and SXS stack updates | AzureCloud |
 | `wvdportalstorageblob.blob.core.windows.net` | 443 | Azure portal support | AzureCloud |
 | `169.254.169.254` | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |

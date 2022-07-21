@@ -8,7 +8,7 @@ author: jimmart-dev
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common
 ---
