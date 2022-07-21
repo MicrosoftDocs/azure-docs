@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 07/20/2022
+ms.date: 07/21/2022
 ms.author: jasteppe
 ---
 
