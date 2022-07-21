@@ -263,7 +263,7 @@ print(ml_client)
 
 You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal).
 
-# [REST API](#tab/rest)
+---
 
 The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/). You use the Azure Active Directory [client credentials grant flow](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. 
 
@@ -275,8 +275,6 @@ For information and samples on authenticating with MSAL, see the following artic
 * JavaScript - [How to migrate a JavaScript app from ADAL.js to MSAL.js](../active-directory/develop/msal-compare-msal-js-and-adal-js.md).
 * Node.js - [How to migrate a Node.js app from ADAL to MSAL](../active-directory/develop/msal-node-migration.md).
 * Python - [ADAL to MSAL migration guide for Python](../active-directory/develop/migrate-python-adal-msal.md).
-
----
 
 ## Use managed identity authentication
 
