@@ -22,7 +22,7 @@ SAML token encryption enables the use of encrypted SAML assertions with an appli
 
 Encrypting the SAML assertions between Azure AD and the application provides additional assurance that the content of the token can't be intercepted, and personal or corporate data compromised.
 
-Even without token encryption, Azure AD SAML tokens are never passed on the network in the clear. Azure AD requires token request/response exchanges to take place over encrypted HTTPS/TLS channels so that communications between the IDP, browser, and application take place over encrypted links. Consider the value of token encryption for your situation compared with the overhead of managing additional certificates.
+Even without token encryption, Azure AD SAML tokens are never passed on the network in the clear. Azure AD requires token request/response exchanges to take place over encrypted HTTPS/TLS channels so that communications between the IDP, browser, and application take place over encrypted links. Consider the value of token encryption for your situation compared with the overhead of managing more certificates.
 
 To configure token encryption, you need to upload an X.509 certificate file that contains the public key to the Azure AD application object that represents the application. To obtain the X.509 certificate, you can download it from the application itself, or get it from the application vendor in cases where the application vendor provides encryption keys or in cases where the application expects you to provide a private key, it can be created using cryptography tools, the private key portion uploaded to the application’s key store and the matching public key certificate uploaded to Azure AD.
 
@@ -79,7 +79,7 @@ You can add the public cert to your application configuration within the Azure p
 
 ## Configure registered application SAML token encryption
 
-This section describes how to configure registered application's SAML token encryption. Applications that have been set up from the **App registrations** blade in the Azure portal. For enterprize application, follow the [Configure enterprise application SAML token encryption](#configure-enterprise-application-saml-token-encryption) guidance.
+This section describes how to configure registered application's SAML token encryption. Applications that have been set up from the **App registrations** blade in the Azure portal. For enterprise application, follow the [Configure enterprise application SAML token encryption](#configure-enterprise-application-saml-token-encryption) guidance.
 
 Encryption certificates are stored on the application object in Azure AD with an `encrypt` usage tag. You can configure multiple encryption certificates and the one that's active for encrypting tokens is identified by the `tokenEncryptionKeyID` attribute.
 
@@ -189,7 +189,7 @@ To configure token encryption, follow these steps:
 
 # [Microsoft Graph](#tab/microsoft-graph)
 
-1. Update the application's `keyCredentials` with an X.509 certificate for encryption. The following example shows how to do this.
+1. Update the application's `keyCredentials` with an X.509 certificate for encryption. The following example shows a Microsoft Graph JSON payload with a collection of key credentials associated with the application.
 
     ```HTTP
     PATCH https://graph.microsoft.com/beta/applications/<application objectid>
@@ -205,7 +205,7 @@ To configure token encryption, follow these steps:
     }
     ```
 
-1. Identify the encryption certificate that's active for encrypting tokens. The following example shows how to do this.
+1. Identify the encryption certificate that's active for encrypting tokens. The following example shows a Microsoft Graph JSON payload with the `tokenEncryptionKeyId` element. The `tokenEncryptionKeyId` element specifies the key ID of a public key from the `keyCredentials` collection. 
 
     ```HTTP
     PATCH https://graph.microsoft.com/beta/applications/<application objectid> 
