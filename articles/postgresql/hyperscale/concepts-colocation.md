@@ -19,7 +19,7 @@ Colocation means storing related information together on the same nodes. Queries
 
 In Azure Database for PostgreSQL – Hyperscale (Citus), a row is stored in a shard if the hash of the value in the distribution column falls within the shard's hash range. Shards with the same hash range are always placed on the same node. Rows with equal distribution column values are always on the same node across tables.
 
-:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-shards.png" alt-text="Shards":::
+:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-shards.png" alt-text="Shards" border="false":::
 
 ## A practical example of colocation
 
