@@ -11,9 +11,9 @@ ms.author: radeltch
 
 # What are providers in Azure Monitor for SAP solutions? (preview)
 
-This content applies to both versions of the service, AMS and AMS (classic).
+In the context of Azure Monitor for SAP solutions (AMS), a *provider type* refers to a specific *provider*. For example, *SAP HANA*, which is configured for a specific component within the SAP landscape, like SAP HANA database. A provider contains the connection information for the corresponding component and helps to collect telemetry data from that component. One Azure Monitor for SAP solutions resource (also known as SAP monitor resource) can be configured with multiple providers of the same provider type or multiple providers of multiple provider types.
 
-In the context of Azure Monitor for SAP solutions, a *provider type* refers to a specific *provider*. For example, *SAP HANA*, which is configured for a specific component within the SAP landscape, like SAP HANA database. A provider contains the connection information for the corresponding component and helps to collect telemetry data from that component. One Azure Monitor for SAP solutions resource (also known as SAP monitor resource) can be configured with multiple providers of the same provider type or multiple providers of multiple provider types.
+This content applies to both versions of the service, AMS and AMS (classic).
    
 You can choose to configure different provider types to enable data collection from the corresponding component in their SAP landscape. For example, you can configure one provider for SAP HANA provider type, another provider for high-availability cluster provider type, and so on.  
 
