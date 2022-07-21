@@ -1,6 +1,6 @@
 ---
-title: Configure Azure AD SSO for an Oracle JD Edwards application using Datawiza Access Broker
-description: Enable Azure Active Directory SSO for Oracle JD Edwards application using Datawiza Access Broker
+title: Configure Azure AD Multi-Factor Authentication and SSO for an Oracle JD Edwards application using Datawiza Access Broker
+description: Enable Azure Active Directory Multi-Factor Authentication and SSO for Oracle JD Edwards application using Datawiza Access Broker
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -13,10 +13,9 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure Datawiza to enable Azure Active Directory SSO to Oracle JD Edwards
+# Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle JD Edwards
 
-This tutorial shows how to enable Azure Active Directory (Azure AD) single sign-on (SSO) for an Oracle JD Edwards (JDE) application using
-Datawiza Access Broker (DAB).
+This tutorial shows how to enable Azure Active Directory (Azure AD) single sign-on (SSO) and Azure AD Multi-Factor Authentication for an Oracle JD Edwards (JDE) application using Datawiza Access Broker (DAB).
 
 Benefits of integrating applications with Azure AD using DAB include:
 
@@ -31,7 +30,7 @@ Benefits of integrating applications with Azure AD using DAB include:
 
 This scenario focuses on Oracle JDE application integration using HTTP authorization headers to manage access to protected content.
 
-In legacy applications, due to the absence of modern protocol support, a direct integration with Azure AD SSO is difficult. Datawiza Access Broker (DBA) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. DBA lowers integration overhead, saves engineering time, and improves application security.
+In legacy applications, due to the absence of modern protocol support, a direct integration with Azure AD SSO is difficult. Datawiza Access Broker (DAB) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. DAB lowers integration overhead, saves engineering time, and improves application security.
 
 ## Scenario architecture
 
@@ -157,7 +156,7 @@ For the Oracle JDE application to recognize the user correctly, there's another 
 
    ![Screenshot that shows the cert type dropdown](media/datawiza-azure-ad-sso-oracle-jde/cert-type.png)
 
-7. For localhost, use the provided self-signed certificate, which can be used for testing.
+7. For testing purposes, self-signed certificate is provded. 
 
    ![Screenshot that shows the enable sll menu](media/datawiza-azure-ad-sso-oracle-jde/enable-ssl.png)
 
@@ -167,6 +166,18 @@ For the Oracle JDE application to recognize the user correctly, there's another 
    ![Screenshot that shows uploading cert from a file option](media/datawiza-azure-ad-sso-oracle-jde/upload-cert.png)
 
 8. Select **Save**.
+
+## Enable Azure AD Multi-Factor Authentication 
+
+To provide an extra level of security for sign-ins, enforce multifactor authentication (MFA) for user sign-in. One way to achive this is to [enable MFA on the Azure portal](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa).
+
+1. Sign in to the Azure portal as a **Global Administrator**.
+
+2. Select **Azure Active Directory** > **Manage** > **Properties**. 
+
+3. Under **Properties**, select **Manage security defaults**. 
+
+4. Under **Enable Security defaults**, select **Yes** and then **Save**.
 
 ## Enable SSO in the Oracle JDE EnterpriseOne Console
 
