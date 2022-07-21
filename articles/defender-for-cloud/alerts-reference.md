@@ -602,7 +602,9 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 
 
-## MITRE ATT&CK tactics <a name="intentions"></a>
+<a name="intentions"></a>
+
+## MITRE ATT&CK tactics
 
 Understanding the intention of an attack can help you investigate and report the event more easily. To help with these efforts, Microsoft Defender for Cloud alerts include the MITRE tactics with many alerts.
 
