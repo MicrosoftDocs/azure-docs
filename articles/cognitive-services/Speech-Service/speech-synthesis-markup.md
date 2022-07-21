@@ -39,7 +39,7 @@ When you use SSML, keep in mind that special characters, such as quotation marks
 Each SSML document is created with SSML elements (or tags). These elements are used to adjust pitch, prosody, volume, and more. The following sections detail how each element is used and when an element is required or optional.
 
 > [!IMPORTANT]
-> Don't forget to use double quotation marks around attribute values. Standards for well-formed, valid XML requires attribute values to be enclosed in double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` is not. SSML might not recognize attribute values that aren't in double quotation marks. 
+> Don't forget to use double quotation marks around attribute values. Standards for well-formed, valid XML requires attribute values to be enclosed in double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` is not. SSML might not recognize attribute values that aren't in double quotation marks.
 
 ## Create an SSML document
 
@@ -269,7 +269,7 @@ The following table has descriptions of each supported role.
 
 By default, all neural voices are fluent in their own language and English without using the `<lang xml:lang>` element. For example, if the input text in English is "I'm excited to try text to speech" and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, setting a specific speaking language with `<lang xml:lang>` element at the sentence or word level is currently not supported.
 
-You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neural voice at the sentence level and word level by using the `<lang xml:lang>` element. The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions. 
+You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neural voice at the sentence level and word level by using the `<lang xml:lang>` element. The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions.
 
 **Syntax**
 
@@ -307,14 +307,14 @@ The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must sp
 </speak>
 ```
 
-Within the `speak` element, you can specify multiple languages including `en-US` for text-to-speech output. For each adjusted language, the text must match the language and be wrapped in a `voice` element. This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `es-MX`, `en-US`, and `fr-FR`. 
+Within the `speak` element, you can specify multiple languages including `en-US` for text-to-speech output. For each adjusted language, the text must match the language and be wrapped in a `voice` element. This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `es-MX`, `en-US`, and `fr-FR`.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JennyMultilingualNeural">
         <lang xml:lang="es-MX">
-            ¡Esperamos trabajar con usted! 
+            ¡Esperamos trabajar con usted!
         </lang>
         <lang xml:lang="en-US">
            We look forward to working with you!
@@ -730,14 +730,14 @@ The optional `emphasis` element is used to add or remove word-level stress for t
 
 **Example**
 
-This SSML snippet demonstrates how the `emphasis` element is used to add moderate level emphasis for the word "meetings". 
-    
+This SSML snippet demonstrates how the `emphasis` element is used to add moderate level emphasis for the word "meetings".
+
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US"> 
-    <voice name="en-US-GuyNeural">   
-    I can help you join your <emphasis level="moderate">meetings</emphasis> fast. 
-    </voice> 
-</speak> 
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-GuyNeural">
+    I can help you join your <emphasis level="moderate">meetings</emphasis> fast.
+    </voice>
+</speak>
 ```
 
 ## Add say-as element
@@ -845,6 +845,9 @@ Only one background audio file is allowed per SSML document. You can intersperse
 
 > [!NOTE]
 > The `mstts:backgroundaudio` element is not supported by the Long Audio API.
+
+> [!NOTE]
+> The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element.
 
 **Syntax**
 
@@ -1032,10 +1035,10 @@ For more information, see [`addBookmarkReachedEventHandler`](/objectivec/cogniti
 
 ## Supported MathML elements
 
-The Mathematical Markup Language (MathML) is an XML-compliant markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. 
+The Mathematical Markup Language (MathML) is an XML-compliant markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech.
 
 > [!NOTE]
-> The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales. 
+> The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales.
 
 **Example**
 
