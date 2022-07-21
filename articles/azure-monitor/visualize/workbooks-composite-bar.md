@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 9/04/2020
+ms.date: 07/05/2022
 ---
 
 # Composite bar renderer
@@ -20,8 +20,8 @@ Composite bar renderer is supported for grids, tiles, and graphs visualizations.
 
 ## Adding composite bar renderer
 
-1. Switch the workbook to edit mode by selecting *Edit* toolbar item.
-2. Select *Add* then *Add query*.
+1. Switch the workbook to edit mode by selecting **Edit** in the toolbar.
+2. Select **Add** and then **Add query**.
 3. Set *Data source* to "JSON" and *Visualization* to "Grid".
 4. Add the following JSON data.
 

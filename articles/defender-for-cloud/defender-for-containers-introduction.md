@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 06/15/2022
+ms.date: 06/28/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -11,13 +11,14 @@ Microsoft Defender for Containers is the cloud-native solution for securing your
 
 [How does Defender for Containers work in each Kubernetes platform?](defender-for-containers-architecture.md)
 
-You can learn more from the product manager about Microsoft Defender for Containers by watching [Microsoft Defender for Containers](episode-three.md).
+You can learn more by watching this video from the Defender for Cloud in the Field video series:
+- [Microsoft Defender for Containers](episode-three.md)
 
 ## Microsoft Defender for Containers plan availability
 
 | Aspect | Details |
 |--|--|
-| Release state: | General availability (GA)<br> Certain features  are in preview, for a full list see the [availability](supported-machines-endpoint-solutions-clouds-containers.md) section. |
+| Release state: | General availability (GA)<br> Certain features are in preview, for a full list see the [availability](supported-machines-endpoint-solutions-clouds-containers.md) section. |
 | Feature availability | Refer to the [availability](supported-machines-endpoint-solutions-clouds-containers.md) section for additional information on feature release state and availability.|
 | Pricing: | **Microsoft Defender for Containers** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | Required roles and permissions: | • To auto provision the required components, see the [permissions for each of the components](enable-data-collection.md?tabs=autoprovision-containers)<br> • **Security admin** can dismiss alerts<br> • **Security reader** can view vulnerability assessment findings<br> See also [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md) |
@@ -27,7 +28,7 @@ You can learn more from the product manager about Microsoft Defender for Contain
 
 Defender for Containers helps with the core aspects of container security:
 
-- [**Environment hardening**](#hardening) - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-premises/IaaS, or Amazon EKS. By continuously assessing clusters, Defender for Containers provides visibility into misconfigurations and guidelines to help mitigate identified threats.
+- [**Environment hardening**](#hardening) - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-premises/IaaS, or Amazon EKS. Defender for Containers continuously assesses clusters to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
 
 - [**Vulnerability assessment**](#vulnerability-assessment) - Vulnerability assessment and management tools for images **stored** in ACR registries and **running** in Azure Kubernetes Service.
 
@@ -109,7 +110,7 @@ No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale 
 
 ### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
 
-No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension isn't needed and may result in additional charges.
+No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension isn't needed and may result in extra charges.
 
 ## Learn More
 

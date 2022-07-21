@@ -26,6 +26,41 @@ You'll most likely see the `ExtendedResultCode` as a signed integer in the PnP i
 unsigned hex. Only the first 4 bytes of the `ExtendedResultCode` are used and are of the form `F` `FFFFFFF` where the first nibble is the **Facility Code** and
 the rest of the bits are the **Error Code**.
 
+**Facility Codes**
+
+| Facility Code     | Description  |
+|-------------------|--------------|
+| D                 | Error raised from the DO SDK|
+| E                 | Error code is an errno |
+
+
+For example:
+
+`ExtendedResultCode` is `-536870781`
+
+The unsigned hex representation of `-536870781` is `FFFFFFFF E0000083`.
+
+| Ignore    | Facility Code  | Error Code   |
+|-----------|----------------|--------------|
+| FFFFFFFF  | E              | 0000083      |
+
+`0x83` in hex is `131` in decimal, which is the errno value for `ENOLCK`.
+
+## Delivery Optimization agent
+The following table lists error codes pertaining to the Delivery Optimization (DO) component of the Device Update client. The DO component is responsible for downloading update content onto the IoT device.
+
+The DO error code can be obtained by examining the exceptions thrown in response to an API call. All DO error codes can be identified by the 0x80D0 prefix.
+
+| Error Code  | String Error                       | Type                 | Description |
+|-------------|------------------------------------|----------------------|-------------|
+| 0x80D01001L | DO_E_NO_SERVICE                    | n/a                  | Delivery Optimization was unable to provide the service |
+| 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | Download Job         | Download of a file saw no progress within the defined period |
+| 0x80D02011L | DO_E_UNKNOWN_PROPERTY_ID           | Download Job         | SetProperty() or GetProperty() called with an unknown property ID |
+| 0x80D02012L | DO_E_READ_ONLY_PROPERTY            | Download Job         | Unable to call SetProperty() on a read-only property |
+| 0x80D02013L | DO_E_INVALID_STATE                 | Download Job         | The requested action is not allowed in the current job state. The job might have been canceled or completed transferring. It is in a read-only state now. |
+| 0x80D02018L | DO_E_FILE_DOWNLOADSINK_UNSPECIFIED | Download Job         | Unable to start a download because no download sink (either local file or stream interface) was specified |
+| 0x80D02200L | DO_E_DOWNLOAD_NO_URI               | IDODownload Interface| The download was started without providing a URI |
+| 0x80D03805L | DO_E_BLOCKED_BY_NO_NETWORK         | Transient conditions | Download paused due to loss of network connectivity |
 ```text  
    0 00 00000     Total 4 bytes (32 bits)
    - -- -----

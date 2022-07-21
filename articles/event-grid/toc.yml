@@ -218,10 +218,12 @@ items:
         href: webhook-event-delivery.md
       - name: Custom delivery properties
         href: delivery-properties.md
-    - name: Disaster recovery
+    - name: Availability and disaster recovery
       items:
+      - name: Resiliency
+        href: availability-zone-resiliency.md      
       - name: Geo disaster recovery
-        href: geo-disaster-recovery.md      
+        href: geo-disaster-recovery.md
     - name: Security 
       items: 
       - name: Security baseline

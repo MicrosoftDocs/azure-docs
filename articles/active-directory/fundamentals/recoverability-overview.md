@@ -2,14 +2,14 @@
 title: Recoverability best practices in Azure Active Directory
 description: Learn the best practices for increasing recoverability.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/20/2022
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: baselden
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

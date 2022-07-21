@@ -473,6 +473,8 @@ items:
     href: https://azure.microsoft.com/pricing/details/azure-maps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Understanding Azure Maps Transactions
+    href: understanding-azure-maps-transactions.md
   - name: Azure Maps videos
     href: /shows/
   - name: Open source projects

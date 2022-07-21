@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: quickstart
-ms.date: 05/23/2022
+ms.topic: conceptual
+ms.date: 06/21/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, mode-other
 ---
@@ -48,7 +48,7 @@ See the [language support](./language-support.md) article.
 -->
 ## How do I get more accurate results for my project?
 
-Take a look at the [recommended guidelines](./how-to/create-project.md) for information on improving accuracy.
+See [evaluation metrics](./concepts/evaluation-metrics.md) for information on how models are evaluated, and metrics you can use to improve accuracy.
 <!--
 ## How many intents, and utterances can I add to a project?
 

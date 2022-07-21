@@ -1,10 +1,8 @@
 ---
-title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
+title: Auto-deploy agents for Microsoft sign for Cloud | Microsoft Docs
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.author: benmansheim
-author: bmansheim
-ms.date: 04/28/2022
+ms.date: 07/06/2022
 ms.custom: mode-other
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
@@ -86,7 +84,7 @@ By default, auto provisioning is enabled when you enable Defender for Containers
 
 | Aspect                                               | Azure Kubernetes Service clusters                                                      | Azure Arc-enabled Kubernetes clusters                                                       |
 |------------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Release state:                                       | • Defender profile: Preview<br> • Azure Policy add-on: Generally available (GA) | • Defender extension: Preview<br> • Azure Policy extension: Preview |
+| Release state:                                       | • Defender profile: GA<br> • Azure Policy add-on: Generally available (GA) | • Defender extension: Preview<br> • Azure Policy extension: Preview |
 | Relevant Defender plan:                              | [Microsoft Defender for Containers](defender-for-containers-introduction.md)           | [Microsoft Defender for Containers](defender-for-containers-introduction.md)                |
 | Required roles and permissions (subscription-level): | [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)                          | [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)                               |
 | Supported destinations:                              | The AKS Defender profile only supports [AKS clusters that have RBAC enabled](../aks/concepts-identity.md#kubernetes-rbac).                                                                                   | [See Kubernetes distributions supported for Arc-enabled Kubernetes](supported-machines-endpoint-solutions-clouds-containers.md?tabs=azure-aks#kubernetes-distributions-and-configurations)             |
@@ -120,7 +118,7 @@ Any of the agents and extensions described on this page *can* be installed manua
 We recommend enabling auto provisioning, but it's disabled by default.
 
 ## How does auto provisioning work?
-Defender for Cloud's auto provisioning settings have a toggle for each type of supported extension. When you enable auto provisioning of an extension, you assign the appropriate **Deploy if not exists** policy. This policy type ensures the extension is provisioned on all existing and future resources of that type.
+Defender for Cloud's auto provisioning settings has a toggle for each type of supported extension. When you enable auto provisioning of an extension, you assign the appropriate **Deploy if not exists** policy. This policy type ensures the extension is provisioned on all existing and future resources of that type.
 
 > [!TIP]
 > Learn more about Azure Policy effects including deploy if not exists in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
@@ -165,7 +163,7 @@ To enable auto provisioning of the Log Analytics agent:
 
         1. From Defender for Cloud's menu, open **Environment settings**.
         1. Select the workspace to which you'll be connecting the agents.
-        1. Select **Enhanced security off** or **Enable all Microsoft Defender plans**.
+        1. Set Security posture management to **on** or select **Enable all** to turn all Microsoft Defender plans on.
 
 1. From the **Windows security events** configuration, select the amount of raw event data to store:
     - **None** – Disable security event storage. This is the default setting.

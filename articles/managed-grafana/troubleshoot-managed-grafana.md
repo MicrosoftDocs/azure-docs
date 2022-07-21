@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.topic: troubleshooting
 ms.service: managed-grafana
-ms.date: 05/30/2022
+ms.date: 06/16/2022
 ---
 
 # Troubleshoot issues for Azure Managed Grafana

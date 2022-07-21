@@ -148,3 +148,37 @@ landingContent:
             url: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Buy an SAP HANA Large Instances reservation
             url: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
+
+# card 4
+  - title: BareMetal Infrastructure for NC2 on Azure
+    linkLists: 
+      - linkListType: overview
+        links:
+         - text: What is BareMetal Infrastructure for NC2 on Azure?
+           url: workloads/nc2-public-preview/nc2-baremetal-overview.md
+         - text: About the Public Preview
+           url: workloads/nc2-public-preview/about-the-public-preview.md
+         - text: FAQ
+           url: workloads/nc2-public-preview/faq.md
+      - linkListType: get-started
+        links:
+         - text: Getting started
+           url: workloads/nc2-public-preview/get-started.md
+         - text: Use cases and supported scenarios
+           url: workloads/nc2-public-preview/use-cases-and-supported-scenarios.md  
+         - text: Requirements
+           url: workloads/nc2-public-preview/requirements.md
+         - text: Supported instances and regions
+           url: /nc2-public-preview/supported-instances-and-regions.md
+         - text: SKUs
+           url: workloads/nc2-public-preview/skus.md
+      - linkListType: architecture
+        links:
+         - text: Architecture
+           url: workloads/nc2-public-preview/architecture.md 
+      - linkListType: concept
+        links:
+         - text: Solution design
+           url: workloads/nc2-public-preview/solution-design.md
+
+

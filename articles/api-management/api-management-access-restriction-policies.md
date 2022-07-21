@@ -186,7 +186,7 @@ If `identity-type=jwt` is configured, a JWT token is required to be validated. T
 | authorization-id | The authorization resource identifier. | Yes |   |
 | context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). | Yes |   |
 | identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | managed |
-| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: https://azure-api.net/authorization-manager <br> - `oid`: Permission object id <br> - `tid`: Permission tenant id | No |   |
+| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID | No |   |
 | ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500` | No | false |
 
 ### Authorization object
@@ -225,8 +225,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 > * This policy can be used only once per policy document.
 > * [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
 
-> [!CAUTION]
-> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests varyies based on request volume and rate, backend latency, and other factors.
+[!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)]
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -301,8 +300,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
-> [!CAUTION]
-> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
+[!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)]
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
@@ -430,6 +428,8 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 > * This policy can be used only once per policy document.
 > * [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
 
+[!INCLUDE [api-management-quota-accuracy](../../includes/api-management-quota-accuracy.md)]
+
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
@@ -490,6 +490,9 @@ The `quota-by-key` policy enforces a renewable or lifetime call volume and/or ba
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+
+[!INCLUDE [api-management-quota-accuracy](../../includes/api-management-quota-accuracy.md)]
+
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 

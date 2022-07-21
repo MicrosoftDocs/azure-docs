@@ -28,11 +28,11 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](quickstart-create-resources.md).
 
 ## Browse curated environments
 
-Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost and support training and inferencing scenarios. 
+Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the job preparation cost and support training and inferencing scenarios. 
 
 Click on an environment to see detailed information about its contents. For more information, see [Azure Machine Learning curated environments](resource-curated-environments.md). 
 

@@ -18,21 +18,36 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## June 2022
 
-### Face transparency documentation
+### Vision Studio launch
+
+Vision Studio is UI tool that lets you explore, build, and integrate features from Azure Cognitive Services for Vision into your applications.
+
+Vision Studio provides you with a platform to try several service features, and see what they return in a visual manner. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
+
+### Responsible AI for Face
+
+#### Face transparency documentation
 * The [transparency documentation](https://aka.ms/faceraidocs) provides guidance to assist our customers to improve the accuracy and fairness of their systems by incorporating meaningful human review to detect and resolve cases of misidentification or other failures, providing support to people who believe their results were incorrect, and identifying and addressing fluctuations in accuracy due to variations in operational conditions.
 
-### Retirement of sensitive attributes
+#### Retirement of sensitive attributes
 
 * We have retired facial analysis capabilities that purport to infer emotional states and identity attributes, such as gender, age, smile, facial hair, hair and makeup. 
 * Facial detection capabilities, (including detecting blur, exposure, glasses, headpose, landmarks, noise, occlusion, facial bounding box) will remain generally available and do not require an application.
 
-### Fairlearn package and Microsoft's Fairness Dashboard
+#### Fairlearn package and Microsoft's Fairness Dashboard
 
 * [The open-source Fairlearn package and Microsoft’s Fairness Dashboard](https://github.com/microsoft/responsible-ai-toolbox/tree/main/notebooks/cognitive-services-examples/face-verification) aims to support customers to measure the fairness of Microsoft's facial verification algorithms on their own data, allowing them to identify and address potential fairness issues that could affect different demographic groups before they deploy their technology.
 
-### Limited Access policy
+#### Limited Access policy
 
 * As a part of aligning Face to the updated Responsible AI Standard, a new [Limited Access policy](https://aka.ms/AAh91ff) has been implemented for the Face API and Computer Vision. Existing customers have one year to apply and receive approval for continued access to the facial recognition services based on their provided use cases. See details on Limited Access for Face [here](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context) and for Computer Vision [here](/legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context).
+
+### Computer Vision 3.2-preview deprecation
+
+The preview versions of the 3.2 API are scheduled to be retired in December of 2022. Customers are encouraged to use the generally available (GA) version of the API instead. Mind the following changes when migrating from the 3.2-preview versions:
+1. The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls now take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they will use the latest model.
+1. The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls also return a `model-version` field in successful API responses. This field reports which model was used.
+1. Image Analysis APIs now use a different error-reporting format. See the [API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) to learn how to adjust any error-handling code.
 
 ## May 2022
 
@@ -71,7 +86,6 @@ See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-
 
 ### New Quality Attribute in Detection_01 and Detection_03
 * To help system builders and their customers capture high quality images which are necessary for high quality outputs from Face API, we’re introducing a new quality attribute **QualityForRecognition** to help decide whether an image is of sufficient quality to attempt face recognition. The value is an informal rating of low, medium, or high. The new attribute is only available when using any combinations of detection models `detection_01` or `detection_03`, and recognition models `recognition_03` or `recognition_04`. Only "high" quality images are recommended for person enrollment and quality above "medium" is recommended for identification scenarios. To learn more about the new quality attribute, see [Face detection and attributes](concept-face-detection.md) and see how to use it with [QuickStart](./quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio).
-
 
 ## September 2021
 
@@ -128,7 +142,7 @@ The Computer Vision API v3.2 is now generally available with the following updat
 > [!div class="nextstepaction"]
 > [See Computer Vision v3.2 GA](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
-### PersonDirectory data structure
+### PersonDirectory data structure (preview)
 
 * In order to perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory. Currently, the Face API offers the **LargePersonGroup** structure which has similar functionality but is limited to 1 million identities. The **PersonDirectory** structure can scale up to 75 million identities.
 * Another major difference between **PersonDirectory** and previous data structures is that you'll no longer need to make any Train calls after adding faces to a **Person** object&mdash;the update process happens automatically. For more details see [Use the PersonDirectory structure](how-to/use-persondirectory.md).
@@ -161,7 +175,7 @@ See the [Read API how-to guide](how-to/call-read-api.md) to learn more.
 
 
 ### New Face API detection model
-* The new Detection 03 model is the most accurate detection model currently available. If you're a new a customer, we recommend using this model. Detection 03 improves both recall and precision on smaller faces found within images (64x64 pixels). Additional improvements include an overall reduction in false positives and improved detection on rotated face orientations. Combining Detection 03 with the new Recognition 04 model will provide improved recognition accuracy as well. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
+* The new Detection 03 model is the most accurate detection model currently available. If you're a new customer, we recommend using this model. Detection 03 improves both recall and precision on smaller faces found within images (64x64 pixels). Additional improvements include an overall reduction in false positives and improved detection on rotated face orientations. Combining Detection 03 with the new Recognition 04 model will provide improved recognition accuracy as well. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
 ### New detectable Face attributes
 * The `faceMask` attribute is available with the latest Detection 03 model, along with the additional attribute `"noseAndMouthCovered"` which detects whether the face mask is worn as intended, covering both the nose and mouth. To use the latest mask detection capability, users need to specify the detection model in the API request: assign the model version with the _detectionModel_ parameter to `detection_03`. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
 ### New Face API Recognition Model

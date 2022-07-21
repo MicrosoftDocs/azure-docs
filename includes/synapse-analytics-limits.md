@@ -14,7 +14,7 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 
 ### Synapse Workspace Limits
 
-For Pay-As-You-Go subscription offer types:
+For Pay-As-You-Go and Azure for Students subscription offer types:
 
 | Resource | Default limit | Maximum limit | 
 | -------- | ------------- | ------------- |

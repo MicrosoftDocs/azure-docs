@@ -164,7 +164,7 @@ Now that you've created the VM, you need to configure Azure RBAC policy to deter
 - **Virtual Machine User Login**: Users with this role assigned can log in to an Azure virtual machine with regular user privileges.
 
 > [!NOTE]
-> To allow a user to log in to the VM over RDP, you must assign either the Virtual Machine Administrator Login or Virtual Machine User Login role. An Azure user with the Owner or Contributor roles assigned for a VM do not automatically have privileges to log in to the VM over RDP. This is to provide audited separation between the set of people who control virtual machines versus the set of people who can access virtual machines.
+> To allow a user to log in to the VM over RDP, you must assign either the Virtual Machine Administrator Login or Virtual Machine User Login role to the Resource Group containing the VM and its associated Virtual Network, Network Interface, Public IP Address or Load Balancer resources. An Azure user with the Owner or Contributor roles assigned for a VM do not automatically have privileges to log in to the VM over RDP. This is to provide audited separation between the set of people who control virtual machines versus the set of people who can access virtual machines.
 
 There are multiple ways you can configure role assignments for VM:
 
@@ -177,6 +177,8 @@ There are multiple ways you can configure role assignments for VM:
 ### Using Azure AD Portal experience
 
 To configure role assignments for your Azure AD enabled Windows Server 2019 Datacenter VMs:
+
+1. Select the **Resource Group** containing the VM and its associated Virtual Network, Network Interface, Public IP Address or Load Balancer resource.
 
 1. Select **Access control (IAM)**.
 
@@ -197,12 +199,12 @@ The following example uses [az role assignment create](/cli/azure/role/assignmen
 
 ```AzureCLI
 $username=$(az account show --query user.name --output tsv)
-$vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
+$rg=$(az group show --resource-group myResourceGroup --query id -o tsv)
 
 az role assignment create \
     --role "Virtual Machine Administrator Login" \
     --assignee $username \
-    --scope $vm
+    --scope $rg
 ```
 
 > [!NOTE]

@@ -6,6 +6,7 @@ author: rboucher
 ms.author: robb
 ms.date: 06/16/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: shijain
 ---
 
 # Monitoring solutions in Azure Monitor

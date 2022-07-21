@@ -18,6 +18,9 @@ ms.custom: devx-track-java
 
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
+> [!WARNING]
+> A security vulnerability has been discovered in client-side encryption. Microsoft recommends that you do not use it in your applications until the mitigation is released in new versions of the Azure Storage client libraries for .NET, Java, and Python. For more information, see [Preview: Azure Storage updating client-side encryption in SDK to address security vulnerability](https://techcommunity.microsoft.com/t5/azure-storage-blog/preview-azure-storage-updating-client-side-encryption-in-sdk-to/ba-p/3522620).
+
 ## Overview
 
 The [Azure Storage Client Library for Java](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.

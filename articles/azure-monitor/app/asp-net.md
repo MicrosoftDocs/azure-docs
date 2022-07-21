@@ -366,6 +366,8 @@ For the template-based ASP.NET MVC app from this article, the file that you need
 
 ## Troubleshooting
 
+See the dedicated [troubleshooting article](https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
+
 There's a known issue in the current version of Visual Studio 2019: storing the instrumentation key or connection string in a user secret is broken for .NET Framework-based apps. The key ultimately has to be hardcoded into the *applicationinsights.config* file to work around this bug. This article is designed to avoid this issue entirely, by not using user secrets.  
 
 ## Open-source SDK
@@ -378,5 +380,3 @@ For the latest updates and bug fixes, [consult the release notes](./release-note
 
 * Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](monitor-web-app-availability.md).
 * [Configure sampling](sampling.md) to help reduce telemetry traffic and data storage costs.
-
-

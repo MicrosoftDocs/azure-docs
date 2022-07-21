@@ -4,18 +4,19 @@ description: Learn about generating and receiving customer leads from your Micro
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: durior1
+author: urimsft
 ms.author: uridor
-ms.date: 05/20/2021
+ms.date: 06/29/2022
 ---
 
 # Customer leads from your commercial marketplace offer
 
 Leads are customers interested in or deploying your offers from [Microsoft AppSource](https://appsource.microsoft.com) and [Azure Marketplace](https://azuremarketplace.microsoft.com). You can receive customer leads after your offer is published to the commercial marketplace. This article explains the following lead management concepts:
 
-* How your commercial marketplace offer generates customer leads to ensure that you don't miss business opportunities. 
-* How to connect your customer relationship management (CRM) system to your offer so that you can manage your leads in one central location.
-* The lead data we send you so that you can follow up on customers who reached out to you.
+- How your commercial marketplace offer generates customer leads to ensure that you don't miss business opportunities. 
+- How to manage your leads in Partner Center
+- How to connect your customer relationship management (CRM) system to your offer.
+- The lead data we send you so that you can follow up on customers who reached out to you.
 
 ## Generate customer leads
 
@@ -37,9 +38,18 @@ Here are places where a lead is generated:
 
     ![Dynamics 365 Free Trial button](./media/commercial-marketplace-get-customer-leads/dynamics-365-free-trial.png)
 
+## Receive customer leads
+
+When you publish an offer to the commercial marketplace with Partner Center, you will receive leads with customer contact information as soon as someone expresses interest in or uses your product.
+
+These leads are available on the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. See [Manage leads](/partner-center/manage-leads).
+
 ## Connect to your CRM system
 
-[!INCLUDE [Connect lead management](../includes/customer-leads.md)]
+In addition to Partner Center, you can have your offer’s leads sent to your Customer Relationship Management (CRM) system and manage them there.
+
+> [!NOTE]
+> Connecting to a CRM system is optional.
 
 ## Understand lead data
 

@@ -23,6 +23,9 @@ The following example shows you how to create a Container Apps environment in an
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
+> [!NOTE]
+> Network address prefixes requires a CIDR range of `/23`.
+
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
 9. Next to the *Virtual network* box, select the **Create new** link and enter the following value.
@@ -78,7 +81,7 @@ $VNET_NAME="my-custom-vnet"
 Now create an Azure virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet is required for use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet with a CDIR range of `/23` is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -118,23 +121,15 @@ az network vnet subnet create `
 
 ---
 
-With the virtual network created, you can retrieve the IDs for both the VNET and the infrastructure subnet.
+With the virtual network created, you can retrieve the ID for the infrastructure subnet.
 
 # [Bash](#tab/bash)
-
-```bash
-VNET_RESOURCE_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
-```
 
 ```bash
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
-
-```powershell
-$VNET_RESOURCE_ID=(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
-```
 
 ```powershell
 $INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv)

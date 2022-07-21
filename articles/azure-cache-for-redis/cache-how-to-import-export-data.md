@@ -2,7 +2,6 @@
 title: Import and Export data in Azure Cache for Redis
 description: Learn how to import and export data to and from blob storage with your premium Azure Cache for Redis instances
 author: flang-msft
-
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/07/2022
@@ -18,10 +17,9 @@ Import/Export is an Azure Cache for Redis data management operation. It allows y
 
 Import/Export enables you to migrate between different Azure Cache for Redis instances or populate the cache with data before use.
 
-This article provides a guide for importing and exporting data with Azure Cache for Redis and provides the answers to commonly asked questions.
+This article provides a guide for importing and exporting data with Azure Cache for Redis and provides the answers to commonly asked questions. 
 
-> [!IMPORTANT]
-> Import/Export is only available for [Premium tier](cache-overview.md#service-tiers) caches.
+For information on which Azure Cache for Redis tiers support import and export, see [feature comparison](cache-overview.md#feature-comparison).
 
 ## Import
 

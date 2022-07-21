@@ -11,7 +11,7 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | Corporate  |
+|**Hardware profile** | C5600  |
 |**Performance** | Max bandwidth: 3Gbp/s <br> Max devices: 12,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
 |**Status** | Supported, Available preconfigured|
@@ -181,6 +181,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

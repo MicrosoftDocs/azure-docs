@@ -39,7 +39,7 @@ The Speech service is available in these regions for speech-to-text, pronunciati
 If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can use the [Speech-to-text REST API v3.0](rest-speech-to-text.md) to [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
 
 > [!TIP]
-> For pronunciation assessment, `en-US` and `en-GB` are available in all regions listed above, `zh-CN` is available in East Asia and Southeast Asia regions, `es-ES` and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.
+> For pronunciation assessment, `en-US` and `en-GB` are available in all regions listed above, `zh-CN` is available in East Asia and Southeast Asia regions, `de-DE`, `es-ES`, and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.
 
 ### Intent recognition
 

@@ -46,7 +46,7 @@ Create an ASP.NET web app by following these steps:
 
      :::image type="content" source="./media/quickstart-custom-container/select-mvc-template-for-container.png?text=Create ASP.NET Web Application" alt-text="Create ASP.NET Web Application":::
 
-1. If the _Dockerfile_ file isn't opened automatically, open it from the **Solution Explorer**.
+1. If the `Dockerfile` isn't opened automatically, open it from the **Solution Explorer**.
 
 1. You need a [supported parent image](configure-custom-container.md#supported-parent-images). Change the parent image by replacing the `FROM` line with the following code and save the file:
 

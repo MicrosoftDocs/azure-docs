@@ -21,5 +21,6 @@ A Stream Analytics job could be in one of four states at any given time: running
 
 ## Next steps
 * [Setup alerts for Azure Stream Analytics jobs](stream-analytics-set-up-alerts.md)
-* [Metrics available in Stream Analytics](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)
+* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
+* [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
 * [Troubleshoot using activity and resource logs](./stream-analytics-job-diagnostic-logs.md)

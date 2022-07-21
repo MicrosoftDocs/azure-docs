@@ -267,7 +267,7 @@ PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegr
 
 ## Force Delete for VMs
 
-Force delete allows you to forcefully delete your virtual machine, reducing delete latency and immediately freeing up attached resources. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
+Force delete allows you to forcefully delete your virtual machine, reducing delete latency and immediately freeing up attached resources. For VMs that do not require graceful shutdown, Force Delete aims to delete the VM as fast as possible while relieving the logical resources from the VM, bypassing some of the cleanup operations. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
 
 ### [Portal](#tab/portal3)
 

@@ -22,6 +22,19 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## June 2022
+<br>
+<table>
+<tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+<tr><td rowspan=3><b>Data flow</b></td><td>Fuzzy join supported for data flows</td><td>Fuzzy join is now supported in Join transformation of data flows with configurable similarity score on join conditions.<br><a href="data-flow-join.md#fuzzy-join">Learn more</a></td></tr>
+<tr><td>Editing capabilities in source projection</td><td>Editing capabilities in source projection is available in Dataflow to make schemas modifications easily<br><a href="data-flow-source.md#source-options">Learn more</a></td></tr>
+<tr><td>Cast transformation and assert error handling</td><td>Cast transformation and assert error handling are now supported in data flows for better transformation.<br><a href="data-flow-assert.md">Learn more</a></td></tr>
+<tr><td rowspan=2><b>Data Movement</b></td><td>Parameterization natively supported in additional 4 connectors</td><td>We added native UI support of parameterization for the following linked services: Azure Data Lake Gen1, Azure PostgreSQL, Google AdWords and PostgreSQL.<br><a href="parameterize-linked-services.md?tabs=data-factory#supported-linked-service-types">Learn more</a></td></tr>
+<tr><td>SAP Change Data Capture (CDC) capabilities in the new SAP ODP connector</td><td>SAP Change Data Capture (CDC) capabilities are now supported in the new SAP ODP connector.<br><a href="sap-change-data-capture-introduction-architecture.md">Learn more</a></td></tr> 
+<tr><td><b>Integration Runtime</b></td><td>Time-To-Live in managed VNET (Public Preview)</td><td>Time-To-Live can be set to the provisioned computes in managed VNET.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-public-preview-of-time-to-live-ttl-in-managed-virtual/ba-p/3552879">Learn more</a></td></tr>
+<tr><td><b>Monitoring</b></td><td> Rerun pipeline with new parameters</td><td>You can now rerun pipelines with new parameter values in Azure Data Factory.<br><a href="monitor-visually.md#rerun-pipelines-and-activities">Learn more</a></td></tr>
+</table>
+
 ## May 2022
 <br>
 <table>

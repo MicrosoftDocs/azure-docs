@@ -122,4 +122,4 @@ The following schemas are in use by Azure Container Instances.
 ## See also
 
 - See [Monitoring Azure Container Instances](monitor-azure-container-instances.md) for a description of monitoring Azure Container Instances.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

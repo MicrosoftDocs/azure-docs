@@ -27,9 +27,9 @@ You can create a workspace from the [Azure portal](../healthcare-apis-quickstart
 > [!NOTE]
 > There are limits to the number of workspaces and the number of MedTech service instances you can create in each Azure subscription.
 
-## Create the FHIR service and an Event Hub
+## Create the FHIR service and an event hub
 
-The MedTech service works with the Azure Event Hub and the FHIR service. You can create a new [FHIR service](../fhir/get-started-with-fhir.md) or use an existing one in the same or different workspace. Similarly, you can create a new [Event Hub](../../event-hubs/event-hubs-create.md) or use an existing one.
+The MedTech service works with Azure Event Hubs and the FHIR service. You can create a new [FHIR service](../fhir/get-started-with-fhir.md) or use an existing one in the same or different workspace. Similarly, you can create a new [Event Hub](../../event-hubs/event-hubs-create.md) or use an existing one.
 
 ## Create a MedTech service in the workspace
 
@@ -37,9 +37,9 @@ You can create a MedTech service from the [Azure portal](deploy-iot-connector-in
 
 Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) and [DICOM service](../dicom/deploy-dicom-services-in-azure.md) in the workspace.
 
-## Assign roles to allow MedTech service to access Event Hub
+## Assign roles to allow MedTech service to access Event Hubs
 
-By design, the MedTech service retrieves data from the specified Event Hub using the system-managed identity. For more information on how to assign the role to the MedTech service from [Event Hub](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-medtech-service-access).
+By design, the MedTech service retrieves data from the specified event hub using the system-managed identity. For more information on how to assign the role to the MedTech service from [Event Hubs](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-the-medtech-service-access).
 
 ## Assign roles to allow MedTech service to access FHIR service
 
@@ -47,7 +47,7 @@ The MedTech service persists the data to the FHIR store using the system-managed
 
 ## Sending data to the MedTech service
 
-You can send data to the Event Hub, which is associated with the MedTech service. If you don't see any data in the FHIR service, check the mappings and role assignments for the MedTech service.
+You can send data to the event hub, which is associated with the MedTech service. If you don't see any data in the FHIR service, check the mappings and role assignments for the MedTech service.
 
 ## MedTech service mappings, data flow, ML, Power BI, and Teams notifications
 

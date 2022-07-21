@@ -44,7 +44,7 @@ To find the `platformVersion` property in the portal:
 1. In **API version**, select a current version such as `2021-08-01` or later.
 1. In the JSON view, scroll down to find the `platformVersion` property.
 
-    :::image type="content" source="media/compute-infrastructure/platformversion property.png" alt-text="platformVersion property in JSON view":::
+    :::image type="content" source="media/compute-infrastructure/platformversion-property.png" alt-text="platformVersion property in JSON view":::
 
 ## How do I migrate to the `stv2` platform? 
 

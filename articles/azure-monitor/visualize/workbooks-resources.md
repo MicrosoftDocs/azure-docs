@@ -4,7 +4,7 @@ description: Learn how to use resource parameters to allow picking of resources 
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/05/2022
 ---
 
 # Workbook resource parameters

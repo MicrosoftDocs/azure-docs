@@ -25,7 +25,7 @@ Access the terminal of a compute instance in your workspace to:
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 
 ## Access a terminal
 

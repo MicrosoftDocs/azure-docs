@@ -1,10 +1,8 @@
 ---
 title: Apache Kafka output binding for Azure Functions
 description: Use Azure Functions to write messages to an Apache Kafka stream.
-author: ggailey777
 ms.topic: reference
 ms.date: 05/14/2022
-ms.author: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

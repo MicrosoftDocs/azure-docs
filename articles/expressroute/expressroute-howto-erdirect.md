@@ -341,12 +341,34 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
     Add-AzExpressRoutePortAuthorization -Name $Name -ExpressRoutePort $ERPort
     Set-AzExpressRoutePort -ExpressRoutePort $ERPort
     ```
+   
+   Sample output:
+    ```powershell
+        Name                   : ERDirectAuthorization_1
+        Id                     : /subscriptions/72882272-d67e-4aec-af0b-4ab6e110ee46/resourceGroups/erdirect-   rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
+        Etag                   : W/"24cac874-dfb4-4931-9447-28e67edd5155"
+        AuthorizationKey       : 6e1fc16a-0777-4cdc-a206-108f2f0f67e8
+        AuthorizationUseStatus : Available
+        ProvisioningState      : Succeeded
+        CircuitResourceUri     :
+    ```
 
 1. Verify the authorization was created successfully and store ExpressRoute Direct authorization into a variable:
 
     ```powershell
-    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-    $ERDirect    
+    $ERDirectAuthorization = Get-AzExpressRoutePortAuthorization -ExpressRoutePortObject $ERDirect
+    $ERDirectAuthorization  
+    ```
+    
+    Sample output:
+      ```powershell
+        Name                   : ERDirectAuthorization_1
+        Id                     : /subscriptions/72882272-d67e-4aec-af0b-4ab6e110ee46/resourceGroups/erdirect-                       rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
+        Etag                   : W/"24cac874-dfb4-4931-9447-28e67edd5155"
+        AuthorizationKey       : 6e1fc16a-0777-4cdc-a206-108f2f0f67e8
+        AuthorizationUseStatus : Available
+        ProvisioningState      : Succeeded
+        CircuitResourceUri     :on  
     ```
 
 1. Redeem the authorization to create the ExpressRoute Direct circuit with the following command:

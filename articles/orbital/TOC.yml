@@ -5,7 +5,7 @@ items:
   items:
   - name: Why use Azure Orbital?
     href: overview.md
-  - name: What is the Space Partner Program?
+  - name: What is the Space Partner Community?
     href: space-partner-program-overview.md
 - name: Quickstart
   items:
@@ -33,6 +33,8 @@ items:
     items:
     - name: Schedule a contact with NASA's AQUA public satellite
       href: howto-downlink-aqua.md 
+    - name: Collect and Process AQUA satellite payload
+      href: satellite-imagery-with-orbital-ground-station.md
 - name: Concepts
   items:
   - name: Geospatial Reference Architecture

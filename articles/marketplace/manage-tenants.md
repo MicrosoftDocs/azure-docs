@@ -6,8 +6,9 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
+ms.reviewer: agandotra
 ms.custom: contperf-fy21q2
-ms.date: 04/07/2021
+ms.date: 06/30/2022
 ---
 
 # Manage tenants in the commercial marketplace

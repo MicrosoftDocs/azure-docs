@@ -130,14 +130,14 @@ Web debugging tools like Fiddler, can help you debug web applications by capturi
 
 Use the web debugger of your choice. In this sample we will use Fiddler to capture and analyze http or https traffics, follow the instructions:
 
-1. Download the Fiddler tool at <https://www.telerik.com/download/fiddler>.
+1. Download [Fiddler](https://www.telerik.com/download/fiddler).
 
     > [!NOTE]
     > Choose Fiddler4 if the capturing computer has .NET 4 installed. Otherwise, choose Fiddler2.
 
 2. Right click the setup executable, and run as administrator to install.
 
-    ![Screenshot shows the Fiddler tool setup program with a contextual menu with Run as administrator selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
+    ![Screenshot shows the Fiddler setup program with a contextual menu with Run as administrator selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. When you open Fiddler, it should automatically start capturing traffic (notice the Capturing at lower-left-hand corner). Press F12 to start or stop traffic capture.
 

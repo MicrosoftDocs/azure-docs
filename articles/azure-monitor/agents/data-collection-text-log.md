@@ -2,7 +2,7 @@
 title: Collect text and IIS logs with Azure Monitor agent (preview)
 description: Configure collection of filed-based text logs using a data collection rule on virtual machines with the Azure Monitor agent.
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 06/22/2022
 ms.reviewer: shseth
 
 ---
@@ -179,6 +179,8 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
     :::image type="content" source="../logs/media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot that shows portal blade to edit Resource Manager template.":::
 
     **Data collection rule for text log**
+    
+    See [Structure of a data collection rule in Azure Monitor (preview)](../essentials/data-collection-rule-structure.md#custom-logs) if you want to modify the text log DCR.
 
     ```json
     {
