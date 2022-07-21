@@ -59,6 +59,8 @@ landingContent:
         links:
           - text: Contact support
             url: hpc-cache-support-ticket.md
+          - text: Increase quota
+            url: increase-quota.md
           - text: Edit a storage target
             url: hpc-cache-edit-storage.md
           - text: View and manage storage targets
