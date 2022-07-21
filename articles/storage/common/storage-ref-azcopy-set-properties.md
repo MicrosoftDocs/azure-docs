@@ -22,9 +22,9 @@ azcopy set-properties [resourceURL] [flags]
 
 Sets properties of Blob and File storage. The properties currently supported by this command are:
 
-Blobs -> Tier, Metadata, Tags
-Data Lake Storage Gen2 -> Tier, Metadata, Tags
-Files -> Metadata
+- Blobs -> Tier, Metadata, Tags
+- Data Lake Storage Gen2 -> Tier, Metadata, Tags
+- Files -> Metadata
 
 > [!NOTE]
 > Data Lake Storage Gen2 endpoints will be will be replaced by Blob Storage endpoints.
