@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Digital Twins Explorer by following this demo, where you'll use models to instantiate twins and interact with the twin graph.
 author: baanders
 ms.author: baanders
-ms.date: 02/25/2022
+ms.date: 07/21/2022
 ms.topic: quickstart
 ms.service: digital-twins
 ms.custom: mode-other, event-tier1-build-2022
@@ -12,24 +12,22 @@ ms.custom: mode-other, event-tier1-build-2022
 
 # Quickstart - Get started with a sample scenario in Azure Digital Twins Explorer
 
-In this quickstart, you'll explore a prebuilt Azure Digital Twins graph using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). This tool allows you to visualize and interact with your Azure Digital Twins data within the Azure portal.
+This quickstart is an introduction to Azure Digital Twins, showing how Azure Digital Twins represents data and demonstrating what it's like to interact with a digital *twin graph* of a physical building. You'll use the [Azure portal site](https://portal.azure.com) and the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), which is a tool for visualizing and interacting with your Azure Digital Twins data in a web browser.
 
-With Azure Digital Twins, you can create and interact with live models of your real-world environments, which can be part of wider IoT solutions. First, you model individual elements as digital twins. Then you connect them into a knowledge graph that can respond to live events and be queried for information.
-
-You'll complete the following steps:
-
-1. Create an Azure Digital Twins instance, and connect to it in Azure Digital Twins Explorer.
-1. Upload prebuilt models and graph data to construct the sample scenario.
-1. Explore the scenario graph that's created.
-1. Make changes to the graph.
-1. Review your learnings from the experience.
-
-The Azure Digital Twins example graph you'll be working with represents a building with two floors and two rooms. Floor0 contains Room0, and Floor1 contains Room1. The graph will look like this image:
+In this quickstart, you'll look at pre-built sample *models* that digitally define the concepts of a *Floor* and a *Room*, and use these model definitions to create digital *twins* that represent specific floors and rooms from a physical building. These individual twin elements will be connected into a virtual *twin graph* that reflects their relationships to each other, to form a complete digital representation of the sample building. The sample graph you'll be working with represents a building with two floors and two rooms. Floor0 contains Room0, and Floor1 contains Room1. The graph will look like this image:
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Screenshot of a graph made of four circular nodes connected by arrows in Azure Digital Twins Explorer.":::
 
+Here are the steps you'll use to explore the graph in this article:
+
+1. Create an Azure Digital Twins instance, and open it in Azure Digital Twins Explorer.
+1. Upload prebuilt models and graph data to construct the sample scenario.
+1. Explore and query the scenario graph that's created.
+1. Make changes to the graph.
+1. Review your learnings from the experience.
+
 >[!NOTE]
->This quickstart is for exploring a prebuilt graph to understand how Azure Digital Twins represents data. For simplicity, the quickstart does not cover setting up connections between IoT Hub devices and their graph representations. To set up a connected end-to-end flow for your graph, move ahead to the tutorials: [Connect an end-to-end solution](tutorial-end-to-end.md).
+>For simplicity, this quickstart does not cover setup of a live data flow from IoT devices inside the modeled environment. To set up a simulated end-to-end data flow that drives your twin graph, move ahead to the tutorials: [Connect an end-to-end solution](tutorial-end-to-end.md). For more information on data flow between services and integrating Azure Digital Twins into a wider IoT solution, see [Data ingress and egress](concepts-data-ingress-egress.md).
 
 ## Prerequisites
 
