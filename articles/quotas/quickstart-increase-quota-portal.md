@@ -13,8 +13,7 @@ For more information about quotas, see [Quotas overview](quotas-overview.md).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Request a quota increase
 
@@ -26,8 +25,12 @@ You can submit a request for a quota increase directly from **My quotas**. Follo
    :::image type="content" source="media/quickstart-increase-quota-portal/quotas-portal.png" alt-text="Screenshot of the Quotas service page in the Azure portal.":::
 
 1. On the Overview page, select a provider, such as **Compute**.
-1. On the **My quotas** page, under **Quota name**, select the quota you want to increase.
-1. Near the top of the page, select Request quota increase, then select **Enter a new limit**.
+
+   > [!NOTE]
+   > For all other providers, you'll see a **Request increase** column instead of the **Adjustable** column described below. There, you can request an increase for a specific quota, or create a support request for the increase.
+
+1. On the **My quotas** page, under **Quota name**, select the quota you want to increase. Make sure that the **Adjustable** column shows **Yes** for this quota.
+1. Near the top of the page, select **Request quota increase**, then select **Enter a new limit**.
 
    :::image type="content" source="media/quickstart-increase-quota-portal/enter-new-quota-limit.png" alt-text="Screenshot of the Enter a new limit option in My quotas in the Azure portal.":::
 
@@ -36,6 +39,9 @@ You can submit a request for a quota increase directly from **My quotas**. Follo
 Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes.
 
 If your request is not fulfilled, you'll see a link to create a support request. When you use this link, a support engineer will assist you with your increase request.
+
+> [!TIP]
+> You can request an increase for a quota that is non-adjustable by submitting a support request. For more information, see [Request an increase for non-adjustable quotas](per-vm-quota-requests.md#request-an-increase-for-non-adjustable-quotas).
 
 ## Next steps
 
