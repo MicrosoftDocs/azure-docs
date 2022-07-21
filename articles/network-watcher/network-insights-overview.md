@@ -3,8 +3,8 @@ title: Azure Monitor Network Insights
 description: An overview of Azure Monitor Network Insights, which provides a comprehensive view of health and metrics for all deployed network resources without any configuration.
 ms.topic: conceptual
 ms.service: network-watcher
-author: damendo
-ms.author: damendo
+author: Sagav28
+ms.author: saggupta
 ms.date: 11/25/2020
 ms.reviewer: shijain
 ms.custom: subject-monitoring
@@ -90,7 +90,7 @@ You can select any item in the grid view. Select the icon in the **Reachability*
 The **Alert** box on the right side of the page provides a view of all alerts generated for the connectivity tests configured across all subscriptions. Select the alert counts to go to a detailed alerts page.
 
 ## <a name="traffic"></a>Traffic
-The **Traffic** tab provides access to all NSGs configured for [NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](../network-watcher/traffic-analytics.md) for the selected set of subscriptions, grouped by location. The search functionality provided on this tab enables you to identify the NSGs configured for the searched IP address. You can search for any IP address in your environment. The tiled regional view will display all NSGs along with the NSG flow logs and Traffic Analytics configuration status.
+The **Traffic** tab provides access to all NSGs configured for [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](../network-watcher/traffic-analytics.md) for the selected set of subscriptions, grouped by location. The search functionality provided on this tab enables you to identify the NSGs configured for the searched IP address. You can search for any IP address in your environment. The tiled regional view will display all NSGs along with the NSG flow logs and Traffic Analytics configuration status.
 
 [![Screenshot that shows the Traffic tab in Azure Monitor Network Insights.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
 
