@@ -63,7 +63,7 @@ Let's create a VM from the IoT Edge VM deployment repository in GitHub, then con
    | Admin Username           | `adminUser` <br> Alternatively, create your own user name.                                                               |
    | Device Connection String | Copy your connection string from your IoT Edge device, then paste here.                                                               |
    | VM size                  | `Standard_NV6`                         |
-   | Authentication type      | Choose either `password` or `SSH Public Key`, then create a password or key pair name if needed.                                                             |
+   | Authentication type      | Choose either **password** or **SSH Public Key**, then create a password or key pair name if needed.                                                             |
 
    > [!TIP]
    >
@@ -85,7 +85,7 @@ Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it 
 
 1. Choose **Review + create**, then **Create**. The deployment could take up to 30 minutes to complete.
 
-### Confirm successful installation & deploy
+### Confirm successful installation & deployment
 
 1. Go to **Extensions + applications** again in your VM. The extension should be in your extensions list and say **Provisioning succeeded** under **Status**.
 
