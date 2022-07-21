@@ -2,23 +2,14 @@
 title: 'About BGP peering with a virtual hub'
 titleSuffix: Azure Virtual WAN
 description: Learn about BGP peering with an Azure Virtual WAN virtual hub.
-services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 07/20/2022
 ms.author: cherylmc
 
 ---
-# Scenario: BGP peering with a virtual hub (Preview)
-
-> [!IMPORTANT]
-> The BGP peering with Virtual WAN hub feature is currently in gated public preview. If you are interested in trying this feature, please email **previewbgpwithvhub@microsoft.com** along with the Resource ID of your Virtual WAN resource. After receiving confirmation of feature enablement, please follow the following doucmentation [page](create-bgp-peering-hub-portal.md) for key considerations and a detailed configuration guide. 
->
-> To locate the Resource ID, open the Azure portal, navigate to your Virtual WAN resource, and click **Settings > Properties > Resource ID.**<br> Example: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>`
->
-
+# Scenario: BGP peering with a virtual hub
 
 Azure Virtual WAN hub router, also called as virtual hub router, acts as a route manager and provides simplification in routing operation within and across virtual hubs. In other words, a virtual hub router does the following:
 

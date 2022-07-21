@@ -153,7 +153,8 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
-  --servers "$address1" "$address2"
+  --servers "$address1" "$address2" \
+  --priority 100
 ```
 
 It can take up to 30 minutes for Azure to create the application gateway. After it's created, you can view the following settings in the **Settings** section of the **Application gateway** page:

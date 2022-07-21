@@ -22,7 +22,7 @@ When you have critical applications and business processes relying on Azure reso
 This article describes how to monitor SAP running on Azure using Azure Monitor for SAP Solutions. Azure Monitor for SAP Solutions uses specific parts of the [Azure Monitor](../../../azure-monitor/overview.md) infrastructure.
 
 > [!Note]
-> There are currently two versions of Azure Monitor for SAP solutions. Old one is Azure Monitor for SAP Solutions (Classic) and new one is Azure Monitor for SAP solutions. This article will talk about both the versions. 
+> There are currently two versions of Azure Monitor for SAP solutions. Old one is Azure Monitor for SAP Solutions (classic) and new one is Azure Monitor for SAP solutions. This article will talk about both the versions. 
 
 ## Overview
 
@@ -32,15 +32,13 @@ With Azure Monitor for SAP Solutions, you can collect telemetry data from Azure 
 
 You can monitor different components of an SAP landscape, such as Azure virtual machines (VMs), high-availability cluster, SAP HANA database, SAP NetWeaver, and so on, by adding the corresponding **provider** for that component. For more information, see [Deploy Azure Monitor for SAP Solutions by using the Azure portal](azure-monitor-sap-quickstart.md).
 
-The following table provides a quick comparison of the Azure Monitor for SAP solutions (Classic) and Azure Monitor for SAP solutions. 
+The following table provides a quick comparison of the Azure Monitor for SAP solutions (classic) and Azure Monitor for SAP solutions. 
 
-|| Azure Monitor for SAP solutions             | Azure Monitor for SAP solutions (Classic) |
-|--------------------|---------------------------------------------|-------------------------------------------|
-| Architecture Style | Azure Function based Collector architecture | VM based collector architecture           |
-| Supported Database | Microsoft SQL Server<br>SAP HANA<br>IBM Db2 | Microsoft SQL Server<br>SAP HANA   
-|     
-
-
+classic
+| Azure Monitor for SAP solutions | Azure Monitor for SAP solutions (classic) |
+| ------------------------------- | ----------------------------------------- |
+| Azure Functions-based collector architecture | VM-based collector architecture |
+| Support for Microsoft SQL Server, SAP HANA, and IBM Db2 databases | Support for Microsoft SQL Server, and SAP HANA databases |
 
 Azure Monitor for SAP Solutions uses the [Azure Monitor](../../../azure-monitor/overview.md) capabilities of [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). With it, you can:
 
@@ -96,7 +94,18 @@ SAP NetWeaver telemetry:
 - Work process usage statistics and trends
 - Enqueue Lock statistics and trends
 - Queue usage statistics and trends
-- 
+- SMON Metrics (/SDF/SMON )
+- SWNC Workload , Memory , Transaction, User , RFC Usage (St03n)
+- Short Dumps (ST22)
+- Object Lock (SM12)
+- Failed Updates (SM13)
+- System Logs Analysis(SM21)
+- Batch Jobs Statistics(SM37)
+- Outbound Queues(SMQ1)
+- Inbound Queues(SMQ2)
+- Transactional RFC(SM59)
+- STMS Change Transport System Metrics(STMS)
+
 IBM Db2 telemetry:
 - DB availability
 - Number of Connections, Logical and Physical Reads
@@ -109,7 +118,7 @@ IBM Db2 telemetry:
 > [!Note]
 > This feature is only applicable for Azure Monitor for SAP solutions (Classic) version.
 
-Azure Monitor for SAP Solutions collects system metadata to provide improved support for SAP on Azure. No PII/EUII is collected.
+Azure Monitor for SAP Solutions collects system metadata to provide impclassicupport for SAP on Azure. No PII/EUII is collected.
 
 You can enable data sharing with Microsoft when you create Azure Monitor for SAP Solutions resource by choosing *Share* from the drop-down. We recommend that you enable data sharing. Data sharing gives Microsoft support and engineering teams information about your environment, which helps us provide better support for your mission-critical SAP on Azure solution.
 
