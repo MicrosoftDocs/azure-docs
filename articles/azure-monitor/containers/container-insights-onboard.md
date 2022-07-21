@@ -30,7 +30,7 @@ The versions of Kubernetes and support policy are the same as those [supported i
 Before you start, make sure that you've met the following requirements:
 
 **Log Analytics workspace**
-Container insights supports a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). For a list of the supported mapping pairs to use for the default workspace, see [Region mappings supported by Container insights](container-insights-region-mapping.md).
+Container insights stores its data in a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md). It supports workspaces in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). For a list of the supported mapping pairs to use for the default workspace, see [Region mappings supported by Container insights](container-insights-region-mapping.md).
 
 You can let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. If you already have a workspace though, then you will most likely want to use that one. See [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) for details.
 
@@ -69,6 +69,14 @@ The following table lists the proxy and firewall configuration information that'
 | `*.monitoring.azure.com` | 443 |
 | `login.microsoftonline.com` | 443 |
 
+The following table lists the additional firewall configuration required for managed identity authentication.
+
+|Agent resource| Purpose | Port |
+|--------------|------|---|
+| global.handler.control.monitor.azure.com | Access control service | 443 |
+| <cluster-region-name>.handler.control.monitor.azure.com | Fetch data collection rules for specific AKS cluster | 443 |
+
+
 The following table lists the proxy and firewall configuration information for Azure China 21Vianet:
 
 |Agent resource|Port |Description | 
@@ -76,6 +84,14 @@ The following table lists the proxy and firewall configuration information for A
 | `*.ods.opinsights.azure.cn` | 443 | Data ingestion |
 | `*.oms.opinsights.azure.cn` | 443 | OMS onboarding |
 | `dc.services.visualstudio.com` | 443 | For agent telemetry that uses Azure Public Cloud Application Insights |
+
+
+The following table lists the additional firewall configuration required for managed identity authentication.
+
+|Agent resource| Purpose | Port |
+|--------------|------|---|
+| global.handler.control.monitor.azure.cn | Access control service | 443 |
+| <cluster-region-name>.handler.control.monitor.azure.cn | Fetch data collection rules for specific AKS cluster | 443 |
 
 The following table lists the proxy and firewall configuration information for Azure US Government:
 
@@ -85,8 +101,25 @@ The following table lists the proxy and firewall configuration information for A
 | `*.oms.opinsights.azure.us` | 443 | OMS onboarding |
 | `dc.services.visualstudio.com` | 443 | For agent telemetry that uses Azure Public Cloud Application Insights |
 
+The following table lists the additional firewall configuration required for managed identity authentication.
+
+|Agent resource| Purpose | Port |
+|--------------|------|---|
+| global.handler.control.monitor.azure.us | Access control service | 443 |
+| <cluster-region-name>.handler.control.monitor.azure.us | Fetch data collection rules for specific AKS cluster | 443 |
+
+
+## Authentication
+Container Insights now supports authentication using managed identity (preview). This is a secure and simplified authentication model where the monitoring agent uses the cluster’s managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster.
+
 ## Agent
-Container insights relies on a containerized Log Analytics agent for Linux. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
+
+## Azure Monitor agent
+When using managed identity authentication (preview), Container insights relies on a containerized Azure Monitor agent for Linux. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
+
+
+### Log Analytics agent 
+When not using managed identity authentication, Container insights relies on a containerized Log Analytics agent for Linux. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
 
 The agent version is *microsoft/oms:ciprod04202018* or later, and it's represented by a date in the following format: *mmddyyyy*. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS). To track which versions are released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 

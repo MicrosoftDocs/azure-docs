@@ -12,7 +12,8 @@ This article describes how to set up Container insights to monitor managed Kuber
 
 If you're connecting an existing AKS cluster to an Azure Log Analytics workspace in another subscription, the Microsoft.ContainerService resource provider must be registered in the subscription in which the Log Analytics workspace was created. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-## Enable using Azure CLI
+
+## [CLI](#tab/azure-cli)
 
 The following step enables monitoring of your AKS cluster using Azure CLI. In this example, you are not required to pre-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription if one does not already exist in the region.  The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.
 
@@ -78,7 +79,7 @@ If you would rather integrate with an existing workspace, perform the following 
     provisioningState       : Succeeded
     ```
 
-## Enable using Terraform
+## [Terraform](#tab/terraform)
 
 1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster)
 
@@ -95,7 +96,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
 3. The metrics are not collected by default through Terraform, so once onboarded, there is an additional step to assign the monitoring metrics publisher role, which is required to [enable the metrics](./container-insights-update-metrics.md#update-one-cluster-by-using-the-azure-cli). 
 
-## Enable from Azure Monitor in the portal
+## [Azure Monitor portal](#tab/portal-azure-monitor)
 
 To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor, do the following:
 
@@ -115,9 +116,11 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
     >[!NOTE]
     >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../logs/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the AKS container is deployed to.
 
+6. Select **Use managed identity** if you want to use [managed identity authentication with the Azure Monitor agent](container-insights-onboard.md#authentication). 
+
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
-## Enable directly from AKS cluster in the portal
+## [AKS portal](#tab/portal-aks)
 
 To enable monitoring directly from one of your AKS clusters in the Azure portal, do the following:
 
@@ -139,9 +142,12 @@ To enable monitoring directly from one of your AKS clusters in the Azure portal,
     >[!NOTE]
     >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../logs/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the AKS container is deployed to.
 
+6. Select **Use managed identity** if you want to use [managed identity authentication with the Azure Monitor agent](container-insights-onboard.md#authentication). 
+
+
 After you've enabled monitoring, it might take about 15 minutes before you can view operational data for the cluster.
 
-## Enable using an Azure Resource Manager template
+## [Resource Manager template](#tab/arm)
 
 This method includes two JSON templates. One template specifies the configuration to enable monitoring, and the other contains parameter values that you configure to specify the following:
 
@@ -157,12 +163,13 @@ The Log Analytics workspace has to be created before you enable monitoring using
 If you are unfamiliar with the concept of deploying resources by using a template, see:
 
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
-
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
 If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create and execute a template
+
+
 
 1. Copy and paste the following JSON syntax into your file:
 
@@ -284,6 +291,8 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
        ```
 
        After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
+
+---
 
 ## Verify agent and solution deployment
 
