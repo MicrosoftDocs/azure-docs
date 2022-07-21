@@ -21,11 +21,11 @@ Proper Active Directory Domain Services (AD DS) design and planning are key to s
 
 This article provides recommendations to help you develop an AD DS deployment strategy for Azure NetApp Files. Before reading this article, you need to have a good understanding about how AD DS works on a functional level.  
 
-## Identify AD DS requirements for Azure NetApp Files
+## <a name="ad-ds-requirements"></a> Identify AD DS requirements for Azure NetApp Files
 
 Before you deploy Azure NetApp Files volumes, you must identify the AD DS integration requirements for Azure NetApp Files to ensure that Azure NetApp Files is well connected to AD DS. _Incorrect or incomplete AD DS integration with Azure NetApp Files might cause client access interruptions or outages for SMB, dual-protocol, or Kerberos NFSv4.1 volumes_.  
 
-### Network requirements 
+### <a name="network-requirements"></a>Network requirements 
 
 Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable and low-latency network connectivity (< 10ms RTT) to AD DS domain controllers. Poor network connectivity or high network latency between Azure NetApp Files and AD DS domain controllers can cause client access interruptions or client timeouts.
 
@@ -34,11 +34,11 @@ Ensure that you meet the following requirements about network topology and confi
 * Ensure that a [supported network topology for Azure NetApp Files](azure-netapp-files-network-topologies.md) is used.
 * Ensure that AD DS domain controllers have network connectivity from the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
 * Network Security Groups (NSGs) and AD DS domain controller firewalls must have appropriately configured rules to support Azure NetApp Files connectivity to AD DS and DNS.
-* Ensure that the latency is < 10ms RTT between Azure NetApp Files and AD DS domain controllers.
+* Ensure that the latency is less than 10ms RTT between Azure NetApp Files and AD DS domain controllers.
 
 The required network ports are as follows:
 | Service | Port | Protocol |
-|-|-|-|
+| -- | - | - |
 |AD Web Services | 9839 | TCP |
 | DNS* | 53 | TCP |
 | DNS* | 53 | UDP |
@@ -63,7 +63,7 @@ Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reli
 Azure NetApp Files supports the use of [Active Directory integrated DNS](/windows-server/identity/ad-ds/plan/active-directory-integrated-dns-zones) or standalone DNS servers.    
 
 Ensure that you meet the following requirements about the DNS configurations:
-* If you are using standalone DNS servers: 
+* If you're using standalone DNS servers: 
 * Ensure that DNS servers have network connectivity to the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
     * Ensure that network ports UDP 53 and TCP 53 are not blocked by firewalls or NSGs.
 * Ensure that [the SRV records registered by the AD DS Net Logon service](https://social.technet.microsoft.com/wiki/contents/articles/7608.srv-records-registered-by-net-logon.aspx) have been created on the DNS servers.
@@ -93,8 +93,7 @@ You should use Active Directory Domain Services (AD DS) in the following scenari
 > [!NOTE]
 > Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC).
 
-If you choose to use AD DS with Azure NetApp Files, follow the guidance in [Extend AD DS into Azure Architecture Guide](/architecture/reference-architectures/identity/adds-extend-domain) and ensure that you meet the Azure NetApp Files network and DNS requirements <!-- DNS , link to network reqs section--> for AD DS.
-<!-- network , link to network reqs section-->
+If you choose to use AD DS with Azure NetApp Files, follow the guidance in [Extend AD DS into Azure Architecture Guide](/architecture/reference-architectures/identity/adds-extend-domain) and ensure that you meet the Azure NetApp Files [network](#network-requirements) and [DNS requirements](#ad-ds-requirements) for AD DS.
 
 ### Azure Active Directory Domain Services considerations
 
@@ -109,8 +108,7 @@ You should use AAD DS in the following scenarios:
 * Your security policies do not allow the extension of on-premises AD DS into Azure.
 * You don’t have strong knowledge of AD DS. AAD DS can improve the likelihood of good outcomes with Azure NetApp Files.
 
-If you choose to use AAD DS with Azure NetApp Files, see [Azure AD DS documentation](../active-directory-domain-services/overview.md) for [architecture](../active-directory-domain-services/scenarios.md), deployment, and management guidance. Ensure that you also meet the Azure NetApp Files Network and DNS requirements.
-<!-- network & DNS , link to network reqs section-->
+If you choose to use AAD DS with Azure NetApp Files, see [Azure AD DS documentation](../active-directory-domain-services/overview.md) for [architecture](../active-directory-domain-services/scenarios.md), deployment, and management guidance. Ensure that you also meet the Azure NetApp Files [Network](network-requirements.md) and [DNS requirements](#ad-ds-requirements).
 
 ## Design AD DS site topology for use with Azure NetApp Files
 
@@ -122,8 +120,7 @@ Incorrect AD DS site topology or configuration can result in the following behav
 * Poor LDAP client query performance
 * Authentication problems
 
-An AD DS site topology for Azure NetApp Files is a logical representation of the [Azure NetApp Files network](). Designing an AD DS site topology for Azure NetApp Files involves planning for domain controller placement, designing sites, DNS infrastructure, and network subnets to ensure good connectivity among the Azure NetApp Files service, Azure NetApp Files storage clients, and AD DS domain controllers.
-<!-- network, link to network reqs section-->
+An AD DS site topology for Azure NetApp Files is a logical representation of the [Azure NetApp Files network](#network-requirements). Designing an AD DS site topology for Azure NetApp Files involves planning for domain controller placement, designing sites, DNS infrastructure, and network subnets to ensure good connectivity among the Azure NetApp Files service, Azure NetApp Files storage clients, and AD DS domain controllers.
 
 ### How Azure NetApp Files uses AD DS site information
 
@@ -173,13 +170,13 @@ Azure NetApp Files can only use one AD DS site to determine which domain control
 
 In the Active Directory Sites and Services tool, verify that the AD DS domain controllers deployed into the AD DS subnet are assigned to the `ANF` site: 
 
-:::image type="content" source="../media/azure-netapp-files/active-directory-anf-servers.png" alt-text="Active Directoy Sites and Services window with a red box drawing attention to the ANF > Servers directory." lightbox="../media/azure-netapp-files/active-directory-anf-servers.png":::
+:::image type="content" source="../media/azure-netapp-files/active-directory-anf-servers.png" alt-text="Active Directory Sites and Services window with a red box drawing attention to the ANF > Servers directory." lightbox="../media/azure-netapp-files/active-directory-anf-servers.png":::
 
 To create the subnet object that maps to the AD DS subnet in the Azure virtual network, right-click the **Subnets** container in the **Active Directory Sites and Services** utility and select **New Subnet...**.
  
 In the **New Object - Subnet** dialog, the 10.0.0.0/24 IP address range for the AD DS Subnet is entered in the **Prefix** field. Select `ANF` as the site object for the subnet. Select **OK** to create the subnet object and assign it to the `ANF` site.
 
-:::image type="content" source="../media/azure-netapp-files/new-object-subnet.png" alt-text="The New Object – Subnet menu prompts the user to add an address prefix using network prefix notation (address/prefix/length) where the prefix length indicates the number of fixed bits. It accepts an IPv4 or IPv6 subnet prefix. It also requires a site object for the prefix." lightbox="../media/azure-netapp-files/new-object-subnet.png":::
+:::image type="content" source="../media/azure-netapp-files/new-object-subnet-menu.png" alt-text="The New Object – Subnet menu prompts the user to add an address prefix using network prefix notation (address/prefix/length) where the prefix length indicates the number of fixed bits. It accepts an IPv4 or IPv6 subnet prefix. It also requires a site object for the prefix." lightbox="../media/azure-netapp-files/new-object-subnet-menu.png":::
 
 To verify that the new subnet object is assigned to the correct site, right-click the 10.0.0.0/24 subnet object and select **Properties**. The **Site** field should show the `ANF` site object:
 
