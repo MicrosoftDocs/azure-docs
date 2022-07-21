@@ -294,7 +294,7 @@ JSON array of device CVE objects, or the following failure message:
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **cveId** | String | Not nullable | A canonical, industry-standard ID for the given CVE. |
-| **ipAddress** | String | Not nullable | <IP address> |
+| **ipAddress** | String | Not nullable | IP addresses |
 | **score** | String | Not nullable | A CVE score, between 0.0 - 10.0 |
 | **attackVector** | String | Not nullable | `Network`, `Adjacent Network`, `Local`, or `Physical` |
 | **description** | String | Not nullable | - |
@@ -391,7 +391,7 @@ JSON array of device CVE objects, or the following failure message:
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **cveId** | String | Not nullable | A canonical, industry-standard ID for the given CVE. |
-| **ipAddress** | String | Not nullable | <IP address> |
+| **ipAddress** | String | Not nullable | IP addresses |
 | **score** | String | Not nullable | A CVE score, between 0.0 - 10.0 |
 | **attackVector** | String | Not nullable | `Network`, `Adjacent Network`, `Local`, or `Physical` |
 | **description** | String | Not nullable | - |
@@ -495,7 +495,7 @@ Array of JSON objects that represent device objects, or the following failure me
 | **engineeringStation** | Boolean. Defines whether the device is defined as an engineering station or not: <br><br>- `true`: Device is an engineering station <br>- `false`: Device is not an engineering station.  |Not nullable | |
 |**authorized**  |Boolean. Defines whether the device is defined as an engineering station or not: <br><br>- `true`: Device is an engineering station <br>- `false`: Device is not an engineering station. | | |
 |**scanner** |Boolean. Defines whether the device is authorized or not: <br><br>- `true`: Device is authorized <br>- `false`: Device is not authorized. | | |
-| <a name="protocol-names"></a>**protocols** |Object that contains the device's protocol details. |Nullable | For more information, see  |
+| <a name="protocol"></a>**protocols** |Object that contains the device's protocol details. |Nullable | For more information, see  |
 |<a name="firmware"></a>**firmware** | JSON array of a `firmware` object that defies the device's firmware. |Not nullable | For more information, see [Supported firmware fields](#supported-firmware-fields).|
 |**hasDynamicAddress** | Boolean. Defines whether the device has a dynamic address or not. <br><br>- `true`: Device has a dynamic address <br>- `false`: Device does not have a dynamic address |Not nullable|
 
@@ -638,7 +638,7 @@ This section lists the supported values for the [type](#type) response field.
 
 ### Supported fields for  the `protocols` object and protocol `name` values
 
-This section lists the supported fields for the [protocols](#protocols) object in the `protocols` response field.
+This section lists the supported fields for the [protocols](#protocol) object in the `protocols` response field.
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
@@ -646,7 +646,7 @@ This section lists the supported fields for the [protocols](#protocols) object i
 |<a name="protocol-name"></a>**name** |String. Defines the device name. |Not nullable | For more information, see below. <br><br>**Note**: To extend Defender for IoT support to proprietary protocols, create a Horizon plugin. For more information, see [Extend support to proprietary protocols](../overview.md#extend-support-to-proprietary-protocols).|
 |**ipAddresses** | JSON array of strings of protocol IP addresses. |Not nullable | - |
 
-The following values are supported as [protocol names](#protocol-names) out-of-the-box:
+The following values are supported as [protocol names](#protocol-name) out-of-the-box:
 
 :::row:::
    :::column span="":::
