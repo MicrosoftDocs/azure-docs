@@ -85,10 +85,10 @@ sections:
           - Metrics Advisor resource admins and all users will be notified when the **80%** limitation is reached on the data feed list page and the add new data feed page. 
           - If total data points has exceeded the limitation all data feeds **will be paused** and new feed onboarding **will be blocked** as well. It's suggested to delete unused data feeds or create a new Metrics Advisor resource within your subscription.
       - question: |
-          Why I cannot login to Metrics Advisor with error of 'The resource is decommissioned due to inactive in 90 days'? 
+          Why can't I login to Metrics Advisor? The error message says 'The resource is decommissioned due to inactive in 90 days'
         answer: |
-          There will be two cases if the resource is decommissioned: 
-          - After the Metrics Advisor resource is created, but no data feed been onboarded. The resource will be decommissioned after 90 days due to inactive.  
+          There are two cases where a resource is decommissioned: 
+          - A Metrics Advisor resource is created, but no data feed has been onboarded within 90 days. The resource will be decommissioned after 90 days due to inactivity.  
           - If there is one or multiple data feeds been created but there isn't any new data been ingested into Metrics Advisor, the service will enter idle mode with no data to be processed. The system will still try to grab data regularly from the source according to the metrics granularity. However, if it continues to have no data available or no one single time series to be processed after 90 days. The resource will be decommissioned, and all the historical data will be lost as well. 
           
           It's recommended to create a new resource and delete the old one, if you would like to restart the usage. 
