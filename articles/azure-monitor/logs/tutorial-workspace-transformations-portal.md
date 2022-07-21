@@ -10,8 +10,6 @@ This tutorial walks you through configuration of a sample [transformation in a w
 
 Workspace transformations are stored together in a single [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) for the workspace, called the workspace DCR. Each transformation is associated with a particular table. The transformation will be applied to all data sent to this table from any workflow not using a DCR. 
 
-[!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
-
 > [!NOTE]
 > This tutorial uses the Azure portal to configure a workspace transformation. See [Tutorial: Add transformation in workspace data collection rule to Azure Monitor using resource manager templates (preview)](tutorial-workspace-transformations-api.md) for the same tutorial using resource manager templates and REST API.
 
