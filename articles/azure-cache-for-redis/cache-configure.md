@@ -280,7 +280,7 @@ The **Virtual Network** section allows you to configure the virtual network sett
 
 ### Private endpoint
 
-The **Private Endpoint** section allows you to configure the private endpoint settings for your cache. Private endpoint is supported on all cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets because private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
+The **Private Endpoint** section allows you to configure the private endpoint settings for your cache. Private endpoint is supported on all cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
 
 For more information, see [Azure Cache for Redis with Azure Private Link](/azure/azure-cache-for-redis/cache-private-link).
 
