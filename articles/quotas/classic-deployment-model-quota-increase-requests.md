@@ -9,7 +9,7 @@ ms.topic: how-to
 
 The Classic deployment model is the older generation Azure deployment model. It enforces a global vCPU quota limit for virtual machines and virtual machine scale sets. The Classic deployment model is no longer recommended, and is now superseded by the Resource Manager model.
 
-To learn more about these two deployment models and the advantages of using Resource Manager, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
+To learn more about these two deployment models and the advantages of using Resource Manager, see [Resource Manager and classic deployment](../azure-resource-manager/management/deployment-models.md).
 
 When a new subscription is created, a default quota of vCPUs is assigned to it. Any time a new virtual machine is deployed using the Classic deployment model, the sum of new and existing vCPU usage across all regions must not exceed the vCPU quota approved for the Classic deployment model.
 
@@ -19,7 +19,7 @@ You can request vCPU quota increases for the Classic deployment model in the Azu
 
 Follow the instructions below to create a vCPU quota increase request for the Classic deployment model by using **Help + support** in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and [open a new support request](how-to-create-azure-support-request.md).
+1. Sign in to the [Azure portal](https://portal.azure.com), and [open a new support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 1. For **Issue type**, choose **Service and subscription limits (quotas)**.
 
@@ -55,5 +55,5 @@ Follow the instructions below to create a vCPU quota increase request for the Cl
 
 ## Next steps
 
-- Learn about [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Learn about the advantages of using the [Resource Manager deployment model](../../azure-resource-manager/management/deployment-models.md).
+- Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Learn about the advantages of using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
