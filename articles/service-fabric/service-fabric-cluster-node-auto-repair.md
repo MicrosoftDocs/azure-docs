@@ -22,7 +22,7 @@ SFMC performs the following repair actions on the underlying Virtual Machine (VM
 3) If redeploy is unsuccessful to bring the node up, deallocate and start the VM back. 
 4) If the deallocation doesn't bring the node up, reimage the node.
 
-SFMC waits for nodes to come back up after each action, and if a node does not come up, SFMC proceeds to the next action. Node auto-repair process can take anytime between zero to approximately three hours to complete depending on the repair action. No further retries are made if the node is still down after SFMC has tried all the repair actions above. Alternative remediations will be investigated by SF engineers if auto-repair doesn't bring the node up. 
+SFMC waits for nodes to come back up after each action, and if a node does not come up, SFMC proceeds to the next action. Node auto-repair actions typically take approximately 30 minutes once started, but can take upwards of three hours to iterate through and complete the full set of actions described. No further retries are made if the node is still down after SFMC has tried all the repair actions above. Alternative remediations will be investigated by SF engineers if auto-repair doesn't bring the node up. 
 
 If SFMC finds multiple nodes to be down during a health check, each node gets repaired individually before another repair begins. SFMC attempts to repair nodes in the same order that they are detected down.
 
