@@ -77,13 +77,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type the value:
-    `ups.eu.sso.cheetah.com`
-
-    b. In the **Reply URL** textbox, type the URL:
+    a. In the **Reply URL** textbox, type the URL:
     `https://ups.eu.sso.cheetah.com/saml2/idpresponse`
 
-    c. In the **Sign-on URL** text box, type the URL:
+    b. In the **Sign-on URL** text box, type the URL:
     `https://ups.eu.sso.cheetah.com/login?client_id=5c2m16mhv4cd4o5cpgekmsmlne&response_type=token&scope=aws.cognito.signin.user.admin+openid+profile&redirect_uri=https://prodeditor.eu.cheetah.com/CssWebTask/landing/?cheetah_client=BNLX`
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
