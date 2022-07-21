@@ -302,14 +302,26 @@ To turn number matching off, you will need to PATCH remove **numberMatchingRequi
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
+    "featureSettings": {
+        "numberMatchingRequiredState": {
+            "state": "default",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": " 00000000-0000-0000-0000-000000000000"
+            }
+        }
+    },
     "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
             "id": "all_users",
-            "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
-            "numberMatchingRequiredState": "default"
+            "isRegistrationRequired": false,
+            "authenticationMode": "any"
         }
     ]
 }
