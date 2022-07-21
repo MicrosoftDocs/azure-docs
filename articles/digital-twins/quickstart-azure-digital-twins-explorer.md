@@ -34,9 +34,9 @@ Here are the steps you'll use to explore the graph in this article:
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
 You'll also need to download the materials for the sample graph used in the quickstart. Use the instructions below to download the three required files. Later, you'll follow more instructions to upload them to Azure Digital Twins.
-* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): This is a model file representing a room in a building. Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file somewhere on your machine with the name *Room.json*.
-* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): This is a model file representing a floor in a building. Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file to the same location as *Room.json*, under the name *Floor.json*.
-* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/raw/main/client/examples/buildingScenario.xlsx): This file contains a graph of room and floor twins, and relationships between them. Depending on your browser settings, selecting this link may download the *buildingScenario.xlsx* file automatically to your default download location, or it may open the file in your browser with an option to download. Here is what that download option looks like in Microsoft Edge:
+* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): This is a model file that digitally defines rooms in a building. Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file somewhere on your machine with the name *Room.json*.
+* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): This is a model file that digitally defines floors in a building. Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file to the same location as *Room.json*, under the name *Floor.json*.
+* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/raw/main/client/examples/buildingScenario.xlsx): This spreadsheet contains the data for a sample twin graph, including four digital twins representing specific rooms and floors based off the generic models, and relationships between the twins. Depending on your browser settings, selecting this link may download the *buildingScenario.xlsx* file automatically to your default download location, or it may open the file in your browser with an option to download. Here is what that download option looks like in Microsoft Edge:
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="Screenshot of the buildingScenario.xlsx file viewed in a Microsoft Edge browser. A button saying Download is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
@@ -45,9 +45,7 @@ You'll also need to download the materials for the sample graph used in the quic
 
 ## Set up Azure Digital Twins
 
-The first step in working with Azure Digital Twins is to create an Azure Digital Twins instance. After you create an instance of the service, you can connect to the instance in Azure Digital Twins Explorer, which you'll use to work with the instance throughout the quickstart.
-
-The rest of this section walks you through the instance creation.
+The first step in working with Azure Digital Twins is to create an Azure Digital Twins instance that will hold all your graph data. In this section, you'll create an instance of the service, and open it in Azure Digital Twins Explorer.
 
 [!INCLUDE [digital-twins-quickstart-setup.md](../../includes/digital-twins-quickstart-setup.md)]
 
@@ -61,57 +59,40 @@ After deployment completes, use the **Go to resource** button to navigate to the
 
 ## Upload the sample materials
 
-Next, you'll import the sample models and graph into Azure Digital Twins Explorer. You'll use the model files and the graph file that you downloaded to your machine in the [Prerequisites](#prerequisites) section.
+Next, you'll import the sample models and twin graph into Azure Digital Twins Explorer. You'll use the model files and the graph file that you downloaded to your machine in the [Prerequisites](#prerequisites) section.
 
 ### Models
 
-The first step in an Azure Digital Twins solution is to define the vocabulary for your environment. You'll create custom *models* that describe the types of entity that exist in your environment.
+The first step in creating an Azure Digital Twins graph is to define the vocabulary for your environment. *Models* are generic definitions for each type of entity that exists in your environment. This sample building scenario contains floors and rooms, so you'll need one model definition describing what a *Floor* is, and one model definition describing what a *Room* is. Later, you can create *digital twins* that are instances of these models, representing specific floors and rooms. 
 
-Each model is written in a language like [JSON-LD](https://json-ld.org/) called *Digital Twin Definition Language (DTDL)*. Each model describes a single type of entity in terms of its properties, telemetry, relationships, and components. Later, you'll use these models as the basis for digital twins that represent specific instances of these types.
-
-Typically, when you create a model, you'll complete three steps:
-
-1. Write the model definition. In the quickstart, this step is already done as part of the sample solution.
-1. Validate it to make sure the syntax is accurate. In the quickstart, this step is already done as part of the sample solution.
-1. Upload it to your Azure Digital Twins instance.
+Models for Azure Digital Twins are written in *Digital Twin Definition Language (DTDL)*, a data object language similar to [JSON-LD](https://json-ld.org/). Each model describes a single type of entity in terms of its properties, telemetry, relationships, and components.
  
-For this quickstart, the model files are already written and validated for you. They're included with the solution you downloaded. In this section, you'll upload two prewritten models to your instance to define these components of a building environment:
-
-* Floor
-* Room
+For this quickstart, two model files have already been written for you. You downloaded *Room.json* and *Floor.json* in the [Prerequisites](#prerequisites) section, and now you'll upload them to your Azure Digital Twins instance using Azure Digital Twins Explorer.
 
 #### Upload the models (.json files)
 
-Follow these steps to upload models (the *.json* files you downloaded earlier).
+In Azure Digital Twins Explorer, follow these steps to upload the *Room* and *Floor* models (the *.json* files you downloaded earlier).
 
 1. In the **Models** panel, select the **Upload a Model** icon that shows an arrow pointing upwards.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="Screenshot of the Azure Digital Twins Explorer, highlighting the Models panel and the 'Upload a Model' icon in it." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
  
-1. In the Open window that appears, navigate to the folder containing the *Room.json* and *Floor.json* files that you downloaded earlier.
+1. In the Open window that appears, navigate to the folder containing the *Room.json* and *Floor.json* files from your machine.
 1. Select *Room.json* and *Floor.json*, and select **Open** to upload them both. 
 
 Azure Digital Twins Explorer will upload these model files to your Azure Digital Twins instance. They should show up in the **Models** panel and display their friendly names and full model IDs. 
 
-You can select **View Model** for either model to see the DTDL code behind it.
+You can select **View Model** for either model to see the DTDL code that defines each model type.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing the Models panel with two model definitions listed inside, Floor and Room." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing the Models panel with two model definitions listed inside, Floor and Room." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
 
 ### Twins and the twin graph
 
-Now that some models have been uploaded to your Azure Digital Twins instance, you can add *digital twins* based on the model definitions.
+Now that some model definitions have been uploaded to your Azure Digital Twins instance, you can use these definitions to create *digital twins* for the elements in your environment.
 
-*Digital twins* represent the actual entities within your business environment. They can be things like sensors on a farm, lights in a car, or—in this quickstart—rooms on a building floor. You can create many twins of any given model type, such as multiple rooms that all use the Room model. You connect them with relationships into a *twin graph* that represents the full environment.
+Every digital twin in your solution represents an entity from the physical environment. You can create many twins based on the same model type, like multiple room twins that all use the *Room* model. In this quickstart, you'll need a digital twin for each floor and room in the building. The twins will be connected with relationships into a *twin graph* that represents the full sample building environment.
 
-In this section, you'll upload pre-created twins that are connected into a pre-created graph. The graph contains two floors and two rooms, connected in the following layout:
+In this section, you'll upload a pre-created graph containing two floor twins and two room twins, connected in the following layout:
 
 * Floor0
     - Contains Room0
@@ -120,13 +101,13 @@ In this section, you'll upload pre-created twins that are connected into a pre-c
 
 #### Import the graph (.xlsx file)
 
-Follow these steps to import the graph (the *.xlsx* file you downloaded earlier).
+In Azure Digital Twins Explorer, follow these steps to import the sample graph (the *.xlsx* file you downloaded earlier).
 
 1. In the **Twin Graph** panel, select the **Import Graph** icon that shows an arrow pointing into a cloud.
 
    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The Import Graph button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png":::
 
-2. In the Open window, navigate to the *buildingScenario.xlsx* file you downloaded earlier. This file contains a description of the sample graph. Select **Open**.
+2. In the Open window, navigate to the *buildingScenario.xlsx* file you downloaded earlier. This file contains twin and relationship data for the sample graph. Select **Open**.
 
    After a few seconds, Azure Digital Twins Explorer opens an **Import** view that shows a preview of the graph to be loaded.
 
