@@ -199,7 +199,7 @@ The following tables display the messages displayed in the portal during custom 
 | CommissionFailedRangeRegionallyAdvertised | The range was unable to be advertised to the internet but is being advertised within Azure. |
 | CommissionFailedRangeInternetAdvertised | The range was unable to be advertised optimally but is being advertised to the internet and within Azure. |
 
-####Decommission failures
+#### Decommission failures
 
 | Failure message | Explanation |
 | --------------- | ----------- |
