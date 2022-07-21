@@ -56,7 +56,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Screenshot showing the Zenya add new button.](media/zenya-provisioning-tutorial/add.png)
 
-	![Screenshot showing the Zenya add provider page.](media/zenya-provisioning-tutorial/addprovider.png)
+	![Screenshot showing the Zenya add provider page.](media/zenya-provisioning-tutorial/add-provider.png)
 
 4.	Select the **Permanent token** button. Copy the **Permanent token** and save it. You won't be able to view it later. This value will be entered in the Secret Token field in the Provisioning tab of your Zenya application in the Azure portal.
 
