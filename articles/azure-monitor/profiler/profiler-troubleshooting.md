@@ -2,7 +2,7 @@
 title: Troubleshoot the Application Insights Profiler
 description: Walk through troubleshooting steps and information to enable and use Azure Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 07/21/2022
 ms.reviewer: charles.weininger
 ---
 
@@ -41,21 +41,27 @@ Profiling data is uploaded only when it can be attached to a request that happen
 
 Profiler writes trace messages and custom events to your Application Insights resource. You can use these events to see how Profiler is running.
 
-Search for trace messages and custom events sent by Profiler to your Application Insights resource. You can use this search string to find the relevant data:
+Search for trace messages and custom events sent by Profiler to your Application Insights resource. 
 
-```
-stopprofiler OR startprofiler OR upload OR ServiceProfilerSample
-```
+1. In your Application Insights resource, select **Search** from the top menu bar. 
 
-The following image displays two examples of searches from two AI resources: 
+   :::image type="content" source="./media/profiler-troubleshooting/search-trace-messages.png" alt-text="Screenshot of selecting the search button from the Application Insights resource.":::
+
+1. Use the following search string to find the relevant data:
+
+   ```
+   stopprofiler OR startprofiler OR upload OR ServiceProfilerSample
+   ```
+
+   :::image type="content" source="./media/profiler-troubleshooting/search-results.png" alt-text="Screenshot of the search results from aforementioned search string.":::
+   
+   The search results above include two examples of searches from two AI resources: 
     
-- At the left, the application isn't receiving requests while Profiler is running. The message explains that the upload was canceled because of no activity. 
-
-- At the right, Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the `ServiceProfilerSample` custom event is displayed, it means that a profile was captured and its available in the **Application Insights Performance** pane.
-
-If no records are displayed, Profiler isn't running. To troubleshoot, see the troubleshooting sections for your specific app type later in this article.  
-
-![Search Profiler telemetry][profiler-search-telemetry]
+   - If the application isn't receiving requests while Profiler is running, the message explains that the upload was canceled because of no activity. 
+   
+   - Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the `ServiceProfilerSample` custom event is displayed, it means that a profile was captured and is available in the **Application Insights Performance** pane.
+   
+   If no records are displayed, Profiler isn't running. Make sure you've [enabled Profiler on your Azure service](./profiler.md).  
 
 ## Double counting in parallel threads
 
@@ -74,19 +80,21 @@ For Profiler to work properly, make sure:
 
 - Your web app has [Application Insights enabled](./profiler.md) with the [right settings](./profiler.md#for-application-insights-and-app-service-in-different-subscriptions)
 
-- The **ApplicationInsightsProfiler3** webjob is running. To check the webjob:
-   1. Go to [Kudu](/archive/blogs/cdndevs/the-kudu-debug-console-azure-websites-best-kept-secret).
-   1. In the **Tools** menu, select **WebJobs Dashboard**.  
+- The [**ApplicationInsightsProfiler3** WebJob]() is running. To check the webjob:
+   1. Go to [Kudu](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). From the Azure portal:
+      1. In your App Service, select **Advanced Tools** from the left side menu.
+      1. Select **Go**.
+   1. In the top menu, select **Tools** > **WebJobs dashboard**.  
       The **WebJobs** pane opens. 
    
-      ![Screenshot shows the WebJobs pane, which displays the name, status, and last run time of jobs.][profiler-webjob]   
-   
+      :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job.png" alt-text="Screenshot of the WebJobs pane, which displays the name, status, and last run time of jobs.":::
+
    1. To view the details of the webjob, including the log, select the **ApplicationInsightsProfiler3** link.  
      The **Continuous WebJob Details** pane opens.
 
-      ![Screenshot shows the Continuous WebJob Details pane.][profiler-webjob-log]
+      :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job-log.png" alt-text="Screenshot of the Continuous WebJob Details pane.":::
 
-If Profiler isn't working for you, you can download the log and [send it to our team](mailto:serviceprofilerhelp@microsoft.com).
+If Profiler still isn't working for you, you can download the log and [send it to our team](mailto:serviceprofilerhelp@microsoft.com).
 
 #### Check the Diagnostic Services site extension' status page
 
@@ -220,6 +228,3 @@ The IPs used by Application Insights Profiler are included in the Azure Monitor 
 Submit a support ticket in the Azure portal. Include the correlation ID from the error message.
 
 
-[profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
-[profiler-webjob]:./media/profiler-troubleshooting/profiler-web-job.png
-[profiler-webjob-log]:./media/profiler-troubleshooting/profiler-web-job-log.png
