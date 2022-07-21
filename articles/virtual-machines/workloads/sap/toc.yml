@@ -410,8 +410,24 @@
     href: monitor-sap-on-azure.md
   - name: AMS providers
     href: azure-monitor-providers.md
+  - name: Network Considerations
+    href: create-network-azure-monitor-sap-solutions.md
   - name: Configure AMS - Portal
     href: azure-monitor-sap-quickstart.md
+  - name: Configure AMS - providers
+    items: 
+     - name: Configure NetWeaver Provider
+       href: configure-netweaver-azure-monitor-sap-solutions.md
+     - name: Configure SAP HANA Provider
+       href: configure-hana-azure-monitor-sap-solutions.md
+     - name: Configure Microsoft SQL Server Provider
+       href: configure-sql-server-azure-monitor-sap-solutions.md
+     - name: Configure High-availability cluster (Pacemaker) provider
+       href: configure-ha-cluster-azure-monitor-sap-solutions.md
+     - name: Configure OS (Linux) Provider
+       href: configure-linux-os-azure-monitor-sap-solutions.md
+     - name: Configure IBM Db2 Provider
+       href: configure-db-2-azure-monitor-sap-solutions.md
   - name: Configure Alerts in AMS - Portal
     href: azure-monitor-alerts-portal.md
   - name: Configure AMS - Azure PowerShell
@@ -424,6 +440,8 @@
   items:
   - name: Outbound E-Mail from SAP to Exchange Online
     href: exchange-online-integration-sap-email-outbound.md
+  - name: Expose SAP Process Orchestration on Azure securely 
+    href: expose-sap-process-orchestration-on-azure.md    
 - name: Reference
   items:
   - name: Azure CLI

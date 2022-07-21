@@ -312,7 +312,7 @@ This procedure describes how to install and configure a connection between your 
 
         ```bash
         sudo apt-get update
-        sudu apt-get install squid
+        sudo apt-get install squid
         ```
 
     1. Locate the Squid configuration file. For example, at `/etc/squid/squid.conf` or `/etc/squid/conf.d/`, and open the file in a text editor.
