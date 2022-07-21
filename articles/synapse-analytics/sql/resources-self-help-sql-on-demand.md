@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.custom: event-tier1-build-2022
-ms.date: 05/16/2022
+ms.date: 07/21/2022
 ms.author: stefanazaric
 ms.reviewer: sngun, wiassaf
 ---
