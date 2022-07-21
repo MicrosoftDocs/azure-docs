@@ -17,6 +17,7 @@ Azure Stream Analytics supports Azure SQL Database as an output for your streami
 2. Create a Azure SQL Database to which your Stream Analytics job will write output.
 
 ## Write to a new table in SQL Database
+
 This section describes how you can configure your job to write to a table in your Azure SQL Database that has not yet been created.
 
 1. In your Stream Analytics job, select **Outputs** under **Job topology**. Click **Add** and choose **SQL Database**.
@@ -45,6 +46,7 @@ Note: To test your query, you need to have either incoming streaming data in you
 6. Once your query is final, select **Overview** and **Start** the job. You can then navigate to the SQL Database table to see your streaming query output.
 
 ## Select an existing table from SQL Database
+
 This section describes how you can configure your job to write to a table that already exists in your Azure SQL Database.
 
 1. In your Stream Analytics job, select **Outputs** under **Job topology**. Click **Add** and choose **SQL Database**.
@@ -71,6 +73,7 @@ Note: To test your query, you need to have either incoming streaming data in Eve
 6. Once your query is final, select **Overview** and **Start** the job. You can then navigate to the SQL Database table to see your streaming query output.
 
 ## Common data type mismatch reasons
+
 It is very important to ensure that the output of your Stream Analytics job matches the column names and data types expected by your SQL Database table. If there is a mismatch, your job will run into data conversion errors and continuously retry until the SQL table definition is changed. You can [change your job’s behavior](stream-analytics-output-error-policy.md) to drop such output that cause data conversion errors and proceed to the next one. The most common schema mismatch reasons are described below.
 
 * **Type mismatch**: The query and target types are not compatible. Rows will not be inserted in the destination. Use a [conversion function](/stream-analytics-query/data-types-azure-stream-analytics) such as TRY_CAST() to align types in the query. The alternate option is to alter the destination table in your SQL database.
@@ -81,6 +84,7 @@ It is very important to ensure that the output of your Stream Analytics job matc
 * **Column missing from destination table**: This column is missing from the destination table. The data will not be inserted. Add this column to your destination table if needed.
 
 ## Next steps
+
 * [Use SQL reference data as input source](/sql-reference-data.md)
 * [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md)
