@@ -79,7 +79,7 @@ Most applications primarily read from the database, with only a small percentage
 
 Wider scale use of read replicas may require more careful consideration, as replicas lag slightly behind the primary because of the asynchronous nature of replication. Find as many areas of the application as possible that can be served with reads from the replicas with minor code changes. You should also apply this method at higher levels concerning caching - serve more of the read only or slowly changing content from a dedicated caching tier such as [Azure Cache for Redis](https://azure.microsoft.com/services/cache/).
 
-## Write Scaling and Sharding
+## Write scaling and sharding
 
 Over time, applications evolve, and new functionality is added. Out of convenience or general practice, the tables get added to the primary database. To handle growing traffic loads on a database, identify areas of the application that can be easily moved to separate databases and consider horizontally sharding or vertically splitting the database.
 
@@ -87,7 +87,7 @@ Horizontally sharding a database works by creating multiple copies of the applic
 
 Vertically split load by functionally sharding the database - moving separate application domains (or micro services) to their own databases. This distributes load from the primary database to separate per-service databases. Simple examples include a logging table or site configuration information that doesn't need to be in the same database as the heavily loaded orders table. More complicated examples include breaking customer and account domains apart from orders or fulfillment domains. In some cases, this may require application changes, for example to modify email or background job queues to be self-contained and not rely on joins back to a customer or order table. Moving existing tables and data to a new primary database can be performed with Azure Database for MySQL read replicas and promoting the replica and pointing parts of the application to the newly created writable database. The newly created database needs to limit access with connection pools, tune queries, and spread load with its own replicas just like the original primary.
 
-## Data Import configurations
+## Data import configurations
 
 - You can temporarily scale your instance to higher SKU size before starting a data import operation and then scale it down when the import is successful.
 - You can import your data with minimal downtime by using [Azure Database Migration Service (DMS)](https://datamigration.microsoft.com/) for online or offline migrations.
@@ -100,7 +100,7 @@ An Azure Database for MySQL performance best practice is to allocate enough RAM 
 - Set up alerts on such numbers to ensure that as the server reaches limits, you can take prompt actions to fix it. Based on the limits defined, check if scaling up the database SKU—either to higher compute size or to better pricing tier, which results in a dramatic increase in performance. 
 - Scale up until your performance numbers no longer drops dramatically after a scaling operation. For information on monitoring a DB instance's metrics, see [MySQL DB Metrics](./concepts-monitoring.md#metrics).
 
-## Use InnoDB Buffer Pool Warmup
+## Use InnoDB buffer pool Warmup
 
 After the Azure Database for MySQL server restarts, the data pages residing in storage are loaded as the tables are queried which leads to increased latency and slower performance for the first execution of the queries. This may not be acceptable for latency sensitive workloads. 
 
