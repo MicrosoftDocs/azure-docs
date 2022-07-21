@@ -44,7 +44,7 @@
       href: how-to-use-quickstart-idtoken.md      
     - name: Self Issued credentials
       href: how-to-use-quickstart-selfissued.md
-  - name: Use the VC Network
+  - name: Use the Verified ID Network
     href: how-to-use-vcnetwork.md
   - name: Using the Request Service REST API
     href: get-started-request-api.md
@@ -76,6 +76,8 @@
     href: rules-and-display-definitions-model.md
   - name: Admin API specification
     href: admin-api.md
+  - name: Verified ID Network API specification
+    href: vcnetwork-api.md
   - name: Supported standards
     href: verifiable-credentials-standards.md
 - name: Resources
