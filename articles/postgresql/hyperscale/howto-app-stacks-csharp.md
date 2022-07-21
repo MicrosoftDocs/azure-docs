@@ -165,7 +165,7 @@ namespace Driver
 
             connStr.TrustServerCertificate = true;
 
-            using (var conn = new NpgsqlConnection(connString))
+            using (var conn = new NpgsqlConnection(connStr))
             {
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
