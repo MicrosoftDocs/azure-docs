@@ -1,7 +1,7 @@
 ---
 title: What are intents in LUIS
 titleSuffix: Azure Cognitive Services
-description: Learn about intents concepts and how they're used in LUIS
+description: Learn about intents and how they're used in LUIS
 services: cognitive-services
 ms.author: aahi
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 07/19/2022
 
 ---
 # Intents 
