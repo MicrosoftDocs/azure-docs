@@ -883,6 +883,20 @@ If the dataset is valid, [create a support ticket](../../azure-portal/supportabi
 
 Now you can continue using the Delta Lake folder with Spark pool. You'll provide copied data to Microsoft support if you're allowed to share this information. The Azure team will investigate the content of the `delta_log` file and provide more information about possible errors and workarounds.
 
+### Resolving Delta logs failed
+
+The following error indicates that serverless SQL pool cannot resolve Delta logs:
+```
+Resolving Delta logs on path '%ls' failed with error: Cannot parse json object from log folder.
+```   
+The most common cause is that `last_checkpoint_file` in `_delta_log` folder is larger than 200 bytes due to the `checkpointSchema` field added in Spark 3.3. 
+	  
+There are two options available to circumvent this error:
+* Modify appropriate config in Spark notebook and generate a new checkpoint, so that `last_checkpoint_file` gets re-created. In case you are using Azure Databricks, the config modification is the following: `spark.conf.set("spark.databricks.delta.checkpointSchema.writeThresholdLength", 0);`
+* Downgrade to Spark 3.2.1.
+
+Our engineering team is currently working on a full support for Spark 3.3.
+
 ## Performance
 
 Serverless SQL pool assigns the resources to the queries based on the size of the dataset and query complexity. You can't change or limit the resources that are provided to the queries. There are some cases where you might experience unexpected query performance degradations and you might have to identify the root causes.
