@@ -3,7 +3,7 @@ title: Delete an Azure AD tenant - Azure Active Directory | Microsoft Docs
 description: Explains how to prepare an Azure AD tenant for deletion, including self-service tenants
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: barclayn
 manager: karenhoran
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/23/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: addimitu
 ms.custom: it-pro
 

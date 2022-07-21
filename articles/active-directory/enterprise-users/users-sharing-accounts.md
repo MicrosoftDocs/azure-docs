@@ -3,7 +3,7 @@ title: Sharing accounts and credentials - Azure Active Directory | Microsoft Doc
 description: Describes how Azure Active Directory enables organizations to securely share accounts for on-premises apps and consumer cloud services.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: barclayn
 manager: karenhoran
 editor: ''
 
@@ -12,7 +12,7 @@ ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 

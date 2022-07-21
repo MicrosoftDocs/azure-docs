@@ -3,7 +3,7 @@ title: Search and filter groups members and owners (preview) - Azure Active Dire
 description: Search and filter groups members and owners in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: barclayn
 manager: karenhoran
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: jodah
 
 ms.custom: it-pro

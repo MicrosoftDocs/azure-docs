@@ -3,7 +3,7 @@ title: Set up self-service group management - Azure Active Directory | Microsoft
 description: Create and manage security groups or Microsoft 365 groups in Azure Active Directory and request security group or Microsoft 365 group memberships
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: barclayn
 manager: karenhoran
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
 

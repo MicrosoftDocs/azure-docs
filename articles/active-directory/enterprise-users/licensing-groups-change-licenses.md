@@ -4,7 +4,7 @@ description: How to migrate users within a group to different service plans usin
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
-author: curtand
+author: barclayn
 manager: karenhoran
 editor: ''
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: "it-pro;seo-update-azuread-jan"
 ms.collection: M365-identity-device-management

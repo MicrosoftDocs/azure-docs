@@ -3,7 +3,7 @@ title: Add and verify custom domain names - Azure Active Directory | Microsoft D
 description: Management concepts and how-tos for managing a domain name in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: barclayn
 manager: karenhoran
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/23/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: sumitp
 
 ms.custom: it-pro

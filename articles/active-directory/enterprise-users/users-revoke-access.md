@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-author: curtand
-ms.author: curtand
+author: barclayn
+ms.author: barclayn
 manager: karenhoran
 ms.reviewer: krbain
 ms.date: 06/24/2022
