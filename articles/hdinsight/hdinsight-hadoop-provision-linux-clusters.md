@@ -256,7 +256,7 @@ If the cluster is expected to run large data application, you can choose to add 
 
 You can choose the number of disks per VM and each will be of 1 TB size.
 
-![](media/hdinsight-hadoop-provision-linux-clusters/disk-attach.png)
+::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/disk-attach.png" alt-text="Screenshot showing how to add disk attach feature":::
 
 ### Script actions
 
