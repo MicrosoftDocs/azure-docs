@@ -162,6 +162,12 @@ az vm get-instance-view -g myResourceGroup -n myVM --query "instanceView.extensi
 For verifying application VMSS deployment status:
 
 ```azurecli-interactive
+az vmss get-instance-view --ids (az vmss list-instances -g $rgName -n $vmssName --query "[*].id" -o tsv) --query "[*].extensions[?name == 'VMAppExtension']"
+```
+> [!NOTE]
+> The above VMSS deployment status command does not list the instance ID with the result. To show the instance ID with the status of the extension in each instance, some additional scripting is required. Refer to below VMSS CLI example that contains PowerShell syntax:
+
+```azurecli-interactive
 $ids = az vmss list-instances -g myResourceGroup -n $vmssName --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
 $ids | Foreach-Object {
     $iid = $_.instanceId
@@ -169,8 +175,7 @@ $ids | Foreach-Object {
     az vmss get-instance-view --ids $_.id --query "extensions[?name == 'VMAppExtension']" 
 }
 ```
-> [!NOTE]
-> The VMSS deployment status contains PowerShell syntax. Refer to the 2nd [vm-extension-delete](/cli/azure/vm/extension#az-vm-extension-delete-examples) example as there is precedence for it.
+
 
 
 ### [PowerShell](#tab/powershell)
@@ -414,10 +419,7 @@ relevant parts.
 
 ```
 
-The response below gives back the status:
-```rest
 
-```
 If the VM applications haven't yet been installed on the VM, the value will be empty. 
 
 ---
