@@ -418,7 +418,7 @@ If you plan to explore the DPS tutorials, don't clean up the resources created i
 
 5. Select the **Individual Enrollments** tab.
 
-6. Select the check box next to the *Registration ID* of the enrollment entry you created in this article.
+6. Select the check box next to the *REGISTRATION ID* of the enrollment entry you created in this article.
 
 7. At the top of the page, select  **Delete**.
 

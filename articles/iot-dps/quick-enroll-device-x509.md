@@ -464,15 +464,15 @@ If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, 
 
 3. Select your Device Provisioning Service.
 
-4. In the **Settings** menu, select **Manage enrollments**.
+4. In the left-hand menu under **Settings**, select **Manage enrollments**.
 
 5. Select the **Enrollment Groups** tab.
 
-6. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this article.
+6. Select the check box next to the *GROUP NAME* of the enrollment group you created in this article.
 
 7. At the top of the page, select  **Delete**.
 
-8. From your Device Provisioning Service in the Azure portal, select **Certificates**.
+8. From your Device Provisioning Service in the Azure portal, select **Certificates** under **Settings** on the left-hand menu.
 
 9. Select the certificate you uploaded for this article.
 
