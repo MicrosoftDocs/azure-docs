@@ -7,14 +7,13 @@ ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: aul
 ---
 
-# Enable monitoring of Azure Kubernetes Service (AKS) cluster already deployed
+# Enable monitoring for existing Azure Kubernetes Service (AKS) cluster
 This article describes how to set up Container insights to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that have already been deployed in your subscription.
 
 If you're connecting an existing AKS cluster to an Azure Log Analytics workspace in another subscription, the Microsoft.ContainerService resource provider must be registered in the subscription in which the Log Analytics workspace was created. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 
 ## [CLI](#tab/azure-cli)
-
 The following step enables monitoring of your AKS cluster using Azure CLI. In this example, you are not required to pre-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription if one does not already exist in the region.  The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.
 
 ```azurecli
@@ -80,6 +79,7 @@ If you would rather integrate with an existing workspace, perform the following 
     ```
 
 ## [Terraform](#tab/terraform)
+To enable monitoring using Terraform, do the following:
 
 1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster)
 
@@ -148,6 +148,8 @@ To enable monitoring directly from one of your AKS clusters in the Azure portal,
 After you've enabled monitoring, it might take about 15 minutes before you can view operational data for the cluster.
 
 ## [Resource Manager template](#tab/arm)
+
+
 This method includes two JSON templates. One template specifies the configuration to enable monitoring, and the other contains parameter values that you configure to specify the following:
 
 * The AKS container resource ID.
@@ -163,7 +165,7 @@ The Log Analytics workspace must be created before you deploy the Resource Manag
 
 ### Create or download templates
 
-#### If you want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)
+**If you want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)**
 
 1. Download the template at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file) and save it as **existingClusterOnboarding.json**.
 
@@ -176,7 +178,7 @@ The Log Analytics workspace must be created before you deploy the Resource Manag
   - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in Log Analytics Workspace Resource Group. If this first-time onboarding, you can set the arbitrary tag values.
 
 
-#### If you don't want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)
+**If you don't want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)**
 
 1. Save the following JSON as **existingClusterOnboarding.json**.
 
@@ -236,30 +238,30 @@ The Log Analytics workspace must be created before you deploy the Resource Manag
 
 2. Save the following JSON as **existingClusterParam.json**.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "aksResourceId": {
-      "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-    },
-    "aksResourceLocation": {
-      "value": "<aksClusterLocation>"
-    },
-    "workspaceResourceId": {
-      "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
-    },
-    "aksResourceTagValues": {
-      "value": {
-        "<existing-tag-name1>": "<existing-tag-value1>",
-        "<existing-tag-name2>": "<existing-tag-value2>",
-        "<existing-tag-nameN>": "<existing-tag-valueN>"
+  ```json
+  {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "aksResourceId": {
+        "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+      },
+      "aksResourceLocation": {
+        "value": "<aksClusterLocation>"
+      },
+      "workspaceResourceId": {
+        "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+      },
+      "aksResourceTagValues": {
+        "value": {
+          "<existing-tag-name1>": "<existing-tag-value1>",
+          "<existing-tag-name2>": "<existing-tag-value2>",
+          "<existing-tag-nameN>": "<existing-tag-valueN>"
+        }
       }
     }
   }
-}
-```
+  ```
 
 2. Download the parameter file at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file) and save as **existingClusterParam.json**.
 
@@ -394,6 +396,50 @@ After a few minutes, the command completes and returns JSON-formatted informatio
     }
   }
 ```
+
+## Migrate to managed identity authentication
+
+### Existing clusters with service principal 
+AKS Clusters with service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud is currently supported for this migration.
+
+
+1.	Disable monitoring with the following command:
+
+  ```cli
+  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+  ```
+
+2.	Upgrade cluster to system managed identity with the following command:
+
+  ```cli
+  az aks update -g <resource-group-name> -n <cluster-name> --enable-managed-identity --workspace-resource-id <workspace-resource-id>
+  ```
+
+3.	Enable Monitoring addon with managed identity authentication with the following command:
+
+  ```cli
+  az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+  ```
+
+### Existing clusters with system assigned identity
+AKS Clusters with system assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for this migration.
+
+1.	Disable monitoring with the following command:
+
+  ```cli
+  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+  ```
+
+2.	Enable Monitoring addon with Managed Identity Auth Option
+
+  ```cli
+  az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+  ```
+
+## Limitations
+
+- Enabling managed identity authentication (preview) is not currently supported using Terraform or Azure Policy.
+- When you enable managed identity authentication (preview), a data collection rule is created with the name *MSCI-\<cluster-name\>-\<cluster-region\>*. This name cannot currently be modified.
 
 ## Next steps
 

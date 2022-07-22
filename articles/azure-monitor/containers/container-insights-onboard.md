@@ -114,7 +114,7 @@ Container Insights now supports authentication using managed identity (preview).
 
 ## Agent
 
-## Azure Monitor agent
+### Azure Monitor agent
 When using managed identity authentication (preview), Container insights relies on a containerized Azure Monitor agent for Linux. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
 
 
@@ -141,7 +141,7 @@ To enable Container insights, use one of the methods that's described in the fol
 | | [Enable for a new OpenShift cluster by using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) |
 | | [Enable for a new OpenShift cluster by using the Azure CLI](/azure/openshift/#az-openshift-create) |
 | Existing AKS cluster | [Enable monitoring for an existing AKS cluster using the Azure CLI](container-insights-enable-existing-clusters.md?tabs=azure-powershell) | 
-| |[Enable for an existing AKS cluster using Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) |
+| | [Enable for an existing AKS cluster using Terraform](container-insights-enable-existing-clusters.md?tabs=terraform) |
 | | [Enable for an existing AKS cluster from Azure Monitor portal](container-insights-enable-existing-clusters.md?tabs=portal-azure-monitor)| 
 | | [Enable  directly from an AKS cluster in the Azure portal](container-insights-enable-existing-clusters.md?tabs=portal-aks)|
 | | [Enable for AKS cluster using an Azure Resource Manager template](container-insights-enable-existing-clusters.md?tabs=aks)| 
