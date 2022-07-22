@@ -401,6 +401,17 @@ Collects all values of the expression in the aggregated group into an array. Str
 ___
 
 
+<a name="collectUnique" ></a>
+
+### <code>collectUnique</code>
+<code><b>collectUnique(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
+Collects all values of the expression in the aggregated group into a unique array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  
+* ``collect(salesPerson)``
+* ``collect(firstName + lastName))``
+* ``collect(@(name = salesPerson, sales = salesAmount) )``
+___
+
+
 <a name="columnNames" ></a>
 
 ### <code>columnNames</code>
@@ -2428,6 +2439,15 @@ Converts any numeric or string to a long value. An optional Java decimal format 
 * ``toLong('$123', '$###') -> 123``  
 ___
 
+      
+<a name="topN" ></a>
+
+### <code>topN</code>
+<code><b>topN(<i>&lt;column/expression&gt;</i> : any, <i>&lt;count&gt;</i> : long, <i>&lt;n&gt;</i> : integer) => array</b></code><br/><br/>
+Gets the top N values for this column based on the count argument.  
+* ``topN(custId, count, 5)``
+* ``topN(productId, num_sales, 10)``
+___
 
 <a name="toShort" ></a>
 
