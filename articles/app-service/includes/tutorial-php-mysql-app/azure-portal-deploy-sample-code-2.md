@@ -5,4 +5,4 @@ ms.topic: include
 ms.date: 07/07/2022
 ---
 
-Back in the App Service page, in the left menu, select **Deployment Center**.
+In the GitHub page, open Visual Studio Code in the browser by pressing the `.` key.

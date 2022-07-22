@@ -5,13 +5,13 @@ description: Learn how to get a PHP app working in Azure, with connection to a M
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 07/15/2022
+ms.date: 07/22/2022
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, devdivchpfy22
 ---
 
 # Tutorial: Build a PHP and MySQL app in Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure PHP app in Azure App Service that's connected to a MySQL database (using Azure Database for MySQL flexible server). When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 
@@ -48,12 +48,12 @@ If you want to run the application locally, do the following:
     php artisan serve
     ```
 
-## 1 - Create App Service and MySQL
+## 1 - Create App Service and MySQL resources
 
-In this step, you create the Azure resources. The steps used in this tutorial create an App Service and MySQL for Azure Database configuration that's secure by default. For the creation process, you'll specify:
+In this step, you create the Azure resources. The steps used in this tutorial create an App Service and Azure Database for MySQL configuration that's secure by default. For the creation process, you'll specify:
 
 * The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
-* The **Runtime** for the app. It's where you select the version of Node to use for your app.
+* The **Runtime** for the app. It's where you select the version of PHP to use for your app.
 * The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
@@ -66,7 +66,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 2 - Set up database connectivity
 
-The creation wizard generated a connection string to the database for you, but not in a format that's useable for your code yet. In this step, you make an app setting with the format that your app needs.
+The creation wizard generated a connection string to the database for you, but not in a format that's useable for your code yet. In this step, you create [app settings](configure-common.md#configure-app-settings) with the format that your app needs.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -82,11 +82,11 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Deploy sample code step 1](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-1.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-1-240px.png" alt-text="A screenshot showing how to create a fork of the sample GitHub repository." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-1.png"::: |
-| [!INCLUDE [Deploy sample code step 2](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2-240px.png" alt-text="A screenshot showing how to open the deployment center in App Service." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.png"::: |
-| [!INCLUDE [Deploy sample code step 3](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3-240px.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3.png"::: |
-| [!INCLUDE [Deploy sample code step 4](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4-240px.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4.png"::: |
-| [!INCLUDE [Deploy sample code step 5](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5-240px.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5.png"::: |
-| [!INCLUDE [Deploy sample code step 6](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6-240px.png" alt-text="A screenshot showing how to use the certificate for accessing Azure Database for MySQL." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.png"::: |
+| [!INCLUDE [Deploy sample code step 2](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2-240px.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.png"::: |
+| [!INCLUDE [Deploy sample code step 3](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3-240px.png" alt-text="A screenshot showing Visual Studio Code in the browser and an opened file." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3.png"::: |
+| [!INCLUDE [Deploy sample code step 4](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4-240px.png" alt-text="A screenshot showing how to open the deployment center in App Service." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4.png"::: |
+| [!INCLUDE [Deploy sample code step 5](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5-240px.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5.png"::: |
+| [!INCLUDE [Deploy sample code step 6](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6-240px.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.png"::: |
 | [!INCLUDE [Deploy sample code step 7](./includes/tutorial-php-mysql-app/azure-portal-deploy-sample-code-7.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-7-240px.png" alt-text="A screenshot showing how to commit your changes in the Visual Studio Code browser experience." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-7.png"::: |
 
 ## 4 - Generate database schema
@@ -134,18 +134,18 @@ When you're finished, you can delete all of the resources from your Azure subscr
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
-- [How do I connect to the MySQL database with command line tools or desktop tools?](#how-do-i-connect-to-the-mysql-database-with-command-line-tools-or-desktop-tools)
+- [How do I connect to the MySQL database that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-database-thats-secured-behind-the-virtual-network-with-other-tools)
 
 #### How much does this setup cost?
 
 Pricing for the create resources is as follows:
 
 - The App Service plan is created in **Premium V2** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
-- The MySQL flexible server is created in **B1ms** tier and can be scaled up or down. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
+- The MySQL flexible server is created in **B1ms** tier and can be scaled up or down. With an Azure free account, **B1ms** tier is free for 12 months, up to the monthly limits. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
-#### How do I connect to the MySQL database with command line tools or desktop tools?
+#### How do I connect to the MySQL database that's secured behind the virtual network with other tools?
 
 - For basic access from a commmand-line tool, you can run `mysql` from the app's SSH terminal.
 - To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.

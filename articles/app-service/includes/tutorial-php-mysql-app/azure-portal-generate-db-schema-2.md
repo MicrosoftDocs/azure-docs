@@ -6,7 +6,7 @@ In the SSH terminal:
     cd /home/site/wwwroot
     ```
 
-1. Run database migration from your application root.
+1. Run [database migrations](https://laravel.com/docs/8.x/migrations) from your application root.
 
     ```bash
     php artisan migrate --force
