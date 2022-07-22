@@ -85,7 +85,7 @@ sections:
           - Metrics Advisor resource admins and all users will be notified when the **80%** limitation is reached on the data feed list page and the add new data feed page. 
           - If total data points has exceeded the limitation all data feeds **will be paused** and new feed onboarding **will be blocked** as well. It's suggested to delete unused data feeds or create a new Metrics Advisor resource within your subscription.
       - question: |
-          Why can't I login to Metrics Advisor? The error message says 'The resource is decommissioned due to inactive in 90 days'
+          Why can't I log in to Metrics Advisor? The error message says 'The resource is decommissioned due to inactive in 90 days'
         answer: |
           There are two cases where a resource is decommissioned: 
           - A Metrics Advisor resource is created, but no data feed has been onboarded within 90 days. The resource will be decommissioned after 90 days due to inactivity.  
@@ -117,7 +117,7 @@ sections:
           1. A user with subscription administrator or resource group administrator privileges needs to navigate to the Metrics Advisor resource that created in the Azure portal, and select the **Access control(IAM)** tab. 
           2. Select **Add role assignments**
           3. Pick a role of **Cognitive Services Metrics Advisor Administrator**, select your account as in the image below.
-          4. Click **Save** button, then you are successfully been added as administrator of Metrics Advisor resource. Note that all above actions need to be performed by subscription administrator or resource group administrator. 
+          4. Click the **Save** button, and you are added as an administrator of the Metrics Advisor resource. Note that all above actions need to be performed by subscription administrator or resource group administrator. 
           
               :::image type="content" source="media/access-control.png" alt-text="Access control(IAM) menu page with add a role assignment selected, followed by a box with assign access to selected user displayed with an access role of Cognitive Services Metrics Advisor Administrator, followed by the save button of the UI being selected to illustrate the steps of searching for a user and adding a particular level of access permissions." lightbox="media/access-control.png":::
           
