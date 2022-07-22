@@ -258,10 +258,10 @@ const callerIdentity = call.callerInfo.displayName;
 | `Disconnected`| Final state | The final state of the call. If the network connection is lost, the state changes to `Disconnected` after two minutes.|
 
 States for one-to-one or group calls:
-![Diagram with call's states for one-to-one or group call.](../media/call-states.svg)
+![Diagram with call's states for one-to-one or group calls.](../media/call-states.svg)
 
 States for Teams meetings:
-![Diagram with call's states for Teams meeting.](../media/meeting-states.svg)
+![Diagram with call's states for Teams meetings.](../media/meeting-states.svg)
 
 ```js
 const callState = call.state;
