@@ -75,7 +75,7 @@ sections:
           
           2. Limitation on maximum time series count within one metric.
 
-          They may have multiple dimensions within one metric, and each dimension may have multiple values. The maximum dimension combination for one metric should not exceed **100k**.   
+          They may have multiple dimensions within one metric, and each dimension may have multiple values. The maximum dimension combination for one metric shouldn't exceed **100k**.   
           - Metrics Advisor resource admins and data feed owners will be notified when the **80%** limitation is reached on the data feed detail page. 
           - If the metric has exceeded the limitation the data feed **will be paused** and wait for customers to take follow-up actions. It's suggested to split the data feed to multiple data feeds by using filtering. 
 
@@ -146,7 +146,7 @@ sections:
           
           Starting from the total `Response latency`, we can drill down into the metric by `Service`, `Data center` and `Machine`. However, maybe it makes more sense for service owners to use the path `Service` -> `Data center` -> `Machine`, or maybe it makes more sense for infrastructure engineers to use the path `Data Center` -> `Machine` -> `Service`. It all depends on the individual business requirements of your users. 
           
-          In Metric Advisor, users can specify any path they want to drill down or rollup from one node of the hierarchical topology. More precisely, the hierarchical topology is a directed acyclic graph rather than a tree structure. There's a full hierarchical topology that consists of all potential dimension combinations, like this: 
+          In Metric Advisor, users can specify any path they want to drill down or roll up from one node of the hierarchical topology. More precisely, the hierarchical topology is a directed acyclic graph rather than a tree structure. There's a full hierarchical topology that consists of all potential dimension combinations, like this: 
           
           :::image type="content" source="media/dimension-combinations-view.png" alt-text="hierarchical topology diagram consisting of multiple interconnecting vertices and edges with multiple dimensions labeled S,DC, and M with corresponding numbers ranging from 1 to 6" lightbox="media/dimension-combinations-view.png":::
           
