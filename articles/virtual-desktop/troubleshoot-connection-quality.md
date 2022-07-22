@@ -35,6 +35,14 @@ To reduce round trip time:
 
 The [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/) can help you determine the best location to optimize the latency of your VMs. We recommend you use the tool every two to three months to make sure the optimal location hasn't changed as Azure Virtual Desktop rolls out to new areas.
 
+## My connection data isn't going to Azure Log Analytics
+
+If your network and graphics connection data isn't going to Azure Log Analytics every two minutes, you'll need to check the following things:
+
+- Make sure you've configured the diagnostic settings correctly.
+- Make sure you've configured the VM and monitoring agents correctly.
+- Make sure you're actively using the session. Sessions that aren't actively used won't send data to Azure Log Analytics as frequently.
+
 ## Next steps
 
 For more information about how to diagnose connection quality, see [Connection quality in Azure Virtual Desktop](connection-latency.md).
