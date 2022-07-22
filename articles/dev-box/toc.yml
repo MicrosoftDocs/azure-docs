@@ -9,11 +9,11 @@
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Set up Microsoft Dev Box service (DevCenter owner)
+    - name: Set up Microsoft Dev Box service
       href: quickstart-configure-dev-box-service.md
-    - name: Manage projects (Project admin)
+    - name: Configure projects
       href: quickstart-configure-dev-box-project.md
-    - name: Create a dev box (Dev Box user)
+    - name: Create a dev box
       href: quickstart-create-dev-box.md
 - name: Tutorials
   expanded: true
@@ -30,7 +30,7 @@
   items:
     - name: Provide access to project admins
       href: how-to-project-admin.md
-    - name: Provide access to Dev Box users
+    - name: Provide access to dev box users
       href: how-to-dev-box-user.md
     - name: Configure an Azure Compute Gallery
       href: how-to-configure-azure-compute-gallery.md
