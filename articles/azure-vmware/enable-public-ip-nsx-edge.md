@@ -62,17 +62,8 @@ There are three options for configuring your reserved Public IP down to the NSX 
  
 A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT) is used to allow many VMs to one SNAT service. This connection means you can provide Internet connectivity for many VMs.
 
-
-
 >[!Note]
-> To enable SNAT for your specified address ranges, you must [configure a gateway firewall rule](#gateway-firewall-used-to-filter-traffic-to-vms-at-t1-gateways).
-
->[!Note]
-> Creating the following SNAT rules enables addresses ranges specified in the source. If you don't want SNAT enabled for specific address ranges, create a [No-NAT rule for the address ranges](#no-nat-rule-for-specific-address-ranges) to exclude the specified address range. For this functionality to work as expected, make the No-NAT rule a higher priority than the SNAT rule .
-
-
-
-
+> To enable SNAT for your specified address ranges, you must [configure a gateway firewall rule](#gateway-firewall-used-to-filter-traffic-to-vms-at-t1-gateways). Creating a SNAT rule enables specified address ranges in the source. If you don't want SNAT enabled for specific address ranges, create a [No-NAT rule for the address ranges](#no-nat-rule-for-specific-address-ranges) to exclude the specified address range. For this functionality to work as expected, make the No-NAT rule a higher priority than the SNAT rule.
 
 **Add rule**
 1.	From your Azure VMware Solution private cloud, select **vCenter Credentials**
@@ -80,32 +71,33 @@ A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT)
 3.	Log in to **VMWare NSX-T**.   
 4.	Navigate to **NAT Rules**.
 5.	Select the T1 Router.
-1. select **ADD NAT RULE**.
+1.  Select **ADD NAT RULE**.
 
 **Configure rule**
   
 1. Enter a name.
 1. Select **SNAT**. 
-1. Optionally enter a source such as a subnet to SNAT or destination.
+1. Optionally, enter a source such as a subnet to SNAT or destination.
 1. Enter the translated IP.   This IP is from the range of Public IPs you reserved from the Azure VMware Solution Portal.
-1. Optionally give the rule a higher priority number. This prioritization will move the rule further down the rule list to ensure more specific rules are matched first.
+1. Optionally, give the rule a higher priority number. This prioritization will move the rule further down the rule list to ensure more specific rules are matched first.
 1. Click **SAVE**.
 
 Logging can be enabled by way of the logging slider. For more information on NSX-T NAT configuration and options, see the 
 [NSX-T NAT Administration Guide](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-7AD2C384-4303-4D6C-A44A-DEF45AA18A92.html)
 
-## No-NAT rule for specific address ranges
+## No NAT rule for specific address ranges
 
-A No-NAT rule can be used to exclude certain matches from performing Network Address Translation.  This can be used to allow private IP traffic to bypass the NAT rule.
+A No NAT rule can be used to exclude certain matches from performing Network Address Translation.  This policy can be used to allow private IP traffic to bypass the NAT rule.
 
-1. Navigate to NAT Rules.
-1. Select the T1 Router, and then select **ADD NAT RULE**.
-1. Configure the rule. 
-      1. Enter the name, then select No SNAT.
-         :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-3nat-rules.png" alt-text="Diagram that shows how to add a no-Nat rule to exclude certain matches." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
-      1. Enter the match criteria.
-         :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-add-nat-rule.png" alt-text="Diagram that shows how to add a T1 router to a Nat rule." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
-      1. Select **SAVE**.
+1. From your Azure VMware Solution private cloud, select **vCenter Credentials**
+2.	Locate your NSX-T URL and credentials.
+3.	Log in to **VMWare NSX-T** and then select **3  NAT Rules**. 
+    :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-3nat-rules.png" alt-text="Diagram that shows how to add a No Nat rule to exclude certain matches." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
+
+1. Select the T1 Router and then select **ADD NAT RULE**. 
+        :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-add-nat-rule.png" alt-text="Diagram that shows how to add a T1 router to a Nat rule." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
+         
+1. Select **SAVE**.
          :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-save-no-nat.png" alt-text="Diagram that shows how to add a T1 router to a Nat rule." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
 
 
