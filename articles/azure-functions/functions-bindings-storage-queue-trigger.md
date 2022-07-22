@@ -12,6 +12,14 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The queue storage trigger runs a function as messages are added to Azure Queue storage.
 
+::: zone pivot="programming-language-python"  
+> [!IMPORTANT]  
+> Azure Functions lets you define your Python functions either by using decorators in your Python code or in an external function.json configuration file. This article supports both decorator and configuration-based function definitions. 
+>  
+> Using decorators to define Python functions is currently in preview.
+   
+::: zone-end  
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"
@@ -219,7 +227,7 @@ def test_function(msg: func.QueueMessage,
     outputQueueItem.set('hello')
 ```
 
-# [function.json](#tab/python-json)
+# [Configuration](#tab/python-json)
 
 A Storage queue trigger is defined in *function.json* where *type* is set to `queueTrigger`.
 
