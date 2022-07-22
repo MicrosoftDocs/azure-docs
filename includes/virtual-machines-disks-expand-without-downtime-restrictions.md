@@ -11,6 +11,8 @@
 ---    
 - Only supported for data disks.
 - Disks smaller than 4 TiB can't be expanded to 4 TiB or larger without downtime.
+- Not supported for Ultra disks 
+- Not supported for shared disks
 - Install and use either:
     - The [latest Azure CLI](/cli/azure/install-azure-cli)
     - The [latest Azure PowerShell module](/powershell/azure/install-az-ps)

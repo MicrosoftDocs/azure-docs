@@ -1,7 +1,6 @@
 ---
-title: Regions in which Azure Video Indexer (formerly Azure Video Analyzer for Media) is available  
-description: This article talks about Azure regions in which Azure Video Indexer (formerly Azure Video Analyzer for Media) is available.
-services: azure-video-analyzer
+title: Regions in which Azure Video Indexer is available  
+description: This article talks about Azure regions in which Azure Video Indexer is available.
 author: Juliako
 manager: femila
 ms.topic: article
@@ -11,7 +10,7 @@ ms.author: juliako
 
 # Azure regions in which Azure Video Indexer exists
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) APIs contain a **location** parameter that you should set to the Azure region to which the call should be routed. This must be an [Azure region in which Azure Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
+Azure Video Indexer APIs contain a **location** parameter that you should set to the Azure region to which the call should be routed. This must be an [Azure region in which Azure Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 
 ## Locations
 

@@ -4,7 +4,7 @@ description: Custom question answering allows you to manage projects by providin
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 06/03/2022
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
@@ -72,7 +72,7 @@ From the **Edit knowledge base page** you can:
 
 ## Delete project
 
-Deleting a project is a permanent operation. It can't be undone. Before deleting a project, you should export the project from the main question answering page within the Language Studio.
+Deleting a project is a permanent operation. It can't be undone. Before deleting a project, you should export the project from the main question answering page within Language Studio.
 
 If you share your project with collaborators and then later delete it, everyone loses access to the project.
 

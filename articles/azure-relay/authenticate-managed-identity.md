@@ -2,7 +2,7 @@
 title: Authenticate with managed identities for Azure Relay resources (preview)
 description: This article describes how to use managed identities to access with Azure Relay resources.
 ms.topic: article
-ms.date: 07/19/2021
+ms.date: 06/21/2022
 ---
 
 # Authenticate a managed identity with Azure Active Directory to access Azure Relay resources (preview)

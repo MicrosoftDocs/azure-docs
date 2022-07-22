@@ -47,8 +47,8 @@ The following versions of Windows are supported:
 - **Windows Server 2019 Standard/Datacenter**
 - **Windows Server 2016 Standard/Datacenter** 
 - **Windows Server 2012 R2 Standard/Datacenter**
-- **Windows 10, version 21H2 or later**
-- **Windows 11**
+- **Windows 10, version 21H2 or later** _(includes Windows 10 Enterprise multi-session)_
+- **Windows 11** _(includes Windows 11 Enterprise multi-session)_
 
 The following distributions are supported out of the box from the Azure Gallery: 
 - **Ubuntu 14.04 with the linux-azure kernel**
@@ -70,7 +70,7 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 
 Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation.
 
-The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm?view=azure-cli-latest#az-vm-list-skus) command.
+The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm#az-vm-list-skus) command.
 
 ```azurecli-interactive
 az vm list-skus \

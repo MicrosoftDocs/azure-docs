@@ -2,6 +2,7 @@
 title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 03/29/2022
 ---
 
@@ -9,7 +10,7 @@ ms.date: 03/29/2022
 
 VMware HCX Advanced and its associated Cloud Manager are no longer pre-deployed in Azure VMware Solution. Instead, you'll install it through the Azure portal as an add-on. You'll still download the HCX Connector OVA and deploy the virtual appliance on your on-premises vCenter Server. 
 
-Any edition of VMware HCX supports 25 site pairings (on-premises to cloud or cloud to cloud).  The default is HCX Advanced, but you can open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise Edition enabled. Once the service is generally available, you'll have 30 days to decide on your next steps. You can turn off or opt out of the HCX Enterprise Edition service but keep HCX Advanced as it's part of the node cost.
+Any edition of VMware HCX supports 25 site pairings (on-premises to cloud or cloud to cloud) in a single HCX manager system.  The default is HCX Advanced, but you can open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise Edition enabled. Once the service is generally available, you'll have 30 days to decide on your next steps. You can turn off or opt out of the HCX Enterprise Edition service but keep HCX Advanced as it's part of the node cost.
 
 Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. First, ensure you've reverted to an HCX Advanced configuration state and not using the Enterprise features. If you plan to downgrade, ensure that no scheduled migrations, features like RAV and [HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) are in use, and site pairings are three or fewer.
 

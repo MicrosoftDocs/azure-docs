@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/1/2022
+ms.date: 06/17/2022
 
 ms.author: justinha
 author: justinha
@@ -38,6 +38,8 @@ Azure AD combined security information registration is available for Azure US Go
 > [!IMPORTANT]
 > Users that are enabled for both the original preview and the enhanced combined registration experience see the new behavior. Users that are enabled for both experiences see only the My Account experience. The *My Account* aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Account by going to [https://myaccount.microsoft.com](https://myaccount.microsoft.com).
 >
+> You can set **Require users to register when signing in** to **Yes** to require all users to register when signing in, ensuring that all users are protected.
+>
 > You might encounter an error message while trying to access the Security info option, such as, "Sorry, we can't sign you in". Confirm that you don't have any configuration or group policy object that blocks third-party cookies on the web browser.
 
 *My Account* pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages continue to render in the last language used. If you clear the cache, the pages re-render.
@@ -68,10 +70,13 @@ Combined registration supports the following authentication methods and actions:
 
 Users can set one of the following options as the default Multi-Factor Authentication method:
 
-- Microsoft Authenticator – push notification
+- Microsoft Authenticator – push notification or passwordless
 - Authenticator app or hardware token – code
 - Phone call
 - Text message
+
+>[!NOTE]
+>Virtual phone numbers are not supported for Voice calls or SMS messages.
 
 Third party authenticator apps do not provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
 
@@ -125,7 +130,7 @@ Users can access manage mode by going to [https://aka.ms/mysecurityinfo](https:/
 
 An admin has enforced registration.
 
-A user has not set up all required security info and goes to the Azure portal. After entering the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After completing the wizard, users review the methods they set up and their default method for Multi-Factor Authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
+A user has not set up all required security info and goes to the Azure portal. After the user enters the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After users complete the wizard, they review the methods they set up and their default method for Multi-Factor Authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
 
 ### Set up security info from My Account
 
@@ -148,7 +153,7 @@ In addition, users who access a resource tenant may be confused when they change
 
 For example, a user sets Microsoft Authenticator app push notification as the primary authentication to sign-in to home tenant and also has SMS/Text as another option. 
 This user is also configured with SMS/Text option on a resource tenant. 
-If this user removes SMS/Text as one of the authentication option on their home tenant, they get confused when access to the resource tenant asks them to respond to SMS/Text message. 
+If this user removes SMS/Text as one of the authentication options on their home tenant, they get confused when access to the resource tenant asks them to respond to SMS/Text message. 
 
 To switch the directory in the Azure portal, click the user account name in the upper right corner and click **Switch directory**.
 

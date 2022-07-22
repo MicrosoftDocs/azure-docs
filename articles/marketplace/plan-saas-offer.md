@@ -1,13 +1,13 @@
 ---
 title: Plan a SaaS offer for the Microsoft commercial marketplace - Azure Marketplace
-description: Plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
+description: Plan a new software as a service (SaaS) offer for selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 06/29/2022
 ---
 
 # Plan a SaaS offer for the commercial marketplace
@@ -42,7 +42,7 @@ After your offer is published, the listing option you chose for your offer appea
 
 The technical requirements differ depending on the listing option you choose for your offer.
 
-The _Contact me_ listing option has no technical requirements. You have the option to connect a customer relationship management (CRM) system to manage customer leads. This is described in the [Customer leads](#customer-leads) section, later in this article.
+The _Contact me_ listing option has no technical requirements. When a customer expresses interest in or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. You also have the option to connect a customer relationship management (CRM) system to your offer to manage customer leads. This is described in the [Customer leads](#customer-leads) section, later in this article.
 
 The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing options have the following technical requirements:
 
@@ -93,7 +93,9 @@ You can choose to enable a test drive for your SaaS app. Test drives give custom
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see
 [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
@@ -105,16 +107,16 @@ When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure M
 If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business solution (AppSource), select a category and a subcategory applicable to each online store. Offers published to both online stores should have a value proposition as an IT solution *and* a business solution.
 
 > [!IMPORTANT]
-> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal and AppSource.
+> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are only available through the Azure portal.
 
 | Metered billing | Public plan | Private plan | Available in: |
 |---|---|---|---|
 | Yes             | Yes         | No           | Azure Marketplace and Azure portal |
 | Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
 | Yes             | No          | Yes          | Azure portal only |
-| No              | No          | Yes          | Azure portal and AppSource |
+| No              | No          | Yes          | Azure portal only |
 
-&#42; The private plan of the offer will only be available via the Azure portal and AppSource.
+&#42; The private plan of the offer will only be available via the Azure portal.
 
 For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
 
@@ -294,3 +296,15 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 - [Plan a test SaaS offer](plan-saas-dev-test-offer.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
 - [Create a SaaS offer](create-new-saas-offer.md)
+
+**Video tutorials**
+
+- [SaaS offer overview](https://go.microsoft.com/fwlink/?linkid=2196417)
+- [SaaS Offer Technical Overview](https://go.microsoft.com/fwlink/?linkid=2196315)
+- [Publishing a SaaS offer](https://go.microsoft.com/fwlink/?linkid=2196318)
+- [A SaaS Accelerator Hands-on Tour - The Basics](https://go.microsoft.com/fwlink/?linkid=2196164)
+- [SaaS Accelerator Architecture](https://go.microsoft.com/fwlink/?linkid=2196167)
+- [Installing the SaaS Accelerator With the Install Script](https://go.microsoft.com/fwlink/?linkid=2196326)
+- [Invoking Metered Billing with the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196161)
+- [Configuring Email in the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196165)
+- [Custom Landing Page Fields with the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196166)

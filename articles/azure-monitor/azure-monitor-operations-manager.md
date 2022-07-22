@@ -1,11 +1,11 @@
 ---
 title: Azure Monitor for existing Operations Manager customers
 description: Guidance for existing users of Operations Manager to transition monitoring of certain workloads to Azure Monitor as part of a transition to the cloud.
-
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/05/2022
+ms.reviewer: bwren
 
 ---
 

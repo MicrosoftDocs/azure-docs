@@ -3,7 +3,7 @@ title: View and remove requests for an access package in Azure AD entitlement ma
 description: Learn how to view requests and remove for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 9/20/2021
-ms.author: ajburnle
+ms.author: owinfreyatl
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # View and remove requests for an access package in Azure AD entitlement management
 
-In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view requests for an access package, and remove requests that are no longer needed.
+In Azure AD entitlement management, you can see who has requested access packages, the policy for their request, and the status of their request. This article describes how to view requests for an access package, and remove requests that are no longer needed.
 
 ## View requests
 

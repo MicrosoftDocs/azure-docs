@@ -21,7 +21,7 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 
 The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
 
-- Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational
+- Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational. For more information, see [Introduction to Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/about).
 
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
@@ -35,15 +35,13 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 **To create the virtual machine using Hyper-V**:
 
-1. Create a virtual disk in Hyper-V Manager.
+1. Create a virtual disk in Hyper-V Manager (Fixed size, as required by the hardware profile).
 
 1. Select **format = VHDX**.
 
-1. Select **type = Dynamic Expanding**.
-
 1. Enter the name and location for the VHD.
 
-1. Enter the required size [according to your organization's needs](../ot-appliance-sizing.md).
+1. Enter the required size [according to your organization's needs](../ot-appliance-sizing.md) (select Fixed Size disk type).
 
 1. Review the summary, and select **Finish**.
 
@@ -53,9 +51,9 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Select **Specify Generation** > **Generation 1**.
 
-1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), and select the check box for dynamic memory.
+1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), in standard RAM denomination (eg. 8192, 16384, 32768). Do not enable **Dyanmic Memory**.
 
-1. Configure the network adaptor according to your server network topology.
+1. Configure the network adaptor according to your server network topology. Under the "Hardware Acceleration" blade, disable "Virtual Machine Queue" for the monitoring (SPAN) network interface.
 
 1. Connect the VHDX created previously to the virtual machine.
 
@@ -81,22 +79,22 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-sensor-software).
+1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-monitoring-software).
 
 
 ## Configure a monitoring interface (SPAN)
 
 While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
 
-*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
+*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
 
-For more information, see [Purdue reference model and Defender for IoT](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot).
+For more information, see [Purdue reference model and Defender for IoT](../best-practices/understand-network-architecture.md#purdue-reference-model-and-defender-for-iot).
 
 ### Prerequisites
 
 Before you start:
 
-- Ensure that there is no instance of a virtual appliance running.
+- Ensure that there's no instance of a virtual appliance running.
 
 - Enable Ensure SPAN on the data port, and not the management port.
 
@@ -140,13 +138,13 @@ You are able to attach a SPAN Virtual Interface to the Virtual Switch through Wi
 
     | Parameter | Description |
     |--|--|
-    | VK-C1000V-LongRunning-650 | CPPM VA name |
-    |vSwitch_Span |Newly added SPAN virtual switch name |
-    |Monitor |Newly added adapter name |
+    |**VK-C1000V-LongRunning-650** | CPPM VA name |
+    |**vSwitch_Span** |Newly added SPAN virtual switch name |
+    |**Monitor** |Newly added adapter name |
 
 1. Select **OK**.
 
-These commands set the name of the newly added adapter hardware to be `Monitor`. If you are using Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
+These commands set the name of the newly added adapter hardware to be `Monitor`. If you're using Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
 
 **To attach a SPAN Virtual Interface to the virtual switch with Hyper-V Manager**:
 
@@ -156,9 +154,9 @@ These commands set the name of the newly added adapter hardware to be `Monitor`.
 
     :::image type="content" source="../media/tutorial-install-components/vswitch-span.png" alt-text="Screenshot of selecting the following options on the virtual switch screen.":::
 
-1. In the Hardware list, under the Network Adapter drop-down list, select **Advanced Features**.
+1. In the Hardware list, under the Network Adapter drop-down list, select **Hardware Acceleration** and disable "Virtual Machine Queue" for the monitoring (SPAN) network interface.
 
-1. In the Port Mirroring section, select **Destination** as the mirroring mode for the new virtual interface.
+1. In the Hardware list, under the Network Adapter drop-down list, select **Advanced Features**. Under the Port Mirroring section, select **Destination** as the mirroring mode for the new virtual interface.
 
     :::image type="content" source="../media/tutorial-install-components/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
 
@@ -196,10 +194,10 @@ Add-VMSwitchExtensionPortFeature -ExternalPort -SwitchName vSwitch_Span -VMSwitc
 
 | Parameter | Description |
 |--|--|
-| vSwitch_Span | Newly added SPAN virtual switch name. |
-| MonitorMode=2 | Source |
-| MonitorMode=1 | Destination |
-| MonitorMode=0 | None |
+|**vSwitch_Span** | Newly added SPAN virtual switch name. |
+|**MonitorMode=2** | Source |
+|**MonitorMode=1** | Destination |
+|**MonitorMode=0** | None |
 
 Use the following PowerShell command to verify the monitoring mode status:
 
@@ -208,7 +206,7 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 ```
 | Parameter | Description |
 |--|--|
-| vSwitch_Span | Newly added SPAN virtual switch name |
+|**vSwitch_Span** | Newly added SPAN virtual switch name |
 
 
 ## Next steps
@@ -217,6 +215,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

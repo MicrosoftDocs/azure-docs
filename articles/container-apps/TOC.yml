@@ -1,4 +1,4 @@
-- name: Azure Container Apps Preview documentation
+- name: Azure Container Apps documentation
   href: index.yml
 - name: Overview
   items:
@@ -52,7 +52,7 @@
         href: vnet-custom.md
       - name: Deploy with an internal environment
         href: vnet-custom-internal.md
-      - name: Firewall integration
+      - name: Securing a custom VNET
         href: firewall-integration.md
     - name: Observability
       href: observability.md
@@ -76,6 +76,8 @@
       href: ingress.md
     - name: Set up custom domains and certificates
       href: custom-domains-certificates.md
+    - name: Connect to a cloud service using Service Connector
+      href: service-connector.md
     - name: Connect multiple apps
       href: connect-apps.md
     - name: Publish revisions with GitHub Actions
@@ -114,10 +116,14 @@
       href: background-processing.md
 - name: Reference
   items:
-    - name: ARM API specification
+    - name: ARM and YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI reference
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
+    - name: Azure policy definitions
+      href: policy-reference.md
+    - name: REST API reference
+      href: /rest/api/containerapps/
 - name: Resources
   items:
     - name: Samples

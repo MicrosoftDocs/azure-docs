@@ -1,19 +1,19 @@
 ---
-title: Prerequisites for deploying SAP continuous threat monitoring in Microsoft Sentinel | Microsoft Docs
-description: This article lists the prerequisites required for deployment of the Microsoft Sentinel Continuous Threat Monitoring solution for SAP.
+title: Prerequisites for deploying Threat Monitoring for SAP in Microsoft Sentinel | Microsoft Docs
+description: This article lists the prerequisites required for deployment of the Microsoft Sentinel Threat Monitoring solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
 ms.date: 04/07/2022
 ---
-# Prerequisites for deploying SAP continuous threat monitoring in Microsoft Sentinel
+# Prerequisites for deploying Threat Monitoring for SAP in Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article lists the prerequisites required for deployment of the Microsoft Sentinel Continuous Threat Monitoring solution for SAP.
+This article lists the prerequisites required for deployment of the Microsoft Sentinel Threat Monitoring solution for SAP.
 
 > [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Deployment milestones
 
@@ -29,13 +29,15 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy SAP security content](deploy-sap-security-content.md)
 
+1. [Configure Threat Monitoring for SAP solution](deployment-solution-configuration.md)
+
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
    - [Configure SAP data connector to use SNC](configure-snc.md)
 
 ## Table of prerequisites
 
-To successfully deploy the SAP Continuous Threat Monitoring solution, you must meet the following prerequisites:
+To successfully deploy the Threat Monitoring for SAP solution, you must meet the following prerequisites:
 
 ### Azure prerequisites
 
@@ -61,7 +63,7 @@ To successfully deploy the SAP Continuous Threat Monitoring solution, you must m
 | Prerequisite | Description |
 | ---- | ----------- |
 | **Supported SAP versions** | The SAP data connector agent works best with [SAP_BASIS versions 750 SP13](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) or later. <br><br>Certain steps in this tutorial provide alternative instructions if you're working on the older [SAP_BASIS version 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows). |
-| **Required software** | SAP NetWeaver RFC SDK 7.50 ([Download here](https://aka.ms/sap-sdk-download)).<br>At the link, select **SAP NW RFC SDK 7.50** -> **Linux on X86_64 64BIT** -> **Download the latest version**.<br><br>Make sure that you also have an SAP user account in order to access the SAP software download page. |
+| **Required software** | SAP NetWeaver RFC SDK 7.50 ([Download here](https://aka.ms/sentinel4sapsdk))<br>Make sure that you also have an SAP user account in order to access the SAP software download page. |
 | **SAP system details** | Make a note of the following SAP system details for use in this tutorial:<br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
 | **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate (This option requires additional configuration steps) |
 

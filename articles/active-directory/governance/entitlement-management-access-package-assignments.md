@@ -3,7 +3,7 @@ title: View, add, and remove assignments for an access package in Azure AD entit
 description: Learn how to view, add, and remove assignments for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 01/05/2022
-ms.author: ajburnle
+ms.author: owinfreyatl
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -187,6 +187,8 @@ $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageI
 ```
 
 ## Remove an assignment
+
+You can remove an assignment that a user or an administrator had previously requested.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 

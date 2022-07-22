@@ -3,12 +3,12 @@ title: Object replication overview
 titleSuffix: Azure Storage
 description: Object replication asynchronously copies block blobs between a source storage account and a destination account. Use object replication to minimize latency on read requests, to increase efficiency for compute workloads, to optimize data distribution, and to minimize costs.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2022
-ms.author: tamram
+ms.date: 05/24/2022
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
@@ -61,6 +61,10 @@ When a blob in the source account is deleted, the current version of the blob be
 ### Snapshots
 
 Object replication doesn't support blob snapshots. Any snapshots on a blob in the source account aren't replicated to the destination account.
+
+## Blob index tags
+
+Object replication does not copy the source blob's index tags to the destination blob.
 
 ### Blob tiering
 
@@ -187,14 +191,7 @@ If the replication status for a blob in the source account indicates failure, th
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the effect on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Billing
 

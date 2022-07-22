@@ -280,7 +280,7 @@ Egress charges might be waived for [Education Solutions](https://www.microsoft.c
 
 For more information, see "What data transfer programs exist for academic customers and how do I qualify?" in the FAQ section of the [Programs for educational institutions](https://azure.microsoft.com/pricing/details/bandwidth/) page.
 
-For information about costs to store images and their replications, see [billing in an Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries).
+For information about costs to store images and their replications, see [billing in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
 
 #### Cost management
 
@@ -294,4 +294,4 @@ For more information about setting up and managing labs, see:
 
 - [Configure a lab plan](lab-plan-setup-guide.md)  
 - [Configure a lab](setup-guide.md)
-- [Manage costs for labs](cost-management-guide.md)  
+- [Manage costs for labs](cost-management-guide.md)

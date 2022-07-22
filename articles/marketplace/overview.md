@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: overview
-ms.date: 3/7/2022
+ms.date: 5/24/2022
 ---
 
 # What is the Microsoft commercial marketplace?
@@ -90,5 +90,6 @@ When you create a commercial marketplace offer in Partner Center, it may be list
 ## Next steps
 
 - Get an [Introduction to the Microsoft commercial marketplace](/learn/modules/intro-commercial-marketplace/) on Microsoft Learn.
+- Find videos and hands on labs at [Mastering the marketplace](https://go.microsoft.com/fwlink/?linkid=2195692)
 - For new Microsoft partners who are interested in publishing to the commercial marketplace, see [Create a commercial marketplace account in Partner Center](create-account.md).
 - To learn more about recent and future releases, join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).

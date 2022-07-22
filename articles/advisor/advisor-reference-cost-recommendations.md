@@ -27,13 +27,13 @@ Learn more about [Managed Disk Snapshot - ManagedDiskSnapshot (Use Standard Stor
 
 We've analyzed the usage patterns of your virtual machine over the past 7 days and identified virtual machines with low usage. While certain scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machines.
 
-Learn more about [Virtual machine - LowUsageVmV2 (Right-size or shutdown underutilized virtual machines)](/azure/advisor/advisor-cost-recommendations#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances).
+Learn more about [Virtual machine - LowUsageVmV2 (Right-size or shutdown underutilized virtual machines)](https://aka.ms/aa_lowusagerec_learnmore).
 
 ### You have disks which have not been attached to a VM for more than 30 days. Please evaluate if you still need the disk.
 
 We have observed that you have disks which have not been attached to a VM for more than 30 days. Please evaluate if you still need the disk. Note that if you decide to delete the disk, recovery is not possible. We recommend that you create a snapshot before deletion or ensure the data in the disk is no longer required.
 
-Learn more about [Disk - DeleteOrDowngradeUnattachedDisks (You have disks which have not been attached to a VM for more than 30 days. Please evaluate if you still need the disk.)](../virtual-machines/disks-find-unattached-portal.md).
+Learn more about [Disk - DeleteOrDowngradeUnattachedDisks (You have disks which have not been attached to a VM for more than 30 days. Please evaluate if you still need the disk.)](https://aka.ms/unattacheddisks).
 
 ## MariaDB
 
@@ -91,37 +91,37 @@ Learn more about [Cosmos DB account - CosmosDBMigrateToManualThroughputFromAutos
 
 This recommendation surfaces all Data Explorer resources provisioned more than 10 days from the last update, and found either empty or with no activity. The recommended action is to validate and consider deleting the resources.
 
-Learn more about [Data explorer resource - ADX Unused resource (Unused/Empty Data Explorer resources)](/azure/data-explorer/azure-advisor#azure-data-explorer-unused-cluster).
+Learn more about [Data explorer resource - ADX Unused resource (Unused/Empty Data Explorer resources)](https://aka.ms/adxemptycluster).
 
 ### Right-size Data Explorer resources for optimal cost
 
 One or more of these were detected: Low data capacity, CPU utilization, or memory utilization. The recommended action to improve the performance is to scale down and/or scale in the resource to the recommended configuration shown.
 
-Learn more about [Data explorer resource - Right-size for cost (Right-size Data Explorer resources for optimal cost)](/azure/data-explorer/azure-advisor#correctly-size-azure-data-explorer-clusters-to-optimize-cost).
+Learn more about [Data explorer resource - Right-size for cost (Right-size Data Explorer resources for optimal cost)](https://aka.ms/adxskusize).
 
 ### Reduce Data Explorer table cache policy to optimize costs
 
 Reducing the table cache policy will free up Data Explorer cluster nodes with low CPU utilization, memory, and a high cache size configuration.
 
-Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTables (Reduce Data Explorer table cache policy to optimize costs)](/azure/data-explorer/kusto/management/cachepolicy).
+Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTables (Reduce Data Explorer table cache policy to optimize costs)](https://aka.ms/adxcachepolicy).
 
-### Unused Data Explorer resources with data
+### Unused running Data Explorer resources
 
-This recommendation surfaces all Data Explorer resources provisioned more than 10 days from the last update, and found containing data but with no activity. The recommended action is to validate and consider stopping the unused resources.
+This recommendation surfaces all running Data Explorer resources with no user activity. Consider stopping the resources.
 
-Learn more about [Data explorer resource - StopUnusedClustersWithData (Unused Data Explorer resources with data)](/azure/data-explorer/azure-advisor#azure-data-explorer-clusters-containing-data-with-low-activity).
+Learn more about [Data explorer resource - StopUnusedClusters (Unused running Data Explorer resources)](/azure/data-explorer/azure-advisor#azure-data-explorer-unused-cluster).
 
 ### Cleanup unused storage in Data Explorer resources
 
 Over time, internal extents merge operations can accumulate redundant and unused storage artifacts that remain beyond the data retention period. While this unreferenced data doesn’t negatively impact the performance, it can lead to more storage use and larger costs than necessary. This recommendation surfaces Data Explorer resources that have unused storage artifacts. The recommended action is to run the cleanup command to detect and delete unused storage artifacts and reduce cost. Note that data recoverability will be reset to the cleanup time and will not be available on data that was created before running the cleanup.
 
-Learn more about [Data explorer resource - RunCleanupCommandForAzureDataExplorer (Cleanup unused storage in Data Explorer resources)](/azure/data-explorer/kusto/management/clean-extent-containers).
+Learn more about [Data explorer resource - RunCleanupCommandForAzureDataExplorer (Cleanup unused storage in Data Explorer resources)](https://aka.ms/adxcleanextentcontainers).
 
 ### Enable optimized autoscale for Data Explorer resources
 
 Looks like your resource could have automatically scaled to reduce costs (based on the usage patterns, cache utilization, ingestion utilization, and CPU). To optimize costs and performance, we recommend enabling optimized autoscale. To make sure you don't exceed your planned budget, add a maximum instance count when you enable this.
 
-Learn more about [Data explorer resource - EnableOptimizedAutoscaleAzureDataExplorer (Enable optimized autoscale for Data Explorer resources)](/azure/data-explorer/manage-cluster-horizontal-scaling#optimized-autoscale).
+Learn more about [Data explorer resource - EnableOptimizedAutoscaleAzureDataExplorer (Enable optimized autoscale for Data Explorer resources)](https://aka.ms/adxoptimizedautoscale).
 
 ## Network
 
@@ -143,7 +143,7 @@ Learn more about [Virtual network gateway - IdleVNetGateway (Repurpose or delete
 
 For SQL/HANA DBs in Azure VMs being backed up to Azure, using daily differential with weekly full backup is often more cost-effective than daily fully backups. For HANA, Azure Backup also supports incremental backup which is even more cost effective
 
-Learn more about [Recovery Services vault - Optimize costs of database backup (Use differential or incremental backup for database workloads)](/azure/backup/sap-hana-faq-backup-azure-vm#policy).
+Learn more about [Recovery Services vault - Optimize costs of database backup (Use differential or incremental backup for database workloads)](https://aka.ms/DBBackupCostOptimization).
 
 ## Storage
 
@@ -151,7 +151,7 @@ Learn more about [Recovery Services vault - Optimize costs of database backup (U
 
 Large classic log data is detected on your storage accounts. You are billed on capacity of data stored in storage accounts including classic logs. You are recommended to check the retention policy of classic logs and update with necessary period to retain less log data. This would reduce unnecessary classic log data and save your billing cost from less capacity.
 
-Learn more about [Storage Account - XstoreLargeClassicLog (Revisit retention policy for classic log data in storage accounts)]( /azure/storage/common/manage-storage-analytics-logs#modify-retention-policy).
+Learn more about [Storage Account - XstoreLargeClassicLog (Revisit retention policy for classic log data in storage accounts)](/azure/storage/common/manage-storage-analytics-logs#modify-retention-policy).
 
 ## Reserved Instances
 
@@ -171,61 +171,55 @@ Learn more about [Virtual machine - ReservedInstance (Buy virtual machine reserv
 
 We analyzed your Cosmos DB usage pattern over last 30 days and calculate reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings even more.
 
-Learn more about [Subscription - CosmosDBReservedCapacity (Consider Cosmos DB reserved instance to save over your pay-as-you-go costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - CosmosDBReservedCapacity (Consider Cosmos DB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider SQL PaaS DB reserved instance to save over your pay-as-you-go costs
 
 We analyzed your SQL PaaS usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase hourly usage for your SQL PaaS deployments and save over your SQL PaaS compute costs. SQL license is charged separately and is not discounted by the reservation. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - SQLReservedCapacity (Consider SQL PaaS DB reserved instance to save over your pay-as-you-go costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - SQLReservedCapacity (Consider SQL PaaS DB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider App Service stamp fee reserved instance to save over your on-demand costs
 
 We analyzed your App Service isolated environment stamp fees usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase hourly usage for the isolated environment stamp fee and save over your Pay-as-you-go costs. Note that reserved instance only applies to the stamp fee and not to the App Service instances. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions based on usage pattern over last 30 days.
 
-Learn more about [Subscription - AppServiceReservedCapacity (Consider App Service stamp fee reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - AppServiceReservedCapacity (Consider App Service stamp fee reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
 ### Consider Database for MariaDB reserved instance to save over your pay-as-you-go costs
 
 We analyzed your Azure Database for MariaDB usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase MariaDB hourly usage and save over your compute costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - MariaDBSQLReservedCapacity (Consider Database for MariaDB reserved instance to save over your pay-as-you-go costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - MariaDBSQLReservedCapacity (Consider Database for MariaDB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider Database for MySQL reserved instance to save over your pay-as-you-go costs
 
 We analyzed your MySQL Database usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase MySQL hourly usage and save over your compute costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - MySQLReservedCapacity (Consider Database for MySQL reserved instance to save over your pay-as-you-go costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - MySQLReservedCapacity (Consider Database for MySQL reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs
 
 We analyzed your Database for PostgreSQL usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase PostgresSQL Database hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - PostgreSQLReservedCapacity (Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - PostgreSQLReservedCapacity (Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider Cache for Redis reserved instance to save over your pay-as-you-go costs
 
 We analyzed your Cache for Redis usage pattern over last 30 days and calculated reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Cache for Redis hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - RedisCacheReservedCapacity (Consider Cache for Redis reserved instance to save over your pay-as-you-go costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - RedisCacheReservedCapacity (Consider Cache for Redis reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider Azure Synapse Analytics (formerly SQL DW) reserved instance to save over your pay-as-you-go costs
 
-We analyze you Azure Synapse Analytics usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyze your Azure Synapse Analytics usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - SQLDWReservedCapacity (Consider Azure Synapse Analytics (formerly SQL DW) reserved instance to save over your pay-as-you-go costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - SQLDWReservedCapacity (Consider Azure Synapse Analytics (formerly SQL DW) reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### (Preview) Consider Blob storage reserved instance to save on Blob v2 and Datalake storage Gen2 costs
 
 We analyzed your Azure Blob and Datalake storage usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance you can pre-purchase hourly usage and save over your current on-demand costs. Blob storage reserved instance applies only to data stored on Azure Blob (GPv2) and Azure Data Lake Storage (Gen 2). Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - BlobReservedCapacity ((Preview) Consider Blob storage reserved instance to save on Blob v2 and Datalake storage Gen2 costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
-
-### (Preview) Consider Azure Data explorer reserved capacity to save over your pay-as-you-go costs
-
-We analyzed your Azure Data Explorer usage pattern over last 30 days and recommend reserved capacity purchase that maximizes your savings. With reserved capacity you can pre-purchase Data Explorer hourly usage and get savings over your on-demand costs. Reserved capacity is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions using 3-year reservation pricing and last 30 day's usage pattern. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
-
-Learn more about [Subscription - DataExplorerReservedCapacity ((Preview) Consider Azure Data explorer reserved capacity to save over your pay-as-you-go costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - BlobReservedCapacity ((Preview) Consider Blob storage reserved instance to save on Blob v2 and and Datalake storage Gen2 costs)](https://aka.ms/rirecommendations).
 
 ### Consider Azure Dedicated Host reserved instance to save over your on-demand costs
 
@@ -256,12 +250,6 @@ Learn more about [Subscription - AzureFilesReservedCapacity (Consider Azure File
 We analyzed your Azure VMware Solution usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance you can pre-purchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
 Learn more about [Subscription - AzureVMwareSolutionReservedCapacity (Consider Azure VMware Solution reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
-
-### (Preview) Consider Databricks reserved capacity to save over your on-demand costs
-
-We analyzed your Databricks usage over last 30 days and calculated reserved capacity purchase that would maximize your savings. With reserved capacity you can pre-purchase hourly usage and save over your current on-demand costs. Reserved capacity is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions using 3-year reservation pricing and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
-
-Learn more about [Subscription - DataBricksReservedCapacity ((Preview) Consider Databricks reserved capacity to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
 
 ### Consider NetApp Storage reserved instance to save over your on-demand costs
 
@@ -305,6 +293,8 @@ We analyzed your VMware Cloud Simple usage over last 30 days and calculated rese
 
 Learn more about [Subscription - VMwareCloudSimpleReservedCapacity (Consider VMware Cloud Simple reserved instance )](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
 
+## Subscription
+
 ### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
 
 With Ephemeral OS Disk, Customers get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is more preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads
@@ -317,13 +307,13 @@ Learn more about [Subscription - EphemeralOsDisk (Use Virtual Machines with Ephe
 
 Auto-pause releases and shuts down unused compute resources after a set idle period of inactivity
 
-Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoPauseGuidance (Consider enabling autopause feature on spark compute.)](/dotnet/api/microsoft.azure.management.synapse.models.autopauseproperties).
+Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoPauseGuidance (Consider enabling autopause feature on spark compute.)](https://aka.ms/EnableSynapseSparkComputeAutoPauseGuidance).
 
 ### Consider enabling autoscale feature on Spark compute.
 
 Apache Spark for Azure Synapse Analytics pool's Autoscale feature automatically scales the number of nodes in a cluster instance up and down. During the creation of a new Apache Spark for Azure Synapse Analytics pool, a minimum and maximum number of nodes can be set when Autoscale is selected. Autoscale then monitors the resource requirements of the load and scales the number of nodes up or down. There's no additional charge for this feature.
 
-Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoScaleGuidance (Consider enabling autoscale feature on spark compute.)](../synapse-analytics/spark/apache-spark-autoscale.md).
+Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoScaleGuidance (Consider enabling autoscale feature on spark compute.)](https://aka.ms/EnableSynapseSparkComputeAutoScaleGuidance).
 
 
 ## Next steps

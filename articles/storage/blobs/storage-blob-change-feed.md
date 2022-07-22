@@ -2,10 +2,10 @@
 title: Change feed in Blob Storage
 titleSuffix: Azure Storage
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
-author: tamram
+author: normesta
 
-ms.author: tamram
-ms.date: 04/13/2022
+ms.author: normesta
+ms.date: 06/15/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -544,7 +544,6 @@ The following example shows a change event record in JSON format that uses event
 
 This section describes known issues and conditions in the current release of the change feed.
 
-- Change event records for any single change might appear more than once in your change feed.
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
@@ -552,14 +551,7 @@ This section describes known issues and conditions in the current release of the
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | 
-| Premium block blobs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## FAQ
 
