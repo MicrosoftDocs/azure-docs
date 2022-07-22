@@ -33,7 +33,7 @@ Since the EFLOW host device and the PLC or OPC UA devices are physically connect
 
 For the other network, the EFLOW host device is physically connected to the DMZ (online network) with internet and Azure connectivity. Using an *internal or external switch*, you can connect the EFLOW VM to Azure IoT Hub using IoT Edge modules and upload the information sent by the offline devices through the offline NIC.
 
-![EFLOW Industrial IoT scenario showing a EFLOW VM connected to offline and online network](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/iiot-multiplenic.png)
+![EFLOW Industrial IoT scenario showing a EFLOW VM connected to offline and online network.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/iiot-multiple-nic.png)
 
 ### Scenario summary
 
@@ -76,11 +76,11 @@ For the custom new *external virtual switch* you created, use the following Powe
 
 1. `Add-EflowNetwork -vswitchName "OnlineOPCUA" -vswitchType "External"`
 
-    ![Screenshot of showing successful creation of the external network named OnlineOPCUA](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflownetwork.png)
+    ![Screenshot of showing successful creation of the external network named OnlineOPCUA.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-network.png)
 
 2. `Add-EflowVmEndpoint -vswitchName "OnlineOPCUA" -vEndpointName "OnlineEndpoint" -ip4Address 192.168.0.103 -ip4PrefixLength 24 -ip4GatewayAddress 192.168.0.1`
 
-    ![Screenshot showing the successful configuration of the OnlineOPCUA switch](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflowvmendpoint.png)
+    ![Screenshot showing the successful configuration of the OnlineOPCUA switch.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-vm-endpoint.png)
 
 Once complete, you'll have the *OnlineOPCUA* switch assigned to the EFLOW VM. To check the multiple NIC attachment, use the following steps:
 
@@ -98,7 +98,7 @@ Once complete, you'll have the *OnlineOPCUA* switch assigned to the EFLOW VM. To
 
 1. Review the IP configuration and verify you see the *eth0* interface (connected to the secure network) and the *eth1* interface (connected to the DMZ network).
 
-    ![Screenshot showing IP configuration of multiple NICs connected to two different networks](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/ifconfig-multiple-nic.png)
+    ![Screenshot showing IP configuration of multiple NICs connected to two different networks.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/ifconfig-multiple-nic.png)
 
 ## Configure VM network routing 
 
@@ -120,14 +120,14 @@ EFLOW uses the [route](https://man7.org/linux/man-pages/man8/route.8.html) servi
     sudo route
     ```
 
-    ![Screenshot listing routing table for the EFLOW VM](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/route-output.png)
+    ![Screenshot listing routing table for the EFLOW VM.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/route-output.png)
 
     >[!TIP]
     >The previous image shows the route command output with the two NIC's assigned (*eth0* and *eth1*). The virtual machine creates two different *default* destinations rules with different metrics. A lower metric value has a higher priority. This routing table will vary depending on the networking scenario configured in the previous steps.
 
 ###  Static routes fix
 
-Every time EFLOW VM starts, the networking services recreates all routes, and any previously assigned priority could change. To workaround this issue, you can assign the desired priority for each route every time the EFLOW VM starts. You can create a service that executes every time the VM starts and use the `route` command to set the desired route priorities.
+Every time EFLOW VM starts, the networking services recreates all routes, and any previously assigned priority could change. To work around this issue, you can assign the desired priority for each route every time the EFLOW VM starts. You can create a service that executes every time the VM starts and use the `route` command to set the desired route priorities.
 
 First, create a bash script that executes the necessary commands to set the routes. For example, following the networking scenario mentioned earlier, the EFLOW VM has two NICs (offline and online networks). NIC *eth0* is connected using the gateway IP xxx.xxx.xxx.xxx. NIC *eth1* is connected using the gateway IP yyy.yyy.yyy.yyy. 
 
