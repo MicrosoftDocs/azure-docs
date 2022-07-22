@@ -6,7 +6,7 @@ ms.date: 7/14/2022
 ---
 
 # Introduction to Service Fabric managed cluster with Ephemeral OS disks for node types (Preview)
-Azure Service Fabric managed clusters by default use managed OS disks for the nodes in a given node type. To be more cost efficient, managed clusters provide the ability to configure Ephemeral OS disks. Ephemeral OS disks are created on the local virtual machine (VM) storage and not saved to the remote Azure Storage. Ephemeral OS disks are free and replace the need to use a managed OS disks.
+Azure Service Fabric managed clusters by default use managed OS disks for the nodes in a given node type. To be more cost efficient, managed clusters provide the ability to configure Ephemeral OS disks. Ephemeral OS disks are created on the local virtual machine (VM) storage and not saved to the remote Azure Storage. Ephemeral OS disks are free and replace the need to use managed OS disks.
 
 The key benefits of ephemeral OS disks are: 
 
@@ -24,11 +24,11 @@ This guide builds upon the managed cluster quick start guide: [Deploy a Service 
 
 Before you begin:
 
-* If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 * Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.
-* Ephemeral OS disks are supported both for primary and secondary node type. For the sake of this guide, we will be using a Standard SKU cluster with two node types - a primary and a secondary node type, which uses Ephemeral OS disk.
-* Ephemeral OS disks are not supported for every SKU. VM sizes such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M, Mdsv2, Bs, Dav4, Eav4 supports Ephemeral OS disks. Please ensure the SKU with which you want to deploy supports Ephemeral OS disk. For more information on individual SKU, see [supported VM SKU](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) and navigate to the desired SKU on left side pane.
-* Ephemeral OS disks in Service Fabric are placed in the space for temporary disks for the VM SKU. Ensure the VM SKU you are using has more than 127 GiB of temporary disk space to place Ephemeral OS disk.
+* Ephemeral OS disks are supported both for primary and secondary node type. This guide shows how to deploy a Standard SKU cluster with two node types - a primary and a secondary node type, which uses Ephemeral OS disk.
+* Ephemeral OS disks aren't supported for every SKU. VM sizes such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M, Mdsv2, Bs, Dav4, Eav4 supports Ephemeral OS disks. Ensure the SKU with which you want to deploy supports Ephemeral OS disk. For more information on individual SKU, see [supported VM SKU](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) and navigate to the desired SKU on left side pane.
+* Ephemeral OS disks in Service Fabric are placed in the space for temporary disks for the VM SKU. Ensure the VM SKU you're using has more than 127 GiB of temporary disk space to place Ephemeral OS disk.
 
 ## Review the template
 The template used in this guide is from [Azure Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Ephemeral).
@@ -37,7 +37,7 @@ The template used in this guide is from [Azure Samples - Service Fabric cluster 
 ## Create a client certificate
 Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step. 
 
-If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal). Note the certificate thumbprint as this will be required to deploy the template in the next step.
+If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal). Note the certificate thumbprint as it will be required to deploy the template in the next step.
 
 ## Deploy the template
 
@@ -51,7 +51,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
   * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
   * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
   * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-  * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
+  * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you don't have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
   * Node Type Name: Enter a unique name for your node type, such as nt1.
 
 
@@ -63,7 +63,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-* ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template
+* ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template
 
    ```powershell
    $templateFilePath = "<full path to azuredeploy.json>" 
@@ -91,7 +91,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
 
 
 ## Migrate to using Ephemeral OS disks for Service Fabric managed cluster node types
-A node type can only be configured to use Ephemeral OS disk at the time of creation. Existing node types cannot be converted to use Ephemeral OS disks. For all migration scenarios, add a new node type with Ephemeral OS disk to the cluster and migrate your services to that node type. 
+A node type can only be configured to use Ephemeral OS disk at the time of creation. Existing node types can't be converted to use Ephemeral OS disks. For all migration scenarios, add a new node type with Ephemeral OS disk to the cluster and migrate your services to that node type. 
 
 1) Add a new node type that's configured to use Ephemeral OS disk as specified earlier.
 2) Migrate any required workloads to the new node type.
