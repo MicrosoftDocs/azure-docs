@@ -75,10 +75,35 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 | authenticationMode | String | Possible values are:<br>**any**: Both passwordless phone sign-in and traditional second factor notifications are allowed.<br>**deviceBasedPush**: Only passwordless phone sign-in notifications are allowed.<br>**push**: Only traditional second factor push notifications are allowed. |
 | id | String | Object ID of an Azure AD user or group. |
 | targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.<br>You can only set one group or user for additional context. |
-| displayAppInformationRequiredState | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
 
->[!NOTE]
->Additional context can only be enabled for a single group.
+#### MicrosoftAuthenticator featureSettings properties
+ 
+**PROPERTIES**
+
+| Property | Type | Description |
+|----------|------|-------------|
+| numberMatchingRequiredState | authenticationMethodFeatureConfiguration | Require number matching for MFA notifications. Value is ignored for phone sign-in notifications. |
+| displayAppInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown application name in Microsoft Authenticator notification. |
+| displayLocationInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown geographic location context in Microsoft Authenticator notification. |
+
+#### Authentication Method Feature Configuration properties
+
+**PROPERTIES**
+
+| Property | Type | Description |
+|----------|------|-------------|
+| excludeTarget | featureTarget | A single entity that is excluded from this feature. |
+| includeTarget | featureTarget | A single entity that is included in this feature. |
+| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+
+#### Feature Target properties
+
+**PROPERTIES**
+
+| Property | Type | Description |
+|----------|------|-------------|
+| id | String | ID of the entity targeted. |
+| targetType | featureTargetType | The kind of entity targeted, such as group, role, or administrative unit. The possible values are: ‘group’, 'administrativeUnit’, ‘role’, unknownFutureValue’. |
 
 #### Example of how to enable additional context for all users
 
