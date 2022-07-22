@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 07/22/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -37,12 +37,13 @@ The additional context can be combined with [number matching](how-to-mfa-number-
 To enable additional context, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. Click **Basics**.
-1. Click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. 
-1. Click **Configure**.
-1. Below **Show application name in push and passwordless notifications (Preview)**, change **Status** to **Enabled** and choose who to include or exclude from the policy. 
-1. Below **Show geographic location in push and passwordless notifications (Preview)**, change **Status** to **Enabled** and choose who to include or exclude from the policy. 
-1. Select the **Authentication mode**, and then for **Show additional context in notifications (Preview)**, click **Enable**, and then click **Done**.
+1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. Only users who are enabled for Microsoft Authenticator will see additional context. Anyone who isn't enabled for Microsoft Authenticator is unaffected.
+
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-settings-additional-context.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Any authentication mode.":::
+
+1. On the **Configure** tab, for **Show application name in push and passwordless notifications (Preview)** and **Show geographic location in push and passwordless notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from the policy, and click **Save**.
+
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/additional-context.png" alt-text="Screenshot of how to enable additional context.":::
 
 ## Known issues
 
