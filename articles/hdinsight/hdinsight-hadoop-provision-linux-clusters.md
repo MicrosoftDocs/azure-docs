@@ -195,7 +195,7 @@ For more information, see [Managed identities in Azure HDInsight](./hdinsight-ma
 
 ## Configuration + pricing
 
-:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png" alt-text="HDInsight choose your node size":::
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration-disk-attach.png" alt-text="HDInsight choose your node size":::
 
 You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be de-allocated or put on hold.
 
@@ -242,11 +242,7 @@ To find out what value you should use to specify a VM size while creating a clus
 
 For more information, see [Sizes for virtual machines](../virtual-machines/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
 
-### Add application
-
-HDInsight application is an application, that users can install on a Linux-based HDInsight cluster. You can use applications provided by Microsoft, third parties, or developed by you.. For more information, see [Install third-party Apache Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
-
-Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
+### Disk attachment
 
 On each of the **NodeManager** machines, **LocalResources** are ultimately localized in the following target directories. 
 
@@ -256,14 +252,18 @@ If the cluster is expected to run large data application, you can choose to add 
 
 You can add number of disks per VM and each disk will be of 1 TB size.
 
-:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/disk-attach.png" alt-text="Screenshot showing how to add disk attach feature":::
-
 1. From **Configuration + pricing** tab
 1. Select **Enable managed disk** option
 1. From **Standard disks**, Enter the **Numbet of disks**
 1. Choose your **Worker node**
 
 You can verify the number of disks from **Review + create** tab, under **Cluster configuration**
+
+### Add application
+
+HDInsight application is an application, that users can install on a Linux-based HDInsight cluster. You can use applications provided by Microsoft, third parties, or developed by you.. For more information, see [Install third-party Apache Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
+
+Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
 ### Script actions
 
