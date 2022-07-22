@@ -2,9 +2,7 @@
 title: Continuous export can send Microsoft Defender for Cloud's alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
 description: Learn how to configure continuous export of security alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
-ms.date: 12/09/2021
+ms.date: 06/19/2022
 
 ---
 # Continuously export Microsoft Defender for Cloud data
@@ -94,6 +92,9 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target on a different subscription (for example on a Central Event Hub instance or a central Log Analytics workspace).
 1. Select **Save**.
+
+> [!NOTE]
+> Log analytics supports records that are only up to 32KB in size. When the data limit is reached, you will see an alert telling you that the `Data limit has been exceeded`.
 
 ### [**Use the REST API**](#tab/rest-api)
 

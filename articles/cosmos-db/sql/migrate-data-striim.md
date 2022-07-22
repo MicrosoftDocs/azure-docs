@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/09/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Migrate data to Azure Cosmos DB SQL API account using Striim

@@ -46,7 +46,10 @@ sections:
           | P2 |  13 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
           | P3 |  26 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
           | P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373,000 |
-          | P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373,000 |
+          | P5 | 120 GB | 32 | 6,000 / 750   | 400,000 | 373,000 |
+          
+          > [!Important]
+          > P5 instances in the China East and China North regions use 20 cores, not 32 cores. 
           
           For instructions on setting up stunnel or downloading the Redis tools such as `redis-benchmark.exe`, see [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-).
           

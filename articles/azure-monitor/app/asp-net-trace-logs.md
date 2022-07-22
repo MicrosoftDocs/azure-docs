@@ -5,7 +5,9 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
+ms.reviewer: casocha
 ---
+
 
 # Explore .NET/.NET Core and Python trace logs in Application Insights
 

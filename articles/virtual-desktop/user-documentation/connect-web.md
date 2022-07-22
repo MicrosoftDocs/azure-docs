@@ -33,17 +33,17 @@ While any HTML5-capable browser should work, we officially support the following
 
 ## Access remote resources feed
 
-In a browser, navigate to the Azure Resource Manager-integrated version of the Azure Virtual Desktop web client at <https://client.wvd.microsoft.com/arm/webclient/index.html> and sign in with your user account.
+In a browser, navigate to the Azure Resource Manager-integrated version of the [Azure Virtual Desktop web client](https://client.wvd.microsoft.com/arm/webclient/index.html) and sign in with your user account.
 
 >[!IMPORTANT]
->We plan to start automatically redirecting to a new web client URL at <https://client.wvd.microsoft.com/arm/webclient/index.html> as of April 18th, 2022. The current URLs at <https://rdweb.wvd.microsoft.com/arm/webclient/index.html> and <https://www.wvd.microsoft.com/arm/webclient/index.html> will still be available, but we recommend you update your bookmarks to the new URL at <https://client.wvd.microsoft.com/arm/webclient/index.html> as soon as possible.
+>We plan to start automatically redirecting to a new web client URL at `https://client.wvd.microsoft.com/arm/webclient/index.html` as of April 18th, 2022. The URLs at `https://rdweb.wvd.microsoft.com/arm/webclient/index.html` and `https://www.wvd.microsoft.com/arm/webclient/index.html` will still be available, but we recommend you update your bookmarks to the new URL at `https://client.wvd.microsoft.com/arm/webclient/index.html` as soon as possible.
 
 >[!NOTE]
 >If you're using Azure Virtual Desktop (classic) without Azure Resource Manager integration, connect to your resources at <https://client.wvd.microsoft.com/webclient/index.html> instead.
 >
 > If you're using the US Gov portal, use <https://rdweb.wvd.azure.us/arm/webclient/index.html>.
 > 
-> To connect to the Azure China portal, use <https://rdweb.wvd.azure.cn/arm/webclient/index.html>.
+> To connect to the Azure China portal, use `https://rdweb.wvd.azure.cn/arm/webclient/index.html>.
 
 >[!NOTE]
 >If you've already signed in with a different Azure Active Directory account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.

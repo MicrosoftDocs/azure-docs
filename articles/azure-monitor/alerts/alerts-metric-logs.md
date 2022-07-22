@@ -6,6 +6,7 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 2/23/2022
 ms.custom: devx-track-azurepowershell
+ms.reviewer: harelbr
 ---
 
 # Create Metric Alerts for Logs in Azure Monitor

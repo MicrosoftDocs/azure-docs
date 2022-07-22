@@ -18,8 +18,8 @@ ms.date: 05/02/2022
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI version you are using:"]
-> * [v1](how-to-create-attach-compute-cluster.md)
-> * [v2 (preview)](../how-to-create-attach-compute-cluster.md)
+> * [CLI v1](how-to-create-attach-compute-cluster.md)
+> * [CLI v2 (current version)](../how-to-create-attach-compute-cluster.md)
 
 Learn how to create and manage a [compute cluster](../concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
@@ -32,6 +32,9 @@ In this article, learn how to:
 * Set up a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the cluster
 
 This article covers only the CLI v1 way to accomplish these tasks.  To see how to use the SDK, CLI v2, or studio, see [Create an Azure Machine Learning compute cluster (CLI v2)](../how-to-create-attach-compute-cluster.md)
+
+> [!NOTE]
+> This article covers only how to do these tasks using CLI v1.  For more recent ways to manage a compute instance, see [Create an Azure Machine Learning compute cluster](../how-to-create-attach-compute-cluster.md).
 
 ## Prerequisites
 

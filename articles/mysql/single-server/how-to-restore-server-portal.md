@@ -1,12 +1,12 @@
 ---
 title: Backup and restore - Azure portal - Azure Database for MySQL
 description: This article describes how to restore a server in Azure Database for MySQL using the Azure portal.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.topic: how-to
-ms.date: 6/30/2020
+ms.date: 06/20/2022
 ---
 
 # How to backup and restore a server in Azure Database for MySQL using the Azure portal

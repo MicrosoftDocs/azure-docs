@@ -94,9 +94,9 @@ You can use startup tasks to perform operations before a role starts. Installing
    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262
-   set netfx="NDP472"
    REM ***** To install .NET 4.8 set the variable netfx to "NDP48" ***** https://dotnet.microsoft.com/download/thank-you/net48
-      
+   set netfx="NDP48"
+         
    REM ***** Set script start timestamp *****
    set timehour=%time:~0,2%
    set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
@@ -110,6 +110,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    set TEMP=%PathToNETFXInstall%
    
    REM ***** Setup .NET filenames and registry keys *****
+   if %netfx%=="NDP48" goto NDP48
    if %netfx%=="NDP472" goto NDP472
    if %netfx%=="NDP471" goto NDP471
    if %netfx%=="NDP47" goto NDP47
@@ -148,7 +149,12 @@ You can use startup tasks to perform operations before a role starts. Installing
    
    :NDP472
    set "netfxinstallfile=NDP472-KB4054531-Web.exe"
-   set netfxregkey="0x70BF6"
+   set netfxregkey="0x70BF0"
+   goto logtimestamp
+
+   :NDP48
+   set "netfxinstallfile=NDP48-Web.exe"
+   set netfxregkey="0x80EA8"
    goto logtimestamp
    
    :logtimestamp

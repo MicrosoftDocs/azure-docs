@@ -1,6 +1,5 @@
 ---
-title: Clear the token cache (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Clear the token cache (MSAL.NET)
 description: Learn how to clear the token cache using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: mmacy

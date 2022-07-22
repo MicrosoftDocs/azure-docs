@@ -49,7 +49,7 @@ The `--save` option lists the library as a dependency in your *package.json* fil
 
 ## Set up the app framework
 
-1. In the project directory, run the following code:
+1. Create a file named `issue-access-token.js` in the project directory and add the following code:
 
     ```javascript
     const { CommunicationIdentityClient } = require('@azure/communication-identity');
@@ -66,7 +66,6 @@ The `--save` option lists the library as a dependency in your *package.json* fil
     })
     ```
 
-1. Save the new file as *issue-access-token.js* in the project directory.
 
 ## Authenticate the client
 
@@ -187,3 +186,25 @@ From a console prompt, go to the directory that contains the *issue-access-token
 ```console
 node ./issue-access-token.js
 ```
+
+The app's output describes each completed action:
+
+<!---cSpell:disable --->
+```console
+Azure Communication Services - Access Tokens Quickstart
+
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+<token signature here>
+
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
+
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+<token signature here>
+
+Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+```
+<!---cSpell:enable --->

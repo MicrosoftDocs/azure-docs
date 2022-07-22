@@ -113,6 +113,8 @@
       href: container-instances-egress-ip-address.md
     - name: Configure container group egress with NAT gateway
       href: container-instances-nat-gateway.md
+    - name: Configure custom DNS settings for container group
+      href: container-instances-custom-dns.md
   - name: Mount data volumes
     items:
     - name: Azure file share
@@ -135,6 +137,8 @@
       href: container-instances-update.md
   - name: Monitor and log
     items:
+    - name: Monitor Azure Container Instances
+      href: monitor-azure-container-instances.md
     - name: Monitor CPU and memory usage
       href: container-instances-monitor.md
     - name: Get container logs and events
@@ -169,6 +173,8 @@
     href: container-instances-reference-yaml.md
   - name: Connector
     href: /connectors/aci
+  - name: Monitoring data
+    href: monitor-azure-container-instances-reference.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

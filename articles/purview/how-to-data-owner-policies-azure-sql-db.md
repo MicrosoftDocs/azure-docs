@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/10/2022
+ms.date: 07/20/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for Azure SQL DB (preview)
@@ -22,13 +22,15 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 - Create a new Azure SQL DB or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](/azure/azure-sql/database/single-database-create-quickstart).
 
 **Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL DB**
-- East US
 - East US2
-- West US
 - West US3
+- South Central US
 - West Central US
 - Canada Central
+- Brazil South
+- North Europe
 - West Europe
+- France Central
 - UK South
 - Central India
 - Australia East
@@ -114,8 +116,17 @@ SELECT * FROM sys.dm_server_external_policy_actions
 -- Lists the roles that are part of a policy published to this server
 SELECT * FROM sys.dm_server_external_policy_roles
 
+-- Lists the links between the roles and actions, could be used to join the two
+SELECT * FROM sys.dm_server_external_policy_role_actions
+
+-- Lists all Azure AD principals that were given connect permissions  
+SELECT * FROM sys.dm_server_external_policy_principals
+
 -- Lists Azure AD principals assigned to a given role on a given resource scope
 SELECT * FROM sys.dm_server_external_policy_role_members
+
+-- Lists Azure AD principals, joined with roles, joined with their data actions
+SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
 ```
 
 ## Additional information

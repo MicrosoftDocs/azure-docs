@@ -52,7 +52,10 @@ At a high level, you need to perform the following steps to configure Azure AD a
 
 2. [Enable Azure AD authentication on the gateway](openvpn-azure-ad-tenant.md#enable-authentication)
 
-3. [Download and configure Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554)
+3. Download the latest version of the Azure VPN Client install files using one of the following links:
+   
+   * Install using Client Install files: [https://aka.ms/azvpnclientdownload](https://aka.ms/azvpnclientdownload).
+   * Install directly, when signed in on a client computer: [Microsoft Store](https://go.microsoft.com/fwlink/?linkid=2117554).
 
 
 ### Authenticate using Active Directory (AD) Domain Server

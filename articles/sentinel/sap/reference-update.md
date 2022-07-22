@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel Continuous Threat Monitoring for SAP container update script reference | Microsoft Docs
+title: Microsoft Sentinel Threat Monitoring for SAP container update script reference | Microsoft Docs
 description: Description of command line options available with update deployment script
 author: MSFTandrelom
 ms.author: andrelom
@@ -12,9 +12,9 @@ ms.date: 03/02/2022
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 > [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The SAP data collector agent container uses an update script (available at [Microsoft Azure Sentinel SAP Continuous Threat Monitoring GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)) to simplify the update process.
+The SAP data collector agent container uses an update script (available at [Microsoft Azure Sentinel Threat Monitoring for SAP GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)) to simplify the update process.
 
 This article shows how the script's behavior can be customized by configuring its parameters.
 
@@ -76,30 +76,30 @@ During the update process, the script identifies any containers running the SAP 
 
 **Required:** No
 
-**Explanation:** By default, the update script updates all containers running Continuous Threat Monitoring for SAP. To update a single, or multiple containers, specify `--containername <containername>` switch. Switch can be specified multiple times, e.e. `--containername sapcon-A4H --containername sapcon-QQ1 --containername sapcon-QAT`. In such case, only specified containers will be updated. If container name specified does not exist, it will be skipped by the script.
+**Explanation:** By default, the update script updates all containers running Threat Monitoring for SAP. To update a single, or multiple containers, specify `--containername <containername>` switch. Switch can be specified multiple times, e.e. `--containername sapcon-A4H --containername sapcon-QQ1 --containername sapcon-QAT`. In such case, only specified containers will be updated. If container name specified does not exist, it will be skipped by the script.
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel SAP solutions:
+Learn more about the Microsoft Sentinel Threat Monitoring for SAP solutions:
 
-- [Deploy Continuous Threat Monitoring for SAP](deployment-overview.md)
-- [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Threat Monitoring for SAP](deployment-overview.md)
+- [Prerequisites for deploying Threat Monitoring for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel Threat Monitoring for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel Threat Monitoring for SAP solution deployment](sap-deploy-troubleshoot.md)
 - [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 
-- [Microsoft Sentinel SAP solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel Threat Monitoring for SAP solution data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel Threat Monitoring for SAP solution: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 

@@ -16,7 +16,7 @@ In this quickstart, you will get familiar with using the [Dapr cluster extension
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed](/cli/azure/install-azure-cli).
+* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] installed.
 * An AKS or Arc-enabled Kubernetes cluster with the [Dapr cluster extension][dapr-overview] enabled
 
 ## Clone the repository
@@ -201,11 +201,23 @@ You should see the latest JSON in the response.
 
 ## Clean up resources
 
+### [Azure CLI](#tab/azure-cli)
+
 Use the [az group delete][az-group-delete] command to remove the resource group, the cluster, the namespace, and all related resources.
 
-```azurecli-interactive
+```azurecli
 az group delete --name MyResourceGroup
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Use the [Remove-AzResourceGroup][remove-azresourcegroup] command to remove the resource group, the cluster, the namespace, and all related resources.
+
+```azurepowershell
+Remove-AzResourceGroup -Name MyResourceGroup
+```
+
+---
 
 ## Next steps
 
@@ -215,9 +227,12 @@ After successfully deploying this sample application:
 
 <!-- LINKS -->
 <!-- INTERNAL -->
+[azure-cli-install]: /cli/azure/install-azure-cli
+[azure-powershell-install]: /powershell/azure/install-az-ps
 [cluster-extensions]: ./cluster-extensions.md
 [dapr-overview]: ./dapr.md
 [az-group-delete]: /cli/azure/group#az-group-delete
+[remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 
 <!-- EXTERNAL -->
 [hello-world-gh]: https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes
