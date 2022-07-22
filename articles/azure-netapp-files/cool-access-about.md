@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 07/22/2022
 ms.author: anfdocs
 ---
 
@@ -49,12 +49,12 @@ This section describes a 4k random-read test across 160 files totaling 10 TB of 
 **Setup** 
 
 **Region:** Japan <br>
-**Capacity pool size:** 100 TB capacity pool <br>
-**Volume allocated capacity:** 100 TB volumes <br>
+**Capacity pool size:** 100-TB capacity pool <br>
+**Volume allocated capacity:** 100-TB volumes <br>
 **Working Dataset:** 10 TB <br>
 **Service Level:** Standard service level with cool access <br>
 **Volume Count/Size:** 1 <br>
-**Client Count:** Four standard 8s clients <br>
+**Client Count:** Four standard 8 s clients <br>
 **OS:** RHEL 8.3 <br>
 **Mount Option:** `rw,nconnect=8,hard,rsize=262144,wsize=262144,vers=3,tcp,bg,hard`
 
@@ -77,10 +77,10 @@ The following chart shows a test that ran over 2.5 days on the 10-TB working dat
 **Region:** Japan <br>
 **Capacity pool size:** 100-TB capacity pool <br>
 **Volume allocated capacity:** 100-TB volumes <br>
-**Working Dataset:** 10 TB <br>
+**Working Dataset:** 10-TB <br>
 **Service Level:** Standard service level with cool access <br>
 **Volume Count/Size:** 1 <br>
-**Client Count:** 1 large client <br>
+**Client Count:** One large client <br>
 **OS:** RHEL 8.3 <br>
 **Mount Option:** `rw,nconnect=8,hard,rsize=262144,wsize=262144,vers=3,tcp,bg,hard` <br>
 
@@ -133,23 +133,23 @@ Billing calculation for a Standard capacity pool will be at the standard tier ra
 
 ### Billing structure examples
 
-Assume that you created a 4-TiB Standard capacity pool. The billing structure will be at the Standard capacity tier rate for the entire 4TiB. 
+Assume that you created a 4-TiB Standard capacity pool. The billing structure will be at the Standard capacity tier rate for the entire 4 TiB. 
 
 When you create volumes in the capacity pool and start tiering data to the cool tier, the following example shows you the applicable billing structure: 
 
-1. Assume that you create 3 volumes with 1 TiB each. You do not enable tiering at the volume level. The billing calculation will be as follows: 
+1. Assume that you create three volumes with 1 TiB each. You do not enable tiering at the volume level. The billing calculation will be as follows: 
 * 4-TiB capacity at the standard tier rate
 * Zero capacity at the cool tier rate
 * Zero network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
-1. Assume that you create four volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the standard tier, and 0.75-TiB of the volume capacity in the cool tier. The billing calculation will be as follows: 
+1. Assume that you create four volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the standard tier, and 0.75 TiB of the volume capacity in the cool tier. The billing calculation will be as follows: 
 * 1-TiB capacity at the standard tier rate
 * 3-TiB capacity at the cool tier rate
 * Network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
 1. Assume that you create two volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the standard tier, and 0.75 TiB of the volume capacity in the cool tier. The billing calculation will be as follows: 
-* 2.5 TiB capacity at the standard tier rate
-* 1.5 TiB capacity at the cool tier rate
+* 2.5-TiB capacity at the standard tier rate
+* 1.5-TiB capacity at the cool tier rate
 * Network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
-1. Assume that you create 1 volume with 1 TiB. The volume has 0.25 TiB of the volume capacity on the standard tier, 0.75 of the volume capacity in the cool tier. The billing calculation will be as follows: 
+1. Assume that you create one volume with 1 TiB. The volume has 0.25 TiB of the volume capacity on the standard tier, 0.75 of the volume capacity in the cool tier. The billing calculation will be as follows: 
 * 3.25 capacity at the standard tier rate
 * 0.75-TiB capacity at the cool tier rate
 * Network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.

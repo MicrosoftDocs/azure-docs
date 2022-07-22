@@ -1,6 +1,6 @@
 ---
 title: Manage Azure NetApp Files Standard service level with cool access | Microsoft Docs
-description: Learn how to free up storage by by configuring inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier).
+description: Learn how to free up storage by configuring inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier).
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/15/2022
+ms.date: 07/22/2022
 ms.author: anfdocs
 ---
 
@@ -20,7 +20,7 @@ ms.author: anfdocs
 
 Using Azure NetApp Files Standard service level with [cool access](cool-access-about.md), you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier). In doing so, you free up storage that resides within Azure NetApp Files, resulting in cost saving.
 
-The Standard service level with cool access allows you configure a Standard capacity pool with cool access. The Standard storage service level with cool access feature moves cold (infrequently accessed) data to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the Standard service level enabled with cool access. However, there can be a difference in data access latency because the data is tiered to the Azure storage account.
+The Standard service level with cool access allows you to configure a Standard capacity pool with cool access. The Standard storage service level with cool access feature moves cold (infrequently accessed) data to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the Standard service level enabled with cool access. However, there can be a difference in data access latency because the data is tiered to the Azure storage account.
 
 The Standard service level with cool access feature provides options for the “coolness period” to optimize the network transfer cost, based on your workload and read/write patterns. This feature is provided at the volume level. See the [Set options for coolness period section](#modify_cool) for details. The Standard service level with cool access feature also provides metrics on a per-volume basis. See the [Metrics section](cool-access-about.md#metrics) for details. 
 
@@ -28,7 +28,7 @@ The Standard service level with cool access feature provides options for the “
 
 * No guarantee is provided for any maximum latency for client workload for any of the service tiers. 
 * This feature is available only at the **Standard** service level. It is not supported for the Ultra or Premium service level.  
-* Although cool access is available for the Standard service level, how you are billed for using the feature will differ from the Standard service level charges. See the [Billing section](cool-access-about.md#billing) for details and examples. 
+* Although cool access is available for the Standard service level, how you're billed for using the feature will differ from the Standard service level charges. See the [Billing section](cool-access-about.md#billing) for details and examples. 
 * You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for the cool access feature, you cannot convert it back to a non-cool-access capacity pool.  
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled. 
 * After the capacity pool is configured with the option to support cool access volumes, the setting cannot be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level will stop further tiering of data.  
@@ -36,7 +36,7 @@ The Standard service level with cool access feature provides options for the “
 
 ## Register the feature
 
-This feature is currently in preview preview. 
+This feature is currently in preview. 
 
 <!-- 
 This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
@@ -64,7 +64,7 @@ To use the Standard storage with cool access feature, you need to configure the 
 
 ### Configure the capacity pool for cool access
 
-Before creating or enable a cool-access volume, you need to configure a Standard service-level capacity pool with cool access. The capacity pool must use the auto [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types). You can do so in one of the following ways: 
+Before creating or enabling a cool-access volume, you need to configure a Standard service-level capacity pool with cool access. The capacity pool must use the auto [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types). You can do so in one of the following ways: 
 
 * [Create a new Standard service-level capacity pool with cool access.](#enable-cool-access-new-volume) 
 * [Modify an existing Standard service-level capacity pool to support cool-access volumes.](#enable-cool-access-existing-pool) 
@@ -92,7 +92,7 @@ Standard service with cool access can be enabled during the creation of a new vo
 
 #### Enable cool access on a new volume 
 
-1. Select the **Volumes** menu from the **Capacity Pools** menu. Click **+ Add volume** to create a new NFS, SMB, or dual-protocol volume. 
+1. Select the **Volumes** menu from the **Capacity Pools** menu. Select **+ Add volume** to create a new NFS, SMB, or dual-protocol volume. 
 1. In the **Basics** tab of the **Create a Volume** page, set the following options to enable the volume for cool access: 
 
 * **Enable Cool Access**
@@ -101,7 +101,7 @@ Standard service with cool access can be enabled during the creation of a new vo
 * **Coolness Period**
     This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days.         
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.jpg" alt-text="Image showing the Create a volume field. Under the basics tab, there is an option to Enable Cool Access with a checkbox selected. There is a coolness period field which access a numerical string between 7 and 63 days. The image shows 31 as the value in the field. " lightbox="../media/azure-netapp-files/cool-access-new-volume.jpg"::: 
+:::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.jpg" alt-text="Image showing the Create a volume field. Under the basics tab, there's an option to Enable Cool Access with a checkbox selected. There's a coolness period field which accesses a numerical string between 7 and 63 days. The image shows 31 as the value in the field. " lightbox="../media/azure-netapp-files/cool-access-new-volume.jpg"::: 
 
 #### Enable cool access on an existing volume 
 
