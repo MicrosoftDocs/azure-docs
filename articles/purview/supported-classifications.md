@@ -29,7 +29,7 @@ Microsoft Purview classifies data by using [RegEx](https://wikipedia.org/wiki/Re
 The City, Country, and Place filters have been prepared using best datasets available for preparing the data.
 
 ## Machine Learning model based classifications
-### Person Name
+## Person Name
 
 Person Name machine learning model has been trained using global datasets of names in English language.
 
