@@ -332,13 +332,11 @@ To turn number matching off, you will need to PATCH remove **numberMatchingRequi
 To enable number matching in the Azure AD portal, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. Click **Basics**.
-1. Click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Push**. Only users who are enabled for Microsoft Authenticator will see number matching. Anyone who isn't enabled for Microsoft Authenticator is unaffected.
+1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Push**. Only users who are enabled for Microsoft Authenticator will see number matching. Anyone who isn't enabled for Microsoft Authenticator is unaffected.
 
    :::image type="content" border="true" source="./media/how-to-mfa-number-match/enable-settings-number-match.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Push authentication mode.":::
 
-1. Click **Configure**.
-1. For **Require number matching for push notifications (Preview)**, change **Status** to **Enabled**, choose who you want to include or exclude from number matching and then click **Save**. 
+1. On the **Configure** tab, for **Require number matching for push notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from number matching, and click **Save**. 
 
    :::image type="content" border="true" source="./media/how-to-mfa-number-match/number-match.png" alt-text="Screenshot of how to enable number matching.":::
 
