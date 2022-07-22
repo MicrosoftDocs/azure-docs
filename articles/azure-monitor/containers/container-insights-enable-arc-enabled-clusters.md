@@ -144,17 +144,6 @@ If the Azure Arc-enabled Kubernetes cluster is on Azure Stack Edge, then a custo
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
 ```
 
-### Option 5 - Add managed identity authentication to cluster
-
-For Enabling of the Azure Monitor for containers using Managed Identity auth, follow below instructions 
-
-Get the Azure Log Analytics workspace which configured for Azure Monitor for containers extension  
-
-az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters -n azuremonitor-containers 
-
-Enable Azure Monitor for containers extension with Managed Identity auth option using the Azure Log Analytics workspace obtained in above step. 
-
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspaceObtainedinAboveStep> 
 
 >[!NOTE]
 > If you are explicitly specifying the version of the extension to be installed in the create command, then ensure that the version specified is >= 2.8.2.
