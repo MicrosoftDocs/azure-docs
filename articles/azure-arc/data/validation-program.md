@@ -28,7 +28,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-|Cisco Hyperflex on VMware <br/> Cisco IKS ESXi 6.7 U3 |v1.19.5|v1.0.0_2021-07-30|15.0.2148.140| Not validated |
+|Cisco Hyperflex on VMware <br/> Cisco IKS ESXi 6.7 U3 |v1.20.14|v1.4.1_2022-03-08|15.0.2255.119| PostgreSQL 12.3 (Ubuntu 12.3-1) |
 
 ### Dell
 
@@ -44,7 +44,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-|HPE|1.20.0|v1.6.0_2022-05-02|16.0.41.7337|12.3 (Ubuntu 12.3-1)
+|HPE Superdome Flex 280|1.20.0|v1.8.0_2022-06-14|16.0.41.7339|12.3 (Ubuntu 12.3-1)
 
 ### Kublr
 
@@ -86,21 +86,20 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| TKGm v1.5.1 | 1.20.5 | v1.4.1_2022-03-08 | 15.0.2255.119|postgres 12.3 (Ubuntu 12.3-1)|
+| TKGm v1.5.1 | 1.20.5 | v1.4.1_2022-03-08 |15.0.2255.119|postgres 12.3 (Ubuntu 12.3-1)|
 
 ### WindRiver
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-|WindRiver| 1.18.1|v1.1.0_2021-11-02 |15.0.2195.191|postgres 12.3 (Ubuntu 12.3-1) |
+|WindRiver| v1.22.5|v1.1.0_2021-11-02 |15.0.2195.191|postgres 12.3 (Ubuntu 12.3-1) |
 
 ## Data services validation process
 
 The Sonobuoy Azure Arc-enabled data services plug-in automates the provisioning and testing of Azure Arc-enabled data services on a Kubernetes cluster.
 
 ### Prerequisites
-
-Install tools: 
+v1.22.5+vmware.1
 
 - [Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata)
 - [kubectl](https://kubernetes.io/docs/home/)

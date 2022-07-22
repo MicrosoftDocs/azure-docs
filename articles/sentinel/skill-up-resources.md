@@ -349,17 +349,24 @@ The next section on writing rules explains how to use KQL in the specific contex
 
 #### The recommended journey for learning Microsoft Sentinel KQL
 
-* Begin with the basics offered by the [Pluralsight KQL course](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch).
+* [Pluralsight KQL course](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch): Gives you the basics
+
+* [Must Learn KQL](https://aka.ms/MustLearnKQL): A 20-part KQL series that walks you through the basics of creating your first analytics rule (includes an assessment and certificate)
+
 * The Microsoft Sentinel KQL Lab: An interactive lab that teaches KQL with a focus on what you need for Microsoft Sentinel:
     * [Learning module (SC-200 part 4)](/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
     * [Presentation](https://onedrive.live.com/?authkey=%21AJRxX475AhXGQBE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21740&parId=66C31D2DBF8E0F71%21446&o=OneUp) or [lab URL](https://aka.ms/lademo)
-    * A [Jupyter Notebooks version](https://github.com/jjsantanna/azure_sentinel_learn_kql_lab/blob/master/azure_sentinel_learn_kql_lab.ipynb) that lets you test the queries within the notebook
+    * A [Jupyter notebooks version](https://github.com/jjsantanna/azure_sentinel_learn_kql_lab/blob/master/azure_sentinel_learn_kql_lab.ipynb) that lets you test the queries within the notebook
     * Learning webinar: [YouTube](https://youtu.be/EDCBLULjtCM) or [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmglwAjUjmYy2Qn5J-)
     * Reviewing lab solutions webinar: [YouTube](https://youtu.be/YKD_OFLMpf8) or [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmg0EKIi5gwXyccB44?e=sF6UG5)
+
 * [Pluralsight advanced KQL course](https://www.pluralsight.com/courses/microsoft-azure-data-explorer-advanced-query-capabilities)
+
 * "Optimizing Azure Microsoft Sentinel KQL queries performance" webinar: [YouTube](https://youtu.be/jN1Cz0JcLYU), [MP4](https://aka.ms/AzS_09SEP20_MP4) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmg2imjIS8NABc26b-?e=rXZrR5)
-* Using ASIM in your KQL queries: [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
-* "KQL framework for Microsoft Sentinel: Empowering you to become KQL-savvy" webinar: [YouTube](https://youtu.be/j7BQvJ-Qx_k) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmkgqKSV-m1QWgkzKT?e=QAilwu).
+
+* "Using ASIM in your KQL queries": [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+
+* "KQL framework for Microsoft Sentinel: Empowering you to become KQL-savvy" webinar: [YouTube](https://youtu.be/j7BQvJ-Qx_k) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmkgqKSV-m1QWgkzKT?e=QAilwu)
 
 As you learn KQL, you might also find the following references useful:
 
