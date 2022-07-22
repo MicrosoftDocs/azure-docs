@@ -103,21 +103,23 @@ ml_client = MLClient(
    resource_group,
    workspace)
 
+# target name of compute where job will be executed
+computeName="cpu-cluster"
 job = command(
     code="./src",
     command="python hello.py",
     environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest",
-    compute="cpu-cluster",
+    compute=computeName,
     display_name="hello-world-example",
 )
 
 returned_job = ml_client.create_or_update(job)
 aml_url = returned_job.studio_url
-print(aml_url)
+print("Monitor your job at", aml_url)
 ```
 
 > [!TIP]
-> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `compute_target='cpu-cluster'` as well.
+> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `computeName='cpu-cluster'` as well.
 
 ### Understand the code
 

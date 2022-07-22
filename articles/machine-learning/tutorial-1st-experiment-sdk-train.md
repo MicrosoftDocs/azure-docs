@@ -200,22 +200,23 @@ if __name__ == "__main__":
     )
     ml_client.environments.create_or_update(env_docker_image)
 
+    # target name of compute where job will be executed
+    computeName="cpu-cluster"
     job = command(
         code="./src",
         command="python train.py",
         environment=f"{env_name}@latest",
-        compute="cpu-cluster",
+        compute=computeName,
         display_name="day1-experiment-train",
     )
 
     returned_job = ml_client.create_or_update(job)
     aml_url = returned_job.studio_url
-    print(aml_url)
-
+    print("Monitor your job at", aml_url)
 ```
 
 > [!TIP]
-> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `compute_target='cpu-cluster'` as well.
+> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `computeName='cpu-cluster'` as well.
 
 ### Understand the code changes
 
@@ -229,7 +230,7 @@ if __name__ == "__main__":
 :::row-end:::
 :::row:::
    :::column span="":::
-      environment=f"{env_name}@latest",
+      `environment=f"{env_name}@latest"`
    :::column-end:::
    :::column span="2":::
       Adds the environment to [command](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command).

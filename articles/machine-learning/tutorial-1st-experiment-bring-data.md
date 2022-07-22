@@ -188,7 +188,7 @@ if __name__ == "__main__":
     resource_group = "<RESOURCE_GROUP>"
     workspace = "<AML_WORKSPACE_NAME>"
 
-    # Client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
+    # client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
     ml_client = MLClient(
         default_azure_credential,
         subscription_id,
@@ -207,6 +207,8 @@ if __name__ == "__main__":
     )
     ml_client.environments.create_or_update(env_docker_image)
 
+    # target name of compute where job will be executed
+    computeName="cpu-cluster"
     job = command(
         code="./src",
         # the parameter will match the training script argument name
@@ -214,17 +216,17 @@ if __name__ == "__main__":
         command="python train.py --data_path ${{inputs.data_path}}",
         inputs=my_job_inputs,
         environment=f"{env_name}@latest",
-        compute="cpu-cluster",
+        compute=computeName,
         display_name="day1-experiment-data",
     )
 
     returned_job = ml_client.create_or_update(job)
     aml_url = returned_job.studio_url
-    print(aml_url)
+    print("Monitor your job at", aml_url)
 ```
 
 > [!TIP]
-> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `compute_target='cpu-cluster'` as well.
+> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `computeName='cpu-cluster'` as well.
 
 ### Understand the code changes
 
