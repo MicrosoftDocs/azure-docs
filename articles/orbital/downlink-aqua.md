@@ -79,7 +79,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    > You can confirm that your spacecraft resource for AQUA is authorized by checking that the **Authorization status** shows **Allowed** in the spacecraft's overiew page.
 
 
-## Prepare a virtual machine (VM) and network to receive the downlinked AQUA data
+## Prepare your virtual machine (VM) and network to receive AQUA data
 
 1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint virtual machine (VM)
 2. [Create a virtual machine (VM)](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network above. Ensure that this VM has the following specifications:
