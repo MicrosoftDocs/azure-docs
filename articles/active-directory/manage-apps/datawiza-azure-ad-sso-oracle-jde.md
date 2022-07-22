@@ -123,7 +123,7 @@ To integrate Oracle JDE with Azure AD:
 
 DAB gets user attributes from IdP and passes them to the upstream application with a header or cookie.
 
-For the Oracle JDE application to recognize the user correctly, there is another configuration step. Using a certain name, it instructs DAB to pass the values from the IdP to the application through the HTTP header.
+For the Oracle JDE application to recognize the user correctly, there's another configuration step. Using a certain name, it instructs DAB to pass the values from the IdP to the application through the HTTP header.
 
 1. In Oracle JDE, from the left navigation, select **Applications**.
 
@@ -169,7 +169,7 @@ For the Oracle JDE application to recognize the user correctly, there is another
 
 ## Enable Azure AD Multi-Factor Authentication 
 
-To provide an extra level of security for sign-ins, enforce multifactor authentication (MFA) for user sign-in. One way to achive this is to [enable MFA on the Azure portal](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa).
+To provide an extra level of security for sign-ins, enforce multifactor authentication (MFA) for user sign-in. One way to achieve this is to [enable MFA on the Azure portal](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa).
 
 1. Sign in to the Azure portal as a **Global Administrator**.
 
