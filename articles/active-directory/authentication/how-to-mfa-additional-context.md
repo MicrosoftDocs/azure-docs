@@ -113,7 +113,7 @@ The value of Authentication Mode can be either **any** or **push**, depending on
 
 You might need to PATCH the entire schema to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example shows how to update **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
-Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s includeTargets will see the application name or geographic location. Users who aren't enabled for Microsoft Authenticator won't see these features.
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will see the application name or geographic location. Users who aren't enabled for Microsoft Authenticator won't see these features.
 
 ```json
 //Retrieve your existing policy via a GET. 
@@ -164,29 +164,51 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
  
 #### Example of how to enable application name and geographic location for separate groups
  
-Change the **displayAppInformationRequiredState** value from **default** to **enabled.** 
-Change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+In **featureSettings**, change **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled.** 
+Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
 
-You need to PATCH the entire includeTarget to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **displayAppInformationRequiredState**. 
+You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
+
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will see the application name or geographic location. Users who aren't enabled for Microsoft Authenticator won't see these features.
+
 
 ```json
-//Copy paste the below in the Request body section as shown below.
-//Leverage the Response body to create the Request body section. Then update the Request body similar to the Request body as shown below.
-//Change query to PATCH and run query
-
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
+    "featureSettings": {
+        "displayAppInformationRequiredState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "44561710-f0cb-4ac9-ab9c-e6c394370823"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
+            }
+        },
+        "displayLocationInformationRequiredState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "a229e768-961a-4401-aadb-11d836885c11"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
+            }
+        }
+    },
     "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
-            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a",
+            "id": "all_users",
+            "isRegistrationRequired": false,
             "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
-            "numberMatchingRequiredState": "enabled"
         }
     ]
 }
