@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: how-to
-ms.date: 07/20/2022
+ms.date: 07/22/2022
 ms.custom: devx-track-dotnet
 ---
 
@@ -96,7 +96,7 @@ Skip this step and use the information for the portal in the next step.
 
 Define a new instance of the ``MongoClient,`` class using the constructor and the connection string variable you set previously.
 
-:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/101-connection/index.js" id="client_credentials":::
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/101-manage-connection/program.cs" id="client_credentials":::
 
 ## Use MongoDB client classes with Cosmos DB for MongoDB API
 

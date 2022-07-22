@@ -37,45 +37,45 @@ Here are some quick rules when naming a collection:
 
 Use an instance of the **Collection** class to access the collection on the server.
 
-* [MongoClient.Db.Collection](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html)
+* [MongoClient.Database.Collection](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_MongoCollection_1.htm)
 
-The following code snippets assume you've already created your [client connection](how-to-javascript-get-started.md#create-mongoclient-with-connection-string) and that you [close your client connection](how-to-javascript-get-started.md#close-the-mongoclient-connection) after these code snippets.
+The following code snippets assume you've already created your [client connection](how-to-dotnet-get-started.md#create-mongoclient-with-connection-string).
 
 ## Create a collection
 
 To create a collection, insert a document into the collection.
 
-* [MongoClient.Db.Collection](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection)
-* [MongoClient.Db.Collection.insertOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertOne)
-* [MongoClient.Db.Collection.insertMany](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertMany)
+* [MongoClient.Database.Collection](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_MongoCollection_1.htm)
+* [MongoClient.Database.Collection.InsertOne](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne_1.htm)
+* [MongoClient.Database.Collection.InsertMany](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertMany_1.htm)
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/203-insert-doc/index.js" id="database_object":::
+:::code language="csharp" source="~/samples-cosmosdb-mongodb-dotnet/203-insert-doc/program.cs" id="database_object":::
 
 ## Drop a collection
 
-* [MongoClient.Db.dropCollection](https://mongodb.github.io/node-mongodb-native/4.7/classes/Db.html#dropCollection)
+* [MongoClient.Database.DropCollection](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoDatabase_DropCollection.htm)
 
 Drop the collection from the database to remove it permanently. However, the next insert or update operation that accesses the collection will create a new collection with that name.
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/299-drop-collection/index.js" id="drop_collection":::
+:::code language="csharp" source="~/samples-cosmosdb-mongodb-dotnet/299-drop-collection/program.cs" id="drop_collection":::
 
 The preceding code snippet displays the following example console output:
 
-:::code language="console" source="~/samples-cosmosdb-mongodb-javascript/299-drop-collection/index.js" id="console_result":::
+:::code language="console" source="~/samples-cosmosdb-mongodb-dotnet/299-drop-collection/program.cs" id="console_result":::
 
 ## Get collection indexes
 
 An index is used by the MongoDB query engine to improve performance to database queries.
 
-* [MongoClient.Db.Collection.indexes](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#indexes)
+* [MongoClient.Database.Collection.GetIndexes](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoCollection_GetIndexes.htm)
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/225-get-collection-indexes/index.js" id="collection":::
+:::code language="csharp" source="~/samples-cosmosdb-mongodb-dotnet/225-get-collection-indexes/program.cs" id="collection":::
 
 The preceding code snippet displays the following example console output:
 
-:::code language="console" source="~/samples-cosmosdb-mongodb-javascript/225-get-collection-indexes/index.js" id="console_result":::
+:::code language="console" source="~/samples-cosmosdb-mongodb-dotnet/225-get-collection-indexes/program.cs" id="console_result":::
 
 ## See also
 
-- [Get started with Azure Cosmos DB MongoDB API and JavaScript](how-to-javascript-get-started.md)
-- [Create a database](how-to-javascript-manage-databases.md)
+- [Get started with Azure Cosmos DB MongoDB API and .NET](how-to-dotnet-get-started.md)
+- [Create a database](how-to-dotnet-manage-databases.md)
