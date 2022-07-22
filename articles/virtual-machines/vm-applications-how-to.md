@@ -270,6 +270,13 @@ $vmName = "myVM"
 $result = Get-AzVM -ResourceGroupName $rgName -VMName $vmName -Status
 $result.Extensions | Where-Object {$_.Name -eq "VMAppExtension"} | ConvertTo-Json
 ```
+To verify for VMSS:
+```powershell-interactive
+$rgName = "myResourceGroup"
+$vmssName = "myVMss"
+$result = Get-AzVmss -ResourceGroupName $rgName -VMScaleSetName $vmssName -Status
+$result.Extensions | Where-Object {$_.Name -eq "VMAppExtension"} | ConvertTo-Json
+```
 
 ### [REST](#tab/rest2)
 
