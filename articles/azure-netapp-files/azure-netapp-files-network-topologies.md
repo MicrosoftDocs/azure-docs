@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/06/2022
+ms.date: 07/22/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -66,7 +66,7 @@ The following table describes what’s supported for each network features confi
 |     Azure NetApp Files delegated subnets per VNet    |     1    |     1    |
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
 |     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
-|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     No    |     No    |
+|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     Yes    |     No    |
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
 |     Azure policies (for   example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
@@ -80,7 +80,7 @@ The following table describes the network topologies supported by each network f
 |---|---|---|
 |     Connectivity to volume in a local VNet    |     Yes    |     Yes    |
 |     Connectivity to volume in a peered VNet (Same region)    |     Yes    |     Yes    |
-|     Connectivity to volume in a peered VNet (Cross region or global peering)    |     No    |     No    |
+|     Connectivity to volume in a peered VNet (Cross region or global peering)    |     Yes*    |     No    |
 |     Connectivity to a volume over ExpressRoute gateway    |     Yes    |     Yes    |
 |     ExpressRoute (ER) FastPath    |     Yes    |     No    |
 |     Connectivity from on-premises to a volume in a spoke VNet   over ExpressRoute gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
@@ -90,6 +90,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
 |     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
 |     Connectivity over Virtual WAN (VWAN)    |     No    |     No    |
+* This option will incur a charge. ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-network/). For more general information, see [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) for information. 
 
 ## Virtual network for Azure NetApp Files volumes
 
@@ -103,7 +104,7 @@ Before provisioning an Azure NetApp Files volume, you need to create an Azure vi
 
 Subnets segment the virtual network into separate address spaces that are usable by the Azure resources in them.  Azure NetApp Files volumes are contained in a special-purpose subnet called a [delegated subnet](../virtual-network/virtual-network-manage-subnet.md). 
 
-Subnet delegation gives explicit permissions to the Azure NetApp Files service to create service-specific resources in the subnet.  It uses a unique identifier in deploying the service. In this case, a network interface is created to enable connectivity to Azure NetApp Files.
+Subnet delegation gives explicit permissions to the Azure NetApp Files service to create service-specific resources in the subnet. It uses a unique identifier in deploying the service. In this case, a network interface is created to enable connectivity to Azure NetApp Files.
 
 If you use a new VNet, you can create a subnet and delegate the subnet to Azure NetApp Files by following instructions in [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md). You can also delegate an existing empty subnet that's not delegated to other services.
 
