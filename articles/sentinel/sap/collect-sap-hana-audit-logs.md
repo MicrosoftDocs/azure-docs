@@ -22,7 +22,7 @@ If you have SAP HANA database audit logs configured with Syslog, you'll also nee
 
 1. Make sure that the SAP HANA audit log trail is configured to use Syslog, as described in *SAP Note 0002624117*, which is accessible from the [SAP Launchpad support site](https://launchpad.support.sap.com/#/notes/0002624117). For more information, see:
 
-    - [SAP HANA Audit Trail - Best Practice](https://archive.sap.com/documents/docs/DOC-51098)
+    - [SAP HANA Audit Trail - Best Practice](https://www.tutorialspoint.com/sap_hana/sap_hana_auditing.htm)
     - [Recommendations for Auditing](https://help.sap.com/viewer/742945a940f240f4a2a0e39f93d3e2d4/2.0.05/en-US/5c34ecd355e44aa9af3b3e6de4bbf5c1.html)
 
 1. Check your operating system Syslog files for any relevant HANA database events.
