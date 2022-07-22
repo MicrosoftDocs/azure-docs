@@ -151,9 +151,13 @@ Next, add the Java code that will use JDBC to store and retrieve data from your 
 
 #### Connection Pooling Setup
 
-Using the below code create a `DButil.java` file, which contains the **DButil** class. The DBUtil class sets up a connection pool to Postgres using [HikariCP](https://github.com/brettwooldridge/HikariCP). In the below application, we will be using this class to connect to postgres and start querying. This ensures that whenever your application uses a connection from the pool and avoids generating a new connection every time. Application side connection pooling is strongly recommended because:
-* It ensures that the application doesn't generate too many connections to the database, avoiding connection limit exceeded issues . 
-* Connection pooling also helps persist & reuse connections from the pool, instead of generating new connections every time. Generating a new connection can be expensive as it involving forking the postgres process every time a new connection is generated.Hence application side connection pooling can help drastically improve performance, both latency and throughput.
+[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
+
+Using the code below, create a `DButil.java` file, which contains the `DButil`
+class. The `DBUtil` class sets up a connection pool to PostgreSQL using
+[HikariCP](https://github.com/brettwooldridge/HikariCP). In the example
+application, we'll be using this class to connect to PostgreSQL and start
+querying.
 
 ```java
 //DButil.java

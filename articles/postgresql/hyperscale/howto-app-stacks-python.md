@@ -50,11 +50,7 @@ The following code example creates a connection pool to your Postgres database u
 the [psycopg2.pool](https://www.psycopg.org/docs/pool.html) library. **pool.getconn()** is used to get a connection from the pool.
 [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) function executes the SQL query against the database.
 
-> [!TIP]
->
-> Application side connection pooling is strongly recommended because:
-> * It ensures that the application doesn't generate too many connections to the database, avoiding connection limit exceeded issues. 
-> * Connection pooling also helps persist & reuse connections from the pool, instead of generating new connections every time. Generating a new connection can be expensive as it involves forking the postgres process every time a new connection is generated. Hence application side connection pooling can help drastically improve performance, both latency and throughput.
+[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
 ```python
 import psycopg2

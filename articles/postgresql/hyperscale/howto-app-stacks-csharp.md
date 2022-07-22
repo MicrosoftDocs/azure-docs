@@ -41,11 +41,7 @@ Use the following code to connect and load the data using CREATE TABLE and INSER
 * [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) to set the CommandText property
 * [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run database commands.
 
-> [!TIP]
->
-> If you observe, the below sample code uses a connection pool to create and manage connections to Postgres. Application side connection pooling is strongly recommended because:
-> * It ensures that the application doesn't generate too many connections to the database, avoiding connection limit exceeded issues. 
-> * Connection pooling also helps persist & reuse connections from the pool, instead of generating new connections every time. Generating a new connection can be expensive as it involves forking the postgres process every time a new connection is generated. Hence application side connection pooling can help drastically improve performance, both latency and throughput.
+[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
 ```csharp
 using System;

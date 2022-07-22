@@ -81,11 +81,7 @@ module.exports = new Promise((resolve, reject) => {
 });
 ```
 
-> [!TIP]
->
-> If you observe, the above code helps setup a [connection pool](https://node-postgres.com/features/pooling) to create and manage connections to Postgres. Application side connection pooling is strongly recommended because: 
-> * It ensures that the application doesn't generate too many connections to the database, avoiding connection limit exceeded issues. 
-> * Connection pooling also helps persist & reuse connections from the pool, instead of generating new connections every time. Generating a new connection can be expensive as it involves forking the postgres process every time a new connection is generated. Hence application side connection pooling can help drastically improve performance, both latency and throughput.
+[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
 Next, use the following code to connect and load the data using CREATE TABLE
 and INSERT INTO SQL statements.
