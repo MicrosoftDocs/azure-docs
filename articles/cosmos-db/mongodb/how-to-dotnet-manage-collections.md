@@ -49,7 +49,7 @@ To create a collection, insert a document into the collection.
 * [MongoClient.Database.Collection.InsertOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertOne)
 * [MongoClient.Database.Collection.InsertMany](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertMany)
 
-:::code language="dotnet" source="~/samples-cosmosdb-mongodb-dotnet/110-manage-collections/program.cs" id="create_collection":::
+:::code language="dotnet" source="~/azure-cosmos-mongodb-dotnet/110-manage-collections/program.cs" id="create_collection":::
 
 ## Drop a collection
 
@@ -57,7 +57,7 @@ To create a collection, insert a document into the collection.
 
 Drop the collection from the database to remove it permanently. However, the next insert or update operation that accesses the collection will create a new collection with that name.
 
-:::code language="csharp" source="~/samples-cosmosdb-mongodb-dotnet/110-manage-collections/program.cs" id="drop_collection":::
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/110-manage-collections/program.cs" id="drop_collection":::
 
 ## Get collection indexes
 
@@ -65,7 +65,7 @@ An index is used by the MongoDB query engine to improve performance to database 
 
 * [MongoClient.Database.Collection.indexes](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#indexes)
 
-:::code language="csharp" source="~/samples-cosmosdb-mongodb-dotnet/110-manage-collections/program.cs" id="get_indexes":::
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/110-manage-collections/program.cs" id="get_indexes":::
 
 
 ## See also

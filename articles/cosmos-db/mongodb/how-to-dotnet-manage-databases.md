@@ -47,13 +47,13 @@ You can use the `MongoClient` to get an instance of a database, or create one if
 
 The following code snippet creates a new database by inserting a document into a collection. Remember, the database will not be created until it is needed for this type of operation.
 
-:::code language="dotnet" source="~/samples-cosmosdb-mongodb-dotnet/105-manage-databases/program.cs" id="create_database":::
+:::code language="dotnet" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="create_database":::
 
 ## Get an existing database
 
 You can also retrieve an existing database by name to access its collections and documents.
 
-:::code language="dotnet" source="~/samples-cosmosdb-mongodb-dotnet/105-manage-databases/program.cs" id="get_database":::
+:::code language="dotnet" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="get_database":::
 
 ## Get a list of all databases
 
@@ -61,7 +61,7 @@ You can also easily retrieve a list of all the databases on the server using the
 
 * [MongoClient.Database.ListDatabaseNames](https://mongodb.github.io/node-mongodb-native/4.7/classes/Db.html)
 
-:::code language="dotnet" source="~/samples-cosmosdb-mongodb-dotnet/105-manage-databases/program.cs" id="get_all_databases":::
+:::code language="dotnet" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="get_all_databases":::
 
 ## Drop a database
 
@@ -69,7 +69,7 @@ A database is removed from the server using the `DropDatabase` method on the DB 
 
 * [MongoClient.DropDatabase](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoClient_DropDatabase_1.htm)
 
-:::code language="dotnet" source="~/samples-cosmosdb-mongodb-dotnet/105-manage-databases/program.cs" id="drop_database":::
+:::code language="dotnet" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="drop_database":::
 
 ## See also
 
