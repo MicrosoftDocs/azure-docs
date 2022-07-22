@@ -107,11 +107,13 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 #### Example of how to enable additional context for all users
 
-Change the **displayAppInformationRequiredState** from **default** to **enabled**. 
+In **featureSettings**, change **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled**. 
 
 The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we'll use **any**, but if you do not want to allow passwordless, use **push**.
 
-You need to PATCH the entire includeTarget to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **displayAppInformationRequiredState**. 
+You might need to PATCH the entire schema to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example shows how to update **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
+
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s includeTargets will see the application name or geographic location. Users who aren't enabled for Microsoft Authenticator won't see these features.
 
 ```json
 //Retrieve your existing policy via a GET. 
@@ -123,18 +125,40 @@ You need to PATCH the entire includeTarget to prevent overwriting any previous c
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
+    "featureSettings": {
+        "displayAppInformationRequiredState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "all_users"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
+            }
+        },
+        "displayLocationInformationRequiredState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "all_users"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
+            }
+        }
+    },
     "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
             "id": "all_users",
+            "isRegistrationRequired": false,
             "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
-            "numberMatchingRequiredState": "enabled"
         }
     ]
-}
- 
+} 
 ```
  
 To confirm this update has applied, run the GET request below using the endpoint below.
