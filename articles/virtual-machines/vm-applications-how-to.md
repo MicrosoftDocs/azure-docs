@@ -148,7 +148,7 @@ az vm application set \
 For setting multiple applications on a VM:
 
 ```azurecli-interactive
-az vm applicaction set \
+az vm application set \
 	--resource-group myResourceGroup \
 	--name myVM \
 	--app-version-ids /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.1 \
