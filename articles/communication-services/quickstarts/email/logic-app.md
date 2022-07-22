@@ -62,7 +62,7 @@ Add a new step in your workflow by using the Azure Communication Services Email 
 
 To manually start your workflow, on the designer toolbar, select **Run**. The workflow should create a user, issue an access token for that user, then remove it and delete the user. For more information, review [how to run your workflow](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow). You can check the outputs of these actions after the workflow runs successfully.
 
-You should have an email in the address specified. Additionally, you can use the Get email message status action to check the status of emails send through the Send email action. To learn more actions, check the [Azure Communication Services Email connector](https://docs.microsoft.com/connectors/acsemail/)  documentation.
+You should have an email in the address specified. Additionally, you can use the Get email message status action to check the status of emails send through the Send email action. To learn more actions, check the [Azure Communication Services Email connector](/connectors/acsemail/)  documentation.
 
 ## Clean up resources
 
