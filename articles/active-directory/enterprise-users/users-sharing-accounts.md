@@ -4,9 +4,8 @@ description: Describes how Azure Active Directory enables organizations to secur
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager:rkarlin
+manager: rkarlin
 editor: ''
-
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
