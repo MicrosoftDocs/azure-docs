@@ -61,6 +61,8 @@ If you have a Kubernetes cluster with Windows nodes, then please review and conf
 
 The following table lists the proxy and firewall configuration information that's required for the containerized agent to communicate with Container insights. All network traffic from the agent is outbound to Azure Monitor.
 
+**Azure public cloud**
+
 |Agent resource|Port |
 |--------------|------|
 | `*.ods.opinsights.azure.com` | 443 |
@@ -73,9 +75,10 @@ The following table lists the additional firewall configuration required for man
 
 |Agent resource| Purpose | Port |
 |--------------|------|---|
-| global.handler.control.monitor.azure.com | Access control service | 443 |
-| \<cluster-region-name\>.handler.control.monitor.azure.com | Fetch data collection rules for specific AKS cluster | 443 |
+| `global.handler.control.monitor.azure.com` | Access control service | 443 |
+| `<cluster-region-name>.handler.control.monitor.azure.com` | Fetch data collection rules for specific AKS cluster | 443 |
 
+**Azure China 21Vianet cloud**
 
 The following table lists the proxy and firewall configuration information for Azure China 21Vianet:
 
@@ -90,8 +93,10 @@ The following table lists the additional firewall configuration required for man
 
 |Agent resource| Purpose | Port |
 |--------------|------|---|
-| global.handler.control.monitor.azure.cn | Access control service | 443 |
-| \<cluster-region-name\>.handler.control.monitor.azure.cn | Fetch data collection rules for specific AKS cluster | 443 |
+| `global.handler.control.monitor.azure.cn` | Access control service | 443 |
+| `<cluster-region-name>.handler.control.monitor.azure.cn` | Fetch data collection rules for specific AKS cluster | 443 |
+
+**Azsure government cloud**
 
 The following table lists the proxy and firewall configuration information for Azure US Government:
 
@@ -105,8 +110,8 @@ The following table lists the additional firewall configuration required for man
 
 |Agent resource| Purpose | Port |
 |--------------|------|---|
-| global.handler.control.monitor.azure.us | Access control service | 443 |
-| \<cluster-region-name\>.handler.control.monitor.azure.us | Fetch data collection rules for specific AKS cluster | 443 |
+| `global.handler.control.monitor.azure.us` | Access control service | 443 |
+| `<cluster-region-name>.handler.control.monitor.azure.us` | Fetch data collection rules for specific AKS cluster | 443 |
 
 
 ## Authentication

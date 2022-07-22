@@ -44,8 +44,8 @@ ms.reviewer: aul
 
     |Agent resource| Purpose | Port |
     |--------------|------|---|
-    | global.handler.control.monitor.azure.com | Access control service | 443 |
-    | \<cluster-region-name\>.handler.control.monitor.azure.com | Fetch data collection rules for specific AKS cluster | 443 |
+    | `global.handler.control.monitor.azure.com` | Access control service | 443 |
+    | `<cluster-region-name>.handler.control.monitor.azure.com` | Fetch data collection rules for specific AKS cluster | 443 |
 
 
     If your Azure Arc-enabled Kubernetes resource is in Azure US Government environment, following endpoints need to be enabled for outbound access:
@@ -60,8 +60,8 @@ ms.reviewer: aul
 
     |Agent resource| Purpose | Port |
     |--------------|------|---|
-    | global.handler.control.monitor.azure.cn | Access control service | 443 |
-    | \<cluster-region-name\>.handler.control.monitor.azure.cn | Fetch data collection rules for specific AKS cluster | 443 |
+    | `global.handler.control.monitor.azure.cn` | Access control service | 443 |
+    | `<cluster-region-name>.handler.control.monitor.azure.cn` | Fetch data collection rules for specific AKS cluster | 443 |
 
 
 - If you are using an Arc enabled cluster on AKS, and previously installed [monitoring for AKS](./container-insights-enable-existing-clusters.md), please ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install
@@ -204,16 +204,16 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 ## Verify extension installation status
 Once you have successfully created the Azure Monitor extension for your Azure Arc-enabled Kubernetes cluster, you can additionally check the status of installation using the Azure portal or CLI. Successful installations should show the status as 'Installed'. If your status is showing 'Failed' or remains in the 'Pending' state for long periods of time, proceed to the Troubleshooting section below.
 
-## [Azure portal](#tab/portal)
-### Azure portal
+### [Azure portal](#tab/portal)
 1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
 2. Select the 'Extensions' item under the 'Settings' section of the resource blade
 3. You should see an extension with the name 'azuremonitor-containers' listed, with the listed status in the 'Install status' column
-### Azure CLI
+### [CLI](#tab/cli)
 Run the following command to show the latest status of the `Microsoft.AzureMonitor.Containers` extension
 ```azurecli
 az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters -n azuremonitor-containers
 ```
+---
 
 ## Migrate to managed identity authentication (preview)
 Use the flowing guidance to migrate an existing extension instance to managed identity authentication (preview).
