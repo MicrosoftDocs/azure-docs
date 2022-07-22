@@ -122,7 +122,7 @@ conceptualContent:
         - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
           itemType: reference
           text:  Java Client library
-        - url: https://aka.ms/spring/msdocs/keyvault/secrets/reference
+        - url: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#secret-management
           itemType: reference
           text:  Spring Client library
         - url: /javascript/api/overview/azure/key-vault-index
@@ -178,9 +178,9 @@ conceptualContent:
         - url: /azure/databricks/security/secrets/secret-scopes
           itemType: overview
           text: Azure Databricks - Secrets Management with Key Vault
-        - url: https://aka.ms/spring/msdocs/keyvault/secrets/quickstart
+        - url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
           itemType: overview
           text: Spring Integration - Read a secret from Azure Key Vault in a Spring Boot application
-        - url: https://aka.ms/spring/msdocs/keyvault/certificates/quickstart
+        - url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
           itemType: overview
           text: Spring Integration - Secure Spring Boot apps using Azure Key Vault certificates

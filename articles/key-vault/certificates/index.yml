@@ -57,7 +57,7 @@ landingContent:
           - text: Java
             url: quick-create-java.md
           - text: Spring
-            url: https://aka.ms/spring/msdocs/keyvault/certificates/quickstart
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
           - text: Import a certificate in Key Vault 
             url: tutorial-import-certificate.md
 
