@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 05/02/2022
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications
