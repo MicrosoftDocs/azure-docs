@@ -171,7 +171,6 @@ You need to PATCH the entire schema to prevent overwriting any previous configur
 
 Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will see the application name or geographic location. Users who aren't enabled for Microsoft Authenticator won't see these features.
 
-
 ```json
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
@@ -217,6 +216,56 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 To verify, RUN GET again and verify the ObjectID
 GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
  
+#### Example of how to disable application name and only enable geographic location 
+ 
+In **featureSettings**, change the state of **displayAppInformationRequiredState** to **default** or **disabled** and **displayLocationInformationRequiredState** to **enabled.** 
+Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+
+You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
+
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will see the application name or geographic location. Users who aren't enabled for Microsoft Authenticator won't see these features.
+
+```json
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
+    "id": "MicrosoftAuthenticator",
+    "state": "enabled",
+    "featureSettings": {
+        "displayAppInformationRequiredState": {
+            "state": "disabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "44561710-f0cb-4ac9-ab9c-e6c394370823"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
+            }
+        },
+        "displayLocationInformationRequiredState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "a229e768-961a-4401-aadb-11d836885c11"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
+            }
+        }
+    },
+    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets": [
+        {
+            "targetType": "group",
+            "id": "all_users",
+            "isRegistrationRequired": false,
+            "authenticationMode": "any",
+        }
+    ]
+}
+```
 
 #### Example of error when enabling additional context for multiple groups
 

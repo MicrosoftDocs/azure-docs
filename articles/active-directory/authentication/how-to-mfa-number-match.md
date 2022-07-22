@@ -167,7 +167,7 @@ Note that the value of Authentication Mode can be either **any** or **push**, de
 
 You might need to patch the entire schema to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **numberMatchingRequiredState** under **featureSettings**. 
 
-Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s includeTargets will see the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see a number match.
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will see the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see a number match.
 
 ```json
 //Retrieve your existing policy via a GET. 
@@ -216,7 +216,7 @@ Inside the **includeTarget**, you will need to change the **id** from **all_user
 
 You need to PATCH the entire configuration to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
 
-Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s includeTargets will see the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see a number match.
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will see the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see a number match.
 
 ```json
 {
@@ -259,7 +259,7 @@ You need to change the **id** of the **excludeTarget** to `00000000-0000-0000-00
 
 You need to PATCH the entire configuration to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
 
-Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s includeTargets will be excluded from the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see a number match.
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will be excluded from the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see a number match.
 
 ```json
 {
