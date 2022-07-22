@@ -53,7 +53,7 @@ DMZ:
 
 The following steps are specific for the networking described in the example scenario. Ensure that the virtual switches used and the configurations used align with your networking environment.
 
->[!INFO]
+> [!INFO]
 > The steps in this article assume that the EFLOW VM was deployed with an *external virtual switch* connected to the *secure network (offline)*. You can change the following steps to your specific network configuration you want to achieve. For more information about EFLOW multiple NIcs support, see [Azure IoT Edge for Linux on Windows virtual multiple NIC configurations](./how-to-configure-multiple-nics.md).
 
 To finish the provisioning of the EFLOW VM and communicate with Azure, you need to assign another NIC that is connected to the DMZ network (online). 
