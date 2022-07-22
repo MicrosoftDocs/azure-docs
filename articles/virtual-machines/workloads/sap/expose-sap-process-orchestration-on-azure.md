@@ -69,7 +69,7 @@ One of the scenarios for SAP Process Orchestration communication is inbound flow
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/inbound-1a.png" alt-text="Diagram that shows inbound http scenario with SAP Process Orchestration on Azure.":::
 
-## Scenario 1.B: Outbound http connectivity focused
+## Scenario 1.B: Outbound http/ftp connectivity focused
 
 For the reverse communication direction "Process Orchestration" may leverage the VNet routing to reach workloads on-premises or Internet-based targets via the Internet breakout. Azure Application Gateway acts as a reverse proxy in such scenarios. For `non-http` communication, consider adding Azure Firewall. For more information, see [Scenario 4](#scenario-4-file-based) and [Comparing Gateway components](#comparing-gateway-setups).
 

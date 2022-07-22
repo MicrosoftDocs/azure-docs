@@ -163,7 +163,11 @@
       - name: Cloudflare
         href: cloudflare-azure-ad-integration.md
       - name: Datawiza
-        href: datawiza-with-azure-ad.md 
+        items:
+        - name: Integrate Datawiza with Azure AD
+          href: datawiza-with-azure-ad.md 
+        - name: Configure Oracle JD Edwards application with Azure AD using Datawiza Access Broker
+          href: datawiza-azure-ad-sso-oracle-jde.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure
