@@ -79,11 +79,11 @@ The following table lists the additional firewall configuration required for man
 
 The following table lists the proxy and firewall configuration information for Azure China 21Vianet:
 
-|Agent resource|Port |Description | 
+|Agent resource| Purpose | Port | 
 |--------------|------|-------------|
-| `*.ods.opinsights.azure.cn` | 443 | Data ingestion |
-| `*.oms.opinsights.azure.cn` | 443 | OMS onboarding |
-| `dc.services.visualstudio.com` | 443 | For agent telemetry that uses Azure Public Cloud Application Insights |
+| `*.ods.opinsights.azure.cn` | Data ingestion | 443 |
+| `*.oms.opinsights.azure.cn` | OMS onboarding | 443 |
+| `dc.services.visualstudio.com` | For agent telemetry that uses Azure Public Cloud Application Insights | 443 |
 
 
 The following table lists the additional firewall configuration required for managed identity authentication.
@@ -95,11 +95,11 @@ The following table lists the additional firewall configuration required for man
 
 The following table lists the proxy and firewall configuration information for Azure US Government:
 
-|Agent resource|Port |Description | 
+|Agent resource| Purpose | Port | 
 |--------------|------|-------------|
-| `*.ods.opinsights.azure.us` | 443 | Data ingestion |
-| `*.oms.opinsights.azure.us` | 443 | OMS onboarding |
-| `dc.services.visualstudio.com` | 443 | For agent telemetry that uses Azure Public Cloud Application Insights |
+| `*.ods.opinsights.azure.us` | Data ingestion | 443 |
+| `*.oms.opinsights.azure.us` | OMS onboarding | 443 |
+| `dc.services.visualstudio.com` | For agent telemetry that uses Azure Public Cloud Application Insights | 443 |
 
 The following table lists the additional firewall configuration required for managed identity authentication.
 
@@ -111,6 +111,9 @@ The following table lists the additional firewall configuration required for man
 
 ## Authentication
 Container Insights now supports authentication using managed identity (preview). This is a secure and simplified authentication model where the monitoring agent uses the cluster’s managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster.
+
+> [!NOTE]
+> Container Insights preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Container Insights previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see [](https://../../aks/faq.md).
 
 ## Agent
 

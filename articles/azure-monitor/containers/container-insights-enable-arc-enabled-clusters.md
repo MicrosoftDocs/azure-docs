@@ -40,6 +40,14 @@ ms.reviewer: aul
     | `*.monitoring.azure.com` | 443 |
     | `login.microsoftonline.com` | 443 |
 
+    The following table lists the additional firewall configuration required for managed identity authentication.
+
+    |Agent resource| Purpose | Port |
+    |--------------|------|---|
+    | global.handler.control.monitor.azure.com | Access control service | 443 |
+    | \<cluster-region-name\>.handler.control.monitor.azure.com | Fetch data collection rules for specific AKS cluster | 443 |
+
+
     If your Azure Arc-enabled Kubernetes resource is in Azure US Government environment, following endpoints need to be enabled for outbound access:
 
     | Endpoint | Port |
@@ -47,7 +55,14 @@ ms.reviewer: aul
     | `*.ods.opinsights.azure.us` | 443 |
     | `*.oms.opinsights.azure.us` | 443 |
     | `dc.services.visualstudio.com` | 443 |
-    
+
+    The following table lists the additional firewall configuration required for managed identity authentication.
+
+    |Agent resource| Purpose | Port |
+    |--------------|------|---|
+    | global.handler.control.monitor.azure.cn | Access control service | 443 |
+    | \<cluster-region-name\>.handler.control.monitor.azure.cn | Fetch data collection rules for specific AKS cluster | 443 |
+
 
 - If you are using an Arc enabled cluster on AKS, and previously installed [monitoring for AKS](./container-insights-enable-existing-clusters.md), please ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install
 
@@ -81,7 +96,9 @@ Run the following commands to locate the full Azure Resource Manager identifier 
     >[!TIP]
     > This `id` can also be found in the *Overview* blade of the Log Analytics workspace through the Azure portal.
 
-## Create extension instance using Azure CLI
+## Create extension instance 
+
+## [CLI](#tab/azure-cli)
 
 ### Option 1 - With default values
 
@@ -93,6 +110,13 @@ This option uses the following defaults:
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
 ```
+
+To use [managed identity authentication (preview)](container-insights-onboard.md#authentication), add the `configuration-settings` parameter as in the following:
+
+```azurecli
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true
+```
+
 
 ### Option 2 - With existing Azure Log Analytics workspace
 
@@ -120,10 +144,22 @@ If the Azure Arc-enabled Kubernetes cluster is on Azure Stack Edge, then a custo
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
 ```
 
+### Option 5 - Add managed identity authentication to cluster
+
+For Enabling of the Azure Monitor for containers using Managed Identity auth, follow below instructions 
+
+Get the Azure Log Analytics workspace which configured for Azure Monitor for containers extension  
+
+az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters -n azuremonitor-containers 
+
+Enable Azure Monitor for containers extension with Managed Identity auth option using the Azure Log Analytics workspace obtained in above step. 
+
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspaceObtainedinAboveStep> 
+
 >[!NOTE]
 > If you are explicitly specifying the version of the extension to be installed in the create command, then ensure that the version specified is >= 2.8.2.
 
-## Create extension instance using Azure portal
+## [Azure portal](#tab/portal)
 
 >[!IMPORTANT]
 >  If you are deploying Azure Monitor on a Kubernetes cluster running on top of Azure Stack Edge, then the Azure CLI option needs to be followed instead of the Azure portal option as a custom mount path needs to be set for these clusters.    
@@ -138,7 +174,9 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 4. You can now choose the [Log Analytics workspace](../logs/quick-create-workspace.md) to send your metrics and logs data to.
 
-5. Select the 'Configure' button to deploy the Azure Monitor Container Insights cluster extension.
+5. To use managed identity authentication, select the *Use managed identity (preview)* checkbox.
+
+6. Select the 'Configure' button to deploy the Azure Monitor Container Insights cluster extension.
 
 ### Onboarding from Azure Monitor blade
 
@@ -148,9 +186,13 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 3. Click on the 'Enable' link next to the cluster that you want to enable monitoring for.
 
-4. Choose the Log Analytics workspace and select the 'Configure' button to continue.
+4. Choose the Log Analytics workspace. 
 
-## Create extension instance using Azure Resource Manager
+5. To use managed identity authentication, select the *Use managed identity (preview)* checkbox.
+
+6. Select the 'Configure' button to continue.
+
+## [Resource Manager template](#tab/arm)
 
 1. Download Azure Resource Manager template and parameter:
 
@@ -169,9 +211,11 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
     ```
 
+---
 ## Verify extension installation status
 Once you have successfully created the Azure Monitor extension for your Azure Arc-enabled Kubernetes cluster, you can additionally check the status of installation using the Azure portal or CLI. Successful installations should show the status as 'Installed'. If your status is showing 'Failed' or remains in the 'Pending' state for long periods of time, proceed to the Troubleshooting section below.
 
+## [Azure portal](#tab/portal)
 ### Azure portal
 1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
 2. Select the 'Extensions' item under the 'Settings' section of the resource blade
@@ -181,6 +225,44 @@ Run the following command to show the latest status of the `Microsoft.AzureMonit
 ```azurecli
 az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters -n azuremonitor-containers
 ```
+
+## Migrate to managed identity authentication (preview)
+Use the flowing guidance to migrate an existing extension instance to managed identity authentication (preview).
+
+## [CLI](#tab/cli)
+First retrieve the Log Analytics workspace configured for Container insights extension.
+
+```cli
+az k8s-extension show --name azuremonitor-containers --cluster-name \<cluster-name\> --resource-group \<resource-group\> --cluster-type connectedClusters -n azuremonitor-containers 
+```
+
+Enable Container insights extension with managed identity authentication option using the workspace returned in the first step. 
+
+```cli
+az k8s-extension create --name azuremonitor-containers --cluster-name \<cluster-name\> --resource-group \<resource-group\> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true logAnalyticsWorkspaceResourceID=\<workspace-resource-id\> 
+```
+
+## [Resource Manager](#tab/arm)
+
+
+1. Download the template at [https://aka.ms/arc-k8s-azmon-extension-msi-arm-template](https://aka.ms/arc-k8s-azmon-extension-msi-arm-template) and save it as **arc-k8s-azmon-extension-msi-arm-template.json**.
+
+2. Download the parameter file at [https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params](https://aka.ms/arc-k8s-azmon-extension-msi-arm-template) and save it as **arc-k8s-azmon-extension-msi-arm-template-params.json**.
+ 
+3. Edit the values in the parameter file.
+
+  - For **workspaceDomain**, use *opinsights.azure.com* for Azure public cloud and *opinsights.azure.us* for Azure government cloud.
+  - Specify the tags in the **resourceTagValues** parameter if you want to use any Azure tags on the Azure resources that will be created as part of the Container insights extension.
+
+4. Deploy the template to create Container Insights extension. 
+
+```cli
+az login 
+az account set --subscription "Subscription Name" 
+az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-msi-arm-template.json --parameters @./arc-k8s-azmon-extension-msi-arm-template-params.json 
+```
+
+---
 
 ## Delete extension instance
 
