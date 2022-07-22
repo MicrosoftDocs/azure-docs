@@ -1,6 +1,6 @@
 ---
 title: Understand guidelines for Active Directory Domain Services site design and planning
-description: Learn about the guidelines for Active Directory Domain Services.
+description: Proper Active Directory Domain Services (AD DS) design and planning are key to solution architectures that use Azure NetApp Files volumes.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 07/22/2022
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
@@ -37,6 +37,7 @@ Ensure that you meet the following requirements about network topology and confi
 * Ensure that the latency is less than 10ms RTT between Azure NetApp Files and AD DS domain controllers.
 
 The required network ports are as follows:
+
 | Service | Port | Protocol |
 | -- | - | - |
 |AD Web Services | 9839 | TCP |
@@ -54,11 +55,12 @@ The required network ports are as follows:
 | SAM/LSA | 445 | TCP |
 | SAM/LSA | 445 | UDP |
 | w32time | 123 | UDP |
-* DNS running on AD DS domain controller
+
+*DNS running on AD DS domain controller
 
 ### Network requirements 
 
-Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable access to Domain Name System (DNS) services and up-to-date DNS records. Poor network connectivity between Azure NetApp Files and DNS servers can cause client access interruptions or client timeouts. Incomplete or incorrect DNS records for AD DS or Azure NetApp Files    can cause client access interruptions or client timeouts.
+Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable access to Domain Name System (DNS) services and up-to-date DNS records. Poor network connectivity between Azure NetApp Files and DNS servers can cause client access interruptions or client timeouts. Incomplete or incorrect DNS records for AD DS or Azure NetApp Files can cause client access interruptions or client timeouts.
 
 Azure NetApp Files supports the use of [Active Directory integrated DNS](/windows-server/identity/ad-ds/plan/active-directory-integrated-dns-zones) or standalone DNS servers.    
 
@@ -108,7 +110,7 @@ You should use AAD DS in the following scenarios:
 * Your security policies do not allow the extension of on-premises AD DS into Azure.
 * You don’t have strong knowledge of AD DS. AAD DS can improve the likelihood of good outcomes with Azure NetApp Files.
 
-If you choose to use AAD DS with Azure NetApp Files, see [Azure AD DS documentation](../active-directory-domain-services/overview.md) for [architecture](../active-directory-domain-services/scenarios.md), deployment, and management guidance. Ensure that you also meet the Azure NetApp Files [Network](network-requirements.md) and [DNS requirements](#ad-ds-requirements).
+If you choose to use AAD DS with Azure NetApp Files, see [Azure AD DS documentation](../active-directory-domain-services/overview.md) for [architecture](../active-directory-domain-services/scenarios.md), deployment, and management guidance. Ensure that you also meet the Azure NetApp Files [Network](#network-requirements) and [DNS requirements](#ad-ds-requirements).
 
 ## Design AD DS site topology for use with Azure NetApp Files
 
@@ -160,7 +162,7 @@ An AD DS site topology is a logical representation of the network where Azure Ne
 
 The following diagram shows a sample network topology:
 sample-network-topology.png
-:::image type="content" source="../media/azure-netapp-files/sample-network-topology.png" alt-text="Diagram illustrating network topology." lightbox="../media/azure-netapp-files/sample-network-topology.png":::
+:::image type="content" source="../media/azure-netapp-files/sample-network-topology.png" alt-text="Diagram illustrating network topology.":::
 
 In the sample network topology, an on-premises AD DS domain (`anf.local`) is extended into an Azure virtual network. The on-premises network is connected to the Azure virtual network using an Azure ExpressRoute circuit. 
 
@@ -170,7 +172,7 @@ Azure NetApp Files can only use one AD DS site to determine which domain control
 
 In the Active Directory Sites and Services tool, verify that the AD DS domain controllers deployed into the AD DS subnet are assigned to the `ANF` site: 
 
-:::image type="content" source="../media/azure-netapp-files/active-directory-anf-servers.png" alt-text="Active Directory Sites and Services window with a red box drawing attention to the ANF > Servers directory." lightbox="../media/azure-netapp-files/active-directory-anf-servers.png":::
+:::image type="content" source="../media/azure-netapp-files/active-directory-anf-servers.png" alt-text="Active Directory Sites and Services window with a red box drawing attention to the ANF > Servers directory.":::
 
 To create the subnet object that maps to the AD DS subnet in the Azure virtual network, right-click the **Subnets** container in the **Active Directory Sites and Services** utility and select **New Subnet...**.
  

@@ -12,24 +12,17 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 07/22/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
 
 Several features of Azure NetApp Files require that you have an Active Directory connection.  For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
 
-<!-- 
-## Before you begin  
-
-* You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
-* A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
--->
-
 ## <a name="requirements-for-active-directory-connections"></a>Requirements and considerations for Active Directory connections
 
 > [!IMPORTANT]
-> You must follow guidelines described in [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files]() for Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (AAD DS) used with Azure NetApp Files. 
+> You must follow guidelines described in [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md) for Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (AAD DS) used with Azure NetApp Files. 
 > In addition, before creating the AD connection, review [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md) to understand the impact of making changes to the AD connection configuration options after the AD connection has been created. Changes to the AD connection configuration options are disruptive to client access and some options cannot be changed at all.
 
 * An Azure NetApp Files account must be created in the region where the Azure NetApp Files volumes are deployed.
@@ -57,7 +50,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     Alternatively, an AD domain user account with `msDS-SupportedEncryptionTypes` write permission on the AD connection admin account can also be used to set the Kerberos encryption type property on the AD connection admin account. 
 
-    **NOTE** It's not recommended or required to add the Azure NetApp Files AD admin account to the AD domain groups listed above. Nor is it recommended or required to grant `msDS-SupportedEncryptionTypes` write permission to the AD admin account.  
+    >[!NOTE]
+    >It's not recommended or required to add the Azure NetApp Files AD admin account to the AD domain groups listed above. Nor is it recommended or required to grant `msDS-SupportedEncryptionTypes` write permission to the AD admin account.  
 
     If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the highest level of encryption supported by your AD DS will be used. If AES encryption is not set, DES encryption will be used by default.   
 
@@ -72,135 +66,10 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 * For more information, see the [Set-ADUser documentation](/powershell/module/activedirectory/set-aduser).
 
-<!-- 
-* You can configure only one Active Directory (AD) connection per subscription and per region.   
-
-    Azure NetApp Files doesn't support multiple AD connections in a single *region*, even if the AD connections are in different NetApp accounts. However, you can have multiple AD connections in a single subscription if the AD connections are in different regions. If you need multiple AD connections in a single region, you can use separate subscriptions to do so.  
-
-    The AD connection is visible only through the NetApp account it's created in. However, you can enable the Shared AD feature to allow NetApp accounts that are under the same subscription and same region to use an AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad). When you enable this feature, the AD connection becomes visible in all NetApp accounts that are under the same subscription and same region. 
-
-* The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you'll specify.  
-
-* The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you'll specify. In some cases, `msDS-SupportedEncryptionTypes` write permission is required to set account attributes within AD.
-
-* Group Managed Service Accounts (GMSA) can't be used with the Active Directory connection user account.
-
-* If you change the password of the Active Directory user account that is used in Azure NetApp Files, be sure to update the password configured in the [Active Directory Connections](#create-an-active-directory-connection). Otherwise, you won't be able to create new volumes, and your access to existing volumes might also be affected depending on the setup.  
-
-* Before you can remove an Active Directory connection from your NetApp account, you need to first remove all volumes associated with it. 
-
-* Proper ports must be open on the applicable Windows Active Directory (AD) server.  
-    The required ports are as follows: 
-
-    |     Service           |     Port     |     Protocol     |
-    |-----------------------|--------------|------------------|
-    |    AD Web Services    |    9389      |    TCP           |
-    |    DNS                |    53        |    TCP           |
-    |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    N/A       |    Echo Reply    |
-    |    Kerberos           |    464       |    TCP           |
-    |    Kerberos           |    464       |    UDP           |
-    |    Kerberos           |    88        |    TCP           |
-    |    Kerberos           |    88        |    UDP           |
-    |    LDAP               |    389       |    TCP           |
-    |    LDAP               |    389       |    UDP           |
-    |    LDAP               |    3268      |    TCP           |
-    |    NetBIOS name       |    138       |    UDP           |
-    |    SAM/LSA            |    445       |    TCP           |
-    |    SAM/LSA            |    445       |    UDP           |
-    |    w32time            |    123       |    UDP           |
-
-* The site topology for the targeted Active Directory Domain Services must adhere to the guidelines, in particular the Azure VNet where Azure NetApp Files is deployed.  
-
-    The address space for the virtual network where Azure NetApp Files is deployed must be added to a new or existing Active Directory site (where a domain controller reachable by Azure NetApp Files is). 
-
-* The specified DNS servers must be reachable from the [delegated subnet](./azure-netapp-files-delegate-subnet.md) of Azure NetApp Files.  
-
-    See [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-network-topologies.md) for supported network topologies.
-
-    The Network Security Groups (NSGs) and firewalls must have appropriately configured rules to allow for Active Directory and DNS traffic requests. 
-
-* The Azure NetApp Files delegated subnet must be able to reach all Active Directory Domain Services (AD DS) domain controllers in the domain, including all local and remote domain controllers. Otherwise, service interruption can occur.  
-
-    If you have domain controllers that are unreachable by the Azure NetApp Files delegated subnet, you can specify an Active Directory site during creation of the Active Directory connection.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space is.
-
-    See [Designing the site topology](/windows-server/identity/ad-ds/plan/designing-the-site-topology) about AD sites and services. 
-
-* Avoid configuring overlapping subnets in the AD machine. Even if the site name is defined in the Active Directory connections, overlapping subnets might result in the wrong site being discovered, thus affecting the service. It might also affect new volume creation or AD modification. 
-    
-* You can enable AES encryption for AD Authentication by checking the **AES Encryption** box in the [Join Active Directory](#create-an-active-directory-connection) window. Azure NetApp Files supports DES, Kerberos AES 128, and Kerberos AES 256 encryption types (from the least secure to the most secure). If you enable AES encryption, the user credentials used to join Active Directory must have the highest corresponding account option enabled that matches the capabilities enabled for your Active Directory.    
-
-    For example, if your Active Directory has only the AES-128 capability, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory doesn't have any Kerberos encryption capability, Azure NetApp Files uses DES by default.  
-
-    You can enable the account options in the properties of the Active Directory Users and Computers Microsoft Management Console (MMC):   
-
-    ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
-
-* Azure NetApp Files supports [LDAP signing](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), which enables secure transmission of LDAP traffic between the Azure NetApp Files service and the targeted [Active Directory domain controllers](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). If you're following the guidance of Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) for LDAP signing, then you should enable the LDAP signing feature in Azure NetApp Files by checking the **LDAP Signing** box in the [Join Active Directory](#create-an-active-directory-connection) window. 
-
-    [LDAP channel binding](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) configuration alone has no effect on the Azure NetApp Files service. However, if you use both LDAP channel binding and secure LDAP (for example, LDAPS or `start_tls`), then the SMB volume creation will fail.
-
-* Azure NetApp Files will attempt to add an A/PTR record in DNS for AD integrated DNS servers. Add a reverse lookup zone if one is missing under Reverse Lookup Zones on AD server. For non-AD integrated DNS, you should add a DNS A/PTR record to enable Azure NetApp Files to function by using a “friendly name".
-
-* The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
-
-    |     Error condition    |     Resolution    |
-    |-|-|
-    | Cache |  Default Timeout |
-    | Group membership list  | 24-hour TTL  |
-    | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
-    | Unix users  | 24-hour TTL, 1-minute negative TTL  |
-
-    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries don't linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
-    
-* Azure NetApp Files doesn't support the use of Active Directory Domain Services Read-Only Domain Controllers (RODC). To ensure that Azure NetApp Files doesn't try to use an RODC domain controller, configure the **AD Site** field of the Azure NetApp Files Active Directory connection with an Active Directory site that doesn't contain any RODC domain controllers.
-
-## Decide which Domain Services to use 
-
-Azure NetApp Files supports both [Active Directory Domain Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (AD DS) and Azure Active Directory Domain Services (AADDS) for AD connections.  Before you create an AD connection, you need to decide whether to use AD DS or AADDS.  
-
-For more information, see [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](../active-directory-domain-services/compare-identity-solutions.md). 
-
-### Active Directory Domain Services
-
-You can use your preferred [Active Directory Sites and Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) scope for Azure NetApp Files. This option enables reads and writes to Active Directory Domain Services (AD DS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that aren't in the specified Active Directory Sites and Services site. 
-
-To find your site name when you use AD DS, you can contact the administrative group in your organization that is responsible for Active Directory Domain Services. The example below shows the Active Directory Sites and Services plugin where the site name is displayed: 
-
-![Active Directory Sites and Services](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-services.png)
-
-When you configure an AD connection for Azure NetApp Files, you specify the site name in scope for the **AD Site Name** field.
-
-### Azure Active Directory Domain Services 
-
-For Azure Active Directory Domain Services (AADDS) configuration and guidance, see [Azure AD Domain Services documentation](../active-directory-domain-services/index.yml).
-
-Additional AADDS considerations apply for Azure NetApp Files: 
-
-* Ensure the VNet or subnet where AADDS is deployed is in the same Azure region as the Azure NetApp Files deployment.
-* If you use another VNet in the region where Azure NetApp Files is deployed, you should create a peering between the two VNets.
-* Azure NetApp Files supports `user` and `resource forest` types.
-* For synchronization type, you can select `All` or `Scoped`.   
-    If you select `Scoped`, ensure the correct Azure AD group is selected for accessing SMB shares.  If you're uncertain, you can use the `All` synchronization type.
-* If you use AADDS with a dual-protocol volume, you must be in a custom OU in order to apply POSIX attributes. See [Manage LDAP POSIX Attributes](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) for details.
-
-When you create an Active Directory connection, note the following specifics for AADDS:
-
-* You can find information for **Primary DNS**, **Secondary DNS**, and **AD DNS Domain Name** in the AADDS menu.  
-For DNS servers, two IP addresses will be used for configuring the Active Directory connection. 
-* The **organizational unit path** is `OU=AADDC Computers`.  
-This setting is configured in the **Active Directory Connections** under **NetApp Account**:
-
-  ![Organizational unit path](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
-
-* **Username** credentials can be any user that is a member of the Azure AD group **Azure AD DC Administrators**.
--->
 
 ## Create an Active Directory connection
 
 1. From your NetApp account, select **Active Directory connections**, then select **Join**.  
-
-    <!-- Azure NetApp Files supports only one Active Directory connection within the same region and the same subscription. If Active Directory is already configured by another NetApp account in the same subscription and region, you can't configure and join a different Active Directory from your NetApp account. However, you can enable the Shared AD feature to allow an Active Directory configuration to be shared by multiple NetApp accounts within the same subscription and the same region. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad). -->
 
     ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
@@ -208,25 +77,23 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
 2. In the Join Active Directory window, provide the following information, based on the Domain Services you want to use:  
 
-    <!-- 
-    For information specific to the Domain Services you use, see [Decide which Domain Services to use](#decide-which-domain-services-to-use). -->
-
-    * **Primary DNS**  
+    * **Primary DNS (required)**  
         This is the IP address of the primary DNS server that is required for Active Directory domain join operations, SMB authentication, Kerberos, and LDAP operations.
     * **Secondary DNS**   
         This is the IP address of the secondary DNS server that is required for Active Directory domain join operations, SMB authentication, Kerberos, and LDAP operations.
-
-        **NOTE:** It is recommended that you configure a Secondary DNS server. See [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files.](understand-guidelines-active-directory-domain-service-site.md) Ensure that your DNS server configuration meets the requirements for Azure NetApp Files. Otherwise, Azure NetApp Files service operations, SMB authentication, Kerberos, or LDAP operations might fail.
+        
+        >[!NOTE]
+        >It is recommended that you configure a Secondary DNS server. See [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md). Ensure that your DNS server configuration meets the requirements for Azure NetApp Files. Otherwise, Azure NetApp Files service operations, SMB authentication, Kerberos, or LDAP operations might fail.
 
         If you use Azure AD DS (AAD DS), you should use the IP addresses of the AAD DS domain controllers for Primary DNS and Secondary DNS respectively. 
-    * **AD DNS Domain Name**  
+    * **AD DNS Domain Name (required)**  
        This is the fully qualified domain name of the AD DS that will be used with Azure NetApp Files (for example, `contoso.com`).
     * **AD Site Name**  
         This is the AD DS site name that will be used by Azure NetApp Files for domain controller discovery.  
         
          **NOTE:** See [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md). Ensure that your AD DS site design and configuration meets the requirements for Azure NetApp Files. Otherwise, Azure NetApp Files service operations, SMB authentication, Kerberos, or LDAP operations might fail.
 
-    * **SMB server (computer account) prefix**  
+    * **SMB server (computer account) prefix (required)**  
         This is the naming prefix for new machine accounts created in AD DS for Azure NetApp Files SMB, dual protocol, and NFSv4.1 Kerberos volumes. 
 
         For example, if the naming standard that your organization uses for file services is `NAS-01`, `NAS-02`, and so on, then you would use `NAS` for the prefix. 
@@ -267,7 +134,8 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         This option enables LDAP over TLS for secure communication between an Azure NetApp Files volume and the Active Directory LDAP server. You can enable LDAP over TLS for NFS, SMB, and dual-protocol volumes of Azure NetApp Files. 
         
-        **NOTE:** LDAP over TLS must not be enabled if you're using Azure Active Directory Domain Services (AAD DS). AAD DS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389). 
+        >[!NOTE]
+        >LDAP over TLS must not be enabled if you're using Azure Active Directory Domain Services (AAD DS). AAD DS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389). 
         
         For more information, see [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md).
 
