@@ -98,7 +98,7 @@ A No NAT rule can be used to exclude certain matches from performing Network Add
         :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-add-nat-rule.png" alt-text="Diagram that shows how to add a T1 router to a Nat rule." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
          
 1. Select **SAVE**.
-         :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-save-no-nat.png" alt-text="Diagram that shows how to add a T1 router to a Nat rule." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
+         :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-save-no-nat.png" alt-text="Diagram that shows how to save a Nat rule." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
 
 
 ### Inbound Internet Access for VMs
