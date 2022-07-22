@@ -2,6 +2,7 @@ items:
 - name: Device Update for IoT Hub documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Device Update for IoT Hub?
     href: understand-device-update.md
