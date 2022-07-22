@@ -2649,7 +2649,7 @@
         href: autodesk-sso-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
         href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
-      - name: AWS IAM Identity Center
+      - name: AWS Single Sign-On
         href: aws-single-sign-on-provisioning-tutorial.md
       - name: BenQ IAM
         href: benq-iam-provisioning-tutorial.md 
