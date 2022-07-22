@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Event Grid topic
-description: This article shows how to create an Event Grid topic. 
+title: Configure an Azure Event Grid topic
+description: This article shows how to configure local auth, public or private access, managed identity, and data residency for an Event Grid custom topic.
 ms.date: 07/21/2022
 ms.topic: how-to
 ms.custom: mode-ui
@@ -83,7 +83,7 @@ You can use similar steps to enable an identity for an event grid domain.
 
 ## Next steps
 
-Now that you know how to create custom topics, learn more about what Event Grid can help you do:
+Learn more about what Event Grid can help you do:
 
 - [Route custom events to web endpoint with the Azure portal and Event Grid](custom-event-quickstart-portal.md)
 - [About Event Grid](overview.md)
