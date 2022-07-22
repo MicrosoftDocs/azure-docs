@@ -1,11 +1,11 @@
 ---
 title: Updating .NET for Apache Spark to version v1.0 in HDI
 description: Learn about updating .NET for Apache Spark version to 1.0 in HDI and how that affects your existing code and clusters.
-author: Niharikadutta
-ms.author: nidutta
+author: apurbasroy
+ms.author: apsinhar
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 07/22/2022
 ---
 
 # Updating .NET for Apache Spark to version v1.0  in HDInsight
