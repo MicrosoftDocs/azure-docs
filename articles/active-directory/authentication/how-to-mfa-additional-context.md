@@ -37,7 +37,13 @@ The additional context can be combined with [number matching](how-to-mfa-number-
 >[!NOTE]
 >In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
-Identify a single target group for the schema configuration. Then use the following API endpoint to change the displayAppInformationRequiredState property to **enabled**:
+You can enable and disable application name and geographic location separately. Under featureSettings, you can use the following mapping for the following features:
+
+- Application name: displayAppInformationRequiredState
+- Geographic location: displayLocationInformationRequiredState
+
+
+Identify your single target group for each of the features. Then use the following API endpoint to change the displayAppInformationRequiredState or displayLocationInformationRequiredState properties under featureSettings to **enabled** and include or exclude the groups you want::
 
 https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 
@@ -57,8 +63,8 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 | Relationship | Type | Description |
 |--------------|------|-------------|
-| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) |
-| collection | A collection of users or groups who are enabled to use the authentication method. |
+| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) collection | A collection of users or groups who are enabled to use the authentication method. |
+| featureSettings | [microsoftAuthenticatorFeatureSettings](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) collection | A collection of Microsoft Authenticator features. |
  
 #### MicrosoftAuthenticator includeTarget properties
  
