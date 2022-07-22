@@ -25,7 +25,7 @@ You can enable or disable soft delete for a storage account at any time by using
 
 ### [Portal](#tab/azure-portal)
 
-Blob soft delete is enabled by default for a new storage account. The setting to enable blob soft delete when you create a new storage account is on the **Data protection** tab. For more information about creating a storage account, see [Create a storage account](../common/storage-account-create.md).
+Blob soft delete is enabled by default when you create a new storage account with the Azure portal. The setting to enable or disable blob soft delete when you create a new storage account is on the **Data protection** tab. For more information about creating a storage account, see [Create a storage account](../common/storage-account-create.md).
 
 To enable blob soft delete for an existing storage account by using the Azure portal, follow these steps:
 
