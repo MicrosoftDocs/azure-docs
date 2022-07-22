@@ -82,17 +82,57 @@ az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name
 
 You can make your new App Service Environment v3 zone redundant. Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations). If you don't want to configure zone redundancy, you can skip this step.
 
+To avoid issues with escape characters, create a json file called something like "parameters.json" with the `zoneRedundant` property set to true. For more information on using escape characters with the Azure CLI, see [Tips for using the Azure CLI successfully](/cli/azure/use-cli-effectively#use-quotation-marks-in-parameters).
+
+```json
+{
+    "zoneRedundant": true
+}
+```
+
+Add the path to your json file to the "body" parameter of the following command.
+
 ```azurecli
-TODO: include info about setting parameters...
+az rest --method put --uri "${ASE_ID}?api-version=2021-02-01" --body @parameters.json
 ```
 
 ## 7. Configure custom domain suffix
 
 If your existing App Service Environment uses a custom domain suffix, you'll need to [configure one for your new App Service Environment v3 during the migration process](./migrate.md#choose-your-app-service-environment-v3-configurations). Migration will fail if you don't configure a custom domain suffix and are using one currently. Migration will also fail if you attempt to add a custom domain suffix during migration to an environment that doesn't have one configured currently. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md).
 
-```azurecli
-TODO: list the commands for this
+Create a json file called "dnsparameters.json" with your values for the required information.
+
+Use a user assigned managed identity:
+
+```json
+{
+    "properties": {
+        "dnsSuffix": "internal-contoso.com",
+        "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
+        "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
+    }
+}
 ```
+
+Use a system assigned managed identity:
+
+```json
+{
+    "properties": {
+        "dnsSuffix": "internal-contoso.com",
+        "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
+        "keyVaultReferenceIdentity": "SystemAssigned"
+    }
+}
+```
+
+Add the path to your json file to the "body" parameter of the following command.
+
+```azurecli
+az rest --method put --uri "${ASE_ID}/configurations/customdnssuffix?api-version=2021-02-01" --body @dnsparameters.json
+```
+
+You should get a 200 response if everything was set properly.
 
 ## 8. Migrate to App Service Environment v3
 
