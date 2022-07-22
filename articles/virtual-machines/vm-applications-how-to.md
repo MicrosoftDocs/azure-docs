@@ -426,8 +426,7 @@ To get the result of VM instance view:
 
 ```rest
 GET
-/subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/
-virtualMachineScaleSets/\<**VMSSName**\>/instanceView?api-version=2019-03-01
+/subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/virtualMachines/\<**VMName**\>/instanceView?api-version=2019-03-01
 ```
 
 The result will look like this:
