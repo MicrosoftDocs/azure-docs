@@ -102,8 +102,10 @@ Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it 
    ```
 
    All `nvidia-smi` versions.
-   :::image type="content" source="media/configure-connect-verify-gpu/nvidia-smi-versions.png" alt-text="Screenshot of the result of the 'iotedge list' command.":::
+   
+   :::image type="content" source="media/configure-connect-verify-gpu/nvidia-smi-versions.png" alt-text="Screenshot of all `nvidia-smi` versions.":::
    ```
+
 1. After installation, run this command to confirm:
  
    ```bash
@@ -112,7 +114,7 @@ Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it 
  
    A confirmation table will appear.
 
-   :::image type="content" source="media/configure-connect-verify-gpu/nvidia-driver-installed.png" alt-text="Screenshot of the Deploy to Azure button in GitHub.":::
+   :::image type="content" source="media/configure-connect-verify-gpu/nvidia-driver-installed.png" alt-text="Screenshot of the NVIDIA driver table.":::
 
 ## Enable a module with GPU acceleration
 
@@ -208,5 +210,5 @@ Let's add an NIVDIA module to the IoT Edge device and then allocate a GPU to the
    ```
    You should see your NVIDIA module in a list of modules on your IoT Edge device with a status of `running`.
 
-   :::image type="content" source="media/configure-connect-verify-gpu/iotedge-list.png" alt-text="Screenshot of the result of the 'iotedge list' command.":::
+   :::image type="content" source="media/configure-connect-verify-gpu/iot-edge-list.png" alt-text="Screenshot of the result of the 'iotedge list' command.":::
 
