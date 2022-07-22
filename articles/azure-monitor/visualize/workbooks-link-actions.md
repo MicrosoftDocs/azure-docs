@@ -139,7 +139,7 @@ If the selected link type is **Workbook (Template)**, you must specify more sett
 
 | Setting | Description |
 |:------------- |:-------------|
-|Workbook owner Resource Id comes from| This value is the Resource ID of the Azure resource that "owns" the workbook. Commonly, it's an Application Insights resource or a Log Analytics workspace. Inside of Azure Monitor, this value might also be the literal string "Azure Monitor." When the workbook is saved, this value is what the workbook is linked to. |
+|Workbook owner Resource Id comes from| This value is the Resource ID of the Azure resource that "owns" the workbook. Commonly, it's an Application Insights resource or a Log Analytics workspace. Inside of Azure Monitor, this value might also be the literal string `"Azure Monitor"`. When the workbook is saved, this value is what the workbook is linked to. |
 |Workbook resources come from| An array of Azure Resource IDs that specify the default resource used in the workbook. For example, if the template being opened shows virtual machine metrics, the values here would be virtual machine resource IDs. Many times, the owner and resources are set to the same settings. |
 |Template Id comes from| Specify the ID of the template to be opened. A community template from the gallery is the most common case. Prefix the path to the template with `Community-`, like `Community-Workbooks/Performance/Apdex` for the `Workbooks/Performance/Apdex` template. If it's a link to a saved workbook or template, use the full Azure resource ID of that item. |
 |Workbook Type comes from| Specify the kind of workbook template to open. The most common cases use the default or workbook option to use the value in the current workbook. |

@@ -22,7 +22,7 @@ Workbook settings have these tabs to help you configure your workbook.
 |---------|---------|
 |Resources|This tab contains the resources that appear as default selections in this workbook.<br>The resource marked as the **Owner** is where the workbook will be saved and the location of the workbooks and templates you'll see when you're browsing. The owner resource can't be removed.<br> You can add a default resource by selecting **Add Resources**. You can remove resources by selecting a resource or several resources and selecting **Remove Selected Resources**. When you're finished adding and removing resources, select **Apply Changes**.|
 |Versions| This tab contains a list of all the available versions of this workbook. Select a version and use the toolbar to compare, view, or restore versions. Previous workbook versions are available for 90 days.<br><ul><li>**Compare**: Compares the JSON of the previous workbook to the most recently saved version.</li><li>**View**: Opens the selected version of the workbook in a context pane.</li><li>**Restore**: Saves a new copy of the workbook with the contents of the selected version and overwrites any existing current content. You'll be prompted to confirm this action.</li></ul><br>|
-|Style     |On this tab, you can set a padding and spacing style for the whole workbook. The possible options are **Wide**, **Standard**, **Narrow**, and **None**. **Standard** is the default style setting.|
+|Style     |On this tab, you can set a padding and spacing style for the whole workbook. The possible options are **Wide**, **Standard**, **Narrow**, and **None**. The default style setting is **Standard**.|
 |Pin     |While in pin mode, you can select **Pin Workbook** to pin a component from this workbook to a dashboard. Select **Link to Workbook** to pin a static link to this workbook on your dashboard. You can choose a specific component in your workbook to pin.|
 |Trusted hosts     |On this tab, you can enable a trusted source or mark this workbook as trusted in this browser. For more information, see [Trusted hosts](#trusted-hosts). |
 
@@ -48,14 +48,14 @@ Enable a trusted source or mark this workbook as trusted in this browser.
 
 ## Time brushing
 
-Time range brushing allows a user to "brush" or "scrub" a range on a chart and have that range be output as a parameter value.
+Time range brushing allows a user to "brush" or "scrub" a range on a chart and have that range output as a parameter value.
 
 :::image type="content" source="media/workbooks-configurations/workbooks-timebrush-metrics-settings.png" alt-text="Screenshot that shows workbook time-brush settings.":::
 
 You can also choose to only export a parameter when a range is explicitly brushed:
 
  - If this setting is cleared (default), the parameter always has a value. When the parameter isn't brushed, the value is the full time range displayed in the chart.
- - If this setting is selected, the parameter has no value before the user brushes the parameter and is only set after a user brushes the parameter.
+ - If this setting is selected, the parameter has no value before the user brushes the parameter,, The value is only set after a user brushes the parameter.
 
 ### Brushing in a metrics chart
 
@@ -64,7 +64,7 @@ When you enable time brushing on a metrics chart, you can "brush" a time by drag
 :::image type="content" source="media/workbooks-configurations/workbooks-timebrush-metrics-brushing.png" alt-text="Screenshot of a metrics time-brush in progress.":::
 
 After the brush has stopped, the metrics chart zooms in to that range and exports the range as a time range parameter.
-An icon on the toolbar in the upper-right corner is active to reset the time range back to its original, un-zoomed time range.
+An icon on the toolbar in the upper-right corner is active to reset the time range back to its original, unzoomed time range.
 
 ### Brushing in a query chart
 
@@ -74,14 +74,14 @@ When you enable time brushing on a query chart, indicators appear that you can d
 
 After the brush has stopped, the query chart shows that range as a time range parameter but won't zoom in. This behavior is different than the behavior of metrics charts. Because of the complexity of user-written queries, it might not be possible for workbooks to correctly update the range used by the query in the query content directly. If the query is using a time range parameter, it's possible to get this behavior by using a [global parameter](workbooks-parameters.md#global-parameters) instead.
 
-An icon on the toolbar in the upper-right corner is active to reset the time range back to its original, un-zoomed time range.
+An icon on the toolbar in the upper-right corner is active to reset the time range back to its original, unzoomed time range.
 
 ## Interactivity
 
 There are several ways that you can create interactive reports and experiences in workbooks:
 
  - **Parameters**: When you update a [parameter](workbooks-parameters.md), any control that uses the parameter automatically refreshes and redraws to reflect the new value. This behavior is how most of the Azure portal reports support interactivity. Workbooks provide this functionality in a straightforward manner with minimal user effort.
- - **Grid, tile, and chart selections**: You can construct scenarios where selecting a row in a grid updates subsequent charts based on the content of the row. For example, if you have a grid that shows a list of requests and some statistics like failure counts, you can set it up so that if you select the row of a request, the detailed charts below update to show only that request. Learn how to [set up a grid row click](#set-up-a-grid-row-click).
+ - **Grid, tile, and chart selections**: You can construct scenarios where selecting a row in a grid updates subsequent charts based on the content of the row. For example, you might have a grid that shows a list of requests and some statistics like failure counts. You can set it up so that if you select the row of a request, the detailed charts below update to show only that request. Learn how to [set up a grid row click](#set-up-a-grid-row-click).
  - **Grid cell clicks**: You can add interactivity with a special type of grid column renderer called a [link renderer](#link-renderer-actions). A link renderer converts a grid cell into a hyperlink based on the contents of the cell. Workbooks support many kinds of link renderers including renderers that open resource overview blades, property bag viewers, and Application Insights search, usage, and transaction tracing. Learn how to [set up a grid cell click](#set-up-grid-cell-clicks).
  - **Conditional visibility**: You can make controls appear or disappear based on the values of parameters. This way you can have reports that look different based on user input or telemetry state. For example, you can show consumers a summary when there are no issues. You can also show detailed information when there's something wrong. Learn how to [set up conditional visibility](#set-conditional-visibility).
  - **Export parameters with multi-selections**: You can export parameters from query and metrics workbook components when a row or multiple rows are selected. Learn how to [set up multi-selects in grids and charts](#set-up-multi-selects-in-grids-and-charts).
