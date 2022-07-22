@@ -101,18 +101,17 @@ Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it 
    sudo apt install nvidia-utils-515
    ```
 
-   All `nvidia-smi` versions.
-   
-   :::image type="content" source="media/configure-connect-verify-gpu/nvidia-smi-versions.png" alt-text="Screenshot of all `nvidia-smi` versions.":::
-   ```
+   Here's a list of all `nvidia-smi` versions.
 
-1. After installation, run this command to confirm:
+   :::image type="content" source="media/configure-connect-verify-gpu/nvidia-smi-versions.png" alt-text="Screenshot of all `nvidia-smi` versions.":::
+
+1. After installation, run this command to confirm it's installed:
  
    ```bash
    nvidia-smi
    ```
  
-   A confirmation table will appear.
+   A confirmation table will appear, similar to this.
 
    :::image type="content" source="media/configure-connect-verify-gpu/nvidia-driver-installed.png" alt-text="Screenshot of the NVIDIA driver table.":::
 
