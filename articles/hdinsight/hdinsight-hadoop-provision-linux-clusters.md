@@ -1,6 +1,6 @@
 ---
 title: Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
-description: Set up Hadoop, Kafka, Spark, HBase, or Storm clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
+description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
@@ -11,7 +11,7 @@ ms.date: 07/22/2022
 
 [!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
-Learn how to set up and configure Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, or Apache Storm in HDInsight. Also, learn how to customize clusters and add security by joining them to a domain.
+Learn how to set up and configure Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, or Apache HBase or in HDInsight. Also, learn how to customize clusters and add security by joining them to a domain.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 
@@ -64,7 +64,7 @@ You don't need to specify the cluster location explicitly: The cluster is in the
 Azure HDInsight currently provides the following cluster types, each with a set of components to provide certain functionalities.
 
 > [!IMPORTANT]
-> HDInsight clusters are available in various types, each for a single workload or technology. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](../virtual-network/index.yml) can connect the required cluster types.
+> HDInsight clusters are available in various types, each for a single workload or technology. There is no supported method to create a cluster that combines multiple types, such HBase on one cluster. If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](../virtual-network/index.yml) can connect the required cluster types.
 
 | Cluster type | Functionality |
 | --- | --- |
@@ -73,7 +73,6 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |In-memory caching for interactive and faster Hive queries |
 | [Kafka](kafka/apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
 | [Spark](spark/apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
-| [Storm](storm/apache-storm-overview.md) |Real-time event processing |
 
 #### Version
 
@@ -97,7 +96,7 @@ The SSH username has the following restrictions:
 * Allowed special characters:`_` and `@`
 * Characters not allowed:  #;."',/:`!*?$(){}[]<>|&--=+%~^space
 * Max length: 64
-* Reserved names: hadoop, users, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, storm, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, david, guest, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
+* Reserved names: hadoop, users, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, david, guest, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
 ## Storage
 
@@ -244,7 +243,7 @@ For more information, see [Sizes for virtual machines](../virtual-machines/sizes
 
 ### Disk attachment
 
-On each of the **NodeManager** machines, **LocalResources** are ultimately localized in the following target directories. 
+On each of the **NodeManager** machines, **LocalResources** are ultimately localized in the target directories.
 
 By  normal configuration only the default disk is added as the local disk in NodeManager. For large applications this disk space may not be enough which can result in job failure.
 
@@ -254,7 +253,7 @@ You can add number of disks per VM and each disk will be of 1 TB size.
 
 1. From **Configuration + pricing** tab
 1. Select **Enable managed disk** option
-1. From **Standard disks**, Enter the **Numbet of disks**
+1. From **Standard disks**, Enter the **Number of disks**
 1. Choose your **Worker node**
 
 You can verify the number of disks from **Review + create** tab, under **Cluster configuration**
@@ -287,12 +286,11 @@ Sometimes, you want to configure the following configuration files during the cr
  * hive-env.xml
  * hive-site.xml
  * mapred-site
-* oozie-site.xml
-* oozie-env.xml
-* storm-site.xml
-* tez-site.xml
-* webhcat-site.xml
-* yarn-site.xml
+ * oozie-site.xml
+ * oozie-env.xml
+ * tez-site.xml
+ * webhcat-site.xml
+ * yarn-site.xml
 
 For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
