@@ -11,9 +11,23 @@ ms.author: shwetn
 # Create and manage intra-account container copy jobs in Azure Cosmos DB (Preview)
 [!INCLUDE[appliesto-sql-cassandra-api](includes/appliesto-sql-cassandra-api.md)]
 
-[Container copy jobs](intra-account-container-copy.md) creates offline copies of collections within an Azure Cosmos DB account.
+[Container copy jobs](intra-account-container-copy.md) help create offline copies of containers within an Azure Cosmos DB account.
 
 This article describes how to create, monitor, and manage intra-account container copy jobs using Azure CLI commands.
+
+## Pre-requisites
+
+* Make sure you have [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) downloaded and installed on your machine before trying out container copy.
+* Currently, container copy is only supported in [these regions](intra-account-container-copy.md#supported-regions). Make sure your account belongs to one of these regions.
+
+
+## Install the Cosmos DB preview CLI  extension
+
+This extension contains the container copy commands.
+
+```azurecli-interactive
+az extension add --name cosmosdb-preview
+```
 
 ## Set shell variables
 
@@ -34,8 +48,11 @@ $destinationContainer = ""
 Create a job to copy a container within an Azure Cosmos DB SQL API account:
 
 ```azurecli-interactive
-az cosmosdb dts copy --resource-group $resourceGroup --job-name $jobName --account-name $accountName \
-    --source-sql-container database=$sourceDatabase container=$sourceContainer \
+az cosmosdb dts copy `
+    --resource-group $resourceGroup ` 
+    --job-name $jobName `
+    --account-name $accountName `
+    --source-sql-container database=$sourceDatabase container=$sourceContainer `
     --dest-sql-container database=$destinationDatabase container=$destinationContainer
 ```
 
@@ -44,8 +61,11 @@ az cosmosdb dts copy --resource-group $resourceGroup --job-name $jobName --accou
 Create a job to copy a container within an Azure Cosmos DB Cassandra API account:
 
 ```azurecli-interactive
-az cosmosdb dts copy --resource-group $resourceGroup --job-name $jobName --account-name $accountName \
-    --source-cassandra-table keyspace=$sourceKeySpace table=$sourceTable \
+az cosmosdb dts copy `
+    --resource-group $resourceGroup `
+    --job-name $jobName `
+    --account-name $accountName `
+    --source-cassandra-table keyspace=$sourceKeySpace table=$sourceTable `
     --dest-cassandra-table keyspace=$destinationKeySpace table=$destinationTable
 ```
 
@@ -54,7 +74,10 @@ az cosmosdb dts copy --resource-group $resourceGroup --job-name $jobName --accou
 View the progress and status of a copy job:
 
 ```azurecli-interactive
-az cosmosdb dts show --account-name $accountName --resource-group $resourceGroup --job-name $jobName
+az cosmosdb dts show `
+    --account-name $accountName `
+    --resource-group $resourceGroup `
+    --job-name $jobName
 ```
 
 ## List all the container copy jobs created in an account
@@ -62,7 +85,9 @@ az cosmosdb dts show --account-name $accountName --resource-group $resourceGroup
 To list all the container copy jobs created in an account:
 
 ```azurecli-interactive
-az cosmosdb dts list --account-name $accountName --resource-group $resourceGroup
+az cosmosdb dts list `
+    --account-name $accountName `
+    --resource-group $resourceGroup
 ```
 
 ## Pause a container copy job
@@ -70,7 +95,10 @@ az cosmosdb dts list --account-name $accountName --resource-group $resourceGroup
 In order to pause an ongoing container copy job, you may use the command:
 
 ```azurecli-interactive
-az cosmosdb dts pause --account-name $accountName --resource-group $resourceGroup --job-name $jobName
+az cosmosdb dts pause `
+    --account-name $accountName `
+    --resource-group $resourceGroup `
+    --job-name $jobName
 ```
 
 ## Resume a container copy job
@@ -78,7 +106,10 @@ az cosmosdb dts pause --account-name $accountName --resource-group $resourceGrou
 In order to resume an ongoing container copy job, you may use the command:
 
 ```azurecli-interactive
-az cosmosdb dts resume --account-name $accountName --resource-group $resourceGroup --job-name $jobName
+az cosmosdb dts resume `
+    --account-name $accountName `
+    --resource-group $resourceGroup `
+    --job-name $jobName
 ```
 
 ## Next steps

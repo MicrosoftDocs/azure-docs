@@ -22,11 +22,19 @@ You may need to copy data within your Azure Cosmos DB account if you want to ach
 * Rename a container/database.
 * Adopt new features that are only supported on new containers.
 
-Intra-account container copy jobs can be currently [created and managed using CLI commands](how-to-container-copy.md).
+Intra-account container copy jobs can be [created and managed using CLI commands](how-to-container-copy.md).
 
-## Get started
+## Getting started
 
-To get started using container copy jobs, enroll in the preview by filing a support ticket in the [Azure portal](https://portal.azure.com). 
+To get started using container copy jobs, register for "Intra-account container copy" preview from the ['Preview Features'](access-previews.md) list in the Azure portal.
+
+## Overview of steps needed to do container copy
+
+1. Create the target Cosmos DB container with the required settings (partition key, throughput granularity, RUs, unique key, etc.).
+2. Stop the operations on the source container by pausing the application instances or any clients connecting to it.
+3. [Create the container copy job](how-to-container-copy.md).
+4. [Monitor the progress of the container copy job](how-to-container-copy.md#monitor-the-progress-of-a-container-copy-job) and wait until it's completed.
+5. Resume the operations by appropriately pointing the application or client to the source or target container copy as intended.
 
 ## How does intra-account container copy work?
 
@@ -39,17 +47,11 @@ Intra-account container copy jobs perform offline data copy using the source con
 * The platform may de-allocate the instances if they're idle for >15 mins.
 
 > [!NOTE]
-> We currently only support offline container copy. So, we strongly recommend to stop performing any operations on the source container prior to beginning the container copy.
+> We currently only support offline container copy. So, we strongly recommend to stop performing any operations on the source container prior to beginning the container copy.\
 > Item deletions and updates done on the source container after beginning the copy job may not be captured. Hence, continuing to perform operations on the source container while the container job is in progress may result in data missing on the target container.
 
-## Overview of steps needed to do a container copy
 
-1. Stop the operations on the source container by pausing the application instances or any clients connecting to it.
-2. [Create the container copy job](how-to-container-copy.md).
-3. [Monitor the progress of the container copy job](how-to-container-copy.md#monitor-the-progress-of-a-container-copy-job) and wait until it's completed.
-4. Resume the operations by appropriately pointing the application or client to the source or target container copy as intended.
-
-## Factors affecting the rate of container copy job
+## Factors affecting the rate of a container copy job
 
 The rate of container copy job progress is determined by these factors:
 
@@ -57,10 +59,10 @@ The rate of container copy job progress is determined by these factors:
 
 * Target container/database throughput setting.
 
-* Server-side compute instances allocated to the Azure Cosmos DB account for the performing the data transfer.
+* Server-side compute instances allocated to the Azure Cosmos DB account for performing the data transfer.
 
     > [!IMPORTANT]
-    > The default SKU offers two 4-vCPU 16-GB server-side instances per account. You may opt to sign up for [larger SKUs](#large-skus-preview) in preview.
+    > The default SKU offers two 4-vCPU 16-GB server-side instances per account. 
 
 ## FAQs
 
@@ -82,14 +84,50 @@ The container copy job will run in the write region. If there are accounts confi
 
 ### What happens to the container copy jobs when the account's write region changes?
 
-The account's write region may change in the rare scenario of a region outage or due to manual failover. In such scenario, incomplete container copy jobs created within the account would fail. You would need to recreate such jobs. Recreated jobs would then run against the new (current) write region.
+The account's write region may change in the rare scenario of a region outage or due to manual failover. In such a scenario, incomplete container copy jobs created within the account would fail. You would need to recreate these failed jobs. Recreated jobs would then run in the new (current) write region.
 
-## Large SKUs preview
+### Why is a new database '_datatransferstate' created in the account when I run container copy jobs Am I being charged for this database?
+* '_datatransferstate' is a temporary database that is created while running container copy jobs. This database is used by the platform to store the state and progress of the copy job. 
+* The database uses manual provisioned throughput of 800 RUs. You'll be charged for this database.
+* Deleting this database will remove the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history.
 
-If you want to run the container copy jobs faster, you may do so by adjusting one of the [factors that affect the rate of the copy job](#factors-affecting-the-rate-of-container-copy-job). In order to adjust the configuration of the server-side compute instances, you may sign up for "Large SKU support for container copy" preview.
+## Supported Regions
 
-This preview will allow you to choose larger a SKU size for the server-side instances. Large SKU sizes are billable at a higher rate. You can also choose a node count of up to 5 of these instances.
+Currently, container copy is supported in the following regions:
+
+| **Americas** | **Europe and Africa** | **Asia Pacific** |
+| ------------ | -------- | ----------- | 
+| Brazil South | France Central | Australia Central |
+| Canada Central | France South | Australia Central 2 |
+| Canada East | Germany North | Australia East |
+| Central US | Germany West Central | Central India | 
+| Central US EUAP | North Europe | Japan East | 
+| East US | Norway East | Korea Central | 
+| East US 2 | Norway West | Southeast Asia |
+| East US 2 EUAP | Switzerland North | UAE Central |
+| North Central US | Switzerland West | West India |
+| South Central US | UK South | |
+| West Central US | UK West  | |
+| West US | West Europe |
+| West US 2 | |
+
+## Known/Common issues
+
+* Error - Owner resource does not exist
+
+If the job creation fails with the error *"Owner resource does not exist"*, it means that the target container wasn't created or was mis-spelt.
+Make sure the target container is created before running the job as specified in the [overview section.](#overview-of-steps-needed-to-do-a-container-copy)
+
+	"code": "500",
+    "message": "Response status code does not indicate success: NotFound (404); Substatus: 1003; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Message: {\"Errors\":[\"Owner resource does not exist\"]
+
+* Error - Shared throughput database creation is not supported for serverless accounts
+
+Job creation on serverless accounts may fail with the error *"Shared throughput database creation is not supported for serverless accounts"*.
+As a work-around, create a database called *"_datatransferstate"* manually within the account and try creating the container copy job again.
+
+    ERROR: (BadRequest) Response status code does not indicate success: BadRequest (400); Substatus: 0; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Shared throughput database creation is not supported for serverless accounts.
 
 ## Next Steps
 
-- You can learn about [how to create, monitor and manage container copy jobs within Azure Cosmos DB account using CLI commands](how-to-container-copy.md).
+- You can learn [how to create, monitor and manage container copy jobs within Azure Cosmos DB account using CLI commands](how-to-container-copy.md).
