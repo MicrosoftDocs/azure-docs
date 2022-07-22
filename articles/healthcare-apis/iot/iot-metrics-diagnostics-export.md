@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # How to configure diagnostic settings for exporting the MedTech service metrics 
 
-In this article, you'll learn how to configure the diagnostic setting for the MedTech service to export metrics to different destinations for audit, analysis, or backup.
+In this article, you'll learn how to configure the diagnostic setting for the MedTech service to export metrics to different destinations (for example: to Azure storage or an event hub) for audit, analysis, or backup.
 
 ## Create diagnostic setting for the MedTech service
 1. To enable metrics export for the MedTech service, select **MedTech service** in your workspace.
