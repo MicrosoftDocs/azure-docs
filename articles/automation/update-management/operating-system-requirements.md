@@ -18,7 +18,8 @@ The following table lists the supported operating systems for update assessments
 All operating systems are assumed to be x64. x86 is not supported for any operating system.
 
 > [!NOTE]
-> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).
+> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).</br>
+> Update Management does not support CIS hardened images.
 
 # [Windows operating system](#tab/os-win)
 
@@ -30,8 +31,7 @@ All operating systems are assumed to be x64. x86 is not supported for any operat
 # [Linux operating system](#tab/os-linux)
 
 > [!NOTE]
-> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).</br>
-> Update Management does not support CIS hardened images.
+> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).
 
 |Operating system  |Notes  |
 |---------|---------|
@@ -79,7 +79,7 @@ By default, Windows VMs that are deployed from Azure Marketplace are set to rece
 
 # [Linux](#tab/sr-linux)
 
-Software Requirements:
+**Software Requirements**:
 
 - The machine requires access to an update repository - private or public.
 - TLS 1.1 or TLS 1.2 is required to interact with Update Management.
