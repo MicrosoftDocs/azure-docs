@@ -1,5 +1,5 @@
 ---
-title: "Use cluster connect to connect to Azure Arc-enabled Kubernetes clusters"
+title: "Use the cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 07/22/2022
@@ -7,7 +7,7 @@ ms.topic: how-to
 description: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 ---
 
-# Use cluster connect to connect to Azure Arc-enabled Kubernetes clusters
+# Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters
 
 With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall.
 
@@ -196,7 +196,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount default:demo-user
     ```
 
-1. Create a service account token by :
+1. Create a service account token by:
 
     ```console
     kubectl apply -f demo-user-secret.yaml

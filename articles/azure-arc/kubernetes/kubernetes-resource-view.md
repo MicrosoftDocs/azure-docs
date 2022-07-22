@@ -33,7 +33,7 @@ To see the Kubernetes resources, navigate to your cluster in the Azure portal. T
 
 The Kubernetes resource view also includes a YAML editor. A built-in YAML editor means you can update Kubernetes objects from within the portal and apply changes immediately.
 
-After editing the YAML, changes are applied by selecting **Review + save**, confirming the changes, and then saving again.
+After you edit the YAML, select **Review + save**, confirm the changes, and then save again.
 
 [ ![YAML editor for Kubernetes objects displayed in the Azure portal](media/kubernetes-resource-view/yaml-editor.png) ](media/kubernetes-resource-view/yaml-editor.png#lightbox)
 
