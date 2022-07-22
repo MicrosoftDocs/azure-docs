@@ -38,7 +38,7 @@
               href: quick-create-marketplace.md
     - name: Confidential containers with enclaves
       items:
-        - name: Create Intel SGX AKS with CLI
+        - name: Create Intel SGX enclaves on AKS with CLI
           href: confidential-enclave-nodes-aks-get-started.md
 - name: Concept
   expanded: true
@@ -84,7 +84,7 @@
   - name: Container Compute
     items:  
     - name: Container solutions overview
-      href: confidential-computing-deployment-models.md
+      href: choose-confidential-containers-offerings.md 
     - name: Application enclave nodes on AKS
       items:
       - name: Application enclave with Intel SGX DCSv2/DCsv3 nodes 
@@ -99,7 +99,7 @@
         href: confidential-nodes-aks-faq.yml
     - name: Confidential containers
       items:
-      - name: Confidential containers on Azure Overview
+      - name: Confidential containers Overview
         href: confidential-containers.md
       - name: Confidential containers with Intel SGX enclaves
         href: confidential-containers-enclaves.md
