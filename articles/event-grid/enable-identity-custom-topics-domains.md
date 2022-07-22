@@ -16,13 +16,13 @@ In the **Azure portal**, when creating a topic or a domain, you can assign eithe
 ### Enable system-assigned identity
 On the **Security** page of the topic or domain creation wizard, select **Enable system assigned identity**. 
 
-:::image type="content" source="./media/managed-service-identity/create-topic-identity.png" alt-text="Image showing the Enable system assigned identity option selected.":::
+:::image type="content" source="./media/managed-service-identity/create-topic-identity.png" alt-text="Screenshot showing the Enable system assigned identity option selected.":::
 
 ### Enable user-assigned identity
 1. On the **Security** page of the topic or domain creation wizard, select **Add user assigned identity**. 
 1. In the **Select user assigned identity** window, select the subscription that has the user-assigned identity, select the **user-assigned identity**, and then click **Select**. 
 
-    :::image type="content" source="./media/managed-service-identity/create-page-add-user-assigned-identity-link.png" alt-text="Image showing the Enable user assigned identity option selected." lightbox="./media/managed-service-identity/create-page-add-user-assigned-identity-link.png":::
+    :::image type="content" source="./media/managed-service-identity/create-page-add-user-assigned-identity-link.png" alt-text="Screenshot showing the Enable user assigned identity option selected." lightbox="./media/managed-service-identity/create-page-add-user-assigned-identity-link.png":::
 
 # [Azure CLI](#tab/cli)
 You can also use Azure CLI to create a custom topic or a domain with a system-assigned identity. Currently, Azure CLI doesn't support assigning a user-assigned identity to a topic or a domain.  
@@ -61,7 +61,7 @@ The following procedures show you how to enable an identity for a custom topic. 
 1. Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) article. 
 1. On the **Identity** page, switch to the **User assigned** tab in the right pane, and then select **+ Add** on the toolbar.
 
-    :::image type="content" source="./media/managed-service-identity/user-assigned-identity-add-button.png" alt-text="Image showing the User Assigned Identity tab":::     
+    :::image type="content" source="./media/managed-service-identity/user-assigned-identity-add-button.png" alt-text="Screenshot showing the User Assigned Identity tab":::     
 1. In the **Add user managed identity** window, follow these steps:
     1. Select the **Azure subscription** that has the user-assigned identity. 
     1. Select the **user-assigned identity**. 

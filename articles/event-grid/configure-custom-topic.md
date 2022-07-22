@@ -50,13 +50,13 @@ When you use Azure portal, you can assign one system assigned identity and up to
 1. In the **System assigned** tab, turn **on** the switch to enable the identity. 
 1. Select **Save** on the toolbar to save the setting. 
 
-    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Identity page for a custom topic"::: 
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Screenshot showing the Identity page for a custom topic."::: 
 
 ### To assign a user-assigned identity to a topic
 1. Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) article. 
 1. On the **Identity** page, switch to the **User assigned** tab in the right pane, and then select **+ Add** on the toolbar.
 
-    :::image type="content" source="./media/managed-service-identity/user-assigned-identity-add-button.png" alt-text="Image showing the User Assigned Identity tab":::     
+    :::image type="content" source="./media/managed-service-identity/user-assigned-identity-add-button.png" alt-text="Screenshot showing the User Assigned Identity tab of the Identity page.":::     
 1. In the **Add user managed identity** window, follow these steps:
     1. Select the **Azure subscription** that has the user-assigned identity. 
     1. Select the **user-assigned identity**. 
