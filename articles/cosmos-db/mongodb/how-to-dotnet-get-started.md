@@ -14,7 +14,7 @@ ms.custom: devx-track-dotnet
 # Get started with Azure Cosmos DB MongoDB API and .NET Core
 [!INCLUDE[appliesto-mongo-api](../includes/appliesto-mongodb-api.md)]
 
-This article shows you how to connect to Azure Cosmos DB MongoDB API using .NET Core and the relevant NuGet packages. Once connected, you can perform operations on databases, collections, and docs.
+This article shows you how to connect to Azure Cosmos DB MongoDB API using .NET Core and the relevant NuGet packages. Once connected, you can perform operations on databases, collections, and documents.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples) are available on GitHub as a .NET Core project.
@@ -31,7 +31,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using .NET 
 
 ## Create a new .NET Core app
 
-1. Create a new .NET Core application in an empty folder using your preferred terminal. For this scenario you'll be using a console application. Use the [``dotnet new``](/dotnet/core/tools/dotnet-new) command to create ane name the console app.
+1. Create a new .NET Core application in an empty folder using your preferred terminal. For this scenario you'll use a console application. Use the [``dotnet new``](/dotnet/core/tools/dotnet-new) command to create ane name the console app.
 
     ```console
     dotnet new console -o app
@@ -51,7 +51,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using .NET 
 
 ## Connect with MongoDB native driver to Azure Cosmos DB MongoDB API
 
-To connect with the MongoDB native driver to Azure Cosmos DB, create an instance of the [``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_MongoClient.htm) class. This class is the starting point to perform all operations against databases. The most common constructor for **MongoClient** accepts a connection string.
+To connect to Azure Cosmos DB with the MongoDB native driver, create an instance of the [``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_MongoClient.htm) class. This class is the starting point to perform all operations against databases. The most common constructor for **MongoClient** accepts a connection string, which you can retrieve using the following steps:
 
 ## Get resource name
 

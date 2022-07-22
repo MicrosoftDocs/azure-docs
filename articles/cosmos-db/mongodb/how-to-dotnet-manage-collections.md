@@ -22,7 +22,6 @@ Manage your MongoDB collection stored in Cosmos DB with the native MongoDB clien
 
 [MongoDB API reference documentation](https://docs.mongodb.com/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
 
-
 ## Name a collection
 
 In Azure Cosmos DB, a collection is analogous to a table in a relational database. When you create a collection, the collection name forms a segment of the URI used to access the collection resource and any child docs.
@@ -39,7 +38,7 @@ Use an instance of the **Collection** class to access the collection on the serv
 
 * [MongoClient.Database.Collection](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html)
 
-The following code snippets assume you've already created your [client connection](how-to-dotnet-get-started.md#create-mongoclient-with-connection-string) and that you [close your client connection](how-to-dotnet-get-started.md#close-the-mongoclient-connection) after these code snippets.
+The following code snippets assume you've already created your [client connection](how-to-dotnet-get-started.md#create-mongoclient-with-connection-string).
 
 ## Create a collection
 

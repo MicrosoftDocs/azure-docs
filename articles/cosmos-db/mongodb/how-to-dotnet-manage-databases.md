@@ -15,14 +15,12 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Your MongoDB server in Azure Cosmos DB is available from the common NuGet packages for MongoDB such as:
-
-* [MongoDB](https://www.nuget.org/packages/MongoDB.Driver)
+Your MongoDB server in Azure Cosmos DB is available from the [MongoDB](https://www.nuget.org/packages/MongoDB.Driver) NuGet package.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples) are available on GitHub as a .NET project.
 
-[MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
+[MongoDB API reference documentation](https://docs.mongodb.com/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
 
 ## Name a database
 
@@ -51,7 +49,9 @@ The following code snippet creates a new database by inserting a document into a
 
 ## Get an existing database
 
-You can also retrieve an existing database by name to access its collections and documents.
+You can also retrieve an existing database by name using the `GetDatabase` method to access its collections and documents.
+
+* [MongoClient.GetDatabase](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoClient_GetDatabase.htm)
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="get_database":::
 
@@ -59,7 +59,7 @@ You can also retrieve an existing database by name to access its collections and
 
 You can also easily retrieve a list of all the databases on the server using the `MongoClient`. This technique can also be used to check if a database already exists.
 
-* [MongoClient.Database.ListDatabaseNames](https://mongodb.github.io/node-mongodb-native/4.7/classes/Db.html)
+* [MongoClient.Database.ListDatabaseNames](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoClient_ListDatabaseNames_3.htm)
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="get_all_databases":::
 
