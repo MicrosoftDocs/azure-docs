@@ -215,10 +215,12 @@
           href: concept-vulnerability-management.md
 - name: Infrastructure & security
   items:
-    - name: Create a secure workspace
-      href: tutorial-create-secure-workspace.md
-    - name: Create a secure workspace with templates
-      href: tutorial-create-secure-workspace-template.md
+    - name: Templates
+      items:
+      - name: Create a secure workspace
+        href: tutorial-create-secure-workspace.md
+      - name: Create a secure workspace with templates
+        href: tutorial-create-secure-workspace-template.md
     - name: Identity & access management
       items: 
         - name: Set up authentication
