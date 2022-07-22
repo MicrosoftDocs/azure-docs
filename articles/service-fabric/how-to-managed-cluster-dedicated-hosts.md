@@ -119,19 +119,19 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
 
    * ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources)](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template.
 
-   ```powershell
-   $templateFilePath = "<full path to azuredeploy.json>" 
-   $parameterFilePath = "<full path to azuredeploy.parameters.json>"
-   $pass = (ConvertTo-SecureString -AsPlainText -Force "<adminPassword>")
+      ```powershell
+      $templateFilePath = "<full path to azuredeploy.json>" 
+      $parameterFilePath = "<full path to azuredeploy.parameters.json>"
+      $pass = (ConvertTo-SecureString -AsPlainText -Force "<adminPassword>")
 
-    New-AzResourceGroupDeployment ` 
+      New-AzResourceGroupDeployment ` 
         -Name $DeploymentName ` 
         -ResourceGroupName $resourceGroupName ` 
         -TemplateFile $templateFilePath ` 
         -TemplateParameterFile $parameterFilePath `
         -adminPassword $pass `
         -Debug -Verbose
-   ```
+      ```
    
     Wait for the deployment to be completed successfully.
     
