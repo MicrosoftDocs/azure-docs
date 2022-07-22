@@ -1,5 +1,5 @@
 ---
-title: Use number matching in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
+title: Use number matching in multifactor authentication (MFA) notifications - Azure Active Directory
 description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,7 +11,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use number matching in multifactor authentication (MFA) notifications (Preview) - Authentication Methods Policy
+# How to use number matching in multifactor authentication (MFA) notifications - Authentication Methods Policy
 
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
@@ -333,12 +333,7 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
 1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Push**. Only users who are enabled for Microsoft Authenticator will see number matching. Anyone who isn't enabled for Microsoft Authenticator is unaffected.
-
-   :::image type="content" border="true" source="./media/how-to-mfa-number-match/enable-settings-number-match.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Push authentication mode.":::
-
-1. On the **Configure** tab, for **Require number matching for push notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from number matching, and click **Save**. 
-
-   :::image type="content" border="true" source="./media/how-to-mfa-number-match/number-match.png" alt-text="Screenshot of how to enable number matching.":::
+1. On the **Configure** tab, for **Require number matching for push notifications**, change **Status** to **Enabled**, choose who to include or exclude from number matching, and click **Save**. 
 
 ## Next steps
 
