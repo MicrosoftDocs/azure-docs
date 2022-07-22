@@ -126,22 +126,6 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 |**Larger&nbsp;than&nbsp;20,000&nbsp;rows**| Train/validation data split is applied. The default is to take 10% of the initial training data set as the validation set. In turn, that validation set is used for metrics calculation.
 |**Smaller&nbsp;than&nbsp;or&nbsp;equal&nbsp;to&nbsp;20,000&nbsp;rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is fewer than 1,000 rows**, 10 folds are used. <br> **If the rows are between 1,000 and 20,000**, then three folds are used.
 
-### Large data 
-
-Automated ML supports a limited number of algorithms for training on large data that can successfully build models for big data on small virtual machines. Automated ML heuristics depend on properties such as data size, virtual machine memory size, experiment timeout and featurization settings to determine if these large data algorithms should be applied. [Learn more about what models are supported in automated ML](#supported-algorithms). 
-
-* For regression, [Online Gradient Descent Regressor](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) and
-[Fast Linear Regressor](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)
-
-* For classification, [Linear SVM Classifier](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest);  where the Linear SVM classifier has both large data and small data versions.
-
-If you want to override these heuristics, apply the following settings: 
-
-Task | Setting | Notes
-|---|---|---
-Block&nbsp;data streaming algorithms | Use the `blocked_algorithms` parameter in the `set_training()` function and list the model(s) you don't want to use. | Results in either run failure or long run time
-Use&nbsp;data&nbsp;streaming&nbsp;algorithms| Use the `allowed_algorithms` parameter in the `set_training()` function and list the model(s) you want to use.| 
-Use&nbsp;data&nbsp;streaming&nbsp;algorithms <br> [(studio UI experiments)](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)|Block all models except the big data algorithms you want to use. |
 
 ## Compute to run experiment
 
