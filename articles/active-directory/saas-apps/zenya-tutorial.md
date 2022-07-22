@@ -33,7 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Zenya supports **SP** initiated SSO.
-* Zenya supports [Automated user provisioning](iprova-provisioning-tutorial.md).
+* Zenya supports [Automated user provisioning](zenya-provisioning-tutorial.md).
 
 ## Add Zenya from the gallery
 
@@ -70,7 +70,7 @@ In this section, you retrieve information from Zenya to configure Azure AD singl
      `https://<SUBDOMAIN>.iprova.be/saml2info`  
      `https://<SUBDOMAIN>.iprova.eu/saml2info` 
 
-	![View the Zenya SAML2 info page](media/iprova-tutorial/information.png)
+	![Screenshot of the Zenya SAML2 information page.](media/zenya-tutorial/information.png)
 
 1. Leave the browser tab open while you proceed with the next steps in another browser tab.
 
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot of the page for editing the basic SAML configuration.](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -94,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Zenya application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+	![Screenshot showing the list of default attributes.](common/default-attributes.png)
 
 1. In addition to above, Zenya application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
@@ -104,7 +104,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![Screenshot showing SAML Signing Certificate information including a download link.](common/copy-metadataurl.png)
 
 ## Create an Azure AD test user
 
@@ -144,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. Scroll down to **Access control**.
 
-	![Zenya Access control settings](media/iprova-tutorial/access-control.png)
+	![Screenshot showing Zenya Access control settings.](media/zenya-tutorial/access-control.png)
 
 7. Find the setting **Users are automatically logged on with their network accounts**, and change it to **Yes, authentication via SAML**. Additional options now appear.
 
@@ -154,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 10. Zenya asks if you want to download federation data from a URL or upload it from a file. Select the **From URL** option.
 
-	![Download Azure AD metadata](media/iprova-tutorial/metadata.png)
+	![Screenshot showing page for entering the URL for downloading Azure AD metadata](media/zenya-tutorial/metadata.png)
 
 11. Paste the metadata URL you saved in the last step of the "Configure Azure AD single sign-on" section.
 
@@ -195,7 +195,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 10. Scroll down to the end of the page, and select **Finish**.
 
 > [!NOTE]
-> Zenya also supports automatic user provisioning, you can find more details [here](./iprova-provisioning-tutorial.md) on how to configure automatic user provisioning.
+> Zenya also supports automatic user provisioning, you can find more details [here](./zenya-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
