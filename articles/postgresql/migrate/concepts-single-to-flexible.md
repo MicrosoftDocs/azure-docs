@@ -19,7 +19,7 @@ Azure Database for PostgreSQL Flexible Server provides zone-redundant high avail
 By using the migration tool, you can initiate migrations for multiple servers and databases in a repeatable way. The tool automates most of the migration steps to make the migration journey across Azure platforms as seamless as possible. The tool is free for customers.
 
 >[!NOTE]
-> The migration tool is in private preview.
+> The migration tool is in public preview.
 >
 > Migration from Single Server to Flexible Server is enabled in preview in these regions: Australia Southeast, Canada Central, Canada East, East Asia, North Central US, South Central US, Switzerland North, UAE North, UK South, UK West, West US, and Central US.
 

@@ -16,7 +16,7 @@ ms.date: 05/09/2022
 This article shows you how to use the migration tool in the Azure portal to migrate databases from Azure Database for PostgreSQL Single Server to Flexible Server.
 
 >[!NOTE]
-> The migration tool is in private preview.
+> The migration tool is in public preview.
 
 ## Prerequisites
 
