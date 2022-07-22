@@ -3,11 +3,11 @@ title: How to programmatically create an Azure Device Provisioning Service enrol
 description: This article shows you how to programmatically create an enrollment group to enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
 author: kgremban
 ms.author: kgremban
-ms.date: 07/18/2022
-ms.topic: conceptual
+ms.date: 07/22/2022
+ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
-ms.devlang: csharp, java, node.js
+ms.devlang: csharp, java, nodejs
 ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set2
 ---
@@ -121,34 +121,31 @@ For the sample in this article, you'll need to copy the connection string for yo
 
 This section shows you how to create a .NET Core console application that adds an enrollment group to your provisioning service.
 
->[!TIP]
->You can, with some modification, follow these steps to create a [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) console application that adds an enrollment group. To learn more about developing with IoT Core, see the [Windows IoT Core developer documentation](/windows/iot-core/).
+1. Open a Windows command prompt and navigate to a folder where you want to create your app.
 
-1. Open Visual Studio, and select **Create a new project**.
+1. To create a console project, run the following command:
 
-2. In the **Create a new project** panel, select **Console App*.
+    ```cmd
+    dotnet new console --framework net6.0 --use-program-main 
+    ```
 
-3. Select **Next**.
+1. To add a reference to the DPS service SDK, run the following command:
 
-4. For **Project name**, type *CreateEnrollmentGroup*. Under **Location**, you can select the location for your app or keep the default.
-
-5. Select **Next**. Keep the default **Target framework** (.NET 6.0). Check the **Do not use top-level statements** box.
-
-6. Select **Create**.
-
-7. After the solution opens, in the **Solution Explorer** pane, right-click the **CreateEnrollmentGroup** project, and then select **Manage NuGet Packages**.
-
-8. In **NuGet Package Manager**, select **Browse**.
-
-9. Type in and select *Microsoft.Azure.Devices.Provisioning.Service*.
-
-10. Select **Install**.
-
-    ![NuGet Package Manager window](media//quick-enroll-device-x509/add-nuget.png)
+    ```cmd
+    dotnet add package Microsoft.Azure.Devices.Provisioning.Service 
+    ```
 
     This step downloads, installs, and adds a reference to the [Azure IoT Provisioning Service Client SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
 
-11. Add the following `using` statements just under the `namespace` declaration at the top of `Program.cs`:
+1. Open *Program.cs* file in an editor.
+
+1. Replace the namespace statement at the top of the file with the following:
+
+    ```csharp
+    namespace CreateEnrollmentGroup;
+    ```
+
+1. Add the following `using` statements at the top of the file **above** the `namespace` statement:
 
     ```csharp
     using System.Security.Cryptography.X509Certificates;
@@ -156,7 +153,7 @@ This section shows you how to create a .NET Core console application that adds a
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-12. Add the following fields to the `Program` class, and make the listed changes.  
+1. Add the following fields to the `Program` class, and make the indicated changes.  
 
     ```csharp
     private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
@@ -164,11 +161,11 @@ This section shows you how to create a .NET Core console application that adds a
     private static string X509RootCertPath = @"{Path to a .cer or .pem file for a verified root CA or intermediate CA X.509 certificate}";
     ```
 
-13. Replace the `ProvisioningServiceConnectionString` placeholder value with the connection string of the provisioning service that you copied in the previous section.
+    * Replace the `ProvisioningServiceConnectionString` placeholder value with the connection string of the provisioning service that you copied in the previous section.
 
-14. Replace the `X509RootCertPath` placeholder value with the path to a .pem or .cer file. This file represents the public part of an intermediate or root CA X.509 certificate that has been previously uploaded and verified with your provisioning service.
+    * Replace the `X509RootCertPath` placeholder value with the path to a .pem or .cer file. This file represents the public part of an intermediate or root CA X.509 certificate that has been previously uploaded and verified with your provisioning service.
 
-15. You may optionally change the `EnrollmentGroupId` value. The string can contain only lower case characters and hyphens.
+    * You may optionally change the `EnrollmentGroupId` value. The string can contain only lower case characters and hyphens.
 
     > [!IMPORTANT]
     > In production code, be aware of the following security considerations:
@@ -176,7 +173,7 @@ This section shows you how to create a .NET Core console application that adds a
     > * Hard-coding the connection string for the provisioning service administrator is against security best practices. Instead, the connection string should be held in a secure manner, such as in a secure configuration file or in the registry.
     > * Be sure to upload only the public part of the signing certificate. Never upload .pfx (PKCS12) or .pem files containing private keys to the provisioning service.
 
-16. Add the following method to the `Program` class. This code creates an enrollment group entry and then calls the `CreateOrUpdateEnrollmentGroupAsync` method on `ProvisioningServiceClient` to add the enrollment group to the provisioning service.
+1. Add the following method to the `Program` class. This code creates an enrollment group entry and then calls the `CreateOrUpdateEnrollmentGroupAsync` method on `ProvisioningServiceClient` to add the enrollment group to the provisioning service.
 
     ```csharp
     public static async Task RunSample()
@@ -212,7 +209,7 @@ This section shows you how to create a .NET Core console application that adds a
     }
     ```
 
-17. Finally, replace the `Main` method with the following lines:
+1. Finally, replace the `Main` method with the following lines:
 
     ```csharp
     static async Task Main(string[] args)
@@ -223,7 +220,7 @@ This section shows you how to create a .NET Core console application that adds a
     }
     ```
 
-18. Build the solution.
+1. Save your changes.
 
 :::zone-end
 
@@ -346,7 +343,11 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-csharp"
 
-1. Run the sample in Visual Studio to create the enrollment group. A command window will appear, and will display confirmation messages.
+1. Run the sample:
+
+    ```csharp
+    dotnet run
+    ```
 
 2. Upon successful creation, the command window displays the properties of the new enrollment group.
 
@@ -496,14 +497,10 @@ The [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) contains t
 
 ## Next steps
 
-In this article, you created an enrollment group for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorials for the Device Provisioning Service.
+In this article, you created an enrollment group for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To explore further, check out the following links:
 
-> [!div class="nextstepaction"]
-> [Use custom allocation policies with Device Provisioning Service](tutorial-custom-allocation-policies.md)
+* For more information about X.509 certificate attestation with DPS, see [X.509 certificate attestation](concepts-x509-attestation.md).
 
-:::zone pivot="programming-language-nodejs"
+* For an end-to-end example of provisioning devices through an enrollment group using X.509 certificates, see the [Provision multiple X.509 devices using enrollment groups](tutorial-custom-hsm-enrollment-group-x509.md) tutorial.
 
-> [!div class="nextstepaction"]
->[Node.js device provisioning sample](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples).
-
-:::zone-end
+* To learn about managing individual enrollments and enrollment groups using Azure portal, see [How to manage device enrollments with Azure portal](how-to-manage-enrollments.md).

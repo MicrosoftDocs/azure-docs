@@ -3,11 +3,11 @@ title: How to programmatically create an Azure Device Provisioning Service indiv
 description: This article shows you how to programmatically create an individual enrollment entry for a device that uses TPM attestation.
 author: kgremban
 ms.author: kgremban
-ms.date: 04/28/2022
-ms.topic: quickstart
+ms.date: 07/22/2022
+ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
-ms.devlang: csharp
+ms.devlang: csharp, java, nodejs
 ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set2
 ---
@@ -34,7 +34,7 @@ Although these steps work on both Windows and Linux computers, this article uses
     dotnet --info
     ```
 
-* (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) up to the step where you get an endorsement key for the device. Save the E**Endorsement key**, you'll use it later in this article.
+* (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) up to the step where you get an endorsement key for the device. Save the **Endorsement key**, you'll use it later in this article.
 
     > [!NOTE]
     > Don't follow the steps to create an individual enrollment by using the Azure portal.
@@ -64,46 +64,6 @@ Although these steps work on both Windows and Linux computers, this article uses
 
     > [!NOTE]
     > Don't follow the steps to create an individual enrollment by using the Azure portal.
-
-:::zone-end
-
-:::zone pivot="programming-language-java"
-
-<a id="setupdevbox"></a>
-
-## Prepare the development environment 
-
-### Set up environment variables
-
-To set up environment variables:
-
-1. The `PATH` variable should include the full path to *jdk1.8.x\bin* directory. If this is your machine's first Java installation, then create a new environment variable named `JAVA_HOME` and point it to the full path to the *jdk1.8.x* directory. On Windows machine, this directory is found in the *C:\\Program Files\\Java\\* folder, and you can create or edit environment variables by searching for **Edit the system environment variables** on the **Control panel** of your Windows machine.
-
-    You can check if Java is successfully set up on your machine by running the following command on your command window:
-
-    ```cmd\sh
-    java -version
-    ```
-
-2. Edit environment variable `PATH` to point to the *apache-maven-3.x.x\\bin* folder inside the folder where Maven was extracted. You may confirm that Maven is successfully installed by running this command on your command window:
-
-    ```cmd\sh
-    mvn --version
-    ```
-
-3. Make sure [git](https://git-scm.com/download/) is installed on your machine and is added to the environment variable `PATH`.
-
-### Clone Git repository for Azure IoT Java SDK
-
-To clone the Azure IoT Java SDK:
-
-1. Open a Windows command prompt.
-
-2. Clone the [Microsoft Azure IoT SDKs for Java GitHub repo](https://github.com/Azure/azure-iot-sdk-java):
-
-    ```cmd\sh
-    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
-    ```
 
 :::zone-end
 
@@ -276,7 +236,15 @@ This section shows you how to create a .NET Core console app that adds an indivi
 
 :::zone pivot="programming-language-java"
 
-1. From the location where you downloaded the repo, go to the sample folder:
+1. Open a Windows command prompt.
+
+1. Clone the [Microsoft Azure IoT SDKs for Java GitHub repo](https://github.com/Azure/azure-iot-sdk-java):
+
+    ```cmd\sh
+    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
+    ```
+
+1. Go to the sample folder:
 
     ```cmd
     cd azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-sample
@@ -499,7 +467,10 @@ If you plan to explore the DPS tutorials, don't clean up the resources created i
 
 ## Next steps
 
-In this article, you’ve programmatically created an individual enrollment entry for a TPM device. Optionally, you created a TPM simulated device on your computer and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about provisioning multiple devices, continue to the tutorials for the Device Provisioning Service.
+In this article, you’ve programmatically created an individual enrollment entry for a TPM device. Optionally, you created a TPM simulated device on your computer and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To explore further, check out the following links:
 
-> [!div class="nextstepaction"]
-> [How to provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md)
+* For more information about TPM attestation with DPS, see [TPM attestation](concepts-x509-attestation.md).
+
+* For an end-to-end example of a provisioning a device through an individual enrollment using TPM attestation, see the [Provision a simulated TPM device](quick-create-simulated-device-tpm.md) quickstart.
+
+* To learn about managing individual enrollments and enrollment groups using Azure portal, see [How to manage device enrollments with Azure portal](how-to-manage-enrollments.md).
