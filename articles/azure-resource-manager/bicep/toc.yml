@@ -57,6 +57,8 @@
       href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Cognitive Services
       href: ../../cognitive-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Azure Machine Learning secure workspace
+      href: ../../machine-learning/tutorial-create-secure-workspace-template.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Analytics
