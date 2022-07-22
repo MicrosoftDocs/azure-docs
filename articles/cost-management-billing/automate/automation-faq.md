@@ -72,7 +72,7 @@ The Consumption Usage Details API is deprecated. The date that the API will bet 
 
 The Marketplaces API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report. We recommend that you migrate to it as soon as possible. For more information, see [Migrate from Consumption Marketplaces API](migrate-consumption-marketplaces-api.md).
 
-### When will the [Consumption Forecasts API](/rest/api/consumption/forecasts/list) get turned off?
+### When will the [Consumption Forecasts API](/rest/api/consumption/) get turned off?
 
 The Forecasts API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Cost Management Forecast API](/rest/api/cost-management/forecast). We recommend that you migrate to it as soon as possible.
 
