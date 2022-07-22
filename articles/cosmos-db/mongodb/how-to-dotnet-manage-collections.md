@@ -49,7 +49,7 @@ To create a collection, insert a document into the collection.
 * [MongoClient.Database.Collection.InsertOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertOne)
 * [MongoClient.Database.Collection.InsertMany](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertMany)
 
-:::code language="dotnet" source="~/azure-cosmos-mongodb-dotnet/110-manage-collections/program.cs" id="create_collection":::
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/110-manage-collections/program.cs" id="create_collection":::
 
 ## Drop a collection
 
