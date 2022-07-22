@@ -654,12 +654,6 @@ This article lists common error codes and messages reported by mapping data flow
 - **Cause**: Delete operation on the Azure Data Lake Storage Gen2 account failed since its linked service is incorrectly configured as Azure Blob Storage.
 - **Recommendation**: Create a new Azure Data Lake Storage Gen2 linked service for the storage account in question. If that's not feasible, some known scenarios like **Clear the folder**, non-default **File name option**, **Key** partitioning in any combinations may fail with an Azure Blob Storage linked service on a hierarchical namespace enabled storage account. You can disable these data flow settings if you enabled them and try again.
 
-## Error code: DF-Executor-InternalServerError
-
-- **Message**: Failed to execute dataflow with out of memory error, please contact Microsoft support for further assistance
-- **Cause**: Data flow execution is failed because of a system error.
-- **Recommendation**: Contact Microsoft product team regarding this issue for more details.
-
 ## Next steps
 
 For more help with troubleshooting, see these resources:
