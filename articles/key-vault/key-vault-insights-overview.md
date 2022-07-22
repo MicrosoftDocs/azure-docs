@@ -137,7 +137,7 @@ This section will help you with the diagnosis and troubleshooting of some of the
 
 ### Resolving performance issues or failures
 
-To help troubleshoot any key vault related issues you identify with Key Vault insights, see the [Azure Key Vault documentation](../../key-vault/index.yml).
+To help troubleshoot any key vault related issues you identify with Key Vault insights, see the [Azure Key Vault documentation](index.yml).
 
 ### Why can I only see 200 key vaults
 
