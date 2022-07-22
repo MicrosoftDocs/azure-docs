@@ -197,8 +197,8 @@ The following tables list the operating systems that are supported by the Azure 
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
 | Rocky Linux 8.*                                             | X | X |   |   |
-| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
-| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
+| SUSE Linux Enterprise Server 15.2                           | X <sup>2</sup> |   |   |   |
+| SUSE Linux Enterprise Server 15.1                           | X <sup>2</sup> | X |   |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
