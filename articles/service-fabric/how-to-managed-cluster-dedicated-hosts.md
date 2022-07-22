@@ -115,9 +115,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
 
 * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template). Select the following image to sign in to Azure, and provide your own values for the template parameters, then deploy the template.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-ADH%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-ADH%2Fazuredeploy.json)
 
 * ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template.
 
