@@ -124,7 +124,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
    Optionally, you can require every Azure Arc-enabled machine or server associated with this Azure Arc Private Link Scope to send data to the service through the private endpoint. To do so, check the box for **Allow public network access** so machines or servers associated with this Azure Arc Private Link Scope can communicate with the service over both private or public networks. You can change this setting after creating the scope if you change your mind.
 
 1. Select the **Private endpoint** tab, then select **Create**.
-1. In the Create private endpoint window:
+1. In the **Create private endpoint** window:
     1. Enter a **Name** for the endpoint.
 
     1. Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone.
@@ -140,7 +140,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 1. Let the validation pass, and then select **Create**.
 
-## Create a private endpoint
+<!--## Create a private endpoint
 
 Once your Azure Arc Private Link Scope is created, you need to connect it with one or more virtual networks using a private endpoint. The private endpoint exposes access to the Azure Arc services on a private IP in your virtual network address space.
 
@@ -177,7 +177,7 @@ Once your Azure Arc Private Link Scope is created, you need to connect it with o
 
    d.    Let validation pass.
 
-   e.    Select **Create**.
+   e.    Select **Create**.-->
 
 ## Configure on-premises DNS forwarding
 
