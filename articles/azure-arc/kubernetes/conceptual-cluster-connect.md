@@ -11,7 +11,7 @@ description: "This article provides a conceptual overview of cluster connect cap
 
 The Azure Arc-enabled Kubernetes *cluster connect* feature provides connectivity to the `apiserver` of the cluster without requiring any inbound port to be enabled on the firewall. A reverse proxy agent running on the cluster can securely start a session with the Azure Arc service in an outbound manner.
 
-Cluster connect allows developers to access their clusters from anywhere for interactive development and debugging. It also lets cluster users and administrators access or manage their clusters from anywhere. You can even use hosted agents/runners of Azure Pipelines, GitHub Actions, or any other hosted CI/CD service to deploy applications to on-prem clusters, without requiring self-hosted agents.
+Cluster connect allows developers to access their clusters from anywhere for interactive development and debugging. It also lets cluster users and administrators access or manage their clusters from anywhere. You can even use hosted agents/runners of Azure Pipelines, GitHub Actions, or any other hosted CI/CD service to deploy applications to on-premises clusters, without requiring self-hosted agents.
 
 ## Architecture
 
