@@ -86,7 +86,7 @@ landingContent:
           - text: Stream into Event Hubs for Apache Kafka
             url: event-hubs-quickstart-kafka-enabled-event-hubs.md
           - text: Use Spring Kafka with Azure Event Hubs
-            url: https://aka.ms/spring/msdocs/eventhubs/quickstart/spring-kafka
+            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
       - linkListType: tutorial
         links:
           - text: Process events using Stream Analytics
@@ -114,7 +114,7 @@ landingContent:
           - text: Java
             url: event-hubs-java-get-started-send.md
           - text: Spring
-            url: https://aka.ms/spring/msdocs/eventhubs/quickstart/spring-cloud-stream-binder-event-hubs
+            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
           - text: Python
             url: event-hubs-python-get-started-send.md
           - text: JavaScript
