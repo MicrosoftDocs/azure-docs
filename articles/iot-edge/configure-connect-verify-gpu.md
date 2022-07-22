@@ -89,30 +89,30 @@ Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it 
 
 1. Go to **Extensions + applications** again in your VM. The extension should be in your extensions list and say **Provisioning succeeded** under **Status**.
 
-1. Open the Azure Cloud Shell and run this command to deploy the extension:
-
-   ```azurecli
-   az vm extension set \
-   --resource-group <YOUR-RESOURCE-GROUP> \
-   --vm-name <YOUR-VM-NAME> \
-   --name NvidiaGpuDriverLinux \
-   --publisher Microsoft.HpcCompute \
-   --version 1.6
-   ```
-
-    A JSON printout confirms success.
-
 1. To confirm that the `NvidiaGpuDriverLinux` is installed, run this command to list your extensions. Replace the `<>` placeholders with your values:
 
    ```
    az vm extension list --resource-group <YOUR-RESOURCE-GROUP> --vm-name <YOUR-VM-NAME> -o table
    ```
 
-1. Log in to your VM and run the NVIDIA command to confirm the NVIDIA drivers are installed:
+1. From your device, install the `nvidia-smi` library based on your version of Ubuntu. For this tutorial, we'll install `nvidia-utils-515` for Ubuntu 20.04. Select `Y` when prompted in the installation.
 
-   ```ssh
+   ```bash
+   sudo apt install nvidia-utils-515
+   ```
+
+   All `nvidia-smi` versions.
+   :::image type="content" source="media/configure-connect-verify-gpu/nvidia-smi-versions.png" alt-text="Screenshot of the result of the 'iotedge list' command.":::
+   ```
+1. After installation, run this command to confirm:
+ 
+   ```bash
    nvidia-smi
    ```
+ 
+   A confirmation table will appear.
+
+   :::image type="content" source="media/configure-connect-verify-gpu/nvidia-driver-installed.png" alt-text="Screenshot of the Deploy to Azure button in GitHub.":::
 
 ## Enable a module with GPU acceleration
 
@@ -171,7 +171,7 @@ If you have an existing module on your IoT Edge device, adding a configuration u
 
 ### Enable a GPU in a prefabricated NVIDIA module
 
-The NVIDIA modules are already in Docker containers. Let's add an NIVDIA module to the IoT Edge device and then allocate a GPU to the module by setting its environment variables.
+Let's add an NIVDIA module to the IoT Edge device and then allocate a GPU to the module by setting its environment variables. These NVIDIA modules are already in Docker containers. 
 
 1. Select your IoT Edge device in the Azure portal from your IoT Hub's **IoT Edge** menu.
 
@@ -197,4 +197,16 @@ The NVIDIA modules are already in Docker containers. Let's add an NIVDIA module 
 
 1. Select the **Create** button to create the module.
 
-1. Select the **Refresh** button to update your module list.
+1. Select the **Refresh** button to update your module list. The module will take a couple of minutes to show "running" in the **Runtime status**, so keep refreshing the device.
+
+#### Verify the NVIDIA module is configured and running
+ 
+1. From your device, run this command to confirm your new NVIDIA module is running.
+
+   ```bash
+   iotedge list
+   ```
+   You should see your NVIDIA module in a list of modules on your IoT Edge device with a status of `running`.
+
+   :::image type="content" source="media/configure-connect-verify-gpu/iotedge-list.png" alt-text="Screenshot of the result of the 'iotedge list' command.":::
+
