@@ -160,18 +160,18 @@ For setting multiple applications on a VM:
 az vm application set \
 	--resource-group myResourceGroup \
 	--name myVM \
-	--app-version-ids /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.1 \
+	--app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.1 \
 	--treat-deployment-as-failure true
 ```
 To add an application to a VMSS, use [az vmss application set](/cli/azure/vmss/application#az-vmss-application-set):
 
 ```azurepowershell-interactive
-az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0
+az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0
 --treat-deployment-as-failure true
 ```
 To add multiple applications to a VMSS:
 ```azurecli-interactive
-az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.0
+az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.0
 --treat-deployment-as-failure true
 ```
 
