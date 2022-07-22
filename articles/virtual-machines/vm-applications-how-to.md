@@ -162,7 +162,7 @@ az vm get-instance-view -g myResourceGroup -n myVM --query "instanceView.extensi
 For verifying application VMSS deployment status:
 
 ```azurecli-interactive
-az vmss get-instance-view --ids (az vmss list-instances -g $rgName -n $vmssName --query "[*].id" -o tsv) --query "[*].extensions[?name == 'VMAppExtension']"
+az vmss get-instance-view --ids (az vmss list-instances -g myResourceGroup -n $vmssName --query "[*].id" -o tsv) --query "[*].extensions[?name == 'VMAppExtension']"
 ```
 > [!NOTE]
 > The above VMSS deployment status command does not list the instance ID with the result. To show the instance ID with the status of the extension in each instance, some additional scripting is required. Refer to the below VMSS CLI example that contains PowerShell syntax:
