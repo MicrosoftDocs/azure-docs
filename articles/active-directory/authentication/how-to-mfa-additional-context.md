@@ -47,9 +47,6 @@ Identify your single target group for each of the features. Then use the followi
 
 https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 
->[!NOTE]
->For Passwordless phone sign-in, the Authenticator app does not retrieve policy information just in time for each sign-in request. Instead, the Authenticator app does a best effort retrieval of the policy once every 7 days. We understand this limitation is less than ideal and are working to optimize the behavior. In the meantime, if you want to force a policy update to test using additional context with Passwordless phone sign-in, you can remove and re-add the account in the Authenticator app. 
-
 #### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties
 
 **PROPERTIES**
