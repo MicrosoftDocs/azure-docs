@@ -95,13 +95,15 @@ Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it 
    az vm extension list --resource-group <YOUR-RESOURCE-GROUP> --vm-name <YOUR-VM-NAME> -o table
    ```
 
-1. From your device, install the `nvidia-smi` library based on your version of Ubuntu. For this tutorial, we'll install `nvidia-utils-515` for Ubuntu 20.04. Select `Y` when prompted in the installation.
+1. WIth an NVIDIA module, we'll use the [NVIDIA System Management Interface program](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf) or `nvidia-smi`. 
+
+   From your device, install the `nvidia-smi` library based on your version of Ubuntu. For this tutorial, we'll install `nvidia-utils-515` for Ubuntu 20.04. Select `Y` when prompted in the installation.
 
    ```bash
    sudo apt install nvidia-utils-515
    ```
 
-   Here's a list of all `nvidia-smi` versions.
+   Here's a list of all `nvidia-smi` versions. If you run `nvidia-smi` without installing it first, this list will print in your console.
 
    :::image type="content" source="media/configure-connect-verify-gpu/nvidia-smi-versions.png" alt-text="Screenshot of all `nvidia-smi` versions.":::
 
@@ -111,7 +113,7 @@ Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it 
    nvidia-smi
    ```
  
-   A confirmation table will appear, similar to this.
+   A confirmation table will appear, similar to this table.
 
    :::image type="content" source="media/configure-connect-verify-gpu/nvidia-driver-installed.png" alt-text="Screenshot of the NVIDIA driver table.":::
 
@@ -199,8 +201,6 @@ Let's add an NIVDIA module to the IoT Edge device and then allocate a GPU to the
 1. Select the **Create** button to create the module.
 
 1. Select the **Refresh** button to update your module list. The module will take a couple of minutes to show "running" in the **Runtime status**, so keep refreshing the device.
-
-#### Verify the NVIDIA module is configured and running
  
 1. From your device, run this command to confirm your new NVIDIA module is running.
 
