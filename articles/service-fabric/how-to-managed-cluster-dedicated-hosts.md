@@ -18,7 +18,7 @@ You can choose the SKU for Dedicated Hosts Virtual Machines based on your worklo
 The following guide will take you step by step for how to add an Azure Dedicated Host to a Service Fabric managed cluster with an Azure Resource Manager template.
 
 
-   ## Prerequisites
+## Prerequisites
 This guide builds upon the managed cluster quick start guide: [Deploy a Service Fabric managed cluster using Azure Resource Manager](quickstart-managed-cluster-template.md)
 
 Before you begin:
