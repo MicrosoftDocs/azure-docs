@@ -163,11 +163,22 @@ The Log Analytics workspace must be created before you deploy the Resource Manag
 
 ### Create or download templates
 
-1. Save the template as **existingClusterOnboarding.json**
- 
-  - If you want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication), then download the template at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file).
+#### If you want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)
 
-  - If you don't want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication), then use the following JSON.
+1. Download the template at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file) and save it as **existingClusterOnboarding.json**.
+
+2. Download the parameter file at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file) and save it as **existingClusterParam.json**.
+
+3. Edit the values in the parameter file.
+
+  - For **aksResourceId** and **aksResourceLocation**, use the values on the **AKS Overview** page for the AKS cluster. 
+  - For **workspaceResourceId**, use the resource ID of your Log Analytics workspace.
+  - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in Log Analytics Workspace Resource Group. If this first-time onboarding, you can set the arbitrary tag values.
+
+
+#### If you don't want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)
+
+1. Save the following JSON as **existingClusterOnboarding.json**.
 
     ```json
     {
@@ -223,6 +234,33 @@ The Log Analytics workspace must be created before you deploy the Resource Manag
     }
     ```
 
+2. Save the following JSON as **existingClusterParam.json**.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "aksResourceId": {
+      "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+    },
+    "aksResourceLocation": {
+      "value": "<aksClusterLocation>"
+    },
+    "workspaceResourceId": {
+      "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+    },
+    "aksResourceTagValues": {
+      "value": {
+        "<existing-tag-name1>": "<existing-tag-value1>",
+        "<existing-tag-name2>": "<existing-tag-value2>",
+        "<existing-tag-nameN>": "<existing-tag-valueN>"
+      }
+    }
+  }
+}
+```
+
 2. Download the parameter file at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file) and save as **existingClusterParam.json**.
 
 3. Edit the values in the parameter file.
@@ -242,33 +280,33 @@ If you are unfamiliar with the concept of deploying resources by using a templat
 If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 
-   * To deploy with Azure PowerShell, use the following commands in the folder that contains the template:
+#### To deploy with Azure PowerShell:
 
-       ```powershell
-       New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
-       ```
+```powershell
+New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+```
 
-       The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-       ```output
-       provisioningState       : Succeeded
-       ```
+```output
+provisioningState       : Succeeded
+```
 
-   * To deploy with Azure CLI, run the following commands:
+#### To deploy with Azure CLI, run the following commands:
 
-       ```azurecli
-       az login
-       az account set --subscription "Subscription Name"
-       az deployment group create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
-       ```
+```azurecli
+az login
+az account set --subscription "Subscription Name"
+az deployment group create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+```
 
-       The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-       ```output
-       provisioningState       : Succeeded
-       ```
+```output
+provisioningState       : Succeeded
+```
 
-       After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
+After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
 ---
 
