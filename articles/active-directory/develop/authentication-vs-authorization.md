@@ -52,7 +52,7 @@ Here's a comparison of the protocols that the Microsoft identity platform uses:
 
 ## Next steps
 
-For other topics that cover authentication and authorization basics:
+For other topics that cover authentication and authorization:
 
 * To learn how access tokens, refresh tokens, and ID tokens are used in authorization and authentication, see [Security tokens](security-tokens.md).
 * To learn about the process of registering your application so it can integrate with the Microsoft identity platform, see [Application model](application-model.md).
