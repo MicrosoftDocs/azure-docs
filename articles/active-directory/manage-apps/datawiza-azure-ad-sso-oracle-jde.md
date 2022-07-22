@@ -84,7 +84,7 @@ To integrate Oracle JDE with Azure AD:
 
    ![Screenshot that shows the getting started page](media/datawiza-azure-ad-sso-oracle-jde/getting-started.png)
 
-4. In the **Name** and **Description** fields, enter relevant information.
+4. In the **Name** and **Description** fields, enter the relevant information.
 
 5. Select **Next**.
 
@@ -104,7 +104,7 @@ To integrate Oracle JDE with Azure AD:
 
    ![Screenshot that shows how to add application](media/datawiza-azure-ad-sso-oracle-jde/add-application.png)
 
-8. On the **Configure IdP** dialog, enter the needed information.
+8. On the **Configure IdP** dialog, enter the relevant information.
 
    >[!Note]
    >DCMC has [one-click integration](https://docs.datawiza.com/tutorial/web-app-azure-one-click.html) to help complete Azure AD configuration. DCMC calls the Graph API to create an application registration on your behalf in your Azure AD tenant.
@@ -115,15 +115,15 @@ To integrate Oracle JDE with Azure AD:
 
 10. The DAB deployment page appears.
 
-11. Make a note of the deployment Docker Compose file. The file includes the DAB image, also the Provisioning Key and Provision Secret, which pull the latest configuration and policies from DCMC.
+11. Make a note of the deployment Docker Compose file. The file includes the DAB image, also the Provisioning Key and Provision Secret, which pulls the latest configuration and policies from DCMC.
 
-   ![Screenshot that shows the docker compose file value](media/datawiza-azure-ad-sso-oracle-jde/provision.png)
+    ![Screenshot that shows the docker compose file value](media/datawiza-azure-ad-sso-oracle-jde/provision.png)
 
 ## SSO and HTTP headers
 
 DAB gets user attributes from IdP and passes them to the upstream application with a header or cookie.
 
-For the Oracle JDE application to recognize the user correctly, there's another configuration step. Using a certain name, it instructs DAB to pass the values from the IdP to the application through the HTTP header.
+For the Oracle JDE application to recognize the user correctly, there is another configuration step. Using a certain name, it instructs DAB to pass the values from the IdP to the application through the HTTP header.
 
 1. In Oracle JDE, from the left navigation, select **Applications**.
 
@@ -140,7 +140,7 @@ For the Oracle JDE application to recognize the user correctly, there's another 
    ![Screenshot that shows the attributes that needs to be passed for the Oracle JDE application](media/datawiza-azure-ad-sso-oracle-jde/add-new-attribute.png)
 
    >[!Note]
-   >This configuration uses the Azure AD user principal name as the log-in username used by Oracle JDE. To use another user identity, go to the **Mappings** tab.
+   >This configuration uses the Azure AD user principal name as the sign in username used by Oracle JDE. To use another user identity, go to the **Mappings** tab.
 
    ![Screenshot that shows the user principal name field as the username](media/datawiza-azure-ad-sso-oracle-jde/user-principal-name-mapping.png)
 
@@ -156,7 +156,7 @@ For the Oracle JDE application to recognize the user correctly, there's another 
 
    ![Screenshot that shows the cert type dropdown](media/datawiza-azure-ad-sso-oracle-jde/cert-type.png)
 
-7. For testing purposes, self-signed certificate is provded. 
+7. For testing purposes, we'll be providing a self-signed certificate. 
 
    ![Screenshot that shows the enable sll menu](media/datawiza-azure-ad-sso-oracle-jde/enable-ssl.png)
 
