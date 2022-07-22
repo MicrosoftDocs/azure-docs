@@ -13,19 +13,24 @@ This article provides several common reasons why an educator might not be able t
 
 Possible issues:
 
+- The Azure Compute Gallery is not connected to the lab plan. To connect an Azure Compute Gallery, see [Attach or detach a compute gallery](/azure/lab-services/how-to-attach-detach-shared-image-gallery).
+
 - The image is not enabled by the administrator. This applies to both Marketplace images and Azure Compute Gallery images. To enable images, see [Specify marketplace images for labs](specify-marketplace-images.md).
 
 - The image in the attached Azure Compute Gallery is not replicated to the same location as the lab plan. For more information, see [Store and share images in an Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries).
 
-- Image sizes greater than 127GB or with multiple disks are not available.
+- Image sizes greater than 127GB or with multiple disks are not supported.
 
-## You can't see the size of a virtual machine image
+## The preferred virtual machine size is not available
 
 Possible issues:
 
 - A quota is not yet requested or you need to request more quota. To request quota, see [Request a limit increase](capacity-limits.md#request-a-limit-increase).
 
 - A quota is granted in a location other than what is enabled for the selected lab plan. For more information, see [Request a limit increase](capacity-limits.md#request-a-limit-increase).
+
+>[!NOTE]
+> You can run a script to query for lab quotas across all your regions. For more information, see the [PowerShell Quota script](https://aka.ms/azlabs/scripts/quota-powershell).
 
 ## You don't see multiple regions/locations to choose from
 
