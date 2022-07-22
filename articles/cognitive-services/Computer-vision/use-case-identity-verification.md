@@ -1,4 +1,17 @@
+---
+title: "Overview: Identity verification with Face"
+titleSuffix: Azure Cognitive Services
+description: Provide the best-in-class face verification experience in your business solution using Azure Face service. You can verify someone's identity against a government-issued ID card like a passport or driver's license.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
 
+ms.service: cognitive-services
+ms.subservice: computer-vision
+ms.topic: conceptual
+ms.date: 07/22/2022
+ms.author: pafarley
+---
 
 # Overview: Identity verification with Face 
 
