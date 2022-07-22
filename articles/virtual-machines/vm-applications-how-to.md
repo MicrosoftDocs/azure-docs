@@ -422,6 +422,41 @@ relevant parts.
 
 If the VM applications haven't yet been installed on the VM, the value will be empty. 
 
+To get the result of VM instance view:
+
+```rest
+GET
+/subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/
+virtualMachineScaleSets/\<**VMSSName**\>/instanceView?api-version=2019-03-01
+```
+
+The result will look like this:
+
+```rest
+{
+    "extensions"  [
+    ...
+        {
+            "name":  "VMAppExtension",
+            "type":  "Microsoft.CPlat.Core.VMApplicationManagerLinux",
+            "typeHandlerVersion":  "1.0.9",
+            "statuses":  [
+                            {
+                                "code":  "ProvisioningState/succeeded",
+                                "level":  "Info",
+                                "displayStatus":  "Provisioning succeeded",
+                                "message":  "Enable succeeded: {\n \"CurrentState\": [\n  {\n   \"applicationName\": \"doNothingLinux\",\n   \"version\": \"1.0.0\",\n   \"result\": \"Install SUCCESS\"\n  },\n  {
+        \n   \"applicationName\": \"badapplinux\",\n   \"version\": \"1.0.0\",\n   \"result\": \"Install FAILED Error executing command \u0027exit 1\u0027: command terminated with exit status=1\"\n  }\n ],\n \"ActionsPerformed\": []\n}
+        "
+                            }
+                        ]
+        }
+    ...
+    ]
+}
+```
+The VM App status is in the status message of the result of the VMApp extension in the instance view. Ensure the ellipsis `...` before and after `extensions` to give the idea that there are other properties in the `instanceView`.
+
 ---
 
 
