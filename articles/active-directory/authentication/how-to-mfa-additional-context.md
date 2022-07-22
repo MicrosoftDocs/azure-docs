@@ -267,6 +267,59 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 }
 ```
 
+#### Example of how to exclude a group from application name and geographic location 
+ 
+In **featureSettings**, change the states of **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** to from **default** to **enabled.** 
+Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+
+In addition, for each of the features, you will change the id of the excludeTarget to the ObjectID of the group from the Azure AD portal. This will exclude that group from seeing application name or geographic location.
+
+You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
+
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will see the application name or geographic location. Users who aren't enabled for Microsoft Authenticator won't see these features.
+
+```json
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
+    "id": "MicrosoftAuthenticator",
+    "state": "enabled",
+    "featureSettings": {
+        "displayAppInformationRequiredState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "44561710-f0cb-4ac9-ab9c-e6c394370823"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "5af8a0da-5420-4d69-bf3c-8b129f3449ce"
+            }
+        },
+        "displayLocationInformationRequiredState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "a229e768-961a-4401-aadb-11d836885c11"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "b6bab067-5f28-4dac-ab30-7169311d69e8"
+            }
+        }
+    },
+    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets": [
+        {
+            "targetType": "group",
+            "id": "all_users",
+            "isRegistrationRequired": false,
+            "authenticationMode": "any",
+        }
+    ]
+}
+```
+
 #### Example of error when enabling additional context for multiple groups
 
 The PATCH request will fail with 400 Bad Request and the error will contain the following message: 
