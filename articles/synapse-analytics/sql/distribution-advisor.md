@@ -16,6 +16,9 @@ In Azure Synapse SQL, each table is distributed using the strategy chosen by the
 
 The Distribution Advisor (DA) feature of Azure Synapse SQL analyzes customer queries and recommends the best distribution strategies for tables to improve query performance. Queries to be considered by the advisor can be provided by the customer or pulled from historic queries available in DMV. 
 
+> [!NOTE]
+> Distribution Advisor is currently in preview for Azure Synapse Analytics. Preview features are meant for testing only and should not be used on production instances or production data. As a preview feature, MERGE is subject to undergo changes in behavior or functionality. Please also keep a copy of your test data if the data is important.
+
 ## Prerequisites
 
 - Execute the T-SQL statement `SELECT @@version` to ensure that your Azure Synapse Analytics dedicated SQL pool is version 10.0.15669 or higher. If your version is lower, a new version should automatically reach your provisioned dedicated SQL pools during their maintenance cycle.
@@ -76,13 +79,13 @@ The `dbo.read_dist_recommendation` system stored procedure will return recommend
 - Modify queries to run on new tables.
 - Execute queries on old and new tables to compare for performance improvements.
 
-## Troubleshooting the Distribution Advisor
+## Troubleshooting
 
 This section contains common troubleshooting scenarios and common mistakes that you may encounter.
 
-### Stale state from a previous run of the advisor
+### 1. Stale state from a previous run of the advisor
 
-##### Symptom:
+##### 1a. Symptom:
 
 You see this error message upon running the advisor:
 
@@ -91,14 +94,14 @@ Msg 110813, Level 16, State 1, Line 1
 Calling GetLastScalarResult() before executing scalar subquery.
 ```
 
-##### Mitigation:
+##### 1b. Mitigation:
 
 - Verify that you are using single quotes '' to run the advisor on select queries.
 - Start a new session in SSMS and run the advisor.
 
-### Errors during running the advisor
+### 2. Errors during running the advisor
     
-##### Symptom:
+##### 2a. Symptom:
     
 The 'result' pane shows `CommandToInvokeAdvisorString` below but does not show the `RecommendationOutput` below.
 
@@ -111,15 +114,15 @@ But not the second resultset containing the table change T-SQL commands:
 :::image type="content" source="media/distribution-advisor/troubleshooting-3.png" alt-text="Screenshot of the output of a T-SQL result showing the Command_to_Invoke_Distribution_Advisor with a second resultset containing table change T-SQL commands.":::
 
 
-##### Mitigation:
+##### 2b. Mitigation:
 
  - Check the output of `CommandToInvokeAdvisorString` above. 
 
  - Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing `WHERE` clause in: [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql).
 
-### Error during post-processing of recommendation output
+### 3. Error during post-processing of recommendation output
     
-##### Symptom:
+##### 3a. Symptom:
 
 You see the following error message.
 
@@ -127,7 +130,7 @@ You see the following error message.
 Invalid length parameter passed to the LEFT or SUBSTRING function.
 ```
     
-##### Mitigation:
+##### 3b. Mitigation:
 Ensure that you have the most up to date version of the stored procedure from GitHub:
 
  - [e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql)
