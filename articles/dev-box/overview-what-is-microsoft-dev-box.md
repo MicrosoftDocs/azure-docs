@@ -45,7 +45,7 @@ Microsoft Dev Box bridges the gap between development teams and IT, bringing con
 - **Team scenarios**
     - Create dev boxes for various roles on a team. Standard dev boxes might be configured with admin rights, giving full-time developers greater control, while more restricted permissions are applied for contractors.
 
-### For dev infra managers
+### For dev infrastructure managers
 - **Configure DevCenters**
     - Create DevCenters and define the SKUs and images that the development teams use to self-serve dev boxes. 
 - **Configure the network connection**
