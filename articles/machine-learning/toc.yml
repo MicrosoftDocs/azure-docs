@@ -191,9 +191,6 @@
         - name: Compute target
           displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
           href: concept-compute-target.md
-        - name: Plan and manage costs
-          displayName: low priority VM
-          href: concept-plan-manage-cost.md
     - name: Work with Data
       items: 
         - name: Access data
@@ -296,6 +293,9 @@
         - name: Use studio
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
+    - name: Plan and manage costs
+      displayName: low priority VM
+      href: concept-plan-manage-cost.md
     - name: Monitor Azure Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure coding
