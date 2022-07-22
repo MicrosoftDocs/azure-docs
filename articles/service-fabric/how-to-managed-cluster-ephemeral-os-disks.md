@@ -11,7 +11,7 @@ Azure Service Fabric managed clusters by default use managed OS disks for the no
 The key benefits of ephemeral OS disks are: 
 
 * Lower read/write latency, like a temporary disk along with faster node scaling and cluster upgrades.
-* Supported by Marketplace, custom images, and by [Azure Compute Gallery](../virtual-machines/shared-image-galleries?tabs=azure-cli) (formerly known as Shared Image Gallery). 
+* Supported by Marketplace, custom images, and by [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) (formerly known as Shared Image Gallery). 
 * Ability to fast reset or reimage VMs and scale set instances to the original boot state. 
 * Available in all Azure regions. 
 
