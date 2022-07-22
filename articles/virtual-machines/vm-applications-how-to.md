@@ -287,11 +287,10 @@ $vmssName = "myVMss"
 $result = Get-AzVmss -ResourceGroupName $rgName -VMScaleSetName $vmssName -InstanceView
 $resultSummary = New-Object System.Collections.ArrayList
 $result | ForEach-Object {
-$res = @{ instanceId = $
-.InstanceId; vmappStatus = $.InstanceView.Extensions | Where-Object {$_.Name -eq "VMAppExtension"}}
-$resultSummary.Add($res) | Out-Null
+    $res = @{ instanceId = $
+        .InstanceId; vmappStatus = $.InstanceView.Extensions | Where-Object { $_.Name -eq "VMAppExtension" } }
+    $resultSummary.Add($res) | Out-Null
 }
-$resultSummary | convertto-json -depth 5
 ```
 
 ### [REST](#tab/rest2)
