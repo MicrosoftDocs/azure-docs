@@ -11,14 +11,16 @@ ms.topic: how-to
 ms.date: 07/25/2022
 ---
 
-# How to implement full text search over big data from Apache Spark using Synapse ML and Azure Cognitive Services for Big Data
+# How to implement full text search over big data from Apache Spark using Synapse ML and Azure Cognitive Services
 
-In this article, learn how to add full text search to big data from Apache Spark using Synapse ML. The article includes the following steps:
+This article explains how to add full text search to big data from Apache Spark using Synapse ML in a workflow that all includes machine learning translation and image analysis from Cognitive Services.
 
-+ Ingest data frames from Azure Databricks
-+ Transform it using Azure Cognitive Services for big data
-+ Load it into a generated search index using AzureSearchWriter functions
-+ Query the search index, hosted in Azure Cognitive Search
+The article includes the following steps:
+
++ Ingest data using Azure Databricks
++ Apply machine learning using Azure Cognitive Services for big data
++ Load the results into a generated search index using AzureSearchWriter from Synapse ML
++ Query the search index
 
 The search corpus is created and hosted in Azure Cognitive Search, and all queries execute locally over the search corpus. 
 
@@ -34,10 +36,10 @@ This article demonstrates an approach for bringing multiple services and feature
 
 ## Prerequisites
 
-You'll need multiple Azure resources to complete this walkthrough, but you can put everything into one resource group for simple clean up later. The following links are for portal installs.
+You'll need multiple Azure resources for this walkthrough, but you can put everything into one resource group for simple clean up later. The following links are for portal installs.
 
 + [Azure Databricks](../databricks/scenarios/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace)
-+ [Azure Cognitive Services multi-service account]() <sup>1</sup>
++ [Azure Cognitive Services multiservice]() <sup>1</sup>
 + [Azure Cognitive Services Translator]() <sup>2</sup>
 + [Azure Cognitive Search](search-create-service-portal.md)
 
