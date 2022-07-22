@@ -62,7 +62,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
       [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-Ephemeral%2Fazuredeploy.json)
 
 
-   * ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources)](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template.
+   * ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources)](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment). Store the paths of your ARM template and parameter files in variables, then deploy the template.
     
       ```powershell
       $templateFilePath = "<full path to azuredeploy.json>"
