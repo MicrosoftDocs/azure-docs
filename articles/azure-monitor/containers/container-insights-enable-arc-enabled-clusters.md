@@ -98,7 +98,7 @@ Run the following commands to locate the full Azure Resource Manager identifier 
 
 ## Create extension instance 
 
-## [CLI](#tab/azure-cli)
+## [CLI](#tab/create-cli)
 
 ### Option 1 - With default values
 
@@ -148,7 +148,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 >[!NOTE]
 > If you are explicitly specifying the version of the extension to be installed in the create command, then ensure that the version specified is >= 2.8.2.
 
-## [Azure portal](#tab/portal)
+## [Azure portal](#tab/create-portal)
 
 >[!IMPORTANT]
 >  If you are deploying Azure Monitor on a Kubernetes cluster running on top of Azure Stack Edge, then the Azure CLI option needs to be followed instead of the Azure portal option as a custom mount path needs to be set for these clusters.    
@@ -181,7 +181,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 6. Select the 'Configure' button to continue.
 
-## [Resource Manager template](#tab/arm)
+## [Resource Manager](#tab/create-arm)
 
 1. Download Azure Resource Manager template and parameter:
 
@@ -201,24 +201,26 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     ```
 
 ---
+
 ## Verify extension installation status
 Once you have successfully created the Azure Monitor extension for your Azure Arc-enabled Kubernetes cluster, you can additionally check the status of installation using the Azure portal or CLI. Successful installations should show the status as 'Installed'. If your status is showing 'Failed' or remains in the 'Pending' state for long periods of time, proceed to the Troubleshooting section below.
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/verify-portal)
 1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
 2. Select the 'Extensions' item under the 'Settings' section of the resource blade
 3. You should see an extension with the name 'azuremonitor-containers' listed, with the listed status in the 'Install status' column
-### [CLI](#tab/cli)
+### [CLI](#tab/verify-cli)
 Run the following command to show the latest status of the `Microsoft.AzureMonitor.Containers` extension
 ```azurecli
 az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters -n azuremonitor-containers
 ```
+
 ---
 
 ## Migrate to managed identity authentication (preview)
 Use the flowing guidance to migrate an existing extension instance to managed identity authentication (preview).
 
-## [CLI](#tab/cli)
+## [CLI](#tab/migrate-cli)
 First retrieve the Log Analytics workspace configured for Container insights extension.
 
 ```cli
@@ -231,7 +233,7 @@ Enable Container insights extension with managed identity authentication option 
 az k8s-extension create --name azuremonitor-containers --cluster-name \<cluster-name\> --resource-group \<resource-group\> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true logAnalyticsWorkspaceResourceID=\<workspace-resource-id\> 
 ```
 
-## [Resource Manager](#tab/arm)
+## [Resource Manager](#tab/migrate-arm)
 
 
 1. Download the template at [https://aka.ms/arc-k8s-azmon-extension-msi-arm-template](https://aka.ms/arc-k8s-azmon-extension-msi-arm-template) and save it as **arc-k8s-azmon-extension-msi-arm-template.json**.

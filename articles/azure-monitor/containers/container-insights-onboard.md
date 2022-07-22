@@ -153,9 +153,9 @@ To enable Container insights, use one of the methods that's described in the fol
 | | [Enable for an existing AKS cluster from Azure Monitor portal](container-insights-enable-existing-clusters.md?tabs=portal-azure-monitor)| 
 | | [Enable  directly from an AKS cluster in the Azure portal](container-insights-enable-existing-clusters.md?tabs=portal-aks)|
 | | [Enable for AKS cluster using an Azure Resource Manager template](container-insights-enable-existing-clusters.md?tabs=aks)| 
-| Existing non-AKS Kubernetes cluster | [Enable for non-AKS Kubernetes cluster hosted outside of Azure and enabled with Azure Arc using the Azure CLI](container-insights-enable-arc-enabled-clusters.md?tabs=cli). |
-| | [Enable for non-AKS Kubernetes cluster hosted outside of Azure and enabled with Azure Arc using a preconfigured Azure Resource Manager template](container-insights-enable-arc-enabled-clusters.md?tabs=arm) |
-| | [Enable for non-AKS Kubernetes cluster hosted outside of Azure and enabled with Azure Arc from the multicluster page Azure Monitor](container-insights-enable-arc-enabled-clusters.md?tabs=portal) | 
+| Existing non-AKS Kubernetes cluster | [Enable for non-AKS Kubernetes cluster hosted outside of Azure and enabled with Azure Arc using the Azure CLI](container-insights-enable-arc-enabled-clusters.md?tabs=create-cli#create-extension-instance). |
+| | [Enable for non-AKS Kubernetes cluster hosted outside of Azure and enabled with Azure Arc using a preconfigured Azure Resource Manager template](container-insights-enable-arc-enabled-clusters.md?tabs=create-arm#create-extension-instance) |
+| | [Enable for non-AKS Kubernetes cluster hosted outside of Azure and enabled with Azure Arc from the multicluster page Azure Monitor](container-insights-enable-arc-enabled-clusters.md?tabs=create-portal#create-extension-instance) | 
 
 ## Next steps
 Once you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment. To learn how to use Container insights, see [View Kubernetes cluster performance](container-insights-analyze.md).
