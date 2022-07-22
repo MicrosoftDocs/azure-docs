@@ -42,7 +42,7 @@ For more information on creating an IoT Edge device, see [Quickstart: Deploy you
 
 ## Create an NVIDIA-compatible virtual machine
 
-To allocate processing power to your GPU, virtual machine (VM) size is important. Not all sizes will accommodate GPU processing. There are different sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) or [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
+To allocate processing power to your GPU, virtual machine (VM) size is important. Not all sizes will accommodate GPU processing. In addition, there are different sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) or [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
 
 Let's create a VM from the IoT Edge VM deployment repository in GitHub, then configure it to be GPU-enabled.
 
@@ -77,7 +77,7 @@ Let's create a VM from the IoT Edge VM deployment repository in GitHub, then con
 1. Select the **Review + create** button at the bottom, then the **Create** button. Deployment will take a minute.
 
 ## Install the NVIDIA extension
-Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it using the Azure portal.
+Now that we have an NVIDIA-enabled VM, let's install the [NVIDIA extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) on the VM using the Azure portal. 
 
 1. Open your VM in the Azure portal and select **Extensions + applications** from the left menu.
 
@@ -85,17 +85,15 @@ Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it 
 
 1. Choose **Review + create**, then **Create**. The deployment could take up to 30 minutes to complete.
 
-### Confirm successful installation & deployment
+1. To confirm the installation in the Azure portal, go to the **Extensions + applications** menu again in your VM. The new extension named `NvidiaGpuDriverLinux` should be in your extensions list and say **Provisioning succeeded** under **Status**.
 
-1. Go to **Extensions + applications** again in your VM. The extension should be in your extensions list and say **Provisioning succeeded** under **Status**.
+1. To confirm the installation using Cloud Shell, run this command to list your extensions. Replace the `<>` placeholders with your values:
 
-1. To confirm that the `NvidiaGpuDriverLinux` is installed, run this command to list your extensions. Replace the `<>` placeholders with your values:
-
-   ```
+   ```azurecli
    az vm extension list --resource-group <YOUR-RESOURCE-GROUP> --vm-name <YOUR-VM-NAME> -o table
    ```
 
-1. WIth an NVIDIA module, we'll use the [NVIDIA System Management Interface program](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf) or `nvidia-smi`. 
+1. With an NVIDIA module, we'll use the [NVIDIA System Management Interface program](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf), also known as `nvidia-smi`. 
 
    From your device, install the `nvidia-smi` library based on your version of Ubuntu. For this tutorial, we'll install `nvidia-utils-515` for Ubuntu 20.04. Select `Y` when prompted in the installation.
 
@@ -116,6 +114,9 @@ Now that we have an NVIDIA-enabled VM, let's install the NVIDIA extension on it 
    A confirmation table will appear, similar to this table.
 
    :::image type="content" source="media/configure-connect-verify-gpu/nvidia-driver-installed.png" alt-text="Screenshot of the NVIDIA driver table.":::
+
+> [!NOTE]
+> The NVIDIA extension is a simplified way to install the NVIDIA drivers, but you may need more customization. For more information about custom installations on N-series VMs, see [Install NVIDIA GPU drivers on N-series VMs running Linux](/azure/virtual-machines/linux/n-series-driver-setup).
 
 ## Enable a module with GPU acceleration
 
@@ -174,7 +175,7 @@ If you have an existing module on your IoT Edge device, adding a configuration u
 
 ### Enable a GPU in a prefabricated NVIDIA module
 
-Let's add an NIVDIA module to the IoT Edge device and then allocate a GPU to the module by setting its environment variables. These NVIDIA modules are already in Docker containers. 
+Let's add an [NIVDIA DIGITS](https://docs.nvidia.com/deeplearning/digits/index.html) module to the IoT Edge device and then allocate a GPU to the module by setting its environment variables. This NVIDIA module is already in a Docker container. 
 
 1. Select your IoT Edge device in the Azure portal from your IoT Hub's **IoT Edge** menu.
 
@@ -202,7 +203,7 @@ Let's add an NIVDIA module to the IoT Edge device and then allocate a GPU to the
 
 1. Select the **Refresh** button to update your module list. The module will take a couple of minutes to show "running" in the **Runtime status**, so keep refreshing the device.
  
-1. From your device, run this command to confirm your new NVIDIA module is running.
+1. From your device, run this command to confirm your new NVIDIA module exists and is running.
 
    ```bash
    iotedge list
@@ -211,3 +212,26 @@ Let's add an NIVDIA module to the IoT Edge device and then allocate a GPU to the
 
    :::image type="content" source="media/configure-connect-verify-gpu/iot-edge-list.png" alt-text="Screenshot of the result of the 'iotedge list' command.":::
 
+> [!NOTE]
+> For more information on the **NVIDIA DIGITS** container module, see the [Deep Learning Digits Documentation](https://docs.nvidia.com/deeplearning/digits/digits-container-user-guide/index.html#digitsovr).
+
+## Clean up resources
+
+If you want to continue with other IoT Edge tutorials, you can use the device that you created for this tutorial. Otherwise, you can delete the Azure resources that you created to avoid charges.
+
+If you created your virtual machine and IoT hub in a new resource group, you can delete that group, which will delete all the associated resources. Double check the contents of the resource group to make sure that there's nothing you want to keep. If you don't want to delete the whole group, you can delete individual resources (virtual machine, device, or GPU-module) instead.
+
+> [!IMPORTANT]
+> Deleting a resource group is irreversible.
+
+Use the following command to remove your Azure resource group. It might take a few minutes to delete a resource group.
+
+```azurecli-interactive
+az group delete --name <YOUR-RESOURCE-GROUP> --yes
+```
+
+You can confirm the resource group is removed by viewing the list of resource groups.
+
+```azurecli-interactive
+az group list
+```
