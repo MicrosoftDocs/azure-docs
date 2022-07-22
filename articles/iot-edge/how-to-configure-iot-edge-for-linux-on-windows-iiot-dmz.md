@@ -14,9 +14,7 @@ ms.author: patricka
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-This article describes how to configure the Azure IoT Edge for Linux (EFLOW) VM to support multiple network interface cards (NICs) and connect to multiple networks.
-
-By enabling multiple NIC support, applications running on the EFLOW VM can communicate with devices connected to the offline network, and at the same time, use IoT Edge to send data to the cloud.
+This article describes how to configure the Azure IoT Edge for Linux (EFLOW) VM to support multiple network interface cards (NICs) and connect to multiple networks. By enabling multiple NIC support, applications running on the EFLOW VM can communicate with devices connected to the offline network, and at the same time, use IoT Edge to send data to the cloud.
 
 ## Prerequisites
 
@@ -74,7 +72,7 @@ To create an external virtual switch, follow these steps:
 
 Once the external virtual switch is created, you need to attach it to the EFLOW VM using the following steps. For more information about attaching multiple NICs, see [EFLOW Multiple NICs](https://github.com/Azure/iotedge-eflow/wiki/Multiple-NICs).
 
-For the custom new *external virtual switch* using Static IP you created, use the following PowerShell commands to attach it you your EFLOW VM: 
+For the custom new *external virtual switch* you created, use the following PowerShell commands to attach it your EFLOW VM and set a static IP: 
 
 1. `Add-EflowNetwork -vswitchName "OnlineOPCUA" -vswitchType "External"`
 
@@ -166,7 +164,7 @@ ExecStart=/bin/bash /home/iotedge-user/route-setup.sh
 WantedBy=default.target
 ```
 
- To check the service works, reboot the EFLOW VM (`Stop-EflowVm` & `Start-EflowVm`)  then `Connect-EflowVm` to connect to the VM. List the routes using `sudo route` and verify they are correct. You should be able to see the new *default* rules with the assigned metric.
+ To check the service works, reboot the EFLOW VM (`Stop-EflowVm` & `Start-EflowVm`)  then `Connect-EflowVm` to connect to the VM. List the routes using `sudo route` and verify they're correct. You should be able to see the new *default* rules with the assigned metric.
 
 ## Next steps
 
