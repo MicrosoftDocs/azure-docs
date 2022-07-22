@@ -650,9 +650,17 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Executor-IncorrectLinkedServiceConfiguration
 
-- **Message**: Possible causes are \n1. The linked service is incorrectly configured as type 'Azure Blob Storage' instead of 'Azure DataLake Storage Gen2' and it has 'Hierarchical namespace' enabled. Please create a new linked service of type 'Azure DataLake Storage Gen2' for the storage account in question. \n2. Certain scenarios with any combinations of 'Clear the folder', non-default 'File name option', 'Key' partitioning may fail with a Blob linked service on a 'Hierarchical namespace' enabled storage account. You can disable these dataflow settings (if enabled) and try again in case you do not want to create a new Gen2 linked service.
+- **Message**: Possible causes are,
+ 1. The linked service is incorrectly configured as type 'Azure Blob Storage' instead of 'Azure DataLake Storage Gen2' and it has 'Hierarchical namespace' enabled. Please create a new linked service of type 'Azure DataLake Storage Gen2' for the storage account in question. 
+ 2. Certain scenarios with any combinations of 'Clear the folder', non-default 'File name option', 'Key' partitioning may fail with a Blob linked service on a 'Hierarchical namespace' enabled storage account. You can disable these dataflow settings (if enabled) and try again in case you do not want to create a new Gen2 linked service.
 - **Cause**: Delete operation on the Azure Data Lake Storage Gen2 account failed since its linked service is incorrectly configured as Azure Blob Storage.
-- **Recommendation**: Create a new Azure Data Lake Storage Gen2 linked service for the storage account in question. If that's not feasible, some known scenarios like **Clear the folder**, non-default **File name option**, **Key** partitioning in any combinations may fail with an Azure Blob Storage linked service on a hierarchical namespace enabled storage account. You can disable these data flow settings if you enabled them and try again.
+- **Recommendation**: Create a new Azure Data Lake Storage Gen2 linked service for the storage account. If that's not feasible, some known scenarios like **Clear the folder**, non-default **File name option**, **Key** partitioning in any combinations may fail with an Azure Blob Storage linked service on a hierarchical namespace enabled storage account. You can disable these data flow settings if you enabled them and try again.
+
+## Error code: DF-Delta-InvalidProtocolVersion
+
+- **Message**: Unsupported Delta table protocol version, Refer https://docs.delta.io/latest/versioning.html#-table-version for versioning information.
+- **Cause**: Data flow does not support this version of the Delta table protocol.
+- **Recommendation**: Use a lower version of the Delta table protocol.
 
 ## Next steps
 
