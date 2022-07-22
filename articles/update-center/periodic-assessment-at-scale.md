@@ -1,7 +1,8 @@
 ---
 title: Enable periodic assessment using policy
 description: This article describes how to manage the update settings for your Windows and Linux machines managed by update management center (preview).
-ms.service: update-management-center
+ms.service: automation
+ms.subservice: update-management
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022

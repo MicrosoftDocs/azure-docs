@@ -23,7 +23,7 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). Choose **Global** unless your business or application requires a specific region. Select the **Standard S1** pricing tier to get started (document translation is not supported for the free tier).
 
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
 
@@ -180,19 +180,19 @@ pip install azure-ai-translation-document==1.0.0
 Create a new Python application in your preferred editor or IDE. Then import the following libraries.
 
 ```python
-    import os
-    from azure.core.credentials import AzureKeyCredential
-    from azure.ai.translation.document import DocumentTranslationClient
+import os
+from azure.core.credentials import AzureKeyCredential
+from azure.ai.translation.document import DocumentTranslationClient
 ```
 
 Create variables for your resource key, custom endpoint, sourceUrl, and targetUrl. For
 more information, *see*  [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
 
 ```python
- key = "<your-key>"
- endpoint = "<your-custom-endpoint>"
- sourceUrl = "<your-container-sourceUrl>"
- targetUrl = "<your-container-targetUrl>"
+key = "<your-key>"
+endpoint = "<your-custom-endpoint>"
+sourceUrl = "<your-container-sourceUrl>"
+targetUrl = "<your-container-targetUrl>"
 ```
 
 ### Translate a document or batch files
@@ -200,27 +200,27 @@ more information, *see*  [Custom domain name and key](get-started-with-document-
 ```python
 client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
-    poller = client.begin_translation(sourceUrl, targetUrl, "fr")
-    result = poller.result()
+poller = client.begin_translation(sourceUrl, targetUrl, "fr")
+result = poller.result()
 
-    print("Status: {}".format(poller.status()))
-    print("Created on: {}".format(poller.details.created_on))
-    print("Last updated on: {}".format(poller.details.last_updated_on))
-    print("Total number of translations on documents: {}".format(poller.details.documents_total_count))
+print("Status: {}".format(poller.status()))
+print("Created on: {}".format(poller.details.created_on))
+print("Last updated on: {}".format(poller.details.last_updated_on))
+print("Total number of translations on documents: {}".format(poller.details.documents_total_count))
 
-    print("\nOf total documents...")
-    print("{} failed".format(poller.details.documents_failed_count))
-    print("{} succeeded".format(poller.details.documents_succeeded_count))
+print("\nOf total documents...")
+print("{} failed".format(poller.details.documents_failed_count))
+print("{} succeeded".format(poller.details.documents_succeeded_count))
 
-    for document in result:
-        print("Document ID: {}".format(document.id))
-        print("Document status: {}".format(document.status))
-        if document.status == "Succeeded":
-            print("Source document location: {}".format(document.source_document_url))
-            print("Translated document location: {}".format(document.translated_document_url))
-            print("Translated to language: {}\n".format(document.translated_to))
-        else:
-            print("Error Code: {}, Message: {}\n".format(document.error.code, document.error.message))
+for document in result:
+    print("Document ID: {}".format(document.id))
+    print("Document status: {}".format(document.status))
+    if document.status == "Succeeded":
+        print("Source document location: {}".format(document.source_document_url))
+        print("Translated document location: {}".format(document.translated_document_url))
+        print("Translated to language: {}\n".format(document.translated_to))
+    else:
+        print("Error Code: {}, Message: {}\n".format(document.error.code, document.error.message))
 ```
 
 That's it! You've created a program to translate documents in a storage container using the Python client library.

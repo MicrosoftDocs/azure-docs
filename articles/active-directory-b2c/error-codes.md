@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/16/2021
+ms.date: 07/18/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,6 +20,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 
 | Error code | Message | Notes |
 | ---------- | ------- | ----- |
+| `AADB2C90001` | This user already exists, and profile '{0}' does not allow the same user to be created again. | [Sign-up flow](add-sign-up-and-sign-in-policy.md) |
 | `AADB2C90002` | The CORS resource '{0}' returned a 404 not found. | [Hosting the page content](customize-ui-with-html.md#hosting-the-page-content) |
 | `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client ID '{1}'. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90007` | The application associated with client ID '{0}' has no registered redirect URIs. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |

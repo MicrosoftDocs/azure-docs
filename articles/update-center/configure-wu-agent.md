@@ -1,7 +1,8 @@
 ---
 title: Configure Windows Update settings in Update management center (Preview)
 description: This article tells how to configure Windows update settings to work with Update management center (Preview).
-ms.service: update-management-center
+ms.service: automation
+ms.subservice: update-management
 ms.date: 04/21/2022
 ms.topic: conceptual
 author: SnehaSudhirG

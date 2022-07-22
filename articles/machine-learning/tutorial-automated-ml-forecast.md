@@ -50,7 +50,7 @@ For this tutorial, you create your automated ML experiment run in Azure Machine 
 
 1. In the left pane, select **Automated ML** under the **Author** section.
 
-1. Select **+New automated ML run**. 
+1. Select **+New automated ML job**. 
 
 ## Create and load dataset
 
@@ -98,11 +98,11 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select  **Next**.
 
-## Configure run
+## Configure job
 
 After you load and configure your data, set up your remote compute target and select which column in your data you want to predict.
 
-1. Populate the **Configure run** form as follows:
+1. Populate the **Configure job** form as follows:
     1. Enter an experiment name: `automl-bikeshare`
 
     1. Select **cnt** as the target column, what you want to predict. This column indicates the number of total bike share rentals.
@@ -169,10 +169,10 @@ Complete the setup for your automated ML experiment by specifying the machine le
 
 ## Run experiment
 
-To run your experiment, select **Finish**. The **Run details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
+To run your experiment, select **Finish**. The **Job details**  screen opens with the **Job status** at the top next to the job number. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
 
 >[!IMPORTANT]
-> Preparation takes **10-15 minutes** to prepare the experiment run.
+> Preparation takes **10-15 minutes** to prepare the experiment job.
 > Once running, it takes **2-3 minutes more for each iteration**.<br> <br>
 > In production, you'd likely walk away for a bit as this process takes time. While you wait, we suggest you start exploring the tested algorithms on the **Models** tab as they complete. 
 
@@ -192,7 +192,7 @@ Automated machine learning in Azure Machine Learning studio allows you to deploy
 
 For this experiment, deployment to a web service means that the bike share company now has an iterative and scalable web solution for forecasting bike share rental demand. 
 
-Once the run is complete, navigate back to parent run page by selecting **Run 1** at the top of your screen.
+Once the job is complete, navigate back to parent job page by selecting **Job 1** at the top of your screen.
 
 In the **Best model summary** section, the best model in the context of this experiment, is selected based on the **Normalized root mean squared error metric.** 
 
@@ -216,7 +216,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
 
 1. Select **Deploy**.  
 
-    A green success message appears at the top of the **Run** screen stating that the deployment was started successfully. The progress of the deployment can be found in the **Model summary** pane under **Deploy status**.
+    A green success message appears at the top of the **Job** screen stating that the deployment was started successfully. The progress of the deployment can be found in the **Model summary** pane under **Deploy status**.
     
 Once deployment succeeds, you have an operational web service to generate predictions. 
 

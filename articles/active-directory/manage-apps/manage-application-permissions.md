@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Review permissions granted to applications
 
-In this article you'll learn how to review permissions granted to applications in your Azure Active Directory (Azure AD) tenant. You may need to review permissions when you have detected a malicious application or the application has been granted more permissions than is necessary.
+In this article, you'll learn how to review permissions granted to applications in your Azure Active Directory (Azure AD) tenant. You may need to review permissions when you've detected a malicious application or the application has been granted more permissions than is necessary.
 
 The steps in this article apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent. For more information on consenting to applications, see [Azure Active Directory consent framework](../develop/consent-framework.md).
 
@@ -29,7 +29,9 @@ The steps in this article apply to all applications that were added to your Azur
 To review permissions granted to applications, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator.
+- A Service principal owner who isn't an administrator is able to invalidate refresh tokens.
+
 
 You can access the Azure AD portal to get contextual PowerShell scripts to perform the actions.
 
@@ -42,7 +44,7 @@ To review application permissions:
 1. Select the application that you want to restrict access to.
 1. Select **Permissions**. In the command bar, select **Review permissions**.
 ![Screenshot of the review permissions window.](./media/manage-application-permissions/review-permissions.png)
-1. Give a reason for why you want to review permissions for the application by selecting any of the options listed after the question , **Why do you want to review permissions for this application?**
+1. Give a reason for why you want to review permissions for the application by selecting any of the options listed after the question, **Why do you want to review permissions for this application?**
 
 Each option generates PowerShell scripts that enable you to control user access to the application and to review permissions granted to the application. For information about how to control user access to an application, see [How to remove a user's access to an application](methods-for-removing-user-access.md)
 
