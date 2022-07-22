@@ -151,15 +151,26 @@ For setting multiple applications on a VM:
 az vm applicaction set \
 	--resource-group myResourceGroup \
 	--name myVM \
-	--app-version-ids <appversionID1> <appversionID2> \
+	--app-version-ids /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.1 \
 	--treat-deployment-as-failure true
 ```
+To add an application to a VMSS:
+```azurecli-interactive
+az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0
+--treat-deployment-as-failure true
+```
+To add multiple applications to a VMSS:
+```azurecli-interactive
+az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.0
+--treat-deployment-as-failure true
+```
+
 To verify application VM deployment status:
 
 ```azurecli-interactive
 az vm get-instance-view -g myResourceGroup -n myVM --query "instanceView.extensions[?name == 'VMAppExtension']"
 ```
-For verifying application VMSS deployment status:
+To verify application VMSS deployment status:
 
 ```azurecli-interactive
 az vmss get-instance-view --ids (az vmss list-instances -g myResourceGroup -n $vmssName --query "[*].id" -o tsv) --query "[*].extensions[?name == 'VMAppExtension']"
