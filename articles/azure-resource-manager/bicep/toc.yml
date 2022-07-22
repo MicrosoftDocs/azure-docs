@@ -368,6 +368,8 @@
         href: linter-rule-no-loc-expr-outside-params.md
       - name: No unnecessary dependsOn entries
         href: linter-rule-no-unnecessary-dependson.md
+      - name: No unused existing resources
+        href: linter-rule-no-unused-existing-resources.md
       - name: No unused parameters
         href: linter-rule-no-unused-parameters.md
       - name: No unused variables
