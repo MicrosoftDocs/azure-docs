@@ -82,6 +82,9 @@ You will need to update the code below and provide your own values for the follo
 | `projectName` | The name of your question answering project.|
 | `deploymentName`             | There are two possible values: `test`, and `production`. `production` is dependent on you having deployed your knowledge base from **Language Studio** > **question answering** > **Deploy knowledge base**.|
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+
 From the project directory, open the *program.cs* file and replace with the following code:
 
 ```csharp
