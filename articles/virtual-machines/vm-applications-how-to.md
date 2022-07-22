@@ -284,13 +284,13 @@ To verify for VMSS:
 ```powershell-interactive
 $rgName = "myResourceGroup"
 $vmssName = "myVMss"
-$result = Get-AzVmss -ResourceGroupName $rgName -VMScaleSetName $vmssName -InstanceView
-$resultSummary = New-Object System.Collections.ArrayList
+$result = Get-AzVmssVM -ResourceGroupName $rgName -VMScaleSetName $vmssName -InstanceView
+$resultSummary  = New-Object System.Collections.ArrayList
 $result | ForEach-Object {
-    $res = @{ instanceId = $
-        .InstanceId; vmappStatus = $.InstanceView.Extensions | Where-Object { $_.Name -eq "VMAppExtension" } }
+    $res = @{ instanceId = $_.InstanceId; vmappStatus = $_.InstanceView.Extensions | Where-Object {$_.Name -eq "VMAppExtension"}}
     $resultSummary.Add($res) | Out-Null
 }
+$resultSummary | convertto-json -depth 5
 ```
 
 ### [REST](#tab/rest2)
