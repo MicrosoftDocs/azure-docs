@@ -17,7 +17,7 @@ This article provides information about the roles and features of the API Manage
 
 Related information:
 
-* For an overview of API Management scenarios, components, and concepts, see [What is Azure API Management?](api-management-key-concepts.md).
+* For an overview of API Management scenarios, components, and concepts, see [What is Azure API Management?](api-management-key-concepts.md)
 
 * For more information about the API Management service tiers and features, see [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
 
@@ -36,7 +36,7 @@ Specifically, the gateway:
 
 ## Managed and self-hosted
 
-API Management offers both managed and self-hosted gateways:
+API Management offers both managed and self-hosted gateways for handling requests to backend APIs:
 
 * **Managed** - The managed gateway is the default gateway component that is deployed in Azure for every API Management instance in every service tier. With the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted. 
 
@@ -47,7 +47,9 @@ API Management offers both managed and self-hosted gateways:
 
 * **Self-hosted** - The [self-hosted gateway](self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway. It's useful for scenarios such as placing gateways in the same environments where you host your APIs. Available in the Developer and Premium service tiers, the self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure. 
 
-    The self-hosted gateway is [packaged](self-hosted-gateway-overview.md#packaging) as a Linux-based Docker container and is commonly deployed to Kubernetes, including to [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md) and [Azure Arc-enabled Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md).
+    * The self-hosted gateway is [packaged](self-hosted-gateway-overview.md#packaging) as a Linux-based Docker container and is commonly deployed to Kubernetes, including to [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md) and [Azure Arc-enabled Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md).
+
+    * Each self-hosted gateway is associated with a **Gateway** resource in a cloud-based API Management instance from which it receives configuration updates and communicates status. 
 
 
 ## Feature comparison: Managed versus self-hosted gateways
@@ -151,7 +153,7 @@ For estimated gateway throughput in the API Management service tiers, see [API M
     * API Management instances in the Consumption tier scale automatically based on the traffic.
 
 ### Self-hosted gateway
-* In environments such as [Kubernetes](how-to-self-hosted-gateway-on-kubernetes-in-production.md), add multiple gatway replicas to handle expected usage.
+* In environments such as [Kubernetes](how-to-self-hosted-gateway-on-kubernetes-in-production.md), add multiple gateway replicas to handle expected usage.
 * Optionally [configure autoscaling](how-to-self-hosted-gateway-on-kubernetes-in-production.md#autoscaling) to meet traffic demands.
 
 ## Next steps
