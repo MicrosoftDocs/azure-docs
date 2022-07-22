@@ -63,8 +63,6 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 ## Networking
 
 - To access the storage account using SFTP, your network must allow traffic on port 22.
-  
-- SFTP is a platform service, so port 22 will be open regardless of SFTP enablement on the storage account.
  
 - Static IP addresses aren't supported for storage accounts. This is not an SFTP specific limitation.
   
