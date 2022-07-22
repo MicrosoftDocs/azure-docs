@@ -99,6 +99,9 @@ File content tracking allows you to view the contents of a file before and after
 * You can connect the storage account to only one Automation account.
 * Change Tracking and Inventory must be enabled in your Automation account.
 
+>[!NOTE]
+> If the file size is >1.25MB, the checksum calculation doesn't complete due to memory constraints.
+
 ### Enable tracking for file content changes
 
 Use the following steps to enable tracking for changes to file contents:
