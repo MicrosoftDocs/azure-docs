@@ -111,7 +111,7 @@ To clean up your logic app workflow and related resources, review [how to clean 
 
 ## Next steps
 
-In this quickstart, you learned how to create a user, create a chat thread and send a message using the Azure Communication Services Identity and Azure Communication Services Chat connectors. To learn more check the [Azure Communication Services Chat Connector](https://docs.microsoft.com/connectors/acschat/) documentation.
+In this quickstart, you learned how to create a user, create a chat thread and send a message using the Azure Communication Services Identity and Azure Communication Services Chat connectors. To learn more check the [Azure Communication Services Chat Connector](/connectors/acschat/) documentation.
 
 To learn more about access tokens check [Create and Manage Azure Communication Services users and access tokens](../chat/logic-app.md). 
 

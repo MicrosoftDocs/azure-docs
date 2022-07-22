@@ -109,7 +109,7 @@ To clean up your logic app workflow and related resources, review [how to clean 
 
 ## Next steps
 
-In this quickstart, you learned how to create a user, delete a user, issue a user an access token and remove user access token using the Azure Communication Services Identity connector. To learn more check the [Azure Communication Services Identity Connector](https://docs.microsoft.com/connectors/acsidentity/) documentation.
+In this quickstart, you learned how to create a user, delete a user, issue a user an access token and remove user access token using the Azure Communication Services Identity connector. To learn more check the [Azure Communication Services Identity Connector](/connectors/acsidentity/) documentation.
 
 To see how tokens are use by other connectors, check out [how to send a chat message](../chat/logic-app.md) from Power Automate using Azure Communication Services.
 
