@@ -164,7 +164,8 @@ az vm application set \
 	--treat-deployment-as-failure true
 ```
 To add an application to a VMSS, use [az vmss application set](/cli/azure/vmss/application#az-vmss-application-set):
-```azurecli-interactive
+
+```azurepowershell-interactive
 az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/<subid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0
 --treat-deployment-as-failure true
 ```
@@ -181,14 +182,14 @@ az vm get-instance-view -g myResourceGroup -n myVM --query "instanceView.extensi
 ```
 To verify application VMSS deployment status, use [az vmss get-instance-view](/cli/azure/vmss/#az-vmss-get-instance-view):
 
-```azurecli-interactive
-az vmss get-instance-view --ids (az vmss list-instances -g myResourceGroup -n $vmssName --query "[*].id" -o tsv) --query "[*].extensions[?name == 'VMAppExtension']"
+```azurepowershell-interactive
+az vmss get-instance-view --ids (az vmss list-instances -g myResourceGroup -n myVmss --query "[*].id" -o tsv) --query "[*].extensions[?name == 'VMAppExtension']"
 ```
 > [!NOTE]
 > The above VMSS deployment status command does not list the instance ID with the result. To show the instance ID with the status of the extension in each instance, some additional scripting is required. Refer to the below VMSS CLI example that contains PowerShell syntax:
 
 ```azurecli-interactive
-$ids = az vmss list-instances -g myResourceGroup -n $vmssName --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
+$ids = az vmss list-instances -g myResourceGroup -n myVMss --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
 $ids | Foreach-Object {
     $iid = $_.instanceId
     Write-Output "instanceId: $iid" 
@@ -273,7 +274,7 @@ Update-AzVMss -ResourceGroupName $rgName -VirtualMachineScaleSet $vmss -VMScaleS
 
 Verify the application succeeded:
 
-```powershell-interactive
+```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $vmName = "myVM"
 $result = Get-AzVM -ResourceGroupName $rgName -VMName $vmName -Status
@@ -283,8 +284,14 @@ To verify for VMSS:
 ```powershell-interactive
 $rgName = "myResourceGroup"
 $vmssName = "myVMss"
-$result = Get-AzVmss -ResourceGroupName $rgName -VMScaleSetName $vmssName -Status
-$result.Extensions | Where-Object {$_.Name -eq "VMAppExtension"} | ConvertTo-Json
+$result = Get-AzVmss -ResourceGroupName $rgName -VMScaleSetName $vmssName -InstanceView
+$resultSummary = New-Object System.Collections.ArrayList
+$result | ForEach-Object {
+$res = @{ instanceId = $
+.InstanceId; vmappStatus = $.InstanceView.Extensions | Where-Object {$_.Name -eq "VMAppExtension"}}
+$resultSummary.Add($res) | Out-Null
+}
+$resultSummary | convertto-json -depth 5
 ```
 
 ### [REST](#tab/rest2)
@@ -475,6 +482,7 @@ The result will look like this:
 
 ```rest
 {
+    ...
     "extensions"  [
     ...
         {
@@ -496,7 +504,7 @@ The result will look like this:
     ]
 }
 ```
-The VM App status is in the status message of the result of the VMApp extension in the instance view. Ensure the ellipsis `...` before and after `extensions` to give the idea that there are other properties in the `instanceView`.
+The VM App status is in the status message of the result of the VMApp extension in the instance view.
 
 To get the status for a VMSS Application:
 
