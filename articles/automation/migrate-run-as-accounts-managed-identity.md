@@ -17,7 +17,7 @@ While we continue to support Run As account for both existing and new Automation
 
 Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. Whenever a Run As account is created, an Azure AD application is registered, and a self-signed certificate will be generated which will be valid for one year. This adds an overhead of renewing the certificate every year before it expires to prevent the Automation account to stop working. 
 
-Automation accounts can now be configured to use [Managed Identity](/automation/automation-security-overview#managed-identities) which is the default option when an Automation account is created. With this feature, Automation account can authenticate to Azure resources without the need to exchange any credentials, hence removing the overhead of renewing the certificate or managing the service prinicpal.
+Automation accounts can now be configured to use [Managed Identity](/automation/automation-security-overview#managed-identities) which is the default option when an Automation account is created. With this feature, Automation account can authenticate to Azure resources without the need to exchange any credentials, hence removing the overhead of renewing the certificate or managing the service principal.
 
 Managed identity can be [system assigned]( /automation/enable-managed-identity-or-automation) or [user assigned](/automation/add-user-assigned-identity). However, when a new Automation account is created, a system assigned managed identity is enabled.
 
@@ -25,7 +25,7 @@ Managed identity can be [system assigned]( /automation/enable-managed-identity-o
 
 Ensure the following to migrate from the Run As account to Managed identities:
 
-1. Create a [system-assigned](enable-managed-identity-for-automation.md), [user-assigned](add-user-assigned-identity.md), or both types of managed identities.
+1. Create a [system-assigned](enable-managed-identity-for-automation.md) or [user-assigned](add-user-assigned-identity.md), or both types of managed identities.
 
     > [!NOTE]
     > User-assigned identities are supported for cloud jobs only. To use hybrid jobs, you must create a System-assigned identities. To learn more about the differences between the two types of managed identities, see [Managed Identity Types](/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
@@ -39,7 +39,7 @@ Ensure that you don't assign high privilege permissions like Contributor, Owner 
 
 To migrate from an Automation Run As account to a Managed Identity for your runbook authentication, follow the steps below:
    
-1. Change the runbook code to use managed identity. We recommend that you test the managed identity to verify if the runbook works as expected by creating a copy of your production runbook to use managed identity. Update your test runbook code to authenticate by using the managed identities. This ensures that you don't override the AzureRunAsConnection in your production runbook and break the exisiting Automation. After you are sure that the runbook code executes as expected using the Managed Identities, update your production runbook to use managed identities.
+1. Change the runbook code to use managed identity. We recommend that you test the managed identity to verify if the runbook works as expected by creating a copy of your production runbook to use managed identity. Update your test runbook code to authenticate by using the managed identities. This ensures that you don't override the AzureRunAsConnection in your production runbook and break the existing Automation. After you are sure that the runbook code executes as expected using the Managed Identities, update your production runbook to use managed identities.
 
     For Managed Identity support, use the Az cmdlet Connect-AzAccount cmdlet. use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
 
@@ -52,7 +52,7 @@ To migrate from an Automation Run As account to a Managed Identity for your runb
 
 ## Sample scripts
 
-Following are the examples of a runbook which fetches the ARM resources using the Run As Account (Service Principal) and  managed identity.
+Following are the examples of a runbook that fetches the ARM resources using the Run As Account (Service Principal) and  managed identity.
 
 # [Run As account](#tab/run-as-account)
 
