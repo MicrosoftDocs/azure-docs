@@ -9,13 +9,12 @@ ms.date: 07/18/2022
 ms.author: duau
 ms.custom: seodec18, template-tutorial
 ---
-# Tutorial: Connect a virtual network to an ExpressRoute circuit using the portal
+# Tutorial: Connect a virtual network to an ExpressRoute circuit using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
-> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
@@ -199,7 +198,7 @@ You can delete a connection and unlink your VNet to an ExpressRoute circuit by s
 
 ## Next steps
 
-In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
 To learn how to configure route filters for Microsoft peering using the Azure portal, advance to the next tutorial.
 
