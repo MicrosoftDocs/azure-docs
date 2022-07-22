@@ -11,7 +11,9 @@ ms.reviewer: shseth
 
 # Azure Monitor agent overview
 The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of [supported infrastucture](#supported-resource-types) and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and how to configure data collection.
-Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
+Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)  
+
+If you're new to Azure Monitor, the recommendation is to use the Azure Monitor agent.
 
 ## Relationship to other agents
 Eventually, the Azure Monitor agent will replace the following legacy monitoring agents that are currently used by Azure Monitor.
@@ -20,7 +22,7 @@ Eventually, the Azure Monitor agent will replace the following legacy monitoring
 - [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
 - [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
 
-**Currently**, the Azure Monitor agent consolidates features from the Telegraf agent and Log Analytics agent, with [a few limitations](#current-limitations).
+**Currently**, the Azure Monitor agent consolidates features from the Telegraf agent and Log Analytics agent, with [a few limitations](#current-limitations). See migration guidance [here](azure-monitor-agent-migration.md).
 In future, it will also consolidate features from the Diagnostic extensions.
 
 In addition to consolidating this functionality into a single agent, the Azure Monitor agent provides the following benefits over the existing agents:
@@ -43,20 +45,6 @@ The methods for defining data collection for the existing agents are distinctly 
 - Diagnostic extension has a configuration for each virtual machine. It's easy to define independent definitions for different virtual machines but difficult to centrally manage. It can only send data to Azure Monitor Metrics, Azure Event Hubs, or Azure Storage. For Linux agents, the open-source Telegraf agent is required to send data to Azure Monitor Metrics.
 
 The Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They're independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](data-collection-rule-azure-monitor-agent.md).
-
-## Should I switch to the Azure Monitor agent?
-To start transitioning your VMs off the current agents to the new agent, consider the following factors:
-
-- **Environment requirements:** The Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environment support, and networking requirements will only be provided in this new agent. If the Azure Monitor agent supports your current environment, start transitioning to it.
-
-- **Current and new feature requirements:** The Azure Monitor agent introduces several new capabilities, such as filtering, scoping, and multi-homing. But it isn't at parity yet with the current agents for other functionality. View [current limitations](#current-limitations) and [supported solutions](#supported-services-and-features).
-
-  That said, most new capabilities in Azure Monitor will be made available only with the Azure Monitor agent. Review whether the Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent.
-
-  If the Azure Monitor agent has all the core capabilities you require, start transitioning to it. If there are critical features that you require, continue with the current agent until the Azure Monitor agent reaches parity.
-- **Tolerance for rework:** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, assess the effort involved. If the setup will take a significant amount of work, consider setting up your new environment with the new agent as it's now generally available.
-
-  Azure Monitor's Log Analytics agent is retiring on 31 August 2024. The current agents will be supported until the retirement date.
 
 ## Coexistence with other agents
 The Azure Monitor agent can coexist (run side by side on the same machine) with the legacy Log Analytics agents so that you can continue to use their existing functionality during evaluation or migration. While this allows you to begin transition given the limitations, you must review the below points carefully:
