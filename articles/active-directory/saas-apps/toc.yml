@@ -1,3 +1,4 @@
+  items:
   - name: SaaS application tutorials
     href: tutorial-list.md
   - name: Single sign-on tutorials
@@ -1170,8 +1171,6 @@
         href: ipasssmartconnect-tutorial.md
       - name: iPoint Service Provider
         href: ipoint-service-provider-tutorial.md
-      - name: Zenya
-        href: iprova-tutorial.md
       - name: IQNavigator VMS
         href: iqnavigatorvms-tutorial.md
       - name: iQualify LMS
@@ -2556,6 +2555,8 @@
         href: zengine-tutorial.md  
       - name: ZenQMS
         href: zenqms-tutorial.md
+      - name: Zenya
+        href: zenya-tutorial.md
       - name: ZephyrSSO
         href: zephyrsso-tutorial.md
       - name: zeroheight
@@ -2819,8 +2820,6 @@
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: iPass SmartConnect
         href: ipass-smartconnect-provisioning-tutorial.md
-      - name: iProva
-        href: iprova-provisioning-tutorial.md
       - name: Iris Intranet
         href: iris-intranet-provisioning-tutorial.md
       - name: Insight4GRC
@@ -3095,6 +3094,8 @@
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+      - name: Zenya
+        href: zenya-provisioning-tutorial.md
       - name: Zero
         href: zero-provisioning-tutorial.md
       - name: Zip
