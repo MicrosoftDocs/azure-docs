@@ -70,7 +70,7 @@ When an embarrassingly parallel job has an increasing watermark delay, it might 
 
    :::image type="content" source="./media/stream-analytics-job-analysis-with-metric-dimensions/07-cpu-and-memory-utilization-splitting-with-node-name.png" alt-text="Screenshot of a chart that shows CPU and memory utilization split by node name for the case of overloaded CPU and memory." lightbox="./media/stream-analytics-job-analysis-with-metric-dimensions/07-cpu-and-memory-utilization-splitting-with-node-name.png":::
 
-4. If the CPU and SU utililzation is very high (more than 80 percent) in all streaming nodes, you can conclude that this job has a large amount of data being processed within each streaming node. 
+4. If the CPU and SU utilization is very high (more than 80 percent) in all streaming nodes, you can conclude that this job has a large amount of data being processed within each streaming node. 
 
    You can further check how many partitions are allocated to one streaming node by checking the **Input Events** metric. Filter by streaming node ID with the **Node Name** dimension, and split by **Partition ID**.
 
