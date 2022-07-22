@@ -10,7 +10,7 @@ ms.date: 07/22/2022
 ms.author: jasteppe
 ---
 
-# How to configure diagnostic settings for the MedTech service metrics exporting
+# How to configure diagnostic settings for exporting the MedTech service metrics 
 
 In this article, you'll learn how to configure the diagnostic setting for the MedTech service to export metrics to different destinations for audit, analysis, or backup.
 
