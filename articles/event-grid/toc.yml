@@ -274,6 +274,8 @@ items:
       items:
       - name: Create a custom topic
         href: create-custom-topic.md
+      - name: Configure a custom topic
+        href: configure-custom-topic.md
     - name: Partner Events
       items:
       - name: Onboard as a partner
