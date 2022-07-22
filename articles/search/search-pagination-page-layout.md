@@ -51,7 +51,7 @@ Occasionally, the substance and not the structure of results are unexpected. For
 
 + Experiment with different lexical analyzers or custom analyzers to see if it changes the query outcome. The default analyzer will break up hyphenated words and reduce words to root forms, which usually improves the robustness of a query response. However, if you need to preserve hyphens, or if strings include special characters, you might need to configure custom analyzers to ensure the index contains tokens in the right format. For more information, see [Partial term search and patterns with special characters (hyphens, wildcard, regex, patterns)](search-query-partial-matching.md).
 
-## Count of matches found in the index
+## Counting matches
 
 The count parameter returns the number of documents in the index that are considered a match for the query. To return the count, add **`$count=true`** to the query request. There is no maximum value imposed by the search service. Depending on your query and the content of your documents, the count could be as high as every document in the index.
 
@@ -59,10 +59,10 @@ Count is accurate when the index is stable. For an index under constant churn, t
 
 Count won't be affected by routine maintenance or other workloads on the search service. However if you have multiple partitions and a single replica, you could experience short-term fluctuations in document count (several minutes) as the partitions are restarted.
 
-For counts in faceted navigation, count is approximate, especially if you're working with large indexes and multiple partitions. Internally, the system gives up a small amount of precision when aggregating the matches for multiple facets over a highly distributed index. Although the facet count might be slightly off, a filter based on the facet will be accurate. For example, a facet count might be 98, but if the number of matches is actually 100, the results from using that filter will be 100.
+For counts in faceted navigation, count should always be considered as approximate, especially if you're working with large indexes and multiple partitions. Internally, the system gives up a small amount of precision when aggregating the matches for multiple facets over a highly distributed index. Although the facet count might be slightly off, a filter based on the facet will be accurate. For example, a facet count might show as 98, but if the number of matches is actually 100, the results from using that filter will include all 100 matches.
 
 > [!TIP]
-> When testing query syntax, add a count so that you can quickly determine whether your modifications are returning greater or fewer results.
+> When testing indexing, add `$count=true` to confirm the number of documents in the index. When testing query syntax, `$count=true` can quickly tell you whether your modifications are returning greater or fewer results.
 
 ## Paging results
 
@@ -74,7 +74,7 @@ To control the paging of all documents returned in a result set, add `$top` and 
 
 + Return the second set, skipping the first 15 to get the next 15: `$top=15&$skip=15`. Repeat for the third set of 15: `$top=15&$skip=30`
 
-The results of paginated queries are not guaranteed to be stable if the underlying index is changing. Paging changes the value of `$skip` for each page, but each query is independent and operates on the current view of the data as it exists in the index at query time (in other words, there is no caching or snapshot of results, such as those found in a general purpose database).
+The results of paginated queries aren't guaranteed to be stable if the underlying index is changing. Paging changes the value of `$skip` for each page, but each query is independent and operates on the current view of the data as it exists in the index at query time (in other words, there is no caching or snapshot of results, such as those found in a general purpose database).
 
 Following is an example of how you might get duplicates. Assume an index with four documents:
 
@@ -109,7 +109,7 @@ A @search.score equal to 1.00 indicates an un-scored or un-ranked result set, wh
 
 For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
 
-Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores are not always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
+Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores aren't always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
 
 | Cause | Description |
 |-----------|-------------|
@@ -127,7 +127,7 @@ Another approach that promotes order consistency is using a [custom scoring prof
 
 ## Hit highlighting
 
-Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Highlighting is useful for longer content fields, such as a description field, where the match is not immediately obvious. 
+Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Highlighting is useful for longer content fields, such as a description field, where the match isn't immediately obvious. 
 
 Notice that highlighting is applied to individual terms. There is no highlight capability for the contents of an entire field. If you want highlighting over a phrase, you'll have to provide the matching terms (or phrase) in a quote-enclosed query string. This technique is described further on in this section.
 
