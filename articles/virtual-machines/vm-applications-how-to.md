@@ -217,7 +217,8 @@ Update-AzVM -ResourceGroupName $rgName -VM $vm
 Verify the application succeeded:
 
 ```powershell-interactive
-Get-AzVM -ResourceGroupName $rgname -VMName $vmname -Status
+$result = Get-AzVM -ResourceGroupName $rgName -VMName $vmName -Status
+$result.Extensions | Where-Object {$_.Name -eq "VMAppExtension"} | ConvertTo-Json
 ```
 
 ### [REST](#tab/rest2)
