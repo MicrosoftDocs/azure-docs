@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 06/14/2020
 ---
 
-# Support matrix for physical server migration
+# Support matrix for physical server, AWS, and GCP instance  migration
 
-This article summarizes support settings and limitations for migrating physical servers to Azure with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-physical.md).
+This article summarizes support settings and limitations for migrating physical servers, AWS VMs, and GCP VMs to Azure with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-physical.md).
 
 ## Migrating machines as physical
 
