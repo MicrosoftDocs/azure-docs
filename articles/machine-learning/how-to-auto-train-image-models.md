@@ -528,6 +528,18 @@ For definitions and examples of the performance charts and metrics provided for 
 
 ## Register and deploy model
 
+Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric)
+
+```Python
+best_child_run_id = mlflow_parent_run.data.tags["automl_best_child_run_id"]
+best_run = mlflow_client.get_run(best_child_run_id)
+model = Model(
+    path=f"azureml://jobs/{best_run.info.run_id}/outputs/artifacts/outputs/mlflow-model/",
+    name='sample_model_name',
+    type=AssetTypes.MLFLOW_MODEL,
+)
+```
+
 Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric).
 
 You can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
