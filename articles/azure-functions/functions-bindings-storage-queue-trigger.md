@@ -14,9 +14,9 @@ The queue storage trigger runs a function as messages are added to Azure Queue s
 
 ::: zone pivot="programming-language-python"  
 > [!IMPORTANT]  
-> Azure Functions lets you define your Python functions either by using decorators in your Python code or in an external function.json configuration file. This article supports both decorator and configuration-based function definitions. 
+> Azure Functions now lets you define your functions directly in Python code. This new programming model allows you to define triggers and bindings using decorators instead of using a separate configuration file. This article supports both programming models. 
 >  
-> Using decorators to define Python functions is currently in preview.
+> The new decorator-based programming model is currently in preview.  
    
 ::: zone-end  
 
