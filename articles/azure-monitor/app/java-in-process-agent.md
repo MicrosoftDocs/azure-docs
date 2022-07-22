@@ -2,9 +2,10 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 07/22/2022
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications
@@ -55,7 +56,7 @@ Download the [applicationinsights-agent-3.3.0.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.3.0.jar` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.3.0.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -242,10 +243,20 @@ You can use `opentelemetry-api` to create [tracers](https://opentelemetry.io/doc
 1. Add spans in your code:
 
    ```java
+    import io.opentelemetry.api.trace.Tracer;
     import io.opentelemetry.api.trace.Span;
 
+    Tracer tracer = GlobalOpenTelemetry.getTracer("myApp");
     Span span = tracer.spanBuilder("mySpan").startSpan();
    ```
+
+> [!TIP]
+> The tracer name ideally describes the source of the telemetry, in this case your application,
+> but currently Application Insights Java is not reporting this name to the backend.
+
+> [!TIP]
+> Tracers are thread-safe, so it's generally best to store them into static fields in order to
+> avoid the performance overhead of creating lots of new tracer objects.
 
 ### Add span events
 
