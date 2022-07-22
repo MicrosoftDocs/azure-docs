@@ -154,10 +154,20 @@ az vm applicaction set \
 	--app-version-ids <appversionID1> <appversionID2> \
 	--treat-deployment-as-failure true
 ```
-To verify application deployment status:
+To verify application VM deployment status:
 
 ```azurecli-interactive
 az vm get-instance-view -g $rgName -n $vmName --query "instanceView.extensions[?name == 'VMAppExtension']"
+```
+For verifying application VMSS deployment status:
+
+```azurecli-interactive
+$ids = az vmss list-instances -g $rgName -n $vmssName --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
+$ids | Foreach-Object {
+    $iid = $_.instanceId
+    Write-Output "instanceId: $iid" 
+    az vmss get-instance-view --ids $_.id --query "extensions[?name == 'VMAppExtension']" 
+}
 ```
 
 ### [PowerShell](#tab/powershell)
