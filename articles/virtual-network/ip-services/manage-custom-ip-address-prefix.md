@@ -153,9 +153,9 @@ Before you decommission a custom IP prefix, ensure it has no public IP prefixes 
 
 To migrate a custom IP prefix, it must first be deprovisioned from one region. A new custom IP prefix with the same CIDR can then be created in another region.
 
-### Portal messages
+### Status messages
 
-During the process of onboarding (or removing) a custom IP prefix from Azure, the **FailedReason** attribute of the resource will be updated.  If the Azure portal is being used, the message will also be shown as a top-level banner.
+When onboarding or removing a custom IP prefix from Azure, the **FailedReason** attribute of the resource will be updated. If the Azure portal is used, the message will be shown as a top-level banner. The following tables list the status messages when onboarding or removing a custom IP prefix.
 
 #### Validation failures
 
