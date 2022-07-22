@@ -414,6 +414,10 @@ relevant parts.
 
 ```
 
+The response below gives back the status:
+```rest
+
+```
 If the VM applications haven't yet been installed on the VM, the value will be empty. 
 
 ---
