@@ -177,6 +177,9 @@ During the process of onboarding (or removing) a custom IP prefix from Azure, th
 | InvalidCIDRFormatInAuthorizationMessage | The format of the CIDR in the authorization message is not valid. Expected format is xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx1.2.3.0/24yyyymmdd. |
 | OperationFailedPleaseRetryLaterOrContactSupport | Unknown error. Contact support. |
 
+> [!NOTE]
+> Not all the messages shown during the commissioning or decommissioning process indicate failure-- some simply provide more granular status.
+
 #### Commission status
 
 | Status message | Explanation |
