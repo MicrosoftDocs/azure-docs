@@ -161,7 +161,7 @@ az vm application set \
 	--resource-group myResourceGroup \
 	--name myVM \
 	--app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.1 \
-	--treat-deployment-as-failure true
+	--treat-deployment-as-failure true true
 ```
 To add an application to a VMSS, use [az vmss application set](/cli/azure/vmss/application#az-vmss-application-set):
 
