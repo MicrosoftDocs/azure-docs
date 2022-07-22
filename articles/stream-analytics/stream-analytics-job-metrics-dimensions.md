@@ -53,18 +53,18 @@ The **Logical Name** dimension is available for filtering and splitting the foll
 
 A streaming node represents a set of compute resources that's used to process your input data. Every six streaming units (SUs) translates to one node, which the service automatically manages on your behalf. For more information about the relationship between streaming units and streaming nodes, see [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md).
 
-**Node Name** is a dimension at the streaming node level. It can help you to drill down certain metrics to the specific streaming node level. For example, you can split the CPU utilization metrics by streaming node level to check the CPU utilization of an individual streaming node.
+**Node Name** is a dimension at the streaming node level. It can help you to drill down certain metrics to the specific streaming node level. For example, you can split the **CPU % Utilization** metric by streaming node level to check the CPU utilization of an individual streaming node.
 
 :::image type="content" source="./media/stream-analytics-job-metrics-dimensions/07-average-cpu-splitting-by-node-name.png" alt-text="Screenshot of a chart that shows splitting average CPU utilization by the Node Name dimension." lightbox="./media/stream-analytics-job-metrics-dimensions/07-average-cpu-splitting-by-node-name.png":::
 
 The **Node Name** dimension is available for filtering and splitting the following metrics:
 -	**CPU % Utilization** (preview)
--	**SU % Utilization**
+-	**SU (Memory) % Utilization**
 -	**Input Events**
 
 ## Partition ID dimension
 
-When streaming data is ingested into the Azure Stream Analytics service for processing, the input data is distributed to streaming nodes according to the partitions in the input source. The **Partition ID** dimension is the ID of the input data partition from the input source, 
+When streaming data is ingested into the Azure Stream Analytics service for processing, the input data is distributed to streaming nodes according to the partitions in the input source. The **Partition ID** dimension is the ID of the input data partition from the input source. 
 
 For example, if the input source is an event hub, the partition ID is the event hub's partition ID. **Partition ID** in the input is the same as it is in the output.
 
