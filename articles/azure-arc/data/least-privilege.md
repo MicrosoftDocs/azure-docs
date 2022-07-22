@@ -23,7 +23,7 @@ Operating Arc-enabled data services with least privileges is a security best pra
 
 Deploying the Azure Arc data controller requires some permissions which can be considered high privilege such as creating a Kubernetes namespace or creating cluster role. The following steps can be followed to separate the deployment of the data controller into multiple steps, each of which can be performed by a user or a service account which has the required permissions. This separation of duties ensures that each user or service account in the process has just the permissions required and nothing more.
 
-### Create a namespace in which the data controller will be created
+### Deploy a namespace in which the data controller will be created
 
 This step will create a new, dedicated Kubernetes namespace into which the Arc data controller will be deployed. It is essential to perform this step first, because the following steps will use this new namespace as a scope for the permissions that are being granted.
 
@@ -91,7 +91,7 @@ Permissions required to perform this action:
 
 - User that is assigned to the arcdata-installer-role role in the previous step
 
-Run the following command to create the installer permissions with the edited file.
+Run the following command to create the bootstrapper job that will run preparatory steps to deploy the data controller.
 
 ```console
 kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrapper.yaml
@@ -163,10 +163,7 @@ Save the edited file on your local computer and run the following command to cre
 ```console
 kubectl create --namespace arc -f <path to your data controller file>
 
-kubectl create --namespace arc -f <path to your data controller file>
-
 #Example
-kubectl create --namespace arc -f C:\arc-data-services\data-controller.yaml
 kubectl create --namespace arc -f data-controller.yaml
 ```
 
@@ -175,7 +172,6 @@ kubectl create --namespace arc -f data-controller.yaml
 Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
 ```console
-kubectl get datacontroller/arc-dc --namespace arc
 kubectl get datacontroller --namespace arc
 ```
 
