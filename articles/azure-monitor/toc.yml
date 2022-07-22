@@ -45,7 +45,7 @@ items:
       href: app/tutorial-users.md
     - name: Dashboard with application data
       href: app/tutorial-app-dashboards.md
-    - name: Monitor mobile application
+    - name: Monitor mobile or UWP application
       href: app/mobile-center-quickstart.md
   - name: Change Analysis
     items:

@@ -3,7 +3,7 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 06/02/2022
+ms.date: 07/22/2022
 ---
 
 # Create an Azure support request
@@ -16,7 +16,7 @@ Azure enables you to create and manage support requests, also known as support t
 >- Azure portal for commercial use is: [https://portal.azure.com](https://portal.azure.com)
 >- Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
 
-Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).
+Azure provides unlimited support for subscription management, which includes billing, [quota adjustments](../../quotas/quotas-overview.md), and account transfers. For technical support, you need a support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).
 
 ## Getting started
 
@@ -131,8 +131,9 @@ To learn more about self-help support options in Azure, watch this video:
 
 Follow these links to learn more:
 
-* [How to manage an Azure support request](how-to-manage-azure-support-request.md)
-* [Azure support ticket REST API](/rest/api/support)
-* Engage with us on [Twitter](https://twitter.com/azuresupport)
-* Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)
-* Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)
+- [How to manage an Azure support request](how-to-manage-azure-support-request.md)
+- [Azure support ticket REST API](/rest/api/support)
+- Engage with us on [Twitter](https://twitter.com/azuresupport)
+- Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)
+- Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)
+- [Azure Quotas overview](../../quotas/quotas-overview.md)
