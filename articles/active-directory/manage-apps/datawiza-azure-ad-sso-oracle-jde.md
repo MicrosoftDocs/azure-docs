@@ -82,13 +82,15 @@ To integrate Oracle JDE with Azure AD:
 
 3. Select the orange **Getting started** button.
 
-   ![Screenshot that shows the getting started page](media/datawiza-azure-ad-sso-oracle-jde/getting-started.png)
+   ![Screenshot that shows the getting started page.](media/datawiza-azure-ad-sso-oracle-jde/getting-started.png)
+
 
 4. In the **Name** and **Description** fields, enter the relevant information.
 
 5. Select **Next**.
 
-   ![Screenshot that shows the name and description fields](media/datawiza-azure-ad-sso-oracle-jde/name-description-field.png)
+   ![Screenshot that shows the name and description fields.](media/datawiza-azure-ad-sso-oracle-jde/name-description-field.png)
+
 
 6. On the **Add Application** dialog, use the following values:
 
@@ -102,7 +104,8 @@ To integrate Oracle JDE with Azure AD:
 
 7. Select **Next**.
 
-   ![Screenshot that shows how to add application](media/datawiza-azure-ad-sso-oracle-jde/add-application.png)
+   ![Screenshot that shows how to add application.](media/datawiza-azure-ad-sso-oracle-jde/add-application.png)
+
 
 8. On the **Configure IdP** dialog, enter the relevant information.
 
@@ -111,13 +114,15 @@ To integrate Oracle JDE with Azure AD:
 
 9. Select **Create**.
 
-   ![Screenshot that shows how to create IdP](media/datawiza-azure-ad-sso-oracle-jde/configure-idp.png)
+   ![Screenshot that shows how to create I d P.](media/datawiza-azure-ad-sso-oracle-jde/configure-idp.png)
+
 
 10. The DAB deployment page appears.
 
 11. Make a note of the deployment Docker Compose file. The file includes the DAB image, also the Provisioning Key and Provision Secret, which pulls the latest configuration and policies from DCMC.
 
-    ![Screenshot that shows the docker compose file value](media/datawiza-azure-ad-sso-oracle-jde/provision.png)
+    ![Screenshot that shows the docker compose file value.](media/datawiza-azure-ad-sso-oracle-jde/provision.png)
+
 
 ## SSO and HTTP headers
 
@@ -137,33 +142,40 @@ For the Oracle JDE application to recognize the user correctly, there's another 
    | Expected | JDE_SSO_UID |
    | Type | Header |
 
-   ![Screenshot that shows the attributes that needs to be passed for the Oracle JDE application](media/datawiza-azure-ad-sso-oracle-jde/add-new-attribute.png)
+   ![Screenshot that shows the attributes that need to be passed for the Oracle JDE application.](media/datawiza-azure-ad-sso-oracle-jde/add-new-attribute.png)
+
 
    >[!Note]
    >This configuration uses the Azure AD user principal name as the sign in username used by Oracle JDE. To use another user identity, go to the **Mappings** tab.
 
-   ![Screenshot that shows the user principal name field as the username](media/datawiza-azure-ad-sso-oracle-jde/user-principal-name-mapping.png)
+   ![Screenshot that shows the user principal name field as the username.](media/datawiza-azure-ad-sso-oracle-jde/user-principal-name-mapping.png)
+
 
 4. Select the **Advanced** tab.
 
-   ![Screenshot that shows the advanced fields](media/datawiza-azure-ad-sso-oracle-jde/advanced-attributes.png)
+   ![Screenshot that shows the advanced fields.](media/datawiza-azure-ad-sso-oracle-jde/advanced-attributes.png)
 
-   ![Screenshot that shows the new attribute](media/datawiza-azure-ad-sso-oracle-jde/add-new-attribute.png)
+
+   ![Screenshot that shows the new attribute.](media/datawiza-azure-ad-sso-oracle-jde/add-new-attribute.png)
+
 
 5. Select **Enable SSL**.
 
 6. From the **Cert Type** dropdown, select a type.
 
-   ![Screenshot that shows the cert type dropdown](media/datawiza-azure-ad-sso-oracle-jde/cert-type.png)
+   ![Screenshot that shows the cert type dropdown.](media/datawiza-azure-ad-sso-oracle-jde/cert-type.png)
+
 
 7. For testing purposes, we'll be providing a self-signed certificate. 
 
-   ![Screenshot that shows the enable sll menu](media/datawiza-azure-ad-sso-oracle-jde/enable-ssl.png)
+   ![Screenshot that shows the enable SSL menu.](media/datawiza-azure-ad-sso-oracle-jde/enable-ssl.png)
+
 
    >[!NOTE]
    >You have the option to upload a certificate from a file.
 
-   ![Screenshot that shows uploading cert from a file option](media/datawiza-azure-ad-sso-oracle-jde/upload-cert.png)
+   ![Screenshot that shows uploading cert from a file option.](media/datawiza-azure-ad-sso-oracle-jde/upload-cert.png)
+
 
 8. Select **Save**.
 
