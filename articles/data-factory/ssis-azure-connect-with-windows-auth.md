@@ -5,8 +5,8 @@ ms.date: 02/15/2022
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
 ms.reviewer: jburchel
 ---
 

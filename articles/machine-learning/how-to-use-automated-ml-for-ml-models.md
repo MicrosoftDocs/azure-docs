@@ -27,7 +27,7 @@ For a Python code-based experience, [configure your automated machine learning e
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
 ## Get started
 
@@ -47,7 +47,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
 1. Select **+ New automated ML run** and populate the form.
 
-1. Select a dataset from your storage container, or create a new dataset. Datasets can be created from local files, web urls, datastores, or Azure open datasets. Learn more about [dataset creation](how-to-create-register-datasets.md).  
+1. Select a data asset from your storage container, or create a new data asset. Data asset can be created from local files, web urls, datastores, or Azure open datasets. Learn more about [data asset creation](how-to-create-register-data-assets.md).  
 
     >[!Important]
     > Requirements for training data:

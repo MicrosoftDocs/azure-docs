@@ -24,7 +24,7 @@ Azure Machine Learning datasets with labels are referred to as labeled datasets.
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or access to [Azure Machine Learning studio](https://ml.azure.com/).
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 * Access to an Azure Machine Learning data labeling project. If you don't have a labeling project, first create one for [image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md).
 
 ## Export data labels 

@@ -100,9 +100,9 @@ The location is the region where the custom image will be created. The following
 - USGov Virginia (Public Preview)
 
 > [!IMPORTANT]
-> Register the feature "Microsoft.VirtualMachineImages/FairfaxPublicPreview" to access the Azure Image Builder public preview in Fairfax regions (USGov Arizona and USGov Virginia).
+> Register the feature "Microsoft.VirtualMachineImages/FairfaxPublicPreview" to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
 
-Use the following command to register the feature for Azure Image Builder in Fairfax regions (USGov Arizona and USGov Virginia).
+Use the following command to register the feature for Azure Image Builder in Azure Government regions (USGov Arizona and USGov Virginia).
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
@@ -328,7 +328,7 @@ The `imageVersionId` should be the ResourceId of the image version. Use [az sig 
 
 ## Properties: buildTimeoutInMinutes
 
-By default, the Image Builder will run for 240 minutes. After that, it will timeout and stop, whether or not the image build is complete. If the timeout is hit, you will see an error similar to this:
+By default, the Image Builder will run for 240 minutes. After that, it will time out and stop, whether or not the image build is complete. If the timeout is hit, you will see an error similar to this:
 
 ```text
 [ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
@@ -337,7 +337,7 @@ By default, the Image Builder will run for 240 minutes. After that, it will time
 
 If you don't specify a buildTimeoutInMinutes value, or set it to 0, this will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we don't recommend setting this below 60 minutes. If you find you're hitting the timeout, review the [logs](image-builder-troubleshoot.md#customization-log), to see if the customization step is waiting on something like user input.
 
-If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, don't set it too high because you might have to wait for it to timeout before seeing an error.
+If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, don't set it too high because you might have to wait for it to time out before seeing an error.
 
 > [!NOTE]
 > If you don't set the value to 0, the minimum supported value is 6 minutes. Using values 1 through 5 will fail.
@@ -905,7 +905,7 @@ az resource invoke-action \
 
 If you're running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
-The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command doesn't wait for cancel to complete, monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
+The build can be canceled anytime. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command doesn't wait for cancel to complete, monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
 Examples of `cancel` commands:
 

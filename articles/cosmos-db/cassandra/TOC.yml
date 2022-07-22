@@ -15,6 +15,7 @@
     - name: NoSQL vs. relational databases
       href: ../relational-nosql.md?toc=/azure/cosmos-db/cassandra/toc.json
 - name: Quickstarts
+  expanded: true
   items:
     - name: .NET
       href: manage-data-dotnet.md
@@ -47,32 +48,44 @@
   items:
     - name: Azure CLI samples
       items:
-      - name: Overview Cassandra API samples
-        href: cli-samples.md
-      - name: Create account, keyspace, and table
-        href: ../scripts/cli/cassandra/create.md
-      - name: Create serverless
-        href: ../scripts/cli/cassandra/serverless.md
-      - name: Create with autoscale
-        href: ../scripts/cli/cassandra/autoscale.md
-      - name: Perform throughput operations
-        href: ../scripts/cli/cassandra/throughput.md
-      - name: Lock resources from deletion
-        href: ../scripts/cli/cassandra/lock.md
-      - name: Overview common API samples
-        href: ../common-cli-samples.md?toc=/azure/cosmos-db/cassandra/toc.json
-      - name: Add or fail over regions
-        href: ../scripts/cli/common/regions.md?toc=/azure/cosmos-db/cassandra/toc.json
-      - name: Perform account key operations
-        href: ../scripts/cli/common/keys.md?toc=/azure/cosmos-db/cassandra/toc.json
-      - name: Secure with IP firewall
-        href: ../scripts/cli/common/ipfirewall.md?toc=/azure/cosmos-db/cassandra/toc.json
-      - name: Secure new account with service endpoints
-        href: ../scripts/cli/common/service-endpoints.md?toc=/azure/cosmos-db/cassandra/toc.json
-      - name: Secure existing account with service endpoints
-        href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=/azure/cosmos-db/cassandra/toc.json
+        - name: Overview Cassandra API samples
+          href: cli-samples.md
+        - name: Create account, keyspace, and table
+          href: ../scripts/cli/cassandra/create.md
+        - name: Create serverless
+          href: ../scripts/cli/cassandra/serverless.md
+        - name: Create with autoscale
+          href: ../scripts/cli/cassandra/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/cli/cassandra/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/cli/cassandra/lock.md
+        - name: Overview common API samples
+          href: ../common-cli-samples.md?toc=/azure/cosmos-db/cassandra/toc.json
+        - name: Add or fail over regions
+          href: ../scripts/cli/common/regions.md?toc=/azure/cosmos-db/cassandra/toc.json
+        - name: Perform account key operations
+          href: ../scripts/cli/common/keys.md?toc=/azure/cosmos-db/cassandra/toc.json
+        - name: Secure with IP firewall
+          href: ../scripts/cli/common/ipfirewall.md?toc=/azure/cosmos-db/cassandra/toc.json
+        - name: Secure new account with service endpoints
+          href: ../scripts/cli/common/service-endpoints.md?toc=/azure/cosmos-db/cassandra/toc.json
+        - name: Secure existing account with service endpoints
+          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=/azure/cosmos-db/cassandra/toc.json
     - name: Azure PowerShell
       items:
+        - name: Overview Cassandra API samples
+          href: powershell-samples.md
+        - name: Create account, keyspace, and table
+          href: ../scripts/powershell/cassandra/create.md
+        - name: Create with autoscale
+          href: ../scripts/powershell/cassandra/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/powershell/cassandra/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/powershell/cassandra/lock.md
+        - name: List and get keyspaces and tables
+          href: ../scripts/powershell/cassandra/list-get.md
         - name: Overview common API samples
           href: ../common-powershell-samples.md?toc=/azure/cosmos-db/cassandra/toc.json
         - name: Account keys or connection strings
@@ -277,6 +290,8 @@
       href: find-request-unit-charge-cassandra.md
     - name: Preventing rate-limiting errors
       href: prevent-rate-limiting-errors.md
+    - name: Materialized View (Preview)
+      href: materialized-views-cassandra.md
     - name: Store and manage Spring Data
       href: access-data-spring-data-app.md
     - name: Troubleshoot common issues

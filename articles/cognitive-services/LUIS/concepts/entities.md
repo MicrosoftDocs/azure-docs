@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/06/2022
+ms.date: 07/19/2022
 
 ---
 

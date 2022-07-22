@@ -5,7 +5,7 @@ description: Use CLI (v1) or SDK (v1) to profile your model before deployment. P
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/31/2020
+ms.date: 07/01/2022
 ms.topic: how-to
 zone_pivot_groups: aml-control-methods
 ms.author: larryfr

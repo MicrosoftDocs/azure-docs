@@ -408,6 +408,8 @@
             href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
           - name: Module via Azure portal 
             href: azure-stack-edge-gpu-deploy-compute-module-simple.md
+          - name: Sync data from local share
+            href: https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/Scripts/IotEdgeScript/README.md
       - name: Troubleshoot IoT Edge issues
         href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
         
@@ -507,7 +509,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2205 - Current
+    - name: 2207 - Current
+      href: azure-stack-edge-gpu-2207-release-notes.md
+    - name: 2205 
       href: azure-stack-edge-gpu-2205-release-notes.md
     - name: 2203 
       href: azure-stack-edge-gpu-2203-release-notes.md

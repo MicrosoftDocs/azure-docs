@@ -6,7 +6,8 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 06/10/2022
+ms.reviewer: agandotra
+ms.date: 06/30/2022
 ms.custom: kr2b-contr-experiment
 ---
 

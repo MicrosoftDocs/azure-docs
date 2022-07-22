@@ -23,9 +23,9 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 The June release is the latest update to the Form Recognizer Studio. There are considerable UX and accessbility improvements addressed in this update:
 
-* 🆕 **Code sample for Javascript and C#**. Studio code tab now includes sample codes written in Javascript and C# in addition to the already existing Python code.
-* 🆕 **New document upload UI**. Studio now supports uploading a document with drag & drop into the new upload UI.
-* 🆕 **New feature for custom projects**. Custom projects now support creating storage account and file directories when configuring the project. In addition, custom project now supports uploading training files directly within the Studio and copying the existing custom model.
+* 🆕 **Code sample for Javascript and C#**. The Studio code tab now adds Javascript and C# code samples in addition to the existing Python one.
+* 🆕 **New document upload UI**. Studio now supports uploading a document with drag & drop into the new upload user interface.
+* 🆕 **New feature for custom projects**. Custom projects now support creating storage account and blobs when configuring the project. In addition, custom project now supports uploading training files directly within the Studio and copying the existing custom model.
 
 ### Form Recognizer v3.0 preview release
 
