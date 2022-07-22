@@ -8,23 +8,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 07/22/2022
 ---
 
 # How to work with search results in Azure Cognitive Search
 
-This article explains how to work with a query response in Azure Cognitive Search. 
+This article explains how to work with a query response in Azure Cognitive Search. The structure of a response is determined by parameters in the query itself, as described in [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). 
 
-The structure of a response is determined by parameters in the query itself, as described in [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). Parameters on the query determine:
+Parameters on the query determine:
 
++ Selection of fields within results
++ Count of matches found in the index for the query
 + Number of results in the response (up to 50, by default)
-+ Fields in each result
-+ Order of items in results
-+ Highlighting of terms within a result, matching on either the whole or partial term in the body of the result
++ Sort order of results
++ Highlighting of terms within a result, matching on either the whole or partial term in the body
 
 ## Result composition
 
-While a search document might consist of a large number of fields, typically only a few are needed to represent each document in the result set. On a query request, append `$select=<field list>` to specify which fields show up in the response. A field must be attributed as **Retrievable** in the index to be included in a result. 
+Results are tabular, composed of fields of either all "retrievable" fields, or limited to just those fields specified in the **`$select`** parameters. Rows are the matching documents.
+
+While a search document might consist of a large number of fields, typically only a few are needed to represent each document in the result set. On a query request, append `$select=<field list>` to specify which fields include in the response. A field must be attributed as "retrievable" in the index to be included in a result. 
 
 Fields that work best include those that contrast and differentiate among documents, providing sufficient information to invite a click-through response on the part of the user. On an e-commerce site, it might be a product name, description, brand, color, size, price, and rating. For the built-in hotels-sample index, it might be the "select" fields in the following example:
 
@@ -48,13 +51,24 @@ Occasionally, the substance and not the structure of results are unexpected. For
 
 + Experiment with different lexical analyzers or custom analyzers to see if it changes the query outcome. The default analyzer will break up hyphenated words and reduce words to root forms, which usually improves the robustness of a query response. However, if you need to preserve hyphens, or if strings include special characters, you might need to configure custom analyzers to ensure the index contains tokens in the right format. For more information, see [Partial term search and patterns with special characters (hyphens, wildcard, regex, patterns)](search-query-partial-matching.md).
 
+## Count of matches found in the index
+
+The count parameter returns the number of documents in the index that are considered a match for the query. To return the count, add **`$count=true`** to the query request. There is no maximum value imposed by the search service. Depending on your query and the content of your documents, the count could be as high as every document in the index.
+
+Count is accurate when the index is stable. For an index under constant churn, the count will be approximate, and it will exclude any documents that aren't fully indexed.
+
+Count won't be affected by routine maintenance or other workloads on the search service. However if you have multiple partitions and a single replica, you could experience short-term fluctuations in document count (several minutes) as the partitions are restarted.
+
+For counts in faceted navigation, count is approximate, especially if you're working with large indexes and multiple partitions. Internally, the system gives up a small amount of precision when aggregating the matches for multiple facets over a highly distributed index. Although the facet count might be slightly off, a filter based on the facet will be accurate. For example, a facet count might be 98, but if the number of matches is actually 100, the results from using that filter will be 100.
+
+> [!TIP]
+> When testing query syntax, add a count so that you can quickly determine whether your modifications are returning greater or fewer results.
+
 ## Paging results
 
 By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic search, or in an arbitrary order for exact match queries (where "@searchScore=1.0").
 
 To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
-
-+ Add `$count=true` to get a count of the total number of matching documents found within an index. Depending on your query and the content of your documents, the count could be as high as every document in the index.
 
 + Return the first set of 15 matching documents plus a count of total matches: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
@@ -105,7 +119,7 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 
 ### How to get consistent ordering
 
-If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as **`sortable`** can be used to order results.
+If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as "sortable" can be used to order results.
 
 Fields commonly used in an **`$orderby`** include rating, date, and location. Filtering by location requires that the filter expression calls the [**`geo.distance()` function**](search-query-odata-geo-spatial-functions.md?#order-by-examples), in addition to the field name.
 
