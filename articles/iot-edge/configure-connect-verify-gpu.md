@@ -168,14 +168,14 @@ If you have an existing module on your IoT Edge device, adding a configuration u
    sudo docker inspect <YOUR-MODULE-NAME>
    ```
 
-   You should see a non-null value for `DeviceRequests` printed in the console.
+   You should see the parameters you specified for `DeviceRequests` in the JSON printout in the console.
 
 > [!NOTE]
 > To understand the `DeviceRequests` parameter better, view the source code: [moby/host_config.go](https://github.com/moby/moby/blob/master/api/types/container/host_config.go)
 
 ### Enable a GPU in a prefabricated NVIDIA module
 
-Let's add an [NIVDIA DIGITS](https://docs.nvidia.com/deeplearning/digits/index.html) module to the IoT Edge device and then allocate a GPU to the module by setting its environment variables. This NVIDIA module is already in a Docker container. 
+Let's add an [NVIDIA DIGITS](https://docs.nvidia.com/deeplearning/digits/index.html) module to the IoT Edge device and then allocate a GPU to the module by setting its environment variables. This NVIDIA module is already in a Docker container. 
 
 1. Select your IoT Edge device in the Azure portal from your IoT Hub's **IoT Edge** menu.
 
