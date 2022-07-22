@@ -236,7 +236,21 @@ $app = New-AzVmGalleryApplication -PackageReferenceId $packageid
 Add-AzVmGalleryApplication -VM $vm -GalleryApplication $app -TreatFailureAsDeploymentFailure true
 Update-AzVM -ResourceGroupName $rgName -VM $vm
 ```
- 
+To add to a VMSS:
+```azurecli-interactive
+$vmss = Get-AzVmss -ResourceGroupName $rgname -Name $vmssName
+$appversion = Get-AzGalleryApplicationVersion `
+   -GalleryApplicationName $applicationName `
+   -GalleryName $galleryName `
+   -Name $version `
+   -ResourceGroupName $rgName
+$packageid = $appversion.Id
+$app = New-AzVmssGalleryApplication -PackageReferenceId $packageid
+Add-AzVmssGalleryApplication -VirtualMachineScaleSetVM $vmss.VirtualMachineProfile -GalleryApplication $app
+Update-AzVMss -ResourceGroupName $rgName -VirtualMachineScaleSet $vmss -VMScaleSetName $vmssName
+```
+
+
 Verify the application succeeded:
 
 ```powershell-interactive
