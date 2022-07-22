@@ -3,7 +3,7 @@ title: "Use cluster connect to connect to Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 07/22/2022
-ms.topic: article
+ms.topic: how-to
 description: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 ---
 
