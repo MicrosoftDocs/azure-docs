@@ -56,9 +56,12 @@ To improve accuracy, customization is available for some languages and base mode
 | Bulgarian (Bulgaria)              | `bg-BG`         |
 | Burmese (Myanmar)                 | `my-MM`         |
 | Catalan (Spain)                   | `ca-ES`         |
+| Chinese (Cantonese, Simplified)   | `yue-CN`        |
 | Chinese (Cantonese, Traditional)  | `zh-HK`         |
 | Chinese (Mandarin, Simplified)    | `zh-CN`         |
-| Chinese (Taiwanese Mandarin)      | `zh-TW`         |
+| Chinese (Southwestern Mandarin, Simplified)  | `zh-CN-sichuan` |
+| Chinese (Taiwanese Mandarin, Traditional)    | `zh-TW`         |
+| Chinese (Wu, Simplified)          | `wuu-CN`        |
 | Croatian (Croatia)                | `hr-HR`         |
 | Czech (Czech)                     | `cs-CZ`         |
 | Danish (Denmark)                  | `da-DK`         |
