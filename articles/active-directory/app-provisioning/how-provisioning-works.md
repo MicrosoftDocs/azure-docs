@@ -79,8 +79,8 @@ However, for B2B users to sign in to the SaaS application using Azure AD, the Sa
 
 > [!NOTE]
 > The userPrincipalName for a B2B user represents the external user's email address alias@theirdomain as "alias_theirdomain#EXT#@yourdomain". When the userPrincipalName attribute is included in your attribute mappings as a source attribute, and a B2B user is being provisioned, the #EXT# and your domain is stripped from the userPrincipalName, so only their original alias@theirdomain is used for matching or provisioning. If you require the full user principal name including #EXT# and your domain to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. <br />
-userPrincipalName = alias@theirdomain.com<br />
-originalUserPrincipalName = alias_theirdomain#EXT#@yourdomain.com
+userPrincipalName = alias@theirdomain<br />
+originalUserPrincipalName = alias_theirdomain#EXT#@yourdomain
 
 ## Provisioning cycles: Initial and incremental
 
