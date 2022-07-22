@@ -193,7 +193,7 @@ Use other package configuration types. XML configuration file is recommended.
 
 Additional Information
 
-[Package Configurations](/sql/integration-services/package-configurations)
+[Package Configurations](/sql/integration-services/lesson-5-2-enabling-and-configuring-package-configurations)
 
 ### [4003]Package encrypted with user key isn't supported
 
