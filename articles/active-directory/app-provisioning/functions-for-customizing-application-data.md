@@ -966,7 +966,7 @@ Then in this case, you can use the following expression in your attribute mappin
 * **replacementValue:** "888"
 * **Expression output:** 888 Tremont Street
 
-Here is another example where the domain suffix from a UPN is replaced with an empty string to generate login id without domain suffix. Note that for a B2B user, the userPrincipalName property contains the user's email address and not the user's Azure AD user principal name; if you always want the  userPrincipalName, use the originalUserPrincipalName property in your expression instead.
+Here is another example where the domain suffix from a UPN is replaced with an empty string to generate login id without domain suffix. 
 
 `Replace([userPrincipalName], , "(?<Suffix>@(.)*)", "Suffix", "", , )`
 
