@@ -32,7 +32,6 @@ You can monitor different components of an SAP landscape, such as Azure virtual 
 
 The following table provides a quick comparison of the Azure Monitor for SAP solutions (classic) and Azure Monitor for SAP solutions. 
 
-classic
 | Azure Monitor for SAP solutions | Azure Monitor for SAP solutions (classic) |
 | ------------------------------- | ----------------------------------------- |
 | Azure Functions-based collector architecture | VM-based collector architecture |
