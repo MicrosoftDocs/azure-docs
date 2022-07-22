@@ -223,6 +223,7 @@ To add the application to an existing VM, get the application version and use th
 $galleryName = "myGallery"
 $rgName = "myResourceGroup"
 $applicationName = "myApp"
+$version = "1.0.0"
 $vmName = "myVM"
 $vm = Get-AzVM -ResourceGroupName $rgname -Name $vmName
 $appversion = Get-AzGalleryApplicationVersion `
