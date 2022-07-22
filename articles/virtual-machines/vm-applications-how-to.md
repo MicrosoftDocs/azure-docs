@@ -456,6 +456,14 @@ The result will look like this:
 ```
 The VM App status is in the status message of the result of the VMApp extension in the instance view. Ensure the ellipsis `...` before and after `extensions` to give the idea that there are other properties in the `instanceView`.
 
+To get the status for a VMSS Application:
+
+```rest
+GET
+/subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/ virtualMachineScaleSets/\<**VMSSName**\>/virtualMachines/<**instanceId**>/instanceView?api-version=2019-03-01
+```
+The output will be similar to the VM example earlier.
+
 ---
 
 
