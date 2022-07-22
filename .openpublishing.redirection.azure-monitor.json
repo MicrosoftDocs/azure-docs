@@ -405,6 +405,11 @@
             "source_path_from_root": "/articles/azure-monitor/logs/custom-logs-overview.md" ,
             "redirect_url": "/azure/azure-monitor/logs/logs-ingestion-api-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/key-vault-insights-overview.md" ,
+            "redirect_url": "/azure/key-vault/key-vault-insights-overview",
+            "redirect_document_id": false
         }
     ]
 }
