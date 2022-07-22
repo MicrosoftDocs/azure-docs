@@ -155,7 +155,7 @@ To migrate a custom IP prefix, it must first be deprovisioned from one region. A
 
 ### Portal messages
 
-The following tables display the messages displayed in the portal during custom IP prefix operations.
+During the process of onboarding (or removing) a custom IP prefix from Azure, the **FailedReason** attribute of the resource will be updated.  If the Azure portal is being used, the message will also be shown as a top-level banner.
 
 #### Validation failures
 
