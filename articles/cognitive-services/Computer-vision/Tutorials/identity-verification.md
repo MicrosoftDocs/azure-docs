@@ -11,7 +11,7 @@ In this tutorial you will learn:
 ## Prerequisites
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 - [Create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal 
-- Key and endpoint in Face resource 
+- Key and endpoint of Face resource 
     - Go to Face resource and click **Keys and Endpoint** on the left. You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below. 
     - You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production. 
 - [!INCLUDE contributor-requirement] 
@@ -21,12 +21,12 @@ In this tutorial you will learn:
 When launched, the application shows users a detailed consent screen. If the user gives consent, the app prompts for a username and password and then captures a high-quality face image using the device's camera. The next time a user tries to log in, the app will capture a high-quality face image and verify the user's identity.
 
 
-New user enrollment 
+New user enrollment:
 1. Ask for user consent.
 1. Capture a face in an image and check the quality of this image using the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API.
 1. Associate the face with a person in a person group using [LargePersonGroup Person-Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) API and [LargePersonGroup Person-Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) API.
 
-User verification 
+User verification:
 1. Capture a face in an image and check the quality of this image using the Detect API.
 1. Verify that this person has been enrolled using the Verify API.
 
