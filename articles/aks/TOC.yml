@@ -452,6 +452,8 @@
               href: dapr-overview.md
             - name: How to use Dapr
               href: dapr.md
+            - name: Migrate from Dapr OSS
+              href: dapr-migration.md
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
           maintainContext: true
