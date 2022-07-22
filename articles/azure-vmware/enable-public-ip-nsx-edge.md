@@ -62,8 +62,10 @@ There are three options for configuring your reserved Public IP down to the NSX 
  
 A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT) is used to allow many VMs to one SNAT service. This connection means you can provide Internet connectivity for many VMs.
 
+To enable SNAT for your specified address ranges, you must configure a gateway firewall rule and SNAT for the specific address ranges you desire. If you do not want SNAT enabled for specific address ranges, you must also create a No-NAT rule for the address ranges you wish to exclude. For this functionality to work as expected, make the No-NAT rule a higher priority than the SNAT rule.
+
 >[!Note]
-> To enable SNAT for your specified address ranges, you must [configure a gateway firewall rule](#gateway-firewall-used-to-filter-traffic-to-vms-at-t1-gateways). Creating a SNAT rule enables specified address ranges in the source. If you don't want SNAT enabled for specific address ranges, create a [No-NAT rule for the address ranges](#no-nat-rule-for-specific-address-ranges) to exclude the specified address range. For this functionality to work as expected, make the No-NAT rule a higher priority than the SNAT rule.
+> To enable SNAT for your specified address ranges, you must [configure a gateway firewall rule](#gateway-firewall-used-to-filter-traffic-to-vms-at-t1-gateways) and SNAT for the specific address ranges you desire. If you don't want SNAT enabled for specific address ranges, you must also create a [No-NAT rule for the address ranges](#no-nat-rule-for-specific-address-ranges) for the address ranges you wish to exclude. For this functionality to work as expected, make the No-NAT rule a higher priority than the SNAT rule.
 
 **Add rule**
 1.	From your Azure VMware Solution private cloud, select **vCenter Credentials**
