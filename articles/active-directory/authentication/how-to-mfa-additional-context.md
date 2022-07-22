@@ -319,12 +319,45 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
     ]
 }
 ```
+#### Example of removing the excluded group 
+ 
+In **featureSettings**, change the states of **displayAppInformationRequiredState** from **default** to **enabled.** 
+You need to change the **id** of the **excludeTarget** to `00000000-0000-0000-0000-000000000000`.
 
-#### Example of error when enabling additional context for multiple groups
+You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
-The PATCH request will fail with 400 Bad Request and the error will contain the following message: 
+Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will see the application name or geographic location. Users who aren't enabled for Microsoft Authenticator won't see these features.
 
-`Persistance of policy failed with error: You cannot enable multiple targets for feature 'Require Display App Information'. Choose only one of the following includeTargets to enable: aede0efe-c1b4-40dc-8ae7-2c402f23e312,aede0efe-c1b4-40dc-8ae7-2c402f23e317.`
+```json
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
+    "id": "MicrosoftAuthenticator",
+    "state": "enabled",
+    "featureSettings": {
+        " displayAppInformationRequiredState ": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": " 00000000-0000-0000-0000-000000000000"
+            }
+        }
+    },
+    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets": [
+        {
+            "targetType": "group",
+            "id": "all_users",
+            "isRegistrationRequired": false,
+            "authenticationMode": "any"
+        }
+    ]
+}
+```
 
 ### Turn off additional context
 
