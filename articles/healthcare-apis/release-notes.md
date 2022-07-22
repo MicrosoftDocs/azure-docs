@@ -2,7 +2,7 @@
 title: Azure Health Data Services monthly releases
 description: This article provides details about the Azure Health Data Services monthly features and enhancements.
 services: healthcare-apis
-author: mcevoy-building7
+author: v-judegnan
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
