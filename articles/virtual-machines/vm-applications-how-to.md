@@ -1,5 +1,5 @@
 ---
-title: Create and deploy VM application packages (preview)
+title: Create and deploy VM application packages
 description: Learn how to create and deploy VM Applications using an Azure Compute Gallery.
 ms.service: virtual-machines
 ms.subservice: gallery
@@ -11,15 +11,13 @@ ms.custom:
 
 ---
 
-# Create and deploy VM Applications (preview)
+# Create and deploy VM Applications
 
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing and global distribution of applications for your virtual machines.
 
 
 > [!IMPORTANT]
-> **VM applications in Azure Compute Gallery** are currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Deploying **VM applications in Azure Compute Gallery** do not currently support using Azure policies.
 
 
 ## Prerequisites
@@ -144,8 +142,36 @@ Set a VM application to an existing VM using [az vm application set](/cli/azure/
 az vm application set \
 	--resource-group myResourceGroup \
 	--name myVM \
---app-version-ids /subscriptions/{subID}/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 \
+  --app-version-ids /subscriptions/{subID}/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 \
+  --treat-deployment-as-failure true
 ```
+For setting multiple applications on a VM:
+
+```azurecli-interactive
+az vm applicaction set \
+	--resource-group myResourceGroup \
+	--name myVM \
+	--app-version-ids <appversionID1> <appversionID2> \
+	--treat-deployment-as-failure true
+```
+To verify application VM deployment status:
+
+```azurecli-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query "instanceView.extensions[?name == 'VMAppExtension']"
+```
+For verifying application VMSS deployment status:
+
+```azurecli-interactive
+$ids = az vmss list-instances -g myResourceGroup -n $vmssName --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
+$ids | Foreach-Object {
+    $iid = $_.instanceId
+    Write-Output "instanceId: $iid" 
+    az vmss get-instance-view --ids $_.id --query "extensions[?name == 'VMAppExtension']" 
+}
+```
+> [!NOTE]
+> The VMSS deployment status contains PowerShell syntax. Refer to the 2nd [vm-extension-delete](/cli/azure/vm/extension#az-vm-extension-delete-examples) example as there is precedence for it.
+
 
 ### [PowerShell](#tab/powershell)
 
@@ -179,6 +205,7 @@ New-AzGalleryApplicationVersion `
    -GalleryApplicationName $applicationName `
    -Name $version `
    -PackageFileLink "https://<storage account name>.blob.core.windows.net/<container name>/<filename>" `
+   -DefaultConfigFileLink "https://<storage account name>.blob.core.windows.net/<container name>/<filename>" `
    -Location "East US" `
    -Install "mv myApp .\myApp\myApp" `
    -Remove "rm .\myApp\myApp" `
@@ -194,20 +221,23 @@ $applicationName = "myApp"
 $vmName = "myVM"
 $vm = Get-AzVM -ResourceGroupName $rgname -Name $vmName
 $appversion = Get-AzGalleryApplicationVersion `
-   -GalleryApplicationName $applicationname `
-   -GalleryName $galleryname `
+   -GalleryApplicationName $applicationName `
+   -GalleryName $galleryName `
    -Name $version `
-   -ResourceGroupName $rgname
+   -ResourceGroupName $rgName
 $packageid = $appversion.Id
 $app = New-AzVmGalleryApplication -PackageReferenceId $packageid
-Add-AzVmGalleryApplication -VM $vm -GalleryApplication $app
-Update-AzVM -ResourceGroupName $rgname -VM $vm
+Add-AzVmGalleryApplication -VM $vm -GalleryApplication $app -TreatFailureAsDeploymentFailure true
+Update-AzVM -ResourceGroupName $rgName -VM $vm
 ```
  
 Verify the application succeeded:
 
 ```powershell-interactive
-Get-AzVM -ResourceGroupName $rgname -VMName $vmname -Status
+$rgName = "myResourceGroup"
+$vmName = "myVM"
+$result = Get-AzVM -ResourceGroupName $rgName -VMName $vmName -Status
+$result.Extensions | Where-Object {$_.Name -eq "VMAppExtension"} | ConvertTo-Json
 ```
 
 ### [REST](#tab/rest2)
@@ -299,7 +329,8 @@ PUT
         {
           "order": 1,
           "packageReferenceId": "/subscriptions/{subscriptionId}/resourceGroups/<resource group>/providers/Microsoft.Compute/galleries/{gallery name}/applications/{application name}/versions/{version}",
-          "configurationReference": "{path to configuration storage blob}"
+          "configurationReference": "{path to configuration storage blob}",
+          "treatFailureAsDeploymentFailure": false
         }
       ]
     }
@@ -326,7 +357,8 @@ virtualMachineScaleSets/\<**VMSSName**\>?api-version=2019-03-01
           {
             "order": 1,
             "packageReferenceId": "/subscriptions/{subscriptionId}/resourceGroups/<resource group>/providers/Microsoft.Compute/galleries/{gallery name}/applications/{application name}/versions/{version}",
-            "configurationReference": "{path to configuration storage blob}"
+            "configurationReference": "{path to configuration storage blob}",
+            "treatFailureAsDeploymentFailure": false
           }
         ]
       }
@@ -344,6 +376,7 @@ virtualMachineScaleSets/\<**VMSSName**\>?api-version=2019-03-01
 | order | Optional. The order in which the applications should be deployed. See below. | Validate integer |
 | packageReferenceId | A reference the gallery application version | Valid application version reference |
 | configurationReference | Optional. The full url of a storage blob containing the configuration for this deployment. This will override any value provided for defaultConfiguration earlier. | Valid storage blob reference |
+| treatFailureAsDeploymentFailure | Optional. Provisioning status for VM App. When set to false, provisioning status will always show 'succeeded' regardless of app deployment failure. | True or False
 
 The order field may be used to specify dependencies between applications. The rules for order are the following:
 

@@ -1,7 +1,6 @@
 ---
 title: Regions in which Azure Video Indexer is available  
 description: This article talks about Azure regions in which Azure Video Indexer is available.
-services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
