@@ -91,7 +91,8 @@ A No NAT rule can be used to exclude certain matches from performing Network Add
 
 1. From your Azure VMware Solution private cloud, select **vCenter Credentials**
 2.	Locate your NSX-T URL and credentials.
-3.	Log in to **VMWare NSX-T** and then select **3  NAT Rules**. 
+3.	Log in to **VMWare NSX-T** and then select **3  NAT Rules**.
+ 
     :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-3nat-rules.png" alt-text="Diagram that shows how to add a No Nat rule to exclude certain matches." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
 
 1. Select the T1 Router and then select **ADD NAT RULE**. 
