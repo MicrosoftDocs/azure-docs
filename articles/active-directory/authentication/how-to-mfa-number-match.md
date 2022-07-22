@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 07/21/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -333,7 +333,7 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
 1. Click **Basics**.
-1. Click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Push**. 
+1. Click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Push**. Only users who are enabled for Microsoft Authenticator will see number matching. Anyone who isn't enabled for Microsoft Authenticator is unaffected.
 1. Click **Configure**.
 1. Click **Require number matching for push notifications (Preview)**, and then for **Require number matching (Preview)**, click **Enable**, and then click **Done**. 
 

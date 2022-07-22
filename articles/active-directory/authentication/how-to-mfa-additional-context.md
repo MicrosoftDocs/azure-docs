@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 07/21/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -184,7 +184,7 @@ To enable additional context in the Azure AD portal, complete the following step
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
 1. Click **Basics**.
-1. Click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. 
+1. Click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. Only users who are enabled for Microsoft Authenticator will see additional context. Anyone who isn't enabled for Microsoft Authenticator is unaffected.
 1. Click **Configure**.
 1. Below **Show application name in push and passwordless notifications (Preview)**, change **Status** to **Enabled** and choose who to include or exclude from the policy. 
 1. Below **Show geographic location in push and passwordless notifications (Preview)**, change **Status** to **Enabled** and choose who to include or exclude from the policy. 
