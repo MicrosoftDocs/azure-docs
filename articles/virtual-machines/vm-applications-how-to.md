@@ -157,12 +157,12 @@ az vm applicaction set \
 To verify application VM deployment status:
 
 ```azurecli-interactive
-az vm get-instance-view -g $rgName -n $vmName --query "instanceView.extensions[?name == 'VMAppExtension']"
+az vm get-instance-view -g myResourceGroup -n myVM --query "instanceView.extensions[?name == 'VMAppExtension']"
 ```
 For verifying application VMSS deployment status:
 
 ```azurecli-interactive
-$ids = az vmss list-instances -g $rgName -n $vmssName --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
+$ids = az vmss list-instances -g myResourceGroup -n $vmssName --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
 $ids | Foreach-Object {
     $iid = $_.instanceId
     Write-Output "instanceId: $iid" 
