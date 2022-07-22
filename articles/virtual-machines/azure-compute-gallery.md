@@ -247,10 +247,10 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 
 ## Best practices
 
-- To prevent images from being accidentally deleted, use resource locks at the Gallery level. For more information, see [Protect your Azure resources with a lock](../azure-resource-manager/management/lock-resources).
+- To prevent images from being accidentally deleted, use resource locks at the Gallery level. For more information, see [Protect your Azure resources with a lock](../azure-resource-manager/management/lock-resources.md).
 
 - Use ZRS wherever available for high availability. You can configure ZRS in the replication tab when you create the a version of the image or VM application.
- For more information about which regions support ZRS, see [Azure regions with availability zones](../availability-zones/az-overview#azure-regions-with-availability-zones.md)
+ For more information about which regions support ZRS, see [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
 - Keep a minimum of 3 replicas for production images. For every 20 VMs that you create concurrently, we recommend you keep one replica.  For example, if you create 1000 VM’s concurrently, you should keep 50 replicas (you can have a maximum of 50 replicas per region).  To update the replica count, please go to the gallery -> Image Definition -> Image Version -> Update replication.
 
@@ -259,7 +259,7 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 - When creating an image definition, keep the Publisher/Offer/SKU consistent with Marketplace images to easily identify OS versions.  For example, if you are customizing a Windows server 2019 image from Marketplace and store it as a Compute gallery image, please use the same Publisher/Offer/SKU that is used in the Marketplace image in your compute gallery image.
  
 - Use `excludeFromLatest` when publishing images if you want to exclude a specific image version during VM or scale set creation. 
-[Gallery Image Versions - Create Or Update](https://docs.microsoft.com/rest/api/compute/gallery-image-versions/create-or-update#galleryimageversionpublishingprofile).
+[Gallery Image Versions - Create Or Update](/rest/api/compute/gallery-image-versions/create-or-update#galleryimageversionpublishingprofile).
 
     If you want to exclude a version in a specific region, use `regionalExcludeFromLatest`   instead of the global `excludeFromLatest`.  You can set both global and regional `excludeFromLatest` flag, but the regional flag will take precedence when both are specified.
 
