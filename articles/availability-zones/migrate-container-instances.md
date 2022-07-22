@@ -41,9 +41,9 @@ To delete and redeploy a container group:
 
 1. Delete your current container group with one of the following tools:
 
-- [Azure CLI](../container-instances/container-instances-quickstart.md#clean-up-resources)
-- [PowerShell](../container-instances/container-instances-quickstart.md#clean-up-resources), 
-- [Portal](../container-instances/container-instances-quickstart-portal.md#clean-up-resources).
+   - [Azure CLI](../container-instances/container-instances-quickstart.md#clean-up-resources)
+   - [PowerShell](../container-instances/container-instances-quickstart.md#clean-up-resources), 
+   - [Portal](../container-instances/container-instances-quickstart-portal.md#clean-up-resources).
 
     >[!NOTE]
     >Zonal support is not supported in the Azure portal. Even if you delete your container group through the portal, you'll still need to create your new container group using CLI or Powershell. 
