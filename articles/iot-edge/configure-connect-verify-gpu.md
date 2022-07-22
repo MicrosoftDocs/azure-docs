@@ -15,40 +15,35 @@ services: iot-edge
 This tutorial shows you how to build a GPU-enabled virtual machine (VM). From the VM, you'll see how to run an IoT Edge device that allocates work from one of its modules to your GPU. 
 
 We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to:
-* build a GPU-capable VM
-* install the [NVIDIA driver extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) on the VM
-* configure a module on an IoT Edge device to allocate work to a GPU
-* run a module to show that it's processing on the GPU
+* Build a GPU-capable VM
+* Install the [NVIDIA driver extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) on the VM
+* Configure a module on an IoT Edge device to allocate work to a GPU
 
 ## Prerequisites
 
 * Azure account - [create a free account](https://azure.microsoft.com/account/free)
 
-* Azure resource group - [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal)
-
 * Azure IoT Hub - [create an IoT Hub](https://azure.microsoft.com/services/iot_hub)
 
 * Azure IoT Edge device
 
-### Create an IoT Edge device
+  If you don't already have an IoT Edge device and need to quickly create one, run the following command. Use the [Azure Cloud Shell](/azure/cloud-shell/overview) located in the Azure portal. Create a new device name for `<DEVICE-NAME>` and replace the IoT `<IOT-HUB-NAME>` with your own. 
+    
+  ```azurecli
+  az iot hub device-identity create --device-id <YOUR-DEVICE-NAME> --edge-enabled --hub-name <YOUR-IOT-HUB-NAME>
+  ```
+    
+  For more information on creating an IoT Edge device, see [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](/quickstart-linux). Later in this tutorial, we'll add an NVIDIA module to our IoT Edge device.
 
-If you don't already have an IoT Edge device and need to quickly create one, run the following command. Use the [Azure Cloud Shell](/azure/cloud-shell/overview) located in the Azure portal. Create a new device name for `<DEVICE-NAME>` and replace the IoT `<IOT-HUB-NAME>` with your own. 
+## Create a GPU-optimized virtual machine
 
-```azurecli
-az iot hub device-identity create --device-id <YOUR-DEVICE-NAME> --edge-enabled --hub-name <YOUR-IOT-HUB-NAME>
-```
+To create a GPU-optimized virtual machine (VM), choosing the right size is important. Not all VM sizes will accommodate GPU processing. In addition, there are different VM sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) or try the [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
 
-For more information on creating an IoT Edge device, see [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](/quickstart-linux). Later in this tutorial, we'll add an NVIDIA module to our IoT Edge device.
+Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) template in GitHub, then configure it to be GPU-optimized.
 
-## Create an NVIDIA-compatible virtual machine
+1. Go to the IoT Edge VM deployment template in GitHub: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.3).
 
-To allocate processing power to your GPU, virtual machine (VM) size is important. Not all sizes will accommodate GPU processing. In addition, there are different sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) or [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
-
-Let's create a VM from the IoT Edge VM deployment repository in GitHub, then configure it to be GPU-enabled.
-
-1. Go to the IoT Edge VM deploy repository in GitHub: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.3).
-
-1. Select the **Deploy to Azure** button, which initiates a custom VM for you in the Azure portal. This VM is based on an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) template.
+1. Select the **Deploy to Azure** button, which initiates the creation of a custom VM for you in the Azure portal. 
 
    :::image type="content" source="media/configure-connect-verify-gpu/deploy-to-azure-button.png" alt-text="Screenshot of the Deploy to Azure button in GitHub.":::
 
@@ -58,9 +53,9 @@ Let's create a VM from the IoT Edge VM deployment repository in GitHub, then con
    | :----------------------- | -------------------------------------- |
    | Subscription             | Choose your Azure account subscription.|
    | Resource group           | Add your Azure resource group.         |
-   | Region                   | `East US` <br> GPU VMs aren't available in all regions of the US.                                                                 |
+   | Region                   | `East US` <br> GPU VMs aren't available in all regions. |
    | Dns Label Prefix         | Create a name for your VM.             |
-   | Admin Username           | `adminUser` <br> Alternatively, create your own user name.                                                               |
+   | Admin Username           | `adminUser` <br> Alternatively, create your own user name. |
    | Device Connection String | Copy your connection string from your IoT Edge device, then paste here.                                                               |
    | VM size                  | `Standard_NV6`                         |
    | Authentication type      | Choose either **password** or **SSH Public Key**, then create a password or key pair name if needed.                                                             |
@@ -74,20 +69,20 @@ Let's create a VM from the IoT Edge VM deployment repository in GitHub, then con
    > az vm list-skus --location <YOUR-REGION> --size Standard_N --all --output table
    > ```
 
-1. Select the **Review + create** button at the bottom, then the **Create** button. Deployment will take a minute.
+1. Select the **Review + create** button at the bottom, then the **Create** button. Deployment can take up one minute to complete.
 
 ## Install the NVIDIA extension
-Now that we have an NVIDIA-enabled VM, let's install the [NVIDIA extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) on the VM using the Azure portal. 
+Now that we have a GPU-optimized VM, let's install the [NVIDIA extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) on the VM using the Azure portal. 
 
 1. Open your VM in the Azure portal and select **Extensions + applications** from the left menu.
 
-1. Select the **+ Add** button and choose the **NVIDIA GPU Driver Extension** card in the list, then select **Next**.
+1. Select **Add** and choose the **NVIDIA GPU Driver Extension** from the list, then select **Next**.
 
-1. Choose **Review + create**, then **Create**. The deployment could take up to 30 minutes to complete.
+1. Choose **Review + create**, then **Create**. The deployment can take up to 30 minutes to complete.
 
-1. To confirm the installation in the Azure portal, go to the **Extensions + applications** menu again in your VM. The new extension named `NvidiaGpuDriverLinux` should be in your extensions list and say **Provisioning succeeded** under **Status**.
+1. To confirm the installation in the Azure portal, return to **Extensions + applications** menu in your VM. The new extension named `NvidiaGpuDriverLinux` should be in your extensions list and show **Provisioning succeeded** under **Status**.
 
-1. To confirm the installation using Cloud Shell, run this command to list your extensions. Replace the `<>` placeholders with your values:
+1. To confirm the installation using Azure Cloud Shell, run this command to list your extensions. Replace the `<>` placeholders with your values:
 
    ```azurecli
    az vm extension list --resource-group <YOUR-RESOURCE-GROUP> --vm-name <YOUR-VM-NAME> -o table
@@ -95,7 +90,7 @@ Now that we have an NVIDIA-enabled VM, let's install the [NVIDIA extension](/azu
 
 1. With an NVIDIA module, we'll use the [NVIDIA System Management Interface program](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf), also known as `nvidia-smi`. 
 
-   From your device, install the `nvidia-smi` library based on your version of Ubuntu. For this tutorial, we'll install `nvidia-utils-515` for Ubuntu 20.04. Select `Y` when prompted in the installation.
+   From your device, install the `nvidia-smi` package based on your version of Ubuntu. For this tutorial, we'll install `nvidia-utils-515` for Ubuntu 20.04. Select `Y` when prompted in the installation.
 
    ```bash
    sudo apt install nvidia-utils-515
@@ -120,11 +115,11 @@ Now that we have an NVIDIA-enabled VM, let's install the [NVIDIA extension](/azu
 
 ## Enable a module with GPU acceleration
 
-There are different ways to enable an IoT Edge module so that it uses a GPU for processing. One way is to configure an existing IoT Edge module on your device to become GPU-accelerated. Another way is to use a prefabricated container module, for example, a module from [NVIDIA DIGITS](https://developer.nvidia.com/digits) that's already GPU-enabled. Let's see how both ways are done.
+There are different ways to enable an IoT Edge module so that it uses a GPU for processing. One way is to configure an existing IoT Edge module on your device to become GPU-accelerated. Another way is to use a prefabricated container module, for example, a module from [NVIDIA DIGITS](https://developer.nvidia.com/digits) that's already GPU-optimized. Let's see how both ways are done.
 
-### Enable GPU in an existing module, using DeviceRequests
+### Enable GPU in an existing module using DeviceRequests
 
-If you have an existing module on your IoT Edge device, adding a configuration using `DeviceRequests` in `createOptions` of the deployment manifest will assign that module to use a GPU to process work. Follow these steps to configure an existing module.
+If you have an existing module on your IoT Edge device, adding a configuration using `DeviceRequests` in `createOptions` of the deployment manifest makes the module GPU-optimized. Follow these steps to configure an existing module.
 
 1. Go to your IoT Hub in the Azure portal and choose **IoT Edge** from the **Device management** menu.
 
@@ -136,7 +131,7 @@ If you have an existing module on your IoT Edge device, adding a configuration u
 
 1. A side panel opens, choose the **Container Create Options** tab.
 
-1. Paste the `HostConfig` JSON string into the box provided.
+1. Copy this `HostConfig` JSON string and paste into the **Create options** box.
 
    ```json
     {
@@ -156,13 +151,13 @@ If you have an existing module on your IoT Edge device, adding a configuration u
     }
    ```
 
-1. Select **Update** at the bottom of the page.
+1. Select **Update**.
 
 1. Select **Review + create**. The new `HostConfig` object is now visible in the `settings` of your module.
 
 1. Select **Create**.
 
-1. To confirm the new configuration works, run this command from your VM:
+1. To confirm the new configuration works, run this command in your VM:
 
    ```bash
    sudo docker inspect <YOUR-MODULE-NAME>
@@ -195,13 +190,13 @@ Let's add an [NVIDIA DIGITS](https://docs.nvidia.com/deeplearning/digits/index.h
    | :--------------------- | ---- | ----- |
    | NVIDIA_VISIBLE_DEVICES | Text | 0     |
 
-1. Select the **Add** button at the bottom of the page.
+1. Select **Add**.
 
 1. Select **Review + create**. Your deployment manifest properties will appear.
 
-1. Select the **Create** button to create the module.
+1. Select **Create** to create the module.
 
-1. Select the **Refresh** button to update your module list. The module will take a couple of minutes to show "running" in the **Runtime status**, so keep refreshing the device.
+1. Select **Refresh** to update your module list. The module will take a couple of minutes to show *running* in the **Runtime status**, so keep refreshing the device.
  
 1. From your device, run this command to confirm your new NVIDIA module exists and is running.
 
