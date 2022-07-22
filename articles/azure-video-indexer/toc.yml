@@ -77,7 +77,7 @@
       href: customize-language-model-overview.md
     - name: Person
       href: customize-person-model-overview.md
-  - name: Transparency notes
+  - name: Responsible use of AI
     href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
     items:
     - name: Audio Effects Detection
