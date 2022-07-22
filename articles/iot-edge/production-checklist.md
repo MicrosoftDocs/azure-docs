@@ -213,7 +213,7 @@ If your networking setup requires that you explicitly permit connections made fr
 * **IoT Edge hub** opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets.
 * **IoT Edge service** makes intermittent HTTPS calls to IoT Hub.
 
-In all three cases, the fully-qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
+In all three cases, the fully qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
 
 Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
 
@@ -236,7 +236,7 @@ Since the IP address of an IoT hub can change without notice, always use the FQD
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
 
-You can enable dedicated data endpoints in your Azure Container registry to avoid wildcard allow-listing of the \*.blob.core.windows.net FQDN. For more information, see [Enable dedicated data endpoints](/azure/container-registry/container-registry-firewall-access-rules#enable-dedicated-data-endpoints).
+You can enable dedicated data endpoints in your Azure Container registry to avoid wildcard allowlisting of the \*.blob.core.windows.net FQDN. For more information, see [Enable dedicated data endpoints](/azure/container-registry/container-registry-firewall-access-rules#enable-dedicated-data-endpoints).
 
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
