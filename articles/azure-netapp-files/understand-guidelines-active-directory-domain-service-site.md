@@ -149,7 +149,7 @@ Incorrect or incomplete AD DS site topology or configuration can result in volum
 If the **AD Site Name** field is not specified in the Azure NetApp Files AD connection, Azure NetApp Files domain controller discovery will attempt to discover all domain controllers in the AD DS domain.  Enumerating all domain controllers and the associated services hosted on them can be a slow process. In this scenario, Azure NetApp Files might select a domain controller that is not in an optimal network location for supporting good communication with Azure NetApp Files or might even be unreachable. As a result, this behavior can result in slow share enumeration. It might also result in inconsistent or no access to Azure NetApp Files volumes that rely on AD DS domain controller communication.
 
 > [!NOTE]
-> Azure NetApp Files does not support the use of AD DS Read-only Domain Controllers (RODC). To prevent Azure NetApp Files from using an RODC, do not configure the **AD Site Name** filed of the AD connections with an RODC.
+> Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC). To prevent Azure NetApp Files from using an RODC, do not configure the **AD Site Name** filed of the AD connections with an RODC.
 
 ### Sample AD DS site topology configuration for Azure NetApp Files
 
