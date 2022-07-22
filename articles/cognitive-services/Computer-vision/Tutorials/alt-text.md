@@ -1,3 +1,18 @@
+---
+title: "Tutorial: Generate alt text for images with Image Analysis"
+titleSuffix: Azure Cognitive Services
+description: This tutorial demonstrates recommended practices for using Image Analysis to generate alt text for images on web applications.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+
+ms.service: cognitive-services
+ms.subservice: computer-vision
+ms.topic: tutorial 
+ms.date: 07/22/2022
+ms.author: pafarley
+
+---
 
 # Tutorial: Generate alt text for images with Image Analysis 
 

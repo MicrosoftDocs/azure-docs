@@ -1,4 +1,20 @@
-# Tutorial: Identity Verification with Face 
+---
+title: "Tutorial: Identity verification with Face"
+titleSuffix: Azure Cognitive Services
+description: This tutorial demonstrates the recommended practice to build a complete identity verification experience using the Face service.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+
+ms.service: cognitive-services
+ms.subservice: computer-vision
+ms.topic: tutorial 
+ms.date: 07/22/2022
+ms.author: pafarley
+
+---
+
+# Tutorial: Identity verification with Face
 
 This tutorial demonstrates the recommended practice to build a complete identity verification experience using the [Face service](/azure/cognitive-services/computer-vision/overview-identity). The sample app is written using JavaScript and the React Native framework. It can currently be deployed on Android and iOS devices.
 
