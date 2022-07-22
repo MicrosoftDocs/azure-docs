@@ -41,6 +41,19 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | Symbolic link support | Not supported | Supported |
 | Optionally internet accessible | Yes (SMB 3.0+ only) | No |
 | Supports FileREST | Yes | Subset: <br /><ul><li>[Operations on the `FileService`](/rest/api/storageservices/operations-on-the-account--file-service-)</li><li>[Operations on `FileShares`](/rest/api/storageservices/operations-on-shares--file-service-)</li><li>[Operations on `Directories`](/rest/api/storageservices/operations-on-directories)</li><li>[Operations on `Files`](/rest/api/storageservices/operations-on-files)</li></ul> |
+| Alternate data streams | Not supported | Not supported |
+| Extended attributes | Not supported | Not supported |
+| Object identifiers | Not supported | Not supported |
+| Reparse points | Not supported | Not supported |
+| Sparse files | Not supported | Not supported |
+| Compression | Not supported | Not supported |
+| Named pipes | Not supported | Not supported |
+| SMB Direct | Not supported | N/A |
+| SMB Directory Leasing | Not supported | N/A |
+| Volume Shadow Copy | Not supported | N/A |
+| Short file names (8.3 alias ) | Not supported | N/A |
+| Server service | Not supported | N/A |
+| File system transactions (TxF) | Not supported | N/A |
 
 ## Management concepts
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
