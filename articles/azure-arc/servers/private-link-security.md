@@ -113,7 +113,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 1. Go to **Create a resource** in the Azure portal and search for **Azure Arc Private Link Scope**. Or you can use the following link to open the [Azure Arc Private Link Scope](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2FprivateLinkScopes) page in the portal.
 
-    :::image type="content" source="./media/private-link-security/private-scope.home.png" alt-text="Screen of private scope home page with Create button." border="true":::
+    :::image type="content" source="./media/private-link-security/private-scope-home.png" alt-text="Screen of private scope home page with Create button." border="true":::
 
 1. Select **Create**.
 
@@ -122,6 +122,17 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 1. Enter a name for the Azure Arc Private Link Scope. It's best to use a meaningful and clear name.
 
    Optionally, you can require every Azure Arc-enabled machine or server associated with this Azure Arc Private Link Scope to send data to the service through the private endpoint. To do so, check the box for **Allow public network access** so machines or servers associated with this Azure Arc Private Link Scope can communicate with the service over both private or public networks. You can change this setting after creating the scope if you change your mind.
+
+1. Select the **Private endpoint** tab, then select **Create**.
+1. In the Create private endpoint window:
+    1. Enter a **Name** for the endpoint.
+
+    1. Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone.
+    
+         > [!NOTE]
+         > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link - including this Private Endpoint and the Private Scope configuration. Then, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Azure Arc-enabled servers.
+
+    1. Select **OK**.
 
 1. Select **Review + Create**.
 
