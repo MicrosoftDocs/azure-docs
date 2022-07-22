@@ -140,7 +140,7 @@ To request new features, post them on https://feedback.azure.com. Share your ide
 
 * [Anomaly Detector](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858) 
 * [Content Moderator](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858)
-* [Metrics Advisor (preview)](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858)
+* [Metrics Advisor](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858)
 * [Personalizer](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858)
 
 ## Stay informed
