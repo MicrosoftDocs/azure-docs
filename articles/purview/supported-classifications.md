@@ -1,7 +1,7 @@
 ---
 title: List of supported classifications
 description: This page lists the supported system classifications in Microsoft Purview.
-author: ankitgup
+author: ankitscribbles
 ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
