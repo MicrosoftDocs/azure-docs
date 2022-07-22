@@ -285,7 +285,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 <a id="runjavasample"></a>
 
-1. Open a command prompt.
+1. Open a Windows command prompt.
 
 1. Clone the GitHub repo for device enrollment code sample using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/):
 
@@ -293,7 +293,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. In the Azure IoT Java SDK, go to the sample folder *_azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample_*.
+1. From the location where you downloaded the repo, go to the sample folder:
 
     ```cmd\sh
     cd azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample 
@@ -324,13 +324,13 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
     Copy and paste the output certificate text for the constant value.
 
-1. The sample allows you to set an IoT hub in the enrollment group to provision the device to. For this article, we'll let DPS choose from the hubs that have already been linked to the DPS instance according to the default allocation policy, evenly-weighted distribution. Comment out or delete the following statement in the file:
+1. The sample allows you to set an IoT hub in the enrollment group to provision the device to. This must be an IoT hub that has been previously linked to the provisioning service. For this article, we'll let DPS choose from the linked hubs according to the default allocation policy, evenly-weighted distribution. Comment out the following statement in the file:
 
     ```Java
     enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
     ```
 
-1. Study the sample code. It creates, updates, queries, and deletes an enrollment group for X.509 devices. To verify successful creation of the enrollment group in Azure portal, comment out the following lines of code near the end of the file:
+1. The sample code creates, updates, queries, and deletes an enrollment group for X.509 devices. To verify successful creation of the enrollment group in Azure portal, comment out the following lines of code near the end of the file:
 
     ```Java
     // ************************************** Delete info of enrollmentGroup ***************************************
@@ -366,15 +366,15 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-java"
 
-1. From the *_azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample_* folder in your command prompt, run the following command to build the sample:
+1. From the *azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample* folder in your command prompt, run the following command to build the sample:
 
     ```cmd\sh
     mvn install -DskipTests
     ```
 
-    This command downloads the [Provisioning service client Maven package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine.and builds the sample. This package includes the binaries for the Java service SDK.
+    This command downloads the [Provisioning service client Maven package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine and builds the sample. This package includes the binaries for the Java service SDK.
 
-1. Switch to the *target* folder and run the sample. Be aware that Tthe build in the previous step outputs .jar file in the *target* folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. You may need to replace the version in the command below.
+1. Switch to the *target* folder and run the sample. Be aware that the build in the previous step outputs .jar file in the *target* folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. You may need to replace the version in the command below.
 
     ```cmd\sh
     cd target
