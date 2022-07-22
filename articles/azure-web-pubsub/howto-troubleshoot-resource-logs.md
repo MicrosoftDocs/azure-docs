@@ -12,14 +12,14 @@ ms.date: 07/21/2022
 
 This how-to guide provides an overview of Azure Web PubSub resource logs and some tips for using the logs to troubleshoot certain problems.  Logs can be used for issue identification, connection tracking, message tracing, HTTP request tracing, and analysis.
 
-## <a id="whats-are-resource-logs">What are resource logs?</a> 
+## What are resource logs? 
 
 There are three types of resource logs: *Connectivity*, *Messaging*, and *HTTP requests*.
 - **Connectivity** logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID, and so on) and event information (connect, disconnect, and so on).
 - **Messaging** logs provide tracing information for the Azure Web PubSub hub messages received and sent via Azure Web PubSub service. For example, tracing ID and message type of the message.
 - **HTTP requests** logs provide tracing information for HTTP requests to the Azure Web PubSub service. For example, HTTP method and status code. Typically the HTTP request is recorded when it arrives at or leave from service.
 
-## <a id="capture-resource-logs-with-live-trace-tool">Capture resource logs by using the live trace tool</a>
+## Capture resource logs by using the live trace tool
 
 The Azure Web PubSub service live trace tool has ability to collect resource logs in real time, which is helpful for troubleshooting problems in your development environment. The live trace tool can capture connectivity logs, messaging logs, and HTTP request logs.
 
