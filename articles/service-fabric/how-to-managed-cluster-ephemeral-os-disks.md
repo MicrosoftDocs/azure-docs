@@ -41,59 +41,59 @@ If you need to create a new client certificate, follow the steps in [set and ret
 
 ## Deploy the template
 
-1) Pick the template from [Service Fabric cluster sample template for Ephemeral OS disk](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Ephemeral), which includes specification for Ephemeral OS disks support.
+1. Pick the template from [Service Fabric cluster sample template for Ephemeral OS disk](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Ephemeral), which includes specification for Ephemeral OS disks support.
 
-2) Provide your own values for the following template parameters:
+2. Provide your own values for the following template parameters:
 
-  * Subscription: Select an Azure subscription.
-  * Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
-  * Location: Select a location.
-  * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
-  * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
-  * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-  * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you don't have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
-  * Node Type Name: Enter a unique name for your node type, such as nt1.
+   * Subscription: Select an Azure subscription.
+   * Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
+   * Location: Select a location.
+   * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
+   * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
+   * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
+   * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you don't have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
+   * Node Type Name: Enter a unique name for your node type, such as nt1.
 
 
-3) Deploy an ARM template through one of the methods below:
+3. Deploy an ARM template through one of the methods below:
 
-* ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template). Select the following image to sign in to Azure, and provide your own values for the template parameters, then deploy the template.
+   * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template). Select the following image to sign in to Azure, and provide your own values for the template parameters, then deploy the template.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-Ephemeral%2Fazuredeploy.json)
+      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-Ephemeral%2Fazuredeploy.json)
 
-* ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template
 
-   ```powershell
-   $templateFilePath = "<full path to azuredeploy.json>" 
-   $parameterFilePath = "<full path to azuredeploy.parameters.json>" 
+   * ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources)](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template.
+    
+      ```powershell
+      $templateFilePath = "<full path to azuredeploy.json>"
+      $parameterFilePath = "<full path to azuredeploy.parameters.json>"
 
-    New-AzResourceGroupDeployment ` 
+      New-AzResourceGroupDeployment ` 
         -Name $DeploymentName ` 
         -ResourceGroupName $resourceGroupName ` 
         -TemplateFile $templateFilePath ` 
-        -TemplateParameterFile $parameterFilePath ` 
-        -Verbose
-   ```
-   
+        -TemplateParameterFile $parameterFilePath `
+        -Debug -Verbose
+      ```
     Wait for the deployment to be completed successfully.
 
-4) To configure a node type to use Ephemeral OS disks through your own template: 
-* Use Service Fabric API version 2022-06-01-preview and above 
-* Edit the template, azuredeploy.json, and add the following properties under the node type section:
-   ```JSON
-    "properties": { 
-    "useEphemeralOSDisk": true 
-    }
-   ```
-   Sample template is available that includes this specification: [Azure-Sample - Service Fabric cluster template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Ephemeral).
+4. To configure a node type to use Ephemeral OS disks through your own template:
+   * Use Service Fabric API version 2022-06-01-preview and above
+   * Edit the template, azuredeploy.json, and add the following properties under the node type section:
+       ```JSON
+      "properties": { 
+      "useEphemeralOSDisk": true 
+      }
+      ```
+   Sample template is available that includes these specifications: [Azure-Sample - Service Fabric cluster template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Ephemeral).
 
 
 ## Migrate to using Ephemeral OS disks for Service Fabric managed cluster node types
 A node type can only be configured to use Ephemeral OS disk at the time of creation. Existing node types can't be converted to use Ephemeral OS disks. For all migration scenarios, add a new node type with Ephemeral OS disk to the cluster and migrate your services to that node type. 
 
-1) Add a new node type that's configured to use Ephemeral OS disk as specified earlier.
-2) Migrate any required workloads to the new node type.
-3) Disable and remove the old node type from the cluster.
+1. Add a new node type that's configured to use Ephemeral OS disk as specified earlier.
+2. Migrate any required workloads to the new node type.
+3. Disable and remove the old node type from the cluster.
 
 ## Next steps
 > [!div class="nextstepaction"]
