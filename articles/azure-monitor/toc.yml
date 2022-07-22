@@ -815,8 +815,8 @@ items:
               href: app/status-monitor-v2-detailed-instructions.md
             - name: API reference
               href: app/status-monitor-v2-api-reference.md
-        - name: Java
-          href: app/java-in-process-agent.md
+        - name: Java (OpenTelemetry redirect)
+          href: app/java-in-process-agent-redirect.md
     - name: Application Insights SDKs
       items:
       - name: .NET
