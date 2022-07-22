@@ -18,8 +18,8 @@ The following table lists the supported operating systems for update assessments
 All operating systems are assumed to be x64. x86 is not supported for any operating system.
 
 > [!NOTE]
-> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).</br>
-> Update Management does not support CIS hardened images.
+> - Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).</br>
+> - Update Management does not support CIS hardened images.
 
 # [Windows operating system](#tab/os-win)
 
