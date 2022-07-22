@@ -117,7 +117,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
 
       [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-ADH%2Fazuredeploy.json)
 
-   * ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources)](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template.
+   * ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources)](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment). Store the paths of your ARM template and parameter files in variables, then deploy the template.
 
       ```powershell
       $templateFilePath = "<full path to azuredeploy.json>" 
@@ -139,27 +139,27 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
 ## Troubleshooting
 
 1. The following error is thrown when SFRP doesn't have access to the host group. Review the role assignment steps above and ensure the assignment is done correctly.
-     ```
+      ```
            {  
                   "code": "LinkedAuthorizationFailed",  
                   "message": "The client '[<clientId>]' with object id '[<objectId>]' has permission to perform action 'Microsoft.Compute/virtualMachineScaleSets/write' on scope '/subscriptions/[<Subs-Id>]/resourcegroups/[<ResGrp-Id>]/providers/Microsoft.Compute/virtualMachineScaleSets/pnt'; however, it does not have permission to perform action 'write' on the linked scope(s) '/subscriptions/[<Subs-Id>]/resourceGroups/[<ResGrp-Id>]/providers/Microsoft.Compute/hostGroups/HostGroupscu0' or the linked scope(s) are invalid."
                }
-     ```
+      ```
 2. If host group is in a different subscription than the clusters, then the following error is reported. Ensure they both are in the same subscription.
-     ```
+      ```
             {  
                   "code": "BadRequest",  
                   "message": "Entity subscriptionId in resource reference id /subscriptions/[<Subs-Id>]/resourceGroups/[<ResGrp-Id>]/providers/Microsoft.Compute/hostGroups/[<HostGroup>] is invalid."  
                 }
-     ```    
+      ```    
 3. If Quota for Host Group isn't sufficient, following error is thrown:
-     ```
+      ```
             {  
                   "code": "QuotaExceeded",  
                   "message": "Operation could not be completed as it results in exceeding approved standardDSv3Family Cores quota.  
             Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase [here](https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/). Please read more about quota limits [here](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests)” 
                 }
-     ```
+      ```
 ## Next steps
 > [!div class="nextstepaction"]
 > [Read about Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
