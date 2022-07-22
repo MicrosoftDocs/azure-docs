@@ -478,7 +478,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
 1. Select **View SIMs**.
 
-    :::image type="content" source="media/provision-sims-azure-portal/view-sims.png" alt-text="Screenshot of the Azure portal showing the View SIMs button on a Mobile Network resource":::
+    :::image type="content" source="media/provision-sims-azure-portal/view-sims.png" alt-text="Screenshot of the Azure portal showing the View SIMs button on a Mobile Network resource.":::
 
 1. Select **Create** and then **Upload JSON from file**.
 
