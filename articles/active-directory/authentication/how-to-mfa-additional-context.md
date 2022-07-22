@@ -161,11 +161,8 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 } 
 ```
  
-To confirm this update has applied, run the GET request below using the endpoint below.
-GET - https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
  
- 
-#### Example of how to enable additional context for a single group
+#### Example of how to enable application name and geographic location for separate groups
  
 Change the **displayAppInformationRequiredState** value from **default** to **enabled.** 
 Change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
@@ -205,14 +202,9 @@ The PATCH request will fail with 400 Bad Request and the error will contain the 
 
 `Persistance of policy failed with error: You cannot enable multiple targets for feature 'Require Display App Information'. Choose only one of the following includeTargets to enable: aede0efe-c1b4-40dc-8ae7-2c402f23e312,aede0efe-c1b4-40dc-8ae7-2c402f23e317.`
 
-### Test the end-user experience
-Add the test user account to the Authenticator app. The account **doesn't** need to be enabled for phone sign-in. 
-
-See the end-user experience of an Authenticator multifactor authentication push notification with additional context by signing into aka.ms/MFAsetup. 
-
 ### Turn off additional context
 
-To turn off additional context, you'll need to PATCH remove **displayAppInformationRequiredState** from **enabled** to **disabled**/**default**.
+To turn off additional context, you'll need to PATCH **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **enabled** to **disabled**/**default**.
 
 ```json
 {
@@ -220,14 +212,37 @@ To turn off additional context, you'll need to PATCH remove **displayAppInformat
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
+    "featureSettings": {
+        "displayAppInformationRequiredState": {
+            "state": "disabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "44561710-f0cb-4ac9-ab9c-e6c394370823"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
+            }
+        },
+        "displayLocationInformationRequiredState": {
+            "state": "disabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "a229e768-961a-4401-aadb-11d836885c11"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
+            }
+        }
+    },
     "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
             "id": "all_users",
+            "isRegistrationRequired": false,
             "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
-            "numberMatchingRequiredState": "default"
         }
     ]
 }
