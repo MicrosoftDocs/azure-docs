@@ -5,7 +5,7 @@ author: anandmeg
 ms.author: meghaanand
 ms.topic: tutorial
 ms.service: deployment-environments
-ms.date: 07/20/2022
+ms.date: 07/22/2022
 ms.custom: devdivchpfy22
 ---
 
@@ -28,7 +28,7 @@ The following steps illustrate how to use the Azure portal to create and configu
 
     :::image type="content" source="media/create-devcenter.png" alt-text="Screenshot of sign-in page.":::
 
-1. Select on **+ Add** and in the **Basics** tab of **Create an Azure Deployment Environment DevCenter** window, perform the following actions:
+1. Select on **+ Add** and in the **Basics** tab of **Create a DevCenter** window, perform the following actions:
 
     |Name      |Value      |
     |----------|-----------|
@@ -63,7 +63,7 @@ After you've created a DevCenter, the next step is to create a system-assigned m
 
 1. Create a system-assigned managed identity by switching the status to **On**, selecting **Save** and confirming **Yes**. [Learn more about system-assigned managed identities.](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-managed-identity.md#types-of-managed-identities)
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/124187021-c58eb600-da82-11eb-8910-18e6784ab33e.png" alt-text="Screenshot of system-assigned managed identity tab.":::
+    :::image type="content" source="media/system-assigned-identity-tab.png" alt-text="Screenshot of system-assigned managed identity tab.":::
 
 1. After the system-assigned managed identity is created, select **Azure role assignments** to provide **Owner** access on the subscriptions that will be used in [Mappings](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md#mappings) and ensure the **Identity** has [access to the **Key Vault** secrets](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-managed-identity.md#assigning-key-vault-secret-access) containing the personal access token (PAT) token to access your repository.
 
@@ -71,14 +71,14 @@ After you've created a DevCenter, the next step is to create a system-assigned m
 
 1. Switch to the **User Assigned** tab and select **+ Add** to attach an existing identity.
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/124188735-477fde80-da85-11eb-8ae4-04cafb6ec264.png" alt-text="Screenshot of user-assigned tab.":::
+    :::image type="content" source="media/user-assigned-identity-tab.png" alt-text="Screenshot of user-assigned tab.":::
 
 1. On the **Add user assigned managed identity** page,
     1. For **Subscription**, select the subscription in which the Identity exists.
     1. For **User assigned managed identities**, select an existing Identity from the drop-down.
     1. Select **Add**.
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/124189314-24096380-da86-11eb-9949-0988c6a6c293.png" alt-text="Screenshot of user-assigned managed identity tab.":::
+    :::image type="content" source="media/add-user-assigned-managed-identity.png" alt-text="Screenshot of user-assigned managed identity tab.":::
 
 1. After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used in [Mappings](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md#mappings). Also, check **Reader** access to all subscriptions that a project lives in. Also ensure the identity has [access to the Key Vault secrets](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-managed-identity.md#assigning-key-vault-secret-access) containing the personal access token(PAT) token to access the repository.
 
@@ -88,7 +88,7 @@ After you've created a DevCenter, the next step is to create a system-assigned m
 
 1. Select **Catalogs** in the left menu and select **+ Add Repo**.
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/124190442-e6a5d580-da87-11eb-81cf-206050c45df1.png" alt-text="Screenshot of catalog tab.":::
+    :::image type="content" source="media/catalog-tab.png" alt-text="Screenshot of catalog tab.":::
 
 1. In **Add New Catalog** page, provide the following details and select **Add**.
 
@@ -97,10 +97,10 @@ After you've created a DevCenter, the next step is to create a system-assigned m
     |**Name**|Provide a name for your catalog.|
     |**Git clone Uri**|Provide the URI to your GitHub or ADO repository.|
     |**Branch Name**|Provide the repository branch that you would like to connect.|
-    |**Secret Identifier**|Provide the secret identifier that contains your PAT for the repository.|
+    |**Personal Access Token**|Provide the secret identifier that contains your PAT for the repository.|
     |**Folder Path**|Provide the repo path in which the catalog items exist.|
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/124191487-74ce8b80-da89-11eb-92b7-3c610090e25a.png" alt-text="Screenshot of add new catalog page.":::
+    :::image type="content" source="media/add-new-catalog-tab.png" alt-text="Screenshot of add new catalog page.":::
 
 1. Confirm that the catalog is successfully added by checking the Notifications.
 
@@ -117,7 +117,7 @@ Environment types help you define the different types of environments your devel
     |**Description**|You may choose to provide details about the environment type.|
     |**Tags**|Provide a **Name** and **Value**.|
 
-    :::image type="content" source="https://user-images.githubusercontent.com/68404454/124192773-700ad700-da8b-11eb-82e6-ca0a62892b99.png" alt-text="Screenshot of add environment type page.":::
+    :::image type="content" source="media/add-environment-type-tab.png" alt-text="Screenshot of add environment type page.":::
 
 1. Confirm that the environment type is added.
 
