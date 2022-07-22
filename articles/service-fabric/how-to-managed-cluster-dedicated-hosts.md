@@ -6,7 +6,7 @@ ms.date: 7/14/2022
 ---
 
 # Introduction to Dedicated Hosts on Service Fabric managed clusters (Preview)
-[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. The server is dedicated to your organization and workloads and capacity is not shared with anyone else. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
+[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. The server is dedicated to your organization and workloads and capacity isn't shared with anyone else. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
 
 Using Azure Dedicated Hosts for nodes with your Service Fabric managed cluster (SFMC) has the following benefits:
 
@@ -23,8 +23,8 @@ This guide builds upon the managed cluster quick start guide: [Deploy a Service 
 
 Before you begin:
 
-* If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-* Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. For the sake of this guide, we will be using a two node types 12-node Standard SKU cluster.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+* Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. This guide deloys a two node types 12-node Standard SKU cluster.
 * The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) to do role assignments in a host group. For more information, see [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites).
 
 
@@ -40,7 +40,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
 
 Create a dedicated host group and add a role assignment to the host group with the Service Fabric Resource Provider application using the steps below. This role assignment allows Service Fabric Resource Provider to deploy VMs on the Dedicated Hosts inside the host group to the managed cluster's virtual machine scale set. This assignment is a one-time action.
 
-1) Get SFRP provider Id and Service Principal for Service Fabric Resource Provider application.
+1) Get SFRP provider ID and Service Principal for Service Fabric Resource Provider application.
 
    ```powershell
    Login-AzAccount  
@@ -108,7 +108,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
   * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
   * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
   * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-  * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
+  * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you don't have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
   * Node Type Name: Enter a unique name for your node type, such as nt1.
 
 3) Deploy an ARM template through one of the methods below:
@@ -119,7 +119,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-* ARM powershell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template.
+* ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template.
 
    ```powershell
    $templateFilePath = "<full path to azuredeploy.json>" 
@@ -140,7 +140,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
     
 ## Troubleshooting
 
-1) The following error is thrown when SFRP does not have access to the host group. Review the role assignment steps above and ensure the assignment is done correctly.
+1) The following error is thrown when SFRP doesn't have access to the host group. Review the role assignment steps above and ensure the assignment is done correctly.
      ```
            {  
                   "code": "LinkedAuthorizationFailed",  
@@ -154,7 +154,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
                   "message": "Entity subscriptionId in resource reference id /subscriptions/[<Subs-Id>]/resourceGroups/[<ResGrp-Id>]/providers/Microsoft.Compute/hostGroups/[<HostGroup>] is invalid."  
                 }
      ```    
-3) If Quota for Host Group is not sufficient, following error is thrown:
+3) If Quota for Host Group isn't sufficient, following error is thrown:
      ```
             {  
                   "code": "QuotaExceeded",  
