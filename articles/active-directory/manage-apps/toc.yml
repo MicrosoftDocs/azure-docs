@@ -166,7 +166,7 @@
         items:
         - name: Integrate Datawiza with Azure AD
           href: datawiza-with-azure-ad.md 
-        - name: Configure Oracle JD Edwards application with Azure AD using Datawiza Access Broker
+        - name: Configure Oracle JDE with Azure AD 
           href: datawiza-azure-ad-sso-oracle-jde.md
       - name: F5
         items:
