@@ -101,7 +101,7 @@ application.
 
 Running the queries must consult data in shards scattered across nodes.
 
-:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Diagram shows multiple queries against the event and page tables in two nodes, which is inefficient." border="false":::
+:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Diagram shows an inefficient approach that uses multiple queries against the event and page tables in two nodes." border="false":::
 
 In this case, the data distribution creates substantial drawbacks:
 
