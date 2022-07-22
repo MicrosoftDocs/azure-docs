@@ -14,8 +14,8 @@ This how-to guide provides an overview of Azure Web PubSub resource logs and som
 
 ## <a id="whats-are-resource-logs">What are resource logs?</a> 
 
-There are three types of resource logs: Connectivity, Messaging, and HTTP requests.
-- **Connectivity** logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID, and so on) and event information (connect, disconnect, and abort event, and so on).
+There are three types of resource logs: *Connectivity*, *Messaging*, and *HTTP requests*.
+- **Connectivity** logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID, and so on) and event information (connect, disconnect, and so on).
 - **Messaging** logs provide tracing information for the Azure Web PubSub hub messages received and sent via Azure Web PubSub service. For example, tracing ID and message type of the message.
 - **HTTP requests** logs provide tracing information for HTTP requests to the Azure Web PubSub service. For example, HTTP method and status code. Typically the HTTP request is recorded when it arrives at or leave from service.
 
@@ -90,7 +90,7 @@ Currently Azure Web PubSub supports integration with [Azure Storage](../azure-mo
 > [!NOTE]
 > The storage account should be in the same region as Azure Web PubSub service.
 
-### Archive to Azure Storage Account
+### Archive to an Azure Storage Account
 
 Logs are stored in the storage account that's configured in the **Diagnostics setting** pane. A container named `insights-logs-<CATEGORY_NAME>` is created automatically to store resource logs. Inside the container, logs are stored in the file `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`. The path is combined by `resource ID` and `Date Time`. The log files are split by `hour`. The minute value is always `m=00`.
 
@@ -150,25 +150,31 @@ The following code is an example of an archive log JSON string:
 
 ### Archive to Azure Log Analytics
 
-Once you check `Send to Log Analytics`, and select target Azure Log Analytics, the logs will be stored in the target. To view the resource logs, follow these steps:
+To send logs to a Log Analytics workspace:
+1. On the **Diagnostic setting** page, under **Destination details**, select **Send to Log Analytics workspace.
+1. Select the **Subscription** you want to use.
+1. Select the **Log Analytics workspace** to use as the destination for the logs.
+
+To view the resource logs, follow these steps:
 
 1. Select `Logs` in your target Log Analytics.
 
     :::image type="content" alt-text="Log Analytics menu item" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png":::
 
-2. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest` and select time range to query connectivity log, messaging log, or http request logs, correspondingly. For advanced queries, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
+1. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest`, and then select the time range to query the log. For advanced queries, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
     :::image type="content" alt-text="Query log in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
 
+
 To use a sample query for SignalR service, follow the steps below.
 1. Select `Logs` in your target Log Analytics.
-2. Select `Queries` to open query explorer.
-3. Select `Resource type` to group sample queries in resource type.
-4. Select `Run` to run the script.
+1. Select `Queries` to open query explorer.
+1. Select `Resource type` to group sample queries in resource type.
+1. Select `Run` to run the script.
     :::image type="content" alt-text="Sample query in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png":::
 
 
-Archive log columns include elements listed in the following table:
+Archive log columns include elements listed in the following table.
 
 Name | Description
 ------- | ------- 
