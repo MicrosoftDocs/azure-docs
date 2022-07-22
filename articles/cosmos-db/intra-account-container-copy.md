@@ -116,17 +116,21 @@ Currently, container copy is supported in the following regions:
 * Error - Owner resource does not exist
 
 If the job creation fails with the error *"Owner resource does not exist"*, it means that the target container wasn't created or was mis-spelt.
-Make sure the target container is created before running the job as specified in the [overview section.](#overview-of-steps-needed-to-do-a-container-copy)
+Make sure the target container is created before running the job as specified in the [overview section.](#overview-of-steps-needed-to-do-container-copy)
 
-	"code": "500",
-    "message": "Response status code does not indicate success: NotFound (404); Substatus: 1003; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Message: {\"Errors\":[\"Owner resource does not exist\"]
+```
+"code": "500",
+"message": "Response status code does not indicate success: NotFound (404); Substatus: 1003; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Message: {\"Errors\":[\"Owner resource does not exist\"]
+```
 
 * Error - Shared throughput database creation is not supported for serverless accounts
 
 Job creation on serverless accounts may fail with the error *"Shared throughput database creation is not supported for serverless accounts"*.
 As a work-around, create a database called *"_datatransferstate"* manually within the account and try creating the container copy job again.
 
-    ERROR: (BadRequest) Response status code does not indicate success: BadRequest (400); Substatus: 0; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Shared throughput database creation is not supported for serverless accounts.
+```
+ERROR: (BadRequest) Response status code does not indicate success: BadRequest (400); Substatus: 0; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Shared throughput database creation is not supported for serverless accounts.
+```
 
 ## Next Steps
 

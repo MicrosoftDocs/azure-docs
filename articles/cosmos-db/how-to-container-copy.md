@@ -17,7 +17,7 @@ This article describes how to create, monitor, and manage intra-account containe
 
 ## Pre-requisites
 
-* Make sure you have [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) downloaded and installed on your machine before trying out container copy.
+* Make sure you have [Azure CLI](/cli/azure/install-azure-cli) downloaded and installed on your machine before trying out container copy.
 * Currently, container copy is only supported in [these regions](intra-account-container-copy.md#supported-regions). Make sure your account belongs to one of these regions.
 
 
