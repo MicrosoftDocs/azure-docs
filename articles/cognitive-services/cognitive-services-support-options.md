@@ -59,7 +59,7 @@ If you can't find an answer to your problem using search, submit a new question 
 
 * [Anomaly Detector](/answers/topics/azure-anomaly-detector.html) 
 * [Content Moderator](/answers/topics/azure-content-moderator.html)
-* [Metrics Advisor](https://docs.microsoft.com/answers/topics/148981/azure-metrics-advisor.html)
+* [Metrics Advisor](/answers/topics/148981/azure-metrics-advisor.html)
 * [Personalizer](/answers/topics/azure-personalizer.html)
 
 **Azure OpenAI**
