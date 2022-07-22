@@ -109,7 +109,7 @@ To show the VM application status, go to the Extensions + applications tab/setti
 
 To show the VM application status for VMSS, go to the VMSS page, Instances, select one of them, then go to VMAppExtension:
 
-:::image type="content" source="media/vmapps/select-apps-status-vmss-portal.png" alt-text="Screenshot showing VM application status.":::
+:::image type="content" source="media/vmapps/select-apps-status-vmss-portal.png" alt-text="Screenshot showing VMSS application status.":::
 
 
 ### [CLI](#tab/cli)
