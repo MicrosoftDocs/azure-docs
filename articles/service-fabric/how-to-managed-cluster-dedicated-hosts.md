@@ -18,13 +18,13 @@ You can choose the SKU for Dedicated Hosts Virtual Machines based on your worklo
 The following guide will take you step by step for how to add an Azure Dedicated Host to a Service Fabric managed cluster with an Azure Resource Manager template.
 
 
-## Prerequisites
+   ## Prerequisites
 This guide builds upon the managed cluster quick start guide: [Deploy a Service Fabric managed cluster using Azure Resource Manager](quickstart-managed-cluster-template.md)
 
 Before you begin:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-* Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. This guide shows how to deloy a two node types 12-node Standard SKU cluster.
+* Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. This guide shows how to deploy a Standard SKU cluster with two node types and 12 nodes.
 * The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) to do role assignments in a host group. For more information, see [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#prerequisites).
 
 
@@ -48,8 +48,8 @@ Create a dedicated host group and add a role assignment to the host group with t
    Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
    ```
    
->[!NOTE] 
-> Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
+   >[!NOTE] 
+   > Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
 
 
 2) Create a dedicated host group pinned to one availability zone and five fault domains using the provided [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH). The sample will ensure there is at least one dedicated host per fault domain.
@@ -58,9 +58,9 @@ Create a dedicated host group and add a role assignment to the host group with t
    New-AzResourceGroupDeployment -Name "hostgroup-deployment" -ResourceGroupName $ResourceGroupName -TemplateFile ".\HostGroup-And-RoleAssignment.json" -TemplateParameterFile ".\HostGroup-And-RoleAssignment.parameters.json" -Debug -Verbose
    ```
 
->[!NOTE] 
-> 1) Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. For more information, see [Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
-> 2) Each fault domain needs a dedicated host to be placed in it and Service Fabric managed clusters require five fault domains. Therefore, at least five dedicated hosts should be present in each dedicated host group.
+   >[!NOTE] 
+   > * Ensure you choose the correct SKU family for the Dedicated Host that matches the one you are going to use for the underlying node type VM SKU. For more   information, see [Dedicated Host Virtual Machines | Microsoft Azure](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
+   > * Each fault domain needs a dedicated host to be placed in it and Service Fabric managed clusters require five fault domains. Therefore, at least five dedicated hosts should be present in each dedicated host group.
 
 
 3) The [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#all). This role assignment is defined in the resources section of template with Principal ID determined from the first step and a role definition ID. 
@@ -102,22 +102,22 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
 
 2) Provide your own values for the following template parameters:
 
-  * Subscription: Select the same Azure subscription as the host group subscription.
-  * Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
-  * Location: Select the same location as the host group location.
-  * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
-  * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
-  * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-  * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you don't have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
-  * Node Type Name: Enter a unique name for your node type, such as nt1.
+   * Subscription: Select the same Azure subscription as the host group subscription.
+   * Resource Group: Select Create new. Enter a unique name for the resource group, such as myResourceGroup, then choose OK.
+   * Location: Select the same location as the host group location.
+   * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
+   * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
+   * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
+   * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you don't have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
+   * Node Type Name: Enter a unique name for your node type, such as nt1.
 
 3) Deploy an ARM template through one of the methods below:
 
-* ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template). Select the following image to sign in to Azure, and provide your own values for the template parameters, then deploy the template.
+   * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template). Select the following image to sign in to Azure, and provide your own values for the template parameters, then deploy the template.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-ADH%2Fazuredeploy.json)
+      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-ADH%2Fazuredeploy.json)
 
-* ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template.
+   * ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources) | Microsoft Docs](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.0.0). Store the paths of your ARM template and parameter files in variables, then deploy the template.
 
    ```powershell
    $templateFilePath = "<full path to azuredeploy.json>" 
