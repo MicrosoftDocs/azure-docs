@@ -96,7 +96,7 @@ Be careful to restrict assignment of these roles only to those who require the a
 
 ## Limitations
 
-The capability to disable access key authentication has the following limitation,
+The capability to disable access key authentication has the following limitation:
 
 ### ARM template access
 
