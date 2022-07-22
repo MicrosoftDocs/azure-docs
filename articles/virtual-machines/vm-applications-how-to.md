@@ -103,6 +103,15 @@ Select the VM application from the list, and then select **Save** at the bottom 
 
 :::image type="content" source="media/vmapps/select-app.png" alt-text="Screenshot showing selecting a VM application to install on the VM.":::
 
+To show the VM application status, go to the Extensions + applications tab/settings and check the status of the VMAppExtension:
+
+:::image type="content" source="media/vmapps/select-app-status.png" alt-text="Screenshot showing VM application status.":::
+
+To show the VM application status for VMSS, go to the VMSS page, Instances, select one of them, then go to VMAppExtension:
+
+:::image type="content" source="media/vmapps/select-apps-status-vmss-portal.png" alt-text="Screenshot showing VM application status.":::
+
+
 ### [CLI](#tab/cli)
 
 VM applications require [Azure CLI](/cli/azure/install-azure-cli) version 2.30.0 or later.
