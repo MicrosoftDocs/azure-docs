@@ -169,6 +169,9 @@ $ids | Foreach-Object {
     az vmss get-instance-view --ids $_.id --query "extensions[?name == 'VMAppExtension']" 
 }
 ```
+> [!NOTE]
+> The VMSS deployment status contains PowerShell syntax. Refer to the 2nd [vm-extension-delete](/cli/azure/vm/extension#az-vm-extension-delete-examples) example as there is precedence for it.
+
 
 ### [PowerShell](#tab/powershell)
 
