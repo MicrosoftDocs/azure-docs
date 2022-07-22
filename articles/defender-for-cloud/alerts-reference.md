@@ -367,7 +367,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **Potential crypto coin miner started**<br>(K8S.NODE_CryptoCoinMinerExecution) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected a process being started in a way normally associated with digital currency mining. | Execution | Medium |
 | **Suspicious password access**<br>(K8S.NODE_SuspectPasswordFileAccess) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected suspicious attempt to access encrypted user passwords. | Persistence | Informational |
 | **Suspicious use of DNS over HTTPS**<br>(K8S.NODE_SuspiciousDNSOverHttps) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected the use of a DNS call over HTTPS in an uncommon fashion. This technique is used by attackers to hide calls out to suspect or malicious sites. | DefenseEvasion, Exfiltration | Medium |
-| **A possible connection to malicious location has been detected.**<br>(K8S.NODE_ThreatIntelCommandLineSuspectDomain) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected a connection to a location that has been reported to be malicious or unusual. This is an indicator that a compromise may have occured. | InitialAccess | Medium |
+| **A possible connection to malicious location has been detected.**<br>(K8S.NODE_ThreatIntelCommandLineSuspectDomain) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected a connection to a location that has been reported to be malicious or unusual. This is an indicator that a compromise may have occurred. | InitialAccess | Medium |
 | **Possible malicious web shell detected.**<br>(K8S.NODE_Webshell) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container detected a possible web shell. Attackers will often upload a web shell to a compute resource they have compromised to gain persistence or for further exploitation. | Persistence, Exploitation | Medium |
 | **Burst of multiple reconnaissance commands could indicate initial activity after compromise**<br>(K8S.NODE_ReconnaissanceArtifactsBurst) <sup>[1](#footnote1)</sup> | Analysis of host/device data detected execution of multiple reconnaissance commands related to gathering system or host details performed by attackers after initial compromise. | Discovery, Collection | Low |
 | **Suspicious Download Then Run Activity**<br>(K8S.NODE_DownloadAndRunCombo) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected a file being downloaded then run in the same command. While this isn't always malicious, this is a very common technique attackers use to get malicious files onto victim machines. | Execution, CommandAndControl, Exploitation | Medium |
@@ -602,7 +602,9 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 
 
-## MITRE ATT&CK tactics <a name="intentions"></a>
+<a name="intentions"></a>
+
+## MITRE ATT&CK tactics
 
 Understanding the intention of an attack can help you investigate and report the event more easily. To help with these efforts, Microsoft Defender for Cloud alerts include the MITRE tactics with many alerts.
 

@@ -5,14 +5,14 @@ description: PowerShell + Graph examples and scenarios for Azure Active Director
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
 ms.date: 12/02/2020
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ---
