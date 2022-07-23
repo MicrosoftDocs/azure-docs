@@ -30,7 +30,7 @@
         href: tutorial-onboard-custom-workflow-portal.md
       - name: Off-boarding users from your organization using Lifecycle workflows with Azure portal (Preview)
         href: tutorial-offboard-custom-workflow-portal.md
-      - name: Post off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview)
+      - name: Post off-boarding users from your organization using Lifecycle workflows with Azure portal (preview)
         href: tutorial-scheduled-leaver-portal.md  
     - name: API tutorials
       items:
@@ -54,7 +54,7 @@
         href: tutorial-onboard-custom-workflow-graph.md 
       - name: Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (Preview)
         href: tutorial-offboard-custom-workflow-graph.md  
-      - name: Post off-boarding users from your organization using Lifecycle workflows with Azure portal (preview)
+      - name: Post off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview)
         href: tutorial-scheduled-leaver-graph.md  
 - name: Concepts
   expanded: true
