@@ -13,7 +13,7 @@ Microsoft AppSource provides a convenient location for you to upload new Office 
 - [Create a developer account](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/office). After you create your account, it goes through an approval process.
   - For details about the registration process, see [Opening a developer account](open-a-developer-account.md).
   - For details about managing settings and additional users in your Partner Center account, see [Manage account users](manage-account-settings-and-profile.md).
-- [Submit your solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
+- [Submit your solution to Microsoft AppSource via Partner Center](submit-to-appsource-via-partner-center.md).
 
 > [!NOTE]
 > Office VSTO add-ins and COM add-ins cannot be submitted to Microsoft AppSource. For more about the distinction between types of Office add-ins, see [How are Office Add-ins different from COM and VSTO add-ins?](/office/dev/add-ins/overview/office-add-ins#how-are-office-add-ins-different-from-com-and-vsto-add-ins).

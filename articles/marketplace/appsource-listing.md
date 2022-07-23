@@ -64,6 +64,6 @@ You can provide a link to a video about your solution. Your URL must include htt
 
 ## See also
 
-- [Use Partner Center to submit your solution to Microsoft AppSource](use-partner-center-to-submit-to-appsource.md)
+- [Use Partner Center to submit your solution to Microsoft AppSource](submit-to-appsource-via-partner-center.md)
 - [Create effective Microsoft AppSource listings](create-effective-office-store-listings.md)
 - [Craft effective Microsoft AppSource images](craft-effective-appsource-store-images.md)

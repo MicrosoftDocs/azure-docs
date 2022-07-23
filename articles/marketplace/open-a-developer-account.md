@@ -81,6 +81,6 @@ After you sign in, use the following steps to finish setting up your account:
 > You must be authorized to act on your company's behalf in order to accept these terms.
 
 ## Next steps
-Now you're ready to [submit your solutions to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
+Now you're ready to [submit your solutions to Microsoft AppSource via Partner Center](submit-to-appsource-via-partner-center.md).
 
 You can also [Manage your account settings and profile](manage-account-settings-and-profile.md).

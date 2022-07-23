@@ -97,6 +97,6 @@ The following table lists the submission languages that Microsoft AppSource is a
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Submit your Office solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)    
+- [Submit your Office solution to Microsoft AppSource via Partner Center](submit-to-appsource-via-partner-center.md)    
 - [Certification policies](/legal/marketplace/certification-policies) 
 

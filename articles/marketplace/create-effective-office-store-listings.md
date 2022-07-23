@@ -157,5 +157,5 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 
 ## See also
 
-- [Submit your Office solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
+- [Submit your Office solution to Microsoft AppSource via Partner Center](submit-to-appsource-via-partner-center.md)
 - [Certification policies](/legal/marketplace/certification-policies)
