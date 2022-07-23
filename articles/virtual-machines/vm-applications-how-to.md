@@ -17,7 +17,7 @@ VM Applications are a resource type in Azure Compute Gallery (formerly known as 
 
 
 > [!IMPORTANT]
-> Deploying **VM applications in Azure Compute Gallery** do not currently support using Azure policies.
+> Deploying VM applications in Azure Compute Gallery **do not currently support using Azure policies**.
 
 
 ## Prerequisites
