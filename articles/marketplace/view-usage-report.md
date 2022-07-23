@@ -20,7 +20,7 @@ The service level agreement (SLA) for acquisitions data is currently four days.
 
 1. Select the **Insights** tile.
 
-    :::image type="content" source="images/workspaces/insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center home page.":::
+    :::image type="content" source="./media/office-store-workspaces/insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center home page.":::
 
 1. In the left-menu, select **Usage**.
 
@@ -37,7 +37,7 @@ As a provider, if you have multiple apps listed on Microsoft AppSource, you can 
 
 Near the top of the page, you can select the time period for which you want to see the usage. The default selection is 30D (30 days), but you can choose to show data for two or three months.
 
-:::image type="content" source="images/view-usage-report/usage-timeline.png" alt-text="Usage Timeline ":::
+:::image type="content" source="./media/view-usage-report/usage-timeline.png" alt-text="Usage Timeline ":::
 
 ## Filters
 
