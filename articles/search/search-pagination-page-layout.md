@@ -55,18 +55,18 @@ Occasionally, the substance and not the structure of results are unexpected. For
 
 The count parameter returns the number of documents in the index that are considered a match for the query. To return the count, add **`$count=true`** to the query request. There is no maximum value imposed by the search service. Depending on your query and the content of your documents, the count could be as high as every document in the index.
 
-Count is accurate when the index is stable. For an index under constant churn, the count will be approximate, and it will exclude any documents that aren't fully indexed.
+Count is accurate when the index is stable. If the system is actively adding, updating, or deleting documents, the count will be approximate, excluding any documents that aren't fully indexed.
 
 Count won't be affected by routine maintenance or other workloads on the search service. However if you have multiple partitions and a single replica, you could experience short-term fluctuations in document count (several minutes) as the partitions are restarted.
 
 > [!TIP]
-> Confirm whether the index contains the expected number of documents by adding `$count=true` on an empty search `search=*`. The result is the full count of documents in your index.
+> To check indexing operations, you can confirm whether the index contains the expected number of documents by adding `$count=true` on an empty search `search=*` query. The result is the full count of documents in your index.
 >
-> When testing query syntax, `$count=true` can quickly tell you whether your modifications are returning greater or fewer results, which can be a useful data point to have on hand.
+> When testing query syntax, `$count=true` can quickly tell you whether your modifications are returning greater or fewer results, which can be useful feedback.
 
 ## Paging results
 
-By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic search, or in an arbitrary order for exact match queries (where "@searchScore=1.0").
+By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic search. Otherwise, the top 50 are an arbitrary order for exact match queries (where "@searchScore=1.0").
 
 To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
 

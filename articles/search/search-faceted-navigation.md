@@ -68,11 +68,11 @@ Facets can be calculated over single-value fields as well as collections. Fields
 
 The contents of a field, and not the field itself, produces the facets in a faceted navigation structure. If the facet is a string field *Color*, facets will be blue, green, and any other value for that field.
 
-As a best practice, check fields for null values, misspellings or case discrepancies, and single and plural versions of the same word. Filters and facets don't undergo lexical analysis or [spell check](speller-how-to-add.md), which means that all values of a "facetable" field are potential facets, even if the words differ by one character.
+As a best practice, check fields for null values, misspellings or case discrepancies, and single and plural versions of the same word. By default, filters and facets don't undergo lexical analysis or [spell check](speller-how-to-add.md), which means that all values of a "facetable" field are potential facets, even if the words differ by one character. Optionally, you can [assign a normalizer](search-normalizers.md) to a "filterable" and "facetable" field to smooth out variations in casing and characters.
 
 ### Defaults in REST and Azure SDKs
 
-If you are using one of the Azure SDKs, your code must specify all field attributes. In contrast, the REST API has defaults for field attributes based on the [data type](/rest/api/searchservice/supported-data-types). The following data types are "filterable" and "facetable" by default:
+If you are using one of the Azure SDKs, your code must explicitly set the field attributes. In contrast, the REST API has defaults for field attributes based on the [data type](/rest/api/searchservice/supported-data-types). The following data types are "filterable" and "facetable" by default:
 
 * `Edm.String`
 * `Edm.DateTimeOffset`
@@ -170,7 +170,7 @@ POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-
 }
 ```
 
-For each faceted navigation tree, there's a default limit of 10 facets. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to "count". For example, `"Tags,count:5"` reduces the number of tags under the Tags section to the top five.
+For each faceted navigation tree, there's a default limit of the top ten facets. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to "count". For example, `"Tags,count:5"` reduces the number of tags under the Tags section to the top five.
 
 For Numeric and DateTime values only, you can explicitly set values on the facet field (for example, `facet=Rating,values:1|2|3|4|5`) to separate results into contiguous ranges (either ranges based on numeric values or time periods). Alternatively, you can add "interval", as in `facet=Rating,interval:1`. 
 
@@ -180,7 +180,7 @@ Each range is built using 0 as a starting point, a value from the list as an end
 
 Under certain circumstances, you might find that facet counts aren't fully accurate due to the [sharding architecture](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards). Every search index is spread across multiple shards, and each shard reports the top N facets by document count, which are then combined into a single result. Because it's just the top N facets for each shard, it's possible to miss or under-count matching documents in the facet response.
 
-To guarantee accuracy, you can artificially inflate the count:\<number> to a large number to force full reporting from each shard. You can specify `"count": "0"` for unlimited facets. Or, you can set "count" to a value that's greater than or equal to the number of unique values of the faceted field. For example, if you're faceting by a "size" field that has five unique values, you could set `"count": "5"` to ensure all matches are represented in the facet response. 
+To guarantee accuracy, you can artificially inflate the count:\<number> to a large number to force full reporting from each shard. You can specify `"count": "0"` for unlimited facets. Or, you can set "count" to a value that's greater than or equal to the number of unique values of the faceted field. For example, if you're faceting by a "size" field that has five unique values, you could set `"count:5"` to ensure all matches are represented in the facet response. 
 
 The tradeoff with this workaround is increased query latency, so use it only when necessary.
 
@@ -197,7 +197,7 @@ if (businessTitleFacet != "")
   filter = "business_title eq '" + businessTitleFacet + "'";
 ```
 
-Here is another example from the hotels sample. The following code snippet adds categorFacet to the filter if a user selects a value from the category facet.
+Here's another example from the hotels sample. The following code snippet adds `categoyrFacet` to the filter if a user selects a value from the category facet.
 
 ```csharp
 if (!String.IsNullOrEmpty(categoryFacet))
