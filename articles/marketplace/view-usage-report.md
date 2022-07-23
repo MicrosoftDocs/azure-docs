@@ -28,7 +28,7 @@ The service level agreement (SLA) for acquisitions data is currently four days.
 
 As a provider, if you have multiple apps listed on Microsoft AppSource, you can pick the app you want to view the usage for from the list near the upper-left corner of the page.
 
-[ ![Screenshot of the Usage dashboard showing the multiple apps list.](images/view-usage-report/multiple-apps.png) ](images/view-usage-report/multiple-apps.png#lightbox)
+[ ![Screenshot of the Usage dashboard showing the multiple apps list.](media/view-usage-report/multiple-apps.png) ](media/view-usage-report/multiple-apps.png#lightbox)
 
 > [!NOTE]
 > Usage of only one app at a time is displayed on the Usage dashboard.

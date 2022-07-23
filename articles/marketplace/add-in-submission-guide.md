@@ -1,7 +1,7 @@
 ---
 title: Microsoft 365 Store step-by-step submission guide
 description:  Use this step-by-step submission guide to submit your app to the Microsoft stores. 
-ms.localizationpriority: medium
+ms.topic: article
 ms.author: siraghav
 ms.date: 06/23/2022
 ---
@@ -10,8 +10,8 @@ ms.date: 06/23/2022
 
 This article is a step-by-step guide that will detail how to submit your app to Microsoft 365 Stores.
 
->[!TIP]
->We recommend that you read our [pre-submission checklist](./checklist.md) before reading this store submission guide so you have all information you need to submit your app.
+> [!TIP]
+> We recommend that you read our [pre-submission checklist](./checklist.md) before reading this store submission guide so you have all information you need to submit your app.
 
 ## Step 1: Select the type of app you are submitting
 

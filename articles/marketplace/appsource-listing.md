@@ -1,6 +1,7 @@
 ---
 title: Create your Microsoft AppSource listing
 description: Learn how to list your app within Microsoft AppSource using Partner Center.
+ms.topic: article
 ms.author: siraghav
 ms.date: 7/23/2022
 ---
@@ -28,8 +29,6 @@ In the **Display name** field, select the name of the solution that will be disp
 ### Summary and description
 
 Both the summary and description appear in the listing. The summary appears when a user browses or searches within Microsoft AppSource or the in-product experience. The description appears on the details page for your solution.
-
-**Guidelines for descriptions**
 
 | Item              | Maximum length    | Recommended length    | Include key message in the... |
 |:------------------|:------------------|:----------------------|:------------------------------|

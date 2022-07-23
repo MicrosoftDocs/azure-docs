@@ -49,7 +49,7 @@ The images should clearly communicate value of your solution and its main featur
 
 ![Image with caption and close up next to an image with caption, callout, and close up](/media/craft-effective-appsource-store-images/value-add-do-dont-1.png)
 ![Image with caption and content editor next to an image with caption and unrelated information](/media/craft-effective-appsource-store-images/value-add-do-dont-2.png)
-![Image with caption, closeup to focus on one user action and result next to an image with caption and callout that hides the result of the action](images/craft-effective-appsource-store-images/value-add-do-dont-3.png)
+![Image with caption, closeup to focus on one user action and result next to an image with caption and callout that hides the result of the action](media/craft-effective-appsource-store-images/value-add-do-dont-3.png)
 
 ## See also
 * [Certification policies](/legal/marketplace/certification-policies)

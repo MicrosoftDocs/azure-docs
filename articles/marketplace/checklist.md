@@ -2,7 +2,7 @@
 title: Publishing checklist 
 description:  Use this checklist to determine if your Microsoft 365 app is ready to be published.
 ms.author: siraghav
-ms.localizationpriority: medium
+ms.topic: article
 ---
 
 # Am I ready to publish?
@@ -15,11 +15,11 @@ This is a checklist to help you ensure your submission and review go smoothly.
 
 ### ✅ Step 1: Determine your launch timeline
 
-![Calendar icon](./media/new/calendar.png) Plan ahead! Submitting your app for review can take up to 4 weeks from first submission until final approval.
+![Calendar icon](./media/office-store-new/calendar.png) Plan ahead! Submitting your app for review can take up to 4 weeks from first submission until final approval.
 
 Make sure include time in your deployment schedule for our team to not only review your app, but for changes to be made to your app if needed.
 
->[!NOTE]
+> [!NOTE]
 > Your validation application may not be approved at first submission. This is common if this is your team’s first time submitting an app.
 
 ### ✅ Step 2: Review all the Microsoft 365 app policies
@@ -49,7 +49,7 @@ Note that Outlook is the only Microsoft 365 product that supports Android. Learn
 
 Make sure you have any third party service information ready to include in your submission. In the submission process, you’ll first need to check the additional purchases box, as shown in the following image.
 
-![Additional purchases step with unchecked box indicating a service must be purchased or in-app purchases are offered](./media/new/additional-purchases.png)
+![Additional purchases step with unchecked box indicating a service must be purchased or in-app purchases are offered](./media/office-store-new/additional-purchases.png)
 
 Next, you’ll need to provide license keys, sample accounts, test credentials and any other critical instructions to our review team so that the process for getting the in-app purchase can be tested by our review team. This information should go in the Notes for certification box, as shown in the following picture.
 
@@ -98,16 +98,16 @@ You'll need to provide the correct metadata indicating how you want your app to 
 - A short description of your app and its value.
 - A long description of your app with HTML formatting
 
->[!TIP]
+> [!TIP]
 > We recommend you use an HTML editor to create your descriptions ahead of time, so that you can preview how it looks before you paste it into the description fields. There isn't a preview in our submission process. Otherwise, you may have to re-submit your app for review again to fix any formatting issues or typos.
 
-![Marketplace listing form](./media/new/step-7-marketplace-listing.png)
+![Marketplace listing form](./media/office-store-new/step-7-marketplace-listing.png)
 
 You'll also need to provide:
 
 - Correct icons that are the right sizes.
 
-- Any screenshots and video demos. Here [are tips](./craft-effective-appsource-store-images.md) on doing this effectively. One screen shot is required.  
+- Any screenshots and video demos. Read [our tips](./craft-effective-appsource-store-images.md) on doing this effectively. One screen shot is required.  
 
 ## Next steps
 
