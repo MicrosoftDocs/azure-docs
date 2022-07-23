@@ -8,8 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/13/2021
-ms.custom: devx-track-csharp
+ms.date: 07/22/2022
+
 ---
 
 # Add faceted navigation to a search app
@@ -82,7 +82,7 @@ If you are using one of the Azure SDKs, your code must specify all field attribu
 
 You cannot use `Edm.GeographyPoint` or `Collection(Edm.GeographyPoint)` fields in faceted navigation. Facets work best on fields with low cardinality. Due to the resolution of geo-coordinates, it is rare that any two sets of coordinates will be equal in a given dataset. As such, facets are not supported for geo-coordinates. You would need a city or region field to facet by location.
 
-> [!Tip]
+> [!TIP]
 > As a best practice for performance and storage optimization, turn faceting off for fields that should never be used as a facet. In particular, string fields for unique values, such as an ID or product name, should be set to `"facetable": false` to prevent their accidental (and ineffective) use in faceted navigation. This is especially true for the REST API that enables filters and facets by default.
 
 ## Facet request and response
@@ -178,11 +178,9 @@ Each range is built using 0 as a starting point, a value from the list as an end
 
 ### Discrepancies in facet counts
 
-Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Cognitive Search (Microsoft Q&A question page)](/answers/topics/azure-cognitive-search.html)).
+Under certain circumstances, you might find that facet counts don't align to the search results. Facet counts can be inaccurate due to the [sharding architecture](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards). Every search index has multiple shards, and each shard reports the top N facets by document count, which are then combined into a single result. If some shards have many matching values, while others have fewer, you may find that some facet values are missing or under-counted in the results.
 
-Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each shard reports the top N facets by document count, which is then combined into a single result. If some shards have many matching values, while others have fewer, you may find that some facet values are missing or under-counted in the results.
-
-Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:\<number> to a large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are high, there is a performance penalty, so use this option judiciously.
+To guarantee accuracy, you can artificially inflate the count:\<number> to a large number to force full reporting from each shard. You can specify "count": "0" for unlimited facets. Or, you can set "count" to a value that's greater than or equal to the number of unique values of the faceted field. However, if there are a large number of documents returned in the query, the performance will be slow, so use this workaround only when necessary.
 
 ## Presentation layer
 

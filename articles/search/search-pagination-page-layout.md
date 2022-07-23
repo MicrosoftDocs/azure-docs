@@ -59,8 +59,6 @@ Count is accurate when the index is stable. For an index under constant churn, t
 
 Count won't be affected by routine maintenance or other workloads on the search service. However if you have multiple partitions and a single replica, you could experience short-term fluctuations in document count (several minutes) as the partitions are restarted.
 
-For counts in [faceted navigation](search-faceted-navigation.md), count should always be considered as approximate, especially if you're working with large indexes. Internally, the system gives up a small amount of precision when aggregating the matches over multiple shards. Although the facet count might be slightly off, a filter based on the facet will be accurate. For example, a facet count might show as 98, but if the number of matches is actually 100, the results from using that filter will include all 100 matches. For more information, see [Discrepancies in facet counts](search-faceted-navigation.md#discrepancies-in-facet-counts).
-
 > [!TIP]
 > When testing indexing, add `$count=true` to confirm the number of documents in the index. When testing query syntax, `$count=true` can quickly tell you whether your modifications are returning greater or fewer results.
 
