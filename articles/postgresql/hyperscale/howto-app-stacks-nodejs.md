@@ -57,6 +57,8 @@ connection logic into its own module for reuse. We'll use the
 [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object to
 interface with the PostgreSQL server.
 
+[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
+
 Create a `citus.js` with the common connection code:
 
 ```javascript
@@ -80,8 +82,6 @@ module.exports = new Promise((resolve, reject) => {
   resolve({ pool });
 });
 ```
-
-[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
 Next, use the following code to connect and load the data using CREATE TABLE
 and INSERT INTO SQL statements.

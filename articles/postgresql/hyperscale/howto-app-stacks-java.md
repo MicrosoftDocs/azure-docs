@@ -151,13 +151,13 @@ Next, add the Java code that will use JDBC to store and retrieve data from your 
 
 #### Connection Pooling Setup
 
-[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
-
 Using the code below, create a `DButil.java` file, which contains the `DButil`
 class. The `DBUtil` class sets up a connection pool to PostgreSQL using
 [HikariCP](https://github.com/brettwooldridge/HikariCP). In the example
 application, we'll be using this class to connect to PostgreSQL and start
 querying.
+
+[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
 ```java
 //DButil.java
