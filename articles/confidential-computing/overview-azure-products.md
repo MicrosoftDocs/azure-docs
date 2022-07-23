@@ -19,9 +19,9 @@ ms.custom: ignite-fall-2021
 > [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
 
 
-Azure Confidential Computing makes it easier to trust the cloud provider, by reducing the need for trust across various aspects of the compute cloud infrastructure. Azure confidential computing minimizes trust for the host OS kernel, the hypervisor, the VM admin, and the host admin.
+Azure confidential computing makes it easier to trust the cloud provider, by reducing the need for trust across various aspects of the compute cloud infrastructure. Azure confidential computing minimizes trust for the host OS kernel, the hypervisor, the VM admin, and the host admin.
 
-Azure Confidential Computing can help you:
+Azure confidential computing can help you:
 
 - **Prevent unauthorized access**: Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
 
