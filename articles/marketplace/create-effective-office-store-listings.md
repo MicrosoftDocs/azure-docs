@@ -2,7 +2,8 @@
 title: Create effective listings in Microsoft AppSource and within Microsoft 365 app stores
 description: Make sure that the information you submit clearly communicates the benefits and functionality that your solution provides.
 ms.author: siraghav
-ms.localizationpriority: medium
+ms.topic: article
+ms.date: 7/23/2022
 ---
 
 # Create effective listings in Microsoft AppSource and Microsoft 365 app stores
@@ -55,7 +56,7 @@ The summary you supply with your submission is the text that is shown to users i
 
 The following figure shows a good summary next to one that relies on the brand name.
 
-![An image that shows a good summary next to one that relies on the brand name](images/create-effective-office-store-listings/description-do-dont.png)
+![An image that shows a good summary next to one that relies on the brand name](/media/create-effective-office-store-listings/description-do-dont.png)
 
 ### Effective descriptions
 
