@@ -60,7 +60,9 @@ Count is accurate when the index is stable. For an index under constant churn, t
 Count won't be affected by routine maintenance or other workloads on the search service. However if you have multiple partitions and a single replica, you could experience short-term fluctuations in document count (several minutes) as the partitions are restarted.
 
 > [!TIP]
-> When testing indexing, add `$count=true` to confirm the number of documents in the index. When testing query syntax, `$count=true` can quickly tell you whether your modifications are returning greater or fewer results.
+> Confirm whether the index contains the expected number of documents by adding `$count=true` on an empty search `search=*`. The result is the full count of documents in your index.
+>
+> When testing query syntax, `$count=true` can quickly tell you whether your modifications are returning greater or fewer results, which can be a useful data point to have on hand.
 
 ## Paging results
 
