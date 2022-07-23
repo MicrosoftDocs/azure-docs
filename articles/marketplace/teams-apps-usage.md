@@ -23,15 +23,15 @@ Data for a newly published app can take about 5 days to appear in the report. Th
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. If you see the **Workspaces** toggle in the top menu bar, make sure the toggle is set to on.
 
-    [ ![Screenshot of the workspaces toggle on the Partner Center home page.](./images/teams-apps-usage-report/workspaces-toggle.png) ](./images/teams-apps-usage-report/workspaces-toggle.png#lightbox)
+    [ ![Screenshot of the workspaces toggle on the Partner Center home page.](./media/teams-apps-usage-report/workspaces-toggle.png) ](./media/teams-apps-usage-report/workspaces-toggle.png#lightbox)
 
 1. Select the **Insights** tile.
 
-    [ ![Screenshot of the insights tile on the Partner Center home page.](./images/teams-apps-usage-report/partner-center-insights-tile.png) ](./images/teams-apps-usage-report/partner-center-insights-tile.png#lightbox)
+    [ ![Screenshot of the insights tile on the Partner Center home page.](./media/teams-apps-usage-report/partner-center-insights-tile.png) ](./media/teams-apps-usage-report/partner-center-insights-tile.png#lightbox)
 
 1. In the left-nav, under **Office addins**, select **Teams apps usage**.
 
-    [ ![Screenshot of the Teams apps usage page in Partner Center.](./images/teams-apps-usage-report/teams-apps-usage-menu.png) ](./images/teams-apps-usage-report/teams-apps-usage-menu.png#lightbox)
+    [ ![Screenshot of the Teams apps usage page in Partner Center.](./media/teams-apps-usage-report/teams-apps-usage-menu.png) ](./media/teams-apps-usage-report/teams-apps-usage-menu.png#lightbox)
 
 ## Filter the report
 
@@ -44,7 +44,7 @@ At the top of the report, you’ll see two filters:
 - **Aggregation type** – Each of the insights in the report have been aggregated by user counts and tenant counts (count of unique customers using your app). You can choose which aggregation type you want to explore for each of the subsequent metrics.
 - **App name** – Provides a list of Teams store apps that you have published. The insights in this report are specific to the app you select.
 
-[ ![Screenshot of the Teams apps usage page in Partner Center that shows the aggregation type and App name filters.](./images/teams-apps-usage-report/teams-apps-usage-filters.png) ](./images/teams-apps-usage-report/teams-apps-usage-filters.png#lightbox)
+[ ![Screenshot of the Teams apps usage page in Partner Center that shows the aggregation type and App name filters.](./media/teams-apps-usage-report/teams-apps-usage-filters.png) ](./media/teams-apps-usage-report/teams-apps-usage-filters.png#lightbox)
 
 ### Filter by other Dimensions
 
@@ -52,11 +52,11 @@ In addition to filtering by **Aggregation type** and **App name**, you can furth
 
 1. In the upper-right of the page, select the filter icon.
 
-    [ ![Screenshot of the Teams apps usage page in Partner Center that shows the filters icon.](./images/teams-apps-usage-report/aggregation-app-filters.png) ](./images/teams-apps-usage-report/aggregation-app-filters.png#lightbox)
+    [ ![Screenshot of the Teams apps usage page in Partner Center that shows the filters icon.](./media/teams-apps-usage-report/aggregation-app-filters.png) ](./media/teams-apps-usage-report/aggregation-app-filters.png#lightbox)
 
 1. Select the filters you want from the **Platform**, **OS**, and **Countries/regions** lists, and then select **Save**.
 
-    [ ![Screenshot of the Teams apps usage page in Partner Center that shows the other filters.](./images/teams-apps-usage-report/other-filter-dimensions-2.png) ](./images/teams-apps-usage-report/other-filter-dimensions-2.png#lightbox)
+    [ ![Screenshot of the Teams apps usage page in Partner Center that shows the other filters.](./media/teams-apps-usage-report/other-filter-dimensions-2.png) ](./media/teams-apps-usage-report/other-filter-dimensions-2.png#lightbox)
 
 > [!NOTE]
 > To restore the default settings, select **Reset**.
@@ -84,7 +84,7 @@ This table defines the different time-periods you can choose.
 
 The **Retention and intensity** chart includes a combination of active usage, user churn, and usage intensity metrics.
 
-[ ![Screenshot of the retention and intensity widget.](./images/teams-apps-usage-report/retention-and-intensity-widget.png) ](./images/teams-apps-usage-report/retention-and-intensity-widget.png#lightbox)
+[ ![Screenshot of the retention and intensity widget.](./media/teams-apps-usage-report/retention-and-intensity-widget.png) ](./media/teams-apps-usage-report/retention-and-intensity-widget.png#lightbox)
 
 You can zoom into a specific date range by holding down the left mouse button and dragging your cursor over a selected time-period. To zoom out again, select the minus sign.
 
@@ -108,7 +108,7 @@ This table defines the metrics in this widget.
 
 The **Usage by platform** and **Usage by operating system** widgets focus on grouping active users/tenants by endpoint for the current RL30 (Rolling 30 day) time-period.
 
-[ ![Screenshot of the usage by platform and usage by operation system widgets.](./images/teams-apps-usage-report/usage-by-widgets.png) ](./images/teams-apps-usage-report/usage-by-widgets.png#lightbox)
+[ ![Screenshot of the usage by platform and usage by operation system widgets.](./media/teams-apps-usage-report/usage-by-widgets.png) ](./media/teams-apps-usage-report/usage-by-widgets.png#lightbox)
 
 Please note that the same user/tenant can use an app on multiple endpoints.
 
@@ -127,7 +127,7 @@ Available Platform endpoints:
 
 The **Users with usage > 5 days in a month** widget includes two intensity metrics. Note that the metrics in this widget are only available for the **User counts** aggregation type.
 
-[ ![Screenshot of the usage by user widget.](./images/teams-apps-usage-report/users-with-usage-widget.png) ](./images/teams-apps-usage-report/users-with-usage-widget.png#lightbox)
+[ ![Screenshot of the usage by user widget.](./media/teams-apps-usage-report/users-with-usage-widget.png) ](./media/teams-apps-usage-report/users-with-usage-widget.png#lightbox)
 
 This table defines the metrics in this widget.
 
@@ -141,7 +141,7 @@ This table defines the metrics in this widget.
 
 For the selected computation period, this widget groups users/tenants by countries/regions. Each user/tenant is mapped to a single area or geography.
 
-[ ![Screenshot of the geographical spread widget.](./images/teams-apps-usage-report/geographical-spread-widget.png) ](./images/teams-apps-usage-report/geographical-spread-widget.png#lightbox)
+[ ![Screenshot of the geographical spread widget.](./media/teams-apps-usage-report/geographical-spread-widget.png) ](./media/teams-apps-usage-report/geographical-spread-widget.png#lightbox)
 
 ## Next steps
 

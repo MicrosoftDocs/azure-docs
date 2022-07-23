@@ -15,7 +15,7 @@ This is a checklist to help you ensure your submission and review go smoothly.
 
 ### ✅ Step 1: Determine your launch timeline
 
-![Calendar icon](./images/new/calendar.png) Plan ahead! Submitting your app for review can take up to 4 weeks from first submission until final approval.
+![Calendar icon](./media/new/calendar.png) Plan ahead! Submitting your app for review can take up to 4 weeks from first submission until final approval.
 
 Make sure include time in your deployment schedule for our team to not only review your app, but for changes to be made to your app if needed.
 
@@ -49,7 +49,7 @@ Note that Outlook is the only Microsoft 365 product that supports Android. Learn
 
 Make sure you have any third party service information ready to include in your submission. In the submission process, you’ll first need to check the additional purchases box, as shown in the following image.
 
-![Additional purchases step with unchecked box indicating a service must be purchased or in-app purchases are offered](./images/new/additional-purchases.png)
+![Additional purchases step with unchecked box indicating a service must be purchased or in-app purchases are offered](./media/new/additional-purchases.png)
 
 Next, you’ll need to provide license keys, sample accounts, test credentials and any other critical instructions to our review team so that the process for getting the in-app purchase can be tested by our review team. This information should go in the Notes for certification box, as shown in the following picture.
 
@@ -59,7 +59,7 @@ Your test plans and any testing accounts and instructions need to be included he
 
 The addresses for a support URL, a privacy policy URL, and an end user license agreement (EULA) URL  are required. One of the top reasons an app submission fails our validation process is when these links are not included in submission. The following image shows the box that asks for the support information.
 
-![Support information fillable form fields](./images/add-in-submission-guide/step-5-b-validation.jpg)
+![Support information fillable form fields](./media/add-in-submission-guide/step-5-b-validation.jpg)
 
 #### Make sure you provide a link to your support page so that your users can reach you if they have a problem
 
@@ -101,7 +101,7 @@ You'll need to provide the correct metadata indicating how you want your app to 
 >[!TIP]
 > We recommend you use an HTML editor to create your descriptions ahead of time, so that you can preview how it looks before you paste it into the description fields. There isn't a preview in our submission process. Otherwise, you may have to re-submit your app for review again to fix any formatting issues or typos.
 
-![Marketplace listing form](./images/new/step-7-marketplace-listing.png)
+![Marketplace listing form](./media/new/step-7-marketplace-listing.png)
 
 You'll also need to provide:
 

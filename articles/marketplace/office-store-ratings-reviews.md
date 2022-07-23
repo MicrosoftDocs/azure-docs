@@ -18,11 +18,11 @@ This article provides information on the _Ratings and reviews_ dashboard in Part
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. If you see the **Workspaces** toggle in the top menu bar, make sure the toggle is set to on.
 
-    [ ![Screenshot of the workspaces toggle on the Partner Center home page.](./images/teams-apps-usage-report/workspaces-toggle.png) ](./images/teams-apps-usage-report/workspaces-toggle.png#lightbox)
+    [ ![Screenshot of the workspaces toggle on the Partner Center home page.](./media/teams-apps-usage-report/workspaces-toggle.png) ](./media/teams-apps-usage-report/workspaces-toggle.png#lightbox)
 
 1. Select the **Insights** tile.
 
-    [ ![Screenshot of the insights tile on the Partner Center home page.](./images/teams-apps-usage-report/partner-center-insights-tile.png) ](./images/workspaces/insights-tile.png#lightbox)
+    [ ![Screenshot of the insights tile on the Partner Center home page.](./media/teams-apps-usage-report/partner-center-insights-tile.png) ](./media/workspaces/insights-tile.png#lightbox)
 
 1. In the left-nav, under **Office addins**, select **Ratings & reviews**.
 
@@ -36,7 +36,7 @@ Select the offer from the **Offer** list. The ratings and reviews for the offer 
 
 Near the top of the page, you can select the time frame for which you want to see the ratings and reviews. The default selection is 6M (6 months), but you can choose to show data for twelve months or a time duration of your choice.
 
-[ ![Screenshot of the time period filters.](./images/ratings-reviews-report/timeperiod.png) ](./images/ratings-reviews-report/timeperiod.png#lightbox)
+[ ![Screenshot of the time period filters.](./media/ratings-reviews-report/timeperiod.png) ](./media/ratings-reviews-report/timeperiod.png#lightbox)
 
 ### Ratings summary
 
@@ -47,7 +47,7 @@ The summary section displays the following metrics for a selected date range:
 - **Total ratings**: Overall count of ratings submitted. This count also includes ratings with and without reviews.
 - **Ratings with reviews**: Count of reviews submitted.
 
-    [ ![Screenshot of the ratings.](./images/ratings-reviews-report/ratings-snapshot.png) ](./images/ratings-reviews-report/ratings-snapshot.png#lightbox)
+    [ ![Screenshot of the ratings.](./media/ratings-reviews-report/ratings-snapshot.png) ](./media/ratings-reviews-report/ratings-snapshot.png#lightbox)
 
 ## Review comments
 
@@ -62,11 +62,11 @@ To respond to a review, follow these steps:
 1. On the **Ratings & reviews** page, select the offers for which you want to respond to a review. You can select filters to narrow the list of reviews. For example, you can display only the reviews with a specific star rating.
 1. Select the **Reply** link for the review you want to respond to. Then enter your reply in the text box, and select **Send reply**.
 
-    [ ![Screenshot of the widget for replying to reviews.](./images/ratings-reviews-report/review-snapshot1.png) ](./images/ratings-reviews-report/review-snapshot1.png#lightbox)
+    [ ![Screenshot of the widget for replying to reviews.](./media/ratings-reviews-report/review-snapshot1.png) ](./media/ratings-reviews-report/review-snapshot1.png#lightbox)
 
 1. Once the response to the review is posted, the account user can use the **Edit** and **Delete** links to edit or delete the response for that review.
 
-    [ ![Screenshot of the edit and delete links.](./images/ratings-reviews-report/review-snapshot2.png) ](./images/ratings-reviews-report/review-snapshot2.png#lightbox)
+    [ ![Screenshot of the edit and delete links.](./media/ratings-reviews-report/review-snapshot2.png) ](./media/ratings-reviews-report/review-snapshot2.png#lightbox)
 
 The response will appear under the text of the original review on the product detail page in the AppSource storefront.
 
