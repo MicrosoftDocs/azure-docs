@@ -3,11 +3,11 @@ title: Deploy Azure AD joined VMs in Azure Virtual Desktop - Azure
 description: How to configure and deploy Azure AD joined VMs in Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
-manager: lizross
+manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 08/09/2022
 ms.author: helohr
 ---
 
@@ -34,7 +34,6 @@ The following known limitations may impact access to your on-premises or Active 
 - Azure AD-joined VMs don't currently support external identities, such as Azure AD Business-to-Business (B2B) and Azure AD Business-to-Consumer (B2C).
 - Azure AD-joined VMs can only access Azure Files file shares for synced users using Azure AD Kerberos.
 - The Windows Store client doesn't currently support Azure AD-joined VMs.
-- Azure Virtual Desktop doesn't currently support single sign-on for Azure AD-joined VMs.
 
 ## Deploy Azure AD-joined VMs
 
@@ -76,6 +75,10 @@ To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you
 ### Enforcing Azure AD Multi-Factor Authentication for Azure AD-joined session VMs
 
 You can use Azure AD Multi-Factor Authentication with Azure AD-joined VMs. Follow the steps to [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md) and note the extra steps for [Azure AD-joined session host VMs](set-up-mfa.md#azure-ad-joined-session-host-vms).
+
+### Single sign-on
+
+You can enable a single sign-on experience using Azure AD authentication when accessing Azure AD-joined VMs. Follow the steps to [Configure single sign-on](configure-single-sign-on.md) to provide a seamless connection experience.
 
 ## User profiles
 

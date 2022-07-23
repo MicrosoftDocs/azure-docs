@@ -31,8 +31,8 @@ If you come across an error saying **Your account is configured to prevent you f
 
 If you can't sign in and keep receiving an error message that says your credentials are incorrect, first make sure you're using the right credentials. If you keep seeing error messages, verify that:
 
-- Your Conditional Access policy excludes multi-factor authentication requirements for the Azure Windows VM sign-in cloud application
 - You assigned the **Virtual Machine User Login** role-based access control (RBAC) permission to the VM or resource group for each user 
+- Your Conditional Access policy excludes multi-factor authentication requirements for the Azure Windows VM sign-in cloud application
 
 To reconfigure your multi-factor authentication, follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md#azure-ad-joined-session-host-vms).
 
@@ -66,6 +66,10 @@ If you come across an error saying **The logon attempt failed** on the Windows S
 ### The sign-in method you're trying to use isn't allowed
 
 If you come across an error saying **The sign-in method you're trying to use isn't allowed. Try a different sign-in method or contact your system administrator**, you have Conditional Access policies restricting access. Follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md#azure-ad-joined-session-host-vms) to enforce Azure Active Directory Multi-Factor Authentication for your Azure AD-joined VMs.
+
+### A specified logon session does not exist. It may already have been terminated.
+
+If you come across an error saying **An authentication error occurred. A specified logon session does not exist. It may already have been terminated.**, verify that you properly created the Kerberos server object when [configuring single sign-on](configure-single-sign-on.md).
 
 ## Web client
 
