@@ -25,7 +25,7 @@ This article is a step-by-step guide that will detail how to submit your app to 
 
 1. Select **+ New offer** and then select the type of app you want to submit. The example screenshots in this article show an Office Add-in, but the steps apply to Teams apps, SharePoint solutions, and so on.
 
-    [ ![Illustrates the New offer list.](./images/add-in-submission-guide/step-select-type-of-add-in-workspaces.png) ](./images/add-in-submission-guide/step-select-type-of-add-in-workspaces.png#lightbox)
+    [ ![Illustrates the New offer list.](./media/add-in-submission-guide/step-select-type-of-add-in-workspaces.png) ](./media/add-in-submission-guide/step-select-type-of-add-in-workspaces.png#lightbox)
 
 ## Step 2: Name your app
 
@@ -64,7 +64,7 @@ This article is a step-by-step guide that will detail how to submit your app to 
 
 The following screenshot shows two yellow warning boxes on the **Product setup** page that remind you to fill in your Apple ID and provide test credentials.
 
-[ ![Yellow warning box reminds you to fill in your Apple ID.](./images/add-in-submission-guide/step-3-yellow-warnings-workspaces.png)](./images/add-in-submission-guide/step-3-yellow-warnings-workspaces.png#lightbox)
+[ ![Yellow warning box reminds you to fill in your Apple ID.](./media/add-in-submission-guide/step-3-yellow-warnings-workspaces.png)](./media/add-in-submission-guide/step-3-yellow-warnings-workspaces.png#lightbox)
 
 ## Step 4: Upload your manifest for package testing
 
@@ -72,7 +72,7 @@ You will need to upload your manifest file to the grey box on the **Packages** p
 
 When your manifest is uploaded and is correct, you will receive a confirmation and see that manifest checks have passed and that the **Status** column shows **Complete**.
 
-[ ![A completed manifest upload.](./images/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png) ](./images/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png#lightbox)
+[ ![A completed manifest upload.](./media/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png) ](./media/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png#lightbox)
 
 ## Step 5: Define the metadata that will categorize your app in the store
 
@@ -82,14 +82,14 @@ When your manifest is uploaded and is correct, you will receive a confirmation a
     - Choose the **Standard Contract** check box. If you choose to use Microsoft's standard end user license agreement (EULA), you will need to select **Accept** in the confirmation dialog box that appears to confirm that you do not want to use your own agreement, as this cannot be reversed once your app is published.
     - In the **End User License Agreement (EULA) link** box, enter the link to your EULA (starting with https). 
 
-    [ ![Screenshot of the standard contract and EULA options.](./images/add-in-submission-guide/step-5-contract-eula.png) ](./images/add-in-submission-guide/step-5-contract-eula.png#lightbox)
+    [ ![Screenshot of the standard contract and EULA options.](./media/add-in-submission-guide/step-5-contract-eula.png) ](./media/add-in-submission-guide/step-5-contract-eula.png#lightbox)
     ***Figure 1 Choose an end user license agreement***
 
 1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy, as seen in the following screenshot. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
 1. In the **Support document link** box, enter a link (starting with https) that customers will use if they have issues with your product, as seen this screenshot.
 
-    [ ![Screenshot of the privacy policy and support document link boxes.](./images/add-in-submission-guide/step-5-privacy-support.png) ](./images/add-in-submission-guide/step-5-privacy-support.png#lightbox)
+    [ ![Screenshot of the privacy policy and support document link boxes.](./media/add-in-submission-guide/step-5-privacy-support.png) ](./media/add-in-submission-guide/step-5-privacy-support.png#lightbox)
     ***Figure 2 Privacy policy and Support document link boxes***
 
     The yellow warning seen in Figure 2 reminds you of the following things your privacy policy must include to pass certification:
@@ -116,7 +116,7 @@ Your store listing is configured on the **Marketplace listings** page. You shoul
 
 To provide your listing information, select the language you want to configure under the **Language** column.
 
-![English has been added to the listing](./images/add-in-submission-guide/step-7-define-your-store-page.png)
+![English has been added to the listing](./media/add-in-submission-guide/step-7-define-your-store-page.png)
 
 ## Step 8: Decide on your availability date
 
@@ -125,7 +125,7 @@ To provide your listing information, select the language you want to configure u
     > [!NOTE]
     > It typically takes 4 to 6 weeks to complete an app submission and get it approved. On average, most apps require multiple submissions to pass our validation process, so follow our [checklist](checklist.md) carefully to reduce this time.  
 
-    ![Make my product available in a future market is selected in the Availability step](./images/add-in-submission-guide/step-8-set-availability-time-date-workspaces.png)
+    ![Make my product available in a future market is selected in the Availability step](./media/add-in-submission-guide/step-8-set-availability-time-date-workspaces.png)
 
 1. Select **Save draft** before continuing.
 
@@ -139,7 +139,7 @@ When you are ready to publish your app, in the upper-right of the page, select *
 
 The following screenshot shows the **Notes for certification** box where you must provide information.
 
-[ ![Provide your testing credentials in the red box.](./images/add-in-submission-guide/step-9-certification-notes-workspaces.png) ](./images/add-in-submission-guide/step-9-certification-notes-workspaces.png#lightbox)
+[ ![Provide your testing credentials in the red box.](./media/add-in-submission-guide/step-9-certification-notes-workspaces.png) ](./media/add-in-submission-guide/step-9-certification-notes-workspaces.png#lightbox)
 
 In addition to _Notes for certification_, you can optionally provide additional detailed instructions for the reviewers by uploading a PDF file to the **Additional certification info** page. This option provides the following benefits:
 
@@ -148,7 +148,7 @@ In addition to _Notes for certification_, you can optionally provide additional 
 
 The following screenshot shows where you can optionally upload a PDF file of instructions for reviewers.
 
-[ ![Screenshot of the Additional Certification Info page.](./images/add-in-submission-guide/additional-cert-info-workspaces.png) ](./images/add-in-submission-guide/additional-cert-info-workspaces.png#lightbox)
+[ ![Screenshot of the Additional Certification Info page.](./media/add-in-submission-guide/additional-cert-info-workspaces.png) ](./media/add-in-submission-guide/additional-cert-info-workspaces.png#lightbox)
 
 >[!TIP]
 > Do not include an email address of a company employee who can provide sign-in information. Our reviewers will **not be able to email you for sign-in information**. Applications that do not list clear instructions in the certification notes will automatically fail the submission process.
