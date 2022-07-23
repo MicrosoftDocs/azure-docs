@@ -7,7 +7,6 @@ ms.service: azure-government
 ms.topic: article
 recommendations: false
 ms.date: 07/15/2022
----
 
 # Azure for secure worldwide public sector cloud adoption
 
@@ -196,7 +195,7 @@ Microsoft enables you to protect your data throughout its entire lifecycle: at r
 
   Azure DCsv2, DCsv3, and DCdsv3 series virtual machines have the latest generation of Intel Xeon processors with Intel SGX technology. For more information, see [Build with SGX enclaves](../confidential-computing/confidential-computing-enclaves.md). The protection offered by Intel SGX, when used appropriately by application developers, can prevent compromise due to attacks from privileged software and many hardware-based attacks. An application using Intel SGX needs to be refactored into trusted and untrusted components. The untrusted part of the application sets up the enclave, which then allows the trusted part to run inside the enclave. No other code, irrespective of the privilege level, has access to the code executing within the enclave or the data associated with enclave code. Design best practices call for the trusted partition to contain just the minimum amount of content required to protect customer’s secrets. For more information, see [Application development on Intel SGX](../confidential-computing/application-development.md).
 
-Technologies like [Intel Software Guard Extensions](https://software.intel.com/sgx) (Intel SGX), or [AMD Secure Encrypted Virtualization – Secure Nested Paging](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization) (SEV-SNP) are recent CPU improvements supporting confidential computing implementations. These technologies are designed as virtualization extensions and provide feature sets including memory encryption and integrity, CPU-state confidentiality and integrity, and attestation. Azure provides extra [Confidential computing offerings](../confidential-computing/overview-azure-products.md#azure-offerings) that are generally available or available in preview:
+Technologies like [Intel Software Guard Extensions](https://software.intel.com/sgx) (Intel SGX), or [AMD Secure Encrypted Virtualization – Secure Nested Paging](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization) (SEV-SNP) are recent CPU improvements supporting confidential computing implementations. These technologies are designed as virtualization extensions and provide feature sets including memory encryption and integrity, CPU-state confidentiality and integrity, and attestation. Azure provides extra [Confidential computing offerings](../confidential-computing/overview-azure-products.md#azure-confidential-computing-offerings) that are generally available or available in preview:
 
 - **[Microsoft Azure Attestation](../attestation/overview.md)** – A remote attestation service for validating the trustworthiness of multiple Trusted Execution Environments (TEEs) and verifying integrity of the binaries running inside the TEEs.
 - **[Azure Confidential Ledger](../confidential-ledger/overview.md)** – A tamper-proof register for storing sensitive data for record keeping and auditing or for data transparency in multi-party scenarios. It offers Write-Once-Read-Many guarantees, which make data non-erasable and non-modifiable. The service is built on Microsoft Research's Confidential Consortium Framework.
