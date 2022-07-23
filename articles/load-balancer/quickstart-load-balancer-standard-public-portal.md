@@ -2,11 +2,11 @@
 title: "Quickstart: Create a public load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer by using the Azure portal.
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/16/2022
-ms.author: greglin
+ms.author: mbender
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---

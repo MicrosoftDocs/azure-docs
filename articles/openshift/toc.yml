@@ -36,6 +36,8 @@
           href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
+        - name: Configure OVN-Kubernetes network provider
+          href: howto-configure-ovn-kubernetes.md
         - name: Restrict egress traffic
           href: howto-restrict-egress.md
     - name: Storage
@@ -60,7 +62,7 @@
           href: howto-add-update-pull-secret.md
         - name: Rotate service principal credentials for an Azure Red Hat OpenShift cluster
           href: howto-service-principal-credential-rotation.md
-        - name: Enable FIPs on a cluster
+        - name: Enable FIPS on a cluster
           href: howto-enable-fips-openshift.md
     - name: Back up and restore
       items:
@@ -135,7 +137,7 @@
     - name: Azure Red Hat OpenShift REST APIs
       href: /rest/api/openshift
     - name: Azure CLI
-      href: /azure/openshift/
+      href: ./index.yml
 - name: Resources
   items:
     - name: Frequently asked questions

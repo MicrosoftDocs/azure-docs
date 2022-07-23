@@ -200,6 +200,7 @@ Below is a list of reasons you might run into this error:
 * [Startup task failed due to incorrect role assignments on resource](#authorization-error)
 * [Unable to download user container image](#unable-to-download-user-container-image)
 * [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
+* [azureml-fe for kubernetes online endpoint is not ready](#azureml-fe-not-ready)
 
 #### Resource requests greater than limits
 
@@ -244,6 +245,14 @@ Make sure model and code artifacts are registered to the same workspace as the d
 - For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl`, you can use this command to check if it exists:
 
   `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+
+#### azureml-fe not ready
+The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
+
+This component should be healthy on cluster, at least one healthy replica. You will get this error message if it's not avaliable when you trigger kubernetes online endpoint and deployment creation/update request.
+
+Please check the pod status and logs to fix this issue, you can also try to update the k8s-extension intalled on the cluster.
+
 
 ### ERROR: ResourceNotReady
 
@@ -294,7 +303,7 @@ When you access online endpoints with REST requests, the returned status codes a
 | 401 | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
 | 404 | Not found | Your URL isn't correct. |
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
-| 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
+| 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
 | 429 | Rate-limiting | You attempted to send more than 100 requests per second to your endpoint. |
 | 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you are using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |

@@ -268,6 +268,8 @@ In terms of service version updates, where code changes in version 11 relate to 
 
 + [Ordered results](search-query-odata-orderby.md) for null values have changed in this version, with null values appearing first if the sort is `asc` and last if the sort is `desc`. If you wrote code to handle how null values are sorted, you should review and potentially remove that code if it's no longer necessary.
 
+Due to these behavior changes, it's likely that you'll see slight variations in ranked results.
+
 ## Next steps
 
 + [How to use Azure.Search.Documents in a C# .NET Application](search-howto-dotnet-sdk.md)

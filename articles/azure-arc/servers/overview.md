@@ -1,7 +1,7 @@
 ---
 title: Azure Arc-enabled servers Overview
 description: Learn how to use Azure Arc-enabled servers to manage servers hosted outside of Azure like an Azure resource.
-ms.date: 03/22/2022
+ms.date: 06/09/2022
 ms.topic: overview
 ---
 
@@ -71,7 +71,11 @@ Azure Arc-enabled servers support the management of physical servers and virtual
 
 ## Agent status
 
-The Connected Machine agent sends a regular heartbeat message to the service every five minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline, and its status will automatically be changed to **Disconnected** within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed back to **Connected**. The status for a connected machine can be viewed in the Azure portal under **Azure Arc > Servers**.
+The status for a connected machine can be viewed in the Azure portal under **Azure Arc > Servers**.
+
+The Connected Machine agent sends a regular heartbeat message to the service every five minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline, and its status will automatically be changed to **Disconnected** within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed back to **Connected**. 
+
+If a machine remains disconnected for 45 days, its status may change to **Expired**. An expired machine can no longer connect to Azure and requires a server administrator to disconnect and then reconnect it to Azure to continue managing it with Azure Arc. The exact date upon which a machine will expire is determined by the expiration date of the managed identity's credential, which is valid up to 90 days and renewed every 45 days.
 
 ## Service limits
 

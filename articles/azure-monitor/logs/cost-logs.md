@@ -18,10 +18,10 @@ The default pricing for Log Analytics is a Pay-As-You-Go model that's based on i
 - The types of data collected from each monitored resource
 
 ## Data size calculation
-Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). The data size of a single record is calculated from a string representation of the columns that are stored in the Log Analytics workspace for that record, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [custom logs API](custom-logs-overview.md), [ingestion-time transformations](ingestion-time-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
+Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). The data size of a single record is calculated from a string representation of the columns that are stored in the Log Analytics workspace for that record, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [logs ingestion API](logs-ingestion-api-overview.md), [transformations](../essentials/data-collection-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
 
 >[!NOTE]
->The billable data volume calculation is substantially smaller than the size of the entire incoming JSON-packaged event, often less than 50% for small events. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
+>The billable data volume calculation is substantially smaller than the size of the entire incoming JSON-packaged event. On average across all event types, the billed size is about 25% less than the incoming data size. This can be up to 50% for small events. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
 
 ### Excluded columns
 The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the record size. All other columns stored in Log Analytics are included in the calculation of the record size. 
@@ -82,7 +82,7 @@ The charge for searching against Basic Logs is based on the GB of data scanned i
 See [Configure Basic Logs in Azure Monitor](basic-logs-configure.md) for details on Basic Logs including how to configure them and query their data.
 
 ## Log data retention and archive
-In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, and there is a charge search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
+In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, and there is a charge to search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
 
 See [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md) for details on data retention and archiving including how to configure these settings and access archived data. 
 
@@ -90,7 +90,7 @@ See [Configure data retention and archive policies in Azure Monitor Logs](data-r
 Searching against Archived Logs uses [search jobs](search-jobs.md). Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. Search jobs are billed by the number of GB of data scanned on each day that is accessed to perform the search. 
 
 ## Log data restore
-For situations in which older or archived logs need to be intensively queried with the full analyitics query capabilities, the [data restore](restore.md) feature is a powerful tool. The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. You can later dismiss the data when you're done. Log data restore is billed by the amount of data restored, and by the time the restore is kept active.  The minimal values billed for any data restore is 2 TB and 12 hours. Data restored of more than 2 TB and/or more than 12 hours in duration are billed on a pro-rated basis. 
+For situations in which older or archived logs need to be intensively queried with the full analytic query capabilities, the [data restore](restore.md) feature is a powerful tool. The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. You can later dismiss the data when you're done. Log data restore is billed by the amount of data restored, and by the time the restore is kept active.  The minimal values billed for any data restore are 2 TB and 12 hours. Data restored of more than 2 TB and/or more than 12 hours in duration are billed on a pro-rated basis. 
 
 ## Log data export
 [Data export](logs-data-export.md) in Log Analytics workspace lets you continuously export data per selected tables in your workspace, to an Azure Storage Account or Azure Event Hubs as it arrives to Azure Monitor pipeline. Charges for the use of data export are based on the amount of data exported. The size of data exported is the number of bytes in the exported JSON formatted data.
@@ -105,7 +105,7 @@ Telemetry from ping tests and multi-step tests is charged the same as data usage
 See [Application Insights legacy enterprise (per node) pricing tier](../app/legacy-pricing.md) for details about legacy tiers that are available to early adopters of Application Insights.
 
 ## Workspaces with Microsoft Sentinel
-When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collected in that workspace is subject to Sentinel charges in addition to Log Analytics charges. For this reason, you will often separate your security and operational data in different workspaces so that you don't incur [Sentinel charges](../../sentinel/billing.md) for operational data. There may be particular situations though where combining this data  can actually result in a cost savings. This is typically when you aren't collecting enough security and operational data to each reach a commitment tier on their own, but the combined data is enough to reach a commitment tier. See **Combining your SOC and non-SOC data** in [Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md#decision-tree) for details and a sample cost calculation.
+When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collected in that workspace is subject to Sentinel charges in addition to Log Analytics charges. For this reason, you will often separate your security and operational data in different workspaces so that you don't incur [Sentinel charges](../../sentinel/billing.md) for operational data. For some particular situations though, combining this data can actually result in a cost savings. This is typically when you aren't collecting enough security and operational data to each reach a commitment tier on their own, but the combined data is enough to reach a commitment tier. See **Combining your SOC and non-SOC data** in [Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md#decision-tree) for details and a sample cost calculation.
 ## Workspaces with Microsoft Defender for Cloud
 [Microsoft Defender for Servers (part of Defender for Cloud)](../../security-center/index.yml)  [bills by the number of monitored services](https://azure.microsoft.com/pricing/details/azure-defender/) and provides 500 MB/server/day data allocation that is applied to the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 
@@ -124,7 +124,7 @@ When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collec
 The count of monitored servers is calculated on an hourly granularity. The daily data allocation contributions from each monitored server are aggregated at the workspace level. If the workspace is in the legacy Per Node pricing tier, the Microsoft Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
 
 ## Legacy pricing tiers
-Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active, will continue to have access to use the the following legacy pricing tiers: 
+Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active, will continue to have access to use the following legacy pricing tiers: 
 
 - Standalone (Per GB)
 - Per Node (OMS)

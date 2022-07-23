@@ -8,7 +8,7 @@ ms.author: balapv
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 05/26/2022
+ms.date: 06/10/2022
 ms.topic: how-to
 ms.custom: sdkv2, event-tier1-build-2022
 ---
@@ -31,7 +31,7 @@ In this article, you learn how to configure and submit Azure Machine Learning jo
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
-* The Azure Machine Learning SDK v2 for Python
+* The Azure Machine Learning [SDK v2 for Python](https://aka.ms/sdk-v2-install)
 * An Azure Machine Learning workspace
 
 ### Clone examples repository
@@ -39,7 +39,7 @@ In this article, you learn how to configure and submit Azure Machine Learning jo
 To run the training examples, first clone the examples repository and change into the `sdk` directory:
 
 ```bash
-git clone --depth 1 https://github.com/Azure/azureml-examples --branch sdk-preview
+git clone --depth 1 https://github.com/Azure/azureml-examples --branch 
 cd azureml-examples/sdk
 ```
 
@@ -95,10 +95,10 @@ To connect to the workspace, you need identifier parameters - a subscription, re
 from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
 
-#Enter details of your AML workspace
+#Enter details of your AzureML workspace
 subscription_id = '<SUBSCRIPTION_ID>'
 resource_group = '<RESOURCE_GROUP>'
-workspace = '<AML_WORKSPACE_NAME>'
+workspace = '<AZUREML_WORKSPACE_NAME>'
 
 #connect to the workspace
 ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)

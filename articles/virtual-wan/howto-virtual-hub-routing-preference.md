@@ -19,11 +19,11 @@ This public preview is provided without a service-level agreement and shouldn't 
 
 ## Configure
 
-You can configure a new virtual hub to include the virtual hub routing preference setting by using the [Azure Preview portal](https://portal.azure.com/?feature.customRouterAsn=true&feature.virtualWanRoutingPreference=true#home). Follow the steps in the [Tutorial: Create a site-to-site connection](virtual-wan-site-to-site-portal.md) article.
+You can configure a new virtual hub to include the virtual hub routing preference setting by using the [Azure Preview portal]( https://portal.azure.com/?feature.virtualWanRoutingPreference=true#home). Follow the steps in the [Tutorial: Create a site-to-site connection](virtual-wan-site-to-site-portal.md) article.
 
 To configure virtual hub routing preference for an existing virtual hub, use the following steps.
 
-1. Open the [Azure Preview portal](https://portal.azure.com/?feature.customRouterAsn=true&feature.virtualWanRoutingPreference=true#home). You can't use the regular Azure portal yet for this feature.
+1. Open the [Azure Preview portal]( https://portal.azure.com/?feature.virtualWanRoutingPreference=true#home). You can't use the regular Azure portal yet for this feature.
 
 1. Go to your virtual WAN. In the left pane, under the **Connectivity** section, click **Hubs** to view the list of hubs. Select **… > Edit virtual hub** to open the **Edit virtual hub** dialog box.
 

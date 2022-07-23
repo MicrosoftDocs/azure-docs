@@ -49,7 +49,7 @@ vSAN datastores use data-at-rest encryption by default using keys stored in Azur
 
 ## Azure storage integration
 
-You can use Azure storage services in workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, and Blob Storage. The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides more security and enables you to use SLA-based Azure storage services in your private cloud workloads.
+You can use Azure storage services in workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, and Blob Storage. The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides more security and enables you to use SLA-based Azure storage services in your private cloud workloads. You can also connect Azure disk pools or Azure NetApp Files to expand the storage capacity. This functionality is in preview.
 
 ## Alerts and monitoring
 
@@ -65,7 +65,7 @@ Now that you've covered Azure VMware Solution storage concepts, you may want to 
 
 - [Scale clusters in the private cloud][tutorial-scale-private-cloud] - You can scale the clusters and hosts in a private cloud as required for your application workload. Performance and availability limitations for specific services should be addressed on a case by case basis.
 
-- [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md) - You can use Azure NetApp to migrate and run the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. 
+- [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md) - You can use Azure NetApp Files to migrate and run the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. Azure NetApp Files volumes can be attached to virtual machines and can also be connected as data stores directly to Azure VMware Solution. This functionality is in preview.
 
 - [vSphere role-based access control for Azure VMware Solution](concepts-identity.md) - You use vCenter Server to manage VM workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX-T Manager.
 

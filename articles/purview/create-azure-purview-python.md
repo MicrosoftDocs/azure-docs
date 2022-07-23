@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: Create a Microsoft Purview account using Python'
-description: Create a Microsoft Purview account using Python.
+title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using Python'
+description: This article will guide you through creating a Microsoft Purview (formerly Azure Purview) account using Python.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/27/2021
+ms.date: 06/17/2022
 ms.custom: mode-api
 ---
 
-# Quickstart: Create a Microsoft Purview account using Python
+# Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using Python
 
-In this quickstart, you’ll create a Microsoft Purview account programatically using Python. [Python reference for Microsoft Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
+In this quickstart, you’ll create a Microsoft Purview (formerly Azure Purview) account programatically using Python. [The python reference for Microsoft Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
 
-Microsoft Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Microsoft Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
+The Microsoft Purview governance portal surfaces tools like the Microsoft Purview Data Map and Microsoft Purview Data Catalog that help you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
-For more information about Microsoft Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
+For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md)
 
 [!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
@@ -200,10 +200,11 @@ pa = purview_client.accounts.begin_delete(rg_name, purview_name).result()
 
 ## Next steps
 
-The code in this tutorial creates a purview account and  deletes a purview account. You can now download the Python SDK and learn about other resource provider actions you can perform for a Microsoft Purview account.
+In this quickstart, you learned how to create a Microsoft Purview (formerly Azure Purview) account, delete the account, and check for name availability. You can now download the Python SDK and learn about other resource provider actions you can perform for a Microsoft Purview account.
 
-Follow these next articles to learn how to navigate the Microsoft Purview governance portal, create a collection, and grant access to Microsoft Purview.
+Follow these next articles to learn how to navigate the Microsoft Purview governance portal, create a collection, and grant access to the Microsoft Purview governance portal.
 
 * [How to use the Microsoft Purview governance portal](use-azure-purview-studio.md)
+* [Grant users permissions to the governance portal](catalog-permissions.md)
 * [Create a collection](quickstart-create-collection.md)
-* [Add users to your Microsoft Purview account](catalog-permissions.md)
+

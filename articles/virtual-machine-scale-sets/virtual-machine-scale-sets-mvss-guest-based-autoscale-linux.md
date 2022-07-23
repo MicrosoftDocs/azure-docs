@@ -14,8 +14,6 @@ ms.custom: avverma
 
 # Autoscale using guest metrics in a Linux scale set template
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Uniform scale sets
-
 There are two broad types of metrics in Azure that are gathered from VMs and scale sets: Host metrics and Guest metrics. At a high level, if you would like to use standard CPU, disk, and network metrics, then host metrics are a good fit. If, however, you need a larger selection of metrics, then guest metrics should be looked into.
 
 Host metrics do not require additional setup because they are collected by the host VM, whereas guest metrics require you to install the [Windows Azure Diagnostics extension](../virtual-machines/extensions/diagnostics-template.md) or the [Linux Azure Diagnostics extension](../virtual-machines/extensions/diagnostics-linux.md) in the guest VM. One common reason to use guest metrics instead of host metrics is that guest metrics provide a larger selection of metrics than host metrics. One such example is memory-consumption metrics, which are only available via guest metrics. The supported host metrics are listed [here](../azure-monitor/essentials/metrics-supported.md), and commonly used guest metrics are listed [here](../azure-monitor/autoscale/autoscale-common-metrics.md). This article shows how to modify the [basic viable scale set template](virtual-machine-scale-sets-mvss-start.md) to use autoscale rules based on guest metrics for Linux scale sets.

@@ -84,10 +84,6 @@ A `DefenderIotMicroAgent` module twin can be created by manually editing each mo
 
     :::image type="content" source="media/quickstart-create-micro-agent-module-twin/device-details-module.png" alt-text="Select module identities from the tab.":::
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
 > [!div class="nextstepaction"]

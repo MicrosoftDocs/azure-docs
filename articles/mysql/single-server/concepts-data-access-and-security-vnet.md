@@ -1,13 +1,14 @@
 ---
 title: VNet service endpoints - Azure Database for MySQL
 description: 'Describes how VNet service endpoints work for your Azure Database for MySQL server.'
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 7/17/2020
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
+
 # Use Virtual Network service endpoints and rules for Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

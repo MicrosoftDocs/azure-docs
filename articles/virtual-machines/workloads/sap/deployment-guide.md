@@ -409,7 +409,7 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 
 The easiest way to create a new virtual machine with an image from the Azure Marketplace is by using the Azure portal.
 
-1.  Go to <https://portal.azure.com/#create/hub>.  Or, in the Azure portal menu, select **+ New**.
+1.  Navigate to [Create a resource in the Azure portal](https://portal.azure.com/#create/hub). Or, in the Azure portal menu, select **+ New**.
 1.  Select **Compute**, and then select the type of operating system you want to deploy. For example, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2), or Oracle Linux 7.2. The default list view does not show all supported operating systems. Select **see all** for a full list. For more information about supported operating systems for SAP software deployment, see SAP Note [1928533].
 1.  On the next page, review terms and conditions.
 1.  In the **Select a deployment model** box, select **Resource Manager**.
@@ -549,7 +549,7 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 
 The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](../../windows/capture-image-resource.md)
 
-1.  Go to <https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Or, in the Azure portal menu, select **Images**.
+1.  Navigate to [Images in the Azure portal](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages). Or, in the Azure portal menu, select **Images**.
 1.  Select the Managed Disk image you want to deploy and click on **Create VM**
 
 The wizard guides you through setting the required parameters to create the virtual machine, in addition to all required resources, like network interfaces and storage accounts. Some of these parameters are:

@@ -3,7 +3,7 @@ title: General Purpose Azure Dedicated Host SKUs
 description: Specifications for VM packing of General Purpose ADH SKUs.
 author: brittanyrowe
 ms.author: brittanyrowe
-ms.reviewer: mimckitt
+ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: conceptual
@@ -207,6 +207,9 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Dsv3
 ### Dsv3-Type1
 
+> [!NOTE]
+>  **The Dsv3-Type1 will be retired on March 31, 2023**. Refer to the [dedicated host retirement guide](dedicated-host-retirement.md) to learn more.
+
 The Dsv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (2.3 GHz Xeon® E5-2673 v4) processor. It offers 40 physical cores, 64 vCPUs, and 256 GiB of RAM. The Dsv3-Type1 runs [Dsv3-series](dv3-dsv3-series.md#dsv3-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dsv3-Type1 host.
@@ -227,6 +230,9 @@ You can also mix multiple VM sizes on the Dsv3-Type1. The following are sample c
 - 10 D4sv3 + 12 D2sv3
 
 ### Dsv3-Type2
+
+> [!NOTE]
+>  **The Dsv3-Type2 will be retired on March 31, 2023**. Refer to the [dedicated host retirement guide](dedicated-host-retirement.md) to learn more.
 
 The Dsv3-Type2 is a Dedicated Host SKU utilizing the Intel® Skylake (2.1 GHz Xeon® Platinum 8171M) processor. It offers 48 physical cores, 76 vCPUs, and 504 GiB of RAM. The Dsv3-Type2 runs [Dsv3-series](dv3-dsv3-series.md#dsv3-series) VMs.
 

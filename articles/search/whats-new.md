@@ -7,15 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/07/2022
+ms.date: 06/17/2022
 ms.custom: references_regions 
 ---
+
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with service updates. 
 
 * [**Preview features**](search-api-preview.md) is a list of current features that haven't been approved for production workloads.
 * [**Previous versions**](/previous-versions/azure/search/) is an archive of earlier feature announcements.
+
+## June 2022
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [Semantic search](semantic-search-overview.md) | New support for Storage Optimized tiers (L1, L2) | Public preview. |
+| [Debug Sessions](cognitive-search-debug-session.md) | Debug sessions, a built-in editor that runs in Azure portal, is now generally available.   | Generally available. |
 
 ## May 2022
 

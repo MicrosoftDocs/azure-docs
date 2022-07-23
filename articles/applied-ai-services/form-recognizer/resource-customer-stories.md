@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/25/2022
 ms.author: lajanuar
+ms.custom: applied-ai-non-critical-form
 ---
 
 # Customer spotlight

@@ -35,7 +35,7 @@ landingContent:
      links:
      - text: Send and receive messages
        url: iot-hub-devguide-messaging.md
-     - text: Upload files
+     - text: Upload video, media, and large data files
        url: iot-hub-devguide-file-upload.md
 
  -   title: Process data with Azure services

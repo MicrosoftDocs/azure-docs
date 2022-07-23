@@ -3,13 +3,13 @@ title: Troubleshoot Azure Load Balancer resource health, frontend, and backend a
 description: Use the available metrics to diagnose your degraded or unavailable Azure Standard Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
-ms.author: kumud
+ms.author: mbender
 ---
 
 # Troubleshoot resource health, and inbound availability issues 

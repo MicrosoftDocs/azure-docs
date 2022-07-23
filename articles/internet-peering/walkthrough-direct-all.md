@@ -3,11 +3,11 @@ title: Direct peering walkthrough
 titleSuffix: Azure
 description: Direct peering walkthrough
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.author: prmitiki
+ms.author: halkazwini
 ---
 
 # Direct peering walkthrough

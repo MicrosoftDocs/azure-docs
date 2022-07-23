@@ -41,14 +41,14 @@
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
 - name: Concepts
   items:
-  - name: Connectors and built-in operations
+  - name: Connectors
     items:
     - name: Connectors overview
       href: ../connectors/apis-list.md
+    - name: Built-in connectors
+      href: ../connectors/built-in.md
     - name: Managed connectors
       href: ../connectors/managed.md
-    - name: Built-in operations
-      href: ../connectors/built-in.md
     - name: Custom connectors
       href: custom-connector-overview.md
   - name: Scheduled recurring workflows
@@ -280,8 +280,6 @@
       href: ../connectors/connectors-create-api-servicebus.md
     - name: Azure SQL Database
       href: ../connectors/connectors-create-api-sqlazure.md
-    - name: Bing Search
-      href: ../connectors/connectors-create-api-bingsearch.md
     - name: Common Data Service
       href: ../connectors/connect-common-data-service.md
     - name: Custom APIs and web apps
@@ -445,8 +443,10 @@
     href: /connectors/
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
-  - name: Azure CLI
+  - name: Azure CLI - Consumption
     href: /cli/azure/logic
+  - name: Azure CLI - Standard
+    href: /cli/azure/logicapp
   - name: Azure PowerShell
     href: /powershell/module/az.logicapp
   - name: REST API

@@ -36,7 +36,7 @@ Communication Monitoring is compatible with the same browsers as the Calling SDK
 
 ## Get started with Communication Monitoring
 
-The tool can be accessed through an npm package `@azure/communication-monitoring`. The package contains the `CommunicationMonitoring` object that can be attached to a `Call`. Instructions on how to initialize the required `CallClient` and `CallAgent` objects can be found [here](https://docs.microsoft.com/azure/communication-services/how-tos/calling-sdk/manage-calls?pivots=platform-web#initialize-required-objects). `CommunicationMonitoring` also requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the rendered panel.
+The tool can be accessed through an npm package `@azure/communication-monitoring`. The package contains the `CommunicationMonitoring` object that can be attached to a `Call`. Instructions on how to initialize the required `CallClient` and `CallAgent` objects can be found [here](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web#initialize-required-objects). `CommunicationMonitoring` also requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the rendered panel.
 
 ### Installing Communication Monitoring
 

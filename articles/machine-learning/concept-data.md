@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.reviewer: nibaccam
-author: blackmist
-ms.author: larryfr
+ms.reviewer: larryfr
+author: samuel100
+ms.author: samkemp
 ms.date: 05/11/2022
 ms.custom: devx-track-python, data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
@@ -318,7 +318,7 @@ traits:
 transformations:
     - read_delimited:
         encoding: ascii
-        header: all_files_have_same_headers
+        header: all_files_same_headers
         delimiter: " "
     - keep_columns: ["store_location", "zip_code", "date", "amount", "x", "y", "z"]
     - convert_column_types:

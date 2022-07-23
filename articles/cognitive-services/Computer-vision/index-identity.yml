@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 05/25/2022
+  ms.date: 06/13/2022
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -47,8 +47,6 @@ landingContent:
             url: how-to/add-faces.md
           - text: Use the large-scale feature
             url: how-to/use-large-scale.md
-          - text: Use the PersonDirectory structure
-            url: how-to/use-persondirectory.md
           - text: Specify a face recognition model version
             url: how-to/specify-recognition-model.md
 

@@ -2,14 +2,14 @@
 title: Recover from deletions in Azure Active Directory
 description: Learn how to recover from unintended deletions.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/20/2022
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: baselden
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -97,7 +97,7 @@ The most frequent scenarios for application deletion are:
 | Microsoft 365 Groups| *All properties are maintained*, including ObjectID, group memberships, licenses, and application assignments. |
 | Application registration| *All properties are maintained.* (See more information after this table.) |
 
-When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps and service principals in Azure AD - Microsoft identity platform](/azure/active-directory/develop/app-objects-and-service-principals).
+When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps and service principals in Azure AD - Microsoft identity platform](../develop/app-objects-and-service-principals.md).
 
 ## Recover from soft deletion
 
@@ -127,11 +127,13 @@ For more information on how to restore soft-deleted Microsoft 365 Groups, see th
 
 ### Applications
 
-Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Azure AD](/azure/active-directory/develop/app-objects-and-service-principals).
+Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Azure AD](../develop/app-objects-and-service-principals.md).
 
 To restore an application from the Azure portal, select **App registrations** > **Deleted applications**. Select the application registration to restore, and then select **Restore app registration**.
 
 [![Screenshot that shows the app registration restore process in the azure portal.](./media/recoverability/deletion-restore-application.png)](./media/recoverability/deletion-restore-application.png#lightbox)
+
+To restore applications using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](/graph/api/directory-deleteditems-restore?tabs=http)
 
 ## Hard deletions
 
@@ -174,7 +176,7 @@ Ensure you have a process to frequently review items in the soft-delete state an
 * Ensure that you have specific roles or users assigned to evaluate and restore items as appropriate.
 * Develop and test a continuity management plan. For more information, see [Considerations for your Enterprise Business Continuity Management Plan](/compliance/assurance/assurance-developing-your-ebcm-plan).
 
-For more information on how to avoid unwanted deletions, see the following topics in [Recoverability best practices](recoverability-overview.md):
+For more information on how to avoid unwanted deletions, see the following articles in [Recoverability best practices](recoverability-overview.md):
 
 * Business continuity and disaster planning
 * Document known good states
