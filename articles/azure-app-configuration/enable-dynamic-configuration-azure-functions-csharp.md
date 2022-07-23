@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 Azure Functions support running [in-process ](/azure/azure-functions/functions-dotnet-class-library) or [isolated-process](/azure/azure-functions/dotnet-isolated-process-guide). Among other benefits, the isolated-process functions support the middleware model, which allows injecting logic into the invocation pipeline before and after functions execution. App Configuration middleware for isolated-process Azure Functions refreshes configuration automatically before functions invocation. In contrast, you will call App Configuration refresh API in your functions to refresh configuration in in-process Azure Functions.
 
-1. Update the code that connects to App Configuration and configure the refreshing criteria.
+1. Update the code that connects to App Configuration and add the data refreshing conditions.
 
     ### [In-process](#tab/in-process)
     
@@ -156,17 +156,17 @@ Azure Functions support running [in-process ](/azure/azure-functions/functions-d
         var host = new HostBuilder()
             .ConfigureAppConfiguration(builder =>
             {
-                // Omited code added in the previous step
+                // Omitted the code added in the previous step.
                 // ... ...
             })
             .ConfigureServices(services =>
             {
-                // Make Azure App Configuration services available through dependency injection
+                // Make Azure App Configuration services available through dependency injection.
                 services.AddAzureAppConfiguration();
             })
             .ConfigureFunctionsWorkerDefaults(app =>
             {
-                // Use Azure App Configuration middleware for data refresh
+                // Use Azure App Configuration middleware for data refresh.
                 app.UseAzureAppConfiguration();
             })
             .Build();
