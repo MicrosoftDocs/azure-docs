@@ -9,7 +9,7 @@ ms.date: 08/01/2022
 # Customer intent: As a developer, I want to prevent shared connections with other Azure Active Directory tenants.
 ---
 
-# Block shared connections from other tenants in Azure Logic Apps (Preview)
+# Block shared connections with other tenants in Azure Logic Apps (Preview)
 
 > [!NOTE]
 > This capability is in preview and is subject to the 
