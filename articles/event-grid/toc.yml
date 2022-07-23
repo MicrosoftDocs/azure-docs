@@ -270,6 +270,12 @@ items:
         href: create-view-manage-system-topics-cli.md
       - name: Azure Resource Manager template
         href: create-view-manage-system-topics-arm.md
+    - name: Create and manage custom topics
+      items:
+      - name: Create a custom topic or a domain
+        href: create-custom-topic.md
+      - name: Configure a custom topic or a domain
+        href: configure-custom-topic.md
     - name: Partner Events
       items:
       - name: Onboard as a partner
