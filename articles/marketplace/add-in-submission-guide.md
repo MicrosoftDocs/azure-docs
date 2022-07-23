@@ -19,7 +19,7 @@ This article is a step-by-step guide that will detail how to submit your app to 
 
 1. Select the **Marketplace offers** tile.
 
-    :::image type="content" source="./images/office-store-workspaces/marketplace-offers-tile.png" alt-text="Illustrates the product GUID in the URL for an Office app.":::
+    :::image type="content" source="./media/office-store-workspaces/marketplace-offers-tile.png" alt-text="Illustrates the product GUID in the URL for an Office app.":::
 
 1. If you see the _Commercial marketplace_ and _Office store_ tabs in the upper-left of the page, select the **Office store** tab.
 

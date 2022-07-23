@@ -4,6 +4,7 @@ description: Analyze your app or add-in performance and see funnel and acquisiti
 ms.localizationpriority: medium
 ms.author: siraghav
 ms.reviewer: dannyevers
+ms.topic: article
 ms.date: 01/10/2022
 ---
 

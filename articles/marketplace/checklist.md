@@ -3,6 +3,7 @@ title: Publishing checklist
 description:  Use this checklist to determine if your Microsoft 365 app is ready to be published.
 ms.author: siraghav
 ms.topic: article
+ms.date: 7/23/2022
 ---
 
 # Am I ready to publish?
@@ -13,7 +14,7 @@ Before submitting your Microsoft 365 app for review, make sure it’s ready to b
 
 This is a checklist to help you ensure your submission and review go smoothly.
 
-### ✅ Step 1: Determine your launch timeline
+### Step 1: Determine your launch timeline
 
 ![Calendar icon](./media/office-store-new/calendar.png) Plan ahead! Submitting your app for review can take up to 4 weeks from first submission until final approval.
 
@@ -22,7 +23,7 @@ Make sure include time in your deployment schedule for our team to not only revi
 > [!NOTE]
 > Your validation application may not be approved at first submission. This is common if this is your team’s first time submitting an app.
 
-### ✅ Step 2: Review all the Microsoft 365 app policies
+### Step 2: Review all the Microsoft 365 app policies
 
 Make sure you read through our [Microsoft 365 app general policies here](/legal/marketplace/certification-policies). Additionally, read through the policies that pertain to the Microsoft 365 product your app is targeting:
 
@@ -31,13 +32,13 @@ Make sure you read through our [Microsoft 365 app general policies here](/legal/
 - [Power BI visuals and template apps](/legal/marketplace/certification-policies#1180-power-bi-visuals)
 - [SharePoint Add-ins](/legal/marketplace/certification-policies#1160-sharepoint) or [SharePoint Framework (SPFx)](/legal/marketplace/certification-policies#1170-sharepoint-framework-solutions)
 
-### ✅ Step 3: Check that your manifest is compliant
+### Step 3: Check that your manifest is compliant
 
 There are several tools you can use to self-test your manifest file. These tools use the same package validation service we use in our review process. This will help ensure you pass our automated testing before you submit.
 
 - [Find the best tool for self-testing your manifest](/office/dev/add-ins/testing/troubleshoot-manifest#:~:text=%20To%20use%20a%20command-line%20XML%20schema%20validation,and%20replace%20XML_FILE%20with%20the%20path...%20More%20)
 
-### ✅ Step 4: Decide what platforms you will support
+### Step 4: Decide what platforms you will support
 
 If you are supporting Apple iOS or Android, make sure you have your correct ID information associated with your Partner Center Profile.
 
@@ -45,7 +46,7 @@ For example, for an app available on iOS, you will need to have your Apple ID in
 
 Note that Outlook is the only Microsoft 365 product that supports Android. Learn how to configure this in Partner Center before you submit here.
 
-### ✅ Step 5: If your app requires additional purchases from third party services or SaaS offers, provide testing information for these services
+### Step 5: If your app requires additional purchases from third party services or SaaS offers, provide testing information for these services
 
 Make sure you have any third party service information ready to include in your submission. In the submission process, you’ll first need to check the additional purchases box, as shown in the following image.
 
@@ -55,7 +56,7 @@ Next, you’ll need to provide license keys, sample accounts, test credentials a
 
 Your test plans and any testing accounts and instructions need to be included here
 
-### ✅ Step 6: Include critical information links with https:// URLs
+### Step 6: Include critical information links with https:// URLs
 
 The addresses for a support URL, a privacy policy URL, and an end user license agreement (EULA) URL  are required. One of the top reasons an app submission fails our validation process is when these links are not included in submission. The following image shows the box that asks for the support information.
 
@@ -88,7 +89,7 @@ If your privacy policy is missing any of the above, it will fail validation and 
 
 Make sure you have an https:// URL for your EULA policy ready when you submit. If you don’t already have one and you have consulted with your legal council, you can use [this one from Microsoft](https://support.office.com/client/61994a3b-2c87-41c4-a88d-a6455efa362d). 
 
-### ✅ Step 7: Prepare your store listing with your team
+### Step 7: Prepare your store listing with your team
 
 Your final step in preparing your submission is to fill out a marketplace listing that will appear in the store to customers. This listing includes the copy in your listing, your branding, your app name and any screenshots and videos you want to use to promote it.
 

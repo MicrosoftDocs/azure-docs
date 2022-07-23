@@ -2,6 +2,7 @@
 title: Add setup details for your Microsoft 365 solution
 description: Learn how to add details for Microsoft 365 app or Office add-in.
 ms.author: siraghav
+ms.topic: article
 ms.date: 7/23/2022
 ---
 

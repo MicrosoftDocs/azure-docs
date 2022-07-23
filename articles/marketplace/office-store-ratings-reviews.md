@@ -2,7 +2,8 @@
 title: Ratings and reviews dashboard for office add-in analytics in Partner Center
 description: Analyze the ratings and reviews of your add-in after users acquire it from Microsoft AppSource.
 ms.localizationpriority: medium
-ms.author: smannepalle 
+ms.author: smannepalle
+ms.topic: article
 ms.date: 3/24/2022
 ---
 
@@ -22,7 +23,7 @@ This article provides information on the _Ratings and reviews_ dashboard in Part
 
 1. Select the **Insights** tile.
 
-    [ ![Screenshot of the insights tile on the Partner Center home page.](./media/teams-apps-usage-report/partner-center-insights-tile.png) ](./media/workspaces/insights-tile.png#lightbox)
+    [ ![Screenshot of the insights tile on the Partner Center home page.](./media/teams-apps-usage-report/partner-center-insights-tile.png) ](./media/office-store-workspaces/insights-tile.png#lightbox)
 
 1. In the left-nav, under **Office addins**, select **Ratings & reviews**.
 
