@@ -75,7 +75,7 @@ If you have Azure DDoS Protection enabled, your DDoS alerts are streamed to Defe
 
 [Microsoft Entra Permissions Management](../active-directory/cloud-infrastructure-entitlement-management/index.yml) is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility and control over permissions for any identity and any resource in Azure, AWS, and GCP. 
  
-As part of the integration, each onboarded Azure subscription, AWS account, and GCP project , give you a view of your [Permission Creep Index (PCI)](../active-directory/cloud-infrastructure-entitlement-management/ui-dashboard.md). The PCI is an aggregated metric that periodically evaluates the level of risk associated with the number of unused or excessive permissions across identities and resources. PCI measures how risky identities can potentially be, based on the permissions available to them.
+As part of the integration, each onboarded Azure subscription, AWS account, and GCP project give you a view of your [Permission Creep Index (PCI)](../active-directory/cloud-infrastructure-entitlement-management/ui-dashboard.md). The PCI is an aggregated metric that periodically evaluates the level of risk associated with the number of unused or excessive permissions across identities and resources. PCI measures how risky identities can potentially be, based on the permissions available to them.
 
 :::image type="content" source="media/other-threat-protections/permission-creep-index.png" alt-text="Screenshot of the three associated permission creed index recommendations for Azure, AWS and GCP." lightbox="media/other-threat-protections/permission-creep-index.png":::
 
