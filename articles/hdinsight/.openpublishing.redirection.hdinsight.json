@@ -1217,12 +1217,12 @@
  },  
  {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/hdinsight-hadoop-r-scaler-sparkr.md",
-        "redirect_url": "azure/hdinsight/hdinsight-overview",
+        "redirect_url": "azure/hdinsight/spark/apache-spark-overview",
         "redirect_document_id": false
  },
  {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-scaler-sparkr.md",
-        "redirect_url": "azure/hdinsight/hdinsight-overview",
+        "redirect_url": "azure/hdinsight/spark/apache-spark-overview",
         "redirect_document_id": false
  }, 
  {
