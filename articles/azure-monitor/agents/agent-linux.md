@@ -8,16 +8,18 @@ ms.reviewer: JeffWo
 ---
 
 # Install Log Analytics agent on Linux computers
-This article provides details on installing the Log Analytics agent on Linux computers using the following methods:
+This article provides details on installing the Log Analytics agent on Linux computers hosted in other clouds or on-premises.
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
+
+The installation methods described in this article are:
 
 * [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
 * [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer doesn't have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](./gateway.md). 
 
-The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
 
-[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
-
-### Requirements
+## Requirements
 
 ### Supported operating systems
 
