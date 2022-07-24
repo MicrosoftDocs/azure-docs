@@ -153,15 +153,17 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version |
 |---------------------|----------------------|
-| 2.6.x               | 2021.0.0+            |
-| 2.5.x               | 2020.0+ aka Ilford+  |
+| 2.7.x               | 2021.0.3+ aka Jubilee|
+| 2.6.x               | 2021.0.0+ aka Jubilee|
+| 2.5.x               | 2020.0.3+ aka Ilford+|
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
 | Spring Boot version | Spring Cloud version       |
 |---------------------|----------------------------|
-| 2.6.x               | 2021.0.0+                  |
-| 2.5.x               | 2020.0+ aka Ilford+        |
+| 2.7.x               | 2021.0.3+ aka Jubilee      |
+| 2.6.x               | 2021.0.0+ aka Jubilee      |
+| 2.5.x               | 2020.3+ aka Ilford+        |
 | 2.4.x               | 2020.0+ aka Ilford+        |
 | 2.3.x               | Hoxton (starting with SR5) |
 
@@ -205,14 +207,14 @@ For Spring Boot version 2.4/2.5, add the following dependencies to the applicati
 </dependencyManagement>
 ```
 
-For Spring Boot version 2.6, add the following dependencies to the application POM file.
+For Spring Boot version 2.6/2.7, add the following dependencies to the application POM file.
 
 ```xml
 <!-- Spring Boot dependencies -->
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.0</version>
+    <version>2.7.2</version>
 </parent>
 
 <!-- Spring Cloud dependencies -->
@@ -221,7 +223,7 @@ For Spring Boot version 2.6, add the following dependencies to the application P
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2021.0.0</version>
+            <version>2021.0.3</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
