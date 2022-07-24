@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is Custom Neural Voice?
 
-Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. With Custom Neural Voice, you can build a highly natural-sounding voice by providing your audio samples as training data.
+Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. With Custom Neural Voice, you can build a highly natural-sounding voice by providing your audio samples as training data. If you're looking for ready-to-use options, check out our [text-to-speech](text-to-speech.md) service.
 
 Based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
 
@@ -82,6 +82,38 @@ Review these CNV Pro articles to learn more and get started.
 | Training data | A Custom Neural Voice training dataset that includes the audio recordings of the voice talent, and the associated text transcriptions.|
 | Persona       | A persona describes who you want this voice to be. A good persona design will inform all voice creation. This might include choosing an available voice model already created, or starting from scratch by casting and recording a new voice talent.|
 | Script        | A script is a text file that contains the utterances to be spoken by your voice talent. (The term *utterances* encompasses both full sentences and shorter phrases.)|
+
+## The process for creating a professional custom neural voice
+
+Creating a great custom neural voice requires careful quality control in each step, from voice design and data preparation, to the deployment of the voice model to your system. The following sections discuss some key steps you'll take when you're creating a custom neural voice for your organization. 
+
+### Persona design
+
+First, [design a persona](/record-custom-voice-samples.md#choose-your-voice-talent) of the voice that represents your brand by using a persona brief document. This document defines elements such as the features of the voice, and the character behind the voice. This helps to guide the process of creating a custom neural voice model, including defining the scripts, selecting your voice talent, training, and voice tuning.
+
+### Script selection
+ 
+Carefully [select the recording script](/record-custom-voice-samples.md#script-selection-criteria) to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
+
+### Preparing training data
+
+It's a good idea to capture the audio recordings in a professional quality recording studio to achieve a high signal-to-noise ratio. The quality of the voice model depends heavily on your training data. Consistent volume, speaking rate, pitch, and consistency in expressive mannerisms of speech are required.
+
+After the recordings are ready, [prepare the training data](how-to-custom-voice-prepare-data.md) in the right format.
+
+### Training
+
+After you've prepared the training data, go to [Speech Studio](https://aka.ms/speechstudio/customvoice) to create your custom neural voice. Select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix any errors and submit again.
+
+### Testing
+
+Prepare test scripts for your voice model that cover the different use cases for your apps. It’s a good idea to use scripts within and outside the training dataset, so you can test the quality more broadly for different content.
+
+### Tuning and adjustment
+
+The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, you can make several adjustments by using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech.
+
+SSML is the markup language used to communicate with the text-to-speech service to convert text into audio. The adjustments you can make include change of pitch, rate, intonation, and pronunciation correction. If the voice model is built with multiple styles, you can also use SSML to switch the styles.
 
 ## Responsible use of AI
 
