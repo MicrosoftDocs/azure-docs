@@ -28,7 +28,9 @@ See [Overview of Azure Monitor agents](agents-overview.md) for a comparison betw
 
 ## Installation options
 
-There are multiple methods to install the Log Analytics agent and connect your machine to Azure Monitor depending on your requirements. The following sections list the possible methods for different types of virtual machine.
+This section explains how to install the Log Analytics agent on different types of virtual machines and connect the machines to Azure Monitor.
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 > [!NOTE]
 > It is not supported to clone a machine with the Log Analytics Agent already configured. If the agent has already been associated with a workspace this will not work for 'golden images'.
