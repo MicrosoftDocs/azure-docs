@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 07/20/2022
+ms.date: 07/24/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,7 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in July include:
 
 - [General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection](#general-availability-ga-of-the-cloud-native-security-agent-for-kubernetes-runtime-protection)
-- [Vulnerability assessment adds support for the detection of language specific packages](#vulnerability-assessment-adds-support-for-the-detection-of-language-specific-packages)
+- [Vulnerability assessment adds support for the detection of language specific packages (Preview)](#vulnerability-assessment-adds-support-for-the-detection-of-language-specific-packages-preview)
 
 ### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
 
@@ -43,18 +43,14 @@ You can also review [all available alerts](alerts-reference.md#alerts-k8scluster
 
 Note, if you're using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
 
-## Vulnerability assessment adds support for the detection of language specific packages
+## Vulnerability assessment adds support for the detection of language specific packages (Preview)
 
-Currently, Defender for Containers only provides vulnerability assessment (VA) for packages that are deployed with the OS package manager.
+Defender for Container's vulnerability assessment (VA) has extended its abilities to detect vulnerabilities in language specific packages and OS packages.
 
-We are adding support for detection of language specific packages for the following programming languages: 
-- Java 
-- Python
-- Node.js
-- Golang 
-- .NET (for Linux images only as a public preview)
-
-
+| Language specific packages | OS packages| 
+|--|--|
+|Java <br> Python <br> Node.js <br> .NET <br> Go | Alpine Linux 3.12-3.15 <br> Red Hat Enterprise Linux 6, 7, 8 <br> CentOS 6, 7 <br> Oracle Linux 6,6,7,8 <br> Amazon Linux 1,2 <br> openSUSE leap 42, 15 <br> SUSE Enterprise Linux 11,12, 15 <br>
+Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> Ubuntu 10.10 - 22.04 <br> FreeBSD 11.1-13.1 <br> Fedora 32, 33, 34, 35 |
 
 ## June 2022
 

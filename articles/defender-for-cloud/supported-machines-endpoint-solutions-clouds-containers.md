@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 07/07/2022
+ms.date: 07/24/2022
 ms.custom: references_regions
 ---
 
@@ -18,7 +18,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 |--|--|--|--|--|--|--|--|
 | Compliance | Docker CIS | VM, VMSS | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment | Registry scan | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Vulnerability Assessment | View vulnerabilities for running images | AKS | Preview | Preview | Defender profile | Defender for Containers | Commercial clouds |
+| Vulnerability Assessment <sup>[2](#footnote1)</sup>| View vulnerabilities for running images | AKS | Preview | Preview | Defender profile | Defender for Containers | Commercial clouds |
 | Hardening | Control plane recommendations | ACR, AKS | GA | GA | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Hardening | Kubernetes data plane recommendations | AKS | GA | - | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Runtime protection| Threat detection (control plane)| AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
@@ -29,6 +29,8 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Discovery and provisioning | Auto provisioning of Azure policy add-on | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+<sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities in the following language specific packages `Java, Python,Node.js, .NET, Go` and OS packages `Alpine Linux 3.12-3.15, Red Hat Enterprise Linux 6, 7, 8, CentOS 6, 7, Oracle Linux 6,6,7,8, Amazon Linux 1,2, openSUSE leap 42, 15, SUSE Enterprise Linux 11,12,15, Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye, Ubuntu 10.10 - 22.04, FreeBSD 11.1-13.1, Fedora 32, 33, 34, 35`.
 
 ### [**AWS (EKS)**](#tab/aws-eks)
 
