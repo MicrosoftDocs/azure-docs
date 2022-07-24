@@ -177,15 +177,19 @@ Create a new Python file in the **get-started** folder called `run-pytorch.py`:
 from azure.ai.ml import MLClient, command, Input
 from azure.identity import DefaultAzureCredential
 from azure.ai.ml.entities import Environment
+from azureml.core import Workspace
 
 if __name__ == "__main__":
+    # get details of the current Azure ML workspace
+    ws = Workspace.from_config()
+
     # default authentication flow for Azure applications
     default_azure_credential = DefaultAzureCredential()
-    subscription_id = "<SUBSCRIPTION_ID>"
-    resource_group = "<RESOURCE_GROUP>"
-    workspace = "<AML_WORKSPACE_NAME>"
+    subscription_id = ws.subscription_id
+    resource_group = ws.resource_group
+    workspace = ws.name
 
-    # Client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
+    # client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
     ml_client = MLClient(
         default_azure_credential,
         subscription_id,

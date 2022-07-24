@@ -33,11 +33,21 @@ In this tutorial, you will:
 ## Prerequisites
 
 - Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](quickstart-create-resources.md) to create a workspace, compute instance, and compute cluster to use in this tutorial series.
-- If an older compute instance is used, install `azure-ai-ml` by running the below command in a notebook cell. New compute instances will have this package pre-installed.
 
-   ```python
-   pip install azure-ai-ml
-   ```
+- The Azure Machine Learning Python SDK v2 (preview) installed.
+
+    To install the SDK you can either,  
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+
+    * Use the following commands to install Azure ML Python SDK v2:
+       * Uninstall previous preview version:
+       ```python
+       pip uninstall azure-ai-ml
+       ```
+       * Install the Azure ML Python SDK v2:
+       ```python
+       pip install azure-ai-ml
+       ```
 
 ## Create and run a Python script
 
@@ -89,14 +99,18 @@ Select the **...** at the end of **get-started** folder to create a new file. Cr
 # get-started/run-hello.py
 from azure.ai.ml import MLClient, command, Input
 from azure.identity import DefaultAzureCredential
+from azureml.core import Workspace
+
+# get details of the current Azure ML workspace
+ws = Workspace.from_config()
 
 # default authentication flow for Azure applications
 default_azure_credential = DefaultAzureCredential()
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-workspace = "<AML_WORKSPACE_NAME>"
+subscription_id = ws.subscription_id
+resource_group = ws.resource_group
+workspace = ws.name
 
-# Client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
+# client class to interact with Azure ML services and resources, e.g. workspaces, jobs, models and so on.
 ml_client = MLClient(
    default_azure_credential,
    subscription_id,
@@ -130,7 +144,7 @@ Here's a description of how the control script works:
       `ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)`
    :::column-end:::
    :::column span="2":::
-      [MlClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and it's assets and resources.
+      [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and it's assets and resources.
    :::column-end:::
 :::row-end:::
 :::row:::
