@@ -81,7 +81,7 @@ Defender for IoT’s new purchase experience and the Enterprise IoT integration 
 
 ### Same passwords for cyberx_host and cyberx users
 
-After updating OT sensor software to from a legacy 10.x.x version to version 22.1.7 or higher, the default passwords used for the **cyberx_host** and **cyberx** passwords are identical.
+During OT monitoring software installations and updates, the **cyberx** user is assigned a random password. Starting in software versions 22.1.7, 22.2.3, or 22.2.4, the **cyberx_host** password is assigned with an identical password.
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
