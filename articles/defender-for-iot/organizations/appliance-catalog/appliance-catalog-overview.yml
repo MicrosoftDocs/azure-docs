@@ -17,7 +17,7 @@ landingContent:
   # Card
   - title: Corporate environments
     linkLists:
-      - linkListType: reference
+      - linkListType: deploy
         links:
           - text: HPE ProLiant DL360
             url: hpe-proliant-dl360.md
@@ -25,7 +25,7 @@ landingContent:
   # Card
   - title: Large enterprises
     linkLists:
-      - linkListType: reference
+      - linkListType: deploy
         links:
           - text: HPE ProLiant DL20/DL20 Plus (4SFF)
             url: hpe-proliant-dl20-plus-enterprise.md
@@ -34,7 +34,7 @@ landingContent:
   # Card
   - title: Production line
     linkLists:
-      - linkListType: reference
+      - linkListType: deploy
         links:
           - text: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-plus-smb.md
@@ -46,7 +46,7 @@ landingContent:
   # Card
   - title: Virtual appliances
     linkLists:
-      - linkListType: reference
+      - linkListType: deploy
         links:
           - text: OT sensor (VMWare ESXi)
             url: virtual-sensor-vmware.md
@@ -60,7 +60,7 @@ landingContent:
   # Card
   - title: Legacy appliances
     linkLists:
-      - linkListType: reference
+      - linkListType: deploy
         links:
           - text: Dell PowerEdge R340 XL (Enterprise)
             url: dell-poweredge-r340-xl-legacy.md
