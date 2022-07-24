@@ -25,12 +25,11 @@ For more information, see [Understand sensor health (Public preview)](how-to-man
 
 |Title  |Message  |Description  |Recommendation  |
 |---------|---------|---------|---------|
-|**DownloadingError** |There was an error uploading the file to the sensor |Upload error | Verify the sensor’s ability to communicate with the Microsoft Download Center and retry. <br><br>If the problem persists,  open a support ticket.|
-|**ExtractionError**, **preupgradecheckerror**, **migrationerror**, **installationerror**, **generalerror** | There was an error installing the update.| Installation error |Open a support ticket. |
+|**Package upload failed** |There was an error uploading the file to the sensor |Upload error |"Verify the sensor’s ability to communicate with download.microsoft.com and retry. <br><br>If the problem persists,  open a support ticket.|
+|**Sensor update failed** | There was an error installing the update.| Installation error |Open a support ticket. |
 | **Unstable traffic to Azure**|Sensor’s connection to Azure is unstable |Unstable traffic to Azure | We recommend that you check the sensor WAN connection, the BW limit settings, and validate network equipment that might be on the route between the sensor and the cloud.|
 |**Network traffic stopped** | Network traffic has stopped on a monitored interface|Sensor detects no traffic on an interface where traffic was previously detected |Check that the SPAN traffic from the network switch is set up correctly, and the interfaces are connected |
 | **Outdated**|Outdated software may result in a non-optimal experience |Sensor version is outdated |Upgrade your sensor software to the latest version to use the most recently available Defender for IoT features.|
-|**No OT/IoT traffic detected**|This sensor seems to not be monitoring OT/IoT networks |Sensor is not monitoring OT/IoT traffic |Check that SPAN traffic includes traffic from OT/IoT systems within the last 12 hours. |
 
 ## Healthy messages
 
