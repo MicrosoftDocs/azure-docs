@@ -14,8 +14,8 @@ This article provides details on installing the Log Analytics agent on Linux com
 
 The installation methods described in this article are:
 
-* [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
-* [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer doesn't have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](./gateway.md). 
+* [Install the agent for Linux using a wrapper-script](#tab/wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
+* [Manually download and install](#tab/shell) the agent. This is required when the Linux computer doesn't have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](./gateway.md). 
 
 See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
 
@@ -121,6 +121,8 @@ mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. On
 docker-cimprov | 1.0.0 | Docker provider for OMI. Only installed if Docker is detected.
 
 ### Agent installation details
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 Installing the Log Analytics agent for Linux packages also applies the system-wide configuration changes below. Uninstalling the omsagent package removes these artifacts.
 
