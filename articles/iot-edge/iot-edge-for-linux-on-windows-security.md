@@ -72,10 +72,10 @@ Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specif
 | Partition | Size | Description | 
 | --------- |---------- |------------ |
 | BootEFIA | 8 MB | Firmware partition A for future GRUBless boot |
-| BootEFIB | 8 MB | Firmware partition B for future GRUBless boot |
 | BootA | 192 MB | Contains the bootloader for A partition |
-| BootB | 192 MB | Contains the bootloader for B partition |
 | RootFS A | 4 GB | One of two active/passive partitions holding the root file system |
+| BootEFIB | 8 MB | Firmware partition B for future GRUBless boot |
+| BootB | 192 MB | Contains the bootloader for B partition |
 | RootFS B | 4 GB | One of two active/passive partitions holding the root file system |
 | Unused | 4 GB | This partition is reserved for future use |
 | Log | 1 GB or 6 GB | Logs specific partition mounted under /logs |

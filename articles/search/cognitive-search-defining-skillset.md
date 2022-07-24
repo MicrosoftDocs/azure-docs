@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/10/2022
+ms.date: 07/14/2022
 ---
 
 # Create a skillset in Azure Cognitive Search
@@ -16,11 +16,14 @@ ms.date: 06/10/2022
 
 A skillset defines the operations that extract and enrich data to make it searchable. It executes after text and images are extracted, and after [field mappings](search-indexer-field-mappings.md) are processed.
 
-This article explains how to create a skillset with the [Create Skillset (REST API)](/rest/api/searchservice/create-skillset). Rules for skillset definition include:
+This article explains how to create a skillset with the [Create Skillset (REST API)](/rest/api/searchservice/create-skillset), but the same concepts and steps apply to other programming languages. 
 
-+ A skillset is a named top-level resource, which means it can be created once and referenced by many indexers.
-+ A skillset must contain at least one skill.
+Rules for skillset definition include:
+
++ A skillset must have a unique name within the skillset collection. When you define a skillset, you're creating a top-level resource that can be used by any indexer.
++ A skillset must contain at least one skill. A typical skillset has three to five. The maximum is 30.
 + A skillset can repeat skills of the same type (for example, multiple Shaper skills).
++ A skillset supports chained operations, looping, and branching.
 
 Indexers drive skillset execution. You'll need an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [index](search-what-is-an-index.md) before you can test your skillset.
 
@@ -65,13 +68,13 @@ After the name and description, a skillset has four main properties:
 
 + `knowledgeStore` (optional) specifies an Azure Storage account and settings for projecting skillset output into tables, blobs, and files in Azure Storage. Remove this section if you don't need it, otherwise [specify a knowledge store](knowledge-store-create-rest.md).
 
-+ `encryptionKey` (optional) specifies an Azure Key Vault and [customer-managed keys](search-security-manage-encryption-keys.md) used to encrypt sensitive content in a skillset definition. Remove this property if you aren't using customer-managed encryption.
++ `encryptionKey` (optional) specifies an Azure Key Vault and [customer-managed keys](search-security-manage-encryption-keys.md) used to encrypt sensitive content (descriptions, connection strings, keys) in a skillset definition. Remove this property if you aren't using customer-managed encryption.
 
 ## Add skills
 
 Inside the skillset definition, the skills array specifies which skills to execute. Three to five skills are common, but you can add as many skills as necessary, subject to [service limits](search-limits-quotas-capacity.md#indexer-limits).
 
-The end result of an enrichment pipeline is textual content in either a search index or knowledge store. For this reason, most skills either create text from images (OCR text, captions, tags), or analyze existing text to create new information (entities, key phrases, sentiment). Skills that operate independently are processed in parallel. Skills that depend on each other specify the output of one skill (such as key phrases) as the input of second skill (such as text translation). The search service determines the order of skill execution.
+The end result of an enrichment pipeline is textual content in either a search index or a knowledge store. For this reason, most skills either create text from images (OCR text, captions, tags), or analyze existing text to create new information (entities, key phrases, sentiment). Skills that operate independently are processed in parallel. Skills that depend on each other specify the output of one skill (such as key phrases) as the input of second skill (such as text translation). The search service determines the order of skill execution and the execution environment.
 
 All skills have a type, context, inputs, and outputs. A skill might optionally have a name and description. The following example shows two unrelated [built-in skills](cognitive-search-predefined-skills.md) so that you can compare the basic structure.
 
@@ -126,7 +129,7 @@ Each skill is unique in terms of its input values and the parameters that it tak
 
 ## Set skill context
 
-Each skill has a [context property](cognitive-search-working-with-skillsets.md#context) that determines the level at which operations take place. If the "context" property isn't explicitly set, the default is `"/document"`, where the context is the whole document (the skill is called once per document).
+Each skill has a [context property](cognitive-search-working-with-skillsets.md#skill-context) that determines the level at which operations take place. If the "context" property isn't explicitly set, the default is `"/document"`, where the context is the whole document (the skill is called once per document).
 
 ```json
 "skills":[
@@ -160,7 +163,7 @@ Context also determines where outputs are produced in the [enrichment tree](cogn
 
 Skills read from and write to an enriched document. Skill inputs specify the origin of the incoming data. It's often the root node of the enriched document. For blobs, a typical skill input is the document's content property. 
 
-[Skill reference documentation](cognitive-search-predefined-skills.md) for each skill describes the inputs it can produce. Each input has a "name" and a "source". The following example is from the Entity Recognition skill:
+[Skill reference documentation](cognitive-search-predefined-skills.md) for each skill describes the inputs it can consume. Each input has a "name" that identifies a specific input, and a "source" that specifies the location fo the data in the enriched document. The following example is from the Entity Recognition skill:
 
 ```json
 "inputs": [
@@ -259,7 +262,7 @@ Although skill output can be optionally cached for reuse purposes, it's usually 
 
 + To send output to a knowledge store, [create a projection](knowledge-store-projection-overview.md). 
 
-+ To send output to a downstream skill, reference the output by its node name, such as `"/document/organization"`, in the downstream skill's input source property.
++ To send output to a downstream skill, reference the output by its node name, such as `"/document/organization"`, in the downstream skill's input source property. See [Reference an annotation](cognitive-search-concept-annotations-syntax.md) for examples.
 
 ## Tips for a first skillset
 

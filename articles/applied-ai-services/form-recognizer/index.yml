@@ -102,7 +102,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Studio overview
-            url: concept-form-recognizer-studio.md
+            url: form-recognizer-studio-overview.md
       - linkListType: get-started
         links:
           - text: 🆕Read model (preview)
@@ -130,26 +130,26 @@ landingContent:
      linkLists:
       - linkListType: video
         links:
-          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
-            url: /Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
-          - text: AI-powered process automation
-            url: /Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+          - text: Analyze unstructured documents and more with Azure Form Recognizer
+            url: https://aka.ms/form-recognizer/ai-show
+          - text: Using AI With Documents - Syntex, AI Builder & Azure Cognitive Services
+            url: https://aka.ms/form-recognizer/event-session
       - linkListType: reference
         links:
-          - text: Extract data from PDFs with or without code
-            url: https://techcommunity.microsoft.com/t5/azure-ai/extract-data-from-pdfs-using-form-recognizer-with-code-or/ba-p/2214299
-          - text: Read more languages, process IDs and invoices, train on tables, and more
-            url:  https://techcommunity.microsoft.com/t5/azure-ai/form-recognizer-now-reads-more-languages-processes-ids-and/ba-p/2179428
-          - text: Build a personal finance app using Form Recognizer
-            url: https://techcommunity.microsoft.com/t5/azure-ai/how-to-build-a-personal-finance-app-using-azure/ba-p/2088995
-          - text: Enhanced document table extraction
-            url: https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011
-          - text: Use a meta-data-driven approach to extract key-value pairs
-            url:  https://techcommunity.microsoft.com/t5/azure-ai/meta-data-driven-key-value-pairs-extraction-with-azure-form/ba-p/1942595
-          - text: Accelerate text, data, and structure extraction from documents
-            url:  https://techcommunity.microsoft.com/t5/azure-ai/accelerate-extraction-of-text-data-and-structure-from-your/ba-p/1507365
-          - text: Automating document processing to enhance productivity
-            url:  https://techcommunity.microsoft.com/t5/azure-ai/get-started-with-automating-form-processing-to-enable/ba-p/1387305
+          - text: What's new in Form Recognizer - Semantic document segmentation, cross page tables and lots more
+            url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/what-s-new-in-form-recognizer-semantic-document-segmentation/ba-p/3468826
+          - text: Streamline insurance claim, patient check-in and more processes with Azure Form Recognizer
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/streamline-insurance-claim-patient-check-in-and-more-processes/ba-p/3419467
+          - text: Process large scale PDF or images to extract information forms using Azure Form Recognizer
+            url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/process-large-scale-pdf-or-images-to-extract-information-forms/ba-p/3481533
+          - text: Form Recognizer Solution Accelerator
+            url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/form-recognizer-solution-accelerator/ba-p/3262782
+          - text: Extracting information from unstructured document (e.g., contracts) with Azure Form Recognizer
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/extracting-information-from-unstructured-document-e-g-contracts/ba-p/3267207
+          - text: Improve Customer Loyalty Program Automation with Azure Form Recognizer
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/improve-customer-loyalty-program-automation-with-azure-form/ba-p/3069233
+          - text: Extract values and line items from invoices with Form Recognizer now generally available
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/extract-values-and-line-items-from-invoices-with-form-recognizer/ba-p/2414729
 
 # Card 5
    - title: Responsible AI

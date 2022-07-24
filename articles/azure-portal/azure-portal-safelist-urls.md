@@ -14,7 +14,7 @@ Network administrators often deploy proxy servers, firewalls, or other devices, 
 > [!TIP]
 > For help diagnosing issues with network connections to these domains, check https://portal.azure.com/selfhelp.
 
-You can use [service tags](/azure/virtual-network/service-tags-overview) to define network access controls on [network security groups](/azure/virtual-network/network-security-groups-overview), [Azure Firewall](/azure/firewall/service-tags), and user-defined routes. Use service tags in place of fully qualified domain names (FQDNs) or specific IP addresses when you create security rules and routes.
+You can use [service tags](../virtual-network/service-tags-overview.md) to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md), [Azure Firewall](../firewall/service-tags.md), and user-defined routes. Use service tags in place of fully qualified domain names (FQDNs) or specific IP addresses when you create security rules and routes.
 
 ## Azure portal URLs for proxy bypass
 
@@ -66,7 +66,7 @@ aka.ms (Microsoft short URL)
 ad.azure.com (Azure AD)
 api.aadrm.com (Azure AD)
 api.loganalytics.io (Log Analytics Service)
-applicationinsights.azure.com (Application Insights Service)
+*.applicationinsights.azure.com (Application Insights Service)
 appservice.azure.com (Azure App Services)
 asazure.windows.net (Analysis Services)
 bastion.azure.com (Azure Bastion Service)
