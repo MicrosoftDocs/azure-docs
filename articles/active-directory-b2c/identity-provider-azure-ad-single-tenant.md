@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 06/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -100,7 +100,7 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
  For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. If you use a custom domain, replace `contoso.com` with your custom domain in `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. For **Client ID**, enter the application ID that you previously recorded.
-1. For **Client secret**, enter the client secret that you previously recorded.
+1. For **Client secret**, enter the client secret value that you previously recorded.
 1. For **Scope**, enter `openid profile`.
 1. Leave the default values for **Response type**, and **Response mode**.
 1. (Optional) For the **Domain hint**, enter `contoso.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
@@ -145,7 +145,7 @@ You need to store the application key that you created in your Azure AD B2C tena
 1. Select **Policy keys** and then select **Add**.
 1. For **Options**, choose `Manual`.
 1. Enter a **Name** for the policy key. For example, `ContosoAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key when it's created, so its reference in the XML in following section is to *B2C_1A_ContosoAppSecret*.
-1. In **Secret**, enter your client secret that you recorded earlier.
+1. In **Secret**, enter your client secret value that you recorded earlier.
 1. For **Key usage**, select `Signature`.
 1. Select **Create**.
 

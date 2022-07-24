@@ -236,6 +236,11 @@ sections:
         answer: |
           Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
           
+      - question: |
+          What happens if I have multiple incremental snapshots and delete one of them?
+        answer: |
+          Deleting one of your incremental snapshots does not affect subsequent incremental snapshots. The system merges the data occupied by the first snapshot with the next snapshot under the hood to ensure that the subsequent snapshots are not impacted due to the deletion of the first snapshot.
+          
   - name: Azure shared disks
     questions:
       - question: |

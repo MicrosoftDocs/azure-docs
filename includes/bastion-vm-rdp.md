@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 03/02/2022
+ ms.date: 06/02/2022
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -18,7 +18,7 @@
 
    :::image type="content" source="./media/bastion-vm-rdp/select-use-bastion.png" alt-text="Screenshot of Select Use Bastion.":::
 
-1. On the **Connect using Azure Bastion** page, enter the username and password for your virtual machine, then select **Connect**.
+1. On the **Connect using Azure Bastion** page, enter the username and password for your virtual machine. If your VM is domain-joined, you must use the following format: **username@domain.com**. Then, select **Connect**. 
 
    :::image type="content" source="./media/bastion-vm-rdp/connect-vm-host.png" alt-text="Screenshot of Connect button.":::
 

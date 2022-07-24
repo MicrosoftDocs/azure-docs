@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 04/07/2022
 
-ms.author: BaSelden
-author: BarbaraSelden
+ms.author: gasinh
+author: gargi-sinha
 manager: martinco
 ms.reviewer: michmcla
 

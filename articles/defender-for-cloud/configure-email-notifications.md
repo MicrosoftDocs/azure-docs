@@ -7,7 +7,7 @@ author: bmansheim
 ms.date: 11/09/2021
 ms.custom: mode-other
 ---
-# Configure email notifications for security alerts 
+# Quickstart: Configure email notifications for security alerts 
 
 Security alerts need to reach the right people in your organization. By default, Microsoft Defender for Cloud emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
 

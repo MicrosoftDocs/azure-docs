@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 04/12/2021
 ms.topic: conceptual
-author: shashankbarsin
-ms.author: shasb
 description: Onboard large number of clusters to Azure Arc-enabled Kubernetes for configuration management
 ---
 

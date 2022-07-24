@@ -1,13 +1,14 @@
 ---
 title: Manage VNet endpoints - Azure portal - Azure Database for MySQL
 description: Create and manage Azure Database for MySQL VNet service endpoints and rules using the Azure portal
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
+author: mksuni
+ms.author: sumuth
 ms.topic: how-to
-ms.date: 3/18/2020
+ms.date: 06/20/2022
 ---
+
 # Create and manage Azure Database for MySQL VNet service endpoints and VNet rules by using the Azure portal
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
@@ -22,10 +23,10 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 1. On the MySQL server page, under the Settings heading, click **Connection Security** to open the Connection Security pane for Azure Database for MySQL. 
 
-2. Ensure that the Allow access to Azure services control is set to **OFF**.
+2. Ensure that the Allow access to Azure services control is set to **No**.
 
 > [!Important]
-> If you leave the control set to ON, your Azure MySQL Database server accepts communication from any subnet. Leaving the control set to ON might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of Azure Database for MySQL, together can reduce your security surface area.
+> If you leave the control set to **Yes**, your Azure MySQL Database server accepts communication from any subnet. Leaving the control set to **Yes** might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of Azure Database for MySQL, together can reduce your security surface area.
 
 3. Next, click on **+ Adding existing virtual network**. If you do not have an existing VNet you can click **+ Create new virtual network** to create one. See [Quickstart: Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md)
 

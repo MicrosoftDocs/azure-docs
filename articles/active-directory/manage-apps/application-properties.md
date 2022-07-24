@@ -1,6 +1,5 @@
 ---
 title: 'Properties of an enterprise application'
-titleSuffix: Azure AD
 description: Learn about the properties of an enterprise application in Azure Active Directory.
 services: active-directory
 author: eringreenlee

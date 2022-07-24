@@ -34,7 +34,7 @@ See the tables below to learn about the services offered within those categories
 |:-----------|:------------------|--|
 |[Computer Vision](./computer-vision/index.yml "Computer Vision")|The Computer Vision service provides you with access to advanced cognitive algorithms for processing images and returning information.| [Computer Vision quickstart](./computer-vision/quickstarts-sdk/client-library.md)|
 |[Custom Vision](./custom-vision-service/index.yml "Custom Vision Service")|The Custom Vision Service lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels to images, based on their visual characteristics. | [Custom Vision quickstart](./custom-vision-service/getting-started-build-a-classifier.md)|
-|[Face](./face/index.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition.| [Face quickstart](./face/quickstarts/client-libraries.md)|
+|[Face](./computer-vision/index-identity.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition.| [Face quickstart](./face/quickstarts/client-libraries.md)|
 
 ## Speech APIs
 

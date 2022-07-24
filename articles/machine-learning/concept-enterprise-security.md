@@ -31,7 +31,7 @@ Here's the authentication process for Azure Machine Learning using multi-factor 
 
 1. The client signs in to Azure AD and gets an Azure Resource Manager token.
 1. The client presents the token to Azure Resource Manager and to all Azure Machine Learning.
-1. Azure Machine Learning provides a Machine Learning service token to the user compute target (for example, Azure Machine Learning compute cluster). This token is used by the user compute target to call back into the Machine Learning service after the run is complete. The scope is limited to the workspace.
+1. Azure Machine Learning provides a Machine Learning service token to the user compute target (for example, Azure Machine Learning compute cluster). This token is used by the user compute target to call back into the Machine Learning service after the job is complete. The scope is limited to the workspace.
 
 [![Authentication in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
@@ -73,7 +73,6 @@ For more information, see the following articles:
 * [Connect to storage services](how-to-access-data.md)
 * [Use Azure Key Vault for secrets when training](how-to-use-secrets-in-runs.md)
 * [Use Azure AD managed identity with Azure Machine Learning](how-to-use-managed-identities.md)
-* [Use Azure AD managed identity with your web service](how-to-use-azure-ad-identity.md)
 
 ## Network security and isolation
 

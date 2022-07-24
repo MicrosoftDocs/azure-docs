@@ -125,6 +125,8 @@
   items:
     - name: Create an application
       href: core/howto-create-iot-central-application.md
+    - name: Integrate IoT Central into a DevOps pipeline
+      href: core/howto-integrate-with-devops.md
     - name: Build and connect devices
       items:
         - name: Set up a device template
@@ -135,20 +137,20 @@
           href: core/howto-use-properties.md
         - name: How to use commands
           href: core/howto-use-commands.md
-        - name: Connect devices using X.509
+        - name: Connect devices that use X.509
           href: core/how-to-connect-devices-x509.md
-        - name: Monitor device connectivity using Azure CLI
-          href: core/howto-monitor-devices-azure-cli.md
-        - name: Connect IoT Edge for Linux on Windows device 
-          href: core/howto-connect-eflow.md
         - name: Connect devices through an IoT Edge transparent gateway
           href: core/how-to-connect-iot-edge-transparent-gateway.md
+        - name: Prepare and connect an IoT Edge for Linux on Windows device 
+          href: core/howto-connect-eflow.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: /azure-sphere/app-development/setup-iot-central
         - name: Prepare and connect a RuuviTag device
           href: core/howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
           href: core/howto-connect-rigado-cascade-500.md
+        - name: Monitor device connectivity using Azure CLI
+          href: core/howto-monitor-devices-azure-cli.md
         - name: Troubleshoot device connections
           href: core/troubleshoot-connection.md
     - name: View and analyze device data
@@ -240,6 +242,8 @@
           href: core/howto-customize-ui.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
+        - name: Integrate with DevOps
+          href: core/howto-integrate-with-devops.md
         - name: Manage and monitor in the Azure portal
           href: core/howto-manage-iot-central-from-portal.md
         - name: Manage from command line

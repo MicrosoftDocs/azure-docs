@@ -2,7 +2,7 @@
 title: Multi-user authorization using Resource Guard
 description: An overview of Multi-user authorization using Resource Guard.
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 06/08/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -26,9 +26,9 @@ The following table lists the operations defined as critical operations and can 
 --- | ---
 Disable soft delete | Mandatory
 Disable MUA protection | Mandatory
-Modify backup policy | Optional: Can be excluded
-Modify protection | Optional: Can be excluded
-Stop protection | Optional: Can be excluded
+Modify backup policy (reduced retention) | Optional: Can be excluded
+Modify protection (reduced retention) | Optional: Can be excluded
+Stop protection with delete data | Optional: Can be excluded
 Change MARS security PIN | Optional: Can be excluded
 
 ### Concepts and process
@@ -47,7 +47,7 @@ Following is a diagrammatic representation for performing a critical operation o
 Here is the flow of events in a typical scenario:
 
 1. The Backup admin creates the Recovery Services vault.
-1. The Security admin creates the Resource Guard. The Resource Guard can be in a different subscription or a different tenant w.r.t the Recovery Services vault. It must be ensured that the Backup admin does not have Contributor permissions on the Resource Guard.
+1. The Security admin creates the Resource Guard. The Resource Guard can be in a different subscription or a different tenant with respect to the Recovery Services vault. It must be ensured that the Backup admin does not have Contributor permissions on the Resource Guard.
 1. The Security admin grants the **Reader** role to the Backup Admin for the Resource Guard (or a relevant scope). The Backup admin requires the reader role to enable MUA on the vault.
 1. The Backup admin now configures the Recovery Services vault to be protected by MUA via the Resource Guard.
 1. Now, if the Backup admin wants to perform a critical operation on the vault, they need to request access to the Resource Guard. The Backup admin can contact the Security admin for details on gaining access to perform such operations. They can do this using Privileged Identity Management (PIM) or other processes as mandated by the organization.

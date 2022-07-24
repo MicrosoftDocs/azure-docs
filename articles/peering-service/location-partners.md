@@ -2,13 +2,13 @@
 title: Azure Peering Service locations and partners
 description: Learn about Azure Peering Service locations and partners
 services: peering-service
-author: derekolo
+author: halkazwini
 ms.service: peering-service
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/06/2020
-ms.author: derekol
+ms.author: halkazwini
 ---
 
 # Peering Service partners
@@ -24,7 +24,7 @@ The table in this article provides information on the Peering Service connectivi
 
 | **Partners** | **Market**|
 |-----------|---------|
-| [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |North America, Europe|
+| [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |North America, Europe, Asia|
 | [BBIX](https://www.bbix.net/en/service/) |Japan |
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asia|
@@ -41,8 +41,12 @@ The table in this article provides information on the Peering Service connectivi
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
 | [MainOne](https://www.mainone.net/connectivity-services/) |Africa|
 | [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europe|
-| [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) |Asia |
+| [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) |Asia, Europe |
 | [Atman](https://www.atman.pl/en/atman-internet-maps/) |Europe|
+| [LINX](https://www.linx.net/services/microsoft-azure-peering/) |Europe|
+| [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |Asia|
+
+
 
 > [!NOTE]
 >For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
