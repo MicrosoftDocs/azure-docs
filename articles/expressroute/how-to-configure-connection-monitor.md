@@ -133,7 +133,7 @@ It's recommended that you install the Log Analytics agent on at least two server
 
 1. Select the appropriate operating system below for the steps to install the Log Analytics agent on your servers.
 
-    * [Windows](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard)
+    * [Windows](../azure-monitor/agents/agent-windows.md#install-the-agent)
     * [Linux](../azure-monitor/agents/agent-linux.md)
 
 1. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration, and [verify the agent connectivity](../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor) to Azure Monitor logs.
