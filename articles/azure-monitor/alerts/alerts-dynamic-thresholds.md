@@ -96,7 +96,7 @@ For existing resources with sufficient metric data, Dynamic Thresholds can trigg
 
 ## How does prolong outages affected the thresholds that are calculated?
 
-Dynamic Threholds automatically recognizes prolonged outages and removes them from thresholds training. The results are thresholds that fit the data and can detect service issues with the same sensitivity as before the outage.
+Dynamic Threholds automatically recognizes prolonged outages and removes them from thresholds training. The results are thresholds that fit the data and can detect service issues with the same sensitivity as before an outage occurred.
 
 ## Dynamic Thresholds best practices
 
