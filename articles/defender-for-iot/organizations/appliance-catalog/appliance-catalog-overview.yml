@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft Defender for IoT - OT monitoring appliance reference
-summary: This article provides an overview of the OT monitoring appliances supported with Microsoft Defender for IoT. Each linked article provides details about the appliance and any extra software installation procedures required. For more information, see [Install OT system software](../how-to-install-software.md) and [Update Defender for IoT OT monitoring software](../update-ot-software.md).
+summary: This article provides an overview of the OT monitoring appliances supported with Microsoft Defender for IoT. Each linked article provides details about the appliance and any extra software installation procedures required. 
 
 metadata:
   title: Microsoft Defender for IoT - OT monitoring appliance reference
