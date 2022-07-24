@@ -1,5 +1,5 @@
 ---
-title: Publishing checklist 
+title: Microsoft 365 app publishing checklist 
 description:  Use this checklist to determine if your Microsoft 365 app is ready to be published.
 ms.author: siraghav
 ms.topic: article
