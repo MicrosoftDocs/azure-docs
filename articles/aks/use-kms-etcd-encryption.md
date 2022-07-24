@@ -3,7 +3,7 @@ title: Use KMS etcd encryption in Azure Kubernetes Service (AKS)
 description: Learn how to use kms etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/19/2022
+ms.date: 07/25/2022
 
 ---
 
@@ -23,6 +23,8 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * Azure CLI version 2.39.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+> [!WARNING]
+> KMS only supports Konnectivity. You could use `kubectl get po -n kube-system` to check whether there is 'konnectivity-agent-xxx' pod running. 
 
 ## Limitations
 
@@ -221,10 +223,10 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
 ### Rotate the existing keys 
-After changing the key ID (including key name and key version), you could use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-id`, `--azure-keyvault-kms-key-vault-network-access` and `--azure-keyvault-kms-key-vault-resource-id` parameters to rotate the exitsing keys of KMS.
+After changing the key ID (including key name and key version), you could use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-id`, `--azure-keyvault-kms-key-vault-network-access` and `--azure-keyvault-kms-key-vault-resource-id` parameters to rotate the existing keys of KMS.
 
 > [!WARNING]
-> Remember to update all secrets after key rotation. Otheriwse, the secrets will be unaccessable if the old keys are not existing or working.
+> Remember to update all secrets after key rotation. Otherwise, the secrets will be unaccessable if the old keys are not existing or working.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $NewKEY_ID --azure-keyvault-kms-key-vault-network-access "Private" --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID
