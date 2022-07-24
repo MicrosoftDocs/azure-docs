@@ -13,6 +13,8 @@ This article lists new features and feature enhancements in Microsoft Defender f
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
+
 ## July 2022
 
 **Version 4.2.4**
@@ -105,4 +107,5 @@ This feature set is available with the current public preview cloud release.
 
 ## Next steps
 
-[Onboard to Defender for IoT](quickstart-onboard-iot-hub.md)
+- [Onboard to Defender for IoT](quickstart-onboard-iot-hub.md)
+- [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md)
