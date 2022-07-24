@@ -49,7 +49,7 @@ This section explains how to install the Log Analytics agent on different types 
 
 - Use [Azure Arc-enabled servers](../../azure-arc/servers/overview.md) to deploy and manage the Log Analytics VM extension. Review the [deployment options](../../azure-arc/servers/concept-log-analytics-extension-deployment.md) to understand the different deployment methods available for the extension on machines registered with Azure Arc-enabled servers.
 - [Manually install](../agents/agent-windows.md) the agent from the command line.
-- Automate the installation with [Azure Automation DSC](../agents/agent-windows.md#install-agent-using-dsc-in-azure-automation).
+- Automate the installation with [Azure Automation DSC](../agents/agent-windows.md#install-the-agent).
 - Use a [Resource Manager template with Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win).
 
 ### Linux virtual machine on-premises or in another cloud
