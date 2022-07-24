@@ -79,6 +79,33 @@ You can update software on your sensors individually, directly from each sensor 
 > For more information, see [Update an on-premises management console](#update-an-on-premises-management-console).
 >
 
+
+# [From the Azure portal (Public preview)](#tab/portal)
+
+This procedure describes how to download the new sensor software version and then run the update directly from the Azure portal.
+
+**To update your sensor from the Azure portal**:
+
+1. In the Azure portal, go to **Defender for IoT** > **Sites and sensors** and identify the sensors that have legacy versions installed. If you know your site and sensor name, you can browse to it directly. Alternately filter the sensors listed by *Sensor version* and show all sensor versions that contain a number earlier than the most recent version available.
+
+1. Select one or more sensors to update, and then select **Update (Preview)** > **Download package**. For a specific sensor, you can also access the **Download package** option from the **...** options menu to the right of the sensor row.
+
+1. In the **Download package** pane that appears on the right, check to make sure that you're downloading the correct software to the sensor you want to update. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
+
+    To jump to the release notes for the new version, select **Learn more** at the top of the pane.
+
+    When you're ready, select **Download package**. The software download to your sensor machine is started, and you can see the progress in the **Sensor version** column. Hover over the status bar to see details about your upgrade versions.
+
+1. When the **Sensor version** column reads *Ready to update*, select **Update (Preview)** in the toolbar > **Update sensor**.
+
+    > [!TIP]
+    > Depending on your organization's needs, you might want to separate the software download and installation. For example, have the update downloaded overnight and then wait for an administrator to run the installation during a planned maintenance window.
+    >
+1. In the **Update sensor** pane that appears on the right, check to verify your update details. When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to *Installing* until the update is complete, when the value switches to the new sensor version number instead.
+
+If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered.
+
+
 # [From each sensor](#tab/sensor)
 
 This procedure describes how to manually download the new sensor software version and then run your update directly on the sensor console.
