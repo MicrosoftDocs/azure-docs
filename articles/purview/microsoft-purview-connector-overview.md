@@ -48,7 +48,7 @@ The table below shows the supported capabilities for each data source. Select th
 || [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | No | [Yes](register-scan-snowflake.md#lineage) | No | No |
 ||    [SQL Server](register-scan-on-premises-sql-server.md)| [Yes](register-scan-on-premises-sql-server.md#register) |[Yes](register-scan-on-premises-sql-server.md#scan) | No* | No| No |
 ||    SQL Server on Azure-Arc| No |No | No |[Yes (Preview)](how-to-data-owner-policies-arc-sql-server.md) | No |
-||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)|  No | [Yes*](register-scan-teradata-source.md#lineage) | No| No |
+||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)| [Yes](register-scan-teradata-source.md#scan)| [Yes*](register-scan-teradata-source.md#lineage) | No| No |
 |File|[Amazon S3](register-scan-amazon-s3.md)|[Yes](register-scan-amazon-s3.md)| [Yes](register-scan-amazon-s3.md)| Limited* | No| No |
 |Services and apps|    [Erwin](register-scan-erwin-source.md)| [Yes](register-scan-erwin-source.md#register)| No | [Yes](register-scan-erwin-source.md#lineage)| No| No |
 ||    [Looker](register-scan-looker-source.md)| [Yes](register-scan-looker-source.md#register)| No | [Yes](register-scan-looker-source.md#lineage)| No| No |
