@@ -535,8 +535,8 @@ Front Door.
 |944110|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |944120|Remote Command Execution: Java serialization (CVE-2015-5842)|
 |944130|Suspicious Java class detected|
-|944200|Magic bytes Detected, probable java serialization in use|
-|944210|Magic bytes Detected Base64 Encoded, probable java serialization in use|
+|944200|Magic bytes Detected, probable Java serialization in use|
+|944210|Magic bytes Detected Base64 Encoded, probable Java serialization in use|
 |944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 

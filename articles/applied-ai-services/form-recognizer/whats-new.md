@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 06/29/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -19,9 +19,17 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## June 2022
 
+### [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) June Update
+
+The June release is the latest update to the Form Recognizer Studio. There are considerable UX and accessbility improvements addressed in this update:
+
+* 🆕 **Code sample for Javascript and C#**. The Studio code tab now adds Javascript and C# code samples in addition to the existing Python one.
+* 🆕 **New document upload UI**. Studio now supports uploading a document with drag & drop into the new upload user interface.
+* 🆕 **New feature for custom projects**. Custom projects now support creating storage account and blobs when configuring the project. In addition, custom project now supports uploading training files directly within the Studio and copying the existing custom model.
+
 ### Form Recognizer v3.0 preview release
 
-The **2022-06-30-preview** release is the latest update to the Form Recognizer service for v3.0 capabilities. There are considerable updates across the feature APIs:
+The **2022-06-30-preview** release is the latest update to the Form Recognizer service for v3.0 capabilities and presents extensive updates across the feature APIs:
 
 * [🆕 **Layout extends structure extraction**](concept-layout.md). Layout now includes added structure elements including sections, section headers, and paragraphs. This update enables finer grain document segmentation scenarios. For a complete list of structure elements identified, _see_ [enhanced structure](concept-layout.md#data-extraction).
 * [🆕 **Custom neural model tabular fields support**](concept-custom-neural.md). Custom document models now support tabular fields. Tabular fields by default are also multi page. To learn more about tabular fields in custom neural models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).

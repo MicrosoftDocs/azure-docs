@@ -28,14 +28,14 @@ The focus of the release phase is readying a project for public release. This in
 
 ### Check your application’s performance before you launch
 
-Check your application's performance before you launch it or deploy updates to production. Use Azure Load Testing to run cloud-based [load tests](/azure/load-testing/) to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
+Check your application's performance before you launch it or deploy updates to production. Use Azure Load Testing to run cloud-based [load tests](../../load-testing/index.yml) to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
 
 ### Install a web application firewall
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks and cross-site scripting attacks. Preventing these attacks in application code can be challenging. It might require rigorous maintenance, patching, and monitoring at many layers of the application topology. A centralized WAF helps make security management simpler. A WAF solution can also react to a security threat by patching a known vulnerability at a central location versus securing each individual web application.
 
 The [Azure Application Gateway WAF](../../web-application-firewall/ag/ag-overview.md)
-provides centralized protection of your web applications from common exploits and vulnerabilities. The WAF is based on rules from the [OWASP core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9.
+provides centralized protection of your web applications from common exploits and vulnerabilities. The WAF is based on rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9.
 
 ### Create an incident response plan
 

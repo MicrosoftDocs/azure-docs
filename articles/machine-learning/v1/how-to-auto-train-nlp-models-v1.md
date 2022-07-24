@@ -32,7 +32,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](../
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md). See [GPU optimized virtual machine sizes](../../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
+* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md). See [GPU optimized virtual machine sizes](../../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
 
    > [!Warning]
    > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
@@ -111,7 +111,7 @@ text,labels
 
 ### Named entity recognition (NER)
 
-Unlike multi-class or multi-label, which takes `.csv` format datasets, named entity recognition requires [CoNLL](https://www.clips.uantwerpen.be/conll2003/ner/) format. The file must contain exactly two columns and in each row, the token and the label is separated by a single space. 
+Unlike multi-class or multi-label, which takes `.csv` format datasets, named entity recognition requires CoNLL format. The file must contain exactly two columns and in each row, the token and the label is separated by a single space. 
 
 For example,
 

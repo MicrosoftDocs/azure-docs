@@ -73,7 +73,6 @@ For more information, see the following articles:
 * [Connect to storage services](how-to-access-data.md)
 * [Use Azure Key Vault for secrets when training](how-to-use-secrets-in-runs.md)
 * [Use Azure AD managed identity with Azure Machine Learning](how-to-use-managed-identities.md)
-* [Use Azure AD managed identity with your web service](how-to-use-azure-ad-identity.md)
 
 ## Network security and isolation
 

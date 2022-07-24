@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 04/06/2022
+ms.date: 07/15/2022
 ---
 
 # Azure for secure worldwide public sector cloud adoption
@@ -47,7 +47,7 @@ This article addresses common data residency, security, and isolation concerns p
 
 Established privacy regulations are silent on **data residency and data location**, and permit data transfers in accordance with approved mechanisms such as the EU Standard Contractual Clauses (also known as EU Model Clauses). Microsoft commits contractually in the Microsoft Products and Services [Data Protection Addendum](https://aka.ms/DPA) (DPA) that all potential transfers of customer data out of the EU, European Economic Area (EEA), and Switzerland shall be governed by the EU Model Clauses. Microsoft will abide by the requirements of the EEA and Swiss data protection laws regarding the collection, use, transfer, retention, and other processing of personal data from the EEA and Switzerland. All transfers of personal data are subject to appropriate safeguards and documentation requirements. However, many customers considering cloud adoption are seeking assurances about customer and personal data being kept within the geographic boundaries corresponding to customer operations or location of customer’s end users.
 
-**Data sovereignty** implies data residency; however, it also introduces rules and requirements that define who has control over and access to customer data stored in the cloud. In many cases, data sovereignty mandates that customer data be subject to the laws and legal jurisdiction of the country or region in which data resides. These laws can have direct implications on data access even for platform maintenance or customer-initiated support requests. You can use Azure public multi-tenant cloud in combination with Azure Stack products for on-premises and edge solutions to meet your data sovereignty requirements, as described later in this article. These other products can be deployed to put you solely in control of your data, including storage, processing, transmission, and remote access.
+**Data sovereignty** implies data residency; however, it also introduces rules and requirements that define who has control over customer data stored in the cloud. In many cases, data sovereignty mandates that customer data be subject to the laws and legal jurisdiction of the country or region in which data resides. These laws can have direct implications on data access even for platform maintenance or customer-initiated support requests. You can use Azure public multi-tenant cloud in combination with Azure Stack products for on-premises and edge solutions to meet your data sovereignty requirements, as described later in this article. These other products can be deployed to put you solely in control of your data, including storage, processing, transmission, and remote access.
 
 Among several [data categories and definitions](https://www.microsoft.com/trust-center/privacy/customer-data-definitions) that Microsoft established for cloud services, the following four categories are discussed in this article:
 
@@ -162,7 +162,7 @@ Proper protection and management of encryption keys is essential for data securi
 Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are FIPS 140 validated. With Azure Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key* (BYOK) scenarios. **Keys generated inside the Azure Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs.** This binding is enforced by the underlying HSM.
 
 > [!NOTE]
-> Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.
+> Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys. For extra assurances, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys)
 
 For more information, see [Azure Key Vault](./azure-secure-isolation-guidance.md#azure-key-vault).
 
@@ -305,7 +305,7 @@ Microsoft has implemented extensive protections for the Azure cloud platform and
 
 ## Private and hybrid cloud with Azure Stack
 
-[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) portfolio is an extension of Azure that enables you to build and run hybrid applications across on-premises, edge locations, and cloud. As shown in Figure 4, Azure Stack includes Azure Stack Hyperconverged Infrastructure (HCI), Azure Stack Hub (previously Azure Stack), and Azure Stack Edge (previously Azure Data Box Edge). The last two components (Azure Stack Hub and Azure Stack Edge) are discussed in this section. For more information, see [Differences between global Azure, Azure Stack Hub, and Azure Stack HCI](/azure-stack/operator/compare-azure-azure-stack).
+[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) portfolio is an extension of Azure that enables you to build and run hybrid applications across on-premises, edge locations, and cloud. As shown in Figure 4, Azure Stack includes Azure Stack Hyperconverged Infrastructure (HCI), Azure Stack Hub (formerly Azure Stack), and Azure Stack Edge (formerly Azure Data Box Edge). The last two components (Azure Stack Hub and Azure Stack Edge) are discussed in this section. For more information, see [Differences between global Azure, Azure Stack Hub, and Azure Stack HCI](/azure-stack/operator/compare-azure-azure-stack).
 
 :::image type="content" source="./media/wwps-azure-stack-portfolio.jpg" alt-text="Azure Stack portfolio" border="false":::
 **Figure 4.**  Azure Stack portfolio
