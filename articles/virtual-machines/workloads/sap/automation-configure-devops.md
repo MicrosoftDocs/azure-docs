@@ -280,6 +280,18 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 
 Save the variables.
 
+Or alternatively you can use the Azure DevOps CLI to setup the groups.
+
+```bash
+s-user="<SAP Support user account name>"
+s-password="<SAP Support user password>"
+
+az devops login
+
+az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password --output yaml
+
+```
+
 > [!NOTE]
 > Remember to assign permissions for all pipelines using _Pipeline permissions_.
 
