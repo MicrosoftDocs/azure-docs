@@ -62,10 +62,8 @@ There are three options for configuring your reserved Public IP down to the NSX 
  
 A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT) is used to allow many VMs to one SNAT service. This connection means you can provide Internet connectivity for many VMs.
 
-To enable SNAT for your specified address ranges, you must configure a gateway firewall rule and SNAT for the specific address ranges you desire. If you do not want SNAT enabled for specific address ranges, you must also create a No-NAT rule for the address ranges you wish to exclude. For this functionality to work as expected, make the No-NAT rule a higher priority than the SNAT rule.
-
 >[!Note]
-> To enable SNAT for your specified address ranges, you must [configure a gateway firewall rule](#gateway-firewall-used-to-filter-traffic-to-vms-at-t1-gateways) and SNAT for the specific address ranges you desire. If you don't want SNAT enabled for specific address ranges, you must also create a [No-NAT rule](#no-nat-rule-for-specific-address-ranges) for the address ranges you wish to exclude. For this functionality to work as expected, make the No-NAT rule a higher priority than the SNAT rule.
+> To enable SNAT for your specified address ranges, you must [configure a gateway firewall rule](#gateway-firewall-used-to-filter-traffic-to-vms-at-t1-gateways) and SNAT for the specific address ranges you desire. If you don't want SNAT enabled for specific address ranges, you must create a [No-NAT rule](#no-nat-rule-for-specific-address-ranges) for the address ranges to exclude. For this functionality to work as expected, make the No-NAT rule a higher priority than the SNAT rule.
 
 **Add rule**
 1.	From your Azure VMware Solution private cloud, select **vCenter Credentials**
@@ -91,7 +89,7 @@ Logging can be enabled by way of the logging slider. For more information on NSX
 
 A No NAT rule can be used to exclude certain matches from performing Network Address Translation.  This policy can be used to allow private IP traffic to bypass the NAT rule.
 
-1. From your Azure VMware Solution private cloud, select **vCenter Credentials**
+1. From your Azure VMware Solution private cloud, select **vCenter Credentials**.
 2.	Locate your NSX-T URL and credentials.
 3.	Log in to **VMWare NSX-T** and then select **3  NAT Rules**.
  
@@ -125,7 +123,7 @@ The VM is now exposed to the internet on the specific Public IP and/or specific 
 ### Gateway Firewall used to filter traffic to VMs at T1 Gateways
  
 You can provide security protection for your network traffic in and out of the public internet through your Gateway Firewall. 
-1.	From your Azure VMware Solution Private Cloud, select **VMware credentials**
+1.	From your Azure VMware Solution Private Cloud, select **VMware credentials**.
 2.	Locate your NSX-T URL and credentials.
 3.	Log in to **VMware NSX-T**.   
 4.	From the NSX-T home screen, select **Gateway Policies**.     
