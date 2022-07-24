@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-azure-ad-identity.md",
+        "redirect_url": "/azure/machine-learning/how-to-access-resources-from-endpoints-managed-identities",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/resource-limits-quotas-capacity.md",
+        "redirect_url": "/azure/machine-learning/resource-limits-capacity",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-models-with-aml.md",
         "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
         "redirect_document_id": true
@@ -2137,7 +2147,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-mlflow.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-use-mlflow",
+        "redirect_url": "/azure/machine-learning/how-to-use-mlflow-cli-runs",
         "redirect_document_id": false
     },
     {

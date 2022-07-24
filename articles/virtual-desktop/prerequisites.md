@@ -23,14 +23,12 @@ At a high level, you'll need:
 
 ## Azure account with an active subscription
 
-You'll need an Azure account with an active subscription to deploy Azure Virtual Desktop. If you don't have one already, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+You'll need an Azure account with an active subscription to deploy Azure Virtual Desktop. If you don't have one already, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Your account must be assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
 
-You also need to make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription.
+You also need to make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription. To check the status of the resource provider and register if needed:
 
 > [!IMPORTANT]
-> You must have permission to register a resource provider, which requires the `*/register/action` operation. This is included if you are assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
-
-To check the status of the resource provider and register if needed:
+> You must have permission to register a resource provider, which requires the `*/register/action` operation. This is included if your account is assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Subscriptions**.

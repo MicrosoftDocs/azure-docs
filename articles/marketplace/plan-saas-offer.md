@@ -42,7 +42,7 @@ After your offer is published, the listing option you chose for your offer appea
 
 The technical requirements differ depending on the listing option you choose for your offer.
 
-The _Contact me_ listing option has no technical requirements. You have the option to connect a customer relationship management (CRM) system to manage customer leads. This is described in the [Customer leads](#customer-leads) section, later in this article.
+The _Contact me_ listing option has no technical requirements. When a customer expresses interest in or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. You also have the option to connect a customer relationship management (CRM) system to your offer to manage customer leads. This is described in the [Customer leads](#customer-leads) section, later in this article.
 
 The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing options have the following technical requirements:
 

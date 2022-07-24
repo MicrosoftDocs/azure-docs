@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 05/31/2022
+ms.date: 07/07/2022
 ms.topic: how-to
 ---
 
@@ -56,6 +56,4 @@ To view the status of your upgrade in the portal, go to the resource group of th
 
 You will see a "Validate Deploy" option that shows the status. 
 
-## Troubleshoot upgrade problems
-
-If you encounter any troubles with upgrading, see the [troubleshooting guide](troubleshoot-guide.md).
+[!INCLUDE [upgrade-rollback](includes/upgrade-rollback.md)]

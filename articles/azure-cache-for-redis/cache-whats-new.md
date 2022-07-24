@@ -20,7 +20,7 @@ These two new metrics can help identify whether Azure Cache for Redis clients ar
 - Connections Created Per Second
 - Connections Closed Per Second
 
-For more information, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+For more information, see [View cache metrics ](cache-how-to-monitor.md#view-cache-metrics).
 
 ### Default cache change
 

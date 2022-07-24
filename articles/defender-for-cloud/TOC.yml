@@ -5,6 +5,7 @@
   expanded: true
   items:
   - name: What is Microsoft Defender for Cloud?
+    displayName: Defender for cloud, servers, storage, sql, containers, app service, key vaulkt, resource manager, dns, open-source relational databases, Azure cosmos db, db, Azure, defender
     href: defender-for-cloud-introduction.md
   - name: What are the enhanced security features?
     displayName: azure defender
@@ -80,13 +81,16 @@
 
 - name: Concepts
   items:
+  - name: The Defender for Cloud multicloud solution
+    href: multicloud.yml
+
   - name: Cloud Security Posture Management concepts
     items:
     - name: Policies, initiatives, and recommendations
       href: security-policy-concept.md
     - name: Security posture
       href: secure-score-security-controls.md
-    - name: Reference list of recommendations
+    - name: Reference list of Azure recommendations
       href: recommendations-reference.md
     - name: Reference list of AWS recommendations
       href: recommendations-reference-aws.md
@@ -97,9 +101,6 @@
       href: alerts-overview.md
     - name: Reference list of alerts
       href: alerts-reference.md
-
-  - name: The Defender for Cloud multicloud solution
-    href: multicloud.yml
 
 - name: How-to guides
   items:
@@ -205,7 +206,7 @@
     displayName: hybrid, arc, Defender for Servers
     items:
     - name: Overview
-      displayName: VM
+      displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
       href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
@@ -264,7 +265,7 @@
   - name: Defender for Containers
     items:
     - name: Overview
-      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
+      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud, Hardening, Vulnerability assessment, Run-time protection
       href: defender-for-containers-introduction.md
     - name: How does Defender for Containers work?
       href: defender-for-containers-architecture.md
@@ -330,7 +331,7 @@
   - name: Defender for Storage
     items:
     - name: Overview
-      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
+      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage, storage, Azure-native security, automated response, alerts, security, hash reputation analysis
       href: defender-for-storage-introduction.md
     - name: Enable Defender for Storage
       href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json#set-up-microsoft-defender-for-cloud
@@ -436,6 +437,10 @@
       href: episode-thirteen.md
     - name: Defender for Servers deployment in AWS and GCP
       href: episode-fourteen.md
+    - name: Remediate security recommendations with governance
+      href: episode-fifteen.md
+    - name: Defender for Servers integration with Microsoft Defender for Endpoint
+      href: episode-sixteen.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

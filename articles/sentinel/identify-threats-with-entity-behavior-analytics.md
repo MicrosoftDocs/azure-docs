@@ -10,11 +10,7 @@ ms.custom: ignite-fall-2021
 
 # Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 > [!IMPORTANT]
->
-> - The UEBA and Entity Pages features are now in **General Availability** in ***all*** Microsoft Sentinel geographies and regions. 
 >
 > - The **IP address entity** is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -49,9 +45,13 @@ Microsoft Sentinel presents artifacts that help your security analysts get a cle
 - across time and frequency horizons (compared to user's own history).
 - as compared to peers' behavior.
 - as compared to organization's behavior.
-
     :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Entity context":::
 
+The user entity information that Microsoft Sentinel uses to build its user profiles comes from your Azure Active Directory (and/or your on-premises Active Directory, now in Preview). When you enable UEBA, it synchronizes your Azure Active Directory with Microsoft Sentinel, storing the information in an internal database visible through the *IdentityInfo* table in Log Analytics.
+
+Now in preview, you can also sync your on-premises Active Directory user entity information as well, using Microsoft Defender for Identity.
+
+See [Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md) to learn how to enable UEBA and synchronize user identities.
 
 ### Scoring
 
@@ -115,7 +115,7 @@ Entity pages are designed to be part of multiple usage scenarios, and can be acc
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Entity page use cases":::
 
-Entity page information is stored in the **BehaviorAnalytics** table, described in detail in the [Microsoft Sentinel UEBA enrichments reference](ueba-enrichments.md).
+Entity page information is stored in the **BehaviorAnalytics** table, described in detail in the [Microsoft Sentinel UEBA reference](ueba-reference.md).
 
 ## Querying behavior analytics data
 
@@ -170,4 +170,4 @@ In this document, you learned about Microsoft Sentinel's entity behavior analyti
 - [Investigate incidents with UEBA data](investigate-with-ueba.md).
 - [Hunt for security threats](./hunting.md).
 
-For more information, also see the [Microsoft Sentinel UEBA enrichments reference](ueba-enrichments.md).
+For more information, also see the [Microsoft Sentinel UEBA reference](ueba-reference.md).
