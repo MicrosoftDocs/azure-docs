@@ -122,7 +122,7 @@ docker-cimprov | 1.0.0 | Docker provider for OMI. Only installed if Docker is de
 
 ### Agent installation details
 
-After installing the Log Analytics agent for Linux packages, the following system-wide configuration changes are also applied. These artifacts are removed when the omsagent package is uninstalled.
+Installing the Log Analytics agent for Linux packages also applies the system-wide configuration changes below. Uninstalling the omsagent package removes these artifacts.
 
 * A non-privileged user named: `omsagent` is created. The daemon runs under this credential. 
 * A sudoers *include* file is created in `/etc/sudoers.d/omsagent`. This authorizes `omsagent` to restart the syslog and omsagent daemons. If sudo *include* directives aren't supported in the installed version of sudo, these entries will be written to `/etc/sudoers`.
