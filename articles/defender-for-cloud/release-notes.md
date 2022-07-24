@@ -49,8 +49,7 @@ Defender for Container's vulnerability assessment (VA) has extended its abilitie
 
 | Language specific packages | OS packages| 
 |--|--|
-|Java <br> Python <br> Node.js <br> .NET <br> Go | Alpine Linux 3.12-3.15 <br> Red Hat Enterprise Linux 6, 7, 8 <br> CentOS 6, 7 <br> Oracle Linux 6,6,7,8 <br> Amazon Linux 1,2 <br> openSUSE leap 42, 15 <br> SUSE Enterprise Linux 11,12, 15 <br>
-Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> Ubuntu 10.10 - 22.04 <br> FreeBSD 11.1-13.1 <br> Fedora 32, 33, 34, 35 |
+|Java <br> Python <br> Node.js <br> .NET <br> Go | Alpine Linux 3.12-3.15 <br> Red Hat Enterprise Linux 6, 7, 8 <br> CentOS 6, 7 <br> Oracle Linux 6,6,7,8 <br> Amazon Linux 1,2 <br> openSUSE leap 42, 15 <br> SUSE Enterprise Linux 11,12, 15 <br> Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> Ubuntu 10.10 - 22.04 <br> FreeBSD 11.1-13.1 <br> Fedora 32, 33, 34, 35 |
 
 ## June 2022
 
