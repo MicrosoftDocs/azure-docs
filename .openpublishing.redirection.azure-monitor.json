@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/azure-monitor/change/change-analysis-powershell.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger.md",
             "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger",
             "redirect_document_id": false
