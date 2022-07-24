@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 * An [Azure subscription](https://azure.microsoft.com/free/cognitive-services)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), available for free.
-* An excel file (.xlsx) containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/example-data.xlsx)
+* An excel file (.xlsx) containing time series data points.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint.
     * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll do this later in the quickstart.
 
@@ -110,6 +110,9 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
 Invoke the query on your data sheet by selecting `Sheet1` below **Enter Parameter**, and click **Invoke**.
 
 ![An image of the invoke function](../media/tutorials/invoke-function-screenshot.png)
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
 
 ## Data source privacy and authentication
 

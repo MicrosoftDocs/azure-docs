@@ -1,13 +1,13 @@
 ---
-title: Ground station contact profile - Azure Orbital GSaaS
+title: Ground station contact profile - Azure Orbital
 description: Learn more about the contact profile object, including how to create, modify, and delete the profile.
 author: hrshelar
 ms.service: orbital
 ms.topic: conceptual
 ms.custom: ga
-ms.date: 06/21/2022
+ms.date: 07/13/2022
 ms.author: hrshelar
-#Customer intent: As a satellite operator or user, I want to understand how to use the contact profile so that I can take passes using the GSaaS service.
+#Customer intent: As a satellite operator or user, I want to understand how to use the contact profile so that I can take passes using the Azure Orbital Ground Station (AOGS) service.
 ---
 
 # Ground station contact profile
@@ -22,7 +22,7 @@ See [how to configure a contact profile](contact-profile.md) for the full list o
 
 ## Prerequisites 
 
-- Subnet that is created in the VNET and resource group you desire. See [Prepare network for Orbital GSaaS integration.](prepare-network.md)
+- Subnet that is created in the VNET and resource group you desire. See [Prepare network for Azure Orbital Ground Station integration.](prepare-network.md)
 
 ## Creating a contact profile 
 
@@ -142,6 +142,6 @@ When you onboard a third party network, you'll receive a token that identifies y
 
 ## Next steps
 
-- [Quickstart: Schedule a contact](schedule-contact.md)
-- [How to: Update the Spacecraft TLE](update-tle.md)
+- [Schedule a contact](schedule-contact.md)
+- [Update the Spacecraft TLE](update-tle.md)
 

@@ -9,7 +9,7 @@ manager: femila
 ---
 # Troubleshoot Azure Files authorization
 
-This article describes common issues related to Azure Files authentication with Azure Active Directory (AD), and suggestions for how to fix them.
+This article describes common issues related to Azure Files authentication with Azure Active Directory (Azure AD), and suggestions for how to fix them.
 
 ## My group membership isn't working
 
