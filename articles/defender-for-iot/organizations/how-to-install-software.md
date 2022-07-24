@@ -25,7 +25,7 @@ Mount the ISO file using one of the following options:
 
 Each appliance type comes with its own set of instructions that are required before installing Defender for IoT software.
 
-Make sure that you've completed the procedures for your appliance, as instructed in the [OT monitoring appliance reference](appliance-catalog/appliance-catalog-overview.md) section of our documentation before installing Defender for IoT software.
+Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software. For more information, see the [OT monitoring appliance catalog](appliance-catalog/appliance-catalog-overview.md).
 
 For more information, see:
 
@@ -57,7 +57,7 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     System files are installed, the sensor reboots, and then sensor files are installed. This process can take a few minutes.
 
-    When the installation steps are complete, the Ubuntu **Package configuration** screen is displayed, with the `Configuring iot-sensor` wizard, showing a prompt to to select your monitor interfaces.
+    When the installation steps are complete, the Ubuntu **Package configuration** screen is displayed, with the `Configuring iot-sensor` wizard, showing a prompt to  select your monitor interfaces.
 
     In this wizard, use the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
 
@@ -116,18 +116,18 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     :::image type="content" source="media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
 
-    Save the usernames and passwords listed, as they are unique and this is the only the credentials are listed. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
+    Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are listed. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
 
     Select `<Ok>` when you're ready to continue.
 
     The installation continues running again, and then reboots when the installation is complete. Upon reboot, you're prompted to enter credentials to sign in. For example:
 
-    :::image type="content" source="media/tutorial-install-components/sensor-sign-in.png" alt-text="Screenshot of a sensor sign in screen after installation.":::
+    :::image type="content" source="media/tutorial-install-components/sensor-sign-in.png" alt-text="Screenshot of a sensor sign-in screen after installation.":::
 
 1. Enter the credentials for one of the users that you'd copied down in the [previous step](#credentials).
 
     - If the `iot-sensor login:` prompt disappears, press **ENTER** to have it shown again.
-    - When entering your password, the password characters do not display on the screen. Make sure you enter them carefully.
+    - When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully.
 
     When you've successfully signed in, the following confirmation screen appears:
 
