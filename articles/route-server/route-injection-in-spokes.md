@@ -68,7 +68,7 @@ This dual functionality often is interesting, but at times it can be detrimental
 
 However, there is an alternative, more dynamic approach. It is possible using different Azure Route Servers for different functionality: one of them will be responsible for interacting with the Virtual Network Gateways, and the other one for interacting with the Virtual Network routing. The following diagram shows a possible design for this:
 
-:::image type="content" source="./media/scenarios/route-injection-split-route-server.png" alt-text="This network diagram shows a basic hub and spoke topology with on-premises connectivity via ExpressRoute and different Route Servers for ExpressRoute and Virtual Network interaction.":::
+:::image type="content" source="./media/scenarios/route-injection-split-route-server.png" alt-text="This network diagram shows a basic hub and spoke topology with on-premises connectivity via ExpressRoute and two Route Servers.":::
 
 In the figure above, Azure Route Server 1 in the hub is used to inject the prefixes from the SDWAN into ExpressRoute. Since the spokes are peered with the hub VNet without the "Use Remote Gateways" and "Allow Gateway Transit" VNet peering options, the spokes will not learn these routes (neither the SDWAN prefixes nor the ExpressRoute prefixes).
 
