@@ -1,8 +1,8 @@
 ---
-author: elkrieger
+author: ElazarK
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 01/10/2022
+ms.date: 07/14/2022
 ms.author: elkrieger
 ---
 ## Remove the Defender extension

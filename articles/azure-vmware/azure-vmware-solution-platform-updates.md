@@ -11,6 +11,15 @@ ms.date: 07/07/2022
 
 Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+## July 8, 2022
+
+HCX cloud manager in Azure VMware solutions can now be accessible over a public IP address. You can pair HCX sites and create a service mesh from on-premises to Azure VMware Solutions private cloud using Public IP.
+
+HCX with public IP is especially useful in cases where On-premises sites are not connected to Azure via Express Route or VPN. HCX service mesh appliances can be configured with public IPs to avoid lower tunnel MTUs due to double encapsulation if a VPN is used for on-premises to cloud connections.
+
+For more information, please see [Enable HCX over the internet](/azure/azure-vmware/enable-hcx-access-over-internet)
+
+
 ## July 7, 2022
 
 All new Azure VMware Solution private clouds are now deployed with VMware vCenter Server version 7.0 Update 3c and ESXi version 7.0 Update 3c.

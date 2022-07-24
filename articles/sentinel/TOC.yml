@@ -3,9 +3,9 @@
 - name: Overview
   expanded: true
   items:
-  - name: About Microsoft Sentinel
+  - name: What is Microsoft Sentinel?
     href: overview.md
-  - name: What's new in Microsoft Sentinel?
+  - name: What's new
     href: whats-new.md
 - name: Quickstart
   items:
