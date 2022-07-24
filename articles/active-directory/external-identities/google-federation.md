@@ -7,12 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 07/12/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan, has-adal-ref"
 ms.collection: M365-identity-device-management
 ---
@@ -33,7 +32,7 @@ By setting up federation with Google, you can allow invited users to sign in to 
 
 ## What is the experience for the Google user?
 
-When a Google user redeems your invitation, their experience varies depending on whether they're already signed in to Google:
+You can invite a Google user to B2B collaboration in various ways. For example, you can [add them to your directory via the Azure portal](b2b-quickstart-add-guest-users-portal.md). When they redeem your invitation, their experience varies depending on whether they're already signed in to Google:
 
 - Guest users who aren't signed in to Google will be prompted to do so.
 - Guest users who are already signed in to Google will be prompted to choose the account they want to use. They must choose the account you used to invite them.

@@ -1,7 +1,7 @@
 ---
-title: Use cases for custom Teams endpoint
+title: Use cases for Azure Communication Services support Teams identities
 titleSuffix: An Azure Communication Services concept document
-description: This article describes use cases for a custom Teams endpoint.
+description: This article describes use cases for Azure Communication Services support Teams identities.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
-# Custom Teams Endpoint — Use cases
+# Azure Communication Services support Teams identities — Use cases
 
 Microsoft Teams provides identities managed by Azure Active Directory and calling experiences controlled by Teams Admin Center and policies. Users might have assigned licenses to enable PSTN connectivity and advanced calling capabilities of Teams Phone System. Azure Communication Services are supporting Teams identities for managing Teams VoIP calls, Teams PSTN calls, and join Teams meetings. Developers might extend the Azure Communication Services with Graph API to provide contextual data from Microsoft 365 ecosystem. This page is providing inspiration on how to use existing Microsoft technologies to provide an end-to-end experience for calling scenarios with Teams users and Azure Communication Services calling SDKs. 
 

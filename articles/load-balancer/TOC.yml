@@ -131,10 +131,6 @@
       href: load-balancer-insights.md
     - name: Standard Load Balancer metrics and diagnostics
       href: load-balancer-standard-diagnostics.md
-    - name: Get Load Balancer metrics with Azure Monitor CLI
-      href: load-balancer-monitor-metrics-cli.md
-    - name: Get Load Balancer metrics with REST
-      href: load-balancer-query-metrics-rest-api.md
   - name: Inbound connectivity
     items:
     - name: Inbound NAT rules
@@ -165,6 +161,8 @@
     href: howto-load-balancer-imds.md
   - name: Load Balancer metrics
     items:
+    - name: Get Load Balancer metrics with Azure Monitor CLI
+      href: load-balancer-monitor-metrics-cli.md
     - name: Get Load Balancer metrics with REST
       href: load-balancer-query-metrics-rest-api.md
   - name: Inbound connectivity
