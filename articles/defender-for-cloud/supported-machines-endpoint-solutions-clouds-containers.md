@@ -124,8 +124,7 @@ Defender for Containers relies on the **Defender extension** for runtime protect
 - Debian 10
 - Debian 11
 - GCOOS (GKE)
-- Red Hat Enterprise
-- Linux 8
+- Red Hat Enterprise Linux 8
 
 ## Next steps
 
