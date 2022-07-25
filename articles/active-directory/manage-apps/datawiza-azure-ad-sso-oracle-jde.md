@@ -1,5 +1,5 @@
 ---
-title: Configure Azure AD Multi-Factor Authentication and SSO for an Oracle JD Edwards application using Datawiza Access Broker
+title: Configure Azure AD Multi-Factor Authentication and SSO for Oracle JD Edwards applications using Datawiza Access Broker
 description: Enable Azure Active Directory Multi-Factor Authentication and SSO for Oracle JD Edwards application using Datawiza Access Broker
 services: active-directory
 author: gargi-sinha

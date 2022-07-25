@@ -4,16 +4,17 @@ description: Overview of the Azure Monitor agent, which collects monitoring data
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 5/19/2022
+ms.date: 7/21/2022
 ms.custom: references_regions
 ms.reviewer: shseth
 ---
 
 # Azure Monitor agent overview
-
 The Azure Monitor agent collects monitoring data from the guest operating system of [supported infrastructure](#supported-resource-types) and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and configure data collection.
+If you're new to Azure Monitor, the recommendation is to use the Azure Monitor agent.
 
 For an introductory video that explains this new agent and includes a quick demo of how to set things up by using the Azure portal, see [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs).
+
 
 ## Relationship to other agents
 
@@ -23,7 +24,8 @@ Eventually, the Azure Monitor agent will replace the following legacy monitoring
 - [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
 - [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
 
-Currently, the Azure Monitor agent consolidates features from the Telegraf agent and Log Analytics agent, with [a few limitations](#current-limitations). In the future, it will also consolidate features from the Diagnostic extensions.
+Currently, the Azure Monitor agent consolidates features from the Telegraf agent and Log Analytics agent, with [a few limitations](#current-limitations). See migration guidance [here](azure-monitor-agent-migration.md).  
+In the future, it will also consolidate features from the Diagnostic extensions.
 
 In addition to consolidating this functionality into a single agent, the Azure Monitor agent provides the following benefits over the existing agents:
 
@@ -48,20 +50,6 @@ The methods for defining data collection for the existing agents are distinctly 
 The Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They're independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. 
 
 For more information, see [Configure data collection for the Azure Monitor agent](data-collection-rule-azure-monitor-agent.md).
-
-## Should I switch to the Azure Monitor agent?
-
-To start transitioning your VMs from the current agents to the new agent, consider the following factors:
-
-- **Environment requirements:** The Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environment support, and networking requirements will only be provided in this new agent. If the Azure Monitor agent supports your current environment, start transitioning to it.
-- **Current and new feature requirements:** The Azure Monitor agent introduces several new capabilities, such as filtering, scoping, and multihoming. But it isn't at parity yet with the current agents for other functionality. For more information, see the [current limitations](#current-limitations) and [supported services and features](#supported-services-and-features).
-
-  Most new capabilities in Azure Monitor will be made available only with the Azure Monitor agent. Review whether the Azure Monitor agent has the features you require. Also, determine if there are some features that you can temporarily do without to get other important features in the new agent.
-
-  If the Azure Monitor agent has all the core capabilities you require, start transitioning to it. If there are critical features that you require, continue with the current agent until the Azure Monitor agent reaches parity.
-- **Tolerance for rework:** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, assess the effort involved. If the setup will take a significant amount of work, consider setting up your new environment with the new agent as it's now generally available.
-
-  Azure Monitor's Log Analytics agent is retiring on August 31, 2024. The current agents will be supported until the retirement date.
 
 ## Coexistence with other agents
 
@@ -131,7 +119,7 @@ The following table shows the current support for the Azure Monitor agent with A
 | Solution | Current support | More information |
 |:---|:---|:---|
 | [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Microsoft Defender for Cloud Private Preview.  | [Sign-up link](https://aka.ms/AMAgent) |
-| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (Private Preview) that doesn't require an agent. | [Sign-up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
+| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 - Public preview | [Update management center (preview) documentation](/azure/update-center/) |
 
 ## Costs
 
@@ -152,12 +140,9 @@ The Azure Monitor agent supports Azure service tags. Both *AzureMonitor* and *Az
 | Azure Commercial |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes |
 | Azure Commercial |`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |
 | Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |
-| Azure Government |global.handler.control.monitor.azure.us |Access control service|Port 443 |Outbound|Yes |
-| Azure Government |`<virtual-machine-region-name>`.handler.control.monitor.azure.us |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |
-| Azure Government |`<log-analytics-workspace-id>`.ods.opinsights.azure.us |Ingest logs data |Port 443 |Outbound|Yes |
-| Azure China |global.handler.control.monitor.azure.cn |Access control service|Port 443 |Outbound|Yes |
-| Azure China |`<virtual-machine-region-name>`.handler.control.monitor.azure.cn |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |
-| Azure China |`<log-analytics-workspace-id>`.ods.opinsights.azure.cn |Ingest logs data |Port 443 |Outbound|Yes |
+| Azure Commercial | management.azure.com | Only needed if sending timeseries data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes |
+| Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
+| Azure China | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
 
 If you use private links on the agent, you must also add the [DCE endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).
 
