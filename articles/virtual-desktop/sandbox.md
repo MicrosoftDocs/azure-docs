@@ -1,11 +1,11 @@
 ---
 title: Azure Virtual Desktop Sandbox - Azure
 description: How to set up Windows Sandbox for Azure Virtual Desktop.
-author: guscatal
+author: Heidilohr
 ms.topic: how-to
 ms.date: 07/25/2022
-ms.author: guscatal
-manager: costinh
+ms.author: helohr
+manager: femila
 ---
 
 # Set up Windows Sandbox in Azure Virtual Desktop
