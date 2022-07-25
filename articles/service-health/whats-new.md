@@ -14,8 +14,7 @@ On July 25, 2022 the Azure status page location changed to [azure.status.microso
 
 ## User interface changes in Azure Status page
 The following changes were made on July 25, 2022: 
- - A new tab named **Current Impact** was added to the Azure Status page. For more information, see [link to updated page](filename to update page).
- - A new banner was added to the page. 
+ - A new tab named [**Current Impact**](azure-status-overview.md#current-impact-tab) was added to the Azure Status page.
  - The health history UI has been updated. 
 
 ## Azure Service Health Portal experience update
