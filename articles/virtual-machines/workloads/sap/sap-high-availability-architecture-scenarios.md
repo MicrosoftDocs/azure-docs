@@ -243,7 +243,7 @@ SAP high availability in Azure can be separated into three types:
     * Redundant SAP application servers.
     * Unique components. An example might be a single point of failure (SPOF) component, such as an SAP ASCS/SCS instance or a database management system (DBMS).
 
-SAP high availability in Azure differs from SAP high availability in an on-premises physical or virtual environment. The following paper [SAP NetWeaver high availability and business continuity in virtual environments with VMware and Hyper-V on Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] describes standard SAP high-availability configurations in virtualized environments on Windows.
+SAP high availability in Azure differs from SAP high availability in an on-premises physical or virtual environment.
 
 There is no sapinst-integrated SAP high-availability configuration for Linux as there is for Windows. For information about SAP high availability on-premises for Linux, see [High availability partner information][sap-ha-partner-information].
 
