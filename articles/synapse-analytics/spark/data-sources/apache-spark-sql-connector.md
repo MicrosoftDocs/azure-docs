@@ -26,7 +26,7 @@ In this example, we will use the Microsoft Spark utilities to facilitate acquiri
 ```python
 servername = "<< server name >>"
 dbname = "<< database name >>"
-url = servername + ";" + "databaseName=" + dbname + ";"
+url = "jdbc:sqlserver://" + servername + ";" + "databaseName=" + dbname + ";"
 dbtable = "<< table name >> "
 user = "<< username >>" 
 password = mssparkutils.credentials.getSecret('azure key vault name','secret name')
