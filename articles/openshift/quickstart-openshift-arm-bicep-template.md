@@ -779,7 +779,7 @@ az role assignment create \
 ### Get the service principal object ID for the OpenShift resource provider - Azure CLI
 
 ```azurecli-interactive
-ARO_RP_SP_OBJECT_ID=$(az ad sp list --display-name "Azure Red Hat OpenShift RP" --query [0].objectId -o tsv)
+ARO_RP_SP_OBJECT_ID=$(az ad sp list --display-name "Azure Red Hat OpenShift RP" --query [0].id -o tsv)
 ```
 
 ### Deploy the cluster - Azure CLI
