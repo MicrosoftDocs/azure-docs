@@ -21,6 +21,7 @@ Manage your MongoDB documents with the ability to insert, update, and delete doc
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples) are available on GitHub as a .NET project.
 
 [MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
+
 ## Insert a document
 
 Insert a document, defined with a JSON schema, into your collection.
