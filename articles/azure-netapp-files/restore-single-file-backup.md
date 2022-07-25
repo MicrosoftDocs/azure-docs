@@ -1,6 +1,6 @@
 ---
 title: Restore individual files using single-file backup restore | Microsoft Docs
-description: Restore an individual file using the single-file snapshot restore feature in Azure NetApp Files.
+description: Restore an individual file using the single-file backup restore feature in Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
