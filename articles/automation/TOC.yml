@@ -81,7 +81,9 @@
             - name: Migrate Run As account to managed identity
               href: migrate-run-as-accounts-managed-identity.md  
             - name: Troubleshoot managed identity
-              href: troubleshoot/managed-identity.md          
+              href: troubleshoot/managed-identity.md
+            - name: Migration to managed identity FAQ    
+            - href: automation-managed-identity-faq.md   
         - name: Run As account
           items:
             - name: Create Run As account

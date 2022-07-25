@@ -164,4 +164,4 @@ foreach ($ResourceGroup in $ResourceGroups)
 
 - For an overview of Azure Automation account security, see [Automation account authentication overview](automation-security-overview.md).
 
-- FQA
+- For FQAs on Migrating to Managed Identities, see[FAQ - Migrating from Run As account to Managed Identity](automation-managed-identity-faq.md)
