@@ -26,7 +26,6 @@ The device template has the following sections:
 
 - Model - Use the model to define how your device interacts with your IoT Central application. Each model has a unique model ID and defines the capabilities of the device. Capabilities are grouped into interfaces. Interfaces let you reuse components across models or use inheritance to extend the set of capabilities.
 - Cloud properties - Use cloud properties to define information that your IoT Central application stores about your devices. For example, a cloud property might record the date a device was last serviced.
-- Customize - Use customizations to modify capabilities. For example, specify the minimum and maximum temperature values for a property.
 - Views - Use views to visualize the data from the device, and forms to manage and control a device.
 
 To learn more, see [What are device templates?](concepts-device-templates.md).
@@ -37,13 +36,13 @@ You have several options to create device templates:
 
 - Design the device template in the IoT Central GUI.
 - Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Optionally, customize the device template to your requirements in IoT Central.
-- When the device connects to IoT Central, have it send the model ID of the model it implements. IoT Central uses the model ID to retrieve the model from the model repository and to create a device template. Add any cloud properties, customizations, and views your IoT Central application needs to the device template.
+- When the device connects to IoT Central, have it send the model ID of the model it implements. IoT Central uses the model ID to retrieve the model from the model repository and to create a device template. Add any cloud properties, and views your IoT Central application needs to the device template.
 - When the device connects to IoT Central, let IoT Central [autogenerate a device template](#autogenerate-a-device-template) definition from the data the device sends.
-- Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Manually import the device model into your IoT Central application. Then add the cloud properties, customizations, and views your IoT Central application needs.
+- Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Manually import the device model into your IoT Central application. Then add the cloud properties, and views your IoT Central application needs.
 - You can also add device templates to an IoT Central application using the [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
 
 > [!NOTE]
-> In each case, the device code must implement the capabilities defined in the model. The device code implementation isn't affected by the cloud properties, customizations and views sections of the device template.
+> In each case, the device code must implement the capabilities defined in the model. The device code implementation isn't affected by the cloud properties, and views sections of the device template.
 
 This section shows you how to import a device template from the catalog and how to customize it using the IoT Central GUI. This example uses the **ESP32-Azure IoT Kit** device template from the device catalog:
 
@@ -222,22 +221,6 @@ The following table shows the configuration settings for a cloud property:
 | Name | The name of the cloud property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
 | Semantic Type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
 | Schema | The cloud property data type, such as double, string, or vector. The available choices are determined by the semantic type. |
-
-## Customizations
-
-Use customizations when you need to modify an imported component or add IoT Central-specific features to a capability. For example, you can change the display name and units of a property as shown in the following screenshot:
-
-:::image type="content" source="media/howto-set-up-template/customize.png" alt-text="How to do customizations":::
-
-The following table shows the configuration settings for customizations:
-
-| Field | Description |
-| ----- | ----------- |
-|Color | IoT Central-specific option. |
-|Min value | Set minimum value - IoT Central-specific option. |
-|Max value | Set maximum value - IoT Central-specific option. |
-|Decimal places | IoT Central-specific option. |
-|Initial value | Commands only IoT Central-specific value - default parameter value. |
 
 ## Views
 
