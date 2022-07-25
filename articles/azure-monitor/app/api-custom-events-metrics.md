@@ -212,6 +212,9 @@ The telemetry is available in the `customMetrics` table in [Application Insights
 * `valueSum`: The sum of the measurements. To get the mean value, divide by `valueCount`.
 * `valueCount`: The number of measurements that were aggregated into this `trackMetric(..)` call.
 
+> [!NOTE]
+> valueCount has a minimum value of one; the record itself represents an entry.
+
 ## Page views
 
 In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change the default to track page views at more or different times. For example, in an app that displays tabs or blades, you might want to track a page whenever the user opens a new blade.
@@ -441,6 +444,9 @@ If [sampling](./sampling.md) is in operation, the `itemCount` property shows a v
 exceptions
 | summarize sum(itemCount) by type
 ```
+
+> [!NOTE]
+> itemCount has a minimum value of one; the record itself represents an entry.
 
 Most of the important stack information is already extracted into separate variables, but you can pull apart the `details` structure to get more. Because this structure is dynamic, you should cast the result to the type you expect. For example:
 
