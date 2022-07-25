@@ -28,6 +28,7 @@ In Azure AD entitlement management, you can see who has been assigned to access 
 
 To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
 
+
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
 
