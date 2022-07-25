@@ -56,42 +56,6 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | D64as v5 | 1     |
 |                |                 |               | D96as v5 | 1     |
 
-## Ddsv5
-### Ddsv5-Type1
-
-The Ddsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Ddsv5-Type1 runs [Ddsv5-series](ddv5-ddsv5-series.md#ddsv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
-
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Ddsv5-Type1 host.
-
-| Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
-|----------------|-----------------|---------------|----------|-------|
-| 64             | 119             | 768 GiB       | D2ds v5  | 32    |
-|                |                 |               | D4ds v5  | 22    |
-|                |                 |               | D8ds v5  | 11    |
-|                |                 |               | D16ds v5 | 5     |
-|                |                 |               | D32ds v5 | 2     |
-|                |                 |               | D48ds v5 | 1     |
-|                |                 |               | D64ds v5 | 1     |
-|                |                 |               | D96ds v5 | 1     |
-
-## Dsv5
-### Dsv5-Type1
-
-The Dsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Dsv5-Type1 runs [Dsv5-series](dv5-dsv5-series.md#dsv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
-
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Dsv5-Type1 host.
-
-| Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
-|----------------|-----------------|---------------|---------|-------|
-| 64             | 119             | 768 GiB       | D2s v5  | 32    |
-|                |                 |               | D4s v5  | 25    |
-|                |                 |               | D8s v5  | 12    |
-|                |                 |               | D16s v5 | 6     |
-|                |                 |               | D32s v5 | 3     |
-|                |                 |               | D48s v5 | 2     |
-|                |                 |               | D64s v5 | 1     |
-|                |                 |               | D96s v5 | 1     |
-
 ## Dasv4
 ### Dasv4-Type1
 The Dasv4-Type1 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 672 GiB of RAM. The Dasv4-Type1 runs [Dasv4-series](dav4-dasv4-series.md#dasv4-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
@@ -177,6 +141,24 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |----------------|-----------------|---------------|---------|-------|
 | 8              | 8               | 64 GiB        | DC8 v2  | 1     |
 
+## Ddsv5
+### Ddsv5-Type1
+
+The Ddsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Ddsv5-Type1 runs [Ddsv5-series](ddv5-ddsv5-series.md#ddsv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Ddsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
+|----------------|-----------------|---------------|----------|-------|
+| 64             | 119             | 768 GiB       | D2ds v5  | 32    |
+|                |                 |               | D4ds v5  | 22    |
+|                |                 |               | D8ds v5  | 11    |
+|                |                 |               | D16ds v5 | 5     |
+|                |                 |               | D32ds v5 | 2     |
+|                |                 |               | D48ds v5 | 1     |
+|                |                 |               | D64ds v5 | 1     |
+|                |                 |               | D96ds v5 | 1     |
+
 ## Ddsv4
 ### Ddsv4-Type1
 The Ddsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Ddsv4-Type1 runs [Ddsv4-series](ddv4-ddsv4-series.md#ddsv4-series) VMs.
@@ -212,6 +194,24 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | D32ds v4 | 2     |
 |                |                 |               | D48ds v4 | 1     |
 |                |                 |               | D64ds v4 | 1     |
+
+## Dsv5
+### Dsv5-Type1
+
+The Dsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Dsv5-Type1 runs [Dsv5-series](dv5-dsv5-series.md#dsv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Dsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
+|----------------|-----------------|---------------|---------|-------|
+| 64             | 119             | 768 GiB       | D2s v5  | 32    |
+|                |                 |               | D4s v5  | 25    |
+|                |                 |               | D8s v5  | 12    |
+|                |                 |               | D16s v5 | 6     |
+|                |                 |               | D32s v5 | 3     |
+|                |                 |               | D48s v5 | 2     |
+|                |                 |               | D64s v5 | 1     |
+|                |                 |               | D96s v5 | 1     |
 
 ## Dsv4
 ### Dsv4-Type1
