@@ -12,7 +12,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Confidential virtual vachines
+  - name: Confidential virtual machines
     items:
       - name: Create confidential VM with Azure ARM template
         href: quick-create-confidential-vm-arm-amd.md
