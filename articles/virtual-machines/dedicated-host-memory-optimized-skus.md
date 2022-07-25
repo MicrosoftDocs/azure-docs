@@ -77,7 +77,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Ebsv5
 ### Ebsv5-Type1
 
-The Ebsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Ebsv5-Type1 runs [Ebsv5-series](ebsv5-ebsv5-series.md#ebsv5-series) VMs.
+The Ebsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Ebsv5-Type1 runs [Ebsv5-series](ebdsv5-ebsv5-series.md#ebsv5-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto an Ebsv5-Type1 host.
 
