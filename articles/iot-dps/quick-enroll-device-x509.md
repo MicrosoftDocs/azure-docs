@@ -14,17 +14,7 @@ zone_pivot_groups: iot-dps-set2
  
 # Programmatically create a Device Provisioning Service enrollment group for X.509 certificate attestation
 
-:::zone pivot="programming-language-csharp,programming-language-nodejs"
-
 This article shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
-
-:::zone-end
-
-:::zone pivot="programming-language-java"
-
-This article shows you how to programmatically create an individual enrollment and an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
-
-:::zone-end
 
 ## Prerequisites
 
@@ -65,7 +55,7 @@ This article shows you how to programmatically create an individual enrollment a
 
 ## Create test certificates
 
-Enrollment groups that use X.509 certificate attestation can be configured to use a root CA certificate or an intermediate certificate. The more usual case is to configure the enrollment group with an intermediate certificate. This provides more flexibility as multiple intermediate certificates can be generated or revoked by the same root CA certificate.  
+Enrollment groups that use X.509 certificate attestation can be configured to use a root CA certificate or an intermediate certificate. The more usual case is to configure the enrollment group with an intermediate certificate. This provides more flexibility as multiple intermediate certificates can be generated or revoked by the same root CA certificate.
 
 For this article, you'll need both a root CA and an intermediate CA certificate file in *.pem* or *.cer* format. One file will contain the public portion of the intermediate CA X.509 certificate and the other will contain the public portion of the root CA X.509 certificate.
 
@@ -73,11 +63,11 @@ If you already have root and intermediate CA files, you can continue to [Add and
 
 If you don't have a root CA and intermediate CA certificate, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-the-intermediate-ca-certificate) as you wont need device certificates to complete the steps in this article. When you're finished, you'll have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
 
-## Add and verify your root CA certificate
+## Add and verify your root or intermediate CA certificate
 
-Devices that provision using X.509 certificates through an enrollment group, present the entire certificate chain when they authenticate with DPS. For DPS to be able to validate the certificate chain, you must upload and verify the root CA certificate that anchors the chain. You must do this whether you configure the enrollment group with a root CA or an intermediate CA certificate. 
+Devices that provision using X.509 certificates through an enrollment group, present the entire certificate chain when they authenticate with DPS. For DPS to be able to validate the certificate chain, the root or intermediate certificate configured in an enrollment group must either be a verified certificate or must roll up to a verified certificate in the certificate chain a device presents when it authenticates with the service.
 
-To add and verify your root CA certificate to the Device Provisioning Service.
+To add and verify your root or intermediate CA certificate to the Device Provisioning Service.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -89,7 +79,7 @@ To add and verify your root CA certificate to the Device Provisioning Service.
 
 5. On the top menu, select **+ Add:**.
 
-6. Enter your root CA certificate name, and upload the *.pem* or *.cer* file.
+6. Enter your root or intermediate CA certificate name, and upload the *.pem* or *.cer* file.
 
 7. Select **Set certificate status to verified on upload**.
 
@@ -409,48 +399,6 @@ To verify that the enrollment group has been created:
 :::zone pivot="programming-language-java"
 
 :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-java.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
-
-:::zone-end
-
-:::zone pivot="programming-language-java"
-
-## Modifications to enroll a single X.509 device
-
-To enroll a single X.509 device, modify the *individual enrollment* sample code used in [Enroll TPM device to IoT Hub Device Provisioning Service using Java service SDK](quick-enroll-device-tpm.md) as follows:
-
-1. Copy the *Common Name* of your X.509 client certificate to the clipboard. If you wish to use the _X.509 certificate generator_ tool as shown in the [preceding sample code section](#javasample), either enter a _Common Name_ for your certificate, or use the default **microsoftriotcore**. Use this **Common Name** as the value for the *REGISTRATION_ID* variable.
-
-    ```Java
-    // Use common name of your X.509 client certificate
-    private static final String REGISTRATION_ID = "[RegistrationId]";
-    ```
-
-2. Rename the variable *TPM_ENDORSEMENT_KEY* as *PUBLIC_KEY_CERTIFICATE_STRING*. Copy your client certificate or the **Client Cert** from the output of the _X.509 certificate generator_ tool, as the value for the *PUBLIC_KEY_CERTIFICATE_STRING* variable.
-
-    ```Java
-    // Rename the variable *TPM_ENDORSEMENT_KEY* as *PUBLIC_KEY_CERTIFICATE_STRING*
-    private static final String PUBLIC_KEY_CERTIFICATE_STRING =
-            "-----BEGIN CERTIFICATE-----\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "-----END CERTIFICATE-----\n";
-    ```
-
-3. In the **main** function, replace the line `Attestation attestation = new TpmAttestation(TPM_ENDORSEMENT_KEY);` with the following to use the X.509 client certificate:
-
-    ```Java
-    Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
-    ```
-
-4. Save, build, and run the *individual enrollment* sample file, using the steps in the section [Create the individual enrollment sample](quick-enroll-device-tpm.md).
 
 :::zone-end
 

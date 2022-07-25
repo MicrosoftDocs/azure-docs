@@ -67,6 +67,37 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 :::zone-end
 
+## Get TPM endorsement key (Optional)
+
+You can follow the steps in this article to create a sample individual enrollment. In this, case, you'll be able to view the enrollment entry in DPS, but you won't be able to use it to provision a device.
+
+:::zone pivot="programming-language-nodejs"
+
+You can also choose to follow the steps in this article to create an individual enrollment and enroll a simulated TPM device. If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) up to the step where you get an endorsement key for the device. Save the **Endorsement key**, you'll use it later in this article.
+
+> [!NOTE]
+> Don't follow the steps to create an individual enrollment by using the Azure portal.
+
+:::zone-end
+
+:::zone pivot="programming-language-nodejs"
+
+You can also choose to follow the steps in this article to create an individual enrollment and enroll a simulated TPM device. If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-nodejs) up to the step where you get an endorsement key and registration ID for the device. Save the **Endorsement key** and **Registration ID**, you'll use them later in this article.
+
+> [!NOTE]
+> Don't follow the steps to create an individual enrollment by using the Azure portal.
+
+:::zone-end
+
+:::zone pivot="programming-language-java"
+
+You can also choose to follow the steps in this article to create an individual enrollment and enroll a simulated TPM device. If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-java) up to the step where you get an endorsement key for the device. Note the **Endorsement key** and the **Registration ID**, you'll use them later in this article.
+
+> [!NOTE]
+> Don't follow the steps to create an individual enrollment by using the Azure portal.
+
+:::zone-end
+
 ## Get the connection string for your provisioning service
 
 For the sample in this article, you'll need to copy the connection string for your provisioning service.
