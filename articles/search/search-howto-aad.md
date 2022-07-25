@@ -20,11 +20,11 @@ Search applications that are built on Azure Cognitive Search can now use the [Mi
 
 This article shows you how to configure your client for Azure AD:
 
-+ For authentication, you'll create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the security principle.
++ For authentication, you'll create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the security principle. You could also use a different type of service principal object, but this article uses managed identities because they eliminate the need to manage credentials.
 
 + For authorization, you'll assign an Azure role to the managed identity that grants permissions to run queries or manage indexing jobs.
 
-+ Update your client code to call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
++ Update your client code to call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential)
 
 ## Prepare your search service
 
@@ -63,7 +63,7 @@ You can also change these settings programatically as described in the [Azure Co
 
 ## Create a managed identity
 
-In this step, create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your client application. You could also use a different type of service principal object, but this article focuses on managed identities because they eliminate the need to manage credentials.
+In this step, create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your client application. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -73,13 +73,13 @@ In this step, create a [managed identity](../active-directory/managed-identities
 
 1. Give your managed identity a name and select a region. Then, select **Create**.
 
-   :::image type="content" source="media/search-howto-aad/create-managed-identity.png" alt-text="Screenshot of the create managed identity wizard." border="true" :::
+   :::image type="content" source="media/search-howto-aad/create-managed-identity.png" alt-text="Screenshot of the Create Managed Identity wizard." border="true" :::
 
 ## Assign a role to the managed identity
 
 Next, you need to grant your managed identity access to your search service. Azure Cognitive Search has various [built-in roles](search-security-rbac.md#built-in-roles-used-in-search). You can also create a [custom role](search-security-rbac.md#create-a-custom-role).
 
-It's a best practice to grant minimum permissions. If your application only needs to handle queries, you should assign the [Search Index Data Reader (preview)](../role-based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs read and write permissions on a search index, you should use the [Search Index Data Contributor (preview)](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
+It's a best practice to grant minimum permissions. If your application only needs to handle queries, you should assign the [Search Index Data Reader (preview)](../role based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs both read and write access on a search index, you should use the [Search Index Data Contributor (preview)](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -146,7 +146,7 @@ The following instructions reference an existing C# sample to demonstrate the co
 > [!NOTE]
 > User-assigned managed identities work only in Azure environments. If you run this code locally, `DefaultAzureCredential` will fall back to authenticating with your credentials. Make sure you've also given yourself the required access to the search service if you plan to run the code locally. 
 
-The Azure.Identity documentation also has more details on using [Azure AD authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme), which gives more details on how `DefaultAzureCredential` works as well as other authentication techniques available. `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. Developers who want more control or whose scenario isn't served by the default settings should use other credential types.
+The Azure.Identity documentation has more details about `DefaultAzureCredential` and using [Azure AD authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme). `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. Developers who want more control or whose scenario isn't served by the default settings should use other credential types.
 
 ### [**REST API**](#tab/aad-rest)
 
