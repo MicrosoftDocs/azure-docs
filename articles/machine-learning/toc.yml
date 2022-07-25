@@ -226,9 +226,9 @@
           href: how-to-use-managed-identities.md
     - name: Network security
       items: 
-        - name: Tutorial: Create a secure workspace in Azure portal
+        - name: "Tutorial: Create a secure workspace in Azure portal"
           href: tutorial-create-secure-workspace.md
-        - name: Tutorial: Create a secure workspace with templates
+        - name: "Tutorial: Create a secure workspace with templates"
           href: tutorial-create-secure-workspace-template.md
         - name: Virtual network overview
           displayName: vnet, blob
