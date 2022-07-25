@@ -21,7 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in July include:
 
 - [General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection](#general-availability-ga-of-the-cloud-native-security-agent-for-kubernetes-runtime-protection)
-- [Vulnerability assessment adds support for the detection of language specific packages (Preview)](#vulnerability-assessment-adds-support-for-the-detection-of-language-specific-packages-preview)
+- [Defender for Container's VA adds support for the detection of language specific packages (Preview)](#defender-for-containers-va-adds-support-for-the-detection-of-language-specific-packages-preview)
 
 ### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
 
@@ -43,7 +43,7 @@ You can also review [all available alerts](alerts-reference.md#alerts-k8scluster
 
 Note, if you're using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
 
-## Defender for Container's VA adds support for the detection of language specific packages (Preview)
+### Defender for Container's VA adds support for the detection of language specific packages (Preview)
 
 Defender for Container's vulnerability assessment (VA) has extended its abilities to detect vulnerabilities in language specific packages and OS packages.
 
