@@ -145,7 +145,7 @@ More details on application upgrades can be found [here](service-fabric-applicat
 
 ## BackupRestoreService Events
 
-When BackupRestoreService(BRS) is enabled on a SF Cluster, it exposes events for user triggered and periodic operations to let user understand the status of operations. User triggered operations cover actions like creating a backup policy on cluster, triggering backup on a partition or any other valid action in BRS context. BRS periodically emits status of current active policies at cluster level, information about last backup and upcoming scheduled backup at partition level and status of periodic backup at different stages.
+When BackupRestoreService (BRS) is enabled on an SF Cluster, it exposes events for user triggered and periodic operations to let user understand the status of operations. User triggered operations cover actions like creating a backup policy on cluster, triggering backup on a partition or any other valid action in BRS context. BRS periodically emits status of current active policies at cluster level, information about last backup and upcoming scheduled backup and status of periodic backup at different stages at partition level.
 
 **BackupRestoreService partition events**
 
