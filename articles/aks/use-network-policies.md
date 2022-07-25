@@ -77,6 +77,7 @@ You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
 RESOURCE_GROUP_NAME=myResourceGroup-NP
 CLUSTER_NAME=myAKSCluster
 LOCATION=canadaeast
+```
 
 Create the AKS cluster and specify *azure* for the network plugin and network policy.
 
