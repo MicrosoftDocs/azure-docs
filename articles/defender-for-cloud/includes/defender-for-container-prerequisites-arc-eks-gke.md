@@ -16,7 +16,7 @@ For Azure public cloud deployments:
 | *.oms.opinsights.azure.com | 443  |
 | login.microsoftonline.com  | 443  |
 
-The following domains are only necessary if you are using a relevant OS. For example, if you have OpenShift clusters running in Azure.
+The following domains are only necessary if you're using a relevant OS. For example, if you have OpenShift clusters running in Azure.
 
 | Domain                     | Port |
 | -------------------------- | ---- |
