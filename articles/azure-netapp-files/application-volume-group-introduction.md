@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 07/25/2022
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for SAP HANA 
