@@ -455,7 +455,7 @@
       href: create-new-saas-offer-marketing.md 
     - name: Go live
       href: test-publish-saas-offer.md
-  - name: Crate and publish Microsoft 365 store app
+  - name: Microsoft 365 store apps
     items: 
     - name: Publishing checklist
       href: checklist.md
