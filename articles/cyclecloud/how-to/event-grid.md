@@ -9,9 +9,9 @@ monikerRange: '>= cyclecloud-8'
 
 # Using Event Grid
 
-CycleCloud can send cluster and node [events](../events.md) to [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). Event Grid accepts events from a producer (in this case CycleCloud) and routes them to one or more destinations. In this document we will be using [Azure Storage Queues](https://docs.microsoft.com/azure/storage/queues/) as a destination.
+CycleCloud can send cluster and node [events](../events.md) to [Azure Event Grid](/azure/event-grid/). Event Grid accepts events from a producer (in this case CycleCloud) and routes them to one or more destinations. In this document we will be using [Azure Storage Queues](/azure/storage/queues/) as a destination.
 
-First, create a custom Event Grid topic and subscription as outlined in the [Event Grid quickstart](https://docs.microsoft.com/azure/event-grid/custom-event-to-queue-storage).
+First, create a custom Event Grid topic and subscription as outlined in the [Event Grid quickstart](/azure/event-grid/custom-event-to-queue-storage).
 
 Second, configure CycleCloud to publish to the Event Grid topic created above. Click the **Settings** gear icon in the upper left, then double-click the **CycleCloud** item in the list. Select the Event Grid topic from the dropdown and click *Save*.
 
@@ -19,7 +19,7 @@ Second, configure CycleCloud to publish to the Event Grid topic created above. C
 
 Third, add a node to the cluster. This will immediately generate two events: a `Microsoft.CycleCloud.ClusterSizeIncreased` event and a `Microsoft.CycleCloud.NodeAdded` event.
 
-Finally, create the script that will process events from the queue. In this case we will be using the [Python 3 SDK](https://docs.microsoft.com/azure/storage/queues/storage-python-how-to-use-queue-storage?tabs=python).
+Finally, create the script that will process events from the queue. In this case we will be using the [Python 3 SDK](/azure/storage/queues/storage-python-how-to-use-queue-storage?tabs=python).
 
 Create a file named `get_messages.py`:
 

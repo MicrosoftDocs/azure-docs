@@ -12,9 +12,9 @@ Azure AD Managed Identities may be used to permission Azure CycleCloud to manage
 
 ## CycleCloud VM Permissions with Managed Identity
 
-CycleCloud automates many calls to the Azure Resource Manager for the purposes of managing HPC clusters. This automation requires certain permissions to be granted to CycleCloud.   This access may be granted to CycleCloud by configuring a Service Principal or by assigning a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to the CycleCloud VM.  
+CycleCloud automates many calls to the Azure Resource Manager for the purposes of managing HPC clusters. This automation requires certain permissions to be granted to CycleCloud.   This access may be granted to CycleCloud by configuring a Service Principal or by assigning a [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) to the CycleCloud VM.  
 
-It is generally recommended to use either a [System-Assigned](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) or [User-Assigned Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity) to grant those permissions rather than a Service Principal. 
+It is generally recommended to use either a [System-Assigned](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) or [User-Assigned Managed Identity](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity) to grant those permissions rather than a Service Principal. 
 
 When Azure CycleCloud has been installed on an Azure VM with a Managed Identity assigned to it, the **Create Cloud Provider Account** dialog will behave slightly differently. There will be a new checkbox for **Managed Identity** and the **Subscription ID** will be pre-populated with the subscription of the host VM.
 
@@ -30,7 +30,7 @@ It is still possible to enter the standard set of credentials by simply unchecki
 
 ### Create a custom role and managed identity for CycleCloud
 
-The simplest option (with sufficient access rights) is to assign the Contributor Role for the Subscription to the CycleCloud VM as a System-Assigned Managed Identity.  However, the Contributor Role has a higher privilege level than CycleCloud requires.  A [custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) may be created and assigned to the VM.
+The simplest option (with sufficient access rights) is to assign the Contributor Role for the Subscription to the CycleCloud VM as a System-Assigned Managed Identity.  However, the Contributor Role has a higher privilege level than CycleCloud requires.  A [custom Role](/azure/role-based-access-control/custom-roles) may be created and assigned to the VM.
 
 A sufficient policy for most CycleCloud features is posted below.
 
@@ -117,7 +117,7 @@ To enable CycleCloud to create and manage Resource Groups per cluster (recommend
 
 #### Creating the Role
 
-A role can be created from the role definitions via the [Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli)
+A role can be created from the role definitions via the [Azure CLI](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli)
 .  Use this role to create a role definition within the Azure Tenant. Once the
 role exists in the tenant, assign the role to an identity with proper scope.
 
@@ -136,7 +136,7 @@ Now the custom role is assigned and scoped to the identity and can be used with 
 
 ## Assigning Roles to Cluster VMs with Managed Identity
 
-It is common for cluster nodes to require access to Azure Resources.   For example, many clusters require access to Azure Storage, Key Vault, or Azure Container Registries to run their workload.  It is strongly recommended to pass the access credentials required using a [User-Assigned Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity) rather than passing secrets/credentials to the node via cluster configuration.
+It is common for cluster nodes to require access to Azure Resources.   For example, many clusters require access to Azure Storage, Key Vault, or Azure Container Registries to run their workload.  It is strongly recommended to pass the access credentials required using a [User-Assigned Managed Identity](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity) rather than passing secrets/credentials to the node via cluster configuration.
 
 User-Assigned Managed Identities may be configured on the cluster VMs using the ```Azure.Identities``` node property.  The value of the ```Azure.Identities``` property is a comma-separated list of Managed Identity Resource ID strings:
 

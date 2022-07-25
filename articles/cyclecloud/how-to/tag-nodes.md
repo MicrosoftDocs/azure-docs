@@ -54,7 +54,7 @@ CycleCloudNodeArray => "/sites/92xy4vgh/clusters/Demo/nodearrays/Compute"
 ::: moniker-end
 
 
-Within a resource that supports [Resource Manager Operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) you can create additional tags to assign to the instance by specifying them with a node definition inside your template:
+Within a resource that supports [Resource Manager Operations](/azure/azure-resource-manager/resource-group-using-tags) you can create additional tags to assign to the instance by specifying them with a node definition inside your template:
 
 ``` ini
 [cluster Demo]
@@ -74,7 +74,7 @@ CustomText => "Hello world"
 
 ## Restrictions
 
-There are limits on the number and format of tags applied to each Virtual Machine. Please review the [Tagging Azure Resources documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) for full details.
+There are limits on the number and format of tags applied to each Virtual Machine. Please review the [Tagging Azure Resources documentation](/azure/azure-resource-manager/resource-group-using-tags) for full details.
 
 Do not include quotation marks or periods in your tag names.
 

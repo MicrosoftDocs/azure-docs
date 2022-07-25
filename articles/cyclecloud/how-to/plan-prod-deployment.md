@@ -14,7 +14,7 @@ ms.author: adjohnso
   * [Azure CycleCloud 8.2 - Current Release](../release-notes.md)
   * [Azure CycleCloud 7.9 - Previous Release](../release-notes-previous.md)
 * [Prepare your Azure Subscription](./configuration.md) by defining which Subscription, vNet, Subnet and Resource Group for the CycleCloud server deployment
-* Define which [Resource Group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) will host clusters or if CycleCloud should create them (default setting)
+* Define which [Resource Group](/azure/azure-resource-manager/management/manage-resource-groups-portal) will host clusters or if CycleCloud should create them (default setting)
 * Create a storage account for [locker access](./storage-blobs.md)
 * Determine if SSH keys, AD or LDAP will be [used for authentication](./user-access.md)
 * Determine if CycleCloud will use a Service Principal or a Managed Identity (recommended with a single subscription) [Choosing between a Service Principal and a Managed Identity](./service-principals.md#choosing-between-a-service-principal-and-a-managed-identity)
@@ -48,15 +48,15 @@ ms.author: adjohnso
 * Determine where applications will be executed from, this will be dependent on install times and performance requirements:
   * Through a custom image:
     * [Custom Images in a CycleCloud Cluster](./create-custom-image.md)
-    * [Create a Customer Linux Image](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images)
+    * [Create a Customer Linux Image](/azure/virtual-machines/linux/tutorial-custom-images)
   * Using a marketplace image
   * From an NFS share, blob storage, Azure NetApp Files
 * Is there a specific VM SKU which will need to be used for the applications to run on? Will MPI be a requirement as that would necessitate a different family of machines like the H series?
-  * [Azure VM sizes - HPC](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc)
+  * [Azure VM sizes - HPC](/azure/virtual-machines/sizes-hpc)
   * [HB/HC Cluster Best Practices](./hb-hc-best-practices.md)
 * What will be the optimum number of cores per job for each application?
 * Can spot VMs be used? [Using Spot VMs in CycleCloud](./use-spot-instances.md)
-* Ensure [subscription quotas](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits) are in place to fulfill the core requirements for the applications
+* Ensure [subscription quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) are in place to fulfill the core requirements for the applications
 
 ## Data
 

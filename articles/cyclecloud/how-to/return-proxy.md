@@ -36,7 +36,7 @@ Advanced Settings section of the create cluster dialog.
 - Azure CycleCloud currently only supports Linux VMs as a return proxy.
 - If the CycleCloud VM and the return proxy node resides in different VMs, the
   return proxy node will require a public IP address unless the two [VNETs are
-  peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+  peered](/azure/virtual-network/virtual-network-peering-overview).
 
 
 ## Custom Return Proxy Node

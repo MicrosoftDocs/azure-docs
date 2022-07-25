@@ -24,17 +24,17 @@ The CycleCloud VM must be able to connect to a number of Azure APIs to orchestra
   
 The management API is hosted regionally, and the public IP address ranges can be found [here](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
-The Azure AD login is part of the Microsoft 365 common APIs and IP address ranges for the service can be found [here](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges).
+The Azure AD login is part of the Microsoft 365 common APIs and IP address ranges for the service can be found [here](/office365/enterprise/urls-and-ip-address-ranges).
 
-The Azure Insights and Log Analytics IP address ranges can be found [here](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses).
+The Azure Insights and Log Analytics IP address ranges can be found [here](/azure/azure-monitor/app/ip-addresses).
 
-Azure CycleCloud must be able to access Azure Storage accounts. The recommended way to provide private access to this service and any other supported Azure service is through [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).
+Azure CycleCloud must be able to access Azure Storage accounts. The recommended way to provide private access to this service and any other supported Azure service is through [Virtual Network Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 If using Network Security Groups or the Azure Firewall to limit outbound access to the required domains, then it is possible to configure Azure Cyclecloud to route all requests through an HTTPS proxy. See: [Using a Web Proxy](./running-behind-proxy.md)
 
 ### Configuring an Azure Network Security Group for the CycleCloud VM
 
-One way to limit outbound internet access from the CycleCloud VM without configuring the Azure Firewall or an HTTPS proxy is to configure a strict Azure Network Security Group for the CycleCloud VM's subnet.  The simplest way to do that is to use [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) in the subnet or VM level [Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) to permit the required outbound Azure access.
+One way to limit outbound internet access from the CycleCloud VM without configuring the Azure Firewall or an HTTPS proxy is to configure a strict Azure Network Security Group for the CycleCloud VM's subnet.  The simplest way to do that is to use [Service Tags](/azure/virtual-network/service-tags-overview) in the subnet or VM level [Network Security Group](/azure/virtual-network/security-overview) to permit the required outbound Azure access.
 
 1. Configure a **Storage Service Endpoint** for the Subnet to allow access from CycleCloud to Azure Storage
 
@@ -81,7 +81,7 @@ the following:
    2. Available in a package repository mirror accessible from the VMs, or
    3. Copied to the VM from Azure Storage and installed directly by a Cyclecloud project
 3. All Cluster nodes must be able to access Azure Storage accounts. The recommended way
-to provide private access to this service and any other supported Azure service is to enable a [Virtual Network Service Endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) for Azure Storage.
+to provide private access to this service and any other supported Azure service is to enable a [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) for Azure Storage.
 
 
 ## Project Updates from GitHub
