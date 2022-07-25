@@ -130,6 +130,42 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | D64as v4 | 1     |
 |                |                 |               | D96as v4 | 1     |
 
+## DCadsv5
+### DCadsv5-Type1
+
+The DCadsv5-Type1 is a Dedicated Host SKU utilizing the AMD 3rd Generation EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The DCadsv5-Type1 runs [DCadsv5-series](dcasv5-dcadsv5-series.md#dcadsv5-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto an DCadsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size    | # VMs |
+|----------------|-----------------|---------------|------------|-------|
+| 64             | 112             | 768 GiB       | DC2ads v5  | 32    |
+|                |                 |               | DC4ads v5  | 27    |
+|                |                 |               | DC8ads v5  | 14    |
+|                |                 |               | DC16ads v5 | 7     |
+|                |                 |               | DC32ads v5 | 3     |
+|                |                 |               | DC48ads v5 | 2     |
+|                |                 |               | DC64ads v5 | 1     |
+|                |                 |               | DC96ads v5 | 1     |
+
+## DCasv5
+### DCasv5-Type1
+
+The DCasv5-Type1 is a Dedicated Host SKU utilizing the AMD 3rd Generation EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The DCasv5-Type1 runs [DCasv5-series](dcasv5-dcadsv5-series.md#dcasv5-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto an DCasv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size   | # VMs |
+|----------------|-----------------|---------------|-----------|-------|
+| 64             | 112             | 768 GiB       | DC2as v5  | 32    |
+|                |                 |               | DC4as v5  | 28    |
+|                |                 |               | DC8as v5  | 14    |
+|                |                 |               | DC16as v5 | 7     |
+|                |                 |               | DC32as v5 | 3     |
+|                |                 |               | DC48as v5 | 2     |
+|                |                 |               | DC64as v5 | 1     |
+|                |                 |               | DC96as v5 | 1     |
+
 ## Ddsv4
 ### Ddsv4-Type1
 The Ddsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Ddsv4-Type1 runs [Ddsv4-series](ddv4-ddsv4-series.md#ddsv4-series) VMs.
