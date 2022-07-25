@@ -31,7 +31,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using .NET 
 
 ## Create a new .NET Core app
 
-1. Create a new .NET Core application in an empty folder using your preferred terminal. For this scenario you'll use a console application. Use the [``dotnet new``](/dotnet/core/tools/dotnet-new) command to create ane name the console app.
+1. Create a new .NET Core application in an empty folder using your preferred terminal. For this scenario you'll use a console application. Use the [``dotnet new``](/dotnet/core/tools/dotnet-new) command to create and name the console app.
 
     ```console
     dotnet new console -o app
@@ -49,9 +49,9 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using .NET 
     dotnet run
     ```
 
-## Connect with MongoDB native driver to Azure Cosmos DB MongoDB API
+## Connect to Azure Cosmos DB MongoDB API with the MongoDB native driver
 
-To connect to Azure Cosmos DB with the MongoDB native driver, create an instance of the [``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_MongoClient.htm) class. This class is the starting point to perform all operations against databases. The most common constructor for **MongoClient** accepts a connection string, which you can retrieve using the following steps:
+To connect to Azure Cosmos DB with the MongoDB native driver, create an instance of the [``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_MongoClient.htm) class. This class is the starting point to perform all operations against MongoDb databases. The most common constructor for **MongoClient** accepts a connection string, which you can retrieve using the following steps:
 
 ## Get resource name
 
@@ -94,11 +94,11 @@ Skip this step and use the information for the portal in the next step.
 
 ## Create MongoClient with connection string
 
-Define a new instance of the ``MongoClient,`` class using the constructor and the connection string variable you set previously.
+Define a new instance of the ``MongoClient`` class using the constructor and the connection string variable you set previously.
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/101-manage-connection/program.cs" id="client_credentials":::
 
-## Use MongoDB client classes with Cosmos DB for MongoDB API
+## Use the MongoDB client classes with Cosmos DB for MongoDB API
 
 [!INCLUDE [Conceptual object model](<./includes/conceptual-object-model.md>)]
 
@@ -107,7 +107,7 @@ Each type of resource is represented by one or more associated C# classes. Here'
 | Class | Description |
 |---|---|
 |[``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoClient.htm)|This class provides a client-side logical representation for the MongoDB API layer on Cosmos DB. The client object is used to configure and execute requests against the service.|
-|[``MongoDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm)|This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.|
+|[``MongoDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm)|This class is a reference to a database that may, or may not, exist in the service yet. The database is validated or created server-side when you attempt to perform an operation against it.|
 |[``Collection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoCollection.htm)|This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.|
 
 The following guides show you how to use each of these classes to build your application.

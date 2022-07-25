@@ -24,7 +24,7 @@ Manage your MongoDB documents with the ability to insert, update, and delete doc
 
 ## Insert a document
 
-Insert a document, defined with a JSON schema, into your collection.
+Insert one or many documents, defined with a JSON schema, into your collection.
 
 * [MongoClient.Database.Collection.InsertOne](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne_1.htm)
 * [MongoClient.Database.Collection.InsertMany](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertMany_1.htm)
@@ -33,7 +33,7 @@ Insert a document, defined with a JSON schema, into your collection.
 
 ## Update a document
 
-To update a document, specify the query used to find the document along with a set of properties of the document that should be updated. 
+To update a document, specify the query filter used to find the document along with a set of properties of the document that should be updated. 
 
 * [MongoClient.Database.Collection.UpdateOne](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_UpdateOne_1.htm)
 * [MongoClient.Database.Collection.UpdateMany](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_UpdateMany_1.htm)
