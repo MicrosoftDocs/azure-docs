@@ -6,7 +6,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/concept-open-source.md,
+        "source_path_from_root": "/articles/machine-learning/concept-open-source.md",
         "redirect_url": "/azure/solutions/open-source/machine-learning",
         "redirect_document_id": false
     },
