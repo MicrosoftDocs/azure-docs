@@ -34,9 +34,9 @@ Use images to focus the user’s attention on your solution. Images that contain
 |Only show interface elements relevant to the app. Use the Office UI sparingly. |Don’t show unrelated user interface elements such as task bars, ribbons, excessive empty space, or other applications.|
 |Reinforce your brand by incorporating recognizable brand elements such as the logo or brand colors. | Don’t add unnecessary graphic elements that obstruct content. |
 
-![Image with an example persona next to an image with personal information](/media/craft-effective-appsource-store-images/excess-content-do-dont-1.png)
-![Image with relevant UI next to an image with unrelated UI](/media/craft-effective-appsource-store-images/excess-content-do-dont-2.png)
-![Image with one simple branding element next to an image with multiple brand elements that block content](/media/craft-effective-appsource-store-images/excess-content-do-dont-3.png)
+:::image type="content" source="./media/craft-effective-appsource-store-images/excess-content-do-dont-1.png" alt-text="Image with an example persona next to an image with personal information.":::
+:::image type="content" source="./media/craft-effective-appsource-store-images/excess-content-do-dont-2.png" alt-text="Image with relevant UI next to an image with unrelated UI.":::
+:::image type="content" source="./media/craft-effective-appsource-store-images/excess-content-do-dont-3.png" alt-text="Image with one simple branding element next to an image with multiple brand elements that block content.":::
 
 ## Show the value of your app
 The images should clearly communicate value of your solution and its main features. Focus each image on communicating one piece of information. Users will glance only briefly at each image. Show how your solution will be used. Show core value with clear illustrations.
@@ -52,5 +52,5 @@ The images should clearly communicate value of your solution and its main featur
 ![Image with caption, closeup to focus on one user action and result next to an image with caption and callout that hides the result of the action](media/craft-effective-appsource-store-images/value-add-do-dont-3.png)
 
 ## See also
-* [Certification policies](/legal/marketplace/certification-policies)
-* [Create effective Microsoft AppSource listings](create-effective-office-store-listings.md)
+- [Certification policies](/legal/marketplace/certification-policies)
+- [Create effective Microsoft AppSource listings](create-effective-office-store-listings.md)
