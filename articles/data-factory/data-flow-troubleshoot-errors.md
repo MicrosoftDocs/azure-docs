@@ -659,7 +659,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Delta-InvalidProtocolVersion
 
 - **Message**: Unsupported Delta table protocol version, Refer https://docs.delta.io/latest/versioning.html#-table-version for versioning information.
-- **Cause**: Data flow does not support this version of the Delta table protocol.
+- **Cause**: Data flows don't support this version of the Delta table protocol.
 - **Recommendation**: Use a lower version of the Delta table protocol.
 
 ## Next steps
