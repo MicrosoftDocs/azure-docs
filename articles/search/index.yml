@@ -35,6 +35,20 @@ landingContent:
             url: https://youtu.be/M4Rf1s0WcWQ?t=19
 
   # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a service
+            url: search-create-service-portal.md
+          - text: Create an index
+            url: search-get-started-portal.md
+          - text: Create a demo app
+            url: search-create-app-portal.md
+          - text: Create a skillset
+            url: cognitive-search-quickstart-blob.md
+
+  # Card
   - title: Develop apps
     linkLists:
       - linkListType: tutorial
@@ -55,26 +69,16 @@ landingContent:
             url: /python/api/overview/azure/search-documents-readme
 
   # Card
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create a service
-            url: search-create-service-portal.md
-          - text: Create an index
-            url: search-get-started-portal.md
-          - text: Create a demo app
-            url: search-create-app-portal.md
-          - text: Create a skillset
-            url: cognitive-search-quickstart-blob.md
-
-  # Card
   - title: Index data
     linkLists:
       - linkListType: overview
         links:
-          - text: Data source gallery
-            url: search-data-sources-gallery.md
+          - text: What's a search index?
+            url: search-what-is-an-index.md
+          - text: Importing data
+            url: search-what-is-data-import.md
+          - text: Indexer overview
+            url: search-indexer-overview.md
       - linkListType: how-to-guide
         links:
           - text: Index from Azure Blob Storage
