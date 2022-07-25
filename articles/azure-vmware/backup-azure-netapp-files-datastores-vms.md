@@ -3,7 +3,7 @@ title: Back up Azure NetApp Files datastores and VMs using Cloud Backup
 description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 06/27/2022
+ms.date: 07/25/2022
 ---
 
 # Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines
@@ -77,7 +77,7 @@ You can add or remove resources from a resource group at any time.
 
 1.  In the left navigation of the vCenter web client page, select **Cloud Backup** for **Virtual Machines** > **Resource Groups**. Then select **+ Create** to start the wizard
 
-    :::image type="content" source="./media/cloud-backup/vSphere-create-resource-group.jpg" alt-text="The vSphere Client Resource Group interface. At the top left, a red box highlights a button with a green plus sign that reads Create, instructing you to select this button." lightbox="./media/cloud-backup/vSphere-create-resource-group.jpg":::
+    :::image type="content" source="./media/cloud-backup/vSphere-create-resource-group.jpg" alt-text="Screenshot of the vSphere Client Resource Group interface shows a red box highlights a button with a green plus sign that reads Create, instructing you to select this button." lightbox="./media/cloud-backup/vSphere-create-resource-group.jpg":::
     
 1. On the **General Info & Notification** page in the wizard, enter the required values.
 1. On the **Resource** page, do the following:
@@ -107,7 +107,7 @@ You can add or remove resources from a resource group at any time.
 1. On the **Schedules** page, configure the backup schedule for each selected policy.
     In the **Starting** field, enter a date and time other than zero. The date must be in the format day/month/year. You must fill in each field. The Cloud Backup for Virtual Machines creates schedules in the time zone in which the Cloud Backup for Virtual Machines is deployed. You can modify the time zone by using the Cloud Backup for Virtual Machines GUI.
 
-    :::image type="content" source="./media/cloud-backup/backup-schedules.jpg" alt-text="Backup schedules interface showing an hourly backup beginning at 10:22 a.m. on April 26, 2022." lightbox="./media/cloud-backup/backup-schedules.jpg":::
+    :::image type="content" source="./media/cloud-backup/backup-schedules.jpg" alt-text="A screenshot of the Backup schedules interface showing an hourly backup beginning at 10:22 a.m. on April 26, 2022." lightbox="./media/cloud-backup/backup-schedules.jpg":::
 1. Review the summary. If you need to change any information, you can return to any page in the wizard to do so. Select **Finish** to save your settings. 
 
     After you select **Finish**, the new resource group will be added to the resource group list.

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 06/28/2022
+ms.date: 07/25/2022
 ms.author: anfdocs
 ---
 
@@ -20,10 +20,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+* [Backup VMs residing on Azure NetApp Files datastores for Azure VMware Solution with Cloud Backup Service for VMs](../azure-vmware/install-cloud-backup-virtual-machines.md)
+
 ## July 2022
 
-* [Backup VMs residing on Azure NetApp Files datastores for Azure VMware Solution with Cloud Backup Service for VMs](../azure-vmware/install-cloud-backup.md)
-    [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now in public preview. You can [Back up Azure NetApp Files datastores and VMs using Cloud Backup](../azure-vmware/backup-azure-netapp-files-datastores-vms.md). This virtual appliance installs in the Azure VMware Solution cluster and provides policy based automated backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores. 
+* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now in public preview. You can [Back up Azure NetApp Files datastores and VMs using Cloud Backup](../azure-vmware/backup-azure-netapp-files-datastores-vms.md). This virtual appliance installs in the Azure VMware Solution cluster and provides policy based automated backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores. 
 
 ## June 2022
 
