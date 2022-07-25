@@ -33,7 +33,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for these [OS packages](#registries-and-images). 
 
-<sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images). Language specific packages are a preview feature and only support Linux images.
+<sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images).
 
 ## Additional information
 
@@ -145,7 +145,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for these [OS packages](#registries-and-images-1). 
 
-<sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images-1). Language specific packages are a preview feature and only support Linux images.
+<sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images-1).
 
 ## Additional information
 
