@@ -3,6 +3,8 @@ title: Microsoft 365 Store step-by-step submission guide
 description:  Use this step-by-step submission guide to submit your app to the Microsoft stores. 
 ms.topic: article
 ms.author: siraghav
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.date: 06/23/2022
 ---
 

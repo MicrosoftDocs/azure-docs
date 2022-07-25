@@ -3,6 +3,8 @@ title: Create effective listings in Microsoft AppSource and within Microsoft 365
 description: Make sure that the information you submit clearly communicates the benefits and functionality that your solution provides.
 ms.author: siraghav
 ms.topic: article
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.date: 7/23/2022
 ---
 

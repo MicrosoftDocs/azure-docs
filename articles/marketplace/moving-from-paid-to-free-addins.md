@@ -3,6 +3,8 @@ title: Moving from paid to free apps
 description: The licensing framework for Office and SharePoint Add-ins is in the process of being retired.
 ms.author: siraghav
 ms.topic: article
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.date: 06/26/2019
 ---
 

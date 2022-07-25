@@ -4,6 +4,8 @@ description: Use Microsoft AppSource badges to promote your solution and drive t
 ms.author: siraghav
 ms.topic: article
 ms.date: 7/23/2022
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ---
 
 # Promote your Microsoft AppSource solution

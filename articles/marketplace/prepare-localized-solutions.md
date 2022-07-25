@@ -4,6 +4,8 @@ description: Obtain localized metadata and create descriptions for each language
 ms.author: siraghav
 ms.date: 11/24/2020
 ms.topic: article
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ---
 
 # Prepare localized solutions

@@ -2,6 +2,8 @@
 title: Define your Office solution properties in Partner Center
 description: Define the categories and industries that apply to your app and add links to support documents.
 ms.author: siraghav
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 7/23/2022
 ---

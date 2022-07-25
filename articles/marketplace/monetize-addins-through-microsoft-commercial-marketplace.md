@@ -4,6 +4,8 @@ description: This article describes how to sell your app through Microsoft by us
 ms.localizationpriority: high
 ms.author: siraghav
 ms.topic: article
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.date: 08/19/2021
 ---
 

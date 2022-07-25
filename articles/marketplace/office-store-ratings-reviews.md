@@ -3,6 +3,8 @@ title: Ratings and reviews dashboard for office add-in analytics in Partner Cent
 description: Analyze the ratings and reviews of your add-in after users acquire it from Microsoft AppSource.
 ms.localizationpriority: medium
 ms.author: smannepalle
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 3/24/2022
 ---

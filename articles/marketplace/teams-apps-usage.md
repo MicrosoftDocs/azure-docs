@@ -4,6 +4,8 @@ description: Analyze the usage of your Teams app or add-in after users acquire i
 ms.author: siraghav
 ms.reviewer: dannyevers
 ms.topic: article
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.date: 3/11/2022
 ---
 

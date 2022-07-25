@@ -469,8 +469,6 @@
       href: appsource-submission-faq.yml
     - name: Reserve app name
       href: reserve-solution-name.md
-    - name: App validation policies
-      href: /legal/marketplace/certification-policies
     - name: Manage your submitted app
       items:
         - name: Manage app name

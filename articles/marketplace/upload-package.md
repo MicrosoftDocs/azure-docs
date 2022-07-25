@@ -3,6 +3,8 @@ title: Upload your package to Microsoft AppSource
 description: Upload the manifest for your Office Add-in, SharePoint Add-in, Microsoft Teams app, or Power BI custom visual.
 ms.author: siraghav
 ms.topic: article
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.date: 11/24/2020
 ---
 

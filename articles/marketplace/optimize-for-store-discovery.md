@@ -3,6 +3,8 @@ title: Optimize the placement and ranking of your Office Add-in in Microsoft App
 description: Apply best practices for app development and create an effective Microsoft AppSource listing.
 ms.author: siraghav
 ms.topic: article
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.date: 1/11/2018
 ---
 

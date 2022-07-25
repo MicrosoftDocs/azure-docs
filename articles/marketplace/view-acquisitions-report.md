@@ -1,10 +1,11 @@
 ---
 title: View acquisitions report
 description: Analyze your app or add-in performance and see funnel and acquisitions metrics.
-ms.localizationpriority: medium
 ms.author: siraghav
 ms.reviewer: dannyevers
 ms.topic: article
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.date: 01/10/2022
 ---
 

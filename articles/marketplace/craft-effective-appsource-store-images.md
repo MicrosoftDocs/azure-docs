@@ -4,7 +4,8 @@ description: Make sure that the images submitted for your app are legible, focus
 ms.date: 11/24/2020
 ms.topic: article
 ms.author: siraghav
-ms.localizationpriority: medium
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ---
 
 # Craft effective Microsoft AppSource store images

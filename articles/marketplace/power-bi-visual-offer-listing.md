@@ -4,8 +4,8 @@ description: Learn how to configure Power BI visual offer listing details in Par
 author: posurnis
 ms.author: posurnis
 ms.reviewer: pooja.surnis
-ms.service: powerbi
-ms.subservice: powerbi-custom-visuals
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/18/2022
 ---

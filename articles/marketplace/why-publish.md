@@ -3,6 +3,8 @@ title: Why publish to the Microsoft app stores
 description: Publish your app using the Microsoft app store inside of Outlook, Excel, PowerPoint, and Sharepoint, or distribute it through AppSource.
 ms.author: siraghav
 ms.topic: article
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.date: 11/24/2020
 ---
 
