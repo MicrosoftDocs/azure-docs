@@ -3,10 +3,10 @@
 - name: Overview
   expanded: true
   items:
+  - name: Identity fundamentals (TBD)
+    href: 
   - name: What is Azure Active Directory?
     href: active-directory-whatis.md
-  - name: What are fundamentals?
-    href: 
 - name: First steps
   expanded: true
   items:
@@ -96,7 +96,6 @@
     href: active-directory-troubleshooting-support-howto.md
   - name: Support and help options for Azure AD
     href: support-help-options.md
-
 - name: Reference
   expanded: false
   items:
@@ -109,7 +108,7 @@
       href: whats-new-archive.md
   - name: Frequently asked questions
     href: active-directory-faq.yml
-  - name: Glossary
+  - name: Glossary (TBD)
     href: 
   - name: Compliance
     expanded: false
