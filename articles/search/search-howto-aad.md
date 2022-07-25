@@ -32,7 +32,7 @@ As a first step, sign up for the preview and enable role-based access control (R
 
 ### Sign up for the preview
 
-RBAC for data plane operation is in preview. In this step, add the preview feature to your Azure subscription.
+RBAC for data plane operations is in preview. In this step, add the preview feature to your Azure subscription.
 
 1. Open [Azure portal](https://portal.azure.com/) and find your search service
 
