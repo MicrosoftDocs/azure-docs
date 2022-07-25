@@ -25,16 +25,16 @@
 - name: Users, groups, and licenses
   expanded: false
   items:
-  - name: Add or delete a new user
+  - name: Create or delete a user
     href: add-users-azure-active-directory.md
-  - name: Create a group and add members
+  - name: Create or delete a group
     href: active-directory-groups-create-azure-portal.md
-  - name: Assign or remove licenses from users
+  - name: Apply licenses to users
     href: license-users-groups.md
   - name: Manage users
     expanded: false
     items: 
-    - name: Add or change user profile info
+    - name: Update user info
       href: active-directory-users-profile-azure-portal.md
     - name: Assign roles to users
       href: active-directory-users-assign-role-azure-portal.md
@@ -47,20 +47,20 @@
   - name: Manage groups
     expanded: false
     items:
+    - name: Update group membership
+      href: active-directory-groups-members-azure-portal.md
+    - name: Update group ownership
+      href: active-directory-accessmanagement-managing-group-owners.md
+    - name: Delete a group and its members
+      href: active-directory-groups-delete-group.md
     - name: Groups and access management
       href: active-directory-manage-groups.md
     - name: View your groups with assigned members
       href: active-directory-groups-view-azure-portal.md
-    - name: Add or remove group members
-      href: active-directory-groups-members-azure-portal.md
-    - name: Delete a group and its members
-      href: active-directory-groups-delete-group.md
     - name: Add or remove a group from another group
       href: active-directory-groups-membership-azure-portal.md
     - name: Edit group information
       href: active-directory-groups-settings-azure-portal.md
-    - name: Add or remove group owners
-      href: active-directory-accessmanagement-managing-group-owners.md
     - name: Manage access to resources with groups
       href: active-directory-manage-groups.md
   - name: Manage licenses
