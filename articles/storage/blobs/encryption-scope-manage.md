@@ -288,6 +288,8 @@ To upload a blob with an encryption scope via the Azure portal, first create the
 1. To specify a different scope for the blob that you are uploading, select **Choose an existing scope**, then select the desired scope from the drop-down.
 
     :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Screenshot showing how to upload a blob with an encryption scope":::
+    
+    ++ Image shown on the above upload blob blade should be changed as the string got updated from Setting access tier is not supported with customer-key encryption. => You can not change the access tier for a blob that uses an encryption scope as per this pull request https://msazure.visualstudio.com/One/_git/AzureUX-IaaSExp/pullrequest/6335756
 
 # [PowerShell](#tab/powershell)
 
