@@ -30,7 +30,7 @@ The `ImageName` attribute is used to specify that a cluster node should use a pr
   ImageName = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyCustomImage
 ```
 
-The URN or Resource ID defines the marketplace image to be used. The easiest way to retrieve URN or ID is through the [Azure CLI](/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list).
+The URN or Resource ID defines the marketplace image to be used. The easiest way to retrieve URN or ID is through the [Azure CLI](/cli/azure/vm/image#az-vm-image-list).
 
 You can also specify a Marketplace or Gallery image by using the URN:
 

@@ -62,4 +62,4 @@ The built-in user management system is enabled by default on every CycleCloud in
 
 For enterprise production clusters, it is recommended that user access be managed through a directory service such as LDAP, Active Directory, or NIS. This integration can be implemented by configuring PAM and NSS in the VM images used on each node, or creating CycleCloud projects that are executed during the software installation phase of each node.
 
-The [Azure Active Directory Domain Service](/services/active-directory-ds/) provides a managed service for Active Directory servers, and instructions for joining a Linux domain can be found [here](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm).
+The [Azure Active Directory Domain Service](/services/active-directory-ds/) provides a managed service for Active Directory servers, and instructions for joining a Linux domain can be found [here](/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm).
