@@ -183,7 +183,7 @@ Another common case is having no filter for that dimension. This scenario is equ
 
 ## Reuse query data in different visualizations
 
-There are times where you want to visualize the underlying data set in different ways without having to pay the cost of the query each time. This sample shows you how to do so by using the `Merge` option in the query control.
+There are times where you want to visualize the underlying dataset in different ways without having to pay the cost of the query each time. This sample shows you how to do so by using the `Merge` option in the query control.
 
 ### Set up the parameters
 
@@ -203,7 +203,7 @@ There are times where you want to visualize the underlying data set in different
 
 1. Select **Run Query** to see the results.
 
-   This result data set is the one we want to reuse in multiple visualizations.
+   This result dataset is the one we want to reuse in multiple visualizations.
 
     :::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-resultset.png" alt-text="Screenshot that shows the result of a workbooks query." lightbox="media/workbooks-commonly-used-components/workbooks-reuse-data-resultset.png":::
 
@@ -229,7 +229,7 @@ There are times where you want to visualize the underlying data set in different
 1. Style the table by using the options in **Column settings** to get the visualization you want.
 1. Add more query controls working against the `Cpu data` result set if needed.
 
-This example shows Average and P95 CPU utilization side by side.
+This example shows Average and P95 CPU utilization side by side:
 
 :::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-two-controls.png" alt-text="Screenshot that shows two workbook controls using the same query." lightbox="media/workbooks-commonly-used-components/workbooks-reuse-data-two-controls.png":::
 

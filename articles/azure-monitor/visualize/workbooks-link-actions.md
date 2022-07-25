@@ -9,7 +9,7 @@ ms.reviewer: gardnerjr
 
 # Link actions
 
-Link actions can be accessed through workbook link components or through column settings of [grids](../visualize/workbooks-grid-visualizations.md), [titles](../visualize/workbooks-tile-visualizations.md), or [graphs](../visualize/workbooks-graph-visualizations.md).
+Link actions can be accessed through workbook link components or through column settings of [grids](../visualize/workbooks-grid-visualizations.md), [tiles](../visualize/workbooks-tile-visualizations.md), or [graphs](../visualize/workbooks-graph-visualizations.md).
 
 ## General link actions
 
@@ -50,7 +50,7 @@ When you use the link renderer, the following settings are available:
 | Setting | Description |
 |:------------- |:-------------|
 |View to open| Allows you to select one of the actions enumerated above. |
-|Menu item| If **Resource Overview** is selected, this is the menu item in the resource's overview to open. You can use it to open alerts or activity logs instead of the "overview" for the resource. Menu item values are different for each Azure Resource type.|
+|Menu item| If **Resource Overview** is selected, this menu item is in the resource's overview. You can use it to open alerts or activity logs instead of the "overview" for the resource. Menu item values are different for each Azure Resource type.|
 |Link label| If specified, this value appears in the grid column. If this value isn't specified, the value of the cell appears. If you want another value to appear, like a heatmap or icon, don't use the link renderer. Instead, use the appropriate renderer and select the **Make this item a link** option. |
 |Open link in Context Blade| If specified, the link is opened as a pop-up "context" view on the right side of the window instead of opening as a full view. |
 
@@ -74,8 +74,8 @@ This section defines where the template should come from and the parameters used
 | Source | Description |
 |:------------- |:-------------|
 |Resource group id comes from| The resource ID is used to manage deployed resources. The subscription is used to manage deployed resources and costs. The resource groups are used like folders to organize and manage all your resources. If this value isn't specified, the deployment will fail. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources).|
-|ARM template URI from| The URI to the ARM template itself. The template URI needs to be accessible to the users who will deploy the template. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources). For starters, look at [Azure quickstart templates](https://azure.microsoft.com/resources/templates/).|
-|ARM Template Parameters|Defines the template parameters used for the template URI just defined. These parameters are used to deploy the template on the run page. The grid contains an **Expand** toolbar button to help fill the parameters by using the names defined in the template URI and set to static empty values. This option can only be used when there are no parameters in the grid and the template URI has been set. The lower section is a preview of what the parameter output looks like. Select **Refresh** to update the preview with current changes. Parameters are typically values. References are something that could point to key vault secrets that the user has access to. <br/><br/> **Template Viewer blade limitation** doesn't render reference parameters correctly and will show up as null/value. As a result, users won't be able to correctly deploy reference parameters from the **Template Viewer** tab.|
+|ARM template URI from| The URI to the ARM template itself. The template URI needs to be accessible to the users who will deploy the template. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources). For more information, see [Azure quickstart templates](https://azure.microsoft.com/resources/templates/).|
+|ARM Template Parameters|Defines the template parameters used for the template URI defined earlier. These parameters are used to deploy the template on the run page. The grid contains an **Expand** toolbar button to help fill the parameters by using the names defined in the template URI and set to static empty values. This option can only be used when there are no parameters in the grid and the template URI has been set. The lower section is a preview of what the parameter output looks like. Select **Refresh** to update the preview with current changes. Parameters are typically values. References are something that could point to key vault secrets that the user has access to. <br/><br/> **Template Viewer blade limitation** doesn't render reference parameters correctly and will show up as null/value. As a result, users won't be able to correctly deploy reference parameters from the **Template Viewer** tab.|
 
 ![Screenshot that shows the Template Settings tab.](./media/workbooks-link-actions/template-settings.png)
 
@@ -161,9 +161,9 @@ When the workbook link is opened, the new workbook view is passed to all the val
 | Source | Description |
 |:------------- |:-------------|
 |Cell| Use the value in that cell in the grid as the link value. |
-|Column| When selected, a field appears where you can select another column in the grid. The value of that column for the row is used in the link value. This is commonly used to enable each row of a grid to open a different template by setting the **Template Id** field to **column**, or to open the same workbook template for different resources, if the **Workbook resources** field is set to a column that contains an Azure Resource ID. |
+|Column| When selected, a field appears where you can select another column in the grid. The value of that column for the row is used in the link value. This link value is commonly used to enable each row of a grid to open a different template by setting the **Template Id** field to **column**. Or it's used to open the same workbook template for different resources, if the **Workbook resources** field is set to a column that contains an Azure Resource ID. |
 |Parameter| When selected, a field appears where you can select a parameter. The value of that parameter is used for the value when the link is selected. |
 |Static Value| When selected, a field appears where you can enter a static value that's used in the linked workbook. This value is commonly used when all the rows in the grid will use the same value for a field. |
-|Component| Use the value set in the current component of the workbook. It's common in query and metrics components to set the workbook resources in the linked workbook to those used in the query/metrics component, not the current workbook. |
+|Component| Use the value set in the current component of the workbook. It's common in query and metrics components to set the workbook resources in the linked workbook to those resources used in the query/metrics component, not the current workbook. |
 |Workbook| Use the value set in the current workbook. |
-|Default| Use the default value that would be used if no value were specified. This is common for **Gallery Type comes from**, where the default gallery would be set by the type of the owner resource. |
+|Default| Use the default value that would be used if no value were specified. This situation is common for **Gallery Type comes from**, where the default gallery would be set by the type of the owner resource. |

@@ -11,7 +11,7 @@ ms.reviewer: gardnerjr
 
 # Workbooks result limits
 
-Data source, visualization, and parameter limits have some generalities in common:
+Data source, visualization, and parameter limits have some points in common:
 
 - In general, Azure Workbooks limits the results of queries to no more than 10,000 results. Any results after that point are truncated.
 - Each data source might have its own specific limits based on the limits of the service it queries.
