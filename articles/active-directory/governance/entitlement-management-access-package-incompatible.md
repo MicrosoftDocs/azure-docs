@@ -3,7 +3,7 @@ title: Configure separation of duties for an access package in Azure AD entitlem
 description: Learn how to configure separation of duties enforcement for requests for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/15/2021
-ms.author: ajburnle
+ms.author: owinfreyatl
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 

@@ -37,6 +37,9 @@ We recommend that you check the following before you start troubleshooting Micro
 
 **Error message**: Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service. (ID: 34513)
 
+> [!NOTE]
+> Ensure to update the MARS agent for vault credentials to work successfully. The older versions can cause validation errors.
+
 | Causes | Recommended actions |
 | ---     | ---    |
 | **Vault credentials aren't valid** <br/> <br/> Vault credential files might be corrupt, might have expired, or they might have a different file extension than *.vaultCredentials*. (For example, they might have been downloaded more than 10 days before the time of registration.)| [Download new credentials](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) from the Recovery Services vault on the Azure portal. Then take these steps, as appropriate: <br><br>- If you've already installed and registered MARS, open the Microsoft Azure Backup Agent MMC console. Then select **Register Server** in the **Actions** pane to complete the registration with the new credentials. <br> - If the new installation fails, try reinstalling with the new credentials. <br><br> **Note**: If multiple vault credential files have been downloaded, only the latest file is valid for the next 10 days. We recommend that you download a new vault credential file. |

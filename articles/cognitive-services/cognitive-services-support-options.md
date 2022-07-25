@@ -59,7 +59,7 @@ If you can't find an answer to your problem using search, submit a new question 
 
 * [Anomaly Detector](/answers/topics/azure-anomaly-detector.html) 
 * [Content Moderator](/answers/topics/azure-content-moderator.html)
-* [Metrics Advisor (preview)]()
+* [Metrics Advisor](/answers/topics/148981/azure-metrics-advisor.html)
 * [Personalizer](/answers/topics/azure-personalizer.html)
 
 **Azure OpenAI**
@@ -102,7 +102,7 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 
 * [Anomaly Detector](https://stackoverflow.com/search?q=azure+anomaly+detector) 
 * [Content Moderator](https://stackoverflow.com/search?q=azure+content+moderator)
-* [Metrics Advisor (preview)](https://stackoverflow.com/search?q=azure+metrics+advisor)
+* [Metrics Advisor](https://stackoverflow.com/search?q=azure+metrics+advisor)
 * [Personalizer](https://stackoverflow.com/search?q=azure+personalizer)
 
 **Azure OpenAI**
@@ -140,7 +140,7 @@ To request new features, post them on https://feedback.azure.com. Share your ide
 
 * [Anomaly Detector](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858) 
 * [Content Moderator](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858)
-* [Metrics Advisor (preview)](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858)
+* [Metrics Advisor](https://feedback.azure.com/d365community/search/?q=%22Metrics+Advisor%22)
 * [Personalizer](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858)
 
 ## Stay informed

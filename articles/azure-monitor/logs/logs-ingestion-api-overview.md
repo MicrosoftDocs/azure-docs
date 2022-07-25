@@ -9,8 +9,6 @@ ms.date: 06/27/2022
 # Logs ingestion API in Azure Monitor (Preview)
 The Logs ingestion API in Azure Monitor lets you send data to a Log Analytics workspace from any REST API client. This allows you to send data from virtually any source to [supported built-in tables](#supported-tables) or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
 
-[!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
-
 > [!NOTE]
 > The Logs ingestion API was previously referred to as the custom logs API.
 
