@@ -2,13 +2,13 @@
 title: Use xrdp with Linux
 description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
 services: virtual-machines
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/03/2021
-ms.author: cynthn
+ms.date: 07/25/2022
+ms.author: mattmcinnes
 
 ---
 # Install and configure xrdp to use Remote Desktop with Ubuntu
@@ -55,6 +55,11 @@ Now that you have a desktop environment installed, configure a remote desktop se
 ```bash
 sudo apt-get -y install xrdp
 sudo systemctl enable xrdp
+```
+
+On Ubuntu 20, you'll need to give certificate access to an xrdp user:
+```bash
+sudo adduser xrdp ssl-cert
 ```
 
 Tell xrdp what desktop environment to use when you start your session. Configure xrdp to use xfce as your desktop environment as follows:
