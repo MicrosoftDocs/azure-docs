@@ -38,7 +38,7 @@ In your name:
 
 You specify your add-in name in two places, so be sure to use the same name in both:
 
-- Your add-in manifest; specifically, the [DisplayName element](/office/dev/add-ins/reference/manifest/displayname) (Office Add-in), or the [Title element](/sharepoint/dev/schema/title-element-propertiesdefinition-complextypesharepoint-add-in-manifest) (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
+- Your add-in manifest; specifically, the [DisplayName](/office/dev/add-ins/reference/manifest/displayname) (Office Add-in), or [Title](/sharepoint/dev/schema/title-element-propertiesdefinition-complextypesharepoint-add-in-manifest) (SharePoint Add-in) element. This element specifies the name that is displayed after the user installs the add-in.
 - The name you reserve in Partner Center. This specifies the name that is displayed in Microsoft AppSource and the in-product Store.
 
 ## Write compelling descriptions
@@ -56,7 +56,7 @@ The summary you supply with your submission is the text that is shown to users i
 
 The following figure shows a good summary next to one that relies on the brand name.
 
-![An image that shows a good summary next to one that relies on the brand name](/media/create-effective-office-store-listings/description-do-dont.png)
+:::image type="content" source="./media/create-effective-office-store-listings/description-do-dont.png" alt-text="An image that shows a good summary next to one that relies on the brand name.":::
 
 ### Effective descriptions
 
@@ -73,7 +73,7 @@ Most users read between 300 and 500 words. The maximum length for descriptions i
 
 ## Apply guidelines for name and description length
 
-|**Item**|**Maximum length**|**Recommended length**|**Include key message in the...**|
+|Item|Maximum length|Recommended length|Include key message in the...|
 |:-----|:-----|:-----|:-----|
 |Name|50 characters|30 characters|First 30 characters|
 |Summary|100 characters|70 characters|First 30 characters|
