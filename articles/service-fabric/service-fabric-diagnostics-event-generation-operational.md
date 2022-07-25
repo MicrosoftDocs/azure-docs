@@ -156,6 +156,7 @@ When BackupRestoreService (BRS) is enabled on an SF Cluster, it exposes events f
 | 65309 | BRSError | Periodic backup failed | BackupRestoreService | Error |
 
 **BackupRestoreService cluster events**
+
 | EventId | Name | Description |Source (Task) | Level |
 | --- | --- | ---| --- | --- |
 | 65306 | BRSInfo | Backup policy created | BackupRestoreService | Informational |
