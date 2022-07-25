@@ -70,7 +70,7 @@
       href: active-directory-licensing-whatis-azure-portal.md
     - name: Sign up for Azure AD Premium
       href: active-directory-get-started-premium.md 
-- name: Next steps
+- name: Quick security wins
   expanded: false
   items:
   - name: Enable MFA
@@ -96,16 +96,17 @@
     href: active-directory-troubleshooting-support-howto.md
   - name: Support and help options for Azure AD
     href: support-help-options.md
-- name: What's new?
-  expanded: false
-  items:
-  - name: What's new in Azure Active Directory
-    href: whats-new.md
-  - name: Archive for What's new? in Azure AD
-    href: whats-new-archive.md
+
 - name: Reference
   expanded: false
-  items: 
+  items:
+  - name: What's new?
+    expanded: false
+    items:
+    - name: What's new in Azure Active Directory
+      href: whats-new.md
+    - name: Archive for What's new? in Azure AD
+      href: whats-new-archive.md
   - name: Frequently asked questions
     href: active-directory-faq.md
   - name: Glossary
@@ -136,7 +137,7 @@
       href: custom-security-attributes-troubleshoot.md
   - name: Frontline worker management
     href: frontline-worker-management.md
-- name: Identity architecture and design
+- name: Identity architecture and deployment
   expanded: false
   items:
   - name: Architecture
