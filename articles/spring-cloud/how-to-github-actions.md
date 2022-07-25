@@ -234,7 +234,7 @@ The following sections show you various options for deploying your app.
 #### To production
 
 Azure Spring Apps supports deploying to deployments with built artifacts (e.g., JAR or .NET Core ZIP) or source code archive.
-The following example deploys to the default production deployment in Azure Spring Apps using JAR file built by Maven. This is the only possible deployment scenario when using the Basic SKU:
+The following example deploys to the default production deployment in Azure Spring Apps using JAR file built by Maven. Please make sure that the package search pattern could only match one specific package. This is the only possible deployment scenario when using the Basic SKU:
 
 ```yml
 name: AzureSpringCloud
