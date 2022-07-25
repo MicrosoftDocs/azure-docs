@@ -488,10 +488,9 @@ Sometimes text-to-speech can't accurately pronounce a word. Examples might be th
 The custom lexicon currently supports UTF-8 encoding.
 
 > [!NOTE]
-> At this time, the custom lexicon isn't supported for five voices: et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural, and mt-MT-GarceNeural.
+> Custom lexicon feature may not work for some new locales.
 > 
 > The `lexicon` element is not supported by the [Long Audio API](long-audio-api.md).
-
 
 **Syntax**
 
