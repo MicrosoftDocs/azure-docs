@@ -118,7 +118,7 @@
     - name: Payment thresholds and time frames
       href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
     - name: Payout statements
-      href: /partner-center/payout-statement?context=/azure/marketplace/context/context
+      href: /partner-center/transaction-history?context=/azure/marketplace/context/context
     - name: Payout schedules and processes
       href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
     - name: Tax details
