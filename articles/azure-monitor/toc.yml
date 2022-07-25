@@ -45,7 +45,7 @@ items:
       href: app/tutorial-users.md
     - name: Dashboard with application data
       href: app/tutorial-app-dashboards.md
-    - name: Monitor mobile application
+    - name: Monitor mobile or UWP application
       href: app/mobile-center-quickstart.md
   - name: Change Analysis
     items:
@@ -815,8 +815,8 @@ items:
               href: app/status-monitor-v2-detailed-instructions.md
             - name: API reference
               href: app/status-monitor-v2-api-reference.md
-        - name: Java
-          href: app/java-in-process-agent.md
+        - name: Java (OpenTelemetry redirect)
+          href: app/java-in-process-agent-redirect.md
     - name: Application Insights SDKs
       items:
       - name: .NET
@@ -1172,8 +1172,6 @@ items:
       href: change/change-analysis-enable.md
     - name: Visualizations
       href: change/change-analysis-visualizations.md
-    - name: Azure PowerShell
-      href: change/change-analysis-powershell.md
     - name: Custom filters
       href: change/change-analysis-custom-filters.md
     - name: Pin and share changes via Azure dashboard
@@ -1202,7 +1200,7 @@ items:
         href: vm/vminsights-enable-policy.md
       - name: Hybrid VMs
         href: vm/vminsights-enable-hybrid.md
-      - name: Upgrade Dependency agent
+      - name: Dependency Agent
         href: vm/vminsights-dependency-agent-maintenance.md
     - name: Map dependencies
       href: vm/vminsights-maps.md

@@ -208,6 +208,7 @@ You can also use Azure Data Factory to create a data ingestion pipeline that pre
 
 Learn more by reading and exploring the following resources:
 
++ [Learning path: End-to-end MLOps with Azure Machine Learning](/learn/paths/build-first-machine-operations-workflow/)
 + [How and where to deploy models](how-to-deploy-and-where.md) with Machine Learning
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
