@@ -1,6 +1,6 @@
 ---
 title: Automated Deployments for Azure Kubernetes Service (Preview)
-description: Learn how to use Automated Deployments to simplifies the process of adding GitHub Actions to your Azure Kubernetes Service (AKS) project
+description: Learn how to use Automated Deployments to simplify the process of adding GitHub Actions to your Azure Kubernetes Service (AKS) project
 ms.author: qpetraroia
 ms.topic: tutorial
 ms.date: 7/21/2022
@@ -20,11 +20,11 @@ Automated Deployments simplifies the process of setting up a GitHub Action and c
 
 ## Deploy an application to your AKS cluster
 
-1. In the Azure Portal, navigate to the resource group containing the AKS cluster you want to deploy the application to.
+1. In the Azure portal, navigate to the resource group containing the AKS cluster you want to deploy the application to.
 
 1. Select your AKS cluster, and then select **Automated deployments (preview)** on the left blade. Select **Create an automated deployment**.
 
-   ![The Automated Deployments screen in the Azure Portal.](media/automated-deployments/ad-homescreen.png)
+   ![The Automated Deployments screen in the Azure portal.](media/automated-deployments/ad-homescreen.png)
 
 1. Name your workflow and click **Authorize** to connect your Azure account with your GitHub account. After your accounts are linked, choose which repository and branch you would like to create the GitHub Action for.
 
@@ -32,11 +32,11 @@ Automated Deployments simplifies the process of setting up a GitHub Action and c
 
         ![The authorize and repository selection screen.](media/automated-deployments/ad-ghactivate-repo.png)
 
-1. Pick your dockerfile as well as your Azure Container Registry (ACR) and image.
+1. Pick your dockerfile and your Azure Container Registry (ACR) and ACR image.
 
     ![The image selection screen.](media/automated-deployments/ad-image.png)
 
-1. Determine whether you will deploy with Helm or regular Kubernetes manifests. Once decided, pick the appropriate deployment files from your repository and decide which namespace you want to deploy into.
+1. Determine whether you'll deploy with Helm or regular Kubernetes manifests. Once decided, pick the appropriate deployment files from your repository and decide which namespace you want to deploy into.
 
     ![The deployment details screen.](media/automated-deployments/ad-deployment-details.png)
 
@@ -52,7 +52,7 @@ Automated Deployments simplifies the process of setting up a GitHub Action and c
 
 1. Once your application is deployed, go back to automated deployments to see your history.
 
-    ![The history screen in Azure Portal, showing all the previous automated deployments that have been kicked off.](media/automated-deployments/ad-view-history.png)
+    ![The history screen in Azure portal, showing all the previous automated deployments that have been kicked off.](media/automated-deployments/ad-view-history.png)
 
 ## Clean up resources
 
