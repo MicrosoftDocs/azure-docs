@@ -6,8 +6,6 @@
     href: video-indexer-overview.md
   - name: Language support
     href: language-support.md
-  - name: Limited Access features
-    href: limited-access-features.md
 - name: Quickstarts
   expanded: true
   items:
@@ -78,8 +76,11 @@
     - name: Person
       href: customize-person-model-overview.md
   - name: Responsible use of AI
-    href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
     items:
+    - name: Limited Access features
+      href: limited-access-features.md    
+    - name: Transparency notes
+      href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
     - name: Audio Effects Detection
       href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
     - name: Faces detection
