@@ -158,7 +158,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 3. Select **Azure Spring Apps** from the results.
 
-    :::image type="content" source="media/spring-cloud-quickstart-java/spring-cloud-start-new.jpg" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results.":::
+    :::image type="content" source="media/spring-cloud-quickstart-java/find-spring-cloud-start-new.jpg" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results.":::
 
 4. On the Azure Spring Apps page, select **Create**.
 
