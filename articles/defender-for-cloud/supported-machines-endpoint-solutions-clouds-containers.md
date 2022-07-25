@@ -30,7 +30,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-<sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for [OS packages and language specific packages](#registries-and-images).
+<sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for [OS packages and language specific packages](#registries-and-images). Language specific packages are a preview feature.
 
 ## Additional information
 
@@ -139,7 +139,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-<sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for OS [packages and language specific packages](#registries-and-images-1).
+<sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for [OS packages and language specific packages](#registries-and-images-1). Language specific packages are a preview feature.
 
 ## Additional information
 
