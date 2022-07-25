@@ -37,7 +37,7 @@ DCsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processo
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md): Supported (CLI provisioning only)
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported 
 - [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not supported
-- [Trusted Launch](trusted-launch.md): Not supported
+- [Trusted Launch](trusted-launch.md): Supported
 - [Dedicated Host](dedicated-hosts.md): Not supported
 
 
