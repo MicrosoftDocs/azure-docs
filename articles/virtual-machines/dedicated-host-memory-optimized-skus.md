@@ -57,6 +57,41 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | E64as v5 | 1     |
 |                |                 |               | E96as v5 | 1     |
 
+## Ebdsv5
+### Ebdsv5-Type1
+
+The Ebdsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Ebdsv5-Type1 runs [Ebdsv5-series](ebdsv5-ebsv5-series.md#ebdsv5-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Ebdsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size   | # VMs |
+|----------------|-----------------|---------------|-----------|-------|
+| 64             | 119             | 768 GiB       | E2bds v5  | 8     |
+|                |                 |               | E4bds v5  | 8     |
+|                |                 |               | E8bds v5  | 6     |
+|                |                 |               | E16bds v5 | 3     |
+|                |                 |               | E32bds v5 | 1     |
+|                |                 |               | E48bds v5 | 1     |
+|                |                 |               | E64bds v5 | 1     |
+
+## Ebsv5
+### Ebsv5-Type1
+
+The Ebsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Ebsv5-Type1 runs [Ebsv5-series](ebsv5-ebsv5-series.md#ebsv5-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Ebsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
+|----------------|-----------------|---------------|----------|-------|
+| 64             | 119             | 768 GiB       | E2ds v5  | 8     |
+|                |                 |               | E4ds v5  | 8     |
+|                |                 |               | E8ds v5  | 6     |
+|                |                 |               | E16ds v5 | 3     |
+|                |                 |               | E32ds v5 | 1     |
+|                |                 |               | E48ds v5 | 1     |
+|                |                 |               | E64ds v5 | 1     |
+
+
 ## Edsv5
 ### Edsv5-Type1
 
