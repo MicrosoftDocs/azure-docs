@@ -21,7 +21,7 @@ By using the migration tool, you can initiate migrations for multiple servers an
 >[!NOTE]
 > The migration tool is in public preview.
 >
-> Migration from Single Server to Flexible Server is enabled in preview in these regions: Australia Southeast, Canada Central, Canada East, East Asia, North Central US, South Central US, Switzerland North, UAE North, UK South, UK West, West US, and Central US.
+> Migration from Single Server to Flexible Server is enabled in preview in these regions: Central US, West US, South Central US, North Central US, East Asia, Switzerland North, Australia South East, UAE North, UK West and Canada East.
 
 ## Overview
 
@@ -116,7 +116,7 @@ Before you start using the migration tool:
 
 - [Set up an Azure Active Directory (Azure AD) app](./how-to-setup-azure-ad-app-portal.md). An Azure AD app is a critical component of the migration tool. It helps with role-based access control as the migration tool accesses both the source and target servers.
 
-- If you are using any PostgreSQL extensions on the Single Server, it has to activated on the Flexible Server before initiating the migration using the steps below:
+- If you are using any PostgreSQL extensions on the Single Server, it has to allow-listed on the Flexible Server before initiating the migration using the steps below:
 
 1. Use select command in the Single Server environment to list all the extensions in use.
 
@@ -126,7 +126,7 @@ Before you start using the migration tool:
 
 The output of the above command gives the list of extensions currently active on the Single Server
 
-2. Enable the list of extensions obtained from step 1 in the Flexible Server. Search for the 'azure.extensions' parameter by selecting the Server Parameters tab in the side pane. Selected the extensions that are to be allowed to be created and click Save.
+2. Enable the list of extensions obtained from step 1 in the Flexible Server. Search for the 'azure.extensions' parameter by selecting the Server Parameters tab in the side pane. Select the extensions that are to be allow-listed and click Save.
 
   :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-azure-extensions.png" alt-text="Screenshot of PG extension support in the Flexible Server Azure portal." lightbox="./media/concepts-single-to-flexible/single-to-flex-azure-extensions.png":::
 
@@ -139,7 +139,7 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
 ### Post-migration actions and considerations
 
-- If you are using sequences, once the migration has successfully completed, ensure that you update the value of the sequence with the correct value.
+- If you are using sequences, once the migration has successfully completed, ensure that you update the current value of sequences in target database to match the values in the source database.
 
 - All the resources that the migration tool creates will be automatically cleaned up, whether the migration succeeds, fails, or is canceled. No action is required from you.
 

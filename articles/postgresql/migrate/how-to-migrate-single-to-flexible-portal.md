@@ -53,6 +53,34 @@ The migration tool comes with a simple, wizard-based experience on the Azure por
 
 5. Select the **Migrate from Single Server** button. You'll go through a wizard-based series of tabs to create a migration to this Flexible Server target from any Single Server source.
 
+Alternatively, you can initiate the migration process from the overview tab of the Azure Database for PostgreSQL Single Server source.
+
+1. Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in. The default view is your service dashboard.
+
+2. In the **Overview** tab of the Single Server, you can observe the **Migrate your PostgreSQL single server to a fully managed PostgreSQL flexible server. Flexible server provides more granular control, flexibility and better cost optimization. Migrate now.** banner. Click on **Migrate now** to get started.
+
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-initiate-migrate-from-single-server.png" alt-text="Screenshot to initiate migration from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-initiate-migrate-from-single-server.png":::
+
+3. You will be taken to a page with two options. If you have already created a Flexible Server and want to use that as the target, choose **Select existing**, and select the corresponding Subscription, Resource group and Server name details. Once the selections have been made, click on **Go to Migration wizard** and skip to the instructions under the **Setup tab** section in this page.
+
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-choose-between-flexible-server.png" alt-text="Screenshot to choose between flexible server options." lightbox="./media/concepts-single-to-flexible/single-to-flex-initiate-migrate-from-single-server.png":::
+
+4. Should you choose to Create a new Flexible Server, select **Create new** and click on **Go to Create Wizard**. This action will take you through the Flexible Server creation process and deploy the Flexible Server.
+
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-create-new.png" alt-text="Screenshot to choose between flexible server options." lightbox="./media/concepts-single-to-flexible/single-to-flex-create-new.png":::
+
+5. Once the Flexible Server is deployed, go to the **Overview** tab for Flexible Server. On the left menu, scroll down to **Migration (preview)** and select it.
+
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png" alt-text="Screenshot of Migration tab details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png":::
+
+6. Select the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you're using the migration tool, an empty grid appears with a prompt to begin your first migration.
+
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png" alt-text="Screenshot of the Migrate from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png":::
+
+    If you've already created migrations to your Flexible Server target, the grid is populated with information about migrations that were attempted to this target from Single Server sources.
+
+7. Select the **Migrate from Single Server** button. You'll go through a wizard-based series of tabs to create a migration to this Flexible Server target from any Single Server source.
+
 ### Setup tab
 
 The first tab is **Setup**. It has basic information about the migration and the list of prerequisites for getting started with migrations. These prerequisites are the same as the ones listed in the [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md) article. 
