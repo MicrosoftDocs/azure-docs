@@ -110,7 +110,7 @@ Each type of resource is represented by one or more associated C# classes. Here'
 |[``MongoDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm)|This class is a reference to a database that may, or may not, exist in the service yet. The database is validated or created server-side when you attempt to perform an operation against it.|
 |[``Collection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoCollection.htm)|This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.|
 
-The following guides show you how to use each of these classes to build your application.
+The following guides show you how to use each of these classes to build your application and manage data.
 
 **Guide**:
 
