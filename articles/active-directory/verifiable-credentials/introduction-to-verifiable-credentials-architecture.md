@@ -47,7 +47,7 @@ However, there are scenarios where using a decentralized architecture with verif
 
 * accessing resources outside the trust boundary, such as accessing partners’ resources, with a portable credential issued by the organization.
 
- 
+
 
 ### Decentralized identity systems
 
@@ -76,7 +76,7 @@ Terminology for verifiable credentials (VCs) might be confusing if you're not fa
 
  “A ***decentralized identifier*** is a  portable URI-based identifier, also known as a DID, associated with an entity. These identifiers are often used in a verifiable credential and are associated with subjects, issuers, and verifiers.”.
 
-* In the preceding diagram, the public keys of the actor’s DIDs are shown stored in the decentralized ledger (ION).- in the decentralized identifier document.
+* In the preceding diagram, the public keys of the actor’s DIDs are shown stored in the decentralized ledger (ION) in the decentralized identifier document.
 
  “A ***decentralized identifier document***, also referred to as a ***DID document***, is a document that is accessible using a verifiable data registry and contains information related to a specific decentralized identifier, such as the associated repository and public key information.” 
 

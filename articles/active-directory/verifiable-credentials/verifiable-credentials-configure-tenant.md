@@ -108,7 +108,7 @@ To set up Azure AD Verifiable Credentials, follow these steps:
 
 ## Register an application in Azure AD
 
-Azure AD Verifiable Credentials Service Request needs to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verifiable Credential Request Service that you set up in the previous step.
+Your application needs to get access tokens when it wants to call the Azure AD Verifiable Credentials Service so it can issue or verify credentials. To get access tokens, you have to register an application and grant API permission for the Verifiable Credentials Service Request API. For example, use the following steps for a web application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 
@@ -159,8 +159,8 @@ To add the required permissions, follow these steps:
     1. Domain verification.
 1. Select on each section and download the JSON file under each.
 1. Crete a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
-    - https://contoso.com/.well-known/did.json
-    - https://contoso.com/.well-known/did-configuration.json.
+    - `https://contoso.com/.well-known/did.json`
+    - `https://contoso.com/.well-known/did-configuration.json`
 
 Once that you have successfully completed the verification steps, you are ready to continue to the next tutorial.
 
