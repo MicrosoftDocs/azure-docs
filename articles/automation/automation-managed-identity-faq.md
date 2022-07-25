@@ -1,6 +1,6 @@
 ---
-title: Azure Automation FAQ
-description: This article gives answers to frequently asked questions when you are migrating from RunAs account to Managed Identity
+title: Azure Automation Migration to Managed Identity FAQ
+description: This article gives answers to frequently asked questions when you are migrating from Run As account to Managed Identity
 services: automation
 ms.subservice: 
 ms.topic: conceptual
@@ -9,9 +9,9 @@ ms.custom: devx-track-azurepowershell
 #Customer intent: As an implementer, I want answers to various questions.
 ---
 
-# Azure Automation frequently asked questions
+#  Frequently asked questions when migrating from Run As account to Managed identities 
 
-This Microsoft FAQ is a list of commonly asked questions when you are migrating from RunAs account to Managed Identity. If you have any other questions about the capabilities, go to the discussion forum and post your questions. When a question is frequently asked, we add it to this article so that it's found quickly and easily.
+This Microsoft FAQ is a list of commonly asked questions when you are migrating from Run As account to Managed Identity. If you have any other questions about the capabilities, go to the discussion forum and post your questions. When a question is frequently asked, we add it to this article so that it's found quickly and easily.
 
 ## How long will you support Run As account?
  
