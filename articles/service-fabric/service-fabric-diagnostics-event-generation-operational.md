@@ -154,7 +154,8 @@ More details on application upgrades can be found [here](service-fabric-applicat
 | 65309 | BRSError | Periodic backup failed | BackupRestoreService | Error | 1 |
 
 **BackupRestoreService cluster events**
-
+| EventId | Name | Description |Source (Task) | Level | Version |
+| --- | --- | ---| --- | --- | --- |
 | 65306 | BRSInfo | Backup policy created | BackupRestoreService | Informational | 1 |
 | 65308 | BRSWarning | Backup policy deleted | BackupRestoreService | Warning | 1 |
 | 65310 | BRSError | AddBackupPolicy failed | BackupRestoreService | Error | 1 |
