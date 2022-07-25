@@ -124,7 +124,7 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 |Training&nbsp;data&nbsp;size| Validation technique |
 |---|-----|
 |**Larger&nbsp;than&nbsp;20,000&nbsp;rows**| Train/validation data split is applied. The default is to take 10% of the initial training data set as the validation set. In turn, that validation set is used for metrics calculation.
-|**Smaller&nbsp;than&nbsp;or&nbsp;equal&nbsp;to&nbsp;20,000&nbsp;rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is fewer than 1,000 rows**, 10 folds are used. <br> **If the rows are between 1,000 and 20,000**, then three folds are used.
+|**Smaller&nbsp;than&nbsp;or&nbsp;equal&nbsp;to&nbsp;20,000&nbsp;rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is fewer than 1,000 rows**, 10 folds are used. <br> **If the rows are equal to or between 1,000 and 20,000**, then three folds are used.
 
 
 ## Compute to run experiment
