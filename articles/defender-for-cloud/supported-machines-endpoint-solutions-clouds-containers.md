@@ -29,6 +29,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Discovery and provisioning | Auto provisioning of Azure policy add-on | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 <sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for [OS packages and language specific packages](#registries-and-images).
 
 ## Additional information
@@ -38,8 +39,8 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Aspect | Details |
 |--|--|
 | Registries and images | **Supported**<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Windows images using Windows OS version 1709 and above (Preview). This is free while it's in preview, and will incur charges (based on the Defender for Containers plan) when it becomes generally available.<br><br>**Unsupported**<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) |
-| OS Packages | - Alpine Linux 3.12-3.15 <br> - Red Hat Enterprise Linux 6, 7, 8 <br> - CentOS 6, 7 <br> - Oracle Linux 6,6,7,8 <br> - Amazon Linux 1,2 <br> - openSUSE leap 42, 15 <br> - SUSE Enterprise Linux 11,12, 15 <br> - Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> - Ubuntu 10.10 - 22.04 <br> - FreeBSD 11.1-13.1  <br> - Fedora 32, 33, 34, 35|
-| Language specific packages ( Preview) <br> **Only Supported for Linux** | - Python <br> - Node.js <br> - .NET <br> - JAVA <br> - Go |
+| OS Packages | **Supported** <br> - Alpine Linux 3.12-3.15 <br> - Red Hat Enterprise Linux 6, 7, 8 <br> - CentOS 6, 7 <br> - Oracle Linux 6,6,7,8 <br> - Amazon Linux 1,2 <br> - openSUSE leap 42, 15 <br> - SUSE Enterprise Linux 11,12, 15 <br> - Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> - Ubuntu 10.10 - 22.04 <br> - FreeBSD 11.1-13.1  <br> - Fedora 32, 33, 34, 35|
+| Language specific packages (Preview) <br><br> (**Only Supported for Linux images**) | **Supported** <br> - Python <br> - Node.js <br> - .NET <br> - JAVA <br> - Go |
 
 ### Kubernetes distributions and configurations
 
@@ -134,7 +135,8 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Discovery and provisioning | Auto provisioning of Azure policy extension | Arc enabled K8s clusters | Preview | - | Agentless | Defender for Containers |
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-<sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for [OS packages and language specific packages](#registries-and-images).
+
+<sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for OS [packages and language specific packages](#registries-and-images-1).
 
 ## Additional information
 
@@ -144,7 +146,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 |--|--|
 | Registries and images | **Supported**<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Windows images using Windows OS version 1709 and above (Preview). This is free while it's in preview, and will incur charges (based on the Defender for Containers plan) when it becomes generally available.<br><br>**Unsupported**<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) |
 | OS Packages | **Supported** <br> - Alpine Linux 3.12-3.15 <br> - Red Hat Enterprise Linux 6, 7, 8 <br> - CentOS 6, 7 <br> - Oracle Linux 6,6,7,8 <br> - Amazon Linux 1,2 <br> - openSUSE leap 42, 15 <br> - SUSE Enterprise Linux 11,12, 15 <br> - Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> - Ubuntu 10.10 - 22.04 <br> - FreeBSD 11.1-13.1  <br> - Fedora 32, 33, 34, 35|
-| Language specific packages (Preview) <br> **Only Supported for Linux images** | <br> - Python <br> - Node.js <br> - .NET <br> - JAVA <br> - Go |
+| Language specific packages (Preview) <br><br> (**Only Supported for Linux images**) | **Supported** <br> - Python <br> - Node.js <br> - .NET <br> - JAVA <br> - Go |
 
 ### Kubernetes distributions and configurations
 

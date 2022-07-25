@@ -45,11 +45,11 @@ Note, if you're using the preview version, the `AKS-AzureDefender` feature flag 
 
 ### Defender for Container's VA adds support for the detection of language specific packages (Preview)
 
-Defender for Container's vulnerability assessment (VA) has extended its abilities to detect vulnerabilities to now include language specific packages and OS packages.
+Defender for Container's vulnerability assessment (VA) is able to detect vulnerabilities in OS packages deployed via the OS package manager. We have now extended VA's abilities to detect vulnerabilities to include language specific packages.
 
 This feature is in `preview` and is only available for Linux images.
 
-Check out Defender for Container's a full list of [features and their availability](supported-machines-endpoint-solutions-clouds-containers.md).
+You can view Defender for Container's full list of [features and their availability](supported-machines-endpoint-solutions-clouds-containers.md) to see all of the included language specific packages.
 
 ## June 2022
 
