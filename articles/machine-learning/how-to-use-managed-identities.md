@@ -36,7 +36,7 @@ In this article, you'll learn how to use managed identities to:
  
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
 - The [Azure CLI extension for Machine Learning service](v1/reference-azure-machine-learning-cli.md)
 - The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 - To assign roles, the login for your Azure subscription must have the [Managed Identity Operator](../role-based-access-control/built-in-roles.md#managed-identity-operator) role, or other role that grants the required actions (such as __Owner__).
@@ -217,7 +217,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
         name="privateAcr", 
         category="ACR", 
         target = "<acr url>", 
-        authType = "RegistryConnection", 
+        authType = "ManagedIdentity", 
         value={"ResourceId": "<user-assigned managed identity resource id>", "ClientId": "<user-assigned managed identity client ID>"})
     ```
 

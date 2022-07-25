@@ -1,7 +1,7 @@
 ---
 title: Theming over the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services Mobile UI library to set up Theming
+description: Use Azure Communication Services UI Library for Mobile native to set up Theming
 author: garchiro7
 ms.author: jorgegarc
 ms.service: azure-communication-services

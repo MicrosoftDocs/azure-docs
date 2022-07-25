@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: standards
 ms.workload: identity
 ms.topic: how-to
-author: barbaraselden
-ms.author: baselden
+author: gargi-sinha
+ms.author: gasinh
 manager: martinco
 ms.reviewer: martinco
 ms.date: 3/10/2022
@@ -35,7 +35,7 @@ U.S. Federal agencies will be approaching this guidance from different starting 
 
 - **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)** offers cloud native  certificate based authentication (without dependency on a federated identity provider). This includes smart card implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV) as well as derived PIV credentials deployed to mobile devices or security keys
 
-- **[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)** offers passwordless multifactor authentication that is phishing-resistant. For more information, see the [Windows Hello for Business Deployment Overview](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+- **[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)** offers passwordless multifactor authentication that is phishing-resistant. For more information, see the [Windows Hello for Business Deployment Overview](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
 
 ### Protection from external phishing
 
@@ -75,8 +75,8 @@ For more information on deploying this method, see the following resources:
 
 For more information on deploying this method, see the following resources:
 
-- [Deploying Active Directory Federation Services in Azure](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
-- [Configuring AD FS for user certificate authentication](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
+- [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+- [Configuring AD FS for user certificate authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
 
 ### Additional phishing-resistant method considerations
 

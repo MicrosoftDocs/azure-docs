@@ -5,11 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurepowershell, contperf-fy21q2, mode-api
+ms.tool: azure-powershell
+ms.custom: mvc, contperf-fy21q2, mode-api
 ms.date: 05/03/2022
 ---
 
 # Quickstart: Create and manage workflows with Azure PowerShell in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using [Azure PowerShell](/powershell/azure/install-az-ps). From PowerShell, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multi-tenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running the cmdlets in the [Az.LogicApp](/powershell/module/az.logicapp/) PowerShell module.
 

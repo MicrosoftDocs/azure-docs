@@ -1,19 +1,18 @@
 ---
-title: Diagnose and troubleshoot disconnects with Azure IoT Hub DPS
-description: Learn to diagnose and troubleshoot common errors with device connectivity for Azure IoT Hub Device Provisioning Service (DPS)
-author: xujing-ms
-manager: nberdy
+title: Diagnose and troubleshoot provisioning errors with Azure IoT Hub DPS
+description: Learn to diagnose and troubleshoot common errors for Azure IoT Hub Device Provisioning Service (DPS)
+author: kgremban
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 04/15/2022
-ms.author: xujing
-#Customer intent: As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
+ms.date: 05/25/2022
+ms.author: kgremban
+#Customer intent: As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are not being provisioned and troubleshoot and resolve those issues right away.
 ---
 
 # Troubleshooting with Azure IoT Hub Device Provisioning Service
 
-Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures etc. This article provides guidance on how to detect and troubleshoot device connectivity issues via Azure Monitor. To learn more about using Azure Monitor with DPS, see [Monitor Device Provisioning Service](monitor-iot-dps.md).
+Provisioning issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures, etc. This article provides guidance on how to detect and troubleshoot device provisioning issues via Azure Monitor. To learn more about using Azure Monitor with DPS, see [Monitor Device Provisioning Service](monitor-iot-dps.md).
 
 ## Using Azure Monitor to view metrics and set up alerts
 
@@ -27,7 +26,7 @@ To view and set up alerts on IoT Hub Device Provisioning Service metrics:
 
 4. Select the desired metric. For supported metrics, see [Metrics](monitor-iot-dps-reference.md#metrics).
 
-5. Select desired aggregation method to create a visual view of the metric. 
+5. Select desired aggregation method to create a visual view of the metric.
 
 6. To set up an alert of a metric, select **New alert rules** from the top right of the metric blade, similarly you can go to **Alert** blade and select **New alert rules**.
 
@@ -63,10 +62,15 @@ Use this table to understand and resolve common errors.
 |-------|------------|------------|
 | 400 | The body of the request is not valid; for example, it cannot be parsed, or the object cannot be validated.| 400 Bad format |
 | 401 | The authorization token cannot be validated; for example, it is expired or does not apply to the request’s URI. This error code is also returned to devices as part of the TPM attestation flow. | 401 Unauthorized|
-| 404 | The Device Provisioning Service instance, or a resource (e.g. an enrollment) does not exist. |404 Not Found |
+| 404 | The Device Provisioning Service instance, or a resource (e.g. an enrollment) does not exist. | 404 Not Found|
+| 405 | The client service knows the request method, but the target service doesn't recognize this method; for example, a rest operations is missing the enrollment or registration Id parameters | 405 Method Not Allowed |
+| 409 | The request could not be completed due to a conflict with the current state of the target Device Provisioning Service instance; for example, the customer has already created the data point and is attempting to recreate the same datapoint again. | 409 Conflict |
 | 412 | The ETag in the request does not match the ETag of the existing resource, as per RFC7232. | 412 Precondition failed |
+| 415 | The server refuses to accept the request because the payload format is in an unsupported format. For supported formats, see [Iot Hub Device Provisioning Service REST API](/rest/api/iot-dps/) | 415 Unsupported Media Type |
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 Too many requests |
 | 500 | An internal error occurred. | 500 Internal Server Error|
+
+If an IoT Edge device fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`, see [DPS Client error](../iot-edge/troubleshoot-common-errors.md?preserve-view=true&view=iotedge-2018-06#dps-client-error) in the IoT Edge (1.1) documentation.
 
 ## Next Steps
 

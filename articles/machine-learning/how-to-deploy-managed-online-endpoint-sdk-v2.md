@@ -44,7 +44,7 @@ cd azureml-examples/sdk
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
-## Connect to Azure machine learning workspace
+## Connect to Azure Machine Learning workspace
 
 The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
 
@@ -68,10 +68,10 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
     ```python
-    # enter details of your AML workspace
+    # enter details of your AzureML workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
-    workspace = "<AML_WORKSPACE_NAME>"
+    workspace = "<AZUREML_WORKSPACE_NAME>"
     ```
 
     ```python

@@ -64,6 +64,9 @@
     - name: Use automated ML (Python)
       displayName: SDK, automl
       href: how-to-configure-auto-train-v1.md
+    - name: Local inference using ONNX
+      displayName: SDK, automl
+      href: how-to-inference-onnx-automl-image-models-v1.md
   - name: Create & manage compute cluster
     displayName: compute target, low priority, managed identity
     href: how-to-create-attach-compute-cluster.md
@@ -129,22 +132,6 @@
       - name: Version & track datasets
         displayName: data, data set
         href: ../how-to-version-track-datasets.md
-    - name: Label data
-      items: 
-      - name: Set up image labeling
-        displayName: data, dataset
-        href: ../how-to-create-image-labeling-projects.md
-      - name: Set up text labeling
-        displayName: data, dataset
-        href: ../how-to-create-text-labeling-projects.md
-      - name: Label images and text
-        displayName: data, dataset, labeling
-        href: ../how-to-label-data.md
-      - name: Add users
-        displayName: data, dataset, labeling
-        href: ../how-to-add-users.md
-      - name: Outsource labeling tasks
-        href: ../how-to-outsource-data-labeling.md
       - name: Create datasets with labels
         displayName: data, labels, torchvision
         href: ../how-to-use-labeled-dataset.md

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 12/07/2021
+ms.date: 06/27/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Discover Azure resources to manage in Privileged Identity Management
 
-Using Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you can improve the protection of your Azure resources. This is helpful to:
+You can use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, to improve the protection of your Azure resources. This helps:
 
 - Organizations that already use Privileged Identity Management to protect Azure AD roles
 - Management group and subscription owners who are trying to secure production resources

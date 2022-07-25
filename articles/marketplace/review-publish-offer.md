@@ -73,7 +73,7 @@ The first step in the publishing process is a set of automated validations. Each
 
 - **Lead management validation and registration** (<15 min)
 
-    We confirm that your lead management system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with lead management enabled.
+   We confirm that your CRM system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with CRM system configured.
 
 - **Offer validation** (<30 min)
 

@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: arm
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
 ms.custom: mode-other, devx-track-azurecli 
-ms.devlang: azurecli
+ms.devlang: azurecli 
 ---
 # Quickstart: Create and manage Communication Services resources
 
@@ -51,25 +51,26 @@ After navigating to your Communication Services resource, select **Keys** from t
 
 :::image type="content" source="./media/key.png" alt-text="Screenshot of Communication Services Key page.":::
 
+### Access your connection strings and service endpoints using Azure CLI
 You can also access key information using Azure CLI, like your resource group or the keys for a specific resource. 
 
-Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You will need to provide your credentials to connect with your Azure account.
-```azurecli
+Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You'll need to provide your credentials to connect with your Azure account.
+```azurepowershell-interactive
 az login
 ```
 
 Now you can access important information about your resources.
-```azurecli
+```azurepowershell-interactive
 az communication list --resource-group "<resourceGroup>"
 
-az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
 ```
 
-If you would like to select a specific subscription you can also specify the ```--subscription``` flag and provide the subscription ID.
-```
-az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionID>"
+If you would like to select a specific subscription, you can also specify the ```--subscription``` flag and provide the subscription ID.
+```azurepowershell-interactive
+az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionId>"
 
-az communication list-key --name "<communicationName>" --resource-group "resourceGroup>" --subscription "<subscriptionID>"
+az communication list-key --name "<acsResourceName>" --resource-group "resourceGroup>" --subscription "<subscriptionId>"
 ```
 
 ## Store your connection string
@@ -90,27 +91,27 @@ To configure an environment variable, open a console window and select your oper
 Open a console window and enter the following command:
 
 ```console
-setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourconnectionstring>"
+setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourConnectionString>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 #### [macOS](#tab/unix)
 
-Edit your **.zshrc**, and add the environment variable:
+Edit your **`.zshrc`**, and add the environment variable:
 
 ```bash
-export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
+export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
 ```
 
 After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
 
 #### [Linux](#tab/linux)
 
-Edit your **.bash_profile**, and add the environment variable:
+Edit your **`.bash_profile`**, and add the environment variable:
 
 ```bash
-export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
+export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
 ```
 
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
@@ -119,7 +120,13 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. [Deleting the resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups) also deletes any other resources associated with it. 
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. You can delete your communication resource by running the command below.
+
+```azurecli-interactive
+az communication delete --name "acsResourceName" --resource-group "resourceGroup"
+```
+
+[Deleting the resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups) also deletes any other resources associated with it. 
 
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your resource automatically at the same time. 
 

@@ -1,6 +1,6 @@
 ---
 title: How to enable network security
-description: This article gives an overview of the Azure Video Indexer (formerly Video Analyzer for Media) network security options.
+description: This article gives an overview of the Azure Video Indexer  network security options.
 ms.topic: article
 ms.date: 04/11/2022
 ms.author: juliako
@@ -8,7 +8,7 @@ ms.author: juliako
 
 # NSG service tags for Azure Video Indexer
 
-Azure Video Indexer (formerly Video Analyzer for Media) is a service hosted on Azure. In some architecture cases the service needs to interact with other services in order to index video files (that is, a Storage Account) or when a customer orchestrates indexing jobs against our API endpoint using their own service hosted on Azure (i.e AKS, Web Apps, Logic Apps, Functions). Customers who would like to limit access to their resources on a network level can use [Network Security Groups with Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview). A service tag represents a group of IP address prefixes from a given Azure service, in this case Azure Video Indexer. Microsoft manages the address prefixes grouped by the service tag and automatically updates the service tag as addresses change in our backend, minimizing the complexity of frequent updates to network security rules by the customer.
+Azure Video Indexer is a service hosted on Azure. In some architecture cases the service needs to interact with other services in order to index video files (that is, a Storage Account) or when a customer orchestrates indexing jobs against our API endpoint using their own service hosted on Azure (i.e AKS, Web Apps, Logic Apps, Functions). Customers who would like to limit access to their resources on a network level can use [Network Security Groups with Service Tags](../virtual-network/service-tags-overview.md). A service tag represents a group of IP address prefixes from a given Azure service, in this case Azure Video Indexer. Microsoft manages the address prefixes grouped by the service tag and automatically updates the service tag as addresses change in our backend, minimizing the complexity of frequent updates to network security rules by the customer.
 
 ## Get started with service tags
 
@@ -34,7 +34,7 @@ This tag contains the IP addresses of Azure Video Indexer services for all regio
 
 ## Using Azure CLI
 
-You can also use Azure CLI to create a new or update an existing NSG rule and add the **AzureVideoAnalyzerForMedia** service tag using the `--source-address-prefixes`. For a full list of CLI commands and parameters see [az network nsg](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest)
+You can also use Azure CLI to create a new or update an existing NSG rule and add the **AzureVideoAnalyzerForMedia** service tag using the `--source-address-prefixes`. For a full list of CLI commands and parameters see [az network nsg](/cli/azure/network/nsg/rule?view=azure-cli-latest&preserve-view=true)
 
 Example of a security rule using service tags. For more details, visit https://aka.ms/servicetags
 

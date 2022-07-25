@@ -97,7 +97,10 @@ Use the following instructions to run the script, depending on which operating s
 
 ### Windows
 
-1. Open a PowerShell window and go to the folder where you've downloaded the PowerShell script.
+1. Open a PowerShell window as an Administrator and go to the folder where you've downloaded the PowerShell script.
+
+> [!NOTE]
+> On Windows workstations, the script must be run in PowerShell window and not in PowerShell Integrated Script Editor (ISE) as PowerShell ISE doesn't display the input prompts from Azure CLI commands. If the script is run on PowerShell ISE, it could appear as though the script is stuck while it is waiting for input. 
 
 2. Run the following command to allow the script to run, because it's an unsigned script. (If you close the session before you complete all the steps, run this command again for the new session.)
 

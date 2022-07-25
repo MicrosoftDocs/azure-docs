@@ -27,7 +27,7 @@ In this article, you learn how to do the following:
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 
 * For a guided introduction to the designer, complete the [designer tutorial](tutorial-designer-automobile-price-train-score.md). 
 

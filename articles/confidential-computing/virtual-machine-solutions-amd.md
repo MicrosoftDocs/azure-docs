@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 11/15/2021
 ---
 
-# Azure Confidential VM options on AMD (preview)
+# Azure Confidential VM options on AMD
 
 > [!IMPORTANT]
 > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
@@ -24,7 +24,7 @@ You can create confidential VMs that run on AMD processors in the following size
 
 | Size family          | Description                                                                         |
 | ------------------ | ----------------------------------------------------------------------------------- |
-| **DCasv5-series**  | Confidential VM with remote storage only. No local temporary desk.                  |
+| **DCasv5-series**  | Confidential VM with remote storage only. No local temporary disk.                  |
 | **DCadsv5-series** | Confidential VM with a local temporary disk.                                        |
 | **ECasv5-series**  | Memory-optimized confidential VM with remote storage only. No local temporary disk. |
 | **ECadsv5-series** | Memory-optimized confidential VM with a local temporary disk.                       |
@@ -39,19 +39,21 @@ You can use the [Azure CLI](/cli/azure/install-azure-cli) with your confidential
 To see a list of confidential VM sizes, run the following command. Replace `<vm-series>` with the series you want to use. For example, `DCASv5`, `ECASv5`, `DCADSv5`, or `ECADSv5`. The output shows information about available regions and availability zones.
 
 ```azurecli-interactive
-az vm list-skus `
-    --size dc `
-    --query "[?family=='standard<vm-series>Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" `
-    --all `
+vm_series='DCASv5'
+az vm list-skus \
+    --size dc \
+    --query "[?family=='standard${vm_series}Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" \
+    --all \
     --output table
 ```
 
 For a more detailed list, run the following command instead:
 
 ```azurecli-interactive
-az vm list-skus `
-    --size dc `
-    --query "[?family=='standard<vm-series>Family']" 
+vm_series='DCASv5'
+az vm list-skus \
+    --size dc \
+    --query "[?family=='standard${vm_series}Family']" 
 ```
 
 ## Deployment considerations
@@ -60,7 +62,7 @@ Consider the following settings and choices before deploying confidential VMs.
 
 ### Azure subscription
 
-To deploy a confidential VM instance, consider a pay-as-you-go subscription or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate amount of Azure compute cores.
+To deploy a confidential VM instance, consider a pay-as-you-go subscription or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate number of Azure compute cores.
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 
@@ -94,7 +96,7 @@ For more information about supported and unsupported VM scenarios, see [support 
 
 ### High availability and disaster recovery
 
-You're responsible for creating high availability and disaster recovery solutions for your confidential VMs. Planning for these scenarios helps minimize avoid prolonged downtime.
+You're responsible for creating high availability and disaster recovery solutions for your confidential VMs. Planning for these scenarios helps minimize and avoid prolonged downtime.
 
 ### Deployment with ARM templates
 

@@ -24,7 +24,7 @@ The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure
 
 ## View supported target service types
 
-Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command create and manage service connections to App Service. 
+Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command create and manage service connections to App Service.
 
 ```azurecli-interactive
 az provider register -n Microsoft.ServiceLinker
@@ -78,7 +78,7 @@ Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command t
 - **App Service name:** the name of your App Service that connects to the target service.
 
 ```azurecli-interactive
-az webapp connection list -g "<your-app-service-resource-group>" --webapp "<your-app-service-name>"
+az webapp connection list -g "<your-app-service-resource-group>" -n "<your-app-service-name>" --output table
 ```
 
 ## Next steps

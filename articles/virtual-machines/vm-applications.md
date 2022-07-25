@@ -1,13 +1,13 @@
 ---
 title: Overview of VM Applications in the Azure Compute Gallery (preview)
 description: Learn more about VM application packages in an Azure Compute Gallery.
-author: cynthn
+author: ericd-mst-github
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 05/18/2022
-ms.author: cynthn
+ms.author: erd
 ms.reviewer: amjads
 ms.custom: 
 
@@ -35,7 +35,9 @@ Application packages provide benefits over other deployment and packaging method
 
 - Support for virtual machines, and both flexible and uniform scale sets
 
+
 - If you have Network Security Group (NSG) rules applied on your VM or scale set, downloading the packages from an internet repository might not be possible. And  with storage accounts, downloading packages onto locked-down VMs would require setting up private links.
+
 
 
 

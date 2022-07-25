@@ -22,7 +22,13 @@ This article focuses on how to secure your AKS cluster. You learn how to:
 
 You can also read the best practices for [container image management][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
 
-You can also use [Azure Kubernetes Services integration with Defender for Cloud][security-center-aks] to help detect threats and view recommendations for securing your AKS clusters.
+
+## Enable threat protection
+
+> **Best practice guidance** 
+>
+> You can enable [Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) to help secure your containers. Defender for Containers can assess cluster configurations and provide security recommendations, run vulnerability scans, and provide real-time protection and alerting for Kubernetes nodes and clusters.
+
 
 ## Secure access to the API server and cluster nodes
 
@@ -141,7 +147,7 @@ AppArmor profiles are added using the `apparmor_parser` command.
     spec:
       containers:
       - name: hello
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
     ```
 
@@ -216,7 +222,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
     spec:
       containers:
       - name: chmod
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command:
           - "chmod"
         args:
@@ -239,7 +245,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
           localhostProfile: prevent-chmod
       containers:
       - name: chmod
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command:
           - "chmod"
         args:
@@ -281,10 +287,12 @@ New features typically move through *alpha* and *beta* status before they become
 
 AKS supports three minor versions of Kubernetes. Once a new minor patch version is introduced, the oldest minor version and patch releases supported are retired. Minor Kubernetes updates happen on a periodic basis. To stay within support, ensure you have a governance process to check for necessary upgrades. For more information, see [Supported Kubernetes versions AKS][aks-supported-versions].
 
+### [Azure CLI](#tab/azure-cli)
+
 To check the versions that are available for your cluster, use the [az aks get-upgrades][az-aks-get-upgrades] command as shown in the following example:
 
 ```azurecli-interactive
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 You can then upgrade your AKS cluster using the [az aks upgrade][az-aks-upgrade] command. The upgrade process safely:
@@ -292,14 +300,42 @@ You can then upgrade your AKS cluster using the [az aks upgrade][az-aks-upgrade]
 * Schedules pods on remaining nodes.
 * Deploys a new node running the latest OS and Kubernetes versions.
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+To check the versions that are available for your cluster, use the [Get-AzAksUpgradeProfile][get-azaksupgradeprofile] cmdlet as shown in the following example:
+
+```azurepowershell-interactive
+Get-AzAksUpgradeProfile -ResourceGroupName myResourceGroup -ClusterName myAKSCluster |
+ Select-Object -Property Name, ControlPlaneProfileKubernetesVersion -ExpandProperty ControlPlaneProfileUpgrade |
+ Format-Table -Property *
+```
+
+You can then upgrade your AKS cluster using the [Set-AzAksCluster][set-azakscluster] command. The upgrade process safely:
+* Cordons and drains one node at a time.
+* Schedules pods on remaining nodes.
+* Deploys a new node running the latest OS and Kubernetes versions.
+
+---
+
 >[!IMPORTANT]
 > Test new minor versions in a dev test environment and validate that your workload remains healthy with the new Kubernetes version. 
 >
 > Kubernetes may deprecate APIs (like in version 1.16) that your workloads rely on. When bringing new versions into production, consider using [multiple node pools on separate versions](use-multiple-node-pools.md) and upgrade individual pools one at a time to progressively roll the update across a cluster. If running multiple clusters, upgrade one cluster at a time to progressively monitor for impact or changes.
 >
+>### [Azure CLI](#tab/azure-cli)
+>
 >```azurecli-interactive
 >az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION
 >```
+>
+>### [Azure PowerShell](#tab/azure-powershell)
+>
+>```azurepowershell-interactive
+>Set-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -KubernetesVersion <KUBERNETES_VERSION>
+>```
+>
+>---
+
 
 For more information about upgrades in AKS, see [Supported Kubernetes versions in AKS][aks-supported-versions] and [Upgrade an AKS cluster][aks-upgrade].
 
@@ -324,7 +360,9 @@ For Windows Server nodes, regularly perform a node image upgrade operation to sa
 
 <!-- INTERNAL LINKS -->
 [az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
+[get-azaksupgradeprofile]: /powershell/module/az.aks/get-azaksupgradeprofile
 [az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
+[set-azakscluster]: /powershell/module/az.aks/set-azakscluster
 [aks-supported-versions]: supported-kubernetes-versions.md
 [aks-upgrade]: upgrade-cluster.md
 [aks-best-practices-identity]: concepts-identity.md
