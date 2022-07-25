@@ -6,6 +6,7 @@ ms.date: 07/18/2022
 ---
 
 # Availability zones and disaster recovery
+Azure availability zones are designed to help you achieve resiliency and reliability for your business-critical workloads. Event Grid supports automatic geo-disaster recovery of event subscription configuration data (metadata) for topics, system topics, domains, and partner topics. This article gives you more details about Event Grid's support for availability zones and disaster recovery. 
 
 ## Availability zones
 
