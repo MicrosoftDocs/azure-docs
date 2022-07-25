@@ -66,10 +66,6 @@ Use the information you collected in [Collect the required information for your 
 
 ## Review the template
 
-<!--
-Need to confirm whether the following link is correct.
--->
-
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-provision-sims).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.mobilenetwork/mobilenetwork-provision-sims/azuredeploy.json":::
@@ -82,7 +78,7 @@ The template defines one or more [**Microsoft.MobileNetwork/sims**](/azure/templ
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-provision-sims%2Fazuredeploy.json)
 
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites). <!-- We should also add a screenshot of a filled out set of parameters. -->
+1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
@@ -114,7 +110,6 @@ The template defines one or more [**Microsoft.MobileNetwork/sims**](/azure/templ
 ## Next steps
 
 You'll need to assign a SIM policy to your SIMs to bring them into service.
-<!-- we may want to update the template to include SIM policies, or update the link below to reference the ARM template procedure rather than the portal -->
 
 - [Configure a SIM policy for Azure Private 5G Core Preview - Azure portal](configure-sim-policy-azure-portal.md)
 - [Assign a SIM policy to a SIM](provision-sims-azure-portal.md#assign-sim-policies)
