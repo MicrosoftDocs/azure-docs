@@ -13,6 +13,10 @@ ms.custom: template-how-to
 
 # Add indicators in bulk to Microsoft Sentinel threat intelligence from a CSV or JSON file
 
+> [!IMPORTANT]
+> The Import indicators in bulk by file feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
 In this how-to guide, you'll add indicators from a CSV or JSON file into Microsoft Sentinel threat intelligence. A lot of threat intelligence sharing still happens across emails and other informal channels during an ongoing investigation. The ability to import indicators directly into Microsoft Sentinel threat intelligence allows you to quickly socialize emerging threats for your team and make them available to power other analytics such as producing security alerts, incidents, and automated responses.
 
 ## Prerequisites
