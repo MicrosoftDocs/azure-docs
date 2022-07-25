@@ -489,6 +489,8 @@ The custom lexicon currently supports UTF-8 encoding.
 
 > [!NOTE]
 > Custom lexicon feature may not work for some new locales.
+> 
+> The `lexicon` element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
@@ -804,7 +806,7 @@ Any audio included in the SSML document must meet these requirements:
 * The audio must not contain any customer-specific or other sensitive information.
 
 > [!NOTE]
-> The 'audio' element is not supported by the Long Audio API.
+> The 'audio' element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
@@ -843,10 +845,9 @@ If the background audio provided is shorter than the text-to-speech or the fade 
 Only one background audio file is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
 
 > [!NOTE]
-> The `mstts:backgroundaudio` element is not supported by the Long Audio API.
-
-> [!NOTE]
 > The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element.
+> 
+> The `mstts:backgroundaudio` element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
