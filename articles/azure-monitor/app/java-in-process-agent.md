@@ -30,13 +30,13 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.3.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.3.0/applicationinsights-agent-3.3.0.jar) file.
+Download the [applicationinsights-agent-3.3.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.3.1/applicationinsights-agent-3.3.1.jar) file.
 
 > [!WARNING]
 > 
-> If you're upgrading from 3.2.x to 3.3.0:
+> If you're upgrading from 3.2.x to 3.3.1:
 > 
->    -  Starting from 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>    -  Starting from 3.3.1, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
 >    - Exception records are no longer recorded for failed dependencies, they are only recorded for failed requests.
 >
 > If you're upgrading from 3.1.x:
@@ -56,7 +56,7 @@ Download the [applicationinsights-agent-3.3.0.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:"path/to/applicationinsights-agent-3.3.0.jar"` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -74,7 +74,7 @@ Add `-javaagent:"path/to/applicationinsights-agent-3.3.0.jar"` to your applicati
         APPLICATIONINSIGHTS_CONNECTION_STRING = <Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.3.0.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.3.1.jar` with the following content:
 
         ```json
         {
