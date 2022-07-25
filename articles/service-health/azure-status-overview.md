@@ -9,7 +9,7 @@ ms.date: 05/26/2022
 
 [Azure status](https://azure.status.microsoft/) provides you with a global view of the health of Azure services and regions. With Azure status, you can get information on service availability. Azure status is available to everyone to view all services that report their service health, as well as incidents with wide-ranging impact. If you're a current Azure user, however, we strongly encourage you to use the personalized experience in [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health includes all outages, upcoming planned maintenance activities, and service advisories.
 
-:::image type="content" source="./media/azure-status-overview/azure-status.PNG" alt-text="Top level Azure Status page.":::
+:::image type="content" source="./media/azure-status-overview/azure-status.PNG" alt-text="Screenshot of top level Azure Status page.":::
 
 This experience was updated on July 25, 2022.  For more information, see [What's New in Azure Service Health](whats-new.md#azure-service-health-portal-experience-update) 
 
@@ -17,25 +17,25 @@ This experience was updated on July 25, 2022.  For more information, see [What's
 
 The Azure status page gets updated in real time as the health of Azure services change. If you leave the Azure status page open, you can control the rate at which the page refreshes with new data. At the top, you can see the last time the page was updated.
 
-:::image type="content" source="./media/azure-status-overview/update.PNG" alt-text="Azure status refresh page.":::
+:::image type="content" source="./media/azure-status-overview/update.PNG" alt-text="Screenshot of Azure status refresh page.":::
 
 ## Azure status banner
 
 The status banner on the Azure Status page highlights active incidents affecting Azure services.
 
-:::image type="content" source="./media/azure-status-overview/banner.png" alt-text="Azure status banner example":::
+:::image type="content" source="./media/azure-status-overview/banner.png" alt-text="Screenshot of Azure status banner example":::
 
 ## Current Impact tab
 
 Azure status page shows the current impact of an active event on the entirety of Azure. Use [Azure Service Health](service-health-overview.md) to see view other issues that may be impacting your services.  
 
-:::image type="content" source="./media/azure-status-overview/current-impact.png" alt-text="Azure status current impact tab":::
+:::image type="content" source="./media/azure-status-overview/current-impact.png" alt-text="Screenshot of Azure status current impact tab":::
 
 ## Azure status history
 
 While the Azure status page always shows the latest health information, you can view older events using the Azure status history page. The history page contains all RCAs for incidents that occurred on November 20th, 2019 or later.  RCAs prior to November 20th, 2019 are not available. From this point forward, the history page will show RCAs up to five years old. 
 
-:::image type="content" source="./media/azure-status-overview/status-history.png" alt-text="Azure status history page":::
+:::image type="content" source="./media/azure-status-overview/status-history.png" alt-text="Screenshot of Azure status history page":::
 
 ## RSS Feed
 
