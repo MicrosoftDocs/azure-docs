@@ -33,11 +33,11 @@ You now have the choice when creating an ACI to choose what level of reuse you w
 
 | Policy name | Policy definition |
 | - | - |
-| unsecure | **Default** Hash will be generated based on only the DNS name, so avoiding subdomain takeover is not guaranteed if another customer uses the same DNS name. |
-| tenantReuse | Hash will be generated based on the DNS name and the tenant ID. |
-| subscriptionReuse | Hash will be generated based on the DNS name and the tenant ID and subscription ID. |
-| resourceGroupReuse | Hash will be generated based on the DNS name and the tenant ID, subscription ID, and resource group name. |
-| noReuse | Hash will not be generated. |
+| unsecure | Hash will be generated based on only the DNS name. Avoiding subdomain takeover is not guaranteed if another customer uses the same DNS name. |
+| tenantReuse | **Default** Hash will be generated based on the DNS name and the tenant ID. Object's domain name label can be reused within the same tenant. |
+| subscriptionReuse | Hash will be generated based on the DNS name and the tenant ID and subscription ID. Object's domain name label can be reused within the same subscription. |
+| resourceGroupReuse | Hash will be generated based on the DNS name and the tenant ID, subscription ID, and resource group name. Object's domain name label can be reused within the same resource group. |
+| noReuse | Hash will not be generated. Object's domain label can't be reused within resource group, subscription, or tenant. |
 
 ## Create a container instance
 
