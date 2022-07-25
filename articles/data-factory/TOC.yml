@@ -1080,6 +1080,7 @@ items:
           href: sap-change-data-capture-data-replication-template.md
         - name: 8 - Managing the solution
           href: sap-change-data-capture-management.md
+        displayName: SAP, change data capture, CDC
   - name: Templates
     items:
     - name: Overview of templates
@@ -1113,6 +1114,8 @@ items:
       href: data-flow-reserved-capacity-overview.md
     - name: Data flow understand reservation charges
       href: data-flow-understand-reservation-charges.md
+    - name: Better understand different integration runtime charges
+      href: better-understand-different-integration-runtime-charges.md
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
       displayName: diu
