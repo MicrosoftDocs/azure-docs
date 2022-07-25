@@ -326,6 +326,12 @@ If you enabled the integration, but still don't see the extension running on you
 ### What are the licensing requirements for Microsoft Defender for Endpoint?
 Defender for Endpoint is included at no extra cost with **Microsoft Defender for Servers**. Alternatively, it can be purchased separately for 50 machines or more.
 
+### Do I need to buy a separate anti-malware solution to protect my machines?
+No. With MDE integration in Defender for Servers, you'll also get malware protection on your machines.
+- On Windows Server 2012 R2 with MDE unified solution integration enabled, Defender for Servers will deploy [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
+- On newer Windows Server operating systems, Microsoft Defender Antivirus is part of the operating system and will be enabled in *active mode*.
+- On Linux, Defender for Servers will deploy MDE including the anti-malware component, and set the component in *passive mode*.
+
 ### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?
 If you already have a license for **Microsoft Defender for Endpoint for Servers** , you won't pay for that part of your [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#plan-2-formerly-defender-for-servers) license. Learn more about [the Microsoft 365 license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
 

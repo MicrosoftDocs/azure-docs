@@ -153,15 +153,16 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version |
 |---------------------|----------------------|
-| 2.6.x               | 2021.0.0+            |
-| 2.5.x               | 2020.0+ aka Ilford+  |
+| 2.7.x               | 2021.0.3+ aka Jubilee|
+| 2.6.x               | 2021.0.0+ aka Jubilee|
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
 | Spring Boot version | Spring Cloud version       |
 |---------------------|----------------------------|
-| 2.6.x               | 2021.0.0+                  |
-| 2.5.x               | 2020.0+ aka Ilford+        |
+| 2.7.x               | 2021.0.3+ aka Jubilee      |
+| 2.6.x               | 2021.0.0+ aka Jubilee      |
+| 2.5.x               | 2020.3+ aka Ilford+        |
 | 2.4.x               | 2020.0+ aka Ilford+        |
 | 2.3.x               | Hoxton (starting with SR5) |
 
@@ -179,7 +180,7 @@ For more information, see the following pages:
 > - Upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using Spring Security, upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11.
 > - An issue was identified with Spring Boot 2.4.0 on TLS authentication between apps and Spring Cloud Service Registry. Use version 2.4.1 or above. If you must use version 2.4.0, see the [FAQ](./faq.md?pivots=programming-language-java#development) for a workaround.
 
-### Dependencies for Spring Boot version 2.4/2.5/2.6
+### Dependencies for Spring Boot version 2.4/2.5/2.6/2.7
 
 For Spring Boot version 2.4/2.5, add the following dependencies to the application POM file.
 
@@ -205,14 +206,14 @@ For Spring Boot version 2.4/2.5, add the following dependencies to the applicati
 </dependencyManagement>
 ```
 
-For Spring Boot version 2.6, add the following dependencies to the application POM file.
+For Spring Boot version 2.6/2.7, add the following dependencies to the application POM file.
 
 ```xml
 <!-- Spring Boot dependencies -->
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.0</version>
+    <version>2.7.2</version>
 </parent>
 
 <!-- Spring Cloud dependencies -->
@@ -221,7 +222,7 @@ For Spring Boot version 2.6, add the following dependencies to the application P
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2021.0.0</version>
+            <version>2021.0.3</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
