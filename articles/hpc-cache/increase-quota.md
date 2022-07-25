@@ -1,10 +1,10 @@
 ---
-title: Request an HPC Cache quota increase
+title: Request a quota increase for Azure HPC Cache
 description: How to request a quota increase for Azure HPC Cache by opening a support request ticket 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 07/25/2022
 ms.author: v-erinkelly
 ---
 
