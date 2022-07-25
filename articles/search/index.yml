@@ -91,18 +91,6 @@ landingContent:
             url: search-howto-index-cosmosdb.md
           - text: Index any data
             url: tutorial-optimize-indexing-push-api.md
-
-  # Card
-  - title: Enrich with AI
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: What is AI enrichment?
-            url: cognitive-search-concept-intro.md
-          - text: Skillsets
-            url: cognitive-search-working-with-skillsets.md
-          - text: Knowledge stores
-            url: knowledge-store-concept-intro.md
          
   # Card
   - title: Query data
@@ -127,3 +115,15 @@ landingContent:
             url: query-odata-filter-orderby-syntax.md
           - text: Search Documents (REST)
             url: /rest/api/searchservice/search-documents
+
+  # Card
+  - title: Enrich with AI
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is AI enrichment?
+            url: cognitive-search-concept-intro.md
+          - text: Skillsets
+            url: cognitive-search-working-with-skillsets.md
+          - text: Knowledge stores
+            url: knowledge-store-concept-intro.md
