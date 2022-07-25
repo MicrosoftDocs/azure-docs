@@ -699,15 +699,14 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-SAPODP-SessionTerminate
 
 - **Message**: Internal session terminated with a runtime error RAISE_EXCEPTION (see ST22)
-- **Cause**: Transient issues for the SLT object.
+- **Cause**: Transient issues for SLT objects.
 - **Recommendation**: Rerun the data flow activity.
 
 ## Error code: DF-SAPODP-StageAuthInvalid
 
 - **Message**: Invalid client secret provided
 - **Cause**: The service principal certificate credential of the staging storage is not correct.
-- **Recommendation**: Check whether the test connection is successful in your staging storage linked service, and confirm whether the authentication setting of your staging storage is correct.
-
+- **Recommendation**: Check whether the test connection is successful in your staging storage linked service, and confirm the authentication setting of your staging storage is correct.
 - **Message**: Failed to authenticate the request to storage
 - **Cause**: The key of your staging storage is not correct.
 - **Recommendation**: Check whether the test connection is successful in your staging storage linked service, and confirm the key of your staging Azure Blob Storage is correct.
@@ -725,7 +724,7 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-SAPODP-ObjectInvalid
 
-- **Cause**: The object name is not found or released.
+- **Cause**: The object name is not found or not released.
 - **Recommendation**: Check the object name and make sure it is valid and already released.
 
 ## Error code: DF-SAPODP-SLT-LIMITATION
@@ -770,13 +769,13 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-SAPODP-StageStorageServicePrincipalCertNotSupport
 
 - **Message**: Read from staging storage failed: Staging storage auth not support service principal cert.
-- **Cause**: The service principal certificate credential is not supported for staging storage.
+- **Cause**: The service principal certificate credential is not supported for the staging storage.
 - **Recommendation**: Change your authentication to not use the service principal certificate credential.
 
 ## Error code: DF-SAPODP-StageGen2PropertyInvalid
 
 - **Message**: Read from staging storage failed: Staging Gen2 storage auth properties not valid.
-- **Cause**: Authentication properties of staging Azure Data Lake Storage Gen2 aren't valid.
+- **Cause**: Authentication properties of your staging Azure Data Lake Storage Gen2 aren't valid.
 - **Recommendation**: Check the authentication setting in your staging linked service.
 
 
