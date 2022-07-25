@@ -91,7 +91,7 @@ Your logo should:
 
 The following figure shows a clear logo with an Excel chart next to an unclear Fabrikam logo.
 
-![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo.](media/create-effective-office-store-listings/communicate-problem-do-dont.png)
+:::image type="content" source="./media/create-effective-office-store-listings/communicate-problem-do-dont.png" alt-text="An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo.":::
 
 When you submit Office Add-ins, you specify an image in your manifest file, and upload an image on the **Marketplace listings** page in Partner Center.
 
@@ -139,7 +139,7 @@ Good ratings and reviews lead to better store placement and improved customer pe
 
 The following figure shows a request to rate within an add-in next to a request to rate following a tutorial.
 
-![An image that shows a request to rate within an add-in next to a request to rate following a tutorial.](media/create-effective-office-store-listings/rate-and-review-do-dont.png)
+:::image type="content" source="./media/create-effective-office-store-listings/rate-and-review-do-dont.png" alt-text="An image that shows a request to rate within an add-in next to a request to rate following a tutorial.":::
 
 ## Create effective ad-supported apps and add-ins
 
