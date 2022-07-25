@@ -26,6 +26,8 @@
       href: migrate-cache-redis.md
     - name: Monitor log analytics
       href: migrate-monitor-log-analytics.md
+    - name: Container instances
+      href: migrate-container-instances.md
     - name: Recovery Services vault
       href: migrate-recovery-services-vault.md
     - name: Storage accounts
