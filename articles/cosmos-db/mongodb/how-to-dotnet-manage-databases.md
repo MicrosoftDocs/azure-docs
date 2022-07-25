@@ -57,11 +57,15 @@ You can also retrieve an existing database by name using the `GetDatabase` metho
 
 ## Get a list of all databases
 
-You can also easily retrieve a list of all the databases on the server using the `MongoClient`. This technique can also be used to check if a database already exists.
+You can retrieve a list of all the databases on the server using the `MongoClient`.
 
 * [MongoClient.Database.ListDatabaseNames](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoClient_ListDatabaseNames_3.htm)
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="get_all_databases":::
+
+This technique can then be used to check if a database already exists.
+
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="check_database_exists":::
 
 ## Drop a database
 
