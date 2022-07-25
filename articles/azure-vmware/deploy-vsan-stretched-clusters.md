@@ -21,7 +21,7 @@ Stretched clusters allow the configuration of vSAN Fault Domains across two AZs 
 
 **Stretched cluster benefits:**
 - Improves application availability.
-- Provides an zero recovery point objective (RPO) capability for enterprise applications without needing to redesign them, or deploy expensive disaster recovery (DR) solutions.
+- Provides a zero recovery point objective (RPO) capability for enterprise applications without needing to redesign them, or deploy expensive disaster recovery (DR) solutions.
 - A private cloud with stretched clusters is designed to provide 99.99% availability due to its resilience to AZ failures.
 - Enable customers to focus on core application requirements and features, instead of infrastructure availability.
 
