@@ -1,7 +1,6 @@
 ---
 title: Preview and subscribe to a SaaS offer in the Microsoft commercial marketplace
 description: Use Partner Center to preview and subscribe to your SaaS offer.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
