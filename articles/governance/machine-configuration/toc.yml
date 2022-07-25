@@ -4,35 +4,36 @@
   expanded: true
   items:
   - name: What is Azure Automanage Machine Configuration?
-    displayName: tbd
     href: ./overview.md
 - name: Concepts
   items:
-  - name: Concepts doc name
-    displayName: tbd
-    href: ./overview.md
+  - name: Understand machine configuration assignments
+    href: ./machine-configuration-assignments.md
+  - name: Azure Automation DSC to machine configuration migration planning
+    href: ./machine-configuration-azure-automation-migration.md
+  - name: Planning a change from DSC extension for Linux to machine configuration
+    href: ./machine-configuration-dsc-extension-migration.md
+  - name: Remediation options for machine configuration
+    href: ./machine-configuration-policy-effects.md
+  - name: Changes to behavior in PowerShell DSC for machine configuration
+    href: ./machine-configuration-custom.md
 - name: Quickstarts
   items:
-  - name: Quickstarts doc name
-    displayName: tbd
-    href: ./overview.md
-- name: Tutorials
-  items:
-  - name: Tutorials doc name
-    displayName: tbd
-    href: ./overview.md
-- name: PowerShell DSC
-  items:
-  - name: PowerShell DSC doc name
-    displayName: tbd
-    href: ./overview.md
-- name: Migration to Machine Configuration
-  items:
-  - name: Migration doc name
-    displayName: tbd
-    href: ./overview.md
+  - name: How to create a machine configuration assignment using templates
+    href: ./machine-configuration-create-assignment.md
+  - name: How to create custom machine configuration policy definitions
+    href: ./machine-configuration-create-definition.md
+  - name: How to create custom machine configuration package artifacts
+    href: ./machine-configuration-create.md
+  - name: How to test machine configuration package artifacts
+    href: ./machine-configuration-create-test.md
+  - name: How to sign guest configuration packages
+    href: ./machine-configuration-create-signing.md
+  - name: How to publish custom guest configuration package artifacts
+    href: ./machine-configuration-create-publish.md
+  - name: How to setup a guest configuration authoring environment
+    href: ./machine-configuration-create-setup.md
 - name: Resources
   items:
   - name: Reference link
-    displayName: tbd
     href: ./overview.md
