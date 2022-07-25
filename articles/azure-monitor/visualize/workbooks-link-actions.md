@@ -38,8 +38,8 @@ Link actions can be accessed through workbook link components or through column 
 |Create Alert Rule| Creates an alert rule for a resource.  |
 |Custom View| Opens a custom view. When this item is selected, more fields appear where you can configure the view extension, view name, and any parameters used to open the view. [See custom view link settings](#custom-view-link-settings). |
 |Metrics| Opens a metrics view.  |
-|Resource overview| Opens the resource's view in the portal based on the resource ID value in the cell. You can also optionally set a submenu value that will open a specific menu item in the resource view. |
-|Workbook (template)| Opens a workbook template. When this item is selected, more fields appear where you can configure what template to open.  |
+|Resource Overview| Opens the resource's view in the portal based on the resource ID value in the cell. You can also optionally set a submenu value that will open a specific menu item in the resource view. |
+|Workbook (Template)| Opens a workbook template. When this item is selected, more fields appear where you can configure what template to open.  |
 
 ## Link settings
 
@@ -133,7 +133,7 @@ Paste a portal URL that contains the extension, name of the view, and any inputs
 
 ![Screenshot that shows the Edit column settings pane that shows the Get Custom View Settings from URL.](./media/workbooks-link-actions/custom-tab-settings-url.png)
 
-## Workbook (template) link settings
+## Workbook (Template) link settings
 
 If the selected link type is **Workbook (Template)**, you must specify more settings to open the correct workbook template. The following settings have options for how the grid finds the appropriate value for each of the settings.
 

@@ -15,7 +15,7 @@ This article includes commonly used Azure Workbooks components and instructions 
 
 ## Traffic light icons
 
-You might want to summarize status by using a simple visual indication instead of presenting the full range of data values. For example, you might want to categorize your computers by CPU utilization as cold, warm, or hot and categorize performance as satisfied, tolerated, or frustrated. You can do these tasks by showing an indicator or icon that represents the status next to the underlying metric.
+You might want to summarize status by using a simple visual indication instead of presenting the full range of data values. For example, you might want to categorize your computers by CPU utilization as cold, warm, or hot and categorize performance as satisfied, tolerated, or frustrated. You can use an indicator or icon that represents the status next to the underlying metric.
 
 :::image type="content" source="media/workbooks-commonly-used-components/workbooks-traffic-light-sample.png" alt-text="Screenshot that shows a grid with traffic light status by using thresholds.":::
 
@@ -95,7 +95,7 @@ The following example shows how to enable this scenario. Let's say you want the 
     - **Delimiter**: `or` (with spaces before and after)
     - **Quote with**: `<empty>`
     - **Get data from**: `JSON`
-    - **JSON Input**
+    - **JSON Input**:
 
         ```json
         [
@@ -116,7 +116,7 @@ The following example shows how to enable this scenario. Let's say you want the 
     - **Delimiter**: `or` (with spaces before and after)
     - **Quote with**: `<empty>`
     - **Get data from**: `JSON`
-    - **JSON Input**
+    - **JSON Input**:
 
         ```json
         [
@@ -170,7 +170,7 @@ If you choose multiple filter values, for example, both Android and OS X operati
 
 ### No filter case
 
-Another common case is having no filter for that dimension. This scenario is equivalent to including all values of the dimensions as part of the result set. The way to enable it is by having an `All` option on the dropdown and have it return a filter expression that always evaluates to `true` (for example, _ComplianceState eq '#@?'_).
+Another common case is having no filter for that dimension. This scenario is equivalent to including all values of the dimensions as part of the result set. The way to enable it is by having an `All` option on the dropdown and have it return a filter expression that always evaluates to `true`. An example is _ComplianceState eq '#@?'_.
 
 ```json
 {
@@ -192,7 +192,7 @@ There are times where you want to visualize the underlying data set in different
     - **Data source**: `Logs`
     - **Resource type**: `Log Analytics`
     - **Log Analytics workspace**: _Pick one of your workspaces that has performance data_
-    - Log Analytics workspace Logs Query
+    - **Log Analytics workspace logs query**:
 
         ```sql
         Perf
@@ -231,13 +231,13 @@ There are times where you want to visualize the underlying data set in different
 
 This example shows Average and P95 CPU utilization side by side.
 
-:::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-two-controls.png" alt-text="Screenshot that shows two workbook controls using the same query." lightbox="media/workbooks-commonly-used-components/workbooks-reuse-data-two-controls.png":::  
+:::image type="content" source="media/workbooks-commonly-used-components/workbooks-reuse-data-two-controls.png" alt-text="Screenshot that shows two workbook controls using the same query." lightbox="media/workbooks-commonly-used-components/workbooks-reuse-data-two-controls.png":::
 
 ## Use Azure Resource Manager to retrieve alerts in a subscription
 
 This sample shows you how to use the Azure Resource Manager query control to list all existing alerts in a subscription. This guide will also use JSON Path transformations to format the results. See the [list of supported Resource Manager calls](/rest/api/azure/).
 
-### Set up parameters
+### Set the parameters
 
 1. [Create a new empty workbook](workbooks-create-workbook.md).
 1. Select **Add parameter**, and set:
@@ -256,7 +256,7 @@ This sample shows you how to use the Azure Resource Manager query control to lis
 
 1. Select a subscription from the created subscription parameter, and select **Run Query** to see the results.
 
-   This is the raw JSON returned from Resource Manager.
+   This raw JSON is returned from Resource Manager:
 
    :::image type="content" source="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-no-formatting.png" alt-text="Screenshot that shows an alert data JSON response in workbooks by using a Resource Manager provider." lightbox="media/workbooks-commonly-used-components/workbooks-arm-alerts-query-no-formatting.png":::
 
@@ -273,7 +273,7 @@ You might be satisfied with the information here. But let's extract some interes
 
 ### Filter the results
 
-JSON Path also allows you to pick and choose information from the generated table to show as columns.
+JSON Path also allows you to choose information from the generated table to show as columns.
 
 For example, if you want to filter the results to the columns **TargetResource**, **Severity**, **AlertState**, **AlertRule**, **Description**, **StartTime**, and **ResolvedTime**, you could add the following rows in the columns table in JSON Path:
 
