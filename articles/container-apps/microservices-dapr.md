@@ -151,7 +151,7 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 
 # [PowerShell](#tab/powershell)
 
-```pwoershell
+```powershell
 $STORAGE_ACCOUNT_KEY = (Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -Name $STORAGE_ACCOUNT_NAME)| Where-Object {$_.KeyName -eq "key1"}
 ```
 
@@ -213,11 +213,14 @@ az containerapp env dapr-component set \
 # [PowerShell](#tab/powershell)
 
 ```powershell
+$acctname = New-AzContainerAppDaprMetadataObject -Name accountName -Value $STORAGE_ACCOUNT_NAME
 
-$acctname = New-AzContainerAppDaprMetadataObject -Name AccountName -Value $STORAGE_ACCOUNT_NAME
-$acctkey = New-AzContainerAppDaprMetadataObject -Name AccountKey -SecretRef account-key
-$containername = New-AzContainerAppDaprMetadataObject -Name ContainerName -Value $STORAGE_ACCOUNT_CONTAINER
+$acctkey = New-AzContainerAppDaprMetadataObject -Name accountKey -SecretRef account-key
+
+$containername = New-AzContainerAppDaprMetadataObject -Name containerName -Value $STORAGE_ACCOUNT_CONTAINER
+
 $secret = New-AzContainerAppSecretObject -Name account-key -Value $STORAGE_ACCOUNT_KEY.Value
+
 New-AzContainerAppManagedEnvDapr `
   -EnvName $CONTAINERAPPS_ENVIRONMENT `
   -DaprName statestore `
@@ -372,8 +375,9 @@ az monitor log-analytics query \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WORKSPACE_ID  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'"
+```powershell
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WORKSPACE_ID  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5 "
+
 $queryResults.Results
 ```
 
@@ -381,7 +385,7 @@ $queryResults.Results
 
 The following output demonstrates the type of response to expect from the CLI command.
 
-```console
+```bash
 ContainerAppName_s    Log_s                            TableName      TimeGenerated
 --------------------  -------------------------------  -------------  ------------------------
 nodeapp               Got a new order! Order ID: 61    PrimaryResult  2021-10-22T21:31:46.184Z
