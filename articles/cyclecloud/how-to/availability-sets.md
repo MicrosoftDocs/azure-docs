@@ -8,7 +8,7 @@ ms.author:  bewatrou
 
 # Availability Sets
 
-Azure provides several models for Virtual Machine placement for both fault isolation and proximity placement.  [Virtual Machine Scalesets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview), [Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location?ocid=AID754288&wt.mc_id=azfr-c9-dbrown&wt.mc_id=CFID0493), and [Availability Sets](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) are the most common.
+Azure provides several models for Virtual Machine placement for both fault isolation and proximity placement.  [Virtual Machine Scalesets](/azure/virtual-machine-scale-sets/overview), [Proximity Placement Groups](/azure/virtual-machines/linux/co-location?ocid=AID754288&wt.mc_id=azfr-c9-dbrown&wt.mc_id=CFID0493), and [Availability Sets](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) are the most common.
 
 In general, Azure recommends Virtual Machine Scale Sets (VMSS) and potentially Proximity Placement Groups over Availability Sets.  And, by default, Azure CycleCloud places all VMs in a NodeArray in one or more Virtual Machine Scale Sets. VMSS is the recommended deployment model for large scale, dynamic clusters, and is the correct choice for most CycleCloud clusters.
 
@@ -51,7 +51,7 @@ AvailabilitySet.PlatformFaultDomainCount | Integer | Fault Domain count.
 AvailabilitySet.PlatformUpdateDomainCount | Integer | Update Domain count.
 AvailabilitySet.ResourceId | ResourceID | ID of an existing Availability Set created externally to the cluster
 
-See the [Availability Sets reference](https://docs.microsoft.com/rest/api/compute/availabilitysets/createorupdate#request-body) for full documentation of the uses for the available configuration attributes.
+See the [Availability Sets reference](/rest/api/compute/availabilitysets/createorupdate#request-body) for full documentation of the uses for the available configuration attributes.
 
 ## Configuring Nodes for Infiniband
 
@@ -78,4 +78,4 @@ To place all cluster nodes in a single Infiniband switch, use the following conf
 ## Further Reading
 
 * [CycleCloud Availability Set Attribute Reference](../cluster-references/node-nodearray-reference.md)
-* [Availability Sets reference](https://docs.microsoft.com/rest/api/compute/availabilitysets/createorupdate#request-body)
+* [Availability Sets reference](/rest/api/compute/availabilitysets/createorupdate#request-body)

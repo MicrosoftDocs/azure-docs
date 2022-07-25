@@ -17,4 +17,4 @@ Typically, this error is caused when the service principal associated with Azure
 
 ## More Information
 
-For more information about specific permissions required for CycleCloud, see [Create a custom role and managed identity for CycleCloud](https://docs.microsoft.com/azure/cyclecloud/managed-identities#create-a-custom-role-and-managed-identity-for-cyclecloud)
+For more information about specific permissions required for CycleCloud, see [Create a custom role and managed identity for CycleCloud](/azure/cyclecloud/managed-identities#create-a-custom-role-and-managed-identity-for-cyclecloud)

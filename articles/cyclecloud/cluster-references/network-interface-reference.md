@@ -10,7 +10,7 @@ ms.author: adjohnso
 
 Network Interface objects are rank 3, and subordinate to `node` or `nodearray`. `network-interface` represents an Azure Network Interface.
 
-Multiple network interfaces may be attached to a single node for multi-homed VMs.   Refer to the [VM Sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) documentation to find the maxinum number of NICs for the selected VM SKU.
+Multiple network interfaces may be attached to a single node for multi-homed VMs.   Refer to the [VM Sizes](/azure/virtual-machines/linux/sizes) documentation to find the maxinum number of NICs for the selected VM SKU.
 
 ### Example
 

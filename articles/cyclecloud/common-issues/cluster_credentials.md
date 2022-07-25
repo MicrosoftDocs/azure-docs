@@ -17,4 +17,4 @@ Check that the Credentials specified for the cluster, node, or nodearray exist i
 
 ## More Information
 
-For more information, see [Configuring Azure Credentials](https://docs.microsoft.com/azure/cyclecloud/configuration).
+For more information, see [Configuring Azure Credentials](/azure/cyclecloud/configuration).

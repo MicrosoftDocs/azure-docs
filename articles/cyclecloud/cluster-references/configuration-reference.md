@@ -38,7 +38,7 @@ CycleCloud supports the parameterized configuration of many system services.
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
 | maintenance_converge.enabled  | Boolean | CycleCloud nodes are reconfigured every 20 minutes to ensure they are in the correct state. There are times when you may not want this to be the default behavior such as when you are manually testing and updating the configuration on a node. Setting this value to false will make the node configure itself only once. Default: `true` |
-| node.prevent_metadata_access | Boolean | Prevents users, other than the root user or cyclecloud user from accessing the VM metadata from the node. These access rules are applied in `iptables`. Default: `true`
+| node.prevent_metadata_access | Boolean | Prevents users, other than the root user or cyclecloud user from accessing the VM metadata from the node. These access rules are applied in `iptables`. Default: `true` |
 | timezone | String | The timezone for a node can be changed by setting this attribute to any valid timezone string, for example `PST`, `EST`. Default: `UTC` |
 | ntp.disabled | Boolean | Opt-out of ntp time service by setting `true`. Default: `false` | 
 | ntp.servers | List (String) | A list of NTP servers to use. Default: `pool.ntp.org` |

@@ -9,7 +9,7 @@ monikerRange: '>= cyclecloud-8'
 
 # Cloud-Init
 
-CycleCloud supports [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) as a way of configuring a virtual machine (VM) on first boot **before** any other CycleCloud specific configuration occurs on the VM. Using cloud-init is an effective way to configure aspects of a VM (such as networking, yum/apt mirrors, etc.) prior to any software managed by CycleCloud (HPC schedulers) being installed.
+CycleCloud supports [cloud-init](/azure/virtual-machines/linux/using-cloud-init) as a way of configuring a virtual machine (VM) on first boot **before** any other CycleCloud specific configuration occurs on the VM. Using cloud-init is an effective way to configure aspects of a VM (such as networking, yum/apt mirrors, etc.) prior to any software managed by CycleCloud (HPC schedulers) being installed.
 
 Below is a simple example of specifying a bash script to run on boot using the `CloudInit` attribute in a cluster template:
 
@@ -24,7 +24,7 @@ echo "cloud-init works" > /tmp/cloud-init.txt
 > Triple quoted strings can be used in a cluster template to specify a multiline string, such as a bash or YAML script.
 
 > [!WARNING]
-> Not all OS images in Azure support cloud-init. Please refer to [cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) for details on which images support cloud-init and the timeline for when broader support will be available.
+> Not all OS images in Azure support cloud-init. Please refer to [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init) for details on which images support cloud-init and the timeline for when broader support will be available.
 
 ## Setting Cloud-Init using the UI
 

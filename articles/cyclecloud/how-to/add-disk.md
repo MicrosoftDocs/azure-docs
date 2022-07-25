@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Managed Disks
 
-CycleCloud will automatically attach volumes ([Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)) to your nodes for additional storage space. The managed disks come in four flavors and have capacities up to 64TiB.
+CycleCloud will automatically attach volumes ([Azure Managed Disks](/azure/virtual-machines/linux/disks-types)) to your nodes for additional storage space. The managed disks come in four flavors and have capacities up to 64TiB.
 
 To create a 100GB volume, add the following to your `[[node]]` element in your cluster template:
 
@@ -35,7 +35,7 @@ This volume will be created the first time the instance is started, but will not
 ## Disk Types
 
 ::: moniker range="=cyclecloud-7"
-There are four [Azure disk types](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types). CycleCloud uses standard hard disk drives (HDD) by default. To use a more performant SSD drive for the disk, use `SSD = true`:
+There are four [Azure disk types](/azure/virtual-machines/linux/disks-types). CycleCloud uses standard hard disk drives (HDD) by default. To use a more performant SSD drive for the disk, use `SSD = true`:
 
 ``` ini
 [[[volume example-vol]]]
@@ -48,7 +48,7 @@ A premium SSH disk is used by default when you are using a VM series that is pre
 
 ::: moniker-end
 ::: moniker range=">=cyclecloud-8"
-Azure offers four basic storage options: [Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk), [Premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), [Standard SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd), and [Standard HDD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd).
+Azure offers four basic storage options: [Ultra](/azure/virtual-machines/windows/disks-types#ultra-disk), [Premium SSD](/azure/virtual-machines/windows/disks-types#premium-ssd), [Standard SSD](/azure/virtual-machines/windows/disks-types#standard-ssd), and [Standard HDD](/azure/virtual-machines/windows/disks-types#standard-hdd).
 
 To specify the storage type to use for your virtual machine, use: `StorageAccountType = [UltraSSD_LRS|Premium_LRS|StandardSSD_LRS|Standard_LRS]` on your volume.
 

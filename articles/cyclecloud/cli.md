@@ -568,7 +568,7 @@ cyclecloud locker <command>
 | sub-command | description |
 | ----- | ----- |
 | list | list lockers |
-| show <locker> | show detail for a locker |
+| show \<locker\> | show detail for a locker |
 
 ## cyclecloud locker list
 
@@ -604,16 +604,16 @@ cyclecloud project <command> [--skip-teardown]
 
 | sub-command | description |
 | ----- | ----- |
-| init <name> | create a new empty project |
-| fetch <url> <path> | fetches a project from a Github <url> to <path> |
+| init \<name\> | create a new empty project |
+| fetch \<url\> \<path\> | fetches a project from a Github \<url\> to \<path\> |
 | info | display project info |
-| add_spec <spec> | adds a spec to the project |
-| default_locker <locker> | sets the default locker(s) to upload to |
+| add_spec \<spec\> | adds a spec to the project |
+| default_locker \<locker\> | sets the default locker(s) to upload to |
 | test | execute integration test for a given cluster definition |
 | build | build the project |
 | upload [locker] | build and upload project the specified locker(s) (uses default if none specified) |
 | download [locker] | download the project blobs from the specified locker(s) (uses default if none specified) |
-| generate_template <file> | generate a cluster template for the project, written to <file> |
+| generate_template \<file\> | generate a cluster template for the project, written to \<file\> |
 
 ## cyclecloud project init
 
@@ -625,7 +625,7 @@ cyclecloud project init <name>
 
 ## cyclecloud project fetch
 
-fetches a project from a Github <url> to <path>
+fetches a project from a Github \<url\> to \<path\>
 
 ```CycleCloud CLI
 cyclecloud project fetch <url> <path>
@@ -735,7 +735,7 @@ cyclecloud project download [locker]
 
 ## cyclecloud project generate_template
 
-generate a cluster template for the project, written to <file>
+generate a cluster template for the project, written to \<file\>
 
 ```CycleCloud CLI
 cyclecloud project generate_template <file>

@@ -5,7 +5,7 @@ author: adriankjohnson
 ms.date: 11/15/2019
 ms.author: adjohnso
 ---
-# Common Issues: Chef::Exceptions:X : <resource-name> had an error
+# Common Issues: Chef::Exceptions:X : \<resource-name\> had an error
 
 ## Possible Error Messages
 
