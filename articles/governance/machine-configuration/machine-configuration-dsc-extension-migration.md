@@ -1,10 +1,15 @@
 ---
 title: Planning a change from Desired State Configuration extension for Linux to guest configuration
 description: Guidance for moving from Desired State Configuration extension to the guest configuration feature of Azure Policy.
-ms.date: 02/04/2022
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Planning a change from Desired State Configuration extension for Linux to guest configuration
+
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 Guest configuration is the latest implementation of functionality that has been provided by the
 PowerShell Desired State Configuration (DSC) extension for Linux virtual machines in Azure. When possible,

@@ -1,10 +1,15 @@
 ---
 title: How to create a guest configuration assignment using templates
 description: Learn how to deploy configurations to machines directly from Azure Resource Manager.
-ms.date: 08/09/2021
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.author: timwarner
+author: timwarner-msft
+ms.service: machine-configuration
 ---
 # How to create a guest configuration assignment using templates
+
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 The best way to
 [assign guest configuration packages](../concepts/guest-configuration-assignments.md)

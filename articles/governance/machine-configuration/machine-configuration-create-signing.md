@@ -1,11 +1,16 @@
 ---
 title: How to sign guest configuration packages
 description: You can optionally sign guest configuration content packages and force the agent to only allow signed content
-ms.date: 07/12/2021
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
 
 # How to sign guest configuration packages
+
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 Guest configuration custom policies use SHA256 hash to validate the policy
 package hasn't changed. Optionally, customers may also use a certificate to sign
@@ -20,7 +25,7 @@ require code to be signed.
 
 To use the Signature Validation feature, run the
 `Protect-GuestConfigurationPackage` cmdlet to sign the package before it's
-published. This cmdlet requires a 'Code Signing' certificate. If you do not have a 'Code Signing' certificate, please use the script below to create a self-signed certificate for testing purposes to follow along with the example. 
+published. This cmdlet requires a 'Code Signing' certificate. If you do not have a 'Code Signing' certificate, please use the script below to create a self-signed certificate for testing purposes to follow along with the example.
 
 ## Windows signature validation
 
@@ -35,13 +40,13 @@ $mypwd = ConvertTo-SecureString -String "Password1234" -Force -AsPlainText
 $mycert | Export-PfxCertificate -FilePath C:\demo\GCPrivateKey.pfx -Password $mypwd
 $mycert | Export-Certificate -FilePath "C:\demo\GCPublicKey.cer" -Force
 
-# Import the certificate 
+# Import the certificate
 Import-PfxCertificate -FilePath C:\demo\GCPrivateKey.pfx -Password $mypwd -CertStoreLocation 'Cert:\LocalMachine\My'
 
 
 # Sign the policy package
-$certToSignThePackage = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=GCEncryptionCertificate") } 
-Protect-GuestConfigurationPackage -Path C:\demo\AuditWindowsService.zip -Certificate $certToSignThePackage -Verbose 
+$certToSignThePackage = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=GCEncryptionCertificate") }
+Protect-GuestConfigurationPackage -Path C:\demo\AuditWindowsService.zip -Certificate $certToSignThePackage -Verbose
 ```
 
 ## Linux signature validation
@@ -52,7 +57,7 @@ gpg --gen-key
 
 # export public key
 gpg --output public.gpg --export <email-id used to generate gpg key>
-# export private key 
+# export private key
 gpg --output private.gpg --export-secret-key <email-id used to generate gpg key>
 
 # Sign linux policy package

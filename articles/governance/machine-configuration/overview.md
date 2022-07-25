@@ -2,9 +2,10 @@
 title: Understand the guest configuration feature of Azure Policy
 description: Learn how Azure Policy uses the guest configuration feature to audit or configure settings inside virtual machines.
 author: timwarner-msft
-ms.date: 07/15/2022
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.author: timwarner
+ms.service: machine-configuration
 ---
 # Understand the guest configuration feature of Azure Policy
 

@@ -1,10 +1,15 @@
 ---
 title: How to install the guest configuration authoring module
 description: Learn how to install the PowerShell module for creating and testing guest configuration policy definitions and assignments.
-ms.date: 07/22/2021
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
 # How to setup a guest configuration authoring environment
+
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 The PowerShell module `GuestConfiguration` automates the process of creating
 custom content including:
@@ -24,8 +29,8 @@ is introduced in version `3.4.2`.
 > [!IMPORTANT]
 > Custom packages that audit the state of an environment are Generally Available,
 > but packages that apply configurations are **in preview**. **The following limitations apply:**
-> 
-> To test creating and applying configurations on Linux, the 
+>
+> To test creating and applying configurations on Linux, the
 > `GuestConfiguration` module is only available on Ubuntu 18 but the package
 > and policy definitions produced by the module can be used on any Linux distro/version
 > supported in Azure or Arc.

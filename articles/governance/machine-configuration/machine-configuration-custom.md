@@ -5,10 +5,11 @@ author: timwarner-msft
 ms.date: 07/15/2022
 ms.topic: how-to
 ms.author: timwarner
+ms.service: machine-configuration
 ---
 # Changes to behavior in PowerShell Desired State Configuration for guest configuration
 
-[!INCLUDE [Machine config rename banner](../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview of
 [guest configuration](./guest-configuration.md).

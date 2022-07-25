@@ -1,10 +1,15 @@
 ---
 title: How to create custom guest configuration package artifacts
 description: Learn how to create a guest configuration package file.
-ms.date: 07/22/2021
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
 # How to create custom guest configuration package artifacts
+
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
 [guest configuration](../concepts/guest-configuration.md).

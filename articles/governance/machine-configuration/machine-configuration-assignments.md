@@ -5,10 +5,11 @@ author: timwarner-msft
 ms.date: 07/15/2022
 ms.topic: conceptual
 ms.author: timwarner
+ms.service: machine-configuration
 ---
 # Understand guest configuration assignment resources
 
-[!INCLUDE [Machine config rename banner](../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 When an Azure Policy is assigned, if it's in the category "Guest Configuration"
 there's metadata included to describe a guest assignment.

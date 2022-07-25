@@ -1,10 +1,15 @@
 ---
 title: How to create custom guest configuration policy definitions
 description: Learn how to create a guest configuration policy.
-ms.date: 07/22/2021
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
 # How to create custom guest configuration policy definitions
+
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
 [guest configuration](../concepts/guest-configuration.md),
@@ -16,7 +21,7 @@ and the details about guest configuration policy effects
 > deploy the extension at scale across all machines, assign the following policy
 > initiative: `Deploy prerequisites to enable guest configuration policies on
 > virtual machines`
-> 
+>
 > To use guest configuration packages that apply configurations, Azure VM guest
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
@@ -223,7 +228,7 @@ New-GuestConfigurationPolicy `
 
 ### Publish the Azure Policy definition
 
-Finally, you can publish the policy definitions using the New-AzPolicyDefinition cmdlet. The below commands will publish your guest configuration policy to the policy center. 
+Finally, you can publish the policy definitions using the New-AzPolicyDefinition cmdlet. The below commands will publish your guest configuration policy to the policy center.
 
 To run the New-AzPolicyDefinition command, you need access to create policy definitions in Azure. The specific authorization
 requirements are documented in the [Azure Policy Overview](../overview.md) page. The recommended built-in

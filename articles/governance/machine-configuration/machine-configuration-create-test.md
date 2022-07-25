@@ -1,10 +1,15 @@
 ---
 title: How to test guest configuration package artifacts
 description: The experience creating and testing packages that audit or apply configurations to machines.
-ms.date: 07/20/2021
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
 # How to test guest configuration package artifacts
+
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 The PowerShell module `GuestConfiguration` includes tools to automate
 testing a configuration package outside of Azure. Use these tools to find issues
@@ -20,12 +25,12 @@ to create and publish a custom guest configuration package.
 > [!IMPORTANT]
 > Custom packages that audit the state of an environment are Generally Available,
 > but packages that apply configurations are **in preview**. **The following limitations apply:**
-> 
+>
 > To use guest configuration packages that apply configurations, Azure VM guest
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
-> 
-> To test creating and applying configurations on Linux, the 
+>
+> To test creating and applying configurations on Linux, the
 > `GuestConfiguration` module is only available on Ubuntu 18 but the package
 > and policies produced by the module can be used on any Linux distro/version
 > supported in Azure or Arc.

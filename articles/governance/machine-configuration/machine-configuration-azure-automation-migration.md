@@ -3,8 +3,13 @@ title: Azure Automation State Configuration to guest configuration migration pla
 description: This article provides process and technical guidance for customers interested in moving from DSC version 2 in Azure Automation to version 3 in Azure Policy.
 ms.date: 07/1/2021
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Azure Automation state configuration to guest configuration migration planning
+
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 Guest configuration is the latest implementation of functionality
 that has been provided by Azure Automation State Configuration (also known as

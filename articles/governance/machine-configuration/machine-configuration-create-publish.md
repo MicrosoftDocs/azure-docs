@@ -1,10 +1,15 @@
 ---
 title: How to publish custom guest configuration package artifacts
 description: Learn how to publish a guest configuration package file top Azure blob storage and get a SAS token for secure access.
-ms.date: 07/22/2021
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
 # How to publish custom guest configuration package artifacts
+
+[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
 [guest configuration](../concepts/guest-configuration.md).
@@ -37,9 +42,9 @@ New-AzResourceGroup -name myResourceGroupName -Location WestUS
 New-AzStorageAccount -ResourceGroupName myResourceGroupName -Name mystorageaccount -SkuName 'Standard_LRS' -Location 'WestUs' | New-AzStorageContainer -Name guestconfiguration -Permission Blob
 ```
 
-To publish your configuration package to Azure blob storage, you can follow the below steps which leverages the Az.Storage module. 
+To publish your configuration package to Azure blob storage, you can follow the below steps which leverages the Az.Storage module.
 
-First, obtain the context of the storage account in which the package will be stored. This example creates a context by specifying a connection string and saves the context in the variable $Context. 
+First, obtain the context of the storage account in which the package will be stored. This example creates a context by specifying a connection string and saves the context in the variable $Context.
 
 ```powershell
 $Context = New-AzStorageContext -ConnectionString "DefaultEndpointsProtocol=https;AccountName=ContosoGeneral;AccountKey=< Storage Key for ContosoGeneral ends with == >;"
@@ -54,7 +59,7 @@ Set-AzStorageBlobContent -Container "guestconfiguration" -File ./MyConfig.zip -B
 Optionally, you can add a SAS token in the URL, this ensures that the content package will be accessed securely. The below example generates a blob SAS token with full blob permission and returns the full blob URI with the shared access signature token.
 
 ```powershell
-$contenturi = New-AzStorageBlobSASToken -Context $Context -FullUri -Container guestconfiguration -Blob "guestconfiguration" -Permission rwd 
+$contenturi = New-AzStorageBlobSASToken -Context $Context -FullUri -Container guestconfiguration -Blob "guestconfiguration" -Permission rwd
 ```
 
 ## Next steps
