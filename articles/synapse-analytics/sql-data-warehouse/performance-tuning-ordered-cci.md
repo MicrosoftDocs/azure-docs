@@ -116,17 +116,17 @@ Here is an example of an ordered CCI table distribution that has zero segment ov
 
 ## Create ordered CCI on large tables
 
-Creating an ordered CCI is an offline operation.  For tables with no partitions, the data won't be accessible to users until the ordered CCI creation process completes.   For partitioned tables, since the engine creates the ordered CCI partition by partition, users can still access the data in partitions where ordered CCI creation isn't in process.   You can use this option to minimize the downtime during ordered CCI creation on large tables: 
+Creating an ordered CCI is an offline operation.  For tables with no partitions, the data won't be accessible to users until the ordered CCI creation process completes. For partitioned tables, since the engine creates the ordered CCI partition by partition, users can still access the data in partitions where ordered CCI creation isn't in process. You can use this option to minimize the downtime during ordered CCI creation on large tables: 
 
 1.    Create partitions on the target large table (called `Table_A`).
-2.    Create an empty ordered CCI table (called `Table_B`) with the same table and partition schema as Table A.
-3.    Switch one partition from Table A to Table B.
+2.    Create an empty ordered CCI table (called `Table_B`) with the same table and partition schema as `Table_A`.
+3.    Switch one partition from `Table_A` to `Table_B`.
 4.    Run `ALTER INDEX <Ordered_CCI_Index> ON <Table_B> REBUILD PARTITION = <Partition_ID>` to rebuild the switched-in partition on `Table_B`.  
 5.    Repeat step 3 and 4 for each partition in `Table_A`.
 6.    Once all partitions are switched from `Table_A` to `Table_B` and have been rebuilt, drop `Table_A`, and rename `Table_B` to `Table_A`. 
 
 >[!TIP]
-> For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REBUILD will re-sort the data using `tempdb`. Monitor tempdb during rebuild operations. If you need more `tempdb` space, scale up the pool. Scale back down once the index rebuild is complete.
+> For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REBUILD will re-sort the data using `tempdb`. Monitor `tempdb` during rebuild operations. If you need more `tempdb` space, scale up the pool. Scale back down once the index rebuild is complete.
 >
 > For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REORGANIZE does not re-sort the data. To resort data, use ALTER INDEX REBUILD.
 >
@@ -136,8 +136,10 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 
 SQL Server 2022 (16.x) introduced ordered clustered columnstore indexes similar to the feature in Azure Synapse dedicated SQL pools. 
 
-- Currently, only SQL Server 2022 (16.x) and later support clustered columnstore rowgroup elimination capabilities for string, binary, and guid data types, and the datetimeoffset data type for scale greater than two. 
+- Currently, only SQL Server 2022 (16.x) and later support clustered columnstore enhanced rowgroup elimination capabilities for string, binary, and guid data types, and the datetimeoffset data type for scale greater than two. 
 - Currently, only SQL Server 2022 (16.x) supports clustered columnstore rowgroup elimination for the prefix of `LIKE` predicates.
+
+For more information, see [What's New in Columnstore Indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new).
 
 ## Examples
 
