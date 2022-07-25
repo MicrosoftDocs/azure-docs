@@ -16,5 +16,5 @@ ms.custom: include file
 >
 > * When public network access to a registry is disabled, registry access by certain [trusted services](../articles/container-registry/allow-access-trusted-services.md) including Azure Security Center requires enabling a network setting to bypass the network rules.
 > * Once the public network access is disabled, Instances of certain Azure services including Azure DevOps Services are currently unable to access the container registry. 
-> * Private endpoints are not currently supported with self-hosted agents on Azure DevOps, including standalone VMs, VMSS or function apps in user VNETs. Managed agents cannot be linked to a user VNET, restricting access to a registry over the private endpoint.  
+> * Private endpoints are not currently supported with both self-hosted agents and managed agents.  
 > * If the registry has an approved private endpoint and public network access is disabled, repositories and tags can't be listed outside the virtual network using the Azure portal, Azure CLI, or other tools.
