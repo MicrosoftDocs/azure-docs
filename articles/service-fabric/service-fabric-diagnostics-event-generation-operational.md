@@ -143,6 +143,22 @@ More details on application upgrades can be found [here](service-fabric-applicat
 | 23075 | ContainerDeactivated | A container has stopped | Hosting | Informational | 1 |
 | 23082 | ContainerExited | A container has exited - Check the UnexpectedTermination flag | Hosting | Informational | 1 |
 
+## BackupRestoreService Events
+
+**BackupRestoreService partition events**
+
+| EventId | Name | Description |Source (Task) | Level | Version |
+| --- | --- | ---| --- | --- | --- |
+| 65305 | BRSInfo | Periodic backup triggered | BackupRestoreService | Informational | 1 |
+| 65307 | BRSWarning | Incremental backup failed, triggering a full backup | BackupRestoreService | Warning | 1 |
+| 65309 | BRSError | Periodic backup failed | BackupRestoreService | Error | 1 |
+
+**BackupRestoreService cluster events**
+
+| 65306 | BRSInfo | Backup policy created | BackupRestoreService | Informational | 1 |
+| 65308 | BRSWarning | Backup policy deleted | BackupRestoreService | Warning | 1 |
+| 65310 | BRSError | AddBackupPolicy failed | BackupRestoreService | Error | 1 |
+
 ## Health reports
 
 The [Service Fabric Health Model](service-fabric-health-introduction.md) provides a rich, flexible, and extensible health evaluation and reporting. Starting Service Fabric version 6.2, health data is written as Platform events to provide historical records of health. To keep the volume of health events low, we only write the following as Service Fabric events:
