@@ -21,9 +21,9 @@ The content of each image should be easy to read, and should reflect the quality
 |Provide at least one image that is 1366w x 768h pixels and no greater than 1024 KB.  | Don't stretch or pinch your images (poor aspect ratio).
 |Use magnified close-ups or crops when needed to make content legible.|Don’t make your content so small that it is illegible.|
 
-![Image with clear content next to an image with blurred content](/media/craft-effective-appsource-store-images/legibility-do-dont-1.png)
-![Image with correctly scaled content next to an image with pinched content](/media/craft-effective-appsource-store-images/legibility-do-dont-2.png)
-![Image with a close up to show small content next to image with illegible content](/media/craft-effective-appsource-store-images/legibility-do-dont-3.png)
+:::image type="content" source="./media/craft-effective-appsource-store-images/legibility-do-dont-1.png" alt-text="Image with clear content next to an image with blurred content.":::
+:::image type="content" source="./media/craft-effective-appsource-store-images/legibility-do-dont-2.png" alt-text="Image with correctly scaled content next to an image with pinched content.":::
+:::image type="content" source="./media/craft-effective-appsource-store-images/legibility-do-dont-3.png" alt-text="Image with a close up to show small content next to image with illegible content.":::
 
 ## Avoid excess content
 Use images to focus the user’s attention on your solution. Images that contain unrelated content are distracting and confusing to the user.
