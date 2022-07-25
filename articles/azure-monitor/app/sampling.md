@@ -504,7 +504,7 @@ To address the problems introduced by sampling pre-aggregated metrics are used i
 ## Frequently asked questions
 
 *Does sampling affect alerting accuracy?*
-Yes. Alerts can only trigger upon sampled data. Aggressive filtering may result in alerts not firing as expected.
+* Yes. Alerts can only trigger upon sampled data. Aggressive filtering may result in alerts not firing as expected.
 
 > [!NOTE]
 > Sampling is not applied to Metrics, but Metrics can be derived from sampled data. In this way sampling may indirectly affect alerting accuracy.
