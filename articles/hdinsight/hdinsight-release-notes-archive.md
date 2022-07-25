@@ -21,7 +21,7 @@ This release applies for HDInsight 4.0. HDInsight release is made available to a
 The OS versions for this release are: 
 - 	HDInsight 4.0: Ubuntu 18.04.5 
 
-## Spark 3.1 is now generally available
+### Spark 3.1 is now generally available
 
 Spark 3.1 is now Generally Available on HDInsight 4.0 release.  This release includes 
 
