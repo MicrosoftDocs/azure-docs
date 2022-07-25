@@ -156,7 +156,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
          
         The **Group Membership Filter** option allows you to create a custom search filter for users who are members of specific AD DS groups. 
 
-        ![Screenshot of the LDAP search scope field, showing a checked box.](../media/azure-netapp-files/anf-ldap-search-scope.png)
+        ![Screenshot of the LDAP search scope field, showing a checked box.](../media/azure-netapp-files/ldap-search-scope-checked.png)
 
         See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
 
