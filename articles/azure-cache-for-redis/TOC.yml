@@ -139,6 +139,8 @@
       href: cache-how-to-geo-replication.md
     - name: Set up Enterprise active geo-replication
       href: cache-how-to-active-geo-replication.md
+    - name: Use Redis modules in the Enterprise tiers 
+      href: cache-how-to-use-modules
     - name: Save with reserved capacity
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
