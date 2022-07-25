@@ -79,7 +79,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    > You can confirm that your spacecraft resource for AQUA is authorized by checking that the **Authorization status** shows **Allowed** in the spacecraft's overiew page.
 
 
-## Prepare a virtual machine (VM) to receive the downlinked AQUA data
+## Prepare your virtual machine (VM) and network to receive AQUA data
 
 1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint virtual machine (VM)
 2. [Create a virtual machine (VM)](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network above. Ensure that this VM has the following specifications:
@@ -94,13 +94,7 @@ sudo mount -t tmpfs -o size=28G tmpfs /media/aqua
 ```console
 sudo apt install socat
 ```
-5. Edit the [Network Security Group](../virtual-network/network-security-groups-overview.md) for the subnet that your virtual machine is using to allow inbound connections from the following IPs over TCP port 56001:
-- 20.47.120.4
-- 20.47.120.38
-- 20.72.252.246
-- 20.94.235.188
-- 20.69.186.50
-- 20.47.120.177
+5. [Prepare the network for Azure Orbital Ground Station integration](prepare-network.md) to configure your network.
 
 ## Configure a contact profile for an AQUA downlink mission
 1. In the Azure portal search box, enter **Contact profile**. Select **Contact profile** in the search results. 
@@ -132,7 +126,7 @@ sudo apt install socat
    | Bandwidth MHz | **15.0** |
    | Polarization | **RHCP** |
    | Endpoint name | Enter the name of the virtual machine (VM) you created above |
-   | IP Address | Enter the Public IP address of the virtual machine you created above (VM) |
+   | IP Address | Enter the Private IP address of the virtual machine you created above (VM) |
    | Port | **56001** |
    | Protocol | **TCP** |
    | Demodulation Configuration | Leave this field **blank** or request a demodulation configuration from the [Azure Orbital team](mailto:msazureorbital@microsoft.com) to use a software modem. Include your Subscription ID, Spacecraft resource ID, and Contact Profile resource ID in your email request.|

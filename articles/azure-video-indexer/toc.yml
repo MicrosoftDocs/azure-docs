@@ -17,9 +17,9 @@
     href: invite-users.md
 - name: Tutorials
   items:
-  - name: Create a new ARM account (Preview)
+  - name: Create an ARM-based account (Preview)
     href: create-account-portal.md
-  - name: Create a new account
+  - name: Create a classic account
     href: connect-to-azure.md
   - name: Use Azure Video Indexer API
     href: video-indexer-use-apis.md
