@@ -201,7 +201,7 @@ If you've changed the `STORAGE_ACCOUNT_CONTAINER` variable from its original val
 
 Navigate to the directory in which you stored the *statestore.yaml* file and run the following command to configure the Dapr component in the Container Apps environment.
 
-If you need to add multiple components, create a separate YAML file for each component and run the `az containerapp env dapr-component set` command multiple times to add each component.  For more information about configuring Dapr components, see [Configure Dapr components](dapr-overview.md#configure-dapr-components).
+If you need to add multiple components, create a separate YAML file for each component, and run the `az containerapp env dapr-component set` command multiple times to add each component.  For more information about configuring Dapr components, see [Configure Dapr components](dapr-overview.md#configure-dapr-components).
 
 ```azurecli
 az containerapp env dapr-component set \
@@ -334,7 +334,7 @@ New-AzContainerApp `
 
 By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-python).
 
-This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no need to specify a target port nor is there a need to external enable ingress.  
+This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless, there's no need to specify a target port nor is there a need to external enable ingress.  
 
 ## Verify the result
 

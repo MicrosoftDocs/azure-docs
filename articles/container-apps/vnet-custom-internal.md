@@ -284,7 +284,7 @@ New-AzPrivateDnsARecordSet `
 
 #### Networking parameters
 
-There are three optional networking parameters you can choose to define when calling `containerapp env create`. Use these options when you have a peered VNET with separate address ranges. Explicitly configuring these ranges ensures the addresses used by the Container Apps environment doesn't conflict with other ranges in the network infrastructure.
+There are three optional networking parameters you can choose to define when calling `containerapp env create`. Use these options when you have a peered VNET with separate address ranges. Explicitly configuring these ranges ensures the addresses used by the Container Apps environment don't conflict with other ranges in the network infrastructure.
 
 You must either provide values for all three of these properties, or none of them. If they aren’t provided, the values are generated for you.
 

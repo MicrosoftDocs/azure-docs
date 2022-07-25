@@ -116,7 +116,7 @@ QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_
 
 # [PowerShell](#tab/powershell)
 
-Here we use Azure CLI as there is not an equivalent PowerShell to get the connection string for the storage account queue. 
+Here we use Azure CLI as there isn't an equivalent PowerShell to get the connection string for the storage account queue. 
 
 ```powershell
 
@@ -286,7 +286,7 @@ The application scales out to 10 replicas based on the queue length as defined i
 
 ## Verify the result
 
-The container app runs as a background process. As messages arrive from the Azure Storage Queue, the application creates log entries in Log analytics. You must wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
+The container app runs as a background process. As messages arrive from the Azure Storage Queue, the application creates log entries in Log analytics. You must wait a few minutes for the analytics to arrive for the first time before you're able to query the logged data.
 
 Run the following command to see logged messages. This command requires the Log analytics extension, so accept the prompt to install extension when requested.
 
@@ -315,7 +315,7 @@ $queryResults.Results
 
 ## Clean up resources
 
-Once you are done, run the following command to delete the resource group that contains your Container Apps resources.
+Once you're done, run the following command to delete the resource group that contains your Container Apps resources.
 
 # [Bash](#tab/bash)
 

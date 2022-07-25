@@ -53,7 +53,6 @@ $WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGr
 To create the environment, run the following command:
 
 ```powershell
-
 New-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT `
   -ResourceGroupName $RESOURCE_GROUP `
   -AppLogConfigurationDestination "log-analytics" `
@@ -78,10 +77,7 @@ The example shown in this article demonstrates how to use a custom container ima
 - Enable external or internal ingress
 - Provide minimum and maximum replica values or scale rules
 
-
-
 ::: zone pivot="container-apps-private-registry"
-
 
 # [Bash](#tab/bash)
 
@@ -157,17 +153,20 @@ az containerapp create \
   --name my-container-app \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINERAPPS_ENVIRONMENT
+
+If you have enabled ingress on your container app, you can add `--query properties.configuration.ingress.fqdn` to the `create` command to return the public URL for the application.
+
 ```
 
 # [PowerShell](#tab/powershell)
-
-If you have logged in to ACR, you can omit the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command.
 
 ```powershell
 $IMAGE_OBJ = New-AzContainerAppTemplateObject `
   -Name my-container-app `
   -Image <REGISTRY_CONTAINER_NAME> 
+```
 
+```powershell
 $ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
 
 New-AzContainerApp `
@@ -186,11 +185,11 @@ Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full n
 
 ::: zone-end
 
-If you have enabled ingress on your container app, you can add `--query properties.configuration.ingress.fqdn` to the `create` command to return the public URL for the application.
+
 
 ## Verify deployment
 
-To verify a successful deployment, you can query the Log Analytics workspace. You might have to wait 5–10 minutes after deployment for the analytics to arrive for the first time before you are able to query the logs.
+To verify a successful deployment, you can query the Log Analytics workspace. You might have to wait 5–10 minutes after deployment for the analytics to arrive for the first time before you're able to query the logs.
 
 After about 5-10 minutes has passed, use the following steps to view logged messages.
 
