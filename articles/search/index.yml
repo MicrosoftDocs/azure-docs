@@ -39,9 +39,9 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a service
+          - text: Create a search service
             url: search-create-service-portal.md
-          - text: Create an index
+          - text: Create a search index
             url: search-get-started-portal.md
           - text: Create a demo app
             url: search-create-app-portal.md
