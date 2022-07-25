@@ -463,6 +463,11 @@
               href: breaking-changes/overview.md
             - name: Virtual network changes (March 2023)
               href: breaking-changes/rp-source-ip-address-change-mar2023.md
+            - name: Virtual network changes (September 2023)
+              href: breaking-changes/rp-source-ip-address-change-sep2023.md
+            - name: API version retirements (September 2023)
+              href: breaking-changes/api-version-retirement-sep2023.md
+
       - name: Regional availability
         href: https://azure.microsoft.com/global-infrastructure/services/
       - name: Microsoft Q&A question page
