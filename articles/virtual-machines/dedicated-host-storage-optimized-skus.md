@@ -20,7 +20,7 @@ This document goes through the hardware specifications and VM packings for all s
 The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 ## Lasv3
-## Lasv3-Type1
+### Lasv3-Type1
 
 The Lasv3-Type1 is a Dedicated Host SKU utilizing the AMD 3rd Generation EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 1024 GiB of RAM. The Lasv3-Type1 runs [Lasv3-series](lasv3-series.md) VMs.
 
@@ -36,7 +36,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | L80as v3 | 1     |
 
 ## Lsv3
-## Lsv3-Type1
+### Lsv3-Type1
 
 The Lsv3-Type1 is a Dedicated Host SKU utilizing the Intel® 3rd Generation Xeon® Platinum 8370C (Ice Lake) processor. It offers 64 physical cores, 119 vCPUs, and 1024 GiB of RAM. The Lsv3-Type1 runs [Lsv3-series](lsv3-series.md) VMs.
 
