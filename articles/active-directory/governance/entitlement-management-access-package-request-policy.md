@@ -30,9 +30,11 @@ The way you specify who can request an access package is with a policy. Before c
 
 When you create an access package, you can specify the request, approval and lifecycle settings, which are stored on the first policy of the access package. Most access packages will have a single policy for users to request access, but a single access package can have multiple policies. You would create multiple policies for an access package if you want to allow different sets of users to be granted assignments with different request and approval settings.
 
-For example, a single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package, one for internal users and one for external users. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to. The following diagram shows an access package with two policies.
+For example, a single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package, one for internal users and one for external users. If there are multiple policies that apply to a user to request, they will be prompted at the time of their request to select the policy they would like to be assigned to. The following diagram shows an access package with two policies.
 
 ![Multiple policies in an access package](./media/entitlement-management-access-package-request-policy/access-package-policy.png)
+
+In addition to policies for users to request access, you can also have policies for [automatic assignment](entitlement-management-access-package-auto-assignment-policy.md), and policies for direct assignment by administrators or catalog owners.
 
 ### How many policies will I need?
 
@@ -43,7 +45,8 @@ For example, a single policy cannot be used to assign internal and external user
 | I want to allow users in my directory and also users outside my directory to request an access package | Two |
 | I want to specify different approval settings for some users | One for each group of users |
 | I want some users access package assignments to expire while other users can extend their access | One for each group of users |
-| I want users to request access and other users to be assigned access by an administrator | Two |
+| I want some users to request access and other users to be assigned access by an administrator | Two |
+| I want some users in my organization to receive access automatically, other users in my organization to be able to request, and other users to be assigned access by an administrator | Three |
 
 For information about the priority logic that is used when multiple policies apply, see [Multiple policies](entitlement-management-troubleshoot.md#multiple-policies
 ).
@@ -205,6 +208,10 @@ To change the request and approval settings for an access package, you need to o
 1. Configure lifecycle settings.
 
 1. If you are editing a policy click **Update**. If you are adding a new policy, click **Create**.
+
+## Creating an access package assignment policy programmatically
+
+You can also create a policy using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application in a catalog role or with the `EntitlementManagement.ReadWrite.All` permission, can call the [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-1.0&preserve-view=true) API.
 
 ## Prevent requests from users with incompatible access
 
