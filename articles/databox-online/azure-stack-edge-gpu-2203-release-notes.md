@@ -34,7 +34,7 @@ The 2203 release has the following features and enhancements:
 
 The following table provides a summary of known issues in this release.
 
-| No. | Feature | Issue | Workaround/comments |
+|No. |Feature |Issue |Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features are available in preview: <br> - Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only.  <br> - VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only. <br> - Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R. |These features will be generally available in later releases. |
 |**2.**|HPN VMs |For this release, the Standard_F12_HPN can only support one network interface and can't be used for Multi-Access Edge Computing (MEC) deployments. | 
