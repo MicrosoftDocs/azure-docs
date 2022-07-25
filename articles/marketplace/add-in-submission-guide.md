@@ -21,11 +21,11 @@ This article is a step-by-step guide that will detail how to submit your app to 
 
     :::image type="content" source="./media/office-store-workspaces/marketplace-offers-tile.png" alt-text="Illustrates the product GUID in the URL for an Office app.":::
 
-1. If you see the _Commercial marketplace_ and _Office store_ tabs in the upper-left of the page, select the **Office store** tab.
+1. If you see the Commercial marketplace and Office store tabs in the upper-left of the page, select the **Office store** tab.
 
 1. Select **+ New offer** and then select the type of app you want to submit. The example screenshots in this article show an Office Add-in, but the steps apply to Teams apps, SharePoint solutions, and so on.
 
-    [ ![Illustrates the New offer list.](./media/add-in-submission-guide/step-select-type-of-add-in-workspaces.png) ](./media/add-in-submission-guide/step-select-type-of-add-in-workspaces.png#lightbox)
+   :::image type="content" source="./media/add-in-submission-guide/step-select-type-of-add-in-workspaces.png" alt-text="Screenshot showing the New offer list.":::
 
 ## Step 2: Name your app
 
@@ -55,16 +55,11 @@ This article is a step-by-step guide that will detail how to submit your app to 
     - **Do you want to connect with your lead management CRM system?**
     If so, connect this system using the Connect link.
 
-<!--- [
-    > [!NOTE]
-    > If you’re submitting a Teams add-in, make sure to update your Apple ID in your account settings to make your app acquirable on iOS mobile devices.
-]() --->
-
 1. Select **Save draft** before continuing to the next page: Packages.
 
 The following screenshot shows two yellow warning boxes on the **Product setup** page that remind you to fill in your Apple ID and provide test credentials.
 
-[ ![Yellow warning box reminds you to fill in your Apple ID.](./media/add-in-submission-guide/step-3-yellow-warnings-workspaces.png)](./media/add-in-submission-guide/step-3-yellow-warnings-workspaces.png#lightbox)
+:::image type="content" source="./media/add-in-submission-guide/step-3-yellow-warnings-workspaces.png" alt-text="Yellow warning box reminds you to fill in your Apple ID.":::
 
 ## Step 4: Upload your manifest for package testing
 
@@ -72,7 +67,7 @@ You will need to upload your manifest file to the grey box on the **Packages** p
 
 When your manifest is uploaded and is correct, you will receive a confirmation and see that manifest checks have passed and that the **Status** column shows **Complete**.
 
-[ ![A completed manifest upload.](./media/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png) ](./media/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png#lightbox)
+:::image type="content" source="./media/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png" alt-text="Screenshot showing a completed manifest upload.":::
 
 ## Step 5: Define the metadata that will categorize your app in the store
 
@@ -82,17 +77,15 @@ When your manifest is uploaded and is correct, you will receive a confirmation a
     - Choose the **Standard Contract** check box. If you choose to use Microsoft's standard end user license agreement (EULA), you will need to select **Accept** in the confirmation dialog box that appears to confirm that you do not want to use your own agreement, as this cannot be reversed once your app is published.
     - In the **End User License Agreement (EULA) link** box, enter the link to your EULA (starting with https). 
 
-    [ ![Screenshot of the standard contract and EULA options.](./media/add-in-submission-guide/step-5-contract-eula.png) ](./media/add-in-submission-guide/step-5-contract-eula.png#lightbox)
-    ***Figure 1 Choose an end user license agreement***
+    :::image type="content" source="./media/add-in-submission-guide/step-5-contract-eula.png" alt-text="Screenshot of the standard contract and EULA options.":::
 
 1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy, as seen in the following screenshot. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
 1. In the **Support document link** box, enter a link (starting with https) that customers will use if they have issues with your product, as seen this screenshot.
 
-    [ ![Screenshot of the privacy policy and support document link boxes.](./media/add-in-submission-guide/step-5-privacy-support.png) ](./media/add-in-submission-guide/step-5-privacy-support.png#lightbox)
-    ***Figure 2 Privacy policy and Support document link boxes***
+   :::image type="content" source="./media/add-in-submission-guide/step-5-privacy-support.png" alt-text="Screenshot of the privacy policy and support document link boxes.":::
 
-    The yellow warning seen in Figure 2 reminds you of the following things your privacy policy must include to pass certification:
+    The yellow warning reminds you of the following things your privacy policy must include to pass certification:
 
     - Information on your policies regarding user's personal information.
     - Refer to the app or your service overall and NOT your website.
@@ -116,16 +109,16 @@ Your store listing is configured on the **Marketplace listings** page. You shoul
 
 To provide your listing information, select the language you want to configure under the **Language** column.
 
-![English has been added to the listing](./media/add-in-submission-guide/step-7-define-your-store-page.png)
+:::image type="content" source="./media/add-in-submission-guide/step-7-define-your-store-page.png" alt-text="Screenshot showing English being added to the listing.":::
 
 ## Step 8: Decide on your availability date
 
 1. On the **Availability** page, schedule when your app will be available.
 
     > [!NOTE]
-    > It typically takes 4 to 6 weeks to complete an app submission and get it approved. On average, most apps require multiple submissions to pass our validation process, so follow our [checklist](checklist.md) carefully to reduce this time.  
+    > It typically takes four to six weeks to complete an app submission and get it approved. On average, most apps require multiple submissions to pass our validation process, so follow our [checklist](checklist.md) carefully to reduce this time.  
 
-    ![Make my product available in a future market is selected in the Availability step](./media/add-in-submission-guide/step-8-set-availability-time-date-workspaces.png)
+   :::image type="content" source="./media/add-in-submission-guide/step-8-set-availability-time-date-workspaces.png" alt-text="Screenshot showing product availability in a future market.":::
 
 1. Select **Save draft** before continuing.
 
@@ -139,7 +132,7 @@ When you are ready to publish your app, in the upper-right of the page, select *
 
 The following screenshot shows the **Notes for certification** box where you must provide information.
 
-[ ![Provide your testing credentials in the red box.](./media/add-in-submission-guide/step-9-certification-notes-workspaces.png) ](./media/add-in-submission-guide/step-9-certification-notes-workspaces.png#lightbox)
+:::image type="content" source="./media/add-in-submission-guide/step-9-certification-notes-workspaces.png" alt-text="Screenshot showing credentials testing.":::
 
 In addition to _Notes for certification_, you can optionally provide additional detailed instructions for the reviewers by uploading a PDF file to the **Additional certification info** page. This option provides the following benefits:
 
@@ -148,14 +141,14 @@ In addition to _Notes for certification_, you can optionally provide additional 
 
 The following screenshot shows where you can optionally upload a PDF file of instructions for reviewers.
 
-[ ![Screenshot of the Additional Certification Info page.](./media/add-in-submission-guide/additional-cert-info-workspaces.png) ](./media/add-in-submission-guide/additional-cert-info-workspaces.png#lightbox)
+:::image type="content" source="./media/add-in-submission-guide/additional-cert-info-workspaces.png" alt-text="Screenshot of the Additional Certification Info page.":::
 
->[!TIP]
+> [!TIP]
 > Do not include an email address of a company employee who can provide sign-in information. Our reviewers will **not be able to email you for sign-in information**. Applications that do not list clear instructions in the certification notes will automatically fail the submission process.
 
 ## Step 10: Use the following checklist to avoid the top five common errors that produce 80% of review rejections
 
-Use our **[pre-submission checklist](./checklist.md)** to address all the things on this list.
+Use our [pre-submission checklist](./checklist.md) to address all the things on this list.
 
 - Did you include Terms of Use links?
 - Did you include Privacy Policy links?
@@ -167,8 +160,4 @@ Once you have answered those questions for yourself, select the submit button on
 
 ## Step 11: Congratulations, you are done submitting!
 
-Expect a response within 3 to 4 business days from our reviewers if there are any issues related to your submission.
-<!--- [
-> [!TIP]
-> After publishing an offer, the [owner](/azure/marketplace/user-roles) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
-]() --->
+Expect a response within three to four business days from our reviewers if there are any issues related to your submission.

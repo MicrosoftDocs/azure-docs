@@ -16,7 +16,7 @@ This is a checklist to help you ensure your submission and review go smoothly.
 
 ### Step 1: Determine your launch timeline
 
-![Calendar icon](./media/office-store-new/calendar.png) Plan ahead! Submitting your app for review can take up to 4 weeks from first submission until final approval.
+Submitting your app for review can take up to four weeks from first submission until final approval, so preparation is crucial.
 
 Make sure include time in your deployment schedule for our team to not only review your app, but for changes to be made to your app if needed.
 
