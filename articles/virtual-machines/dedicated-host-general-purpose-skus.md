@@ -166,6 +166,17 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | DC64as v5 | 1     |
 |                |                 |               | DC96as v5 | 1     |
 
+## DCsv2
+### DCsv2-Type1
+
+The DCsv2-Type1 is a Dedicated Host SKU utilizing the Intel® Coffee Lake (Xeon® E-2288G with SGX technology) processor. It offers 8 physical cores, 8 vCPUs, and 64 GiB of RAM. The DCsv2-Type1 runs [DCsv2-series](dcv2-series.md) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a DCsv2-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
+|----------------|-----------------|---------------|---------|-------|
+| 8              | 8               | 64 GiB        | DC8 v2  | 1     |
+
 ## Ddsv4
 ### Ddsv4-Type1
 The Ddsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Ddsv4-Type1 runs [Ddsv4-series](ddv4-ddsv4-series.md#ddsv4-series) VMs.
