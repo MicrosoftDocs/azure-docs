@@ -7,7 +7,7 @@ ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 03/10/2022
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.custom: subject-armqs, mode-arm
 tags: azure-resource-manager, bicep
 ---

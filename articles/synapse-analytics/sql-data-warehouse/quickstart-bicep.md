@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: schaffererin
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.date: 05/20/2022
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 ---

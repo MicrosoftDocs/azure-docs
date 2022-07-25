@@ -3,7 +3,7 @@ title: 'Quickstart: Create an event hub with consumer group using Bicep - Azure 
 description: 'Quickstart: Create an Event Hubs namespace with an event hub and a consumer group using Bicep'
 author: schaffererin
 ms.topic: quickstart
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 03/22/2022
 ---

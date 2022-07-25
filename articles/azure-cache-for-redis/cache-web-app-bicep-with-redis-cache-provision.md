@@ -5,7 +5,7 @@ author: schaffererin
 ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/24/2022
-ms.author: v-eschaffer 
+ms.author: erinschaffer 
 ms.custom: devx-track-azurepowershell
 
 ---

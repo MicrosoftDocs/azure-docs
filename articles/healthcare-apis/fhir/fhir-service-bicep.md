@@ -4,7 +4,7 @@ description: Learn how to deploy FHIR service by using Bicep
 author: schaffererin
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.date: 05/27/2022
 ---
 

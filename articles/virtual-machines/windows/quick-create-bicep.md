@@ -7,7 +7,7 @@ ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 03/11/2022
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.custom: subject-armqs, mode-arm
 ---
 

@@ -7,7 +7,7 @@ author: schaffererin
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 04/29/2022
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.custom: subject-armqs, mode-arm
 ---
 

@@ -7,7 +7,7 @@ author: schaffererin
 ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 06/22/2022
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 

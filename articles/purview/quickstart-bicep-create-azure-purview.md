@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using Bicep'
 description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account using Bicep.
 author: schaffererin
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.date: 07/05/2022
 ms.topic: quickstart
 ms.service: purview

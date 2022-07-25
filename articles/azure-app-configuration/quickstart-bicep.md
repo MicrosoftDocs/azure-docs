@@ -3,7 +3,7 @@ title: Create an Azure App Configuration store using Bicep
 titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store using Bicep.
 author: schaffererin
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.date: 05/06/2022
 ms.service: azure-app-configuration
 ms.topic: quickstart

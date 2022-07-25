@@ -4,7 +4,7 @@ titleSuffix: Azure DNS
 description: Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step quickstart to create and manage your first DNS zone and record using Bicep.
 services: dns
 author: schaffererin
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.date: 03/21/2022
 ms.topic: quickstart
 ms.service: dns

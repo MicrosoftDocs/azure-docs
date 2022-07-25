@@ -7,7 +7,7 @@ ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 06/28/2022
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ---
 
 # Quickstart: Deploy Azure Firewall with Availability Zones - Bicep

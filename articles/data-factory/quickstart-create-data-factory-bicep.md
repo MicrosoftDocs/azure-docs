@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 tags: azure-resource-manager
 author: schaffererin
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 06/17/2022

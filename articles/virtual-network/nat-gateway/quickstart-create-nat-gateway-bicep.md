@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2022
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.custom: subject-armqs, devx-track-azurepowershell
 ---
 

@@ -2,7 +2,7 @@
 title: Create a Service Fabric cluster using Bicep
 description: In this quickstart, you will create an Azure Service Fabric test cluster using Bicep.
 author: schaffererin
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.date: 06/22/2022
 ms.topic: quickstart
 ms.service: service-fabric

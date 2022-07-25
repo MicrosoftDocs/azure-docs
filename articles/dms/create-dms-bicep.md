@@ -4,7 +4,7 @@ description: Learn how to create Database Migration Service by using Bicep.
 author: schaffererin
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.date: 03/21/2022
 ms.service: dms
 ---

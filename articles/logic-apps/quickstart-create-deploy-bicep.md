@@ -5,7 +5,7 @@ author: schaffererin
 services: logic-apps
 ms.suite: integration
 ms.topic: quickstart
-ms.author: v-eschaffer
+ms.author: erinschaffer
 ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/07/2022
 #Customer intent: As a developer, I want to create and deploy an automated workflow in multi-tenant Azure Logic Apps with Bicep.
