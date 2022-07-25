@@ -1,13 +1,13 @@
 ---
 title: Form Recognizer models
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt models.
+description: Concepts related to data extraction and analysis using prebuilt models.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/16/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -16,14 +16,14 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer models
 
-Azure Form Recognizer prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models. Prebuilt models use optical character recognition (OCR) combined with deep learning models to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer extracts analyzes form and document data then  returns an organized, structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
+ Azure Form Recognizer supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt document analysis or domain specific model or train a custom model tailored to your specific business needs and use cases. Form Recognizer can be used with the REST API or Python, C#, Java, and JavaScript SDKs.
 
 ## Model overview
 
 | **Model**   | **Description**   |
 | --- | --- |
 |**Document analysis**||
-| 🆕[Read (preview)](#read-preview) | Extract printed and handwritten text lines, words, locations, and detected languages.|
+| 🆕[Read (preview)](#read-preview) | Extract typeface and handwritten text lines, words, locations, and detected languages.|
 | 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.|
 | [Layout](#layout)  | Extract text and layout information from documents.|
 |**Prebuilt**||
@@ -83,20 +83,21 @@ The W-2 model analyzes and extracts key information reported in each box on a W-
 
 [:::image type="icon" source="media/studio/layout.png":::](https://formrecognizer.appliedai.azure.com/studio/layout)
 
-The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from forms and documents.
+The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from documents.
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
 
-:::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Screenshot of sample newspaper page processed using Form Recognizer studio":::
 
 > [!div class="nextstepaction"]
+>
 > [Learn more: layout model](concept-layout.md)
 
 ### Invoice
 
 [:::image type="icon" source="media/studio/invoice.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
-The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due. Currently, the model supports both English and Spanish invoices. 
+The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due. Currently, the model supports English, Spanish, German, French, Italian, Portuguese, and Dutch invoices.
 
 ***Sample invoice processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
 
@@ -109,7 +110,9 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 [:::image type="icon" source="media/studio/receipt.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-The receipt model analyzes and extracts key information from printed and handwritten receipts.
+* The receipt model analyzes and extracts key information from printed and handwritten sales receipts.
+
+* The preview version v3.0 also supports single-page hotel receipt processing.
 
 ***Sample receipt processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
@@ -152,7 +155,9 @@ The business card model analyzes and extracts key information from business card
 
  [:::image type="icon" source="media/studio/custom.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
 
-The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
+* Custom models analyze and extract data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
+
+* The preview version v3.0 custom model supports signature detection in custom forms (template model) and cross-page tables in both template and neural models.
 
 ***Sample custom template processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
@@ -165,7 +170,7 @@ The custom model analyzes and extracts data from forms and documents specific to
 
 A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign multiple custom models to a composed model called with a single model ID. you can assign up to 100 trained custom models to a single composed model.
 
-***Composed model dialog window[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
+***Composed model dialog window in [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
 :::image type="content" source="media/studio/composed-model.png" alt-text="Screenshot of Form Recognizer Studio compose custom model dialog window.":::
 
@@ -174,42 +179,30 @@ A composed model is created by taking a collection of custom models and assignin
 
 ## Model data extraction
 
- | **Data extraction**   | **Text extraction** |**Key-Value pairs** |**Fields**|**Selection Marks**   | **Tables**   |**Entities** |
-| --- |:---: |:---:|:---: |:---: |:---: |:---: |
-|🆕 [prebuilt-read](concept-read.md#data-extraction) | ✓ |   ||   |   |   |
-|🆕 [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |  ✓  | ✓ | ✓ | ✓ ||
-|🆕 [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |  ✓ || ✓  | ✓  | ✓  |
-| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   || ✓  | ✓  |   |
-| [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ | ✓  |✓| ✓  | ✓ ||
-| [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   ✓ |✓|   |  ||
-| [prebuilt-idDocument](concept-id-document.md#field-extraction) | ✓  |  ✓ |✓|   |   ||
-| [prebuilt-businessCard](concept-business-card.md#field-extraction)    | ✓  |   ✓ | ✓|  |   ||
-| [Custom](concept-custom.md#compare-model-features)             |✓  |  ✓ || ✓  | ✓  | ✓  |
+| **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Paragraph roles** | **Key-Value pairs** | **Fields** |
+|:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+|🆕 [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |  
+|🆕 [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+|🆕 [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
+| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  | 
+| [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |  
+| [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ | 
+| [prebuilt-idDocument](concept-id-document.md#field-extraction) | ✓ |   |   |  | ✓ |   |  | ✓ | 
+| [prebuilt-businessCard](concept-business-card.md#field-extraction)  | ✓  |   |   |  | ✓ |   |  | ✓ | 
+| [Custom](concept-custom.md#compare-model-features)             | ✓  |    |  ✓ | ✓ | ✓  |   | | ✓ | 
 
 ## Input requirements
 
 * For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Additionally, the Read API supports Microsoft Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML files.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
-* PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
-
-## Form Recognizer preview v3.0
-
-  Form Recognizer v3.0 (preview) introduces several new features and capabilities:
-
-* [**Read (preview)**](concept-read.md) model is a new API that extracts text lines, words, their locations, detected languages, and handwritten text, if detected.
-* [**General document (preview)**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
-* [**Receipt (preview)**](concept-receipt.md) model supports single-page hotel receipt processing.
-* [**ID document (preview)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
-* [**W-2 (preview)**](concept-w2.md) model supports employee, employer, wage information, etc. from US W-2 forms.
-* [**Custom model API (preview)**](concept-custom.md) supports signature detection for custom forms.
 
 ### Version migration
 

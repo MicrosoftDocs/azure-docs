@@ -169,47 +169,7 @@ The solution back end operates on the module twin using the following atomic ope
 
 * **Replace tags**. This operation enables the solution back end to completely overwrite all existing tags and substitute a new JSON document for `tags`.
 
-* **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. To do so, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no twin notifications are sent, that is, no such routes pre-exist. If the rate of change is too high, or for other reasons such as internal failures, the IoT Hub might send only one notification that contains all changes. Therefore, if your application needs reliable auditing and logging of all intermediate states, you should use device-to-cloud messages. The twin notification message includes properties and body.
-
-  - Properties
-
-    | Name | Value |
-    | --- | --- |
-    $content-type | application/json |
-    $iothub-enqueuedtime |  Time when the notification was sent |
-    $iothub-message-source | twinChangeEvents |
-    $content-encoding | utf-8 |
-    deviceId | ID of the device |
-    moduleId | ID of the module |
-    hubName | Name of IoT Hub |
-    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of operation |
-    iothub-message-schema | twinChangeNotification |
-    opType | "replaceTwin" or "updateTwin" |
-
-    Message system properties are prefixed with the `$` symbol.
-
-  - Body
-        
-    This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the “$metadata” elements. For example,
-
-    ```json
-    {
-      "properties": {
-          "desired": {
-              "$metadata": {
-                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
-              },
-              "$version": 1
-          },
-          "reported": {
-              "$metadata": {
-                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
-              },
-              "$version": 1
-          }
-      }
-    }
-    ```
+* **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. To do so, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no such route exists, so no twin notifications are sent. If the rate of change is too high, or for other reasons such as internal failures, the IoT Hub might send only one notification that contains all changes. Therefore, if your application needs reliable auditing and logging of all intermediate states, you should use device-to-cloud messages. To learn more about the properties and body returned in the twin notification message, see [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
 
 All the preceding operations support [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) and require the **ServiceConnect** permission, as defined in the [Control Access to IoT Hub](iot-hub-devguide-security.md) article.
 
@@ -345,7 +305,7 @@ This information is kept at every level (not just the leaves of the JSON structu
 
 ## Optimistic concurrency
 
-Tags, desired, and reported properties all support optimistic concurrency.
+Tags, desired properties, and reported properties all support optimistic concurrency. If you need to guarantee order of twin property updates, consider implementing synchronization at the application level by waiting for reported properties callback before sending the next update. 
 
 Module twins have an ETag (`etag` property), as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the twin's JSON representation. You can use the `etag` property in conditional update operations from the solution back end to ensure consistency. This is the only option for ensuring consistency in operations that involve the `tags` container.
 

@@ -58,7 +58,7 @@ items:
   - name: TPM attestation
     href: concepts-tpm-attestation.md
   - name: Control access to DPS
-    items: 
+    items:
     - name: Overview
       href: concepts-control-access-dps.md
     - name: Control access to DPS with SAS
@@ -66,11 +66,13 @@ items:
     - name: Control access to DPS with Azure AD (preview)
       href: concepts-control-access-dps-azure-ad.md
   - name: Roles and operations
-    href: concepts-roles-operations.md  
+    href: concepts-roles-operations.md
   - name: Virtual networks support
     href: virtual-network-support.md
   - name: Reprovisioning
-    href: concepts-device-reprovision.md  
+    href: concepts-device-reprovision.md
+  - name: Best practices for large-scale IoT device deployments
+    href: concepts-deploy-at-scale.md
   - name: High availability and disaster recovery
     href: iot-dps-ha-dr.md
   - name: Understanding DPS IP addresses
@@ -88,7 +90,7 @@ items:
     - name: Provision devices using custom allocation policies
       href: how-to-use-custom-allocation-policies.md
     - name: Communicate with your DPS using MQTT protocol
-      href: iot-dps-mqtt-support.md    
+      href: iot-dps-mqtt-support.md
   - name: Manage
     items:
     - name: Manage enrollments - Portal
@@ -100,9 +102,9 @@ items:
     - name: Reprovision devices
       href: how-to-reprovision.md
     - name: Manage disenrollment
-      href: how-to-revoke-device-access-portal.md 
+      href: how-to-revoke-device-access-portal.md
     - name: Manage deprovisioning
-      href: how-to-unprovision-devices.md      
+      href: how-to-unprovision-devices.md
     - name: Configure IP filtering
       href: iot-dps-ip-filtering.md
     - name: Managing public network access
@@ -114,7 +116,7 @@ items:
     - name: Monitoring data reference
       href: monitor-iot-dps-reference.md
   - name: Provision IoT Edge devices
-    items: 
+    items:
     - name: Linux
       href: ../iot-edge/how-to-provision-devices-at-scale-linux-tpm.md
       maintainContext: true

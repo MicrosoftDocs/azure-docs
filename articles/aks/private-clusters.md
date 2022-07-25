@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 01/12/2022
+ms.date: 05/27/2022
 
 ---
 
@@ -19,15 +19,12 @@ When you provision a private AKS cluster, AKS by default creates a private FQDN 
 
 Private cluster is available in public regions, Azure Government, and Azure China 21Vianet regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-> [!NOTE]
-> Azure Government sites are supported, however US Gov Texas isn't currently supported because of missing Private Link support.
-
 ## Prerequisites
 
 * Azure CLI >= 2.28.0 or Azure CLI with aks-preview extension 0.5.29 or later.
 * If using ARM or the rest API, the AKS API version must be 2021-05-01 or later.
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
-* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
+* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server. For more information about the Azure DNS IP address, see [What is IP address 168.63.129.16?][virtual-networks-168.63.129.16]
 
 ## Create a private AKS cluster
 
@@ -151,6 +148,9 @@ As mentioned, virtual network peering is one way to access your private cluster.
 3. In scenarios where the VNet containing your cluster has custom DNS settings (4), cluster deployment fails unless the private DNS zone is linked to the VNet that contains the custom DNS resolvers (5). This link can be created manually after the private zone is created during cluster provisioning or via automation upon detection of creation of the zone using event-based deployment mechanisms (for example, Azure Event Grid and Azure Functions).
 
 > [!NOTE]
+> Conditional Forwarding doesn't support subdomains.
+
+> [!NOTE]
 > If you are using [Bring Your Own Route Table with kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) and Bring Your Own DNS with Private Cluster, the cluster creation will fail. You will need to associate the [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) in the node resource group to the subnet after the cluster creation failed, in order to make the creation successful.
 
 ## Use a private endpoint connection
@@ -257,3 +257,4 @@ Once the A record is created, link the private DNS zone to the virtual network t
 [command-invoke]: command-invoke.md
 [container-registry-private-link]: ../container-registry/container-registry-private-link.md
 [virtual-networks-name-resolution]: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server
+[virtual-networks-168.63.129.16]: ../virtual-network/what-is-ip-address-168-63-129-16.md

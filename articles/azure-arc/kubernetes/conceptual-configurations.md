@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 05/24/2022
 ms.topic: conceptual
-author: shashankbarsin
-ms.author: shasb
 description: "This article provides a conceptual overview of GitOps and configurations capability of Azure Arc-enabled Kubernetes."
 keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps"
 ---

@@ -4,7 +4,7 @@ description: Troubleshoot issues with data exports in IoT Central
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2021
+ms.date: 06/10/2022
 ms.topic: troubleshooting
 ms.service: iot-central
 

@@ -2,9 +2,9 @@
 title: Monitoring Load Balancer data reference
 titleSuffix: Azure Load Balancer
 description: Important reference material needed when you monitor Load Balancer 
-author: greg-lindsay
+author: mbender-ms
 ms.topic: reference
-ms.author: greglin
+ms.author: mbender
 ms.service: load-balancer
 ms.custom: subject-monitoring
 ms.date: 06/29/2021

@@ -5,8 +5,8 @@ description: Learn how to version machine learning datasets and how versioning w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
-ms.author: larryfr
-author: blackmist
+ms.author: samkemp
+author: samuel100
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
@@ -30,7 +30,7 @@ For this tutorial, you need:
 
 - [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install). This SDK includes the [azureml-datasets](/python/api/azureml-core/azureml.core.dataset) package.
     
-- An [Azure Machine Learning workspace](concept-workspace.md). Retrieve an existing one by running the following code, or [create a new workspace](how-to-manage-workspace.md).
+- An [Azure Machine Learning workspace](concept-workspace.md). Retrieve an existing one by running the following code, or [create a new workspace](quickstart-create-resources.md).
 
     ```Python
     import azureml.core

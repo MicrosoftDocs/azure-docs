@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/25/2022
+ ms.date: 06/10/2022
  ms.author: cherylmc
  ms.custom: devx-track-azurepowershell
 ---
@@ -26,8 +26,6 @@ The following client operating systems are supported:
 * macOS version 10.11 or above
 * Linux (StrongSwan)
 * iOS
-
-[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
 
 ### Can I traverse proxies and firewalls using point-to-site capability?
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 10/27/2021
+ms.date: 06/13/2022
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -16,7 +16,6 @@ ms.custom: devx-track-csharp
 # Call the prediction API
 
 After you've trained your model, you can test images programmatically by submitting them to the prediction API endpoint. In this guide, you'll learn how to call the prediction API to score an image. You'll learn the different ways you can configure the behavior of this API to meet your needs.
-
 
 > [!NOTE]
 > This document demonstrates use of the .NET client library for C# to submit an image to the Prediction API. For more information and examples, see the [Prediction API reference](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).

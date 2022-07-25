@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/31/2021 #Required; mm/dd/yyyy format.
+  ms.date: 06/13/2022 #Required; mm/dd/yyyy format.
 
 landingContent:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -31,7 +31,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Call the Read API
-            url: Vision-API-How-to-Topics/call-read-api.md
+            url: how-to/call-read-api.md
           - text: Upgrade from Read 2.x to Read 3.x
             url: upgrade-api-versions.md
   - title: Use the Read OCR container

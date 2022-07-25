@@ -2,18 +2,16 @@
 title: Troubleshoot autoscale with Virtual Machine Scale Sets
 description: Troubleshoot autoscale with Virtual Machine Scale Sets. Understand typical problems encountered and how to resolve them.
 author: avirishuv
-ms.author: avverma
+ms.author: jushiman
 ms.topic: troubleshooting
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
-ms.custom: avverma
+
 ---
 
 # Troubleshooting autoscale with Virtual Machine Scale Sets
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 **Problem** – you’ve created an autoscaling infrastructure in Azure Resource Manager using virtual machine scale sets –  for example, by deploying a template like this one: https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json  – you have your scale rules defined and it works great, except no matter how much load you put on the VMs, it doesn't autoscale.
 
@@ -71,7 +69,8 @@ Some things to consider include:
     If the data is not there, it implies the problem is with the diagnostic extension running in the VMs. If the data is there, it implies there is either a problem with your scale rules, or with the Insights service. Check [Azure Status](https://azure.microsoft.com/status/).
     
     Once you've been through these steps, if you're still having autoscale problems, you can try the following resources: 
-    * Read the forums on [Microsoft Q&A question page](/answers/topics/azure-virtual-machines.html), or [Stack overflow](https://stackoverflow.com/questions/tagged/azure) 
+    * Visit [Troubleshooting common issue with VM Scale Sets](/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page
+    * Read the forums on [Microsoft Q&A question page](/answers/topics/azure-virtual-machines.html), or [Stack overflow](https://stackoverflow.com/questions/tagged/azure)
     * Log a support call. Be prepared to share the template and a view of your performance data.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

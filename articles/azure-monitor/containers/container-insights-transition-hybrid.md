@@ -5,6 +5,7 @@ ms.topic: article
 author: austonli
 ms.author: aul
 description: "Learn how to migrate from using script-based hybrid monitoring solutions to Container Insights on Azure Arc-enabled Kubernetes clusters"
+ms.reviewer: aul
 ---
 
 # Transition to using Container Insights on Azure Arc-enabled Kubernetes

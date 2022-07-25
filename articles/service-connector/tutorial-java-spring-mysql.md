@@ -56,7 +56,7 @@ The following procedure uses the Azure CLI extension to provision an instance of
 
 The following procedure uses the Azure CLI extension to provision an instance of Azure Database for MySQL.
 
-1. Install the [db-up](/cli/azure/ext/db-up/mysql) extension.
+1. Install the [db-up](/cli/azure/mysql) extension.
 
     ```azurecli
     az extension add --name db-up

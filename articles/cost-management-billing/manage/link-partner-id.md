@@ -1,17 +1,17 @@
 ---
-title: Link an Azure account to a partner ID
+title: Link a partner ID to your account that’s used to manage customers
 description: Track engagements with Azure customers by linking a partner ID to the user account that you use to manage the customer's resources.
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 11/04/2021
+ms.date: 06/28/2022
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Link a partner ID to your Azure accounts
+# Link a partner ID to your account that’s used to manage customers
 
 Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link (PAL), partners can associate their partner network ID with the credentials used for service delivery.
 
