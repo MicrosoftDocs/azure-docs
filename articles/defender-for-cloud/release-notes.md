@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 07/05/2022
+ms.date: 07/19/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -90,11 +90,13 @@ Today's increasing threats to organizations stretch the limits of security perso
 
 Now with the governance experience, security teams can assign remediation of security recommendations to the resource owners and require a remediation schedule. They can have full transparency into the progress of the remediation and get notified when tasks are overdue.
 
+This feature is free while it is in the preview phase.
+
 Learn more about the governance experience in [Driving your organization to remediate security issues with recommendation governance](governance-rules.md).
 
 ### Filter security alerts by IP address
 
-In many cases of attacks, you want to track alerts based on the IP address of the entity involved in the attack. Up until now, the IP appeared only in the "Related Entities" section in the single alert blade. Now, you can filter the alerts in the security alerts blade to see the alerts related to the IP address, and you can search for a specific IP address.
+In many cases of attacks, you want to track alerts based on the IP address of the entity involved in the attack. Up until now, the IP appeared only in the "Related Entities" section in the single alert pane. Now, you can filter the alerts in the security alerts page to see the alerts related to the IP address, and you can search for a specific IP address.
 
 :::image type="content" source="media/release-notes/ip-address-filter-for-alerts.png" alt-text="Screenshot of filter for I P address in Defender for Cloud alerts." lightbox="media/release-notes/ip-address-filter-for-alerts.png":::
 
