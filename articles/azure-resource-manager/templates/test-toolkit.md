@@ -293,7 +293,7 @@ Validating StartStopV2mkpl_1.0.09302021\anothertemplate.json
         Unreferenced parameter: applicationInsightsRegion
 ```
 
-The section below the summary section includes test failures that can be interpreted as warnings. Fixing the failures is optional but highly recommended. The failures often point to common issues that could cause failures when a customer installs your offer.
+The section below the summary section includes test failures that can be interpreted as warnings. Fixing the failures is optional but highly recommended. The failures often point to common issues that cause failures when a customer installs your offer.
 
 To fix your tests, follow the test case applicable to you:
 
