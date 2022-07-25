@@ -17,7 +17,7 @@ Confidential containers also help with code protection through encryption. You c
 
 The diagram below will guide different offerings in this portfolio
 
-:::image type="content" source="./media/confidential-containers/Choosing-Confidential-Containers.jpg" alt-text="Choosing offerings with confidential containers.":::
+:::image type="content" source="./media/confidential-containers/choosing-confidential-containers.jpg" alt-text="Choosing offerings with confidential containers.":::
 
 
 ## Links to container compute offerings
