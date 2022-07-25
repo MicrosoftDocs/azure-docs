@@ -95,7 +95,7 @@ You should use Active Directory Domain Services (AD DS) in the following scenari
 > [!NOTE]
 > Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC).
 
-If you choose to use AD DS with Azure NetApp Files, follow the guidance in [Extend AD DS into Azure Architecture Guide](/architecture/reference-architectures/identity/adds-extend-domain) and ensure that you meet the Azure NetApp Files [network](#network-requirements) and [DNS requirements](#ad-ds-requirements) for AD DS.
+If you choose to use AD DS with Azure NetApp Files, follow the guidance in [Extend AD DS into Azure Architecture Guide](./architecture/reference-architectures/identity/adds-extend-domain) and ensure that you meet the Azure NetApp Files [network](#network-requirements) and [DNS requirements](#ad-ds-requirements) for AD DS.
 
 ### Azure Active Directory Domain Services considerations
 
@@ -126,7 +126,7 @@ An AD DS site topology for Azure NetApp Files is a logical representation of the
 
 ### How Azure NetApp Files uses AD DS site information
 
-Azure NetApp Files uses the **AD Site Name** configured in the [Active Directory connections](/create-active-directory-connections.md#create-an-active-directory-connection) to discover which domain controllers are present to support authentication, domain join, LDAP queries, and Kerberos ticket operations. 
+Azure NetApp Files uses the **AD Site Name** configured in the [Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) to discover which domain controllers are present to support authentication, domain join, LDAP queries, and Kerberos ticket operations. 
 
 #### AD DS domain controller discovery
 
@@ -178,9 +178,7 @@ To create the subnet object that maps to the AD DS subnet in the Azure virtual n
  
 In the **New Object - Subnet** dialog, the 10.0.0.0/24 IP address range for the AD DS Subnet is entered in the **Prefix** field. Select `ANF` as the site object for the subnet. Select **OK** to create the subnet object and assign it to the `ANF` site.
 
-:::image type="complex" source="../media/azure-netapp-files/new-object-subnet-menu.png" alt-text="Screenshot of the new object - subnet menu." lightbox="../media/azure-netapp-files/new-object-subnet-menu.png":::
-The New Object – Subnet menu prompts the user to add an address prefix using network prefix notation (address/prefix/length) where the prefix length indicates the number of fixed bits. It accepts an IPv4 or IPv6 subnet prefix. It also requires a site object for the prefix.
-:::image-end:::
+:::image type="content" source="../media/azure-netapp-files/new-object-subnet-menu.png" alt-text="Screenshot of the New Object – Subnet menu." lightbox="../media/azure-netapp-files/new-object-subnet-menu.png":::
 
 To verify that the new subnet object is assigned to the correct site, right-click the 10.0.0.0/24 subnet object and select **Properties**. The **Site** field should show the `ANF` site object:
 
