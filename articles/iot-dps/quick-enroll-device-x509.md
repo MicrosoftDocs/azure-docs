@@ -59,7 +59,7 @@ Enrollment groups that use X.509 certificate attestation can be configured to us
 
 For this article, you'll need both a root CA and an intermediate CA certificate file in *.pem* or *.cer* format. One file will contain the public portion of the intermediate CA X.509 certificate and the other will contain the public portion of the root CA X.509 certificate.
 
-If you already have root and intermediate CA files, you can continue to [Add and verify your root CA certificate](#add-and-verify-your-root-ca-certificate).
+If you already have root and intermediate CA files, you can continue to [Add and verify your root or intermediate CA certificate](#add-and-verify-your-root-or-intermediate-ca-certificate).
 
 If you don't have a root CA and intermediate CA certificate, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-the-intermediate-ca-certificate) as you wont need device certificates to complete the steps in this article. When you're finished, you'll have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
 
