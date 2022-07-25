@@ -24,9 +24,9 @@ You may need to copy data within your Azure Cosmos DB account if you want to ach
 
 Intra-account container copy jobs can be [created and managed using CLI commands](how-to-container-copy.md).
 
-## Getting started
+## Get started
 
-To get started using container copy jobs, register for "Intra-account container copy" preview from the ['Preview Features'](access-previews.md) list in the Azure portal.
+To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal.
 
 ## Overview of steps needed to do container copy
 
@@ -40,7 +40,7 @@ To get started using container copy jobs, register for "Intra-account container 
 
 Intra-account container copy jobs perform offline data copy using the source container's incremental change feed log.
 
-* Within the platform, we allocate two 4-vCPU 16-GB memory server-side compute instances per Azure Cosmos DB account by default.
+* Within the platform, we allocate server-side compute instances for the Azure Cosmos DB account.
 * The instances are allocated when one or more container copy jobs are created within the account.
 * The container copy jobs run on these instances.
 * The instances are shared by all the container copy jobs running within the same account.
@@ -76,7 +76,7 @@ Yes, you can create multiple jobs within the same account. The jobs will run con
 
 ### Can I copy an entire database within the Azure Cosmos DB account?
 
-You'll have to create a job for each collection in the database.
+You'll have to create a job for each container in the database.
 
 ### I have an Azure Cosmos DB account with multiple regions. In which region will the container copy job run?
 
@@ -86,7 +86,7 @@ The container copy job will run in the write region. If there are accounts confi
 
 The account's write region may change in the rare scenario of a region outage or due to manual failover. In such a scenario, incomplete container copy jobs created within the account would fail. You would need to recreate these failed jobs. Recreated jobs would then run in the new (current) write region.
 
-### Why is a new database '_datatransferstate' created in the account when I run container copy jobs Am I being charged for this database?
+### Why is a new database '_datatransferstate' created in the account when I run container copy jobs? Am I being charged for this database?
 * '_datatransferstate' is a temporary database that is created while running container copy jobs. This database is used by the platform to store the state and progress of the copy job. 
 * The database uses manual provisioned throughput of 800 RUs. You'll be charged for this database.
 * Deleting this database will remove the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history.
