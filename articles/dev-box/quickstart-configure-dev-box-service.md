@@ -87,7 +87,7 @@ To perform the steps in this section, you must have and existing virtual network
 1. On the **Network Connections** page, select **+Add**.
      :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connections-empty.png" alt-text="Screenshot showing the Network Connections page with Add highlighted.":::
 
-#### [Azure AD join](#tab/AzureADJoin/)
+1. #### [Azure AD join](#tab/AzureADJoin/)
 
 <!-- 1. To create an *Azure Active Directory* join, use the instructions in this step. To create a Hybrid Azure Active Directory join, use the instructions in the next step. -->
 
