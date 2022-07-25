@@ -5,7 +5,7 @@ author: adriankjohnson
 ms.date: 11/15/2019
 ms.author: adjohnso
 ---
-# Common Issues: Azure Credentials Resources
+# Common Issues: Azure provider registration error
 
 ## Possible Error Messages
 

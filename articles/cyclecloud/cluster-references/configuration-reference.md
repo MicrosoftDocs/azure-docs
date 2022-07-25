@@ -38,13 +38,13 @@ CycleCloud supports the parameterized configuration of many system services.
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
 | maintenance_converge.enabled  | Boolean | CycleCloud nodes are reconfigured every 20 minutes to ensure they are in the correct state. There are times when you may not want this to be the default behavior such as when you are manually testing and updating the configuration on a node. Setting this value to false will make the node configure itself only once. Default: `true` |
-| node.prevent_metadata_access | Boolean | Prevents users, other than the root user or cyclecloud user from accessing the VM metadata from the node. These access rules are applied in `iptables`. Default: `true` |
+| node.prevent_metadata_access | Boolean | Prevents users, other than the root user or cyclecloud user from accessing the VM metadata from the node. These access rules are applied in `iptables`. Default: `true`
 | timezone | String | The timezone for a node can be changed by setting this attribute to any valid timezone string, for example `PST`, `EST`. Default: `UTC` |
 | ntp.disabled | Boolean | Opt-out of ntp time service by setting `true`. Default: `false` | 
 | ntp.servers | List (String) | A list of NTP servers to use. Default: `pool.ntp.org` |
 | keepalive.timeout | Integer | The amount of time in seconds to keep a node "alive" if it has not finished installing/configuring software. Default: `14400` (4 hours) |
 | discoverable | Boolean | Whether or not this node can be "discovered" (searched for) by other nodes started by CycleCloud. Default: `false` |
-| autoscale.forced_shutdown_timeout  | Integer   | The amount of time (in minutes) before a forced shutdown occurs if autoscale cannot scale the node down successfully. Default: `15`  |                                                                                             |
+| autoscale.forced_shutdown_timeout  | Integer   | The amount of time (in minutes) before a forced shutdown occurs if autoscale cannot scale the node down successfully. Default: `15`  |
 | security.limits  | Integer | Linux only. The limits to apply to the node. Domain, type, and item can be specified for any [valid value](https://linux.die.net/man/5/limits.conf) defined. Defaults: `security.limits.\*.hard.nofile = 524288` and `security.limits.\*.soft.nofile = 1048576` |
 | mounts | Nested  | For [NFS exporting and mounting](~/how-to/mount-fileserver.md) and volume mounting.  |
 | selinux.policy  | String  | Linux only. [Bypass an enforced `selinux` policy](~/how-to/selinux.md) for custom images. Already disabled on core CycleCloud images. |
