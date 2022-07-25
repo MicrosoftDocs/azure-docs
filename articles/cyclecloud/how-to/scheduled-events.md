@@ -9,7 +9,7 @@ monikerRange: '>= cyclecloud-8'
 
 # Using Scheduled Events
 
-As of 8.2.2, CycleCloud can take advantage of [Scheduled Events](//azure/virtual-machines/linux/scheduled-events) for VMs. This feature lets you put a script on your VM that will be automatically executed when one of the supported events occurs.
+As of 8.2.2, CycleCloud can take advantage of [Scheduled Events](/azure/virtual-machines/linux/scheduled-events) for VMs. This feature lets you put a script on your VM that will be automatically executed when one of the supported events occurs.
 
 ## Invoking a script when events occur
 
