@@ -47,7 +47,7 @@ The images should clearly communicate value of your solution and its main featur
 |Only show content that helps illustrate how the app creates value for the user.| Don’t show unrelated content.|
 |Position callouts, magnifications, or crops to focus customers on your solution.| Don’t use captions or callouts that obstruct important content.|
 
-:::image type="content" source="./media/craft-effective-appsource-store-images/value-add-do-dont-1.png" alt-text="Image with caption and close up next to an image with caption, callout, and close .":::
+:::image type="content" source="./media/craft-effective-appsource-store-images/value-add-do-dont-1.png" alt-text="Image with caption and closeup next to an image with caption, callout, and closeup.":::
 :::image type="content" source="./media/craft-effective-appsource-store-images/value-add-do-dont-2.png" alt-text="Image with caption and content editor next to an image with caption and unrelated information.":::
 :::image type="content" source="./media/craft-effective-appsource-store-images/value-add-do-dont-3.png" alt-text="Image with caption, closeup to focus on one user action and result next to an image with caption and callout that hides the result of the action.":::
 
