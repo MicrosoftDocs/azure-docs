@@ -44,7 +44,7 @@ The UsbIp-Win installs:
 - A command line tool `usbipd`. The location of this tool is added to the PATH environment variable.
 - A firewall rule called `usbipd` to allow all local subnets to connect to the service. You can modify this firewall rule to fine tune access control.
 
-At this point a service is running on Windows to share USB devices, and the necessary tools are installed in the EFLOW virtual machine to attach to shared devices.
+At this point, a service is running on Windows to share USB devices, and the necessary tools are installed in the EFLOW virtual machine to attach to shared devices.
 
 ## Attach a USB device to the EFLOW VM
 
