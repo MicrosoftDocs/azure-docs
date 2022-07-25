@@ -149,18 +149,18 @@ When BackupRestoreService(BRS) is enabled on a SF Cluster, it exposes events for
 
 **BackupRestoreService partition events**
 
-| EventId | Name | Description |Source (Task) | Level | Version |
-| --- | --- | ---| --- | --- | --- |
-| 65305 | BRSInfo | Periodic backup triggered | BackupRestoreService | Informational | 1 |
-| 65307 | BRSWarning | Incremental backup failed, triggering a full backup | BackupRestoreService | Warning | 1 |
-| 65309 | BRSError | Periodic backup failed | BackupRestoreService | Error | 1 |
+| EventId | Name | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- |
+| 65305 | BRSInfo | Periodic backup triggered | BackupRestoreService | Informational |
+| 65307 | BRSWarning | Incremental backup failed, triggering a full backup | BackupRestoreService | Warning |
+| 65309 | BRSError | Periodic backup failed | BackupRestoreService | Error |
 
 **BackupRestoreService cluster events**
-| EventId | Name | Description |Source (Task) | Level | Version |
-| --- | --- | ---| --- | --- | --- |
-| 65306 | BRSInfo | Backup policy created | BackupRestoreService | Informational | 1 |
-| 65308 | BRSWarning | Backup policy deleted | BackupRestoreService | Warning | 1 |
-| 65310 | BRSError | AddBackupPolicy failed | BackupRestoreService | Error | 1 |
+| EventId | Name | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- |
+| 65306 | BRSInfo | Backup policy created | BackupRestoreService | Informational |
+| 65308 | BRSWarning | Backup policy deleted | BackupRestoreService | Warning |
+| 65310 | BRSError | AddBackupPolicy failed | BackupRestoreService | Error |
 
 ## Health reports
 
