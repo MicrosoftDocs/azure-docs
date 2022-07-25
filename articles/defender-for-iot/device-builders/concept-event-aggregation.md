@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Micro agent event collection (Preview)
 
-Defender for IoT security agents collects data, and system events from your local device, and sends the data to the Azure cloud for processing, and analytics. The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. Both the new process, and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages, and events contain highly valuable security information that is crucial to protecting your device.
+Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics. The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. New processes and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages and events contain highly valuable security information that is crucial to protecting your device.
 
 To reduce the number of messages, and costs while maintaining your device's security, Defender for IoT agents aggregate the following types of events:
 
@@ -17,12 +17,11 @@ To reduce the number of messages, and costs while maintaining your device's secu
 
 See [event aggregation for process and network collectors](#event-aggregation-for-process-and-network-collectors) for more information. 
 
-
 Event-based collectors are collectors that are triggered based on corresponding activity from within the device. For example, ``a process was started in the device``.
 
-Triggered based collectors are collectors that are triggered in a scheduled manner based on the customer's configurations.
+Trigger-based collectors are collectors that are triggered in a scheduled manner based on the customer's configurations.
 
-## Process events (event based)
+## Process events (event-based collector)
 
 Process events are supported on Linux operating systems.
 
@@ -41,11 +40,11 @@ The data collected for each event is:
 | **Type** | Can be either `fork`, or `exec`. |
 | **hit_count** | The aggregate count. The number of executions of the same process, during the same time frame, until the events are sent to the cloud. |
 
-## Network Connection events (event-based collector)
+## Network Activity events (event-based collector)
 
-Network Connection events are considered identical when the local port, remote port, transport protocol, local address, and remote address are identical.
+Network activity events are considered identical when the local port, remote port, transport protocol, local address, and remote address are identical.
 
-The default buffer for a network connection event is 256. For situations where the cache is full:
+The default buffer for a network activity event is 256. For situations where the cache is full:
 
 - **Azure RTOS devices**: No new network events will be cached until the next collection cycle starts.  
 
@@ -68,10 +67,9 @@ The data collected for each event is:
 | **Extended properties** | The Additional details of the connection. For example, `host name`. |
 | **DNS hit count** | Total hit count of DNS requests |
 
-
 ## Login collector (event-based collector)
 
-The Login collector, collects user sign-ins, sign-outs, and failed sign-in attempts.
+The Login collector collects user sign-ins, sign-outs, and failed sign-in attempts.
 
 The Login collector supports the following types of collection methods:
 
@@ -89,10 +87,9 @@ The following data is collected:
 | **executable** | The terminal device. For example, `tty1..6` or `pts/n`. |
 | **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
 
+## System Information (trigger-based collector)
 
-## System information (trigger based collector)
-
-The data collected for each event is:
+The following data is collected:
 
 | Parameter | Description|
 |--|--|
@@ -113,11 +110,9 @@ The **nics** properties are composed of the following;
 | **vendor** | The vendor of the network controller. |
 | **info** | IPS, and MACs associated with the network controller. This Includes the following fields; <br> - **ipv4_address**: The IPv4 address. <br> - **ipv6_address**: The IPv6 address. <br> - **mac**: The MAC address.|
 
-## Baseline (trigger based)
+## Baseline (trigger-based collector)
 
 The baseline collector performs CIS checks periodically. Only the failed results are sent to the cloud. The cloud aggregates the results, and provides recommendations.
-
-### Data collection
 
 The data collected for each event is:
 
@@ -130,7 +125,7 @@ The data collected for each event is:
 | **Remediation** | The recommendation for remediation from CIS. |
 | **Severity** | The severity level. |
 
-## SBoM (trigger based)
+## SBoM (trigger-based collector)
 
 The SBoM (Software Bill of Materials) collector collects the packages installed on the device periodically.
 
@@ -143,10 +138,9 @@ The data collected on each package includes:
 |**Vendor**     |    The package's vendor, which is the **Maintainer** field in deb packages     |
 |     |         |
 
-
 ## Event aggregation for process and network collectors
 
-How event aggregation works for the [Process events](#process-events-event-based) and [Network Connection events](#network-connection-events-event-based-collector): 
+How event aggregation works for the [Process events](#process-events-event-based) and [Network Activity events](#network-activity-events-event-based-collector):
 
 Defender for IoT agents aggregate events for the interval period, or time window. Once the interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud.
 
