@@ -83,6 +83,8 @@ The following operations are available on Authentication API request metrics:
 | DeleteIdentity       | Deletes an identity. |
 | CreateToken          | Creates an access token. |
 | RevokeToken          | Revokes all access tokens created for an identity before a time given. |
+| ExchangeTeamsUserAccessToken | Exchanges an Azure Active Directory access token of a Teams user for a new Communication Identity access token |
+
 
 :::image type="content" source="./media/acs-auth-metrics.png" alt-text="Authentication Request Metric.":::
 
