@@ -24,7 +24,7 @@ As an example, it can be difficult for a company to have a clear, single view of
 
 More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/) and [Profisee-Purview MDM Concepts and Azure Architecture](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview).
 
-## Microsoft Purview & Profisee Integrated Master Data Management (MDM) - Better Together ! 
+## Microsoft Purview & Profisee Integrated MDM - Better Together ! 
 
 ### Profisee MDM: True SaaS experience
 
