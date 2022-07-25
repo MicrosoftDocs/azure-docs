@@ -3,7 +3,7 @@ title: Change approval settings for an access package in Azure AD entitlement ma
 description: Learn how to change approval and requestor information settings for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 05/16/2021
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 

@@ -2,7 +2,7 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 07/21/2022
 ---
 
 # Add linter settings in the Bicep config file
@@ -33,6 +33,9 @@ The following example shows the rules that are available for configuration.
         "no-unnecessary-dependson": {
           "level": "warning"
         },
+        "no-unused-existing-resources": {
+          "level": "warning"
+        },
         "no-unused-params": {
           "level": "warning"
         },
@@ -54,6 +57,9 @@ The following example shows the rules that are available for configuration.
         "use-protectedsettings-for-commandtoexecute-secrets": {
           "level": "warning"
         },
+        "use-stable-resource-identifier": {
+          "level": "warning"
+        }
         "use-stable-vm-image": {
           "level": "warning"
         }
