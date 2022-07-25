@@ -120,19 +120,13 @@ App settings using Key Vault references will attempt to get secrets over the pub
 
 #### Network routing
 
-You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. Route tables only apply to traffic routed through the virtual network integration. See [application routing](#application-routing) and [configuration routing](#configuration-routing) for details. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests.
+You can use route tables to route outbound traffic from your app without restriction. Common destinations can include firewall devices or gateways. You can also use a [network security group](../virtual-network/network-security-groups-overview.md) (NSG) to block outbound traffic to resources in your virtual network or the internet. An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
 
-When you want to route outbound traffic on-premises, you can use a route table to send outbound traffic to your Azure ExpressRoute gateway. If you do route traffic to a gateway, set routes in the external network to send any replies back.
+Route tables and network security groups only apply to traffic routed through the virtual network integration. See [application routing](#application-routing) and [configuration routing](#configuration-routing) for details. Routes wont affect replies to inbound app requests and inbound rules in an NSG don't apply to your app because virtual network integration affects only outbound traffic from your app. To control inbound traffic to your app, use the Access Restrictions feature.
 
-Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic is affected. Similar to user-defined routes, BGP routes affect traffic according to your routing scope setting.
+When configuring network security groups or route tables that affect outbound traffic, you must make sure you consider your application dependencies. Application dependencies include endpoints that your app needs during runtime. Besides APIs and services the app is calling, this could also be derived endpoints like certificate revocation list (CRL) check endpoints and identity/authentication endpoint, for example Azure Active Directory. If you are using [continuous deployment in App Service](./deploy-continuous-deployment.md), you might also need to allow endpoints depending on type and language. Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx/blob/main/doc/hosts/appservice.md#network-dependencies), you will need to allow `oryx-cdn.microsoft.io:443`.
 
-### Network security groups
-
-An app that uses virtual network integration can use a [network security group](../virtual-network/network-security-groups-overview.md) to block outbound traffic to resources in your virtual network or the internet. To block traffic to public addresses, enable [Route All](#application-routing). When **Route All** isn't enabled, NSGs are only applied to RFC1918 traffic from your app.
-
-An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
-
-The inbound rules in an NSG don't apply to your app because virtual network integration affects only outbound traffic from your app. To control inbound traffic to your app, use the Access Restrictions feature.
+When you want to route outbound traffic on-premises, you can use a route table to send outbound traffic to your Azure ExpressRoute gateway. If you do route traffic to a gateway, set routes in the external network to send any replies back. Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic is affected. Similar to user-defined routes, BGP routes affect traffic according to your routing scope setting.
 
 ### Service endpoints
 

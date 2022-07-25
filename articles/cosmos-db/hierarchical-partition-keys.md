@@ -363,9 +363,9 @@ For example, assume we have a hierarchical partition key composed of **TenantId 
 ```bicep
 partitionKey: {
   paths: [
-    'TenantId',
-    'UserId',
-    'SessionId'
+    '/TenantId',
+    '/UserId',
+    '/SessionId'
   ]
   kind: 'MultiHash'
   version: 2
@@ -377,9 +377,9 @@ partitionKey: {
 ```json
 "partitionKey": {
     "paths": [
-        "TenantId",
-        "UserId",
-        "SessionId"
+        "/TenantId",
+        "/UserId",
+        "/SessionId"
     ],
     "kind": "MultiHash",
     "version": 2

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 07/06/2022
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,7 @@ ms.author: jasteppe
 In this article, you'll learn about the Events message structure, required and non-required elements, and you'll be provided with samples of Events message payloads.
 
 > [!IMPORTANT]
-> Events currently supports only the following FHIR resource operations:
+> Events currently supports only the following Fast Healthcare Interoperability Resources (FHIR&#174;) resource operations:
 >
 > - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
@@ -24,7 +24,6 @@ In this article, you'll learn about the Events message structure, required and n
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 >
 > For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
-
 
 ## Events message structure
 
@@ -178,4 +177,4 @@ For more information about deploying Events, see
 >[!div class="nextstepaction"]
 >[Deploying Events in the Azure portal](./events-deploy-portal.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

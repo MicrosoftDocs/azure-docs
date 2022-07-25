@@ -102,7 +102,7 @@ Reporting of SDK load failures isn't supported on Internet Explorer 8 or earlier
 
 #### Snippet configuration options
 
-All configuration options have been move towards the end of the script. This placement avoids accidentally introducing JavaScript errors that wouldn't just cause the SDK to fail to load, but also it would disable the reporting of the failure.
+All configuration options have been moved towards the end of the script. This placement avoids accidentally introducing JavaScript errors that wouldn't just cause the SDK to fail to load, but also it would disable the reporting of the failure.
 
 Each configuration option is shown above on a new line, if you don't wish to override the default value of an item listed as [optional] you can  remove that line to minimize the resulting size of your returned page.
 

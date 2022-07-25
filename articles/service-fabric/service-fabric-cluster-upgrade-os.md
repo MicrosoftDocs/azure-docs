@@ -1,11 +1,12 @@
 ---
 title: Upgrade Linux OS for Azure Service Fabric
 description: Learn about options for migrating your Azure Service Fabric cluster to another Linux operating system.
-author: DivyaC0403
-ms.author: dicherku
 ms.topic: how-to
-ms.custom: kr2b-contr-experiment
-ms.date: 06/01/2022
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Upgrade Linux OS for Azure Service Fabric
