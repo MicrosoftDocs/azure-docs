@@ -6,7 +6,7 @@ ms.author: mariyaali
 ms.reviewer: wiassaf
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/20/2022
+ms.date: 07/25/2022
 ---
 
 # Distribution Advisor in Azure Synapse SQL
@@ -26,14 +26,16 @@ The Distribution Advisor (DA) feature of Azure Synapse SQL analyzes customer que
 
 The follow tutorial explains the a sample use case for using the Distribution Advisor feature to analyze customer queries and recommend the best distribution strategies.
 
+Distribution Advisor only analyzes queries run on user tables.
+
 ### 1. Create Distribution Advisor stored procedures
 
 To run the advisor easily, create two new stored procedures in the database. Run [the CreateDistributionAdvisor_T62.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/CreateDistributionAdvisor_T62.sql):
 
 | Command                       | Description                                                                                           |
 |-------------------------------|-------------------------------------------------------------------------------------------------------|
-| dbo.write_dist_recommendation | Defines queries that DA will analyze on. You can provide queries manually, or read from up to 100 past queries from the actual workloads in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql). |   
-| dbo.read_dist_recommendation  | Runs the advisor and generates recommendations.                                                       |  
+| `dbo.write_dist_recommendation` | Defines queries that DA will analyze on. You can provide queries manually, or read from up to 100 past queries from the actual workloads in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql). |   
+| `dbo.read_dist_recommendation`  | Runs the advisor and generates recommendations.                                                       |  
 
 ### 2a. Run the advisor on past workload in DMV
 
