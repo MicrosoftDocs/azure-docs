@@ -28,7 +28,7 @@ Ensure you are using a supported [Windows version](service-fabric-versions.md#su
 
 Web Platform Installer (WebPI) is the recommended way to install the SDK and tools. If you receive runtime errors using WebPI, you can also find direct links to the installers in the release notes for a specific Service Fabric release. The release notes can be found in the various release announcements on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
-WebPI may already be installed on your computer. Search for it by using the Windows key. If it's not present, you can [download it here](https://www.microsoft.com/web/downloads/platform.aspx).This can be used to download older Service Fabric SDK until December 31st, 2022 after which the WebPI feed will be removed from the servers and the product installers will be pulled from the Microsoft download center
+WebPI may already be installed on your computer. Search for it by using the Windows key. If it's not present, you can [download it here](https://www.microsoft.com/web/downloads/platform.aspx).WebPI can be used to download Service Fabric SDK releases prior to July 2022 until December 31st, 2022 after which the WebPI feed and installer will be pulled from the Microsoft download center.
 
 For latest Runtime and SDK you can dowload from below.
 
