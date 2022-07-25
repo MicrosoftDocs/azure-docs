@@ -12,15 +12,15 @@ ms.date: 11/24/2020
 
 Your app can be distributed directly through the Microsoft 365 app stores inside of Outlook, Excel, PowerPoint, Teams, and SharePoint, where millions of customers around the world are working everyday. Your app might be featured as an Editor’s Choice app, instantly reaching customers.
 
-![Apps being featured as the Editor's Choice](./media/office-store-new/why-office-store.png)
+:::image type="content" source="./media/office-store-new/why-office-store.png" alt-text="Screenshot showing apps being featured as Editor's Choice.":::
 
 In addition to the Microsoft 365 app store, Microsoft AppSource is another distribution point for your app. It is the official app store for Microsoft 365 apps and solutions.
 
-![Various apps available in AppSource](./media/office-store-new/appsource.png)
+:::image type="content" source="./media/office-store-new/appsource.png" alt-text="Screenshot showing various apps in AppSource.":::
 
 ## How do I get into both stores?
 
-When you submit your app for validation and it is approved, your app is  automatically added to both the Office and Microsoft AppSource stores.
+When you submit your app for validation and it is approved, your app is automatically added to both the Office and Microsoft AppSource stores.
 
 ## Next steps
 
