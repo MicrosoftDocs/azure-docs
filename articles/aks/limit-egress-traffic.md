@@ -470,7 +470,7 @@ You can create an AKS cluster using a system-assigned managed identitywith CNI n
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
   --node-count 3 \
-  --network-plugin $PLUGIN \
+  --network-plugin azure \
   --outbound-type userDefinedRouting \
   --vnet-subnet-id $SUBNETID \
   --api-server-authorized-ip-ranges $FWPUBLIC_IP
@@ -526,6 +526,9 @@ The output should resemble the following:
 }
 ```
 
+> [!NOTE]
+> For creating and using your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment.][add role to identity]
+
 ##### Create an AKS cluster with user-assigned identities
 
 Now you can use the following command to create your AKS cluster with your existing identities in the subnet. Provide the control plane identity resource ID via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
@@ -533,7 +536,7 @@ Now you can use the following command to create your AKS cluster with your exist
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
   --node-count 3 \
-  --network-plugin $PLUGIN \
+  --network-plugin kubenet \
   --outbound-type userDefinedRouting \
   --vnet-subnet-id $SUBNETID \
   --api-server-authorized-ip-ranges $FWPUBLIC_IP
@@ -542,8 +545,6 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
   --assign-kubelet-identity <kubelet-identity-resource-id>
 ```
 
-> [!NOTE]
-> For creating and using your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment.][add role to identity]
 
 ### Enable developer access to the API server
 
