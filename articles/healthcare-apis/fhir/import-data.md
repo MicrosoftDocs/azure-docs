@@ -21,7 +21,7 @@ The bulk-import feature enables importing Fast Healthcare Interoperability Resou
 * Conditional references in resources aren't supported.
 * If multiple resources share the same resource ID, then only one of those resources will be imported at random and an error will be logged corresponding to the remaining resources sharing the ID.
 * The data to be imported must be in the same Tenant as that of the FHIR service.
-* Maximum number of files to be imported per operation is 1,000.
+* Maximum number of files to be imported per operation is 10,000.
 
 ## Using $import operation
 
