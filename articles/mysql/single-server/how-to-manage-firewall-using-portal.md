@@ -16,6 +16,9 @@ Server-level firewall rules can be used to manage access to an Azure Database fo
 
 Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure portal](how-to-manage-vnet-using-portal.md).
 
+> [!NOTE]
+> Virtual Network (VNet) rules can only be used on General Purpose or Memory Optimized tiers.
+
 ## Create a server-level firewall rule in the Azure portal
 
 1. On the MySQL server page, under Settings heading, click **Connection Security** to open the Connection Security page for the Azure Database for MySQL.
