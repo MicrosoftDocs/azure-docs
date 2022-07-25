@@ -1,5 +1,20 @@
 {
-    "redirections": [
+    "redirections": [ 
+    {
+        "source_path_from_root": "/articles/machine-learning/concept-optimize-data-processing.md",
+        "redirect_url": "/azure/machine-learning/concept-data",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/concept-open-source.md,
+        "redirect_url": "/azure/solutions/open-source/machine-learning",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/concept-data-ingestion.md",
+        "redirect_url": "/azure/machine-learning/how-to-data-ingest-adf",
+        "redirect_document_id": false
+    },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-azure-ad-identity.md",
         "redirect_url": "/azure/machine-learning/how-to-access-resources-from-endpoints-managed-identities",
