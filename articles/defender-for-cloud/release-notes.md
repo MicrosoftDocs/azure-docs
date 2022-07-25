@@ -49,7 +49,7 @@ Defender for Container's vulnerability assessment (VA) is able to detect vulnera
 
 This feature is in `preview` and is only available for Linux images.
 
-You can view Defender for Container's full list of [features and their availability](supported-machines-endpoint-solutions-clouds-containers.md) to see all of the included language specific packages.
+To see all of the included language specific packages that have been added, check out Defender for Container's full list of [features and their availability](supported-machines-endpoint-solutions-clouds-containers.md#registries-and-images).
 
 ## June 2022
 
