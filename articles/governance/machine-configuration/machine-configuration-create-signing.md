@@ -1,6 +1,6 @@
 ---
-title: How to sign guest configuration packages
-description: You can optionally sign guest configuration content packages and force the agent to only allow signed content
+title: How to sign machine configuration packages
+description: You can optionally sign machine configuration content packages and force the agent to only allow signed content
 ms.date: 07/25/2022
 ms.topic: how-to
 ms.service: machine-configuration
@@ -8,13 +8,13 @@ ms.author: timwarner
 author: timwarner-msft
 ---
 
-# How to sign guest configuration packages
+# How to sign machine configuration packages
 
 [!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 Guest configuration custom policies use SHA256 hash to validate the policy
 package hasn't changed. Optionally, customers may also use a certificate to sign
-packages and force the guest configuration extension to only allow signed
+packages and force the machine configuration extension to only allow signed
 content.
 
 To enable this scenario, there are two steps you need to complete. Run the
@@ -67,7 +67,7 @@ Protect-GuestConfigurationPackage -Path ./not_installed_application_linux.zip -P
 
 Parameters of the `Protect-GuestConfigurationPackage` cmdlet:
 
-- **Path**: Full path of the guest configuration package.
+- **Path**: Full path of the machine configuration package.
 - **Certificate**: Code signing certificate to sign the package. This parameter is only supported
   when signing content for Windows.
 
@@ -100,18 +100,18 @@ machines where code signing should be required. See the
 [Tag samples](../samples/built-in-policies.md#tags) for how tags can be
 delivered at scale using Azure Policy. Once this tag is in place, the policy
 definition generated using the `New-GuestConfigurationPolicy` cmdlet enables the
-requirement through the guest configuration extension.
+requirement through the machine configuration extension.
 
 ## Next steps
 
-- [Test the package artifact](./guest-configuration-create-test.md)
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
-- [Publish the package artifact](./guest-configuration-create-publish.md)
+- [Publish the package artifact](./machine-configuration-create-publish.md)
   so it is accessible to your machines.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](./guest-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
 - [Assign your custom policy definition](../assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for guest configuration](./determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.
+  [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.

@@ -1,18 +1,18 @@
 ---
-title: How to publish custom guest configuration package artifacts
-description: Learn how to publish a guest configuration package file top Azure blob storage and get a SAS token for secure access.
+title: How to publish custom machine configuration package artifacts
+description: Learn how to publish a machine configuration package file top Azure blob storage and get a SAS token for secure access.
 ms.date: 07/25/2022
 ms.topic: how-to
 ms.service: machine-configuration
 ms.author: timwarner
 author: timwarner-msft
 ---
-# How to publish custom guest configuration package artifacts
+# How to publish custom machine configuration package artifacts
 
 [!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
-[guest configuration](../concepts/guest-configuration.md).
+[machine configuration](../concepts/machine-configuration.md).
 
 Guest configuration custom .zip packages must be stored in a location that is
 accessible via HTTPS by the managed machines. Examples include GitHub
@@ -64,12 +64,12 @@ $contenturi = New-AzStorageBlobSASToken -Context $Context -FullUri -Container gu
 
 ## Next steps
 
-- [Test the package artifact](./guest-configuration-create-test.md)
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](./guest-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
 - [Assign your custom policy definition](../assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for guest configuration](./determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.
+  [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.

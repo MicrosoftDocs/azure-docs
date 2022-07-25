@@ -27,11 +27,11 @@
     href: ./machine-configuration-create.md
   - name: How to test machine configuration package artifacts
     href: ./machine-configuration-create-test.md
-  - name: How to sign guest configuration packages
+  - name: How to sign machine configuration packages
     href: ./machine-configuration-create-signing.md
-  - name: How to publish custom guest configuration package artifacts
+  - name: How to publish custom machine configuration package artifacts
     href: ./machine-configuration-create-publish.md
-  - name: How to setup a guest configuration authoring environment
+  - name: How to setup a machine configuration authoring environment
     href: ./machine-configuration-create-setup.md
 - name: Resources
   items:

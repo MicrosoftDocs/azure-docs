@@ -1,5 +1,5 @@
 ---
-title: How to create a guest configuration assignment using templates
+title: How to create a machine configuration assignment using templates
 description: Learn how to deploy configurations to machines directly from Azure Resource Manager.
 ms.date: 07/25/2022
 ms.topic: how-to
@@ -7,23 +7,23 @@ ms.author: timwarner
 author: timwarner-msft
 ms.service: machine-configuration
 ---
-# How to create a guest configuration assignment using templates
+# How to create a machine configuration assignment using templates
 
 [!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
 
 The best way to
-[assign guest configuration packages](../concepts/guest-configuration-assignments.md)
+[assign machine configuration packages](../concepts/machine-configuration-assignments.md)
 to multiple machines is using
-[Azure Policy](./guest-configuration-create-definition.md). You can also
-assign guest configuration packages to a single machine.
+[Azure Policy](./machine-configuration-create-definition.md). You can also
+assign machine configuration packages to a single machine.
 
 ## Built-in and custom configurations
 
-To assign a guest configuration package to a single machine, modify the following
+To assign a machine configuration package to a single machine, modify the following
 examples. There are two scenarios.
 
 - Apply a custom configuration to a machine using a link to a package that you
-  [published](./guest-configuration-create-publish.md).
+  [published](./machine-configuration-create-publish.md).
 - Apply a [built-in](../samples/built-in-packages.md) configuration to a machine,
   such as an Azure baseline.
 
@@ -45,7 +45,7 @@ Replace the following "<>" fields with values specific to you environment:
 
 - **<vm_name>**: Name of the machine resource where the configuration will be applied
 - **<configuration_name>**: Name of the configuration to apply
-- **<vm_location>**: Azure region where the guest configuration assignment will be created
+- **<vm_location>**: Azure region where the machine configuration assignment will be created
 - **<Url_to_Package.zip>**: For custom content package, an HTTPS link to the .zip file
 - **<SHA256_hash_of_package.zip>**: For custom content package, a SHA256 hash of the .zip file
 
@@ -53,7 +53,7 @@ Replace the following "<>" fields with values specific to you environment:
 
 You can deploy an
 [Azure Resource Manager template](../../../azure-resource-manager/templates/deployment-tutorial-local-template.md?tabs=azure-powershell)
-containing guest configuration assignment resources.
+containing machine configuration assignment resources.
 
 The following example assigns a custom configuration.
 
@@ -120,7 +120,7 @@ The following example assigns the `AzureWindowBaseline` built-in configuration.
 
 You can use
 [Azure Bicep](../../../azure-resource-manager/bicep/overview.md)
-to deploy guest configuration assignments.
+to deploy machine configuration assignments.
 
 The following example assigns a custom configuration.
 
@@ -190,7 +190,7 @@ You can use
 [Terraform](https://www.terraform.io/)
 to
 [deploy](/azure/developer/terraform/get-started-windows-powershell)
-guest configuration assignments.
+machine configuration assignments.
 
 > [!IMPORTANT]
 > The Terraform provider
@@ -247,18 +247,18 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 
 ## Next steps
 
-- Read the [guest configuration overview](../concepts/guest-configuration.md).
-- Setup a custom guest configuration package [development environment](../how-to/guest-configuration-create-setup.md).
-- [Create a package artifact](../how-to/guest-configuration-create.md)
-  for guest configuration.
-- [Test the package artifact](../how-to/guest-configuration-create-test.md)
+- Read the [machine configuration overview](../concepts/machine-configuration.md).
+- Setup a custom machine configuration package [development environment](../how-to/machine-configuration-create-setup.md).
+- [Create a package artifact](../how-to/machine-configuration-create.md)
+  for machine configuration.
+- [Test the package artifact](../how-to/machine-configuration-create-test.md)
   from your development environment.
-- [Publish the package artifact](./guest-configuration-create-publish.md)
+- [Publish the package artifact](./machine-configuration-create-publish.md)
   so it is accessible to your machines.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](../how-to/guest-configuration-create-definition.md)
+  [create an Azure Policy definition](../how-to/machine-configuration-create-definition.md)
   for at-scale management of your environment.
 - [Assign your custom policy definition](../assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for guest configuration](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.
+  [compliance details for machine configuration](../how-to/determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.
