@@ -19,10 +19,10 @@ Confidential containers on Azure run within an enclave-based TEE or VM based TEE
 
 Below are the qualities of confidential containers:
 
-1. Allows running existing standard container images with no code changes (lift-and-shift) within a TEE
-2. Allows establishing a hardware root of trust through remote guest attestation
-3. Provides strong assurances of data confidentiality, code integrity and data integrity in a cloud environment
-4. Helps isolate your containers from other container groups/pods, as well as VM node OS kernel
+- Allows running existing standard container images with no code changes (lift-and-shift) within a TEE
+- Allows establishing a hardware root of trust through remote guest attestation
+- Provides strong assurances of data confidentiality, code integrity and data integrity in a cloud environment
+- Helps isolate your containers from other container groups/pods, as well as VM node OS kernel
 
 ## VM Isolated Confidential containers on Azure Container Instances (ACI) - Private Preview
 Confidential Containers on ACI platform leverages VM-based trusted execution environments (TEEs) based on AMD’s SEV-SNP technology. The TEE provides memory encryption and integrity of the utility VM’s address space as well as hardware-level isolation from other container groups, the host operating system, and the hypervisor. The Root-of-Trust (RoT), which is responsible for managing the TEE, provides support for remote attestation, including issuing an attestation report which may be used by a relying party to verify that the utility VM has been created and configured on a genuine AMD SEV-SNP CPU. Read more on the product [here](https://aka.ms/ccacipreview)

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Confidential Computing
+title: Azure confidential computing
 summary: Azure confidential computing offers solutions to enable the isolation your sensitive data while it's being processed in the cloud. Learn how to create and deploy applications based on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. Use Microsoft products built on confidential computing to keep your workloads as secure as possible. 
 
 metadata:
@@ -25,11 +25,11 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Confidential Computing?
+          - text: What is confidential computing?
             url: overview.md
           - text: What is Azure confidential computing?
             url: overview-azure-products.md
-          - text: Choose your Confidential Computing offering
+          - text: Choose your confidential computing offering
             url: use-cases-scenarios.md 
       - linkListType: quickstart
         links:
@@ -74,9 +74,9 @@ landingContent:
         links:
           - text: AMD confidential VMs FAQ 
             url: confidential-vm-faq-amd.yml
-          - text: DCasv5 and DCadsv5-series Virtual Machines
+          - text: DCasv5 and DCadsv5-series virtual machines
             url: ../virtual-machines/dcasv5-dcadsv5-series.md
-          - text: ECasv5 and ECadsv5-series Virtual Machines
+          - text: ECasv5 and ECadsv5-series virtual machines
             url: ../virtual-machines/ecasv5-ecadsv5-series.md
           - text: Availability
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
@@ -86,11 +86,11 @@ landingContent:
             url: https://aka.ms/dlbcvm
 
   # Card
-  - title: Container Compute
+  - title: Container compute
     linkLists:
       - linkListType: overview
         links: 
-        - text: Confidential Containers on Azure
+        - text: Confidential containers on Azure
           url: confidential-containers.md
         - text: App enclave nodes in AKS
           url: confidential-nodes-aks-overview.md
@@ -102,7 +102,7 @@ landingContent:
             url: confidential-containers-enclaves.md
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
-          - text: Confidential Node Pools on AKS
+          - text: Confidential node pools on AKS
             url: confidential-nodes-aks-addon.md
       - linkListType: reference
         links:
@@ -118,7 +118,7 @@ landingContent:
             url: https://www.youtube.com/watch?v=FYZxtHI_Or0
           - text: Python hello world demo with Intel SGX based confidential containers on AKS 
             url: https://www.youtube.com/watch?v=PiYCQmOh0EI
-          - text: Confidential big data analytics with Apache spark in enclaves
+          - text: Confidential big data analytics with Apache Spark in enclaves
             url: https://www.youtube.com/watch?v=em6ovuznAf8          
       - linkListType: whats-new
         links:
@@ -128,23 +128,23 @@ landingContent:
             url: https://aka.ms/AKS-AMD-ACC-Preview-Inspire-2022
 ## Row 2
 # Card
-  - title: Virtual Machines with App Enclaves
+  - title: Virtual machines with app enclaves
     linkLists:
       - linkListType: overview
         links: 
-          - text: App Enclave Development
+          - text: App enclave development
             url: application-development.md
-          - text: Intel SGX App Enclaves
+          - text: Intel SGX app enclaves
             url: confidential-computing-enclaves.md
       - linkListType: quickstart
         links:
-          - text: Create Intel SGX VM in the Azure Portal
+          - text: Create Intel SGX VM in the Azure portal
             url: quick-create-portal.md
           - text: Create Intel SGX VM in the Azure Marketplace
             url: quick-create-marketplace.md
       - linkListType: reference
         links:
-          - text: DCsv2-series Virtual Machines
+          - text: DCsv2-series virtual machines
             url: ../virtual-machines/dcv2-series.md
-          - text: DCsv3 and DCdsv3-series Virtual Machines
+          - text: DCsv3 and DCdsv3-series virtual machines
             url: ../virtual-machines/dcv3-series.md

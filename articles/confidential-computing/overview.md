@@ -30,16 +30,16 @@ A TEE is an environment that enforces execution of only authorized code. Any dat
 When used with data encryption at rest and in transit, confidential computing eliminates the single largest barrier of encryption - encryption while in use - by protecting sensitive or highly regulated data sets and application workloads in a secure public cloud platform. Confidential computing extends beyond generic data protection. TEEs are also being used to protect proprietary business logic, analytics functions, machine learning algorithms, or entire applications.
 
 
-### Lessen the need for trust
+## Lessen the need for trust
 Running workloads on the cloud requires trust. You give this trust to various providers enabling different components of your application.
 
-- **App software vendors**: Trust software by deploying on-prem, using open-source, or by building in-house application software.
+- **App software vendors**: Trust software by deploying on-premises, using open-source, or by building in-house application software.
 
 - **Hardware vendors**: Trust hardware by using on-premises hardware or in-house hardware.
 
 - **Infrastructure providers**: Trust cloud providers or manage your own on-premises data centers.
 
-### Reducing the attack surface
+## Reducing the attack surface
 The trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
 
 

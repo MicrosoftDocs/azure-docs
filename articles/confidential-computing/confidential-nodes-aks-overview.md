@@ -11,7 +11,7 @@ ms.author: amgowda
 ms.custom: ignite-fall-2021
 ---
 
-# Application enlcave support with Intel SGX based confidential computing nodes on Azure Kubernetes Service
+# Application enclave support with Intel SGX based confidential computing nodes on Azure Kubernetes Service
 
 [Azure confidential computing](overview.md) allows you to protect your sensitive data while it's in use. Intel SGX based enclaves allows running application packaged as a container within AKS. Containers run within a Trusted Execution Environment(TEE) brings isolation from other containers, the node kernel in a hardware protected, integrity protected attestable environment.
 
@@ -26,7 +26,7 @@ Azure Kubernetes Service (AKS) supports adding [Intel SGX confidential computing
 - Hardware based, process level container isolation through Intel SGX trusted execution environment (TEE)
 - Heterogenous node pool clusters (mix confidential and non-confidential node pools)
 - Encrypted Page Cache (EPC) memory-based pod scheduling through "Confcon" AKS addon
-- Intel SGX DCAP driver pre-installed and kernel depedency installed
+- Intel SGX DCAP driver pre-installed and kernel dependency installed
 - CPU consumption based horizontal pod autoscaling and cluster autoscaling
 - Linux Containers support through Ubuntu 18.04 Gen 2 VM worker nodes
 
@@ -47,12 +47,12 @@ Enclave applications that do remote attestation need to generate a quote. The qu
 
 ### Confidential containers through partners and OSS
 
-[Confidential containers](confidential-containers.md) help you run existing unmodified container applications of most **common programming languages** runtimes (Python, Node, Java etc.) confidentially. This packaging model does not need any source-code modifications or recompilation and is the fastest method to run in a Intel SGX enclaves achieved by packaging your standard docker containers with Open-Source Projects or Azure Partner Solutions. In this packaging and execution model all parts of the container application are loaded in the trusted boundary (enclave). This model works well for off the shelf container applications available in the market or custom apps currently running on general purpose nodes. Learn more on the prep and deployment process [here](confidential-containers-enclaves.md)
+[Confidential containers](confidential-containers.md) help you run existing unmodified container applications of most **common programming languages** runtimes (Python, Node, Java etc.) confidentially. This packaging model does not need any source-code modifications or recompilation and is the fastest method to run in an Intel SGX enclaves achieved by packaging your standard docker containers with Open-Source Projects or Azure Partner Solutions. In this packaging and execution model all parts of the container application are loaded in the trusted boundary (enclave). This model works well for off the shelf container applications available in the market or custom apps currently running on general purpose nodes. Learn more on the prep and deployment process [here](confidential-containers-enclaves.md)
 
 ### Enclave aware containers
 Confidential computing nodes on AKS also support containers that are programmed to run in an enclave to utilize **special instruction set** available from the CPU. This programming model allows tighter control of your execution flow and requires use of special SDKs and frameworks. This programming model provides most control of application flow with a lowest Trusted Computing Base (TCB). Enclave aware container development involves untrusted and trusted parts to the container application thus allowing you to manage the regular memory and Encrypted Page Cache (EPC) memory where enclave is executed. [Read more](enclave-aware-containers.md) on enclave aware containers.
 
-## Frequently Asked Questions(FAQ)
+## Frequently asked questions (FAQ)
 Find answers to some of the common questions about Azure Kubernetes Service (AKS) node pool support for Intel SGX based confidential computing nodes [here](confidential-nodes-aks-faq.yml)
 
 ## Next Steps

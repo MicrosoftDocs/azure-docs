@@ -20,6 +20,8 @@ The diagram below will guide different offerings in this portfolio
 :::image type="content" source="./media/confidential-containers/Choosing-Confidential-Containers.jpg" alt-text="Choosing offerings with confidential containers.":::
 
 
+## Links to container compute offerings
+
 **Azure Container Instances with Confidential containers (AMD SEV_SNP)** are the first serverless offering that helps protect your container deployments with confidential computing through AMD SEV-SNP technology. Read more on the product [here](https://aka.ms/ccacipreview).
 
 
