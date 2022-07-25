@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 07/24/2022
+ms.date: 07/25/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -45,7 +45,7 @@ Note, if you're using the preview version, the `AKS-AzureDefender` feature flag 
 
 ### Defender for Container's VA adds support for the detection of language specific packages (Preview)
 
-Defender for Container's vulnerability assessment (VA) has extended its abilities to detect vulnerabilities in language specific packages and OS packages.
+Defender for Container's vulnerability assessment (VA) has extended its abilities to detect vulnerabilities to now include language specific packages and OS packages.
 
 This feature is in `preview` and is only available for Linux images.
 
