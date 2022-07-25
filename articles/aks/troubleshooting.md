@@ -330,6 +330,17 @@ If your node is in a failed state, you can mitigate by manually updating the VM 
 
 ## Azure Files and AKS Troubleshooting
 
+### Azure Files CSI storage driver fails to mount a volume with a secret not in default namespace
+
+If you have configured an Azure Files CSI driver persistent volume or storage class with a storage
+access secrete in a namespace other than *default*, the pod does not search in its own namespace 
+and returns an error when trying to mount the volume.
+
+This issue has been fixed in the 2022041 release. To mitigate this issue, you have two options:
+
+1. Upgrade the agent node image to the latest release.
+1. Specify the *secretNamespace* setting when configuring the persistent volume configuration.
+
 ### What are the default mountOptions when using Azure Files?
 
 Recommended settings:

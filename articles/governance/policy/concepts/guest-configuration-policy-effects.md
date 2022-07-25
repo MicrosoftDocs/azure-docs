@@ -1,10 +1,14 @@
 ---
 title: Remediation options for guest configuration
 description: Azure Policy's guest configuration feature offers options for continuous remediation or control using remediation tasks.
-ms.date: 07/12/2021
+author: timwarner-msft
+ms.date: 07/15/2022
 ms.topic: how-to
+ms.author: timwarner
 ---
 # Remediation options for guest configuration
+
+[!INCLUDE [Machine config rename banner](../../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
 [guest configuration](../concepts/guest-configuration.md).
