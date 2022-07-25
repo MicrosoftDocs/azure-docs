@@ -33,7 +33,7 @@ The following steps illustrate how to use the Azure portal to create and configu
     |Name      |Value      |
     |----------|-----------|
     |**Subscription**|Select the subscription in which you want to create the DevCenter.|
-    |**Resource group**|either use an existing resource group or select **Create new**, and enter a name for the resource group.|
+    |**Resource group**|Either use an existing resource group or select **Create new**, and enter a name for the resource group.|
     |**Name**|Enter a name for the DevCenter.|
     |**Location**|Select the location/region in which you want the DevCenter to be created.|
 
