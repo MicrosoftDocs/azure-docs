@@ -95,8 +95,8 @@ See below for an example of how the Rules file is modified to include the index.
            }
         ],
         "configuration": "https://login.microsoftonline.com/tenant-id-here7/v2.0/.well-known/openid-configuration",
-        "client_id": "c0d6b785-7a08-494e-8f63-c30744c3be2f",
-        "redirect_uri": "vcclient://openid"
+        "clientId": "c0d6b785-7a08-494e-8f63-c30744c3be2f",
+        "redirectUri": "vcclient://openid"
       }
     ]
   },

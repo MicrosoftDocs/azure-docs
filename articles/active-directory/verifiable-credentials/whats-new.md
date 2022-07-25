@@ -116,8 +116,8 @@ Sample contract file:
             "lastName": { "claim": "$.family_name" }
           },
           "configuration": "https://self-issued.me",
-          "client_id": "",
-          "redirect_uri": ""
+          "clientId": "",
+          "redirectUri": ""
         }
       ]
     },

@@ -59,7 +59,7 @@ Additionally, you can declare a static claim in the rules definition, but this i
 
 ## Input type: ID token
 
-To get an ID token as input, the rules definition needs to configure the well-known endpoint of the OpenID Connect (OIDC)-compatible identity system. In that system you need to register an application with the correct information from the [Issuer service communication examples](issuer-openid.md). Additionally, you need to put client_id in the rules definition and fill in a scope parameter with the correct scopes. For example, Azure Active Directory needs the email scope if you want to return an email claim in the ID token.
+To get an ID token as input, the rules definition needs to configure the well-known endpoint of the OpenID Connect (OIDC)-compatible identity system. In that system you need to register an application with the correct information from the [Issuer service communication examples](issuer-openid.md). Additionally, you need to put `clientId` in the rules definition and fill in a `scope` parameter with the correct scopes. For example, Azure Active Directory needs the email scope if you want to return an email claim in the ID token.
 
 ```json
   {
@@ -81,8 +81,8 @@ To get an ID token as input, the rules definition needs to configure the well-kn
               }
             ],
             "configuration": "https://dIdPlayground.b2clogin.com/dIdPlayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
-            "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
-            "redirect_uri": "vcclient://openid/",
+            "clientId": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
+            "redirectUri": "vcclient://openid/",
             "scope": "openid profile"
           }
         ]
