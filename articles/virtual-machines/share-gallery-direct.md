@@ -57,7 +57,7 @@ You need to create a [new direct shared gallery ](./create-gallery.md#create-a-d
 
 First you create a gallery under `Microsoft.Compute/Galleries` and choose `groups` as a sharing option.
 
-When you are ready, you share your gallery with subscriptions and tenants. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can shared the galler. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/SharedGalleries`. Only subscriptions and tenants you have shared with can interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, you should consider the private resource as your handle to the public proxy resources. The subscriptions and tenants you have share your gallery with will see the gallery name as the subscription ID where the gallery was created, followed by the gallery name.
+When you are ready, you share your gallery with subscriptions and tenants. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can shared the galler. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/SharedGalleries`. Only subscriptions and tenants you have shared with can interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, you should consider the private resource as your handle to the public proxy resources. The subscriptions and tenants you have shared your gallery with will see the gallery name as the subscription ID where the gallery was created, followed by the gallery name.
 
 ### [Portal](#tab/portaldirect)
 
@@ -80,9 +80,9 @@ When you are ready, you share your gallery with subscriptions and tenants. Only 
 To share the gallery:
 
 1. On the page for the gallery, select **Sharing** from the left menu.
-1. One the 
+1. Under **Direct sharing settings**, select **Add**.
 
-   :::image type="content" source="media/create-gallery/share-direct-add.png" alt-text="Screenshot showing the option to share with a subscription or tenant.":::
+   :::image type="content" source="media/create-gallery/direct-share-add.png" alt-text="Screenshot showing the option to share with a subscription or tenant.":::
 
 1. If you would like to share with someone within your organization, for **Type** select *Subscription* or *Tenant* and choose the appropriate item from the **Tenants and subscriptions** drop-down. If you want to share with someone outside of your organization, select either *Subscription outside of my organization* or *Tenant outside of my organization* and then paste or type the ID into the text box.
 1. When you are done adding items, select **Save**.
