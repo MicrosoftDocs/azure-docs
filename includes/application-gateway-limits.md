@@ -2,7 +2,7 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 09/09/2021
+ms.date: 07/25/2022
 ms.author: victorh
 ---
 | Resource | Limit | Note |

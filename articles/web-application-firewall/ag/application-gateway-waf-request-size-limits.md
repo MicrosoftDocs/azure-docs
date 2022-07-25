@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall reque
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/08/2022
+ms.date: 07/25/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
