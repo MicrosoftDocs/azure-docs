@@ -58,7 +58,7 @@ To analyze logs, go to your virtual network gateway. In the **Essentials** secti
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-types.md#metric-alerts), [logs](../azure-monitor/alerts/alerts-types.md#log-alerts), and the [activity log](../azure-monitor/alerts/alerts-types.md#activity-log-alerts). Different types of alerts have benefits and drawbacks. You can set up alerts for virtual network gateways of the "VPN" type.
 
-To create a metric alert, see [Tutorial: Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md).
+To create a metric alert, see [Tutorial: Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md). To create a log query alert, see [Tutorial: Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md).
 
 ## Next steps
 
