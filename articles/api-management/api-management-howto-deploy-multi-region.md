@@ -118,7 +118,7 @@ This section provides considerations for using virtual networks in a multi-regio
 
 In general, the prerequisites, configurations, and connectivity requirements for a virtual network in an added region are the same as those for a network in the primary region.
 
-For more information, seeL
+For more information, see:
 
 * [Connect to a virtual network using Azure API Management](api-management-using-with-vnet.md)
 
