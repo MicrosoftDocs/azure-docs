@@ -87,7 +87,8 @@ To perform the steps in this section, you must have and existing virtual network
 1. On the **Network Connections** page, select **+Add**.
      :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connections-empty.png" alt-text="Screenshot showing the Network Connections page with Add highlighted.":::
 
-1. To create an *Azure Active Directory* join, use the instructions in this step. To create a Hybrid Azure Active Directory join, use the instructions in the next step.
+1. Follow the steps on the appropriate tab to create your network connection.
+   #### [Azure AD join](#tab/AzureADJoin/)
 
    On the **Create a network connection** page, on the **Basics** tab, enter the following values:
 
@@ -100,9 +101,9 @@ To perform the steps in this section, you must have and existing virtual network
    |**Virtual network**|Select the virtual network you want the network connection to use.|
    |**Subnet**|Select the subnet you want the network connection to use.|
 
-     :::image type="content" source="./media/quickstart-configure-dev-box-service/create-native-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Azure Active Directory join highlighted.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-native-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Azure Active Directory join highlighted.":::
 
-1. To create a *Hybrid Azure Active Directory* join, use the instructions in this step. To create an Azure Active Directory join, use the instructions in the previous step.
+   #### [Hybrid Azure AD join](#tab/HybridAzureADJoin/)
 
    On the **Create a network connection** page, on the **Basics** tab, enter the following values:
 
@@ -119,14 +120,16 @@ To perform the steps in this section, you must have and existing virtual network
    |**AD username UPN**| The username, in user principal name (UPN) format, that you want to use for connecting the Cloud PCs to your Active Directory domain. For example, svcDomainJoin@corp.contoso.com. This service account must have permission to join computers to the domain and, if set, the target OU. |
    |**AD domain password**| The password for the user specified above. |
 
-     :::image type="content" source="./media/quickstart-configure-dev-box-service/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Hybrid Azure Active Directory join highlighted.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Hybrid Azure Active Directory join highlighted.":::
+
+---
 
 4. Select **Review + Create**.
 
 5. On the **Review** tab, select **Create**.
 
 6. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
- 
+
 ## Attach network connection to DevCenter
 You need to attach a network connection to a DevCenter before it can be used in projects to create dev box pools.
 
