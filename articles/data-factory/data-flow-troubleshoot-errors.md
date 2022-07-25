@@ -694,7 +694,7 @@ This article lists common error codes and messages reported by mapping data flow
 
 - **Message**: Unable to create Azure Blob container
 - **Cause**: The input container is not existed in your staging storage.
-- **Recommendation**: Input a valid container name for the staging storage. Re-select another existed container name or create a new container manually with your input name.
+- **Recommendation**: Input a valid container name for the staging storage. Reselect another existed container name or create a new container manually with your input name.
 
 ## Error code: DF-SAPODP-SessionTerminate
 
@@ -720,7 +720,7 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-SAPODP-ContextInvalid
 
-- **Cause**: The context value does not exist in SAP OPD.
+- **Cause**: The context value doesn't exist in SAP OPD.
 - **Recommendation**: Check the context value and make sure it's valid.
 
 ## Error code: DF-SAPODP-ObjectInvalid
@@ -731,7 +731,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-SAPODP-SLT-LIMITATION
 
 - **Message**: Preview is not supported in SLT system
-- **Cause**: Your context or object is in SLT system that doesn't support preview. This is a SAP ODP SLT system limitation.
+- **Cause**: Your context or object is in SLT system that doesn't support preview. This is an SAP ODP SLT system limitation.
 - **Recommendation**: Directly run the data flow activity.
 
 ## Error code: DF-SAPODP-AuthInvalid
@@ -743,16 +743,16 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-SAPODP-SHIROFFLINE
 
 - **Cause**: Your self-hosted integration runtime is offline.
-- **Recommendation**: Check your self-hosted integration runtime status and confirm it is online.
+- **Recommendation**: Check your self-hosted integration runtime status and confirm it's online.
 
 ## Error code: DF-SAPODP-SAPSystemError
 
-- **Cause**: This is a SAP system error: `user id locked`.
+- **Cause**: This is an SAP system error: `user id locked`.
 - **Recommendation**: Contact SAP admin for assistance.
 
 ## Error code: DF-SAPODP-SystemError
 
-- **Cause**: This is a data flow system error or SAP server system error.
+- **Cause**: This error is a data flow system error or SAP server system error.
 - **Recommendation**: Check the error message. If it contains SAP server related error stacktrace, contact SAP admin for assistance. Otherwise, contact Microsoft support for further assistance.
 
 ## Error code: DF-SAPODP-StageStorageTypeInvalid
@@ -764,7 +764,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-SAPODP-StageBlobPropertyInvalid
 
 - **Message**: Read from staging storage failed: Staging blob storage auth properties not valid.
-- **Cause**: Staging Blob storage properties are not valid.
+- **Cause**: Staging Blob storage properties aren't valid.
 - **Recommendation**: Check the authentication setting in your staging linked service.
 
 ## Error code: DF-SAPODP-StageStorageServicePrincipalCertNotSupport
@@ -776,7 +776,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-SAPODP-StageGen2PropertyInvalid
 
 - **Message**: Read from staging storage failed: Staging Gen2 storage auth properties not valid.
-- **Cause**: Authentication properties of staging Azure Data Lake Storage Gen2 are not valid.
+- **Cause**: Authentication properties of staging Azure Data Lake Storage Gen2 aren't valid.
 - **Recommendation**: Check the authentication setting in your staging linked service.
 
 
