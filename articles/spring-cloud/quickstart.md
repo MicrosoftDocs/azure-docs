@@ -7,7 +7,6 @@ ms.topic: quickstart
 ms.date: 10/18/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
-zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Quickstart: Deploy your first application to Azure Spring Apps
@@ -112,10 +111,6 @@ az spring app deploy -n hellospring -s <service instance name> -g <Name of Resou
 ```
 It takes a few minutes to finish deploying the application.
 
-Once deployment has completed, you can access the app at `https://<service instance name>-hellospring.azuremicroservices.io/`.
-
-:::image type="content" source="media/spring-cloud-quickstart-java/access-app-browser.png" alt-text="Screenshot of app in browser window." lightbox="media/spring-cloud-quickstart-java/access-app-browser.png":::
-
 ## [IntelliJ](#tab/IntelliJ)
 
 ### Prerequisites
@@ -136,7 +131,7 @@ The following image shows the recommended Initializr set up for this sample proj
 
 This example uses Java version 8.  If you want to use Java version 11 or 17, change the option under **Project Metadata**. 
 
-:::image type="content" source="media/spring-cloud-quickstart-java/initializr-page-new.png" alt-text="Screenshot of Spring Initializr page.":::
+:::image type="content" source="media/spring-cloud-quickstart-java/initializr-page-new.jpg" alt-text="Screenshot of Spring Initializr page.":::
 
 1. Select **Generate** when all the dependencies are set.
 1. Download and unpack the package, then create a web controller for a simple web application by adding the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
@@ -163,7 +158,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 3. Select **Azure Spring Apps** from the results.
 
-    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start-new.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results.":::
+    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start-new.jpg" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results.":::
 
 4. On the Azure Spring Apps page, select **Create**.
 
@@ -176,7 +171,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
     - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
     - **Region**: Select the region for your service instance.
 
-    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/portal-start-new.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page.":::
+    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/portal-start-new.jpg" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page.":::
 
 6. Select **Review and create**.
 
