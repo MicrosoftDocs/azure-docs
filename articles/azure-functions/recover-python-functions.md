@@ -211,6 +211,32 @@ If your function app is using the popular ODBC database driver [pyodbc](https://
 
 ---
 
+## Troubleshoot Errors with Protobuf
+
+Azure Python function apps pinning protobuf package to v4.x.x directly or indirectly (ex. use another library which requires protobuf v4) malfunction as protobuf v4.x.x introduces breaking changes.
+
+Azure Python function worker is currently using protobuf package of v3.x.x version, and since protobuf v4 is released, Python function apps which pin protobuf to v4.x.x in the requirement.txt may be affected.
+
+Example error logs:
+```bash
+ [Information] File "/azure-functions-host/workers/python/3.8/LINUX/X64/azure_functions_worker/protos/shared/NullableTypes_pb2.py", line 38, in <module>
+ [Information] _descriptor.FieldDescriptor(
+ [Information] File "/home/site/wwwroot/.python_packages/lib/site-packages/google/protobuf/descriptor.py", line 560, in __new__
+ [Information] _message.Message._CheckCalledFromGeneratedFile()
+ [Error] TypeError: Descriptors cannot not be created directly.
+ [Information] If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+ [Information] If you cannot immediately regenerate your protos, some other possible workarounds are:
+ [Information] 1. Downgrade the protobuf package to 3.20.x or lower.
+ [Information] 2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+ [Information] More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates
+```
+There are two options to mitigate the issue.
+
+1. Set PYTHON_ISOLATE_WORKER_DEPENDENCIES in AppSetting to 1. (For reference, please check https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#python_isolate_worker_dependencies-preview)
+2. If the function application does not require protobuf v4.x.x versions, pin protobuf >= 3.19.3, == 3.*.
+
+---
+
 ## Next steps
 
 If you're unable to resolve your issue, please report this to the Functions team:
