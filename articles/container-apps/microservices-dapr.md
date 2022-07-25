@@ -66,7 +66,6 @@ $WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGr
 To create the environment, run the following command:
 
 ```powershell
-
 New-AzContainerAppManagedEnv `
   -EnvName $CONTAINERAPPS_ENVIRONMENT `
   -ResourceGroupName $RESOURCE_GROUP `
@@ -89,13 +88,13 @@ Choose a name for `STORAGE_ACCOUNT`. Storage account names must be *unique withi
 # [Bash](#tab/bash)
 
 ```bash
-STORAGE_ACCOUNT="<storage account name>"
+STORAGE_ACCOUNT_NAME ="<storage account name>"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT="<storage account name>"
+$STORAGE_ACCOUNT_NAME="<storage account name>"
 ```
 
 ---
@@ -122,7 +121,7 @@ Use the following command to create an Azure Storage account.
 
 ```azurecli
 az storage account create \
-  --name $STORAGE_ACCOUNT \
+  --name $STORAGE_ACCOUNT_NAME \
   --resource-group $RESOURCE_GROUP \
   --location "$LOCATION" \
   --sku Standard_RAGRS \
@@ -147,7 +146,7 @@ Get the storage account key with the following command:
 # [Bash](#tab/bash)
 
 ```azurecli
-STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
+STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT_NAME --query '[0].value' --out tsv`
 ```
 
 # [PowerShell](#tab/powershell)
@@ -186,9 +185,9 @@ scopes:
 
 To use this file, update the placeholders:
 
-- Replace `<STORAGE_ACCOUNT>` with the value of the `STORAGE_ACCOUNT` variable you defined. To obtain its value, run the following command:
+- Replace `<STORAGE_ACCOUNT>` with the value of the `STORAGE_ACCOUNT_NAME` variable you defined. To obtain its value, run the following command:
     ```azurecli
-    echo $STORAGE_ACCOUNT
+    echo $STORAGE_ACCOUNT_NAME
     ```
 - Replace `<STORAGE_ACCOUNT_KEY>` with the storage account key. To obtain its value, run the following command:
     ```azurecli
@@ -215,15 +214,15 @@ az containerapp env dapr-component set \
 
 ```powershell
 
-$metadata = ((New-AzContainerAppDaprMetadataObject -Name AccountName -Value $STORAGE_ACCOUNT),
-(New-AzContainerAppDaprMetadataObject -Name AccountKey -SecretRef account-key),
-(New-AzContainerAppDaprMetadataObject -Name ContainerName -Value $STORAGE_ACCOUNT_CONTAINER))
-$secret = New-AzContainerAppSecretObject -Name account-key -Value $STORAGE_ACCOUNT_KEY
+$acctname = New-AzContainerAppDaprMetadataObject -Name AccountName -Value $STORAGE_ACCOUNT_NAME
+$acctkey = New-AzContainerAppDaprMetadataObject -Name AccountKey -SecretRef account-key
+$containername = New-AzContainerAppDaprMetadataObject -Name ContainerName -Value $STORAGE_ACCOUNT_CONTAINER
+$secret = New-AzContainerAppSecretObject -Name account-key -Value $STORAGE_ACCOUNT_KEY.Value
 New-AzContainerAppManagedEnvDapr `
   -EnvName $CONTAINERAPPS_ENVIRONMENT `
   -DaprName statestore `
   -ResourceGroupName $RESOURCE_GROUP `
-  -Metadata $metadata `
+  -Metadata $acctname, $acctkey, $containername `
   -Secret $secret `
   -Scope nodeapp `
   -Version v1 `
@@ -261,7 +260,7 @@ az containerapp create \
 ```powershell
 $ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
 
-$ENV_VARS = NewAzContainerAppEnvironmentVarObject -Name APP_PORT -Value 3000
+$ENV_VARS = New-AzContainerAppEnvironmentVarObject -Name APP_PORT -Value 3000
 
 $TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
   -Name nodeapp `
@@ -274,12 +273,12 @@ New-AzContainerApp `
   -ResourceGroupName $RESOURCE_GROUP `
   -ManagedEnvironmentId $ENV_ID `
   -TemplateContainer $TEMPLATE_OBJ `
-  -DaprAppId nodeapp ` 
+  -DaprAppId nodeapp `
   -DaprAppPort 3000 `
   -DaprEnabled `
   -ScaleMaxReplica 1 `
   -ScaleMinReplica 1 `
-  -IngressTargetPort 3000 
+  -IngressTargetPort 3000
 ```
 
 ---
@@ -312,11 +311,9 @@ az containerapp create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-
 $TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
   -Name pythonapp `
   -Image dapriosamples/hello-k8s-python:latest
-
 
 New-AzContainerApp `
   -Name pythonapp `
@@ -324,17 +321,17 @@ New-AzContainerApp `
   -ResourceGroupName $RESOURCE_GROUP `
   -ManagedEnvironmentId $ENV_ID `
   -TemplateContainer $TEMPLATE_OBJ `
-  -DaprAppId pythonapp ` 
+  -DaprAppId pythonapp `
   -DaprEnabled `
   -ScaleMaxReplica 1 `
-  -ScaleMinReplica 1 
+  -ScaleMinReplica 1
 ```
 
 ---
 
 By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-python).
 
-This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `--target-port` to start a server, nor is there a need to enable ingress.  
+This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no need to specify a target port nor is there a need to external enable ingress.  
 
 ## Verify the result
 
