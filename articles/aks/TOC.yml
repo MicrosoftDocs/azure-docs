@@ -506,7 +506,7 @@
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
         - name: Configure Automated Deployments
-          href: automated-deployments.md
+          href: automated-deployments.md (preview)
         - name: CI/CD with Azure Pipelines
           href: ../aks/devops-pipeline.md
     - name: Troubleshoot

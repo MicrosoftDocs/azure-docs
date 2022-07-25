@@ -1,5 +1,5 @@
 ---
-title: Automated Deployments for Azure Kubernetes Service 
+title: Automated Deployments for Azure Kubernetes Service (Preview)
 description: Learn how to use Automated Deployments to simplifies the process of adding GitHub Actions to your Azure Kubernetes Service (AKS) project
 ms.author: qpetraroia
 ms.topic: tutorial
@@ -7,9 +7,11 @@ ms.date: 7/21/2022
 author: qpetraroia
 ---
 
-# Automated Deployments for Azure Kubernetes Service
+# Automated Deployments for Azure Kubernetes Service (Preview)
 
 Automated Deployments simplifies the process of setting up a GitHub Action and creating an automated pipeline for your code releases to your Azure Kubernetes Service (AKS) cluster. Once connected, every new commit will kick off the pipeline, resulting in your application being updated.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
