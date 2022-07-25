@@ -306,15 +306,15 @@ Take the following steps to cable your device for power and network.
 
     - Device with two Peripheral Component Interconnect (PCI) slots and one GPU
      
-        ![Back plane of a cabled device 1](./media/azure-stack-edge-gpu-deploy-install/backplane-ports.png)
+        ![Back plane of a cabled device 1.](./media/azure-stack-edge-gpu-deploy-install/backplane-ports.png)
 
     - Device with three PCI slots and one GPU
 
-        ![Back plane of a cabled device 2](./media/azure-stack-edge-gpu-deploy-install/backplane-ports-3.png)
+        ![Back plane of a cabled device 2.](./media/azure-stack-edge-gpu-deploy-install/backplane-ports-3.png)
      
     - Device with three PCI slots and two GPUs
 
-        ![Back plane of a cabled device 3](./media/azure-stack-edge-gpu-deploy-install/backplane-ports-2.png)   
+        ![Back plane of a cabled device 3.](./media/azure-stack-edge-gpu-deploy-install/backplane-ports-2.png)   
 
 2. Locate the disk slots and the power button on the front of the device.
 
