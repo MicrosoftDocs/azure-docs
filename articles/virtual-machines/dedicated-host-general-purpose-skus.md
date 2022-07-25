@@ -337,7 +337,6 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | D48s v3 | 2     |
 |                |                 |               | D64s v3 | 1     |
 
-
 ## Next steps
 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
