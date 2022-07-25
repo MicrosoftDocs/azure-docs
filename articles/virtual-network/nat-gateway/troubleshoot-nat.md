@@ -149,15 +149,6 @@ A couple important notes about the NAT gateway and Azure App Services integratio
 * Virtual network integration does not provide inbound private access to your app from the virtual network. 
 * Because of the nature of how virtual network integration operates, the traffic from virtual network integration does not show up in Azure Network Watcher or NSG flow logs. 
 
-### Port 25 cannot be used for regional VNet integration with NAT gateway
-
-Port 25 is an SMTP port that is used to send email. Azure app services regional Virtual network integration cannot use port 25 by design. While it is possible to have the block on port 25 removed, having this block removed will still not allow you to use port 25 with your Azure App services. Azure App services regional virtual network integration cannot use port 25 by design.  
-
-If NAT gateway is enabled on the integration subnet with your Azure App services, NAT gateway can still be used to connect outbound to the internet on other ports except port 25.  
-
-**Work around solution:**
-* Set up port forwarding to a Windows VM to route traffic to Port 25. 
-
 ## NAT gateway public IP not being used for outbound traffic
 
 ### VMs hold on to prior SNAT IP with active connection after NAT gateway added to a VNet

@@ -525,7 +525,7 @@ related resources to match and the template deployment to execute.
 - **roleDefinitionIds** (required)
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
-    [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+    [remediation - configure the policy definition](../how-to/remediate-resources.md#configure-the-policy-definition).
 - **DeploymentScope** (optional)
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the type of deployment to be triggered. _Subscription_ indicates a
@@ -803,7 +803,7 @@ needed for remediation and the **operations** used to add, update, or remove tag
 - **roleDefinitionIds** (required)
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
-    [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+    [remediation - configure the policy definition](../how-to/remediate-resources.md#configure-the-policy-definition).
   - The role defined must include all operations granted to the
     [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) role.
 - **conflictEffect** (optional)

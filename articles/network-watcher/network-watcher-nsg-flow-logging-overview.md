@@ -383,7 +383,7 @@ Also, when a NSG is deleted, by default the associated flow log resource is dele
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 
 > [!NOTE]
-> App services deployed under App Service Plan do not support NSG Flow Logs. Please refer [this documentaion](/azure/app-service/overview-vnet-integration#how-regional-virtual-network-integration-works.md) for additional details.
+> App services deployed under App Service Plan do not support NSG Flow Logs. Please refer [this documentaion](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works) for additional details.
 
 ## Best practices
 

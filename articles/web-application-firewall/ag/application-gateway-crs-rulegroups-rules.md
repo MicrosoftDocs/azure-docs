@@ -131,6 +131,8 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="general-32"></a> General
 |RuleId|Description|
 |---|---|
+|200002|Failed to Parse Request Body.|
+|200003|Multipart Request Body Strict Validation.|
 |200004|Possible Multipart Unmatched Boundary.|
 
 ### <a name="crs800-32"></a> KNOWN-CVES

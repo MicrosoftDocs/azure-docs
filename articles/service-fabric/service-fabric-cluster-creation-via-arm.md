@@ -1,12 +1,14 @@
 ---
 title: Create an Azure Service Fabric cluster 
 description: Learn how to set up a secure Service Fabric cluster in Azure using Azure Resource Manager.  You can create a cluster using a default template or using your own cluster template.
-
-ms.topic: conceptual
-ms.date: 08/16/2018 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
-ms.devlang: azurecli
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Create a Service Fabric cluster using Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
