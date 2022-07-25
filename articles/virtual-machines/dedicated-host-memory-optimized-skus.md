@@ -83,13 +83,51 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
-| 64             | 119             | 768 GiB       | E2ds v5  | 8     |
-|                |                 |               | E4ds v5  | 8     |
-|                |                 |               | E8ds v5  | 6     |
-|                |                 |               | E16ds v5 | 3     |
-|                |                 |               | E32ds v5 | 1     |
-|                |                 |               | E48ds v5 | 1     |
-|                |                 |               | E64ds v5 | 1     |
+| 64             | 119             | 768 GiB       | E2bs v5  | 8     |
+|                |                 |               | E4bs v5  | 8     |
+|                |                 |               | E8bs v5  | 6     |
+|                |                 |               | E16bs v5 | 3     |
+|                |                 |               | E32bs v5 | 1     |
+|                |                 |               | E48bs v5 | 1     |
+|                |                 |               | E64bs v5 | 1     |
+
+## ECadsv5
+### ECadsv5-Type1
+
+The ECadsv5-Type1 is a Dedicated Host SKU utilizing the AMD 3rd Generation EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The ECadsv5-Type1 runs [ECadsv5-series](ecasv5-ecadsv5-series.md#ecadsv5-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto an ECadsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size    | # VMs |
+|----------------|-----------------|---------------|------------|-------|
+| 64             | 112             | 768 GiB       | EC2ads v5  | 32    |
+|                |                 |               | EC4ads v5  | 21    |
+|                |                 |               | EC8ads v5  | 10    |
+|                |                 |               | EC16ads v5 | 5     |
+|                |                 |               | EC20ads v5 | 4     |
+|                |                 |               | EC32ads v5 | 3     |
+|                |                 |               | EC48ads v5 | 1     |
+|                |                 |               | EC64ads v5 | 1     |
+|                |                 |               | EC96ads v5 | 1     |
+
+## ECasv5
+### ECasv5-Type1
+
+The ECasv5-Type1 is a Dedicated Host SKU utilizing the AMD 3rd Generation EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The ECasv5-Type1 runs [ECasv5-series](ecasv5-ecadsv5-series.md#ecasv5-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto an ECasv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size   | # VMs |
+|----------------|-----------------|---------------|-----------|-------|
+| 64             | 112             | 768 GiB       | EC2as v5  | 32    |
+|                |                 |               | EC4as v5  | 21    |
+|                |                 |               | EC8as v5  | 10    |
+|                |                 |               | EC16as v5 | 5     |
+|                |                 |               | EC20as v5 | 4     |
+|                |                 |               | EC32as v5 | 3     |
+|                |                 |               | EC48as v5 | 1     |
+|                |                 |               | EC64as v5 | 1     |
+|                |                 |               | EC96as v5 | 1     |
 
 
 ## Edsv5
