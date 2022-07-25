@@ -83,6 +83,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
 ### [**GCP (GKE)**](#tab/gcp-gke)
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup> | Agentless/Agent-based | Pricing tier |
@@ -153,6 +154,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
 ---
 
 
