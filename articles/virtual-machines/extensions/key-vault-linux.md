@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Key Vault virtual machine extension for Linux
 
-The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults.  Upon detecting a change, the extension retrieves, and installs the corresponding certificates. The Key Vault VM extension is published and supported by Microsoft, currently on Linux VMs. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Linux. 
+The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults.  The extension retrieves and installs the corresponding certificates after detecting a change. The Key Vault VM extension is published and supported by Microsoft, currently on Linux VMs. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Linux. 
 
 ### Operating system
 
@@ -37,7 +37,7 @@ The Key Vault VM extension supports these Linux distributions:
 - PEM
 
 
-## Prerequisities
+## Prerequisites
   - Key Vault instance with certificate. See [Create a Key Vault](../../key-vault/general/quick-create-portal.md)
   - VM/VMSS must have assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md)
   - The Key Vault Access Policy must be set with secrets `get` and `list` permission for VM/VMSS managed identity to retrieve a secret's portion of certificate. See [How to Authenticate to Key Vault](../../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy-cli.md).
