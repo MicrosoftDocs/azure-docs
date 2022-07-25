@@ -1796,7 +1796,7 @@ We can separate the discussion about SAP high availability in Azure into two par
 
 and how it can be combined with Azure infrastructure HA.
 
-SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper from SAP describes standard SAP High Availability configurations in virtualized environments on Windows. There is no sapinst-integrated SAP-HA configuration for Linux. For more information about SAP HA on-premises for Linux, see [SAP High Availability Partner Information](https://scn.sap.com/docs/DOC-8541).
+SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper from SAP describes [standard SAP High Availability configurations in virtualized environments on Windows](https://help.sap.com/docs/SAP_NETWEAVER_703/a2cf03bc73a44b2a87d535cdb35e529e/45237d7e9f9b4002e10000000a155369.html). There is no sapinst-integrated SAP-HA configuration for Linux. For more information about SAP HA on-premises for Linux, see [SAP High Availability Partner Information](https://scn.sap.com/docs/DOC-8541).
 
 ### Azure Infrastructure High Availability
 
