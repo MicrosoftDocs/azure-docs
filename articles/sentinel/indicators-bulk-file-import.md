@@ -27,15 +27,15 @@ You've got a list of indicators ready to contribute, and inputting them [one by 
 
 1. From the [Azure portal](https://portal.azure.com), go to **Microsoft Sentinel**.
 
-1. Select the workspace you want to import threat indicators into.
+2. Select the workspace you want to import threat indicators into.
 
-1. Go to **Threat Intelligence** under the **Threat Management** heading.
+3. Go to **Threat Intelligence** under the **Threat Management** heading.
 
 :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-small.png" alt-text="Screenshot of the menu options to import indicators using a file menu." lightbox="media/indicators-bulk-file-import/import-using-file-menu-large.png":::
 
-1. Select **Import** > **Import using a file**.
+4. Select **Import** > **Import using a file**.
 
-1. Choose CSV or JSON from the **File Format** drop down menu.
+5. Choose CSV or JSON from the **File Format** drop down menu.
 
 :::image type="content" source="media/indicators-bulk-file-import/format-select-and-download.png" alt-text="Screenshot of the menu flyout to upload a CSV or JSON file, choose a template to download, and specify a source highlighting the file format selection.":::
 
