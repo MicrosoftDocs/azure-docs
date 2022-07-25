@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events for lip-sync
 
 > [!NOTE]
-> At this time, viseme events are available only for [neural voices](language-support.md#text-to-speech).
+> Viseme ID supports [all neural voices](language-support.md#text-to-speech) in all TTS-supported locales, including custom neural voice. Scalable Vector Graphics (SVG) and blendshapes only support prebuilt neural voices in `en-US` and `zh-CN` locales, and don't support custom neural voice.
 
 A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes. 
 
@@ -33,21 +33,39 @@ You can use visemes to control the movement of 2D and 3D avatar models, so that 
 For more information about visemes, view this [introductory video](https://youtu.be/ui9XT47uwxs).
 > [!VIDEO https://www.youtube.com/embed/ui9XT47uwxs]
 
-## Azure Neural TTS can produce visemes with speech
+## Overall workflow of producing viseme with speech
 
-Neural Text-to-Speech (Neural TTS) turns input text or SSML (Speech Synthesis Markup Language) into lifelike synthesized speech. Speech audio output can be accompanied by viseme IDs and their offset timestamps. Each viseme ID specifies a specific pose in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme. Using a 2D or 3D rendering engine, you can use these viseme events to animate your avatar.
+Neural Text-to-Speech (Neural TTS) turns input text or SSML (Speech Synthesis Markup Language) into lifelike synthesized speech. Speech audio output can be accompanied by viseme ID, Scalable Vector Graphics (SVG), and blendshapes. Using a 2D or 3D rendering engine, you can use these viseme events to animate your avatar.
 
 The overall workflow of viseme is depicted in the following flowchart:
 
 ![Diagram of the overall workflow of viseme.](media/text-to-speech/viseme-structure.png)
 
-*Viseme ID* and *audio offset output* are described in the following table:
+You can request viseme output in SSML. For details, see [how to use viseme element in SSML](speech-synthesis-markup.md#viseme-element).
 
-| Visme&nbsp;element | Description |
-|-----------|-------------|
-| Viseme ID | An integer number that specifies a viseme.<br>For English (US), we offer 22 different visemes, each depicting the mouth shape for a specific set of phonemes. There is no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they look the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes).  |
-| Audio offset | The start time of each viseme, in ticks (100 nanoseconds). |
+## Viseme ID
 
+Viseme ID refers to an integer number that specifies a viseme. We offer 22 different visemes, each depicting the mouth shape for a specific set of phonemes. There's no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they look the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes). 
+
+Speech audio output can be accompanied by viseme IDs and `Audio offset`. The `Audio offset` indicates the offset timestamp that represents the start time of each viseme, in ticks (100 nanoseconds).
+
+### Map phonemes to visemes
+
+Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes.
+
+## 2D SVG animation 
+
+For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position.
+
+With temporal tags that are provided in a viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, the following illustration shows a red-lipped character that's designed for language learning.
+
+![Screenshot showing a 2D rendering example of four red-lipped mouths, each representing a different viseme ID that corresponds to a phoneme.](media/text-to-speech/viseme-demo-2D.png)
+
+## 3D blendshapes animation 
+
+For 3D characters, you can design a character that suits your scenario and use blendshapes to drive the facial movement of your character. 
+
+The blendshapes is two dimension D matrix, and each row represents a blendshapes facial status of a frame (in 60 Hz). 
 
 ## Get viseme events with the Speech SDK
 
@@ -156,7 +174,9 @@ SPXSpeechSynthesizer *synthesizer =
 
 ::: zone-end
 
-Here is an example of the viseme output.
+Here's an example of the viseme output.
+
+# [Viseme ID](#tab/visemeid)
 
 ```text
 (Viseme), Viseme ID: 1, Audio offset: 200ms.
@@ -168,20 +188,95 @@ Here is an example of the viseme output.
 (Viseme), Viseme ID: 13, Audio offset: 2350ms.
 ```
 
+# [2D SVG](#tab/2dsvg)
+
+```text
+(Viseme), Viseme ID: 1, Audio offset: 200ms.
+
+(Viseme), Viseme ID: 5, Audio offset: 850ms.
+
+……
+
+(Viseme), Viseme ID: 13, Audio offset: 2350ms.
+```
+
+# [3D blendshapes](#tab/3dblendshapes)
+
+The output json looks like the following sample, where the `BlendShapes` has a dimension of 55, and each row is an array with 55 numbers. Each number in the array can vary between 0 to 1. The order of numbers is in line with the order of 'BlendShapes'.
+
+```text
+(Viseme), Viseme ID: 1, Audio offset: 200ms.
+
+(Viseme), Viseme ID: 5, Audio offset: 850ms.
+
+……
+
+(Viseme), Viseme ID: 13, Audio offset: 2350ms.
+```
+
+The order of `BlendShapes` is as follows.
+
+eyeBlinkLeft<br>
+eyeLookDownLeft<br>
+eyeLookInLeft<br>
+eyeLookOutLeft<br>
+eyeLookUpLeft<br>
+eyeSquintLeft<br>
+eyeWideLeft<br>
+eyeBlinkRight<br>
+eyeLookDownRight<br>
+eyeLookInRight<br>
+eyeLookOutRight<br>
+eyeLookUpRight<br>
+eyeSquintRight<br>
+eyeWideRight<br>
+jawForward<br>
+jawLeft<br>
+jawRight<br>
+jawOpen<br>
+mouthClose<br>
+mouthFunnel<br>
+mouthPucker<br>
+mouthLeft<br>
+mouthRight<br>
+mouthSmileLeft<br>
+mouthSmileRight<br>
+mouthFrownLeft<br>
+mouthFrownRight<br>
+mouthDimpleLeft<br>
+mouthDimpleRight<br>
+mouthStretchLeft<br>
+mouthStretchRight<br>
+mouthRollLower<br>
+mouthRollUpper<br>
+mouthShrugLower<br>
+mouthShrugUpper<br>
+mouthPressLeft<br>
+mouthPressRight<br>
+mouthLowerDownLeft<br>
+mouthLowerDownRight<br>
+mouthUpperUpLeft<br>
+mouthUpperUpRight<br>
+browDownLeft<br>
+browDownRight<br>
+browInnerUp<br>
+browOuterUpLeft<br>
+browOuterUpRight<br>
+cheekPuff<br>
+cheekSquintLeft<br>
+cheekSquintRight<br>
+noseSneerLeft<br>
+noseSneerRight<br>
+tongueOut<br>
+headRoll<br>
+leftEyeRoll<br>
+rightEyeRoll
+
+---
+
 After you obtain the viseme output, you can use these events to drive character animation. You can build your own characters and automatically animate them.
-
-For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position. With temporal tags that are provided in a viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, the following illustration shows a red-lipped character that's designed for language learning.
-
-![Screenshot showing a 2D rendering example of four red-lipped mouths, each representing a different viseme ID that corresponds to a phoneme.](media/text-to-speech/viseme-demo-2D.png)
-
-For 3D characters, think of the characters as string puppets. The puppet master pulls the strings from one state to another and the laws of physics do the rest and drive the puppet to move fluidly. The viseme output acts as a puppet master to provide an action timeline. The animation engine defines the physical laws of action. By interpolating frames with easing algorithms, the engine can further generate high-quality animations.
-
-## Map phonemes to visemes
-
-Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes.
-
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)
+- [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)
+- [How to improve synthesis with SSML](speech-synthesis-markup.md)

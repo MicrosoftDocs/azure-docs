@@ -286,7 +286,7 @@ You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neu
 > [!NOTE]
 > The `<lang xml:lang>` element is incompatible with the `prosody` and `break` elements. You can't adjust pause and prosody like pitch, contour, rate, or volume in this element.
 
-Use this table to determine which speaking languages are supported for each neural voice. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
+Use this table to determine which speaking languages are supported for each neural voice. If the voice doesn't speak the language of the input text, the Speech service won't output synthesized audio.
 
 | Voice                            | Primary and default locale           | Additional locales  |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
@@ -294,7 +294,7 @@ Use this table to determine which speaking languages are supported for each neur
 
 **Example**
 
-The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. This SSML snippet shows how speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
+The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. This SSML snippet shows how to speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
@@ -726,7 +726,7 @@ The optional `emphasis` element is used to add or remove word-level stress for t
 
 | Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `level` | Indicates the strength of emphasis to be applied:<ul><li>`reduced`</li><li>`none`</li><li>`moderate`</li><li>`strong`</li></ul><br>When the `level` attribute is not specified, the default level is `moderate`. For details on each attribute, see [emphasis element](https://www.w3.org/TR/speech-synthesis11/#S3.2.2)| Optional|
+| `level` | Indicates the strength of emphasis to be applied:<ul><li>`reduced`</li><li>`none`</li><li>`moderate`</li><li>`strong`</li></ul><br>When the `level` attribute isn't specified, the default level is `moderate`. For details on each attribute, see [emphasis element](https://www.w3.org/TR/speech-synthesis11/#S3.2.2)| Optional|
 
 **Example**
 
@@ -758,7 +758,7 @@ The `say-as` element is optional. It indicates the content type, such as number 
 | `format` | Provides additional information about the precise formatting of the element's text for content types that might have ambiguous formats. SSML defines formats for content types that use them. See the following table. | Optional |
 | `detail` | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
 
-The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column is not empty in the table below.
+The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column isn't empty in the table below.
 
 | interpret-as | format | Interpretation |
 |--------------|--------|----------------|
@@ -1056,6 +1056,38 @@ All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3
 > If an element is not recognized, it will be ignored, and the child elements within it will still be processed.
 
 The MathML entities are not supported by XML syntax, so you must use the their corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
+
+## Viseme element
+
+A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. You can use the `mstts:viseme` element in SSML to request viseme output.
+
+**Syntax**
+
+```xml
+<mstts:viseme type="string"/>
+```
+
+**Attributes**
+
+| Attribute | Description | Required or optional |
+|-----------|-------------|---------------------|
+| `type` | Specifies the type of viseme output.<ul><li>`redlips_front` – lip-sync with viseme ID and audio offset output </li><li>`FacialExpression` – blendshapes output</li></ul>| Required |
+
+> [!NOTE]
+> Currently, `redlips_front` and `FacialExpression` only support prebuilt neural voices in `en-US` and `zh-CN` locales, and don't support custom neural voice.
+
+**Example**
+
+This SSML snippet illustrates how to request blendshapes with your synthesized speech. 
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
+<voice name="en-US-JennyNeural">
+<mstts:viseme type="FacialExpression"/>
+Rainbow has seven colors: Red, orange, yellow, green, blue, indigo, and violet.
+</voice>
+</speak>
+```
 
 ## Next steps
 
