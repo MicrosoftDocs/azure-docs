@@ -43,13 +43,11 @@ You can also review [all available alerts](alerts-reference.md#alerts-k8scluster
 
 Note, if you're using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
 
-## Vulnerability assessment adds support for the detection of language specific packages (Preview)
+## Defender for Container's VA adds support for the detection of language specific packages (Preview)
 
 Defender for Container's vulnerability assessment (VA) has extended its abilities to detect vulnerabilities in language specific packages and OS packages.
 
-| Language specific packages | OS packages| 
-|--|--|
-|Java <br> Python <br> Node.js <br> .NET <br> Go | Alpine Linux 3.12-3.15 <br> Red Hat Enterprise Linux 6, 7, 8 <br> CentOS 6, 7 <br> Oracle Linux 6,6,7,8 <br> Amazon Linux 1,2 <br> openSUSE leap 42, 15 <br> SUSE Enterprise Linux 11,12, 15 <br> Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> Ubuntu 10.10 - 22.04 <br> FreeBSD 11.1-13.1 <br> Fedora 32, 33, 34, 35 |
+This feature is in `preview` and is only available for Linux images.
 
 Check out Defender for Container's a full list of [features and their availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
