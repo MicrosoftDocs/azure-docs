@@ -87,7 +87,7 @@ To perform the steps in this section, you must have and existing virtual network
 1. On the **Network Connections** page, select **+Add**.
      :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connections-empty.png" alt-text="Screenshot showing the Network Connections page with Add highlighted.":::
 
-1. #### [Azure AD join](#tab/AzureADJoin/)
+#### [Azure AD join](#tab/AzureADJoin/)
 
 <!-- 1. To create an *Azure Active Directory* join, use the instructions in this step. To create a Hybrid Azure Active Directory join, use the instructions in the next step. -->
 
@@ -103,6 +103,7 @@ To perform the steps in this section, you must have and existing virtual network
    |**Subnet**|Select the subnet you want the network connection to use.|
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-native-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Azure Active Directory join highlighted.":::
+
 #### [Hybrid Azure AD join](#tab/HybridAzureADJoin/)
 <!-- 1. To create a *Hybrid Azure Active Directory* join, use the instructions in this step. To create an Azure Active Directory join, use the instructions in the previous step. -->
 
@@ -122,6 +123,7 @@ To perform the steps in this section, you must have and existing virtual network
    |**AD domain password**| The password for the user specified above. |
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Hybrid Azure Active Directory join highlighted.":::
+
 ---
 
 4. Select **Review + Create**.
