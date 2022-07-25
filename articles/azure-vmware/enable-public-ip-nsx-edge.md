@@ -62,7 +62,7 @@ There are three options for configuring your reserved Public IP down to the NSX 
  
 A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT) is used to allow many VMs to one SNAT service. This connection means you can provide Internet connectivity for many VMs.
 
->[!Note]
+>[!IMPORTANT]
 > To enable SNAT for your specified address ranges, you must [configure a gateway firewall rule](#gateway-firewall-used-to-filter-traffic-to-vms-at-t1-gateways) and SNAT for the specific address ranges you desire. If you don't want SNAT enabled for specific address ranges, you must create a [No-NAT rule](#no-nat-rule-for-specific-address-ranges) for the address ranges to exclude. For this functionality to work as expected, make the No-NAT rule a higher priority than the SNAT rule.
 
 **Add rule**
@@ -91,16 +91,9 @@ A No NAT rule can be used to exclude certain matches from performing Network Add
 
 1. From your Azure VMware Solution private cloud, select **vCenter Credentials**.
 2.	Locate your NSX-T URL and credentials.
-3.	Log in to **VMWare NSX-T** and then select **3  NAT Rules**.
- 
-    :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-3nat-rules.png" alt-text="Diagram that shows how to add a No Nat rule to exclude certain matches." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
-
-1. Select the T1 Router and then select **ADD NAT RULE**. 
-        :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-add-nat-rule.png" alt-text="Diagram that shows how to add a T1 router to a Nat rule." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
-         
+3.	Log in to **VMWare NSX-T** and then select **3  NAT Rules**. 
+1. Select the T1 Router and then select **ADD NAT RULE**.         
 1. Select **SAVE**.
-         :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-save-no-nat.png" alt-text="Diagram that shows how to save a Nat rule." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
-
 
 ### Inbound Internet Access for VMs
 A Destination Network Translation Service (DNAT) is used to expose a VM on a specific Public IP address and/or a specific port. This service provides inbound internet access to your workload VMs.
