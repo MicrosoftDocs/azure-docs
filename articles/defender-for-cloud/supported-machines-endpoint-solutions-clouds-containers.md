@@ -35,7 +35,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images).
 
-## Additional information
+## Additional environment information
 
 ### Registries and images
 
@@ -176,21 +176,22 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
-### Supported operating systems
+### Supported host operating systems
 
-Defender for Containers relies on the **Defender extension** for runtime protection and vulnerability assessment. Ensure your Kubernetes node is running on one of the verified supported operating systems:
+Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems: runtime protection and vulnerability assessment. Ensure your Kubernetes node is running on one of the verified supported operating systems:
 
+- Amazon Linux 2
+- CentOS 8
+- Debian 10
+- Debian 11
+- Google Container-Optimized OS 
+- Red Hat Enterprise Linux 8
 - Ubuntu 16.04 
 - Ubuntu 18.04
 - Ubuntu 20.04
 - Ubuntu 22.04
-- Amazon Linux 2 (EKS)
-- CentOS 8
-- Debian 10
-- Debian 11
-- GCOOS (GKE)
-- Red Hat Enterprise Linux 8
 
+Clusters with different host operating systems, will only get partial coverage. You can see all of the 
 ## Next steps
 
 - Learn how [Defender for Cloud collects data using the Log Analytics Agent](enable-data-collection.md).
