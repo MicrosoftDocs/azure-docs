@@ -95,7 +95,7 @@ The following table shows the approximate time for performing offline migrations
 
 ### Migration considerations for online mode 
 
-The migration process for online mode entails a dump of the Single Server source database, a restore of that dump in the Flexible Server target, and then replication of ongoing changes. You capture change data by using logical decoding.
+The migration process for online mode entails a dump of the Single Server database(s), a restore of that dump in the Flexible Server target, and then replication of ongoing changes. You capture change data by using logical decoding.
 
 The time for completing an online migration depends on the incoming writes to the source server. The higher the write workload is on the source, the more time it takes for the data to be replicated to Flexible Server.
 
@@ -145,13 +145,13 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
 - If your migration fails, you can create a new migration task with a different name and retry the operation.
 
-- If you have more than eight databases on your Single Server source and you want to migrate them all, we recommend that you create multiple migration tasks. Each task can migrate up to eight databases.
+- If you have more than eight databases on your Single Server and you want to migrate them all, we recommend that you create multiple migration tasks. Each task can migrate up to eight databases.
 
 - The migration does not move the database users and roles of the source server. You have to manually create these and apply them to the target server after migration.
 
 - For security reasons, we highly recommended that you delete the Azure AD app after the migration finishes.
 
-- After you validate your data and make your application point to Flexible Server, you can consider deleting your Single Server source.
+- After you validate your data and make your application point to Flexible Server, you can consider deleting your Single Server.
 
 ## Limitations
 
@@ -159,7 +159,7 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
 - You can migrate databases of sizes up to 1 TB by using this tool. To migrate larger databases or heavy write workloads, contact your account team or [contact us](mailto:AskAzureDBforPGS2F@microsoft.com).
 
-- In one migration attempt, you can migrate up to eight user databases from Single Server to Flexible Server. If you have more databases to migrate, you can create multiple migrations between the same Single Server source and Flexible Server target.
+- In one migration attempt, you can migrate up to eight user databases from Single Server to Flexible Server. If you have more databases to migrate, you can create multiple migrations between the same Single Server and Flexible Server.
 
 ### Performance
 
@@ -178,7 +178,7 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
   - Views, materialized views, partition root tables, and foreign tables are not migrated.
 
-- Logical decoding will use resources in the Single Server source. Consider reducing the workload, or plan to scale CPU/memory resources at the Single Server source during the migration.
+- Logical decoding will use resources in the Single Server. Consider reducing the workload, or plan to scale CPU/memory resources at the Single Server during the migration.
 
 ### Other limitations
 
@@ -190,7 +190,7 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
 - If migration fails, there is no option to retry the same migration task. You have to create a new migration task with a unique name.
 
-- The migration tool does not include an assessment of your Single Server source. 
+- The migration tool does not include an assessment of your Single Server.
 
 ## Best practices
 
