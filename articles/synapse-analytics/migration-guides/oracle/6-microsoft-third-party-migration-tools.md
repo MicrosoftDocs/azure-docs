@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 07/15/2022
+ms.date: 07/26/2022
 ---
 
 # Tools for Oracle data warehouse migration to Azure Synapse Analytics
@@ -38,6 +38,8 @@ Several tools from both Microsoft and [third-party partners](../../partner/data-
 
 Microsoft offers several tools to help you migrate your existing data warehouse to Azure Synapse, such as:
 
+- [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA)
+
 - [Azure Data Factory](../../../data-factory/introduction.md).
 
 - Microsoft services for physical data transfer.
@@ -45,6 +47,15 @@ Microsoft offers several tools to help you migrate your existing data warehouse 
 - Microsoft services for data ingestion.
 
 The next sections discuss these tools in more detail.
+
+### SQL Server Migration Assistant (SSMA)
+
+[SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can automate many parts of the migration process, including in some cases functions and procedural code. SSMA supports Azure Synapse as a target environment.
+
+	:::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process." lightbox="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1-lrg.png":::
+	
+[SSMA for Oracle](/https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata) can help you migrate an Oracle data warehouse or data mart to Azure Synapse. SSMA is designed to automate the process of migrating tables, views, and data from an existing Oracle environment.![image](https://user-images.githubusercontent.com/92410188/181095017-ed3180eb-a79d-49b4-b2b6-ee2730969101.png)
+
 
 ### Microsoft Azure Data Factory
 
@@ -75,11 +86,13 @@ You can use Data Factory to implement and manage a hybrid environment with on-pr
 
 Wrangling data flows is a new capability in Data Factory. This capability opens up Data Factory to business users who want to visually discover, explore, and prepare data at scale without writing code. Wrangling data flows offer self-service data preparation, similar to Microsoft Excel, Power Query, and Microsoft Power BI dataflows. Business users can prepare and integrate data through a spreadsheet-style UI with drop-down transform options.
 
+Data Migration at scale capability helps migration of data at source to Azure SQL target using Azure Data factory
+
 Data Factory is the recommended approach for implementing data integration and ETL/ELT processes in the Azure Synapse environment, especially if you want to refactor existing legacy processes.
 
 ### Microsoft services for physical data transfer
 
-The following sections discuss a range of products and services that Microsoft offers to assist customers with data transfer.
+The following sections discuss a range of products and services that Microsoft offers to assist customers with data transfer.This new offline data movement will allow end users to reduce the migration downtime significantly.
 
 #### Azure ExpressRoute
 
