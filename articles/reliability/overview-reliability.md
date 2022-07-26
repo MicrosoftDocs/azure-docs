@@ -1,23 +1,20 @@
 ---
-title: Azure service reliability guide
-description: Azure service reliability guide that documents the reliability offerings in Azure services.
+title: Azure service reliability guides
+description: Azure service reliability guides that document the reliability offerings in Azure services.
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
 ms.date: 07/20/2022
 ms.author: anaharris
-ms.reviewer: cynthn
 ms.custom: 
 ---
 
 
-# What is the Azure service reliability guide?
+# What are the Azure service reliability guides?
 
-The Azure service reliability guide is a collection of guidance articles for each service that has a reliability offering. 
+Azure service reliability guides are guidance articles for each service that has a reliability offering. It also provides information on service availability by category, sovereign cloud, and region.
 
-Reliability is a system’s ability to ensure its availability and to easily recover from failures such as data loss, major downtime, or ransomware incidents. In that sense, reliability can be comprehended as in two ways: reliability in terms of *availability* and reliability in terms of *resiliency*.
-
-For more detailed information on reliability principles in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](https://docs.microsoft.com/azure/architecture/framework/#reliability).
+For more detailed information on reliability and reliability principles in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](https://docs.microsoft.com/azure/architecture/framework/#reliability).
 
 If the service support Availability Zones, the guidance article for that service will explain:
 

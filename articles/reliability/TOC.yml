@@ -1,4 +1,4 @@
-- name: Azure Services Reliability Documentation
+- name: Azure Service Reliability Guides
   href: index.yml
 - name: Overview
   href: overview-reliability.md
