@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 07/18/2022
+ms.date: 07/22/2022
 ms.reviewer: cynthn
 
 ---
@@ -244,6 +244,49 @@ There is no extra charge for using the Azure Compute Gallery service. You will b
 - Network egress charges for replication of the first resource version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no additional charges. 
 
 For example, let's say you have an image of a 127 GB OS disk, that only occupies 10GB of storage, and one empty 32 GB data disk. The occupied size of each image would only be 10 GB. The image is replicated to 3 regions and each region has two replicas. There will be six total snapshots, each using 10GB. You will be charged the storage cost for each snapshot based on the occupied size of 10 GB. You will pay network egress charges for the first replica to be copied to the additional two regions. For more information on the pricing of snapshots in each region, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). For more information on network egress, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+## Best practices
+
+- To prevent images from being accidentally deleted, use resource locks at the Gallery level. For more information, see [Protect your Azure resources with a lock](../azure-resource-manager/management/lock-resources.md).
+
+- Use ZRS wherever available for high availability. You can configure ZRS in the replication tab when you create the a version of the image or VM application.
+ For more information about which regions support ZRS, see [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
+
+- Keep a minimum of 3 replicas for production images. For every 20 VMs that you create concurrently, we recommend you keep one replica.  For example, if you create 1000 VM’s concurrently, you should keep 50 replicas (you can have a maximum of 50 replicas per region).  To update the replica count, please go to the gallery -> Image Definition -> Image Version -> Update replication.
+
+- Maintain separate galleries for production and test images, don’t put them in a single gallery.
+
+- When creating an image definition, keep the Publisher/Offer/SKU consistent with Marketplace images to easily identify OS versions.  For example, if you are customizing a Windows server 2019 image from Marketplace and store it as a Compute gallery image, please use the same Publisher/Offer/SKU that is used in the Marketplace image in your compute gallery image.
+ 
+- Use `excludeFromLatest` when publishing images if you want to exclude a specific image version during VM or scale set creation. 
+[Gallery Image Versions - Create Or Update](/rest/api/compute/gallery-image-versions/create-or-update#galleryimageversionpublishingprofile).
+
+    If you want to exclude a version in a specific region, use `regionalExcludeFromLatest`   instead of the global `excludeFromLatest`.  You can set both global and regional `excludeFromLatest` flag, but the regional flag will take precedence when both are specified.
+
+    ```
+    "publishingProfile": {
+      "targetRegions": [
+        {
+          "name": "brazilsouth",
+          "regionalReplicaCount": 1,
+          "regionalExcludeFromLatest": false,
+          "storageAccountType": "Standard_LRS"
+        },
+        {
+          "name": "canadacentral",
+          "regionalReplicaCount": 1,
+          "regionalExcludeFromLatest": true,
+          "storageAccountType": "Standard_LRS"
+        }
+      ],
+      "replicaCount": 1,
+      "excludeFromLatest": true,
+      "storageAccountType": "Standard_LRS"
+    }
+    ```
+
+
+- For disaster recovery scenarios, it is a best practice is to have at least two galleries, in different regions. You can still use image versions in other regions, but if the region your gallery is in goes down, you can't create new gallery resources or update existing ones.
 
 
 ## SDK support
