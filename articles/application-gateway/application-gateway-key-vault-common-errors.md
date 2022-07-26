@@ -128,6 +128,35 @@ Select **Managed deleted vaults**. From here, you can find the deleted Key Vault
 
 **Resolution:** Your Azure subscription can get disabled for various reasons. To take the necessary action to resolve, see [Reactivating a disabled Azure subscription](../cost-management-billing/manage/subscription-disabled.md).
 
+[comment]: # (Error Code 8)
+### Error code: ApplicationGatewayCertificateDataOrKeyVaultSecretIdMustBeSpecified/ApplicationGatewaySslCertificateDataMustBeSpecified  
+
+**Description:** You may encounter this error when trying to update a listener certificate. When this error occurs, the change to update the certificate will be discarded and the listener will continue to handle traffic with the previously defined configuration.
+
+**Resolution:** To resolve this issue please try uploading the certificate again.  For example, the following PowerShell commands may be used to update certificates uploaded to Application Gateway or referenced via Azure Key Vault.
+
+Update certificate uploaded directly to Application Gateway:
+```
+$appgw = Get-AzApplicationGateway -ResourceGroupName "<ResourceGroup>" -Name "<AppGatewayName>"
+
+$password = ConvertTo-SecureString -String "<password>" -Force -AsPlainText
+
+Set-AzApplicationGatewaySSLCertificate -Name "<oldcertname>" -ApplicationGateway $appgw -CertificateFile "<newcertPath>" -Password $password
+
+Set-AzApplicationGateway -ApplicationGateway $appgw 
+```
+
+Update certificate referenced from Azure Key Vault: 
+```
+$appgw = Get-AzApplicationGateway -ResourceGroupName "<ResourceGroup>" -Name "<AppGatewayName>"
+
+$secret = Get-AzKeyVaultSecret -VaultName "<KeyVaultName>" -Name "<CertificateName>" 
+$secretId = $secret.Id.Replace($secret.Version, "") 
+$cert = Set-AzApplicationGatewaySslCertificate -ApplicationGateway $AppGW -Name "<CertificateName>" -KeyVaultSecretId $secretId 
+
+Set-AzApplicationGateway -ApplicationGateway $appgw 
+```
+
 ## Next steps
 
 These troubleshooting articles might be helpful as you continue to use Application Gateway:
