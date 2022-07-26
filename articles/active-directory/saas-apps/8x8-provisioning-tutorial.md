@@ -20,7 +20,7 @@ This tutorial describes the steps you need to perform in both 8x8 Admin Console 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in 8x8
-> * Remove users in 8x8 when they do not require access anymore
+> * Deactivate users in 8x8 when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and 8x8
 > * [Single sign-on](./8x8virtualoffice-tutorial.md) to 8x8 (recommended)
 
@@ -48,11 +48,11 @@ This section guides you through the steps to configure 8x8 to support provisioni
 
 ### To configure a user provisioning access token in 8x8 Admin Console:
 
-1. Sign in to [Admin Console](https://admin.8x8.com). Select **Identity Management**.
+1. Sign in to [Admin Console](https://admin.8x8.com). Select **Identity and Security**.
 
    ![Admin](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
 
-2. Click the **Show user provisioning information** link to generate a token.
+2. In the **User Provisioning Integration (SCIM)** pane, click the toggle to enable and then click **Save**.
 
    ![Show](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
