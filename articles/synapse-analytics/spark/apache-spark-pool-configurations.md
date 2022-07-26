@@ -48,12 +48,11 @@ A Spark pool can be defined with node sizes that range from a Small compute node
 
 ## Autoscale
 
-Apache Spark pools provide the ability to automatically scale up and down compute resources based on the amount of activity.  When the autoscale feature is enabled, you can set the minimum and maximum number of nodes to scale.
-When the autoscale feature is disabled, the number of nodes set will remain fixed.  This setting can be altered after pool creation although the instance may need to be restarted.
+Apache Spark pools provide the ability to automatically scale up and down compute resources based on the amount of activity.  When the autoscale feature is enabled, you can set the minimum and maximum number of nodes to scale. When the autoscale feature is disabled, the number of nodes set will remain fixed.  This setting can be altered after pool creation although the instance may need to be restarted.
 
 ## Elastic pool storage
 
-Apache Spark pools utilize temporary disk storage while the pool is instantiated. For many Spark jobs, it is difficult to estimate cluster storage requirements, and in some cases causes your Spark jobs to fail if the worker nodes exhausts it's temporary storage. Elastic pool storage allows the Spark engine to monitor worker node temporary cluster storage, and attach additional disks if needed. No action is required by customers, and customers should see less job failures as a result.
+Apache Spark pools utilize temporary disk storage while the pool is instantiated. For many Spark jobs, it is difficult to estimate cluster storage requirements, and in some cases your Spark jobs fail if the worker nodes exhaust storage. Elastic pool storage allows the Spark engine to monitor worker node temporary cluster storage, and attach additional disks if needed. No action is required by customers. Customers should see less job failures as a result.
 
 > [!NOTE]
 > Azure Synapse Elastic pool storage is currently in Public Preview. During Public Preview there is no charge for use of Elastic Pool Storage.
