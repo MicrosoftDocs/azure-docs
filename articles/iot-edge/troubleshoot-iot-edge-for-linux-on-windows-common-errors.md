@@ -59,10 +59,12 @@ The following section addresses the common errors when provisioning the EFLOW vi
 | Unexpected return from 'sudo iotedge list' <br/> Retrieving iotedge check output from:  "$vmName" | The execution of `sudo iotedge list` command inside the EFLOW VM retured an unexpected payload. Generally this is related to IoT Edge service not running correctly inside the EFLOW VM. | Check the Azure IoT Edge runtime logs. First, connect to the EFLOW virtual machine using the `Connect-EflowVm` PowerShell cmdlet then follow [Troubleshoot your IoT Edge device](./troubleshoot.md) to get the IoT Edge logs. |
 | TPM 2.0 is required to enable DpsTpm | TPM passthrough only works with TPM 2.0 compatible hardware. This could be caused by a physical TPM or if the EFLOW VM is running using nested virtualization using vTPM on the Windows host OS. | Make sure the Windows host OS has a valid TPM 2.0, check [Enable TPM 2.0 on your PC](https://support.microsoft.com/windows/enable-tpm-2-0-on-your-pc-1fd5a332-360d-4f46-a1e7-ae6b0c90645c). |
 | TPM provisioning information not available! | The TPM passthrough binary inside the EFLOW VM could not get the TPM information from the Windows host OS. This error is probably related to a communication error with the EFLOWProxy. | Ensure that the _EFLOW Proxy Service_ service is running using the PowerShell cmdlet `Get-Service -name "EFLOW Proxy Service"`. If not running, check the Event logs. Open the **Event Viewer** > **Application and service logs** -> **Azure IoT Edge for Linux on Windows**. |
+
 ## Interaction with the VM
 The following section addresses the common errors when interacting with the EFLOW virtual machine, and configure the EFLOW device passthrough options. Ensure you have understanding of the following EFLOW concepts:
 - [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md)
 - [GPU acceleration for Azure IoT Edge for Linux on Windows](./gpu-acceleration.md)
+
 | Error | Error Description | Solution |
 | ----- | ----------------- | -------- |
 | Can't process request, EFLOW VM is OFF! | When trying to apply a configuration to the EFLOW virtual machine, the VM must be turned on. If the EFLOW VM is off, then the SSH channel will fail, and no communication is possible with the VM.| Start the EFLOW VM using the *Start-EflowVm* PowerShell cmdlet. For more information about the *Start-EflowVm* cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md). | 
