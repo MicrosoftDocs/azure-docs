@@ -95,7 +95,7 @@ Devices you delete from the Inventory are removed from the map and won't be calc
     - 30 days or more
     - 90 days or more
 
-1. Select **Delete Inactive Devices**. In the prompt displayed, enter the reason you're deleting the devices, and then select **Delete**. 
+1. Select **Delete Inactive Devices**. In the prompt displayed, enter the reason you're deleting the devices, and then select **Delete**.
 
     All devices detected within the range of the selected filter are deleted. If there are a large number of devices to delete, the process may take a few minutes.
 
