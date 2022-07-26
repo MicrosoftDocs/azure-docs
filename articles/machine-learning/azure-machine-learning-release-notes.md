@@ -53,6 +53,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Allow setting a timeout_seconds parameter when downloading artifacts from a Run
     + Warning message added - Azure ML CLI v1 is getting retired on 30 Sep 2025. Users are recommended to adopt CLI v2.
     + Fix submission to non-AmlComputes throwing exceptions.
+    + Added docker context support for environments
   + **azureml-interpret**
     + Increase numpy version for AutoML packages
   + **azureml-pipeline-core**
