@@ -9,7 +9,7 @@ author: qpetraroia
 
 # Automated Deployments for Azure Kubernetes Service (Preview)
 
-Automated deployments simplifies the process of setting up a GitHub Action and creating an automated pipeline for your code releases to your Azure Kubernetes Service (AKS) cluster. Once connected, every new commit will kick off the pipeline, resulting in your application being updated.
+Automated deployments simplify the process of setting up a GitHub Action and creating an automated pipeline for your code releases to your Azure Kubernetes Service (AKS) cluster. Once connected, every new commit will kick off the pipeline, resulting in your application being updated.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -35,7 +35,7 @@ Automated deployments simplifies the process of setting up a GitHub Action and c
 
 1. Pick your dockerfile and your ACR and image.
 
-    :::image type="content" source="media/automated-deployments/ad-image.png" alt-text="The image selection screen .":::
+    :::image type="content" source="media/automated-deployments/ad-image.png" alt-text="The image selection screen.":::
 
 1. Determine whether you'll deploy with Helm or regular Kubernetes manifests. Once decided, pick the appropriate deployment files from your repository and decide which namespace you want to deploy into.
 
