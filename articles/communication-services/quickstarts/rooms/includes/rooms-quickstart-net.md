@@ -37,6 +37,14 @@ cd RoomsQuickstart
 dotnet build
 ```
 
+### Install the package
+
+Install the Azure Communication Rooms client library for .NET with [NuGet][https://www.nuget.org/]:
+
+```console
+dotnet add package Azure.Communication.Rooms
+``` 
+
 ### Initialize a room client
 
 Create a new `RoomsClient` object that will be used to create new `rooms` and manage their properties and lifecycle. The connection string of your `Communications Service` will be used to authenticate the request. For more information on connection strings, see [this page](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
@@ -99,7 +107,7 @@ toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(
 toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser3), "Attendee"));
 
 Response<RoomModel> addParticipantResponse = await roomsClient.AddParticipantsAsync(createdRoomId, toAddCommunicationUsers);
-RoomModel addedParticipantsRoom = addParticipantResponse.Value;
+ParticipantsCollection addedParticipantsRoom = addParticipantResponse.Value;
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -115,7 +123,7 @@ var communicationUser = "<CommunicationUserId1>";
 toRemoveCommunicationUsers.Add(new CommunicationUserIdentifier(communicationUser));
 
 Response<RoomModel> removeParticipantResponse = await roomsClient.RemoveParticipantsAsync(createdRoomId, toRemoveCommunicationUsers);
-RoomModel removeParticipantsRoom = removeParticipantResponse.Value;
+ParticipantsCollection removeParticipantsRoom = removeParticipantResponse.Value;
 ```
 
 ### Delete room

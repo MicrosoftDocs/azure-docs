@@ -35,7 +35,7 @@ Run `npm init` to create a package.json file with default settings.
 npm init -y
 ```
 
-###Install the packages
+### Install the packages
 
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
@@ -132,15 +132,14 @@ Participants that have been added to a `room` become eligible to join calls.
 
 To remove a participant from a `room` and revoke their access, update the `Participants` list:
 
-//TODO
-```csharp
-var communicationUser = "<CommunicationUserId1>";
+```javascript
+  // request payload to delete both users from the room
+  const removeParticipantsRequest = {
+    participants: [user1.user, user2.user],
+  };
 
- List<CommunicationIdentifier> toRemoveCommunicationUsers = new List<CommunicationIdentifier>();
-toRemoveCommunicationUsers.Add(new CommunicationUserIdentifier(communicationUser));
-
-Response<RoomModel> removeParticipantResponse = await roomsClient.RemoveParticipantsAsync(createdRoomId, toRemoveCommunicationUsers);
-RoomModel removeParticipantsRoom = removeParticipantResponse.Value;
+  // remove both users from the room with the request payload
+  await roomsClient.removeParticipants(roomId, removeParticipantsRequest);
 ```
 
 ### Delete room

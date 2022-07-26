@@ -30,7 +30,32 @@ In a terminal or console window, create a new folder for your application and na
 mkdir acs-rooms-quickstart && cd acs-rooms-quickstart
 ```
 
-Create a new file called 
+Create a new file called `rooms-quickstart.py` and add the basic program structure.
+
+```python
+from azure.communication.rooms import (
+    RoomsClient,
+    RoomParticipant,
+    RoleType,
+    RoomJoinPolicy
+)
+from azure.communication.identity import CommunicationUserIdentifier
+
+class RoomsQuickstart(object):
+    #room method implementations go here
+
+if __name__ == '__main__':
+    rooms = RoomsQuickstart()
+```
+
+### Install the packages
+
+From a console prompt, navigate to the directory containing the rooms.py file, then execute the following command:
+
+```console
+pip install azure_communication_rooms
+pip install azure.communication.identity
+```
 
 ### Initialize a room client
 
