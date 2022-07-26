@@ -1,5 +1,5 @@
 ---
-title: Cool access in Azure NetApp Files | Microsoft Docs
+title: Standard storage with cool access in Azure NetApp Files | Microsoft Docs
 description: Learn about using cool access to more efficiently use data in your Azure storage account. 
 services: azure-netapp-files
 documentationcenter: ''
