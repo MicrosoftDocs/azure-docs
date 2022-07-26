@@ -158,6 +158,9 @@ Service Bus virtual network (VNet) connection event JSON includes elements liste
 | ResourceId | Azure Resource Manager resource ID. |
 | Category | ServiceBusVNetConnectionEvent |
 
+> [!NOTE] 
+> Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
+
 Here's an example of a virtual network log JSON string:
 
 ```json
@@ -172,9 +175,6 @@ Here's an example of a virtual network log JSON string:
     "Category": "ServiceBusVNetConnectionEvent"
 }
 ```
-
-> [!NOTE] 
-> Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
 
 ## Runtime audit logs
 Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.  
