@@ -57,17 +57,23 @@ This article shows you how to programmatically create an [enrollment group](conc
 
 Enrollment groups that use X.509 certificate attestation can be configured to use a root CA certificate or an intermediate certificate. The more usual case is to configure the enrollment group with an intermediate certificate. This provides more flexibility as multiple intermediate certificates can be generated or revoked by the same root CA certificate.
 
-For this article, you'll need both a root CA and an intermediate CA certificate file in *.pem* or *.cer* format. One file will contain the public portion of the intermediate CA X.509 certificate and the other will contain the public portion of the root CA X.509 certificate.
+For this article, you'll need either a root CA or an intermediate CA certificate file in *.pem* or *.cer* format. One file contains the public portion of the root CA X.509 certificate and the other contains the public portion of the intermediate CA X.509 certificate.
 
-If you already have root and intermediate CA files, you can continue to [Add and verify your root or intermediate CA certificate](#add-and-verify-your-root-or-intermediate-ca-certificate).
+If you already have either a root CA file, an intermediate CA file, or both, you can continue to [Add and verify your root or intermediate CA certificate](#add-and-verify-your-root-or-intermediate-ca-certificate).
 
-If you don't have a root CA and intermediate CA certificate, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-the-intermediate-ca-certificate) as you wont need device certificates to complete the steps in this article. When you're finished, you'll have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
+If you don't have a root CA or intermediate CA certificate, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-the-intermediate-ca-certificate) as you won't need device certificates to complete the steps in this article. When you're finished, you'll have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
 
 ## Add and verify your root or intermediate CA certificate
 
-Devices that provision using X.509 certificates through an enrollment group, present the entire certificate chain when they authenticate with DPS. For DPS to be able to validate the certificate chain, the root or intermediate certificate configured in an enrollment group must either be a verified certificate or must roll up to a verified certificate in the certificate chain a device presents when it authenticates with the service.
+Devices that provision through an enrollment group using X.509 certificates, present the entire certificate chain when they authenticate with DPS. For DPS to be able to validate the certificate chain, the root or intermediate certificate configured in an enrollment group must either be a verified certificate or must roll up to a verified certificate in the certificate chain a device presents when it authenticates with the service.
 
-To add and verify your root or intermediate CA certificate to the Device Provisioning Service.
+For this article, assuming you have both a root CA certificate and an intermediate CA certificate signed by the root CA:
+
+* If you plan on creating the enrollment group with the root CA certificate, you'll need to upload and verify the root CA certificate. 
+
+* If you plan on creating the enrollment group with the intermediate CA certificate, you can upload and verify either the root CA certificate or the intermediate CA certificate. (If you have multiple intermediate CA certificates in the certificate chain, you could, alternatively, upload and verify any intermediate certificate that sits between the root CA certificate and the intermediate certificate that you create the enrollment group with.)
+
+To add and verify your root or intermediate CA certificate to the Device Provisioning Service:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -79,7 +85,7 @@ To add and verify your root or intermediate CA certificate to the Device Provisi
 
 5. On the top menu, select **+ Add:**.
 
-6. Enter your root or intermediate CA certificate name, and upload the *.pem* or *.cer* file.
+6. Enter a name for your root or intermediate CA certificate, and upload the *.pem* or *.cer* file.
 
 7. Select **Set certificate status to verified on upload**.
 
@@ -153,7 +159,7 @@ This section shows you how to create a .NET Core console application that adds a
 
     * Replace the `ProvisioningServiceConnectionString` placeholder value with the connection string of the provisioning service that you copied in the previous section.
 
-    * Replace the `X509RootCertPath` placeholder value with the path to a .pem or .cer file. This file represents the public part of an intermediate or root CA X.509 certificate that has been previously uploaded and verified with your provisioning service.
+    * Replace the `X509RootCertPath` placeholder value with the path to a .pem or .cer file. This file represents the public part of a either a root CA X.509 certificate that has been previously uploaded and verified with your provisioning service, or an intermediate certificate that has itself been uploaded and verified or had a certificate in its signing chain uploaded and verified.
 
     * You may optionally change the `EnrollmentGroupId` value. The string can contain only lower case characters and hyphens.
 
@@ -163,7 +169,7 @@ This section shows you how to create a .NET Core console application that adds a
     > * Hard-coding the connection string for the provisioning service administrator is against security best practices. Instead, the connection string should be held in a secure manner, such as in a secure configuration file or in the registry.
     > * Be sure to upload only the public part of the signing certificate. Never upload .pfx (PKCS12) or .pem files containing private keys to the provisioning service.
 
-1. Add the following method to the `Program` class. This code creates an enrollment group entry and then calls the `CreateOrUpdateEnrollmentGroupAsync` method on `ProvisioningServiceClient` to add the enrollment group to the provisioning service.
+1. Add the following method to the `Program` class. This code creates an [`EnrollmentGroup`](/dotnet/api/microsoft.azure.devices.provisioning.service.enrollmentgroup) entry and then calls the [`ProvisioningServiceClient.CreateOrUpdateEnrollmentGroupAsync`](/dotnet/api/microsoft.azure.devices.provisioning.service.provisioningserviceclient.createorupdateenrollmentgroupasync) method to add the enrollment group to the provisioning service.
 
     ```csharp
     public static async Task RunSample()
@@ -290,7 +296,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 1. Replace `[Provisioning Connection String]` with the connection string that you copied in [Get the connection string for your provisioning service](#get-the-connection-string-for-your-provisioning-service).
 
-1. Replace the `PUBLIC_KEY_CERTIFICATE_STRING` constant string with the value of your intermediate certificate `.pem` file.
+1. Replace the `PUBLIC_KEY_CERTIFICATE_STRING` constant string with the value of your root or intermediate CA certificate `.pem` file. This file represents the public part of a either a root CA X.509 certificate that has been previously uploaded and verified with your provisioning service, or an intermediate certificate that has itself been uploaded and verified or had a certificate in its signing chain uploaded and verified.
 
     The syntax of certificate text must follow the pattern below with no extra spaces or characters.
 
@@ -303,13 +309,19 @@ This section shows you how to create a Node.js script that adds an enrollment gr
             "-----END CERTIFICATE-----";
     ```
 
-    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into a **Git Bash** prompt, replace `your-intermediate-cert.pem` with the location of your certificate file, and press **ENTER**. This command will generate the syntax for the `PUBLIC_KEY_CERTIFICATE_STRING` string constant value and write it to the output.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into a **Git Bash** prompt, replace `your-cert.pem` with the location of your certificate file, and press **ENTER**. This command will generate the syntax for the `PUBLIC_KEY_CERTIFICATE_STRING` string constant value and write it to the output.
 
     ```bash
-    sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' your-intermediate-cert.pem
+    sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' your-cert.pem
     ```
 
     Copy and paste the output certificate text for the constant value.
+
+    > [!IMPORTANT]
+    > In production code, be aware of the following security considerations:
+    >
+    > * Hard-coding the connection string for the provisioning service administrator is against security best practices. Instead, the connection string should be held in a secure manner, such as in a secure configuration file or in the registry.
+    > * Be sure to upload only the public part of the signing certificate. Never upload .pfx (PKCS12) or .pem files containing private keys to the provisioning service.
 
 1. The sample allows you to set an IoT hub in the enrollment group to provision the device to. This must be an IoT hub that has been previously linked to the provisioning service. For this article, we'll let DPS choose from the linked hubs according to the default allocation policy, evenly-weighted distribution. Comment out the following statement in the file:
 
@@ -345,7 +357,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-nodejs"
 
-1. Run the following command in your command prompt. Include the quotes around the command arguments and replace `<connection string>` withe connection string you copied in the previous section, and `<certificate .pem file>` with the path to your intermediate CA `.pem` file.
+1. Run the following command in your command prompt. Include the quotes around the command arguments and replace `<connection string>` withe connection string you copied in the previous section, and `<certificate .pem file>` with the path to your certificate `.pem` file. This file represents the public part of a either a root CA X.509 certificate that has been previously uploaded and verified with your provisioning service, or an intermediate certificate that has itself been uploaded and verified or had a certificate in its signing chain uploaded and verified.
 
     ```cmd\sh
     node create_enrollment_group.js "<connection string>" "<certificate .pem file>"

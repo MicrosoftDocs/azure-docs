@@ -3,7 +3,7 @@ title: How to programmatically create an Azure Device Provisioning Service indiv
 description: This article shows you how to programmatically create an individual enrollment entry for a device that uses TPM attestation.
 author: kgremban
 ms.author: kgremban
-ms.date: 07/22/2022
+ms.date: 07/26/2022
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
@@ -71,7 +71,7 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 You can follow the steps in this article to create a sample individual enrollment. In this, case, you'll be able to view the enrollment entry in DPS, but you won't be able to use it to provision a device.
 
-:::zone pivot="programming-language-nodejs"
+:::zone pivot="programming-language-csharp"
 
 You can also choose to follow the steps in this article to create an individual enrollment and enroll a simulated TPM device. If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-csharp) up to the step where you get an endorsement key for the device. Save the **Endorsement key**, you'll use it later in this article.
 
