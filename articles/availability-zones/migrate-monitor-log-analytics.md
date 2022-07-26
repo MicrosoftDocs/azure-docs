@@ -34,7 +34,7 @@ Azure Monitor currently supports availability zones in the following regions:
 
 ## Dedicated clusters
 
-Azure Monitor support for availability zones requires a Log Analytics workspace linked to an [Azure Monitor dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md). Dedicated Clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs including availability zones.
+Azure Monitor support for availability zones requires a Log Analytics workspace linked to an [Azure Monitor dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md). Dedicated clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs including availability zones.
 
 Not all dedicated clusters can use availability zones. Dedicated clusters created after mid-October 2020 can be set to support availability zones when they are created. New clusters created after that date default to be enabled for availability zones in regions where Azure Monitor supports them.
 
