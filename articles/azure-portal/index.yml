@@ -98,3 +98,16 @@ landingContent:
             url: azure-portal-dashboards.md
           - text: Add, remove, and sort favorites
             url: azure-portal-add-remove-sort-favorites.md
+
+
+  # Card
+  - title: View and increase quotas
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Azure Quotas
+            url: /azure/quotas/quotas-overview
+      - linkListType: quickstart
+        links:
+          - text: Request a quota increase
+            url: /azure/quotas/quickstart-increase-quota-portal
