@@ -111,7 +111,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Browse to app step 1](./includes/tutorial-php-mysql-app/azure-portal-browse-app-1.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-browse-app-1-240px.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal" lightbox="./media/tutorial-php-mysql-app/azure-portal-browse-app-1.png"::: |
+| [!INCLUDE [Browse to app step 1](./includes/tutorial-php-mysql-app/azure-portal-browse-app-1.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-browse-app-1-240px.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-php-mysql-app/azure-portal-browse-app-1.png"::: |
 | [!INCLUDE [Browse to app step 2](./includes/tutorial-php-mysql-app/azure-portal-browse-app-2.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-browse-app-2-240px.png" alt-text="A screenshot of the Laravel app running in App Service." lightbox="./media/tutorial-php-mysql-app/azure-portal-browse-app-2.png"::: |
 
 ## 7 - Stream diagnostic logs
