@@ -1323,7 +1323,7 @@ items:
     - name: Azure Cosmos DB
       href: ../cosmos-db/cosmosdb-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Data Explorer
-      href: /azure/data-explorer/data-explorer-insights
+      href: /azure/data-explorer/data-explorer-insights?toc=/azure/azure-monitor/toc.json
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
