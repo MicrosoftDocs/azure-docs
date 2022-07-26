@@ -199,7 +199,7 @@ If you opted out of using Azure private DNS zones during private endpoint creati
 
 1. From the left-hand pane, select **DNS configuration** to see a list of the DNS records and corresponding IP addresses you'll need to set up on your DNS server. The FQDNs and IP addresses will change based on the region you selected for your private endpoint and the available IP addresses in your subnet.
 
-    :::image type="content" source="./media/private-link-security/dns-configuration.png" alt-text="DNS configuration details" border="true":::
+    :::image type="content" source="./media/private-link-security/dns-configuration.png" lightbox="./media/private-link-security/dns-configuration.png" alt-text="DNS configuration details" border="true":::
 
 1. Follow the guidance from your DNS server vendor to add the necessary DNS zones and A records to match the table in the portal. Ensure that you select a DNS server that is appropriately scoped for your network. Every machine or server that uses this DNS server now resolves the private endpoint IP addresses and must be associated with the Azure Arc Private Link Scope, or the connection will be refused.
 
@@ -285,7 +285,7 @@ For Azure Arc-enabled servers that were set up prior to your private link scope,
     > [!NOTE]
     > Only Azure Arc-enabled servers in the same subscription and region as your Private Link Scope is shown.
 
-    :::image type="content" source="./media/private-link-security/select-servers-private-link-scope.png" alt-text="Selecting Azure Arc resources" border="true":::
+    :::image type="content" source="./media/private-link-security/select-servers-private-link-scope.png" lightbox="./media/private-link-security/select-servers-private-link-scope.png" alt-text="Selecting Azure Arc resources" border="true":::
 
 It may take up to 15 minutes for the Private Link Scope to accept connections from the recently associated server(s).
 
