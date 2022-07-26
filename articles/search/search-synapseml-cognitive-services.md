@@ -8,31 +8,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 07/26/2022
 ---
 
-# How to implement full text search over big data from Apache Spark using Synapse ML and Azure Cognitive Services
+# How to implement full text search over AI-enriched data from Apache Spark using Synapse ML and Azure Cognitive Services
 
-This article explains how to add full text search to big data from Apache Spark using Synapse ML in a workflow that all includes machine learning translation and image analysis from Cognitive Services.
+This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark using Synapse ML. This workflow includes machine learning translation and image analysis from Cognitive Services.
 
 The article includes the following steps:
 
-+ Ingest data using Azure Databricks
++ Start with data in Azure Databricks, Azure's Apache Spark solution
 + Apply machine learning using Azure Cognitive Services for big data
 + Load the results into a generated search index using AzureSearchWriter from Synapse ML
-+ Query the search index
++ Query the search index that contains multi-lingual content
 
-The search corpus is created and hosted in Azure Cognitive Search, and all queries execute locally over the search corpus. 
+The search corpus is created and hosted in Azure Cognitive Search, and all queries execute locally over the search corpus. Synapse ML provides modules that wrap other Azure resources, including Azure Forms Recognizer and Azure Cognitive Search. 
 
-Synapse ML provides modules that wrap other Azure resources, including Azure Forms Recognizer and Azure Cognitive Search. You'll call these modules in this walkthrough:
+You'll call these modules in this walkthrough:
 
 + synapse.ml.cognitive.AnalyzeInvoices
 + synapse.ml.cognitive.FormOntologyLearner
 + synpase.ml.cognitive.AzureSearchWriter
-
-<!-- Because you're using other resources, you'll need to create them and provide keys to gain access. 
-
-This article demonstrates an approach for bringing multiple services and features together in an interactive workflow in a Python notebook. You'll create all resources in the portal. -->
 
 ## Prerequisites
 
@@ -47,9 +43,11 @@ You'll need multiple Azure resources for this walkthrough, but you can put every
 
 <sup>2</sup>Translator isn't supported in Cognitive Services for big data so this walkthrough uses a standalone resource to access the machine translation model.
 
+All of these resources support security features in the Microsoft Identity platform, but for simplicity this walkthrough assumes key-based authentication, using keys copied from the portal pages of each service.
+
 ## Steps
 
-### Create a Spark cluster and install the mmlspark library
+### Create a Spark cluster and install the synapseml library
 
 1. In Azure portal, find your Azure Databricks workspace and select **Launch workspace**.
 
@@ -68,10 +66,10 @@ You'll need multiple Azure resources for this walkthrough, but you can put every
    1. Select **Install**.
 
 Test your configuration
+
 1. On the left menu, select **Create** > **Notebook**.
 1. Give the notebook a name, select **Python** as the default language, and select the cluster that has the synapseml library.
 1. Paste in the shared code into 4 consecutive cells.
-
 
 ## Install
 
