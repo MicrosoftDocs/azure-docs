@@ -29,9 +29,19 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## July 2022
 
-- [Automation rules for alerts](#automation-rules-for-alerts)
+- [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
+- [Automation rules for alerts (Preview)](#automation-rules-for-alerts-preview)
 
-### Automation rules for alerts
+### Azure resource entity page (Preview)
+
+Azure resources such as Azure Virtual Machines, Azure Storage Accounts, Azure Key Vault, Azure DNS, and more are essential parts of your network. Threat actors might attempt to obtain sensitive data from your storage account, gain access to your key vault and the secrets it contains, or infect your virtual machine with malware. The new [Azure resource entity page](entity-pages.md) is designed to help your SOC investigate incidents that involve Azure resources in your environment, hunt for potential attacks, and assess risk.
+
+You can now gain a 360-degree view of your resource security with the new entity page, which provides several layers of security information about your resources. 
+
+First, it provides some basic details about the resource: where it is located, when it was created, to which resource group it belongs, the Azure tags it contains, etc. Further, it surfaces information about access management: how many owners, contributors, and other roles are authorized to access the resource, and what networks are allowed access to it; what is the permission model of the key vault, is public access to blobs allowed in the storage account, and more. Finally, the page also includes some integrations, such as Microsoft Defender for Cloud, Defender for Endpoint, and Purview, that enrich the information about the resource.
+
+
+### Automation rules for alerts (Preview)
 
 In addition to their incident-management duties, [automation rules](automate-incident-handling-with-automation-rules.md) have a new, added function: they are the preferred mechanism for running playbooks built on the **alert trigger**. 
 
