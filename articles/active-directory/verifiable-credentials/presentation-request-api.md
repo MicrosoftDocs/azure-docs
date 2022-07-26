@@ -8,7 +8,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
-ms.date: 07/21/2022
+ms.date: 07/26/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application.
@@ -96,8 +96,8 @@ The presentation request payload contains information about your verifiable cred
       ],
       "configuration": {
         "validation": {
-          "allowRevoked": true,
-          "validateLinkedDomain": true
+          "allowRevoked": false,
+          "validateLinkedDomain": false
         }
       }
     }
