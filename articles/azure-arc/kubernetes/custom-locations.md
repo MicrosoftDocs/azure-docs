@@ -1,7 +1,7 @@
 ---
 title: "Create and manage custom locations on Azure Arc-enabled Kubernetes"
 ms.service: azure-arc
-ms.date: 07/21/2022
+ms.date: 07/27/2022
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc-enabled Kubernetes clusters"
@@ -27,7 +27,7 @@ In this article, you learn how to:
 - Install the following Azure CLI extensions:
   - `connectedk8s` (version 1.2.0 or later)
   - `k8s-extension` (version 1.0.0 or later)
-  - `customlocation` (version 0.1.3 or later) 
+  - `customlocation` (version 0.1.3 or later)
   
     ```azurecli
     az extension add --name connectedk8s
@@ -75,13 +75,21 @@ If you run the above command while signed in to Azure CLI using a service princi
 Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
 ```
 
-This is because a service principal doesn't have permissions to get information of the application used by the Azure Arc service. To avoid this error, execute the following steps:
+This is because a service principal doesn't have permissions to get information about the application used by the Azure Arc service. To avoid this error, complete the following steps:
 
-1. Sign in to Azure CLI using your user account. Fetch the Object ID of the Azure AD application used by Azure Arc service:
+1. Sign in to Azure CLI using your user account. Fetch the Object ID/id of the Azure AD application used by Azure Arc service. The command to do this depends on your version of Azure CLI.
 
-    ```azurecli
-    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
-    ```
+   If you're using an Azure CLI version lower than 2.37.0, use the following command:
+
+   ```azurecli
+   az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
+   ```
+
+   If you're using Azure CLI version 2.37.0 or higher, use the following command instead:
+
+   ```azurecli
+   az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
+   ```
 
 1. Sign in to Azure CLI using the service principal. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
 
