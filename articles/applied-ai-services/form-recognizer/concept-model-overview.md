@@ -194,6 +194,7 @@ A composed model is created by taking a collection of custom models and assignin
 ## Input requirements
 
 * For best results, provide one clear photo or high-quality scan per document.
+* Please supply only a single instance of the form per document. 
 * Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Additionally, the Read API supports Microsoft Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML files.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
