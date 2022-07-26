@@ -37,7 +37,7 @@ Resource Logs aren't collected and stored until you create a diagnostic setting 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Virtual WAN are listed in [Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md).
 
 > [!IMPORTANT]
-> Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator.md).
+> Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 The metrics and logs you can collect are discussed in the following sections.
 

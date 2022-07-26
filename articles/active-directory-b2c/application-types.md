@@ -67,7 +67,7 @@ In a web application, each execution of a [policy](user-flow-overview.md) takes 
 
 Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This process also sets a session cookie that can be used to identify the user on subsequent page requests.
 
-To see this scenario in action, try one of the web application sign in code samples in our [Getting started section](overview.md).
+To see this scenario in action, try one of the web application sign-in code samples in our [Getting started section](overview.md).
 
 In addition to facilitating simple sign in, a web server application might also need to access a back-end web service. In this case, the web application can perform a slightly different [OpenID Connect flow](openid-connect.md) and acquire tokens by using authorization codes and refresh tokens. This scenario is depicted in the following [Web APIs section](#web-apis).
 
@@ -134,7 +134,7 @@ In this flow, the application executes [policies](user-flow-overview.md) and rec
 
 Applications that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These applications can authenticate and get tokens by using their identities (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow. Client credential flow isn't the same as on-behalf-flow and on-behalf-flow shouldn't be used for server-to-server authentication.
 
-The [OAuth 2.0 client credentials flow](./client-credentials-grant-flow.md) is currently in public preview. You can also set up client credential flow using Azure AD and the Microsoft identity platform /token endpoint (`https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token`) for a [Microsoft Graph application](microsoft-graph-get-started.md) or your own application. For more information, check out the [Azure AD token reference](../active-directory/develop/id-tokens.md) article.
+For Azure AD B2C, the [OAuth 2.0 client credentials flow](./client-credentials-grant-flow.md) is currently in public preview. However, you can set up client credential flow using Azure AD and the Microsoft identity platform `/token` endpoint (`https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token`) for a [Microsoft Graph application](microsoft-graph-get-started.md) or your own application. For more information, check out the [Azure AD token reference](../active-directory/develop/id-tokens.md) article.
 
 ## Unsupported application types
 

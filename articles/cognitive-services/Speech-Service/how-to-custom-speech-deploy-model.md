@@ -66,7 +66,7 @@ To create an endpoint and deploy a model, use the `spx csr endpoint create` comm
 
 Here's an example Speech CLI command to create an endpoint and deploy a model:
 
-```azurecli-interactive
+```azurecli
 spx csr endpoint create --project YourProjectId --model YourModelId --name "My Endpoint" --description "My Endpoint Description" --language "en-US"
 ```
 
@@ -106,7 +106,7 @@ The top-level `self` property in the response body is the endpoint's URI. Use th
 
 For Speech CLI help with endpoints, run the following command:
 
-```azurecli-interactive
+```azurecli
 spx help csr endpoint
 ```
 
@@ -202,7 +202,7 @@ To redeploy the custom endpoint with a new model, use the `spx csr model update`
 
 Here's an example Speech CLI command that redeploys the custom endpoint with a new model:
 
-```azurecli-interactive
+```azurecli
 spx csr endpoint update --endpoint YourEndpointId --model YourModelId
 ```
 
@@ -240,7 +240,7 @@ You should receive a response body in the following format:
 
 For Speech CLI help with endpoints, run the following command:
 
-```azurecli-interactive
+```azurecli
 spx help csr endpoint
 ```
 
@@ -321,7 +321,7 @@ To gets logs for an endpoint, use the `spx csr endpoint list` command. Construct
 
 Here's an example Speech CLI command that gets logs for an endpoint:
 
-```azurecli-interactive
+```azurecli
 spx csr endpoint list --endpoint YourEndpointId
 ```
 

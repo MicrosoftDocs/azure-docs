@@ -16,7 +16,7 @@ A container app has access to different types of storage. A single app can take 
 
 | Storage type | Description | Usage examples |
 |--|--|--|
-| [Container file system](#container-file-system) | Temporary storage scoped to the environment | Writing a local app cache.  |
+| [Container file system](#container-file-system) | Temporary storage scoped to the local container | Writing a local app cache.  |
 | [Temporary storage](#temporary-storage) | Temporary storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
 | [Azure Files](#azure-files) | Permanent storage | Writing files to a file share to make data accessible by other systems. |
 

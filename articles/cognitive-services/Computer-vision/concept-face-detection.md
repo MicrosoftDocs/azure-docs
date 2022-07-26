@@ -1,5 +1,5 @@
 ---
-title: "Face detection and attributes concepts"
+title: "Face detection and attributes - Face"
 titleSuffix: Azure Cognitive Services
 description: Learn more about face detection; face detection is the action of locating human faces in an image and optionally returning different kinds of face-related data.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 07/20/2022
 ms.author: pafarley
 ---
 
@@ -24,6 +24,10 @@ You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/serv
 ## Face rectangle
 
 Each detected face corresponds to a `faceRectangle` field in the response. This is a set of pixel coordinates for the left, top, width, and height of the detected face. Using these coordinates, you can get the location and size of the face. In the API response, faces are listed in size order from largest to smallest.
+
+Try out the capabilities of face detection quickly and easily using Vision Studio.
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Face ID
 

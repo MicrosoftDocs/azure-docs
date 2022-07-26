@@ -66,7 +66,7 @@ Follow these steps to get the most out of your model:
 
 ## Reference documentation and code samples
 
-As you use custom text classification, see the following reference documentation and samples for Azure Cognitive Services for Language:
+As you use custom text classification, see the following reference documentation and samples for Azure Cognitive Service for Language:
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|

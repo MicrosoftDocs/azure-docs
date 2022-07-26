@@ -34,7 +34,7 @@ You can configure any existing pooled or personal host pool to be a validation h
 
 To use the Azure portal to configure your validation host pool:
 
-1. Sign in to the Azure portal at <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for and select **Azure Virtual Desktop**.
 3. In the Azure Virtual Desktop page, select **Host pools**.
 4. Select the name of the host pool you want to edit.
