@@ -29,9 +29,9 @@ The preferred location to store a configuration package is Azure Blob Storage.
 There are no special requirements for the storage account, but it's a good idea
 to host the file in a region near your machines. If you prefer to not make the
 package public, you can include a
-[SAS token](../../../storage/common/storage-sas-overview.md)
+[SAS token](../../storage/common/storage-sas-overview.md)
 in the URL or implement a
-[service endpoint](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
+[service endpoint](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
 for machines in a private network.
 
 If you don't have a storage account, use the following example to create one.
@@ -71,5 +71,3 @@ $contenturi = New-AzStorageBlobSASToken -Context $Context -FullUri -Container gu
   for at-scale management of your environment.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
-- Learn how to view
-  [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.

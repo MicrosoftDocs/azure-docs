@@ -82,7 +82,7 @@ the VM or by using Azure Policy. An example template is available
 [to deploy a machine with a certificate](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows).
 The Key Vault access policy must allow the Compute resource provider to access
 certificates during deployments. For detailed steps, see
-[Set up Key Vault for virtual machines in Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
+[Set up Key Vault for virtual machines in Azure Resource Manager](../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
 Following is an example to export the public key from a signing certificate, to
 import to the machine.
@@ -97,7 +97,7 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 After your content is published, append a tag with name
 `GuestConfigPolicyCertificateValidation` and value `enabled` to all virtual
 machines where code signing should be required. See the
-[Tag samples](../samples/built-in-policies.md#tags) for how tags can be
+[Tag samples](../policy/samples/built-in-policies.md#tags) for how tags can be
 delivered at scale using Azure Policy. Once this tag is in place, the policy
 definition generated using the `New-GuestConfigurationPolicy` cmdlet enables the
 requirement through the machine configuration extension.

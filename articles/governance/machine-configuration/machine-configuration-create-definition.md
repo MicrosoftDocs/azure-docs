@@ -239,8 +239,8 @@ New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies'
 ```
 
 With the policy definition created in Azure, the last step is to assign the definition. See how to assign the
-definition with [Portal](../policy/assign-policy-portal.md), [Azure CLI](../policy/assign-azurecli.md), and
-[Azure PowerShell](../policy/assign-powershell.md).
+definition with [Portal](../policy/assign-policy-portal.md), [Azure CLI](../policy/assign-policy-azurecli.md), and
+[Azure PowerShell](../policy/assign-policy-powershell.md).
 
 ## Policy lifecycle
 
@@ -279,4 +279,4 @@ updated.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md#compliance-details) policy assignments.

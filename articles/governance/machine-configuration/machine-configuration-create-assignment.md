@@ -12,7 +12,7 @@ ms.service: machine-configuration
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 The best way to
-[assign machine configuration packages](../concepts/machine-configuration-assignments.md)
+[assign machine configuration packages](./machine-configuration-assignments.md)
 to multiple machines is using
 [Azure Policy](./machine-configuration-create-definition.md). You can also
 assign machine configuration packages to a single machine.
@@ -24,7 +24,7 @@ examples. There are two scenarios.
 
 - Apply a custom configuration to a machine using a link to a package that you
   [published](./machine-configuration-create-publish.md).
-- Apply a [built-in](../samples/built-in-packages.md) configuration to a machine,
+- Apply a [built-in](../policy/samples/built-in-packages.md) configuration to a machine,
   such as an Azure baseline.
 
 ## Extending other resource types, such as Arc-enabled servers
@@ -32,11 +32,11 @@ examples. There are two scenarios.
 In each of the following sections, the example includes a **type** property
 where the name starts with `Microsoft.Compute/virtualMachines`. The guest
 configuration resource provider `Microsoft.GuestConfiguration` is an
-[extension resource](../../../azure-resource-manager/management/extension-resource-types.md)
+[extension resource](../../azure-resource-manager/management/extension-resource-types.md)
 that must reference a parent type.
 
 To modify the example for other resource types such as
-[Arc-enabled servers](../../../azure-arc/servers/overview.md),
+[Arc-enabled servers](../../azure-arc/servers/overview.md),
 change the parent type to the name of the resource provider.
 For Arc-enabled servers, the resource provider is
 `Microsoft.HybridCompute/machines`.
@@ -52,7 +52,7 @@ Replace the following "<>" fields with values specific to you environment:
 ## Assign a configuration using an Azure Resource Manager template
 
 You can deploy an
-[Azure Resource Manager template](../../../azure-resource-manager/templates/deployment-tutorial-local-template.md?tabs=azure-powershell)
+[Azure Resource Manager template](../../azure-resource-manager/templates/deployment-tutorial-local-template.md?tabs=azure-powershell)
 containing machine configuration assignment resources.
 
 The following example assigns a custom configuration.
@@ -119,7 +119,7 @@ The following example assigns the `AzureWindowBaseline` built-in configuration.
 ## Assign a configuration using Bicep
 
 You can use
-[Azure Bicep](../../../azure-resource-manager/bicep/overview.md)
+[Azure Bicep](../../azure-resource-manager/bicep/overview.md)
 to deploy machine configuration assignments.
 
 The following example assigns a custom configuration.
@@ -248,17 +248,15 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 ## Next steps
 
 - Read the [machine configuration overview](./overview.md).
-- Setup a custom machine configuration package [development environment](../how-to/machine-configuration-create-setup.md).
-- [Create a package artifact](../how-to/machine-configuration-create.md)
+- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- [Create a package artifact](./machine-configuration-create.md)
   for machine configuration.
-- [Test the package artifact](../how-to/machine-configuration-create-test.md)
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
 - [Publish the package artifact](./machine-configuration-create-publish.md)
   so it is accessible to your machines.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](../how-to/machine-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
-- Learn how to view
-  [compliance details for machine configuration](../how-to/determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.
