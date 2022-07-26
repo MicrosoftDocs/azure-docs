@@ -73,6 +73,12 @@ The following table shows the behavior of a blob copy operation, depending on th
 | **Cool tier destination** | Supported | Supported | Supported across accounts in the same region with version 2021-02-12 and later. Supported within the same storage account only for earlier versions. Requires blob rehydration. |
 | **Archive tier destination** | Supported | Supported | Not supported |
 
+### Rehydrate from a secondary region
+
+If you've configured your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS), then you can use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to rehydrate blobs in the secondary region to another storage account that is located in that same region. That's because these redundancy configurations provide read access to the secondary region. To learn more about these configurations, see [Read access to data in the secondary region](../common/storage-redundancy?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#read-access-to-data-in-the-secondary-region).
+
+To rehydrate from a secondary region, see [Rehydrate from a secondary region](archive-rehydrate-to-online-tier.md#rehydrate-from-a-secondary-region).
+
 ## Change a blob's access tier to an online tier
 
 The second option for rehydrating a blob from the Archive tier to an online tier is to change the blob's tier by calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier). With this operation, you can change the tier of the archived blob to either Hot or Cool.
