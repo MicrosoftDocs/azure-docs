@@ -24,7 +24,7 @@
       href: migrate-app-service.md
     - name: Cache for Redis
       href: migrate-cache-redis.md
-    - name: Monitor log analytics
+    - name: Log Analytics workspaces
       href: migrate-monitor-log-analytics.md
     - name: Container instances
       href: migrate-container-instances.md
