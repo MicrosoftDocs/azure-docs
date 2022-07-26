@@ -113,7 +113,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 1. Go to **Create a resource** in the Azure portal and search for **Azure Arc Private Link Scope**. Or you can use the following link to open the [Azure Arc Private Link Scope](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2FprivateLinkScopes) page in the portal.
 
-    :::image type="content" source="./media/private-link-security/private-scope-home.png" alt-text="Screen of private scope home page with Create button." border="true":::
+    :::image type="content" source="./media/private-link-security/private-scope-home.png" lightbox="./media/private-link-security/private-scope-home.png" alt-text="Screenshot of private scope home page with Create button." border="true":::
 
 1. Select **Create**.
 
@@ -136,7 +136,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 1. Select **Review + Create**.
 
-    :::image type="content" source="./media/private-link-security/create-private-link-scope.png" alt-text="Create Private Link Scope" border="true":::
+    :::image type="content" source="./media/private-link-security/create-private-link-scope.png" alt-text="Screenshot showing the Create Private Link Scope window" border="true":::
 
 1. Let the validation pass, and then select **Create**.
 
