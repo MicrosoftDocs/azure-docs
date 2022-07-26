@@ -224,9 +224,24 @@ A legal hold stores immutable data until the legal hold is explicitly cleared. T
 To configure a legal hold on a container with the Azure portal, follow these steps:
 
 1. Navigate to the desired container.
-1. Select the **More** button and choose **Access policy**.
-1. Under the **Immutable blob versions** section, select **Add policy**.
-1. Choose **Legal hold** as the policy type, and select **OK** to apply it.
+
+2. Select the **More** button and choose **Access policy**.
+
+3. Under the **Immutable blob versions** section, select **Add policy**.
+
+4. Choose **Legal hold** as the policy type, and select **OK** to apply it.
+
+5. Choose whether to allow protected append writes. 
+
+   The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
+
+   The **Block and append blobs** option provides you with the same permissions as the **Append blobs** option but adds support to certain Microsoft tools, such as Azure Data Factory, which implement append blobs by using block blobs. If your workloads depend on those tools, you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob. 
+
+   To learn more about these options, see [Allow protected append blobs writes](immutable-legal-hold-overview.md#allow-protected-append-blobs-writes).
+
+    :::image type="content" source="media/immutable-policy-configure-container-scope/configure-retention-policy-container-scope-legal-hold.png" alt-text="Screenshot showing how to configure legal hold policy scoped to container":::
+
+After you've configured the immutability policy, you will see that it is scoped to the container:
 
 The following image shows a container with both a time-based retention policy and legal hold configured.
 
