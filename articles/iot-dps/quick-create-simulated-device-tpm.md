@@ -15,9 +15,8 @@ ms.custom: mvc, amqp, mqtt, mode-other
 # Quickstart: Provision a simulated TPM device
 
 ::: zone pivot="programming-language-python"
-
+Trusted Platform Module (TPM) attestation isn't supported for Python.
 ::: zone-end
-
 ::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 
 In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use a [Trusted Platform Module (TPM) attestation](concepts-tpm-attestation.md) mechanism for authentication. After you've configured your device, you'll provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service. Sample code will then be used to help enroll the device with a Device Provisioning Service instance.
@@ -396,11 +395,13 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
 ::: zone-end
 
+::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 
 <a id="portalenrollment"></a>
 
 ## Create a device enrollment entry
 
+::: zone-end
 ::: zone pivot="programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -664,6 +665,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     ![Java TPM device program final](./media/quick-create-simulated-device-tpm/program-final-java.png)
 
 ::: zone-end
+::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 
 ## Confirm your device provisioning registration
 
@@ -676,6 +678,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 4. In the **Explorers** menu, select **IoT Devices**.
 
 5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
+:::zone-end
 
     :::zone pivot="programming-language-ansi-c"
 
@@ -743,7 +746,16 @@ If you plan to continue working on and exploring the device client sample, don't
 
 In this quickstart, you've created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device.
 
+::: zone-end
+::: zone pivot="programming-language-ansi-c, programming-language-csharp"
 > [!div class="nextstepaction"]
-> [Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm.md)
-
+> [Create an individual enrollment for a TPM device using the DPS service SDK](quick-enroll-device-tpm.md&pivots=programming-language-csharp)
+::: zone-end
+::: zone pivot="programming-language-nodejs"
+> [!div class="nextstepaction"]
+> [Create an individual enrollment for a TPM device using the DPS service SDK](quick-enroll-device-tpm.md&pivots=programming-language-nodejs)
+::: zone-end
+::: zone pivot="programming-language-java"
+> [!div class="nextstepaction"]
+> [Create an individual enrollment for a TPM device using the DPS service SDK](quick-enroll-device-tpm.md&pivots=programming-language-java)
 ::: zone-end
