@@ -161,6 +161,7 @@ The following table describes the features available with the associated tools a
   > Training data:
   >
   >* If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
+  > * Please supply only a single instance of the form per document. 
   > * For filled-in forms, use examples that have all their fields filled in.
   > * Use forms with different values in each field.
   >* If your form images are of lower quality, use a larger dataset. For example, use 10 to 15 images.
