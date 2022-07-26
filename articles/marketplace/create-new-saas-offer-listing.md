@@ -3,7 +3,6 @@ title: Configure SaaS offer listing details in Azure Marketplace
 description: Configure software as a service (SaaS) offer listing details in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -63,6 +62,9 @@ You must add at least one and a maximum of three marketing documents for your of
 1. Repeat these steps to add an additional supporting document.
 
 ## Add marketplace media
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 ### Add logos
 

@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 02/07/2022
+  ms.date: 04/26/2022
   ms.author: greglin
   ms.custom: references_regions
 title: Frequently asked questions about Application Gateway
@@ -131,6 +131,9 @@ sections:
           
       - question: Does Application Gateway V2 support proxying requests with NTLM authentication?
         answer: No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.
+        
+      - question: Why are some header values not present when requests are forwarded to my application?
+        answer: Request header names can contain alphanumeric characters and hyphens. Request header names containing other characters will be discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), with the exception of underscores (\_).
 
       - question: Does Application Gateway affinity cookie support SameSite attribute?
         answer: |
@@ -140,7 +143,7 @@ sections:
           
       - question: What is considered an active listener versus inactive listener?
         answer: |
-          An active listener is a listener that is associated to a rule **and** sending traffic to a backend pool. Any listener that **only** redirects traffic is not an active listener. Listeners associated with redirect rules are not considered active. If the redirect rules is a path-based rule, then all the paths in that redirect rule must be redirecting traffic, else the listener is considered active. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) for individual component limit details. 
+          An active listener is a listener that is associated to a rule **and** sending traffic to a backend pool. Any listener that **only** redirects traffic is not an active listener. Listeners associated with redirect rules are not considered active. If the redirect rule is a path-based rule, then all the paths in that redirect rule must be redirecting traffic, else the listener is considered active. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) for individual component limit details. 
       
   - name: Performance
     questions:

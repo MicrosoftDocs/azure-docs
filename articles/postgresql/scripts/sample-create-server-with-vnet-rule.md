@@ -12,6 +12,8 @@ ms.date: 01/26/2022
 
 # Create a PostgreSQL server and configure a vNet rule using the Azure CLI
 
+[!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
+
 This sample CLI script creates an Azure Database for PostgreSQL server and configures a vNet rule.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

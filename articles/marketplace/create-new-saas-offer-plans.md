@@ -3,7 +3,6 @@ title: Create plans for a SaaS offer in Azure Marketplace
 description: Create plans for a new software as a service (SaaS) offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -152,3 +151,7 @@ If you haven't already done so, create a development and test (DEV) offer to tes
 
 - [Sell your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
 - [Test and publish a SaaS offer](test-publish-saas-offer.md).
+
+**Video tutorials**
+
+- [Publishing a Private SaaS plan](https://go.microsoft.com/fwlink/?linkid=2196256)

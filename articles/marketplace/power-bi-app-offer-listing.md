@@ -4,9 +4,9 @@ description: Configure Power BI app offer listing details on Microsoft AppSource
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 05/26/2021
+author: trkeya
+ms.author: trkeya
+ms.date: 6/20/2022
 ---
 
 # Configure Power BI app offer listing details
@@ -69,6 +69,9 @@ Provide up to three related PDF marketing documents here, such as white papers, 
 ## Marketplace media
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.

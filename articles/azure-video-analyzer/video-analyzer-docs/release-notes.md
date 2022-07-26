@@ -18,6 +18,12 @@ This article provides you with information about:
 
 <hr width=100%>
 
+## April 29, 2022
+
+We’re retiring the Video Analyzer preview service, you're advised to **transition your applications off of Video Analyzer by 01 December 2022.**  To minimize disruption to your workloads, transition your application from Video Analyzer per suggestions described in this [guide](./transition-from-video-analyzer.md) before December 01, 2022. After December 1, 2022 your Video Analyzer account will no longer function.
+
+Starting May 2, 2022 you will not be able to create new Video Analyzer accounts.
+
 ## November 2, 2021
 
 This release is an update to the Video Analyzer edge module and the Video Analyzer service. The release tag for the edge module is:

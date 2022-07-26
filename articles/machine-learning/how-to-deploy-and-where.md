@@ -10,11 +10,14 @@ ms.author: ssambare
 author: shivanissambare
 ms.date: 11/12/2021
 ms.topic: how-to
-ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021, cliv1
+ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021, cliv1, sdkv1, event-tier1-build-2022
 adobe-target: true
 ---
 
-# Deploy machine learning models to Azure 
+
+# Deploy machine learning models to Azure
+
+[!INCLUDE [sdk & cli v1](../../includes/machine-learning-dev-v1.md)]
 
 Learn how to deploy your machine learning or deep learning model as a web service in the Azure cloud.
 
@@ -42,13 +45,13 @@ For more information on the concepts involved in the machine learning deployment
 
 [!INCLUDE [cli10-only](../../includes/machine-learning-cli-version-1-only.md)]
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
 - A model. The examples in this article use a pre-trained model.
 - A machine that can run Docker, such as a [compute instance](how-to-create-manage-compute-instance.md).
 
 # [Python](#tab/python)
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
 - A model. The examples in this article use a pre-trained model.
 - The [Azure Machine Learning software development kit (SDK) for Python](/python/api/overview/azure/ml/intro).
 - A machine that can run Docker, such as a [compute instance](how-to-create-manage-compute-instance.md).
@@ -69,6 +72,8 @@ az ml workspace list --resource-group=<resource-group>
 ```
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
@@ -115,7 +120,7 @@ Set `-p` to the path of a folder or a file that you want to register.
 
 For more information on `az ml model register`, see the [reference documentation](/cli/azure/ml(v1)/model).
 
-### Register a model from an Azure ML training run
+### Register a model from an Azure ML training job
 
 If you need to register a model that was created previously through an Azure Machine Learning training job, you can specify the experiment, run, and path to the model:
 
@@ -141,12 +146,14 @@ To include multiple files in the model registration, set `model_path` to the pat
 For more information, see the documentation for the [Model class](/python/api/azureml-core/azureml.core.model.model).
 
 
-### Register a model from an Azure ML training run
+### Register a model from an Azure ML training job
 
   When you use the SDK to train a model, you can receive either a [Run](/python/api/azureml-core/azureml.core.run.run) object or an [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
 
   + Register a model from an `azureml.core.Run` object:
  
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     ```python
     model = run.register_model(model_name='bidaf_onnx',
                                tags={'area': 'qna'},
@@ -157,6 +164,8 @@ For more information, see the documentation for the [Model class](/python/api/az
     The `model_path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files. For more information, see the [Run.register_model](/python/api/azureml-core/azureml.core.run.run#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) documentation.
 
   + Register a model from an `azureml.train.automl.run.AutoMLRun` object:
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     description = 'My AutoML Model'
@@ -170,7 +179,7 @@ For more information, see the documentation for the [Model class](/python/api/az
 
     For more information, see the [AutoMLRun.register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) documentation.
 
-    To deploy a registered model from an `AutoMLRun`, we recommend doing so via the [one-click deploy button in Azure Machine learning studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
+    To deploy a registered model from an `AutoMLRun`, we recommend doing so via the [one-click deploy button in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 
 ---
 
@@ -211,7 +220,7 @@ A minimal inference configuration can be written as:
 Save this file with the name `dummyinferenceconfig.json`.
 
 
-[See this article](./reference-azure-machine-learning-cli.md#inference-configuration-schema) for a more thorough discussion of inference configurations. 
+[See this article](./v1/reference-azure-machine-learning-cli.md#inference-configuration-schema) for a more thorough discussion of inference configurations. 
 
 # [Python](#tab/python)
 
@@ -238,7 +247,7 @@ The options available for a deployment configuration differ depending on the com
 
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
-For more information, see the [deployment schema](./reference-azure-machine-learning-cli.md#deployment-configuration-schema).
+For more information, see the [deployment schema](./v1/reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
 # [Python](#tab/python)
 
@@ -321,6 +330,8 @@ Save this file as `inferenceconfig.json`
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 env = Environment(name='myenv')
 python_packages = ['nltk', 'numpy', 'onnxruntime']
@@ -401,7 +412,7 @@ The options available for a deployment configuration differ depending on the com
 
 Save this file as `re-deploymentconfig.json`.
 
-For more information, see [this reference](./reference-azure-machine-learning-cli.md#deployment-configuration-schema).
+For more information, see [this reference](./v1/reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
 # [Python](#tab/python)
 
@@ -459,6 +470,8 @@ When you deploy remotely, you may have key authentication enabled. The example b
 
 
 See the article on [client applications to consume web services](how-to-consume-web-service.md) for more example clients in other languages.
+
+  [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
 
 ### Understanding service state
 

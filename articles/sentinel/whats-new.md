@@ -27,6 +27,75 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## July 2022
+
+- [Automation rules for alerts](#automation-rules-for-alerts)
+
+### Automation rules for alerts
+
+In addition to their incident-management duties, [automation rules](automate-incident-handling-with-automation-rules.md) have a new, added function: they are the preferred mechanism for running playbooks built on the **alert trigger**. 
+
+Previously, these playbooks could be automated only by attaching them to analytics rules on an individual basis. With the alert trigger for automation rules, a single automation rule can apply to any number of analytics rules, enabling you to centrally manage the running of playbooks for alerts as well as those for incidents.
+
+Learn more about [migrating your alert-trigger playbooks to be invoked by automation rules](migrate-playbooks-to-automation-rules.md).
+
+## June 2022
+
+- [Microsoft Purview Data Loss Prevention (DLP) integration in Microsoft Sentinel (Preview)](#microsoft-purview-data-loss-prevention-dlp-integration-in-microsoft-sentinel-preview)
+- [Incident update trigger for automation rules (Preview)](#incident-update-trigger-for-automation-rules-preview)
+
+### Microsoft Purview Data Loss Prevention (DLP) integration in Microsoft Sentinel (Preview)
+
+[Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md) now includes the integration of Microsoft Purview DLP alerts and incidents in Microsoft Sentinel's incidents queue.
+
+With this feature, you will be able to do the following:
+
+- View all DLP alerts grouped under incidents in the Microsoft 365 Defender incident queue.
+
+- View intelligent inter-solution (DLP-MDE, DLP-MDO) and intra-solution (DLP-DLP) alerts correlated under a single incident.
+
+- Retain DLP alerts and incidents for **180 days**.
+
+- Hunt for compliance logs along with security logs under Advanced Hunting.
+
+- Take in-place administrative remediation actions on users, files, and devices.
+
+- Associate custom tags to DLP incidents and filter by them.
+
+- Filter the unified incident queue by DLP policy name, tag, Date, service source, incident status, and user.
+
+In addition to the native experience in the Microsoft 365 Defender Portal, customers will also be able to use the one-click Microsoft 365 Defender connector to [ingest and investigate DLP incidents in Microsoft Sentinel](/microsoft-365/security/defender/investigate-dlp).
+
+
+### Incident update trigger for automation rules (Preview)
+
+Automation rules are an essential tool for triaging your incidents queue, reducing the noise in it, and generally coping with the high volume of incidents in your SOC seamlessly and transparently. Previously you could create and run automation rules and playbooks that would run upon the creation of an incident, but your automation options were more limited past that point in the incident lifecycle. 
+
+You can now create automation rules and playbooks that will run when incident fields are modified - for example, when an owner is assigned, when its status or severity is changed, or when alerts and comments are added.
+
+Learn more about the [update trigger in automation rules](automate-incident-handling-with-automation-rules.md).
+
+## May 2022
+
+- [Relate alerts to incidents](#relate-alerts-to-incidents-preview)
+- [Similar incidents](#similar-incidents-preview)
+
+### Relate alerts to incidents (Preview)
+
+You can now add alerts to, or remove alerts from, existing incidents, either manually or automatically, as part of your investigation processes. This allows you to refine the incident scope as the investigation unfolds. For example, relate Microsoft Defender for Cloud alerts, or alerts from third-party products, to incidents synchronized from Microsoft 365 Defender. Use this feature from the investigation graph, the API, or through automation playbooks.
+
+Learn more about [relating alerts to incidents](relate-alerts-to-incidents.md).
+
+### Similar incidents (Preview)
+
+When triaging or investigating an incident, the context of the entirety of incidents in your SOC can be extremely useful. For example, other incidents involving the same entities can represent useful context that will allow you to reach the right decision faster. Now there's a new tab in the incident page that lists other incidents that are similar to the incident you are investigating. Some common use cases for using similar incidents are:
+
+- Finding other incidents that might be part of a larger attack story.
+- Using a similar incident as a reference for incident handling. The way the previous incident was handled can act as a guide for handling the current one.
+- Finding relevant people in your SOC that have handled similar incidents for guidance or consult.
+
+Learn more about [similar incidents](investigate-cases.md#similar-incidents-preview).
+
 ## March 2022
 
 - [Automation rules now generally available](#automation-rules-now-generally-available)
@@ -60,9 +129,9 @@ For more information, see:
 
 Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Log Analytics, act on your data even before it's stored in your workspace.
 
-The first of these features is the [**custom logs API**](../azure-monitor/logs/custom-logs-overview.md). It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You use Log Analytics [**data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
+The first of these features is the [**Logs ingestion API**](../azure-monitor/logs/logs-ingestion-api-overview.md). It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You use Log Analytics [**data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
 
-The second feature is [**ingestion-time data transformation**](../azure-monitor/logs/ingestion-time-transformations.md) for standard logs. It uses [**DCRs**](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
+The second feature is [**workspace transformations**](../azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr) for standard logs. It uses [**DCRs**](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
 
 - AMA-based data connectors (based on the new Azure Monitor Agent)
 - MMA-based data connectors (based on the legacy Log Analytics Agent)

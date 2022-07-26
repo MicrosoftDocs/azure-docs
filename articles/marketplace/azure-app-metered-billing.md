@@ -68,25 +68,26 @@ The attributes, which define the dimension itself, are shared across all plans f
 * Name
 * Unit of measure
 
-The other attributes of a dimension are specific to each plan and can have different values from plan to plan.  Before you publish the plan, you can edit these values and only this plan will be affected. Once you publish the plan, these attributes will no longer be editable. The attributes are:
+The other attributes of a dimension are specific to each plan and can have different values from plan to plan. Before you publish the plan, you can edit these values and only this plan will be affected. Once you publish the plan, the following attributes will no longer be editable:
 
-* Price per unit
-* Included quantity for monthly customers 
-* Included quantity for annual customers 
+* Included quantity for monthly customers
+* Included quantity for annual customers
 
 Dimensions also have two special concepts, "enabled" and "infinite":
 
 * **Enabled** indicates that this plan participates in this dimension.  You might want to leave this option un-checked if you are creating a new plan that does not send usage events based on this dimension. Also, any new dimensions added after a plan was first published will show up as "not enabled" on the already published plan.  A disabled dimension will not show up in any lists of dimensions for a plan seen by customers.
 * **Infinite**, represented by the infinity symbol "∞", indicates that this plan participates in this dimension, without metered usage against this dimension. If you want to indicate to your customers that the functionality represented by this dimension is included in the plan, but with no limit on usage.  A dimension with infinite usage will show up in lists of dimensions for a plan seen by customers.  This plan will never incur a charge.
 
->[!Note] 
->The following scenarios are explicitly supported:  <br> - You can add a new dimension to a new plan.  The new dimension will not be enabled for any already published plans. <br> - You can publish a plan with a fixed monthly fee and without any dimensions, then add a new plan and configure a new dimension for that plan. The new dimension will not be enabled for already published plans.
+>[!Note]
+>The following scenarios are explicitly supported:
+>- You can add a new dimension to a new plan. The new dimension will not be enabled for any already published plans.
+>- You can publish a plan with a fixed monthly fee and without any dimensions, then add a new plan and configure a new dimension for that plan. The new dimension will not be enabled for already-published plans.
 
 ## Constraints
 
 ### Locking behavior
 
-A dimension used with the Marketplace metering service represents an understanding of how a customer will be paying for the service.  All details of a dimension are no longer editable once an offer is published.  Before publishing your offer, it's important that you have your dimensions fully defined.
+A dimension used with the Marketplace metering service represents an understanding of how a customer will be paying for the service.  All details of a dimension are no longer editable once an offer is published. Before publishing your offer, it's important that you have your dimensions fully defined.
 
 Once an offer is published with a dimension, the offer-level details for that dimension can no longer be changed:
 
@@ -96,7 +97,6 @@ Once an offer is published with a dimension, the offer-level details for that di
 
 Once a plan is published, the plan-level details can no longer be changed:
 
-* Price per unit
 * Included quantity for monthly term
 * Whether the dimension is enabled for the plan
 
@@ -120,3 +120,7 @@ Follow the instruction in [Support for the commercial marketplace program in Par
 ## Next steps
 
 - See [Marketplace metering service APIs](marketplace-metering-service-apis.md) for more information.
+
+**Video tutorial**
+
+- [Metered Billing for Azure Managed Applications Overview](https://go.microsoft.com/fwlink/?linkid=2196310)

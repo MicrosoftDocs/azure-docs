@@ -1,6 +1,6 @@
 ---
 title: Integrate Microsoft Sentinel and Microsoft Purview  | Microsoft Docs
-description: This tutorial describes how to use the Microsoft Sentinel data connector and solution for Microsoft Purview to enable data sensitivity insights, create rules to monitor when classifications have been detected, and get an overview about data found by Microsoft Purview, and where sensitive data resides in your organization.
+description: This tutorial describes how to use the **Microsoft Sentinel** data connector and solution for **Microsoft Purview** to enable data sensitivity insights, create rules to monitor when classifications have been detected, and get an overview about data found by Microsoft Purview, and where sensitive data resides in your organization.
 author: batamig
 ms.topic: tutorial
 ms.date: 02/08/2022
@@ -146,7 +146,7 @@ In Microsoft Sentinel, under **Threat management**, select **Workbooks** > **My 
 
 The Microsoft Purview workbook displays the following tabs:
 
-- **Overview**: Displays the regions and resources types where the data is located.
+- **Overview**: Displays the regions and resource types where the data is located.
 - **Classifications**: Displays assets that contain specified classifications, like Credit Card Numbers.
 - **Sensitivity labels**: Displays the assets that have confidential labels, and the assets that currently have no labels.
 

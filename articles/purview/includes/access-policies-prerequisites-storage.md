@@ -39,4 +39,11 @@ Currently, Microsoft Purview access policies can only be enforced in the followi
 -   Canada Central
 -   East US
 -   East US2
+-   South Central US
+-   West US
+-   West US2
+-   North Europe
 -   West Europe
+-   UK South
+-   Southeast Asia
+-   Australia East

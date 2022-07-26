@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 04/01/2022
+ms.date: 05/16/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -290,13 +290,13 @@ Upgrades from SDC to MDC that cause a SID change can be handled as follows:
 
 - Ensure that the new MDC version is currently [supported by Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
 - **Stop protection with retain data** for the old SDC database
-- Move the _config.json_ file located at _/opt/msawb/etc/config/SAPHana/_.
-- Perform the upgrade. After completion, the HANA system is now MDC with a system DB and tenant DBs
+- Move the *config.json* file located at `/opt/msawb/etc/config/SAPHana/`.
+- Perform the upgrade. After completion, the HANA system is now MDC with a system DB and tenant DBs.
 - Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana) with correct details (new SID and MDC). Due to a change in SID, you might face issues with successful execution of the script. Contact Azure Backup support if you face issues.
-- Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register)
-- Select **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC
-- The older SDC database continues to exist in the vault and have old backed up data retained according to the policy
-- Configure backup for these databases
+- Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register).
+- Select **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC.
+- The older SDC database continues to exist in the vault and have old backed up data retained according to the policy.
+- Configure backup for these databases.
 
 ## Re-registration failures
 

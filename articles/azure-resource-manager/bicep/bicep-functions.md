@@ -2,7 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 07/05/2022
 ---
 
 # Bicep functions
@@ -56,6 +56,8 @@ The following functions are available for working with arrays. All of these func
 The following functions are available for working with dates. All of these functions are in the `sys` namespace.
 
 * [dateTimeAdd](./bicep-functions-date.md#datetimeadd)
+* [dateTimeFromEpoch](./bicep-functions-date.md#datetimefromepoch)
+* [dateTimeToEpoch](./bicep-functions-date.md#datetimetoepoch)
 * [utcNow](./bicep-functions-date.md#utcnow)
 
 ## Deployment value functions
@@ -70,6 +72,7 @@ The following functions are available for getting values related to the deployme
 The following functions are available for loading the content from external files into your Bicep file. All of these functions are in the `sys` namespace.
 
 * [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
+* [loadJsonContent](bicep-functions-files.md#loadjsoncontent)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
 
 ## Logical functions
@@ -141,6 +144,7 @@ Bicep provides the following functions for working with strings. All of these fu
 * [format](./bicep-functions-string.md#format)
 * [guid](./bicep-functions-string.md#guid)
 * [indexOf](./bicep-functions-string.md#indexof)
+* [join](./bicep-functions-string.md#join)
 * [last](./bicep-functions-string.md#last)
 * [lastIndexOf](./bicep-functions-string.md#lastindexof)
 * [length](./bicep-functions-string.md#length)

@@ -23,7 +23,7 @@ There are specific instructions for each [source type](azure-purview-connector-o
 > Verify that you have followed all prerequisite and authentication steps for the source you are connecting to.
 > You can find all available sources listed in the [Microsoft Purview supported sources article](azure-purview-connector-overview.md).
 
-## Verifying Azure Role-based Access Control to enumerate Azure resources in Microsoft Purview Studio
+## Verifying Azure Role-based Access Control to enumerate Azure resources in the Microsoft Purview governance portal
 
 ### Registering single Azure data source
 

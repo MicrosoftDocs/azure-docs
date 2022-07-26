@@ -13,13 +13,13 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Approval workflow for business terms
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This guide will take you through the creation and management of approval workflows for business terms.
 
 ## Create and enable a new approval workflow for business terms
 
-1. Sign in to the [Microsoft Purview Studio](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents. 
+1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents. 
 
     :::image type="content" source="./media/how-to-workflow-business-terms-approval/workflow-section.png" alt-text="Screenshot showing the management center left menu with the new workflow section highlighted.":::
 

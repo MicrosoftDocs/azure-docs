@@ -8,6 +8,8 @@ ms.custom: ignite-fall-2021
 
 # Enable preview images when recording video
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 You can use Azure Video Analyzer to [capture and record video](../video-recording.md) from an RTSP camera. You would be creating a pipeline topology that includes a video sink node, as shown in [Quickstart: Detect motion in a (simulated) live video, record the video to the Video Analyzer account](detect-motion-record-video-clips-cloud.md) or [Tutorial: Continuous video recording and playback](use-continuous-video-recording.md). 
 
 If you record video using the Video Analyzer edge module, you can enable the video sink node to periodically generate a set of preview images of different sizes. These images can then be retrieved from the [video resource](../terminology.md#video) in your Video Analyzer account. For example, if your camera generates a video that has a resolution of 1920x1080, then the preview images would have the following sizes:
