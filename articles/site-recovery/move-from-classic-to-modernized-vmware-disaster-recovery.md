@@ -19,8 +19,8 @@ This article provides information about the architecture, necessary infrastructu
 
 The components involved in the migration of replicated items of a VMware machine are summarized in the following table:  
 
-|Component |Requirement|
-|---------  |-------------|
+|Component|Requirement|
+|---------|-------------|
 |Replicated items in a classic Recovery Services vault|One or more replicated items that are protected using the classic architecture and a healthy configuration server.<br></br>The replicated item should be in a non-critical state and must be replicated from on-premises to Azure with the mobility agent running on version 9.50 or later.|
 |Configuration server used by the replicated items|The configuration server, used by the replicated items, should be in a non-critical state and its components should be upgraded to the latest version (9.50 or later).|  
 |A Recovery Services vault with modernized experience|A Recovery Services vault with modernized experience.|

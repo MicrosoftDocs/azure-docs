@@ -31,7 +31,7 @@
       href: azure-to-azure-tutorial-failback.md
     - name: Move to modernized VMware VM disaster recovery
       href: move-from-classic-to-modernized-vmware-disaster-recovery.md
-      href: how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md
+            how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md
   - name: Move
     items:
     - name: Move Azure VMs to another region (Resource Mover)
