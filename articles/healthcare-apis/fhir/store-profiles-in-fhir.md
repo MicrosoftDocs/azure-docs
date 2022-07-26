@@ -53,14 +53,12 @@ When a resource conforms to a profile, the profile is specified inside the `prof
 > [!NOTE]
 > Profiles must build on top of the base resource and cannot conflict with the base resource. For example, if an element has a cardinality of 1..1, the profile cannot make it optional.
 
-Profiles are also specified by various Implementation Guides (IGs). Some common IGs are listed below. You can go to the specific IG site to learn more about the IG and the profiles defined within it.
+Profiles are also specified by various Implementation Guides (IGs). Some common IGs are listed below. For more information, visit the specific IG site to learn more about the IG and the profiles defined within it:
 
-|Name |URL
-|---- |----
-Us Core |<https://www.hl7.org/fhir/us/core/>
-CARIN Blue Button |<http://hl7.org/fhir/us/carin-bb/>
-Da Vinci Payer Data Exchange |<http://hl7.org/fhir/us/davinci-pdex/>
-Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
+- [US Core](https://www.hl7.org/fhir/us/core/)
+- [CARIN Blue Button](https://hl7.org/fhir/us/carin-bb)
+- [Da Vinci Payer Data Exchange](https://hl7.org/fhir/us/davinci-pdex)
+- [Argonaut](https://www.fhir.org/guides/argonaut/pd/)
 
 > [!NOTE]
 > The FHIR service does not store any profiles from implementation guides by default. You will need to load them into the FHIR service.

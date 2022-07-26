@@ -93,11 +93,11 @@ Here, a connection string to a queue storage account is declared in the `--secre
 
 ## Using secrets
 
-Application secrets are referenced via the `secretref` property. Secret values are mapped to application-level secrets where the `secretref` value matches the secret name declared at the application level.
+The secret value is mapped to the secret name declared at the application level as described in the [defining secrets](#defining-secrets) section.    The `passwordSecretRef` and `secretRef` parameters are used to reference the secret names as environment variables at the container level.  The `passwordSecretRef` provides a descriptive parameter name for secrets containing passwords.
 
 ## Example
 
-The following example shows an application that declares a connection string at the application level and is used throughout the configuration via `secretref`.
+The following example shows an application that declares a connection string at the application level and is used throughout the configuration via `secretRef`.
 
 # [ARM template](#tab/arm-template)
 
@@ -123,7 +123,7 @@ az containerapp create \
   --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
 ```
 
-Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
+Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretRef`.
 
 # [PowerShell](#tab/powershell)
 
@@ -139,7 +139,7 @@ az containerapp create `
   --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
 ```
 
-Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
+Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretRef`.
 
 ---
 

@@ -91,7 +91,7 @@ items:
   - name: Security controls
     href: concept-security-controls.md
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+    href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json
   - name: Azure Policy Security controls
     href: security-controls-policy.md
 - name: How-to guides
@@ -198,6 +198,8 @@ items:
       href: how-to-elastic-apm-java-agent-monitor.md
     - name: Analyze logs with ELK
       href: how-to-elastic-diagnostic-settings.md
+    - name: Health probes and graceful termination
+      href: how-to-configure-health-probes-graceful-termination.md
   - name: Network
     items:
     - name: Deploy Azure Spring Apps in a virtual network
@@ -263,11 +265,11 @@ items:
     - name: Migrate Standard and Basic to Enterprise
       href: how-to-migrate-standard-tier-to-enterprise-tier.md
     - name: Spring Cloud
-      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json
     - name: Spring Boot
-      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json
     - name: Tomcat
-      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json
 - name: Architecture
   items:
   - name: Reference architecture
@@ -277,17 +279,17 @@ items:
   - name: API breaking changes
     href: breaking-changes.md
   - name: Azure CLI plugin
-    href: /cli/azure/spring?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+    href: /cli/azure/spring?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json
   - name: Azure PowerShell
-    href: /powershell/module/az.springcloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+    href: /powershell/module/az.springcloud?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json
   - name: Azure Pipelines task
-    href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+    href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json
   - name: Resources
     href: resources.md
   - name: Frequently asked questions
     href: faq.md
   - name: REST API reference
-    href: /rest/api/azurespringcloud/?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+    href: /rest/api/azurespringcloud/?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: policy-reference.md

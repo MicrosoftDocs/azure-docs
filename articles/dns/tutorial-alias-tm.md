@@ -6,7 +6,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 06/10/2022
+ms.date: 06/20/2022
 ms.author: rohink
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS alias records to use my apex domain name with Traffic Manager.
@@ -102,7 +102,7 @@ Create two Windows Server 2019 virtual machines.
     | **Administrator account** |  |
     | Username  | Enter a username. |
     | Password  | Enter a password. |
-    | Confirm password  | Reenter password. |
+    | Confirm password  | Reenter the password. |
     | **Inbound port rules** |    |
     | Public inbound ports | Select **None**. |
 
@@ -135,20 +135,20 @@ Install IIS on both **Web-01** and **Web-02** virtual machines.
 1. Open *Web-01.rdp* file, and select **Connect**.
 1. Enter the username and password entered during virtual machine creation.
 1. On the **Server Manager** dashboard, select **Manage** then **Add Roles and Features**.
-1. Select **Server Roles** or select **Next** three times. On the **Server Roles** page, select **Web Server (IIS)**.
+1. Select **Server Roles** or select **Next** three times. On the **Server Roles** screen, select **Web Server (IIS)**.
 1. Select **Add Features**, and then select **Next**.
 
-    :::image type="content" source="./media/tutorial-alias-tm/iis-web-server-installation.png" alt-text="Screenshot of Add Roles and Features Wizard in Windows Server 2019 showing how to add the I I S Web Server.":::
+    :::image type="content" source="./media/tutorial-alias-tm/iis-web-server-installation.png" alt-text="Screenshot of Add Roles and Features Wizard in Windows Server 2019 showing how to install the I I S Web Server by adding the Web Server role.":::
 
 1. Select **Confirmation** or select **Next** three times, and then select **Install**. The installation process takes a few minutes to finish.
 1. After the installation finishes, select **Close**.
-1. Go to *C:\inetpub\wwwroot* and open *iisstart.htm* with Notepad or any editor of your choice.
-1. Replace all the text in the file with `Hello World from Web-01` and save the *.htm* file. 
-1. Open a web browser. Browse to **localhost** to verify that the default IIS welcome page appears.
+1. Go to *C:\inetpub\wwwroot* and open *iisstart.htm* with Notepad or any editor of your choice to edit the default IIS web page.
+1. Replace all the text in the file with `Hello World from Web-01` and save the changes to *iisstart.htm*. 
+1. Open a web browser. Browse to **localhost** to verify that the default IIS web page appears.
 
     :::image type="content" source="./media/tutorial-alias-tm/iis-on-web-01-vm-in-web-browser.png" alt-text="Screenshot of Internet Explorer showing the I I S Web Server default page of first virtual machine.":::
 
-1. Repeat previous steps to install IIS web server on **Web-02** virtual machine. Enter `Hello World from Web-02` in *iisstart.htm*.
+1. Repeat previous steps to install IIS web server on **Web-02** virtual machine. Use `Hello World from Web-02` to replace all the text in *iisstart.htm*.
 
 ### Add a DNS label
 

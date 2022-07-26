@@ -3,7 +3,7 @@ title: Security alerts for Azure AD roles in PIM - Azure AD | Microsoft Docs
 description: Configure security alerts for Azure AD roles Privileged Identity Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: mtillman
 manager: karenhoran
 editor: ''
 
@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/18/2022
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: mtillman
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 # Configure security alerts for Azure AD roles in Privileged Identity Management
 
-Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your Azure Active Directory (Azure AD) organization. When an alert is triggered, it shows up on the Privileged Identity Management dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
+Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your organization in Azure Active Directory (Azure AD), part of Microsoft Entra. When an alert is triggered, it shows up on the Privileged Identity Management dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
 
 ![Screenshot that shows the "Alerts" page with a list of alerts and their severity.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 

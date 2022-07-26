@@ -17,7 +17,7 @@ Azure Files provides two distinct billing models: provisioned and pay-as-you-go.
         <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/m5_-GsKv4-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     :::column-end:::
     :::column:::
-        This video is an interview that discusses the basics of the Azure Files billing model. It covers how to optimize Azure file shares to achieve the lowest costs possible and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
+        This video is an interview that discusses the basics of the Azure Files billing model. It covers how to optimize Azure file shares to achieve the lowest costs possible, and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
    :::column-end:::
 :::row-end:::
 
@@ -79,7 +79,7 @@ Once you purchase a capacity reservation, it will automatically be consumed by y
 For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
 
 ## Provisioned model
-Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. A provisioned model for storage is similar to buying an on-premises storage solution because when you provision an Azure file share with a certain amount of storage capacity, you pay for that storage capacity regardless of whether you use it or not. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
+Azure Files uses a provisioned model for premium file shares. In a provisioned billing model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. A provisioned model for storage is similar to buying an on-premises storage solution because when you provision an Azure file share with a certain amount of storage capacity, you pay for that storage capacity regardless of whether you use it or not. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
 
 The provisioned size of the file share can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a quota increase, you can decrease the share quota as many times as you like, until you increase it again. IOPS/throughput scale changes will be effective within a few minutes after the provisioned size change.
 
@@ -128,7 +128,7 @@ Share credits have three states:
 New file shares start with the full number of credits in its burst bucket. Burst credits won't be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
 
 ## Pay-as-you-go model
-Azure Files uses a pay-as-you-go business model for standard file shares. In a pay-as-you-go business model, the amount you pay is determined by how much you actually use, rather than based on a provisioned amount. At a high level, you pay a cost for the amount of logical data stored, and then an additional set of transactions based on your usage of that data. A pay-as-you-go model can be cost-efficient, because you don't need to overprovision to account for future growth or performance requirements. You also don't need to deprovision if your workload and data footprint vary over time. On the other hand, a pay-as-you-go model can also be difficult to plan as part of a budgeting process, because the pay-as-you-go billing model is driven by end-user consumption.
+Azure Files uses a pay-as-you-go billing model for standard file shares. In a pay-as-you-go billing model, the amount you pay is determined by how much you actually use, rather than based on a provisioned amount. At a high level, you pay a cost for the amount of logical data stored, and then an additional set of transactions based on your usage of that data. A pay-as-you-go model can be cost-efficient, because you don't need to overprovision to account for future growth or performance requirements. You also don't need to deprovision if your workload and data footprint vary over time. On the other hand, a pay-as-you-go model can also be difficult to plan as part of a budgeting process, because the pay-as-you-go billing model is driven by end-user consumption.
 
 ### Differences in standard tiers
 When you create a standard file share, you pick between the following tiers: transaction optimized, hot, and cool. All three tiers are stored on the exact same standard storage hardware. The main difference for these three tiers is their data at-rest storage prices, which are lower in cooler tiers, and the transaction prices, which are higher in the cooler tiers. This means:
@@ -144,9 +144,13 @@ Similarly, if you put a highly accessed workload in the cool tier, you'll pay a 
 Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.). For standard file shares, we recommend starting in the transaction optimized tier during the initial migration into Azure Files, and then picking the correct tier based on usage after the migration is complete. Transaction usage during migration is not typically indicative of normal transaction usage.
 
 ### What are transactions?
-Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.
+When you mount an Azure file share on a computer using SMB, the Azure file share is exposed on your computer as if it were local storage. This means that applications, scripts, and other programs that you have on your computer can access the files and folders on the Azure file share without needing to know that they are stored in Azure. 
 
-There are five basic transaction categories: write, list, read, other, and delete. All operations done via the REST API or SMB are bucketed into one of these categories:
+When you read or write to a file, the application you are using performs a series of API calls to the file system API provided by your operating system. These calls are then interpreted by your operating system into SMB protocol transactions, which are sent over the wire to Azure Files to fulfill. A task that the end user perceives as a single operation, such as reading a file from start to finish, may be translated into multiple SMB transactions served by Azure Files.
+
+As a principle, the pay-as-you-go billing model used by standard file shares bills based on usage. SMB and FileREST transactions made by the applications, scripts, and other programs used by your users represent usage of your file share and show up as part of your bill. The same concept applies to value-added cloud services that you might add to your share, such as Azure File Sync or Azure Backup. Transactions are grouped into five different transaction categories which have different prices based on their impact on the Azure file share. These categories are: write, list, read, other, and delete. 
+
+The following table shows the categorization of each transaction:
 
 | Transaction bucket | Management operations | Data operations |
 |-|-|-|

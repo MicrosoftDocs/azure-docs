@@ -1,13 +1,13 @@
 ---
 title: Proximity placement groups 
 description: Learn about using proximity placement groups in Azure.
-author: cynthn
-ms.author: cynthn
+author: mattmcinnes
+ms.author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: conceptual
 ms.date: 3/07/2021
-ms.reviewer: zivr
+ms.reviewer: 
 ---
 
 # Proximity placement groups

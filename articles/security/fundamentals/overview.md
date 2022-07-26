@@ -98,7 +98,7 @@ We don’t perform [penetration testing](./pen-testing.md) of your application f
 
 ### Web Application firewall
 
-The web application firewall (WAF) in [Azure Application Gateway](../../application-gateway/features.md#web-application-firewall) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+The web application firewall (WAF) in [Azure Application Gateway](../../application-gateway/features.md#web-application-firewall) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://owasp.org/www-project-top-ten/).
 
 ### Authentication and authorization in Azure App Service
 

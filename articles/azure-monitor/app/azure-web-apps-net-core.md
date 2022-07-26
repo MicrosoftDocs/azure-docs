@@ -26,7 +26,7 @@ Enabling monitoring on your ASP.NET Core based web applications running on [Azur
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is **not supported**. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
-See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
+See the [enable monitoring section](#enable-monitoring) below to begin setting up Application Insights with your App Service resource.
 
 # [Linux](#tab/Linux)
 
@@ -38,7 +38,7 @@ See the [enable monitoring section](#enable-monitoring ) below to begin setting 
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is **not supported**. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
-See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
+See the [enable monitoring section](#enable-monitoring) below to begin setting up Application Insights with your App Service resource.
 
 ---
  

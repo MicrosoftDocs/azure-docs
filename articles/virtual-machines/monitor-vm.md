@@ -71,7 +71,7 @@ For a list of the available metrics, see [Reference: Monitoring Azure virtual ma
 ## Analyze logs
 Data in Azure Monitor Logs is stored in a Log Analytics workspace, where it's separated into tables, each with its own set of unique properties. 
 
-VM insights store the collected data in logs, and the insights provide performance and map views that you can use to interactively analyze the data. You can work directly with this data to drill down further or perform custom analyses. For more information and to get sample queries for this data, see [How to query logs from VM insights](../azure-monitor/vm/vminsights-log-search.md).
+VM insights store the collected data in logs, and the insights provide performance and map views that you can use to interactively analyze the data. You can work directly with this data to drill down further or perform custom analyses. For more information and to get sample queries for this data, see [How to query logs from VM insights](../azure-monitor/vm/vminsights-log-query.md).
 
 To analyze other log data that you collect from your virtual machines, use [log queries](../azure-monitor/logs/get-started-queries.md) in [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md). Several [built-in queries](../azure-monitor/logs/queries.md) for virtual machines are available to use, or you can create your own. You can interactively work with the results of these queries, include them in a workbook to make them available to other users, or generate alerts based on their results.
 

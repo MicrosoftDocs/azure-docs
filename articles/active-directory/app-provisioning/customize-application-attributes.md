@@ -199,8 +199,8 @@ Use the steps below to provision roles for a user to your application. Note that
 
 - **SingleAppRoleAssignment** 
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
-  - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from: (roles[primary eq "True"].display, roles[primary eq "True].type, and roles[primary eq "True"].value). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.  
-  
+  - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from (`roles[primary eq "True"].display`, `roles[primary eq "True"].type`, and `roles[primary eq "True"].value`). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.
+
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Things to consider**
     - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.

@@ -3,22 +3,22 @@ title: Assign Azure resource roles in Privileged Identity Management - Azure Act
 description: Learn how to assign Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: mtillman
 manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/18/2022
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: mtillman
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Assign Azure resource roles in Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can manage the built-in Azure resource roles, as well as custom roles, including (but not limited to):
+With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, can manage the built-in Azure resource roles, as well as custom roles, including (but not limited to):
 
 - Owner
 - User Access Administrator

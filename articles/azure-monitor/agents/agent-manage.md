@@ -5,12 +5,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/06/2022
+ms.reviewer: luki
 
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
 
 After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ## Upgrading agent
 

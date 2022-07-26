@@ -30,7 +30,7 @@ In this article, you learn how to use the new REST APIs to:
 ## Prerequisites
 
 - An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://azure.microsoft.com/free/).
-- An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An [Azure Machine Learning workspace](quickstart-create-resources.md).
 - A service principal in your workspace. Administrative REST requests use [service principal authentication](how-to-setup-authentication.md#use-service-principal-authentication).
 - A service principal authentication token. Follow the steps in [Retrieve a service principal authentication token](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token) to retrieve this token. 
 - The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
@@ -145,7 +145,7 @@ If you aren't going use the deployment, you should delete it with the below comm
 * Learn to [Troubleshoot online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)
 * Learn how to [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 * Learn how to [monitor online endpoints](how-to-monitor-online-endpoints.md).
-* Learn [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md).
+* Learn [safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md).
 * [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
 * [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * Learn about limits on managed online endpoints in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).

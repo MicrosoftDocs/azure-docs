@@ -3,10 +3,9 @@ title: Troubleshooting Azure Monitor metric charts
 description: Troubleshoot the issues with creating, customizing, or interpreting metric charts
 author: vgorbenko
 services: azure-monitor
-
-ms.topic: conceptual
-ms.date: 04/23/2019
-ms.author: vitalyg
+ms.reviewer: vitalyg
+ms.topic: troubleshooting
+ms.date: 06/09/2022
 ---
 
 # Troubleshooting metrics charts
@@ -53,6 +52,18 @@ Collection of **Guest (classic)** metrics requires configuring the Azure Diagnos
 
 **Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). See also the troubleshooting steps for [Cannot pick Guest (classic) namespace and metrics](#cannot-pick-guest-namespace-and-metrics)
 
+### Chart is segmented by a property that the metric doesn't define
+
+If you segment a chart by a property that the metric doesn't define, the chart displays no content.
+
+**Solution:** Clear the segmentation (splitting), or choose a different property.
+
+### Filter on another chart excludes all data
+
+Filters apply to all of the charts on the pane. If you set a filter on another chart, it could exclude all data from the current chart.
+
+**Solution:** Check the filters for all the charts on the pane. If you want different filters on different charts, create the charts in different panes. Save the charts as separate favorites. If you want, you can pin the charts to the dashboard so you can see them together.
+
 ## “Error retrieving data” message on dashboard
 
 This problem may happen when your dashboard was created with a metric that was later deprecated and removed from Azure. To verify that it is the case, open the **Metrics** tab of your resource, and check the available metrics in the metric picker. If the metric is not shown, the metric has been removed from Azure. Usually, when a metric is deprecated, there is a better new metric that provides with a similar perspective on the resource health.
@@ -96,6 +107,18 @@ By default, Guest (classic) metrics are stored in Azure Storage account, which y
 1. Verify that storage account isn't protected by the firewall. Azure portal needs access to storage account in order to retrieve metrics data and plot the charts.
 
 1. Use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+
+## Log and queries are disabled for Drill into Logs
+
+To view recommended logs and queries, you must route your diagnostic logs to Log Analytics.
+
+**Solution:** To route your diagnostic logs to Log Analytics, see [Diagnostic settings in Azure Monitor](./diagnostic-settings.md).
+
+## Only the Activity logs appear in Drill into Logs
+
+The Drill into Logs feature is only available for select resource providers. By default, activity logs are provided.
+
+**Solution:** This behavior is expected for some resource providers.
 
 ## Next steps
 

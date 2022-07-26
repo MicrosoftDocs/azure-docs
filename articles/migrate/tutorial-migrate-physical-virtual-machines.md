@@ -1,7 +1,7 @@
 ---
 title: Migrate machines as physical server to Azure with Azure Migrate.
 description: This article describes how to migrate physical machines to Azure with Azure Migrate.
-author: rahulg1190
+author: rahug1190
 ms.author: rahugup
 ms.manager: bsiva
 ms.topic: tutorial
@@ -42,7 +42,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-[Review](./agent-based-migration-architecture.md) the migration architecture.
+- [Review](./agent-based-migration-architecture.md) the migration architecture.
+- [Review](../site-recovery/migrate-tutorial-windows-server-2008.md#limitations-and-known-issues) the limitations related to migrating Windows Server 2008 servers to Azure.
 
 ## Prepare Azure
 
@@ -72,6 +73,8 @@ Assign the Virtual Machine Contributor role to the Azure account. This provides 
 - Write to an Azure managed disk.
 
 ### Create an Azure network
+> [!IMPORTANT]
+> Virtual Networks (VNets) are a regional service, so make sure you create your VNet in the desired target Azure Region. For example: if you are planning on replicating and migrating Virtual Machines from your on-premises environment to the East US Azure Region, then your target VNet **must be created** in the East US Region. To connect VNets in different regions refer to the [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) guide.
 
 [Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.
 
@@ -258,8 +261,6 @@ Now, select machines for migration.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the Availability Zone to use.
     - **Availability Set**: Specify the Availability Set to use.
-
-![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
 15. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.

@@ -5,7 +5,7 @@ ms.service: iot-central
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ---
 
@@ -166,7 +166,7 @@ Enter a job name and description, and then select **Rerun job**. A new job is su
 
 ## Import devices
 
-To register a large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/bulk-upload-devices). The CSV file should include the following column headers:
+To register a large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://github.com/Azure-Samples/iot-central-docs-samples/tree/main/bulk-upload-devices). The CSV file should include the following column headers:
 
 | Column | Description |
 | - | - |

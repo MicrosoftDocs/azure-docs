@@ -17,7 +17,7 @@ ms.custom: devx-track-js
 Use the Image Analysis client library for JavaScript to analyze a remote image for content tags.
 
 
-> [!NOTE]
+> [!TIP]
 > You can also analyze a local image. See the [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) methods, such as **describeImageInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ImageAnalysisQuickstart.js) for scenarios involving local images.
 
 > [!TIP]
@@ -79,7 +79,7 @@ Use the Image Analysis client library for JavaScript to analyze a remote image f
 1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
-   > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 1. Run the application with the `node` command on your quickstart file.
 

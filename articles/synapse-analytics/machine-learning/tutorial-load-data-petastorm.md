@@ -13,7 +13,7 @@ ms.author: midesa
 
 Petastorm is an open source data access library which enables single-node or distributed training of deep learning models. This library enables training directly from datasets in Apache Parquet format and datasets that have already been loaded as an Apache Spark DataFrame. Petastorm supports popular training frameworks such as Tensorflow and PyTorch.
 
-For more information about Petastorm, you can visit the [Petastorm GitHub page](https://github.com/uber/petastorm) or the [Petastorm API documentation](https://petastorm.readthedocs.io/latest).
+For more information about Petastorm, you can visit the [Petastorm GitHub page](https://github.com/uber/petastorm) or the [Petastorm API documentation](https://petastorm.readthedocs.io/en/latest).
 
 ## Prerequisites
 

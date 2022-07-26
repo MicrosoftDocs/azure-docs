@@ -51,8 +51,6 @@
       href: tutorial-use-mqtt.md
     - name: Connect a device module
       href: tutorial-migrate-device-to-module.md
-    - name: Preview — Connect and analyze data with Time Series Insights Gen2
-      href: tutorial-configure-tsi.md
 - name: Concepts
   items:
   - name: Connection options for device developers
