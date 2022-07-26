@@ -28,21 +28,21 @@ Follow these steps to move the replicated items from classic architecture to mod
 
 1. Navigate to the classic Recovery Services vault and open **Replicated items**.
 
-   :::image type="Replicated items" source="/media/migrate-tool/replicated-items-inline.png" alt-text="Screenshot showing replicated items." lightbox="/media/migrate-tool/replicated-items-expanded.png":::
+   :::image type="Replicated items" source="media/migrate-tool/replicated-items-inline.png" alt-text="Screenshot showing replicated items." lightbox="media/migrate-tool/replicated-items-expanded.png":::
 
 2. Select **Upgrade to modernized VMware replication**. The **Pre-requisites** details are displayed. Ensure you read through the prerequisites and then select **Next** to proceed to configure the migration settings.
 
-    :::image type="Pre-requisites" source="/media/migrate-tool/prerequisites-inline.png" alt-text="Screenshot showing prerequisites." lightbox="/media/migrate-tool/prerequisites-expanded.png":::
+    :::image type="Pre-requisites" source="media/migrate-tool/prerequisites-inline.png" alt-text="Screenshot showing prerequisites." lightbox="media/migrate-tool/prerequisites-expanded.png":::
 
 3. Select the modernized vault you plan to move to, machines from the current vault which will be moved to the modernized vault and an appliance for each of them.
 
-   :::image type="Migration settings" source="/media/migrate-tool/migration-settings-inline.png" alt-text="Screenshot showing migration settings." lightbox="/media/migrate-tool/migration-settings-expanded.png":::
+   :::image type="Migration settings" source="media/migrate-tool/migration-settings-inline.png" alt-text="Screenshot showing migration settings." lightbox="media/migrate-tool/migration-settings-expanded.png":::
 
 4. Select **Next** to review and make sure to check **Maximum migration time**.
 
 5. Select **I understand the risk. Proceed to move selected replicated item(s)** check box.  
 
-   :::image type="review" source="/media/migrate-tool/review-inline.png" alt-text="Screenshot showing review." lightbox="/media/migrate-tool/review-expanded.png":::
+   :::image type="review" source="media/migrate-tool/review-inline.png" alt-text="Screenshot showing review." lightbox="media/migrate-tool/review-expanded.png":::
   
 6. Select **Migrate**.
 
