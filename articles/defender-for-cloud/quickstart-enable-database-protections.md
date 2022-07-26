@@ -39,7 +39,7 @@ You must have:
 
 **To enable Defender for Databases on a specific subscription**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 

@@ -157,7 +157,7 @@ The following tables list the operating systems that are supported by the Azure 
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
-| AlmaLinux                                                   | X | X |   |
+| AlmaLinux 8.*                                               | X | X |   |
 | Amazon Linux 2017.09                                        |   | X |   |
 | Amazon Linux 2                                              |   | X |   |
 | CentOS Linux 8                                              | X <sup>3</sup> | X |   |
@@ -179,7 +179,7 @@ The following tables list the operating systems that are supported by the Azure 
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
-| Rocky Linux                                                 | X | X |   |
+| Rocky Linux 8.*                                             | X | X |   |
 | SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
