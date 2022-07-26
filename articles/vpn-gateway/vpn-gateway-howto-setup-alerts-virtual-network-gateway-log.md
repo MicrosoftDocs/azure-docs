@@ -17,6 +17,8 @@ Azure Monitor provides the ability to set up alerts for Azure resources.
 
 For steps, see [Create Azure Monitor log alert rules and manage alert instances](../azure-monitor/alerts/alerts-log.md) and [Tutorial: Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md).
 
+## Resource logs
+
 The following resource logs are available in Azure:
 
 |***Name*** | ***Description*** |

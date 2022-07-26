@@ -16,6 +16,8 @@ Azure Monitor provides the ability to set up alerts for Azure resources. You can
 
 For steps, see [Tutorial: Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
+## Metrics
+
 | **Metric**                                 | **Unit**     | **Granularity**     | **Description**                                                                         |
 | -------------------------------------------| ------------ | ------------------- | --------------------------------------------------------------------------------------- |
 | **BGP Peer Status**                        | Count        | 5 minutes           | Average BGP connectivity status per peer and per instance.                              |
