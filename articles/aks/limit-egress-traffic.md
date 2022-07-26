@@ -465,7 +465,7 @@ You'll define the outbound type to use the UDR that already exists on the subnet
 > 
 > For user defined routing (UDR), system-assigned identity only supports CNI network plugin. Because for kubelet network plugin, AKS cluster needs permission on route table as kubernetes cloud-provider manages rules. 
 
-You can create an AKS cluster using a system-assigned managed identitywith CNI network plugin by running the following CLI command.
+You can create an AKS cluster using a system-assigned managed identity with CNI network plugin by running the following CLI command.
 
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
