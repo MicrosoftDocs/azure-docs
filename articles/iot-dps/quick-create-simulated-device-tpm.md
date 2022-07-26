@@ -15,7 +15,7 @@ ms.custom: mvc, amqp, mqtt, mode-other
 # Quickstart: Provision a simulated TPM device
 
 ::: zone pivot="programming-language-python"
-Trusted Platform Module (TPM) attestation isn't supported for Python. With Python, you can [provision a device using symmetric keys](quick-create-simulated-device-symm-key.md) or [X.509 certificates](quick-create-simulated-device-x509).
+Trusted Platform Module (TPM) attestation isn't supported in the Python SDK. With Python, you can [provision a device using symmetric keys](quick-create-simulated-device-symm-key.md) or [X.509 certificates](quick-create-simulated-device-x509).
 ::: zone-end
 ::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 
@@ -751,13 +751,13 @@ In this quickstart, you've created a TPM simulated device on your machine and pr
 ::: zone-end
 ::: zone pivot="programming-language-ansi-c, programming-language-csharp"
 > [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](/azure/iot-dps/quick-enroll-device-tpm&pivots=programming-language-csharp)
+> [Create an individual enrollment for a TPM device using the DPS service SDK](/azure/iot-dps/quick-enroll-device-tpm?pivots=programming-language-csharp)
 ::: zone-end
 ::: zone pivot="programming-language-nodejs"
 > [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](/azure/iot-dps/quick-enroll-device-tpm&pivots=programming-language-nodejs)
+> [Create an individual enrollment for a TPM device using the DPS service SDK](/azure/iot-dps/quick-enroll-device-tpm?pivots=programming-language-nodejs)
 ::: zone-end
 ::: zone pivot="programming-language-java"
 > [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](/azure/iot-dps/quick-enroll-device-tpm&pivots=programming-language-java)
+> [Create an individual enrollment for a TPM device using the DPS service SDK](/azure/iot-dps/quick-enroll-device-tpm?pivots=programming-language-java)
 ::: zone-end
