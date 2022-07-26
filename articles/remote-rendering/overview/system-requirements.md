@@ -61,8 +61,6 @@ For troubleshooting network issues, refer to the [Troubleshooting Guide](../reso
 
 ### Network firewall
 
-### SDK version >= 0.1.76
-
 Remote Rendering virtual machines use shared IP addresses from the following IP ranges:
 
 | Name             | Region         | IP prefix         |
@@ -83,16 +81,6 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block thes
 | Port              | Protocol  | Allow    |
 |-------------------|---------- |----------|
 | 49152-65534       | TCP / UDP | Outgoing |
-
-#### SDK version < 0.1.76
-
-Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
-
-| Port              | Protocol | Allow    | Description |
-|-------------------|----------|----------|-------------|
-| 50051             | TCP      | Outgoing | Initial connection (HTTP handshake) |
-| 8266              | UDP      | Outgoing | Data transfer |
-| 5000, 5433, 8443  | TCP      | Outgoing | Required for [ArrInspector tool](../resources/tools/arr-inspector.md)|
 
 ## Software
 
