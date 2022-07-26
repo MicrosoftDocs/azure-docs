@@ -18,10 +18,9 @@ The following SD-WAN connectivity Network Virtual Appliances can be deployed in 
 The following security Network Virtual Appliance can be deployed in the Virtual WAN hub. This Virtual Appliance can be used to inspect all North-South, East-West, and Internet-bound traffic.
 |Partners|Configuration/How-to/Deployment guide| Dedicated support model |
 |---|---| --- | 
-| [Check Point CloudGuard Network Security (CGNS) Firewall](https://pages.checkpoint.com/cgns-vwan-hub-ea.html) | To access the preview of Check Point CGNS Firewall deployed in the Virtual WAN hub, reach out to DL-vwan-support-preview@checkpoint.com with your subscription ID. | No|
-
+|[Check Point CloudGuard Network Security (CGNS) Firewall](https://pages.checkpoint.com/cgns-vwan-hub-ea.html) | To access the preview of Check Point CGNS Firewall deployed in the Virtual WAN hub, reach out to DL-vwan-support-preview@checkpoint.com with your subscription ID. | No |
 
 The following dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances can be deployed in the Virtual WAN hub. These Virtual Appliances can be used to inspect all North-South, East-West, and Internet-bound traffic.
 |Partners|Configuration/How-to/Deployment guide| Dedicated support model |
 |---|---| --- | 
-| [Fortinet Next-Generation Firewall (NGFW)](https://www.fortinet.com/products/next-generation-firewall) | To access the preview of Fortinet NGFW deployed in the Virtual WAN hub, reach out to azurevwan@fortinet.com with your subscription ID. For more information about the offering, see the [Fortinet blog post](https://www.fortinet.com/blog/business-and-technology/fortigate-vm-first-ngfw-and-secure-sd-wan-integration-in-microsoft-azure-virtual-wan). | No|
+| [Fortinet Next-Generation Firewall (NGFW)](https://www.fortinet.com/products/next-generation-firewall) | To access the preview of Fortinet NGFW deployed in the Virtual WAN hub, reach out to azurevwan@fortinet.com with your subscription ID. For more information about the offering, see the [Fortinet blog post](https://www.fortinet.com/blog/business-and-technology/fortigate-vm-first-ngfw-and-secure-sd-wan-integration-in-microsoft-azure-virtual-wan). | No |
