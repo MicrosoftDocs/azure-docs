@@ -39,13 +39,13 @@ Even though the correct H265 codec might be installed, security properties on th
 
 Azure Remote Rendering currently only supports **HoloLens 2** and Windows desktop as a target device. See the [platform limitations](../reference/limits.md#platform-limitations) section.
 
-On desktop, it is required to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+On desktop, it's required to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
 
 It's important to use the latest HEVC codec, as newer versions have significant improvements in latency. To check which version is installed on your device:
 
 1. Start the **Microsoft Store**.
-1. Click the **"Library"** button in the bottom left.
-1. Find **HEVC Video Extensions from Device Manufacturer** in the list. If it is not listed under updates, the most recent version is already installed. Otherwise click the **Get Updates** button and wait for it to install.
+1. Select the **"Library"** button in the bottom left.
+1. Find **HEVC Video Extensions from Device Manufacturer** in the list. If it isn't listed under updates, the most recent version is already installed. Otherwise select the **Get Updates** button and wait for it to install.
 1. Make sure the listed codec has at least version **1.0.21821.0**.
     1. Select the **HEVC Video Extensions from Device Manufacturer** entry from the list.
     1. Scroll down to the **Additional Information** section.
