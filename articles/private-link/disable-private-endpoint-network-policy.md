@@ -98,14 +98,14 @@ This section describes how to enable subnet private endpoint policies using an A
           "properties": { 
                 "addressSpace": { 
                      "addressPrefixes": [ 
-                          "10.0.0.0/16" 
+                          "10.1.0.0/16" 
                         ] 
                   }, 
                   "subnets": [ 
                          { 
                                 "name": "default", 
                                 "properties": { 
-                                    "addressPrefix": "10.0.0.0/24", 
+                                    "addressPrefix": "10.1.0.0/24", 
                                     "privateEndpointNetworkPolicies": "Enabled" 
                                  } 
                          } 
@@ -182,14 +182,14 @@ This section describes how to disable subnet private endpoint policies using an 
           "properties": { 
                 "addressSpace": { 
                      "addressPrefixes": [ 
-                          "10.0.0.0/16" 
+                          "10.1.0.0/16" 
                         ] 
                   }, 
                   "subnets": [ 
                          { 
                                 "name": "default", 
                                 "properties": { 
-                                    "addressPrefix": "10.0.0.0/24", 
+                                    "addressPrefix": "10.1.0.0/24", 
                                     "privateEndpointNetworkPolicies": "Disabled" 
                                  } 
                          } 
