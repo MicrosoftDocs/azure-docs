@@ -40,7 +40,7 @@ You choose the source server and can select up to eight databases from it. This 
 
 The following diagram shows the process flow for migration from Single Server to Flexible Server via the migration tool.
 
-:::image type="content" source="./media/concepts-single-to-flexible/concepts-flow-diagram.png" alt-text="Diagram that shows the migration from Single Server to Flexible Server." lightbox="./media/concepts-single-to-flexible/concepts-flow-diagram.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/concepts-flow-diagram.png" alt-text="Diagram that shows the Migration from Single Server to Flexible Server." lightbox="./media/concepts-single-to-flexible/concepts-flow-diagram.png":::
     
 The steps in the process are:
 
@@ -118,17 +118,17 @@ Before you start using the migration tool:
 
 - If you are using any PostgreSQL extensions on the Single Server, it has to allow-listed on the Flexible Server before initiating the migration using the steps below:
 
-1. Use select command in the Single Server environment to list all the extensions in use.
+  1. Use select command in the Single Server environment to list all the extensions in use.
 
-    ```
-    select * from pg_extension
-    ```
+      ```
+      select * from pg_extension
+      ```
 
-The output of the above command gives the list of extensions currently active on the Single Server
+      The output of the above command gives the list of extensions currently active on the Single Server
 
-2. Enable the list of extensions obtained from step 1 in the Flexible Server. Search for the 'azure.extensions' parameter by selecting the Server Parameters tab in the side pane. Select the extensions that are to be allow-listed and click Save.
+  2. Enable the list of extensions obtained from step 1 in the Flexible Server. Search for the 'azure.extensions' parameter by selecting the Server Parameters tab in the side pane. Select the extensions that are to be allow-listed and click Save.
 
-  :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-azure-extensions.png" alt-text="Screenshot of PG extension support in the Flexible Server Azure portal." lightbox="./media/concepts-single-to-flexible/single-to-flex-azure-extensions.png":::
+      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-azure-extensions.png" alt-text="Screenshot of PG extension support in the Flexible Server Azure portal." lightbox="./media/concepts-single-to-flexible/single-to-flex-azure-extensions.png":::
 
 ### Data and schema migration
 

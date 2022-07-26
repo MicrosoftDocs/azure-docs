@@ -46,7 +46,7 @@ An Azure AD app helps with role-based access control (RBAC). The migration infra
 
 9. In the **Value** column, copy the Azure AD app secret. You can copy the secret only during creation. If you miss this step, you'll need to delete the secret and create another one for future tries.
     
-    :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-client-secret-value.png" alt-text="Screenshot of copying a client secret." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-client-secret-value.png":::
+    :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-client-secret-value.png" alt-text="Screenshot that displays copying of a client secret." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-client-secret-value.png":::
 
 ## Add contributor privileges to an Azure resource
 
@@ -78,7 +78,7 @@ The following steps add contributor privileges to a Flexible Server target. Repe
 
 4.  On the **Members** tab, keep the default option of **User, group, or service principal** for **Assign access to**. Click **Select Members**, search for your Azure AD app, and then click **Select**.
     
-    :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-review-and-assign.png" alt-text="Screenshot of the Members tab." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-review-and-assign.png":::
+    :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-review-and-assign.png" alt-text="Screenshot of the Members tab to be added as Contributor." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-review-and-assign.png":::
 
  
 ## Next steps
