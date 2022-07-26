@@ -1,9 +1,13 @@
 ---
 title: Monitor Key Vault with Key Vault insights | Microsoft Docs
 description: This article describes the Key Vault insights. 
+author: msmbaldwin
+ms.author: mbaldwin
 services: azure-monitor 
 ms.topic: conceptual
+ms.service: key-vault
 ms.date: 09/10/2020
+ms.custom: subject-monitoring
 
 ---
 
@@ -18,7 +22,7 @@ Before jumping into the experience, you should understand how it presents and vi
 -   **Drill down analysis** of a particular key vault to perform detailed analysis.
 -    **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save your own workbook. Charts in the workbook can be pinned to Azure dashboards.
 
-Key Vault insights combines both logs and metrics to provide a global monitoring solution. All users can access the metrics-based monitoring data, however the inclusion of logs-based visualizations may require users to [enable logging of their Azure Key Vault](../../key-vault/general/logging.md).
+Key Vault insights combines both logs and metrics to provide a global monitoring solution. All users can access the metrics-based monitoring data, however the inclusion of logs-based visualizations may require users to [enable logging of their Azure Key Vault](./general/logging.md).
 
 ## View from Azure Monitor
 
@@ -54,7 +58,7 @@ There is conditional color-coding or heatmaps for columns in the workbook that r
 
 The workbook displays Successes (2xx status codes), Authentication Errors (401/403 status codes), Throttling (429 status codes), and Other Failures (4xx status codes).
 
-To better understand what each of the status codes represent, we recommend reading through the documentation on [Azure Key Vault status and response codes](../../key-vault/general/authentication-requests-and-responses.md).
+To better understand what each of the status codes represent, we recommend reading through the documentation on [Azure Key Vault status and response codes](./general/authentication-requests-and-responses.md).
 
 ## View from a Key Vault resource
 
@@ -89,7 +93,7 @@ The Operations workbook allows users to deep dive into the full details of all t
 Users can also scope out views based on specific transaction types in the upper table, which dynamically updates the lower table, where users can view full operation details in a pop up context pane.
 
 >[!NOTE]
-> Note that users must have the diagnostic settings enabled to view this workbook. To learn more about enabling diagnostic setting, read more about [Azure Key Vault Logging](../../key-vault/general/logging.md).
+> Note that users must have the diagnostic settings enabled to view this workbook. To learn more about enabling diagnostic setting, read more about [Azure Key Vault Logging](./general/logging.md).
 
 ## Pin and export
 
@@ -127,13 +131,13 @@ You can configure the multi-subscription and key vault Overview or Failures work
 
 ## Troubleshooting
 
-For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
 
 This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Key Vault insights. Use the list below to locate the information relevant to your specific issue.
 
 ### Resolving performance issues or failures
 
-To help troubleshoot any key vault related issues you identify with Key Vault insights, see the [Azure Key Vault documentation](../../key-vault/index.yml).
+To help troubleshoot any key vault related issues you identify with Key Vault insights, see the [Azure Key Vault documentation](index.yml).
 
 ### Why can I only see 200 key vaults
 
@@ -163,4 +167,4 @@ You can edit the existing workbook, through the use of the edit mode, and then s
 
 ## Next steps
 
-Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md).
+Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).
