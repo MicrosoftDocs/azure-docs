@@ -1,6 +1,6 @@
 ---
-title: Replicate a View Designer workspace
-description: Sample JSON to create a workbook that looks like a View Designer vertical workspace.
+title: Sample JSON to convert a View Designer workspace
+description: Sample JSON to create a workbook that looks like a View Designer workspace.
 services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -9,9 +9,9 @@ ms.date: 07/22/2022
 ms.reviewer: gardnerjr 
 ---
 
-# Convert a View Designer workspace to a workbook
+# Sample JSON to convert a View Designer workspace
 
-To convert the View Designer workbook, copy and paste the following JSON into the Advanced editor, using the </> symbol in the toolbar.
+To convert the View Designer workspace, copy and paste the following JSON into the Advanced editor, using the </> symbol in the toolbar.
 
 ## Vertical workspace
 

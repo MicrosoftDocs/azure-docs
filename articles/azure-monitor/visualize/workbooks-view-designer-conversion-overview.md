@@ -10,7 +10,7 @@ ms.reviewer: gardnerjr
 
 ---
 
-# Convert view designer dashboards to workbooks
+# Transition from View Designer views to Workbooks
 [View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. View designer has been transitioned to workbooks to provide a flexible canvas for data analysis and creation of rich visual reports within the Azure portal. This article helps you make the transition from View designer to Workbooks. While this article describes simple steps to recreate some of the commonly used view designer views, workbooks allow you to create and design any of your own custom visualizations and metrics.
 
 [Workbooks](../vm/vminsights-workbooks.md) combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Team members with the same access to Azure resources are also able to edit workbooks.
@@ -23,15 +23,15 @@ You can use workbooks to:
  - Report the impact of an outage on the usage of your VM, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
 See the [getting started](workbooks-getting-started.md) article for common workbook tasks such as creating, opening or saving a workbook.
-## Why convert view designer dashboards to workbooks?
+## Why move from view designer dashboards to workbooks?
 
-View designer offers the ability to generate different query-based views and visualizations but many high-level customizations remain limited, such as formatting the grids and tile layouts or selecting alternative graphics to represent your data. View designer is restricted to a total of nine distinct tiles to represent your data.
+With View designer, you can generate different query-based views and visualizations, but many high-level customizations remain limited, such as formatting the grids and tile layouts or selecting alternative graphics to represent your data. View designer is restricted to a total of nine distinct tiles to represent your data.
+
+View designer has a fixed static style of representation, while workbooks enable freedom to include and modify how the data is represented.
 
 Workbooks is a platform that unlocks the full potential of your data. workbooks not only retain all the capabilities, but also supports more functionality through text, metrics, parameters, and much more. For example, workbooks allow users to consolidate dense grids and add search bars to easily filter and analyze the data.
 
-View designer has a fixed static style of representation, while workbooks enable freedom to include and modify how the data is represented. 
-
-These workbooks features provide additional funtionality that was not available in View Designer.
+These workbooks features provide additional functionality that was not available in View Designer.
 - Supports both logs and metrics.
 - Allows both personal views for individual access control and shared workbooks views.
 - Custom layout options with tabs, sizing, and scaling controls.
@@ -42,7 +42,6 @@ These workbooks features provide additional funtionality that was not available 
 This screenshot is from the [Workspace usage template](https://go.microsoft.com/fwlink/?linkid=874159&resourceId=Azure%20Monitor&featureName=Workbooks&itemId=community-Workbooks%2FAzure%20Monitor%20-%20Workspaces%2FWorkspace%20Usage&workbookTemplateName=Workspace%20Usage&func=NavigateToPortalFeature&type=workbook) and shows an example of what you can create with workbooks:
 
 :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbook-template-example.jpg" alt-text="Screenshot of a workbook template.":::
-
 ## Replicate common View Designer views
 
 While View Designer manages views through the workspace summary, workbooks have a gallery that displays saved workbooks and templates for your workspace. Users can utilize the gallery to access, modify, and create views.
@@ -52,13 +51,13 @@ While View Designer manages views through the workspace summary, workbooks have 
 The examples below show commonly used View Designer styles and how they can be converted to workbooks.
 ### Vertical workspace
 
-Use the [example JSON](workbooks-view-designer-conversions.md#vertical-workspace) to create a workbook that looks similar to a View Designer vertical workspace.
+Use the [sample JSON](workbooks-view-designer-conversions.md#vertical-workspace) to create a workbook that looks similar to a View Designer vertical workspace.
 
 :::image type="content" source="media/workbooks-view-designer-conversion-overview/workbooks-view-designer-vertical.png" alt-text="Screenshot of a workbook that looks like a vertical View Designer layout.":::
 
 ### Tabbed workspace
 
-Use the [example JSON](workbooks-view-designer-conversions.md#vertical-workspace) to create a workbook that looks similar to a View Designer tabbed workspace.
+Use the [sample JSON](workbooks-view-designer-conversions.md#tabbed-workspace) to create a workbook that looks similar to a View Designer tabbed workspace.
 
 This is a workbook with a data type distribution tab:
 
