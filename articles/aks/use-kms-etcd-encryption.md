@@ -132,7 +132,7 @@ After changing the key ID (including key name and key version), you could use [a
 > Remember to update all secrets after key rotation. Otheriwse, the secrets will be unaccessable if the old keys are not existing or working.
 
 ```azurecli-interactive
-az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $NewKEY_ID 
+az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $NEW_KEY_ID 
 ```
 
 Use below command to update all secrets. Otherwise, the old secrets are still encrypted with the previous key. 
