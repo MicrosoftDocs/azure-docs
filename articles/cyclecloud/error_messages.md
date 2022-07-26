@@ -21,6 +21,10 @@ A list of error messages one encounters in CycleCloud
 
 [Staging Resources (Unable to determine AccessKey for URL)](common-issues/staging_resources.md)
 
+[Staging Resources (pogo.exceptions.FrameworkError: 'az://.../blobs' is not a directory)](common-issues/staging_resources.md)
+
+[Staging Resources (pogo.exceptions.FrameworkError: Cannot sync from directory to file!)](common-issues/staging_resources.md)
+
 [Staging resources (No JSON object could be decoded)](common-issues/azure_credentials.md)
 
 [Staging resources (Azure account credentials are not valid)](common-issues/azure_credentials.md)
