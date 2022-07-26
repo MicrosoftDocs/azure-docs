@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://auth.factset.com`
 
     b. In the **Reply URL** text box, type the URL:
-    `https://login.factset.com/services/saml2/`
+    `https://auth.factset.com/sp/ACS.saml2`
 
     c. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.factset.com/services/saml2/`
