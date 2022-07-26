@@ -2,8 +2,8 @@
 title: Set up private endpoint with private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 10/26/2021
-ms.author:tejaswikolli
+ms.date: 7/26/2022
+ms.author: tejaswikolli
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
@@ -343,7 +343,7 @@ Consider the following options to execute the `az acr build` successfully.
 > [!IMPORTANT]
 > The container registry does not support enabling both private link and service endpoint features configured from a virtual network.
 
-Once the registry has public access disabled, private link configured, you can disable the service endpoint access to a container registry from a virtual network by [removing virtual network rules](./container-registry-vnet.md#remove-network-rules).
+Once the registry has public access disabled and private link configured, you can disable the service endpoint access to a container registry from a virtual network by [removing virtual network rules.](container-registry-vnet.md#remove-network-rules)
 
 * Run [`az acr network-rule list`](/cli/azure/acr/network-rule#az-acr-network-rule-list) command to list the existing network rules.
 * Run [`az acr network-rule remove`](/cli/azure/acr/network-rule#az-acr-network-rule-remove) command to remove the network rule. 
