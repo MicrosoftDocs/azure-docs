@@ -116,11 +116,10 @@ Append blobs are comprised of blocks of data and optimized for data append opera
 
 The **AllowProtectedAppendWrites** property setting allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If this setting is enabled, you can create an append blob directly in the policy-protected container and then continue to add new blocks of data to the end of the append blob with the Append Block operation. Only new blocks can be added; any existing blocks cannot be modified or deleted. Enabling this setting does not affect the immutability behavior of block blobs or page blobs. 
 
-This property is available only to time-based retention policies, and only to policies that are defined at the container-level policy scope. This property is not available to policies that are defined at the version-level policy scope.
-
 The **AllowProtectedAppendWritesAll** property setting provides the same permissions as the **AllowProtectedAppendWrites** property and adds the ability to write new blocks to a block blob. There are no public APIs that enable you to to do this directly. This setting was introduced as a means to support the way that certain Microsoft tools implement append blobs. If your workloads depend on those tools, you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob. 
 
-This property is available to both time-based retention and legal hold policies, but it is available only to policies that are defined at the container-level policy scope. This property is not available to policies that are defined at the version-level policy scope.
+> [!NOTE]
+> This property is available only for container-level policies. This property is not available for version-level policies.
 
 Append blobs remain in the immutable state for the duration of the *effective* retention period. Since new data can be appended beyond the initial creation of the append blob, there is a slight difference in how the retention period is determined. The effective retention is the difference between append blob's last modification time and the user-specified retention interval. Similarly, when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
