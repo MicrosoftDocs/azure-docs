@@ -109,7 +109,7 @@ const updateRoom = await roomsClient.updateRoom(roomId, updateRoomRequest);
 
 ### Add new participants 
 
-To add new participants to a `room`, use the `addParticipants` method exposed on the client.:
+To add new participants to a `room`, use the `addParticipants` method exposed on the client.
 
 ```javascript
   // request payload to add participants
