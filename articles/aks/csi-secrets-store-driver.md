@@ -192,11 +192,7 @@ To specify a custom rotation interval, use the `rotation-poll-interval` flag:
 az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
 ```
 
-To disable autorotation, use the flag `disable-secret-rotation`:
-
-```azurecli-interactive
-az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --disable-secret-rotation
-```
+To disable autorotation, first disable the addon. Then, re-enable the addon without the `enable-secret-rotation` flag.
 
 ### Sync mounted content with a Kubernetes secret
 

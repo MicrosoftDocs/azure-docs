@@ -22,7 +22,7 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 ## Device templates
 
-A device template contains a device model, cloud property definitions, customizations, and view definitions. The REST API lets you manage the device model, cloud property definitions, and customizations. Use the UI to create and manage views.
+A device template contains a device model, cloud property definitions, and view definitions. The REST API lets you manage the device model and cloud property definitions. Use the UI to create and manage views.
 
 The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
@@ -178,7 +178,7 @@ The request body has some required fields:
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
 
 > [!TIP]
-> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions, customizations, and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API and the CLI.
+> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API and the CLI.
 
 There are some optional fields you can use to add more details to the capability model, such as display name and description.
 
