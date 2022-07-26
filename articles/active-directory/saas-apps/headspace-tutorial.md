@@ -78,10 +78,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `urn:auth0:<Auth0TenantName>:<CustomerConnectionName>`
 
     b. In the **Reply URL** textbox, type a value using the following pattern:
-    `https://auth.<Enviornment>.headspace.com/login/callback?connection=<CustomerConnectionName>`
+    `https://auth.<Environment>.headspace.com/login/callback?connection=<CustomerConnectionName>`
 
     c. In the **Sign on URL** textbox, type a value using the following pattern:
-    `https://<Environment>.headspace.com/sso-login`
+    `https://headspace.com/idp-initiated-login`
 
     > [!Note]
     > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Headspace Client support team](mailto:ecosystem-integration-squad@headspace.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
