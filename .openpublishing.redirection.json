@@ -40314,7 +40314,6 @@
       "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
         "source_path_from_root":"/articles/availability-zones/az-overview.md",
         "redirect_URL": "/azure/reliability/overview-availablity",
         "redirect_document_id": false
