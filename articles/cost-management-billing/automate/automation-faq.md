@@ -52,7 +52,7 @@ No the Cost Details API is free. Make sure to abide by the rate-limiting policie
 
 These APIs provide a different view of the same data:
 
-- The [Invoices API](/api/billing/2019-10-01-preview/invoices) provides an aggregated view of your monthly charges.
+- The [Invoices API](/rest/api/billing/2019-10-01-preview/invoices) provides an aggregated view of your monthly charges.
 - The [Transactions API](/rest/api/billing/2020-05-01/transactions/list-by-invoice) provides a view of your monthly charges aggregated at product/service family level.
 - The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report provides a granular view of the usage and cost records for each day. The Cost Details API is available for Enterprise Agreement and Microsoft Customer Agreement accounts. For pay-as-you-go subscriptions, use the Exports API. If Exports don't meet your needs and you need an on-demand solution, see [Get Cost Details for a pay-as-you-go subscription](get-usage-details-legacy-customer.md).
 
@@ -72,7 +72,7 @@ The Consumption Usage Details API is deprecated. The date that the API will bet 
 
 The Marketplaces API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report. We recommend that you migrate to it as soon as possible. For more information, see [Migrate from Consumption Marketplaces API](migrate-consumption-marketplaces-api.md).
 
-### When will the [Consumption Forecasts API](/rest/api/consumption/forecasts/list) get turned off?
+### When will the [Consumption Forecasts API](/rest/api/consumption/) get turned off?
 
 The Forecasts API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Cost Management Forecast API](/rest/api/cost-management/forecast). We recommend that you migrate to it as soon as possible.
 
