@@ -25,6 +25,10 @@
   - name: Deploy using ARM template
     displayName: Azure resporce manager
     href: deploy-with-arm-template.md
+  - name: Upload and index videos
+    href: upload-index-videos.md
+  - name: Index Video from OneDrive
+    href: odrv-download.md
 - name: Samples
   items:
   - name: Azure Video Indexer samples
@@ -101,10 +105,6 @@
     href: connect-classic-account-to-arm.md
   - name: Manage account connected to Azure
     href: manage-account-connected-to-azure.md
-  - name: Upload and index videos
-    href: upload-index-videos.md
-  - name: Index Video from OneDrive
-    href: odrv-download.md
   - name: Use Azure Video Indexer API
     href: video-indexer-use-apis.md
   - name: Examine Azure Video Indexer output
