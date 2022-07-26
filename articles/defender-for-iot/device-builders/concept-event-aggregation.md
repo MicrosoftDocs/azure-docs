@@ -1,13 +1,17 @@
 ---
 title: Micro agent event collection (Preview)
 description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
-ms.date: 11/09/2021
+ms.date: 04/26/2022
 ms.topic: conceptual
 ---
 
 # Micro agent event collection (Preview)
 
-Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics. The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. New processes and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages and events contain highly valuable security information that is crucial to protecting your device.
+Defender for IoT security agents collects data, and system events from your local device, and sends the data to the Azure cloud for processing.
+
+If you've configured and connected a Log Analytics workspace, you'll see these events in Log Analytics. For more information, see [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
+
+The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. Both the new process, and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages, and events contain highly valuable security information that is crucial to protecting your device.
 
 To reduce the number of messages, and costs while maintaining your device's security, Defender for IoT agents aggregate the following types of events:
 
@@ -73,7 +77,7 @@ The Login collector collects user sign-ins, sign-outs, and failed sign-in attemp
 
 The Login collector supports the following types of collection methods:
 
-- **Syslog**. If syslog is running on the device, the Login collector collects SSH sign-in events via the syslog file named **auth.log**.
+- **UTMP and SYSLOG**. UTMP catches SSH interactive events, telnet events, and terminal logins, as well as all failed login events from SSH, telnet, and terminal. If SYSLOG is enabled on the device, the Login collector also collects SSH sign-in events via the SYSLOG file named **auth.log**.
 
 - **Pluggable Authentication Modules (PAM)**. Collects SSH, telnet, and local sign-in events. For more information, see [Configure Pluggable Authentication Modules (PAM) to audit sign-in events](configure-pam-to-audit-sign-in-events.md).
 
@@ -86,10 +90,11 @@ The following data is collected:
 | **user_name** | The Linux user. |
 | **executable** | The terminal device. For example, `tty1..6` or `pts/n`. |
 | **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
+| **Login_UsePAM** | Boolean: <br>- **True**: Only the PAM Login collector is used <br>- **False**: The UTMP Login collector is used, with SYSLOG if SYSLOG is enabled |
 
 ## System Information (trigger-based collector)
 
-The following data is collected:
+The data collected for each event is:
 
 | Parameter | Description|
 |--|--|
@@ -112,14 +117,14 @@ The **nics** properties are composed of the following;
 
 ## Baseline (trigger-based collector)
 
-The baseline collector performs CIS checks periodically. Only the failed results are sent to the cloud. The cloud aggregates the results, and provides recommendations.
+The baseline collector performs periodic CIS checks, and *failed*, *pass*, and *skip* check results are sent to the Defender for IoT cloud service. Defender for IoT aggregates the results and provides recommendations based on any failures.
 
 The data collected for each event is:
 
 | Parameter | Description|
 |--|--|
 | **Check ID** | In CIS format. For example, `CIS-debian-9-Filesystem-1.1.2`. |
-| **Check result** | Can be `Error`, or `Fail`. For example, `Error` in a situation where the check can’t run. |
+| **Check result** | Can be `Fail`, `Pass`, `Skip`, or `Error`. For example, `Error` in a situation where the check can’t run. |
 | **Error** | The error's information, and description. |
 | **Description** | The description of the check from CIS. |
 | **Remediation** | The recommendation for remediation from CIS. |
@@ -136,7 +141,6 @@ The data collected on each package includes:
 |**Name**     |   The package name      |
 |**Version**     |  The package version       |
 |**Vendor**     |    The package's vendor, which is the **Maintainer** field in deb packages     |
-|     |         |
 
 ## Event aggregation for process and network collectors
 
@@ -146,6 +150,9 @@ Defender for IoT agents aggregate events for the interval period, or time window
 
 The agent collects identical events to the ones that are already stored in memory. This collection causes the agent to increase the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event.
 
+
+> [!NOTE]
+> The SBoM collector currently only collects the first 500 packages ingested.
 
 ## Next steps
 

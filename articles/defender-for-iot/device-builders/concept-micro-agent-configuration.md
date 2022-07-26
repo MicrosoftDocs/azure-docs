@@ -1,7 +1,7 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 12/22/2021
+ms.date: 05/03/2022
 ms.topic: conceptual
 ---
 
@@ -24,7 +24,6 @@ Default values are as follows:
 | **Low** | 1440 (24 hours) |
 | **Medium** | 120 (2 hours) |
 | **High** | 30 (.5 hours) |
-| | |
 
 To reduce resource consumption on the device, each priority should be set as a multiple of the one below it. For example, High: 60 minutes, Medium: 120 minutes, Low: 480 minutes.
 
