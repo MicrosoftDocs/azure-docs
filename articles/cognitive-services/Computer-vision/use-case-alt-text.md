@@ -26,7 +26,7 @@ The following screenshot is an example of automatically generated alt text for a
 
 ## Adding alt text to images 
 
-Alternative text (alt text) is descriptive text that conveys the meaning and context of a visual item in a digital setting, such as on an app or web page. When screen readers such as Microsoft Narrator, JAWS, and NVDA reach digital content with alt text, they will read the alt text aloud, allowing people to better understand what is on the screen. Well written, descriptive alt text dramatically reduces ambiguity and improves the user experience. Alt text needs to convey the purpose and meaning of an image, which requires understanding and interpretation in addition to object detection.
+Alternative text (alt text) is descriptive text that conveys the meaning and context of a visual item in a digital setting, such as on an app or web page. When screen readers such as Microsoft Narrator, JAWS, and NVDA reach digital content with alt text, they read the alt text aloud, allowing people to better understand what is on the screen. Well written, descriptive alt text dramatically reduces ambiguity and improves the user experience. Alt text needs to convey the purpose and meaning of an image, which requires understanding and interpretation in addition to object detection.
 
 ## Key features  
 
@@ -37,9 +37,9 @@ Alternative text (alt text) is descriptive text that conveys the meaning and con
 
 Accessibility is the design of products, devices, services, vehicles, or environments to be usable by people with disabilities. Accessibility has been an increasingly important topic in product and service development as it makes digital experiences available to more people in the world. Accessibility will boost your business in multiple ways: 
 
-- **Improve user experience**: by adding image captions, like alt text, you make the information conveyed in images available to users who are blind or have low vision, as well as users who cannot load the images due to internet connection. 
+- **Improve user experience**: by adding alt text, you make the information in images available to users who are blind or have low vision, as well as users who can't load the images due to internet connection. 
 - **Make images more discoverable and searchable**: adding captions and tags to images will help search engine crawlers find your images and rank them higher in search results.
-- **Meet legal compliance**: there may be potential legal repercussions for business that are not accessibility-compliant. Building products with higher accessibility helps the business avoid potential risks of legal action now and in the future.
+- **Meet legal compliance**: there may potentially be legal repercussions for business that aren't accessibility-compliant. Building products with higher accessibility helps the business avoid potential risks of legal action now and in the future.
 
  
 

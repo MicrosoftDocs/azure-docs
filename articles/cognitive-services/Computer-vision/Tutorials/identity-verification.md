@@ -28,13 +28,13 @@ In this tutorial you will learn:
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 - [Create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal 
 - Key and endpoint of Face resource 
-    - Go to Face resource and click **Keys and Endpoint** on the left. You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below. 
+    - Go to Face resource and select **Keys and Endpoint** on the left. You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below. 
     - You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production. 
-- [!INCLUDE contributor-requirement] 
+- [!INCLUDE contributor-requirement](../../includes/quickstarts/contributor-requirement.md)
 
 ## Application workflows 
 
-When launched, the application shows users a detailed consent screen. If the user gives consent, the app prompts for a username and password and then captures a high-quality face image using the device's camera. The next time a user tries to log in, the app will capture a high-quality face image and verify the user's identity.
+When launched, the application shows users a detailed consent screen. If the user gives consent, the app prompts for a username and password and then captures a high-quality face image using the device's camera. The next time a user tries to sign in, the app will capture a high-quality face image and verify the user's identity.
 
 
 New user enrollment:
@@ -78,9 +78,9 @@ Consider the following optional steps to fine-tune the user experience of your a
    * Occlusion (partially hidden or obstructed faces), including accessories like hats or thick-rimmed glasses
    * Blur (such as by rapid face movement when the photograph was taken). 
 
-   The Face service provides image quality checks to help you determine whether the image is of sufficient quality to add the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, detect quality, show user interface messages to the user to help them capture a higher quality image, select the highest-quality frames, and add the detected face into the Face API service. 
+   The Face service provides image quality checks to help you determine whether the image is of sufficient quality to add the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, detect photo quality, show user interface messages to the user to help them capture a higher quality image, select the highest-quality frames, and add the detected face into the Face API service. 
 
-1. The sample app offers functionality for deleting the user's information and the option to re-add. You can enable or disable these operations based on your business requirement. 
+1. The sample app offers functionality for deleting the user's information and the option to readd. You can enable or disable these operations based on your business requirement. 
 
 1. Configure your database to map each person with their ID (TBD)
 

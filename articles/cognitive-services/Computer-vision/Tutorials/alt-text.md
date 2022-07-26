@@ -29,7 +29,7 @@ In this tutorial, you'll learn:
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 - [Create a Computer Vision resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) in the Azure portal
 - Key and endpoint in Computer Vision resource 
-   - Go to Face resource and click **Keys and Endpoint** on the left. You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below. 
+   - Go to Face resource and select **Keys and Endpoint** on the left. You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below. 
    - You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production. 
 
 

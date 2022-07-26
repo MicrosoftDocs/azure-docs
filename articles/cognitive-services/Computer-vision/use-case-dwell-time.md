@@ -35,7 +35,7 @@ In-store dwell time is an important metric to help store managers track customer
 * **Collect real-time customer reactions**: instead of sending and receiving feedback from customers, you have access to customer interaction with displays in real time.
 * **Measure display/promotion effectiveness**: You can track, analyze and compare footfall and time spent by your customers to measure the effectiveness of promotions or displays.
 * **Manage inventory**: You can track and monitor changes in foot traffic and time spent by your customers to modify shift plans and inventory.
-* **Make data-driven decisions**: you are empowered with data about your customers to make decisions that improve customer experience and satisfy customer needs. 
+* **Make data-driven decisions**: with data about your customers, you're empowered to make decisions that improve customer experience and satisfy customer needs. 
 
 
 ## Next steps
