@@ -11,7 +11,7 @@ ms.reviewer: gardnerjr
 
 # Convert a View Designer workspace to a workbook
 
-To convert the View Designer workbook, copy and paste the following code into the Advanced editor, using the </> symbol in the toolbar.
+To convert the View Designer workbook, copy and paste the following JSON into the Advanced editor, using the </> symbol in the toolbar.
 
 ## Vertical workspace
 
