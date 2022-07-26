@@ -230,3 +230,7 @@ You can confirm the resource group is removed by viewing the list of resource gr
 ```azurecli-interactive
 az group list
 ```
+
+## Next steps
+
+This article helped you set up your virtual machine and IoT Edge device to be GPU-accelerated. To run an application with your new setup, try this Microsoft Learn tutorial [NVIDIA DeepStream development with Microsoft Azure](/learn/paths/nvidia-deepstream-development-with-microsoft-azure/?WT.mc_id=iot-47680-cxa). The Learn tutorial shows you how to develop optimized Intelligent Video AApplications that can consume multiple video, image, and audio sources.
