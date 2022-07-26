@@ -128,7 +128,7 @@ Select **Managed deleted vaults**. From here, you can find the deleted Key Vault
 
 **Resolution:** Your Azure subscription can get disabled for various reasons. To take the necessary action to resolve, see [Reactivating a disabled Azure subscription](../cost-management-billing/manage/subscription-disabled.md).
 
-## Application Gateawy update error codes
+## Application Gateway Error Codes
 ### Error code: ApplicationGatewayCertificateDataOrKeyVaultSecretIdMustBeSpecified / ApplicationGatewaySslCertificateDataMustBeSpecified  
 
 **Description:** You may encounter this error when trying to update a listener certificate. When this error occurs, the change to update the certificate will be discarded, and the listener will continue to handle traffic with the previously defined configuration.
