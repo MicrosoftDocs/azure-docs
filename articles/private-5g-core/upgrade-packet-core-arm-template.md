@@ -18,7 +18,7 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2Fazuredeploy.json)
+[![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2FcreateUiDefinition.json)
 
 ## Prerequisites
 
@@ -45,8 +45,7 @@ The template defines a [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/az
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the mobile network resource representing your private mobile network.
     - **Region:** select **East US**.
-    - **Location:** leave this field unchanged.
-    - **Existing Site Name:** enter the name of the site that hosts the packet core instance you want to upgrade.
+    - **Existing packet core:** select the name of the packet core instance you want to upgrade.
     - **Version:** enter the version to which you want to upgrade the packet core instance.
 
     :::image type="content" source="media/upgrade-packet-core-arm-template/upgrade-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the upgrade ARM template.":::    
