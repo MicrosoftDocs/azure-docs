@@ -114,7 +114,7 @@ Before you start using the migration tool:
   >[!NOTE]
   > Enabling logical replication will require a server restart for the change to take effect.
 
-- [Set up an Azure Active Directory (Azure AD) app](./how-to-setup-azure-ad-app-portal.md). An Azure AD app is a critical component of the migration tool. It helps with role-based access control as the migration tool accesses both the source and target servers.
+- [Set up an Azure Active Directory (Azure AD) app](./how-to-set-up-azure-ad-app-portal.md). An Azure AD app is a critical component of the migration tool. It helps with role-based access control as the migration tool accesses both the source and target servers.
 
 - If you are using any PostgreSQL extensions on the Single Server, it has to allow-listed on the Flexible Server before initiating the migration using the steps below:
 
