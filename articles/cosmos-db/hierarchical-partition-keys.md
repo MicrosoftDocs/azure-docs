@@ -189,7 +189,7 @@ Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item
 
 ### Perform a key/value lookup (point read) of an item
 
-Key/value lookups (point reads) are performed in a manner similar to a non-subpartitioned container. For example, assume we have a hierarchical partition key composed of **TenantId -> UserId -> SessionId**. The unique identifier for the item is a Guid, represented as a string, that serves as a unique document transaction identifier. To perform a point read on a single item, pass in the ``id`` property of the item and the full value for the partition key including all three components of the path.
+Key/value lookups (point reads) are performed in a manner similar to a non-subpartitioned container. For example, assume we have a hierarchical partition key composed of **TenantId -> UserId -> SessionId**. The unique identifier for the item is a Guid, represented as a string that serves as a unique document transaction identifier. To perform a point read on a single item, pass in the ``id`` property of the item and the full value for the partition key including all three components of the path.
 
 #### [.NET SDK v3](#tab/net-v3)
 
