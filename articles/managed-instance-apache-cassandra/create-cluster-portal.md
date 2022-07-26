@@ -130,6 +130,38 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/multi-datacenter.png" border="true":::
 
+## Update Cassandra configuration
+
+The service allows update to a limited set of Cassandra configurations on a datacenter via the portal or by [using CLI commands](manage-resources-cli.md#update-yaml). The following YAML settings are supported:
+
+- column_index_size_in_kb
+- allocate_tokens_for_keyspace
+- compaction_throughput_mb_per_sec
+- read_request_timeout_in_ms
+- range_request_timeout_in_ms
+- aggregated_request_timeout_in_ms
+- write_request_timeout_in_ms
+- request_timeout_in_ms
+- internode_compression
+- batchlog_replay_throttle_in_kb
+
+To update settings in the portal:
+
+1. Find `Cassandra Configuration` under settings. Highlight the data center whose configuration you want to change, and click update:
+
+   :::image type="content" source="./media/create-cluster-portal/update-config-1.png" alt-text="Select data center to update config." lightbox="./media/create-cluster-portal/cassandra-config-1.png" border="true":::
+
+1. In the window that opens, enter the field names in YAML format, as shown below. Then click update.
+
+   :::image type="content" source="./media/create-cluster-portal/update-config-2.png" alt-text="Update data center Cassandra config." lightbox="./media/create-cluster-portal/cassandra-config-2.png" border="true":::
+
+1. When update is complete, the overridden values will show in the `Cassandra Configuration` pane:
+
+   :::image type="content" source="./media/create-cluster-portal/update-config-3.png" alt-text="View updated Cassandra config." lightbox="./media/create-cluster-portal/cassandra-config-3.png" border="true":::
+
+   > [!NOTE]
+   > Only overridden Cassandra configuration values are shown in the portal. 
+
 ## Troubleshooting
 
 If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
