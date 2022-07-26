@@ -109,9 +109,9 @@ Diagnostic Toolkit provides access to all the diagnostic features available for 
 
 ## Availability of resources 
 
-By default, all networking resources are visible in Network Insights. Customers can click on the resource type for viewing resource health and metrics (if available), subscription details, location, etc. A subset of networking resources have been _Onboarded_. For Onboarded resources, customers have access to a resource specific topology view and a built-in metrics workbook. These out-of-the-box experiences makes it easier to explore resource metrics and troubleshoot issues.  
+By default, all networking resources are visible in Network Insights. Customers can click on the resource type for viewing resource health and metrics (if available), subscription details, location, etc. A subset of networking resources have been _Onboarded_. For Onboarded resources, customers have access to a resource specific topology view and a built-in metrics workbook. These out-of-the-box experiences make it easier to explore resource metrics and troubleshoot issues.  
 
-Resources that been onboarded are: 
+Resources that have been onboarded are: 
 * Virtual WAN
 * Application Gateway
 * Load Balancer

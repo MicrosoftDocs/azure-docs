@@ -25,7 +25,7 @@ Azure Monitor offers the following solutions for monitoring your networks:
 
 ## Network Performance Monitor (NPM)
 
-The [Network Performance Monitor](../../networking/network-monitoring-overview.md) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
+The [Network Performance Monitor](../../networking/network-monitoring-overview.md) management solution is a network monitoring solution that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
 
 * Public cloud and on-premises
 * Data centers and user locations (branch offices)

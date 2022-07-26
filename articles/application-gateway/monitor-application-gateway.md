@@ -174,7 +174,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 If you are creating or running an application which use Application Gateway [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
 <!-- end -->
 
-The following tables lists common and recommended alert rules for Application Gateway.
+The following tables list common and recommended alert rules for Application Gateway.
 
 <!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
 
