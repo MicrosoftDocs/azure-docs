@@ -13,7 +13,6 @@ ms.custom: template-how-to
 
 # Add indicators in bulk to Microsoft Sentinel threat intelligence from a CSV or JSON file
 
-> [!IMPORTANT]
 > The Import indicators in bulk by file feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
