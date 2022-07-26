@@ -530,26 +530,138 @@ For definitions and examples of the performance charts and metrics provided for 
 
 Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric)
 
-```Python
-best_child_run_id = mlflow_parent_run.data.tags["automl_best_child_run_id"]
-best_run = mlflow_client.get_run(best_child_run_id)
+```python
+model_name = "od-fridge-items-mlflow-model"
 model = Model(
     path=f"azureml://jobs/{best_run.info.run_id}/outputs/artifacts/outputs/mlflow-model/",
-    name='sample_model_name',
+    name=model_name,
+    description="my sample object detection model",
     type=AssetTypes.MLFLOW_MODEL,
 )
+
+# for downloaded file
+# model = Model(
+#     path=path="artifact_downloads/outputs/mlflow-model/",
+#     name=model_name,
+#     description="my sample object detection model",
+#     type=AssetTypes.MLFLOW_MODEL,
+# )
+
+registered_model = ml_client.models.create_or_update(model)
 ```
 
-Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric).
+After you register the model you want to use, you can deploy it using managed online endpoint [deploy-managed-online-endpoint](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-managed-online-endpoint-sdk-v2)
 
-You can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
-Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and select the **Deploy**.  
+1. Configure online endpoint:
 
-![Select model from the automl runs in studio UI  ](./media/how-to-auto-train-image-models/select-model.png)
+    ```python
+    # Creating a unique endpoint name with current datetime to avoid conflicts
+    import datetime
 
-You can configure the model deployment endpoint name and the inferencing cluster to use for your model deployment in the **Deploy a model** pane.
+    online_endpoint_name = "endpoint-" + datetime.datetime.now().strftime("%m%d%H%M%f")
 
-![Deploy configuration](./media/how-to-auto-train-image-models/deploy-image-model.png)
+    # create an online endpoint
+    endpoint = ManagedOnlineEndpoint(
+        name=online_endpoint_name,
+        description="this is a sample online endpoint",
+        auth_mode="key",
+        tags={"foo": "bar"},
+    )
+    ```
+1. Create the endpoint:
+
+    Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+
+    ```python
+    ml_client.begin_create_or_update(endpoint)
+    ```
+
+1. Configure online deployment:
+
+    A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
+
+    ```python
+    deployment = ManagedOnlineDeployment(
+        name="od-fridge-items-mlflow-deploy",
+        endpoint_name=online_endpoint_name,
+        model=registered_model.id,
+        instance_type="Standard_DS3_V2",
+        instance_count=1,
+        liveness_probe=ProbeSettings(
+            failure_threshold=30,
+            success_threshold=1,
+            timeout=2,
+            period=10,
+            initial_delay=2000,
+        ),
+        readiness_probe=ProbeSettings(
+            failure_threshold=10,
+            success_threshold=1,
+            timeout=10,
+            period=10,
+            initial_delay=2000,
+        ),
+    )
+    ```
+
+1.  Create the deployment:
+
+    Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+
+    ```python
+    ml_client.online_deployments.begin_create_or_update(deployment)
+    ```
+
+    ```python
+    # od fridge items deployment to take 100% traffic
+    endpoint.traffic = {"od-fridge-items-mlflow-deploy": 100}
+    ml_client.begin_create_or_update(endpoint)
+    ```
+
+
+
+
+Alternatively You can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
+Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and click on **Deploy** and select **Deploy to real-time endpoint** .  
+
+![Deploy configuration](./media/how-to-auto-train-image-models/deploy-endpoint.png)
+
+### Update inference configuration
+
+In the previous step, we downloaded a file `mlflow-model/artifacts/settings.json` from the best model and we used it to create an `InferenceConfig` object. This file can be modified to change the model specific inference settings if needed after it has been downloaded and before creating the `InferenceConfig`. For instance, this is the code section that initializes the model in the scoring file:
+    
+```
+...
+def init():
+    ...
+    try:
+        logger.info("Loading model from path: {}.".format(model_path))
+        model_settings = {...}
+        model = load_model(TASK_TYPE, model_path, **model_settings)
+        logger.info("Loading successful.")
+    except Exception as e:
+        logging_utilities.log_traceback(e, logger)
+        raise
+...
+```
+
+Each of the tasks (and some models) have a set of parameters in the `model_settings` dictionary. By default, we use the same values for the parameters that were used during the training and validation. Depending on the behavior that we need when using the model for inference, we can change these parameters. Below you can find a list of parameters for each task type and model.  
+
+| Task | Parameter name | Default  |
+|--------- |------------- | --------- |
+|Image classification (multi-class and multi-label) | `valid_resize_size`<br>`valid_crop_size` | 256<br>224 |
+|Object detection | `min_size`<br>`max_size`<br>`box_score_thresh`<br>`nms_iou_thresh`<br>`box_detections_per_img` | 600<br>1333<br>0.3<br>0.5<br>100 |
+|Object detection using `yolov5`| `img_size`<br>`model_size`<br>`box_score_thresh`<br>`nms_iou_thresh` | 640<br>medium<br>0.1<br>0.5 |
+|Instance segmentation| `min_size`<br>`max_size`<br>`box_score_thresh`<br>`nms_iou_thresh`<br>`box_detections_per_img`<br>`mask_pixel_score_threshold`<br>`max_number_of_polygon_points`<br>`export_as_image`<br>`image_type` | 600<br>1333<br>0.3<br>0.5<br>100<br>0.5<br>100<br>False<br>JPG|
+
+For a detailed description on task specific hyperparameters, please refer to [Hyperparameters for computer vision tasks in automated machine learning](../reference-automl-images-hyperparameters.md).
+    
+If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](./how-to-use-automl-small-object-detect.md).
+
+## Example notebooks
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.
+
+
 
 ## Code examples
 # [CLI v2](#tab/CLI-v2)

@@ -385,46 +385,137 @@ hd_job
 
 ---
 
-## Register and deploy model as a web service
+## Register and deploy model
 
-Once you have your trained model, you can deploy the model on Azure. You can deploy your trained model as a web service on Azure Container Instances (ACI) or Azure Kubernetes Service (AKS). ACI is the perfect option for testing deployments, while AKS is better suited for high-scale, production usage.
+Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric)
 
-You can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
-Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and select the **Deploy**.  
+```python
+model_name = "od-fridge-items-mlflow-model"
+model = Model(
+    path=f"azureml://jobs/{best_run.info.run_id}/outputs/artifacts/outputs/mlflow-model/",
+    name=model_name,
+    description="my sample object detection model",
+    type=AssetTypes.MLFLOW_MODEL,
+)
 
-![Select model from the automl runs in studio UI  ](./media/how-to-auto-train-image-models/select-model.png)
+# for downloaded file
+# model = Model(
+#     path=path="artifact_downloads/outputs/mlflow-model/",
+#     name=model_name,
+#     description="my sample object detection model",
+#     type=AssetTypes.MLFLOW_MODEL,
+# )
 
-You can configure the model deployment endpoint name and the inferencing cluster to use for your model deployment in the **Deploy a model** pane.
+registered_model = ml_client.models.create_or_update(model)
+```
 
-![Deploy configuration](./media/how-to-auto-train-image-models/deploy-image-model.png)
+After you register the model you want to use, you can deploy it using managed online endpoint [deploy-managed-online-endpoint](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-managed-online-endpoint-sdk-v2)
+
+1. Configure online endpoint:
+
+    ```python
+    # Creating a unique endpoint name with current datetime to avoid conflicts
+    import datetime
+
+    online_endpoint_name = "endpoint-" + datetime.datetime.now().strftime("%m%d%H%M%f")
+
+    # create an online endpoint
+    endpoint = ManagedOnlineEndpoint(
+        name=online_endpoint_name,
+        description="this is a sample online endpoint",
+        auth_mode="key",
+        tags={"foo": "bar"},
+    )
+    ```
+1. Create the endpoint:
+
+    Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+
+    ```python
+    ml_client.begin_create_or_update(endpoint)
+    ```
+
+1. Configure online deployment:
+
+    A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
+
+    ```python
+    deployment = ManagedOnlineDeployment(
+        name="od-fridge-items-mlflow-deploy",
+        endpoint_name=online_endpoint_name,
+        model=registered_model.id,
+        instance_type="Standard_DS3_V2",
+        instance_count=1,
+        liveness_probe=ProbeSettings(
+            failure_threshold=30,
+            success_threshold=1,
+            timeout=2,
+            period=10,
+            initial_delay=2000,
+        ),
+        readiness_probe=ProbeSettings(
+            failure_threshold=10,
+            success_threshold=1,
+            timeout=10,
+            period=10,
+            initial_delay=2000,
+        ),
+    )
+    ```
+
+1.  Create the deployment:
+
+    Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+
+    ```python
+    ml_client.online_deployments.begin_create_or_update(deployment)
+    ```
+
+    ```python
+    # od fridge items deployment to take 100% traffic
+    endpoint.traffic = {"od-fridge-items-mlflow-deploy": 100}
+    ml_client.begin_create_or_update(endpoint)
+    ```
+
+
+
+
+Alternatively You can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
+Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and click on **Deploy** and select **Deploy to real-time endpoint** .  
+
+![Deploy configuration](./media/how-to-auto-train-image-models/deploy-endpoint.png)
 
 ## Test the web service
 
-You can test the deployed web service to predict new images. For this tutorial, pass a random image from the dataset and pass it to the scoring URI.
+You can test the deployment to predict new images. For this tutorial, pass a random image from the dataset and pass it to the scoring URI.
 
 ```python
-import requests
+# Create request json
+import base64
+import json
 
-# URL for the web service
-scoring_uri = <scoring_uri from web service>
+sample_image = "./data/odFridgeObjects/images/1.jpg"
 
-# If the service is authenticated, set the key or token
-key, _ = <keys from the web service>
+def read_image(image_path):
+    with open(image_path, "rb") as f:
+        return f.read()
 
-sample_image = './test_image.jpg'
+request_json = {
+    "input_data": {
+        "columns": ["image"],
+        "data": [base64.encodebytes(read_image(sample_image)).decode("utf-8")],
+    }
+}
 
-# Load image data
-data = open(sample_image, 'rb').read()
+request_file_name = "sample_request_data.json"
+with open(request_file_name, "w") as request_file:
+    json.dump(request_json, request_file)
 
-# Set the content type
-headers = {'Content-Type': 'application/octet-stream'}
-
-# If authentication is enabled, set the authorization header
-headers['Authorization'] = f'Bearer {key}'
-
-# Make the request and display the response
-resp = requests.post(scoring_uri, data, headers=headers)
-print(resp.text)
+resp = ml_client.online_endpoints.invoke(
+    endpoint_name=online_endpoint_name,
+    deployment_name=deployment.name,
+    request_file=request_file_name,
+)
 ```
 
 ## Visualize detections
@@ -456,7 +547,7 @@ ax.imshow(img_np)
 
 # draw box and label for each detection
 detections = json.loads(resp.text)
-for detect in detections['boxes']:
+for detect in detections[0]['boxes']:
     label = detect['label']
     box = detect['box']
     conf_score = detect['score']
