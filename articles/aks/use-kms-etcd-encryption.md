@@ -148,7 +148,7 @@ If you enable KMS with private key vault, AKS will create a private endpoint and
 ### Create a private key vault and key
 
 > [!WARNING]
-> Deleting the key or the Azure Key Vault is not supported and will cause the secrets unaccessible in the cluster.
+> Deleting the key or the Azure Key Vault is not supported and will cause the secrets to be unrecoverable in the cluster.
 > 
 > If you need to recover your Key Vault or key, see the [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md?tabs=azure-cli) documentation.
 
