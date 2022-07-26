@@ -144,7 +144,7 @@ After you set up the Application Insights, and configure the custom policy, you 
 To get Application Insights ID and key:
 
 1. In Azure portal, open the Application Insights resource for your application.
-1. Select **Settings**, then select **API Access**.
+1. Select **Configure**, then select **API Access**.
 1. Copy the **Application ID**
 1. Select **Create API Key**
 1. Check the **Read telemetry** box.
