@@ -40314,6 +40314,7 @@
       "redirect_document_id": false
     },
     {
+<<<<<<< HEAD
         "source_path_from_root":"/articles/availability-zones/az-overview.md",
         "redirect_URL": "/azure/reliability/overview-availablity",
         "redirect_document_id": false
@@ -40376,6 +40377,11 @@
     {
         "source_path_from_root": "/articles/availability-zones/region-types-service-categories-azure.md",
         "redirect_URL": "/azure/reliability/availability-service-by-category",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-ai-builder.md",
+        "redirect_url": "https://docs.microsoft.com/ai-builder/create-form-processing-model",
         "redirect_document_id": false
     }
   ]
