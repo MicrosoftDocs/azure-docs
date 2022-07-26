@@ -587,6 +587,35 @@ Several possible status code values can be returned.
 
 The responses for this API do not contain any content.
 
+## Resume instance
+
+Resumes a suspended orchestration instance.
+
+### Request
+
+In version 2.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
+
+```
+/runtime/webhooks/durabletask/instances/{instanceId}/resume
+?reason={text}
+&taskHub={taskHub}
+&connection={connectionName}
+&code={systemKey}
+```
+
+| Field             | Parameter Type  | Description |
+|-------------------|-----------------|-------------|
+| **`instanceId`**  | URL             | The ID of the orchestration instance. |
+| **`reason`**      | Query string    | Optional. The reason for resuming the orchestration instance. |
+
+Several possible status code values can be returned.
+
+* **HTTP 202 (Accepted)**: The resume request was accepted for processing.
+* **HTTP 404 (Not Found)**: The specified instance was not found.
+* **HTTP 410 (Gone)**: The specified instance has completed, failed, or terminated.
+
+The responses for this API do not contain any content.
+
 ## Rewind instance (preview)
 
 Restores a failed orchestration instance into a running state by replaying the most recent failed operations.
