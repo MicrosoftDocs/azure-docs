@@ -13,12 +13,6 @@ ms.custom: template-how-to
 
 In this article, you'll learn how to set up private access for your Azure App Configuration store, by creating a [private endpoint](/azure/private-link/private-endpoint-overview) with Azure Private Link. Private endpoints allow access to your App Configuration store using a private IP address from a virtual network.
 
-In the guide below, you will:
-> [!div class="checklist"]
-> * Set up a private endpoint
-> * Select a virtual network and a subnet
-> * Select a DNS record
-
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
@@ -82,7 +76,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
    1. Leave the box **Enable network policies for all private endpoints in this subnet** checked.
 
-   1. Under **Private IP configuration**, select the option to allocate IP addresses dynamically. For more information, refer to [Private IP addresses](/azure/virtual-network/ip-services/private-ip-addresses).
+   1. Under **Private IP configuration**, select the option to allocate IP addresses dynamically. For more information, refer to [Private IP addresses](/azure/virtual-network/ip-services/private-ip-addresses#allocation-method).
 
    1. Optionally, you can select or create an **Application security group**. Application security groups allow you to group virtual machines and define network security policies based on those groups.
 
@@ -108,7 +102,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 1. Select **Create**.
 
-Once deployment is complete, you can start using the private endpoint to access your App Configuration store.
+Once deployment is complete, you'll get a notification that your endpoint has been created. If it's auto-approved, you can start accessing your app configuration store privately, else you'll have to wait for approval.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -152,41 +146,53 @@ Once deployment is complete, you can start using the private endpoint to access 
 
 ---
 
-## Review private endpoints
+## Manage private link connection
 
 ### [Portal](#tab/azure-portal)
 
-Go to **Networking** > **Private Access** in your App Configuration store to access the private endpoints linked to your App Configuration store and check their connection state.
+Go to **Networking** > **Private Access** in your App Configuration store to access the private endpoints linked to your App Configuration store.
 
-On this page, you can also manually approve or reject a connection, and delete existing endpoints. To do so, select the checkbox next to the endpoint you want to edit and select an action item from the top menu.
+1. Check the connection state of your private link connection. When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory and you have sufficient permissions, the connection request will be auto-approved. Otherwise, you must wait for the owner of that resource to approve your connection request. For more information about the connection approval models, go to [Manage Azure Private Endpoints](/azure/private-link/manage-private-endpoint#private-endpoint-connections).
+
+1. To manually approve, reject or remove a connection, select the checkbox next to the endpoint you want to edit and select an action item from the top menu.
 
 :::image type="content" source="./media/private-endpoint/review-endpoints.png" alt-text="Screenshot of the Azure portal, review existing endpoints.":::
 
-Click on the name of the private endpoint to open the private endpoint resource and access more information or to edit the private endpoint.
+1. Select the name of the private endpoint to open the private endpoint resource and access more information or to edit the private endpoint.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the  [az appconfig show](/cli/azure/appconfig/#az-appconfig-show) command to review all private endpoints linked to your App Configuration store and check their connection state.
-
-Replace the placeholder `name` with the name or the App Configuration store.
+Run the  [az network private-endpoint-connection list](/cli/azure/appconfig/#az-appconfig-show) command to review all private endpoints linked to your App Configuration store and check their connection state. Replace the placeholder texts `resource-group` and `<app-config-store-name>` with the name of the resource group and the name of the App Configuration store.
 
 ```azurecli-interactive
-az appconfig show --name <name>
+az network private-endpoint-connection list -resource-group <resource-group> --name <app-config-store-name> --type Microsoft.AppConfiguration/configurationStores
 ```
 
-To get the details of a private endpoint, use the [az network private-endpoint show](/cli/azure/network/private-endpoint#az-network-private-endpoint-show) command. Replace the placeholder texts `resource-group` and `name` with the name of the resource group and the name of the private endpoint.
+To get the details of a specific private endpoint, use the [az network private-endpoint-connection show](/cli/azure/appconfig/#az-appconfig-show) command. Replace the placeholder texts `resource-group` and `<app-config-store-name>` with the name of the resource group and the name of the App Configuration store.
 
 ```azurecli-interactive
-az network private-endpoint show --resource-group <resource-group> --name <name>
+az network private-endpoint-connection show --resource-group <resource-group> --name <app-config-store-name> --type Microsoft.AppConfiguration/configurationStores
 ```
 
-To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint#az-network-private-endpoint-delete) command. Replace the placeholder texts `resource-group` and `name` with the name of the resource group and the name of the private endpoint.
+When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory and you have sufficient permissions, the connection request will be auto-approved. Otherwise, you must wait for the owner of that resource to approve your connection request. For more information about the connection approval models, go to [Manage Azure Private Endpoints](/azure/private-link/manage-private-endpoint#private-endpoint-connections).
+
+To approve a private endpoint connection, use the [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) command. Replace the placeholder texts `resource-group`, `private-endpoint`, and `<app-config-store-name>` with the name of the resource group, the name of the private endpoint and the name of the App Configuration store.
 
 ```azurecli-interactive
-az network private-endpoint delete --resource-group <resource-group> --name <name>
+az network private-endpoint-connection approve --resource-group <resource-group> --name <private-endpoint> --type Microsoft.AppConfiguration/configurationStores --resource-name <app-config-store-name>
 ```
+
+To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint#az-network-private-endpoint-delete) command. Replace the placeholder texts `resource-group` and `private-endpoint` with the name of the resource group and the name of the private endpoint.
+
+```azurecli-interactive
+az network private-endpoint delete --resource-group <resource-group> --name <private-endpoint>
+```
+
+For more CLI commands, go to [az network private-endpoint-connection](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection)
 
 ---
+
+If you have issues with a private endpoint, check the following guide: [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity).
 
 ## Next steps
 
