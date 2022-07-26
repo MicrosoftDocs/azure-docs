@@ -94,6 +94,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.servicebus.chinacloudapi.cn`|For Windows Admin Center and SSH scenarios|If using SSH or Windows Admin Center from Azure|
 |`*.blob.core.chinacloudapi.cn`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints|
 |`dc.applicationinsights.azure.cn`|Agent telemetry|Optional|
+---
 
 ## Transport Layer Security 1.2 protocol
 
