@@ -1,0 +1,11 @@
+items: 
+- name: Azure Deployment Environments documentation
+  expanded: true
+  items:
+  - name: Tutorials
+    displayName: DevCenter Tutorials
+    expanded: true
+    items:
+    - name: Create and configure DevCenter
+      href: tutorial-create-and-configure-devcenter.md
+    
