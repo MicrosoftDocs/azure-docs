@@ -72,7 +72,7 @@ The following section addresses the common errors when interacting with the EFLO
 - [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md)
 - [GPU acceleration for Azure IoT Edge for Linux on Windows](./gpu-acceleration.md)
 
-> [!div class="mx-tdBreakAll"]
+> [!div class="mx-tdCol2BreakAll"]
 > | Error | Error Description | Solution |
 > | ----- | ----------------- | -------- |
 > | Can't process request, EFLOW VM is OFF! | When trying to apply a configuration to the EFLOW virtual machine, the VM must be turned on. If the EFLOW VM is off, then the SSH channel will fail, and no communication is possible with the VM.| Start the EFLOW VM using the *Start-EflowVm* PowerShell cmdlet. For more information about the *Start-EflowVm* cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md). | 
@@ -92,7 +92,7 @@ The following section addresses the common errors related to EFLOW networking an
 - [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md)
 - [Azure IoT Edge for Linux on Windows virtual switch creation](/how-to-create-virtual-switch.md)
 
-> [!div class="mx-tdBreakAll"]
+> [!div class="mx-tdCol2BreakAll"]
 > | Error | Error Description | Solution |
 > | ----- | ----------------- | -------- |
 > | Installation of virtual switch failed <br/> The virtual switch '$switchName' of type '$switchType' was not found | When creating the EFLOW VM, there's a check that the virtual switch provided exists and has the correct type. If using no parameter, the installation uses the default switch provided by the Windows client. | Check that the virtual switch being used is part of the Windows host OS. You can check the virtual switches using the PowerShell cmdlet `Get-VmSwitch`. For more information about networking configurations, see [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md). | 
