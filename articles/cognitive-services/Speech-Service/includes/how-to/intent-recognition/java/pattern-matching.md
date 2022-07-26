@@ -6,10 +6,9 @@ ms.subservice: speech-service
 ms.date: 11/15/2021
 ms.topic: include
 ms.author: ralphe
-zone_pivot_groups: programming-languages-set-two
 ---
 
-[!INCLUDE [Create project](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+[!INCLUDE [Create project](../../../quickstarts/platform/java.md)]
 
 ## Start with some boilerplate code
 
