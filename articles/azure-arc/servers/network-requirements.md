@@ -39,7 +39,7 @@ For more information, see [Virtual network service tags](../../virtual-network/s
 
 The table below lists the URLs that must be available in order to install and use the Connected Machine agent.
 
-# [Azure Cloud](#tab/azure-cloud)
+### [Azure Cloud](#tab/azure-cloud)
 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
@@ -58,7 +58,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
 
-# [Azure Government](#tab/azure-government)
+### [Azure Government](#tab/azure-government)
 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
@@ -73,7 +73,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.applicationinsights.us`|Agent telemetry|Optional| Public |
 
-# [Azure China](#tab/azure-china)
+### [Azure China](#tab/azure-china)
 
 > [!NOTE]
 > Private link is not available for Azure Arc-enabled servers in Azure China regions.
