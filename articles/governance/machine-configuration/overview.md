@@ -39,7 +39,7 @@ Examples of each scenario are provided in the following table.
 | Type | Description | Example story |
 | - | - | - |
 | [Configuration management](machine-configuration-assignments.md) | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website." |
-| [Compliance](../assign-policy-portal.md) | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
+| [Compliance](../policy/assign-policy-portal.md) | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
 
 The per-setting results from configurations can be viewed either in the
 [Guest assignments page](../how-to/determine-non-compliance.md#compliance-details-for-machine-configuration)
@@ -358,7 +358,7 @@ locations:
 - Use the `GuestConfiguration` module to
   [create an Azure Policy definition](../how-to/machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
   [compliance details for machine configuration](../how-to/determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.

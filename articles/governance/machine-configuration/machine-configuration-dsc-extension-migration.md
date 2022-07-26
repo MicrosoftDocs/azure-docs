@@ -24,7 +24,7 @@ New features in machine configuration:
 - Linux machines consume PowerShell-based DSC resources
 
 Before you begin, it's a good idea to read the conceptual overview information at the page
-[Azure Policy's machine configuration](../concepts/machine-configuration.md).
+[Azure Policy's machine configuration](./overview.md).
 
 ## Major differences
 
@@ -152,7 +152,7 @@ Use the `Remove.py` script as documented in
 - Use the `GuestConfiguration` module to
   [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
   [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) assignments.

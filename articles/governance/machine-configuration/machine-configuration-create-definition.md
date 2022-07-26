@@ -9,12 +9,12 @@ author: timwarner-msft
 ---
 # How to create custom machine configuration policy definitions
 
-[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
-[machine configuration](../concepts/machine-configuration.md),
+[machine configuration](./overview.md),
 and the details about machine configuration policy effects
-[How to configure remediation options for machine configuration](../concepts/machine-configuration-policy-effects.md).
+[How to configure remediation options for machine configuration](./machine-configuration-policy-effects.md).
 
 > [!IMPORTANT]
 > The machine configuration extension is required for Azure virtual machines. To
@@ -109,7 +109,7 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Category** sets the category metadata field in the policy definition
 
 For more information about the "Mode" parameter, see the page
-[How to configure remediation options for machine configuration](../concepts/machine-configuration-policy-effects.md).
+[How to configure remediation options for machine configuration](./machine-configuration-policy-effects.md).
 
 Create a policy definition that audits using a custom
 configuration package, in a specified path:
@@ -231,7 +231,7 @@ New-GuestConfigurationPolicy `
 Finally, you can publish the policy definitions using the New-AzPolicyDefinition cmdlet. The below commands will publish your machine configuration policy to the policy center.
 
 To run the New-AzPolicyDefinition command, you need access to create policy definitions in Azure. The specific authorization
-requirements are documented in the [Azure Policy Overview](../overview.md) page. The recommended built-in
+requirements are documented in the [Azure Policy Overview](./overview.md) page. The recommended built-in
 role is **Resource Policy Contributor**.
 
 ```powershell
@@ -239,8 +239,8 @@ New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies'
 ```
 
 With the policy definition created in Azure, the last step is to assign the definition. See how to assign the
-definition with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md), and
-[Azure PowerShell](../assign-policy-powershell.md).
+definition with [Portal](../policy/assign-policy-portal.md), [Azure CLI](../policy/assign-azurecli.md), and
+[Azure PowerShell](../policy/assign-powershell.md).
 
 ## Policy lifecycle
 
@@ -276,7 +276,7 @@ updated.
 
 ## Next steps
 
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
   [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.

@@ -12,7 +12,7 @@ author: timwarner-msft
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
-[machine configuration](../concepts/machine-configuration.md).
+[machine configuration](./overview.md).
 
 Guest configuration custom .zip packages must be stored in a location that is
 accessible via HTTPS by the managed machines. Examples include GitHub
@@ -69,7 +69,7 @@ $contenturi = New-AzStorageBlobSASToken -Context $Context -FullUri -Container gu
 - Use the `GuestConfiguration` module to
   [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
   [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.

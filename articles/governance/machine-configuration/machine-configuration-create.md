@@ -12,7 +12,7 @@ author: timwarner-msft
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
-[machine configuration](../overview.md).
+[machine configuration](./overview.md).
 
 When auditing / configuring both Windows and Linux, machine configuration uses a
 [Desired State Configuration](/powershell/dsc/overview)

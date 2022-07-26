@@ -85,7 +85,7 @@ Get-Command -Module 'GuestConfiguration'
 - Use the `GuestConfiguration` module to
   [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
   [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.

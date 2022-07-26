@@ -247,7 +247,7 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 
 ## Next steps
 
-- Read the [machine configuration overview](../concepts/machine-configuration.md).
+- Read the [machine configuration overview](./overview.md).
 - Setup a custom machine configuration package [development environment](../how-to/machine-configuration-create-setup.md).
 - [Create a package artifact](../how-to/machine-configuration-create.md)
   for machine configuration.
@@ -258,7 +258,7 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 - Use the `GuestConfiguration` module to
   [create an Azure Policy definition](../how-to/machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
   [compliance details for machine configuration](../how-to/determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.

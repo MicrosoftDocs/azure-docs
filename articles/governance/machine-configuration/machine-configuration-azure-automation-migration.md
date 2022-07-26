@@ -28,7 +28,7 @@ New features in machine configuration address top asks from customers:
 
 Before you begin, it's a good idea to read the conceptual overview
 information at the page
-[Azure Policy's machine configuration](../concepts/machine-configuration.md).
+[Azure Policy's machine configuration](./overview.md).
 
 ## Understand migration
 
@@ -340,7 +340,7 @@ in the page
 
 To assign configurations using machine configuration, follow the steps in the
 Azure Policy Quickstarts, such as
-[Quickstart: Create a policy assignment to identify non-compliant resources](../assign-policy-portal.md).
+[Quickstart: Create a policy assignment to identify non-compliant resources](../policy/assign-policy-portal.md).
 In step 6 when selecting a policy definition, pick the definition that applies
 a configuration you migrated from Azure Automation State Configuration.
 
@@ -397,7 +397,7 @@ service.
 - Use the `GuestConfiguration` module to
   [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
   [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.
