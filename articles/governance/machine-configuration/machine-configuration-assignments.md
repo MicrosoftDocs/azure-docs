@@ -39,7 +39,7 @@ automatically create an audit resource for definitions with either
 is `Microsoft.GuestConfiguration/guestConfigurationAssignments`. Azure Policy
 uses the **complianceStatus** property of the guest assignment resource to
 report compliance status. For more information, see
-[getting compliance data](../how-to/get-compliance-data.md).
+[getting compliance data](../policy/how-to/get-compliance-data.md).
 
 ### Deletion of guest assignments from Azure Policy
 
@@ -120,16 +120,16 @@ $guestAssignment | Remove-AzResource
 
 ## Next steps
 
-- Read the [machine configuration overview](./machine-configuration.md).
-- Setup a custom machine configuration package [development environment](../how-to/machine-configuration-create-setup.md).
-- [Create a package artifact](../how-to/machine-configuration-create.md)
+- Read the [machine configuration overview](./overview.md).
+- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- [Create a package artifact](./machine-configuration-create.md)
   for machine configuration.
-- [Test the package artifact](../how-to/machine-configuration-create-test.md)
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](../how-to/machine-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for machine configuration](../how-to/determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.

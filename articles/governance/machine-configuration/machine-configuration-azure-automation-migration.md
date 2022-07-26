@@ -309,7 +309,7 @@ function New-TaskResolvedInPWSH7 {
 #### Will I have to add "Reasons" property to Get-TargetResource in all modules I migrate?
 
 Implementing the
-["Reasons" property](../concepts/machine-configuration-custom.md#special-requirements-for-get)
+["Reasons" property](./machine-configuration-custom.md#special-requirements-for-get)
 provides a better experience when viewing
 the results of a configuration assignment from the Azure Portal. If the `Get`
 method in a module doesn't include "Reasons", generic output is returned
@@ -328,7 +328,7 @@ these scenarios using different steps.
 ### Azure VMs
 
 Azure virtual machines already have a
-[resource](../../../azure-resource-manager/management/overview.md#terminology)
+[resource](../../azure-resource-manager/management/overview.md#terminology)
 in Azure, which means they're ready for machine configuration assignments that
 associate them with a configuration. The high-level tasks for migrating Azure
 virtual machines are to remove them from Azure Automation State Configuration
@@ -336,7 +336,7 @@ and then assign configurations using machine configuration.
 
 To remove a machine from Azure Automation State Configuration, follow the steps
 in the page
-[How to remove a configuration and node from Automation State Configuration](../../../automation/state-configuration/remove-node-and-configuration-package.md).
+[How to remove a configuration and node from Automation State Configuration](../../automation/state-configuration/remove-node-and-configuration-package.md).
 
 To assign configurations using machine configuration, follow the steps in the
 Azure Policy Quickstarts, such as
@@ -347,7 +347,7 @@ a configuration you migrated from Azure Automation State Configuration.
 ### Hybrid machines
 
 Machines outside of Azure
-[can be registered to Azure Automation State Configuration](../../../automation/automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines),
+[can be registered to Azure Automation State Configuration](../../automation/automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines),
 but they don't have a machine resource in Azure. The connection
 to Azure Automation is handled by Local Configuration Manager service inside
 the machine and the record of the node is managed as a resource in the Azure
