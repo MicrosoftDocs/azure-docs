@@ -7,15 +7,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 08/24/2021
+ms.date: 07/26/2022
 ms.custom: mode-ui
 ---
 
 # Quickstart: Create a demo app in the portal (Azure Cognitive Search)
 
-Use the Azure portal's **Create demo app** wizard to generate a downloadable, "localhost"-style web app that runs in a browser. Depending on its configuration, the generated app is operational on first use, with a live read-only connection to a remote index. A default app can include a search bar, results area, sidebar filters, and typeahead support.
+Use the Azure portal's **Create demo app** wizard to generate a downloadable, "localhost"-style web app that runs in a browser. Depending on its configuration, the generated app is operational on first use, with a live read-only connection to an index on your search service. A default app can include a search bar, results area, sidebar filters, and typeahead support.
 
-The demo app can help you visualize how an index will function in a client app, but it is not intended for production scenarios. Client apps should include security, error handling, and hosting logic that the generated HTML page doesn't provide. When you are ready to create a client app, see [Create your first search app using the .NET SDK](tutorial-csharp-create-first-app.md) for next steps.
+The demo app can help you visualize how an index will function in a client app, but it is not intended for production scenarios. Production apps should include security, error handling, and hosting logic that the demo app doesn't provide. When you are ready to create a client app, see [Create your first search app using the .NET SDK](tutorial-csharp-create-first-app.md) for next steps.
 
 ## Prerequisites
 
