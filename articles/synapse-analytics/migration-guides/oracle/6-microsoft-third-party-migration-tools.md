@@ -54,7 +54,7 @@ The next sections discuss these tools in more detail.
 
 	:::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process." lightbox="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1-lrg.png":::
 	
-[SSMA for Oracle](/https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata) can help you migrate an Oracle data warehouse or data mart to Azure Synapse. SSMA is designed to automate the process of migrating tables, views, and data from an existing Oracle environment.![image](https://user-images.githubusercontent.com/92410188/181095017-ed3180eb-a79d-49b4-b2b6-ee2730969101.png)
+SSMA for Oracle can help you migrate an Oracle data warehouse or data mart to Azure Synapse. SSMA is designed to automate the process of migrating tables, views, and data from an existing Oracle environment.
 
 
 ### Microsoft Azure Data Factory
@@ -92,7 +92,7 @@ Data Factory is the recommended approach for implementing data integration and E
 
 ### Microsoft services for physical data transfer
 
-The following sections discuss a range of products and services that Microsoft offers to assist customers with data transfer.This new offline data movement will allow end users to reduce the migration downtime significantly.
+The following sections discuss a range of products and services that Microsoft offers to assist customers with data transfer. This offline data movement will allow end users to reduce the migration downtime significantly.
 
 #### Azure ExpressRoute
 
