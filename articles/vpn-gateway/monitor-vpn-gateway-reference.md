@@ -1,22 +1,22 @@
 ---
-title: 'Set up alerts on Azure VPN Gateway metrics'
-description: Learn about alerts based on metrics for virtual network VPN gateways.
-services: vpn-gateway
+title: 'Monitoring Azure VPN Gateway - Data reference'
+description: Learn about Azure VPN Gateway logs and metrics using Azure Monitor.
 author: cherylmc
-
 ms.service: vpn-gateway
-ms.topic: how-to
+ms.topic: reference
 ms.date: 07/25/2022
 ms.author: cherylmc
+ms.custom: subject-monitoring
 
 ---
-# Set up alerts on VPN Gateway metrics
 
-Azure Monitor provides the ability to set up alerts for Azure resources. You can set up alerts for virtual network gateways of the "VPN" type.
+# Monitoring VPN Gateway data reference
 
-For steps, see [Tutorial: Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
+This article provides a reference of log and metric data collected to analyze the performance and availability of VPN Gateway. See [Monitoring VPN Gateway](monitor-vpn-gateway.md) for details on collecting and analyzing monitoring data for VPN Gateway.
 
-## Metrics
+## <a name="metrics"></a>Metrics
+
+Metrics in Azure Monitor are numerical values that describe some aspect of a system at a particular time. Metrics are collected every minute, and are useful for alerting because they can be sampled frequently. An alert can be fired quickly with relatively simple logic.
 
 | **Metric**                                 | **Unit**     | **Granularity**     | **Description**                                                                         |
 | -------------------------------------------| ------------ | ------------------- | --------------------------------------------------------------------------------------- |
@@ -42,8 +42,19 @@ For steps, see [Tutorial: Create a metric alert for an Azure resource](../azure-
 | **User Vpn Route Count**                   | Count        | 5 minutes           | Number of user VPN routes configured on the VPN Gateway.                                |
 | **VNet Address Prefix Count**              | Count        | 5 minutes           | Number of VNet address prefixes that are used/advertised by the gateway.                |
 
+## Resource logs
+
+The following resource logs are available in Azure:
+
+|***Name*** | ***Description*** |
+|--- | --- |
+|GatewayDiagnosticLog | Contains resource logs for gateway configuration events, primary changes, and maintenance events |
+|TunnelDiagnosticLog | Contains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable |
+|RouteDiagnosticLog | Logs changes to static routes and BGP events that occur on the gateway |
+|IKEDiagnosticLog | Logs IKE control messages and events on the gateway |
+|P2SDiagnosticLog | Logs point-to-site control messages and events on the gateway. Connection source info is provided for IKEv2 and OpenVPN connections only |
+
 ## Next steps
 
-* For more information about monitoring Azure VPN Gateway, see [Monitor VPN Gateway](monitor-vpn-gateway.md).
-* For more information about alerts, see [What are Azure Monitor Alerts](../azure-monitor/alerts/alerts-overview.md).
-* For more information about alert types, see [Alert types](../azure-monitor/alerts/alerts-types.md).
+* For additional information about VPN Gateway monitoring, see [Monitoring Azure VPN Gateway](monitor-vpn-gateway.md).
+* To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
