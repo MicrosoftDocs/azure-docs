@@ -143,7 +143,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 
 ## Enable KMS with private key vault
 
-If you enable KMS with private key vault, AKS cluster will create a private endpoint and private link in the node resource group automatically. The key vault will be added a private endpoint connection with the AKS cluster.
+If you enable KMS with private key vault, AKS will create a private endpoint and private link in the node resource group automatically. The key vault will be added a private endpoint connection with the AKS cluster.
 
 ### Create a private key vault and key
 
