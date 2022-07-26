@@ -58,12 +58,14 @@ Use clear and unambiguous language and use a list format.
 
 ## Adding modules to your cache
 
-You must add modules when you create your Enterprise tier cache. Add a module or modules in the Advanced tab of the Enterprise tier caches. You can add all the available modules or to select only specific modules to install.
+You must add modules when you create your Enterprise tier cache. To add a module or modules when creating a new cache, use the settings in the Advanced tab of the Enterprise tier caches. 
+
+You can add all the available modules or to select only specific modules to install.
+
+:::image type="content" source="media/cache-how-to-use-modules/cache-add-modules.png" alt-text="Screenshot of advanced tab showing a list of modules to add to a new cache. ":::
 
 > [!IMPORTANT]
 > Modules must be enabled at the time you create an Azure Cache for Redis instance.
-
-:::image type="content" source="media/cache-how-to-use-modules/cache-add-modules.png" alt-text="Screenshot of advanced tab showing a list of modules to add to a new cache. ":::
 
 For more information, see [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md).
 
