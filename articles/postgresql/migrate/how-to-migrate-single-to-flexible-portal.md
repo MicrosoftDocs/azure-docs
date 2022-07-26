@@ -63,11 +63,11 @@ Alternatively, you can initiate the migration process from the Azure Database fo
 
 3. You will be taken to a page with two options. If you have already created a Flexible Server and want to use that as the target, choose **Select existing**, and select the corresponding Subscription, Resource group and Server name details. Once the selections have been made, click on **Go to Migration wizard** and skip to the instructions under the **Setup tab** section in this page.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-choose-between-flexible-server.png" alt-text="Screenshot to choose between flexible server options." lightbox="./media/concepts-single-to-flexible/single-to-flex-initiate-migrate-from-single-server.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-choose-between-flexible-server.png" alt-text="Screenshot to choose existing flexible server option." lightbox="./media/concepts-single-to-flexible/single-to-flex-choose-between-flexible-server.png":::
 
 4. Should you choose to Create a new Flexible Server, select **Create new** and click on **Go to Create Wizard**. This action will take you through the Flexible Server creation process and deploy the Flexible Server.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-create-new.png" alt-text="Screenshot to choose between flexible server options." lightbox="./media/concepts-single-to-flexible/single-to-flex-create-new.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-create-new.png" alt-text="Screenshot to choose new flexible server option." lightbox="./media/concepts-single-to-flexible/single-to-flex-create-new.png":::
 
 5. Once the Flexible Server is deployed, select to open the Flexible Server menu. On the left panel, scroll down to **Migration (preview)** and select it.
 
