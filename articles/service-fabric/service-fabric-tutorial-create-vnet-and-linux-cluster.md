@@ -29,14 +29,6 @@ The following procedures create a seven-node Service Fabric cluster. To calculat
 
 Download the following Resource Manager template files:
 
-For Ubuntu 16.04 LTS:
-- [AzureDeploy.json][template]
-  - **vmImageSku** attribute is to "16.04-LTS"
-  - Microsoft.ServiceFabric/clusters resource's
-    - **apiVersion** being set to "2018-02-01"
-    - **vmImage** property being set to "Linux"
-- [AzureDeploy.Parameters.json][parameters]
-
 For Ubuntu 18.04 LTS:
 - [AzureDeploy.json][template2]
   - **vmImageSku** attribute is to "18.04-LTS"
@@ -61,7 +53,7 @@ In the **Microsoft.ServiceFabric/clusters** resource, a Linux cluster is deploye
 
 * three node types
 * five nodes in the primary node type (configurable in the template parameters), one node in each of the other node types
-* OS: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (configurable in the template parameters)
+* OS: (Ubuntu 18.04 LTS / Ubuntu 20.04) (configurable in the template parameters)
 * certificate secured (configurable in the template parameters)
 * [DNS service](service-fabric-dnsservice.md) is enabled
 * [Durability level](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)

@@ -242,7 +242,7 @@ az group create --name $ResourceGroupName --location $Location
 # The certificate is downloaded locally as a PEM file.
 az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
 --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
---cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1804 --vault-name $VaultName \ 
 --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 

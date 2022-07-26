@@ -93,7 +93,7 @@ declare CertSubjectName="mylinux.westus.cloudapp.azure.com"
 declare vmpassword="Password!1"
 declare certpassword="Password!4321"
 declare vmuser="myadmin"
-declare vmOs="UbuntuServer1604"
+declare vmOs="UbuntuServer1804"
 declare certOutputFolder="c:\certificates"
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
@@ -190,7 +190,7 @@ declare resourceGroupName="mylinux"
 declare vaultResourceGroupName="myvaultrg"
 declare vaultName="myvault"
 declare certificate-file="c:\certificates\mycert.pem"
-declare vmOs="UbuntuServer1604"
+declare vmOs="UbuntuServer1804"
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
 	--certificate-file $certificate-file --certificate-password $certPassword  \

@@ -40,7 +40,7 @@ With Visual Studio tooling you can develop and publish Service Fabric .Net Core 
 
 4. Update the RuntimeIndetifier from win7-x64 to the target platform in the service project.
 ```xml
-    <RuntimeIdentifier>ubuntu.16.04-x64</RuntimeIdentifier>
+    <RuntimeIdentifier>ubuntu.20.04-x64</RuntimeIdentifier>
 ```
 5. In the ServiceManifest, update the entrypoint program to remove .exe. 
 ```xml
