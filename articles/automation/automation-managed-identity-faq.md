@@ -15,7 +15,7 @@ This Microsoft FAQ is a list of commonly asked questions when you are migrating 
 
 ## How long will you support Run As account?
  
-Automation Run As account would be supported for the next three years until September 14, 2025. While we continue to support for exisiting users, we recommend all new users to use Managed identities as the preferred way of runbook authentication. Existing users can see the Run As account properties and renew the certificate upon expiration, but users will not be able to create a new Run As account from the Azure portal. Users could still create a new Run As account through [PowerShell script](/azure/automation/create-run-as-account#create-account-using-powershell) until the supported time.
+Automation Run As account would be supported for the next three years until September 30, 2025. While we continue to support for exisiting users, we recommend all new users to use Managed identities as the preferred way of runbook authentication. Existing users can see the Run As account properties and renew the certificate upon expiration, but users will not be able to create a new Run As account from the Azure portal. Users could still create a new Run As account through [PowerShell script](/azure/automation/create-run-as-account#create-account-using-powershell) until the supported time.
 
 ## What is Managed Identity?
 Managed identities provide an automatically managed identity in Azure Active Directory for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. Applications can use managed identities to obtain Azure AD tokens without managing credentials, secrets, certificates or keys. 
@@ -29,9 +29,6 @@ An Azure Automation managed identity from Azure Active Directory (Azure AD) allo
 - Managed identities eliminate the management overhead associated with managing Run As account in your runbook code. You can access resources via a managed identity of an Automation account from a runbook without worrying about creating the service principal, Run As Certificate, Run As Connection and so on.
 - You don’t have to renew the certificate used by the Automation Run As account.
  
-## What is the difference between Run As account and Managed Identity?
-In Run As accounts, you must manage credentials (certificate). Whereas , in Managed identity, you don't have to do it.
-
 ## Are Managed identities more secure than Run As account?
 Run As account creates an Azure AD app used to manage the resources within the subscription through a certificate having contributor access at the subscription level by default. A malicious user could use this certificate to perform a privileged operation against resources in the subscription leading to potential vulnerabilities. Run As accounts also has a management overhead associated that involves creating a service principal, RunAsCertificate, RunAsConnection, certificate renewal and so on.
 
@@ -45,9 +42,6 @@ Yes, only in a scenario when Managed identities are not supported for specific o
 
 ## How can I migrate from existing Run As account to Managed identities?
 Follow the steps mentioned in [migrate Run As accounts to Managed identity](/azure/automationmigrate-run-as-accounts-managed-identity).
-
-## Can we audit and enforce Managed identities through Azure Policy?
-Yes, you can audit and enforce the Managed identities through Azure Policy. 
 
 ## How do I see the runbooks that are using Run As account?
 Use the script here to find out which Automation accounts are using Run As account

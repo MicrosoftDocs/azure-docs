@@ -11,11 +11,9 @@ ms.custom: devx-track-azurepowershell
 # Migrate from existing Run As accounts to managed identity
 
 > [!IMPORTANT]
-> Azure Automation Run As Account will retire on September 16, 2025 and will be replaced with Managed Identities.
-While we continue to support Run As account for both existing and new Automation accounts from the Azure portal and PowerShell, we recommend you to switch to [Managed identities](/automation-security-overview.md#managed-identities) for runbook authentication.
+> Azure Automation Run As Account will retire on **September 30, 2025**, and there will be no support provided beyond this date. From now through **September 30, 2025**, you can continue to use the Azure Automation Run As Account. However, we recommend you to transition to [managed identities](/automation-security-overview.md#managed-identities) before **September 30, 2025**.
 
-
-Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. Whenever a Run As account is created, an Azure AD application is registered, and a self-signed certificate will be generated which will be valid for one year. This adds an overhead of renewing the certificate every year before it expires to prevent the Automation account to stop working. 
+ Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. Whenever a Run As account is created, an Azure AD application is registered, and a self-signed certificate will be generated which will be valid for one year. This adds an overhead of renewing the certificate every year before it expires to prevent the Automation account to stop working. 
 
 Automation accounts can now be configured to use [Managed Identity](/automation/automation-security-overview#managed-identities) which is the default option when an Automation account is created. With this feature, Automation account can authenticate to Azure resources without the need to exchange any credentials, hence removing the overhead of renewing the certificate or managing the service principal.
 
@@ -43,9 +41,9 @@ To migrate from an Automation Run As account to a Managed Identity for your runb
 
     For Managed Identity support, use the Az cmdlet Connect-AzAccount cmdlet. use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
 
-    - If you are using AzureRM modules, Update `AzureRM.Profile` to latest version and replace using  `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
     - If you are using Az modules, update to the latest version following the steps in the [Update Azure PowerShell modules](automation-update-azure-modules.md#update-az-modules) article. 
-
+    - If you are using AzureRM modules, Update `AzureRM.Profile` to latest version and replace using  `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
+    
     Follow the sample scripts below to know the change required to the runbook code to use Managed Identities
 
 1. Once you are sure that the runbook is executing successfully by using managed identities, you can safely [delete the Run as account](/azure/automation/delete-run-as-account) if the Run as account is not used by any other runbook.
