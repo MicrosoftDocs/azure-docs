@@ -5,7 +5,7 @@ author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/13/2019
+ms.date: 07/26/2022
 ms.author: v-pgaddala
 
 ---
