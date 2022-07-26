@@ -18,7 +18,7 @@ Uses Speech SDK 1.23.0.
 - Added `spx csr model copy` command (see `spx help csr model copy`)
 - Added `--check result` option using JMES queries (see `spx help check result`)
 - Improved error messages when specifying invalid command options
-- Moved from .NET Core 3.1 to .NET 6.0
+- Moved from .NET Core 3.1 to .NET 6.0. In order to run Speech CLI, you will need to install the [.NET 6.0 Runtime](https://dotnet.microsoft.com/download/dotnet/6.0/runtime) (or above).
 
 #### Bug fixes
 
