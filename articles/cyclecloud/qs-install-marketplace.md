@@ -55,7 +55,7 @@ On Linux, follow [these instructions on GitHub](https://help.github.com/articles
 1. Select the **Region**
 1. Create the **Username** that you will use to log into the instance
 1. Add your **SSH public key**
-1. If you are planning on using [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) (recommended), Select the **Management** tab and enable **System assigned managed identity**.
+1. If you are planning on using [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) (recommended), Select the **Management** tab and enable **System assigned managed identity**.
 1. Click on the **Review** button and then the **Create** button
 
 The image has a number of recommended default settings including **Size** and built-in **Network Security Groups**. These can be modified if necessary.
@@ -116,7 +116,7 @@ You should now have a running CycleCloud application that allows you to create a
 
 ## Further Reading
 
-* [Plan your Production Deployment](../how-to/plan-prod-deployment.md)
+* [Plan your Production Deployment](/azure/cyclecloud/how-to/plan-prod-deployment)
 * [Install CycleCloud manually](./how-to/install-manual.md)
 * [Explore CycleCloud features with the tutorial](./tutorials/create-cluster.md)
 * [Use Managed Identities for account](./how-to/managed-identities.md)

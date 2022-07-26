@@ -16,7 +16,7 @@ Jetpack is required on every node of a cluster. It is automatically installed by
 
 ## Jetpack Installation
 
-The Jetpack installer is cached in your Azure Storage Account when you first start a cluster using CycleCloud. As cluster VMs are provisioned, a [custom script extension](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) is executed as part of the boot process which downloads the Jetpack installer from your Azure Storage cache and then installs it on the VM.
+The Jetpack installer is cached in your Azure Storage Account when you first start a cluster using CycleCloud. As cluster VMs are provisioned, a [custom script extension](/azure/virtual-machines/extensions/overview) is executed as part of the boot process which downloads the Jetpack installer from your Azure Storage cache and then installs it on the VM.
 
 The Jetpack installer:
 
@@ -102,7 +102,7 @@ jetpack autoscale --file=custom-autoscale.json
 `jetpack config` fetches information passed into a VM by CycleCloud. It exposes:
 
 * all the system properties made available via [Ohai](https://docs.getchef.com/ohai.html)
-* a subset of the VM's [Azure metadata](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+* a subset of the VM's [Azure metadata](/azure/virtual-machines/windows/instance-metadata-service)
 * information about the parent CycleCloud cluster.
 
 ### jetpack converge
