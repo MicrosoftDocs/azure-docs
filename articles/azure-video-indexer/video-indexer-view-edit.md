@@ -8,7 +8,7 @@ ms.date: 06/07/2022
 ms.author: juliako
 ---
 
-# Tutorial: View and edit Azure Video Indexer insights
+# View and edit Azure Video Indexer insights
 
 This topic shows you how to view and edit the Azure Video Indexer insights of a video.
 
