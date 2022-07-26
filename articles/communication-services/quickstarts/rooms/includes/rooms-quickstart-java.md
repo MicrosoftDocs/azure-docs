@@ -129,7 +129,7 @@ CommunicationRoom roomResult = roomsClient.updateRoom(roomId, request);
 
 ### Add new participants 
 
-To add new participants to a `room`, issue an update request on the room's `Participants`:
+To add new participants to a `room`, use the `addParticipants` method exposed on the client.
 
 ```java
 RoomParticipant user1 = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier("<ACS User MRI identity 1>")).setRole(RoleType.ATTENDEE);
@@ -151,7 +151,7 @@ Participants that have been added to a `room` become eligible to join calls.
 
 ### Remove participants
 
-To remove a participant from a `room` and revoke their access, update the `Participants` list:
+To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
 
 ```java
 RoomParticipant user1 = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier("<ACS User MRI identity 1>")).setRole(RoleType.ATTENDEE);

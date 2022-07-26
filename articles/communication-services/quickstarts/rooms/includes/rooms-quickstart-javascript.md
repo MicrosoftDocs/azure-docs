@@ -130,7 +130,7 @@ Participants that have been added to a `room` become eligible to join calls.
 
 ### Remove participants
 
-To remove a participant from a `room` and revoke their access, update the `Participants` list:
+To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
 
 ```javascript
   // request payload to delete both users from the room

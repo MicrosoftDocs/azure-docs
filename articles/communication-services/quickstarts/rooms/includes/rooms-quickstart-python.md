@@ -116,22 +116,25 @@ except HttpResponseError as ex:
 
 ### Add new participants 
 
-To add new participants to a `room`, issue an update request on the room's `Participants`:
+To add new participants to a `room`, use the `add_participants` method exposed on the client.
 
-```csharp
-participants = [RoomParticipant(CommunicationUserIdentifier("<ACS User MRI identity 4>"))]
-
+```python
 try:
-    add_participants_response = self.rooms_client.add_participants(room_id=room_id, participants=participants)
-except HttpResponseError as ex:
-    print(ex)
+    participants = []
+    for p in participants_list:
+        participants.append(RoomParticipant(CommunicationUserIdentifier(p), RoleType.ATTENDEE))
+    self.rooms_client.add_participants(room_id, participants)
+
+    print(str(len(participants)) + ' new participants added to the room : ' + str(room_id))
+except Exception as ex:
+    print('Error in adding participants to room.',ex)
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
 
 ### Remove participants
 
-To remove a participant from a `room` and revoke their access, update the `Participants` list:
+To remove a participant from a `room` and revoke their access, use the `remove_participants` method.
 
 ```python
 participants = [CommunicationUserIdentifier("<ACS User MRI identity 2>")]
