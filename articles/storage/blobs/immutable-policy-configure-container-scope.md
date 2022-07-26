@@ -229,13 +229,15 @@ To configure a legal hold on a container with the Azure portal, follow these ste
 
 3. Under the **Immutable blob versions** section, select **Add policy**.
 
-4. Choose **Legal hold** as the policy type, and select **OK** to apply it.
+4. Choose **Legal hold** as the policy type.
 
-5. Choose whether to allow protected append writes. 
+5. Add one or more legal hold tags.
+
+6. Choose whether to allow protected append writes, and then select **Save**.
 
    The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
 
-   The **Block and append blobs** option provides you with the same permissions as the **Append blobs** option but adds support to certain Microsoft tools, such as Azure Data Factory, which implement append blobs by using block blobs. If your workloads depend on those tools, you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob. 
+   This setting also adds the ability to write new blocks to a block blob. While there are no public APIs that enable you to to do this directly, certain Microsoft tools implement append blobs by creating block blobs and then appending blocks to them by using internally available APIs. 
 
    To learn more about these options, see [Allow protected append blobs writes](immutable-legal-hold-overview.md#allow-protected-append-blobs-writes).
 
@@ -257,7 +259,8 @@ To configure a legal hold on a container with PowerShell, call the [Add-AzRmStor
 Add-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
     -Name <container> `
-    -Tag <tag1>,<tag2>,...
+    -Tag <tag1>,<tag2>,...`
+    -AllowProtectedAppendWriteAll true
 ```
 
 To clear a legal hold, call the [Remove-AzRmStorageContainerLegalHold](/powershell/module/az.storage/remove-azrmstoragecontainerlegalhold) command:
@@ -278,7 +281,8 @@ az storage container legal-hold set \
     --tags tag1 tag2 \
     --container-name <container> \
     --account-name <storage-account> \
-    --resource-group <resource-group>
+    --resource-group <resource-group> \
+    --allow-protected-append-writes-all true
 ```
 
 To clear a legal hold, call the [az storage container legal-hold clear](/cli/azure/storage/container/legal-hold#az-storage-container-legal-hold-clear) command:
@@ -288,7 +292,7 @@ az storage container legal-hold clear \
     --tags tag1 tag2 \
     --container-name <container> \
     --account-name <storage-account> \
-    --resource-group <resource-group>
+    --resource-group <resource-group> \ 
 ```
 
 ---
