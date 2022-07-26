@@ -119,7 +119,7 @@ let tokenResponse;
 
 try {
 
-    tokenResponse = await msalInstance.acquireTokenPopup({
+    tokenResponse = await msalInstance.acquireTokenSilent({
                     claims: window.atob(claimsChallenge), // decode the base64 string
                     scopes: scopes,  // e.g ['User.Read', 'Contacts.Read']
                     account: account, // current active account
@@ -127,9 +127,9 @@ try {
 
 } catch (error) {
 
-    if (error instanceof BrowserAuthError) {
+     if (error instanceof InteractionRequiredAuthError) {
 
-        tokenResponse = await msalInstance.acquireTokenRedirect({
+        tokenResponse = await msalInstance.acquireTokenPopup({
                         claims: window.atob(claimsChallenge), // decode the base64 string
                         scopes: scopes, // e.g ['User.Read', 'Contacts.Read']
                         account: account, // current active account
