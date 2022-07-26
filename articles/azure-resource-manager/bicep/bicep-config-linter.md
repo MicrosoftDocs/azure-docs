@@ -57,6 +57,9 @@ The following example shows the rules that are available for configuration.
         "use-protectedsettings-for-commandtoexecute-secrets": {
           "level": "warning"
         },
+        "use-stable-resource-identifier": {
+          "level": "warning"
+        }
         "use-stable-vm-image": {
           "level": "warning"
         }

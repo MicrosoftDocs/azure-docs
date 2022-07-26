@@ -345,6 +345,8 @@
     href: /previous-versions/azure/reference/jj154113(v=azure.100)
   - name: Azure CLI
     href: /cli/azure/network/vnet-gateway
+  - name: Monitoring data
+    href: monitor-vpn-gateway-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap
