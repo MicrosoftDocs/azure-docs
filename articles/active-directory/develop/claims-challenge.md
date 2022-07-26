@@ -222,11 +222,10 @@ else
 
 ```javascript
 const checkForRequiredAuthContext = (req, res, next, authContextId) => {
+    // req.authInfo contains the decoded access token payload
     if (!req.authInfo['acrs'] || !req.authInfo['acrs'].includes(authContextId)) {
         if (isClientCapableOfClaimsChallenge(req.authInfo)) {
-            
           // Return formatted claims challenge as this client understands this
-
         } else {
             return res.status(403).json({ error: 'Client is not capable' });
         }
