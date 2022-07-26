@@ -9,6 +9,9 @@ ms.date: 05/02/2022
 
 This article summarizes supported components and settings for disaster recovery of VMware VMs and physical servers to Azure using [Azure Site Recovery](site-recovery-overview.md).
 
+>[!NOTE]
+>You can now move your existing replicated items to modernized VMware disaster recovery experience. [Learn more](move-from-classic-to-modernized-vmware-disaster-recovery.md).
+
 - [Learn more](vmware-azure-architecture.md) about VMware VM/physical server disaster recovery architecture.
 - Follow our [tutorials](tutorial-prepare-azure.md) to try out disaster recovery.
 

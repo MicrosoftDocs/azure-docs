@@ -29,6 +29,9 @@
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Run failback
       href: azure-to-azure-tutorial-failback.md
+    - name: Move to modernized VMware VM disaster recovery
+      href: move-from-classic-to-modernized-vmware-disaster-recovery.md
+      href: how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md
   - name: Move
     items:
     - name: Move Azure VMs to another region (Resource Mover)
@@ -147,8 +150,6 @@
       href: vmware-azure-architecture.md
     - name: Preview
       href: vmware-azure-architecture-preview.md
-    - name: Classic to modernized VMware disaster recovery
-      href: move-from-classic-to-modernized-vmware-disaster-recovery.md
   - name: About excluding disks from replication
     href: exclude-disks-replication.md
   - name: Failback location options from Azure to VMware
@@ -271,8 +272,6 @@
     items:
     - name: Set up disaster recovery at scale
       href: vmware-physical-large-deployment.md
-    - name: Move from classic to modernized VMware disaster recovery
-      href: how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md
     - name: Set up networking
       items:
       - name: Manage network interfaces for on-premises to Azure replication
