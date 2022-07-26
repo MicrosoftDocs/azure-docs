@@ -1,12 +1,12 @@
 ---
-title: The Azure Video Indexer connectors with Logic App and Power Automate tutorial.
+title: The Azure Video Indexer connectors with Logic App and Power Automate.
 description: This tutorial shows how to unlock new experiences and monetization opportunities Azure Video Indexer connectors with Logic App and Power Automate.
 ms.author: alzam
 ms.topic: tutorial #Required
 ms.date: 09/21/2020
 ---
 
-# Tutorial: use Azure Video Indexer with Logic App and Power Automate
+# Use Azure Video Indexer with Logic App and Power Automate
 
 Azure Video Indexer [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) supports both server-to-server and client-to-server communication and enables Azure Video Indexer users to integrate video and audio insights easily into their application logic, unlocking new experiences and monetization opportunities.
 

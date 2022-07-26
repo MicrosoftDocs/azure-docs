@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 02/18/2022
 ms.author: caoling
 ms.custom: references_regions
+zone_pivot_groups: programming-languages-set-nineteen
 ---
 
 # Deploy and use your voice model
@@ -285,6 +286,50 @@ The HTTP status code for each response indicates success or common errors.
 | 401              | Unauthorized      | The request isn't authorized. Check to make sure your subscription key or [token](rest-speech-to-text-short.md#authentication) is valid and in the correct region.                                                      |
 | 429              | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
 | 502              | Bad Gateway       | Network or server-side issue. May also indicate invalid headers.                                                                                                          |
+
+## Use your custom voice
+
+The difference between Custom voice sample codes and [Text-to-speech quickstart codes](get-started-speech-to-text.md) is that `EndpointId` must be filled in Custom Voice. So you should first build and run demo quickly by quickstart codes and then check following Custom voice sample codes to see how to set `EndpointId`.
+
+::: zone pivot="programming-language-csharp"
+```csharp
+var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);      
+speechConfig.SpeechSynthesisVoiceName = "YourCustomVoiceName";
+speechConfig.EndpointId = "YourEndpointId";
+```
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+```cpp
+auto speechConfig = SpeechConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
+speechConfig->SetSpeechSynthesisVoiceName("YourCustomVoiceName");
+speechConfig->SetEndpointId("YourEndpointId");
+```
+::: zone-end
+
+::: zone pivot="programming-language-java"
+```java
+SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
+speechConfig.setSpeechSynthesisVoiceName("YourCustomVoiceName");
+speechConfig.setEndpointId("YourEndpointId");
+```
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+```ObjectiveC
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:speechKey region:serviceRegion];
+speechConfig.speechSynthesisVoiceName = @"YourCustomVoiceName";
+speechConfig.EndpointId = @"YourEndpointId";
+```
+::: zone-end
+
+::: zone pivot="programming-language-python"
+```Python
+speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+speech_config.endpoint_id = "YourEndpointId"
+speech_config.speech_synthesis_voice_name = "YourCustomVoiceName"
+```
+::: zone-end
 
 ## Next steps
 
