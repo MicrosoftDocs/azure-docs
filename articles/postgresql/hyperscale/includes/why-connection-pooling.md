@@ -4,7 +4,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 07/22/2022
+ms.date: 07/26/2022
 ---
 
 > [!TIP]

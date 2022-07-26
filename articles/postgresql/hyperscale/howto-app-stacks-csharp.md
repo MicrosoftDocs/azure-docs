@@ -6,7 +6,7 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 07/26/2022
 ---
 
 # C# app to connect and query Hyperscale (Citus)

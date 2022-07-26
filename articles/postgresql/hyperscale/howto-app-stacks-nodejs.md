@@ -6,7 +6,7 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 07/26/2022
 ---
 
 # Node.js app to connect and query Hyperscale (Citus)
@@ -66,20 +66,20 @@ Create a `citus.js` with the common connection code:
 
 const { Pool } = require('pg');
 module.exports = new Promise((resolve, reject) => {
-  const pool = new Pool({
-    host: 'c.citustest.postgres.database.azure.com',
-    port: 5432,
-    user: 'citus',
-    password: 'Password123$',
-    database: 'citus',
-    ssl: true,
-    connectionTimeoutMillis: 0,
-    idleTimeoutMillis: 0,
-    min: 10,
-    max: 20,
-  });
+    const pool = new Pool({
+        host: 'c.citustest.postgres.database.azure.com',
+        port: 5432,
+        user: 'citus',
+        password: 'Password123$',
+        database: 'citus',
+        ssl: true,
+        connectionTimeoutMillis: 0,
+        idleTimeoutMillis: 0,
+        min: 10,
+        max: 20,
+    });
 
-  resolve({ pool });
+    resolve({ pool });
 });
 ```
 
@@ -99,9 +99,9 @@ async function queryDatabase() {
         CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);
     `;
     const { pool } = await postgresql;
-    
+
     const client = await pool.connect();
-    
+
     var stream = client.query(q).then(() => {
         console.log('Created tables and inserted rows');
         client.end(console.log('Closed client connection'));
@@ -130,28 +130,25 @@ Use the following code to connect to the database and distribute the table.
 ```javascript
 const postgresql = require('./citus');
 
-
-
 // Connect with a connection pool.
-
 async function queryDatabase() {
-  const q = `
-  select create_distributed_table('pharmacy','pharmacy_id');
-`;
+    const q = `select create_distributed_table('pharmacy','pharmacy_id');`;
 
-const { pool } = await postgresql;
-// resolve the pool.connect() promise
-const client = await pool.connect();
-var stream = await client.query(q).then(() => {
-    console.log('Distributed pharmacy table');
-    client.end(console.log('Closed client connection'));
-}).catch(err => console.log(err))
-    .then(() => {
-      console.log('Finished execution, exiting now');
-      process.exit();
-    });
+    const { pool } = await postgresql;
+    // resolve the pool.connect() promise
+    const client = await pool.connect();
+    var stream = await client.query(q).then(() => {
+        console.log('Distributed pharmacy table');
+        client.end(console.log('Closed client connection'));
+    })
+        .catch(err => console.log(err))
+        .then(() => {
+            console.log('Finished execution, exiting now');
+            process.exit();
+        });
     await pool.end();
 }
+
 // Use a self-calling function so we can use async / await.
 queryDatabase();
 ```
@@ -162,28 +159,30 @@ Use the following code to connect and read the data using a SELECT SQL statement
 
 ```javascript
 // read.js
+
 const postgresql = require('./citus');
 // Connect with a connection pool.
 async function queryDatabase() {
-  const q = 'SELECT * FROM pharmacy;';
-  const { pool } = await postgresql;
-  // resolve the pool.connect() promise
-  const client = await pool.connect();
-  var stream = await client.query(q).then(res => {
-    const rows = res.rows;
-    rows.map(row => {
-        console.log(`Read: ${JSON.stringify(row)}`);
-    });
-    process.exit();
-}).catch(err => {
-      console.log(err);
-      throw err;
+    const q = 'SELECT * FROM pharmacy;';
+    const { pool } = await postgresql;
+    // resolve the pool.connect() promise
+    const client = await pool.connect();
+    var stream = await client.query(q).then(res => {
+        const rows = res.rows;
+        rows.map(row => {
+            console.log(`Read: ${JSON.stringify(row)}`);
+        });
+        process.exit();
     })
-    .then(() => {
-      console.log('Finished execution, exiting now');
-      process.exit();
-    });
-  await pool.end();
+        .catch(err => {
+            console.log(err);
+            throw err;
+        })
+        .then(() => {
+            console.log('Finished execution, exiting now');
+            process.exit();
+        });
+    await pool.end();
 }
 
 queryDatabase();
@@ -200,24 +199,25 @@ const postgresql = require('./citus');
 
 // Connect with a connection pool.
 async function queryDatabase() {
-  const q = `
-  UPDATE pharmacy SET city = 'guntur'
-  WHERE pharmacy_id = 1 ;
-`;
-  const { pool } = await postgresql;
-  // resolve the pool.connect() promise
-  const client = await pool.connect();
-  var stream = await client.query(q).then(result => {
-    console.log('Update completed');
-    console.log(`Rows affected: ${result.rowCount}`);
-    process.exit();
-  })
-    .catch(err => {
-      console.log(err);
-      throw err;
-    });
-  await pool.end();
+    const q = `
+        UPDATE pharmacy SET city = 'guntur'
+        WHERE pharmacy_id = 1 ;
+    `;
+    const { pool } = await postgresql;
+    // resolve the pool.connect() promise
+    const client = await pool.connect();
+    var stream = await client.query(q).then(result => {
+        console.log('Update completed');
+        console.log(`Rows affected: ${result.rowCount}`);
+        process.exit();
+    })
+        .catch(err => {
+            console.log(err);
+            throw err;
+        });
+    await pool.end();
 }
+
 queryDatabase();
 ```
 
@@ -232,28 +232,25 @@ const postgresql = require('./citus');
 
 // Connect with a connection pool.
 async function queryDatabase() {
-  const q = `
-    DELETE FROM pharmacy WHERE pharmacy_name = 'Target';
-`;
-  const { pool } = await postgresql;
-  // resolve the pool.connect() promise
-  const client = await pool.connect();
-  var stream = await client.query(q).then(result => {
-    console.log('Delete completed');
-    console.log(`Rows affected: ${result.rowCount}`);
-  })
-    .catch(err => {
-      console.log(err);
-      throw err;
+    const q = `DELETE FROM pharmacy WHERE pharmacy_name = 'Target';`;
+    const { pool } = await postgresql;
+    // resolve the pool.connect() promise
+    const client = await pool.connect();
+    var stream = await client.query(q).then(result => {
+        console.log('Delete completed');
+        console.log(`Rows affected: ${result.rowCount}`);
     })
-    .then(() => {
-      console.log('Finished execution, exiting now');
-      process.exit();
-    });
-  await pool.end();
-
-
+        .catch(err => {
+            console.log(err);
+            throw err;
+        })
+        .then(() => {
+            console.log('Finished execution, exiting now');
+            process.exit();
+        });
+    await pool.end();
 }
+
 queryDatabase();
 ```
 
@@ -315,7 +312,6 @@ async function queryDatabase() {
 
     await pool.end();
     process.exit();
-
 }
 
 queryDatabase();
@@ -341,33 +337,33 @@ const postgresql = require('./citus');
 
 // Connect with a connection pool.
 async function queryDatabase() {
-  const { pool } = await postgresql;
-  // resolve the pool.connect() promise
-  const client = await pool.connect();
-  var stream = client.query(copyFrom(`COPY pharmacy FROM STDIN `));
+    const { pool } = await postgresql;
+    // resolve the pool.connect() promise
+    const client = await pool.connect();
+    var stream = client.query(copyFrom(`COPY pharmacy FROM STDIN `));
 
-  var interndataset = [['0', 'Target', 'Sunnyvale', 'California', '94001'],
-                        ['1', 'CVS', 'San Francisco', 'California', '94002']];
+    var interndataset = [
+        ['0', 'Target', 'Sunnyvale', 'California', '94001'],
+        ['1', 'CVS', 'San Francisco', 'California', '94002']
+    ];
 
-  var started = false;
-  var internmap = through2.obj(function (arr, enc, cb) {
-    var rowText = (started ? '\n' : '') + arr.join('\t');
-    started = true;
-    cb(null, rowText);
-  });
-  interndataset.forEach(function (r) { internmap.write(r); })
+    var started = false;
+    var internmap = through2.obj(function (arr, enc, cb) {
+        var rowText = (started ? '\n' : '') + arr.join('\t');
+        started = true;
+        cb(null, rowText);
+    });
+    interndataset.forEach(function (r) { internmap.write(r); })
 
+    internmap.end();
+    internmap.pipe(stream);
+    console.log("inserted inmemory data successfully ");
 
-  internmap.end();
-  internmap.pipe(stream);
-  console.log("inserted inmemory data successfully ");
-
-  await pool.end();
-  process.exit();
-
+    await pool.end();
+    process.exit();
 }
 
- queryDatabase();
+queryDatabase();
 ```
 
 ## Next steps

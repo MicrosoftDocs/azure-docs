@@ -6,7 +6,7 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 07/26/2022
 ---
 
 # Java app to connect and query Hyperscale (Citus)
@@ -173,37 +173,35 @@ import javax.sql.DataSource;
 import com.zaxxer.hikari.HikariDataSource;
 
 public class DButil {
-private static final String DB_USERNAME = "db.username";
-private static final String DB_PASSWORD = "db.password";
-private static final String DB_URL = "db.url";
-private static final String DB_DRIVER_CLASS = "driver.class.name";
-private static Properties properties =  null;
-private static HikariDataSource datasource;
+    private static final String DB_USERNAME = "db.username";
+    private static final String DB_PASSWORD = "db.password";
+    private static final String DB_URL = "db.url";
+    private static final String DB_DRIVER_CLASS = "driver.class.name";
+    private static Properties properties =  null;
+    private static HikariDataSource datasource;
 
-static {    
-    try {
-        properties = new  Properties();
-        properties .load(new FileInputStream("src/main/java/application.properties"));
-        datasource = new HikariDataSource();
-        datasource.setDriverClassName(properties.getProperty(DB_DRIVER_CLASS ));
-        datasource.setJdbcUrl(properties.getProperty(DB_URL));
-        datasource.setUsername(properties.getProperty(DB_USERNAME));
-        datasource.setPassword(properties.getProperty(DB_PASSWORD));
-        datasource.setMinimumIdle(100);
-        datasource.setMaximumPoolSize(1000000000);
-        datasource.setAutoCommit(false);
-        datasource.setLoginTimeout(3);
-        
-    
-    }catch (IOException | SQLException  e) {
-        e.printStackTrace();
+    static {
+        try {
+            properties = new Properties();
+            properties.load(new FileInputStream("src/main/java/application.properties"));
+
+            datasource = new HikariDataSource();
+            datasource.setDriverClassName(properties.getProperty(DB_DRIVER_CLASS ));
+            datasource.setJdbcUrl(properties.getProperty(DB_URL));
+            datasource.setUsername(properties.getProperty(DB_USERNAME));
+            datasource.setPassword(properties.getProperty(DB_PASSWORD));
+            datasource.setMinimumIdle(100);
+            datasource.setMaximumPoolSize(1000000000);
+            datasource.setAutoCommit(false);
+            datasource.setLoginTimeout(3);
+        } catch (IOException | SQLException  e) {
+            e.printStackTrace();
+        }
     }
-    
-}
-public static DataSource getDataSource() {
-    return datasource;
-}
+    public static DataSource getDataSource() {
+        return datasource;
     }
+}
 ```
 
 Create a `src/main/java/DemoApplication.java` file that contains:
@@ -335,12 +333,12 @@ public class Pharmacy {
     @Override
     public String toString() {
         return "TPharmacy{" +
-                "pharmacy_id=" + pharmacy_id +
-                ", pharmacy_name='" + pharmacy_name + '\'' +
-                ", city='" + city + '\'' +
-                 ", state='" + state + '\'' +
-                  ", zip_code='" + zip_code + '\'' +
-                '}';
+               "pharmacy_id=" + pharmacy_id +
+               ", pharmacy_name='" + pharmacy_name + '\'' +
+               ", city='" + city + '\'' +
+               ", state='" + state + '\'' +
+               ", zip_code='" + zip_code + '\'' +
+               '}';
     }
 }
 ```
@@ -534,15 +532,16 @@ The following code is an example for copying data from a CSV file to a database 
 It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv).
 
 ```java
-public static long copyFromFile(Connection connection, String filePath, String tableName)
-        throws SQLException, IOException {
+public static long
+copyFromFile(Connection connection, String filePath, String tableName)
+throws SQLException, IOException {
     long count = 0;
     FileInputStream fileInputStream = null;
 
     try {
         Connection unwrap = connection.unwrap(Connection.class);
         BaseConnection  connSec = (BaseConnection) unwrap;
-            
+
         CopyManager copyManager = new CopyManager((BaseConnection) connSec);
         fileInputStream = new FileInputStream(filePath);
         count = copyManager.copyIn("COPY " + tableName + " FROM STDIN delimiter ',' csv", fileInputStream);
@@ -594,24 +593,23 @@ The following code is an example for copying in-memory data to table.
 
 ```java
 private static void inMemory(Connection connection) throws SQLException,IOException {
-    log.info("Copying inmemory data into table");
+    log.info("Copying in-memory data into table");
     String[] input = {"0,Target,Sunnyvale,California,94001"};
-        
+
     Connection unwrap = connection.unwrap(Connection.class);
     BaseConnection  connSec = (BaseConnection) unwrap;
-        
+
     CopyManager copyManager = new CopyManager((BaseConnection) connSec);
-    String copyCommand = "COPY pharmacy FROM STDIN with csv " ; 
-        
-    for (String var : input) 
-    { 
+    String copyCommand = "COPY pharmacy FROM STDIN with csv";
+
+    for (String var : input)
+    {
         Reader reader = new StringReader(var);
         copyManager.copyIn(copyCommand, reader);
     }
 
     copyManager.copyIn(copyCommand);
-    
-} 
+}
 ```
 
 You can now add the following line in the main method:
