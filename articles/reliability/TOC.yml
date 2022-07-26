@@ -2,10 +2,6 @@
   href: index.yml
 - name: Overview
   href: overview-reliability.md
-- name: Business continuity management in Azure
-  href: business-continuity-management-program.md
-- name: Cross-region replication in Azure
-  href: cross-region-replication-azure.md
 - name: Reliability guides
   items:
   - name: Azure lab service v2
@@ -119,7 +115,7 @@
     href: availability-service-by-category.md
   - name: Availability of services by sovereign cloud
     href: availability-service-by-sovereign-cloud.md
-  - name: Availability of service by region
+  - name: Availability of services by region
     href: https://azure.microsoft.com/en-us/global-infrastructure/services/
 - name: Resources
   items:
