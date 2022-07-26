@@ -48,7 +48,7 @@ the respective pattern.
 ### Resiliency against regional availability events 
 
 ![Regional
-Availability](media/event-hubs-federation-overview/regional-availability.jpg)
+Availability](media/event-hubs-federation-overview/regional-availability.png)
 
 While maximum availability and reliability are the top operational priorities
 for Event Hubs, there are nevertheless many ways in which a producer or consumer
@@ -111,7 +111,7 @@ Guidance:
 ### Latency optimization 
 
 ![Latency
-Optimization](media/event-hubs-federation-overview/latency-optimization.jpg)  
+Optimization](media/event-hubs-federation-overview/latency-optimization.png)  
 
 Event streams are written once by producers, but may be read any number of times
 by event consumers. For scenarios where an event stream in a region is shared by
@@ -133,7 +133,7 @@ Guidance:
 
 ### Validation, reduction, and enrichment
 
-![Validation, reduction, enrichment](media/event-hubs-federation-overview/validation-enrichment.jpg)  
+![Validation, reduction, enrichment](media/event-hubs-federation-overview/validation-enrichment.png)  
 
 Event streams may be submitted into an Event Hub by clients external to your own
 solution. Such event streams may require for externally submitted events to be
@@ -157,7 +157,7 @@ Guidance:
 
 ### Integration with analytics services
 
-![Integration with analytics services](media/event-hubs-federation-overview/integration.jpg)
+![Integration with analytics services](media/event-hubs-federation-overview/integration.png)
 
 Several of Azure's cloud-native analytics services like Azure Stream Analytics
 or Azure Synapse work best with streamed or pre-batched data served up from
@@ -179,7 +179,7 @@ Guidance:
 
 ### Consolidation and normalization of event streams
 
-![Consolidation and normalization of event streams](media/event-hubs-federation-overview/consolidation.jpg)
+![Consolidation and normalization of event streams](media/event-hubs-federation-overview/consolidation.png)
 
 Global solutions are often composed of regional footprints that are largely
 independent including having their own analytics capabilities, but
@@ -202,7 +202,7 @@ Guidance:
 
 ### Splitting and routing of event streams
 
-![Splitting and routing of event streams](media/event-hubs-federation-overview/splitting.jpg)
+![Splitting and routing of event streams](media/event-hubs-federation-overview/splitting.png)
 
 Azure Event Hubs is occasionally used in "publish-subscribe" style scenarios
 where an incoming torrent of ingested events far exceeds the capacity of Azure
@@ -230,7 +230,7 @@ Guidance:
 
 ### Log projections 
 
-![Log projection](media/event-hubs-federation-overview/log-projection.jpg)
+![Log projection](media/event-hubs-federation-overview/log-projection.png)
 
 In some scenarios, you will want to have access to the latest value sent for any
 substream of an event, and commonly distinguished by the partition key. In
