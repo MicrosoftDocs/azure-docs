@@ -12,7 +12,7 @@ services: iot-edge
 
 # Create demo certificates to test IoT Edge device features
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 IoT Edge devices require certificates for secure communication between the runtime, the modules, and any downstream devices.
 If you don't have a certificate authority to create the required certificates, you can use demo certificates to try out IoT Edge features in your test environment.
