@@ -30,13 +30,13 @@ This tutorial is part two in a series. In this tutorial, a template generator to
 
 Service fabric provides scaffolding tools to help create applications from terminal using Yeoman template generator. Follow the steps below to ensure you have the Yeoman template generator.
 
-1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew
+1. Install nodejs and Node Package Manager on your machine. Note that, Mac OSX users will have to use the package manager Homebrew
 
     ```bash
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
     nvm install node 
     ```
-2. Install Yeoman template generator on your machine from NPM
+2. Install Yeoman template generator on your machine from Node Package Manager:
 
     ```bash
     npm install -g yo

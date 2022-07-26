@@ -88,7 +88,7 @@ For manual installation of the Service Fabric runtime and common SDK, follow the
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-6. Add Azul JDK Key to your APT keyring and setup its repository.
+6. Add Azul JDK Key to your APT keyring and set up its repository.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
