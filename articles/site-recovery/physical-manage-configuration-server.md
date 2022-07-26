@@ -273,14 +273,14 @@ Upgrade the server as follows:
     
     ```powershell
     $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
-    Set-AzSiteRecoveryVaultSettings -ARSVault $Vault
+    Set-AzRecoveryServicesVaultContext -Vault $Vault
     ```
 4. Get select your configuration server
 
-    `$Fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzRecoveryServicesAsrFabric -FriendlyName <name of your configuration server>`
 6. Delete the Configuration Server
 
-    `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
+    `Remove-AzRecoveryServicesAsrFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
 > The **-Force** option in the Remove-AzSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.
