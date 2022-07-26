@@ -6,8 +6,6 @@
     href: video-indexer-overview.md
   - name: Language support
     href: language-support.md
-  - name: Limited Access features
-    href: limited-access-features.md
 - name: Quickstarts
   expanded: true
   items:
@@ -17,9 +15,9 @@
     href: invite-users.md
 - name: Tutorials
   items:
-  - name: Create a new ARM account (Preview)
+  - name: Create an ARM-based account (Preview)
     href: create-account-portal.md
-  - name: Create a new account
+  - name: Create a classic account
     href: connect-to-azure.md
   - name: Use Azure Video Indexer API
     href: video-indexer-use-apis.md
@@ -77,27 +75,32 @@
       href: customize-language-model-overview.md
     - name: Person
       href: customize-person-model-overview.md
-  - name: Transparency notes
-    href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
+  - name: Responsible use of AI
     items:
-    - name: Audio Effects Detection
-      href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Faces detection
-      href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: OCR
-      href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Keywords extraction
-      href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
-    - name: Transcription, Translation, Language
-      href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Labels identification
-      href: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Named entities
-      href: /legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Observed tracking & matched people
-      href: /legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Topics inference
-      href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Limited Access features
+      href: limited-access-features.md   
+    - name: Transparency notes, use cases 
+      items:
+      - name: Transparency notes
+        href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
+      - name: Audio Effects Detection
+        href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
+      - name: Faces detection
+        href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
+      - name: OCR
+        href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
+      - name: Keywords extraction
+        href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
+      - name: Transcription, Translation, Language
+        href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
+      - name: Labels identification
+        href: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
+      - name: Named entities
+        href: /legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context
+      - name: Observed tracking & matched people
+        href: /legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context
+      - name: Topics inference
+        href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: How to guides
   items:
   - name: Connect an existing account to ARM (Preview)
@@ -173,7 +176,7 @@
     displayName: location
     href: regions.md
   - name: Microsoft Q&A
-    href: https://docs.microsoft.com/answers/topics/azure-video-indexer.html
+    href: /answers/topics/azure-video-indexer.html
   - name: FAQ
     href: faq.yml
   - name: Compliance

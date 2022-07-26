@@ -1,7 +1,6 @@
 ---
 title: How to review and publish an offer to Microsoft commercial marketplace
 description: Use Partner Center to submit your offer to preview, preview your offer, and then publish it to the Microsoft commercial marketplace.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

@@ -44,4 +44,4 @@ ms.date: 07/14/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender for Servers integration with Microsoft Defender for Endpoint](episode-sixteen.md)

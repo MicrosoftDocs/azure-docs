@@ -34,7 +34,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Implement zero trust
-            url: https://docs.microsoft.com/security/zero-trust/
+            url: /security/zero-trust/
 
   # Card
   - title: Protect against ransomware and extortion 
