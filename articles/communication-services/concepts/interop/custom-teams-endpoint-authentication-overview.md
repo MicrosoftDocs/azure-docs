@@ -12,7 +12,7 @@ ms.subservice: teams-interop
 ms.custom: kr2b-contr-experiment
 ---
 
-# Single-tenant and multi-tenant authentication for Teams
+# Single-tenant and multi-tenant authentication for Teams users
 
  This article gives you insight into the authentication process for single-tenant and multi-tenant, *Azure Active Directory* (Azure AD) applications. You can use authentication when you build calling experiences for Teams users with the *Calling software development kit* (SDK) that *Azure Communication Services* makes available. Use cases in this article also break down individual authentication artifacts.
 
