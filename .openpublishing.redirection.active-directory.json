@@ -31,6 +31,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/whats-new-microsoft-365-government.md",
+      "redirect_url": "/azure/active-directory/fundamentals/whats-new",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/common-scenarios.md",
       "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
       "redirect_document_id": false
@@ -10799,6 +10804,16 @@
     {
       "source_path": "articles/active-directory/manage-apps/get-it-now-azure-marketplace.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/saas-apps/iprova-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/zenya-provisioning-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/saas-apps/iprova-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/zenya-tutorial",
       "redirect_document_id": false
     },
     {

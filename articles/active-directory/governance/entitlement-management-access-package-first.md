@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 07/11/2022
-ms.author: owinfreyatl
+ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 

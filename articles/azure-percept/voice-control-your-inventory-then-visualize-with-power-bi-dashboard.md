@@ -172,7 +172,7 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
 In this section, you will import an existing application config json file to Custom Commands.
 
 1. Create an Azure Speech resource in a region that supports Custom Commands.
-   1. Click [Create Speech Services portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) to create an Azure Speech resource
+   1. Click [Create Speech Services portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) to create an Azure Speech resource
       1. Select your Subscription
       2. Use the Resource group you just created in exercise 1
       3. Select the Region(Please check here to see the support region in custom commands)
@@ -337,7 +337,7 @@ resources with the following steps:
 
 1. Login to the [Azure portal](https://portal.azure.com), go to `Resource Group` you have been using for this tutorial. Delete the SQL DB, Azure Function, and Speech Service resources.
 
-2. Go into [Azure Percept Studio](https://ms.portal.azure.com/#blade/AzureEdgeDevices/Main/overview), select your device from the `Device` blade, click the `Speech` tab within your device, and under `Configuration` remove reference to your custom command. 
+2. Go into [Azure Percept Studio](https://portal.azure.com/#blade/AzureEdgeDevices/Main/overview), select your device from the `Device` blade, click the `Speech` tab within your device, and under `Configuration` remove reference to your custom command. 
 
 3. Go in to [Speech Studio](https://speech.microsoft.com/portal) and delete project created for this tutorial. 
 

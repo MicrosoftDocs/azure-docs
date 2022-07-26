@@ -89,6 +89,10 @@ Starting in sensor versions 22.2.4, you can now take the following actions from 
 
 - **Delete inactive devices by admin users**. Now, all admin users, in addition to the **cyberx** user, can delete inactive devices.
 
+Also starting in version 22.2.4, in the sensor console's **Device inventory** page, the **Last seen** value in the device details pane is replaced by **Last activity**. For example:
+
+:::image type="content" source="media/release-notes/last-activity-new.png" alt-text="Screenshot of the new Last activity field showing in the sensor console's device details pane on the Device inventory page.":::
+
 For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
 
 ### OT appliance hardware profile updates

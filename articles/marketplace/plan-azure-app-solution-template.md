@@ -3,7 +3,6 @@ title: Plan a solution template for an Azure application offer
 description: Learn what is required to create a solution template plan for a new Azure application offer using the commercial marketplace portal in Microsoft Partner Center.
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
