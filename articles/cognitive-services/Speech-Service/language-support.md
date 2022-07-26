@@ -884,7 +884,6 @@ Use the following table to determine supported styles and roles for each neural 
 |zh-CN-YunhaoNeural <sup>Public preview</sup>|`general`, `advertisement-upbeat` <sup>Public preview</sup>|Supported||
 |zh-CN-YunfengNeural <sup>Public preview</sup>|`calm`, `angry`, ` disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Supported||
 
-
 ### Custom Neural Voice
 
 Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data.  
@@ -947,6 +946,156 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Thai (Thailand) | `th-TH` | No |No |
 | Turkish (Turkey) | `tr-TR` | No |No|
 | Vietnamese (Vietnam) | `vi-VN` | No |No|
+
+## Viseme
+
+A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes. Speech audio output can be accompanied by viseme ID, Scalable Vector Graphics (SVG), or blendshapes. 
+
+> [!NOTE]
+> Viseme ID supports [all neural voices](#text-to-speech) in the supported locales, including custom neural voice. SVG and blendshapes only support prebuilt neural voices in `en-US` and `zh-CN` locales, and don't support custom neural voice.
+
+The following table lists the languages supported by viseme.
+
+| Language | Locale | Viseme ID | 2D SVG | 3D blendshapes| 
+|---|---|---|---|---|
+| Afrikaans (South Africa) | `af-ZA` | Yes| No | No |
+| Albanian (Albania) | `sq-AL` | Yes | No | No |
+| Amharic (Ethiopia) | `am-ET` | Yes | No | No |
+| Arabic (Algeria) | `ar-DZ` | Yes | No | No |
+| Arabic (Bahrain) | `ar-BH` | Yes | No | No |
+| Arabic (Egypt) | `ar-EG` | Yes | No | No |
+| Arabic (Iraq) | `ar-IQ` | Yes | No | No |
+| Arabic (Jordan) | `ar-JO` | Yes | No | No |
+| Arabic (Kuwait) | `ar-KW` | Yes | No | No |
+| Arabic (Lebanon) | `ar-LB` | Yes | No | No |
+| Arabic (Libya) | `ar-LY` | Yes | No | No |
+| Arabic (Morocco) | `ar-MA` | Yes | No | No |
+| Arabic (Oman) | `ar-OM` | Yes | No | No |
+| Arabic (Qatar) | `ar-QA` | Yes | No | No |
+| Arabic (Saudi Arabia) | `ar-SA` | Yes | No | No |
+| Arabic (Syria) | `ar-SY` | Yes| No | No |
+| Arabic (Tunisia) | `ar-TN` | Yes | No | No |
+| Arabic (United Arab Emirates) | `ar-AE` | Yes | No | No |
+| Arabic (Yemen) | `ar-YE` | Yes | No | No |
+| Azerbaijani (Azerbaijan) | `az-AZ` | Yes | No | No |
+| Bangla (Bangladesh) | `bn-BD` | Yes | No | No |
+| Bengali (India) | `bn-IN` | Yes | No | No |
+| Bosnian (Bosnia and Herzegovina) | `bs-BA` | Yes | No | No |
+| Bulgarian (Bulgaria) | `bg-BG` | Yes | No | No |
+| Burmese (Myanmar) | `my-MM` | Yes | No | No |
+| Catalan (Spain) | `ca-ES` | Yes | No | No |
+| Chinese (Cantonese, Traditional) | `zh-HK` | Yes | No | No |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Yes | Yes  | Yes |
+| Chinese (Taiwanese Mandarin) | `zh-TW` | Yes | No | No |
+| Croatian (Croatia) | `hr-HR` | Yes | No | No |
+| Czech (Czech) | `cs-CZ` | Yes | No | No |
+| Danish (Denmark) | `da-DK` | Yes | No | No |
+| Dutch (Belgium) | `nl-BE` | Yes | No | No | 
+| Dutch (Netherlands) | `nl-NL` | Yes | No | No |
+| English (Australia) | `en-AU` | Yes | No | No |
+| English (Canada) | `en-CA` | Yes | No | No |
+| English (Hongkong) | `en-HK` | Yes | No | No |
+| English (India) | `en-IN` | Yes | No | No |
+| English (Ireland) | `en-IE` | Yes | No | No |
+| English (Kenya) | `en-KE` | Yes | No | No |
+| English (New Zealand) | `en-NZ` | Yes | No | No |
+| English (Nigeria) | `en-NG` | Yes | No | No |
+| English (Philippines) | `en-PH` | Yes | No | No | 
+| English (Singapore) | `en-SG` | Yes | No | No |
+| English (South Africa) | `en-ZA` | Yes | No | No |
+| English (Tanzania) | `en-TZ` | Yes | No | No |
+| English (United Kingdom) | `en-GB` | Yes | No | No |
+| English (United States) | `en-US` | Yes | Yes | Yes |
+| Estonian (Estonia) | `et-EE` | Yes | No | No |
+| Filipino (Philippines) | `fil-PH` | Yes | No | No |
+| Finnish (Finland) | `fi-FI` | Yes | No | No |
+| French (Belgium) | `fr-BE` | Yes | No | No | 
+| French (Canada) | `fr-CA` | Yes | No | No |
+| French (France) | `fr-FR` | Yes | No | No |
+| French (Switzerland) | `fr-CH` | Yes | No | No |
+| Galician (Spain) | `gl-ES` | Yes | No | No |
+| Georgian (Georgia) | `ka-GE` | Yes | No | No |
+| German (Austria) | `de-AT` | Yes | No | No |
+| German (Germany) | `de-DE` | Yes | No | No |
+| German (Switzerland) | `de-CH` | Yes | No | No |
+| Greek (Greece) | `el-GR` | Yes | No | No |
+| Gujarati (India) | `gu-IN` | Yes | No | No |
+| Hebrew (Israel) | `he-IL` | Yes | No | No |
+| Hindi (India) | `hi-IN` | Yes | No | No |
+| Hungarian (Hungary) | `hu-HU` | Yes | No | No |
+| Icelandic (Iceland) | `is-IS` | Yes | No | No |
+| Indonesian (Indonesia) | `id-ID` | Yes | No | No |
+| Irish (Ireland) | `ga-IE` | Yes | No| No |
+| Italian (Italy) | `it-IT` | Yes | No | No |
+| Japanese (Japan) | `ja-JP` | Yes | No | No |
+| Javanese (Indonesia) | `jv-ID` | Yes | No | No |
+| Kannada (India) | `kn-IN` | Yes | No | No |
+| Kazakh (Kazakhstan) | `kk-KZ` | Yes | No | No |
+| Khmer (Cambodia) | `km-KH` | Yes | No | No |
+| Korean (Korea) | `ko-KR` | Yes | No | No |
+| Lao (Laos) | `lo-LA` | Yes | No | No |
+| Latvian (Latvia) | `lv-LV` | Yes | No | No |
+| Lithuanian (Lithuania) | `lt-LT` | Yes | No | No |
+| Macedonian (Republic of North Macedonia) | `mk-MK` | Yes | No | No |
+| Malay (Malaysia) | `ms-MY` | Yes | No | No |
+| Malayalam (India) | `ml-IN` | Yes | No | No |
+| Maltese (Malta) | `mt-MT` | Yes | No | No |
+| Marathi (India) | `mr-IN` | Yes | No | No |
+| Mongolian (Mongolia) | `mn-MN` | Yes | No | No |
+| Nepali (Nepal) | `ne-NP` | Yes | No | No |
+| Norwegian (Bokmål, Norway) | `nb-NO` | Yes | No | No |
+| Pashto (Afghanistan) | `ps-AF` | Yes | No | No |
+| Persian (Iran) | `fa-IR` | Yes | No | No |
+| Polish (Poland) | `pl-PL` | Yes | No | No |
+| Portuguese (Brazil) | `pt-BR` | Yes | No | No |
+| Portuguese (Portugal) | `pt-PT` | Yes | No | No |
+| Romanian (Romania) | `ro-RO` | Yes | No | No |
+| Russian (Russia) | `ru-RU` | Yes | No | No |
+| Serbian (Serbia, Cyrillic) | `sr-RS` | Yes | No | No |
+| Sinhala (Sri Lanka) | `si-LK` | Yes | No | No |
+| Slovak (Slovakia) | `sk-SK` | Yes | No| No |
+| Slovenian (Slovenia) | `sl-SI` | Yes | No | No |
+| Somali (Somalia) | `so-SO`| Yes | No | No |
+| Spanish (Argentina) | `es-AR` | Yes | No | No |
+| Spanish (Bolivia) | `es-BO` | Yes | No | No |
+| Spanish (Chile) | `es-CL` | Yes | No | No |
+| Spanish (Colombia) | `es-CO` | Yes | No | No |
+| Spanish (Costa Rica) | `es-CR` | Yes | No | No |
+| Spanish (Cuba) | `es-CU` | Yes | No | No |
+| Spanish (Dominican Republic) | `es-DO` | Yes | No | No |
+| Spanish (Ecuador) | `es-EC` | Yes | No | No |
+| Spanish (El Salvador) | `es-SV` | Yes | No | No |
+| Spanish (Equatorial Guinea) | `es-GQ` | Yes | No | No |
+| Spanish (Guatemala) | `es-GT` | Yes | No | No |
+| Spanish (Honduras) | `es-HN` | Yes | No | No |
+| Spanish (Mexico) | `es-MX` | Yes | No | No |
+| Spanish (Nicaragua) | `es-NI` | Yes | No | No |
+| Spanish (Panama) | `es-PA` | Yes | No | No |
+| Spanish (Paraguay) | `es-PY` | Yes | No | No |
+| Spanish (Peru) | `es-PE` | Yes | No | No |
+| Spanish (Puerto Rico) | `es-PR` | Yes | No | No |
+| Spanish (Spain) | `es-ES` | Yes | No | No |
+| Spanish (Uruguay) | `es-UY` | Yes | No | No |
+| Spanish (US) | `es-US` | Yes | No | No |
+| Spanish (Venezuela) | `es-VE` | Yes | No | No |
+| Sundanese (Indonesia) | `su-ID` | Yes | No | No |
+| Swahili (Kenya) | `sw-KE` | Yes | No | No |
+| Swahili (Tanzania) | `sw-TZ` | Yes | No | No |
+| Swedish (Sweden) | `sv-SE` | Yes | No | No |
+| Tamil (India) | `ta-IN` | Yes | No | No |
+| Tamil (Malaysia) | `ta-MY` | Yes | No | No |
+| Tamil (Singapore) | `ta-SG` | Yes | No | No |
+| Tamil (Sri Lanka) | `ta-LK` | Yes | No | No |
+| Telugu (India) | `te-IN` | Yes | No | No |
+| Thai (Thailand) | `th-TH` | Yes | No | No |
+| Turkish (Turkey) | `tr-TR` | Yes | No | No |
+| Ukrainian (Ukraine) | `uk-UA` | Yes | No | No | 
+| Urdu (India) | `ur-IN` | Yes | No | No |
+| Urdu (Pakistan) | `ur-PK` | Yes | No  | No | 
+| Uzbek (Uzbekistan) | `uz-UZ` | Yes | No | No |
+| Vietnamese (Vietnam) | `vi-VN` | Yes | No | No |
+| Welsh (United Kingdom) | `cy-GB` | Yes | No | No | 
+| Zulu (South Africa) | `zu-ZA` | Yes | No | No |
 
 ## Language identification
 
