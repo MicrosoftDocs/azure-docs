@@ -66,7 +66,9 @@ The following limits apply to container-level legal holds:
 
 Append blobs are comprised of blocks of data and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new blocks to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-The **AllowProtectedAppendWritesAll** property setting allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If this setting is enabled, you can create an append blob directly in the policy-protected container and then continue to add new blocks of data to the end of the append blob with the Append Block operation. Only new blocks can be added; any existing blocks cannot be modified or deleted. Enabling this setting does not affect the immutability behavior of block blobs or page blobs. 
+The **AllowProtectedAppendWritesAll** property setting allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If this setting is enabled, you can create an append blob directly in the policy-protected container and then continue to add new blocks of data to the end of the append blob with the Append Block operation. Only new blocks can be added; any existing blocks cannot be modified or deleted. Enabling this setting does not affect the immutability behavior of block blobs or page blobs.
+
+This property is available only to policies that are defined at the container-level policy scope. This property is not available to policies that are defined at the version-level policy scope. 
 
 This setting also adds the ability to write new blocks to a block blob. While there are no public APIs that enable you to to do this directly, certain Microsoft tools implement append blobs by creating block blobs and then appending blocks to them by using internally available APIs. 
 
