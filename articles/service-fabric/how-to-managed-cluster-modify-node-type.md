@@ -147,8 +147,16 @@ In this walkthrough, you will learn how to modify the node count for a node type
 
 4) Select the `Node type name` you want to modify
 
-5) Adjust the `Node count` to the new value you want and select `Apply` at the bottom. In this screenshot, the value was `3` and adjusted to `5`.
-![Sample showing a node count increase][adjust-node-count]
+5) Select `Manage node type scaling` to configure the scaling settings and choose between manual and custom autoscale options. Autoscale is a built-in feature that helps applications perform their best when demand changes. You can choose to scale your resource manually to a specific instance count, or via a custom Autoscale policy that scales based on metric(s) thresholds, or schedule instance count which scales during designated time windows. [Learn more about Azure Autoscale](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-get-started?WT.mc_id=Portal-Microsoft_Azure_Monitoring) or [view the how-to video](https://www.microsoft.com/videoplayer/embed/RE4u7ts).
+
+   * Manual scale: Adjust the `Node count` to the new value you want and select `Save` at the top.  In this screenshot, the value was `3` and adjusted to                 `5`.
+   ![Sample showing a node count increase][adjust-node-count]
+
+   * Custom autoscale: Select the appropriate `scale mode` to define the custom Autoscale policy - `Scale to a specific instance count`or `Scale based on a metric`.       The latter is based on metric trigger rules, for example, increase instance count by 1 when CPU Percentage is above 70%. Once you define the policy, select `Save`     at the top.
+
+   [Image3]
+
+   Select `Apply` at the bottom to configure these saved settings on the node type.
 
 6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
 ![Sample showing a node type updating][node-type-updating]
