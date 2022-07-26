@@ -10,9 +10,7 @@ ms.topic: conceptual
 # Security best practices in Azure Automation
 
 > [!IMPORTANT]
-> Azure Automation Run As Account will retire on September 16, 2025 and will be replaced with Managed Identities.
-While we continue to support Run As account for both existing and new Automation accounts from the Azure portal and PowerShell, we recommend you to switch to [Managed identities](/automation-security-overview.md#managed-identities) for runbook authentication. For more information, see [migrating from an existing Run As accounts to managed identity](/migrate-run-as-accounts-managed-identity?tabs=ua-managed-identity#sample-scripts).
-
+> Azure Automation Run As Account will retire on September 30, 2025 and will be replaced with Managed Identities.Before that date, you'll need to start migrating your runbooks to use [managed identities](/automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](/migrate-run-as-accounts-managed-identity?tabs=ua-managed-identity#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2025. See the official announcement [here](https://azure.microsoft.com/updates/azure-automation-runas-account-retiring-on-30-september-2025/preview/).
 
 This article details the best practices to securely execute the automation jobs.
 [Azure Automation](./overview.md) provides you the platform to orchestrate frequent, time consuming, error-prone infrastructure management and operational tasks, as well as mission-critical operations. This service allows you to execute scripts, known as automation runbooks seamlessly across cloud and hybrid environments. 

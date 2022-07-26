@@ -10,9 +10,7 @@ ms.topic: conceptual
 # Delete an Azure Automation Run As account
 
 > [!IMPORTANT]
-> Azure Automation Run As Account will retire on September 16, 2025 and will be replaced with Managed Identities.
-While we continue to support Run As account for both existing and new Automation accounts from the Azure portal and PowerShell, we recommend you to switch to [Managed identities](/automation-security-overview.md#managed-identities) for runbook authentication. For more information, see [migrating from an existing Run As accounts to managed identity](/migrate-run-as-accounts-managed-identity?tabs=ua-managed-identity#sample-scripts).
-
+> Azure Automation Run As Account will retire on September 30, 2025 and will be replaced with Managed Identities.Before that date, you'll need to start migrating your runbooks to use [managed identities](/automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](/migrate-run-as-accounts-managed-identity?tabs=ua-managed-identity#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2025. See the official announcement [here](https://azure.microsoft.com/updates/azure-automation-runas-account-retiring-on-30-september-2025/preview/).
 
 Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. This article describes how to delete a Run As or Classic Run As account. When you perform this action, the Automation account is retained. After you delete the Run As account, you can re-create it in the Azure portal or with the provided PowerShell script.
 
