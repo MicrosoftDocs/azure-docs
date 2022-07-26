@@ -22,6 +22,6 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [API version retirements][api2023] | September 30, 2023 |
 
 <!-- Links -->
-[bc1]: ./rp-source-ip-address-change-mar2023.md
-[rp2023]: ./rp-source-ip-address-change-sep2023.md 
-[api2023]: ./api-version-retirement-sep2023.md
+[bc1]: ./rp-source-ip-address-change-mar-2023.md
+[rp2023]: ./rp-source-ip-address-change-sep-2023.md 
+[api2023]: ./api-version-retirement-sep-2023.md

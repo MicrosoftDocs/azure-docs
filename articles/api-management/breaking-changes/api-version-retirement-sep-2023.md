@@ -14,27 +14,27 @@ ms.author: adhal
 
 Azure API Management uses Azure Resource Manager (ARM) to configure your API Management instances. The API version is embedded in your use of templates that describe your infrastructure, tools that are used to configure the service, and programs that you write to manage your Azure API Management services. 
 
-On 30 September 2023, all API versions prior to 2021-08-01 will be retired and API calls using those API versions will fail. This means you will no longer be able to create or manage your API Management services using your existing templates, tools, scripts, and programs until they have been updated. Data operations (such as accessing the APIs or Products configured on Azure API Management) will be unaffected by this update, including after 30 September 2023. 
+On 30 September 2023, all API versions prior to **2021-08-01** will be retired and API calls using those API versions will fail. This means you'll no longer be able to create or manage your API Management services using your existing templates, tools, scripts, and programs until they've been updated. Data operations (such as accessing the APIs or Products configured on Azure API Management) will be unaffected by this update, including after 30 September 2023. 
 
 From now through 30 September 2023, you can continue to use the templates, tools, and programs without impact. You can transition to API version 2021-08-01 or later at any point prior to 30 September 2023. 
 
 ## Is my service affected by this?
 
-While your service is *not* affected by this change, any tool, script, or program that uses the Azure Resource Manager (such as the Azure CLI, Azure PowerShell, Azure API Management DevOps Resource Kit, or Terraform) is affected by this change. You will be unable to run those tools successfully unless you update the tools.
+While your service isn't* affected by this change, any tool, script, or program that uses the Azure Resource Manager (such as the Azure CLI, Azure PowerShell, Azure API Management DevOps Resource Kit, or Terraform) is affected by this change. You'll be unable to run those tools successfully unless you update the tools.
 
 ## What is the deadline for the change?
 
-The affected API versions will no longer be valid after 30 September, 2023.
+The affected API versions will no longer be valid after 30 September 2023.
 
-After 30 September 2023, if you prefer not to update your tools, scripts, and programs, your services will continue to run but you will not be able to add or remove APIs, change API policy, or otherwise configure your API Management service. 
+After 30 September 2023, if you prefer not to update your tools, scripts, and programs, your services will continue to run but you won't be able to add or remove APIs, change API policy, or otherwise configure your API Management service. 
 
 ## Required action
 
 * **ARM, Bicep, or Terraform templates** - Update the template to use API version 2021-08-01 or later. 
 
-* **Azure CLI** - Run `az version -help` to check your version. If you are running version 2.38.0 or later, no action is required. Use the `az upgrade` command to upgrade the Azure CLI if necessary. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+* **Azure CLI** - Run `az version -help` to check your version. If you're running version 2.38.0 or later, no action is required. Use the `az upgrade` command to upgrade the Azure CLI if necessary. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 
-* **Azure PowerShell** - Run `Get-Module -ListAvailable -Name Az` to check your version. If you are running version 8.1.0 or later, no action is required. Use `Update-Module -Name Az -Repository PSGallery` to update the module if necessary. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+* **Azure PowerShell** - Run `Get-Module -ListAvailable -Name Az` to check your version. If you're running version 8.1.0 or later, no action is required. Use `Update-Module -Name Az -Repository PSGallery` to update the module if necessary. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 
 * **Other tools** - Use the following versions (or later):
 
