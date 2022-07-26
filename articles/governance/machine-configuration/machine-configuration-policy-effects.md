@@ -9,7 +9,7 @@ ms.service: machine-configuration
 ---
 # Remediation options for machine configuration
 
-[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
 [machine configuration](../concepts/machine-configuration.md).

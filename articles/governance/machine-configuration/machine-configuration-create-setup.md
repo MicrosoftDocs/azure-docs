@@ -9,7 +9,7 @@ author: timwarner-msft
 ---
 # How to setup a machine configuration authoring environment
 
-[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 The PowerShell module `GuestConfiguration` automates the process of creating
 custom content including:

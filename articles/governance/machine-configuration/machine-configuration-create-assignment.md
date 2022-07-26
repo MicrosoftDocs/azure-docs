@@ -9,7 +9,7 @@ ms.service: machine-configuration
 ---
 # How to create a machine configuration assignment using templates
 
-[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 The best way to
 [assign machine configuration packages](../concepts/machine-configuration-assignments.md)

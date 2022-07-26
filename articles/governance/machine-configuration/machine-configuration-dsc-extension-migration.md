@@ -9,7 +9,7 @@ author: timwarner-msft
 ---
 # Planning a change from Desired State Configuration extension for Linux to machine configuration
 
-[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Guest configuration is the latest implementation of functionality that has been provided by the
 PowerShell Desired State Configuration (DSC) extension for Linux virtual machines in Azure. When possible,

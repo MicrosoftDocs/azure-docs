@@ -10,7 +10,7 @@ author: timwarner-msft
 
 # How to sign machine configuration packages
 
-[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Guest configuration custom policies use SHA256 hash to validate the policy
 package hasn't changed. Optionally, customers may also use a certificate to sign

@@ -9,7 +9,7 @@ author: timwarner-msft
 ---
 # Azure Automation state configuration to machine configuration migration planning
 
-[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Guest configuration is the latest implementation of functionality
 that has been provided by Azure Automation State Configuration (also known as

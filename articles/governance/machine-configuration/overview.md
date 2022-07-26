@@ -9,7 +9,7 @@ ms.service: machine-configuration
 ---
 # Understand the machine configuration feature of Azure Policy
 
-[!INCLUDE [Machine config rename banner](../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Azure Policy's machine configuration feature provides native capability
 to audit or configure operating system settings as code,

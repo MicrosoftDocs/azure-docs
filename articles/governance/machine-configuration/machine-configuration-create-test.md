@@ -9,7 +9,7 @@ author: timwarner-msft
 ---
 # How to test machine configuration package artifacts
 
-[!INCLUDE [Machine config rename banner](../../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 The PowerShell module `GuestConfiguration` includes tools to automate
 testing a configuration package outside of Azure. Use these tools to find issues
