@@ -19,31 +19,26 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 This article also provides:
 
-+ A description of the change detection policies supported by the Azure SQL indexer so that you can set up incremental indexing.
++ A description of the [change detection policies](#indexing-new-changed-and-deleted-rows) supported by the Azure SQL indexer so that you can set up incremental indexing.
 
-+ A frequently-asked-questions (FAQ) section for answers to questions about feature compatibility.
++ A [frequently-asked-questions (FAQ) section](#faq) for answers to questions about feature compatibility.
 
 > [!NOTE]
-> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns aren't currently supported by Cognitive Search indexers.
+> Real-time data synchronization isn't possible with an indexer. An indexer can reindex your table at most every five minutes. If data updates need to be reflected in the index sooner, we recommend [pushing updated rows directly](tutorial-optimize-indexing-push-api.md).
 
 ## Prerequisites
 
 + An [Azure SQL database](/azure/azure-sql/database/sql-database-paas-overview) with data in a single table or view. 
 
-  Use a table if your data is over 100,000 rows or if you need [incremental indexing](#CaptureChangedRows) using SQL's native change detection capabilities.
+  Use a table if your data is large or if you need [incremental indexing](#CaptureChangedRows) using SQL's native change detection capabilities.
 
-  Use a view if you need to consolidate data from multiple tables. Large views aren't ideal for SQL indexer. A workaround is to create a new single table just for ingestion into your Cognitive Search index. You'll be able to use SQL integrated change tracking, which is easier to implement than High Water Mark.
+  Use a view if you need to consolidate data from multiple tables. Large views aren't ideal for SQL indexer. A workaround is to create a new table just for ingestion into your Cognitive Search index. You'll be able to use SQL integrated change tracking, which is easier to implement than High Water Mark.
 
 + Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md).
 
 To work through the examples in this article, you'll need a REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md). 
 
 Other approaches for creating an Azure SQL indexer include Azure SDKs or [Import data wizard](search-get-started-portal.md) in the Azure portal. If you're using Azure portal, make sure that access to all public networks is enabled in the Azure SQL firewall and that the client has access via an inbound rule.
-
-> [!NOTE]
-> Real-time data synchronization isn't possible with an indexer. An indexer can reindex your table at most every five minutes. If data updates need to be reflected in the index sooner, we recommend [pushing updated rows directly](tutorial-optimize-indexing-push-api.md).
-
-<!-- Incremental indexing is possible. If you have a large data set and plan to run the indexer on a schedule, Azure Cognitive Search must be able to efficiently identify new, changed, or deleted rows. Full indexing is only allowed if you're indexing on demand (not on schedule), or indexing fewer than 100,000 rows. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below. -->
 
 ## Define the data source
 
