@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 ## Reload data from App Configuration
 
-Azure Functions support running [in-process ](/azure/azure-functions/functions-dotnet-class-library) or [isolated-process](/azure/azure-functions/dotnet-isolated-process-guide). Among other benefits, the isolated-process functions support the middleware model, which allows injecting logic into the invocation pipeline before and after functions execution. App Configuration middleware for isolated-process Azure Functions refreshes configuration automatically before functions invocation. In contrast, you will call App Configuration refresh API in your functions to refresh configuration in in-process Azure Functions.
+Azure Functions support running [in-process](/azure/azure-functions/functions-dotnet-class-library) or [isolated-process](/azure/azure-functions/dotnet-isolated-process-guide). The main difference in App Configuration usage between the two modes is how the configuration is refreshed. In the in-process mode, you must make a call in each function to refresh the configuration. In the isolated-process mode, there is support for middleware. The App Configuration middleware, `Microsoft.Azure.AppConfiguration.Functions.Worker`, enables the call to refresh configuration automatically before each function is executed.
 
 1. Update the code that connects to App Configuration and add the data refreshing conditions.
 
@@ -95,7 +95,7 @@ Azure Functions support running [in-process ](/azure/azure-functions/functions-d
     All settings registered for refresh have a default cache expiration of 30 seconds before a new refresh is attempted. It can be updated by calling the `AzureAppConfigurationRefreshOptions.SetCacheExpiration` method.
 
     > [!TIP]
-    > When you are updating multiple key-values in App Configuration, you would normally don't want your application to reload configuration before all changes are made. You can register a *sentinel key* and only update it when all other configuration changes are completed. This helps to ensure the consistency of configuration in your application.
+    > When you are updating multiple key-values in App Configuration, you normally don't want your application to reload configuration before all changes are made. You can register a *sentinel key* and update it only when all other configuration changes are completed. This helps to ensure the consistency of configuration in your application.
 
 ### [In-process](#tab/in-process)
 
@@ -237,4 +237,4 @@ Azure Functions support running [in-process ](/azure/azure-functions/functions-d
 In this tutorial, you enabled your Azure Functions app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Access App Configuration using managed identity](./howto-integrate-azure-managed-service-identity.md)
