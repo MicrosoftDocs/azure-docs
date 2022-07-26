@@ -10,7 +10,7 @@ ms.custom: references_regions, mode-other
 
 # QuickStart: Link to existing Datadog organization
 
-In this quickstart, you'll link to a existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
+In this quickstart, you'll link to an existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
 
 ## Prerequisites
 
