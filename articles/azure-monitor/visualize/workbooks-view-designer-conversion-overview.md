@@ -1,6 +1,6 @@
 ---
-title: Convert View designer dashboards to workbooks
-description: Transition from views to workbooks in Azure Monitor.
+title: Transition from View Designer to workbooks
+description: Transition from View Designer to workbooks.
 services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -10,7 +10,7 @@ ms.reviewer: gardnerjr
 
 ---
 
-# Transition from View Designer views to Workbooks
+# Transition from View Designer to Workbooks
 [View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. View designer has been transitioned to workbooks to provide a flexible canvas for data analysis and creation of rich visual reports within the Azure portal. This article helps you make the transition from View designer to Workbooks. While this article describes simple steps to recreate some of the commonly used view designer views, workbooks allow you to create and design any of your own custom visualizations and metrics.
 
 [Workbooks](../vm/vminsights-workbooks.md) combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Team members with the same access to Azure resources are also able to edit workbooks.
@@ -75,7 +75,7 @@ You can also take advantage of the high level of customization features provided
 
 :::image type="content" source="media/workbooks-view-designer-conversion-overview/dashboard.png" alt-text="Screenshot of an Azure Dashboard.":::
 
-## Pin a workbook item:
+## Pin a workbook item
 
 1. Create a new Azure Dashboard or select an existing Azure Dashboard.
 1. Follow the instructions to [pin a visualization](workbooks-getting-started.md#pin-a-visualization).
@@ -85,7 +85,7 @@ You can also take advantage of the high level of customization features provided
 
 You may also want to pin multiple visualizations from the workbook or the entire workbook content to a dashboard.
 
-## Pin an entire workbook:
+## Pin an entire workbook
 1. Enter Edit mode by selecting **Edit** in the top toolbar.
 1. Use the pin icon to pin the entire workbook item or any of the individual elements and visualizations within the workbook.
 
