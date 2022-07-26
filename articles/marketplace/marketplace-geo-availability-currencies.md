@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 07/26/2022
+ms.date: 07/27/2022
 ---
 
 # Geographic availability and currency support for the commercial marketplace
@@ -178,15 +178,12 @@ You can export the prices and review the converted equivalents. To ensure prices
 
 To change the price of an offer that has already been published, see [Changing prices in active commercial marketplace offers](price-changes.md).
 
-The price of an offer is always shown to customers in their local currency.
-
 > [!TIP]
 > The price shown to customers in the online stores doesn't change unless you update the price in Partner Center and then republish your offer. The rate will be updated when the scheduled price change is live according to [Changing prices in active commercial marketplace offers](price-changes.md).
 
 Microsoft receives payments from customers in their local currency, and pays you in the currency you selected in Partner Center. Microsoft converts the customer local currency using the exchange rate of the day of purchase.
 
-> [!NOTE]
-> Microsoft converts offer prices using the Microsoft Treasury exchange rates.
+Microsoft converts offer prices using the Microsoft Treasury exchange rates. The price of an offer is always shown to customers in their local currency.
 
 The following illustration shows the currency conversion flow:
 
