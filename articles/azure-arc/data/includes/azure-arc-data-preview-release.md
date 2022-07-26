@@ -23,7 +23,7 @@ The current preview released on July 26, 2022.
 New for this release:
 
 - Miscellaneous
-  - More details on available upgrades when using Azure Portal or `az arcdata dc list-upgrades` and `az sql mi-arc list` including a link to the release notes for more details on what has changed.
+  - More details on available upgrades when using Azure portal or `az arcdata dc list-upgrades` and `az sql mi-arc list` including a link to the release notes for more details on what has changed.
 
 - Arc-enabled SQL Managed Instance
   - AES encryption can now be enabled for AD authentication.
