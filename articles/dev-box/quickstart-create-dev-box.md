@@ -15,23 +15,22 @@ ms.date: 04/15/2022
 
 # Quickstart: Create a Dev Box by using the developer portal
 
-Get started with Microsoft Dev Box by creating a dev box through the developer portal. After creating the dev box, you connect to it with a remote desktop (RD) session through a browser, or through the Microsoft Remote Desktop app. 
+Get started with Microsoft Dev Box by creating a dev box through the developer portal. After creating the dev box, you connect to it with a remote desktop (RD) session through a browser, or through a remote desktop app. 
 
-You can create and manage multiple Dev Boxes as a Dev Box User. Create a Dev Box for each task that you're working on, and create multiple dev boxes within a single project to help streamline work workflow. 
+You can create and manage multiple dev boxes as a dev box user. Create a dev box for each task that you're working on, and create multiple dev boxes within a single project to help streamline your workflow. 
 
 In this quickstart, you will:
 
-* [Create a Dev Box](#create-a-dev-box)
-* [Connect to a Dev Box](#connect-to-a-dev-box)
+* [Create a dev box](#create-a-dev-box)
+* [Connect to a dev box](#connect-to-a-dev-box)
 
 ## Prerequisites
 
-- An available Dev Box Pool. If you don't have an available pool, follow the steps in the [Quickstart: Configure a Microsoft Dev Box Project](./quickstart-configure-dev-box-project.md).
-- Permissions as a [Dev Box User](./quickstart-configure-dev-box-project.md#provide-access-to-a-dev-box-project) for the Project that has a configured Dev Box Pool.
+- Permissions as a [Dev Box User](./quickstart-configure-dev-box-project.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
 
 ## Create a Dev Box
 
-1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
+1. Sign in to the [developer portal](https://aka.ms/developerportal).
 
 2. Select **+ Add dev box**.
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Screenshot of the developer portal showing the Add dev box button.":::
@@ -42,17 +41,16 @@ In this quickstart, you will:
    |----|----|
    |**Name**|A name for your dev box. Dev box names must be unique within a project.|
    |**Project**|Select a project from the dropdown list. |
-   |**Dev box type**|Select a type from the dropdown list. The Dev box type dropdown lists all the dev box pools for the selected project. |
+   |**Dev box pool**|Select a pool from the dropdown list. The dev box pool dropdown lists all the dev box pools for the selected project. |
  
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-add.png" alt-text="Screenshot of the Add a dev box dialog box.":::
+   :::image type="content" source="./media/quickstart-create-dev-box/add-dev-box.png" alt-text="Screenshot of the Add a dev box dialog box.":::
 
-4. To begin creating your dev box, select the **Add** button. You can track the progress of creation in the developer portal home page. 
+1. Select **Add** to begin creating your dev box. 
+
+4. You can track the progress of creation in the developer portal home page. 
 
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-creating.png" alt-text="Screenshot of the developer portal showing the Your dev box card with the status Creating.":::
    
-   >[!NOTE]
-   >The dev box creation can take between 60 and 90 minutes.
-
 ## Connect to a dev box
 Once you've provisioned your dev box, you can access it in multiple ways. 
 
@@ -62,8 +60,8 @@ For quick access in a browser tab, the Developer portal links directly to a brow
 
 1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
 
-1. On the **Your dev box** card, select **Open in browser**.
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-browser.png" alt-text="Screenshot of the Your dev box card showing the Open in browser button.":::
+1. To connect to a dev box, select **Open in browser**.
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-browser.png" alt-text="Screenshot of dev box card showing the Open in browser button.":::
 
 A new tab will open with an RD session to your dev box.
 
