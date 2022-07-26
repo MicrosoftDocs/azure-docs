@@ -149,15 +149,15 @@ To update settings in the portal:
 
 1. Find `Cassandra Configuration` under settings. Highlight the data center whose configuration you want to change, and click update:
 
-   :::image type="content" source="./media/create-cluster-portal/update-config-1.png" alt-text="Select data center to update config." lightbox="./media/create-cluster-portal/cassandra-config-1.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/update-config-1.png" alt-text="Select data center to update config." lightbox="./media/create-cluster-portal/update-config-1.png" border="true":::
 
 1. In the window that opens, enter the field names in YAML format, as shown below. Then click update.
 
-   :::image type="content" source="./media/create-cluster-portal/update-config-2.png" alt-text="Update data center Cassandra config." lightbox="./media/create-cluster-portal/cassandra-config-2.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/update-config-2.png" alt-text="Update data center Cassandra config." lightbox="./media/create-cluster-portal/update-config-2.png" border="true":::
 
 1. When update is complete, the overridden values will show in the `Cassandra Configuration` pane:
 
-   :::image type="content" source="./media/create-cluster-portal/update-config-3.png" alt-text="View updated Cassandra config." lightbox="./media/create-cluster-portal/cassandra-config-3.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/update-config-3.png" alt-text="View updated Cassandra config." lightbox="./media/create-cluster-portal/update-config-3.png" border="true":::
 
    > [!NOTE]
    > Only overridden Cassandra configuration values are shown in the portal. 
