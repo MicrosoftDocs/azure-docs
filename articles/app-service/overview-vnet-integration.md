@@ -128,6 +128,9 @@ When configuring network security groups or route tables that affect outbound tr
 
 When you want to route outbound traffic on-premises, you can use a route table to send outbound traffic to your Azure ExpressRoute gateway. If you do route traffic to a gateway, set routes in the external network to send any replies back. Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic is affected. Similar to user-defined routes, BGP routes affect traffic according to your routing scope setting.
 
+> [!NOTE]
+> Outbound SMTP connectivity (port 25) is not supported on App Service, however when routing traffic through virtual network integration, the supportability is determined by the subscription. For virtual networks created before 30. June 2022, you will have to re-enable outbound SMTP connectivity support on the subscription. For more information on subscription type support and how to request support  to re-enable outbound SMTP connectivity, see [Troubleshoot outbound SMTP connectivity problems in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
+
 ### Service endpoints
 
 Regional virtual network integration enables you to reach Azure services that are secured with service endpoints. To access a service endpoint-secured service, follow these steps:
