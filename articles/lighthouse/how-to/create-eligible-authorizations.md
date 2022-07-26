@@ -1,7 +1,7 @@
 ---
 title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
-ms.date: 09/08/2021
+ms.date: 02/14/2022
 ms.topic: how-to
 ---
 
@@ -64,9 +64,9 @@ The role can be any Azure built-in role that is [supported for Azure delegated r
 
 ### Access policy
 
-The access policy defines the multifactor authentication requirements, the length of time a user will be activated in the role before it expires, and whether approvers are required.
+The access policy defines the multi-factor authentication requirements, the length of time a user will be activated in the role before it expires, and whether approvers are required.
 
-#### Multifactor authentication
+#### Multi-factor authentication
 
 Specify whether or not to require [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) in order for an eligible role to be activated.
 
@@ -76,7 +76,7 @@ Define the total length of time for which the user will have the eligible role. 
 
 #### Approvers
 
-The approvers element is optional. If you include it, you can specify up to ten users or user groups in the managing tenant who can approve or deny requests from a user to activate the eligible role.
+The approvers element is optional. If you include it, you can specify up to 10 users or user groups in the managing tenant who can approve or deny requests from a user to activate the eligible role.
 
 You can't use a service principal account as an approver. Also, approvers can't approve their own access; if an approver is also included as the user in an eligible authorization, a different approver will have to grant access in order for them to elevate their role.
 
@@ -86,7 +86,7 @@ If you don’t include any approvers, the user will be able to activate the elig
 
 To onboard your customer to Azure Lighthouse, you can publish Managed Services offers to Azure Marketplace. When [creating your offers in Partner Center](publish-managed-services-offers.md), you can now specify whether the **Access type** for each [Authorization](../../marketplace/create-managed-service-offer-plans.md#authorizations) should be **Active** or **Eligible**.
 
-When you select **Eligible**, the user in your authorization will be able to activate the role according to the access policy you configure. You must set a maximum duration between 30 minutes and 8 hours, and specify whether you’ll require Azure multifactor authentication. You can also add up to 10 approvers if you choose to use them, providing a display name and a principal ID for each one.
+When you select **Eligible**, the user in your authorization will be able to activate the role according to the access policy you configure. You must set a maximum duration between 30 minutes and 8 hours, and specify whether you'll require multi-factor authentication. You can also add up to 10 approvers if you choose to use them, providing a display name and a principal ID for each one.
 
 Be sure to review the details in the [Eligible authorization elements](#eligible-authorization-elements) section when configuring your eligible authorizations in Partner Center.
 
@@ -248,15 +248,15 @@ Each entry within the `eligibleAuthorizations` parameter contains [three element
 
 `principalId` specifies the ID for the Azure AD user or group to which this eligible authorization will apply.
 
-`roleDefinitionId` contains the role definition ID for an [Azure built-in role](../../role-based-access-control/built-in-roles.md) that the user will be eligible to use on a just-in-time basis. If you include multiple eligible authorizations that use the same `roleDefinitionId`, each of these must have identical settings for `justInTimeAccessPolicy`.
+`roleDefinitionId` contains the role definition ID for an [Azure built-in role](../../role-based-access-control/built-in-roles.md) that the user will be eligible to use on a just-in-time basis. If you include multiple eligible authorizations that use the same `roleDefinitionId`, they all must have identical settings for `justInTimeAccessPolicy`.
 
 `justInTimeAccessPolicy` specifies three elements:
 
-- `multiFactorAuthProvider` can either be set to **Azure**, which will require authentication using Azure AD Multi-Factor Authentication, or to **None** if no multifactor authentication will be required.
+- `multiFactorAuthProvider` can either be set to **Azure**, which will require authentication using Azure AD Multi-Factor Authentication, or to **None** if no multi-factor authentication will be required.
 - `maximumActivationDuration` sets the total length of time for which the user will have the eligible role. This value must use the ISO 8601 duration format. The minimum value is PT30M (30 minutes) and the maximum value is PT8H (8 hours). For simplicity, we recommend using values in half-hour increments only (for example, PT6H for 6 hours or PT6H30M for 6.5 hours).
 - `managedByTenantApprovers` is optional. If you include it, it must contain one or more combinations of a principalId and a principalIdDisplayName who will be required to approve any activation of the eligible role.
 
-For more details about these elements, see the [Eligible authorization elements](#eligible-authorization-elements) section above.
+For more information about these elements, see the [Eligible authorization elements](#eligible-authorization-elements) section above.
 
 ## Elevation process for users
 
@@ -266,7 +266,7 @@ Each user can elevate their access at any time by visiting the **My customers** 
 
 :::image type="content" source="../media/manage-eligible-roles.png" alt-text="Screenshot showing the Manage eligible roles button in the Azure portal.":::
 
-If approvers have been specified, the user won't have access to the role until approval is granted by a designated approver. All of the approvers will be notified when approval is requested, and the user won’t be able to use the eligible role until approval is granted. Approvers will also be notified when that happens. For more details about the approval process, see [Approve or deny requests for Azure resource roles in Privileged Identity Management](../../active-directory/privileged-identity-management/pim-resource-roles-approval-workflow.md).
+If approvers have been specified, the user won't have access to the role until approval is granted by a designated [approver from the managing tenant](#approvers). All of the approvers will be notified when approval is requested, and the user won't be able to use the eligible role until approval is granted. Approvers will also be notified when that happens. For more information about the approval process, see [Approve or deny requests for Azure resource roles in Privileged Identity Management](../../active-directory/privileged-identity-management/pim-resource-roles-approval-workflow.md).
 
 Once the eligible role has been activated, the user will have that role for the full duration specified in the eligible authorization. After that time period, they will no longer be able to use that role, unless they repeat the elevation process and elevate their access again.
 

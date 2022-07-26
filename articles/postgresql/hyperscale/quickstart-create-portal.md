@@ -1,32 +1,46 @@
 ---
 title: 'Quickstart: create a server group - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: Quickstart to create and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
+recommendations: false
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 01/24/2022
+ms.date: 06/29/2022
 #Customer intent: As a developer, I want to provision a hyperscale server group so that I can run queries quickly on large datasets.
 ---
 
 # Create a Hyperscale (Citus) server group in the Azure portal
 
-Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Hyperscale (Citus) server group using the Azure portal. You'll explore distributed data: sharding tables across nodes, ingesting sample data, and running queries that execute on multiple nodes.
-
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Azure Database for PostgreSQL - Hyperscale (Citus) is a managed service that
-you use to run, manage, and scale highly available PostgreSQL databases in the
-cloud. Its [basic tier](concepts-server-group.md#tiers) is a convenient
-deployment option for initial development and testing.
+allows you to run horizontally scalable PostgreSQL databases in the cloud.
 
-This quickstart shows you how to create a Hyperscale (Citus) basic tier server
-group using the Azure portal. You'll create the server group and verify that
-you can connect to it to run queries.
+## Prerequisites
+
+To follow this quickstart, you'll first need to:
+
+* Create a [free account](https://azure.microsoft.com/free/) (If you don't have
+  an Azure subscription).
+* Sign in to the [Azure portal](https://portal.azure.com).
+
+## Get started with the Basic Tier
+
+The Basic Tier allows you to deploy Hyperscale (Citus) as a single node, while
+having the superpower of distributing tables. At a few dollars a day, it's the
+most cost-effective way to experience Hyperscale (Citus). Later, if your
+application requires greater scale, you can add nodes and rebalance your data.
+
+Let's get started!
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../../includes/azure-postgresql-hyperscale-create-db.md)]
 
-**Next steps**
+## Next steps
 
-* [Connect to your server group](quickstart-connect-psql.md) with psql.
+With your server group created, it's time to connect with a SQL client.
+
+> [!div class="nextstepaction"]
+> [Connect to your server group >](quickstart-connect-psql.md)

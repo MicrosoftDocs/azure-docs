@@ -22,7 +22,7 @@ The following partners have approved Azure Virtual Desktop clients.
 |HP |[HP client documentation](https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c07051097)|[HP support](https://support.hp.com/us-en/products/workstations-thin-clients)|
 |IGEL |[IGEL client documentation](https://www.igel.com/igel-solution-family/)|[IGEL support](https://www.igel.com/support/)|
 |NComputing |[NComputing client documentation](https://www.ncomputing.com/microsoft)|[NComputing support](https://www.ncomputing.com/support/support-options)|
-|Stratodesk |[Stratodesk client documentation](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk support](https://www.stratodesk.com/support/)|
+|Stratodesk |[Stratodesk client documentation](https://kb.stratodesk.com/microsoft-windows-virtual-desktop-wvd)|[Stratodesk support](https://www.stratodesk.com/support/)|
 
 ## Next steps
 

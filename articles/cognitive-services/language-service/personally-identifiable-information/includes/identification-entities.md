@@ -230,7 +230,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `AUDriversLicenseNumber` to the `pii-categories` parameter. `AUDriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `AUBankAccountNumber` to the `pii-categories` parameter. `AUBankAccountNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::

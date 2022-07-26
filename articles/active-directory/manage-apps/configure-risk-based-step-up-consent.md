@@ -1,6 +1,5 @@
 ---
 title: Configure risk-based step-up consent
-titleSuffix: Azure AD
 description: Learn how to disable and enable risk-based step-up consent to reduce user exposure to malicious apps that make illicit consent requests.
 services: active-directory
 author: psignoret

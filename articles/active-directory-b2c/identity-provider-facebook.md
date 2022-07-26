@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 03/10/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -130,8 +130,9 @@ Update the relying party (RP) file that initiates the user journey that you crea
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
-::: zone-end
-
 ## Next steps
 
-Learn how to [pass Facebook token to your application](idp-pass-through-user-flow.md).
+- Learn how to [pass Facebook token to your application](idp-pass-through-user-flow.md).
+- Check out the Facebook federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#facebook), and how to pass Facebook access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#facebook-with-access-token)
+
+::: zone-end

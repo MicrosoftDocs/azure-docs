@@ -3,7 +3,7 @@ metadata:
   title: Video Analyzer FAQ
   description: This article answers frequently asked questions about Azure Video Analyzer.
   ms.service: azure-video-analyzer
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 11/04/2021
 
 title: Video Analyzer FAQ 
@@ -90,7 +90,7 @@ sections:
         answer: |
           **How is Azure Video Analyzer billed?**
 
-          For billing details, see [Video Analyzer pricing](https://azure.microsoft.com/pricing/details/video-analyzer/).
+          For billing details, see [Video Analyzer pricing](../index.yml).
 
 additionalContent: |
 

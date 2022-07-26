@@ -2,7 +2,7 @@
 title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 ms.topic: article
-ms.date: 01/24/2021
+ms.date: 02/16/2022
 ms.devlang: csharp
 ---
 
@@ -77,7 +77,7 @@ Service Bus enables clients to send and receive messages via one of three protoc
 AMQP is the most efficient, because it maintains the connection to Service Bus. It also implements [batching](#batching-store-access) and [prefetching](#prefetching). Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
 
 > [!IMPORTANT]
-> The SBMP is only available for .NET Framework. AMQP is the default for .NET Standard.
+> The SBMP protocol is only available for .NET Framework. AMQP is the default for .NET Standard.
 
 ## Choosing the appropriate Service Bus .NET SDK
 
@@ -378,7 +378,7 @@ To maximize throughput, follow these guidelines:
 
 * If each receiver is in a different process, use only a single factory per process.
 * Receivers can use synchronous or asynchronous operations. Given the moderate receive rate of an individual receiver, client-side batching of a Complete request doesn't affect receiver throughput.
-* Leave batched store access enabled. This access reduces the overall load of the entity. It also reduces the overall rate at which messages can be written into the queue or topic.
+* Leave batched store access enabled. This access reduces the overall load of the entity. It also increases the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to a small value (for example, PrefetchCount = 10). This count prevents receivers from being idle while other receivers have large numbers of messages cached.
 
 ### Topic with a few subscriptions

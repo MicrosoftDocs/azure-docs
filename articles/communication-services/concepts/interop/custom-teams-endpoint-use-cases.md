@@ -1,7 +1,7 @@
 ---
-title: Use cases for custom Teams endpoint
+title: Use cases for Azure Communication Services support Teams identities
 titleSuffix: An Azure Communication Services concept document
-description: This article describes use cases for a custom Teams endpoint.
+description: This article describes use cases for Azure Communication Services support Teams identities.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
-# Custom Teams Endpoint — Use cases
+# Azure Communication Services support Teams identities — Use cases
 
 Microsoft Teams provides identities managed by Azure Active Directory and calling experiences controlled by Teams Admin Center and policies. Users might have assigned licenses to enable PSTN connectivity and advanced calling capabilities of Teams Phone System. Azure Communication Services are supporting Teams identities for managing Teams VoIP calls, Teams PSTN calls, and join Teams meetings. Developers might extend the Azure Communication Services with Graph API to provide contextual data from Microsoft 365 ecosystem. This page is providing inspiration on how to use existing Microsoft technologies to provide an end-to-end experience for calling scenarios with Teams users and Azure Communication Services calling SDKs. 
 
@@ -105,7 +105,7 @@ The following sequence diagram shows detailed steps for initiation of a Teams Vo
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
-2. Load users from Fabrikam's organization and their identifiers: Contoso client application utilizes Graph API to get a list of users from Fabrikam's tenant. Alice or her Admin needs to provide consent to Graph API to perform this action. You can learn more about [the Graph API command in the documentation](https://docs.microsoft.com/graph/api/user-list).
+2. Load users from Fabrikam's organization and their identifiers: Contoso client application utilizes Graph API to get a list of users from Fabrikam's tenant. Alice or her Admin needs to provide consent to Graph API to perform this action. You can learn more about [the Graph API command in the documentation](/graph/api/user-list).
 
 ```
 GET https://graph.microsoft.com/v1.0/users
@@ -231,7 +231,7 @@ The following sequence diagram shows detailed steps for joining a Teams meeting:
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
-2. Load Teams meetings and their identifiers: Contoso client application utilizes Graph API to get a list of Teams meetings for Fabrikam's users. Alice or her Admin needs to provide consent to Graph API to perform this action. You can learn more about [the Graph API command in the documentation](https://docs.microsoft.com/graph/api/user-list-calendarview).
+2. Load Teams meetings and their identifiers: Contoso client application utilizes Graph API to get a list of Teams meetings for Fabrikam's users. Alice or her Admin needs to provide consent to Graph API to perform this action. You can learn more about [the Graph API command in the documentation](/graph/api/user-list-calendarview).
 
 ```
 GET https://graph.microsoft.com/v1.0/me/calendar/calendarView?startDateTime={start_datetime}&endDateTime={end_datetime}

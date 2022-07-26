@@ -1,11 +1,11 @@
 ---
 title: How to set up access control on synchronized objects in serverless SQL pool
 description: Authorize shared databases access to non-privileged Azure AD users in serverless SQL pool.
-services: synapse-analytics
 author: Stralle
 reviewer: vvasic-msft, jovanpop-msft, WilliamDAssafMSFT 
 ms.service: synapse-analytics
 ms.subservice: sql
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 12/30/2021
 ms.author: strrodic
@@ -24,16 +24,16 @@ Once these databases and tables are synchronized from Spark to serverless SQL po
 `External table '<table>' is not accessible because content of directory cannot be listed.`
 despite them having access to data on the underlying storage account(s).
 
-Since synchronized databases in serverless SQL pool are read-only, they can’t be modified. Creating a user, or giving other permissions will fail if attempted. To read synchronized databases, one must have privileged server-level permissions (like sysadmin).
-This limitation is also present on external tables in serverless SQL pool when using [Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) and lake databases tables.
+Since synchronized databases in serverless SQL pool are read-only, they can't be modified. Creating a user, or giving other permissions will fail if attempted. To read synchronized databases, one must have privileged server-level permissions (like sysadmin).
+This limitation is also present on external tables in serverless SQL pool when using [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) and lake databases tables.
 
 ## Non-admin access to synchronized databases
 
 A user who needs to read data and create reports usually doesn't have full administrator access (sysadmin). This user is usually data analyst who just needs to read and analyze data using the existing tables. They don't need to create new objects.
 
 A user with minimal permission should be able to:
--	Connect to a database that is replicated from Spark
--	Select data via external tables and access the underlying ADLS data.
+-    Connect to a database that is replicated from Spark
+-    Select data via external tables and access the underlying ADLS data.
 
 After executing the code script below, it will allow non-admin users to have server-level permissions to connect to any database. It will also allow users to view data from all schema-level objects, such as tables or views. Data access security can be managed on the storage layer. 
 
@@ -52,7 +52,7 @@ After creating a login and granting permissions, users can run queries on top of
 
 More security on the objects can be managed through specific schemas and lock access to a specific schema. The workaround requires extra DDL. For this scenario, you can create new serverless database, schemas, and views that will point to the Spark tables data on ADLS.
 
-Access to the data on storage account can be managed via [ACL](/azure/storage/blobs/data-lake-storage-access-control) or regular [Storage Blob Data Owner/Reader/Contributor roles](/azure/storage/blobs/data-lake-storage-access-control-model) for Azure AD users/groups. For Service Principals (Azure AD apps), make sure you use ACL setup.
+Access to the data on storage account can be managed via [ACL](../../storage/blobs/data-lake-storage-access-control.md) or regular [Storage Blob Data Owner/Reader/Contributor roles](../../storage/blobs/data-lake-storage-access-control-model.md) for Azure AD users/groups. For Service Principals (Azure AD apps), make sure you use ACL setup.
 
 > [!NOTE]
 > - If you want to forbid using OPENROWSET on top of the data, you can use `DENY ADMINISTER BULK OPERATIONS to [login@contoso.com];` For more information, visit [DENY Server permissions](/sql/t-sql/statements/deny-server-permissions-transact-sql?view=sql-server-ver15#remarks&preserve-view=true).

@@ -116,11 +116,53 @@ Explanation of the above crontab.
         config files are.
   - `azacsnap -c .....` = the full azacsnap command to run, including all the options.
 
-Further explanation of cron and the format of the crontab file here: <https://en.wikipedia.org/wiki/Cron>
+For more information about cron and the format of the crontab file, see [cron](https://wikipedia.org/wiki/Cron).
 
 > [!NOTE]
 > Users are responsible for monitoring the cron jobs to ensure snapshots are being
 generated successfully.
+
+## Manage AzAcSnap log files
+
+AzAcSnap writes output of its operation to log files to assist with debugging and to validate correct operation. These log files will continue to grow unless actively managed. Fortunately UNIX based systems have a tool to manage and archive log files called logrotate.
+
+This is an example configuration for logrotate. This configuration will keep a maximum of 31 logs (approximately one month), and when the log files are larger than 10k it will rotate and compress them.
+
+```output
+# azacsnap logrotate configuration file
+compress
+
+~/bin/azacsnap*.log {
+    rotate 31
+    size 10k
+}
+```
+
+After creating the logrotate.conf file, logrotate should be run on a regular basis to archive AzAcSnap log files accordingly. This can be done using cron. The following is the line of the azacsnap user's crontab which will run logrotate on a daily schedule using the configuration file described above.
+
+```output
+@daily /usr/sbin/logrotate -s ~/logrotate.state ~/logrotate.conf >> ~/logrotate.log
+```
+
+> [!NOTE]
+> In the example above the logrotate.conf file is in the user's home (~) directory.
+
+After several days the azacsnap log files should look similar to the following directory listing.
+
+```bash
+ls -ltra ~/bin/logs
+```
+
+```output
+-rw-r--r-- 1 azacsnap users 127431 Mar 14 23:56 azacsnap-backup-azacsnap.log.6.gz
+-rw-r--r-- 1 azacsnap users 128379 Mar 15 23:56 azacsnap-backup-azacsnap.log.5.gz
+-rw-r--r-- 1 azacsnap users 129272 Mar 16 23:56 azacsnap-backup-azacsnap.log.4.gz
+-rw-r--r-- 1 azacsnap users 128010 Mar 17 23:56 azacsnap-backup-azacsnap.log.3.gz
+-rw-r--r-- 1 azacsnap users 128947 Mar 18 23:56 azacsnap-backup-azacsnap.log.2.gz
+-rw-r--r-- 1 azacsnap users 128971 Mar 19 23:56 azacsnap-backup-azacsnap.log.1.gz
+-rw-r--r-- 1 azacsnap users 167921 Mar 20 01:21 azacsnap-backup-azacsnap.log
+```
+
 
 ## Monitor the snapshots
 
@@ -156,7 +198,7 @@ A storage volume snapshot can be restored to a new volume (`-c restore --restore
 A snapshot can be copied back to the SAP HANA data area, but SAP HANA must not be running when a
 copy is made (`cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T113043.1586971Z/*`).
 
-For Azure Large Instance, you could contact the Microsoft operations team by opening a service request to restore a desired snapshot from the existing available snapshots. You can open a service request from Azure portal: <https://portal.azure.com>
+For Azure Large Instance, you could contact the Microsoft operations team by opening a service request to restore a desired snapshot from the existing available snapshots. You can open a service request via the [Azure portal](https://portal.azure.com).
 
 If you decide to perform the disaster recovery failover, the `azacsnap -c restore --restore revertvolume` command at the DR site will automatically make available the most recent (`/hana/data` and `/hana/logbackups`) volume snapshots to allow for an SAP HANA recovery. Use this command with caution as it breaks replication between production and DR sites.
 
@@ -313,7 +355,7 @@ A 'boot' snapshot can be recovered as follows:
 
 1. The customer will need to shut down the server.
 1. After the Server is shut down, the customer will need to open a service request that contains the Machine ID and Snapshot to restore.
-    > Customers can open a service request from the Azure portal: <https://portal.azure.com>
+    > Customers can open a service request via the [Azure portal](https://portal.azure.com).
 1. Microsoft will restore the Operating System LUN using the specified Machine ID and Snapshot, and then boot the Server.
 1. The customer will then need to confirm Server is booted and healthy.
 

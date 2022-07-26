@@ -7,8 +7,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 01/20/2022
-ms.author: moelghaz
-ms.topic: conceptual
+ms.author: lajanuar
+ms.topic: how-to
 ---
 
 # Create and manage a project | Preview

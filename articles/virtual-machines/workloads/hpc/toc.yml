@@ -4,6 +4,8 @@
     items:
     - name: HPC for H-series and N-series VMs
       href: overview.md
+    - name: How to set up HPC/AI VMs
+      href: set-up-hpc-vms.md
   - name: Configuration
     items:
     - name: Configure and optimize VMs

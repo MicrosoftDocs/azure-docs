@@ -12,7 +12,7 @@ This article describes how to define and use variables in your Azure Resource Ma
 Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the template, Resource Manager replaces it with the resolved value.
 
 > [!TIP]
-> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [variables](../bicep/variables.md).
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [variables](../bicep/variables.md).
 
 ## Define variable
 

@@ -1,8 +1,8 @@
 ---
 title: Monitoring Azure Application Gateway 
 description: Start here to learn how to monitor Azure Application Gateway 
-author: vhorne
-ms.author: victorh
+author: greg-lindsay
+ms.author: greglin
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/10/2021
@@ -45,11 +45,6 @@ This is just a subset of the metrics available for Application Gateway. For more
 
 
 ## Azure Monitor Network Insights
-
-<!-- OPTIONAL SECTION.  Only include if your service has an "insight" associated with it. Examples of insights include
-  - CosmosDB https://docs.microsoft.com/azure/azure-monitor/insights/cosmosdb-insights-overview
-  - If you still aren't sure, contact azmondocs@microsoft.com.>
--->
 
 Some services in Azure have a special focused pre-built monitoring dashboard in the Azure portal that provides a starting point for monitoring your service. These special dashboards are called "insights".
 

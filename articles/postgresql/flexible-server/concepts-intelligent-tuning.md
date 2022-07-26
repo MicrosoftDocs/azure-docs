@@ -4,13 +4,14 @@ description: This article describes the intelligent tuning feature in Azure Data
 author: nathan-wisner-ms
 ms.author: nathanwisner
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---
 
 # Perform intelligent tuning in Azure Database for PostgreSQL - Flexible Server
 
-
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 **Applies to:** Azure Database for PostgreSQL - Flexible Server versions 11 and later.
 
@@ -29,7 +30,7 @@ Allow up to 35 minutes for the first batch of data to persist in the *azure_sys*
 
 ## Information about intelligent tuning
 
-Intelligent tuning operates around three main parameters for the given time: `checkpoint_completion_target`, `min_wal_size`, and `bgwriter_delay`.
+Intelligent tuning operates around three main parameters for the given time: `checkpoint_completion_target`, `max_wal_size`, and `bgwriter_delay`.
 
 These three parameters mostly affect: 
 

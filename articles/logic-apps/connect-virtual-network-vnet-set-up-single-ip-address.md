@@ -1,10 +1,10 @@
 ---
 title: Set up a public outbound IP address for ISEs
-description: Learn how to set up a single public outbound IP address for integration service environments (ISEs) in Azure Logic Apps
+description: Learn how to set up a single public outbound IP address for integration service environments (ISEs) in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 05/06/2020
 ---
 
@@ -92,7 +92,7 @@ This topic shows how to route outbound traffic through an Azure Firewall, but yo
    * [Azure Firewall rule processing logic](../firewall/rule-processing.md#network-rules-and-applications-rules)
    * [Azure Firewall FAQ](../firewall/firewall-faq.yml)
    * [Azure PowerShell: New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
-   * [Azure CLI: az network firewall network-rule](/cli/azure/network/firewall/network-rule#az_network_firewall_network_rule_create)
+   * [Azure CLI: az network firewall network-rule](/cli/azure/network/firewall/network-rule#az-network-firewall-network-rule-create)
 
 ## Next steps
 

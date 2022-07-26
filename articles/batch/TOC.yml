@@ -20,9 +20,12 @@
   - name: Run a Batch job - Python
     displayName: quickstart, first, create
     href: quick-run-python.md
+  - name: Create a Batch account - Bicep
+    href: quick-create-bicep.md
+    displayName: Resource Manager, ARM, Template
   - name: Create a Batch account - ARM template
     href: quick-create-template.md
-    displayName: Resource Manager, quickstart, first, create
+    displayName: Resource Manager
 - name: Tutorials
   items:
   - name: Parallel file processing - .NET
@@ -81,7 +84,7 @@
       displayName: compute node, application package, scaling, schedule, os, configuration
       href: nodes-and-pools.md
     - name: Jobs and tasks
-      displayName: Batch job, start task, environment 
+      displayName: Batch job, start task, environment
       href: jobs-and-tasks.md
     - name: Files and directories
       displayName: Batch file, working directory
@@ -110,8 +113,12 @@
       href: batch-management-dotnet.md
     - name: Get cost analysis and set budgets
       href: budget.md
+    - name: Configure public network access with Batch accounts
+      href: public-network-access.md
     - name: Use private endpoints with Batch accounts
       href: private-connectivity.md
+    - name: Manage private endpoint connections with Batch accounts
+      href: manage-private-endpoint-connections.md
     - name: Configure customer-managed keys
       href: batch-customer-managed-key.md
     - name: Move between regions
@@ -167,6 +174,9 @@
     - name: Create a pool without public IP addresses
       displayName: private
       href: batch-pool-no-public-ip-address.md
+    - name: Create a simplified node communication pool without public IP addresses
+      displayName: private
+      href: simplified-node-communication-pool-no-public-ip.md
     - name: Create a pool with ephemeral OS disk nodes
       href: create-pool-ephemeral-os-disk.md
     - name: Use extensions with pools
@@ -250,7 +260,7 @@
     href: batch-js-get-started.md
   - name: Run workloads
     items:
-    - name: MPI 
+    - name: MPI
       displayName: multi-instance, message passing interface
       href: batch-mpi.md
     - name: Container workloads

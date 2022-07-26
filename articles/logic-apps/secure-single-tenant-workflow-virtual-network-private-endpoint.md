@@ -5,12 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/15/2022
+ms.date: 03/11/2022
 
 # As a developer, I want to connect to my single-tenant logic app workflows with virtual networks using private endpoints and VNet integration.
 ---
 
 # Secure traffic between single-tenant Standard logic apps and Azure virtual networks using private endpoints and VNet integration
+
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 To securely and privately communicate between your workflow in a Standard logic app and an Azure virtual network, you can set up *private endpoints* for inbound traffic and use VNet integration for outbound traffic.
 
@@ -63,10 +65,6 @@ For more information, review the following documentation:
 
 1. After the designer opens, add the Request trigger as the first step in your workflow.
 
-   > [!NOTE]
-   > You can call Request triggers and webhook triggers only from inside your virtual network. 
-   > Managed API webhook triggers and actions won't work because they require a public endpoint to receive calls.
-
 1. Based on your scenario requirements, add other actions that you want to run in your workflow.
 
 1. When you're done, save your workflow.
@@ -104,6 +102,10 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 ### Considerations for inbound traffic through private endpoints
 
 - If accessed from outside your virtual network, monitoring view can't access the inputs and outputs from triggers and actions.
+
+- Managed API webhook triggers (*push* triggers) and actions won't work because they run in the public cloud and can't call into your private network. They require a public endpoint to receive calls. For example, such triggers include the Dataverse trigger and the Event Grid trigger.
+
+- If you use the Office 365 Outlook trigger, the workflow is triggered only hourly.
 
 - Deployment from Visual Studio Code or Azure CLI works only from inside the virtual network. You can use the Deployment Center to link your logic app to a GitHub repo. You can then use Azure infrastructure to build and deploy your code.
 
@@ -159,6 +161,8 @@ To secure outbound traffic from your logic app, you can integrate your logic app
 > With VNet integration, you need to make sure no firewall or network security policy is blocking these connections. 
 
 ### Considerations for outbound traffic through VNet integration
+
+If your virtual network uses a network security group (NSG), user-defined route table (UDR), or a firewall, make sure that the virtual network allows outbound connections to [all managed connector IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) in the corresponding region. Otherwise, Azure-managed connectors won't work.
 
 Setting up virtual network integration affects only outbound traffic. To secure inbound traffic, which continues to use the App Service shared endpoint, review [Set up inbound traffic through private endpoints](#set-up-inbound).
 

@@ -7,13 +7,13 @@ ms.topic: include
 ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/python.md)]
+[!INCLUDE [Header](../../common/python.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites-luis.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites-luis.md)]
 
 You also need to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
 
@@ -48,7 +48,7 @@ Insert this code in `quickstart.py`. Make sure you update these values:
 
 This sample constructs the `SpeechConfig` object using LUIS key and region. For a full list of available methods, see [SpeechConfig Class](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
-The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../how-to-specify-source-language.md) for information on choosing the source language.
+The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../how-to-recognize-speech.md) for information on choosing the source language.
 
 ## Initialize an IntentRecognizer
 
@@ -99,7 +99,7 @@ At this point, your code should look like this.
 > [!NOTE]
 > We've added some comments to this version.
 
-:::code language="python" source="~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py" id="code":::
+:::code language="python" source="~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py":::
 
 ## Build and run your app
 

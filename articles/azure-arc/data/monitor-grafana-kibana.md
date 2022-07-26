@@ -13,19 +13,18 @@ ms.topic: how-to
 
 # View logs and metrics using Kibana and Grafana
 
-Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services. To access Kibana and Grafana web dashboards view service endpoints check [Azure Data Studio dashboards](/azure/azure-arc/data/azure-data-studio-dashboards) documentation. 
+Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services. To access Kibana and Grafana web dashboards view service endpoints check [Azure Data Studio dashboards](./azure-data-studio-dashboards.md) documentation. 
 
-
-
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Monitor Azure SQL managed instances on Azure Arc
 
 To access the logs and monitoring dashboards for Azure Arc-enabled SQL Managed Instance, run the following `azdata` CLI command
 
-```azurecl
+```azurecli
 az sql mi-arc endpoint list -n <name of SQL instance> --use-k8s
-
 ```
+
 The relevant Grafana dashboards are:
 
 * "Azure SQL managed instance Metrics"
@@ -44,10 +43,8 @@ The relevant Grafana dashboards are:
 
 To access the logs and monitoring dashboards for PostgreSQL Hyperscale, run the following `azdata` CLI command
 
-```bash
-
+```azurecli
 az postgres arc-server endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
-
 ```
 
 The relevant postgreSQL dashboards are:

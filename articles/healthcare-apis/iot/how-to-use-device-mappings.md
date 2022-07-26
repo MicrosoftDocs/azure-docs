@@ -1,29 +1,26 @@
 ---
-title: Device mappings in IoT Connector - Azure Healthcare APIs
-description: This article describes how to configure and use Device mapping templates with Azure Healthcare APIs IoT Connector. 
+title: Device mappings in MedTech service - Azure Health Data Services
+description: This article describes how to configure and use Device mapping templates with Azure Health Data Services MedTech service. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 07/07/2022
 ms.author: jasteppe
 ---
 
 # How to use Device mappings
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
-This article describes how to configure IoT connector using Device mappings.
+This article describes how to configure the MedTech service using Device mappings.
 
-IoT connector requires two types of JSON-based mappings. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). 
+MedTech service requires two types of JSON-based mappings. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hubs end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). 
 
 The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
-The two types of mappings are composed into a JSON document based on their type. These JSON documents are then added to your IoT connector through the Azure portal. The Device mapping document is added through the **Device mapping** page and the FHIR destination mapping document through the **Destination** page.
+The two types of mappings are composed into a JSON document based on their type. These JSON documents are then added to your MedTech service through the Azure portal. The Device mapping document is added through the **Device mapping** page and the FHIR destination mapping document through the **Destination** page.
 
 > [!NOTE]
 > Mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
@@ -48,13 +45,13 @@ The normalized data model has a few required properties that must be found and e
 > [!IMPORTANT]
 > The full normalized model is defined by the [IMeasurement](https://github.com/microsoft/iomt-fhir/blob/master/src/lib/Microsoft.Health.Fhir.Ingest.Schema/IMeasurement.cs) interface.
 
-Below are conceptual examples of what happens during normalization and and transformation process within IoT connector:
+Below are conceptual examples of what happens during normalization and transformation process within the MedTech service:
 
-:::image type="content" source="media/iot-data-normalization-high-level.png" alt-text="IoT data normalization flow example1" lightbox="media/iot-data-normalization-high-level.png":::
+:::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow example zoomed out." lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
 
-:::image type="content" source="media/concepts-iot-mapping-templates/normalization-example.png" alt-text="IoT data normalization flow example2" lightbox="media/concepts-iot-mapping-templates/normalization-example.png":::
+:::image type="content" source="media/concepts-iot-mapping-templates/normalization-example.png" alt-text="Diagram of IoT data normalization flow example zoomed in." lightbox="media/concepts-iot-mapping-templates/normalization-example.png":::
 
-The content payload itself is an Azure Event Hub message, which is composed of three parts: Body, Properties, and SystemProperties. The `Body` is a byte array representing an UTF-8 encoded string. During template evaluation, the byte array is automatically converted into the string value. `Properties` is a key value collection for use by the message creator. `SystemProperties` is also a key value collection reserved by the Azure Event Hub framework with entries automatically populated by it.
+The content payload itself is an Azure Event Hubs message, which is composed of three parts: Body, Properties, and SystemProperties. The `Body` is a byte array representing an UTF-8 encoded string. During template evaluation, the byte array is automatically converted into the string value. `Properties` is a key value collection for use by the message creator. `SystemProperties` is also a key value collection reserved by the Azure Event Hubs framework with entries automatically populated by it.
 
 ```json
 {
@@ -77,7 +74,7 @@ The content payload itself is an Azure Event Hub message, which is composed of t
 
 The five device content-mapping types supported today rely on JSONPath to both match the required mapping and extracted values. More information on JSONPath can be found [here](https://goessner.net/articles/JsonPath/). All five template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 
-You can define one or more templates within the Device mapping template. Each Event Hub device message received is evaluated against all device mapping templates. 
+You can define one or more templates within the Device mapping template. Each Event Hubs device message received is evaluated against all device mapping templates. 
 
 A single inbound device message can be separated into multiple outbound messages that are later mapped to different observations in the FHIR service. 
 
@@ -92,7 +89,7 @@ Various template types exist and may be used when building the Device mapping fi
 |[IotCentralJsonPathContentTemplate](./how-to-use-iot-central-json-content-mappings.md)|A template that supports messages sent via the Export Data feature of Azure Iot Central.| 
 
 > [!TIP]
-> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues. 
+> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues. 
 
 ## Next steps
 
@@ -101,4 +98,4 @@ In this article, you learned how to use Device mappings. To learn how to use FHI
 >[!div class="nextstepaction"]
 >[How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -1,10 +1,14 @@
 ---
 title: Understand the guest configuration feature of Azure Policy
 description: Learn how Azure Policy uses the guest configuration feature to audit or configure settings inside virtual machines.
-ms.date: 07/15/2021
+author: timwarner-msft
+ms.date: 07/15/2022
 ms.topic: conceptual
+ms.author: timwarner
 ---
 # Understand the guest configuration feature of Azure Policy
+
+[!INCLUDE [Machine config rename banner](../../includes/banner.md)]
 
 Azure Policy's guest configuration feature provides native capability
 to audit or configure operating system settings as code,
@@ -54,7 +58,7 @@ and Arc-enabled servers, review the following details.
 Before you can use the guest configuration feature of Azure Policy, you must
 register the `Microsoft.GuestConfiguration` resource provider. If assignment of
 a guest configuration policy is done through the portal, or if the subscription
-is enrolled in Azure Security Center, the resource provider is registered
+is enrolled in Microsoft Defender for Cloud, the resource provider is registered
 automatically. You can manually register through the
 [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
 [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell),
@@ -256,7 +260,7 @@ for the same definitions using the same parameter values as machines in the prim
 
 Guest configuration stores/processes customer data. By default, customer data is replicated to the
 [paired region.](../../../availability-zones/cross-region-replication-azure.md)
-For single resident region all customer data is stored and processed in the region.
+For the regions: Singapore, Brazil South, and East Asia all customer data is stored and processed in the region.
 
 ## Troubleshooting guest configuration
 
@@ -280,7 +284,10 @@ Management Groups.
 
 The guest configuration extension writes log files to the following locations:
 
-Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+Windows
+
+- Azure VM: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+- Arc-enabled server: `C:\ProgramData\GuestConfig\arc_policy_logs\gc_agent.log`
 
 Linux
 
@@ -338,6 +345,7 @@ locations:
 - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
 - [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+- [Sample DSC resource modules](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules)
 
 ## Next steps
 

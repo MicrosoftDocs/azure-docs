@@ -6,7 +6,8 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 01/26/2022
 ms.author: rohogue 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create an Azure HPC Cache
@@ -152,7 +153,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 > [!NOTE]
 > The Azure CLI currently does not support creating a cache with customer-managed encryption keys. Use the Azure portal.
 
-Use the [az hpc-cache create](/cli/azure/hpc-cache#az_hpc_cache_create) command to create a new Azure HPC Cache.
+Use the [az hpc-cache create](/cli/azure/hpc-cache#az-hpc-cache-create) command to create a new Azure HPC Cache.
 
 Supply these values:
 

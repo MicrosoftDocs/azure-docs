@@ -71,6 +71,16 @@
     "redirect_document_id": false
   },
   {
+    "source_path": "service-bus-dotnet-get-started-with-queues-legacy.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
+    "redirect_document_id": false
+  },  
+  {
+    "source_path": "service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
+    "redirect_document_id": false
+  },  
+  {
     "source_path": "service-bus-event-hubs-manage-with-ps.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-manage-with-ps",
     "redirect_document_id": false
@@ -90,6 +100,16 @@
     "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-java",
     "redirect_document_id": false
   },
+  {
+    "source_path": "service-bus-java-how-to-use-queues-legacy.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-queues",
+    "redirect_document_id": false
+  }, 
+  {
+    "source_path": "service-bus-java-how-to-use-topics-subscriptions-legacy.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions",
+    "redirect_document_id": false
+  },     
   {
     "source_path": "service-bus-messaging-security-attributes.md",
     "redirect_url": "/azure/service-bus-messaging/security-baseline",

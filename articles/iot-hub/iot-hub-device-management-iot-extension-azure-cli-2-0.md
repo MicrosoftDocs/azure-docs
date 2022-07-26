@@ -1,14 +1,14 @@
 ---
 title: Azure IoT device management with IoT extension for Azure CLI | Microsoft Docs
 description: Use the IoT extension for Azure CLI tool for Azure IoT Hub device management, featuring the Direct methods and the Twin’s desired properties management options.
-author: eross-msft
+author: kgremban
 manager: 
 keywords: azure iot device management, azure iot hub device management, device management iot, iot hub device management
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: lizross
+ms.author: kgremban
 ---
 
 # Use the IoT extension for Azure CLI for Azure IoT Hub device management
@@ -37,7 +37,7 @@ Device twins are JSON documents that store device state information (metadata, c
 
 ## Prerequisites
 
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
 
   * An active Azure subscription.
   * An Azure IoT hub under your subscription.

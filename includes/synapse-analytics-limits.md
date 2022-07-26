@@ -5,20 +5,42 @@ services: synapse-analytics
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: include
-ms.date: 09/22/2021
+ms.date: 05/09/2022
 ms.author: jburchel
 ms.custom: include file
 ---
 
 Azure Synapse Analytics has the following default limits to ensure customer's subscriptions are protected from each other's workloads. To raise the limits to the maximum for your subscription, contact support.
 
-### Synapse Workspace Limits
+### Azure Synapse limits for workspaces
+
+For Pay-As-You-Go, Free Trial, Azure Pass, and Azure for Students subscription offer types:
 
 | Resource | Default limit | Maximum limit | 
 | -------- | ------------- | ------------- |
-| Synapse workspaces in an Azure subscription | 20 | 20 |
+| Synapse workspaces in an Azure subscription | 2 | 2 |
 
-### Synapse Pipeline Limits
+For other subscription offer types:
+
+| Resource | Default limit | Maximum limit | 
+| -------- | ------------- | ------------- |
+| Synapse workspaces in an Azure subscription per region | 20 | 250 |
+
+### Azure Synapse limits for Apache Spark
+
+For Pay-As-You-Go, Free Trial, Azure Pass, and Azure for Students subscription offer types:
+
+| Resource | Memory Optimized cores | GPU cores | 
+| -------- | ------------- | ------------- |
+| Spark cores in a Synapse workpsace | 12 | 48 |
+
+For other subscription offer types:
+
+| Resource | Memory Optimized cores | GPU cores | 
+| -------- | ------------- | ------------- |
+| Spark cores in a Synapse workpsace | 50 | 50 |
+
+### Azure Synapse limits for pipelines
 
 | Resource | Default limit | Maximum limit |
 | -------- | ------------- | ------------- |
@@ -62,14 +84,15 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 | Region group 1 | Central US, East US, East US 2, North Europe, West Europe, West US, West US 2 |
 | Region group 2 | Australia East, Australia Southeast, Brazil South, Central India, Japan East, North Central US, South Central US, Southeast Asia, West Central US |
 | Region group 3 | Other regions |
+
 If managed virtual network is enabled, the data integration unit (DIU) in all region groups are 2,400.
 
 <sup>3</sup> Pipeline, data set, and linked service objects represent a logical grouping of your workload. Limits for these objects don't relate to the amount of data you can move and process with Azure Synapse Analytics. Synapse Analytics is designed to scale to handle petabytes of data.
 
 <sup>4</sup> The payload for each activity run includes the activity configuration, the associated dataset(s) and linked service(s) configurations if any, and a small portion of system properties generated per activity type. Limit for this payload size doesn't relate to the amount of data you can move and process with Azure Synapse Analytics. Learn about the [symptoms and recommendation](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) if you hit this limit.
 
-### Dedicated SQL pool limits
+### Azure Synapse limits for dedicated SQL pools
 For details of capacity limits for dedicated SQL pools in Azure Synapse Analytics, see [dedicated SQL pool resource limits](../articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-### Web service call limits
+### Azure Resource Manager limits for web service calls
 Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).

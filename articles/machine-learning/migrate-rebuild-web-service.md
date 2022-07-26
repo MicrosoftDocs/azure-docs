@@ -4,6 +4,7 @@ description: Rebuild Studio (classic) web services as pipeline endpoints in Azur
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 
 author: xiaoharper
@@ -27,7 +28,7 @@ This article is part of the Studio (classic) to Azure Machine Learning migration
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 - An Azure Machine Learning training pipeline. For more information, see [Rebuild a Studio (classic) experiment in Azure Machine Learning](migrate-rebuild-experiment.md).
 
 ## Real-time endpoint vs pipeline endpoint
@@ -66,8 +67,8 @@ There are multiple ways to deploy a model in Azure Machine Learning. One of the 
 
     | Compute target | Used for | Description | Creation |
     | ----- |  ----- | ----- | -----  |
-    |[Azure Kubernetes Service (AKS)](how-to-deploy-azure-kubernetes-service.md) |Real-time inference|Large-scale, production deployments. Fast response time and service autoscaling.| User-created. For more information, see [Create compute targets](how-to-create-attach-compute-studio.md#inference-clusters). |
-    |[Azure Container Instances](how-to-deploy-azure-container-instance.md)|Testing or development | Small-scale, CPU-based workloads that require less than 48 GB of RAM.| Automatically created by Azure Machine Learning.
+    |[Azure Kubernetes Service (AKS)](v1/how-to-deploy-azure-kubernetes-service.md) |Real-time inference|Large-scale, production deployments. Fast response time and service autoscaling.| User-created. For more information, see [Create compute targets](how-to-create-attach-compute-studio.md#inference-clusters). |
+    |[Azure Container Instances](v1/how-to-deploy-azure-container-instance.md)|Testing or development | Small-scale, CPU-based workloads that require less than 48 GB of RAM.| Automatically created by Azure Machine Learning.
 
 ### Test the real-time endpoint
 

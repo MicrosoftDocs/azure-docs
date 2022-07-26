@@ -7,13 +7,13 @@ ms.topic: include
 ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/javascript.md)]
+[!INCLUDE [Header](../../common/javascript.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites-luis.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites-luis.md)]
 
 You also need to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
 
@@ -147,7 +147,7 @@ Now we'll add some basic UI for input boxes, reference the Speech SDK's JavaScri
 Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `startRecognizeOnceAsyncButton.addEventListener()` method.
 
 > [!NOTE]
-> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../how-to-specify-source-language.md) for information on choosing the source language.
+> The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../how-to-recognize-speech.md) for information on choosing the source language.
 
 
 ```JavaScript

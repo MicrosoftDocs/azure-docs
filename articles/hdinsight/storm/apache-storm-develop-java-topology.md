@@ -4,7 +4,7 @@ description: Learn how to create Apache Storm topologies in Java by creating an 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
-ms.date: 04/27/2020
+ms.date: 04/28/2022
 ---
 
 # Create an Apache Storm topology in Java
@@ -245,7 +245,7 @@ Enter the command below to create and open a new file `RandomSentenceSpout.java`
 notepad src\main\java\com\microsoft\example\RandomSentenceSpout.java
 ```
 
-Then copy and paste the java code below into the new file.  Then close the file.
+Then copy and paste the Java code below into the new file.  Then close the file.
 
 ```java
 package com.microsoft.example;
@@ -331,7 +331,7 @@ Enter the command below to create and open a new file `SplitSentence.java`:
 notepad src\main\java\com\microsoft\example\SplitSentence.java
 ```
 
-Then copy and paste the java code below into the new file.  Then close the file.
+Then copy and paste the Java code below into the new file.  Then close the file.
 
 ```java
 package com.microsoft.example;
@@ -388,7 +388,7 @@ Enter the command below to create and open a new file `WordCount.java`:
 notepad src\main\java\com\microsoft\example\WordCount.java
 ```
 
-Then copy and paste the java code below into the new file.  Then close the file.
+Then copy and paste the Java code below into the new file.  Then close the file.
 
 ```java
 package com.microsoft.example;
@@ -485,7 +485,7 @@ To implement the topology, enter the command below to create and open a new file
 notepad src\main\java\com\microsoft\example\WordCountTopology.java
 ```
 
-Then copy and paste the java code below into the new file.  Then close the file.
+Then copy and paste the Java code below into the new file.  Then close the file.
 
 ```java
 package com.microsoft.example;

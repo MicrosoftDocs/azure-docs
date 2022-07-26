@@ -1,6 +1,5 @@
 ---
-title: Migrate JavaScript single-page app from implicit grant to authorization code flow | Azure
-titleSuffix: Microsoft identity platform
+title: Migrate JavaScript single-page app from implicit grant to authorization code flow
 description: How to update a JavaScript SPA using MSAL.js 1.x and the implicit grant flow to MSAL.js 2.x and the authorization code flow with PKCE and CORS support.
 services: active-directory
 author: mmacy
@@ -77,7 +76,7 @@ For additional changes you might need to make to your code, see the [migration g
 
 ## Disable implicit grant settings
 
-Once you've updated all your production applications that use this app registration and its client ID to MSAL 2.x and the authorization code flow, you should uncheck the implicit grant settings in the app registration.
+Once you've updated all your production applications that use this app registration and its client ID to MSAL 2.x and the authorization code flow, you should uncheck the implicit grant settings under the **Authentication** menu of the app registration.
 
 When you uncheck the implicit grant settings in the app registration, the implicit flow is disabled for all applications using registration and its client ID.
 

@@ -25,7 +25,7 @@ For all the operations and other technical information, such as properties, limi
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An [Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md)
 

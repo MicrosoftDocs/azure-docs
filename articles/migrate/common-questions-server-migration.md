@@ -1,9 +1,9 @@
 ---
 title: Common questions about Azure Migrate Server Migration
 description: Get answers to common questions about using Azure Migrate Server Migration to migrate machines.
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: piyushdhore-microsoft
+ms.author: piyushdhore
+ms.manager: vijain
 ms.topic: conceptual
 ms.date: 08/28/2020
 ---
@@ -24,7 +24,7 @@ This article answers common questions about the Azure Migrate: Server Migration 
 
 The Azure Migrate: Server Migration tool offers two options for migrating your source servers and virtual machines to Azure: agentless migration and agent-based migration.
 
-Regardless of the migration option chosen, the first step to migrate a server using Azure Migration: Server Migration is to start replication for the server. This performs an initial replication of your VM/server data to Azure. After the initial replication is completed, an ongoing replication (ongoing delta-sync) is established to migrate incremental data to Azure. Once the operation reaches the delta-sync stage, you can choose to migrate to Azure at any time.  
+Regardless of the migration option chosen, the first step to migrate a server using Azure Migration: Server Migration is to start replication for the server. This performs an initial replication of your VM/server data to Azure. After the initial replication is completed, an ongoing replication (ongoing delta-sync) is established to migrate incremental data to Azure. Once the operation reaches the delta-sync stage, you can choose to migrate to Azure at any time.
 
 Here are some considerations to keep in mind while deciding on the migration option.
 
@@ -44,7 +44,7 @@ To learn more, review this [article](./server-migrate-overview.md) to compare mi
 
 ### What geographies are supported for migration with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
 ### Can I use the same Azure Migrate project to migrate to multiple regions?
 
@@ -54,26 +54,29 @@ While you can create assessments for multiple regions in an Azure Migrate projec
 - For agent-based migrations (VMware, physical servers, and servers from other clouds), the target region is locked once the “Create Resources” button is clicked on the portal while setting up the replication appliance.
 - For agentless Hyper-V migrations, the target region is locked once the “Create Resources” button is clicked on the portal while setting up the Hyper-V replication provider.
 
-### Can I use the same Azure Migrate project to migrate to multiple subscriptions? 
+### Can I use the same Azure Migrate project to migrate to multiple subscriptions?
 
 Yes, you can migrate to multiple subscriptions (same Azure tenant) in the same target region for an Azure Migrate project. You can select the target subscription while enabling replication for a machine or a set of machines. The target region is locked post first replication for agentless VMware migrations and during the replication appliance and Hyper-V provider installation for agent-based migrations and agentless Hyper-V migrations respectively.
 
-### How is the data transmitted from on-prem environment to Azure? Is it encrypted before transmission?
+### How is the data transmitted from on-premises environment to Azure? Is it encrypted before transmission?
 
-The Azure Migrate appliance in the agentless replication case  compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it is persisted it to the cloud (encryption-at-rest).  
+The Azure Migrate appliance in the agentless replication case  compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it is persisted it to the cloud (encryption-at-rest).
 
 ### Can I use the recovery services vault created by Azure Migrate for Disaster Recovery scenarios?
 We do not recommend using the recovery services vault created by Azure Migrate for Disaster Recovery scenarios. Doing so can result in start replication failures in Azure Migrate.
 
 ### What is the difference between the Test Migration and Migrate operations?
 
-Test migration provides a way to test and validate migrations prior to the actual migration. Test migration works by letting you create test copies of replicating VMs in a sandbox environment in Azure. The sandbox environment is demarcated by a test virtual network you specify. The test migration operation is non-disruptive, with applications continuing to run at the source while letting you perform tests on a cloned copy in an isolated sandbox environment. You can perform multiple tests as needed to validate the migration, perform app testing, and address any issues before the actual migration.
+Test migration provides a way to test and validate migrations prior to the actual migration. Test migration works by letting you use a sandbox environment in Azure to test the virtual machines before actual migration. The sandbox environment is demarcated by a test virtual network you specify. The test migration operation is non-disruptive, provided the test VNet is sufficiently isolated. Isolated VNet here means the inbound and outbound connection rules are designed to avoid unwanted connections. For example – connection to on-premises machines is restricted.
 
+The applications can continue to run at the source while letting you perform tests on a cloned copy in an isolated sandbox environment. You can perform multiple tests, as needed, to validate the migration, perform app testing, and address any issues before the actual migration.
+
+:::image type="content" source="./media/common-questions-server-migration/difference-migration-test-migration.png" alt-text="Screenshot shows the difference in test migration and actual migration.":::
 
 ### Is there a Rollback option for Azure Migrate?
 
-You can use the Test Migration option to validate your application functionality and performance in Azure. You can perform any number of test migrations and can execute the final migration after establishing confidence through the test migration operation. 
-A test migration doesn’t impact the on-premises machine, which remains operational and continues replicating until you perform the actual migration. If there were any errors during the test migration UAT, you can choose to postpone the final migration and keep your source VM/server running and replicating to Azure. You can reattempt the final migration once you resolve the errors.  
+You can use the Test Migration option to validate your application functionality and performance in Azure. You can perform any number of test migrations and can execute the final migration after establishing confidence through the test migration operation.
+A test migration doesn’t affect the on-premises machine, which remains operational and continues replicating until you perform the actual migration. If there were any errors during the test migration UAT, you can choose to postpone the final migration and keep your source VM/server running and replicating to Azure. You can reattempt the final migration once you resolve the errors.
 Note: Once you have performed a final migration to Azure and the on-premises source machine was shut down, you cannot perform a rollback from Azure to your on-premises environment.
 
 ### Can I select the Virtual Network and subnet to use for test migrations?
@@ -119,13 +122,13 @@ Azure Migrate: Server Migration tool migrates all the UEFI-based machines to Azu
 | SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
 | SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
 | Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
-| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 _RHEL 8.x requires [manual preparation](./prepare-for-migration.md#linux-machines)_   | Y                              | Y                                                          |
-| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y<br>_Cent OS 8.x requires [manual preparation](./prepare-for-migration.md#linux-machines)_ | Y                              | Y                                                          |
+| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y      | Y                              | Y                                                          |
+| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y | Y                              | Y                                                          |
 | Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
 
 ### Can I migrate Active Directory domain-controllers using Azure Migrate?
 
-The Server Migration tool is application agnostic and works for most applications. When you migrate a server using the Server Migration tool, all the applications installed on the server are migrated along with it. However, for some applications, alternate migration methods other than server migration may be better suited for the migration.  For Active Directory, in the case of hybrid environments where the on-premises site is connected to your Azure environment, you can extend your Directory into Azure by adding extra domain controllers in Azure and setting up Active Directory replication. If you are migrating into an isolated environment in Azure requiring its own domain controllers (or testing applications in a sandbox environment), you can migrate servers using the server migration tool.
+The Server Migration tool is application agnostic and works for most applications. When you migrate a server using the Server Migration tool, all the applications installed on the server are migrated along with it. However, for some applications, alternate migration methods other than server migration may be better suited for the migration.  For Active Directory, if hybrid environments where the on-premises site is connected to your Azure environment, you can extend your Directory into Azure by adding extra domain controllers in Azure and setting up Active Directory replication. If you are migrating into an isolated environment in Azure requiring its own domain controllers (or testing applications in a sandbox environment), you can migrate servers using the server migration tool.
 
 
 ### Can I upgrade my OS while migrating?
@@ -138,7 +141,7 @@ To [migrate VMware VMs](server-migrate-overview.md) using VMware agent-based or 
 
 ### Can I consolidate multiple source VMs into one VM while migrating?
 
-Azure Migrate server migration capabilities support like for like migrations currently. We do not support consolidating servers or upgrading the operating system as part of the migration. 
+Azure Migrate server migration capabilities support like for like migrations currently. We do not support consolidating servers or upgrading the operating system as part of the migration.
 
 ### Will Windows Server 2008 and 2008 R2 be supported in Azure after migration?
 
@@ -160,7 +163,7 @@ Azure Migrate: Server Migration provides agentless replication options for the m
 The agentless replication option works by using mechanisms provided by the virtualization provider (VMware, Hyper-V). In the case of VMware virtual machines, the agentless replication mechanism uses VMware snapshots and VMware changed block tracking technology to replicate data from virtual machine disks. This mechanism is similar to the one used by many backup products. In the case of Hyper-V virtual machines, the agentless replication mechanism uses VM snapshots and the change tracking capability of the Hyper-V replica to replicate data from virtual machine disks.
 
 When replication is configured for a virtual machine, it first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks are replicated to managed disks in your subscription. After initial replication for the VM is complete, the replication process transitions to an incremental replication (delta replication) phase. In the incremental replication phase, data changes that have occurred since the last completed replication cycle are periodically replicated and applied to the replica managed disks, thus keeping replication in sync with changes happening on the VM. In the case of VMware virtual machines, VMware changed block tracking technology is used to keep track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed block tracking is used to get the changes between the current snapshot and the last successfully replicated snapshot. That way only data that has changed since the last completed replication cycle needs to be replicated to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the virtual machine. Similarly, in the case of Hyper-V virtual machines, the Hyper-V replica change tracking engine is used to keep track of changes between consecutive replication cycles.
-When you perform the migrate operation on a replicating virtual machine, you have the option to shutdown the on-premise virtual machine and perform one final incremental replication to ensure zero data loss. On performing the migrate option, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure.
+When you perform the migrate operation on a replicating virtual machine, you have the option to shut down the on-premise virtual machine and perform one final incremental replication to ensure zero data loss. On performing the migration, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure.
 
 To get started, refer the [VMware agentless migration](./tutorial-migrate-vmware.md) and [Hyper-V agentless migration](./tutorial-migrate-hyper-v.md) tutorials.
 
@@ -176,7 +179,7 @@ You can estimate the bandwidth or time needed for agentless VMware VM migration 
 
 Time to complete initial replication =  {size of disks (or used size if available) * 0.7 (assuming a 30 percent compression average – conservative estimate)}/bandwidth available for replication.
 
-### How do I throttle replication in using Azure Migrate appliance for agentless VMware replication?  
+### How do I throttle replication in using Azure Migrate appliance for agentless VMware replication?
 
 You can throttle using NetQosPolicy. Note that this throttling is applicable only to the outbound connections from the Azure Migrate appliance. For example:
 
@@ -221,8 +224,8 @@ $ThrottleBandwidthTrigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday,
 $IncreaseBandwidthTrigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday,Tuesday,Wednesday,Thursday,Friday -At 6:00pm
 
 #Setting the task action to execute the scripts
-$ThrottleBandwidthAction = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-executionpolicy bypass -noprofile -file $ThrottleBandwidthScript" 
-$IncreaseBandwidthAction = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-executionpolicy bypass -noprofile -file $IncreaseBandwidthScript" 
+$ThrottleBandwidthAction = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-executionpolicy bypass -noprofile -file $ThrottleBandwidthScript"
+$IncreaseBandwidthAction = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-executionpolicy bypass -noprofile -file $IncreaseBandwidthScript"
 
 #Creating the Scheduled tasks
 Register-ScheduledTask -TaskName $ThrottleBandwidthTask -Trigger $ThrottleBandwidthTrigger -User $User -Action $ThrottleBandwidthAction -RunLevel Highest -Force
@@ -248,6 +251,10 @@ If there are multiple appliances set up, it is required there is no overlap amon
 
 Agentless replication results in some performance impact on VMware vCenter Server and VMware ESXi hosts. Because agentless replication uses snapshots, it consumes IOPS on storage, so some IOPS storage bandwidth is required. We don't recommend using agentless replication if you have constraints on storage or IOPs in your environment.
 
+### Can I use Azure Migrate to migrate my web apps to Azure App Service?
+
+You can perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](./tutorial-migrate-webapps.md)
+
 
 ## Agent-based Migration
 
@@ -259,7 +266,7 @@ Review the [article](./tutorial-migrate-aws-virtual-machines.md) to discover, as
 
 In addition to agentless migration options for VMware virtual machines and Hyper-V virtual machines, the Server Migration tool provides an agent-based migration option to migrate Windows and Linux servers running on physical servers, or running as x86/x64 virtual machines on VMware, Hyper-V, AWS, Google Cloud Platform, etc.
 
-The agent-based migration method uses agent software installed on the server being migrated to replicate server data to Azure. The replication process uses an offload architecture in which the agent relays replication data to a dedicated replication server called the replication appliance or Configuration Server (or to a scale-out Process Server). [Learn more](./agent-based-migration-architecture.md) about how the agent-based migration option works. 
+The agent-based migration method uses agent software installed on the server being migrated to replicate server data to Azure. The replication process uses an offload architecture in which the agent relays replication data to a dedicated replication server called the replication appliance or Configuration Server (or to a scale-out Process Server). [Learn more](./agent-based-migration-architecture.md) about how the agent-based migration option works.
 
 Note: The replication appliance is different from the Azure Migrate discovery appliance and must be installed on a separate/dedicated machine.
 
@@ -290,7 +297,7 @@ The agentless replication option works by using mechanisms provided by the virtu
 
 When replication is configured for a virtual machine, it first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks are replicated to managed disks in your subscription. After initial replication for the VM is complete, the replication process transitions to an incremental replication (delta replication) phase. In the incremental replication phase, data changes that have occurred since the last completed replication cycle are periodically replicated and applied to the replica managed disks, thus keeping replication in sync with changes happening on the VM. In the case of VMware virtual machines, VMware changed block tracking technology is used to keep track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed block tracking is used to get the changes between the current snapshot and the last successfully replicated snapshot. That way only data that has changed since the last completed replication cycle needs to be replicated to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the virtual machine. Similarly, in the case of Hyper-V virtual machines, the Hyper-V replica change tracking engine is used to keep track of changes between consecutive replication cycles.
 
-When you perform the migrate operation on a replicating virtual machine, you have the option to shutdown the on-premise virtual machine and perform one final incremental replication to ensure zero data loss. On performing the migrate option, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure.
+When you perform the migrate operation on a replicating virtual machine, you have the option to shut down the on-premise virtual machine and perform one final incremental replication to ensure zero data loss. On performing the migration, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure.
 
 To get started, refer the [Hyper-V agentless migration](./tutorial-migrate-hyper-v.md) tutorial.
 

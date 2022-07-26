@@ -1,23 +1,28 @@
 ---
-title:  "Blue-green deployment strategies in Azure Spring Cloud"
-description: This topic explains two approaches to blue-green deployments in Azure Spring Cloud.
+title:  "Blue-green deployment strategies in Azure Spring Apps"
+description: This topic explains two approaches to blue-green deployments in Azure Spring Apps.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/12/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# Blue-green deployment strategies in Azure Spring Cloud
+# Blue-green deployment strategies in Azure Spring Apps
 
-This article describes the blue-green deployment support in Azure Spring Cloud.
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-Azure Spring Cloud (Standard tier and higher) permits two deployments for every app, only one of which receives production traffic. This pattern is commonly known as blue-green deployment. Azure Spring Cloud's support for blue-green deployment, together with a [Continuous Delivery (CD)](/devops/deliver/what-is-continuous-delivery) pipeline and rigorous automated testing, allows agile application deployments with high confidence.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article describes the blue-green deployment support in Azure Spring Apps.
+
+Azure Spring Apps (Standard tier and higher) permits two deployments for every app, only one of which receives production traffic. This pattern is commonly known as blue-green deployment. Azure Spring Apps's support for blue-green deployment, together with a [Continuous Delivery (CD)](/devops/deliver/what-is-continuous-delivery) pipeline and rigorous automated testing, allows agile application deployments with high confidence.
 
 ## Alternating deployments
 
-The simplest way to implement blue-green deployment with Azure Spring Cloud is to create two fixed deployments and always deploy to the deployment that isn't receiving production traffic. With the [Azure Spring Cloud task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud), you can deploy this way just by setting the `UseStagingDeployment` flag to `true`.
+The simplest way to implement blue-green deployment with Azure Spring Apps is to create two fixed deployments and always deploy to the deployment that isn't receiving production traffic. With the [Azure Spring Apps task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud), you can deploy this way just by setting the `UseStagingDeployment` flag to `true`.
 
 Here's how the alternating deployments approach works in practice:
 
@@ -53,7 +58,7 @@ The alternating deployments approach is simple and fast, as it doesn't require t
 
 #### Persistent staging deployment
 
-The staging deployment always remains running, and thus consuming resources of the Azure Spring Cloud instance. This effectively doubles the resource requirements of each application on Azure Spring Cloud.
+The staging deployment always remains running, and thus consuming resources of the Azure Spring Apps instance. This effectively doubles the resource requirements of each application on Azure Spring Apps.
 
 #### The approval race condition
 
@@ -71,7 +76,7 @@ In the illustration below, version `v5` is running on the deployment `deployment
 
 ![Deploying new version on a named deployment](media/spring-cloud-blue-green-patterns/named-deployment-1.png)
 
-There's no risk of another version being deployed in parallel. First, Azure Spring Cloud doesn't allow the creation of a third deployment while two deployments already exist. Second, even if it was possible to have more than two deployments, each deployment is identified by the version of the application it contains. Thus, the pipeline orchestrating the deployment of `v6` would only attempt to set `deployment-v6` as the production deployment.
+There's no risk of another version being deployed in parallel. First, Azure Spring Apps doesn't allow the creation of a third deployment while two deployments already exist. Second, even if it was possible to have more than two deployments, each deployment is identified by the version of the application it contains. Thus, the pipeline orchestrating the deployment of `v6` would only attempt to set `deployment-v6` as the production deployment.
 
 ![New version receives production traffic named deployment](media/spring-cloud-blue-green-patterns/named-deployment-2.png)
 
@@ -90,10 +95,10 @@ However, there are drawbacks as well, as described in the following section.
 
 #### Deployment pipeline failures
 
-Between the time a deployment starts and the time the staging deployment is deleted, any additional attempts to run the deployment pipeline will fail. The pipeline will attempt to create a new deployment, which will result in an error because only two deployments are permitted per application in Azure Spring Cloud.
+Between the time a deployment starts and the time the staging deployment is deleted, any additional attempts to run the deployment pipeline will fail. The pipeline will attempt to create a new deployment, which will result in an error because only two deployments are permitted per application in Azure Spring Apps.
 
 Therefore, the deployment orchestration must either have the means to retry a failed deployment process at a later time, or the means to ensure that the deployment flows for each version will remain queued until the flow is completed for all previous versions.
 
 ## Next steps
 
-* [Automate application deployments to Azure Spring Cloud](./how-to-cicd.md)
+* [Automate application deployments to Azure Spring Apps](./how-to-cicd.md)

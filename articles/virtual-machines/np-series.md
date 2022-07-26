@@ -3,7 +3,7 @@ title: NP-series - Azure Virtual Machines
 description: Specifications for the NP-series VMs.
 author: luismcMSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: luismc
@@ -78,11 +78,11 @@ VM Generation Support: Generation 1<br>
 
  Xilinx has created the following marketplace images to simplify the deployment of these VMs. 
 
-[Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu18.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_ubuntu1804_deployment_image)
+Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu18.04
 
-[Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu20.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_ubuntu2004_deployment_image)
+Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu20.04
 
-[Xilinx Alveo U250 2021.1 Deployment VM – CentOS7.8](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_centos78_deployment_image)
+Xilinx Alveo U250 2021.1 Deployment VM – CentOS7.8
 
 **Q:** Can I deploy my Own Ubuntu / CentOS VMs and install XRT / Deployment Target Platform? 
 
@@ -149,9 +149,18 @@ OnPrem FPGA, both the management endpoint (Device ID 5004) and role endpoint (De
 On Azure NP VMs, the XDMA 2.1 platform only supports Host_Mem(SB) and DDR data retention features. 
 <br>
 To enable Host_Mem(SB) (up to 1 Gb RAM):  sudo xbutil host_mem --enable --size 1g 
-
+<br>
 To disable Host_Mem(SB): sudo xbutil host_mem --disable 
+<br>
 
+<br>
+Starting on XRT2021.1:
+
+OnPrem FPGA in Linux exposes
+[M2M data transfer](https://xilinx.github.io/XRT/master/html/m2m.html).
+<br>
+This feature is not supported in Azure NP VMs.
+ 
 **Q:** Can I run xbmgmt commands? 
 
 **A:** No, on Azure VMs there's no management support directly from the Azure VM. 

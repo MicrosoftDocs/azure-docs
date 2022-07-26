@@ -1,29 +1,34 @@
 ---
-title: Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud
+title: Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Apps
 description: Describes several best practices with JVM configuration to set heap dump, JFR, and GC logs.
 author: KarlErickson
 ms.author: yinglzh
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/21/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud
+# Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Apps
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ❌ C#
 
-This article describes how to use diagnostic settings through JVM options to conduct advanced troubleshooting in Azure Spring Cloud.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-There are several JVM-based application startup parameters related to heap dump, Java Flight Recorder (JFR), and garbage collection (GC) logs. In Azure Spring Cloud, we support JVM configuration using JVM options.
+This article shows you how to use diagnostic settings through JVM options to conduct advanced troubleshooting in Azure Spring Apps.
 
-For more information on configuring JVM-based application startup parameters, see [az spring-cloud app deployment](/cli/azure/spring-cloud/app/deployment) in the Azure CLI reference documentation. The following sections provide several examples of useful values for the `--jvm-options` parameter.
+There are several JVM-based application startup parameters related to heap dump, Java Flight Recorder (JFR), and garbage collection (GC) logs. In Azure Spring Apps, we support JVM configuration using JVM options.
+
+For more information on configuring JVM-based application startup parameters, see [az spring app deployment](/cli/azure/spring/app/deployment) in the Azure CLI reference documentation. The following sections provide several examples of useful values for the `--jvm-options` parameter.
 
 ## Prerequisites
 
-* A deployed Azure Spring Cloud service instance. Follow our [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
+* A deployed Azure Spring Apps service instance. Follow our [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
 * At least one application already created in your service instance.
-* Your own persistent storage as described in [How to enable your own persistent storage in Azure Spring Cloud](how-to-custom-persistent-storage.md). This storage is used to save generated diagnostic files. The paths you provide in the parameter values below should be under the mount path of the persistent storage bound to your app. If you want to use a path under the mount path, be sure to create the subpath beforehand.
+* Your own persistent storage as described in [How to enable your own persistent storage in Azure Spring Apps](how-to-custom-persistent-storage.md). This storage is used to save generated diagnostic files. The paths you provide in the parameter values below should be under the mount path of the persistent storage bound to your app. If you want to use a path under the mount path, be sure to create the subpath beforehand.
 
 ## Generate a heap dump when out of memory
 
@@ -53,7 +58,7 @@ Use the following `--jvm-options` parameter to generate a JFR file.  For more in
 
 ## Configure the path for generated files
 
-To ensure that you can access your files, be sure that the target path of your generated file is in the persistent storage bound to your app. For example, you can use JSON similar to the following example when you create your persistent storage in Azure Spring Cloud.
+To ensure that you can access your files, be sure that the target path of your generated file is in the persistent storage bound to your app. For example, you can use JSON similar to the following example when you create your persistent storage in Azure Spring Apps.
 
 ```json
     {
@@ -87,9 +92,9 @@ To ensure that you can access your files, be sure that the target path of your g
 Alternately, you can use the following command to append to persistent storage.
 
 ```azurecli
-az spring-cloud app append-persistent-storage \
+az spring app append-persistent-storage \
     --resource-group <resource-group-name> \
-    --service <Azure-Spring-Cloud-instance-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --name <app-name> \
     --persistent-storage-type AzureFileVolume \
     --storage-name <storage-resource-name> \
@@ -99,4 +104,4 @@ az spring-cloud app append-persistent-storage \
 
 ## Next steps
 
-- [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Cloud](how-to-capture-dumps.md)
+* [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](how-to-capture-dumps.md)

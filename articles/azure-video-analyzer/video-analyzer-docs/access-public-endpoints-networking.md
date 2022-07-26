@@ -7,6 +7,8 @@ ms.date: 11/04/2021
 
 # Public endpoints and networking
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Azure Video Analyzer exposes a set of public network endpoints that enable different product scenarios, including management, ingestion, and playback. This article describes those endpoints, and provides some details about how they are used. The diagram below depicts those endpoints, in addition to some key endpoints exposed by associated Azure Services.
 
 :::image type="content" source="./media/access-public-endpoints-networking/endpoints-and-networking.svg" alt-text="The image represents Azure Video Analyzer public endpoints":::

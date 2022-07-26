@@ -5,15 +5,14 @@ metadata:
   author: mmccrory
   ms.service: automanage
   ms.workload: infrastructure
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.date: 12/10/2021
   ms.author: memccror
-    
 title: Frequently asked questions for Azure Automanage for VMs
 summary: |
   This article provides answers to some of the most common questions about [Azure Automanage for virtual machines](automanage-virtual-machines.md).
   
-  If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select **Get support**.
+  If your Azure issue is not addressed in this article, visit the Azure forums on [Microsoft Q & A and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select **Get support**.
   
   
 
@@ -137,7 +136,7 @@ sections:
       - question: |
           How can I get troubleshooting support for Automanage?
         answer: |
-          You can file a [technical support case ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the **Service** option, search for and select *Automanage* under the *Monitoring and Management* section.
+          You can file a [technical support case ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the **Service** option, search for and select *Automanage* under the *Monitoring and Management* section.
           
 additionalContent: |
 

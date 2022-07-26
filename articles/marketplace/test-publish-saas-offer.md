@@ -1,7 +1,6 @@
 ---
 title: How to test and publish a SaaS offer to the Microsoft commercial marketplace
 description: Use Partner Center to submit your SaaS offer to preview, preview your offer, test, and then publish it to the Microsoft commercial marketplace.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -66,7 +65,7 @@ Use the following steps to preview your offer.
 After completing all tests on your preview, select **Go live** to publish your offer live to the commercial marketplace. If your offer is already live in the commercial marketplace, any updates you make won't go live until you select **Go live**.
 
 > [!IMPORTANT]
-> Don’t ever select **Go live** for a [development/test offer](create-saas-dev-test-offer.md).
+> Don’t ever select **Go live** for a [development/test offer](plan-saas-dev-test-offer.md).
 
 Now that you’ve chosen to make your offer available in the commercial marketplace, we perform a series of final validation checks to ensure the live offer is configured just like the preview version of the offer. For details about these validation checks, see [Publish phase](review-publish-offer.md#publish-phase).
 

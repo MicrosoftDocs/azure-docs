@@ -1,8 +1,7 @@
 ---
 title: Customize Azure AD tenant app claims (PowerShell)
-titleSuffix: Microsoft identity platform
 description: Learn how to customize claims emitted in tokens for an application in a specific Azure Active Directory tenant.
-author: rwike77
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -10,8 +9,8 @@ ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/16/2021
-ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin, jeedes, luleon
+ms.author: davidmu
+ms.reviewer: ludwignick
 ---
 
 # Customize claims emitted in tokens for a specific app in a tenant

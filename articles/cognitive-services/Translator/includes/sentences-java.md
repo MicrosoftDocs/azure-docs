@@ -85,10 +85,10 @@ public class BreakSentence {
 }
 ```
 
-Add these lines to the `BreakSentence` class. First, the subscription key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, you can define the input language. In this sample it's English.
+Add these lines to the `BreakSentence` class. First, the key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, you can define the input language. In this sample it's English.
 
 ```java
-private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String key = System.getenv("TRANSLATOR_TEXT_KEY");
 private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/breaksentence?api-version=3.0&language=en";
 ```
@@ -113,7 +113,7 @@ public String Post() throws IOException {
             "[{\n\t\"Text\": \"How are you? I am fine. What did you do today?\"\n}]");
     Request request = new Request.Builder()
             .url(url).post(body)
-            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Ocp-Apim-Subscription-Key", key)
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();
