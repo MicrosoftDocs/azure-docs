@@ -449,9 +449,9 @@
       href: create-new-saas-offer-marketing.md 
     - name: Go live
       href: test-publish-saas-offer.md
-  - name: Microsoft 365 store apps
+  - name: Office store apps
     items: 
-    - name: Why publish in Microsoft 365 app stores? 
+    - name: Why publish an Office store app? 
       href: why-publish.md
     - name: Submit to AppSource via Partner Center
       href: submit-to-appsource-via-partner-center.md
