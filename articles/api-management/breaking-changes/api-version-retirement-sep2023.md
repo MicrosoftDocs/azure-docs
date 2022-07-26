@@ -43,10 +43,10 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
     
 * **Azure SDKs** - Update the Azure API Management SDKs to the latest versions (or later): 
 
-* .NET: 8.0.0 
-* Go: 1.0.0 
-* Python: 3.0.0 
-* JavaScript: 8.0.1 
+    * .NET: 8.0.0 
+    * Go: 1.0.0 
+    * Python: 3.0.0 
+    * JavaScript: 8.0.1 
 
 ## More information
 
@@ -59,4 +59,4 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 
 ## Next steps
 
-See all [upcoming breaking changes and feature retirements](./breaking-changes/overview.md).
+See all [upcoming breaking changes and feature retirements](overview.md).

@@ -69,7 +69,7 @@ If you configured user-defined routes (UDRs) for control plane IP addresses, the
 
 Finally, check for any other systems that may impact the communication from the API Management resource provider to your API Management service subnet. For more information about virtual network configuration, review the [Virtual Network] documentation.
 
-## More Information
+## More information
 
 * [Virtual network](../../virtual-network/index.yml)
 * [API Management VN24 Reference](../virtual-network-reference.md)
@@ -77,7 +77,7 @@ Finally, check for any other systems that may impact the communication from the 
 
 ## Next steps
 
-See all [upcoming breaking changes and feature retirements](./breaking-changes/overview.md).
+See all [upcoming breaking changes and feature retirements](overview.md).
 
 <!-- Links -->
 [Configure NSG Rules]: ../api-management-using-with-internal-vnet.md#configure-nsg-rules
