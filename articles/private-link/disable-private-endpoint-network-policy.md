@@ -71,6 +71,7 @@ $sub = @{
 Set-AzVirtualNetworkSubnetConfig @sub
 
 $vnet | Set-AzVirtualNetwork
+```
 
 # [**CLI**](#tab/network-policy-cli)
 
