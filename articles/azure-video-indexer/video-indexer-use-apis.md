@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ---
 
-# Tutorial: Use the Azure Video Indexer API
+# Use the Azure Video Indexer API
 
 Azure Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
 
