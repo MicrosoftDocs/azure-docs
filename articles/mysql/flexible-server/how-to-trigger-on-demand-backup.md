@@ -7,7 +7,7 @@ ms.topic: how-to
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 07/25/2022
+ms.date: 07/26/2022
 ---
 
 # Trigger On-Demand Backup of an Azure Database for MySQL Flexible Server using Azure portal
