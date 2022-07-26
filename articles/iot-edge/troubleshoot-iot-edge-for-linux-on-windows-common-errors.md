@@ -19,6 +19,7 @@ The following section addresses the common errors when installing the EFLOW MSI 
 - [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md)
 - [Azure IoT Edge for Linux on Windows virtual switch creation](/how-to-create-virtual-switch.md)
 - [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md)
+
 | Error | Error Description | Solution |
 | ----- | ----------------- | -------- |
 | HNS API version X doesn't meet minimum version | EFLOW uses HCS/HNS to create the virtual machine on client SKUs.  The minimum HNS version its  9.2. | If you're using a Windows version 20H1 or later, the HCS/HNS API should meet the requirement. If you're using Windows Client RS5 (17763), verify you have the latest Windows update. | 
@@ -43,6 +44,7 @@ The following section addresses the common errors when provisioning the EFLOW vi
 - [What is Azure IoT Hub Device Provisioning Service?](/azure/iot-dps/about-iot-dps)
 - [Understand the Azure IoT Edge runtime and its architecture](./iot-edge-runtime.md)
 - [Troubleshoot your IoT Edge device](./troubleshoot.md)
+
 | Error | Error Description | Solution |
 | ----- | ----------------- | -------- |
 | Action aborted by user | For some of the EFLOW PowerShell cmdlets, there's user interaction and confirmation needed. | - |
