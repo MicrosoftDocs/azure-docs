@@ -59,10 +59,11 @@ Based on the industry study and suggestions from Microsoft, below is what we rec
 Security admin rules are similar to NSG rules in structure and the parameters they intake, but as we’ve explored so far, they’re not the exact same construct. The first difference is intended audience – admin rules are intended to be used by network admins of a central governance team, thereby delegating NSG rules to individual application or service teams to further specify security as needed. With these intentions, admin rules were designed to have a higher priority than NSGs and therefore be evaluated before NSG rules. Admin rules also include an additional action type of “Always Allow”, which allows the specified traffic through to its intended destination and terminates further (and possibly conflicting) evaluation by NSGs rules. Admin rules are also applied not only to a network group’s existing VNets but also to newly provisioned resources, as described in the previous section. Admin rules are currently applied at the VNet level, whereas NSGs can be associated at the subnet and NIC level.
 Let’s boil down these differences and similarities:
 
-| | Target Audience | Applied On | Evaluation Order | Action Types | Parameters |
+| Target Audience | Applied On | Evaluation Order | Action Types | Parameters |
 | --- | ---- | ---- | ---- | ---- | ---- | 
 | **Security Admin Rules** | Network admins, central governance team | 	Virtual networks | 	Higher priority | 	Allow, Deny, Always Allow | 	Priority, protocol, action, source, destination
-| **NSG Rules** | 	Individual teams | 	Subnets, NICs | 	Lower priority, after security admin rules | 	Allow, Deny	
+| **NSG Rules** | 	Individual teams | 	Subnets, NICs | 	Lower priority, after security admin rules | 	Allow, Deny	|
+
 ### The Order of Evaluation
 
 Let’s drive this point home one more time – security admin rules aren't NSG rules. Security admin rules are evaluated before NSG rules and depending on the type of security admin rule you create, it can interact differently with NSG rules so that organizations can set enforced security policies alongside teams' NSGs that address their own use cases. The diagram below illustrates the order of evaluation of traffic.
@@ -84,7 +85,9 @@ Model 2: NSGs are managed by individual teams.
 Model 3: NSGs are managed by individual teams, but NSGs are created using Azure Policy to have standard rules. Modifying these rules would trigger audit notifications.
 - Pros – The individual team has flexible control in tailoring security rules. The central governance team can create standard security rules and receive notifications if these are modified.
 - Cons – The central governance team still can't enforce the standard security rules, since NSG owners in teams can still modify them. Notifications would also be overwhelming to manage.
+
 Security admin rules aim to eliminate this sliding scale between enforcement and flexibility altogether by consolidating the pros of each of these models while reducing the cons of each. Central governance teams establish guard rails through security admin rules, while still leaving room for individual teams to flexibly pinpoint security as needed through NSG rules. Security admin rules aren't meant to override NSG rules, but rather interact in different ways depending on the type of action specified in the security admin rule. We’ll explore these interactions after we discuss the immense scaling benefits of security admin rules.
+
 ## Network intent policies and security admin rules
 
  A network intent policy is applied to some network services to ensure the network traffic is working as needed for these services. By default, deployed security admin rules aren't applied on virtual networks with services that use network intent policies such as SQL managed instance service. If you deploy a service in a virtual network with existing security admin rules, those security admin rules will be removed from those virtual networks. 
