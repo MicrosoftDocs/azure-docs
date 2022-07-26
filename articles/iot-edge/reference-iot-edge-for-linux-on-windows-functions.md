@@ -97,7 +97,7 @@ The JSON configuration file must have the following structure:
 
 - **sharedFOlderRoot** : Path to the Windows root folder that contains all the folders to be shared with the EFLOW virtual machine.
 - **hostFolderPath**: Relative path (to the parent root folder) of the folder to be shared with the EFLOW VM.
-- **readOnly**: Defines if the shared folder will be writeable or read-only from the EFLOW virtual machine - Values: $False or $True.
+- **readOnly**: Defines if the shared folder will be writeable or read-only from the EFLOW virtual machine - Values: **false** or **true**.
 - **targetFolderOnGuest** : Folder path inside the EFLOW virtual machine where Windows host OS folder will be mounted. 
 
 ```json
@@ -298,7 +298,7 @@ The **Get-EflowVmSharedFolder** command returns the information about one or mor
 
 It returns a list of objects that contains three properties:
 - **hostFolderPath**: Relative path (to the parent root folder) of the folder shared with the EFLOW VM.
-- **readOnly**: Defines if the shared folder is writeable or read-only from the EFLOW virtual machine - Values: $False or $True.
+- **readOnly**: Defines if the shared folder is writeable or read-only from the EFLOW virtual machine - Values: **false** or **true**.
 - **targetFolderOnGuest**: Folder path inside the EFLOW virtual machine where the Windows folder is mounted.
 
 For more information, use the command `Get-Help Get-EflowVmSharedFolder -full`.
