@@ -558,6 +558,35 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 The responses for this API do not contain any content.
 
+## Suspend instance
+
+Suspends a running orchestration instance.
+
+### Request
+
+In version 2.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
+
+```
+/runtime/webhooks/durabletask/instances/{instanceId}/suspend
+?reason={text}
+&taskHub={taskHub}
+&connection={connectionName}
+&code={systemKey}
+```
+
+| Field             | Parameter Type  | Description |
+|-------------------|-----------------|-------------|
+| **`instanceId`**  | URL             | The ID of the orchestration instance. |
+| **`reason`**      | Query string    | Optional. The reason for suspending the orchestration instance. |
+
+Several possible status code values can be returned.
+
+* **HTTP 202 (Accepted)**: The suspend request was accepted for processing.
+* **HTTP 404 (Not Found)**: The specified instance was not found.
+* **HTTP 410 (Gone)**: The specified instance has completed, failed, or terminated.
+
+The responses for this API do not contain any content.
+
 ## Rewind instance (preview)
 
 Restores a failed orchestration instance into a running state by replaying the most recent failed operations.
