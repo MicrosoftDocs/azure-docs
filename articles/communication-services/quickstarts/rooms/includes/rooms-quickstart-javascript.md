@@ -109,21 +109,21 @@ const updateRoom = await roomsClient.updateRoom(roomId, updateRoomRequest);
 
 ### Add new participants 
 
-To add new participants to a `room`, issue an update request on the room's `Participants`:
+To add new participants to a `room`, use the `addParticipants` method exposed on the client.:
 
 ```javascript
-const updateRoomRequest = {
-roomJoinPolicy: "CommunicationServiceUsers",
-participants: [
-    new RoomParticipant(user1.user, "Consumer"),
-    new RoomParticipant(user2.user, "Presenter"),
-],
-};
+  // request payload to add participants
+  const addParticipantsRequest = {
+    participants: [
+      {
+        id: user1.user,
+        role: "Consumer",
+      },
+    ],
+  };
 
-// updates the specified room with the request payload
-const updateRoom = await roomsClient.updateRoom(roomId, updateRoomRequest);
-console.log(`Updated Room`);
-printRoom(updateRoom);
+  // add user2 to the room with the request payload
+  const addParticipants = await roomsClient.addParticipants(roomId, addParticipantsRequest);
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
