@@ -48,7 +48,7 @@ For more information, see [Assign a Key Vault access policy by using the Azure p
   1. Go to the linked key vault in the Azure portal.
   1. Open the **Access policies** blade.
   1. For **Permission model**, select **Azure role-based access control**.
-  1. After this, navigate to **Access Control (IAM)** blade to configure permissions.
+  1. Navigate to **Access Control (IAM)** blade to configure permissions.
   1. **Add role assignment** for your managed identity by choosing the following<br>
     a. **Role**: Key Vault Secrets User<br>
     b. **Assign access to**: Managed identity<br>
