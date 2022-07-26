@@ -144,7 +144,7 @@ The data collected on each package includes:
 
 ## Event aggregation for process and network collectors
 
-How event aggregation works for the [Process events](#process-events-event-based) and [Network Activity events](#network-activity-events-event-based-collector):
+How event aggregation works for the [Process events](#process-events-event-based-collector) and [Network Activity events](#network-activity-events-event-based-collector):
 
 Defender for IoT agents aggregate events for the interval period, or time window. Once the interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud.
 
