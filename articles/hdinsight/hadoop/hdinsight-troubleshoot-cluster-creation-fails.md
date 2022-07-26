@@ -71,7 +71,7 @@ Other naming restrictions also apply for cluster creation. See [Cluster name res
 
 ## Service outages
 
-Check [Azure status](https://status.azure.com) for any potential outages or service issues.
+Check [Azure status](https://azure.status.microsoft) for any potential outages or service issues.
 
 ## Next steps
 
