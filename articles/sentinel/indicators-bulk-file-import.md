@@ -13,11 +13,10 @@ ms.custom: template-how-to
 
 # Add indicators in bulk to Microsoft Sentinel threat intelligence from a CSV or JSON file
 
-> [!IMPORTANT]
-> The Import indicators in bulk by file feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 In this how-to guide, you'll add indicators from a CSV or JSON file into Microsoft Sentinel threat intelligence. A lot of threat intelligence sharing still happens across emails and other informal channels during an ongoing investigation. The ability to import indicators directly into Microsoft Sentinel threat intelligence allows you to quickly socialize emerging threats for your team and make them available to power other analytics such as producing security alerts, incidents, and automated responses.
+
+> [!IMPORTANT]
+> This feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
@@ -69,8 +68,8 @@ The JSON template is the same for all indicator types.
 3. Enter a source for the indicators in the **Source** text box. This value will be stamped on all the indicators included in that file. You can view this property as the **SourceSystem** field by [finding the indicators in the Logs](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs). The source will also display in the **Manage file imports** pane.
 
 4. Choose how you want Microsoft Sentinel to handle invalid indicator entries by selecting one of the radio buttons at the bottom of the **Import using a file** pane. 
--Import only the valid indicators and leave aside any invalid indicators from the file.
--Don't import any indicators if a single indicator in the file is invalid.
+   - Import only the valid indicators and leave aside any invalid indicators from the file.
+   - Don't import any indicators if a single indicator in the file is invalid.
 
 :::image type="content" source="media/indicators-bulk-file-import/upload-file-blade-small.png" alt-text="Screenshot of the menu flyout to upload a CSV or JSON file, choose a template to download, and specify a source highlighting the Import button." lightbox="media/indicators-bulk-file-import/upload-file-blade-large.png":::
 
