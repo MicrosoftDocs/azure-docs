@@ -621,6 +621,31 @@ A terminated instance will eventually transition into the `Terminated` state. Ho
 > [!NOTE]
 > Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you've terminated the orchestration instance that called them.
 
+## Suspend and Resume instances
+
+Suspending an orchestration allows you to stop a running orchestration. Unlike terminating it, you still have the option to resume it at a later point in time.
+
+The two parameters for the terminate API are an instance ID and a reason string, which are written to logs and to the instance status.
+
+# [C#](#tab/csharp)
+
+```csharp
+[FunctionName("SuspendResumeInstance")]
+public static Task Run(
+    [DurableClient] IDurableOrchestrationClient client,
+    [QueueTrigger("suspend-resume-queue")] string instanceId)
+{
+    string suspendReason = "Need to pause workflow";
+    client.SuspendAsync(instanceId, suspendReason);
+    string resumeReason = "Continue workflow";
+    return client.ResumeAsync(instanceId, resumeReason);
+}
+```
+
+A suspended instance will eventually transition to the `Suspended` state. However, this transition will not happen immediately. Rather, the suspend operation will be queued in the task hub along with other operations for that instance. You can use the instance query APIs to know when a terminated instance has actually reached the Suspended state.
+
+There is no new state when an orchestrator is resumed. That is, when a suspended orchestrator is resumed, its status will change back to `Running`.
+
 ### Azure Functions Core Tools
 
 You can also terminate an orchestration instance directly, by using the [`func durable terminate` command](../functions-core-tools-reference.md#func-durable-terminate) in Core Tools.
