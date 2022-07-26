@@ -51,7 +51,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Cosmos DB insights
 
-Cosmos DB insights is a feature based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) and uses the same monitoring data collected for Azure Cosmos DB described in the sections below. Use Azure Monitor for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience, and use the other features of Azure Monitor for detailed analysis and alerting. To learn more, see the [Explore Cosmos DB insights](../azure-monitor/insights/cosmosdb-insights-overview.md) article.
+Cosmos DB insights is a feature based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) and uses the same monitoring data collected for Azure Cosmos DB described in the sections below. Use Azure Monitor for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience, and use the other features of Azure Monitor for detailed analysis and alerting. To learn more, see the [Explore Cosmos DB insights](cosmosdb-insights-overview.md) article.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
