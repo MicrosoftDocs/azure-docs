@@ -1,6 +1,6 @@
 ---
-title: Automated Deployments for Azure Kubernetes Service (Preview)
-description: Learn how to use Automated Deployments to simplify the process of adding GitHub Actions to your Azure Kubernetes Service (AKS) project
+title: Automated deployments for Azure Kubernetes Service (Preview)
+description: Learn how to use automated deployments to simplify the process of adding GitHub Actions to your Azure Kubernetes Service (AKS) project
 ms.author: qpetraroia
 ms.topic: tutorial
 ms.date: 7/21/2022
@@ -9,7 +9,7 @@ author: qpetraroia
 
 # Automated Deployments for Azure Kubernetes Service (Preview)
 
-Automated Deployments simplifies the process of setting up a GitHub Action and creating an automated pipeline for your code releases to your Azure Kubernetes Service (AKS) cluster. Once connected, every new commit will kick off the pipeline, resulting in your application being updated.
+Automated deployments simplifies the process of setting up a GitHub Action and creating an automated pipeline for your code releases to your Azure Kubernetes Service (AKS) cluster. Once connected, every new commit will kick off the pipeline, resulting in your application being updated.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -17,6 +17,7 @@ Automated Deployments simplifies the process of setting up a GitHub Action and c
 
 * A GitHub account.
 * An AKS cluster.
+* An Azure Container Registry (ACR)
 
 ## Deploy an application to your AKS cluster
 
@@ -24,7 +25,7 @@ Automated Deployments simplifies the process of setting up a GitHub Action and c
 
 1. Select your AKS cluster, and then select **Automated deployments (preview)** on the left blade. Select **Create an automated deployment**.
 
-    :::image type="content" source="media/automated-deployments/ad-homescreen.png" alt-text="The Automated Deployments screen in the Azure portal.":::
+    :::image type="content" source="media/automated-deployments/ad-homescreen.png" alt-text="The automated deployments screen in the Azure portal.":::
 
 1. Name your workflow and click **Authorize** to connect your Azure account with your GitHub account. After your accounts are linked, choose which repository and branch you would like to create the GitHub Action for.
 
@@ -32,7 +33,7 @@ Automated Deployments simplifies the process of setting up a GitHub Action and c
 
         :::image type="content" source="media/automated-deployments/ad-ghactivate-repo.png" alt-text="The authorize and repository selection screen.":::
 
-1. Pick your dockerfile and your Azure Container Registry (ACR) and ACR image.
+1. Pick your dockerfile and your ACR and image.
 
     :::image type="content" source="media/automated-deployments/ad-image.png" alt-text="The image selection screen .":::
 
