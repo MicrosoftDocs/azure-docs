@@ -125,6 +125,9 @@ Use below command to update all secrets. Otherwise, the old secrets aren't encry
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
+> [!NOTE]
+> For larger clusters, you may wish to subdivide the secrets by namespace or script an update.
+
 ### Rotate the existing keys 
 After changing the key ID (including key name and key version), you could use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-vault-network-access` and `--azure-keyvault-kms-key-id` parameters to rotate the exitsing keys of KMS.
 
@@ -140,6 +143,9 @@ Use below command to update all secrets. Otherwise, the old secrets are still en
 ```azurecli-interactive
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
+
+> [!NOTE]
+> For larger clusters, you may wish to subdivide the secrets by namespace or script an update.
 
 ## Enable KMS with private key vault
 
@@ -223,6 +229,9 @@ Use below command to update all secrets. Otherwise, the old secrets aren't encry
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
+> [!NOTE]
+> For larger clusters, you may wish to subdivide the secrets by namespace or script an update.
+
 ### Rotate the existing keys 
 After changing the key ID (including key name and key version), you could use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-id`, `--azure-keyvault-kms-key-vault-network-access` and `--azure-keyvault-kms-key-vault-resource-id` parameters to rotate the existing keys of KMS.
 
@@ -238,6 +247,9 @@ Use below command to update all secrets. Otherwise, the old secrets are still en
 ```azurecli-interactive
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
+
+> [!NOTE]
+> For larger clusters, you may wish to subdivide the secrets by namespace or script an update.
 
 ## Update key vault mode
 
@@ -276,9 +288,6 @@ After configuring KMS, you could enable [diagnostic-settings for key vault to ch
 
 Use below command to disable KMS on existing cluster. 
 
-> [!NOTE]
-> After disabling KMS, the relevant sidecars still exist. 
-
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
 ```
@@ -289,6 +298,8 @@ Use below command to update all secrets. Otherwise, the old secrets are still en
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
+> [!NOTE]
+> For larger clusters, you may wish to subdivide the secrets by namespace or script an update.
 
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
