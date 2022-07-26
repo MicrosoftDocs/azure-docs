@@ -16,18 +16,15 @@ Master data management (MDM) is a key pillar of any unified data governance solu
 
 ## What, why and how of MDM - Master Data Management?
 
-Many businesses today have large data estates that move massive amounts of data between applications, storage systems, analytics systems, and across departments within their organization. During these movements, and over time, data can be accidentally duplicated or fragment, and can fall out of date, so accuracy becomes a concern when using this data for analytics about your business.
+Many businesses today have large data estates that move massive amounts of data between applications, storage systems, analytics systems, and across departments within their organization. During these movements, and over time, data can be accidentally duplicated or become fragmented, and become stale or out of date. Hence, accuracy becomes a concern when using this data to drive insights into your business. 
 
-To protect the quality of data within an organization, master data management (MDM) arose as a discipline that creates a source of truth for enterprise data so that an organization can check and validate their key assets. These key assets, or master data assets, are critical records that provide context for a business. For example, master data might include information on specific products, employees, customers, financial structures, suppliers, or locations. Master data management ensures data quality across an entire organization by maintaining the quality of the master data records, and ensuring data remains consistent across their entire data estate.
+To protect the quality of data within an organization, master data management (MDM) arose as a discipline that creates a source of truth for enterprise data so that an organization can check and validate their key assets. These key assets, or master data assets, are critical records that provide context for a business. For example, master data might include information on specific products, employees, customers, financial structures, suppliers, or locations. Master data management ensures data quality across an entire organization by maintaining an authoritative consolidated de-duplicated set of the master data records, and ensuring data remains consistent across your organization's complete data estate.
 
-As an example, it can be difficult for a company to have a clear, single view of their customers. Customer data may differ between systems, there may be duplicated records due to incorrect entry, or shipping and customer service systems may vary due to name, address, or other attributes. Master data management consolidates all this differing information about the customer it into a single, standard format that can be used to check data across an organizations entire data estate.
-
-Not only does this improve quality of data by eliminating mismatched data across departments, but it ensures that data analyzed for business intelligence (BI) and other applications is trustworthy and up to date, reduces data load by removing duplicate records across the organization, and streamlines communications between business systems.
+As an example, it can be difficult for a company to have a clear, single view of their customers. Customer data may differ between systems, there may be duplicated records due to incorrect entry, or shipping and customer service systems may vary due to name, address, or other attributes. Master data management consolidates all this differing information about the customer it into a single, standard format that can be used to check data across an organizations entire data estate. Not only does this improve quality of data by eliminating mismatched data across departments, but it ensures that data analyzed for business intelligence (BI) and other applications is trustworthy and up to date, reduces data load by removing duplicate records across the organization, and streamlines communications between business systems.
 
 More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/) and [Profisee-Purview MDM Concepts and Azure Architecture](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview).
 
-
-## Why Microsoft Purview chose Profisee for Master Data Management (MDM)
+## Microsoft Purview & Profisee Integrated MDM - Better Together! 
 
 ### Profisee MDM: True SaaS experience
 

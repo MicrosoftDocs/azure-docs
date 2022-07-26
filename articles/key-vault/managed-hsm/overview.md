@@ -57,6 +57,6 @@ For pricing information, please see Managed HSM Pools section on [Azure Key Vaul
 ## Next steps
 - See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
 - See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)
-- [Managed HSM Status](https://status.azure.com)
+- [Managed HSM Status](https://azure.status.microsoft)
 - [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - [Managed HSM region availability](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)

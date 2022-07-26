@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Use the **Device inventory** page from a sensor console to manage all OT and IT devices detected by that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
 > [!TIP]
 > Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
@@ -95,7 +95,7 @@ Devices you delete from the Inventory are removed from the map and won't be calc
     - 30 days or more
     - 90 days or more
 
-1. Select **Delete Inactive Devices**. In the prompt displayed, enter the reason you're deleting the devices, and then select **Delete**. 
+1. Select **Delete Inactive Devices**. In the prompt displayed, enter the reason you're deleting the devices, and then select **Delete**.
 
     All devices detected within the range of the selected filter are deleted. If there are a large number of devices to delete, the process may take a few minutes.
 

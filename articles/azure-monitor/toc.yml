@@ -1200,7 +1200,7 @@ items:
         href: vm/vminsights-enable-policy.md
       - name: Hybrid VMs
         href: vm/vminsights-enable-hybrid.md
-      - name: Upgrade Dependency agent
+      - name: Dependency Agent
         href: vm/vminsights-dependency-agent-maintenance.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
@@ -1321,7 +1321,7 @@ items:
     - name: Azure Cache for Redis
       href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Cosmos DB
-      href: insights/cosmosdb-insights-overview.md
+      href: ../cosmos-db/cosmosdb-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Data Explorer
       href: /azure/data-explorer/data-explorer-insights
     - name: Log Analytics workspace
