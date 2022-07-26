@@ -9,7 +9,7 @@ manager: femila
 ---
 # Prerequisites for Azure Virtual Desktop
 
-There are a few things you need to start using Azure Virtual Desktop. Here you can find what prerequisites you need to complete to successfully provide your users with virtual desktops and remote apps.
+There are a few things that you need in order to start using Azure Virtual Desktop. Here you can find what prerequisites you need to complete to successfully provide your users with virtual desktops and remote apps.
 
 At a high level, you'll need:
 
