@@ -20,7 +20,7 @@ While a blob is in the Archive access tier, it's considered to be offline, and c
 
 - [Change an archived blob's access tier to an online tier](#change-a-blobs-access-tier-to-an-online-tier): You can rehydrate an archived blob to the Hot or Cool tier by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
-Rehydrating a blob from the Archive tier can take several hours to complete. Microsoft recommends archiving larger blobs for optimal performance when rehydrating. Rehydrating a large number of small blobs may require additional time due to the processing overhead on each blob. A maximum of 10 GiB per storage account may be rehydrated per hour with priority retrieval.
+Rehydrating a blob from the Archive tier can take several hours to complete. Microsoft recommends archiving larger blobs for optimal performance when rehydrating. Rehydrating a large number of small blobs may require extra time due to the processing overhead on each blob. A maximum of 10 GiB per storage account may be rehydrated per hour with priority retrieval.
 
 To learn how to rehydrate an archived blob to an online tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 
@@ -98,7 +98,7 @@ During the blob rehydration operation, you can call the [Get Blob Properties](/r
 
 ## Handle an event on blob rehydration
 
-Rehydration of an archived blob may take up to 15 hours, and repeatedly polling **Get Blob Properties** to determine whether rehydration is complete is inefficient. Microsoft recommends that you use [Azure Event Grid](../../event-grid/overview.md) to capture the event that fires when rehydration is complete for better performance and cost optimization.
+Rehydration of an archived blob may take up to 15 hours, and it is inefficient to repeatedly poll **Get Blob Properties** to determine whether rehydration is complete. Microsoft recommends that you use [Azure Event Grid](../../event-grid/overview.md) to capture the event that fires when rehydration is complete for better performance and cost optimization.
 
 Azure Event Grid raises one of the following two events on blob rehydration, depending on which operation was used to rehydrate the blob:
 
