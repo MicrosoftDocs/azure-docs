@@ -415,6 +415,11 @@
             "source_path_from_root": "/articles/azure-monitor/insights/cosmosdb-insights-overview.md" ,
             "redirect_url": "/azure/cosmos-db/cosmosdb-insights-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-insights-overview.md" ,
+            "redirect_url": "/azure/network-watcher/network-insights-overview",
+            "redirect_document_id": false
         }
     ]
 }
