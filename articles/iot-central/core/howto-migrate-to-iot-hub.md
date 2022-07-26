@@ -33,6 +33,8 @@ You need the following prerequisites to complete the device migration steps:
 
 ## Setup
 
+Complete the following setup tasks to prepare for the migration:
+
 ### Azure Active Directory application
 
 The migrator tool requires an Azure Active Directory application registration to enable it to authenticate with your Azure subscription:
