@@ -31,7 +31,7 @@ You can use the following to enable or disable the setting:
 
 * Azure Resource Manager templates
  
-The following examples describe how to disable and enable `PrivateEndpointNetworkPolicies` for a virtual network named **myVNet** with a **default** subnet of **10.1.0.0/24** hosted in a resource group named **myResourceGroup**.
+The following examples describe how to enable and disable `PrivateEndpointNetworkPolicies` for a virtual network named **myVNet** with a **default** subnet of **10.1.0.0/24** hosted in a resource group named **myResourceGroup**.
 
 ## Enable network policy
 
