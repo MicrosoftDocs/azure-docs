@@ -757,7 +757,7 @@ az group create --name $RESOURCEGROUP --location $LOCATION
 az ad sp create-for-rbac --name "sp-$RG_NAME-${RANDOM}" --role Contributor > app-service-principal.json
 SP_CLIENT_ID=$(jq -r '.appId' app-service-principal.json)
 SP_CLIENT_SECRET=$(jq -r '.password' app-service-principal.json)
-SP_OBJECT_ID=$(az ad sp show --id $SP_CLIENT_ID | jq -r '.objectId')
+SP_OBJECT_ID=$(az ad sp show --id $SP_CLIENT_ID | jq -r '.id')
 ```
 
 ### Assign the Contributor role to the new service principal - Azure CLI 
