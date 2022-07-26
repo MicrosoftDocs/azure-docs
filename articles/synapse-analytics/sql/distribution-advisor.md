@@ -27,7 +27,7 @@ The Distribution Advisor (DA) feature of Azure Synapse SQL analyzes customer que
 
 ## Analyze workload and generate distribution recommendations
 
-The follow tutorial explains the a sample use case for using the Distribution Advisor feature to analyze customer queries and recommend the best distribution strategies.
+The follow tutorial explains the sample use case for using the Distribution Advisor feature to analyze customer queries and recommend the best distribution strategies.
 
 Distribution Advisor only analyzes queries run on user tables.
 
