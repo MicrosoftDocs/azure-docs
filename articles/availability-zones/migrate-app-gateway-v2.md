@@ -18,8 +18,7 @@ If you previously deployed Azure Application Gateway Standard v2 or WAF v2 witho
 
 ## Prerequisites
 
-- Your deployment must be Standard v2 or WAF v2 SKU. Earlier SKUs (Standard and WAF) don't support zone awareness. 
-- Confirm that your storage accounts are general-purpose v2 accounts. If a storage account is v1, you'll need to upgrade it to v2. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md).
+- Your deployment must be Standard v2 or WAF v2 SKU. Earlier SKUs (Standard and WAF) don't support zone awareness.
 
 ## Downtime requirements
 
