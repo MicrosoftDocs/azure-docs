@@ -14,6 +14,10 @@ ms.custom: mvc, amqp, mqtt, mode-other
 
 # Quickstart: Provision a simulated TPM device
 
+::: zone pivot="programming-language-python"
+Trusted Platform Module (TPM) attestation isn't supported in the Python SDK. With Python, you can [provision a device using symmetric keys](quick-create-simulated-device-symm-key.md) or [X.509 certificates](quick-create-simulated-device-x509).
+::: zone-end
+
 ::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use a [Trusted Platform Module (TPM) attestation](concepts-tpm-attestation.md) mechanism for authentication. After you've configured your device, you'll provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service. Sample code will then be used to help enroll the device with a Device Provisioning Service instance.
 
@@ -26,12 +30,7 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 * [Individual Enrollments](concepts-service.md#individual-enrollment) that are used to enroll a single device.
 
 This article demonstrates individual enrollments.
-::: zone-end
-::: zone pivot="programming-language-python"
-Trusted Platform Module (TPM) attestation isn't supported in the Python SDK. With Python, you can [provision a device using symmetric keys](quick-create-simulated-device-symm-key.md) or [X.509 certificates](quick-create-simulated-device-x509).
-::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -756,9 +755,9 @@ In this quickstart, you've created a TPM simulated device on your machine and pr
 ::: zone-end
 ::: zone pivot="programming-language-nodejs"
 > [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-tpm?pivots=programming-language-nodejs)
+> [Create an individual enrollment for a TPM device using the DPS service SDK](/azure/iot-dps/quick-enroll-device-tpm?pivots=programming-language-nodejs)
 ::: zone-end
 ::: zone pivot="programming-language-java"
 > [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-tpm?pivots=programming-language-java)
+> [Create an individual enrollment for a TPM device using the DPS service SDK](quick-enroll-device-tpm.md?pivots=programming-language-java)
 ::: zone-end
