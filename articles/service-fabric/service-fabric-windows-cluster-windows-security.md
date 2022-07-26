@@ -1,9 +1,14 @@
 ---
 title: Secure a cluster running on Windows by using Windows security 
 description: Learn how to configure node-to-node and client-to-node security on a standalone cluster running on Windows by using Windows security.
-ms.topic: conceptual
-ms.date: 08/24/2017
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Secure a standalone cluster on Windows by using Windows security
 To prevent unauthorized access to a Service Fabric cluster, you must secure the cluster. Security is especially important when the cluster runs production workloads. This article describes how to configure node-to-node and client-to-node security by using Windows security in the *ClusterConfig.JSON* file.  The process corresponds to the configure security step of [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md). For more information about how Service Fabric uses Windows security, see [Cluster security scenarios](service-fabric-cluster-security.md).
 

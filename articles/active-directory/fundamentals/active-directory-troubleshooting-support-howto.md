@@ -2,14 +2,14 @@
 title: Find help and open a support ticket - Azure Active Directory | Microsoft Docs
 description: Instructions about how to get help and open a support ticket for Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
-ms.author: ajburnle
+ms.author: barclayn
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -34,8 +34,7 @@ If you are unable to find answers by using self-help resources, you can open an 
 ### How to open a support ticket for Azure AD in the Azure portal
 
 > [!NOTE]
-> * For billing or subscription issues, you must use the [Microsoft 365 admin center](https://admin.microsoft.com).  
-> * If you're using Azure AD B2C, open a support ticket by first switching to an Azure AD tenant that has an Azure subscription associated with it. Typically, this is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](active-directory-how-subscriptions-associated-directory.md).
+> If you're using Azure AD B2C, open a support ticket by first switching to an Azure AD tenant that has an Azure subscription associated with it. Typically, this is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
    

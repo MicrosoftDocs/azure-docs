@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 06/22/2022
+ms.date: 07/18/2022
 ms.custom: generated
 ---
 
@@ -9207,6 +9207,10 @@ Can manage Azure AD Domain Services and related network configurations [Learn mo
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Logs/Read | Reading data from all your logs |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Metrics/Read | Read metrics |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettingsCategories/Read | Read diagnostic settings categories |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/register/action | Register Domain Service |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/unregister/action | Unregister Domain Service |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/domainServices/* |  |
@@ -9290,6 +9294,10 @@ Can manage Azure AD Domain Services and related network configurations [Learn mo
         "Microsoft.Insights/AlertRules/Resolved/Action",
         "Microsoft.Insights/AlertRules/Throttled/Action",
         "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Insights/Logs/Read",
+        "Microsoft.Insights/Metrics/Read",
+        "Microsoft.Insights/DiagnosticSettings/*",
+        "Microsoft.Insights/DiagnosticSettingsCategories/Read",
         "Microsoft.AAD/register/action",
         "Microsoft.AAD/unregister/action",
         "Microsoft.AAD/domainServices/*",
@@ -9363,6 +9371,10 @@ Can view Azure AD Domain Services and related network configurations
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Logs/Read | Reading data from all your logs |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Metrics/read | Read metrics |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/read | Read a resource diagnostic setting |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettingsCategories/Read | Read diagnostic settings categories |
 > | [Microsoft.AAD](resource-provider-operations.md#microsoftaad)/domainServices/*/read |  |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
@@ -9405,6 +9417,10 @@ Can view Azure AD Domain Services and related network configurations
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Insights/AlertRules/Read",
         "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Insights/Logs/Read",
+        "Microsoft.Insights/Metrics/read",
+        "Microsoft.Insights/DiagnosticSettings/read",
+        "Microsoft.Insights/DiagnosticSettingsCategories/Read",
         "Microsoft.AAD/domainServices/*/read",
         "Microsoft.Network/virtualNetworks/read",
         "Microsoft.Network/virtualNetworks/subnets/read",
@@ -11156,7 +11172,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | *none* |  |
+> | [Microsoft.Monitor](resource-provider-operations.md#microsoftmonitor)/accounts/data/metrics/read | Read metrics data in any Monitoring Account |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -11176,7 +11192,9 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
         "Microsoft.Support/*"
       ],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.Monitor/accounts/data/metrics/read"
+      ],
       "notDataActions": []
     }
   ],
