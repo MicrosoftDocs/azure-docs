@@ -132,7 +132,7 @@ You can create an AKS cluster using a system-assigned managed identity by runnin
 
 > [!NOTE]
 > When using system-assigned identity, azure-cli will grant Network Contributor role to the system-assigned identity after the cluster is created.
-> System-assigned managed identity only supports Azure CLI. If you are using an ARM template or other clients, you need to use the [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities]
+> If you are using an ARM template or other clients, you need to use the [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities]
 
 ```azurecli-interactive
 az aks create \
