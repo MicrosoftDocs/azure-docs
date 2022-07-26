@@ -1,9 +1,13 @@
 ---
 title: Monitor Azure Cosmos DB with Azure Monitor Cosmos DB insights| Microsoft Docs
 description: This article describes the Cosmos DB insights feature of Azure Monitor that provides Cosmos DB owners with a quick understanding of performance and utilization issues with their Cosmos DB accounts.
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
+ms.service: cosmos-db
 ms.date: 05/11/2020
 ms.reviewer: shijain
+ms.custom: subject-monitoring
 
 ---
 
@@ -130,7 +134,7 @@ The **Overview** tab provides the most common metrics for the selected Azure Cos
 
 ## Pin, export, and expand
 
-You can pin any one of the metric sections to an [Azure Dashboard](../../azure-portal/azure-portal-dashboards.md) by selecting the pushpin icon at the top right of the section.
+You can pin any one of the metric sections to an [Azure Dashboard](../azure-portal/azure-portal-dashboards.md) by selecting the pushpin icon at the top right of the section.
 
 ![Metric section pin to dashboard example](./media/cosmosdb-insights-overview/pin.png)
 
@@ -154,10 +158,10 @@ Workbooks are saved within a resource group, either in the **My Reports** sectio
 
 ## Troubleshooting
 
-For troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+For troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
 
 ## Next steps
 
-* Configure [metric alerts](../alerts/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
+* Configure [metric alerts](../azure-monitor/alerts/alerts-metric.md) and [service health notifications](../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
 
-* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md).
+* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).
