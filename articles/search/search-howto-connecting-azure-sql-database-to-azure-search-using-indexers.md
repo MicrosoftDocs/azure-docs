@@ -24,7 +24,7 @@ This article also provides:
 + A frequently-asked-questions (FAQ) section for answers to questions about feature compatibility.
 
 > [!NOTE]
-> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
+> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns aren't currently supported by Cognitive Search indexers.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ This article also provides:
 
   Use a table if your data is over 100,000 rows or if you need [incremental indexing](#CaptureChangedRows) using SQL's native change detection capabilities.
 
-  Use a view if you need to consolidate data from multiple tables. Large views are not ideal for SQL indexer. A workaround is to create a new single table just for ingestion into your Cognitive Search index. You'll be able to use SQL integrated change tracking, which is easier to implement than High Water Mark.
+  Use a view if you need to consolidate data from multiple tables. Large views aren't ideal for SQL indexer. A workaround is to create a new single table just for ingestion into your Cognitive Search index. You'll be able to use SQL integrated change tracking, which is easier to implement than High Water Mark.
 
 + Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md).
 
@@ -80,7 +80,7 @@ The data source definition specifies the data to index, credentials, and policie
 
    + You can get a full access connection string from the [Azure portal](https://portal.azure.com). Use the `ADO.NET connection string` option. Set the user name and password.
 
-   + Alternatively, you can specify a managed identity connection string that does not include database secrets with the following format: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;`.
+   + Alternatively, you can specify a managed identity connection string that doesn't include database secrets with the following format: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;`.
 
     For more information, see [Connect to Azure SQL Database indexer using a managed identity](search-howto-managed-identities-sql.md).
 
@@ -129,12 +129,12 @@ In a [search index](search-what-is-an-index.md), add fields that correspond to t
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric |Edm.String |Azure Cognitive Search does not support converting decimal types into Edm.Double because doing so would lose precision |
-| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |A SQL string can be used to populate a Collection(Edm.String) field if the string represents a JSON array of strings: `["red", "white", "blue"]` |
+| smallmoney, money decimal numeric |Edm.String |Azure Cognitive Search doesn't support converting decimal types into `Edm.Double` because doing so would lose precision |
+| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |A SQL string can be used to populate a Collection(`Edm.String`) field if the string represents a JSON array of strings: `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Only geography instances of type POINT with SRID 4326 (which is the default) are supported |
-| rowversion |Not applicable |Row-version columns cannot be stored in the search index, but they can be used for change tracking |
+| rowversion |Not applicable |Row-version columns can't be stored in the search index, but they can be used for change tracking |
 | time, timespan, binary, varbinary, image, xml, geometry, CLR types |Not applicable |Not supported |
 
 ## Configure and run the Azure SQL indexer
@@ -237,7 +237,7 @@ If your SQL database supports [change tracking](/sql/relational-databases/track-
 
 To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. This property tells the indexer which change tracking mechanism is used on your table or view. 
 
-For Azure SQL indexers, there two change detection policies: 
+For Azure SQL indexers, there are two change detection policies: 
 
 + "SqlIntegratedChangeTrackingPolicy" (applies to tables only)
 
@@ -271,7 +271,7 @@ api-key: admin-key
     }
 ```
 
-When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy. The SQL integrated change tracking policy has built-in support for identifying deleted rows. However, for the deleted rows to be detected automatically, the document key in your search index must be the same as the primary key in the SQL table. 
+When using SQL integrated change tracking policy, don't specify a separate data deletion detection policy. The SQL integrated change tracking policy has built-in support for identifying deleted rows. However, for the deleted rows to be detected automatically, the document key in your search index must be the same as the primary key in the SQL table. 
 
 > [!NOTE]  
 > When using [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql) to remove a large number of rows from a SQL table, the indexer needs to be [reset](/rest/api/searchservice/reset-indexer) to reset the change tracking state to pick up row deletions.
@@ -290,7 +290,7 @@ The high water mark column must meet the following requirements:
 + Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!NOTE]
-> We strongly recommend using the [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) data type for the high water mark column. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query. When using **rowversion** in a configuration with read-only replicas, you must point the indexer at the primary replica. Only a primary replica can be used for data sync scenarios.
+> We strongly recommend using the [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) data type for the high water mark column. If any other data type is used, change tracking isn't guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query. When using **rowversion** in a configuration with read-only replicas, you must point the indexer at the primary replica. Only a primary replica can be used for data sync scenarios.
 
 Change detection policies are added to data source definitions. To use this policy, create or update your data source like this:
 
@@ -311,7 +311,7 @@ api-key: admin-key
 ```
 
 > [!NOTE]
-> If the source table does not have an index on the high water mark column, queries used by the SQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
+> If the source table doesn't have an index on the high water mark column, queries used by the SQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
 
 <a name="convertHighWaterMarkToRowVersion"></a>
 
@@ -351,7 +351,7 @@ If you encounter timeout errors, set the `queryTimeout` indexer configuration se
 
 ##### disableOrderByHighWaterMarkColumn
 
-You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later, even if the indexer has already processed almost all the rows at the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
+You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this isn't recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later, even if the indexer has already processed almost all the rows at the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
 
 ```http
     {
@@ -382,13 +382,13 @@ When using the soft-delete technique, you can specify the soft delete policy as 
 
 The **softDeleteMarkerValue** must be a string in the JSON representation of your data source. Use the string representation of your actual value. For example, if you have an integer column where deleted rows are marked with the value 1, use `"1"`. If you have a BIT column where deleted rows are marked with the Boolean true value, use the string literal `"True"` or `"true"`, the case doesn't matter.
 
-If you are setting up a soft delete policy from the Azure portal, don't add quotes around the soft delete marker value. The field contents are already understood as a string and will be translated automatically into a JSON string for you. In the examples above, simply type `1`, `True` or `true` into the portal's field.
+If you're setting up a soft delete policy from the Azure portal, don't add quotes around the soft delete marker value. The field contents are already understood as a string and will be translated automatically into a JSON string for you. In the examples above, simply type `1`, `True` or `true` into the portal's field.
 
 ## FAQ
 
 **Q: Can I index Always Encrypted columns?**
 
-No. [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
+No. [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns aren't currently supported by Cognitive Search indexers.
 
 **Q: Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?**
 
@@ -404,13 +404,13 @@ It depends. For full indexing of a table or view, you can use a secondary replic
 
 For incremental indexing, Azure Cognitive Search supports two change detection policies: SQL integrated change tracking and High Water Mark.
 
-On read-only replicas, SQL Database does not support integrated change tracking. Therefore, you must use High Water Mark policy. 
+On read-only replicas, SQL Database doesn't support integrated change tracking. Therefore, you must use High Water Mark policy. 
 
-Our standard recommendation is to use the rowversion data type for the high water mark column. However, using rowversion relies on the `MIN_ACTIVE_ROWVERSION` function, which is not supported on read-only replicas. Therefore, you must point the indexer to a primary replica if you are using rowversion.
+Our standard recommendation is to use the rowversion data type for the high water mark column. However, using rowversion relies on the `MIN_ACTIVE_ROWVERSION` function, which isn't supported on read-only replicas. Therefore, you must point the indexer to a primary replica if you're using rowversion.
 
-If you attempt to use rowversion on a read-only replica, you will see the following error: 
+If you attempt to use rowversion on a read-only replica, you'll see the following error: 
 
-"Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+"Using a rowversion column for change tracking isn't supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica. Current database 'Updateability' property is 'READ_ONLY'".
 
 **Q: Can I use an alternative, non-rowversion column for high water mark change tracking?**
 
