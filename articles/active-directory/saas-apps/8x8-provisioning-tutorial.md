@@ -50,11 +50,11 @@ This section guides you through the steps to configure 8x8 to support provisioni
 
 1. Sign in to [Admin Console](https://admin.8x8.com). Select **Identity and Security**.
 
-   ![Admin](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
+   ![Admin](./media/8x8-provisioning-tutorial/8x8-identity-and-security.png)
 
 2. In the **User Provisioning Integration (SCIM)** pane, click the toggle to enable and then click **Save**.
 
-   ![Show](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
+   ![Show](./media/8x8-provisioning-tutorial/8x8-enable-user-provisioning.png)
 
 3. Copy the **8x8 URL** and **8x8 API Token** values. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your 8x8  application in the Azure portal.
 
