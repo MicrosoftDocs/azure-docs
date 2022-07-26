@@ -145,7 +145,7 @@ Once your application is ready to handle the claim challenge returned by a CAE-e
 const msalConfig = {
     auth: {
         clientId: 'Enter_the_Application_Id_Here', 
-        clientCapabilities: ["CP1"] // this lets the resource owner know that this client is capable of handling claims challenge.
+        clientCapabilities: ["CP1"]
         // the remaining settings
         // ... 
     }
