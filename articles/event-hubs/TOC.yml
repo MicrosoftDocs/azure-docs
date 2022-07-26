@@ -36,7 +36,7 @@
         - name: Java (azure-eventhubs - legacy)
           href: event-hubs-java-get-started-send-legacy.md
         - name: Spring
-          href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+          href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
         - name: Python (azure-eventhub)
           href: event-hubs-python-get-started-send.md
         - name: JavaScript (azure/event-hubs)
