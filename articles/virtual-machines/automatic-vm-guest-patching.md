@@ -75,7 +75,6 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Canonical  | UbuntuServer | 18.04-LTS |
-| Canonical  | UbuntuServer | 18.04-LTS-gen2 |
 | Canonical  | 0001-com-ubuntu-pro-bionic | pro-18_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts-gen2 |
@@ -92,7 +91,6 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | MicrosoftWindowsServer  | WindowsServer | 2008-R2-SP1 |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
-| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-gensecond    |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-gensecond |
@@ -100,7 +98,6 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter    |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-g2    |
-| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-smalldisk-g2    |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-core |
