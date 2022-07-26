@@ -1,12 +1,12 @@
 ---
 title: Use Bicep to publish Azure IoT Hub, storage account, route messages
 description: Use Bicep to publish Azure IoT Hub, storage account, route messages
-author: schaffererin
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.date: 05/11/2022
-ms.author: erinschaffer
+ms.author: lizross
 ms.custom: mvc, subject-armqs, mode-arm
 ---
 
