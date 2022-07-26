@@ -23,8 +23,9 @@ In this article, you will learn how to update a peered virtual network by adding
 ## Modifying the address range prefix of an existing address range (For example changing 10.1.0.0/16 to 10.1.0.0/18)
 In this section, you will modify the address range prefix for an existing address range within your peered virtual network.
 
-## ### Sync peering links
+## Sync peering links
 
+In this section, you learn to sync
 Perform a “sync” on the peering link from each of the peered remote virtual networks to this virtual network (1) on which the address change is made. This action is required for each remote peered VNet to learn of the newly added address prefix. 
 
 To do this on the Azure portal, go to the peerings tab on the virtual network where the address update has been made. Select all the peerings that have peering status as “Remote sync required”, and then click the Sync button. This will ensure that all the remote peered virtual networks learn the updated address space of this virtual network. 
