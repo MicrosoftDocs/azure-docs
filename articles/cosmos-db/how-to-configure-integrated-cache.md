@@ -86,7 +86,7 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 ```
 
 Adjusting the `MaxIntegratedCacheStaleness` is supported in these versions of each SDK:
-| SDK | Supported versions | Comment
+| SDK | Supported versions | Comment |
 | --- | --- | --- |
 | **.NET SDK v3** | *>= 3.19.0-preview* | Currently supported in the preview SDK versions only. |
 | **Java SDK v4** | *>= 4.16.0-beta* | Currently supported in the preview SDK versions only. |
