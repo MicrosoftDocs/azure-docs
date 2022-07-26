@@ -95,7 +95,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See our Cognitive Services [security](/azure/cognitive-services/cognitive-services-security) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See our Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 ## **Try it**: Layout model
 

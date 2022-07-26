@@ -209,6 +209,23 @@ New-DfsnFolder -Path $sharePath -TargetPath $targetUNC
 
 Now that you have created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. If you are using a domain-based namespace, the full path for your share should be `\\<domain-name>\<namespace>\<share>`. If you are using a standalone namespace, the full path for your share should be `\\<DFS-server>\<namespace>\<share>`. If you are using a standalone namespace with root consolidation, you can access directly through your old server name, such as `\\<old-server>\<share>`.
 
+## Access-Based Enumeration (ABE)
+
+Using ABE to control the visibility of the files and folders in SMB Azure file shares isn't currently a supported scenario. ABE is a feature of DFS-N, so it's possible to configure identity-based authentication and enable the ABE feature. However, this only applies to the DFS-N folder targets; it doesn't retroactively apply to the targeted file shares themselves. This is because DFS-N works by referral, rather than as a proxy in front of the folder target.
+
+For example, if the user types in the path \\mydfsnserver\share, the SMB client gets the referral of \\mydfsnserver\share => \\server123\share and makes the mount against the latter.
+
+Because of this, ABE will only work in cases where the DFS-N server is hosting the list of usernames before the redirection:
+
+  \\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\contosouser1
+  \\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\users\contosouser1
+
+(Where **contosouser1** is a subfolder of the **users** share)
+
+If each user is a subfolder *after* the redirection, ABE won't work:
+
+  \\DFSServer\SomePath\users --> \\SA.file.core.windows.net\users
+
 ## See also
 - Deploying an Azure file share: [Planning for an Azure Files deployment](storage-files-planning.md) and [How to create an file share](storage-how-to-create-file-share.md).
 - Configuring file share access: [Identity-based authentication](storage-files-active-directory-overview.md) and [Networking considerations for direct access](storage-files-networking-overview.md).

@@ -2,13 +2,13 @@
 title: Plan your Azure Active Directory Verifiable Credentials verification solution (preview)
 description: Learn foundational information to plan and design your verification solution
 documentationCenter: ''
-author: barbaraselden
+author: barclayn
 manager: martinco
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 06/02/2022
-ms.author: baselden
+ms.author: barclayn
 ms.custom: references_regions
 ---
 

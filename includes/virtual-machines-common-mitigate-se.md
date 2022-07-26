@@ -18,8 +18,8 @@ This article provides guidance for a new class of silicon based micro-architectu
 - [ADV180018 - Microsoft Guidance to mitigate L1TF variant](https://msrc.microsoft.com/update-guide/vulnerability/ADV180018)
 - [ADV190013 - Microsoft Guidance to mitigate Microarchitectural Data Sampling vulnerabilities](https://msrc.microsoft.com/update-guide/vulnerability/ADV190013)
 - [ADV220002 - Microsoft Guidance on Intel Processor MMIO Stale Data Vulnerabilities](https://msrc.microsoft.com/update-guide/vulnerability/ADV220002)
-- [CVE-2022-23816](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-23816)
-- [CVE-2022-21123](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-23825)
+- [CVE-2022-23816](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-23816 - AMD CPU Branch Type Confusion)
+- [CVE-2022-21123](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-23825 - AMD CPU Branch Type Confusion)
 
 
 The disclosure of these CPU vulnerabilities has resulted in questions from customers seeking more clarity.  
