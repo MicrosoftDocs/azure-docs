@@ -82,7 +82,6 @@ No additional cost to existing VM pricing.
 - Shared disk
 - Ultra disk
 - Managed image
-- Azure Dedicated Host
 - Nested Virtualization
 
 ## Secure boot

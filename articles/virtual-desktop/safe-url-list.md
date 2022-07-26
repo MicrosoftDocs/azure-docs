@@ -139,7 +139,7 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fa
 
 | Address | Outbound TCP port | Purpose | Client(s) |
 |--|--|--|--|
-| `*.wvd.microsoft.us` | 443 | Service traffic | All |
+| `*.wvd.azure.us` | 443 | Service traffic | All |
 | `*.servicebus.usgovcloudapi.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
 | `aka.ms` | 443 | Microsoft URL shortener | All |
