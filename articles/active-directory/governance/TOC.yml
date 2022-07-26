@@ -75,6 +75,10 @@
     href: access-reviews-external-users.md
   - name: Lifecycle Workflows (Preview) 
     items:
+    - name: Lifecycle Workflows Parts (Preview)
+      href: lifecycle-workflows-concept-parts.md
+    - name: Synchronize attributes (Preview)
+      href: how-to-lcw-synch-attributes.md       
     - name: Tasks and definitions (Preview)
       href: lifecycle-workflow-tasks.md   
     - name: Custom task Extension (Preview)
