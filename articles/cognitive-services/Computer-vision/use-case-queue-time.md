@@ -17,6 +17,8 @@ ms.author: pafarley
 
 Spatial Analysis can generate real-time information about how long users are waiting in a queue in a retail store. The service monitors the length of time customers spend standing inside a checkout zone you specify. A store manager can use this information to manage open checkout stations and employee shifts.
 
+:::image type="content" source="media/use-cases/queue-wait-time.png" alt-text="Photo of people in line at a store.":::
+
 ## Key features
 
 You can deploy an end-to-end solution to track customers’ queue wait time. 

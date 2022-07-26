@@ -22,6 +22,7 @@ Grow your customer base by making your products and services more accessible. Ge
 
 The following screenshot is an example of automatically generated alt text for an image.
 
+:::image type="content" source="media/use-cases/studio-alt-text.png" alt-text="Screenshot of Vision Studio with a caption generated for an image of cows.":::
 
 ## Adding alt text to images 
 

@@ -17,6 +17,8 @@ ms.author: pafarley
 
 Provide the best-in-class face verification experience in your business solution using Azure Face service. You can verify someone's identity against a government-issued ID card like a passport or driver's license. Use this verification to grant access to digital or physical services or recover an account. Specific access scenarios include opening a new account, verifying a user, or proctoring an online assessment. Identity verification can be done when a person is onboarded to your service, and repeated when they access a digital or physical service.
 
+:::image type="content" source="media/use-cases/face-recognition.png" alt-text="Photo of a person holding a phone up to his face to take a picture":::
+
 ## Benefits for your business 
 
 Identity verification verifies that the user is who they claim to be. The vast majority of organizations require some type of identity verification. Biometrics identity verification with Face services provide the following benefits to your business:

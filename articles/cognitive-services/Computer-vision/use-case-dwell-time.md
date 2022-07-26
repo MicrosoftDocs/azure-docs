@@ -16,7 +16,8 @@ ms.author: pafarley
 # Overview: Monitor dwell time in front of displays with Spatial Analysis 
 
 Spatial Analysis can provide real-time information about how long customers spend in front of a display in a retail store. The service monitors the length of time customers spend in a zone you specif. You can use this information to track customer engagement with promotions/displays within a store or understand customers' preference toward specific products. 
- 
+
+:::image type="content" source="media/use-cases/dwell-time.jpg" alt-text="Photo of a person in a warehouse with stacks of boxes.":::
 
 ## Key features 
 
@@ -24,6 +25,8 @@ You can deploy an end-to-end solution to track customers' time spent in front of
 - **Customize areas to monitor**: with Spatial Analysis, you can customize any space to monitor. It can be spaces in front of promotions or spaces in front of displays. 
 - **Count individual entrances**: you can measure how long people spend within these spaces.
 - **Customize models to differentiate between shoppers and employees**: with the customization options offered, you can train and deploy models to differentiate shoppers and employees so that you only generate data about customer behavior.
+
+:::image type="content" source="media/use-cases/dwell-time-2.png" alt-text="A camera feed of a store with rectangles drawn around the people.":::
 
 ## Benefits for your business
 
