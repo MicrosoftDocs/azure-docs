@@ -131,7 +131,7 @@ Select **Managed deleted vaults**. From here, you can find the deleted Key Vault
 [comment]: # (Error Code 8)
 ### Error code: ApplicationGatewayCertificateDataOrKeyVaultSecretIdMustBeSpecified/ApplicationGatewaySslCertificateDataMustBeSpecified  
 
-**Description:** You may encounter this error when trying to update a server certificate. When this error occurs, the change to update the certificate will be discarded and the listener will continue to handle traffic with the previously defined configuration.
+**Description:** You may encounter this error when trying to update a listener certificate. When this error occurs, the change to update the certificate will be discarded and the listener will continue to handle traffic with the previously defined configuration.
 
 **Resolution:** To resolve this issue please try uploading the certificate again.  For example, the following PowerShell commands may be used to update certificates uploaded to Application Gateway or referenced via Azure Key Vault.
 
