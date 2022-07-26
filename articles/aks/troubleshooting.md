@@ -259,6 +259,10 @@ If you're using Azure Firewall like on this [example](limit-egress-traffic.md#re
 
 If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
 
+## Windows containers have connectivity issues after a cluster upgrade operation
+
+For older clusters with Calico network policies applied before Windows Calico support, Windows Calico will be enabled by default after a cluster upgrade. After Windows Calico is enabled on Windows, you may have connectivity issues if the Calico network policies denied ingress/egress. You can mitigate this issue by creating a new Calico policy on the cluster that allows all ingress/egress for Windows using either PodSelector or IPBlock.
+
 ## Azure Storage and AKS Troubleshooting
 
 ### Failure when setting uid and `GID` in mountOptions for Azure Disk
@@ -325,6 +329,17 @@ If your node is in a failed state, you can mitigate by manually updating the VM 
     ```
 
 ## Azure Files and AKS Troubleshooting
+
+### Azure Files CSI storage driver fails to mount a volume with a secret not in default namespace
+
+If you have configured an Azure Files CSI driver persistent volume or storage class with a storage
+access secrete in a namespace other than *default*, the pod does not search in its own namespace 
+and returns an error when trying to mount the volume.
+
+This issue has been fixed in the 2022041 release. To mitigate this issue, you have two options:
+
+1. Upgrade the agent node image to the latest release.
+1. Specify the *secretNamespace* setting when configuring the persistent volume configuration.
 
 ### What are the default mountOptions when using Azure Files?
 
@@ -437,7 +452,6 @@ As a result, to mitigate this issue you can:
 3. Delete the older node pool
 
 AKS is investigating the capability to mutate active labels on a node pool to improve this mitigation.
-
 
 
 <!-- LINKS - internal -->

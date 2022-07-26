@@ -35,7 +35,7 @@ A Temporary Access Pass policy defines settings, such as the lifetime of passes 
 Before anyone can sign-in with a Temporary Access Pass, you need to enable Temporary Access Pass in the authentication method policy and choose which users and groups can sign in by using a Temporary Access Pass.
 Although you can create a Temporary Access Pass for any user, only those included in the policy can sign-in with it.
 
-Global administrator and Authentication Method Policy administrator role holders can update the Temporary Access Pass authentication method policy.
+Global administrator and Authentication Policy administrator role holders can update the Temporary Access Pass authentication method policy.
 To configure the Temporary Access Pass authentication method policy:
 
 1. Sign in to the Azure portal as a Global admin or Authentication Policy admin and click **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**.

@@ -922,7 +922,8 @@ Whether you're adding or removing a user, group, or service principal, you'll fo
 }
 ```
 ## Add the Root Collection Administrator role
-By default, the user who created the Microsoft Purview account is the Root Collection Administrator (that is, the administrator of the topmost level of the collection hierarchy). However, in some cases, an organization needs to change the Root Collection Administrator by using the API. For instance, it's possible that the current Root Collection Administrator no longer exists in the organization. In such a case, the Azure portal might be inaccessible to anyone in the organization. For this reason, using the API to assign a new Root Collection Administrator and manage collection permissions becomes the only way to regain access to the Microsoft Purview account.
+
+By default, the user who created the Microsoft Purview account is the Root Collection Administrator (that is, the administrator of the topmost level of the collection hierarchy). However, in some cases, an organization may want to change the Root Collection Administrator using the API. 
 
 ```ruby
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01

@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 07/13/2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
@@ -31,11 +31,11 @@ Automated ML supports model training for computer vision tasks like image classi
 
 # [CLI v2](#tab/CLI-v2)
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the `ml` extension.
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
 * The Azure Machine Learning Python SDK v2 (preview) installed.
 

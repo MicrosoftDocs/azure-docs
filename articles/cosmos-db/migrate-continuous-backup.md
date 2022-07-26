@@ -73,7 +73,7 @@ Use the following steps to migrate your account from periodic backup to continuo
        Connect-AzAccount
        ```
 
-    1. Migrate your account from periodic to continuous backup mode with ``continuous30days`` tier or ``continuous7days`` days. If a tier value isn't provided, it's assumed to be ``continous30days``:
+    1. Migrate your account from periodic to continuous backup mode with ``continuous30days`` tier or ``continuous7days`` days. If a tier value isn't provided, it's assumed to be ``continuous30days``:
 
        ```azurepowershell-interactive
        Update-AzCosmosDBAccount ` 
@@ -104,7 +104,7 @@ Use the following steps to migrate your account from periodic backup to continuo
    az login
    ```
 
-1. Migrate the account to ``continuous30days`` or ``continuous7days`` tier. If tier value isn't provided, it's assumed to be ``continous30days``:
+1. Migrate the account to ``continuous30days`` or ``continuous7days`` tier. If tier value isn't provided, it's assumed to be ``continuous30days``:
 
    ```azurecli-interactive
    az cosmosdb update -n <myaccount> -g <myresourcegroup> --backup-policy-type continuous
@@ -181,7 +181,7 @@ az deployment group create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 ## Change Continuous Mode tiers
 
-You can switch between ``Continous30Days`` and ``Continous7Days`` in Azure PowerShell, Azure CLI or the Azure portal.
+You can switch between ``Continuous30Days`` and ``Continous7Days`` in Azure PowerShell, Azure CLI or the Azure portal.
 
 The Following Azure CLI command illustrates switching an existing account to ``Continous7Days``:
 

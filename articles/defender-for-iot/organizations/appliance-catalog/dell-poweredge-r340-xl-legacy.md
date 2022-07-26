@@ -14,7 +14,7 @@ Legacy appliances are certified but aren't currently offered as preconfigured ap
 
 |Appliance characteristic  | Description|
 |---------|---------|
-|**Hardware profile** | Enterprise|
+|**Hardware profile** | E1800|
 |**Performance** | Max bandwidth: 1 Gbp/s<br>Max devices: 10,000 |
 |**Physical Specifications** | Mounting: 1U<br>Ports: 8x RJ45 or 6x SFP (OPT)|
 |**Status** | Supported, not available as a preconfigured appliance|
@@ -194,6 +194,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

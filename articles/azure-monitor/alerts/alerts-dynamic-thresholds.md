@@ -94,6 +94,10 @@ When an alert rule is first created, the thresholds appearing in the chart are c
 If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days and at least 30 samples of metric data are available, to ensure accurate thresholds.
 For existing resources with sufficient metric data, Dynamic Thresholds can trigger alerts immediately.
 
+## How does prolong outages affected the thresholds that are calculated?
+
+Dynamic Threholds automatically recognizes prolonged outages and removes them from thresholds training. The results are thresholds that fit the data and can detect service issues with the same sensitivity as before an outage occurred.
+
 ## Dynamic Thresholds best practices
 
 Dynamic Thresholds can be applied to most platform and custom metrics in Azure Monitor and it was also tuned for the common application and infrastructure metrics.
