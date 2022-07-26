@@ -24,6 +24,8 @@
       href: migrate-app-service.md
     - name: Cache for Redis
       href: migrate-cache-redis.md
+    - name: Container instances
+      href: migrate-container-instances.md
     - name: Recovery Services vault
       href: migrate-recovery-services-vault.md
     - name: Storage accounts

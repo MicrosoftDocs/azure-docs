@@ -100,15 +100,15 @@ Non-Windows workstations can be integrated with Azure AD to enhance user experie
 
 * macOS
 
-    * [Set up enrollment for macOS devices - Microsoft Intune](/mem/intune/enrollment/macos-enroll)
+    * Register macOS to Azure AD and [enroll/manage them with MDM solution](/mem/intune/enrollment/macos-enroll)
 
-    * Deploy [Microsoft Enterprise SSO plug-in for Apple devices - Microsoft identity platform | Azure](../develop/apple-sso-plugin.md)
+    * Deploy [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md)
+
+    * Plan to deploy [Platform SSO for macOS 13](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-simplifies-endpoint-manager-enrollment-for-apple/ba-p/3570319)
 
 * Linux
 
-    * Consider Linux on Azure VM where possible
-
-    * [Sign in to a Linux VM with Azure Active Directory credentials - Azure Virtual Machines](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
+    * [Sign in to a Linux VM with Azure Active Directory credentials](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md) is available on Linux on Azure VM
 
 ### Replace Other Windows versions as Workstation use
 
