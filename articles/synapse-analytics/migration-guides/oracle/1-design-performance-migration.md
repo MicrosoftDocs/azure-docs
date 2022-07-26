@@ -166,7 +166,16 @@ You can automate and orchestrate the migration process by using the capabilities
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process." lightbox="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1-lrg.png":::
 
+[SSMA for Oracle](/https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata) can help you migrate an Oracle data warehouse or data mart to Azure Synapse. SSMA is designed to automate the process of migrating tables, views, and data from an existing Oracle environment.
+
 [Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform data by using compute services such as [Azure HDInsight Hadoop](/azure/hdinsight/hadoop/apache-hadoop-introduction), Spark, Azure Data Lake Analytics, and Azure Machine Learning.
+
+Azure Data Factory can be used to migrate data at source to Azure SQL target. This offline data movement helps to reduce the migration downtime by at least 2-4X compared to client-side and server side migrations.
+
+A simple GUI workflow in SSMA to create end to end migration pipeline for migrating from data source to Azure SQL Target.
+Ability to create new resource group, data factory etc. or re-use existing Azure resources for data movement directly from SSMA.
+Ability to launch Azure portal and real time monitoring of the data factory pipeline execution.
+
 
 [Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle.
 
@@ -174,7 +183,7 @@ When you're planning to use Azure facilities to manage the migration process, cr
 
 ### Design differences between Oracle and Azure Synapse
 
-As mentioned earlier, there are some basic differences in approach between Oracle and Azure Synapse Analytics databases.
+As mentioned earlier, there are some basic differences in approach between Oracle and Azure Synapse Analytics databases.[SSMA for Oracle] (/https://docs.microsoft.com/en-us/sql/ssma/oracle/what-s-new-in-ssma-for-oracle-oracletosql?view=sql-server-ver16#ssma-v74) not only helps bridge these gaps but also automates the migration. Although SSMA isn't the most efficient approach for very high volumes of data, it's useful for smaller tables.
 
 #### Multiple databases vs. single database and schemas
 
