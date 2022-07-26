@@ -1,6 +1,6 @@
 ---
 title: Investigate entities with entity pages in Microsoft Sentinel
-description: Assign entity classifications (users, hostnames, IP addresses) to data items in Microsoft Sentinel, and use them to compare, analyze, and correlate data from multiple sources.
+description: Use entity pages to get information about entities that you come across in your incident investigations. Gain insights into entity activities and assess risk.
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual

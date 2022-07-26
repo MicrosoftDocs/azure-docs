@@ -58,6 +58,7 @@ See how behavior analytics is used in [Microsoft Defender for Cloud Apps](https:
 
 Learn more about [entities in Microsoft Sentinel](entities.md) and see the full list of [supported entities and identifiers](entities-reference.md).
 
+Learn more about [entity pages](entity-pages.md) and how to use them.
 
 ## Querying behavior analytics data
 
