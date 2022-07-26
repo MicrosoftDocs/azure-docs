@@ -36,35 +36,35 @@ The following steps illustrate how to use the Azure portal to create and configu
      |**Name**|Enter a name for the project.  |
      |**Region**|Select the location/region in which you want the project to be created.   |
 
-    :::image type="content" source="media/tutorial-create-and-configure-projects/basics.png" alt-text="Screenshot of the Basics tab to create a project.":::
+    :::image type="content" source="media/tutorial-create-configure-projects/basics.png" alt-text="Screenshot of the Basics tab to create a project.":::
 
 
 1. In the **Mappings** tab, select and map a **Subscription** to an **Environment type** you want to enable for this project. [Learn more about Subscription Mapping](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-mappings.md)
 
-    :::image type="content" source="media/tutorial-create-and-configure-projects/mappings.png" alt-text="Screenshot of the Subscription mapping tab to create a project.":::
+    :::image type="content" source="media/tutorial-create-configure-projects/mappings.png" alt-text="Screenshot of the Subscription mapping tab to create a project.":::
 
 
 1. In the **Tags** tab, enter a **Name** and **Value** pair that you want to assign.
 
-    :::image type="content" source="media/tutorial-create-and-configure-projects/tags.png" alt-text="Screenshot of the Tags tab to create a project.":::
+    :::image type="content" source="media/tutorial-create-configure-projects/tags.png" alt-text="Screenshot of the Tags tab to create a project.":::
 
 
 1. In the **Review + create** tab, validate all the details and select **Create**:
 
-    :::image type="content" source="media/tutorial-create-and-configure-projects/create.png" alt-text="Screenshot of selecting the Create button to validate and create a project.":::
+    :::image type="content" source="media/tutorial-create-configure-projects/create.png" alt-text="Screenshot of selecting the Create button to validate and create a project.":::
 
 
 1. Confirm that the project is created successfully by checking the Notifications. Select **Go to resource**.
 
 1. Confirm that you see the **Project** page.
 
-    :::image type="content" source="media/tutorial-create-and-configure-projects/projects.png" alt-text="Screenshot of the Project page.":::
+    :::image type="content" source="media/tutorial-create-configure-projects/projects.png" alt-text="Screenshot of the Project page.":::
 
 ## Provide access to the development team
 
 1. On the **Project** page of the project you created, select **Access Control (IAM)** in the left menu, select **+ Add** and then **Add role assignment**:
 
-    :::image type="content" source="media/tutorial-create-and-configure-projects/access.png" alt-text="Screenshot of the Access control page.":::
+    :::image type="content" source="media/tutorial-create-configure-projects/access.png" alt-text="Screenshot of the Access control page.":::
 
 1. On the **Add role assignment** page, provide the following details and select **Save**:
     1. For **Role**, select **Contributor**.
@@ -72,7 +72,7 @@ The following steps illustrate how to use the Azure portal to create and configu
     1. Select a project from the list.
     1. Validate the selected members.
 
-    :::image type="content" source="media/tutorial-create-and-configure-projects/assignment.png" alt-text="Screenshot of the Add role assignment page.":::
+    :::image type="content" source="media/tutorial-create-configure-projects/assignment.png" alt-text="Screenshot of the Add role assignment page.":::
 
 ## Next steps
 
