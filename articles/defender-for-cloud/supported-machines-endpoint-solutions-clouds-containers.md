@@ -178,7 +178,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 ### Supported host operating systems
 
-Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems: runtime protection and vulnerability assessment. Ensure your Kubernetes node is running on one of the verified supported operating systems:
+Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
 
 - Amazon Linux 2
 - CentOS 8
@@ -191,7 +191,7 @@ Defender for Containers relies on the **Defender extension** for several feature
 - Ubuntu 20.04
 - Ubuntu 22.04
 
-Clusters with different host operating systems, will only get partial coverage. You can see all of the 
+Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
 ## Next steps
 
 - Learn how [Defender for Cloud collects data using the Log Analytics Agent](enable-data-collection.md).
