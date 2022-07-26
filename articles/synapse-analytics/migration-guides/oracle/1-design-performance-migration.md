@@ -170,12 +170,7 @@ You can automate and orchestrate the migration process by using the capabilities
 
 [Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform data by using compute services such as [Azure HDInsight Hadoop](/azure/hdinsight/hadoop/apache-hadoop-introduction), Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-Azure Data Factory can be used to migrate data at source to Azure SQL target. This offline data movement helps to reduce the migration downtime by at least 2-4X compared to client-side and server side migrations.
-
-A simple GUI workflow in SSMA to create end to end migration pipeline for migrating from data source to Azure SQL Target.
-Ability to create new resource group, data factory etc. or re-use existing Azure resources for data movement directly from SSMA.
-Ability to launch Azure portal and real time monitoring of the data factory pipeline execution.
-
+Azure Data Factory can be used to migrate data at source to Azure SQL target. This offline data movement helps to reduce the migration downtime significantly.
 
 [Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle.
 
