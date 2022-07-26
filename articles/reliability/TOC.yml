@@ -6,10 +6,10 @@
   items:
   - name: Azure lab service v2
     href: overview-reliability.md
-- name: Azure services that support availability zones
-  href: availability-zones-region.md
 - name: Availability zones
   items:
+  - name: Azure services that support availability zones
+    href: availability-zones-region.md
   - name: Migration guides
     items:
     - name: API Management
