@@ -83,6 +83,41 @@ It returns an object that contains four properties:
 
 For more information, use the command `Get-Help Add-EflowVmEndpoint -full`.
 
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+## Add-EflowVmSharedFolder
+
+The **Add-EflowVmSharedFolder** command allows sharing one or more Windows host OS folders with the EFLOW virtual machine. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| sharedFoldersJsonPath | String |  Path to the **Shared Folders** JSON configuration file. |
+
+The JSON configuration file must have the following structure:
+
+- **sharedFOlderRoot** : Path to the Windows root folder that contains all the folders to be shared with the EFLOW virtual machine.
+- **hostFolderPath**: Relative path (to the parent root folder) of the folder to be shared with the EFLOW VM.
+- **readOnly**: Defines if the shared folder will be writeable or read-only from the EFLOW virtual machine - Values: $False or $True.
+- **targetFolderOnGuest** : Folder path inside the EFLOW virtual machine where Windows host OS folder will be mounted. 
+
+```json
+[
+   {
+      "sharedFolderRoot": "<shared-folder-root-windows-path>",
+      "sharedFolders": [ 
+        { "hostFolderPath": "<path-shared-folder>", 
+            "readOnly": "<read-only>", 
+            "targetFolderOnGuest": "<linux-mounting-point>" 
+        }
+      ]
+   }
+]
+```
+For more information, use the command `Get-Help Add-EflowVmSharedFolder -full`.
+
+:::moniker-end
+<!-- end iotedge-2020-11 -->
+
 ## Connect-EflowVm
 
 The **Connect-EflowVm** command connects to the virtual machine using SSH. The only account allowed to SSH to the virtual machine is the user that created it.
@@ -150,6 +185,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
 | gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
 | customSsh | None | Determines whether user wants to use their custom OpenSSH.Client installation. If present, ssh.exe must be available to the EFLOW PSM |
+| sharedFoldersJsonPath | String | Path to the **Shared Folders** JSON configuration file. |
 :::moniker-end
 <!-- end iotedge-2020-11 -->
 
@@ -249,6 +285,26 @@ The **Get-EflowVmName** command returns the virtual machine's current hostname. 
 
 For more information, use the command `Get-Help Get-EflowVmName -full`.
 
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+## Get-EflowVmSharedFolder
+
+The **Get-EflowVmSharedFolder** command returns the information about one or more Windows host OS folders shared with the EFLOW virtual machine. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| sharedfolderRoot | String | Path to the Windows host OS shared root folder.|
+| hostFolderPath | String or List | Relative path/paths (to the root folder) to the Windows host OS shared folder/s.|
+
+It returns a list of objects that contains three properties:
+- **hostFolderPath**: Relative path (to the parent root folder) of the folder shared with the EFLOW VM.
+- **readOnly**: Defines if the shared folder is writeable or read-only from the EFLOW virtual machine - Values: $False or $True.
+- **targetFolderOnGuest**: Folder path inside the EFLOW virtual machine where the Windows folder is mounted.
+
+For more information, use the command `Get-Help Get-EflowVmSharedFolder -full`.
+:::moniker-end
+<!-- end iotedge-2020-11 -->
+
 ## Get-EflowVmTelemetryOption
 
 The **Get-EflowVmTelemetryOption** command displays the status of the telemetry (either **Optional** or **Required**) inside the virtual machine.
@@ -316,6 +372,20 @@ The **Remove-EflowVmEndpoint** command removes an existing network endpoint atta
 
 For more information, use the command `Get-Help Remove-EflowVmEndpoint -full`.
 
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+## Remove-EflowVmSharedFolder
+
+The **Remove-EflowVmSharedFolder** command stops sharing the Windows host OS folder to the EFLOW virtual machine. This command takes two parameters. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| sharedfolderRoot | String | Path to the Windows host OS shared root folder.|
+| hostFolderPath | String or List | Relative path/paths (to the root folder) to the Windows host OS shared folder/s.|
+
+For more information, use the command `Get-Help Remove-EflowVmSharedFolder -full`.
+:::moniker-end
+<!-- end iotedge-2020-11 -->
 
 ## Set-EflowVM
 
