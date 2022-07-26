@@ -1,25 +1,25 @@
 ---
 title: Micro agent event collection (Preview)
-description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
+description: Defender for IoT security agents collect data and system events from your local device, and send the data to the Azure cloud for processing, and analytics.
 ms.date: 04/26/2022
 ms.topic: conceptual
 ---
 
 # Micro agent event collection (Preview)
 
-Defender for IoT security agents collects data, and system events from your local device, and sends the data to the Azure cloud for processing.
+Defender for IoT security agents collect data and system events from your local device, and send the data to the Azure cloud for processing.
 
 If you've configured and connected a Log Analytics workspace, you'll see these events in Log Analytics. For more information, see [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
 
-The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. Both the new process, and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages, and events contain highly valuable security information that is crucial to protecting your device.
+The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. Both the new process and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages and events contain highly valuable security information that is crucial to protecting your device.
 
-To reduce the number of messages, and costs while maintaining your device's security, Defender for IoT agents aggregate the following types of events:
+To reduce the number of messages and costs while maintaining your device's security, Defender for IoT agents aggregate the following types of events:
 
 - ProcessCreate (Linux only)
 
 - Network ConnectionCreate
 
-See [event aggregation for process and network collectors](#event-aggregation-for-process-and-network-collectors) for more information. 
+For more information, see [event aggregation for process and network collectors](#event-aggregation-for-process-and-network-collectors).
 
 Event-based collectors are collectors that are triggered based on corresponding activity from within the device. For example, ``a process was started in the device``.
 
@@ -29,7 +29,7 @@ Trigger-based collectors are collectors that are triggered in a scheduled manner
 
 Process events are supported on Linux operating systems.
 
-Process events are considered identical when the *command line*, and *userid* are identical.
+Process events are considered identical when the *command line* and *userid* are identical.
 
 The default buffer for process events is 256 processes. When this limit is met, the buffer will cycle, and the oldest process event is discarded in order to make room for the newest processed event. A warning to increase the cache size will be logged.
 
@@ -110,7 +110,7 @@ The **nics** properties are composed of the following;
 
 | Parameter | Description|
 |--|--|
-|**type** | one of the following values: `UNKNOWN`, `ETH`, `WIFI`, `MOBILE`, or `SATELLITE`. |
+|**type** | One of the following values: `UNKNOWN`, `ETH`, `WIFI`, `MOBILE`, or `SATELLITE`. |
 | **vlans** | The virtual lan associated with the network interface. |
 | **vendor** | The vendor of the network controller. |
 | **info** | IPS, and MACs associated with the network controller. This Includes the following fields; <br> - **ipv4_address**: The IPv4 address. <br> - **ipv6_address**: The IPv6 address. <br> - **mac**: The MAC address.|
@@ -138,11 +138,11 @@ The data collected on each package includes:
 
 |Parameter  |Description  |
 |---------|---------|
-|**Name**     |   The package name      |
-|**Version**     |  The package version       |
-|**Vendor**     |    The package's vendor, which is the **Maintainer** field in deb packages     |
+|**Name**     |   The package name.      |
+|**Version**     |  The package version.       |
+|**Vendor**     |    The package's vendor, which is the **Maintainer** field in deb packages.     |
 
-## Event aggregation for process and network collectors
+## Event aggregation for Process and Network collectors
 
 How event aggregation works for the [Process events](#process-events-event-based-collector) and [Network Activity events](#network-activity-events-event-based-collector):
 
@@ -156,4 +156,7 @@ The agent collects identical events to the ones that are already stored in memor
 
 ## Next steps
 
-Check your [Defender for IoT security alerts](concept-security-alerts.md).
+For more information, see:
+
+- [Micro agent configurations (Preview)](concept-micro-agent-configuration.md)
+- Check your [Defender for IoT security alerts](concept-security-alerts.md).
