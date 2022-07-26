@@ -16,7 +16,7 @@ To break into a function being debugged on your machine, you must enable a way f
 The [ngrok](https://ngrok.com/) utility provides a way for Azure to call the function running on your machine. Start *ngrok* using the following command:
 
 ```bash
-ngrok http -host-header=localhost 7071
+ngrok.exe http http://localhost:7071
 ```
 As the utility is set up, the command window should look similar to the following screenshot:
 
@@ -65,3 +65,8 @@ Open [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 
 - Click **Upload Files**
 - Select a file and upload it to the blob container
 
+## Add a filter for a container
+
+By default, all blobs will be triggered in the storage account. Optionally, a filter can be added by navigating to the event subscription, and to Filters.
+
+![Add filter](./media/functions-debug-event-grid-trigger-local/container_filter.png)

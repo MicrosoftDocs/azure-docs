@@ -14,20 +14,22 @@ ms.devlang: csharp, java, python
 This article demonstrates how to debug and deploy a local Event Grid Blob triggered function that handles events raised by a storage account.
 
 > [!NOTE]
-> The Event Grid Blob trigger is in preview.
+> The Event Grid Blob trigger is currently in preview.
 
 ## Prerequisites
 
-- Create or use an existing function app
-- Create or use an existing storage account
-- Have version 5.0+ of the [Microsoft.Azure.WebJobs.Extensions.Storage extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2) installed
+- Create a function app
+- Create a General Pupose v2 storage account
+- Download VS Code
+- Download the Azure Functions extension
+- Install version 5.0+ of the [Microsoft.Azure.WebJobs.Extensions.Storage extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2)
 - Download [ngrok](https://ngrok.com/) to allow Azure to call your local function
 
 ## Create a new function
 
 1. Open your function app in Visual Studio Code.
 
-1. **Press F1** to create a new blob trigger function. Make sure to use the connection string for your storage account.
+1. Open the command palette (**Press F1**) to create a new function by selecting 'Azure Functions: Create Function...'. Select 'Azure Blob Storage trigger'. Make sure to input the connection string for your storage account, and confirm that the storage account is General Purpose v2.
 
 1. The default url for your event grid blob trigger is:
 
@@ -49,9 +51,20 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
     http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.{functionname}
     ```
 
+    # [JavaScript](#tab/javascript)
+
+    ```http
+    http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.{functionname}
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```http
+    http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.{functionname}
+    ```
     ---
 
-    Note your function app's name and that the trigger type is a blob trigger, which is indicated by `blobs` in the url. This will be needed when setting up endpoints later in the how to guide.
+    Note your function app's name and confirm that the trigger type is a blob trigger, which is indicated by `blobs` in the url. This will be needed when setting up endpoints later in the how to guide.
 
 1. Once the function is created, add the Event Grid source parameter.
 
@@ -104,6 +117,44 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
     }
     ```
 
+     # [JavaScript](#tab/javascript)
+    Add **"source": "EventGrid"** to the function.json binding data.
+    
+    ```json
+    {
+      "scriptFile": "__init__.py",
+      "bindings": [
+        {
+          "name": "myblob",
+          "type": "blobTrigger",
+          "direction": "in",
+          "path": "samples-workitems/{name}",
+          "source": "EventGrid",
+          "connection": "MyStorageAccountConnectionString"
+        }
+      ]
+    }
+    ```
+
+     # [PowerShell](#tab/powershell)
+    Add **"source": "EventGrid"** to the function.json binding data.
+    
+    ```json
+    {
+      "scriptFile": "__init__.py",
+      "bindings": [
+        {
+          "name": "myblob",
+          "type": "blobTrigger",
+          "direction": "in",
+          "path": "samples-workitems/{name}",
+          "source": "EventGrid",
+          "connection": "MyStorageAccountConnectionString"
+        }
+      ]
+    }
+    ```
+
     ---
 
 1. Set a breakpoint in your function on the line that handles logging.
@@ -119,6 +170,12 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
     # [Java](#tab/java)
     Open a new terminal and run the below mvn command to start the debugging session.
 
+    # [JavaScript](#tab/javascript)
+    **Press F5** to start a debugging session.
+
+    # [PowerShell](#tab/powershell)
+    **Press F5** to start a debugging session.
+    
     ```bash
     mvn azure-functions:run
     ```
@@ -147,6 +204,18 @@ https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionNam
 ```
 
 # [Java](#tab/java)
+
+```http
+https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.<FUNCTION-NAME>&code=<BLOB-EXTENSION-KEY>
+```
+
+# [JavaScript](#tab/javascript)
+
+```http
+https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.<FUNCTION-NAME>&code=<BLOB-EXTENSION-KEY>
+```
+
+# [PowerShell](#tab/powershell)
 
 ```http
 https://<FUNCTION-APP-NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.<FUNCTION-NAME>&code=<BLOB-EXTENSION-KEY>
