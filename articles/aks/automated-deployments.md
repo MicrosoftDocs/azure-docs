@@ -24,35 +24,35 @@ Automated Deployments simplifies the process of setting up a GitHub Action and c
 
 1. Select your AKS cluster, and then select **Automated deployments (preview)** on the left blade. Select **Create an automated deployment**.
 
-   ![The Automated Deployments screen in the Azure portal.](media/automated-deployments/ad-homescreen.png)
+    :::image type="content" source="media/automated-deployments/ad-homescreen.png" alt-text="The Automated Deployments screen in the Azure portal.":::
 
 1. Name your workflow and click **Authorize** to connect your Azure account with your GitHub account. After your accounts are linked, choose which repository and branch you would like to create the GitHub Action for.
 
     - **GitHub**: Authorize and select the repository for your GitHub account.
 
-        ![The authorize and repository selection screen.](media/automated-deployments/ad-ghactivate-repo.png)
+        :::image type="content" source="media/automated-deployments/ad-ghactivate-repo.png" alt-text="The authorize and repository selection screen.":::
 
 1. Pick your dockerfile and your Azure Container Registry (ACR) and ACR image.
 
-    ![The image selection screen.](media/automated-deployments/ad-image.png)
+    :::image type="content" source="media/automated-deployments/ad-image.png" alt-text="The image selection screen .":::
 
 1. Determine whether you'll deploy with Helm or regular Kubernetes manifests. Once decided, pick the appropriate deployment files from your repository and decide which namespace you want to deploy into.
 
-    ![The deployment details screen.](media/automated-deployments/ad-deployment-details.png)
+    :::image type="content" source="media/automated-deployments/ad-deployment-details.png" alt-text="The deployment details screen.":::
 
 1. Review your deployment before creating the pull request.
 
 1. Click **view pull request** to see your GitHub Action.
 
-    ![The final screen of the deployment process. The view pull request button is highlighted.](media/automated-deployments/ad-view-pr.png)
+    :::image type="content" source="media/automated-deployments/ad-view-pr.png" alt-text="The final screen of the deployment process. The view pull request button is highlighted.":::
 
 1. Merge the pull request to kick off the GitHub Action and deploy your application.
 
-    ![The pull request page in GitHub. The merge pull request button is highlighted.](media/automated-deployments/ad-accept-pr.png)
+    :::image type="content" source="media/automated-deployments/ad-accept-pr.png" alt-text="The pull request page in GitHub. The merge pull request button is highlighted.":::
 
 1. Once your application is deployed, go back to automated deployments to see your history.
 
-    ![The history screen in Azure portal, showing all the previous automated deployments that have been kicked off.](media/automated-deployments/ad-view-history.png)
+    :::image type="content" source="media/automated-deployments/ad-view-history.png" alt-text="The history screen in Azure portal, showing all the previous automated deployments.":::
 
 ## Clean up resources
 
@@ -62,4 +62,7 @@ You can remove any related resources that you created when you don't need them a
 
 You can modify these GitHub Actions to meet the needs of your team by opening them up in an editor like Visual Studio Code and changing them as you see fit.
 
-Learn more about [GitHub Actions for Kubernetes][kubernetes-action.md].
+Learn more about [GitHub Actions for Kubernetes][kubernetes-action].
+
+<!-- LINKS -->
+[kubernetes-action]: kubernetes-action.md
