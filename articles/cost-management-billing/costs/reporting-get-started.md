@@ -3,7 +3,7 @@ title: Get started with Cost Management + Billing reporting - Azure
 description: This article helps you to get started with Cost Management + Billing to understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/25/2022
+ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -65,7 +65,7 @@ For more information about credits, see [Track Microsoft Customer Agreement Azur
 
 With the Azure app, you can keep track of the status of your Azure resources, such as virtual machines (VMs) and web apps, from your mobile device. The app also sends alerts about your environment.
 
-For cost management, you can use the Azure app to track the status of subscription cost. You can see your current cost, last month’s cost, forecasted cost, and view your budget usage.
+You can also use the Azure app to track the status of subscription or resource group cost. You can see your current cost, last month’s cost, forecasted cost, and view your budget usage.
 
 The app is available for [iOS](https://itunes.apple.com/us/app/microsoft-azure/id1219013620?ls=1&mt=8) and [Android](https://play.google.com/store/apps/details?id=com.microsoft.azure).
 
