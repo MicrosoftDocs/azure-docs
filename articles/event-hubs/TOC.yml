@@ -332,7 +332,7 @@
         - name: Spring integration
           href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-integration-with-azure-event-hubs?toc=/azure/event-hubs/TOC.json
         - name: Spring cloud stream
-          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-cloud-stream-binder-for-azure-event-hubs
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-cloud-stream-binder-for-azure-event-hubs?toc=/azure/event-hubs/TOC.json
     - name: Python
       items:
         - name: Client library
