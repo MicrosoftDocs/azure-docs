@@ -5,12 +5,12 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 07/25/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
 
-# How to configure the Azure Cosmos DB integrated cache (Preview)
+# How to configure the Azure Cosmos DB integrated cache
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes how to provision a dedicated gateway, configure the integrated cache, and connect your application. 
@@ -58,7 +58,7 @@ This article describes how to provision a dedicated gateway, configure the integ
 > [!NOTE]
 > If you are using the latest .NET or Java SDK version, the default connection mode is direct mode. In order to use the integrated cache, you must override this default.
 
-If you're using the Java SDK, you must also manually set [contentResponseOnWriteEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable&preserve-view=true) to `true` within the `CosmosClientBuilder`. If you're using any other SDK, this value already defaults to `true`, so you don't need to make any changes.
+4. If you're using the Java SDK, you must also manually set [contentResponseOnWriteEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable&preserve-view=true) to `true` within the `CosmosClientBuilder`. If you're using any other SDK, this value already defaults to `true`, so you don't need to make any changes.
 
 ## Adjust request consistency
 
@@ -85,8 +85,13 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 );
 ```
 
-> [!NOTE]
-> Currently, you can only adjust the MaxIntegratedCacheStaleness using the latest [.NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) and [Java](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.16.0-beta.1) preview SDK's.
+Adjusting the `MaxIntegratedCacheStaleness` is supported in these versions of each SDK:
+| SDK | Supported versions | Comment
+| --- | --- | --- |
+| **.NET SDK v3** | *>= 3.19.0-preview* | Currently supported in the preview SDK versions only. |
+| **Java SDK v4** | *>= 4.16.0-beta* | Currently supported in the preview SDK versions only. |
+| **Node.js SDK** | *>=3.16.0* | |
+| **Python SDK** | *>=4.3.0b3* | |
 
 ## Verify cache hits
 
@@ -95,7 +100,7 @@ Finally, you can restart your application and verify integrated cache hits for r
 For a read request (point read or query) to utilize the integrated cache, **all** of the following criteria must be true:
 
 -	Your client connects to the dedicated gateway endpoint
--  Your client uses gateway mode (Python and Node.js SDK's always use gateway mode)
+-  Your client uses gateway mode (Python and Node.js SDKs always use gateway mode)
 -	The consistency for the request must be set to session or eventual
 
 > [!NOTE]

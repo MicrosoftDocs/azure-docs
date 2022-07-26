@@ -53,7 +53,7 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.AzureCosmosDB/databaseAccounts**. |
     | Resource |Select your Azure Cosmos account. |
-    |Target sub-resource |Select the Azure Cosmos DB API type that you want to map. This defaults to only one choice for the SQL, MongoDB, and Cassandra APIs. For the Gremlin and Table APIs, you can also choose **Sql** because these APIs are interoperable with the SQL API. |
+    |Target sub-resource |Select the Azure Cosmos DB API type that you want to map. This defaults to only one choice for the SQL, MongoDB, and Cassandra APIs. For the Gremlin and Table APIs, you can also choose **Sql** because these APIs are interoperable with the SQL API. If you have a [dedicated gateway](./dedicated-gateway.md) provisioned for a SQL API account, you will also see an option for **SqlDedicated**. |
     |||
 
 1. Select **Next: Configuration**.
@@ -76,11 +76,12 @@ When you have approved Private Link for an Azure Cosmos account, in the Azure po
 
 ## <a id="private-zone-name-mapping"></a>API types and private zone names
 
-The following table shows the mapping between different Azure Cosmos account API types, supported sub-resources, and the corresponding private zone names. You can also access the Gremlin and Table API accounts through the SQL API, so there are two entries for these APIs.
+The following table shows the mapping between different Azure Cosmos account API types, supported sub-resources, and the corresponding private zone names. You can also access the Gremlin and Table API accounts through the SQL API, so there are two entries for these APIs. There is also an extra entry for the SQL API for accounts using the [dedicated gateway](./dedicated-gateway.md). 
 
 |Azure Cosmos account API type  |Supported sub-resources (or group IDs) |Private zone name  |
 |---------|---------|---------|
 |Sql    |   Sql      | privatelink.documents.azure.com   |
+|Sql    |   SqlDedicated      | privatelink.sqlx.cosmos.azure.com   |
 |Cassandra    | Cassandra        |  privatelink.cassandra.cosmos.azure.com    |
 |Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
 |Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |

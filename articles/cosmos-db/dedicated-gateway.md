@@ -5,12 +5,12 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/08/2021
+ms.date: 07/25/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
 
-# Azure Cosmos DB dedicated gateway - Overview (Preview)
+# Azure Cosmos DB dedicated gateway - Overview
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A dedicated gateway is server-side compute that is a front-end to your Azure Cosmos DB account. When you connect to the dedicated gateway, it both routes requests and caches data. Like provisioned throughput, the dedicated gateway is billed hourly.
@@ -68,8 +68,6 @@ Dedicated gateway nodes are independent from one another. When you provision mul
 
 For development, we recommend starting with one node but for production, you should provision three or more nodes for high availability. [Learn how to provision a dedicated gateway cluster with an integrated cache](how-to-configure-integrated-cache.md). Provisioning multiple dedicated gateway nodes allows the dedicated gateway cluster to continue to route requests and serve cached data, even when one of the dedicated gateway nodes is unavailable.
 
-Because it is in public preview, the dedicated gateway does not have an availability SLA. However, you should generally expect comparable availability to the rest of your Azure Cosmos DB account.
-
 The dedicated gateway is available in the following sizes:
 
 | **Sku Name** | **vCPU** | **Memory**  |
@@ -79,7 +77,7 @@ The dedicated gateway is available in the following sizes:
 | **D16s**     | **16**   | **64 GB** |
 
 > [!NOTE]
-> Once created, you can't modify the size of the dedicated gateway nodes. However, you can add or remove nodes.
+> Once created, you can add or remove dedicated gateway nodes, but you can't modify the size of the nodes. To change the size of your dedicated gateway nodes you can deprovision the cluster and provision it again in a different size.
 
 There are many different ways to provision a dedicated gateway:
 
@@ -93,26 +91,20 @@ There are many different ways to provision a dedicated gateway:
 
 When you provision a dedicated gateway cluster in multi-region accounts, identical dedicated gateway clusters are provisioned in each region. For example, consider an Azure Cosmos DB account in East US and North Europe. If you provision a dedicated gateway cluster with two D8 nodes in this account, you'd have four D8 nodes in total - two in East US and two in North Europe. You don't need to explicitly configure dedicated gateways in each region and your connection string remains the same. There are also no changes to best practices for performing failovers.
 
-> [!NOTE]
-> You cannot provision a dedicated gateway cluster in accounts with availability zones enabled
-
 Like nodes within a cluster, dedicated gateway nodes across regions are independent. It's possible that the cached data in each region will be different, depending on the recent reads or writes to that region.
 
 ## Limitations
 
-The dedicated gateway has the following limitations during the public preview:
+The dedicated gateway has the following limitations:
 
-- Dedicated gateways are only supported on SQL API accounts.
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [IP firewalls](how-to-configure-firewall.md) or [Private Link](how-to-configure-private-endpoints.md) configured.
-- You can't provision a dedicated gateway in an Azure Cosmos DB account in a [Virtual Network (Vnet)](how-to-configure-vnet-service-endpoint.md)
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](../availability-zones/az-region.md).
+- Dedicated gateways are only supported on SQL API accounts
 - You can't use [role-based access control (RBAC)](how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
 
 The dedicated gateway blade is hidden on Azure Cosmos DB accounts with IP firewalls, Vnet, Private Link, or availability zones.
 
 ## Supported regions
 
-The dedicated gateway is in public preview and isn't supported in every Azure region yet. Throughout the public preview, we'll be adding new capacity. We won't have region restrictions when the dedicated gateway is generally available.
+The dedicated gateway isn't supported in every Azure region yet.
 
 Current list of supported Azure regions:
 
@@ -120,15 +112,19 @@ Current list of supported Azure regions:
 | ------------ | -------- | ----------- | 
 | Brazil South      | France Central    | Australia Central |
 | Canada Central  | France South    | Australia Central 2 |
-| Canada East     | Germany North   | Australia Southeast |
-| Central US     | Germany West Central   | Central India |
-| East US     | North Europe   | East Asia |
-| East US 2     | Switzerland North   | Japan West |
-| North Central US     | UK South   | Korea Central |
-| South Central US     | UK West   | Korea South |
-| West Central US     | West Europe   | Southeast Asia |
-| West US     |   | UAE Central |
-| West US 2     |    | West India |
+| Canada East     | Germany North   | Australia East |
+| Central US | Germany West Central | Australia Southeast |
+| Central US EUAP | North Europe | Central India |
+| East US | Norway East | East Asia |
+| East US 2 | Norway West | Japan West |
+| East US 2 EUAP | South Africa North | Japan East |
+| North Central US | Switzerland North | Korea Central |
+| South Central US | Switzerland West | Korea South |
+| West Central US | UAE Central | Southeast Asia |
+| West US | UAE North | West India |
+| West US 2 | UK South |  |
+|   | UK West | |
+|      | West Europe |  |
 
 
 ## Next steps

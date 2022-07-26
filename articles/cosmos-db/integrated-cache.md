@@ -5,12 +5,12 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 07/25/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
 
-# Azure Cosmos DB integrated cache - Overview (Preview)
+# Azure Cosmos DB integrated cache - Overview
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows. The integrated cache is easy to set up and you don’t need to spend time writing custom code for cache invalidation or managing backend infrastructure. Your integrated cache uses a [dedicated gateway](dedicated-gateway.md) within your Azure Cosmos DB account. The integrated cache is the first of many Azure Cosmos DB features that will utilize a dedicated gateway for improved performance. You can choose from three possible dedicated gateway sizes based on the number of cores and memory needed for your workload.
@@ -120,22 +120,21 @@ To better understand the `MaxIntegratedCacheStaleness` parameter, consider the f
 | t = 40 sec | Run Query B with MaxIntegratedCacheStaleness = 60 seconds | Return results from integrated cache (0 RU charge)           |
 | t = 50 sec | Run Query B with MaxIntegratedCacheStaleness = 20 seconds | Return results from backend database (normal RU charges) and refresh cache |
 
-> [!NOTE]
-> Customizing `MaxIntegratedCacheStaleness` is only supported in the latest .NET and Java preview SDK's.
-
 [Learn to configure the `MaxIntegratedCacheStaleness`.](how-to-configure-integrated-cache.md#adjust-maxintegratedcachestaleness)
 
 ## Metrics
 
 When using the integrated cache, it is helpful to monitor some key metrics. The integrated cache metrics include:
 
-- `DedicatedGatewayAverageCpuUsage` - Average CPU usage across dedicated gateway nodes.
-- `DedicatedGatewayMaxCpuUsage` - Maximum CPU usage across dedicated gateway nodes.
-- `DedicatedGatewayAverageMemoryUsage` - Average memory usage across dedicated gateway nodes, which are used for both routing requests and caching data.
-- `DedicatedGatewayRequests` - Total number of dedicated gateway requests across all dedicated gateway instances.
-- `IntegratedCacheEvictedEntriesSize` – The average amount of data evicted due to LRU from the integrated cache across dedicated gateway nodes. This value does not include data that expired due to exceeding the `MaxIntegratedCacheStaleness` time.
-- `IntegratedCacheItemExpirationCount` - The number of items that are evicted from the integrated cache due to cached point reads exceeding the `MaxIntegratedCacheStaleness` time. This value is an average of integrated cache instances across all dedicated gateway nodes.
-- `IntegratedCacheQueryExpirationCount` - The  number of queries that are evicted from the integrated cache due to cached queries exceeding the `MaxIntegratedCacheStaleness` time. This value is an average of integrated cache instances across all dedicated gateway nodes.
+- `DedicatedGatewayCPUUsage` - CPU usage with Avg, Max, or Min Aggregation types for data across all dedicated gateway nodes.
+- `DedicatedGatewayAverageCPUUsage` - (Deprecated) Average CPU usage across all dedicated gateway nodes.
+- `DedicatedGatewayMaximumCPUUsage` - (Deprecated) Maximum CPU usage across all dedicated gateway nodes.
+- `DedicatedGatewayMemoryUsage` - Memory usage with Avg, Max, or Min Aggregation types for data across all dedicated gateway nodes. 
+- `DedicatedGatewayAverageMemoryUsage` - (Deprecated) Average memory usage across all dedicated gateway nodes.
+- `DedicatedGatewayRequests` - Total number of dedicated gateway requests across all dedicated gateway nodes.
+- `IntegratedCacheEvictedEntriesSize` – The average amount of data evicted from the integrated cache due to LRU across all dedicated gateway nodes. This value does not include data that expired due to exceeding the `MaxIntegratedCacheStaleness` time.
+- `IntegratedCacheItemExpirationCount` - The average number of items that are evicted from the integrated cache due to cached point reads exceeding the `MaxIntegratedCacheStaleness` time across all dedicated gateway nodes. 
+- `IntegratedCacheQueryExpirationCount` - The average number of queries that are evicted from the integrated cache due to cached queries exceeding the `MaxIntegratedCacheStaleness` time across all dedicated gateway nodes.
 - `IntegratedCacheItemHitRate` – The proportion of point reads that used the integrated cache (out of all point reads routed through the dedicated gateway with session or eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
 - `IntegratedCacheQueryHitRate` – The proportion of queries that used the integrated cache (out of all queries routed through the dedicated gateway with session or eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
 
@@ -171,7 +170,7 @@ If most data is evicted from the cache due to exceeding the `MaxIntegratedCacheS
 
 ### I want to understand if I need to add more dedicated gateway nodes
 
-In some cases, if latency is unexpectedly high, you may need more dedicated gateway nodes rather than bigger nodes. Check the `DedicatedGatewayMaxCpuUsage` and `DedicatedGatewayAverageMemoryUsage` to determine if adding more dedicated gateway nodes would reduce latency. It's good to keep in mind that since all instances of the integrated cache are independent from one another, adding more dedicated gateway nodes won't reduce the `IntegratedCacheEvictedEntriesSize`. Adding more nodes will improve the request volume that your dedicated gateway cluster can handle, though.
+In some cases, if latency is unexpectedly high, you may need more dedicated gateway nodes rather than bigger nodes. Check the `DedicatedGatewayCPUUsage` and `DedicatedGatewayMemoryUsage` to determine if adding more dedicated gateway nodes would reduce latency. It's good to keep in mind that since all instances of the integrated cache are independent from one another, adding more dedicated gateway nodes won't reduce the `IntegratedCacheEvictedEntriesSize`. Adding more nodes will improve the request volume that your dedicated gateway cluster can handle, though.
 
 ## Next steps
 

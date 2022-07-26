@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 07/25/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
@@ -46,11 +46,11 @@ If your app previously used gateway mode with the standard gateway, the integrat
 
 ### Does the Azure Cosmos DB availability SLA extend to the dedicated gateway and integrated cache?
 
-We will have an availability SLA/SLO on the dedicated gateway (and therefore the integrated cache) once the feature is generally available. For scenarios that require high availability, you should provision 3x the number of dedicated gateway instances needed. For example, if one dedicated gateway node is needed in production, you should provision two additional dedicated gateway nodes to account for possible downtime or outages.
+For scenarios that require high availability and in order to be covered by the Azure Cosmos DB availability SLA, you should provision 3x the number of dedicated gateway instances needed. For example, if one dedicated gateway node is needed in production, you should provision two additional dedicated gateway nodes to account for possible downtime or outages. Additionally, [ensure your dedicated gateway has enough nodes](./integrated-cache.md#i-want-to-understand-if-i-need-to-add-more-dedicated-gateway-nodes) to serve your workload.
 
 ### The integrated cache is only available for SQL (Core) API right now. Are you planning on releasing it for other APIs as well?
 
-Expanding the integrated cache beyond SQL API is planned on the long-term roadmap but beyond the initial public preview of the integrated cache.
+Expanding the integrated cache beyond SQL API is planned on the long-term roadmap but beyond the initial scope of the integrated cache.
 
 ### What consistency does the integrated cache support?
 
