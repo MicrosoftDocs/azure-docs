@@ -30,11 +30,13 @@ This page shows the supported authentication types and client types of Azure Tab
 
 ## Default environment variable names or application properties
 
+Use the connection details below to connect compute services to Azure Table Storage. For each example below, replace the placeholder texts `<account-name>` and `<account-key>` with your own account name and account key.
+
 ### .NET, Java, Node.JS and Python secret / connection string
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGETABLE_CONNECTIONSTRING | Table storage connection string | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
+| Default environment variable name   | Description                     | Example value                                                                                                        |
+|-------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| AZURE_STORAGETABLE_CONNECTIONSTRING | Table storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
 ## Next steps
 

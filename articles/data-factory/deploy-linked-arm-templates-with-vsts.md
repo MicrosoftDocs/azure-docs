@@ -70,7 +70,7 @@ The scenario we  walk through here is to deploy VNet with a Network Security Gro
 
    - Linked ARM template:
       - For Template, point to ArmTemplate_master.json instead of ArmTemplateForFactory.json
-      - For Template Parameters, point to 'ArmTemplateParamter_master.json' instead of 'ArmTemplateParametersForFactory.json'
+      - For Template Parameters, point to 'ArmTemplateParameters_master.json' instead of 'ArmTemplateParametersForFactory.json'
    - Under override Template parameters update two additional parameters
       - **containerUri** – Paste the URL of container created above.
       - **containerSasToken** - If the secret's name is 'StorageSASToken', enter '$(StorageSASToken)' for this value.

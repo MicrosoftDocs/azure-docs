@@ -11,29 +11,6 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
-
-### Import dependencies
-
-To run the examples in this article, include the following `import` statements at the top of the **.Java* code file:
-
-```java
-package speech;
-
-import java.io.*;
-import java.util.*;
-import java.util.concurrent.*;
-import com.microsoft.cognitiveservices.speech.*;
-import com.microsoft.cognitiveservices.speech.audio.*;
-import com.microsoft.cognitiveservices.speech.translation.*;
-```
-
 ## Sensitive data and environment variables
 
 The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource's subscription key and region. The Java code file contains two `static final String` values that are assigned from the host machine's environment variables: `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, so they're accessible within method bodies of the class: 

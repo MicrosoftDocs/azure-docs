@@ -16,6 +16,8 @@ items:
     items:
     - name: Using Portal
       href: fhir-portal-quickstart.md
+    - name: Using Bicep
+      href: fhir-service-bicep.md
     - name: Using ARM template
       href: fhir-service-resource-manager-template.md
 - name: Tutorials

@@ -15,7 +15,7 @@ ms.reviewer: quentinb
 
 # Azure Certificate Authority details
 
-This article provides the details of the root and subordinate Certificate Authorities (CAs) utilized by Azure. The minimum requirements for public key encryption and signature algorithms as well as links to certificate downloads and revocation lists are provided below the CA details tables.
+This article provides the details of the root and subordinate Certificate Authorities (CAs) utilized by Azure. The scope includes government and national clouds. The minimum requirements for public key encryption and signature algorithms as well as links to certificate downloads and revocation lists are provided below the CA details tables.
 
 Looking for CA details specific to Azure Active Directory? See the [Certificate authorities used by Azure Active Directory](../../active-directory/fundamentals/certificate-authorities.md) article.
 

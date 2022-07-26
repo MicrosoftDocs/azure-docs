@@ -5,7 +5,7 @@ services: container-apps
 author: asw101
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 06/23/2022
 ms.author: aawislan
 ms.custom: ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
@@ -24,7 +24,7 @@ You learn how to:
 > * Deploy two apps that produce and consume messages and persist them in the state store
 > * Verify the interaction between the two microservices.
 
-With Azure Container Apps, you get a fully managed version of the Dapr APIs when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
+With Azure Container Apps, you get a [fully managed version of the Dapr APIs](./dapr-overview.md) when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
 
 In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes) quickstart. 
 
@@ -210,6 +210,7 @@ Your state store is configured using the Dapr component described in *statestore
 
 ## Deploy the service application (HTTP web server)
 
+
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -247,6 +248,8 @@ az containerapp create `
 ```
 
 ---
+
+By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-node).
 
 This command deploys:
 
@@ -287,7 +290,9 @@ az containerapp create `
 
 ---
 
-This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `--target-port` to start a server, nor is there a need to enable ingress.
+By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-python).
+
+This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `--target-port` to start a server, nor is there a need to enable ingress.  
 
 ## Verify the result
 

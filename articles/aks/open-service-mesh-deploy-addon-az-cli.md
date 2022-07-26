@@ -12,7 +12,7 @@ ms.author: pgibson
 This article shows you how to install the Open Service Mesh (OSM) add-on on an Azure Kubernetes Service (AKS) cluster and verify that it's installed and running.
 
 > [!IMPORTANT]
-> The OSM add-on installs version *1.0.0* of OSM on your cluster.
+> The OSM add-on installs version *1.1.1* of OSM on clusters running Kubernetes version 1.23.5 and higher. The OSM add-on installs version *1.0.0.* on clusters running a Kubernetes version below 1.23.5.
 
 ## Prerequisites
 

@@ -171,7 +171,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
    az spring app create \
        --resource-group <resource-group-name> \
-       --name catalog-service
+       --name catalog-service \
        --service <Azure-Spring-Apps-service-instance-name>
 
    az spring app create \

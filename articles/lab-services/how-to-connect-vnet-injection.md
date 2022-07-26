@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 2/11/2022
 ---
 
-# Connect to your virtual network in Azure Lab Services
+# Use advanced networking (virtual network injection) to connect to your virtual network in Azure Lab Services
 
 [!INCLUDE [preview focused article](./includes/lab-services-new-update-focused-article.md)]
 

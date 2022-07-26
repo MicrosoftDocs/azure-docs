@@ -57,6 +57,7 @@ For more information, see [customizable alerts](concept-customizable-security-al
 | Suspicious compilation detected | Medium | Defender-IoT-micro-agent | Suspicious compilation detected. Malicious actors often compile exploits on a compromised machine to escalate privileges. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_SuspiciousCompilation |
 | Suspicious file download followed by file run activity | Medium | Defender-IoT-micro-agent | Analysis of host data detected a file that was downloaded and run in the same command. This technique is commonly used by malicious actors to get infected files onto victim machines. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_DownloadFileThenRun |
 | Suspicious IP address communication | Medium | Defender-IoT-micro-agent | Communication with a suspicious IP address detected. | Verify if the connection is legitimate. Consider blocking communication with the suspicious IP. | IoT_TiConnection |
+| Malicious Domain Name Request | Medium | Defender-IoT-micro-agent | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Disconnect the source from the network. Perform incident response. | IoT_MaliciousNameQueriesDetection |
 
 ### Low severity
 

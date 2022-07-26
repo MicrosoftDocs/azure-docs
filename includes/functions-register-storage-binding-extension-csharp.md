@@ -2,12 +2,13 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 08/16/2021
+ms.date: 06/10/2022
 ms.author: glenga
+ms.custom: devdivchpfy22
 ---
 ::: zone pivot="programming-language-csharp"  
 
-With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
+Except for HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
 
 # [In-process](#tab/in-process) 
 ```bash

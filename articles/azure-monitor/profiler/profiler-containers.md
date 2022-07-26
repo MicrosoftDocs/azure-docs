@@ -3,7 +3,7 @@ title: Profile Azure Containers with Application Insights Profiler
 description: Enable Application Insights Profiler for Azure Containers.
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 07/15/2022
 ms.reviewer: jogrima
 ---
 
@@ -11,7 +11,7 @@ ms.reviewer: jogrima
 
 You can enable the Application Insights Profiler for ASP.NET Core application running in your container almost without code. To enable the Application Insights Profiler on your container instance, you'll need to:
 
-* Add the reference to the NuGet package.
+* Add the reference to the `Microsoft.ApplicationInsights.Profiler.AspNetCore` NuGet package.
 * Set the environment variables to enable it.
 
 In this article, you'll learn the various ways you can:
@@ -45,7 +45,7 @@ In this article, you'll learn the various ways you can:
    dotnet new mvc -n EnableServiceProfilerForContainerApp
    ```
 
-   Note that we've added delay in the `Controllers/WeatherForecastController.cs` project to simulate the bottleneck.
+   We've added delay in the `Controllers/WeatherForecastController.cs` project to simulate the bottleneck.
 
    ```CSharp
    [HttpGet(Name = "GetWeatherForecast")]
@@ -60,6 +60,12 @@ In this article, you'll learn the various ways you can:
        // Delay for 500ms to 2s to simulate a bottleneck.
        Thread.Sleep((new Random()).Next(500, 2000));
    }
+   ```
+
+1. Add the NuGet package to collect the Profiler traces:
+
+   ```console
+   dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
 1. Enable Application Insights and Profiler in `Startup.cs`:
@@ -95,7 +101,7 @@ In this article, you'll learn the various ways you can:
 
 1. Via your Application Insights resource in the Azure portal, take note of your Application Insights instrumentation key.
 
-   :::image type="content" source="./media/profiler-containerinstances/application-insights-key.png" alt-text="Find instrumentation key in Azure portal":::
+   :::image type="content" source="./media/profiler-containerinstances/application-insights-key.png" alt-text="Screenshot of finding instrumentation key in Azure portal.":::
 
 1. Open `appsettings.json` and add your Application Insights instrumentation key to this code section:
 
@@ -157,9 +163,9 @@ Service Profiler session finished.              # A profiling session is complet
 
 1. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
 1. Open the **Performance** blade in your Application Insights resource. 
-1. Once the trace process is complete, you will see the Profiler Traces button like it below:
+1. Once the trace process is complete, you'll see the Profiler Traces button like it below:
 
-      :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Profile traces in the performance blade":::
+      :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Screenshot of Profile traces in the performance blade.":::
 
 
 
@@ -172,6 +178,6 @@ docker rm -f testapp
 ```
 
 ## Next Steps
-
-- Learn more about [Application Insights Profiler](./profiler-overview.md).
-- Learn how to enable Profiler in your [ASP.NET Core applications run on Linux](./profiler-aspnetcore-linux.md).
+Learn how to...
+> [!div class="nextstepaction"]
+> [Generate load and view Profiler traces](./profiler-data.md)

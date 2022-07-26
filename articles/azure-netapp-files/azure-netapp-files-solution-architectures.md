@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/15/2022
+ms.date: 07/25/2022
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -44,6 +44,9 @@ This section provides references for solutions for Linux OSS applications and da
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
 * [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md)
 * [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
+
+### Financial analytics and trading
+* [Host a Murex MX.3 workload on Azure](/azure/architecture/example-scenario/finance/murex-mx3-azure)
 
 ### Machine Learning
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
@@ -205,6 +208,7 @@ This section provides solutions for Azure platform services.
 * [Magento e-commerce platform in Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
 * [Protecting Magento e-commerce platform in AKS against disasters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-magento-e-commerce-platform-in-aks-against-disasters/ba-p/3285525)
 * [Protecting applications on private Azure Kubernetes Service clusters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-applications-on-private-azure-kubernetes-service/ba-p/3289422)
+* [Providing Disaster Recovery to CloudBees-Jenkins in AKS with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/providing-disaster-recovery-to-cloudbees-jenkins-in-aks-with/ba-p/3553412)
 
 ### Azure Red Hat Openshift   
 

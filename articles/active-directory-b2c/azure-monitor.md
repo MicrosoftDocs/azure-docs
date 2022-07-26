@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 06/03/2022
+ms.date: 07/12/2022
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -124,7 +124,7 @@ To create the custom authorization and delegation in Azure Lighthouse, we use an
    | Region                | Select the region where the resource will be deployed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
    | Msp Offer Name        | A name describing this definition. For example, _Azure AD B2C Monitoring_. It's the name that will be displayed in Azure Lighthouse.  The **MSP Offer Name** must be unique in your Azure AD. To monitor multiple Azure AD B2C tenants, use different names. |
    | Msp Offer Description | A brief description of your offer. For example, _Enables Azure Monitor in Azure AD B2C_.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-   | Managed By Tenant Id  | The **Tenant ID** of your Azure AD B2C tenant (also known as the directory ID).                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+   | Managed By Tenant ID  | The **Tenant ID** of your Azure AD B2C tenant (also known as the directory ID).                                                                                                                                                                                                                                                                                                                                                                                                                                              |
    | Authorizations        | Specify a JSON array of objects that include the Azure AD `principalId`, `principalIdDisplayName`, and Azure `roleDefinitionId`. The `principalId` is the **Object ID** of the B2C group or user that will have access to resources in this Azure subscription. For this walkthrough, specify the group's Object ID that you recorded earlier. For the `roleDefinitionId`, use the [built-in role](../role-based-access-control/built-in-roles.md) value for the _Contributor role_, `b24988ac-6180-42a0-ab88-20f7382dd24c`. |
    | Rg Name               | The name of the resource group you create earlier in your Azure AD tenant. For example, _azure-ad-b2c-monitor_.                                                                                                                                                                                                                                                                                                                                                                                                              |
 
@@ -173,18 +173,21 @@ You're ready to [create diagnostic settings](../active-directory/reports-monitor
 To configure monitoring settings for Azure AD B2C activity logs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure AD B2C administrative account. This account must be a member of the security group you specified in the [Select a security group](#32-select-a-security-group) step.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant:
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select **Azure Active Directory**
 1. Under **Monitoring**, select **Diagnostic settings**.
-1. If there are existing settings for the resource, you'll see a list of settings already configured. Either select **Add diagnostic setting** to add a new setting, or select **Edit** to edit an existing setting. Each setting can have no more than one of each of the destination types.
+1. If there are existing settings for the resource, you'll see a list of settings already configured. Either select **Add diagnostic setting** to add a new setting, or select **Edit settings** to edit an existing setting. Each setting can have no more than one of each of the destination types.
 
-   ![Diagnostics settings pane in Azure portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
+   ![Screenshot of the diagnostics settings pane in Azure portal.](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
 1. Give your setting a name if it doesn't already have one.
-1. Check the box for each destination to send the logs. Select **Configure** to specify their settings **as described in the following table**.
-1. Select **Send to Log Analytics**, and then select the **Name of workspace** you created earlier (`AzureAdB2C`).
 1. Select **AuditLogs** and **SignInLogs**.
+1. Select **Send to Log Analytics Workspace**, and then:
+    1. Under **Subscription**, select your subscription. 
+    2. Under **Log Analytics Workspace**, select the name of the workspace you created earlier such as `AzureAdB2C`.
+
 
    > [!NOTE]
    > Only the **AuditLogs** and **SignInLogs** diagnostic settings are currently supported for Azure AD B2C tenants.
@@ -204,7 +207,7 @@ Now you can configure your Log Analytics workspace to visualize your data and co
 
 Log queries help you to fully use the value of the data collected in Azure Monitor Logs. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code. Virtually any question can be answered and analysis performed as long as the supporting data has been collected, and you understand how to construct the right query. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
-1. From **Log Analytics workspace**, select **Logs**
+1. From **Log Analytics workspace** window, select **Logs**
 1. In the query editor, paste the following [Kusto Query Language](/azure/data-explorer/kusto/query/) query. This query shows policy usage by operation over the past x days. The default duration is set to 90 days (90d). Notice that the query is focused only on the operation where a token/code is issued by policy.
 
    ```kusto
@@ -253,7 +256,7 @@ Workbooks provide a flexible canvas for data analysis and the creation of rich v
 
 Follow the instructions below to create a new workbook using a JSON Gallery Template. This workbook provides a **User Insights** and **Authentication** dashboard for Azure AD B2C tenant.
 
-1. From the **Log Analytics workspace**, select **Workbooks**.
+1. From the **Log Analytics workspace** window, select **Workbooks**.
 1. From the toolbar, select **+ New** option to create a new workbook.
 1. On the **New workbook** page, select the **Advanced Editor** using the **</>** option on the toolbar.
 
@@ -279,7 +282,7 @@ The workbook will display reports in the form of a dashboard.
 
 ## Create alerts
 
-Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. You can create alerts based on specific performance metrics or when certain events occur. You can also create alerts on absence of an event, or a number of events are occur within a particular time window. For example, alerts can be used to notify you when average number of sign in exceeds a certain threshold. For more information, see [Create alerts](../azure-monitor/alerts/alerts-log.md).
+Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. You can create alerts based on specific performance metrics or when certain events occur. You can also create alerts on absence of an event, or a number of events occur within a particular time window. For example, alerts can be used to notify you when average number of sign in exceeds a certain threshold. For more information, see [Create alerts](../azure-monitor/alerts/alerts-log.md).
 
 Use the following instructions to create a new Azure Alert, which will send an [email notification](../azure-monitor/alerts/action-groups.md#configure-notifications) whenever there's a 25% drop in the **Total Requests** compared to previous period. Alert will run every 5 minutes and look for the drop in the last hour compared to the hour before it. The alerts are created using Kusto query language.
 

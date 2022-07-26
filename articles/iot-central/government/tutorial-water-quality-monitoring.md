@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Azure IoT water quality monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the water quality monitoring application template for IoT Central.
-author: miriambrus
-ms.author: miriamb
-ms.date: 12/23/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/15/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -129,7 +129,7 @@ To view the device template:
 
 Practice customizing the following device template settings:
 
-1. From the device template menu, select **Customize**.
+1. Navigate to the **Water Quality Monitor** device template.
 1. Go to the **Temperature** telemetry type.
 1. Change the **Display name** value to **Reported temperature**.
 1. Change the unit of measurement, or set **Min value** and **Max value**.
@@ -137,9 +137,9 @@ Practice customizing the following device template settings:
 
 #### Add a cloud property
 
-1. From the device template menu, select **Cloud properties**.
-1. To add a new cloud property, select **+ Add Cloud Property**. In Azure IoT Central, you can add a property that is relevant to a device but that doesn't come from the device. One example of such a property is an alert threshold specific to installation area, asset information, or maintenance information.
-1. Enter **Installation area** as the **Display name** and choose **String** as the **Schema**.
+1. Navigate to the **Water Quality Monitor** device template, and select **+ Add capability**.
+1. In Azure IoT Central, you can add a property that is relevant to a device but that doesn't come from the device. One example of such a property is an alert threshold specific to installation area, asset information, or maintenance information.
+1. Enter **Installation area** as the **Display name**, select **Cloud property** as the **Capability type** and choose **String** as the **Schema**.
 1. Select **Save**.
 
 ### Explore views

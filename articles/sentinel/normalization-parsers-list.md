@@ -70,10 +70,12 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
+| **AppGate SDP** ip connection logs collected using Syslog |`_ASim_NetworkSession_AppGateSDP` (regular)<br> `_Im_NetworkSession_AppGateSDP` (filtering)<br> (Pending deployment) | `ASimNetworkSessionAppGateSDP` (regular)<br> `vimNetworkSessionAppGateSDP` (filtering)  |
 | **AWS VPC logs** collected using the AWS S3 connector |`_ASim_NetworkSession_AWSVPC` (regular)<br> `_Im_NetworkSession_AWSVPC` (filtering)  | `ASimNetworkSessionAWSVPC` (regular)<br> `vimNetworkSessionAWSVPC` (filtering)  |
 | **Azure Firewall logs** |`_ASim_NetworkSession_AzureFirewall` (regular)<br> `_Im_NetworkSession_AzureFirewall` (filtering)  | `ASimNetworkSessionAzureFirewall` (regular)<br> `vimNetworkSessionAzureFirewall` (filtering)  |
 | **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
 | **Azure Network Security Groups (NSG) logs** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_AzureNSG` (regular)<br> `_Im_NetworkSession_AzureNSG` (filtering)  | `ASimNetworkSessionAzureNSG` (regular)<br> `vimNetworkSessionAzureNSG` (filtering)  |
+| **Fortigate FortiOS** ip connection logs collected using Syslog |`_ASim_NetworkSession_FortinetFortiGate` (regular)<br> `_Im_NetworkSession_FortinetFortiGate` (filtering)<br> (Pending deployment) | `ASimNetworkSessionFortinetFortiGate` (regular)<br> `vimNetworkSessionFortinetFortiGate` (filtering)  |
 | **Microsoft 365 Defender for Endpoint** | `_ASim_NetworkSession_Microsoft365Defender` (regular)<br><br>`_Im_NetworkSession_Microsoft365Defender` (filtering) | `ASimNetworkSessionMicrosoft365Defender` (regular)<br><br> `vimNetworkSessionMicrosoft365Defender` (filtering) |
 | **Microsoft Defender for IoT - Endpoint** |`_ASim_NetworkSession_MD4IoT` (regular)<br><br>`_Im_NetworkSession_MD4IoT` (filtering) | `ASimNetworkSessionMD4IoT` (regular)<br><br> `vimNetworkSessionMD4IoT` (filtering) |
 | **Palo Alto PanOS traffic logs** collected using CEF |`_ASim_NetworkSession_PaloAltoCEF` (regular)<br> `_Im_NetworkSession_PaloAltoCEF` (filtering)  | `ASimNetworkSessionPaloAltoCEF` (regular)<br> `vimNetworkSessionPaloAltoCEF` (filtering)  |
@@ -113,6 +115,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Web S
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
 |**Squid Proxy** | `_ASim_WebSession_SquidProxy` (regular) <br> `_Im_WebSession_SquidProxy` (filtering) <br><br>  | `ASimWebSessionSquidProxy` (regular) <br>`vimWebSessionSquidProxy` (filtering) <br><br> |
+| **Vectra AI Streams** |`_ASim_WebSession_VectraAI` (regular)<br> `_Im_WebSession_VectraAI` (filtering) <br> (Pending deployment) | `ASimWebSessionVectraAI` (regular)<br> `vimWebSessionVectraAI` (filtering)  |
 | **Zscaler ZIA** |`_ASim_WebSessionZscalerZIA` (regular)<br> `_Im_WebSessionZscalerZIA` (filtering)  | `AsimWebSessionZscalerZIA` (regular)<br> `vimWebSessionSzcalerZIA` (filtering)  |
 
 
