@@ -40,7 +40,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 ## Connect to an App Configuration store
-This project will use [dependency injection in .NET Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection) and add Azure App Configuration as an extra configuration source. Azure Functions support running [in-process ](/azure/azure-functions/functions-dotnet-class-library) or [isolated-process](/azure/azure-functions/dotnet-isolated-process-guide). Pick the one that matches your requirements.
+This project will use [dependency injection in .NET Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection) and add Azure App Configuration as an extra configuration source. Azure Functions support running [in-process](/azure/azure-functions/functions-dotnet-class-library) or [isolated-process](/azure/azure-functions/dotnet-isolated-process-guide). Pick the one that matches your requirements.
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add following NuGet packages to your project.
     ### [In-process](#tab/in-process)
@@ -221,3 +221,8 @@ In this quickstart, you created a new App Configuration store and used it with a
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration in Azure Functions](./enable-dynamic-configuration-azure-functions-csharp.md)
+
+To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Access App Configuration using managed identity](./howto-integrate-azure-managed-service-identity.md)
