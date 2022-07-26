@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.author: erinschaffer
+ms.author: v-eschaffer
 ms.date: 04/04/2022
 ---
 

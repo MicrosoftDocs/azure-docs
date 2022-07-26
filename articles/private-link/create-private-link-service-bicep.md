@@ -7,7 +7,7 @@ ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/29/2022
-ms.author: erinschaffer
+ms.author: v-eschaffer
 ---
 
 # Quickstart: Create a private link service using Bicep

@@ -7,7 +7,7 @@ author: schaffererin
 ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 06/24/2022
-ms.author: erinschaffer
+ms.author: v-eschaffer
 ms.custom: devx-track-azurepowershell, mode-arm
 ---
 

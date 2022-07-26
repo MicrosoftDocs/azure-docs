@@ -9,7 +9,7 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 03/14/2022
-ms.author: erinschaffer
+ms.author: v-eschaffer
 ---
 
 # Quickstart: Create an Azure CDN profile and endpoint - Bicep

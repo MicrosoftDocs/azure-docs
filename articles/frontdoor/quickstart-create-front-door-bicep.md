@@ -4,7 +4,7 @@ description: This quickstart describes how to create an Azure Front Door Service
 services: front-door
 documentationcenter: 
 author: schaffererin
-ms.author: erinschaffer
+ms.author: v-eschaffer
 ms.date: 03/30/2022
 ms.topic: quickstart
 ms.service: frontdoor
