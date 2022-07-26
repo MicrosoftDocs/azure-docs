@@ -29,31 +29,48 @@ Next, install the Azure Container Apps extension for the CLI.
 # [Bash](#tab/bash)
 
 ```azurecli
-az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
+az extension add --name containerapp --upgrade
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az extension add `
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
+az extension add --name containerapp --upgrade
 ```
 
 ---
 
-Now that the extension is installed, register the `Microsoft.Web` namespace.
+Now that the extension is installed, register the `Microsoft.App` namespace.
+
+> [!NOTE]
+> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-az provider register --namespace Microsoft.Web
+az provider register --namespace Microsoft.App
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az provider register --namespace Microsoft.Web
+az provider register --namespace Microsoft.App
+```
+
+---
+
+Register the `Microsoft.OperationalInsights` provider for the [Azure Monitor Log Analytics Workspace](../articles/container-apps/observability.md?tabs=bash#azure-monitor-log-analytics) if you have not used it before.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.OperationalInsights
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az provider register --namespace Microsoft.OperationalInsights
 ```
 
 ---
@@ -65,7 +82,6 @@ Next, set the following environment variables:
 ```azurecli
 RESOURCE_GROUP="my-container-apps"
 LOCATION="canadacentral"
-LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
 CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
@@ -74,7 +90,6 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```powershell
 $RESOURCE_GROUP="my-container-apps"
 $LOCATION="canadacentral"
-$LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
 $CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
@@ -105,51 +120,3 @@ With the CLI upgraded and a new resource group available, you can create a Conta
 ## Create an environment
 
 An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
-
-Container apps are monitored with Azure Log Analytics, which is required when you create a Container Apps environment.
-
-Create a Log Analytics workspace with the following command:
-
-# [Bash](#tab/bash)
-
-```azurecli
-az monitor log-analytics workspace create \
-  --resource-group $RESOURCE_GROUP \
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az monitor log-analytics workspace create `
-  --resource-group $RESOURCE_GROUP `
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
-```
-
----
-
-Next, retrieve the Log Analytics Client ID and client secret.
-
-# [Bash](#tab/bash)
-
-```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
-```
-
-```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
-```
-
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
-```
-
----
-
-The Log Analytics values are used as you create the Container Apps environment.

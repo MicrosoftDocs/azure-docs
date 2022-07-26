@@ -71,7 +71,7 @@ In this step, you'll create a pipeline that contains a Data Flow activity.
 
 1. On the home page of Azure Data Factory, select **Orchestrate**.
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
+   :::image type="content" source="./media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the ADF home page.":::
 
 1. In the **General** tab for the pipeline, enter **TransformMovies** for **Name** of the pipeline.
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.

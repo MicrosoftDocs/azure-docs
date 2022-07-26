@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Customize the set of standards in your regulatory compliance dashboard
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
 > [!TIP]
@@ -26,7 +24,7 @@ Microsoft tracks the regulatory standards themselves and automatically improves 
 
 ## What regulatory compliance standards are available in Defender for Cloud?
 
-By default, every subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction).
+By default, every Azure subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction).
 
 Available regulatory standards:
 
@@ -47,6 +45,21 @@ Available regulatory standards:
 - FedRAMP H
 - FedRAMP M
 
+By default, every AWS connector subscription has the **AWS Foundational Security Best Practices** assigned. This is the AWS-specific guidelines for security and compliance best practices based on common compliance frameworks. 
+
+Available AWS regulatory standards:
+- AWS CIS 1.2.0
+- AWS PCI DSS 3.2.1
+
+By default, every GCP connector subscription has the **GCP Default** assigned. This is the GCP-specific guidelines for security and compliance best practices based on common compliance frameworks. 
+
+Available GCP regulatory standards:
+- GCP CIS 1.1.0
+- GCP CIS 1.2.0
+- GCP ISO 27001
+- GCP NIST 800 53
+- PCI DSS 3.2.1
+
 > [!TIP]
 > Standards are added to the dashboard as they become available. The preceding list might not contain recently added standards.
 
@@ -60,7 +73,7 @@ To add standards to your dashboard:
 - The subscription must have Defender for Cloud's enhanced security features enabled
 - The user must have owner or policy contributor permissions
 
-### Add a standard
+### Add a standard to your Azure resources
 
 1. From Defender for Cloud's menu, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you can see the compliance standards currently assigned to the currently selected subscriptions.   
 

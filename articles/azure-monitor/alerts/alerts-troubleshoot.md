@@ -4,7 +4,8 @@ description: Common issues with Azure Monitor alerts and possible solutions.
 author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 2/23/2022
+ms.reviewer: ofmanor
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
@@ -236,7 +237,7 @@ If you received an error while trying to create, update or delete an [alert proc
 
 1. **Did you verify the alert processing rule parameters?**  
 
-    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
+    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
 
 
 ## Next steps

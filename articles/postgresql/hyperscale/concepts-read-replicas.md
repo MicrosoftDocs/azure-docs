@@ -1,27 +1,29 @@
 ---
 title: Read replicas - Azure Database for PostgreSQL - Hyperscale (Citus)
 description: This article describes the read replica feature in Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 06/17/2022
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 The read replica feature allows you to replicate data from a Hyperscale (Citus)
 server group to a read-only server group. Replicas are updated
 **asynchronously** with PostgreSQL physical replication technology. You can
-replicate from the primary server to an unlimited number of replicas.
+run to up to five replicas from the primary server.
 
 Replicas are new server groups that you manage similar to regular Hyperscale
 (Citus) server groups. For each read replica, you're billed for the provisioned
-compute in vCores and storage in GB/ month.
+compute in vCores and storage in GiB/month. Compute and storage costs for
+replica server groups are the same as for regular server groups.
 
-Learn how to [create and manage
-replicas](howto-read-replicas-portal.md).
+Learn how to [create and manage replicas](howto-read-replicas-portal.md).
 
 ## When to use a read replica
 
@@ -108,9 +110,12 @@ upscale it on the primary.
 Firewall rules and parameter settings aren't inherited from the primary server
 to the replica when the replica is created or afterwards.
 
-### Regions
+### Cross-region replication (preview)
 
-Hyperscale (Citus) server groups support only same-region replication.
+Read replicas can be created in the region of the primary server group, or in
+any other [region supported by Hyperscale (Citus)](resources-regions.md). The
+limit of five replicas per server group counts across all regions, meaning five
+total, not five per region.
 
 ## Next steps
 

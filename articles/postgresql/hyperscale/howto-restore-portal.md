@@ -1,8 +1,8 @@
 ---
 title: Restore - Hyperscale (Citus) - Azure Database for PostgreSQL - Azure portal
 description: This article describes how to perform restore operations in Azure Database for PostgreSQL - Hyperscale (Citus) through the Azure portal.
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -10,6 +10,8 @@ ms.date: 07/09/2021
 ---
 
 # Point-in-time restore of a Hyperscale (Citus) server group
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 This article provides step-by-step procedures to perform [point-in-time
 recoveries](concepts-backup.md#restore) for a Hyperscale (Citus)

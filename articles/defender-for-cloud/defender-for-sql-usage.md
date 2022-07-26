@@ -2,12 +2,12 @@
 title: How to set up Microsoft Defender for SQL
 description: Learn how to enable Microsoft Defender for Cloud's optional Microsoft Defender for SQL plan
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 
 # Enable Microsoft Defender for SQL servers on machines 
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This Microsoft Defender plan detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
@@ -21,7 +21,7 @@ You'll see alerts when there are suspicious database activities, potential vulne
 |Pricing:|**Microsoft Defender for SQL servers on machines** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Protected SQL versions:|SQL Server (versions currently [supported by Microsoft](/mem/configmgr/core/plan-design/configs/support-for-sql-server-versions))|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet|
-|||
+
 
 
 
@@ -38,13 +38,15 @@ To enable this plan:
 
 ### Step 1. Install the agent extension
 
-- **SQL Server on Azure VM** - Register your SQL Server VM with the SQL IaaS Agent extension as explained in [Register SQL Server VM with SQL IaaS Agent Extension](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).
+- **SQL Server on Azure VM** - Register your SQL Server VM with the SQL IaaS Agent extension as explained in [Register SQL Server VM with SQL IaaS Agent Extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm).
 
 - **SQL Server on Azure Arc-enabled servers** - Install the Azure Arc agent by following the installation methods described in the [Azure Arc documentation](../azure-arc/servers/manage-vm-extensions.md).
 
 ### Step 2. Provision the Log Analytics agent on your SQL server's host:
 
-- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [enable auto provisioning of the Log Analytics agent <a name="auto-provision-mma"></a>](enable-data-collection.md#auto-provision-mma). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack Hub VMs](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
+-<a name="auto-provision-mma"></a>
+
+ **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [enable auto provisioning of the Log Analytics agent](enable-data-collection.md#auto-provision-mma). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack Hub VMs](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
 - **SQL Server on Azure Arc-enabled servers** - If your SQL Server is managed by [Azure Arc](../azure-arc/index.yml) enabled servers, you can deploy the Log Analytics agent using the Defender for Cloud recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”.
 
 - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:

@@ -2,7 +2,7 @@
 title: Build resilience by using Continuous Access Evaluation in Azure Active Directory
 description: A guide for architects and IT administrators on using CAE
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

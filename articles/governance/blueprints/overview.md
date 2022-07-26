@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 01/28/2022
+ms.date: 03/08/2022
 ms.topic: overview
 ---
 # What is Azure Blueprints?
@@ -16,7 +16,7 @@ Just as a blueprint allows an engineer or an architect to sketch a project's des
 Azure Blueprints enables cloud architects and central information technology groups to define a
 repeatable set of Azure resources that implements and adheres to an organization's standards,
 patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly
-build and stand up new environments with trust they're building within organizational compliance
+build and start up new environments with trust they're building within organizational compliance
 with a set of built-in components, such as networking, to speed up development and delivery.
 
 Blueprints are a declarative way to orchestrate the deployment of various resource templates and
@@ -191,9 +191,9 @@ The following limitations exist for certain fields:
 
 |Object|Field|Allowed Characters|Max. Length|
 |-|-|-|-|
-|Blueprint|Name|letters, numbers, hyphens, and periods|48|
+|Blueprint|Name|letters, numbers, hyphens, and underscores|48|
 |Blueprint|Version|letters, numbers, hyphens, and periods|20|
-|Blueprint assignment|Name|letters, numbers, hyphens, and periods|90|
+|Blueprint assignment|Name|letters, numbers, hyphens, and underscores|90|
 |Blueprint artifact|Name|letters, numbers, hyphens, and periods|48|
 
 ## Video overview

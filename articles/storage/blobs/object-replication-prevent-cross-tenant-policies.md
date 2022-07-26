@@ -3,12 +3,12 @@ title: Prevent object replication across Azure Active Directory tenants (preview
 titleSuffix: Azure Storage
 description: Prevent cross-tenant object replication
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -67,7 +67,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 #### [Azure CLI](#tab/azure-cli)
 
-To disallow cross-tenant object replication for a new storage account, call the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command, and include the `allow-cross-tenant-replication` parameter with a value of *false*.
+To disallow cross-tenant object replication for a new storage account, call the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command, and include the `allow-cross-tenant-replication` parameter with a value of *false*.
 
 ```azurecli
 # Create a storage account with cross-tenant replication disallowed.

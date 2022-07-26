@@ -1,8 +1,8 @@
 ---
 title: Determine table size - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: How to find the true size of distributed tables in a Hyperscale (Citus) server group
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -10,6 +10,8 @@ ms.date: 12/06/2021
 ---
 
 # Determine table and relation size
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 The usual way to find table sizes in PostgreSQL, `pg_total_relation_size`,
 drastically under-reports the size of distributed tables on Hyperscale (Citus).

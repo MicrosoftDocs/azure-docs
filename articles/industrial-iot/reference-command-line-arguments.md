@@ -10,7 +10,7 @@ ms.date: 3/22/2021
 
 # Command-line Arguments
 
-In the following, there are several command-line arguments described that can be used to set global settings for OPC Publisher.
+In the following, there are several Command-line Arguments described that can be used to set global settings for OPC Publisher.
 
 ## OPC Publisher Command-line Arguments for Version 2.5 and below
 
@@ -32,7 +32,7 @@ There are a couple of environment variables, which can be used to control the ap
 ```
 
 > [!NOTE] 
-> Command-line arguments overrule environment variable settings.
+> Command-line Arguments overrule environment variable settings.
     
 ```
       --pf, --publishfile=VALUE
@@ -262,19 +262,19 @@ There are a couple of environment variables, which can be used to control the ap
       --tb, --addtrustedcertbase64=VALUE
                                        adds the certificate to the applications trusted
                                        cert store passed in as base64 string (multiple
-                                       comma-seperated strings supported)
+                                       comma-separated strings supported)
       --tf, --addtrustedcertfile=VALUE
                                        adds the certificate file(s) to the applications
                                        trusted cert store passed in as base64 string (
-                                       multiple comma-seperated filenames supported)
+                                       multiple comma-separated filenames supported)
       --ib, --addissuercertbase64=VALUE
                                        adds the specified issuer certificate to the
                                        applications trusted issuer cert store passed in
-                                       as base64 string (multiple comma-seperated strings supported)
+                                       as base64 string (multiple comma-separated strings supported)
       --if, --addissuercertfile=VALUE
                                        adds the specified issuer certificate file(s) to
                                        the applications trusted issuer cert store (
-                                       multiple comma-seperated filenames supported)
+                                       multiple comma-separated filenames supported)
       --rb, --updatecrlbase64=VALUE
                                        update the CRL passed in as base64 string to the
                                        corresponding cert store (trusted or trusted
@@ -285,7 +285,7 @@ There are a couple of environment variables, which can be used to control the ap
                                        issuer)
       --rc, --removecert=VALUE
                                        remove cert(s) with the given thumbprint(s) (
-                                       multiple comma-seperated thumbprints supported)
+                                       multiple comma-separated thumbprints supported)
       --dt, --devicecertstoretype=VALUE
                                        the iothub device cert store type.
                                        (allowed values: Directory, X509Store)
@@ -388,6 +388,453 @@ There are a couple of environment variables, which can be used to control the ap
       --at, --appcertstoretype=VALUE
                                        the own application cert store type  (allowed: Directory, X509Store).
 ```
+
+## OPC Publisher Command-line Arguments for Version 2.8.2 and above
+
+The following OPC Publisher configuration can be applied by Command Line Interface (CLI) options or as environment variable settings.
+The `Alternative` field, where present, refers to the CLI argument applicable in **standalone mode only**. When both environment variable and CLI argument are provided, the latest will overrule the env variable.
+```
+        PublishedNodesFile=VALUE
+                                      The file used to store the configuration of the nodes to be published
+                                      along with the information to connect to the OPC UA server sources
+                                      When this file is specified, or the default file is accessible by
+                                      the module, OPC Publisher will start in standalone mode
+                                      Alternative: --pf, --publishfile
+                                      Mode: Standalone only
+                                      Type: string - file name, optionally prefixed with the path
+                                      Default: publishednodes.json
+
+         site=VALUE
+                                      The site OPC Publisher is assigned to
+                                      Alternative: --s, --site
+                                      Mode: Standalone and Orchestrated
+                                      Type: string 
+                                      Default: <not set>
+
+        LogFileName==VALUE
+                                      The filename of the logfile to use
+                                      Alternative: --lf, --logfile
+                                      Mode: Standalone only
+                                      Type: string - file name, optionally prefixed with the path
+                                      Default: <not set>
+
+        LogFileFlushTimeSpan=VALUE
+                                      The time span in seconds when the logfile should be flushed in the storage
+                                      Alternative: --lt, --logflushtimespan
+                                      Mode: Standalone only
+                                      Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                      Alternative argument type: integer in seconds
+                                      Default: {00:00:30}
+
+        loglevel=Value
+                                      The level for logs to pe persisted in the logfile
+                                      Alternative: --ll --loglevel
+                                      Mode: Standalone only
+                                      Type: string enum - Fatal, Error, Warning, Information, Debug, Verbose
+                                      Default: info
+
+        EdgeHubConnectionString=VALUE
+                                      An IoT Edge Device or IoT Edge module connection string to use,
+                                      when deployed as module in IoT Edge, the environment variable
+                                      is already set as part of the container deployment
+                                      Alternative: --dc, --deviceconnectionstring
+                                                   --ec, --edgehubconnectionstring
+                                      Mode: Standalone and Orchestrated
+                                      Type: connection string
+                                      Default: <not set> <set by iotedge runtime>
+
+        Transport=VALUE
+                                      Protocol to use for upstream communication to edgeHub or IoTHub
+                                      Alternative: --ih, --iothubprotocol
+                                      Mode: Standalone and Orchestrated
+                                      Type: string enum: Any, Amqp, Mqtt, AmqpOverTcp, AmqpOverWebsocket,
+                                        MqttOverTcp, MqttOverWebsocket, Tcp, Websocket.
+                                      Default: MqttOverTcp
+
+        BypassCertVerification=VALUE
+                                      Enables/disables bypass of certificate verification for upstream communication to edgeHub
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: boolean
+                                      Default: false
+    
+        EnableMetrics=VALUE
+                                      Enables/disables upstream metrics propagation
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: boolean
+                                      Default: true
+
+        DefaultPublishingInterval=VALUE
+                                      Default value for the OPC UA publishing interval of OPC UA subscriptions
+                                      created to an OPC UA server. This value is used when no explicit setting
+                                      is configured.
+                                      Alternative: --op, --opcpublishinginterval
+                                      Mode: Standalone only
+                                      Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                      Alternative argument type: integer in milliseconds
+                                      Default: {00:00:01} (1000)
+
+        DefaultSamplingInterval=VALUE
+                                      Default value for the OPC UA sampling interval of nodes to publish.
+                                      This value is used when no explicit setting is configured.
+                                      Alternative: --oi, --opcsamplinginterval
+                                      Mode: Standalone only
+                                      Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                      Alternative argument type: integer in milliseconds
+                                      Default: {00:00:01} (1000)
+
+        DefaultQueueSize=VALUE
+                                      Default setting value for the monitored item's queue size to be used when
+                                      not explicitly specified in pn.json file
+                                      Alternative: --mq, --monitoreditemqueuecapacity
+                                      Mode: Standalone only
+                                      Type: integer
+                                      Default: 1
+
+        DefaultHeartbeatInterval=VALUE
+                                      Default value for the heartbeat interval setting of published nodes
+                                      having no explicit setting for heartbeat interval.
+                                      Alternative: --hb, --heartbeatinterval
+                                      Mode: Standalone
+                                      Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                      Alternative argument type: integer in seconds
+                                      Default: {00:00:00} meaning heartbeat is disabled
+
+        MessageEncoding=VALUE
+                                      The messaging encoding for outgoing telemetry.
+                                      Alternative: --me, --messageencoding
+                                      Mode: Standalone only
+                                      Type: string enum - Json, Uadp
+                                      Default: Json
+
+        MessagingMode=VALUE
+                                      The messaging mode for outgoing telemetry.
+                                      Alternative: --mm, --messagingmode
+                                      Mode: Standalone only
+                                      Type: string enum - PubSub, Samples
+                                      Default: Samples
+
+        FetchOpcNodeDisplayName=VALUE
+                                      Fetches the DisplayName for the nodes to be published from
+                                      the OPC UA Server when not explicitly set in the configuration.
+                                      Note: This has high impact on OPC Publisher startup performance.
+                                      Alternative: --fd, --fetchdisplayname
+                                      Mode: Standalone only
+                                      Type: boolean
+                                      Default: false
+
+        FullFeaturedMessage=VALUE
+                                      The full featured mode for messages (all fields filled in the telemetry).
+                                      Default is 'false' for legacy compatibility.
+                                      Alternative: --fm, --fullfeaturedmessage
+                                      Mode: Standalone only
+                                      Type:boolean
+                                      Default: false
+
+        BatchSize=VALUE
+                                      The number of incoming OPC UA data change messages to be cached for batching.
+                                      When BatchSize is 1 or TriggerInterval is set to 0 batching is disabled.
+                                      Alternative: --bs, --batchsize
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 50
+
+        BatchTriggerInterval=VALUE
+                                      The batching trigger interval.
+                                      When BatchSize is 1 or TriggerInterval is set to 0 batching is disabled.
+                                      Alternative: --si, --iothubsendinterval
+                                      Mode: Standalone and Orchestrated
+                                      Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                      Alternative argument type: integer in seconds
+                                      Default: {00:00:10}
+
+        IoTHubMaxMessageSize=VALUE
+                                      The maximum size of the (IoT D2C) telemetry message.
+                                      Alternative: --ms, --iothubmessagesize
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 0
+
+        DiagnosticsInterval=VALUE
+                                      Shows publisher diagnostic info at the specified interval in seconds
+                                      (need log level info). -1 disables remote diagnostic log and
+                                      diagnostic output
+                                      Alternative: --di, --diagnosticsinterval
+                                      Mode: Standalone only
+                                      Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                      Alternative argument type: integer in seconds
+                                      Default: {00:00:60}
+
+        LegacyCompatibility=VALUE
+                                      Forces the Publisher to operate in 2.5 legacy mode, using
+                                      `"application/opcua+uajson"` for `ContentType` on the IoT Hub
+                                      Telemetry message.
+                                      Alternative: --lc, --legacycompatibility
+                                      Mode: Standalone only
+                                      Type: boolean
+                                      Default: false
+
+        PublishedNodesSchemaFile=VALUE
+                                      The validation schema filename for published nodes file.
+                                      Alternative: --pfs, --publishfileschema
+                                      Mode: Standalone only
+                                      Type: string
+                                      Default: <not set>
+
+        MaxNodesPerDataSet=VALUE
+                                      Maximum number of nodes within a DataSet/Subscription.
+                                      When more nodes than this value are configured for a
+                                      DataSetWriter, they will be added in a separate DataSet/Subscription.
+                                      Alternative: N/A
+                                      Mode: Standalone only
+                                      Type: integer
+                                      Default: 1000
+
+        ApplicationName=VALUE
+                                      OPC UA Client Application Config - Application name as per
+                                      OPC UA definition. This is used for authentication during communication
+                                      init handshake and as part of own certificate validation.
+                                      Alternative: --an, --appname
+                                      Mode: Standalone and Orchestrated
+                                      Type: string
+                                      Default: "Microsoft.Azure.IIoT"
+
+        ApplicationUri=VALUE
+                                      OPC UA Client Application Config - Application URI as per
+                                      OPC UA definition.
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: string
+                                      Default: $"urn:localhost:{ApplicationName}:microsoft:"
+
+        ProductUri=VALUE
+                                      OPC UA Client Application Config - Product URI as per
+                                      OPC UA definition.
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: string
+                                      Default: "https://www.github.com/Azure/Industrial-IoT"
+
+        DefaultSessionTimeout=VALUE
+                                      OPC UA Client Application Config - Session timeout in seconds
+                                      as per OPC UA definition.
+                                      Alternative: --ct --createsessiontimeout
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 0, meaning <not set>
+
+        MinSubscriptionLifetime=VALUE
+                                      OPC UA Client Application Config - Minimum subscription lifetime in seconds
+                                      as per OPC UA definition.
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 0, <not set>
+
+        KeepAliveInterval=VALUE
+                                      OPC UA Client Application Config - Keep alive interval in seconds
+                                      as per OPC UA definition.
+                                      Alternative: --ki, --keepaliveinterval
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer milliseconds
+                                      Default: 10,000 (10s)
+
+        MaxKeepAliveCount=VALUE
+                                      OPC UA Client Application Config - Maximum count of keep alive events
+                                      as per OPC UA definition.
+                                      Alternative: --kt, --keepalivethreshold
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 50
+
+        PkiRootPath=VALUE
+                                      OPC UA Client Security Config - PKI certificate store root path
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: string
+                                      Default: "pki"
+
+        ApplicationCertificateStorePath=VALUE
+                                      OPC UA Client Security Config - application's
+                                      own certificate store path
+                                      Alternative: --ap, --appcertstorepath
+                                      Mode: Standalone and Orchestrated
+                                      Type: string
+                                      Default: $"{PkiRootPath}/own"
+
+        ApplicationCertificateStoreType=VALUE
+                                      OPC UA Client Security Config - application's
+                                      own certificate store type
+                                      Alternative: --at, --appcertstoretype
+                                      Mode: Standalone and Orchestrated
+                                      Type: enum string : Directory, X509Store
+                                      Default: Directory
+
+        ApplicationCertificateSubjectName=VALUE
+                                      OPC UA Client Security Config - the subject name
+                                      in the application's own certificate
+                                      Alternative: --sn, --appcertsubjectname
+                                      Mode: Standalone and Orchestrated
+                                      Type: string
+                                      Default: "CN=Microsoft.Azure.IIoT, C=DE, S=Bav, O=Microsoft, DC=localhost"
+
+        TrustedIssuerCertificatesPath=VALUE
+                                      OPC UA Client Security Config - trusted certificate issuer
+                                      store path
+                                      Alternative: --ip, --issuercertstorepath
+                                      Mode: Standalone and Orchestrated
+                                      Type: string
+                                      Default: $"{PkiRootPath}/issuers"
+
+        TrustedIssuerCertificatesType=VALUE
+                                      OPC UA Client Security Config - trusted issuer certificates
+                                      store type
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: enum string : Directory, X509Store
+                                      Default: Directory
+
+        TrustedPeerCertificatesPath=VALUE
+                                      OPC UA Client Security Config - trusted peer certificates
+                                      store path
+                                      Alternative: --tp, --trustedcertstorepath
+                                      Mode: Standalone and Orchestrated
+                                      Type: string
+                                      Default: $"{PkiRootPath}/trusted"
+
+        TrustedPeerCertificatesType=VALUE
+                                      OPC UA Client Security Config - trusted peer certificates
+                                      store type
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: enum string : Directory, X509Store
+                                      Default: Directory
+
+        RejectedCertificateStorePath=VALUE
+                                      OPC UA Client Security Config - rejected certificates
+                                      store path
+                                      Alternative: --rp, --rejectedcertstorepath
+                                      Mode: Standalone and Orchestrated
+                                      Type: string
+                                      Default: $"{PkiRootPath}/rejected"
+
+        RejectedCertificateStoreType=VALUE
+                                      OPC UA Client Security Config - rejected certificates
+                                      store type
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: enum string : Directory, X509Store
+                                      Default: Directory
+
+        AutoAcceptUntrustedCertificates=VALUE
+                                      OPC UA Client Security Config - auto accept untrusted
+                                      peer certificates
+                                      Alternative: --aa, --autoaccept
+                                      Mode: Standalone and Orchestrated
+                                      Type: boolean
+                                      Default: false
+
+        RejectSha1SignedCertificates=VALUE
+                                      OPC UA Client Security Config - reject deprecated Sha1
+                                      signed certificates
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: boolean
+                                      Default: false
+
+        MinimumCertificateKeySize=VALUE
+                                      OPC UA Client Security Config - minimum accepted
+                                      certificates key size
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 1024
+
+        AddAppCertToTrustedStore=VALUE
+                                      OPC UA Client Security Config - automatically copy own
+                                      certificate's public key to the trusted certificate store
+                                      Alternative: --tm, --trustmyself
+                                      Mode: Standalone and Orchestrated
+                                      Type: boolean
+                                      Default: true
+
+        SecurityTokenLifetime=VALUE
+                                      OPC UA Stack Transport Secure Channel - Security token lifetime in milliseconds
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer (milliseconds)
+                                      Default: 3,600,000 (1h)
+
+        ChannelLifetime=VALUE
+                                      OPC UA Stack Transport Secure Channel - Channel lifetime in milliseconds
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer (milliseconds)
+                                      Default: 300,000 (5 min)
+
+        MaxBufferSize=VALUE
+                                      OPC UA Stack Transport Secure Channel - Max buffer size
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 65,535 (64KB -1)
+
+        MaxMessageSize=VALUE
+                                      OPC UA Stack Transport Secure Channel - Max message size
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 4,194,304 (4 MB)
+
+        MaxArrayLength=VALUE
+                                      OPC UA Stack Transport Secure Channel - Max array length
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 65,535 (64KB - 1)
+
+        MaxByteStringLength=VALUE
+                                      OPC UA Stack Transport Secure Channel - Max byte string length
+                                      Alternative: N/A
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 1,048,576 (1MB);
+
+        OperationTimeout=VALUE
+                                      OPC UA Stack Transport Secure Channel - OPC UA Service call
+                                      operation timeout
+                                      Alternative: --ot, --operationtimeout
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer (milliseconds)
+                                      Default: 120,000 (2 min)
+
+        MaxStringLength=VALUE
+                                      OPC UA Stack Transport Secure Channel - Maximum length of a string
+                                      that can be send/received over the OPC UA Secure channel
+                                      Alternative: --ol, --opcmaxstringlen
+                                      Mode: Standalone and Orchestrated
+                                      Type: integer
+                                      Default: 130,816 (128KB - 256)
+
+        RuntimeStateReporting=VALUE
+                                      Enables reporting of OPC Publisher restarts.
+                                      Alternative: --rs, --runtimestatereporting
+                                      Mode: Standalone
+                                      Type: boolean
+                                      Default: false
+
+        EnableRoutingInfo=VALUE
+                                      Adds the routing info to telemetry messages. The name of the property is 
+                                      `$$RoutingInfo` and the value is the `DataSetWriterGroup` for that particular message.
+                                      When the `DataSetWriterGroup` is not configured, the `$$RoutingInfo` property will
+                                      not be added to the message even if this argument is set. 
+                                      Alternative: --ri, --enableroutinginfo
+                                      Mode: Standalone
+                                      Type: boolean
+                                      Default: false
+```
+
 ## Next steps
 Further resources can be found in the GitHub repositories:
 

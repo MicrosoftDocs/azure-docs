@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 02/01/2022
+ms.date: 05/16/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -130,7 +130,11 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 **Possible causes** | Azure Backup triggers an auto-heal Full backup to resolve **UserErrorHANALSNValidationFailure**. While this auto-heal backup is in progress, all the log backups triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**.<br>Once the auto-heal Full backup is complete, logs and all other backups start working as expected.</br>
 **Recommended action** | Wait for the auto-heal Full backup to complete before you trigger a new Full/delta backup.
 
-### UserErrorHanaPreScriptNotRun
+### Environment pre-registration script run error
+
+#### UserErrorHanaPreScriptNotRun
+
+#### UserErrorPreregistrationScriptNotRun
 
 **Error message** | `Pre-registration script not run.`
 --------- | --------
@@ -172,6 +176,27 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 --------- | -------
 **Possible causes** | System databases restore failed as the **&lt;sid&gt;adm** user environment couldn't find the **HDBsettings.sh** file to trigger restore.
 **Recommended action** | Work with the SAP HANA team to fix this issue.<br><br>If HXE is the SID, ensure that environment variable HOME is set to _/usr/sap/HXE/home_ as **sid-adm** user.
+
+### UserErrorInsufficientSpaceOnSystemDriveForExtensionMetadata
+
+**Error message**      |   `Insufficient space on HANA machine to perform Configure Backup, Backup or Restore activities.`
+-------------------    |   --------------------------
+**Possible causes**    |   The disk space on your HANA machine is almost full or full causing the Configure Backup, Backup, or Restore activitie(s) to fail.
+**Recommended action** |   Check the disk space on your HANA machine to ensure that there is enough space for the Configure Backup, Backup, or Restore activitie(s) to complete successfully.
+
+### CloudDosAbsoluteLimitReached
+
+**Error message** | `Operation is blocked as you have reached the limit on number of operations permitted in 24 hours.` |
+------ | -----------
+**Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. <br><br> For example: If you've hit the limit for the number of configure backup jobs that can be triggered per day, and you try to configure backup on a new item, you'll see this error.
+**Recommended action** | Typically, retrying the operation after 24 hours resolves this issue. However, if the issue persists, you can contact Microsoft support for help.
+
+### CloudDosAbsoluteLimitReachedWithRetry
+
+**Error message** | `Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours.`
+------ | -----------
+**Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br><br> For example, if you've a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.
+**Recommended action** | Azure Backup service will automatically retry this operation after 24 hours.
 
 ## Restore checks
 
@@ -265,13 +290,13 @@ Upgrades from SDC to MDC that cause a SID change can be handled as follows:
 
 - Ensure that the new MDC version is currently [supported by Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
 - **Stop protection with retain data** for the old SDC database
-- Move the _config.json_ file located at _/opt/msawb/etc/config/SAPHana/_.
-- Perform the upgrade. After completion, the HANA system is now MDC with a system DB and tenant DBs
+- Move the *config.json* file located at `/opt/msawb/etc/config/SAPHana/`.
+- Perform the upgrade. After completion, the HANA system is now MDC with a system DB and tenant DBs.
 - Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana) with correct details (new SID and MDC). Due to a change in SID, you might face issues with successful execution of the script. Contact Azure Backup support if you face issues.
-- Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register)
-- Select **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC
-- The older SDC database continues to exist in the vault and have old backed up data retained according to the policy
-- Configure backup for these databases
+- Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register).
+- Select **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC.
+- The older SDC database continues to exist in the vault and have old backed up data retained according to the policy.
+- Configure backup for these databases.
 
 ## Re-registration failures
 

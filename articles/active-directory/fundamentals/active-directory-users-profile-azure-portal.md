@@ -2,15 +2,15 @@
 title: Add or update user profile information - Azure AD
 description: Instructions about how to add information to a user's profile in Azure Active Directory, including a picture and job details.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
 ms.date: 06/10/2021
-ms.author: ajburnle
+ms.author: barclayn
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
@@ -54,6 +54,8 @@ As you'll see, there's more information available in a user's profile than what 
 
     >[!Note]
     >You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
+    >
+    > If you're having issues updating a user's Profile picture, please ensure that your Office 365 Exchange Online Enterprise App is Enabled for users to sign-in.
 
 ## Next steps
 After you've updated your users' profiles, you can perform the following basic processes:

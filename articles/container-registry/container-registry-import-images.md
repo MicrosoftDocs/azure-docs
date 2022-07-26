@@ -64,6 +64,9 @@ To import an image to an Azure container registry, your identity must have write
 
 ## Import from a public registry
 
+> [!IMPORTANT]
+> To import from a public registry to a network-restricted Azure container registry requires the restricted registry to [**allow access by trusted services**](allow-access-trusted-services.md) to bypass the network.By default, the setting is enabled, allowing import. If the setting isn't enabled in a newly created registry with a private endpoint or with registry firewall rules, import will fail.
+
 ### Import from Docker Hub
 
 ### [Azure CLI](#tab/azure-cli)
@@ -77,12 +80,21 @@ az acr import \
   --image hello-world:latest
 ```
 
-You can verify that multiple manifests are associated with this image by running the `az acr repository show-manifests` command:
+You can verify that multiple manifests are associated with this image by running the [az acr manifest list-metadata](/cli/azure/acr/manifest#az-acr-manifest-list-metadata) command:
 
 ```azurecli
-az acr repository show-manifests \
-  --name myregistry \
-  --repository hello-world
+az acr manifest list-metadata \
+  --name hello-world \
+  --registry myregistry
+```
+
+To import an artifact by digest without adding a tag:
+
+```azurecli
+az acr import \
+   --name myregistry \
+   --source docker.io/library/hello-world@sha256:abc123 \
+   --repository hello-world
 ```
 
 If you have a [Docker Hub account](https://www.docker.com/pricing), we recommend that you use the credentials when importing an image from Docker Hub. Pass the Docker Hub user name and the password or a [personal access token](https://docs.docker.com/docker-hub/access-tokens/) as parameters to `az acr import`. The following example imports a public image from the `tensorflow` repository in Docker Hub, using Docker Hub credentials:

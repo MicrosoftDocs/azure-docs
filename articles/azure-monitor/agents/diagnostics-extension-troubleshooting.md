@@ -2,9 +2,8 @@
 title: Troubleshooting Azure Diagnostics extension
 description: Troubleshoot problems when using Azure diagnostics in Azure Virtual Machines, Service Fabric, or Cloud Services.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 05/08/2019
+ms.date: 03/31/2022
+ms.reviewer: JeffWo
 
 ---
 

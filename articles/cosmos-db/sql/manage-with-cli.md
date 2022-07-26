@@ -1,15 +1,17 @@
 ---
 title: Manage Azure Cosmos DB Core (SQL) API resources using Azure CLI
 description: Manage Azure Cosmos DB Core (SQL) API resources using Azure CLI. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/13/2021
-ms.author: mjbrown
+ms.date: 02/18/2022
+ms.author: sidandrews
+ms.reviewer: mjbrown
 
 ---
 # Manage Azure Cosmos Core (SQL) API resources using Azure CLI
+
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The following guide describes common commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
@@ -27,20 +29,20 @@ For Azure CLI samples for other APIs see [CLI Samples for Cassandra](../cassandr
 
 The following sections demonstrate how to manage the Azure Cosmos account, including:
 
-* [Create an Azure Cosmos account](#create-an-azure-cosmos-db-account)
-* [Add or remove regions](#add-or-remove-regions)
-* [Enable multi-region writes](#enable-multiple-write-regions)
-* [Set regional failover priority](#set-failover-priority)
-* [Enable automatic failover](#enable-automatic-failover)
-* [Trigger manual failover](#trigger-manual-failover)
-* [List account keys](#list-account-keys)
-* [List read-only account keys](#list-read-only-account-keys)
-* [List connection strings](#list-connection-strings)
-* [Regenerate account key](#regenerate-account-key)
+- [Create an Azure Cosmos account](#create-an-azure-cosmos-db-account)
+- [Add or remove regions](#add-or-remove-regions)
+- [Enable multi-region writes](#enable-multiple-write-regions)
+- [Set regional failover priority](#set-failover-priority)
+- [Enable service-managed failover](#enable-service-managed-failover)
+- [Trigger manual failover](#trigger-manual-failover)
+- [List account keys](#list-account-keys)
+- [List read-only account keys](#list-read-only-account-keys)
+- [List connection strings](#list-connection-strings)
+- [Regenerate account key](#regenerate-account-key)
 
 ### Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with SQL API, Session consistency in West US 2 and East US 2 regions:
+Create an Azure Cosmos DB account with SQL API, Session consistency in West US and East US regions:
 
 > [!IMPORTANT]
 > The Azure Cosmos account name must be lowercase and less than 44 characters.
@@ -53,8 +55,8 @@ az cosmosdb create \
     -n $accountName \
     -g $resourceGroupName \
     --default-consistency-level Session \
-    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
-    --locations regionName='East US 2' failoverPriority=1 isZoneRedundant=False
+    --locations regionName='West US' failoverPriority=0 isZoneRedundant=False \
+    --locations regionName='East US' failoverPriority=1 isZoneRedundant=False
 ```
 
 ### Add or remove regions
@@ -66,7 +68,7 @@ Create an Azure Cosmos account with two regions, add a region, and remove a regi
 > [!NOTE]
 > This command allows you to add and remove regions but does not allow you to modify failover priorities or trigger a manual failover. See [Set failover priority](#set-failover-priority) and [Trigger manual failover](#trigger-manual-failover).
 > [!TIP]
-> When a new region is added, all data must be fully replicated and committed into the new region before the region is marked as available. The amount of time this operation takes will depend upon how much data is stored within the account. If an [asynchronous throughput scaling operation](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused and will resume automatically when the add/remove region operation is complete. 
+> When a new region is added, all data must be fully replicated and committed into the new region before the region is marked as available. The amount of time this operation takes will depend upon how much data is stored within the account. If an [asynchronous throughput scaling operation](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused and will resume automatically when the add/remove region operation is complete.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -74,19 +76,19 @@ accountName='mycosmosaccount'
 
 # Create an account with 2 regions
 az cosmosdb create --name $accountName --resource-group $resourceGroupName \
-    --locations regionName="West US 2" failoverPriority=0 isZoneRedundant=False \
-    --locations regionName="East US 2" failoverPriority=1 isZoneRedundant=False
+    --locations regionName="West US" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName="East US" failoverPriority=1 isZoneRedundant=False
 
 # Add a region
 az cosmosdb update --name $accountName --resource-group $resourceGroupName \
-    --locations regionName="West US 2" failoverPriority=0 isZoneRedundant=False \
-    --locations regionName="East US 2" failoverPriority=1 isZoneRedundant=False \
+    --locations regionName="West US" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName="East US" failoverPriority=1 isZoneRedundant=False \
     --locations regionName="South Central US" failoverPriority=2 isZoneRedundant=False
 
 # Remove a region
 az cosmosdb update --name $accountName --resource-group $resourceGroupName \
-    --locations regionName="West US 2" failoverPriority=0 isZoneRedundant=False \
-    --locations regionName="East US 2" failoverPriority=1 isZoneRedundant=False
+    --locations regionName="West US" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName="East US" failoverPriority=1 isZoneRedundant=False
 ```
 
 ### Enable multiple write regions
@@ -106,25 +108,25 @@ az cosmosdb update --ids $accountId --enable-multiple-write-locations true
 
 ### Set failover priority
 
-Set the failover priority for an Azure Cosmos account configured for automatic failover
+Set the failover priority for an Azure Cosmos account configured for service-managed failover
 
 ```azurecli-interactive
-# Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
+# Assume region order is initially 'West US'=0 'East US'=1 'South Central US'=2 for account
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
 # Get the account resource id for an existing account
 accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
 
-# Make South Central US the next region to fail over to instead of East US 2
+# Make South Central US the next region to fail over to instead of East US
 az cosmosdb failover-priority-change --ids $accountId \
-    --failover-policies 'West US 2=0' 'South Central US=1' 'East US 2=2'
+    --failover-policies 'West US=0' 'South Central US=1' 'East US=2'
 ```
 
-### Enable automatic failover
+### Enable service-managed failover
 
 ```azurecli-interactive
-# Enable automatic failover on an existing account
+# Enable service-managed failover on an existing account
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -143,7 +145,7 @@ az cosmosdb update --ids $accountId --enable-automatic-failover true
 > If you perform a manual failover operation while an [asynchronous throughput scaling operation](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover operation is complete.
 
 ```azurecli-interactive
-# Assume region order is initially 'West US 2=0' 'East US 2=1' 'South Central US=2' for account
+# Assume region order is initially 'West US=0' 'East US=1' 'South Central US=2' for account
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -152,7 +154,7 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 
 # Trigger a manual failover to promote East US 2 as new write region
 az cosmosdb failover-priority-change --ids $accountId \
-    --failover-policies 'East US 2=0' 'South Central US=1' 'West US 2=2'
+    --failover-policies 'East US=0' 'South Central US=1' 'West US=2'
 ```
 
 ### <a id="list-account-keys"></a> List all account keys
@@ -216,11 +218,11 @@ az cosmosdb keys regenerate \
 
 The following sections demonstrate how to manage the Azure Cosmos DB database, including:
 
-* [Create a database](#create-a-database)
-* [Create a database with shared throughput](#create-a-database-with-shared-throughput)
-* [Migrate a database to autoscale throughput](#migrate-a-database-to-autoscale-throughput)
-* [Change database throughput](#change-database-throughput)
-* [Prevent a database from being deleted](#prevent-a-database-from-being-deleted)
+- [Create a database](#create-a-database)
+- [Create a database with shared throughput](#create-a-database-with-shared-throughput)
+- [Migrate a database to autoscale throughput](#migrate-a-database-to-autoscale-throughput)
+- [Change database throughput](#change-database-throughput)
+- [Prevent a database from being deleted](#prevent-a-database-from-being-deleted)
 
 ### Create a database
 
@@ -305,7 +307,7 @@ az cosmosdb sql database throughput update \
 
 ### Prevent a database from being deleted
 
-Put an Azure resource delete lock on a database to prevent it from being deleted. This feature requires locking the Cosmos account from being changed by data plane SDKs. To learn more see, [Preventing changes from SDKs](../role-based-access-control.md#prevent-sdk-changes). Azure resource locks can also prevent a resource from being changed by specifying a `ReadOnly` lock type. For a Cosmos database, it can be used to prevent throughput from being changed.
+Put an Azure resource delete lock on a database to prevent it from being deleted. This feature requires locking the Cosmos account from being changed by data plane SDKs. To learn more, see [preventing changes from SDKs](../role-based-access-control.md#prevent-sdk-changes). Azure resource locks can also prevent a resource from being changed by specifying a `ReadOnly` lock type. For a Cosmos database, it can be used to prevent throughput from being changed.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -338,13 +340,13 @@ az lock delete --ids $lockid
 
 The following sections demonstrate how to manage the Azure Cosmos DB container, including:
 
-* [Create a container](#create-a-container)
-* [Create a container with autoscale](#create-a-container-with-autoscale)
-* [Create a container with TTL enabled](#create-a-container-with-ttl)
-* [Create a container with custom index policy](#create-a-container-with-a-custom-index-policy)
-* [Change container throughput](#change-container-throughput)
-* [Migrate a container to autoscale throughput](#migrate-a-container-to-autoscale-throughput)
-* [Prevent a container from being deleted](#prevent-a-container-from-being-deleted)
+- [Create a container](#create-a-container)
+- [Create a container with autoscale](#create-a-container-with-autoscale)
+- [Create a container with TTL enabled](#create-a-container-with-ttl)
+- [Create a container with custom index policy](#create-a-container-with-a-custom-index-policy)
+- [Change container throughput](#change-container-throughput)
+- [Migrate a container to autoscale throughput](#migrate-a-container-to-autoscale-throughput)
+- [Prevent a container from being deleted](#prevent-a-container-from-being-deleted)
 
 ### Create a container
 
@@ -511,7 +513,7 @@ az cosmosdb sql container throughput show \
 
 ### Prevent a container from being deleted
 
-Put an Azure resource delete lock on a container to prevent it from being deleted. This feature requires locking the Cosmos account from being changed by data plane SDKs. To learn more see, [Preventing changes from SDKs](../role-based-access-control.md#prevent-sdk-changes). Azure resource locks can also prevent a resource from being changed by specifying a `ReadOnly` lock type. For a Cosmos container, this can be used to prevent throughput or any other property from being changed.
+Put an Azure resource delete lock on a container to prevent it from being deleted. This feature requires locking the Cosmos account from being changed by data plane SDKs. To learn more, see [preventing changes from SDKs](../role-based-access-control.md#prevent-sdk-changes). Azure resource locks can also prevent a resource from being changed by specifying a `ReadOnly` lock type. For a Cosmos container, locks can be used to prevent throughput or any other property from being changed.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -546,6 +548,6 @@ az lock delete --ids $lockid
 
 For more information on the Azure CLI, see:
 
-* [Install Azure CLI](/cli/azure/install-azure-cli)
-* [Azure CLI Reference](/cli/azure/cosmosdb)
-* [Additional Azure CLI samples for Azure Cosmos DB](cli-samples.md)
+- [Install Azure CLI](/cli/azure/install-azure-cli)
+- [Azure CLI Reference](/cli/azure/cosmosdb)
+- [More Azure CLI samples for Azure Cosmos DB](cli-samples.md)

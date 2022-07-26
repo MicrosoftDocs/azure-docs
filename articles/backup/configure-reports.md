@@ -2,7 +2,10 @@
 title: Configure Azure Backup reports
 description: Configure and view reports for Azure Backup by using Log Analytics and Azure workbooks
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/14/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Configure Azure Backup reports
 
@@ -37,7 +40,7 @@ Set up one or more Log Analytics workspaces to store your Backup reporting data.
 
 To set up a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
-By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Manage usage and costs with Azure Monitor logs](../azure-monitor/logs/manage-cost-storage.md).
+By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
 
 ### 2. Configure diagnostics settings for your vaults
 
@@ -146,7 +149,7 @@ In the case of items backed up weekly, this grid helps you identify all items th
 
 ![Policy Adherence By Time Period](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
 
-* **Policy Adherence by Backup Instance**: Using this view, you can policy adherence details at a backup instance level. A cell which is green denotes that the backup instance had at least one successful backup on the given day. A cell which is red denotes that the backup instance did not have even one successful backup on the given day. Daily, weekly and monthly aggregations follow the same behavior as the Policy Adherence by Time Period view. You can click on any row to view all backup jobs on the given backup instance in the selected time range.
+* **Policy Adherence by Backup Instance**: Using this view, you can view policy adherence details at a backup instance level. A cell which is green denotes that the backup instance had at least one successful backup on the given day. A cell which is red denotes that the backup instance did not have even one successful backup on the given day. Daily, weekly and monthly aggregations follow the same behavior as the Policy Adherence by Time Period view. You can click on any row to view all backup jobs on the given backup instance in the selected time range.
 
 ![Policy Adherence By Backup Instance](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
@@ -160,7 +163,7 @@ Once the logic app is created, you'll need to authorize connections to Azure Mon
 
 Backup Reports uses [system functions on Azure Monitor logs](backup-reports-system-functions.md). These functions operate on data in the raw Azure Backup tables in LA and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries. 
 
-To create your own reporting workbooks using Backup Reports as a base, you can navigate to Backup Reports, click on **Edit** at the top of the report, and view/edit the queries being used in the reports. Refer to [Azure workbooks documentation](../azure-monitor/visualize/workbooks-overview.md) to learn more about how to create custom reports. 
+To create your own reporting workbooks using Backup Reports as a base, you can go to **Backup Reports**, click **Edit** at the top of the report, and view/edit the queries being used in the reports. Refer to [Azure workbooks documentation](../azure-monitor/visualize/workbooks-overview.md) to learn more about how to create custom reports. 
 
 ## Export to Excel
 
@@ -185,6 +188,24 @@ If you use [Azure Lighthouse](../lighthouse/index.yml) with delegated access to 
 - The Backup items displayed in the reports are those items that exist at the *end* of the selected time range. Backup items that were deleted in the middle of the selected time range aren't displayed. The same convention applies for Backup policies as well.
 - If the selected time range spans a period of 30 days of less, charts are rendered in daily view, where there is one data point for every day. If the time range spans a period greater than 30 days and less than (or equal to) 90 days, charts are rendered in weekly view. For larger time ranges, charts are rendered in monthly view. Aggregating data weekly or monthly helps in better performance of queries and easier readability of data in charts.
 - The Policy Adherence grids also follow a similar aggregation logic as described above. However, there are a couple of minor differences. The first difference is that for items with weekly backup policy, there is no daily view (only weekly and monthly views are available). Further, in the grids for items with weekly backup policy, a 'month' is considered as a 4-week period (28 days), and not 30 days, to eliminate partial weeks from consideration.
+
+## How to troubleshoot?
+
+If you observe data discrepancy issues in Backup Reports, perform these preliminary checks:
+
+1. Ensure that all vaults are sending the required [diagnostics logs to the Log Analytics workspace](#2-configure-diagnostics-settings-for-your-vaults).
+1. Ensure that you've selected right filters in Backup Reports.
+1. Review the following limits in Backup Reports:
+
+   - After you configure diagnostics, it might take up to 24 hours for the initial data push to complete. After data starts flowing into the Log Analytics workspace, you might not see data in the reports immediately because data for the current partial day isn't shown in the reports. We recommend you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
+   - SQL log backup jobs are currently not displayed in Backup Reports.
+   - As mentioned above, the reports don't show data for the current partial day, and take only full days (UTC) into consideration.
+
+     For example, in the report, even if you select a time range of 23/3 4:30 PM – 24/3 10:00 AM, internally the query runs for the period 23/3 12:00 AM UTC – 24/3 11:59 PM UTC. This meaning that the time component of the datetime is overridden by the query.
+
+     Similarly, if today's date is March 29, data is only shown upto the end (11:59 pm UTC) of March 28. For jobs that were created on March 29, you can see them when you check the reports on the next day, that is, March 30.
+
+If none of the above explains the data seen in the report, please contact Microsoft Support.
 
 ## Query load times
 

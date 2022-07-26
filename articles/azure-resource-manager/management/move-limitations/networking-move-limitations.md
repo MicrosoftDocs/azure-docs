@@ -2,14 +2,16 @@
 title: Move Azure Networking resources to new subscription or resource group
 description: Use Azure Resource Manager to move virtual networks and other networking resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 03/31/2022
 ---
 
-# Move guidance for networking resources
+# Move networking resources to new resource group or subscription
 
-This article describes how to move virtual networks and other networking resources for specific scenarios.
+This article describes how to move virtual networks and other networking resources to a new resource group or Azure subscription.
 
 During the move, your networking resources will operate without interruption.
+
+If you want to move networking resources to a new region, see [Tutorial: Move Azure VMs across regions](../../../resource-mover/tutorial-move-region-virtual-machines.md).
 
 ## Dependent resources
 

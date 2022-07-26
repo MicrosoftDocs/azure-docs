@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with BlokSec for Passwordless authentication
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
@@ -64,7 +65,7 @@ To get started, you'll need:
 
 - A BlokSec [trial account](https://bloksec.com/).
 
-- If you haven't already done so, [register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).
+- If you haven't already done so, [register](./tutorial-register-applications.md) a web application.
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -79,7 +80,7 @@ To get started, you'll need:
 
 - A BlokSec [trial account](https://bloksec.com/).
 
-- If you haven't already done so, [register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).
+- If you haven't already done so, [register](./tutorial-register-applications.md) a web application.
 
 - Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 ::: zone-end

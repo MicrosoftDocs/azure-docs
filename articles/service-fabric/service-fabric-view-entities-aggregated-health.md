@@ -1,10 +1,14 @@
 ---
 title: How to view Azure Service Fabric entities' aggregated health 
 description: Describes how to query, view, and evaluate Azure Service Fabric entities' aggregated health, through health queries and general queries.
-ms.topic: conceptual
-ms.date: 2/28/2018
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # View Service Fabric health reports
 Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) with health entities on which system components and watchdogs can report local conditions that they are monitoring. The [health store](service-fabric-health-introduction.md#health-store) aggregates all health data to determine whether entities are healthy.
 
@@ -1149,7 +1153,7 @@ Read more about the [Service Fabric application upgrade](service-fabric-applicat
 ## Use health evaluations to troubleshoot
 Whenever there is an issue with the cluster or an application, look at the cluster or application health to pinpoint what is wrong. The unhealthy evaluations provide details about what triggered the current unhealthy state. If you need to, you can drill down into unhealthy child entities to identify the root cause.
 
-For example, consider an application unhealthy because there is an error report on one of its replicas. The following Powershell cmdlet shows the unhealthy evaluations:
+For example, consider an application unhealthy because there is an error report on one of its replicas. The following PowerShell cmdlet shows the unhealthy evaluations:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount -EventsFilter None -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics

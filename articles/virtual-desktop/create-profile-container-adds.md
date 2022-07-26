@@ -3,9 +3,10 @@ title: Create FSLogix profile container Azure Files Active Directory Domain Serv
 description: This article describes how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/08/2021
+ms.date: 07/25/2022
 ms.author: helohr
 manager: femila
+ms.custom: subject-rbac-steps
 ---
 
 # Create a profile container with Azure Files and Azure AD DS
@@ -56,17 +57,19 @@ To assign users access permissions:
 
 1. From the Azure portal, open the file share you created in [Set up an Azure Storage account](#set-up-an-azure-storage-account).
 
-2. Select **Access Control (IAM)**.
+1. Select **Access control (IAM)**.
 
-3. Select **Add a role assignment**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-4. In the **Add role assignment** tab, select the appropriate built-in role from the role list. You'll need to at least select **Storage File Data SMB Share Contributor** for the account to get proper permissions.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-5. For **Assign access to**, select **Azure Active Directory user, group, or service principal**.
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage File Data SMB Share Contributor |
+    | Assign access to | User, group, or service principal |
+    | Members | \<Name or email address for the target Azure Active Directory identity> |
 
-6. Select a name or email address for the target Azure Active Directory identity.
-
-7. Select **Save**.
+    ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Get the Storage Account access key
 
@@ -92,7 +95,7 @@ To get the Storage Account access key:
 7. Run the following command:
 
      ```cmd
-     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
+     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
      ```
 
     - Replace `<desired-drive-letter>` with a drive letter of your choice (for example, `y:`).

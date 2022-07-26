@@ -9,9 +9,12 @@ ms.topic: how-to
 author: ssalgadodev
 ms.author: ssalgado
 ms.date: 10/21/2021
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Interactive debugging with Visual Studio Code
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Learn how to interactively debug Azure Machine Learning experiments, pipelines, and deployments using Visual Studio Code (VS Code) and [debugpy](https://github.com/microsoft/debugpy/).
 
@@ -135,7 +138,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
     parser.add_argument('--remote_debug', action='store_true')
     parser.add_argument('--remote_debug_connection_timeout', type=int,
                         default=300,
-                        help=f'Defines how much time the AML compute target '
+                        help=f'Defines how much time the AzureML compute target '
                         f'will await a connection from a debugger client (VSCODE).')
     parser.add_argument('--remote_debug_client_ip', type=str,
                         help=f'Defines IP Address of VS Code client')
@@ -192,7 +195,7 @@ parser.add_argument("--output_train", type=str, help="output_train directory")
 parser.add_argument('--remote_debug', action='store_true')
 parser.add_argument('--remote_debug_connection_timeout', type=int,
                     default=300,
-                    help=f'Defines how much time the AML compute target '
+                    help=f'Defines how much time the AzureML compute target '
                     f'will await a connection from a debugger client (VSCODE).')
 parser.add_argument('--remote_debug_client_ip', type=str,
                     help=f'Defines IP Address of VS Code client')
@@ -210,11 +213,11 @@ args = parser.parse_args()
 if args.remote_debug:
     print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
     # Log the IP and port
-    # ip = socket.gethostbyname(socket.gethostname())
-    try:
-        ip = args.remote_debug_client_ip
-    except:
-        print("Need to supply IP address for VS Code client")
+    ip = socket.gethostbyname(socket.gethostname())
+    # try:
+    #     ip = args.remote_debug_client_ip
+    # except:
+    #     print("Need to supply IP address for VS Code client")
     print(f'ip_address: {ip}')
     debugpy.listen(address=(ip, args.remote_debug_port))
     # Wait for the timeout for debugger to attach
@@ -547,4 +550,3 @@ Learn more about troubleshooting:
 * [Remote model deployment](how-to-troubleshoot-deployment.md)
 * [Machine learning pipelines](how-to-debug-pipelines.md)
 * [ParallelRunStep](how-to-debug-parallel-run-step.md)
-

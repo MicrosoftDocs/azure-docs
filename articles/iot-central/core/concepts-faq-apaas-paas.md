@@ -1,9 +1,9 @@
 ---
 title: Move from IoT Central to a PaaS solution | Microsoft Docs
 description: How do I move between aPaaS and PaaS solution approaches?
-author: julieseto
-ms.author: jseto
-ms.date: 01/25/2022
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/09/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -23,6 +23,9 @@ Download the [migrator tool from GitHub](https://github.com/Azure/iotc-migrator)
 ## Minimize disruption
 
 To minimize disruption, you can migrate your devices in phases. The migrator tool uses device groups to move devices from IoT Central to your IoT hub. Divide your device fleet into device groups such as devices in Texas, devices in New York, and devices in the rest of the US. Then migrate each device group independently.
+
+> [!WARNING]
+> You can't add unassigned devices to a device group. Therefore you can't currently use the migrator tool to migrate unassigned devices.
 
 Minimize business impact by following these steps:
 

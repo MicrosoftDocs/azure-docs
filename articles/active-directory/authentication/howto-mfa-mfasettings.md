@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 06/20/2022
 
 ms.author: justinha
 author: justinha
@@ -24,13 +24,13 @@ The following Azure AD Multi-Factor Authentication settings are available in the
 
 | Feature | Description |
 | ------- | ----------- |
-| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who enter a PIN to authenticate. (MFA Server) |
+| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who enter a PIN to authenticate. (MFA Server only) |
 | [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure AD Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they're blocked or until they're manually unblocked. |
 | [Fraud alert](#fraud-alert) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
 | [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Azure AD Multi-Factor Authentication environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
-| Providers | This will show any existing authentication providers that you have associated with your account. Adding new providers is disabled as of September 1, 2018. |
+| Providers | This will show any existing authentication providers that you've associated with your account. Adding new providers is disabled as of September 1, 2018. |
 
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -243,8 +243,8 @@ If your organization uses the NPS extension to provide MFA to on-premises applic
 
 | Azure AD tenant type | Trusted IP feature options |
 |:--- |:--- |
-| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. A maximum of 50 trusted IP ranges can be configured.|
-| Federated |**All Federated Users**: All federated users who sign in from inside the organization can bypass multi-factor authentication. Users bypass verification by using a claim that's issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. |
+| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentications for users who sign in from the company intranet. A maximum of 50 trusted IP ranges can be configured.|
+| Federated |**All Federated Users**: All federated users who sign in from inside the organization can bypass multi-factor authentications. Users bypass verifications by using a claim that's issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. |
 
 Trusted IP bypass works only from inside the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using multi-factor authentication. The process is the same even if the user presents an AD FS claim.
 
@@ -256,7 +256,7 @@ When trusted IPs are used, multi-factor authentication isn't required for browse
 
 #### User experience outside the corporate network
 
-Regardless of whether trusted IP are defined, multi-factor authentication is required for browser flows. App passwords are required for older rich-client applications.
+Regardless of whether trusted IPs are defined, multi-factor authentication is required for browser flows. App passwords are required for older rich-client applications.
 
 #### Enable named locations by using Conditional Access
 
@@ -277,14 +277,14 @@ To enable trusted IPs by using Conditional Access policies, complete the followi
 1. Select **Configure MFA trusted IPs**.
 1. On the **Service Settings** page, under **Trusted IPs**, choose one of these options:
 
-   * **For requests from federated users originating from my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
+   * **For requests from federated users originating from my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multi-factor authentications by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
 
-      `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
+      `c:[Type== "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **For requests from a specific range of public IPs**: To choose this option, enter the IP addresses in the text box, in CIDR notation.
       * For IP addresses that are in the range *xxx.xxx.xxx*.1 through *xxx.xxx.xxx*.254, use notation like ***xxx.xxx.xxx*.0/24**.
       * For a single IP address, use notation like ***xxx.xxx.xxx.xxx*/32**.
-      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentication.
+      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentications.
 
 1. Select **Save**.
 
@@ -299,12 +299,12 @@ If you don't want to use Conditional Access policies to enable trusted IPs, you 
 
    * **For requests from federated users on my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
 
-      `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
+      `c:[Type== "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);` 
 
    * **For requests from a specified range of IP address subnets**: To choose this option, enter the IP addresses in the text box, in CIDR notation.
       * For IP addresses that are in the range *xxx.xxx.xxx*.1 through *xxx.xxx.xxx*.254, use notation like ***xxx.xxx.xxx*.0/24**.
       * For a single IP address, use notation like ***xxx.xxx.xxx.xxx*/32**.
-      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentication.
+      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentications.
 
 1. Select **Save**.
 
@@ -366,7 +366,7 @@ To enable and configure the option to allow users to remember their MFA status a
 1. Select **Per-user MFA**.
 1. Under **multi-factor authentication** at the top of the page, select **service settings**.
 1. On the **service settings** page, under **remember multi-factor authentication**, select **Allow users to remember multi-factor authentication on devices they trust**.
-1. Set the number of days to allow trusted devices to bypass multi-factor authentication. For the optimal user experience, extend the duration to 90 or more days.
+1. Set the number of days to allow trusted devices to bypass multi-factor authentications. For the optimal user experience, extend the duration to 90 or more days.
 1. Select **Save**.
 
 #### Mark a device as trusted

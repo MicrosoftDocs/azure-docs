@@ -1,8 +1,8 @@
 ---
-title: Try the protocols in Postman | Azure
+title: Try the protocols in Postman
 description: Standard link to use the Postman files
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: include
 ms.date: 06/25/2021
-ms.author: hirsin
+ms.author: ludwignick
 ms.reviewer: marsma
 ms.custom: aaddev
 ---

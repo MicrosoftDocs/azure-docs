@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/13/2021
+ms.date: 04/18/2022
 ms.author: alkohli
 ---
 # Use the Azure portal to manage Edge storage accounts on your Azure Stack Edge Pro GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to manage Edge storage accounts on your Azure Stack Edge Pro. You can manage the Azure Stack Edge Pro GPU via the Azure portal or via the local web UI. Use the Azure portal to add or delete Edge storage accounts on your device.
+This article describes how to manage Edge storage accounts and local storage accounts on your Azure Stack Edge. You can manage the Azure Stack Edge Pro device via the Azure portal or via the local web UI. Use the Azure portal to add or delete Edge storage accounts on your device. Use Azure PowerShell to add local storage accounts on your device.
 
 ## About Edge storage accounts
 
@@ -32,12 +32,21 @@ In this article, you learn how to:
 > * Add an Edge storage account
 > * Delete an Edge storage account
 
-
 ## Add an Edge storage account
 
 To create an Edge storage account, do the following procedure:
 
 [!INCLUDE [Add an Edge storage account](../../includes/azure-stack-edge-gateway-add-storage-account.md)]
+
+## Create a local storage account
+
+[!INCLUDE [azure-stack-edge-gpu-create-storage-account](../../includes/azure-stack-edge-gpu-create-storage-account.md)]
+
+## Get access keys for a local storage account
+
+Before you get the access keys, you must configure your client to connect to the device via Azure Resource Manager over Azure PowerShell. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
+
+[!INCLUDE [Get access keys](../../includes/azure-stack-edge-gpu-get-access-keys-for-local-storage-account.md)]
 
 ## Delete an Edge storage account
 
@@ -52,7 +61,6 @@ Take the following steps to delete an Edge storage account.
     ![Confirm and delete storage account](media/azure-stack-edge-gpu-manage-storage-accounts/delete-edge-storage-account-2.png)
 
 The list of storage accounts is updated to reflect the deletion.
-
 
 ## Add, delete a container
 

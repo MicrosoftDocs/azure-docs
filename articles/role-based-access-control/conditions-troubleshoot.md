@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 05/16/2022
 ms.author: rolyon
 
 #Customer intent: 
@@ -120,7 +120,7 @@ If your condition includes a dollar sign ($), you must prefix it with a backtick
 Add a backtick (\`) before each dollar sign. The following shows an example. For more information about rules for quotation marks in PowerShell, see [About Quoting Rules](/powershell/module/microsoft.powershell.core/about/about_quoting_rules).
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
 ```
 
 ## Symptom - Resource attribute is not valid error when adding a condition using Azure CLI
@@ -140,7 +140,7 @@ If your condition includes a dollar sign ($), you must prefix it with a backslas
 Add a backslash (\\) before each dollar sign. The following shows an example. For more information about rules for quotation marks in Bash, see [Double Quotes](https://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html).
 
 ```azurecli
-condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
+condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
 ```
 
 ## Symptom - Error when assigning a condition string to a variable in Bash
@@ -187,11 +187,35 @@ Fix any [condition format or syntax](conditions-format.md) issues. Alternatively
 
 **Cause**
 
-If you copy a condition from a document, it might include special characters and cause errors. Some editors (such as Microsoft Word) add control characters when formatting text that does not appear.
+If you use PowerShell and copy a condition from a document, it might include special characters that cause the following error. Some editors (such as Microsoft Word) add control characters when formatting text that does not appear.
+
+`The given role assignment condition is invalid.`
 
 **Solution**
 
 If you copied a condition from a rich text editor and you are certain the condition is correct, delete all spaces and returns and then add back the relevant spaces. Alternatively, use a plain text editor or a code editor, such as Visual Studio Code.
+
+## Symptom - Attribute does not apply error in visual editor for previously saved condition
+
+When you open a previously saved condition in the visual editor, you get the following message:
+
+`Attribute does not apply for the selected actions. Select a different set of actions.`
+
+**Cause**
+
+In May 2022, the Read a blob action was changed from the following format:
+
+`!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})`
+
+To exclude the `Blob.List` suboperation:
+
+`!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})`
+
+If you created a condition with the Read a blob action prior to May 2022, you might see this error message in the visual editor.
+
+**Solution**
+
+Open the **Select an action** pane and reselect the **Read a blob** action.
 
 ## Next steps
 

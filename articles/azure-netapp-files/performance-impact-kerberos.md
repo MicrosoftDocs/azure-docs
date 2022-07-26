@@ -12,12 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 06/25/2021
 ms.author: anfdocs
 ---
 # Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes
 
-Azure NetApp Files supports [NFS client encryption in Kerberos](configure-kerberos-encryption.md) modes (krb5, krb5i, and krb5p) with AES-256 encryption. This article describes the performance impact of Kerberos on NFSv4.1 volumes. 
+Azure NetApp Files supports [NFS client encryption in Kerberos](configure-kerberos-encryption.md) modes (krb5, krb5i, and krb5p) with AES-256 encryption. This article describes the performance impact of Kerberos on NFSv4.1 volumes. **Performance comparisons referenced in this article are made against the `sec=sys` security parameter, testing on a single volume with a single client.**
 
 ## Available security options 
 
@@ -40,9 +40,13 @@ This section describes the single client-side performance impact of the various 
 
 ## Expected performance impact 
 
-There are two areas of focus: light load and upper limit. The following lists describe the performance impact security setting by security setting and scenario by scenario. All comparisons are made against the `sec=sys` security parameter. The test was done on a single volume, using a single client. 
+There are two areas of focus: light load and upper limit. The following lists describe the performance impact security setting by security setting and scenario by scenario.
 
-Performance impact of krb5:
+**Testing Scope**
+* All comparisons are made against the `sec=sys` security parameter.
+* The test was done on a single volume, using a single client. 
+
+**Performance impact of krb5:**
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.3 ms.
@@ -53,7 +57,7 @@ Performance impact of krb5:
     * Maximum random I/O decreased by 30% for pure read workloads with the overall impact dropping to zero as the workload shifts to pure write. 
     * Maximum metadata workload decreased 30%.
 
-Performance impact of krb5i: 
+**Performance impact of krb5i:**
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.5 ms.
@@ -64,7 +68,7 @@ Performance impact of krb5i:
     * Maximum random I/O decreased by 50% for pure read workloads with the overall impact decreasing to 25% as the workload shifts to pure write. 
     * Maximum metadata workload decreased 30%.
 
-Performance impact of krb5p:
+**Performance impact of krb5p:**
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.8 ms.

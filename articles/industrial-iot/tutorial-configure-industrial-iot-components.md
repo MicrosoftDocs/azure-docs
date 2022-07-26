@@ -34,9 +34,9 @@ Internet
     * Secrets: Manage platform settings
     * Access policies: Manage which applications and users may access the data in the Key
 Vault and which operations (for example, read, write, list, delete) they are allowed to perform on the network, firewall, VNET, and private endpoints
-* Azure Active Directory (AAD)→App registrations
+* Microsoft Azure Active Directory (Azure AD)→App registrations
     * <APP_NAME>-web → Authentication: Manage reply URIs, which is the list of URIs that
-can be used as landing pages after authentication succeeds. The deployment script may be unable to configure this automatically under certain scenarios, such as lack of AAD admin rights. You may want to add or modify URIs when changing the hostname of the Web app, for example, the port number used by the localhost for debugging
+can be used as landing pages after authentication succeeds. The deployment script may be unable to configure this automatically under certain scenarios, such as lack of Azure AD admin rights. You may want to add or modify URIs when changing the hostname of the Web app, for example, the port number used by the localhost for debugging
 * App Service
     * Configuration: Manage the environment variables that control the services or UI
 * Virtual machine
@@ -47,35 +47,10 @@ output of deployment script or reset the password
     * Manage the identities of the IoT Edge devices that may access the hub, configure which modules are installed and which configuration they use, for example, encoding parameters for the OPC Publisher
 * IoT Hub → IoT Edge → \<DEVICE> → Set Modules → OpcPublisher (for standalone OPC Publisher operation only)
 
+## Configuration via Command-line Arguments for OPC Publisher 2.8.2 and above
 
-## Configuration options
-
-|Configuration Option (shorthand/full name)    |    Description   |
-|----------------------------------------------|------------------|
-pf/publishfile |The filename to configure the nodes to publish. If this option is specified, it puts OPC Publisher into standalone mode.
-lf/logfile |The filename of the logfile to use.
-ll/loglevel |The log level to use (allowed: fatal, error, warn, info, debug, verbose).
-me/messageencoding |The messaging encoding for outgoing messages allowed values: Json, Uadp
-mm/messagingmode |The messaging mode for outgoing messages allowed values: PubSub, Samples
-fm/fullfeaturedmessage |The full featured mode for messages (all fields filled in). Default is 'true', for legacy compatibility use 'false'
-aa/autoaccept |The publisher trusted all servers it's a connection to
-bs/batchsize |The number of OPC UA data-change messages to be cached for batching.
-si/iothubsendinterval |The trigger batching interval in seconds.
-ms/iothubmessagesize |The maximum size of the (IoT D2C) message.
-om/maxoutgressmessages |The maximum size of the (IoT D2C) message egress buffer.
-di/diagnosticsinterval |Shows publisher diagnostic info at the specified interval in seconds (need log level info). -1 disables remote diagnostic log and diagnostic output
-lt/logflugtimespan |The timespan in seconds when the logfile should be flushed.
-ih/iothubprotocol |Protocol to use for communication with the hub. Allowed values: AmqpOverTcp, AmqpOverWebsocket, MqttOverTcp, MqttOverWebsocket, Amqp, Mqtt, Tcp, Websocket, Any
-hb/heartbeatinterval |The publisher is using this as default value in seconds for the heartbeat interval setting of nodes without a heartbeat interval setting.
-ot/operationtimeout |The operation timeout of the publisher OPC UA client in ms.
-ol/opcmaxstringlen |The max length of a string opc can transmit/receive.
-oi/opcsamplinginterval |Default value in milliseconds to request the servers to sample values
-op/opcpublishinginterval |Default value in milliseconds for the publishing interval setting of the subscriptions against the OPC UA server.
-ct/createsessiontimeout |The interval the publisher is sending keep alive messages in seconds to the OPC servers on the endpoints it's connected to.
-kt/keepalivethresholt |Specify the number of keep alive packets a server can miss, before the session is disconnected.
-tm/trustmyself |The publisher certificate is put into the trusted store automatically.
-at/appcertstoretype |The own application cert store type (allowed: Directory, X509Store).
-
+There are [several Command-line Arguments](reference-command-line-arguments.md#opc-publisher-command-line-arguments-for-version-282-and-above) that can be used to set global settings for OPC Publisher.
+Refer to the `mode` part in the command line description to check if a Command-line Argument is applicable to orchestrated or standalone mode. 
 
 ## Next steps
 Now that you have learned how to change the default values of the configuration, you can 

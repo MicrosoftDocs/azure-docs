@@ -2,12 +2,12 @@
 title: Azure networking services overview
 description: Learn about networking services in Azure, including connectivity, application protection, application delivery, and network monitoring services.
 services: networking
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2022
-ms.author: kumud
+ms.author: mbender
 
 ---
 
@@ -133,6 +133,8 @@ For more information about Traffic Manager, see [What is Azure Traffic Manager?]
 
 ### <a name="loadbalancer"></a>Load Balancer
 The Azure Load Balancer provides high-performance, low-latency Layer 4 load-balancing for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints. You can define rules to map inbound connections to back-end pool destinations by using TCP and HTTP health-probing options to manage service availability. To learn more about Load Balancer, read the [Load Balancer overview](../../load-balancer/load-balancer-overview.md) article.
+
+Azure Load Balancer is available in Standard, Regional, and Gateway SKUs.
 
 The following picture shows an Internet-facing multi-tier application that utilizes both external and internal load balancers:
 

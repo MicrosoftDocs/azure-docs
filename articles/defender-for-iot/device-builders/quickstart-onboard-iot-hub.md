@@ -39,7 +39,7 @@ You can onboard Defender for IoT to an existing IoT Hub, where you can then moni
 
 **To enable Defender for IoT on an existing IoT Hub**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Overview**.
 
@@ -47,7 +47,7 @@ You can onboard Defender for IoT to an existing IoT Hub, where you can then moni
 
     :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Select the secure your IoT solution button to secure your solution." lightbox="media/quickstart-onboard-iot-hub/secure-your-iot-solution-expanded.png":::
 
-The **Secure your IoT solution** button will only appear if the IoT Hub has not already been onboarded, or if you set the Defender for IoT toggle to **Off** while onboarding.
+The **Secure your IoT solution** button will only appear if the IoT Hub hasn't already been onboarded, or if you set the Defender for IoT toggle to **Off** while onboarding.
 
 :::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="If your toggle was set to off during onboarding.":::
 
@@ -55,17 +55,17 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 
 **To verify that Defender for IoT is enabled**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Overview**.
 
-1. The Threat prevention, and Threat detection screen will appear.
+    The Threat prevention and Threat detection screen will appear.
 
     :::image type="content" source="media/quickstart-onboard-iot-hub/threat-prevention.png" alt-text="Screenshot showing that Defender for IoT is enabled." lightbox="media/quickstart-onboard-iot-hub/threat-prevention-expanded.png":::
 
 ## Next steps
 
-Advance to the next article to add a resource group to your solution...
+Advance to the next article to add a resource group to your solution.
 
 > [!div class="nextstepaction"]
 > [Add a resource group to your IoT solution](tutorial-configure-your-solution.md)

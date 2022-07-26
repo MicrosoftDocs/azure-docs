@@ -3,11 +3,10 @@ title: Configure your Azure application offer listing details
 description: Configure the listing details for your Azure application offer in Partner Center (Azure Marketplace). 
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 05/02/2022
 ---
 
 # Configure your Azure application offer listing details
@@ -15,7 +14,7 @@ ms.date: 06/01/2021
 The information you provide on the **Offer listing** page for your Azure Application offer will be displayed in the Microsoft commercial marketplace online stores. This includes the descriptions of your offer, screenshots, and your marketing assets. To see what this looks like, see [Offer listing details](plan-azure-application-offer.md#offer-listing-details).
 
 > [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a _Useful Link_ URL to offer content in a language other than the one used in the offer listing content.
+> Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a _Useful Link_ URL to offer content in a language other than the one used in the offer listing content if the offer description begins with the phrase "This application is also available in [non-English language]".
 
 ## Marketplace details
 
@@ -24,7 +23,7 @@ On the **Offer listing** page, under **Marketplace details**, complete the follo
 1. The **Name** box is prefilled with the name you entered earlier in the **New offer** dialog box. You can change the name at any time. The name you enter here will be shown to customers as the title of your offer listing.
 1. In the **Search results summary** box, enter up to 100 characters of text. This summary is used in the marketplace listing search results.
 1. In the **Short description** box, enter up to 256 characters of plain text. This summary will appear on your offer’s details page.
-1. In the **Description** box, enter a description for your offer. This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, which includes HTML markup and spaces. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
+1. In the **Description** box, enter a description for your offer. This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 5,000 characters of text in this box, which includes HTML markup and spaces. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
 1. (Optional) In the **Search keywords** boxes, enter up to three search keywords that customers can use to find your offer in the commercial marketplace. You don't need to include the offer **Name** and **Description** because that text is automatically included in search.
 1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
@@ -55,6 +54,11 @@ For each contact, you'll provide a name, phone number, and email address (these 
     > The CSP program extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-to-market with Microsoft](https://partner.microsoft.com/reach-customers/gtm).
 
 ## Add marketplace media
+
+You'll next add your logo. You can also add screenshots and videos to help your offer stand out.
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 ### Store logos
 

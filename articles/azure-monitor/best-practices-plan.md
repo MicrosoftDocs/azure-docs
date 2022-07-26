@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
-
+ms.reviewer: bwren
 ---
 
 # Azure Monitor best practices - Planning your monitoring strategy and configuration
@@ -17,8 +17,7 @@ A core goal of your monitoring strategy will be minimizing costs. Some data coll
 
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Monitor usage and estimated costs in Azure Monitor](usage-estimated-costs.md)
-- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
-- [Manage usage and costs for Application Insights](app/pricing.md)
+
 
 ## Define strategy
 Before you design and implement any monitoring solution, you should establish a monitoring strategy so that you understand the goals and requirements of your plan. The strategy defines your particular requirements, the configuration that best meets those requirements, and processes to leverage the monitoring environment to maximize your applications' performance and reliability. The configuration options that you choose for Azure Monitor should be consistent with your strategy.

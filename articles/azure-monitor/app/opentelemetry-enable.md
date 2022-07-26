@@ -3,14 +3,15 @@ title: Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applicat
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
 ms.date: 10/11/2021
-author: mattmccleary
-ms.author: mmcc
 ms.devlang: csharp, javascript, python
+ms.reviewer: mmcc
 ---
 
 # Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)
 
-This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces to Azure Monitor Application Insights. To learn more about OpenTelemetry, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
+The Azure Monitor OpenTelemetry Exporter is a component that sends traces (and eventually all application telemetry) to Azure Monitor Application Insights. To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
+
+This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces to Azure Monitor Application Insights.
 
 > [!IMPORTANT]
 > Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications is currently in preview.
@@ -211,7 +212,7 @@ public class Program
 ```
 
 > [!NOTE]
-> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Metrics API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ##### [Node.js](#tab/nodejs)
 
@@ -227,7 +228,7 @@ provider.register();
 
 // Create an exporter instance.
 const exporter = new AzureMonitorTraceExporter({
-  instrumentationKey: "<Your Connection String>"
+  connectionString: "<Your Connection String>"
 });
 
 // Add the exporter to the provider.

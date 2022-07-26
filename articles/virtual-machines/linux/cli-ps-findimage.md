@@ -1,12 +1,12 @@
 ---
 title: Find and use marketplace purchase plan information using the CLI    
 description: Learn how to use the Azure CLI to find image URNs and purchase plan parameters, like the publisher, offer, SKU, and version, for Marketplace VM images.
-author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.date: 03/22/2021
-ms.author: cynthn
+author: ebolton-cyber
+ms.author: edewebolton
 ms.collection: linux
 ms.custom: contperf-fy21q3-portal, devx-track-azurecli
 ---
@@ -121,8 +121,8 @@ Another way to find an image in a location is to run the [az vm image list-publi
     ```azurecli
     az vm image list \
         --location westus \
-        --publisher Canonical \  
-        --offer UbuntuServer \    
+        --publisher Canonical \
+        --offer UbuntuServer \
         --sku 18.04-LTS \
         --all --output table
     ```
@@ -262,13 +262,13 @@ If you get a message about accepting the terms of the image, review section [Acc
 
 If you have an existing VHD from a VM that was created using a paid Azure Marketplace image, you might need to supply the purchase plan information when you create a new VM from that VHD. 
 
-If you still have the original VM, or another VM created using the same marketplace image, you can get the plan name, publisher, and product information from it using [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information.
+If you still have the original VM, or another VM created using the same marketplace image, you can get the plan name, publisher, and product information from it using [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view). This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az vm get-instance-view -g myResourceGroup -n myVM --query plan
 ```
 
-If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
 
 Once you have the plan information, you can create the new VM using the `--attach-os-disk` parameter to specify the VHD.
 

@@ -1,14 +1,21 @@
 ---
 title: Package an existing executable to Azure Service Fabric 
 description: Learn about packaging an existing application as a guest executable, so it can be deployed to a Service Fabric cluster.
-
 ms.topic: conceptual
-ms.date: 03/15/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Deploy an existing executable to Service Fabric
 You can run any type of code, such as Node.js, Java, or C++ in Azure Service Fabric as a service. Service Fabric refers to these types of services as guest executables.
 
 Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, by using Visual Studio or a command-line utility.
+
+> [!NOTE]
+> A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. If you are considering hosting **untrusted applications**, please see [Hosting untrusted applications in a Service Fabric cluster](service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).
 
 ## Benefits of running a guest executable in Service Fabric
 There are several advantages to running a guest executable in a Service Fabric cluster:

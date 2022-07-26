@@ -37,7 +37,7 @@ When you create an Azure API Management service instance in the Azure cloud, Azu
  
 ## Endpoints for custom domains
 
-There are several API Management service endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
+There are several API Management endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
 
 | Endpoint | Default |
 | -------- | ----------- |
@@ -58,7 +58,7 @@ There are several API Management service endpoints to which you can assign a cus
 API Management supports custom TLS certificates or certificates imported from Azure Key Vault. You can also enable a free, managed certificate.
 
 > [!WARNING]
-> If you wish to improve the security of your applications with certificate pinning, you should use a custom domain name and either a custom or Key Vault certificate, not the default certificate or the free, managed certificate. We don't recommend taking a hard dependency on a certificate that you don't manage.
+> If you require certificate pinning, please use a custom domain name and either a custom or Key Vault certificate, not the default certificate or the free, managed certificate. We don't recommend taking a hard dependency on a certificate that you don't manage.
 
 # [Custom](#tab/custom)
 
@@ -94,9 +94,11 @@ API Management offers a free, managed TLS certificate for your domain, if you do
 #### Limitations
 
 * Currently can be used only with the Gateway endpoint of your API Management service
+* Not supported with the self-hosted gateway
 * Not supported in the following Azure regions: France South and South Africa West
 * Currently available only in the Azure cloud
 * Does not support root domain names (for example, `contoso.com`). Requires a fully qualified name such as `api.contoso.com`.
+* Can only be configured when updating an existing API Management instance, not when creating an instance
 ---
 
 ## Set a custom domain name - portal
@@ -160,6 +162,9 @@ Choose the steps according to the [domain certificate](#domain-certificate-optio
 
 * Configure a CNAME record for your custom domain. 
 * When using API Management's free, managed certificate, also configure a TXT record to establish your ownership of the domain.
+
+> [!NOTE]
+> The free certificate is issued by DigiCert. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
 
 ### CNAME record
 

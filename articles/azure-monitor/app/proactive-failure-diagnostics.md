@@ -1,9 +1,8 @@
 ---
-title: Smart Detection - failure anomalies, in Application Insights | Microsoft Docs
+title: Smart Detection of Failure Anomalies in Application Insights | Microsoft Docs
 description: Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed.
 ms.topic: conceptual
 ms.date: 12/18/2018
-
 ms.reviewer: yalavi
 ---
 
@@ -12,7 +11,7 @@ ms.reviewer: yalavi
 
 This feature works for any web app, hosted in the cloud or on your own servers, that generate application request or dependency data. For example, if you have a worker role that calls [TrackRequest()](./api-custom-events-metrics.md#trackrequest) or [TrackDependency()](./api-custom-events-metrics.md#trackdependency).
 
-After setting up [Application Insights for your project](./app-insights-overview.md), and if your app generates a certain minimum amount of data, Smart Detection of failure anomalies takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
+After setting up [Application Insights for your project](./app-insights-overview.md), and if your app generates a certain minimum amount of data, Smart Detection of Failure Anomalies takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
 
 Here's a sample alert:
 
@@ -75,7 +74,15 @@ Click the alert to configure it.
 
 :::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Rule configuration screen." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
-Notice that you can disable or delete a Failure Anomalies alert rule, but you can't create another one on the same Application Insights resource.
+## Delete alerts
+
+You can disable or delete a Failure Anomalies alert rule, but once deleted you can't create another one for the same Application Insights resource.
+
+Notice that if you delete an Application Insights resource, the associated Failure Anomalies alert rule doesn't get deleted automatically. You can do so manually on the Alert rules page or with the following Azure CLI command:
+
+```azurecli
+az resource delete --ids <Resource ID of Failure Anomalies alert rule>
+```
 
 ## Example of Failure Anomalies alert webhook payload
 
@@ -404,11 +411,11 @@ Click **Alerts** in the Application Insights resource page to get to the most re
 :::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Alerts summary." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## What's the difference ...
-Smart Detection of failure anomalies complements other similar but distinct features of Application Insights.
+Smart Detection of Failure Anomalies complements other similar but distinct features of Application Insights.
 
-* [metric alerts](../alerts/alerts-log.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, Smart Detection of failure anomalies covers a small range of critical metrics (currently only failed request rate), designed to notify you in near real-time manner once your web app's failed request rate increases compared to web app's normal behavior. Unlike metric alerts, Smart Detection automatically sets and updates thresholds in response changes in the behavior. Smart Detection also starts the diagnostic work for you, saving you time in resolving issues.
+* [metric alerts](../alerts/alerts-log.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, Smart Detection of Failure Anomalies covers a small range of critical metrics (currently only failed request rate), designed to notify you in near real-time manner once your web app's failed request rate increases compared to web app's normal behavior. Unlike metric alerts, Smart Detection automatically sets and updates thresholds in response changes in the behavior. Smart Detection also starts the diagnostic work for you, saving you time in resolving issues.
 
-* [Smart Detection of performance anomalies](proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Detection of failure anomalies, the purpose of Smart  Detection of performance anomalies is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for failure anomalies is performed continuously on incoming application data, and you will be notified within minutes if server failure rates are greater than expected.
+* [Smart Detection of performance anomalies](proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Detection of Failure Anomalies, the purpose of Smart  Detection of performance anomalies is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for Failure Anomalies is performed continuously on incoming application data, and you will be notified within minutes if server failure rates are greater than expected.
 
 ## If you receive a Smart Detection alert
 *Why have I received this alert?*

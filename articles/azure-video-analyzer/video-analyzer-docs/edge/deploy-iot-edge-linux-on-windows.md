@@ -1,14 +1,16 @@
 ---
-title: Deploy to a Windows device with EFLOW
+title: Deploy Azure Video Analyzer to a Windows device using EFLOW
 description: This article provides guidance on how to deploy to an IoT Edge for Linux on Windows device.
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
-# Deploy to an IoT Edge for Linux on Windows (EFLOW) device
+# Deploy Azure Video Analyzer to a Windows device using EFLOW
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 In this article, you'll learn how to deploy Azure Video Analyzer on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](../../../iot-edge/iot-edge-for-linux-on-windows.md). Once you have finished following the steps in this document, you will be able to run a [pipeline](../pipeline.md) that detects motion in a video and emits such events to the IoT Hub. You can then switch out the pipeline for advanced scenarios and bring the power of Azure Video Analyzer to your Windows-based IoT Edge device.
 
@@ -91,7 +93,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 ## Next steps
 
 * Try motion detection along with recording relevant videos in the Cloud. Follow the steps from the [detect motion and record video clips](detect-motion-record-video-edge-devices.md) quickstart.
-* Use our [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) to view additional pipelines.
+* Use our [VS Code extension](https://marketplace.visualstudio.com/vscode) to view additional pipelines.
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera)  that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
 * Run [AI on Live Video](analyze-live-video-use-your-model-http.md#overview) (you can skip the prerequisite setup as it has already been done above).
 

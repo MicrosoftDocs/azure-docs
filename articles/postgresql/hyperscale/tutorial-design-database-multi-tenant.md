@@ -1,18 +1,20 @@
 ---
-title: 'Tutorial: Design a multi-tenant database - Hyperscale (Citus) - Azure Database for PostgreSQL'
-description: This tutorial shows how to power a scalable multi-tenant application with Azure Database for PostgreSQL Hyperscale (Citus).
-author: jonels-msft
+title: Multi-tenant database - Azure PostgreSQL Hyperscale (Citus)
+description: Learn how to design a scalable multi-tenant application with Azure Database for PostgreSQL Hyperscale (Citus).
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.custom: mvc
+ms.custom: mvc, kr2b-contr-experiment
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 06/29/2022
 #Customer intent: As an developer, I want to design a hyperscale database so that my multi-tenant application runs efficiently for all tenants.
 ---
 
-# Tutorial: design a multi-tenant database by using Azure Database for PostgreSQL – Hyperscale (Citus)
+# Design a multi-tenant database using Azure Database for PostgreSQL – Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
 
@@ -192,7 +194,7 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 ## Share data between tenants
 
-Until now all tables have been distributed by `company_id`, but
+Until now all tables have been distributed by `company_id`. However,
 some data doesn't naturally "belong" to any tenant in particular,
 and can be shared. For instance, all companies in the example ad
 platform might want to get geographical information for their
@@ -224,7 +226,7 @@ Load it with example data. Remember to run this command in psql from inside the 
 ```
 
 Joining the clicks table with geo\_ips is efficient on all nodes.
-Here is a join to find the locations of everyone who clicked on ad
+Here's a join to find the locations of everyone who clicked on ad
 290. Try running the query in psql.
 
 ```sql
@@ -288,7 +290,7 @@ SELECT id
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Select the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and select the final *Delete* button.
 
 ## Next steps
 

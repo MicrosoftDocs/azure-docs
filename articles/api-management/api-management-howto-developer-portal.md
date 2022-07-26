@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 02/02/2022
+ms.date: 02/10/2022
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -43,6 +43,9 @@ Customize and style the managed portal through the built-in, drag-and-drop visua
 * [Add custom HTML](developer-portal-faq.md#how-do-i-add-custom-html-to-my-developer-portal) - for example, add HTML for a form or to embed a video player. The custom code is rendered in an inline frame (iframe).
 
 See [this tutorial](api-management-howto-developer-portal-customize.md) for example customizations.
+
+> [!NOTE]
+> The managed developer portal receives and applies updates automatically. Changes that you've saved but not published to the developer portal remain in that state during an update.
 
 ## <a name="managed-vs-self-hosted"></a> Extensibility
 
