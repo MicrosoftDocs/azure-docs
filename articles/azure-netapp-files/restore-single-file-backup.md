@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 07/19/2022
 ms.author: anfdocs
 ---
-# Restore individual files using single-file backup
+# Restore individual files from backup vault using single-file backup restore
 
-If you do not want to [restore individual files from a single-file snapshot](snapshots-restore-file-single.md), you can rely on backups to restore volumes. With single-file backup restore, you can restore a single file to a specific location in a volume or multiple files (up to 8) to a specific directory in the volume. 
+If you restore individual files no longer available in an online snapshot for [single-file snapshot restore](snapshots-restore-file-single.md), you can rely on your [Azure NetApp Files backup vault](md#how-snapshots-can-be-vaulted-for-long-term-retention-and-cost-savings) to restore individual files. With single-file backup restore, you can restore a single file to a specific location in a volume or multiple files (up to 8) to a specific directory in the volume.
 
 ## Considerations
 
 * If no destination path is provided during the restore operation, the given file(s) is restored in the original file location. If the file already exists, it will be overwritten.
     * If the file being restored has a multi-level directory depth (for example, `/dir1/dir2/file.txt`), all of the parent directories must be present in the active file system for the restore operation to succeed. The restore cannot create new directories. 
 * If the destination path provided is invalid (non-existent in the Active file system), the operation will fail.
-* A maximum of eight (8) files can be restored to a volume in a single operation. You must wait for a restore operation to complete to restore more volumes to that volume.
+* A maximum of eight (8) files can be restored to a volume in a single operation. You must wait for a restore operation to complete to restore more files to that volume.
 * The file list field has a character limit of 1024 characters. 
 * The target volume for the restore operation must have enough logical free space available to accommodate all the files being restored.
 * The restore operation will not work if a directory or a soft link path is entered in the file list field.
