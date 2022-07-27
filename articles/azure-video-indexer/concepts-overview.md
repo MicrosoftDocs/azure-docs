@@ -12,7 +12,7 @@ This article gives a brief overview of Azure Video Indexer terminology and conce
 
 ## Confidence scores
 
-The confidence score indicates the confidence in an insight. It is a number between 0.0 and 1.0. The higher the score- the greater the confidence in the answer. For example: 
+The confidence score indicates the confidence in an insight. It is a number between 0.0 and 1.0. The higher the score the greater the confidence in the answer. For example: 
 
 ```json
 "transcript":[
@@ -54,7 +54,7 @@ Azure Video Indexer selects the frame(s) that best represent each shot. Keyframe
 
 ## Time range vs. adjusted time range	
 
-TimeRange is the time range in the original video. AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a 1-hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.	
+TimeRange is the time range in the original video. Adjusted time range is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a 1-hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjusted time range is 00:00-00:15.	
 
 ## Widgets
 
