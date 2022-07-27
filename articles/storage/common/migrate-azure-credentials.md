@@ -94,31 +94,33 @@ BlobServiceClient blobServiceClient = new BlobServiceClient(
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
-### 4) Assign a managed identity to your hosted app
+### 4) Assign a managed identity and roles to your hosted app
 
 Once your application is configured to use DefaultAzureCredential, the same code can be used to authenticate between services after it is deployed to Azure. For example, an application running in Azure App Service can connect to Azure Storage using a managed identity. A managed identity must be created and assigned to the app service for it to be discovered by the `DefaultAzureCredential` code. The following steps demonstrate how to create a managed identity for an app service, and then grant that identity the correct permissions to access an Azure Storage account.
-
-### [Azure portal](#tab/assign-role-azure-portal)
 
 1. On the main overview page of your App Service, select **Identity** from the left navigation. 
 
 1. Under the **System assigned** tab, make sure to switch the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
 
-:::image type="content" source="media/migration-create-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-create-identity.png":::
+    :::image type="content" source="media/migration-create-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-create-identity.png":::
 
-1. Next, you need to grant permissions to the managed identity you just created to access your storage account. You can do this using Azure role-based access control (RBAC). Navigate to your storage account and select **Access Control (IAM)** from the left navigation.
+### 5) Assign roles to the managed identity
+
+### [Azure portal](#tab/assign-role-azure-portal)
+
+1. Next, you need to grant permissions to the managed identity you just created to access your storage account. You can do this by assigning a role to the managed identity, just like you did with your local development user. Navigate to your storage account and select **Access Control (IAM)** from the left navigation.
 
 1. Choose **Add role assignment**
 
-1. In the **Role** search box, search for *Storage Blob Data Contributor*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
+    :::image type="content" source="media/migration-add-role-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-add-role.png":::
 
-:::image type="content" source="media/migration-add-role-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-add-role.png":::
+1. In the **Role** search box, search for *Storage Blob Data Contributor*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
 
 1. On the **Add role assignment** screen, for the **Assign access to** option, select **Managed identity**. Then choose **+Select members**.
 
 1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-:::image type="content" source="media/migration-select-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-select-identity-role.png":::
+    :::image type="content" source="media/migration-select-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-select-identity-role.png":::
 
 2. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment. 
 
