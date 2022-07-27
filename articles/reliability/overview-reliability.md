@@ -48,7 +48,7 @@ For more detailed information on reliability and reliability principles in Micro
 
 ## Availability zone guides
 
-The Availability Zones section contains information related to Availability Zones for specific Azure services. Here, you will find information on which services support Availability Zones, how to migrate a service resource to availability zone support, or how to create a service resource for availability zone support.
+The Availability zone guides section contains information related to Availability Zones for specific Azure services. Here, you will find information on which services support Availability Zones, how to migrate a service resource to availability zone support, or how to create a service resource for availability zone support.
 
 ## Availability of services
 

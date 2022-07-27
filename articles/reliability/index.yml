@@ -1,34 +1,78 @@
 ### YamlMime:Landing
 
-title: Azure Services Reliability Documentation
-summary: Learn how each Azure service provides reliability features to ensure that your workloads are both resilient and available.
+title: Azure service reliability documentation?
+summary: Azure service reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
 
 metadata:
   title: Azure Services Reliability Documentation
-  description: Learn about how Azure Services support reliability architectural principles, availability for Azure services, and disaster recovery options.
+  description: Azure service reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
   ms.topic: landing-page
   ms.author: anaharris
+  author: anaharris-ms
   ms.prod: non-product-specific
   ms.date: 07/12/2022
 
 landingContent: 
   # Card
-  - title: About Azure services reliability
+  - title: About Azure service reliability documentation?
     linkLists:
       - linkListType: overview
         links:
-          - text: What is reliability in Azure services?
+          - text: What is the Azure service reliability documentation??
             url: overview-reliability.md
   # Card
-  - title: Availability zone support
+  - title: Reliability guides
     linkLists:
       - linkListType: concept
         links:
-          - text: Business continuity and management in Azure
-            url: business-continuity-management-program.md
+          - text: API Management
+            href: migrate-api-mgt.md
+          - text: App Service Environment
+            href: migrate-app-service-environment.md
+          - text: App Service
+            href: migrate-app-service.md
+          - text: Application Gateway v2
+            href: migrate-app-gateway-v2.md
+          - text: Cache for Redis
+            href: migrate-cache-redis.md
+          - text: Log Analytics workspaces
+            href: migrate-monitor-log-analytics.md
+          - text: Container instances
+            href: migrate-container-instances.md
+          - text: Recovery Services vault
+            href: migrate-recovery-services-vault.md
+          - text: Storage accounts
+            href: migrate-storage.md
+          - text: Virtual Machines and virtual machine scale sets
+            href: migrate-vm.md
+  # Card
+  - title: Availability zone guides
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: API Management
+            href: migrate-api-mgt.md
+          - text: App Service Environment
+            href: migrate-app-service-environment.md
+          - text: App Service
+            href: migrate-app-service.md
+          - text: Application Gateway v2
+            href: migrate-app-gateway-v2.md
+          - text: Cache for Redis
+            href: migrate-cache-redis.md
+          - text: Log Analytics workspaces
+            href: migrate-monitor-log-analytics.md
+          - text: Container instances
+            href: migrate-container-instances.md
+          - text: Recovery Services vault
+            href: migrate-recovery-services-vault.md
+          - text: Storage accounts
+            href: migrate-storage.md
+          - text: Virtual Machines and virtual machine scale sets
+            href: migrate-vm.md
 
   # Service availability
-  - title: Service availability
+  - title: Availability of services
     linkLists:
       - linkListType: concept
         links:
