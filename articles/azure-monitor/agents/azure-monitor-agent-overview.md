@@ -127,7 +127,7 @@ There's no cost for the Azure Monitor agent, but you might incur charges for the
 
 ## Security
 
-The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
+The Azure Monitor agent doesn't require any keys but instead requires a [managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to be assigned or enabled on the target machine. You must have a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity) assigned or [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) enabled on each virtual machine before you deploy the agent.
 
 ## Networking
 
