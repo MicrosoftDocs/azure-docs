@@ -19,78 +19,119 @@ In this how-to guide, you'll add indicators from a CSV or JSON file into Microso
 > This feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
-- You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 
-## Import indicators from a flat file
-You've got a list of indicators ready to contribute, and inputting them [one by one in the UI](work-with-threat-indicators.md#create-a-new-indicator) isn't efficient. You can add multiple indicators to your threat intelligence by using a specially crafted CSV or JSON file. Download the file templates to get familiar with the fields and how they map to the data you have. Review the required fields for each template type to validate your data before importing.
+You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
+
+## Select an import template for your indicators
+
+Add multiple indicators to your threat intelligence with a specially crafted CSV or JSON file. Download the file templates to get familiar with the fields and how they map to the data you have. Review the required fields for each template type to validate your data before importing.
 
 1. From the [Azure portal](https://portal.azure.com), go to **Microsoft Sentinel**.
 
-2. Select the workspace you want to import threat indicators into.
+1. Select the workspace you want to import threat indicators into.
 
-3. Go to **Threat Intelligence** under the **Threat Management** heading.
+1. Go to **Threat Intelligence** under the **Threat Management** heading.
 
-:::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-small.png" alt-text="Screenshot of the menu options to import indicators using a file menu." lightbox="media/indicators-bulk-file-import/import-using-file-menu-large.png":::
+    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-fixed.png" alt-text="Screenshot of the menu options to import indicators using a file menu." lightbox="media/indicators-bulk-file-import/import-using-file-menu-fixed.png":::
 
-4. Select **Import** > **Import using a file**.
+1. Select **Import** > **Import using a file**.
 
-5. Choose CSV or JSON from the **File Format** drop down menu.
+1. Choose CSV or JSON from the **File Format** drop down menu.
 
-:::image type="content" source="media/indicators-bulk-file-import/format-select-and-download.png" alt-text="Screenshot of the menu flyout to upload a CSV or JSON file, choose a template to download, and specify a source highlighting the file format selection.":::
+    :::image type="content" source="media/indicators-bulk-file-import/format-select-and-download.png" alt-text="Screenshot of the menu flyout to upload a CSV or JSON file, choose a template to download, and specify a source highlighting the file format selection.":::
+
+1. Select the **Download template** link once you've chosen a bulk upload template. 
+
+1. Consider grouping your indicators by source since each file upload requires one. The templates provide all the fields you need to create a single valid indicator, including required fields and validation parameters. Replicate that structure to populate additional indicators in a single file. For more information on the templates, see [Understand the import templates](indicators-bulk-file-import.md#understand-the-import-templates).
 
 
-## Understand the templates
+## Upload the indicator file
 
-Download the bulk upload template of your choice. The templates provide all the fields you need to create a single valid indicator, including required fields and validation parameters. Replicate that structure to populate additional indicators in a single file.
+1. Change the file name from the template default, but keep the file extension as .csv or .json. When you create a unique file name, it will be easier to monitor your imports from the **Manage file imports** pane. 
 
-### CSV template structure  
+1. Drag your indicators file to the **Upload a file** section or browse for the file using the link.
 
-If you select the **CSV** file format, you'll need to choose between the **File indicators** or **All other indicator types** option from the **Indicator type** drop down menu. Because file indicators can have multiple hash types like MD5, SHA256, and more, the CSV template needs multiple columns to accommodate this indicator type. All other indicator types like IP addresses only require a type and the observable value.
+1. Enter a source for the indicators in the **Source** text box. This value will be stamped on all the indicators included in that file. You can view this property as the **SourceSystem** field. The source will also be displayed in the **Manage file imports** pane. Learn more about how to view indicator properties here: [Work with threat indicators](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs). 
 
-:::image type="content" source="media/indicators-bulk-file-import/csv-example.png" alt-text="Screenshot of the CSV template highlighting the guidance in cell A1 and including example indicator data filled in.":::
-
-The column headings for the CSV **All other indicator types** template include fields such as `threatTypes`, single or multiple `tags`, `confidence`, and `tlpLevel` or [Traffic Light Protocol](https://en.wikipedia.org/wiki/Traffic_Light_Protocol) level. Only the `validFrom`, `observableType` and `observableValue` fields are required.
-
-### JSON template structure
-
-The JSON template is the same for all indicator types.
-
-> [!TIP]
-> Each file upload requires a source. Consider grouping your import files by source.
->
-
-## Upload the file
-
-1. After entering your indicators to the template, consider changing the name of the file but keep the file extension as .csv or .json. When you create a unique file name, it will be easier to monitor your different file imports from the **Manage file imports** pane. 
-
-2. Upload your indicator file to the **Upload a file** section. You can browse for the file or drag it to this area to upload.
-
-3. Enter a source for the indicators in the **Source** text box. This value will be stamped on all the indicators included in that file. You can view this property as the **SourceSystem** field by [finding the indicators in the Logs](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs). The source will also display in the **Manage file imports** pane.
-
-4. Choose how you want Microsoft Sentinel to handle invalid indicator entries by selecting one of the radio buttons at the bottom of the **Import using a file** pane. 
+1. Choose how you want Microsoft Sentinel to handle invalid indicator entries by selecting one of the radio buttons at the bottom of the **Import using a file** pane. 
    - Import only the valid indicators and leave aside any invalid indicators from the file.
    - Don't import any indicators if a single indicator in the file is invalid.
 
-:::image type="content" source="media/indicators-bulk-file-import/upload-file-blade-small.png" alt-text="Screenshot of the menu flyout to upload a CSV or JSON file, choose a template to download, and specify a source highlighting the Import button." lightbox="media/indicators-bulk-file-import/upload-file-blade-large.png":::
+    :::image type="content" source="media/indicators-bulk-file-import/upload-file-pane.png" alt-text="Screenshot of the menu flyout to upload a CSV or JSON file, choose a template to download, and specify a source highlighting the Import button.":::
 
-5. Select the **Import** button.
+1. Select the **Import** button.
 
 
 ## Manage file imports
 
-After importing indicators from CSV or JSON files, you can monitor your imports and view error reports for partially imported or failed imports. 
+Monitor your imports and view error reports for partially imported or failed imports. 
 
-1. Select the **Import** > **Manage file imports**.
+1. Select **Import** > **Manage file imports**.
 
-:::image type="content" source="media/indicators-bulk-file-import/manage-file-imports-small.png" alt-text="Screenshot of the menu option to manage file imports.":::
+    :::image type="content" source="media/indicators-bulk-file-import/manage-file-imports.png" alt-text="Screenshot of the menu option to manage file imports.":::
 
-2. The **Manage file imports** pane shows the imported files with their status, including the number of invalid indicator entries.
+1. Review the status of imported files and the number of invalid indicator entries.
 
-3. Here you'll be able to view and sort imports by **Source**, indicator file **Name**, the number **Imported**, the **Total** number of indicators in each file, or the **Created** date.
+    :::image type="content" source="media/indicators-bulk-file-import/manage-file-imports-pane.png" alt-text="Screenshot of the manage file imports pane with example ingestion data. The columns show sorted by imported number with various sources.":::
 
-4. You can view a preview of the error file or download the error file containing the errors about invalid indicators.
+1. View and sort imports by selecting **Source**, indicator file **Name**, the number **Imported**, the **Total** number of indicators in each file, or the **Created** date.
+
+1. Select the preview of the error file or download the error file containing the errors about invalid indicators.
 
 Microsoft Sentinel maintains the status of the file import for 30 days. The actual file and the associated error file are maintained in the system for 24 hours. After 24 hours the file and the error file are deleted, and the ingested indicators will continue to show in the Threat Intelligence menu. 
+
+
+## Understand the import templates
+
+Review the details of each import template to ensure your indicators are imported successfully.
+
+### CSV template structure  
+
+Choose between the **File indicators** or **All other indicator types** option from the **Indicator type** drop down menu when you select **CSV**. The CSV template needs multiple columns to accommodate the file indicator type because file indicators can have multiple hash types like MD5, SHA256, and more. All other indicator types like IP addresses only require the observable type and the observable value.
+
+The column headings for the CSV **All other indicator types** template include fields such as `threatTypes`, single or multiple `tags`, `confidence`, and `tlpLevel` or level. Only the `validFrom`, `observableType` and `observableValue` fields are required.  Remove the entire first row from the template before upload. Keep in mind the max file size for CSV import is 50MB. Here's an example domain name indicator using the CSV template.
+
+```csv
+threatTypes,tags,name,description,confidence,revoked,validFrom,validUntil,tlpLevel,severity,observableType,observableValue
+Phishing,"demo, csv",MDTI article - Franken-Phish domainname,Entity appears in MDTI article Franken-phish,100,,2022-07-18T12:00:00.000Z,,white,5,domain-name,1776769042.tailspintoys.com
+```
+
+### JSON template structure
+
+There is only one JSON template for all indicator types. The `pattern` element can support file, ipv4-addr, ipv6-addr, domain-name, url, user-account, email-addr, and windows-registry-key types. Remove the template comments before upload and the last indicator in the array should have a closing "}" without a comma. Keep in mind the max file size for JSON import is 250MB. Here's an example JSON indicator.
+
+```json
+[
+    {
+      "type": "indicator",
+      "id": "indicator--dbc48d87-b5e9-4380-85ae-e1184abf5ff4",
+      "spec_version": "2.1",
+      "pattern": "([ipv4-addr:value = '198.168.100.5' ] AND [ipv4-addr:value = '198.168.100.10']) WITHIN 300 SECONDS",
+      "pattern_type": "stix",
+      "created": "2022-07-27T12:00:00.000Z",
+      "modified": "2022-07-27T12:00:00.000Z",
+      "valid_from": "2016-07-20T12:00:00.000Z",
+      "name": "Sample IPv4 indicator",
+      "description": "This indicator implements an observation expression.",
+      "indicator_types": [
+	    "anonymization",
+        "malicious-activity"
+      ],
+      "kill_chain_phases": [
+          {
+            "kill_chain_name": "mandiant-attack-lifecycle-model",
+            "phase_name": "establish-foothold"
+          }
+      ],
+      "labels": ["proxy","demo"],
+      "confidence": "95",
+      "lang": "",
+      "external_references": [],
+      "object_marking_refs": [],
+      "granular_markings": [],
+    }
+]
+```
 
 ## Next steps
 
