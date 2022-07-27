@@ -217,20 +217,6 @@
     - name: Secure AKS with Azure Policy
       displayName: aks, psp, rego, opa
       href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
-  - name: Guest configuration
-    items:
-    - name: Understand Azure Policy's guest configuration
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration.md
-    - name: Changes to behavior in PowerShell Desired State Configuration for guest configuration
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration-custom.md
-    - name: Understand Azure Policy's guest configuration assignment resources
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration-assignments.md
-    - name: Remediation options for guest configuration
-      displayName: provider, tools, definition
-      href: ./concepts/guest-configuration-policy-effects.md
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark
