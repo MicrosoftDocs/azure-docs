@@ -301,7 +301,7 @@ You might also be interested in the following resources:
 
 Working with varied data types and tables together can present a challenge. You must become familiar with those data types and schemas as you're writing and using a unique set of analytics rules, workbooks, and hunting queries. Correlating among the data types that are necessary for investigation and hunting can also be tricky.
 
-The Advanced SIEM information model (ASIM) provides a seamless experience for handling various sources in uniform, normalized views. ASIM aligns with the Open-Source Security Events Metadata (OSSEM) common information model, promoting vendor-agnostic, industry-wide normalization. View the "Advanced SIEM information model (ASIM): Now built into Microsoft Sentinel" webinar: YouTube, Deck.
+The Advanced SIEM information model (ASIM) provides a seamless experience for handling various sources in uniform, normalized views. ASIM aligns with the Open-Source Security Events Metadata (OSSEM) common information model, promoting vendor-agnostic, industry-wide normalization. View the "Advanced SIEM information model (ASIM): Now built into Microsoft Sentinel" webinar: [YouTube](https://www.youtube.com/watch?v=Cf4wu_ujhG4&ab_channel=MicrosoftSecurityCommunity) or [deck](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%212459&ithint=file%2Cpdf&authkey=%21AD3Hp0A%5Ft2%5FbEH4).
 
 The current implementation is based on query time normalization, which uses KQL functions:
 
@@ -584,3 +584,16 @@ To learn more about the Microsoft Sentinel APIs, view the [short introductory vi
 Microsoft Sentinel provides a great platform for implementing your own machine learning algorithms. We call it the *Build-your-own machine learning model*, or BYO ML. BYO ML is intended for advanced users. If you're looking for built-in behavioral analytics, use our machine learning analytics rules or UEBA module, or write your own behavioral analytics KQL-based analytics rules.
 
 To start with bringing your own machine learning to Microsoft Sentinel, view the ["Build-your-own machine learning model"](https://www.youtube.com/watch?v=QDIuvZbmUmc) video, and read the [Build-your-own machine learning model detections in the AI-immersed Azure Sentinel SIEM](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/build-your-own-machine-learning-detections-in-the-ai-immersed/ba-p/1750920) blog post. You might also want to refer to the [BYO ML documentation](bring-your-own-ml.md).
+
+## Next steps 
+* [Pre-deployment activities and prerequisites for deploying Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/prerequisites)
+* [Quickstart: Onboard Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)
+* [What's new in Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/whats-new)
+
+## Recommended content
+
+* [Best practices for Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/best-practices) 
+* [Microsoft Sentinel sample workspace designs](https://docs.microsoft.com/en-us/azure/sentinel/sample-workspace-designs)
+* [Plan costs and understand Microsoft Sentinel pricing and billing](https://docs.microsoft.com/en-us/azure/sentinel/billing?tabs=commitment-tier)
+* [Roles and permissions in Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/roles)
+* [Deploy Microsoft Sentinel side-by-side with an existing SIEM](https://docs.microsoft.com/en-us/azure/sentinel/deploy-side-by-side)
