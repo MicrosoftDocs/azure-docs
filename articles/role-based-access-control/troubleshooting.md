@@ -85,7 +85,7 @@ Check that you are currently signed in with a user that is assigned a role that 
 
 You are using a service principal to assign roles with Azure CLI and you get the following error:
 
-`Insufficient privileges to complete the operation.`
+`Insufficient privileges to complete the operation`
 
 For example, let's say that you have a service principal that has been assigned the Owner role and you try to create the following role assignment as the service principal using Azure CLI:
 
@@ -195,7 +195,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 You attempt to remove the last Owner role assignment for a subscription and you see the following error:
 
-`Cannot delete the last RBAC admin assignment.`
+`Cannot delete the last RBAC admin assignment`
 
 **Cause**
 
@@ -325,7 +325,7 @@ Define one management group in `AssignableScopes` of your custom role. For more 
 
 When you try to create or update a custom role, you can't add data actions or you see the following message:
 
-`You cannot add data action permissions when you have a management group as an assignable scope.`
+`You cannot add data action permissions when you have a management group as an assignable scope`
 
 **Cause**
 
