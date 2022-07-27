@@ -99,7 +99,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
     - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
     - **Location**: Select the region for your service instance.
 
-    :::image type="content" source="media/how-to-maven-deploy-apps/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page.":::
+    :::image type="content" source="media/how-to-maven-deploy-apps/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="media/how-to-maven-deploy-apps/portal-start.png":::
 
 1. Select **Review and create**.
 

@@ -125,7 +125,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
    - **Location**: Select the location for your service instance.
    - Select **Standard** for the **Pricing tier** option.
 
-   :::image type="content" source="media/quickstart-provision-service-instance/portal-start.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page.":::
+   :::image type="content" source="media/quickstart-provision-service-instance/portal-start.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-service-instance/portal-start.png":::
 
 1. Select **Review and create**.
 
