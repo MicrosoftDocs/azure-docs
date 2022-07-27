@@ -17,8 +17,6 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 
 The SQL API in Azure Cosmos DB supports registering and invoking stored procedures, triggers, and user-defined functions (UDFs) written in JavaScript. Once you've defined one or more stored procedures, triggers, and user-defined functions, you can load and view them in the [Azure portal](https://portal.azure.com/) by using Data Explorer.
 
-SQL API SDKs are available for a wide variety of platforms and programming languages. If you haven't worked 
-
 You can use the SQL API SDK across multiple platforms including [.NET v2 (legacy)](sql-api-sdk-dotnet.md), [.NET v3](sql-api-sdk-dotnet-standard.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), or [Python](sql-api-sdk-python.md) SDKs to perform these tasks. If you haven't worked with one of these SDKs before, see the *"Quickstart"* article for the appropriate SDK:
 
 | SDK | Getting started |

@@ -247,7 +247,7 @@ Instrumentation key overrides allow you to override the [default instrumentation
 
 ## Cloud role name overrides (preview)
 
-This feature is in preview, starting from 3.3.1.
+This feature is in preview, starting from 3.3.0.
 
 Cloud role name overrides allow you to override the [default cloud role name](#cloud-role-name), for example:
 * Set one cloud role name for one http path prefix `/myapp1`.
@@ -344,7 +344,7 @@ These are the valid `level` values that you can specify in the `applicationinsig
 
 ### LoggingLevel
 
-Starting from version 3.3.1, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is aleady captured in the `SeverityLevel` field. 
+Starting from version 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is aleady captured in the `SeverityLevel` field.
 
 If needed, you can re-enable the previous behavior:
 
@@ -384,7 +384,7 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 
 ## HTTP headers
 
-Starting from version 3.3.1, you can capture request and response headers on your server (request) telemetry:
+Starting from version 3.3.0, you can capture request and response headers on your server (request) telemetry:
 
 ```json
 {
@@ -430,7 +430,7 @@ Again, the header names are case-insensitive, and the examples above will be cap
 
 By default, http server requests that result in 4xx response codes are captured as errors.
 
-Starting from version 3.3.1, you can change this behavior to capture them as success if you prefer:
+Starting from version 3.3.0, you can change this behavior to capture them as success if you prefer:
 
 ```json
 {
@@ -532,7 +532,7 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
 ```
 > [!NOTE]
 > Akka instrumentation is available starting from version 3.2.2
-> Vertx HTTP Library instrumentation is available starting from version 3.3.1
+> Vertx HTTP Library instrumentation is available starting from version 3.3.0
 
 ## Metric interval
 
@@ -605,7 +605,7 @@ When sending telemetry to the Application Insights service fails, Application In
 to disk and continue retrying from disk.
 
 The default limit for disk persistence is 50 Mb. If you have high telemetry volume, or need to be able to recover from
-longer network or ingestion service outages, you can increase this limit starting from version 3.3.1:
+longer network or ingestion service outages, you can increase this limit starting from version 3.3.0:
 
 ```json
 {

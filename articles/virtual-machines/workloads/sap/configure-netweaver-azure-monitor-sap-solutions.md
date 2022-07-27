@@ -130,7 +130,7 @@ Enable **SMON** to monitor the system performance.
 1. Make sure the version of **ST-PI** is **SAPK-74005INSTPI**. 
 1. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/en/2651881).
 1. It's recommended to schedule **SDF/SMON** as a background job in your target SAP client each minute. Log in to SAP and use **TCODE /SDF/SMON** to configure the setting.
-1. To use an SAP access control list (ACL) to restrict access by IP address, add the IP address of the **sapmon** collector VM to the ACL.
+
 
 Enable SAP Internet Communication Framework (ICF):
 
