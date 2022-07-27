@@ -14,7 +14,7 @@ ms.custom: subject-rbac-steps
 
 # Introduction to file mount/unmount APIs in Azure Synapse Analytics 
 
-The Azure Synapse Studio team built two new mount/unmount APIs in the Microsoft Spark Utilities (MSSparkUtils) package. You can use these APIs to attach remote storage (Azure Blob Storage or Azure Data Lake Storage Gen2) to all working nodes (driver node and worker nodes). After the storage is in place, you can use the local file API to access data in storage as if it's in the local file system. For more information, see [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md).
+The Azure Synapse Studio team built two new mount/unmount APIs in the Microsoft Spark Utilities (`mssparkutils`) package. You can use these APIs to attach remote storage (Azure Blob Storage or Azure Data Lake Storage Gen2) to all working nodes (driver node and worker nodes). After the storage is in place, you can use the local file API to access data as if it's stored in the local file system. For more information, see [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md).
 
 The article shows you how to use mount/unmount APIs in your workspace. You'll learn: 
 
