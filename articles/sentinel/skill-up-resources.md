@@ -78,7 +78,7 @@ Finally, do you want to try it yourself? The Microsoft Sentinel All-In-One Accel
 
 Thousands of organizations and service providers are using Microsoft Sentinel. As is usual with security products, most organizations don't go public about it. Still, here are a few who have:
 
-* Find [public customer use cases](https://customers.microsoft.com/en-us/home).
+* Find [public customer use cases](https://customers.microsoft.com/home).
 * [Insight](https://www.insightcdct.com/) released a use case about [an NBA team adopts Microsoft Sentinel](https://www.insightcdct.com/Resources/Case-Studies/Case-Studies/NBA-Team-Adopts-Azure-Sentinel-for-a-Modern-Securi).
 * Stuart Gregg, Security Operations Manager at ASOS, posted a much more detailed [blog post from the Microsoft Sentinel experience, focusing on hunting](https://medium.com/@stuart.gregg/proactive-phishing-with-azure-sentinel-part-1-b570fff3113).
  
@@ -211,7 +211,7 @@ Finally, you can set fine-grained retention periods by using [table-level retent
 
 #### Log security
 
-* Use [resource role-based access control (RBAC)](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) or [Table-level RBAC](../azure-monitor/logs/manage-access.md) to enable multiple teams to use a single workspace.
+* Use [resource role-based access control (RBAC)](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) or [table-level RBAC](../azure-monitor/logs/manage-access.md) to enable multiple teams to use a single workspace.
 
 * If needed, [delete customer content from your workspaces](../azure-monitor/logs/personal-data-mgmt.md).
 
@@ -301,7 +301,7 @@ You might also be interested in the following resources:
 
 Working with varied data types and tables together can present a challenge. You must become familiar with those data types and schemas as you're writing and using a unique set of analytics rules, workbooks, and hunting queries. Correlating among the data types that are necessary for investigation and hunting can also be tricky.
 
-The Advanced SIEM information model (ASIM) provides a seamless experience for handling various sources in uniform, normalized views. ASIM aligns with the Open-Source Security Events Metadata (OSSEM) common information model, promoting vendor-agnostic, industry-wide normalization. View the "Advanced SIEM information model (ASIM): Now built into Microsoft Sentinel" webinar: [YouTube](https://www.youtube.com/watch?v=Cf4wu_ujhG4&ab_channel=MicrosoftSecurityCommunity) or [deck](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%212459&ithint=file%2Cpdf&authkey=%21AD3Hp0A%5Ft2%5FbEH4).
+The Advanced SIEM information model (ASIM) provides a seamless experience for handling various sources in uniform, normalized views. ASIM aligns with the Open-Source Security Events Metadata (OSSEM) common information model, promoting vendor-agnostic, industry-wide normalization. View the "Advanced SIEM information model (ASIM): Now built into Microsoft Sentinel" webinar: [YouTube](https://www.youtube.com/watch?v=Cf4wu_ujhG4&ab_channel=MicrosoftSecurityCommunity) or [presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%212459&ithint=file%2Cpdf&authkey=%21AD3Hp0A%5Ft2%5FbEH4).
 
 The current implementation is based on query time normalization, which uses KQL functions:
 
@@ -309,7 +309,7 @@ The current implementation is based on query time normalization, which uses KQL 
     * View the "Understanding normalization in Microsoft Sentinel" webinar: [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG).
     * View the "Deep Dive into Microsoft Sentinel normalizing parsers and normalized content" webinar: [YouTube](https://www.youtube.com/watch?v=zaqblyjQW6k), [MP3](https://aka.ms/AS_Normalizing_Parsers_and_Normalized_Content_11AUG2021_MP4), or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
 
-* **Parsers** map existing data to the normalized schemas. You implement parsers by using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions).  View the "Extend and manage ASIM: Developing, testing and deploying parsers" webinar: [YouTube](https://youtu.be/NHLdcuJNqKw) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
+* **Parsers** map existing data to the normalized schemas. You implement parsers by using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). View the "Extend and manage ASIM: Developing, testing and deploying parsers" webinar: [YouTube](https://youtu.be/NHLdcuJNqKw) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
 
 * **Content** for each normalized schema includes analytics rules, workbooks, and hunting queries. This content works on any normalized data without the need to create source-specific content.
 
@@ -348,7 +348,7 @@ Take advantage of these resources:
 
 * Use ASIM queries when you're using KQL on the log screen.
 
-* Write your own analytic rules by using ASIM, or [convert existing rules](normalization.md).
+* Write your own analytics rules by using ASIM, or [convert existing rules](normalization.md).
 
 * Write [parsers](normalization.md#asim-components) for your custom sources to make them ASIM-compatible, and take part in built-in analytics.
 
@@ -381,7 +381,7 @@ The next section on writing rules explains how to use KQL in the specific contex
 
 * [Pluralsight advanced KQL course](https://www.pluralsight.com/courses/microsoft-azure-data-explorer-advanced-query-capabilities)
 
-* "Optimizing Azure Microsoft Sentinel KQL queries performance" webinar: [YouTube](https://youtu.be/jN1Cz0JcLYU), [MP4](https://aka.ms/AzS_09SEP20_MP4) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmg2imjIS8NABc26b-?e=rXZrR5)
+* "Optimizing Azure Microsoft Sentinel KQL queries performance" webinar: [YouTube](https://youtu.be/jN1Cz0JcLYU), [MP4](https://aka.ms/AzS_09SEP20_MP4), or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmg2imjIS8NABc26b-?e=rXZrR5)
 
 * "Using ASIM in your KQL queries": [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
 
@@ -586,14 +586,14 @@ Microsoft Sentinel provides a great platform for implementing your own machine l
 To start with bringing your own machine learning to Microsoft Sentinel, view the ["Build-your-own machine learning model"](https://www.youtube.com/watch?v=QDIuvZbmUmc) video, and read the [Build-your-own machine learning model detections in the AI-immersed Azure Sentinel SIEM](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/build-your-own-machine-learning-detections-in-the-ai-immersed/ba-p/1750920) blog post. You might also want to refer to the [BYO ML documentation](bring-your-own-ml.md).
 
 ## Next steps 
-* [Pre-deployment activities and prerequisites for deploying Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/prerequisites)
-* [Quickstart: Onboard Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)
-* [What's new in Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/whats-new)
+* [Pre-deployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md)
+* [Quickstart: Onboard Microsoft Sentinel]quickstart-onboard.md)
+* [What's new in Microsoft Sentinel](whats-new.md)
 
 ## Recommended content
 
-* [Best practices for Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/best-practices) 
-* [Microsoft Sentinel sample workspace designs](https://docs.microsoft.com/en-us/azure/sentinel/sample-workspace-designs)
-* [Plan costs and understand Microsoft Sentinel pricing and billing](https://docs.microsoft.com/en-us/azure/sentinel/billing?tabs=commitment-tier)
-* [Roles and permissions in Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/roles)
-* [Deploy Microsoft Sentinel side-by-side with an existing SIEM](https://docs.microsoft.com/en-us/azure/sentinel/deploy-side-by-side)
+* [Best practices for Microsoft Sentinel](best-practices.md) 
+* [Microsoft Sentinel sample workspace designs](sample-workspace-designs.md)
+* [Plan costs and understand Microsoft Sentinel pricing and billing](billing?tabs=commitment-tier)
+* [Roles and permissions in Microsoft Sentinel](roles.md)
+* [Deploy Microsoft Sentinel side-by-side with an existing SIEM](deploy-side-by-side.md)
