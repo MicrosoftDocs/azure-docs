@@ -1,23 +1,18 @@
 ---
-title:  Azure Video Indexer concepts - Azure  
+title:  Azure Video Indexer terminology & concepts overview
 description: This article gives a brief overview of Azure Video Indexer terminology and concepts.
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: juliako
 ---
 
-
-# Azure Video Indexer concepts
+# Azure Video Indexer terminology & concepts
 
 This article gives a brief overview of Azure Video Indexer terminology and concepts.
 
-## Audio/video/combined insights
-
-When you upload your videos to Azure Video Indexer, it analyses both visuals and audio by running different AI models. As Azure Video Indexer analyzes your video, the insights that are extracted by the AI models. For more information, see [overview](video-indexer-overview.md).
-
 ## Confidence scores
 
-The confidence score indicates the confidence in an insight. It is a number between 0.0 and 1.0. The higher the score- the greater the confidence in the answer. For example, 
+The confidence score indicates the confidence in an insight. It is a number between 0.0 and 1.0. The higher the score- the greater the confidence in the answer. For example: 
 
 ```json
 "transcript":[
@@ -42,17 +37,16 @@ The confidence score indicates the confidence in an insight. It is a number betw
 
 Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content. For more information, see [Insights: visual and textual content moderation](video-indexer-output-json-v2.md#visualcontentmoderation). 
 
-## Project and editor
+## Insights	
 
-The [Azure Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Azure Video Indexer and be used in your own editing applications or downstream workflows.
+Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Below is an illustration of the audio and video analysis performed by Azure Video Indexer in the background.
 
-Some scenarios where you may find this feature useful are: 
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow.":::
+ 
+[!INCLUDE [insights](./includes/insights.md)]
 
-* Creating movie highlights for trailers.
-* Using old clips of videos in news casts.
-* Creating shorter content for social media.
-
-For more information, see [Use editor to create projects](use-editor-create-project.md).
+The [Azure Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Azure Video Indexer and be used in your own editing applications or downstream workflows. For more information, see [Use editor to create projects](use-editor-create-project.md).
 
 ## Keyframes
 
@@ -65,15 +59,6 @@ TimeRange is the time range in the original video. AdjustedTimeRange is the time
 ## Widgets
 
 Azure Video Indexer supports embedding widgets in your apps. For more information, see [Embed Azure Video Indexer widgets in your apps](video-indexer-embed-widgets.md).
-
-## Insights	
-
-Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Below is an illustration of the audio and video analysis performed by Azure Video Indexer in the background.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow.":::
- 
-[!INCLUDE [insights](./includes/insights.md)]
 
 ## Next steps
 
