@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Deployment Environments documentation
-summary: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments service. Tutorials, quickstarts, how-to guides, and more. 
+summary: Learn how to configure self-serve environments that developers can use to deploy their code with the Azure Deployment Environments service. Tutorials, quickstarts, how-to guides, and more. 
 
 metadata:
   title: Azure Deployment Environments documentation
-  description: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments service. Tutorials, quickstarts, how-to guides, and more. 
+  description: Learn how to configure self-serve environments that developers can use to deploy their code with the Azure Deployment Environments service. Tutorials, quickstarts, how-to guides, and more. 
   services: deployment-environments
   ms.service: deployment-environments
   ms.topic: landing-page
