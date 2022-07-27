@@ -47,6 +47,8 @@ items:
       href: app/tutorial-app-dashboards.md
     - name: Monitor mobile or UWP application
       href: app/mobile-center-quickstart.md
+    - name: Custom metrics with .NET and .NET Core
+      href: app/tutorial-custom-metrics.md
   - name: Change Analysis
     items:
     - name: Track web outages
