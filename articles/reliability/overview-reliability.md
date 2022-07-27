@@ -1,6 +1,6 @@
 ---
-title: Azure service reliability guides
-description: Azure service reliability guides that document the reliability offerings in Azure services.
+title: Azure service reliability documentation
+description: Azure service reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
@@ -10,13 +10,19 @@ ms.custom:
 ---
 
 
-# What are the Azure service reliability guides?
+# What is the Azure service reliability documentation?
 
-Azure service reliability guides are guidance articles for each service that has a reliability offering. It also provides information on service availability by category, sovereign cloud, and region.
+The Azure service reliability documentation is organized into three sections:
 
-For more detailed information on reliability and reliability principles in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](https://docs.microsoft.com/azure/architecture/framework/#reliability).
+* Reliability guides
+* Availability zone guides
+* Service availability 
 
-If the service support Availability Zones, the guidance article for that service will explain:
+# Reliability guides
+
+Azure service reliability guides help you to learn how to prepare your applications and resources to recover from failures and continue to function. Reliability consists of two principles: resiliency and availability. The goal of resiliency is to return your application to a fully functioning state after a failure occurs. The goal of availability is to provide consistent access to your application or workload be users as they need to.
+
+If a service supports Availability Zones, the guidance article for that service explains:
 
 > [!div class="checklist"]
 > * How to create a resource using availability zones
@@ -36,14 +42,34 @@ Each service guide will also provide the following disaster recovery information
 > * Disaster recovery setup and outage detection
 > * Capacity and proactive disaster recovery resiliency
 
-This guide also contains information on service availability. These are organized in the following articles:
 
-* [Availability of services by category](availability-service-by-category.md)
-* [Availability of services by sovereign cloud](availability-service-by-sovereign-cloud.md)
-* [Availability of services by region](https://azure.microsoft.com/global-infrastructure/services/)
+For more detailed information on reliability and reliability principles in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](https://docs.microsoft.com/azure/architecture/framework/#reliability).
+
+
+## Availability zone guides
+
+The Availability Zones section contains information related to Availability Zones for specific Azure services. Here, you will find information on which services support Availability Zones, how to migrate a service resource to availability zone support, or how to create a service resource for availability zone support.
+
+## Availability of services
+
+Availability of services across Azure regions depends on a region's type. Azure's general policy on deploying services into any given region is primarily driven by region type, service categories, sovereign cloud limitations, and customer demand.
+
+The availability of services section contains information on which services are available per category, sovereign cloud, and region. These are organized in the following articles:
 
 
 ## Next steps
 
-- [Azure Well-Architected Framework](https://www.aka.ms/WellArchitected/Framework)
-- [Azure architecture guidance](/azure/architecture/high-availability/building-solutions-for-high-availability)
+To learn which services support availability zones:
+
+> [!div class="nextstepaction"]
+> [Availability zones by region](availability-zones-region.md)
+
+To see the availability of services:
+
+> [!div class="nextstepaction"]
+> [Availability of services by category](availability-service-by-category.md)
+> [!div class="nextstepaction"]
+> [Availability of services by sovereign cloud](availability-service-by-sovereign-cloud.md)
+> [!div class="nextstepaction"]
+>  [Availability of services by region](https://azure.microsoft.com/global-infrastructure/services/)
+
