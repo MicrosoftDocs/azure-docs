@@ -20,8 +20,8 @@ The following domains are only necessary if you're using a relevant OS. For exam
 
 | Domain                     | Port | Host operating systems |
 | -------------------------- | ---- | -- |
-| Amazon Linux 2 (Eks): Domain: "amazonlinux.*.amazonaws.com/2/extras/*" | 443 | Amazon Linux 2 |
-| yum default repositories of RHEL / Centos  | - | RHEL, Centos |
-| apt default repositories Debian | - | Debian |
+| amazonlinux.*.amazonaws.com/2/extras/ | 443 | Amazon Linux 2 |
+| yum default repositories | - | RHEL / Centos |
+| apt default repositories | - | Debian |
 
 You'll also need to validate the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).

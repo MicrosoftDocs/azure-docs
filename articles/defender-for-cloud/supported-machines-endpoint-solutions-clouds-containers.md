@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 07/26/2022
+ms.date: 07/27/2022
 ms.custom: references_regions
 ---
 
@@ -91,6 +91,27 @@ The **tabs** below show the features that are available, by environment, for Mic
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
+### Outbound proxy support
+
+Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
+
+### Supported host operating systems
+
+Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
+
+- Amazon Linux 2
+- CentOS 8
+- Debian 10
+- Debian 11
+- Google Container-Optimized OS 
+- Red Hat Enterprise Linux 8
+- Ubuntu 16.04 
+- Ubuntu 18.04
+- Ubuntu 20.04
+- Ubuntu 22.04
+
+Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
+
 ### [**GCP (GKE)**](#tab/gcp-gke)
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup> | Agentless/Agent-based | Pricing tier |
@@ -123,6 +144,27 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
+### Outbound proxy support
+
+Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
+
+### Supported host operating systems
+
+Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
+
+- Amazon Linux 2
+- CentOS 8
+- Debian 10
+- Debian 11
+- Google Container-Optimized OS 
+- Red Hat Enterprise Linux 8
+- Ubuntu 16.04 
+- Ubuntu 18.04
+- Ubuntu 20.04
+- Ubuntu 22.04
+
+Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
 
 ### [**On-prem/IaaS (Arc)**](#tab/iaas-arc)
 
@@ -170,9 +212,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
----
-
-### Outbound proxy
+### Outbound proxy support
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
@@ -192,8 +232,11 @@ Defender for Containers relies on the **Defender extension** for several feature
 - Ubuntu 22.04
 
 Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
-## Next steps
 
+---
+
+## Next steps
+    
 - Learn how [Defender for Cloud collects data using the Log Analytics Agent](enable-data-collection.md).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Review the [platforms that support Defender for Cloud](security-center-os-coverage.md).
