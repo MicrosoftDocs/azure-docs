@@ -171,19 +171,19 @@ And then defining these elements for the resulting alert actions using:
 
     ### [Metric alert](#tab/metric)
 
-        |Field |Description |
-        |---------|---------|
-        |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition is not met anymore.|
+    |Field |Description |
+    |---------|---------|
+    |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
+    |Automatically resolve alerts (preview) |Select to resolve the alert when the condition is not met anymore.|
 
     ### [Log alert](#tab/log)
 
-        |Field |Description |
-        |---------|---------|
-        |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition is not met anymore.|
-        |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
-        |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule is not created.|
+    |Field |Description |
+    |---------|---------|
+    |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
+    |Automatically resolve alerts (preview) |Select to resolve the alert when the condition is not met anymore.|
+    |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
+    |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule is not created.|
 
     ### [Activity log](#tab/activity-log)
 
