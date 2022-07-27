@@ -172,7 +172,7 @@ The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON objec
 
 | Field                 | Data type | Description |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Suspended* *Completed*. |
+| **`runtimeStatus`**   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Suspended*, *Completed*. |
 | **`input`**           | JSON      | The JSON data used to initialize the instance. This field is `null` if the `showInput` query string parameter is set to `false`.|
 | **`customStatus`**    | JSON      | The JSON data used for custom orchestration status. This field is `null` if not set. |
 | **`output`**          | JSON      | The JSON output of the instance. This field is `null` if the instance is not in a completed state. |
