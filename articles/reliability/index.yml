@@ -26,50 +26,50 @@ landingContent:
       - linkListType: concept
         links:
           - text: API Management
-            href: migrate-api-mgt.md
+            url: migrate-api-mgt.md
           - text: App Service Environment
-            href: migrate-app-service-environment.md
+            url: migrate-app-service-environment.md
           - text: App Service
-            href: migrate-app-service.md
+            url: migrate-app-service.md
           - text: Application Gateway v2
-            href: migrate-app-gateway-v2.md
+            url: migrate-app-gateway-v2.md
           - text: Cache for Redis
-            href: migrate-cache-redis.md
+            url: migrate-cache-redis.md
           - text: Log Analytics workspaces
-            href: migrate-monitor-log-analytics.md
+            url: migrate-monitor-log-analytics.md
           - text: Container instances
-            href: migrate-container-instances.md
+            url: migrate-container-instances.md
           - text: Recovery Services vault
-            href: migrate-recovery-services-vault.md
+            url: migrate-recovery-services-vault.md
           - text: Storage accounts
-            href: migrate-storage.md
+            url: migrate-storage.md
           - text: Virtual Machines and virtual machine scale sets
-            href: migrate-vm.md
+            url: migrate-vm.md
   # Card
   - title: Availability zone guides
     linkLists:
       - linkListType: concept
         links:
           - text: API Management
-            href: migrate-api-mgt.md
+            url: migrate-api-mgt.md
           - text: App Service Environment
-            href: migrate-app-service-environment.md
+            url: migrate-app-service-environment.md
           - text: App Service
-            href: migrate-app-service.md
+            url: migrate-app-service.md
           - text: Application Gateway v2
-            href: migrate-app-gateway-v2.md
+            url: migrate-app-gateway-v2.md
           - text: Cache for Redis
-            href: migrate-cache-redis.md
+            url: migrate-cache-redis.md
           - text: Log Analytics workspaces
-            href: migrate-monitor-log-analytics.md
+            url: migrate-monitor-log-analytics.md
           - text: Container instances
-            href: migrate-container-instances.md
+            url: migrate-container-instances.md
           - text: Recovery Services vault
-            href: migrate-recovery-services-vault.md
+            url: migrate-recovery-services-vault.md
           - text: Storage accounts
-            href: migrate-storage.md
+            url: migrate-storage.md
           - text: Virtual Machines and virtual machine scale sets
-            href: migrate-vm.md
+            url: migrate-vm.md
 
   # Service availability
   - title: Availability of services
