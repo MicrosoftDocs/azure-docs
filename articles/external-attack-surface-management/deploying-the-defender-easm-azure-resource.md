@@ -19,7 +19,7 @@ Deploying the EASM Azure resource involves two steps:
 
 ## Prerequisites
 
-Before you create a Defender EASM resource group, we recommend that you are familiar with how to access and use the [Microsoft Azure Portal](https://ms.portal.azure.com/) and read the [Defender EASM Overview article](defender-easm-overview.md) for key context on the product. You will need:
+Before you create a Defender EASM resource group, we recommend that you are familiar with how to access and use the [Microsoft Azure Portal](https://ms.portal.azure.com/) and read the [Defender EASM Overview article](index.md) for key context on the product. You will need:
 
 - A valid Azure subscription or free Defender EASM trial account. If you don’t have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an free Azure account before you begin.
 
