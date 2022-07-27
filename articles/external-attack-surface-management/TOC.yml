@@ -1,7 +1,7 @@
 - name: Concepts
   items:
   - name: Overview
-    href: defender-easm-overview.md
+    href: index.md
   - name: Understanding inventory assets
     href: understanding-inventory-assets.md
   - name: What is Discovery?
