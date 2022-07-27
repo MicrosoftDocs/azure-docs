@@ -111,16 +111,31 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 **To simulate a a Kubernetes workload security alert**:
  
-1. Access one of the `azuredefender-publisher-<XXX>` pods deployed in your Kubernetes cluster.
+1. Create a pod to run test command on. Such pod could be any of the existing pod in the cluster, or a new pod created using this sample yaml configuration:
+    
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: mdc-test
+    spec:
+        containers:
+            - name: mdc-test
+              image: ubuntu:18.04
+              command: ["/bin/sh"]
+              args: ["-c", "while true; do echo sleeping; sleep 3600;done"]
+    ```
+
+To create the pod run:
+    ```bash
+    kubectl apply -f <path_to_the_yaml_file>
+    ```
 
 1. Run the following command from the cluster:
 
     ```bash
-    kubectl exec -it azuredefender-publisher-xx-xxxxx -n <namespace> -- bash
+    kubectl exec -it mdc-test -- bash
     ```
-
-    For AKS - `<namespace>` = `kube-system`<br>
-    For ARC - `<namespace>` = `mdc`
 
 1. Select an executable, copy it to a convenient location and rename it to `./asc_alerttest_662jfi039n`. For example:
 `cp /bin/echo ./asc_alerttest_662jfi039n`.
