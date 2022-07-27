@@ -40,15 +40,15 @@ During public preview, predictive autoscale is only available in the following r
 The following limitations apply during public preview. Predictive autoscale:
 
 - Only works for workloads exhibiting cyclical CPU usage patterns.
-- Only can be enabled for Virtual Machine Scale Sets.
+- Only can be enabled for virtual machine scale sets.
 - Only supports using the metric *Percentage CPU* with the aggregation type *Average*.
-- Only supports scale-out. You can’t use predictive autoscale to scale-in.
+- Only supports scale-out. You can't use predictive autoscale to scale in.
 
 You must enable standard (or reactive) autoscale to manage scale-in.
 
 ## Enable predictive autoscale or forecast only with the Azure portal
 
-1. Go to the virtual machine scale set screen and select **Scaling**.
+1. Go to the **Virtual machine scale set** screen and select **Scaling**.
 
    :::image type="content" source="media/autoscale-predictive/main-scaling-screen-1.png" alt-text="Screenshot that shows selecting Scaling on the left menu in the Azure portal.":::
 
@@ -323,7 +323,7 @@ If changes to the workload pattern occur but remain periodic, the model recogniz
 
 The modeling works best with workloads that exhibit periodicity. We recommend that you first evaluate the predictions by enabling "forecast only," which will overlay the scale set's predicted CPU usage with the actual, observed usage. After you compare and evaluate the results, you can then choose to enable scaling based on the predicted metrics if the model predictions are close enough for your scenario.
 
-### Why do I need to enable standard autoscale before enabling predictive autoscale?
+### Why do I need to enable standard autoscale before I enable predictive autoscale?
 
 Standard autoscaling is a necessary fallback if the predictive model doesn't work well for your scenario. Standard autoscale will cover unexpected load spikes, which aren't part of your typical CPU load pattern. It also provides a fallback if an error occurs in retrieving the predictive data.
 
@@ -355,7 +355,7 @@ When you first create a virtual machine scale set and enable forecast-only mode,
 
 ## Next steps
 
-Learn more about autoscale by referring to the following articles:
+Learn more about autoscale in the following articles:
 
 - [Overview of autoscale](./autoscale-overview.md)
 - [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
