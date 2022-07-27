@@ -33,7 +33,7 @@
     href: https://www.npmjs.com/package/@azure/video-indexer-widgets
 - name: Concepts
   items:
-  - name: Overview
+  - name: Terminology & concepts overview
     href: concepts-overview.md
   - name: Account types
     href: accounts-overview.md
@@ -77,7 +77,7 @@
       items:
       - name: Transparency notes
         href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
-      - name: Audio Effects Detection
+      - name: Audio effects detection
         href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
       - name: Faces detection
         href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context

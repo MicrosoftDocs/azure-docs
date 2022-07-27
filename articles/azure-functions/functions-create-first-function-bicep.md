@@ -1,8 +1,8 @@
 ---
 title: Create your function app resources in Azure using Bicep
 description: Create and deploy to Azure a simple HTTP triggered serverless function using Bicep.
-author: schaffererin
-ms.author: v-eschaffer
+author: mijacobs
+ms.author: mijacobs
 ms.date: 06/12/2022
 ms.topic: quickstart
 ms.service: azure-functions
