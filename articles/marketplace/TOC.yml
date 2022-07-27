@@ -549,7 +549,7 @@
     href: ratings-reviews.md
   - name: Customer retention dashboard
     href: customer-retention-dashboard.md
-  - name: Analyze your Microsoft 365 store app
+  - name: Analyze your Office store app
     items:
     - name: Analyze performance
       href: view-acquisitions-report.md
