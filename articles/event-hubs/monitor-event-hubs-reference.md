@@ -85,10 +85,10 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 
 
 ## Runtime audit logs
-Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in the Event Hubs dedicated cluster. 
+Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in Event Hubs. 
 
 > [!NOTE] 
-> Runtime audit logs are currently available only in **premium** and **dedicated** tiers.  
+> Runtime audit logs are available only in **premium** and **dedicated** tiers.  
 
 Runtime audit logs include the elements listed in the following table:
 
@@ -132,7 +132,7 @@ Here's an example of a runtime audit log entry:
 Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics. 
 
 > [!NOTE] 
-> Application metrics logs are currently available only in **premium** and **dedicated** tiers.  
+> Application metrics logs are available only in **premium** and **dedicated** tiers.  
 
 Name | Description
 ------- | -------

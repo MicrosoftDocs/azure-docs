@@ -34,10 +34,12 @@ This ordering can be established by providing a 'Priority' field value to the re
 The priority field only impacts the order of evaluation of a request routing rule, this wont change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
 
 >[!NOTE]
->This feature is currently available only through [Azure PowerShell](tutorial-multiple-sites-powershell.md#add-priority-to-routing-rules) and [Azure CLI](tutorial-multiple-sites-cli.md#add-priority-to-routing-rules). Portal support is coming soon.
+>If you wish to use rule priority, you will have to specify rule priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
+Starting with API version 2021-08-01 rule priority field would be a mandatory field as part of the request routing rules.
+From this API version, rule priority field values would be auto-populated for existing request routing rules based on current ordering of evaluation as part of the first PUT call. Any future updates to request routing rules would need to have the rule priority field provided as part of the configuration.
 
->[!NOTE]
->If you wish to use rule priority, you will have to specify rule-priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
+> [!IMPORTANT]
+> Rule priority field values for existing request routing rules based on current order would be automatically populated if any configuration updates are applied using API version 2021-08-01 and above, portal, Azure PowerShell and Azure CLI. Any future updates to request routing rules would need to have the rule priority field provided as part of the configuration.  
 
 ## Wildcard host names in listener
 

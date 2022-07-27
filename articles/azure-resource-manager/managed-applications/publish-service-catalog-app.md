@@ -1,24 +1,27 @@
 ---
 title: Publish service catalog managed app
 description: Shows how to create an Azure managed application that is intended for members of your organization.
-author: tfitzmac
+author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 08/16/2021
-ms.author: tomfitz
+ms.date: 07/08/2022
+ms.author: davidsmatlak
 ---
 
 # Quickstart: Create and publish a managed application definition
 
-This quickstart provides an introduction to working with [Azure Managed Applications](overview.md). You can create and publish a managed application that is intended for members of your organization.
+This quickstart provides an introduction to working with [Azure Managed Applications](overview.md). You can create and publish a managed application that's intended for members of your organization.
 
 To publish a managed application to your service catalog, you must:
 
-* Create a template that defines the resources to deploy with the managed application.
-* Define the user interface elements for the portal when deploying the managed application.
-* Create a _.zip_ package that contains the required template files.
-* Decide which user, group, or application needs access to the resource group in the user's subscription.
-* Create the managed application definition that points to the _.zip_ package and requests access for the identity.
+- Create an Azure Resource Manager template (ARM template) that defines the resources to deploy with the managed application.
+- Define the user interface elements for the portal when deploying the managed application.
+- Create a _.zip_ package that contains the required template files.
+- Decide which user, group, or application needs access to the resource group in the user's subscription.
+- Create the managed application definition that points to the _.zip_ package and requests access for the identity.
+
+> [!NOTE]
+> Bicep files can't be used in a managed application. You must convert a Bicep file to ARM template JSON with the Bicep [build](../bicep/bicep-cli.md#build) command.
 
 ## Create the ARM template
 
@@ -26,7 +29,7 @@ Every managed application definition includes a file named _mainTemplate.json_. 
 
 Create a file named _mainTemplate.json_. The name is case-sensitive.
 
-Add the following JSON to your file. It defines the parameters for creating a storage account, and specifies the properties for the storage account.
+Add the following JSON and save the file. It defines the parameters for creating a storage account, and specifies the properties for the storage account.
 
 ```json
 {
@@ -50,7 +53,7 @@ Add the following JSON to your file. It defines the parameters for creating a st
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
+      "apiVersion": "2021-09-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -63,13 +66,11 @@ Add the following JSON to your file. It defines the parameters for creating a st
   "outputs": {
     "storageEndpoint": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
+      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2021-09-01').primaryEndpoints.blob]"
     }
   }
 }
 ```
-
-Save the _mainTemplate.json_ file.
 
 ## Define your create experience
 
@@ -203,7 +204,7 @@ $groupID=(Get-AzADGroup -DisplayName mygroup).Id
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-groupid=$(az ad group show --group mygroup --query objectId --output tsv)
+groupid=$(az ad group show --group mygroup --query id --output tsv)
 ```
 
 ---
@@ -215,13 +216,13 @@ Next, you need the role definition ID of the Azure built-in role you want to gra
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$ownerID=(Get-AzRoleDefinition -Name Owner).Id
+$roleid=(Get-AzRoleDefinition -Name Owner).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-ownerid=$(az role definition list --name Owner --query [].name --output tsv)
+roleid=$(az role definition list --name Owner --query [].name --output tsv)
 ```
 
 ---
@@ -258,7 +259,7 @@ New-AzManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "${groupID}:$ownerID" `
+  -Authorization "${groupID}:$roleid" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
@@ -274,7 +275,7 @@ az managedapp definition create \
   --lock-level ReadOnly \
   --display-name "Managed Storage Account" \
   --description "Managed Azure Storage Account" \
-  --authorizations "$groupid:$ownerid" \
+  --authorizations "$groupid:$roleid" \
   --package-file-uri "$blob"
 ```
 
@@ -284,14 +285,18 @@ When the command completes, you have a managed application definition in your re
 
 Some of the parameters used in the preceding example are:
 
-* **resource group**: The name of the resource group where the managed application definition is created.
-* **lock level**: The type of lock placed on the managed resource group. It prevents the customer from performing undesirable operations on this resource group. Currently, ReadOnly is the only supported lock level. When ReadOnly is specified, the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock.
-* **authorizations**: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group. It's specified in the format of `<principalId>:<roleDefinitionId>`. If more than one value is needed, specify them in the form `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. The values are separated by a comma.
-* **package file URI**: The location of a _.zip_ package that contains the required files.
+- **resource group**: The name of the resource group where the managed application definition is created.
+- **lock level**: The type of lock placed on the managed resource group. It prevents the customer from performing undesirable operations on this resource group. Currently, ReadOnly is the only supported lock level. When ReadOnly is specified, the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock.
+- **authorizations**: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group.
+
+  - **Azure PowerShell**: `"${groupid}:$roleid"` or you can use curly braces for each variable `"${groupid}:${roleid}"`. Use a comma to separate multiple values: `"${groupid1}:$roleid1", "${groupid2}:$roleid2"`.
+  - **Azure CLI**: `"$groupid:$roleid"` or you can use curly braces as shown in PowerShell. Use a space to separate multiple values: `"$groupid1:$roleid1" "$groupid2:$roleid2"`.
+
+- **package file URI**: The location of a _.zip_ package that contains the required files.
 
 ## Bring your own storage for the managed application definition
 
-You can choose to store your managed application definition within a storage account provided by you during creation so that its location and access can be fully managed by you for your regulatory needs.
+As an alternative, you can choose to store your managed application definition within a storage account provided by you during creation so that its location and access can be fully managed by you for your regulatory needs.
 
 > [!NOTE]
 > Bring your own storage is only supported with ARM template or REST API deployments of the managed application definition.
@@ -382,12 +387,10 @@ Use the following ARM template to deploy your packaged managed application as a 
 }
 ```
 
-We have added a new property named `storageAccountId` to your `applicationDefinitions` properties and provide storage account ID you wish to store your definition in as its value:
-
-You can verify that the application definition files are saved in your provided storage account in a container titled `applicationDefinitions`.
+The `applicationDefinitions` properties include `storageAccountId` that contains the storage account ID for your storage account. You can verify that the application definition files are saved in your provided storage account in a container titled `applicationDefinitions`.
 
 > [!NOTE]
-> For added security, you can create a managed applications definition store it in an [Azure storage account blob where encryption is enabled](../../storage/common/storage-service-encryption.md). The definition contents are encrypted through the storage account's encryption options. Only users with permissions to the file can see the definition in Service Catalog.
+> For added security, you can create a managed applications definition and store it in an [Azure storage account blob where encryption is enabled](../../storage/common/storage-service-encryption.md). The definition contents are encrypted through the storage account's encryption options. Only users with permissions to the file can see the definition in Service Catalog.
 
 ## Make sure users can see your definition
 

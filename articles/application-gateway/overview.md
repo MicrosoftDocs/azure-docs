@@ -25,7 +25,7 @@ This type of routing is known as application layer (OSI layer 7) load balancing.
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. 
 > * If you are looking to do DNS based global routing and do **not** have requirements for Transport Layer Security (TLS) protocol termination ("SSL offload"), per-HTTP/HTTPS request or application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
 > * If you need to optimize global routing of your web traffic and optimize top-tier end-user performance and reliability through quick global failover, see [Front Door](../frontdoor/front-door-overview.md).
-> * To do network layer load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). 
+> * To do transport layer load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). 
 > 
 > Your end-to-end scenarios may benefit from combining these solutions as needed.
 > For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
@@ -52,3 +52,4 @@ Depending on your requirements and environment, you can create a test Applicatio
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure PowerShell](quick-create-powershell.md)
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI](quick-create-cli.md)
+- [Learn module: Introduction to Azure Application Gateway](/learn/modules/intro-to-azure-application-gateway)

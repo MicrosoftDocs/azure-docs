@@ -20,6 +20,9 @@ The Pre-Call API enables developers to programmatically validate a client’s re
 
 ## Accessing Pre-Call APIs
 
+>[!IMPORTANT]
+>Pre-Call diagnostics are available starting on the version [1.5.2-alpha.20220415.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.5.2-alpha.20220415.1) of the Calling SDK. Make sure to use that version when trying the instructions below.
+
 To Access the Pre-Call API, you will need to initialize a `callClient` and provision an Azure Communication Services access token. There you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
 ```javascript
@@ -104,6 +107,8 @@ In the case that devices are not available, the user shouldn't continue into joi
 ### InCall diagnostics
 Performs a quick call to check in-call metrics for audio and video and provides results back. Includes connectivity (`connected`, boolean), bandwidth quality (`bandWidth`, `'Bad' | 'Average' | 'Good'`) and call diagnostics for audio and video (`diagnostics`). Diagnostic are provided `jitter`, `packetLoss` and `rtt` and results are generated using a simple quality grade (`'Bad' | 'Average' | 'Good'`).
 
+InCall diagnostics leverages [media quality stats](./media-quality-sdk.md) to calculate quality scores and diagnose issues. During the pre-call diagnostic, the full set of media quality stats are available for consumption. These will include raw values across video and audio metrics that can be used programatically. The InCall diagnostic provides a convenience layer on top of media quality stats to consume the results without the need to process all the raw data. See section on media stats for instructions to access.
+
 ```javascript
 
   const inCallDiagnostics =  await preCallDiagnosticsResult.inCallDiagnostics;
@@ -122,7 +127,7 @@ At this step, there are multiple failure points to watch out for:
 - If bandwidth is `Bad`, the user should be prompted to try out a different network or verify the bandwidth availability on their current one. Ensure no other high bandwidth activities might be taking place.
 
 ### Media stats
-For granular stats on quality metrics like jitter, packet loss, rtt, etc. `callMediaStatistics` are provided as part of the `preCallDiagnosticsResult` feature. You can subscribe to the call media stats to get full collection of them.
+For granular stats on quality metrics like jitter, packet loss, rtt, etc. `callMediaStatistics` are provided as part of the `preCallDiagnosticsResult` feature.  See the [full list and description of the available metrics](./media-quality-sdk.md) in the linked article.  You can subscribe to the call media stats to get full collection of them. This is the raw metrics that are used to calculate InCall diagnostic results and which can be consumed granularly for further analysis.
 
 ## Pricing
 

@@ -3,7 +3,7 @@ title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to look up or correlate data in an Azure Stream Analytics job's query design.
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 06/17/2022
 ---
 # Use reference data for lookups in Stream Analytics
 
@@ -114,7 +114,7 @@ With the delta query option, Stream Analytics runs the snapshot query initially 
 
 To configure your SQL Database reference data, you first need to create reference data input. The following table explains each property you need to provide when you create the reference data input with its description. For more information, see [Use reference data from a SQL Database for a Stream Analytics job](sql-reference-data.md).
 
-You can use [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) as a reference data input. You must [configure a public endpoint in SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). Then you manually configure the following settings in Stream Analytics. An Azure virtual machine running SQL Server with a database attached is also supported by manually configuring these settings.
+You can use [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as a reference data input. You must [configure a public endpoint in SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure). Then you manually configure the following settings in Stream Analytics. An Azure virtual machine running SQL Server with a database attached is also supported by manually configuring these settings.
 
 |Property name|Description  |
 |---------|---------|
@@ -145,7 +145,7 @@ Support for compression isn't available for reference data. For reference datase
 
 ## Join multiple reference datasets in a job
 
-You can join only one stream input with one reference data input in a single step of your query. To join multiple reference datasets, break down your query into multiple steps. Here's an example:
+You can only join a reference data input to a streaming input. So to join multiple reference datasets, break down your query into multiple steps. Here's an example:
 
 ```SQL  
 With Step1 as (

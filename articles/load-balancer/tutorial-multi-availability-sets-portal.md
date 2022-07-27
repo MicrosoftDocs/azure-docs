@@ -2,11 +2,11 @@
 title: 'Tutorial: Create a load balancer with more than one availability set in the backend pool - Azure portal'
 titleSuffix: Azure Load Balancer
 description: In this tutorial, deploy an Azure Load Balancer with more than one availability set in the backend pool.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 08/12/2021
+ms.date: 05/09/2022
 ms.custom: template-tutorial
 ---
 # Tutorial: Create a load balancer with more than one availability set in the backend pool using the Azure portal
@@ -54,17 +54,28 @@ In this section, you'll create a virtual network for the load balancer and the o
 
 6. Select the **IP addresses** tab, or the **Next: IP Addresses** button at the bottom of the page.
 
-7. In the **IP addresses** tab, under **Subnet name** select **default**.
+7. In the **IP Addresses** tab, enter this information:
 
-8. In the **Edit subnet** pane, under **Subnet name** enter **myBackendSubnet**.
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | IPv4 address space | Enter **10.1.0.0/16** |
 
-9. Select **Save**.
+8. Select **+ Add subnet**. 
 
-10. Select the **Security** tab, or the **Next: Security** button at the bottom of the page.
+9. In **Add subnet**, enter this information:
 
-11. In the **Security** tab, in **BastionHost** select **Enable**.
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | Subnet name | Enter **myBackendSubnet** |
+    | Subnet address range | Enter **10.1.0.0/24** |
 
-12. Enter or select the following information:
+10. Select **Add**.
+
+11. Select the **Security** tab, or the **Next: Security** button at the bottom of the page.
+
+12. In the **Security** tab, in **BastionHost** select **Enable**.
+
+13. Enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -72,9 +83,9 @@ In this section, you'll create a virtual network for the load balancer and the o
     | AzureBastionSubnet address space | Enter **10.1.1.0/27**. |
     | Public IP address | Select **Create new**. </br> Enter **myBastionIP** in **Name**. |
 
-13. Select the **Review + create** tab, or the blue **Review + create** button at the bottom of the page.
+14. Select the **Review + create** tab, or the blue **Review + create** button at the bottom of the page.
 
-14. Select **Create**.
+15. Select **Create**.
 
 ## Create NAT gateway 
 
@@ -139,9 +150,9 @@ In this section, you'll create a load balancer for the virtual machines.
     | SKU           | Leave the default **Standard**. |
     | Tier          | Leave the default **Regional**. |
 
-4. Select **Next: Frontend IP configuration** at the bottom of the page.
+4. Select the **Frontend IP configuration** tab, or select the **Next: Frontend IP configuration** button at the bottom of the page.
 
-5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+5. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
 6. Enter **LoadBalancerFrontend** in **Name**.
 
@@ -162,7 +173,7 @@ In this section, you'll create a load balancer for the virtual machines.
 11. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
 12. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -170,7 +181,7 @@ In this section, you'll create a load balancer for the virtual machines.
 
 14. Select **Add**.
 
-15. Select **Next: Backend pools** at the bottom of the page.
+15. Select the **Backend pools** tab, or select the **Next: Backend pools** button at the bottom of the page.
 
 16. In the **Backend pools** tab, select **+ Add a backend pool**.
 
@@ -184,7 +195,7 @@ In this section, you'll create a load balancer for the virtual machines.
 
 21. Select **Add**.
 
-22. Select the **Next: Inbound rules** button at the bottom of the page.
+22. Select the **Inbound rules** tab, or select the **Next: Inbound rules** button at the bottom of the page.
 
 23. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 
@@ -213,7 +224,7 @@ In this section, you'll create a load balancer for the virtual machines.
 27. Select **Create**.
 
     > [!NOTE]
-    > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
+    > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 
 ## Create virtual machines
@@ -270,7 +281,7 @@ In this section, you'll create two availability groups with two virtual machines
 
 7. Select **Create**.
 
-8. Repeat steps 1 through seven to create the second virtual machine of the set. Replace the settings for the VM with the following information:
+8. Repeat steps 1 through 7 to create the second virtual machine of the set. Replace the settings for the VM with the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -334,7 +345,7 @@ In this section, you'll create two availability groups with two virtual machines
 
 7. Select **Create**.
 
-8. Repeat steps 1 through seven to create the second virtual machine of the set. Replace the settings for the VM with the following information:
+8. Repeat steps 1 through 7 to create the second virtual machine of the set. Replace the settings for the VM with the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -358,11 +369,9 @@ In this section, you'll use the Azure Bastion host you created previously to con
 
 4. In the **Overview** page of myVM1, select **Connect** > **Bastion**.
 
-5. Select **Use Bastion**.
+5. Enter the **Username** and **Password** you created when you created the virtual machine.
 
-6. Enter the **Username** and **Password** you created when you created the virtual machine.
-
-7. Select **Connect**.
+6. Select **Connect**.
 
 7. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell**.
 
@@ -382,9 +391,9 @@ In this section, you'll use the Azure Bastion host you created previously to con
     # Add a new htm file that displays server name
     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
-8. Close the Bastion session with **myVM1**.
+9. Close the Bastion session with **myVM1**.
 
-9. Repeat steps 1 through eight for **myVM2**, **myVM3**, and **myVM4**.
+10. Repeat steps 1 through 8 for **myVM2**, **myVM3**, and **myVM4**.
 
 ## Test the load balancer
 

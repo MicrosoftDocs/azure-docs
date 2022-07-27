@@ -20,8 +20,16 @@
   href: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
 - name: Responsible use of AI
   items:
-  - name: Ethics & responsible use
-    href: ethics-responsible-use.md
+  - name: Transparency notes
+    items:
+    - name: Use cases
+      href: responsible-use-cases.md
+    - name: Characteristics and limitations
+      href: responsible-characteristics-and-limitations.md
+  - name: Data and privacy
+    href: responsible-data-and-privacy.md
+  - name: Guidance for integration and responsible use
+    href: responsible-guidance-integration.md
 - name: How-to guides
   items:
   - name: Create Personalizer Resource
@@ -99,6 +107,8 @@
   items:
   - name: Personalizer REST API
     href: https://go.microsoft.com/fwlink/?linkid=2092082
+  - name: Personalizer REST API (v1.1 Preview)
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-3/operations/Rank
   - name: .NET
     items:
     - name: Reference

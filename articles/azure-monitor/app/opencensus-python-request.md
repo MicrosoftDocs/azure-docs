@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.devlang: python
 ms.custom: devx-track-python
+ms.reviewer: mmcc
 ---
 
 # Track incoming requests with OpenCensus Python
@@ -145,11 +146,14 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
     HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
     HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
     
-    tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
+    APPINSIGHTS_CONNECTION_STRING='<your-appinsights_connection-string-here>'
+    exporter=AzureExporter(connection_string=f'{APPINSIGHTS_CONNECTION_STRING}')
+    sampler=ProbabilitySampler(1.0)
 
     # fastapi middleware for opencensus
     @app.middleware("http")
-    async def middlewareOpencensus(request: Request, call_next):        
+    async def middlewareOpencensus(request: Request, call_next):  
+        tracer = Tracer(exporter=exporter, sampler=sampler)       
         with tracer.span("main") as span:
             span.span_kind = SpanKind.SERVER
 

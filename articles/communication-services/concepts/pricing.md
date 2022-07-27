@@ -70,6 +70,23 @@ Alice makes an outbound call from an Azure Communication Services app to a telep
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
 
+### Pricing example: Outbound Call from a Dynamics 365 Omnichannel (D365 OC) agent application via Azure Communication Services direct routing
+
+Alice is a D365 contact center agent, who makes an outbound call from D365 OC to a telephone number (Bob) via Azure Communication Services direct routing.
+- Alice uses D365 OC client application 
+- D365 OC bot starts new outgoing call via direct routing
+- Call goes to a Session Border Controller (SBC) connected via Communication Services direct routing
+- D365 OC bot adds Alice to a call by escalating the direct routing call to a group call
+- The call lasts a total of 10 minutes. 
+
+**Cost calculations**
+
+- One participant on the VoIP leg (Alice) from D365 OC client application x 10 minutes x $0.004 per participant leg per minute = $0.04
+- One participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
+- D365 OC bot does not introduce additional ACS charges.
+
+**Total cost for the call**: $0.04 + $0.04 = $0.08
+
 ### Pricing example: Group audio call using JS SDK and one PSTN leg
 
 Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.
@@ -127,7 +144,7 @@ Alice has ordered a product from Contoso and struggles to set it up. Alice calls
 - One participant (Bob) x 30 minutes x $0.004 per participant per minute = $0.12 [both video and audio are charged at the same rate]
 - One participant (Charlie) x 25 minutes x $0.000 per participant per minute = $0.0*.
 
-*Charlie's participation is covered by her Teams license.
+*Charlie's participation is covered by his Teams license.
 
 **Total cost of the visit**:
 - Teams cost for a user joining using the Communication Services JavaScript SDK: 25 minutes from Teams minute pool
@@ -190,13 +207,47 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 - Number of messages sent (20 + 30 + 18 + 30 + 25 + 35) x $0.0008 = $0.1264
 
 
-## SMS (Short Messaging Service) and Telephony
+## SMS (Short Messaging Service)
 
-Please refer to the following links for details on SMS and Telephony pricing
+Azure Communication Services allows for adding SMS messaging capabilities to your applications. You can embed the experience into your applications using JavaScript, Java, Python, or .NET SDKs. Refer to our [full list of available SDKs](./sdk-options.md).
 
-- [SMS Pricing Details](./sms-pricing.md)
+### Pricing
+
+The SMS usage price is a per-message segment charge based on the destination of the message. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Please refer to the [SMS Pricing Page](./sms-pricing.md) for pricing details. 
+
+### Pricing example: 1:1 SMS sending
+
+Contoso is a healthcare company with clinics in US and Canada. Contoso has a Patient Appointment Reminder application that sends out SMS appointment reminders to patients regarding upcoming appointments. 
+
+- The application sends appointment reminders to 20 US patients and 30 Canada patients using a US toll-free number.
+- Message length of the reminder message is 150 chars < 1 message segment*. Hence, total sent messages are 20 message segments for US and 30 message segments for CA.
+
+**Cost calculations**
+
+- US - 20 message segments x $0.0075 per sent message segment + 20 message segments x $0.0025 carrier surcharge per sent message segment = $0.20
+- CA - 30 message segments x $0.0075 per sent message segment + 30 message segments x $0.0085 carrier surcharge per sent message segment = $0.48
+
+**Total cost for the appointment reminders for 20 US patients and 30 CA patients**: $0.20 + $0.48 = $0.68
+
+### Pricing example: 1:1 SMS receiving
+
+Contoso is a healthcare company with clinics in US and Canada. Contoso has a Patient Appointment Reminder application that sends out SMS appointment reminders to patients regarding upcoming appointments. Patients can respond to the messages with "Reschedule" and include their date/time preference to reschedule their appointments.
+
+- The application sends appointment reminders to 20 US patients and 30 Canada patients using a CA toll-free number.
+- 6 US patients and 4 CA patients respond back to reschedule their appointments. Contoso receives 10 SMS responses in total.
+- Message length of the reschedule messages is less than 1 message segment*. Hence, total messages received are 6 message segments for US and 4 message segments for CA.
+
+**Cost calculations**
+
+- US - 6 message segments x $0.0075 per received message segment + 6 message segments x $0.0010 carrier surcharge per received message segment = $0.051
+- CA - 4 message segments x $0.0075 per received message segment = $0.03
+
+**Total cost for receiving patient responses from 6 US patients and 4 CA patients**: $0.051 + $0.03 = $0.081
+
+## Telephony
+Please refer to the following links for details on Telephony pricing
+
 - [PSTN Pricing Details](./pstn-pricing.md)
-
 
 ## Next Steps
 Get started with Azure Communication Services:

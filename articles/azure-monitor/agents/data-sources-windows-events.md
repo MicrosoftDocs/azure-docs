@@ -3,35 +3,35 @@ title: Collect Windows event log data sources with Log Analytics agent in Azure 
 description: Describes how to configure the collection of Windows Event logs by Azure Monitor and details of the records they create.
 ms.topic: conceptual
 ms.date: 04/06/2022
+ms.reviewer: luki
 
 ---
 
 # Collect Windows event log data sources with Log Analytics agent
-Windows Event logs are one of the most common [data sources](../agents/agent-data-sources.md) for Log Analytics agents on Windows virtual machines since many applications write to the Windows event log.  You can collect events from standard logs such as System and Application in addition to specifying any custom logs created by applications you need to monitor.
+Windows Event logs are one of the most common [data sources](../agents/agent-data-sources.md) for Log Analytics agents on Windows virtual machines since many applications write to the Windows event log.  You can collect events from standard logs, such as System and Application, and any custom logs created by applications you need to monitor.
 
-> [!IMPORTANT]
-> This article covers collecting Windows events with the [Log Analytics agent](./log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
+![Diagram that shows the Log Analytics agent sending Windows events to the Event table in Azure Monitor.](media/data-sources-windows-events/overview.png)     
 
-![Windows Events](media/data-sources-windows-events/overview.png)     
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ## Configuring Windows Event logs
 Configure Windows Event logs from the [Agents configuration menu](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace.
 
-Azure Monitor only collects events from the Windows event logs that are specified in the settings.  You can add an event log by typing in the name of the log and clicking **+**.  For each log, only the events with the selected severities are collected.  Check the severities for the particular log that you want to collect.  You cannot provide any additional criteria to filter events.
+Azure Monitor only collects events from the Windows event logs that are specified in the settings.  You can add an event log by typing in the name of the log and clicking **+**.  For each log, only the events with the selected severities are collected.  Check the severities for the particular log that you want to collect.  You can't provide any additional criteria to filter events.
 
-As you type the name of an event log, Azure Monitor provides suggestions of common event log names. If the log you want to add does not appear in the list, you can still add it by typing in the full name of the log. You can find the full name of the log by using event viewer. In event viewer, open the *Properties* page for the log and copy the string from the *Full Name* field.
+As you type the name of an event log, Azure Monitor provides suggestions of common event log names. If the log you want to add doesn't appear in the list, you can still add it by typing in the full name of the log. You can find the full name of the log by using event viewer. In event viewer, open the *Properties* page for the log and copy the string from the *Full Name* field.
 
-[![Configure Windows events](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
+[![Screenshot showing the Windows event logs tab on the Agents configuration screen.](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!IMPORTANT]
-> You can't configure collection of security events from the workspace. You must use [Microsoft Defender for Cloud](../../security-center/security-center-enable-data-collection.md) or [Microsoft Sentinel](../../sentinel/connect-windows-security-events.md) to collect security events.
+> You can't configure collection of security events from the workspace using Log Analytics agent. You must use [Microsoft Defender for Cloud](../../security-center/security-center-enable-data-collection.md) or [Microsoft Sentinel](../../sentinel/connect-windows-security-events.md) to collect security events. [Azure Monitor agent](azure-monitor-agent-overview.md) can also be used to collect security events.
 
 
 > [!NOTE]
 > Critical events from the Windows event log will have a severity of "Error" in Azure Monitor Logs.
 
 ## Data collection
-Azure Monitor collects each event that matches a selected severity from a monitored event log as the event is created.  The agent records its place in each event log that it collects from.  If the agent goes offline for a period of time, then it collects events from where it last left off, even if those events were created while the agent was offline.  There is a potential for these events to not be collected if the event log wraps with uncollected events being overwritten while the agent is offline.
+Azure Monitor collects each event that matches a selected severity from a monitored event log as the event is created.  The agent records its place in each event log that it collects from.  If the agent goes offline for a while, it collects events from where it last left off, even if those events were created while the agent was offline.  There's a potential for these events to not be collected if the event log wraps with uncollected events being overwritten while the agent is offline.
 
 >[!NOTE]
 >Azure Monitor does not collect audit events created by SQL Server from source *MSSQLSERVER* with event ID 18453 that contains keywords - *Classic* or *Audit Success* and keyword *0xa0000000000000*.

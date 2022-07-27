@@ -51,7 +51,7 @@ New-AzMapsAccount -ResourceGroupName your-Resource-Group -Name name-of-maps-acco
 
 ### Use Azure CLI to create an Azure Maps account with a global region
 
-The Azure CLI command [az maps account create](/cli/azure/maps/account?view=azure-cli-latest#az-maps-account-create) doesn’t have a location property, but defaults to “global”, making it useful for creating an Azure Maps account with a global region setting for use with the Geofence API async event.
+The Azure CLI command [az maps account create](/cli/azure/maps/account?view=azure-cli-latest&preserve-view=true#az-maps-account-create) doesn’t have a location property, but defaults to “global”, making it useful for creating an Azure Maps account with a global region setting for use with the Geofence API async event.
 
 ## Upload geofencing GeoJSON data
 

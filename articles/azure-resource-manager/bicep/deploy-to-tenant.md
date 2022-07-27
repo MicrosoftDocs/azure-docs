@@ -217,7 +217,7 @@ The following template assigns a role at the tenant scope.
 ```bicep
 targetScope = 'tenant'
 
-@description('principalId if the user that will be given contributor access to the resourceGroup')
+@description('principalId of the user that will be given contributor access to the resourceGroup')
 param principalId string
 
 @description('roleDefinition for the assignment - default is owner')

@@ -3,6 +3,7 @@ title: Migrate from Application Insights instrumentation keys to connection stri
 description: Learn the steps required to upgrade from Azure Monitor Application Insights instrumentation keys to connection strings
 ms.topic: conceptual
 ms.date: 02/14/2022
+ms.reviewer: cogoodson
 ---
 
 # Migrate from Application Insights instrumentation keys to connection strings
@@ -97,7 +98,7 @@ Connection strings provide a single configuration setting and eliminate the need
 
 ## Supported SDK Versions
 
-- .NET and .NET Core [LTS](https://dotnet.microsoft.com/download/visual-studio-sdks)
+- .NET and .NET Core v2.12.0+
 - Java v2.5.1 and Java 3.0+
 - JavaScript v2.3.0+
 - NodeJS v1.5.0+

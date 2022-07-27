@@ -3,11 +3,11 @@ title: Azure IoT Central data integration guide | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to integrate your IoT Central application with other services to extend its capabilities.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/04/2022
+ms.date: 06/03/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: [mvc, iot-central-frontdoor]
 
 # This article applies to solution builders.
 ---
@@ -34,7 +34,26 @@ When you use IoT Central to create an IoT solution, tasks include:
 - Configure data transformations to make it easier to extract business value from your data.
 - Configure dashboards and views in the IoT Central web UI.
 - Use the built-in rules and analytics tools to derive business insights from the connected devices.
-- Use the data export, rules capabilities, and APIs to integrate IoT Central with other services and applications.
+- Use the data export feature, rules capabilities, and APIs to integrate IoT Central with other services and applications.
+
+## Data export
+
+Many integration scenarios build on the IoT Central data export feature. An IoT Central application can continuously export filtered and enriched IoT data. Data export pushes changes in near real time to other parts of your cloud solution for warm-path insights, analytics, and storage.
+
+For example, you can:
+
+- Continuously export telemetry, property changes, device connectivity, device lifecycle, and device template lifecycle data in JSON format in near real time.
+- Filter the data streams to export data that matches custom conditions.
+- Enrich the data streams with custom values and property values from the device.
+- [Transform the data](howto-transform-data-internally.md) streams to modify their shape and content.
+
+Currently, IoT Central export data to:
+
+- [Azure Data Explorer](howto-export-to-azure-data-explorer.md)
+- [Blob Storage](howto-export-to-blob-storage.md)
+- [Event Hubs](howto-export-to-event-hubs.md)
+- [Service Bus](howto-export-to-service-bus.md)
+- [Webhook](howto-export-to-webhook.md)
 
 ## Transform data at ingress
 
@@ -69,7 +88,7 @@ Scenarios that process IoT data outside of IoT Central to extract business value
 
 - Compute, enrich, and transform:
   
-  IoT Central lets you capture, transform, manage, and visualize IoT data. Sometimes, it's useful to enrich or transform you IoT data using external data sources. You can then feed the enriched data back into IoT Central.
+  IoT Central lets you capture, transform, manage, and visualize IoT data. Sometimes, it's useful to enrich or transform your IoT data using external data sources. You can then feed the enriched data back into IoT Central.
 
   For example, use the IoT Central continuous data export feature to trigger an Azure function. The function enriches captured device telemetry and pushes the enriched data back into IoT Central while preserving timestamps.
 
@@ -95,7 +114,7 @@ To learn more, see [Transform data for IoT Central](howto-transform-data.md). Fo
 
 You can use the data export and rules capabilities in IoT Central to integrate with other service. To learn more, see:
 
-- [Export IoT data to cloud destinations using data export](howto-export-data.md)
+- [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 - [Transform data for IoT Central](howto-transform-data.md)
 - [Use workflows to integrate your Azure IoT Central application with other cloud services](howto-configure-rules-advanced.md)
 - [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](howto-create-custom-rules.md)

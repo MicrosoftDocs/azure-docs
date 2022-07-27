@@ -3,11 +3,11 @@ title: Retrieve load balancer metadata using Azure Instance Metadata Service (IM
 titleSuffix: Azure Load Balancer
 description: Get started learning how to retrieve load balancer metadata using Azure Instance Metadata Service.
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: allensu
+ms.author: mbender
 
 ---
 # Retrieve load balancer metadata using Azure Instance Metadata Service (IMDS)

@@ -36,6 +36,11 @@ You can configure alerts for each metric such as a threshold for 4XXErrorRate or
 | OriginHealth% | The percentage of successful health probes from AFD to origin.| Origin, Origin Group |
 | WAF request count | Matched WAF request. | Action, rule name, Policy Name |
 
+> [!NOTE]
+> If a request to the the origin timeout, the value for HttpStatusCode dimension will be **0**.
+>
+
+
 ## Access Metrics in Azure portal
 
 1. From the Azure portal menu, select **All Resources** >> **\<your-AFD-profile>**.

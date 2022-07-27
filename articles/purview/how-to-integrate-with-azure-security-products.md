@@ -15,7 +15,7 @@ This document explains the steps required for connecting a Microsoft Purview acc
 
 Microsoft Purview provides rich insights into the sensitivity of your data. This makes it valuable to security teams using Microsoft Defender for Cloud to manage the organization’s security posture and protect against threats to their workloads. Data resources remain a popular target for malicious actors, making it crucial for security teams to identify, prioritize, and secure sensitive data resources across their cloud environments. The integration with Microsoft Purview expands visibility into the data layer, enabling security teams to prioritize resources that contain sensitive data.
 
-To take advantage of this [enrichment in Microsoft Defender for Cloud](../security-center/information-protection.md), no additional steps are needed in Microsoft Purview. Start exploring the security enrichments with Microsoft Defender for Cloud's [Inventory page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/25) where you can see the list of data sources with classifications and sensitivity labels.
+To take advantage of this [enrichment in Microsoft Defender for Cloud](../security-center/information-protection.md), no more steps are needed in Microsoft Purview. Start exploring the security enrichments with Microsoft Defender for Cloud's [Inventory page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/25) where you can see the list of data sources with classifications and sensitivity labels.
 
 ### Supported data sources
 The integration supports data sources in Azure and AWS; sensitive data discovered in these resources is shared with Microsoft Defender for Cloud:
@@ -27,7 +27,7 @@ The integration supports data sources in Azure and AWS; sensitive data discovere
 - [Azure Files](./register-scan-azure-files-storage-source.md)
 - [Azure Database for MySQL](./register-scan-azure-mysql-database.md)
 - [Azure Database for PostgreSQL](./register-scan-azure-postgresql.md)
-- [Azure SQL Database Managed Instance](./register-scan-azure-sql-database-managed-instance.md)
+- [Azure SQL Managed Instance](./register-scan-azure-sql-managed-instance.md)
 - [Azure Dedicated SQL pool (formerly SQL DW)](./register-scan-azure-synapse-analytics.md)
 - [Azure SQL Database](./register-scan-azure-sql-database.md)
 - [Azure Synapse Analytics (Workspace)](./register-scan-synapse-workspace.md)
@@ -39,7 +39,7 @@ The integration supports data sources in Azure and AWS; sensitive data discovere
 3. Data sensitivity information is currently not shared for Azure PaaS data sources registered using a connection string. 
 5. Unregistering the data source in Microsoft Purview doesn't remove the data sensitivity enrichment in Microsoft Defender for Cloud.
 6. Deleting the Microsoft Purview account will persist the data sensitivity enrichment for 30 days in Microsoft Defender for Cloud.
-7. Custom classifications defined in the Microsoft 365 Compliance Center or in Microsoft Purview are not shared with Microsoft Defender for Cloud.
+7. Custom classifications defined in the Microsoft Purview compliance portal or Microsoft Purview governance portal aren't shared with Microsoft Defender for Cloud.
 
 ### FAQ
 #### **Why don't I see the AWS data source I have scanned with Microsoft Purview in Microsoft Defender for Cloud?**
@@ -48,7 +48,7 @@ Data sources must be onboarded to Microsoft Defender for Cloud as well. Learn mo
 
 #### **Why don't I see sensitivity labels in Microsoft Defender for Cloud?**
 
-Assets must first be labeled in Microsoft Purview, before the labels are shown in Microsoft Defender for Cloud. Check if you have the [prerequisites of sensitivity labels](./how-to-automatically-label-your-content.md) in place. Once your scan the data, the labels will show up in Microsoft Purview and then automatically in Microsoft Defender for Cloud.
+Assets must first be labeled in Microsoft Purview Data Map, before the labels are shown in Microsoft Defender for Cloud. Check if you have the necessary [prerequisites for sensitivity labels](./how-to-automatically-label-your-content.md) in place. After you've scanned the data, the labels will show up in Microsoft Purview Data Map and then automatically in Microsoft Defender for Cloud.
 
 ## Microsoft Sentinel
 

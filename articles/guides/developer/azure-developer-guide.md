@@ -51,8 +51,6 @@ You can migrate your existing applications to App Service by using the [online m
 > **When to use**: Use App Service when you're migrating existing web applications to Azure, and when you need a fully-managed hosting platform for your web apps. You can also use App Service when you need to support mobile clients or expose REST APIs with your app.
 >
 > **Get started**: App Service makes it easy to create and deploy your first [web app](../../app-service/quickstart-dotnetcore.md), [mobile app](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started), or [API app](../../app-service/app-service-web-tutorial-rest-api.md).
->
-> **Try it now**: App Service lets you provision a short-lived app to try the platform without having to sign up for an Azure account. Try the platform and [create your Azure App Service app](https://tryappservice.azure.com/).
 
 #### Azure Virtual Machines
 
@@ -72,7 +70,7 @@ Rather than worrying about building out and managing a whole application or the 
 >
 > **Get started**: Follow the Functions quickstart tutorial to [create your first function](../../azure-functions/functions-get-started.md) from the portal.
 >
-> **Try it now**: Azure Functions lets you run your code without having to sign up for an Azure account. Try it now at and [create your first Azure Function](https://tryappservice.azure.com/).
+> **Try it now**: Azure Functions lets you run your code without having to sign up for an Azure account. Try it now at and create your first Azure Function.
 
 #### Azure Service Fabric
 
@@ -131,7 +129,7 @@ Most applications must store data, so however you decide to host your applicatio
 
   > **When to use**: When your application requires data storage with referential integrity, transactional support, and support for TSQL queries.
   >
-  > **Get started**: [Create a database in Azure SQL Database in minutes by using the Azure portal](../../azure-sql/database/single-database-create-quickstart.md).
+  > **Get started**: [Create a database in Azure SQL Database in minutes by using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 
 
 You can use [Azure Data Factory](../../data-factory/introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../app-service/app-service-hybrid-connections.md) in Azure App Service lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
@@ -278,7 +276,7 @@ You develop these deployments by using an Azure Resource Manager template, which
 
 ## Understanding accounts, subscriptions, and billing
 
-As developers, we like to dive right into the code and try to get started as fast as possible with making our applications run. We certainly want to encourage you to start working in Azure as easily as possible. To help make it easy, Azure offers a [free trial](https://azure.microsoft.com/free/). Some services even have a "Try it for free" functionality, like [Azure App Service](https://tryappservice.azure.com/), which doesn't require you to  even create an account. As fun as it is to dive into coding and deploying your application to Azure, it's also important to take some time to understand how Azure works. Specifically,  you should understand how it works from a standpoint of user accounts, subscriptions, and billing.
+As developers, we like to dive right into the code and try to get started as fast as possible with making our applications run. We certainly want to encourage you to start working in Azure as easily as possible. To help make it easy, Azure offers a [free trial](https://azure.microsoft.com/free/). Some services even have a "Try it for free" functionality, like Azure App Service, which doesn't require you to  even create an account. As fun as it is to dive into coding and deploying your application to Azure, it's also important to take some time to understand how Azure works. Specifically,  you should understand how it works from a standpoint of user accounts, subscriptions, and billing.
 
 ### What is an Azure account?
 

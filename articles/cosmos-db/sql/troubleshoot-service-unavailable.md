@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot Azure Cosmos DB service unavailable exceptions
 description: Learn how to diagnose and fix Azure Cosmos DB service unavailable exceptions.
-author: j82w
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
-ms.author: jawilley
+ms.author: jroth
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB service unavailable exceptions
@@ -32,7 +32,7 @@ TransportException: A client transport error occurred: The request timed out whi
 Follow the [request timeout troubleshooting steps](troubleshoot-dot-net-sdk-request-timeout.md#troubleshooting-steps) to resolve it.
 
 ### Service outage
-Check the [Azure status](https://status.azure.com/status) to see if there's an ongoing issue.
+Check the [Azure status](https://azure.status.microsoft/status) to see if there's an ongoing issue.
 
 
 ## Next steps

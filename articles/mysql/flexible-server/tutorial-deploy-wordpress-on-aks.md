@@ -2,6 +2,7 @@
 title: 'Tutorial: Deploy WordPress on AKS cluster with MySQL Flexible Server by using Azure CLI'
 description: Learn how to quickly build and deploy WordPress  on AKS with Azure Database for MySQL - Flexible Server.
 ms.service: mysql
+ms.subservice: flexible-server
 author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
@@ -135,7 +136,7 @@ Download the [latest WordPress](https://wordpress.org/download/) version. Create
 
 ```
 
-Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines from beginingin of ```// ** MySQL settings - You can get this info from your web host ** //``` until the line ```define( 'DB_COLLATE', '' );``` with the code snippet below. The code below is reading the database host , username and password from the Kubernetes manifest file.
+Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines from beginingin of ```// ** MySQL settings - You can get this info from your web host ** //``` until the line ```define( 'DB_COLLATE', '' );``` with the code snippet below. The code below is reading the database host, username and password from the Kubernetes manifest file.
 
 ```php
 //Using environment variables for DB connection information
@@ -320,7 +321,7 @@ az group delete --name wordpress-project --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#additional-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 

@@ -48,6 +48,8 @@ In this tutorial, you'll learn how to:
 Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the HoloLens platform.
 
 ## Deploy the Sharing Anchors service
+> [!NOTE]
+> In this tutorial we will be using the free tier of the Azure App Service. The free tier will time out after [20 min](/azure/architecture/framework/services/compute/azure-app-service/reliability#configuration-recommendations) of inactivity and reset the memory cache.
 
 ## [Visual Studio](#tab/VS)
 

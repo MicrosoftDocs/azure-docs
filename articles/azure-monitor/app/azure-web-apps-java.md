@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 08/05/2021
 ms.devlang: java
 ms.custom: "devx-track-java"
+ms.reviewer: abinetabate
 ---
 
 # Application Monitoring for Azure App Service and Java
@@ -19,9 +20,7 @@ You can apply additional configurations, and then based on your specific scenari
 
 ### Auto-instrumentation through Azure portal
 
-You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required.
-Application Insights for Java is integrated with Azure App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps.
-The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get the telemetry auto-collected.
+You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get the telemetry auto-collected.
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
@@ -80,7 +79,7 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
     * Upload the Java agent jar file to App Service
         * Get the latest version of [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli)
         * Get the latest version of [Application Insights Java agent](./java-in-process-agent.md)
-        * Deploy Java agent to App Service - a sample command to deploy the Java agent jar: `az webapp deploy --src-path applicationinsights-agent-{VERSION_NUMBER}.jar --target-path java/applicationinsights-agent-{VERSION_NUMBER}.jar --type static --resource-group {YOUR_RESOURCE_GROUP} --name {YOUR_APP_SVC_NAME}` or use [this guide](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux#configure-the-maven-plugin) to deploy through Maven plugin
+        * Deploy Java agent to App Service - a sample command to deploy the Java agent jar: `az webapp deploy --src-path applicationinsights-agent-{VERSION_NUMBER}.jar --target-path java/applicationinsights-agent-{VERSION_NUMBER}.jar --type static --resource-group {YOUR_RESOURCE_GROUP} --name {YOUR_APP_SVC_NAME}` or use [this guide](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux#3---configure-the-maven-plugin) to deploy through Maven plugin
     * Once the agent jar file is uploaded, go to App Service configurations and add a new environment variable, JAVA_OPTS, and set its value to `-javaagent:D:/home/{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`
     * Disable Application Insights via Application Insights tab
     * Restart the app

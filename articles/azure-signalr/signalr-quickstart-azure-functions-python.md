@@ -3,61 +3,55 @@ title: Azure SignalR Service serverless quickstart - Python
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Python.
 author: vicancy
 ms.author: lianwei
-ms.date: 06/09/2021
+ms.date: 04/19/2022
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
 ms.custom: devx-track-python, mode-api
 ---
-# Quickstart: Create an App showing GitHub star count with Azure Functions and SignalR Service using Python
+# Quickstart: Create a serverless app with Azure Functions, SignalR Service, and Python
 
-Azure SignalR Service lets you easily add real-time functionality to your application. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Azure Functions to build a serverless application with Python to broadcast messages to clients.
+Get started with Azure SignalR Service by using Azure Functions and Python to build a serverless application that broadcasts messages to clients. You'll run the function in the local environment, connecting to an Azure SignalR Service instance in the cloud. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure Account.
 
 > [!NOTE]
-> You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/python)
+> You can get the code in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/python).
 
 ## Prerequisites
 
 This quickstart can be run on macOS, Windows, or Linux.
 
-Make sure you have a code editor such as [Visual Studio Code](https://code.visualstudio.com/) installed.
+- You'll need a code editor such as [Visual Studio Code](https://code.visualstudio.com/).
 
-Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 or higher) to run Python Azure Function apps locally.
+- Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 or higher) to run Python Azure Function apps locally.
 
-Azure Functions requires [Python 3.6+](https://www.python.org/downloads/). (See [Supported Python versions](../azure-functions/functions-reference-python.md#python-version))
+- Azure Functions requires [Python 3.6+](https://www.python.org/downloads/). (See [Supported Python versions](../azure-functions/functions-reference-python.md#python-version).)
+
+- SignalR binding needs Azure Storage, but you can use a local storage emulator when a function is running locally. You'll need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qspython).
-
-## Log in to Azure
-
-Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
-
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qspython).
+## Create an Azure SignalR Service instance
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qspython).
-
-
 ## Setup and run the Azure Function locally
 
-1. Make sure you have Azure Function Core Tools installed. And create an empty directory and navigate to the directory with command line.
+1. Create an empty directory and go to the directory with command line.
 
     ```bash
     # Initialize a function project
     func init --worker-runtime python
     ```
 
-2. After you initialize a project, you need to create functions. In this sample, we need to create 3 functions.
+2. After you initialize a project, you need to create functions. In this sample, we need to create three functions: `index`, `negotiate`, and `broadcast`.
 
-    1. Run the following command to create a `index` function, which will host a web page for client.
+    1. Run the following command to create an `index` function, which will host a web page for a client.
 
         ```bash
         func new -n index -t HttpTrigger
         ```
-        Open `index/function.json` and copy the following json codes:
+
+        Open *index/function.json* and copy the following json code:
 
         ```json
         {
@@ -81,27 +75,26 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         }
         ```
 
-        Open `index/__init__.py` and copy the following codes.
+        Open *index/\__init\__.py* and copy the following code:
 
         ```javascript
         import os
     
         import azure.functions as func
-        
-        
+                
         def main(req: func.HttpRequest) -> func.HttpResponse:
             f = open(os.path.dirname(os.path.realpath(__file__)) + '/../content/index.html')
             return func.HttpResponse(f.read(), mimetype='text/html')
         ```
-    
+
     2. Create a `negotiate` function for clients to get access token.
-    
+
         ```bash
         func new -n negotiate -t HttpTrigger
         ```
-        
-        Open `negotiate/function.json` and copy the following json codes:
-    
+
+        Open *negotiate/function.json* and copy the following json code:
+
         ```json
         {
           "scriptFile": "__init__.py",
@@ -131,7 +124,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         }
         ```
 
-        And open the `negotiate/__init__.py` and copy the following codes:
+        Open *negotiate/\__init\__.py* and copy the following code:
 
         ```python
         import azure.functions as func
@@ -140,7 +133,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         def main(req: func.HttpRequest, connectionInfo) -> func.HttpResponse:
             return func.HttpResponse(connectionInfo)
         ```
-    
+
     3. Create a `broadcast` function to broadcast messages to all clients. In the sample, we use time trigger to broadcast messages periodically.
     
         ```bash
@@ -149,7 +142,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         pip install requests
         ```
 
-        Open `broadcast/function.json` and copy the following codes.
+        Open *broadcast/function.json* and copy the following code:
 
         ```json
         {
@@ -172,7 +165,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         }
         ```
     
-        Open `broadcast/__init__.py` and copy the following codes.
+        Open *broadcast/\__init\__.py* and copy the following code:
     
         ```python
         import requests
@@ -201,7 +194,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
             }))
         ```
 
-3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `index.html` in `content` directory under your project root folder. And copy the following content.
+3. The client interface of this sample is a web page. We read HTML content from *content/index.html* in the `index` function, and then create a new file *index.html* in the `content` directory under your project root folder. Copy the following content:
 
     ```html
     <html>
@@ -228,34 +221,34 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     
     </html>
     ```
-    
-4. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
-    1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
+4. We're almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
+
+    1. In the Azure portal, search for the SignalR Service instance you deployed earlier. Select the instance to open it.
 
         ![Search for the SignalR Service instance](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
     2. Select **Keys** to view the connection strings for the SignalR Service instance.
-    
+
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    3. Copy the primary connection string. And execute the command below.
-    
+    3. Copy the primary connection string, and then run the following command:
+
         ```bash
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
-    
-5. Run the Azure Function in local:
+
+5. Run the Azure Function in the local environment:
 
     ```bash
     func start
     ```
 
-    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current star count. And if you star or unstar in the GitHub, you will get a star count refreshing every few seconds.
+    After the Azure Function is running locally, go to `http://localhost:7071/api/index` and you'll see the current star count. If you star or unstar in GitHub, you'll get a refreshed star count every few seconds.
 
     > [!NOTE]
-    > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
-    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
+    > SignalR binding needs Azure Storage, but you can use a local storage emulator when the function is running locally.
+    > You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md) if you got an error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
@@ -263,8 +256,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Next steps
 
-In this quickstart, you built and ran a real-time serverless application in local. Learn more how to use SignalR Service bindings for Azure Functions.
-Next, learn more about how to bi-directional communicating between clients and Azure Function with SignalR Service.
+In this quickstart, you built and ran a real-time serverless application in local. Next, learn more about how to use bi-directional communicating between clients and Azure Function with SignalR Service.
 
 > [!div class="nextstepaction"]
 > [SignalR Service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md)

@@ -1,13 +1,13 @@
 ---
 title: Configure learning behavior
 description: Apprentice mode gives you confidence in the Personalizer service and its machine learning capabilities, and provides metrics that the service is sent information that can be learned from – without risking online traffic.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
-ms.date: 05/01/2020
+ms.date: 07/26/2022
 ---
 
 # Configure the Personalizer learning behavior
@@ -39,9 +39,12 @@ In order to add Personalizer to your application, you need to call the Rank and 
 
 ### Configure your application to call Reward API
 
+> [!NOTE] 
+> Reward API calls do not affect training while in Apprentice mode. The service learns by matching your application's current logic, or default actions. However implementing Reward calls at this stage does help ensure a smooth transition to Online mode later on with a simple switch in the Azure portal.  Additionally, the rewards will be logged, enabling you to analyze how well the current logic is performing and how much reward is being received.
+
 1. Use your existing business logic to calculate the **reward** of the displayed action. The value needs to be in the range from 0 to 1. Send this reward to Personalizer using the [Reward API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). The reward value is not expected immediately and can be delayed over a time period - depending on your business logic.
 
-1. If you don't return the reward within the configured **Reward wait time**, the default reward will be used instead.
+1. If you don't return the reward within the configured **Reward wait time**, the default reward will be logged instead.
 
 ## Evaluate Apprentice mode
 

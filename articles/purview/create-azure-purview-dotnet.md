@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: Create Microsoft Purview Account using .NET SDK'
-description: Create a Microsoft Purview Account using .NET SDK.
+title: 'Quickstart: Create Microsoft Purview (formerly Azure Purview) account using .NET SDK'
+description: This article will guide you through creating a Microsoft Purview (formerly Azure Purview) account using .NET SDK.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 09/27/2021
+ms.date: 06/17/2022
 ms.custom: mode-api
 ---
-# Quickstart: Create a Microsoft Purview account using .NET SDK
+# Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using .NET SDK
 
-In this quickstart, you'll use the [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider) to create a Microsoft Purview account.
+In this quickstart, you'll use the [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider) to create a Microsoft Purview (formerly Azure Purview) account.
 
-Microsoft Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Microsoft Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
+The Microsoft Purview governance portal surfaces tools like the Microsoft Purview Data Map and Microsoft Purview Data Catalog that help you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
-For more information about Microsoft Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
+For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md)
 
 [!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
@@ -29,7 +29,7 @@ Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on
 
 ## Create an application in Azure Active Directory
 
-1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
+1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you're creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
 1. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial.
 1. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), get the **authentication key**, and note down this value that you use later in this tutorial.
 1. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
@@ -99,9 +99,9 @@ Next, create a C# .NET console application in Visual Studio:
    };
    ```
 
-## Create a Microsoft Purview account
+## Create an account
 
-Add the following code to the **Main** method that creates a **Microsoft Purview Account**.
+Add the following code to the **Main** method that will create the **Microsoft Purview Account**.
 
 ```csharp
 // Create a purview Account
@@ -163,7 +163,7 @@ Go to the **Microsoft Purview accounts** page in the [Azure portal](https://port
 
 ## Delete Microsoft Purview account
 
-To programmatically delete a Microsoft Purview Account, add the following lines of code to the program:
+To programmatically delete a Microsoft Purview account, add the following lines of code to the program:
 
 ```csharp
 Console.WriteLine("Deleting the Microsoft Purview Account");
@@ -184,14 +184,14 @@ Console.WriteLine("Check Microsoft Purview account name");
 Console.WriteLine(client.Accounts.CheckNameAvailability(checkNameAvailabilityRequest).NameAvailable);
 ```
 
-The above code with print 'True' if the name is available and 'False' if the name is not available.
+The above code with print 'True' if the name is available and 'False' if the name isn't available.
 
 ## Next steps
 
-The code in this tutorial creates a purview account, deletes a purview account and checks for name availability of purview account. You can now download the .NET SDK and learn about other resource provider actions you can perform for a Microsoft Purview account.
+In this quickstart, you learned how to create a Microsoft Purview (formerly Azure Purview) account, delete the account, and check for name availability. You can now download the .NET SDK and learn about other resource provider actions you can perform for a Microsoft Purview account.
 
-Follow these next articles to learn how to navigate the Microsoft Purview Studio, create a collection, and grant access to Microsoft Purview.
+Follow these next articles to learn how to navigate the Microsoft Purview governance portal, create a collection, and grant access to the Microsoft Purview governance portal.
 
-* [How to use the Microsoft Purview Studio](use-azure-purview-studio.md)
+* [How to use the Microsoft Purview governance portal](use-azure-purview-studio.md)
+* [Grant users permissions to the governance portal](catalog-permissions.md)
 * [Create a collection](quickstart-create-collection.md)
-* [Add users to your Microsoft Purview account](catalog-permissions.md)

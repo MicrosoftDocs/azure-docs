@@ -1,10 +1,8 @@
 ---
 title: Getting started with Azure Functions
 description: Take the first steps toward working with Azure Functions.
-author: craigshoemaker
 ms.topic: overview
 ms.date: 11/19/2020
-ms.author: cshoe
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

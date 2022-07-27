@@ -3,11 +3,10 @@ title: Configure your Azure application offer listing details
 description: Configure the listing details for your Azure application offer in Partner Center (Azure Marketplace). 
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 05/02/2022
 ---
 
 # Configure your Azure application offer listing details
@@ -15,7 +14,7 @@ ms.date: 03/16/2022
 The information you provide on the **Offer listing** page for your Azure Application offer will be displayed in the Microsoft commercial marketplace online stores. This includes the descriptions of your offer, screenshots, and your marketing assets. To see what this looks like, see [Offer listing details](plan-azure-application-offer.md#offer-listing-details).
 
 > [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a _Useful Link_ URL to offer content in a language other than the one used in the offer listing content.
+> Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a _Useful Link_ URL to offer content in a language other than the one used in the offer listing content if the offer description begins with the phrase "This application is also available in [non-English language]".
 
 ## Marketplace details
 

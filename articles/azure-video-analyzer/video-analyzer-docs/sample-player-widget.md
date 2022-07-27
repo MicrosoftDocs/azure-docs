@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 # Azure Video Analyzer player widget sample
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 This sample application shows the integration of Video Analyzer's player widget with video playback, zone drawing and video clip generation features.
 
 * Clone the [AVA C# sample repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)

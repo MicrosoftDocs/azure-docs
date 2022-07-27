@@ -6,9 +6,7 @@ ms.date: 02/27/2022
 zone_pivot_groups: non-azure-machines
 ms.custom: mode-other
 ---
-# Connect your non-Azure machines to Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+# Quickstart: Connect your non-Azure machines to Microsoft Defender for Cloud
 
 Defender for Cloud can monitor the security posture of your non-Azure computers, but first you need to connect them to Azure.
 
@@ -124,7 +122,7 @@ To add Windows machines, you need the information on the **Agents management** p
 
 When complete, the **Microsoft Monitoring agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
 
-For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
+For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/agents/agent-windows.md#install-the-agent).
 
 ::: zone-end
 

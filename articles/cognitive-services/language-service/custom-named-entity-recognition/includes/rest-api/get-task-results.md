@@ -15,7 +15,7 @@ ms.author: aahi
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
+|Ocp-Apim-Subscription-Key| Your key that provides access to this API.|
 
 ### Response Body
 

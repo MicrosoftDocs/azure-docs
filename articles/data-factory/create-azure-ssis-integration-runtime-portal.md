@@ -5,8 +5,8 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark 
+author: chugugrace
+ms.author: chugu 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -116,7 +116,7 @@ If you select the check box, complete the following steps to bring your own data
 Select **Test connection** when applicable, and if it's successful, select **Continue**.
 
 > [!NOTE]
-> If you use Azure SQL Database server to host SSISDB, your data will be stored in geo-redundant storage for backups by default. If you don't want your data to be replicated in other regions, please follow the instructions to [Configure backup storage redundancy by using PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
+> If you use Azure SQL Database server to host SSISDB, your data will be stored in geo-redundant storage for backups by default. If you don't want your data to be replicated in other regions, please follow the instructions to [Configure backup storage redundancy by using PowerShell](/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
    
 #### Creating Azure-SSIS IR package stores
 

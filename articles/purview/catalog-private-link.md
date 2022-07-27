@@ -19,7 +19,7 @@ You can use [Azure private endpoints](../private-link/private-endpoint-overview.
 
 You can deploy Microsoft Purview _account_ private endpoint, to allow only client calls to Microsoft Purview that originate from within the private network.
 
-To connect to Microsoft Purview Studio using a private network connectivity, you can deploy _portal_ private endpoint.
+To connect to the Microsoft Purview governance portal using a private network connectivity, you can deploy _portal_ private endpoint.
 
 You can deploy _ingestion_ private endpoints if you need to scan Azure IaaS and PaaS data sources inside Azure virtual networks and on-premises data sources through a private connection. This method ensures network isolation for your metadata flowing from the data sources to Microsoft Purview Data Map.
 
@@ -40,8 +40,8 @@ Use the following recommended checklist to perform deployment of Microsoft Purvi
 
 |Scenario  |Objectives  |
 |---------|---------|
-|**Scenario 1** - [Connect to your Microsoft Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md) |You need to restrict access to your Microsoft Purview account only via a private endpoint, including access to Microsoft Purview Studio, Atlas APIs and scan data sources in on-premises and Azure behind a virtual network using self-hosted integration runtime ensuring end to end network isolation. (Deploy _account_, _portal_ and _ingestion_ private endpoints.)   |
-|**Scenario 2** - [Connect privately and securely to your Microsoft Purview account](./catalog-private-link-account-portal.md)   | You need to enable access to your Microsoft Purview account, including access to _Microsoft Purview Studio_ and Atlas API through private endpoints. (Deploy _account_ and _portal_ private endpoints).   |
+|**Scenario 1** - [Connect to your Microsoft Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md) |You need to restrict access to your Microsoft Purview account only via a private endpoint, including access to the Microsoft Purview governance portal, Atlas APIs and scan data sources in on-premises and Azure behind a virtual network using self-hosted integration runtime ensuring end to end network isolation. (Deploy _account_, _portal_ and _ingestion_ private endpoints.)   |
+|**Scenario 2** - [Connect privately and securely to your Microsoft Purview account](./catalog-private-link-account-portal.md)   | You need to enable access to your Microsoft Purview account, including access to _the Microsoft Purview governance portal_ and Atlas API through private endpoints. (Deploy _account_ and _portal_ private endpoints).   |
 |**Scenario 3** - [Scan data source securely using Managed Virtual Network](./catalog-managed-vnet.md)   | You need to scan Azure data sources securely, without having to manage a virtual network or a self-hosted integration runtime VM. (Deploy managed private endpoint for Microsoft Purview, managed storage account and Azure data sources).   |
 
 
@@ -77,4 +77,4 @@ To view list of current limitations related to Microsoft Purview private endpoin
 ## Next steps
 
 - [Deploy end to end private networking](./catalog-private-link-end-to-end.md)
-- [Deploy private networking for the Microsoft Purview Studio](./catalog-private-link-account-portal.md)
+- [Deploy private networking for the Microsoft Purview governance portal](./catalog-private-link-account-portal.md)

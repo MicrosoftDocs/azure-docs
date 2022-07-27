@@ -19,7 +19,7 @@ AdventureWorks is a fictional sports equipment retailer that is used to demo Mic
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure Synapse workspace**. [Create an Azure Synapse Workspace](../storage/common/storage-account-create.md) if you don't have one already.
+* **Azure Synapse workspace**. [Create an Azure Synapse Workspace](../synapse-analytics/get-started-create-workspace.md) if you don't have one already.
 
 ## Find the template
 
