@@ -43,8 +43,15 @@ Azure Stream Analytics provides the following metrics for you to monitor your jo
 | SU (Memory) % Utilization       | The percentage of memory utilized by your job. If SU % utilization is consistently over 80%, the watermark delay is rising, and the number of backlogged events is rising, consider increasing streaming units. High utilization indicates that the job is using close to the maximum allocated resources. |
 | Watermark Delay       | The maximum watermark delay across all partitions of all outputs in the job. |
 
-You can use these metrics to [monitor the performance of your Stream Analytics job](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 
+## Scenarios to monitor
 
+|Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
+|-|-|-|-|-|
+|SU% Utilization|Greater than|Average|80|There are multiple factors that increase SU% Utilization. You can scale with query parallelization or increase the number of streaming units. For more information, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
+|CPU % Utilization|Greater than|Average|90|This likely means that there are some operations such as UDFs, UDAs or complex input deserialization which is requiring a lot of CPU cycles. This is usually overcome by increasing number of Streaming Units of the job.|
+|Runtime errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the inputs, query, or outputs.|
+|Watermark delay|Greater than|Average|When average value of this metric over the last 15 minutes is greater than late arrival tolerance (in seconds). If you have not modified the late arrival tolerance, the default is set to 5 seconds.|Try increasing the number of SUs or parallelizing your query. For more information on SUs, see [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). For more information on parallelizing your query, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
+|Input deserialization errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the input. For more information on resource logs, see [Troubleshoot Azure Stream Analytics using resource logs](stream-analytics-job-diagnostic-logs.md)|
 
 ## Get help
 For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html)

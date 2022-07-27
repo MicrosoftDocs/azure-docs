@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud data security | Microsoft Docs
+title: Microsoft Defender for Cloud data security
 description: Learn how data is managed and safeguarded in Microsoft Defender for Cloud.
 ms.topic: overview
 ms.author: benmansheim

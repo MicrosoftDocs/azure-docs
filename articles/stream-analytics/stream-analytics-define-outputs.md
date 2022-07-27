@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
-ms.date: 06/06/2022
+ms.date: 07/13/2022
 ---
 
 # Outputs from Azure Stream Analytics
@@ -35,6 +35,9 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 |[Azure Service Bus topics](service-bus-topics-output.md)|Yes|Access key|
 |[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Access key|
 |[Azure Functions](azure-functions-output.md)|Yes|Access key|
+
+> [!IMPORTANT] 
+> Azure Stream Analytics uses Insert or Replace API by design. This operation replaces an existing entity or inserts a new entity if it does not exist in the table.
 
 ## Partitioning
 

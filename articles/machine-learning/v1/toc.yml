@@ -27,10 +27,6 @@
     items: 
     - name: Data access
       href: concept-data.md
-    - name: Data ingestion
-      href: ../concept-data-ingestion.md
-    - name: Data processing
-      href: ../concept-optimize-data-processing.md
     - name: Studio network data access
       href: ../concept-network-data-access.md      
   - name: Automated ML overview
@@ -64,6 +60,9 @@
     - name: Use automated ML (Python)
       displayName: SDK, automl
       href: how-to-configure-auto-train-v1.md
+    - name: Local inference using ONNX
+      displayName: SDK, automl
+      href: how-to-inference-onnx-automl-image-models-v1.md
   - name: Create & manage compute cluster
     displayName: compute target, low priority, managed identity
     href: how-to-create-attach-compute-cluster.md

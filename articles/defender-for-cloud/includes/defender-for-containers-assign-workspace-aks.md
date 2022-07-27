@@ -24,7 +24,7 @@ When you enable the auto-provision option, a default workspace will be automatic
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-1. Search for, and select **Policy**.
+1. Search for and select **Policy**.
 
     :::image type="content" source="../media/defender-for-containers/find-policy.png" alt-text="Screenshot that shows how to locate the policy page." lightbox="../media/defender-for-containers/find-policy.png":::
 
@@ -54,9 +54,9 @@ If the policy hasn't been assigned, you'll see `Assignments (0)`.
 
 1. In the **Parameters** tab, deselect the **Only show parameters that need input or review** option.
 
-1. Select a LogAnalyticsWorkspaceResource ID from the drop-down menu.
+1. Select a LogAnalyticsWorkspaceResource ID from the dropdown menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the drop-down menu is located." lightbox="../media/defender-for-containers/drop-down-menu.png"::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the dropdown menu is located." lightbox="../media/defender-for-containers/drop-down-menu.png"::: 
 
 1. Select **Review + create**.
 
@@ -81,9 +81,9 @@ If the policy has already been assigned to a workspace, you'll see `Assignments 
 
 1. In the **Parameters** tab, deselect the **Only show parameters that need input or review** option.
 
-1. Select a LogAnalyticsWorkspaceResource ID from the drop-down menu.
+1. Select a LogAnalyticsWorkspaceResource ID from the dropdown menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the drop-down menu is located." lightbox="../media/defender-for-containers/drop-down-menu.png"::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the dropdown menu is located." lightbox="../media/defender-for-containers/drop-down-menu.png"::: 
 
 1. Select **Review + create**.
 

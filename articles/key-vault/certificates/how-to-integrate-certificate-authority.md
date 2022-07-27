@@ -9,7 +9,7 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 01/24/2022
-ms.author: shisriva 
+ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 ---
 
