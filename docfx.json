@@ -150,6 +150,7 @@
         "Azure"
       ],
       "recommendations": true,
+      "recommendation_types": ["Learn"],
       "uhfHeaderId": "azure",
       "ms.suite": "office",
       "contributors_to_exclude": [

@@ -18,8 +18,12 @@
       href: migrate-app-service-environment.md
     - name: App Service
       href: migrate-app-service.md
+    - name: Application Gateway v2
+      href: migrate-app-gateway-v2.md
     - name: Cache for Redis
       href: migrate-cache-redis.md
+    - name: Log Analytics workspaces
+      href: migrate-monitor-log-analytics.md
     - name: Container instances
       href: migrate-container-instances.md
     - name: Recovery Services vault
