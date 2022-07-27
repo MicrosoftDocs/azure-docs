@@ -3,6 +3,7 @@ title: Discovering your attack surface
 description: Microsoft has preemptively configured the attack surfaces of many organizations, mapping their initial attack surface by discovering infrastructure that’s connected to known assets.
 author: danielledennis
 ms.author: dandennis
+ms.service: security
 ms.date: 07/14/2022
 ms.topic: tutorial
 ---
