@@ -88,7 +88,7 @@ that you plan to manage.
 If you prefer to deploy the extension and managed identity to a single machine,
 follow the guidance for each:
 
-- [Overview of the Azure Policy Guest Configuration extension](../../virtual-machines/extensions/machine-configuration.md)
+- [Overview of the Azure Policy Guest Configuration extension](./overview.md)
 - [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 To use machine configuration packages that apply configurations, Azure VM guest
@@ -184,14 +184,14 @@ content packages are hosted by Azure Storage.
 ### Communicate over Private Link in Azure
 
 Virtual machines can use
-[private link](../../../private-link/private-link-overview.md)
+[private link](../../private-link/private-link-overview.md)
 for communication to the machine configuration service. Apply tag with the name
 `EnablePrivateNetworkGC` and value `TRUE` to enable this feature. The tag can be
 applied before or after machine configuration policy definitions are applied to
 the machine.
 
 Traffic is routed using the Azure
-[virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16.md)
+[virtual public IP address](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 to establish a secure, authenticated channel with Azure platform resources.
 
 ### Azure Arc-enabled servers
@@ -199,7 +199,7 @@ to establish a secure, authenticated channel with Azure platform resources.
 Nodes located outside Azure that are connected by Azure Arc require connectivity
 to the machine configuration service. Details about network and proxy requirements
 provided in the
-[Azure Arc documentation](../../../azure-arc/servers/overview.md).
+[Azure Arc documentation](../../azure-arc/servers/overview.md).
 
 For Arc-enabled servers in private datacenters, allow traffic using the
 following patterns:
@@ -211,7 +211,7 @@ following patterns:
 
 The Audit policy definitions available for machine configuration include the
 **Microsoft.HybridCompute/machines** resource type. Any machines onboarded to
-[Azure Arc for servers](../../../azure-arc/servers/overview.md) that are in the
+[Azure Arc for servers](../../azure-arc/servers/overview.md) that are in the
 scope of the policy assignment are automatically included.
 
 ## Managed identity requirements
@@ -224,7 +224,7 @@ definitions ensure the correct behavior based on the current state of the
 machine resource in Azure.
 
 > [!IMPORTANT]
-> These definitions create a System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications unless they specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead. [Learn More](../../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
+> These definitions create a System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications unless they specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead. [Learn More](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
 
 If the machine doesn't currently have any managed identities, the effective
 policy is:
@@ -237,36 +237,36 @@ policy is:
 ## Availability
 
 Customers designing a highly available solution should consider the redundancy planning requirements for
-[virtual machines](../../../virtual-machines/availability.md) because guest assignments are extensions of
+[virtual machines](../../virtual-machines/availability.md) because guest assignments are extensions of
 machine resources in Azure. When guest assignment resources are provisioned in to an Azure region that is
-[paired](../../../availability-zones/cross-region-replication-azure.md), as long as at least one region in the pair
+[paired](../../availability-zones/cross-region-replication-azure.md), as long as at least one region in the pair
 is available, then guest assignment reports are available. If the Azure region isn't paired and
 it becomes unavailable, then it isn't possible to access reports for a guest assignment until
 the region is restored.
 
 When considering an architecture for highly available applications,
 especially where virtual machines are provisioned in
-[Availability Sets](../../../virtual-machines/availability.md#availability-sets)
+[Availability Sets](../../virtual-machines/availability.md#availability-sets)
 behind a load balancer solution to provide high availability,
 it's best practice to assign the same policy definitions with the same parameters to all machines
 in the solution. If possible, a single policy assignment spanning all
 machines would offer the least administrative overhead.
 
 For machines protected by
-[Azure Site Recovery](../../../site-recovery/site-recovery-overview.md),
+[Azure Site Recovery](../../site-recovery/site-recovery-overview.md),
 ensure that machines in a secondary site are within scope of Azure Policy assignments
 for the same definitions using the same parameter values as machines in the primary site.
 
 ## Data residency
 
 Guest configuration stores/processes customer data. By default, customer data is replicated to the
-[paired region.](../../../availability-zones/cross-region-replication-azure.md)
+[paired region.](../../availability-zones/cross-region-replication-azure.md)
 For the regions: Singapore, Brazil South, and East Asia all customer data is stored and processed in the region.
 
 ## Troubleshooting machine configuration
 
 For more information about troubleshooting machine configuration, see
-[Azure Policy troubleshooting](../troubleshoot/general.md).
+[Azure Policy troubleshooting](../policy/troubleshoot/general.md).
 
 ### Multiple assignments
 
@@ -299,13 +299,13 @@ Linux
 
 The first step in troubleshooting machine configuration configurations or modules
 should be to use the cmdlets following the steps in
-[How to test machine configuration package artifacts](../how-to/machine-configuration-create-test.md).
+[How to test machine configuration package artifacts](./machine-configuration-create-test.md).
 If that isn't successful, collecting client logs can help diagnose issues.
 
 #### Windows
 
 Capture information from log files using
-[Azure VM Run Command](../../../virtual-machines/windows/run-command.md), the
+[Azure VM Run Command](../../virtual-machines/windows/run-command.md), the
 following example PowerShell script can be helpful.
 
 ```powershell
@@ -318,7 +318,7 @@ Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensit
 #### Linux
 
 Capture information from log files using
-[Azure VM Run Command](../../../virtual-machines/linux/run-command.md), the
+[Azure VM Run Command](../../virtual-machines/linux/run-command.md), the
 following example Bash script can be helpful.
 
 ```bash
@@ -338,27 +338,27 @@ Windows: `c:\programdata\guestconfig\configuration`
 
 Linux: `/var/lib/GuestConfig/Configuration`
 
-## Guest configuration samples
+## Machine configuration samples
 
-Guest configuration built-in policy samples are available in the following
+Machine configuration built-in policy samples are available in the following
 locations:
 
-- [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#machine-configuration)
-- [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#machine-configuration)
+- [Built-in policy definitions - Guest Configuration](../policy/samples/built-in-policies.md)
+- [Built-in initiatives - Guest Configuration](../policy/samples/built-in-initiatives.md)
 - [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
 - [Sample DSC resource modules](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules)
 
 ## Next steps
 
-- Setup a custom machine configuration package [development environment](../how-to/machine-configuration-create-setup.md).
-- [Create a package artifact](../how-to/machine-configuration-create.md)
+- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- [Create a package artifact](./machine-configuration-create.md)
   for machine configuration.
-- [Test the package artifact](../how-to/machine-configuration-create-test.md)
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](../how-to/machine-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for machine configuration](../how-to/determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.
