@@ -18,9 +18,11 @@ ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 Use this article to learn which natural languages are supported by Sentiment Analysis and Opinion Mining.
 
 > [!NOTE]
-> Languages are added as new model versions are released. The current Generally Available model version for Sentiment Analysis is `2022-06-01`.
+> Languages are added as new model versions are released. The current generally available model version for Sentiment Analysis is `2022-06-01`.
 
 ## Sentiment Analysis language support
+
+Total supported language codes: 21
 
 | Language              | Language code | Starting with model version |              Notes |
 |----------------------|-------------|--------------------------|-------------------|
