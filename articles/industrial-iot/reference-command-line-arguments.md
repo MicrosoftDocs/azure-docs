@@ -106,7 +106,7 @@ To control the application, you can use any of several of environment variables:
 ## Command-line arguments for version 2.6 and later
 
 | Argument | Description |
-| --- | --- | 
+| --- | --- |
 | `--pf, --publishfile=VALUE` | The file name to configure the nodes to publish. If this option is specified, it puts OPC Publisher into *standalone* mode. |
 | `--lf, --logfile=VALUE` | The file name of the log file to use. |
 | `--ll. --loglevel=VALUE` | The log level to use. Allowed: fatal, error, warn, info, debug, verbose. |
