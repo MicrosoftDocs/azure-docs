@@ -17,12 +17,12 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As an administrator, I want detailed information about how I can edit an access package to include a policy for users to get and lose access package assignments automatically, without them needing to request access.
+#Customer intent: As an administrator, I want detailed information about how I can edit an access package to include a policy for users to get and lose access package assignments automatically, without them or an administrator needing to request access.
 
 ---
 # Configure an automatic assignment policy for an access package in Azure AD entitlement management
 
-You can use rules to determine access package assignment based on user properties In Azure Active Directory (Azure AD), part of Microsoft Entra. As an administrator, you can establish a policy for assignments in an access package, that creates and removes assignments automatically.   When an automatic assignment policy is created, user attributes are evaluated for matches with the membership rule. When an attribute changes for a user, these automatic assignment policy rules in the access packages are processed for membership changes. Assignments to users added or removed if they meet the conditions for a group.
+You can use rules to determine access package assignment based on user properties in Azure Active Directory (Azure AD), part of Microsoft Entra.  In Entitlement Management, an access package can have multiple policies, and each policy establishes how users get an assignment to the access package, and for how long.  As an administrator, you can establish a policy for automatic assignments by supplying a membership rule, that Entitlement Management will follow to create and remove assignments automatically.  Similar to a [dynamic group](../enterprise-users/groups-create-rule.md), when an automatic assignment policy is created, user attributes are evaluated for matches with the policy's membership rule. When an attribute changes for a user, these automatic assignment policy rules in the access packages are processed for membership changes. Assignments to users are then added or removed depending on whether they meet the rule criteria.
 
 This article describes how to create an access package automatic assignment policy for an existing access package.
 
@@ -36,18 +36,20 @@ To create a policy for an access package, you need to start from the access pack
 
 1. In the left menu, click **Access packages** and then open the access package.
 
-1. Click **Policies** and then **Add policy** to create a new policy.
+1. Click **Policies** and then **Add auto-assignment policy** to create a new policy.
 
-1. Provide a dynamic membership rule, using the [membership rule builder](../enterprise-users/groups-dynamic-membership.md) or the rule syntax text box.
+1. In the first tab, you will specify the rule.  Click **Edit**.
+
+1. Provide a dynamic membership rule, using the [membership rule builder](../enterprise-users/groups-dynamic-membership.md) or by clicking **Edit** on the rule syntax text box.
 
    > [!NOTE]
    > The rule builder might not be able to display some rules constructed in the text box. For more information, see [rule builder in the Azure portal](/enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
 
-1. Click **Next** to open the **Review** tab.
+1. Click **Save** to close the dynamic membership rule editor, then click **Next** to open the **Review** tab.
 
 1. Type a name and a description for the policy.
 
-1. Save the policy.
+1. Click **Create** to save the policy.
 
 > [!NOTE]
 > In this preview, Entitlement management will automatically create a dynamic security group corresponding to each policy, in order to evaluate the users in scope. This group should not be modified except by Entitlement Management itself.  This group may also be modified or deleted automatically by Entitlement Management, so don't use this group for other applications or scenarios.
