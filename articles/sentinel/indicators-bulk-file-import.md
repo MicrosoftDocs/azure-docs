@@ -42,7 +42,9 @@ Add multiple indicators to your threat intelligence with a specially crafted CSV
 
 1. Select the **Download template** link once you've chosen a bulk upload template. 
 
-1. Consider grouping your indicators by source since each file upload requires one. The templates provide all the fields you need to create a single valid indicator, including required fields and validation parameters. Replicate that structure to populate additional indicators in a single file. For more information on the templates, see [Understand the import templates](indicators-bulk-file-import.md#understand-the-import-templates).
+1. Consider grouping your indicators by source since each file upload requires one. 
+
+The templates provide all the fields you need to create a single valid indicator, including required fields and validation parameters. Replicate that structure to populate additional indicators in one file. For more information on the templates, see [Understand the import templates](indicators-bulk-file-import.md#understand-the-import-templates).
 
 
 ## Upload the indicator file
@@ -83,22 +85,41 @@ Microsoft Sentinel maintains the status of the file import for 30 days. The actu
 
 ## Understand the import templates
 
-Review the details of each import template to ensure your indicators are imported successfully.
+Review each import template to ensure your indicators are imported successfully. If this is your first import, be sure to reference the instructions in the template file and follow the guidance below for supplemental advice.
 
 ### CSV template structure  
 
-Choose between the **File indicators** or **All other indicator types** option from the **Indicator type** drop down menu when you select **CSV**. The CSV template needs multiple columns to accommodate the file indicator type because file indicators can have multiple hash types like MD5, SHA256, and more. All other indicator types like IP addresses only require the observable type and the observable value.
+1. Choose between the **File indicators** or **All other indicator types** option from the **Indicator type** drop down menu when you select **CSV**. 
+    The CSV template needs multiple columns to accommodate the file indicator type because file indicators can have multiple hash types like MD5, SHA256, and more. All other indicator types like IP addresses only require the observable type and the observable value.
 
-The column headings for the CSV **All other indicator types** template include fields such as `threatTypes`, single or multiple `tags`, `confidence`, and `tlpLevel` or level. Only the `validFrom`, `observableType` and `observableValue` fields are required.  Remove the entire first row from the template before upload. Keep in mind the max file size for CSV import is 50MB. Here's an example domain name indicator using the CSV template.
+1. The column headings for the CSV **All other indicator types** template include fields such as `threatTypes`, single or multiple `tags`, `confidence`, and `tlpLevel`. TLP or Traffic Light Protocol is a sensitivity designation to help make decisions on threat intelligence sharing.
 
-```csv
+1. Only the `validFrom`, `observableType` and `observableValue` fields are required.  
+
+1. Delete the entire first row from the template to remove the comments before upload. 
+ 
+1. Keep in mind the max file size for a CSV file import is 50MB. 
+
+Here's an example domain-name indicator using the CSV template.
+
+```CSV
 threatTypes,tags,name,description,confidence,revoked,validFrom,validUntil,tlpLevel,severity,observableType,observableValue
 Phishing,"demo, csv",MDTI article - Franken-Phish domainname,Entity appears in MDTI article Franken-phish,100,,2022-07-18T12:00:00.000Z,,white,5,domain-name,1776769042.tailspintoys.com
 ```
 
 ### JSON template structure
 
-There is only one JSON template for all indicator types. The `pattern` element can support file, ipv4-addr, ipv6-addr, domain-name, url, user-account, email-addr, and windows-registry-key types. Remove the template comments before upload and the last indicator in the array should have a closing "}" without a comma. Keep in mind the max file size for JSON import is 250MB. Here's an example JSON indicator.
+1. There is only one JSON template for all indicator types.
+
+1. The `pattern` element supports indicator types of: file, ipv4-addr, ipv6-addr, domain-name, url, user-account, email-addr, and windows-registry-key types.
+
+1. Remove the template comments before upload.
+
+1. Close the last indicator in the array using the "}" without a comma.
+
+1. Keep in mind the max file size for a JSON file import is 250MB. 
+
+Here's an example ipv4-addr indicator using the JSON template.
 
 ```json
 [
