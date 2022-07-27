@@ -1,6 +1,6 @@
 ---
 title: Microsoft OPC Publisher command-line arguments
-description: This article provides an overview of the OPC Publisher Command-line Arguments
+description: This article provides an overview of the OPC Publisher Command-line Arguments.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
@@ -16,16 +16,16 @@ This article describes the command-line arguments that you can use to set global
 
 * **Usage**: opcpublisher.exe \<applicationname> [\<iothubconnectionstring>] [\<options>]
     
-* **applicationname**: (Required) The OPC Unified Architecture (OPC UA) application name to use. 
+* **applicationname**: (Required) The OPC Unified Architecture (OPC UA) application name to use.
 
     You also use the application name to register the publisher in the IoT hub device registry.
-    
-* **iothubconnectionstring**: (Optional) The IoT hub owner connection string. 
+
+* **iothubconnectionstring**: (Optional) The IoT hub owner connection string.
 
     You ordinarily specify the connection string only when you start the application for the first time. The connection string is encrypted and stored in the platforms certificate store.
 
     On subsequent calls, the connection string is read from the platforms certificate store and reused. If you specify the connection string on each start, the device, which is created for the application in the IoT hub device registry, is removed and re-created each time.
-    
+
 To control the application, you can use any of several of environment variables:
 
 * `_HUB_CS`: Sets the IoT hub owner connection string
@@ -33,7 +33,7 @@ To control the application, you can use any of several of environment variables:
 * `_TPC_SP`: Sets the path to store certificates of trusted stations
 * `_GW_PNFP`: Sets the file name of the publishing configuration file
 
-> [!NOTE] 
+> [!NOTE]
 > Command-line arguments overrule environment variable settings.
 
 
@@ -106,6 +106,7 @@ To control the application, you can use any of several of environment variables:
 
 
 ## Command-line arguments for version 2.6 and later
+
 
 | Argument | Description |
 | --- | --- | 
