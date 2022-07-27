@@ -145,7 +145,7 @@ This section walks you through the areas to consider when you're architecting yo
 
 ### Module 3: Workspace and tenant architecture
 
-A Microsoft Sentinel instance is called a *workspace*. The workspace is the same as an Azure Monitor Logs workspace, and it supports any Azure Monitor Logs capability. You can think of Microsoft Sentinel as a solution that adds SIEM features on top of an Azure Monitor Logs workspace.
+A Microsoft Sentinel instance is called a *workspace*. The workspace is the same as a Log Analytics workspace, and it supports any Log Analytics capability. You can think of Microsoft Sentinel as a solution that adds SIEM features on top of a Log Analytics workspace.
 
 Multiple workspaces are often necessary and can act together as a single Microsoft Sentinel system. A special use case is providing a service by using Microsoft Sentinel (for example, by an *MSSP* (Managed Security Service Provider) or by a *Global SOC* in a large organization). 
 
@@ -174,7 +174,7 @@ The first piece of information you'll see for each connector is its *data ingest
 | Microsoft Sentinel Data Collector API | [Connect your data source to the Microsoft Sentinel Data Collector API to ingest data](connect-rest-api-template.md) |
 | Azure Functions and the REST API | [Use Azure Functions to connect Microsoft Sentinel to your data source](connect-azure-functions-template.md) |
 | Syslog | [Collect data from Linux-based sources by using Syslog](connect-syslog.md) |
-| Custom logs | [Collect data in custom log formats to Microsoft Sentinel with the Azure Monitor Logs agent](connect-custom-logs.md) |
+| Custom logs | [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md) |
 
 If your source isn't available, you can [create a custom connector](create-custom-connector.md). Custom connectors use the ingestion API and therefore are similar to direct sources. You most often implement custom connectors by using Azure Logic Apps, which offers a codeless option, or Azure Functions.
 
@@ -204,7 +204,7 @@ If you want to _retain data_ for more than two years or _reduce the retention co
 
 Want more in-depth information? View the ["Improving the breadth and coverage of threat hunting with ADX support, more entity types, and updated MITRE integration"](https://www.youtube.com/watch?v=5coYjlw2Qqs&ab_channel=MicrosoftSecurityCommunity) webinar.
 
-If you prefer another long-term retention solution, see [Export from Microsoft Sentinel / Azure Monitor Logs to Azure Storage and Event Hubs](/cli/azure/monitor/log-analytics/workspace/data-export) or [Move logs to long-term storage by using Azure Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The advantage of using Logic Apps is that it can export historical data.
+If you prefer another long-term retention solution, see [Export from Microsoft Sentinel / Log Analytics workspace to Azure Storage and Event Hubs](/cli/azure/monitor/log-analytics/workspace/data-export.md) or [Move logs to long-term storage by using Azure Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The advantage of using Logic Apps is that it can export historical data.
 
 Finally, you can set fine-grained retention periods by using [table-level retention settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). For more information, see [Configure data retention and archive policies in Azure Monitor Logs (Preview)](../azure-monitor/logs/data-retention-archive.md).
 
@@ -274,9 +274,9 @@ View the "Use watchlists to manage alerts, reduce alert fatigue, and improve SOC
 
 ### Module 7: Log transformation
 
-Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Azure Monitor Logs, act on your data even before it's stored in your workspace. The features are:
+Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Log Analytics, act on your data even before it's stored in your workspace. The features are:
 
-* [**Logs ingestion API**](../azure-monitor/logs/logs-ingestion-api-overview.md): Use it to send custom-format logs from any data source to your Azure Monitor Logs workspace and then store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You can perform the actual ingestion of these logs by using direct API calls. You can use Azure Monitor Logs [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
+* [**Logs ingestion API**](../azure-monitor/logs/logs-ingestion-api-overview.md): Use it to send custom-format logs from any data source to your Log Analytics workspace and then store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You can perform the actual ingestion of these logs by using direct API calls. You can use Azure Monitor [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
 
 * [**Workspace data transformations for standard logs**](../azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr): It uses [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. You can configure data transformation at ingestion time for the following types of built-in data connectors:
     * Azure Monitor agent (AMA)-based data connectors (based on the new Azure Monitor agent)
@@ -567,7 +567,7 @@ Part of operating a SIEM is making sure that it works smoothly and is an evolvin
 
 * Monitor agents by using the [agents' health solution](../azure-monitor/insights/solution-agenthealth.md) (Windows only) and the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat) (Linux and Windows).
 
-* Monitor your Azure Monitor Logs workspace: [YouTube](https://www.youtube.com/watch?v=DmDU9QP_JlI&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21792&ithint=video%2Cmp4&authkey=%21ALgHojpWDidvFyo), or [presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21794&ithint=file%2Cpdf&authkey=%21AAva%2Do6Ru1fjJ78), including query execution and ingestion health.
+* Monitor your Log Analytics workspace: [YouTube](https://www.youtube.com/watch?v=DmDU9QP_JlI&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21792&ithint=video%2Cmp4&authkey=%21ALgHojpWDidvFyo), or [presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21794&ithint=file%2Cpdf&authkey=%21AAva%2Do6Ru1fjJ78), including query execution and ingestion health.
 
 * Cost management is also an important operational procedure in the SOC. Use the [Ingestion Cost Alert Playbook](https://techcommunity.microsoft.com/t5/azure-sentinel/ingestion-cost-alert-playbook/ba-p/2006003) to ensure that you're always aware of any cost increases. 
 
