@@ -139,7 +139,6 @@ You can simulate alerts for both of the control plane, and workload alerts with 
     ```
 
 1. Copy the executable to a separate location and rename it to `./asc_alerttest_662jfi039n` with the following command `cp /bin/echo ./asc_alerttest_662jfi039n`.
-`cp /bin/echo ./asc_alerttest_662jfi039n`.
 
 1. Execute the file `./asc_alerttest_662jfi039n testing eicar pipe`.
 
