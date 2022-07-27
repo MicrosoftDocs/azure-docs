@@ -170,7 +170,7 @@ SSMA for Oracle can help you migrate an Oracle data warehouse or data mart to Az
 
 [Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform data by using compute services such as [Azure HDInsight Hadoop](/azure/hdinsight/hadoop/apache-hadoop-introduction), Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-Azure Data Factory can be used to migrate data at source to Azure SQL target. This offline data movement helps to reduce the migration downtime significantly.
+Data Factory can be used to migrate data at source to Azure SQL target. This offline data movement helps to reduce migration downtime significantly.
 
 [Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle.
 
@@ -178,7 +178,7 @@ When you're planning to use Azure facilities to manage the migration process, cr
 
 ### Design differences between Oracle and Azure Synapse
 
-As mentioned earlier, there are some basic differences in approach between Oracle and Azure Synapse Analytics databases.[SSMA for Oracle] (/https://docs.microsoft.com/en-us/sql/ssma/oracle/what-s-new-in-ssma-for-oracle-oracletosql?view=sql-server-ver16#ssma-v74) not only helps bridge these gaps but also automates the migration. Although SSMA isn't the most efficient approach for very high volumes of data, it's useful for smaller tables.
+As mentioned earlier, there are some basic differences in approach between Oracle and Azure Synapse Analytics databases. [SSMA for Oracle](/sql/ssma/oracle/what-s-new-in-ssma-for-oracle-oracletosql?view=sql-server-ver16#ssma-v74) not only helps bridge these gaps but also automates the migration. Although SSMA isn't the most efficient approach for very high volumes of data, it's useful for smaller tables.
 
 #### Multiple databases vs. single database and schemas
 

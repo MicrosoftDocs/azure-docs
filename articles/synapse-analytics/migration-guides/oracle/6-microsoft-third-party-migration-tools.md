@@ -84,9 +84,9 @@ In Data Factory, you can develop simple or comprehensive ETL and ELT processes w
 
 You can use Data Factory to implement and manage a hybrid environment with on-premises, cloud, streaming, and SaaS data in a secure and consistent way. SaaS data might come from applications such as Salesforce.
 
-Wrangling data flows is a new capability in Data Factory. This capability opens up Data Factory to business users who want to visually discover, explore, and prepare data at scale without writing code. Wrangling data flows offer self-service data preparation, similar to Microsoft Excel, Power Query, and Microsoft Power BI dataflows. Business users can prepare and integrate data through a spreadsheet-style UI with drop-down transform options.
+Wrangling data flows is a new capability in Data Factory. This capability opens up Data Factory to business users who want to visually discover, explore, and prepare data at scale without writing code. Wrangling data flows offers self-service data preparation, similar to Microsoft Excel, Power Query, and Microsoft Power BI dataflows. Business users can prepare and integrate data through a spreadsheet-style UI with drop-down transform options.
 
-Data Migration at scale capability helps migration of data at source to Azure SQL target using Azure Data factory
+Data migration at scale capability helps migration of data at source to Azure SQL target using Data Factory.
 
 Data Factory is the recommended approach for implementing data integration and ETL/ELT processes in the Azure Synapse environment, especially if you want to refactor existing legacy processes.
 
