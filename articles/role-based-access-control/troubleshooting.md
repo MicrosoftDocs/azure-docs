@@ -15,7 +15,7 @@ ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Troubleshoot Azure RBAC
 
-This article answers some common solutions for issues related to Azure role-based access control (Azure RBAC).
+This article describes some common solutions for issues related to Azure role-based access control (Azure RBAC).
 
 ## Limits
 
@@ -89,10 +89,10 @@ You are using a service principal to assign roles with Azure CLI and you get the
 
 For example, let's say that you have a service principal that has been assigned the Owner role and you try to create the following role assignment as the service principal using Azure CLI:
 
-    ```azurecli
-    az login --service-principal --username "SPNid" --password "password" --tenant "tenantid"
-    az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
-    ```
+```azurecli
+az login --service-principal --username "SPNid" --password "password" --tenant "tenantid"
+az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+```
 
 **Cause**
 
@@ -351,8 +351,6 @@ Try to reduce the number of custom roles.
 
 ## Transferring a subscription to a different directory
 
-For more information, see [Transfer an Azure subscription to a different Azure AD directory](transfer-subscription.md).
-
 ### Symptom - All role assignments are deleted after transferring a subscription
 
 **Cause**
@@ -361,7 +359,7 @@ When you transfer an Azure subscription to a different Azure AD directory, all r
 
 **Solution**
 
-You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
+You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [Transfer an Azure subscription to a different Azure AD directory](transfer-subscription.md) and [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ### Symptom - Unable to access subscription after transferring a subscription
 
@@ -369,7 +367,7 @@ You must re-create your role assignments in the target directory. You also have 
 
 If you are an Azure AD Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
 
-## Issues with service admins or co-admins
+## Classic subscription administrators
 
 If you are having issues with Service administrator or Co-administrators, see [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md) and [Classic subscription administrator roles, Azure roles, and Azure AD roles](rbac-and-directory-admin-roles.md).
 
