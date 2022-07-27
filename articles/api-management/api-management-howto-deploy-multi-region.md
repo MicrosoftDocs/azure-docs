@@ -18,9 +18,9 @@ When adding a region, you configure:
 
 * The number of scale [units](upgrade-and-scale.md) that region will host. 
 
-* Optional [zone redundancy](../articles/availability-zones/migrate-api-mgt.md), if that region supports it.
+* Optional [zone redundancy](../availability-zones/migrate-api-mgt.md), if that region supports it.
 
-* [Virtual network](../articles/api-management/virtual-network-concepts.md) settings in the added region, if networking is configured in the existing region or regions.
+* [Virtual network](virtual-network-concepts.md) settings in the added region, if networking is configured in the existing region or regions.
 
 >[!IMPORTANT]
 > The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
@@ -131,7 +131,7 @@ This section provides considerations for multi-region deployments when the API M
 
 ### Routing
 
-* In external VNet mode, API Management by default handles routing of public HTTP traffic to the regional gateways, in the same way it does for a non-networked API Management instance.
+* In external VNet mode, routing of public HTTP traffic to the regional gateways is handled automatically, in the same way it is for a non-networked API Management instance.
 
 * In internal VNet mode, private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage routing and private load balancing across multiple regions. Examples include Azure Application Gateway and Azure Traffic Manager.
 
