@@ -262,7 +262,7 @@ To configure your storage account:
     $domainName = $domainInformation.DnsRoot
     $domainSid = $domainInformation.DomainSID.Value
     $forestName = $domainInformation.Forest
-    $netBiosDomainName = $domainInformation.DnsRoot
+    $netBiosDomainName = $domainInformation.netBiosName
     $azureStorageSid = $domainSid + "-123454321";
 
     Write-Verbose "Setting AD properties on $storageAccountName in $resourceGroupName : `
