@@ -113,7 +113,7 @@ In short, yes you can use user assigned managed identities in more than one Azur
 
 ### Does managed identities for Azure resources work with Azure Cloud Services (Classic)?
 
-Managed identities don’t have support for [Azure Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) at this time. “
+Managed identities for Azure resources don’t have support for [Azure Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) at this time. “
 
 
 ### What is the security boundary of managed identities for Azure resources?
