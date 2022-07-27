@@ -355,14 +355,14 @@ Automation provider type.
 
 Before removing a machine from Azure Automation State Configuration,
 onboard each node as an
-[Azure Arc-enabled server](../../../azure-arc/servers/overview.md).
+[Azure Arc-enabled server](../../azure-arc/servers/overview.md).
 Onboard to Azure Arc creates a machine resource in Azure so the machine
 can be managed by Azure Policy. The machine can be onboarded to Azure Arc at any
 time but you can use Azure Automation State Configuration to automate the process.
 
 You can register a machine to Azure Arc-enabled servers by using PowerShell DSC.
 For details, view the page
-[How to install the Connected Machine agent using Windows PowerShell DSC](../../../azure-arc/servers/onboard-dsc.md).
+[How to install the Connected Machine agent using Windows PowerShell DSC](../../azure-arc/servers/onboard-dsc.md).
 Remember however, that Azure Automation State Configuration can manage only one
 configuration per machine, per Automation Account. This means you have the option
 to export, test, and prepare your content for machine configuration, and then
@@ -400,4 +400,4 @@ service.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.

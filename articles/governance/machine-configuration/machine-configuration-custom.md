@@ -1,6 +1,6 @@
 ---
 title: Changes to behavior in PowerShell Desired State Configuration for machine configuration
-description: This article provides an overview of the platform used to deliver configuration changes to machines through Azure Policy.
+description: This article describes the platform used to deliver configuration changes to machines through Azure Policy.
 author: timwarner-msft
 ms.date: 07/15/2022
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.service: machine-configuration
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview of
-[machine configuration](./machine-configuration.md).
+[machine configuration](./overview.md).
 
 [A video walk-through of this document is available](https://youtu.be/nYd55FiKpgs).
 
@@ -50,7 +50,7 @@ operating system of machine configuration extension. There's no need to configur
 ## Dependencies are managed per-configuration
 
 When a configuration is
-[packaged using the available tools](../how-to/machine-configuration-create.md),
+[packaged using the available tools](./machine-configuration-create.md),
 the required dependencies for the configuration are included in a .zip file.
 Machines extract the contents into a unique folder for each configuration.
 The agent delivered by the machine configuration extension creates a dedicated
@@ -88,7 +88,7 @@ on the target machine.
 ## Maximum size of custom configuration package
 
 In Azure Automation state configuration, DSC configurations were
-[limited in size](../../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
+[limited in size](../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
 Guest configuration supports a total package size of 100 MB (before
 compression). There's no specific limit on the size of the MOF file within
 the package.
@@ -318,16 +318,16 @@ across DSC versions, so don't attempt to manage the same settings.
 
 ## Next steps
 
-- Read the [machine configuration overview](./machine-configuration.md).
-- Setup a custom machine configuration package [development environment](../how-to/machine-configuration-create-setup.md).
-- [Create a package artifact](../how-to/machine-configuration-create.md)
+- Read the [machine configuration overview](./overview.md).
+- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- [Create a package artifact](./machine-configuration-create.md)
   for machine configuration.
-- [Test the package artifact](../how-to/machine-configuration-create-test.md)
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](../how-to/machine-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for machine configuration](../how-to/determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.
+  [compliance details for machine configuration](..policy/how-to/determine-non-compliance.md) policy assignments.

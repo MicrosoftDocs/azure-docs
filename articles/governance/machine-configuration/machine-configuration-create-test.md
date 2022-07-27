@@ -147,4 +147,4 @@ machine is now in the correct state.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.

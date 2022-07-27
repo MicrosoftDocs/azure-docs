@@ -103,7 +103,7 @@ If your deployment templates include the DSC extension
 there are two changes required.
 
 First, replace the DSC extension with the
-[extension for the machine configuration feature](../../virtual-machines/extensions/machine-configuration.md).
+[extension for the machine configuration feature](./overview.md).
 
 Then, add a
 [machine configuration assignment](./machine-configuration-assignments.md)
