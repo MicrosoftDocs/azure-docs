@@ -91,10 +91,10 @@ This is because a service principal doesn't have permissions to get information 
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
    ```
 
-1. Sign in to Azure CLI using the service principal. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
+1. Sign in to Azure CLI using the service principal. Use the `<objectId>` or `id` value from above step to enable custom locations feature on the cluster:
 
     ```azurecli
-    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
+    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId/id> --features cluster-connect custom-locations
     ```
 
 > [!NOTE]
