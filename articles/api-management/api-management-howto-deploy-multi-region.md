@@ -34,7 +34,7 @@ When adding a region, you configure:
 ## Prerequisites
 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
-* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to ad?d. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
+* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
 ## <a name="add-region"> </a>Deploy API Management service to an additional location
 
@@ -61,7 +61,7 @@ By default, each API routes requests to a single backend service URL. Even if yo
 To take advantage of geographical distribution of your system, you should have backend services deployed in the same regions as Azure API Management instances. Then, using policies and `@(context.Deployment.Region)` property, you can route the traffic to local instances of your backend.
 
 > [!TIP]
-> Optionally set the `disableGateway` property in a regional gateway to disable routing of API traffic there. For example, disable a regional gateway when testing or updating a regional backend service. 
+> Optionally set the `disableGateway` property in a regional gateway to disable routing of API traffic there. For example, temporarily disable a regional gateway when testing or updating a regional backend service. 
 
 1. Navigate to your Azure API Management instance and select **APIs** from the left menu.
 2. Select your desired API.
@@ -116,33 +116,36 @@ API Management routes the requests to a regional gateway based on [the lowest la
 
 ## Virtual networking
 
-The [connectivity requirements](virtual-network-reference.md) such as required network security group rules for a virtual network in an added region are the same as those for a network in the primary region.
+This section provides considerations for multi-region deployments when the API Management instance is injected in a virtual network.
 
-Note the following considerations for addressing and routing:
+* Configure each regional network independently. The [connectivity requirements](virtual-network-reference.md) such as required network security group rules for a virtual network in an added region are the same as those for a network in the primary region.
+* Virtual networks in the different regions don't need to be peered.
 
 ### IP addresses
 
 * A public virtual IP address is created in every region added with a virtual network. For virtual networks in either [external mode](api-management-using-with-vnet.md) or [internal mode](api-management-using-with-internal-vnet.md), this public IP address is required for management traffic on port `3443`.
 
-    In external VNet mode, the public IP address is also used to route API gateway traffic.
+    In external VNet mode, the public IP addresses are also required to route public HTTP traffic to the API gateways.
 
 * In internal VNet mode, a private IP address is also created in every region added with a virtual network. Use these addresses to connect within the network to the service endpoints in the primary and secondary regions.
 
 ### Routing
 
-* In external VNet mode, API Management by default handles routing of API traffic to the regional gateways using Azure Traffic Manager.
+* In external VNet mode, API Management by default handles routing of public HTTP traffic to the regional gateways, in the same way it does for a non-networked API Management instance.
 
-* In internal VNet mode, private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage private load balancing across multiple regions. For example, 
+* In internal VNet mode, private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage routing and private load balancing across multiple regions. Examples include Azure Application Gateway and Azure Traffic Manager.
 
 ## Next steps
 
-For more information about virtual networks and API Management, see:
+* Learn more about [zone redundancy](../availability-zones/migrate-api-mgt.md) to improve the availability of an API Management instance in a region.
 
-* [Connect to a virtual network using Azure API Management](api-management-using-with-vnet.md)
+* For more information about virtual networks and API Management, see:
 
-* [Connect to a virtual network in internal mode using Azure API Management](api-management-using-with-internal-vnet.md)
+    * [Connect to a virtual network using Azure API Management](api-management-using-with-vnet.md)
 
-* [IP addresses of API Management](api-management-howto-ip-addresses.md)
+    * [Connect to a virtual network in internal mode using Azure API Management](api-management-using-with-internal-vnet.md)
+
+    * [IP addresses of API Management](api-management-howto-ip-addresses.md)
 
 
 [create an api management service instance]: get-started-create-service-instance.md
