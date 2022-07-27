@@ -99,14 +99,14 @@ before you can create a machine configuration package.
 #### Update deployment templates
 
 If your deployment templates include the DSC extension
-(see [examples](../../../virtual-machines/extensions/dsc-template.md)),
+(see [examples](../../virtual-machines/extensions/dsc-template.md)),
 there are two changes required.
 
 First, replace the DSC extension with the
-[extension for the machine configuration feature](../../../virtual-machines/extensions/machine-configuration.md).
+[extension for the machine configuration feature](../../virtual-machines/extensions/machine-configuration.md).
 
 Then, add a
-[machine configuration assignment](../concepts/machine-configuration-assignments.md)
+[machine configuration assignment](./machine-configuration-assignments.md)
 that associates the new configuration package (and hash value) with the machine.
 
 #### Older "nx" modules for Linux DSC are not compatible with DSCv3
@@ -121,7 +121,7 @@ As a result, new Linux packages will require custom module development.
 #### Will I have to add "Reasons" property to custom resources?
 
 Implementing the
-["Reasons" property](../concepts/machine-configuration-custom.md#special-requirements-for-get)
+["Reasons" property](./machine-configuration-custom.md#special-requirements-for-get)
 provides a better experience when viewing the results of a configuration assignment from the Azure
 Portal. If the `Get` method in a module doesn't include "Reasons", generic output is returned with
 details from the properties returned by the `Get` method. Therefore, it's optional for migration.
@@ -154,5 +154,3 @@ Use the `Remove.py` script as documented in
   for at-scale management of your environment.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
-- Learn how to view
-  [compliance details for machine configuration](./determine-non-compliance.md#compliance-details-for-machine-configuration) assignments.

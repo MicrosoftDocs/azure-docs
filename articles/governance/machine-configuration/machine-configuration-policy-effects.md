@@ -31,10 +31,10 @@ Before you begin, it's a good idea to read the overview page for
 ## How remediation (Set) is managed by machine configuration
 
 Guest configuration uses the policy effect
-[DeployIfNotExists](../concepts/effects.md#deployifnotexists)
+[DeployIfNotExists](../policy/concepts/effects.md#deployifnotexists)
 for definitions that deliver changes inside machines.
 Set the properties of a policy assignment to control how
-[evaluation](../concepts/effects.md#deployifnotexists-evaluation)
+[evaluation](../policy/concepts/effects.md#deployifnotexists-evaluation)
 delivers configurations automatically or on-demand.
 
 [A video walk-through of this document is available](https://youtu.be/rjAk1eNmDLk).
@@ -102,7 +102,7 @@ packages only, not for built-in content provided by Microsoft.
 ## Azure Policy enforcement
 
 Azure Policy assignments include a required property
-[Enforcement Mode](../concepts/assignment-structure.md#enforcement-mode)
+[Enforcement Mode](../policy/concepts/assignment-structure.md#enforcement-mode)
 that determines behavior for new and existing resources.
 Use this property to control whether configurations are automatically applied to
 machines.
