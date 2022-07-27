@@ -3,7 +3,7 @@ title: Assign eligible owners and members for privileged access groups - Azure A
 description: Learn how to assign eligible owners or members of a role-assignable group in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: mtillman
 manager: karenhoran
 ms.service: active-directory
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: mtillman
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management

@@ -63,7 +63,7 @@ Any monitoring tool, such as Azure Monitor, requires an agent installed on a mac
 
 - [Azure Monitor agent](../agents/agents-overview.md#azure-monitor-agent): Supports virtual machines in Azure, other cloud environments, and on-premises. Sends data to Azure Monitor Metrics and Logs. When it fully supports VM insights, Microsoft Defender for Cloud, and Microsoft Sentinel, then it will completely replace the Log Analytics agent and diagnostic extension.
 - [Log Analytics agent](../agents/agents-overview.md#log-analytics-agent): Supports virtual machines in Azure, other cloud environments, and on-premises. Sends data to Azure Monitor Logs. Supports VM insights and monitoring solutions. This agent is the same agent used for System Center Operations Manager.
-- [Dependency agent](../agents/agents-overview.md#dependency-agent): Collects data about the processes running on the virtual machine and their dependencies. Relies on the Log Analytics agent to transmit data into Azure and supports VM insights, Service Map, and Wire Data 2.0 solutions.
+- [Dependency agent](vminsights-dependency-agent-maintenance.md): Collects data about the processes running on the virtual machine and their dependencies. Relies on the Log Analytics agent to transmit data into Azure and supports VM insights, Service Map, and Wire Data 2.0 solutions.
 - [Azure Diagnostic extension](../agents/agents-overview.md#azure-diagnostics-extension): Available for Azure Monitor virtual machines only. Can send data to Azure Event Hubs and Azure Storage.
 
 ## Next steps
