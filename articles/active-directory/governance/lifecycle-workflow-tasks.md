@@ -44,7 +44,7 @@ Common task parameters are the non-unique parameters contained in every task. Th
 
 |Parameter  |Definition  |
 |---------|---------|
-|category     |  A string that identifies the category or categories of the task. The parameter can be a single or multiple string that is "joiner", "mover", or "leaver. Category of tasks must also contain a matching parameter as its workflow to run.      |
+|category     |  A  read-only string that identifies the category or categories of the task. Automatically determined when the taskDefinitionID is chosen.     |
 |taskDefinitionId     | A string referencing a taskDefinition which determines which task to run.       |
 |isEnabled     | A boolean value that denotes whether the task is set to run or not. If set to “true" then the task will run.       |
 |displayName     |  A unique string that identifies the task.       |
@@ -55,9 +55,9 @@ Common task parameters are the non-unique parameters contained in every task. Th
 
 
 
-## Specific task parameters and arguments (preview)
+## Task details (preview)
 
-Below are the parameters for each task currently supported by Lifecycle Workflows. The parameters are noted as they appear both in the Azure portal, and within Microsoft Graph. For information about editing Lifecycle Workflow tasks in general, see: [Manage workflow Versions](manage-workflow-tasks.md).
+Below are each specific task, and detailed information such as parameters and prerequisites, required for them to run successfully. The parameters are noted as they appear both in the Azure portal, and within Microsoft Graph. For information about editing Lifecycle Workflow tasks in general, see: [Manage workflow Versions](manage-workflow-tasks.md).
 
 
 ### Send welcome email to new hire
@@ -66,13 +66,19 @@ Below are the parameters for each task currently supported by Lifecycle Workflow
 Lifecycle Workflows allow you to automate the sending of welcome emails to new hires in your organization. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/lcw-email-task.png" alt-text="LCW Email task":::
 
+
+The Azure AD prerequisite to run the **Send welcome email to new hire** task is:
+
+- A populated mail attribute for the user.
+
+
 For Microsoft Graph the parameters for the **Send welcome email to new hire** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  joiner      |
-|displayName     | Send Welcome Email         |
-|description     | Send welcome email to new hire      |
+|displayName     | Send Welcome Email (Customizable by user)        |
+|description     | Send welcome email to new hire (Customizable by user)      |
 |taskDefinitionId     |   70b29d51-b59a-4773-9280-8841dfd3f2ea     |
 
 
@@ -100,13 +106,18 @@ With this task in the Azure portal, you're able to give the task a name and desc
 :::image type="content" source="media/lifecycle-workflow-task/lcw-TAP-task.png" alt-text="TAP LCW task":::
  
 
+The Azure AD prerequisites to run the **Generate Temporary Access Password and send via email to user's manager** task are:
+
+- A populated manager attribute for the user.
+- A populated manager's mail attribute for the user.
+
 For Microsoft Graph the parameters for the **Generate Temporary Access Password and send via email to user's manager** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  joiner      |
-|displayName     | GenerateTAPAndSendEmail       |
-|description     | Generate Temporary Access Password and send via email to user's manager        |
+|displayName     | GenerateTAPAndSendEmail (Customizable by user)      |
+|description     | Generate Temporary Access Password and send via email to user's manager (Customizable by user)       |
 |taskDefinitionId     |   1b555e50-7f65-41d5-b514-5894a026d10d     |
 |tapLifetimeInMinutes     | The lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days).   |
 |tapIsUsableOnce     |  Determines whether the pass is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime.   |
@@ -140,13 +151,19 @@ You're able to add a user to an Azure AD security or Microsoft 365 group. You're
 :::image type="content" source="media/lifecycle-workflow-task/lcw-add-group-task.png" alt-text="LCW Add user to group task":::
 
 
+The Azure AD prerequisites to run the **Add user to group** task are:
+
+- Azure AD must be the authority source for the group.
+- The group cannot be a Privileged Access group.
+- The group cannot be a dynamic group.
+
 For Microsoft Graph the parameters for the **Add user to group** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  joiner,leaver      |
-|displayName     |  AddUserToGroup       |
-|description     |  Add user to group      |
+|displayName     |  AddUserToGroup (Customizable by user)        |
+|description     |  Add user to group (Customizable by user)       |
 |taskDefinitionId     |   22085229-5809-45e8-97fd-270d28d66910      |
 |name     |  groupID    |
 |value     |  The group id value surrounded by ""    |
@@ -181,8 +198,8 @@ For Microsoft Graph the parameters for the **Add user to team** task are as foll
 |Parameter |Definition  |
 |---------|---------|
 |category    |  joiner,leaver      |
-|displayName     |  AddUserToTeam      |
-|description     |  Add user to team       |
+|displayName     |  AddUserToTeam (Customizable by user)       |
+|description     |  Add user to team (Customizable by user)        |
 |taskDefinitionId     |   e440ed8d-25a1-4618-84ce-091ed5be5594      |
 |name     |  teamID    |
 |value     |  The team id value surrounded by ""    |
@@ -217,8 +234,8 @@ For Microsoft Graph the parameters for the **Enable user account** task are as f
 |Parameter |Definition  |
 |---------|---------|
 |category    |  joiner,leaver      |
-|displayName     |  EnableUserAccount      |
-|description     |  Enable user account       |
+|displayName     |  EnableUserAccount (Customizable by user)       |
+|description     |  Enable user account (Customizable by user)        |
 |taskDefinitionId     |   6fc52c9d-398b-4305-9763-15f42c1676fc      |
 
 
@@ -241,13 +258,17 @@ Workflows can be configured to launch a custom task extension. You're able to cu
 
 :::image type="content" source="media/lifecycle-workflow-task/lcw-custom-extension-task.png" alt-text="LCW custom extension task":::
 
+The Azure AD prerequisite to run the **Run a Custom Task Extension** task is:
+
+- A Logic App that is compatible with the custom task extension. For more information, see: [Lifecycle workflow extensibility](lifecycle-workflow-extensibility.md).
+
 For Microsoft Graph the parameters for the **Run a Custom Task Extension** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  joiner,leaver      |
-|displayName     | Launch Logic App       |
-|description     |  Launch Logic App URL      |
+|displayName     | Run a Custom Task Extension (Customizable by user)        |
+|description     |  Run a custom Task Extension (Customizable by user)      |
 |taskDefinitionId     |   "d79d1fcc-16be-490c-a865-f4533b1639ee      |
 |name     |  logicAppURL     |
 |value     |  The endpoint URL for the Logic App     |
@@ -284,8 +305,8 @@ For Microsoft Graph the parameters for the **Disable user account** task are as 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  joiner,leaver      |
-|displayName     |  DisableUserAccount       |
-|description     |  Disable user account       |
+|displayName     |  DisableUserAccount (Customizable by user)       |
+|description     |  Disable user account (Customizable by user)       |
 |taskDefinitionId     |   1dfdfcc7-52fa-4c2e-bf3a-e3919cc12950      |
 
 
@@ -308,13 +329,19 @@ For Microsoft Graph the parameters for the **Disable user account** task are as 
  Allows users to be removed from an Azure AD security or Microsoft 365 group. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/lcw-remove-group-task.png" alt-text="LCW Remove user from select groups":::
 
+The Azure AD prerequisites to run the **Remove user from groups** task are:
+
+- Azure AD must be the authority source for the group.
+- The group cannot be a Privileged Access group.
+- The group cannot be a dynamic group.
+
 For Microsoft Graph the parameters for the **Remove user from groups** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  leaver      |
-|displayName     |  Remove user from selected groups       |
-|description     |  Remove user from membership of selected Azure AD groups"      |
+|displayName     |  Remove user from selected groups (Customizable by user)        |
+|description     |  Remove user from membership of selected Azure AD groups (Customizable by user)      |
 |taskDefinitionId     |   1953a66c-751c-45e5-8bfe-01462c70da3c      |
 |name     |  groupID    |
 |value     |  The group id values surrounded by ""    |
@@ -343,13 +370,19 @@ For Microsoft Graph the parameters for the **Remove user from groups** task are 
 Allows users to be removed from every group they are a member of. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/lcw-remove-all-groups-task.png" alt-text="LCW remove user from all groups":::
 
+The Azure AD prerequisites to run the **Remove user from all groups** task are:
+
+- Azure AD must be the authority source for the group.
+- The group cannot be a Privileged Access group.
+- The group cannot be a dynamic group.
+
 For Microsoft Graph the parameters for the **Remove users from all groups** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  leaver      |
-|displayName     |  Remove user from all groups      |
-|description     |  Remove user from all Azure AD groups memberships       |
+|displayName     |  Remove user from all groups (Customizable by user)       |
+|description     |  Remove user from all Azure AD groups memberships (Customizable by user)        |
 |taskDefinitionId     |   b3a31406-2a15-4c9a-b25b-a658fa5f07fc      |
 
 
@@ -377,8 +410,8 @@ For Microsoft Graph the parameters for the **Remove User from Teams** task are a
 |Parameter |Definition  |
 |---------|---------|
 |category    |  joiner,leaver      |
-|displayName     |  Remove user from selected Teams      |
-|description     |  Remove user from membership of selected Teams      |
+|displayName     |  Remove user from selected Teams (Customizable by user)       |
+|description     |  Remove user from membership of selected Teams (Customizable by user)       |
 |taskDefinitionId     |   06aa7acb-01af-4824-8899-b14e5ed788d6     |
 |name     |  teamID   |
 |value     |  The team id values surrounded by ""    |
@@ -411,8 +444,8 @@ For Microsoft Graph the parameters for the **Remove users from all teams** task 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  leaver      |
-|displayName     |  Remove user from all Teams memberships      |
-|description     |  Remove user from all Teams       |
+|displayName     |  Remove user from all Teams memberships (Customizable by user)       |
+|description     |  Remove user from all Teams (Customizable by user)        |
 |taskDefinitionId     |   81f7b200-2816-4b3b-8c5d-dc556f07b024      |
 
 
@@ -440,8 +473,8 @@ For Microsoft Graph the parameters for the **Remove all license assignment from 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  leaver      |
-|displayName     |  Remove all licenses for user       |
-|description     |  Remove all licenses assigned to the user       |
+|displayName     |  Remove all licenses for user (Customizable by user)        |
+|description     |  Remove all licenses assigned to the user (Customizable by user)        |
 |taskDefinitionId     |   8fa97d28-3e52-4985-b3a9-a1126f9b8b4e      |
 
 
@@ -464,13 +497,17 @@ For Microsoft Graph the parameters for the **Remove all license assignment from 
 Allows user accounts to be deleted. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/lcw-delete-user-task.png" alt-text="LCW Delete user account":::
 
+The Azure AD prerequisite to run the **Delete User** task is:
+
+- Azure AD must be the authority source for the account.
+
 For Microsoft Graph the parameters for the **Delete User** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  leaver      |
-|displayName     |  Delete user account       |
-|description     |  Delete user account in Azure AD       |
+|displayName     |  Delete user account (Customizable by user)      |
+|description     |  Delete user account in Azure AD (Customizable by user)      |
 |taskDefinitionId     |   8d18588d-9ad3-4c0f-99d0-ec215f0e3dff      |
 
 
