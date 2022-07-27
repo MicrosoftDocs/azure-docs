@@ -78,7 +78,7 @@ To control the application, you can use any of several of environment variables:
 | `--tp, --trustedcertstorepath=VALUE` | The path of the trusted certificate store.<br>Default: 'pki/trusted' |
 | `--rp, --rejectedcertstorepath=VALUE` | The path of the rejected certificate store.<br>Default 'pki/rejected' |
 | `--ip, --issuercertstorepath=VALUE` | The path of the trusted issuer certificate store.<br>Default 'pki/issuer' |
-| `--csr` | Shows data to create a certificate signing request.<br>Default: False |
+| `--csr | Shows data to create a certificate signing request.<br>Default: False |
 | `--ab, --applicationcertbase64=VALUE` | Updates or sets this application's certificate with the certificate that's passed in as a Base64 string. |
 | `--af, --applicationcertfile=VALUE` | Updates or sets this application's certificate with the specified certificate file. |
 | `--pb, --privatekeybase64=VALUE` | Initially provisions the application certificate (in PEM or PFX format). Requires a private key, which is passed in as a Base64 string. |
@@ -144,7 +144,7 @@ The `Alternative` field, when it's present, refers to the applicable CLI argumen
 | `LogFile name==VALUE` | The file name of the log file to use<br>Alternative: --lf, --logfile<br>Mode: Standalone only<br>Type: string - file name, optionally prefixed with the path<br>Default: \<not set> |
 | `LogFileFlushTimeSpan=VALUE` | The timespan, in seconds, when the log file should be flushed in the storage account.<br>Alternative: --lt, --logflushtimespan<br>Mode: Standalone only<br>Environment variable<br>Type: timespan string {[d.]hh:mm:ss[.fffffff]}<br>Alternative argument type: integer, in seconds<br>Default: {00:00:30} |
 | `loglevel=Value` |  The level for logs to be persisted in the log file.<br>Alternative: --ll --loglevel<br>Mode: Standalone only<br>Type: string enum - Fatal, Error, Warning, Information, Debug, Verbose<br>Default: info |
-| `EdgeHubConnectionString=VALUE` | An IoT Edge Device or IoT Edge module connection string to use. When it's deployed as a module in IoT Edge, the environment variable is already set as part of the container deployment.<br>Alternative: --dc, --deviceconnectionstring \| `--ec, --edgehubconnectionstring`<br>Mode: Standalone, orchestrated<br>Type: connection string<br>Default: \<not set> <set by iotedge run time> |
+| `EdgeHubConnectionString=VALUE` | An IoT Edge Device or IoT Edge module connection string to use. When it's deployed as a module in IoT Edge, the environment variable is already set as part of the container deployment.<br>Alternative: --dc, --deviceconnectionstring \| `--ec, --edgehubconnectionstring<br>Mode: Standalone, orchestrated<br>Type: connection string<br>Default: \<not set> \<set by iotedge run time> |
 | `Transport=VALUE` | The protocol to use for upstream communication to the IoT Edge hub or the IoT hub.<br>Alternative: --ih, --iothubprotocol<br>Mode: Standalone, orchestrated<br>Type: string enum - Any, Amqp, Mqtt, AmqpOverTcp, AmqpOverWebsocket, MqttOverTcp, MqttOverWebsocket, Tcp, Websocket<br>Default: MqttOverTcp |
 | `BypassCertVerification=VALUE` | Enables/disables the bypassing of certificate verification for upstream communication to EdgeHub.<br>Alternative: N/A<br>Mode: Standalone, orchestrated<br>Type: Boolean<br>Default: false |
 | `EnableMetrics=VALUE` | Enables/disables upstream metrics propagation.<br>Alternative: N/A<br>Mode: Standalone, orchestrated<br>Type: Boolean<br>Default: true |
