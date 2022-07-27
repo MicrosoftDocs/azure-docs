@@ -47,6 +47,8 @@ items:
       href: app/tutorial-app-dashboards.md
     - name: Monitor mobile or UWP application
       href: app/mobile-center-quickstart.md
+    - name: Application Insights for ASP.NET Core applications
+      href: app/tutorial-asp-net-core.md
   - name: Change Analysis
     items:
     - name: Track web outages
