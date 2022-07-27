@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-six
 # Quickstart: Personalizer client library
 
 
-In this quickstart, you will learn how to create, configure, and use the Personalizer service in a toy example to learn food preferences. You will also utilize the Personalizer client library to make calls to the [Rank and Reward APIs](what-is-personalizer.md#Rank-and-Reward-APIs)
+In this quickstart, you will learn how to create, configure, and use the Personalizer service in a toy example to learn food preferences. You will also utilize the Personalizer client library to make calls to the [Rank and Reward APIs](what-is-personalizer.md#rank-and-reward-apis)
 
 
 ::: zone pivot="programming-language-csharp"
