@@ -32,6 +32,8 @@ ms.reviewer: aul
 - To view the monitoring data, you need to have [Log Analytics Reader](../logs/manage-access.md#azure-rbac) role assignment on the Log Analytics workspace.
 - The following endpoints need to be enabled for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
 
+    **Azure public cloud**
+
     | Endpoint | Port |
     |----------|------|
     | `*.ods.opinsights.azure.com` | 443 |
@@ -47,6 +49,7 @@ ms.reviewer: aul
     | `global.handler.control.monitor.azure.com` | Access control service | 443 |
     | `<cluster-region-name>.handler.control.monitor.azure.com` | Fetch data collection rules for specific AKS cluster | 443 |
 
+    **Azure government cloud**
 
     If your Azure Arc-enabled Kubernetes resource is in Azure US Government environment, following endpoints need to be enabled for outbound access:
 
