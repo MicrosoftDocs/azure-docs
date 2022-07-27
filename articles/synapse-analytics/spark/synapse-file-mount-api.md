@@ -206,7 +206,7 @@ If you mounted a Blob Storage account and want to access it by using `mssparkuti
     spark.conf.set('fs.azure.sas.mycontainer.<blobStorageAccountName>.blob.core.windows.net', blob_sas_token) 
     ``` 
 
-2. Create the link service `myblobstorageaccount` and mount the Blob Storage account by using the link service:
+2. Create the linked service `myblobstorageaccount`, and mount the Blob Storage account by using the linked service:
 
     ```python 
     %%spark 
