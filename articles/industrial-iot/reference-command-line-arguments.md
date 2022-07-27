@@ -36,8 +36,9 @@ To control the application, you can use any of several of environment variables:
 > [!NOTE] 
 > Command-line arguments overrule environment variable settings.
 
+
 | Argument | Description |
-| --- | --- | 
+| --- | --- |
 | `--pf, --publishfile=VALUE` | The file name to use to configure the nodes to publish.<br>Default: '/appdata/publishednodes.json' |
 | `--tc, --telemetryconfigfile=VALUE` | The file name to use to configure the ingested telemetry.<br>Default: '' |
 | `-s, --site=VALUE` | The site that OPC Publisher is working in. If it's specified, this domain is appended (delimited by a ':' to the 'ApplicationURI' property when telemetry is sent to the Iot hub. The value must follow the syntactical rules of a DNS hostname.<br>Default: \<not set> |
@@ -103,6 +104,7 @@ To control the application, you can use any of several of environment variables:
 | `--rt, --rejectedcertstoretype=VALUE` | Ignored. The rejected certificate store always resides in a directory. |
 | `--it, --issuercertstoretype=VALUE` | Ignored. The trusted issuer certificate store always resides in a directory. |
 
+
 ## Command-line arguments for version 2.6 and later
 
 | Argument | Description |
@@ -138,7 +140,7 @@ The following OPC Publisher configuration can be applied by command-line interfa
 The `Alternative` field, when it's present, refers to the applicable CLI argument in *standalone mode only*. When both the environment variable and the CLI argument are provided, the latest argument overrules the environment variable.
 
 | Argument | Description |
-| --- | --- | 
+| --- | --- |
 | `PublishedNodesFile=VALUE` | The file that's used to store the configuration of the nodes to be published along with the information to connect to the OPC UA server sources. When this file is specified, or the default file is accessible by the module, OPC Publisher starts in *standalone* mode.<br>Alternative: --pf, --publishfile<br>Mode: Standalone only<br>Type: string - file name, optionally prefixed with the path<br>Default: publishednodes.json |
 | `site=VALUE` | The site that OPC Publisher is assigned to.<br>Alternative: --s, --site<br>Mode: Standalone, orchestrated<br>Type: string<br>Default: \<not set> |
 | `LogFile name==VALUE` | The file name of the log file to use<br>Alternative: --lf, --logfile<br>Mode: Standalone only<br>Type: string - file name, optionally prefixed with the path<br>Default: \<not set> |
@@ -146,7 +148,7 @@ The `Alternative` field, when it's present, refers to the applicable CLI argumen
 | `loglevel=Value` |  The level for logs to be persisted in the log file.<br>Alternative: --ll --loglevel<br>Mode: Standalone only<br>Type: string enum - Fatal, Error, Warning, Information, Debug, Verbose<br>Default: info |
 | `EdgeHubConnectionString=VALUE` | An IoT Edge Device or IoT Edge module connection string to use. When it's deployed as a module in IoT Edge, the environment variable is already set as part of the container deployment.<br>Alternative: --dc, --deviceconnectionstring \| `--ec, --edgehubconnectionstring<br>Mode: Standalone, orchestrated<br>Type: connection string<br>Default: \<not set> <set by iotedge run time> |
 | `Transport=VALUE` | The protocol to use for upstream communication to the IoT Edge hub or the IoT hub.<br>Alternative: --ih, --iothubprotocol<br>Mode: Standalone, orchestrated<br>Type: string enum - Any, Amqp, Mqtt, AmqpOverTcp, AmqpOverWebsocket, MqttOverTcp, MqttOverWebsocket, Tcp, Websocket<br>Default: MqttOverTcp |
-| `BypassCertVerification=VALUE` | Enables/disables the bypassing of certificate verification for upstream communication to EdgeHub.<br>Alternative: N/A<br>Mode: Standalone, orchestrated<br>Type: Boolean<br>Default: false |    
+| `BypassCertVerification=VALUE` | Enables/disables the bypassing of certificate verification for upstream communication to EdgeHub.<br>Alternative: N/A<br>Mode: Standalone, orchestrated<br>Type: Boolean<br>Default: false |
 | `EnableMetrics=VALUE` | Enables/disables upstream metrics propagation.<br>Alternative: N/A<br>Mode: Standalone, orchestrated<br>Type: Boolean<br>Default: true |
 | `DefaultPublishingInterval=VALUE` | The default value for the OPC UA publishing interval of OPC UA subscriptions created to an OPC UA server. This value is used when no explicit setting is configured.<br>Alternative: --op, --opcpublishinginterval<br>Mode: Standalone only<br> Environment variable<br>Type: timespan string {[d.]hh:mm:ss[.fffffff]}<br>Alternative argument type: integer, in milliseconds<br>Default: {00:00:01} (1000) |
 | `DefaultSamplingInterval=VALUE` | The default value for the OPC UA sampling interval of nodes to publish. This value is used when no explicit setting is configured.<br>Alternative: --oi, --opcsamplinginterval<br>Mode: Standalone only<br>Environment variable<br>Type: timespan string {[d.]hh:mm:ss[.fffffff]}<br>Alternative argument type: integer, in milliseconds<br>Default: {00:00:01} (1000) |
@@ -194,6 +196,7 @@ The `Alternative` field, when it's present, refers to the applicable CLI argumen
 | `MaxStringLength=VALUE` | The OPC UA Stack Transport Secure Channel maximum length of a string that can be sent/received over the OPC UA secure channel.<br>Alternative: --ol, --opcmaxstringlen<br>Mode: Standalone, orchestrated<br>Type: integer<br>Default: 130,816 (128 KB - 256) |
 | `RuntimeStateReporting=VALUE` | Enables reporting of OPC Publisher restarts.<br>Alternative: --rs, --runtimestatereporting<br>Mode: Standalone<br>Type: Boolean<br>Default: false |
 | `EnableRoutingInfo=VALUE` | Adds the routing information to telemetry messages. The name of the property is `$$RoutingInfo`, and the value is the `DataSetWriterGroup` for that particular message. When the `DataSetWriterGroup` isn't configured, the `$$RoutingInfo` property isn't added to the message even if this argument is set.<br>Alternative: --ri, --enableroutinginfo<br>Mode: Standalone<br>Type: Boolean<br>Default: false |
+
 
 ## Next steps
 
