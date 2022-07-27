@@ -6,7 +6,7 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 04/15/2022
+ms.date: 07/27/2022
 ---
 <!-- 
   Customer intent:
@@ -28,7 +28,7 @@ In this quickstart, you will:
 
 - Permissions as a [Dev Box User](./quickstart-configure-dev-box-project.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
 
-## Create a Dev Box
+## Create a dev box
 
 1. Sign in to the [developer portal](https://aka.ms/developerportal).
 
@@ -61,17 +61,20 @@ For quick access in a browser tab, the Developer portal links directly to a brow
 1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
 
 1. To connect to a dev box, select **Open in browser**.
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-browser.png" alt-text="Screenshot of dev box card showing the Open in browser button.":::
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-rdp.png" alt-text="Screenshot of dev box card showing the Open in browser option.":::
 
 A new tab will open with an RD session to your dev box.
 
 ## Clean up resources
 
 When no longer needed, you can delete your dev box.
-1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
+1. Sign in to the [developer portal](https://aka.ms/developerportal).
 
 1. In **Your dev box**, from the setting menu, select **Delete**.
-    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the Your dev box card Settings menu showing the Delete option."::: 
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the dev box Settings menu with the Delete option highlighted."::: 
+
+1. To confirm the deletion, select **Delete**.
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box-confirm.png" alt-text="Screenshot of the Delete dev box confirmation message with the Delete button highlighted.":::  
 
 ## Next steps
 
