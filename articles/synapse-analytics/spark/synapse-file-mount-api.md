@@ -178,7 +178,7 @@ The following three examples show how to access a file with a mount point path b
 
 ## Access files under the mount point by using the Spark Read API 
 
-You can also use the Spark Read API with a mounted path as a parameter to access the data after mounting. The path format here is the same when you use the `mssparkutils fs` API: 
+You can provide a parameter to access the data through the Spark read API. The path format here is the same when you use the `mssparkutils fs` API: 
 
 `synfs:/{jobId}/test/{filename}`
 
