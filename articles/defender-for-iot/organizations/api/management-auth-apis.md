@@ -9,11 +9,6 @@ ms.topic: reference
 
 This article lists the authentication and password management REST APIs supported for Microsoft Defender for IoT on-premises management consoles.
 
-Authentication and password management
-Devices - inventory + includes connections, cves
-Alerts - alerts and events, pcap
-Vulnerabilities reports - all 4
-
 ## set_password (Change password)
 
 Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API.
@@ -22,43 +17,43 @@ You don't need a Defender for IoT access token to use this API.
 
 **URI**: `/external/authentication/set_password`
 
-**Method**: POST
+### POST
 
 # [Request](#tab/request-set-password)
 
 **Type**: JSON
 
-**Request example**:
+**Example**:
 
 ```rest
 request:
-
 {
-
     "username": "test",
-
     "password": "Test12345\!",
-
     "new_password": "Test54321\!"
-
 }
-
 ```
+
+**Parameters**:
+
+| **Name** | **Type** | **Required / Optional** |
+|--|--|--|
+| **username** | String | Required |
+| **password** | String | Required |
+| **new_password** | String | Required |
 
 # [Response](#tab/response-set-password)
 
 **Type**: JSON
 
 
-Message string with the operation status details:
+|Message  |Description  |
+|---------|---------|
+|**Success – msg**     |   Password has been replaced      |
+|**Failure – error**     |   User authentication failure      |
+|**Failure – error**     |   Password does not match security policy      |
 
-- **Success – msg**: Password has been replaced
-
-- **Failure – error**: User authentication failure
-
-- **Failure – error**: Password does not match security policy
-
-**Response example**:
+**Example**:
 
 ```rest
 response:
@@ -74,14 +69,6 @@ response:
 }
 
 ```
-
-**Device fields**:
-
-| **Name** | **Type** | **Required / Optional** |
-|--|--|--|
-| **username** | String | Required |
-| **password** | String | Required |
-| **new_password** | String | Required |
 
 # [Curl command](#tab/set-password-curl)
 
@@ -120,15 +107,21 @@ You don't need a Defender for IoT access token to use this API.
 request:
 
 {
-
+    "admin_username": "admin",
+    "admin_password: "Test0987"
     "username": "test",
-
-    "password": "Test12345\!",
-
     "new_password": "Test54321\!"
-
 }
 ```
+
+**Parameters**:
+
+| **Name** | **Type** | **Required / Optional** |
+|--|--|--|
+| **admin_username** | String | Required |
+| **admin_password** | String | Required |
+| **username** | String | Required |
+| **new_password** | String | Required |
 
 # [Response](#tab/set-password-by-admin-response)
 
@@ -136,15 +129,13 @@ request:
 
 Message string with the operation status details:
 
-- **Success – msg**: Password has been replaced
-
-- **Failure – error**: User authentication failure
-
-- **Failure – error**: User does not exist
-
-- **Failure – error**: Password doesn't match security policy
-
-- **Failure – error**: User does not have the permissions to change password
+|Message  |Description  |
+|---------|---------|
+|**Success – msg**     |   Password has been replaced      |
+|**Failure – error**     |   User authentication failure      |
+|**Failure – error**     |  User does not exist       |
+|**Failure – error**     | Password doesn't match security policy        |
+|**Failure – error**     |  User does not have the permissions to change password       |
 
 **Response example**
 
@@ -154,11 +145,8 @@ response:
 {
 
     "error": {
-
         "userDisplayErrorMessage": "The user 'test_user' doesn't exist",
-
         "internalSystemErrorMessage": "The user 'yoavfe' doesn't exist"
-
     }
 
 }
@@ -194,7 +182,9 @@ curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": 
 
 ## validation (Authenticate user credentials)
 
-Use this API to validate user credentials. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+Use this API to validate user credentials. 
+
+You don't need a Defender for IoT access token to use this API.
 
 **URI**: `/external/authentication/validation`
 
@@ -204,7 +194,14 @@ Use this API to validate user credentials. All Defender for IoT user roles can w
 
 **Type**: JSON
 
-**Request example**:
+**Query parameters**:
+
+| **Name** | **Type** | **Required/Optional** |
+|--|--|--|
+| **username** | String | Required |
+| **password** | String | Required |
+
+**Example**:
 
 ```rest
 request:
@@ -212,7 +209,6 @@ request:
 {
 
     "username": "test",
-
     "password": "Test12345\!"
 
 }
@@ -224,18 +220,12 @@ request:
 
 Message string with the operation status details:
 
-- **Success – msg**: Authentication succeeded
+|Message  |Description  |
+|---------|---------|
+|**Success - msg**     |  Authentication succeeded       |
+|**Failure - error**     |  Credentials validation failed       |
 
-- **Failure – error**: Credentials Validation Failed
-
-**Device fields**:
-
-| **Name** | **Type** | **Required / Optional** |
-|--|--|--|
-| **username** | String | Required |
-| **password** | String | Required |
-
-**Response example**:
+**Example**:
 
 ```rest
 response:
@@ -251,16 +241,16 @@ response:
 
 **Type**: POST
 
-**APIs**:
+**API**:
 
 ```rest
-curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'
+curl -k -X POST -H "Authorization: <AUTH_TOKEN>" -H "Content-Type: application/json" -d '{"username": <USER NAME>, "password": <PASSWORD>}' https://<IP_ADDRESS>/external/authentication/validation
 ```
 
 **Example**:
 
 ```rest
-curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/external/authentication/validation
+curl -k -X POST -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" -H "Content-Type: application/json" -d '{"username": "test", "password": "test"}' https://127.0.0.1/external/authentication/validation
 ```
 ---
 

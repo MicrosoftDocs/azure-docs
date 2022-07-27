@@ -11,7 +11,6 @@ This article lists the alert management REST APIs supported for Microsoft Defend
 
 ## alerts (Retrieve alert information)
 
-
 Use this API to retrieve all or filtered alerts from an on-premises management console.
 
 **URI**:  `/external/v1/alerts`
@@ -22,58 +21,63 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
 **Query parameters**:
 
-
-|Name  |Description  |Example  |
-|---------|---------|---------|
-|**state**     |To filter only handled and unhandled alerts.         |   `/api/v1/alerts?state=handled`      |
-|**fromTime**     | To filter alerts created from a specific time (in milliseconds, UTC).        |   `/api/v1/alerts?fromTime=<epoch>`      |
-|**toTime**     |  To filter alerts created only before a specific time (in milliseconds, UTC).       |   `/api/v1/alerts?toTime=<epoch>`      |
-|**siteId**     |  The site on which the alert was discovered.       |         |
-|**zoneId**     |  The zone on which the alert was discovered.       |         |
-|**sensor**     |    The sensor on which the alert was discovered.     |         |
-
-> [!NOTE]
-> You might not have the site and zone ID. If this is the case, query all devices to retrieve the site and zone ID.
-
-**Alert fields**
-
-| Name | Type | Required / Optional | List of values |
-|--|--|--|--|
-| **ID** | Numeric | Required | - |
-| **time** | Numeric | Required | Epoch (UTC) |
-| **title** | String | Required | - |
-| **message** | String | Required | - |
-| **severity** | String | Required | Warning, Minor, Major, or Critical |
-| **engine** | String | Required | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
-| **sourceDevice** | Numeric | Optional | Device ID |
-| **destinationDevice** | Numeric | Optional | Device ID |
-| **sourceDeviceAddress** | Numeric | Optional | IP, MAC |
-| **destinationDeviceAddress** | Numeric | Optional | IP, MAC |
-| **remediationSteps** | String | Optional | Remediation steps shown in alert|
-| **sensorName** | String | Optional | Name of sensor defined by user |
-|**zoneName** | String | Optional | Name of zone associated with sensor|
-| **siteName** | String | Optional | Name of site associated with sensor |
-| **additionalInformation** | Additional information object | Optional | - |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**state**     | Get only handled or unhandled alerts. Supported values: <br>- `handled`<br>- `unhandled`    <br>All other values are ignored.   |  `/api/v1/alerts?state=handled`       |Optional |
+|**fromTime**     |   Get alerts created starting at a given time, in milliseconds from Epoch time and in UTC timezone.      |    `/api/v1/alerts?fromTime=<epoch>`     | Optional |
+|**toTime**     |  Get alerts created only before at a given time, in milliseconds from Epoch time and in UTC timezone.        | `/api/v1/alerts?toTime=<epoch>`        |  Optional |
+|**siteId**     |  The site on which the alert was discovered.       |  `/api/v1/alerts?siteId=1`     |Optional |
+|**zoneId**     |  The zone on which the alert was discovered.       |  `/api/v1/alerts?zoneId=1`     |Optional |
+|**sensorId**     |    The sensor on which the alert was discovered.     |   `/api/v1/alerts?sensorId=1`     |Optional |
 
 > [!NOTE]
-> /api/v2/ is needed for the following information:
->
-> - sourceDeviceAddress
-> - destinationDeviceAddress
-> - remediationSteps
-> - sensorName
-> - zoneName
-> - siteName
->
+> You might not have the site and zone ID. If this is the case, first query all devices to retrieve the site and zone ID. For more information, see [Integration API reference for on-premises management consoles (Public preview)](management-integration-apis.md).
 
-**Additional information fields**
 
-| Name | Type | Required / Optional | List of values |
-|--|--|--|--|
-| **description** | String | Required | - |
-| **information** | JSON array | Required | String |
 
 # [Response](#tab/alerts-get-response)
+
+**Type**: JSON
+
+A list of alerts with the following fields:
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **Id** | Numeric | Not nullable | - |
+| **sensorId** | Numeric | Not nullable | - |
+| **zoneId**  | Numeric | Not nullable | - |
+| **time** | Numeric | Not nullable | Milliseconds from [Epoch time](../references-work-with-defender-for-iot-apis.md#epoch-time), in UTC timezone|
+| **title** | String | Not nullable | - |
+| **message** | String | Not nullable | - |
+| **severity** | String | Not nullable | `Warning`, `Minor`, `Major`, or `Critical` |
+| **engine** | String | Not nullable | `Protocol Violation`, `Policy Violation`, `Malware`, `Anomaly`, or `Operational` |
+| **sourceDevice** | Numeric | Nullable | Device ID |
+| **destinationDevice** | Numeric | Nullable | Device ID |
+| **remediationSteps** | String | Nullable | Remediation steps shown in alert|
+| **additionalInformation** | Additional information object | Nullable | - |
+| **handled** | Boolean, state of the alert | Not nullable | `true` or `false` |
+
+
+<a name="add-info"></a>**Additional information fields**:
+
+| Name | Type |  Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **description** | String | Not nullable | - |
+| **information** | JSON array | Not nullable | String |
+
+**Added for V2**:
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **sourceDeviceAddress** | String | Nullable | IP or MAC  address|
+| **destinationDeviceAddress** | String | Nullable | IP or MAC address |
+| **remediationSteps** | JSON array | Not nullable | Strings, remediation steps described in alert |
+| **sensorName** | String | Not nullable | Name of sensor defined by user |
+|**zoneName** | String | Not nullable | Name of zone associated with sensor|
+| **siteName** | String | Not nullable | Name of site associated with sensor |
+|
+
+For more information, see [Sensor API version reference](../references-work-with-defender-for-iot-apis.md#sensor-api-version-reference).
 
 **Response example**
 
@@ -126,6 +130,7 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
     }
 ]
 ```
+
 # [Curl command](#tab/alerts-get-curl)
 
 **Type**: GET
@@ -154,17 +159,24 @@ For example, you can use this API to create a forwarding rule that forwards data
 
 ### PUT
 
+
 # [Request](#tab/uuid-request)
 
 **Type**: JSON
 
-JSON object that represents the action to perform on the alert that contains the UUID.
+**Query parameters**:
 
-**Action fields**
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**UUID**     | Defines the universally unique identifier (UUID) for the alert you want to handle or handle and learn. |  `/api/v1/alerts/7903F632-H7EJ-4N69-F40F-4B1E689G00Q0`       |Required |
 
-| Name | Type | Required / Optional | List of values |
-|--|--|--|--|
-| **action** | String | Required | handle or handleAndLearn |
+**Body parameters**
+
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+| **action** | String, either `handle` or `handleAndLearn` |  | Required |
+
+
 
 **Request example**
 
@@ -232,6 +244,7 @@ curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" http
 curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/alerts/1-1594550943000
 ```
 ---
+
 ## maintenanceWindow (Create alert exclusions)
 
 **URI**: `/external/v1/maintenanceWindow`

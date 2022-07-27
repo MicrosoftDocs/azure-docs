@@ -9,6 +9,8 @@ ms.topic: reference
 
 # Integration API reference for on-premises management consoles (Public preview)
 
+DONT FORGET NEW SNOW API
+
 This article lists the APIs supported for integrating Microsoft Defender for IoT with partner services.
 
 For example, this API is currently implemented with [Tutorial: Integrate ServiceNow with Microsoft Defender for IoT](../tutorial-servicenow.md), via the ServiceNow Service Graph Connector for Defender for IoT.

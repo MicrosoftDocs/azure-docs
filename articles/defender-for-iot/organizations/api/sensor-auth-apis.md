@@ -11,7 +11,9 @@ This article lists the authentication and password management APIs supported for
 
 ## set_password (Change your password)
 
-Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+Use this API to let users change their own passwords.
+
+You don't need a Defender for IoT access token to use this API.
 
 **URI**: `/external/authentication/set_password`
 
@@ -71,7 +73,7 @@ response:
 
 **Type**: POST
 
-**APIs**:
+**API**:
 
 ```rest
 curl -k -X POST -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password
@@ -87,7 +89,9 @@ curl -k -X POST -d '{"username": "myUser","password": "1234@abcd","new_password"
 
 ## set_password_by_admin (Update a user password by admin)
 
-Use this API to let system administrators change passwords for specified users. Defender for IoT administrator user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+Use this API to let system administrators change passwords for specified users. Defender for IoT administrator user roles can work with the API.
+
+You don't need a Defender for IoT access token to use this API.
 
 **URI**: `/external/authentication/set_password_by_admin`
 
@@ -103,8 +107,9 @@ Use this API to let system administrators change passwords for specified users. 
 request:
 
 {
+    "admin_username": "admin",
+    "admin_password: "Test0987"
     "username": "test",
-    "password": "Test12345\!",
     "new_password": "Test54321\!"
 }
 ```
@@ -151,7 +156,7 @@ response:
 
 **Type**: POST
 
-**APIs**:
+**API**:
 
 ```rest
 curl -k -X POST -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin
@@ -168,7 +173,7 @@ curl -k -X POST -d '{"admin_user":"adminUser","admin_password": "1234@abcd","use
 
 ## validation (Validate user credentials)
 
-Use this API to validate a Defender for IoT username and password. All Defender for IoT user roles can work with the API.
+Use this API to validate a Defender for IoT username and password.
 
 You don't need a Defender for IoT access token to use this API.
 
@@ -221,7 +226,7 @@ response:
 
 **Type**: POST
 
-**APIs**:
+**API**:
 
 ```rest
 curl -k -X POST -H "Authorization: <AUTH_TOKEN>" -H "Content-Type: application/json" -d '{"username": <USER NAME>, "password": <PASSWORD>}' https://<IP_ADDRESS>/api/external/authentication/validation
