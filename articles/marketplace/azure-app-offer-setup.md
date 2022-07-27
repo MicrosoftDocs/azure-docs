@@ -7,12 +7,16 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/29/2022
+ms.date: 07/20/2022
 ---
 
 # Create an Azure application offer
 
 As a commercial marketplace publisher, you can create an Azure application offer so potential customers can buy your solution. This article explains the process to create an Azure application offer for the Microsoft commercial marketplace.
+
+## Before you begin
+
+Before you can publish an Azure application offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 If you haven’t already done so, read [Plan an Azure application offer for the commercial marketplace](plan-azure-application-offer.md). It will provide the resources and help you gather the information and assets you’ll need when you create your offer.
 
