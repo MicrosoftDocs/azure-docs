@@ -220,6 +220,7 @@ If you mounted a Blob Storage account and want to access it by using `mssparkuti
 3. Mount the Blob Storage container, and then read the file by using a mount path through the local file API:
 
     ```python
+        # mount the Blob Storage container, and then read the file by using a mount path
         with open("/synfs/64/test/myFile.txt") as f:
         print(f.read())
     ```
