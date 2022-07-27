@@ -7,7 +7,7 @@ zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
 
-#  Connect your GCP projects to Microsoft Defender for Cloud
+# Quickstart: Connect your GCP projects to Microsoft Defender for Cloud
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
@@ -67,7 +67,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans).
 
-1. (**Containers only**) Ensure you have fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
+    1. (**Containers only**) Ensure you have fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
 
 1. Select the **Next: Configure access**.
 
@@ -139,6 +139,8 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
 
     - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
 
+- Ensure you've fulfilled the [network requirements for Azure Arc](/azure-arc/servers/network-requirements.md).
+
 - Additional extensions should be enabled on the Arc-connected machines.
     - Microsoft Defender for Endpoint
     - VA solution (TVM/ Qualys)
@@ -146,7 +148,7 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     
         The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regard to the LA agent.
 
-    Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
+    Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#quickstart-configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
 
     > [!NOTE]
     > Defender for Servers assigns tags to your GCP resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:
@@ -193,7 +195,7 @@ To have full visibility to Microsoft Defender for SQL security content, ensure y
 
         The LA agent and SQL servers on machines plan are currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings and may result in additional charges.
 
-    Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
+    Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#quickstart-configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
 
     > [!NOTE]
     > Defender for SQL assigns tags to your GCP resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:

@@ -55,37 +55,20 @@ namespace Example
     {
         private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
         private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
-        
-        // Example method for detecting sentiment from text. 
-        static void SentimentAnalysisExample(TextAnalyticsClient client)
-        {
-            string inputText = "I had the best day of my life. I wish you were there with me.";
-            DocumentSentiment documentSentiment = client.AnalyzeSentiment(inputText);
-            Console.WriteLine($"Document sentiment: {documentSentiment.Sentiment}\n");
-        
-            foreach (var sentence in documentSentiment.Sentences)
-            {
-                Console.WriteLine($"\tText: \"{sentence.Text}\"");
-                Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
-                Console.WriteLine($"\tPositive score: {sentence.ConfidenceScores.Positive:0.00}");
-                Console.WriteLine($"\tNegative score: {sentence.ConfidenceScores.Negative:0.00}");
-                Console.WriteLine($"\tNeutral score: {sentence.ConfidenceScores.Neutral:0.00}\n");
-            }
-        }
 
         // Example method for detecting opinions text. 
         static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
         {
             var documents = new List<string>
             {
-                "The food and service were unacceptable, but the concierge were nice."
+                "The food and service were unacceptable. The concierge was nice, however."
             };
-        
+
             AnalyzeSentimentResultCollection reviews = client.AnalyzeSentimentBatch(documents, options: new AnalyzeSentimentOptions()
             {
                 IncludeOpinionMining = true
             });
-        
+
             foreach (AnalyzeSentimentResult review in reviews)
             {
                 Console.WriteLine($"Document sentiment: {review.DocumentSentiment.Sentiment}\n");
@@ -99,7 +82,7 @@ namespace Example
                     Console.WriteLine($"\tSentence positive score: {sentence.ConfidenceScores.Positive:0.00}");
                     Console.WriteLine($"\tSentence negative score: {sentence.ConfidenceScores.Negative:0.00}");
                     Console.WriteLine($"\tSentence neutral score: {sentence.ConfidenceScores.Neutral:0.00}\n");
-        
+
                     foreach (SentenceOpinion sentenceOpinion in sentence.Opinions)
                     {
                         Console.WriteLine($"\tTarget: {sentenceOpinion.Target.Text}, Value: {sentenceOpinion.Target.Sentiment}");
@@ -120,7 +103,6 @@ namespace Example
         static void Main(string[] args)
         {
             var client = new TextAnalyticsClient(endpoint, credentials);
-            SentimentAnalysisExample(client);
             SentimentAnalysisWithOpinionMiningExample(client);
 
             Console.Write("Press any key to exit.");
@@ -138,50 +120,40 @@ namespace Example
 ## Output
 
 ```console
-Document sentiment: Positive
+Document sentiment: Mixed
 
-        Text: "I had the best day of my life. "
-        Sentence sentiment: Positive
-        Positive score: 0.99
-        Negative score: 0.00
-        Neutral score: 0.00
+    Positive score: 0.47
+    Negative score: 0.52
+    Neutral score: 0.00
 
-        Text: "I wish you were there with me."
-        Sentence sentiment: Neutral
-        Positive score: 0.25
-        Negative score: 0.03
-        Neutral score: 0.72
+    Text: "The food and service were unacceptable. "
+    Sentence sentiment: Negative
+    Sentence positive score: 0.00
+    Sentence negative score: 0.99
+    Sentence neutral score: 0.00
 
-Document sentiment: Positive
+    Target: food, Value: Negative
+    Target positive score: 0.00
+    Target negative score: 1.00
+            Related Assessment: unacceptable, Value: Negative
+            Related Assessment positive score: 0.00
+            Related Assessment negative score: 1.00
+    Target: service, Value: Negative
+    Target positive score: 0.00
+    Target negative score: 1.00
+            Related Assessment: unacceptable, Value: Negative
+            Related Assessment positive score: 0.00
+            Related Assessment negative score: 1.00
+    Text: "The concierge was nice, however."
+    Sentence sentiment: Positive
+    Sentence positive score: 0.94
+    Sentence negative score: 0.05
+    Sentence neutral score: 0.01
 
-        Positive score: 0.76
-        Negative score: 0.23
-        Neutral score: 0.00
-
-        Text: "The food and service were unacceptable, but the concierge were nice."
-        Sentence sentiment: Positive
-        Sentence positive score: 0.76
-        Sentence negative score: 0.23
-        Sentence neutral score: 0.00
-
-        Target: food, Value: Negative
-        Target positive score: 0.00
-        Target negative score: 1.00
-                Related Assessment: unacceptable, Value: Negative
-                Related Assessment positive score: 0.00
-                Related Assessment negative score: 1.00
-        Target: service, Value: Negative
-        Target positive score: 0.00
-        Target negative score: 1.00
-                Related Assessment: unacceptable, Value: Negative
-                Related Assessment positive score: 0.00
-                Related Assessment negative score: 1.00
-        Target: concierge, Value: Positive
-        Target positive score: 1.00
-        Target negative score: 0.00
-                Related Assessment: nice, Value: Positive
-                Related Assessment positive score: 1.00
-                Related Assessment negative score: 0.00
-
-Press any key to exit.
+    Target: concierge, Value: Positive
+    Target positive score: 1.00
+    Target negative score: 0.00
+            Related Assessment: nice, Value: Positive
+            Related Assessment positive score: 1.00
+            Related Assessment negative score: 0.00
 ```

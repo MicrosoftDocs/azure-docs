@@ -1,24 +1,19 @@
 ---
-title: Azure Monitor for SAP Solutions providers| Microsoft Docs
+title: What are providers in Azure Monitor for SAP solutions? (preview)
 description: This article provides answers to frequently asked questions about Azure monitor for SAP solutions providers.
 author: rdeltcheva
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
-ms.topic: article
-ms.date: 07/06/2021
+ms.topic: conceptual
+ms.date: 07/21/2022
 ms.author: radeltch
-
 ---
 
-# Azure Monitor for SAP Solutions providers (preview)
-
-## Overview
-
-This article describes the various providers currently available for Azure Monitor for SAP solutions (AMS).
+# What are providers in Azure Monitor for SAP solutions? (preview)
 
 This content applies to both versions of the service, AMS and AMS (classic).
 
-In the context of Azure Monitor for SAP Solutions, a *provider type* refers to a specific *provider*. For example, *SAP HANA*, which is configured for a specific component within the SAP landscape, like SAP HANA database. A provider contains the connection information for the corresponding component and helps to collect telemetry data from that component. One Azure Monitor for SAP Solutions resource (also known as SAP monitor resource) can be configured with multiple providers of the same provider type or multiple providers of multiple provider types.
+In the context of Azure Monitor for SAP solutions, a *provider type* refers to a specific *provider*. For example, *SAP HANA*, which is configured for a specific component within the SAP landscape, like SAP HANA database. A provider contains the connection information for the corresponding component and helps to collect telemetry data from that component. One Azure Monitor for SAP solutions resource (also known as SAP monitor resource) can be configured with multiple providers of the same provider type or multiple providers of multiple provider types.
    
 You can choose to configure different provider types to enable data collection from the corresponding component in their SAP landscape. For example, you can configure one provider for SAP HANA provider type, another provider for high-availability cluster provider type, and so on.  
 
@@ -47,10 +42,22 @@ For the current release, the following SOAP web methods are the standard, out-of
 ![Diagram shows SOAP methods.](https://user-images.githubusercontent.com/75772258/114600036-820d8280-9cb1-11eb-9f25-d886ab1d5414.png)
 
 In public preview, you can expect to see the following data with the SAP NetWeaver provider: 
-- System and instance availability
-- Work process usage
-- Queue usage
-- Enqueue lock statistics
+
+- SAP system and application server availability, including: instance process availability of dispatcher, ICM, gateway, message server, Enqueue Server, IGS Watchdog
+- Work process usage statistics and trends
+- Enqueue Lock statistics and trends
+- Queue usage statistics and trends
+- SMON Metrics (/SDF/SMON )
+- SWNC Workload , Memory , Transaction, User , RFC Usage (St03n)
+- Short Dumps (ST22)
+- Object Lock (SM12)
+- Failed Updates (SM13)
+- System Logs Analysis(SM21)
+- Batch Jobs Statistics(SM37)
+- Outbound Queues(SMQ1)
+- Inbound Queues(SMQ2)
+- Transactional RFC(SM59)
+- STMS Change Transport System Metrics(STMS)
 
 ![Diagram shows Netweaver Provider architecture.](https://user-images.githubusercontent.com/75772258/114581825-a9f2eb00-9c9d-11eb-8e6f-79cee7c5093f.png)
 
@@ -139,7 +146,7 @@ To configure an OS (Linux) provider, two primary steps are involved:
 
 2. Configure an OS (Linux) provider for each BareMetal or VM node instance in your environment. 
    To configure the OS (Linux) provider, the following information is required: 
-      - Name. A name for this provider. It should be unique for this Azure Monitor for SAP Solutions instance. 
+      - Name. A name for this provider. It should be unique for this Azure Monitor for SAP solutions instance. 
       - Node Exporter endpoint. Usually `http://<servername or ip address>:9100/metrics`. 
 
 > [!NOTE]
@@ -162,7 +169,7 @@ You can configure one or more IBM Db2 providers. The following data is available
 - 
 ## Next steps
 
-Learn how to deploy Azure Monitor for SAP Solutions from the Azure portal.
+Learn how to deploy Azure Monitor for SAP solutions from the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Monitor for SAP Solutions by using the Azure portal](./azure-monitor-sap-quickstart.md)
+> [Deploy Azure Monitor for SAP solutions by using the Azure portal](./azure-monitor-sap-quickstart.md)

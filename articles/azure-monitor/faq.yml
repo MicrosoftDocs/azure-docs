@@ -211,8 +211,7 @@ sections:
           The legacy agents include:
           - Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs.  
           - The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. These agents will be deprecated by August, 2024.
-          - The Dependency agent requires the Log Analytics agent and collected process details and dependencies.           
-          
+                  
       - question: |
           Does my agent traffic use my ExpressRoute connection?
         answer: |
@@ -1260,7 +1259,7 @@ sections:
       - question: |
           What versions of SQL Server are supported?
         answer: |
-          We support SQL Server 2012 and all newer versions. See [Supported versions](insights/sql-insights-overview.md#supported-versions) for more details.
+          We support SQL Server 2012 and all newer versions. See [Supported versions](/azure/azure-sql/database/sql-insights-overview#supported-versions) for more details.
           
       - question: |
           What SQL resource types are supported?
@@ -1270,7 +1269,7 @@ sections:
           - SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
           - Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
           
-          See [Supported versions](insights/sql-insights-overview.md#supported-versions) for more details and for details about scenarios with no support or limited support.
+          See [Supported versions](/azure/azure-sql/database/sql-insights-overview#supported-versions) for more details and for details about scenarios with no support or limited support.
           
       - question: |
           What operating systems for the virtual machine running SQL Server are supported?
@@ -1290,7 +1289,7 @@ sections:
       - question: |
           How often is data collected?
         answer: |
-          The frequency of data collection is customizable. See [Data collected by SQL Insights (preview)](../insights/../azure-monitor/insights/sql-insights-overview.md#collected-data) for details on the default frequencies and see [Create SQL monitoring profile](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile) for instructions on customizing frequencies.
+          The frequency of data collection is customizable. See [Data collected by SQL Insights (preview)](/azure/azure-sql/database/sql-insights-overview#collected-data) for details on the default frequencies and see [Create SQL monitoring profile](/azure/azure-sql/database/sql-insights-enable#create-sql-monitoring-profile) for instructions on customizing frequencies.
           
 additionalContent: |
 
