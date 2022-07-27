@@ -50,6 +50,8 @@ Total supported language codes: 21
 
 ### Opinion Mining language support
 
+Total supported language codes: 7
+
 | Language              | Language code | Starting with model version: |              Notes |
 |----------------------|-------------|------------------------------------|-------------------|
 | English               |     `en`      |  2020-04-01              |                    |
