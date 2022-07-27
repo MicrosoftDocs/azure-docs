@@ -59,8 +59,6 @@ You can create a linked service for Data Lake Storage Gen2 or Blob Storage. Curr
 
 > [!NOTE]
 > If you create a linked service by using a managed identity as the authentication method, make sure that the workspace MSI file has the Storage Blob Data Contributor role of the mounted container. 
-> 
-> Always check the linked service connection to guarantee that the linked service is created successfully. 
 
 After you create linked service successfully, you can easily mount the container to your Spark pool by using the following Python code: 
 
