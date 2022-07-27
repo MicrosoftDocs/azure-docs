@@ -1,11 +1,11 @@
 ---
 title: Use extended groups in Azure HPC Cache
 description: How to configure directory services for client access to storage targets in Azure HPC Cache
-author: femila
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
-ms.author: femila
+ms.date: 07/27/2022
+ms.author: v-erinkelly
 ---
 
 # Configure directory services
@@ -55,6 +55,8 @@ These values are required if you want to download files with your user and group
 * **Group file URI** - Enter the complete URI for the `/etc/group` file.
 
 ![screenshot of Download details section for a flat file download](media/group-download-details-file.png)
+
+By default, the file is polled for updates once an hour. If you want the HPC Cache to fetch the file immediately, you could consider turning off extended groups (change the **Enable extended groups** setting to **No**) and then back on to cause settings to be reloaded.
 
 ## Configure LDAP
 
