@@ -79,7 +79,7 @@ No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 
 ### Can I associate a User Defined Route (UDR) to the RouteServerSubnet?
 
-No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubnet. It should be noted that Azure Route Server does not route any data traffic between NVAs and VMs.
+No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubnet. It should be noted that Azure Route Server doesn't route any data traffic between NVAs and VMs.
 
 ### Can I associate a Network Security group (NSG) to the RouteServerSubnet?
 
