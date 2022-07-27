@@ -73,8 +73,8 @@ The following platform SKUs are currently supported (and more are added periodic
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 18.04-LTS          |                
-| Canonical               | UbuntuServer  | 20.04-LTS          |                   
-| Canonical               | UbuntuServer  | 20.04-LTS-Gen2     | 
+| Canonical               | 0001-com-ubuntu-server-focal  | 20.04-LTS          |                   
+| Canonical               | 0001-com-ubuntu-server-focal  | 20.04-LTS-Gen2     | 
 | MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-1      |                 
 | MicrosoftCblMariner     | Cbl-Mariner   | 1-Gen2             |                   
 | MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2                        
