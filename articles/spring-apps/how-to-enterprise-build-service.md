@@ -149,7 +149,7 @@ You can manage buildpack bindings with the Azure portal or the Azure CLI.
 
 Follow these steps to view the current buildpack bindings:
 
-1. Open the [Azure portal](https://ms.portal.azure.com/?AppPlatformExtension=entdf#home).
+1. Open the [Azure portal](https://portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Build Service**.
 1. Select **Edit** under the **Bindings** column to view the bindings configured under a builder.
 

@@ -36,7 +36,7 @@ Use the following steps to provision an Azure Spring Apps service instance:
 
 ### [Portal](#tab/azure-portal)
 
-1. Open the [Azure portal](https://ms.portal.azure.com/).
+1. Open the [Azure portal](https://portal.azure.com/).
 
 1. In the top search box, search for *Azure Spring Apps*.
 

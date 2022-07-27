@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 05/12/2022
+ms.date: 07/25/2022
 ---
 
 # Common error codes and messages 
@@ -661,6 +661,123 @@ This article lists common error codes and messages reported by mapping data flow
 - **Message**: Unsupported Delta table protocol version, Refer https://docs.delta.io/latest/versioning.html#-table-version for versioning information.
 - **Cause**: Data flows don't support this version of the Delta table protocol.
 - **Recommendation**: Use a lower version of the Delta table protocol.
+
+## Error code: DF-SAPODP-SubscriberNameMissed
+
+- **Message**: 'subscriberName' is required while option 'enable change data capture' is selected
+- **Cause**: The SAP linked service property `subscriberName` is required while option 'enable change data capture' is selected.
+- **Recommendation**: Specify the `subscriberName` in SAP ODP linked service.
+
+## Error code: DF-SAPODP-StageContainerMissed
+
+- **Message**: Container or file system is required for staging storage.
+- **Cause**: Your container or file system is not specified for staging storage.
+- **Recommendation**: Specify the container or file system for the staging storage.
+
+## Error code: DF-SAPODP-StageFolderPathMissed
+
+- **Message**: Folder path is required for staging storage
+- **Cause**: Your staging storage folder path is not specified.
+- **Recommendation**: Specify the staging storage folder.
+
+## Error code: DF-SAPODP-ContextMissed
+
+- **Message**: Context is required
+- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
+
+    | Cause analysis | Recommendation |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Your context value can't be empty when reading data. | Specify the context. |
+    | Your context value can't be empty when browsing object names. | Specify the context. |
+
+## Error code: DF-SAPODP-StageContainerInvalid
+
+- **Message**: Unable to create Azure Blob container
+- **Cause**: The input container is not existed in your staging storage.
+- **Recommendation**: Input a valid container name for the staging storage. Reselect another existed container name or create a new container manually with your input name.
+
+## Error code: DF-SAPODP-SessionTerminate
+
+- **Message**: Internal session terminated with a runtime error RAISE_EXCEPTION (see ST22)
+- **Cause**: Transient issues for SLT objects.
+- **Recommendation**: Rerun the data flow activity.
+
+## Error code: DF-SAPODP-StageAuthInvalid
+
+- **Message**: Invalid client secret provided
+- **Cause**: The service principal certificate credential of the staging storage is not correct.
+- **Recommendation**: Check whether the test connection is successful in your staging storage linked service, and confirm the authentication setting of your staging storage is correct.
+- **Message**: Failed to authenticate the request to storage
+- **Cause**: The key of your staging storage is not correct.
+- **Recommendation**: Check whether the test connection is successful in your staging storage linked service, and confirm the key of your staging Azure Blob Storage is correct.
+
+## Error code: DF-SAPODP-ObjectNameMissed
+
+- **Message**: 'objectName' (SAP object name) is required
+- **Cause**: Object names must be defined when reading data from SAP ODP.
+- **Recommendation**: Specify the SAP ODP object name.
+
+## Error code: DF-SAPODP-ContextInvalid
+
+- **Cause**: The context value doesn't exist in SAP OPD.
+- **Recommendation**: Check the context value and make sure it's valid.
+
+## Error code: DF-SAPODP-ObjectInvalid
+
+- **Cause**: The object name is not found or not released.
+- **Recommendation**: Check the object name and make sure it is valid and already released.
+
+## Error code: DF-SAPODP-SLT-LIMITATION
+
+- **Message**: Preview is not supported in SLT system
+- **Cause**: Your context or object is in SLT system that doesn't support preview. This is an SAP ODP SLT system limitation.
+- **Recommendation**: Directly run the data flow activity.
+
+## Error code: DF-SAPODP-AuthInvalid
+
+- **Message**: SapOdp Name or Password incorrect
+- **Cause**: Your input name or password is incorrect.
+- **Recommendation**: Confirm your input name or password is correct.
+
+## Error code: DF-SAPODP-SHIROFFLINE
+
+- **Cause**: Your self-hosted integration runtime is offline.
+- **Recommendation**: Check your self-hosted integration runtime status and confirm it's online.
+
+## Error code: DF-SAPODP-SAPSystemError
+
+- **Cause**: This is an SAP system error: `user id locked`.
+- **Recommendation**: Contact SAP admin for assistance.
+
+## Error code: DF-SAPODP-SystemError
+
+- **Cause**: This error is a data flow system error or SAP server system error.
+- **Recommendation**: Check the error message. If it contains SAP server related error stacktrace, contact SAP admin for assistance. Otherwise, contact Microsoft support for further assistance.
+
+## Error code: DF-SAPODP-StageStorageTypeInvalid
+
+- **Message**: Your staging storage type of SapOdp is invalid
+- **Cause**: Only Azure Blob Storage and Azure Data Lake Storage Gen2 are supported for SAP ODP staging.
+- **Recommendation**: Select Azure Blob Storage or Azure Data Lake Storage Gen2 as your staging storage.
+
+## Error code: DF-SAPODP-StageBlobPropertyInvalid
+
+- **Message**: Read from staging storage failed: Staging blob storage auth properties not valid.
+- **Cause**: Staging Blob storage properties aren't valid.
+- **Recommendation**: Check the authentication setting in your staging linked service.
+
+## Error code: DF-SAPODP-StageStorageServicePrincipalCertNotSupport
+
+- **Message**: Read from staging storage failed: Staging storage auth not support service principal cert.
+- **Cause**: The service principal certificate credential is not supported for the staging storage.
+- **Recommendation**: Change your authentication to not use the service principal certificate credential.
+
+## Error code: DF-SAPODP-StageGen2PropertyInvalid
+
+- **Message**: Read from staging storage failed: Staging Gen2 storage auth properties not valid.
+- **Cause**: Authentication properties of your staging Azure Data Lake Storage Gen2 aren't valid.
+- **Recommendation**: Check the authentication setting in your staging linked service.
+
 
 ## Next steps
 
