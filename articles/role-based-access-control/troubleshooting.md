@@ -118,7 +118,7 @@ The reason is likely a replication delay. The service principal is created in on
 
 **Solution**
 
-Set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later. For more information, see [Assign Azure roles to a new service principal using the REST API](role-assignments-rest.md#new-service-principal) or [Assign Azure roles to a new service principal using Azure Resource Manager templates](role-assignments-template.md#new-service-principal)
+Set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later. For more information, see [Assign Azure roles to a new service principal using the REST API](role-assignments-rest.md#new-service-principal) or [Assign Azure roles to a new service principal using Azure Resource Manager templates](role-assignments-template.md#new-service-principal).
 
 ### Symptom - Role assignments with identity not found
 
@@ -231,36 +231,6 @@ If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force
 
 If you are add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
 
-## Access denied or permission errors
-
-### Symptom - Authorization failed
-
-When you try to create a resource, you get the following error message:
-
-`The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)`
-
-**Cause**
-
-You are currently signed in with a user that does not have write permission to the resource at the selected scope.
-
-**Solution**
-
-Check that you are currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Azure built-in roles](built-in-roles.md).
-
-### Symptom - Unable to create a support request
-
-When you try to create or update a support ticket, you get the following error message:
-
-`You don't have permission to create a support request`
-
-**Cause**
-
-You are currently signed in with a user that does not have permission to the create support requests.
-
-**Solution**
-
-Check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Support/supportTickets/write` permission, such as [Support Request Contributor](built-in-roles.md#support-request-contributor).
-
 ## Custom roles
 
 ### Symptom - Unable to update a custom role
@@ -349,27 +319,35 @@ Azure supports up to **5000** custom roles in a directory. (For Azure Germany an
 
 Try to reduce the number of custom roles.
 
-## Transferring a subscription to a different directory
+## Access denied or permission errors
 
-### Symptom - All role assignments are deleted after transferring a subscription
+### Symptom - Authorization failed
+
+When you try to create a resource, you get the following error message:
+
+`The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)`
 
 **Cause**
 
-When you transfer an Azure subscription to a different Azure AD directory, all role assignments are **permanently** deleted from the source Azure AD directory and are not migrated to the target Azure AD directory.
+You are currently signed in with a user that does not have write permission to the resource at the selected scope.
 
 **Solution**
 
-You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [Transfer an Azure subscription to a different Azure AD directory](transfer-subscription.md) and [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
+Check that you are currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Azure built-in roles](built-in-roles.md).
 
-### Symptom - Unable to access subscription after transferring a subscription
+### Symptom - Unable to create a support request
+
+When you try to create or update a support ticket, you get the following error message:
+
+`You don't have permission to create a support request`
+
+**Cause**
+
+You are currently signed in with a user that does not have permission to the create support requests.
 
 **Solution**
 
-If you are an Azure AD Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
-
-## Classic subscription administrators
-
-If you are having issues with Service administrator or Co-administrators, see [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md) and [Classic subscription administrator roles, Azure roles, and Azure AD roles](rbac-and-directory-admin-roles.md).
+Check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Support/supportTickets/write` permission, such as [Support Request Contributor](built-in-roles.md#support-request-contributor).
 
 ## Azure features are disabled
 
@@ -468,6 +446,28 @@ Some features of [Azure Functions](../azure-functions/functions-overview.md) req
 **Solution**
 
 Assign an [Azure built-in role](built-in-roles.md) with write permissions for the function app or resource group.
+
+## Transferring a subscription to a different directory
+
+### Symptom - All role assignments are deleted after transferring a subscription
+
+**Cause**
+
+When you transfer an Azure subscription to a different Azure AD directory, all role assignments are **permanently** deleted from the source Azure AD directory and are not migrated to the target Azure AD directory.
+
+**Solution**
+
+You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [Transfer an Azure subscription to a different Azure AD directory](transfer-subscription.md) and [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
+
+### Symptom - Unable to access subscription after transferring a subscription
+
+**Solution**
+
+If you are an Azure AD Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
+
+## Classic subscription administrators
+
+If you are having issues with Service administrator or Co-administrators, see [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md) and [Classic subscription administrator roles, Azure roles, and Azure AD roles](rbac-and-directory-admin-roles.md).
 
 ## Next steps
 
