@@ -48,6 +48,7 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
     :::image type="content" source="./media/tutorial-setup-lab-plan/lab-plan-page.png" alt-text="Lab plan page":::
 
 ## Add a user to the Lab Creator role
+
 [!INCLUDE [Add Lab Creator role](./includes/lab-services-add-lab-creator.md)]
 
 ## Next steps
