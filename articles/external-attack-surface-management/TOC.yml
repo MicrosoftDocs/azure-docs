@@ -1,4 +1,5 @@
 - name: Concepts
+  expanded: true
   items:
   - name: Overview
     href: index.md
