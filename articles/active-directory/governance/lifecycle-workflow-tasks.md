@@ -11,27 +11,27 @@ ms.subservice: compliance
 ---
 # Lifecycle Workflow tasks and definitions (preview)
 
-Lifecycle Workflows come with many pre-configured tasks that are designed to automate common lifecycle management scenarios. These pre-configured tasks, or task definitions, can be paired together to make customized workflows to suit your organization's needs. While each task has common parameters that must be filled out such as a category, displayName, description, if a task error stops a workflow from running, and whether it's enabled, some tasks also have unique parameters which must be completed to run them in a workflow. In this article you'll get the complete list of task definitions, information on common parameters each task has, and a list of unique parameters needed for each specific task.
+Lifecycle Workflows come with many pre-configured tasks that are designed to automate common lifecycle management scenarios. These pre-configured tasks can be paired together to make customized workflows to suit your organization's needs. While each task has common parameters that must be filled out such as a category, displayName, description, if a task error stops a workflow from running, and whether it's enabled, some tasks also have unique parameters which must be completed to run them in a workflow. In this article you'll get the complete list of tasks, information on common parameters each task has, and a list of unique parameters needed for each specific task.
 
 
-## Supported task definitions (preview)
-Lifecycle Workflows currently support the following task definitions:
+## Supported tasks (preview)
+Lifecycle Workflows currently support the following tasks:
 
 |Task  |taskDefinitionID  |
 |---------|---------|
-|Send welcome email to new hire     |   70b29d51-b59a-4773-9280-8841dfd3f2ea      |
-|Generate Temporary Access Password and send via email to user's manager     |  1b555e50-7f65-41d5-b514-5894a026d10d       |
-|Add user to group     |    22085229-5809-45e8-97fd-270d28d66910     |
-|Add user to team      |  e440ed8d-25a1-4618-84ce-091ed5be5594       |
-|Enable user account     |    6fc52c9d-398b-4305-9763-15f42c1676fc     |
-|Run a custom task extension    |    4262b724-8dba-4fad-afc3-43fcbb497a0e    |
-|Disable user account     |   1dfdfcc7-52fa-4c2e-bf3a-e3919cc12950      |
-|Remove user from group     |   1953a66c-751c-45e5-8bfe-01462c70da3c      |
-|Remove users from all groups     |    b3a31406-2a15-4c9a-b25b-a658fa5f07fc     |
-|Remove user from teams    |    06aa7acb-01af-4824-8899-b14e5ed788d6     |
-|Remove user from all teams     |    81f7b200-2816-4b3b-8c5d-dc556f07b024     |
-|Remove all license assignments from user     |    8fa97d28-3e52-4985-b3a9-a1126f9b8b4e     |
-|Delete user    |    8d18588d-9ad3-4c0f-99d0-ec215f0e3dff     |
+|[Send welcome email to new hire](lifecycle-workflow-tasks.md#send-welcome-email-to-new-hire)     |   70b29d51-b59a-4773-9280-8841dfd3f2ea      |
+|[Generate Temporary Access Password and send via email to user's manager](lifecycle-workflow-tasks.md#generate-temporary-access-password-and-send-via-email-to-users-manager)     |  1b555e50-7f65-41d5-b514-5894a026d10d       |
+|[Add user to group](lifecycle-workflow-tasks.md#add-user-to-group)     |    22085229-5809-45e8-97fd-270d28d66910     |
+|[Add user to team](lifecycle-workflow-tasks.md#add-user-to-team)      |  e440ed8d-25a1-4618-84ce-091ed5be5594       |
+|[Enable user account](lifecycle-workflow-tasks.md#enable-user-account)     |    6fc52c9d-398b-4305-9763-15f42c1676fc     |
+|[Run a custom task extension](lifecycle-workflow-tasks.md#run-a-custom-task-extension)    |    4262b724-8dba-4fad-afc3-43fcbb497a0e    |
+|[Disable user account](lifecycle-workflow-tasks.md#disable-user-account)     |   1dfdfcc7-52fa-4c2e-bf3a-e3919cc12950      |
+|[Remove user from group](lifecycle-workflow-tasks.md#remove-user-from-groups)     |   1953a66c-751c-45e5-8bfe-01462c70da3c      |
+|[Remove users from all groups](lifecycle-workflow-tasks.md#remove-users-from-all-groups)     |    b3a31406-2a15-4c9a-b25b-a658fa5f07fc     |
+|[Remove user from teams](lifecycle-workflow-tasks.md#remove-user-from-teams)    |    06aa7acb-01af-4824-8899-b14e5ed788d6     |
+|[Remove user from all teams](lifecycle-workflow-tasks.md#remove-users-from-all-teams)     |    81f7b200-2816-4b3b-8c5d-dc556f07b024     |
+|[Remove all license assignments from user](lifecycle-workflow-tasks.md#remove-all-license-assignments-from-user)     |    8fa97d28-3e52-4985-b3a9-a1126f9b8b4e     |
+|[Delete user](lifecycle-workflow-tasks.md#delete-user)    |    8d18588d-9ad3-4c0f-99d0-ec215f0e3dff     |
 
 
 ## Common task parameters (preview)
@@ -65,10 +65,10 @@ For Microsoft Graph the parameters for the **Send welcome email to new hire** ta
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "joiner"      |
-|displayName     | "Send Welcome Email"         |
-|description     | "Send welcome email to new hire"      |
-|taskDefinitionId     |   "70b29d51-b59a-4773-9280-8841dfd3f2ea"     |
+|category    |  joiner      |
+|displayName     | Send Welcome Email         |
+|description     | Send welcome email to new hire      |
+|taskDefinitionId     |   70b29d51-b59a-4773-9280-8841dfd3f2ea     |
 
 
 
@@ -99,32 +99,32 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Password 
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "joiner"      |
-|displayName     | "GenerateTAPAndSendEmail"         |
-|description     | "Generate Temporary Access Password and send via email to user's manager"        |
-|taskDefinitionId     |   "1b555e50-7f65-41d5-b514-5894a026d10d"     |
+|category    |  joiner      |
+|displayName     | GenerateTAPAndSendEmail       |
+|description     | Generate Temporary Access Password and send via email to user's manager        |
+|taskDefinitionId     |   1b555e50-7f65-41d5-b514-5894a026d10d     |
 |tapLifetimeInMinutes     | The lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days).   |
 |tapIsUsableOnce     |  Determines whether the pass is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime.   |
 
 
 ```Example for usage within the workflow
 {
-            "category": "joiner",
-            "description": "Generate Temporary Access Password and send via email to user's manager",
-            "displayName": "GenerateTAPAndSendEmail",
-            "isEnabled": true,
-            "taskDefinitionId": "1b555e50-7f65-41d5-b514-5894a026d10d",
-            "arguments": [
-                {
-                    "name": "tapLifetimeMinutes",
-                    "value": "60"
-                },
-                {
-                    "name": "tapIsUsableOnce",
-                    "value": "true"
-                }
-            ]
-        }
+    "category": "joiner",
+    "description": "Generate Temporary Access Password and send via email to user's manager",
+    "displayName": "GenerateTAPAndSendEmail",
+    "isEnabled": true,
+    "taskDefinitionId": "1b555e50-7f65-41d5-b514-5894a026d10d",
+        "arguments": [
+            {
+                "name": "tapLifetimeMinutes",
+                "value": "60"
+            },
+            {
+                "name": "tapIsUsableOnce",
+                "value": "true"
+            }
+        ]
+    }
 
 ```
 
@@ -139,13 +139,12 @@ For Microsoft Graph the parameters for the **Add user to group** task are as fol
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "joiner,leaver"      |
-|displayName     |  "AddUserToGroup"       |
-|description     |  "Add user to group"      |
-|taskDefinitionId     |   "22085229-5809-45e8-97fd-270d28d66910"      |
-|name     |  "groupID"    |
-|values     |  The group id value surrounded by ""    |
-|valueType     |  "string"    |
+|category    |  joiner,leaver      |
+|displayName     |  AddUserToGroup       |
+|description     |  Add user to group      |
+|taskDefinitionId     |   22085229-5809-45e8-97fd-270d28d66910      |
+|name     |  groupID    |
+|value     |  The group id value surrounded by ""    |
 
 
 ```Example for usage within the workflow
@@ -176,13 +175,13 @@ For Microsoft Graph the parameters for the **Add user to team** task are as foll
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "joiner,leaver"      |
-|displayName     |  "AddUserToTeam"      |
-|description     |  "Add user to team"       |
-|taskDefinitionId     |   "e440ed8d-25a1-4618-84ce-091ed5be5594"      |
-|name     |  "teamID"    |
-|values     |  The team id value surrounded by ""    |
-|valueType     |  "string"    |
+|category    |  joiner,leaver      |
+|displayName     |  AddUserToTeam      |
+|description     |  Add user to team       |
+|taskDefinitionId     |   e440ed8d-25a1-4618-84ce-091ed5be5594      |
+|name     |  teamID    |
+|value     |  The team id value surrounded by ""    |
+
 
 ```Example for usage within the workflow
 {
@@ -212,10 +211,10 @@ For Microsoft Graph the parameters for the **Enable user account** task are as f
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "joiner,leaver"      |
-|displayName     |  "EnableUserAccount"      |
-|description     |  "Enable user account"       |
-|taskDefinitionId     |   "6fc52c9d-398b-4305-9763-15f42c1676fc"      |
+|category    |  joiner,leaver      |
+|displayName     |  EnableUserAccount      |
+|description     |  Enable user account       |
+|taskDefinitionId     |   6fc52c9d-398b-4305-9763-15f42c1676fc      |
 
 
 
@@ -241,13 +240,13 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "joiner,leaver"      |
-|displayName     | "Launch Logic App"       |
-|description     |  "Launch Logic App URL"      |
-|taskDefinitionId     |   "d79d1fcc-16be-490c-a865-f4533b1639ee"      |
-|name     |  "logicAppURL"     |
-|values     |  The endpoint URL for the Logic App     |
-|valueType     |  "string"    |
+|category    |  joiner,leaver      |
+|displayName     | Launch Logic App       |
+|description     |  Launch Logic App URL      |
+|taskDefinitionId     |   "d79d1fcc-16be-490c-a865-f4533b1639ee      |
+|name     |  logicAppURL     |
+|value     |  The endpoint URL for the Logic App     |
+
 
 
 ```Example for usage within the workflow
@@ -279,10 +278,10 @@ For Microsoft Graph the parameters for the **Disable user account** task are as 
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "joiner,leaver"      |
-|displayName     |  "DisableUserAccount"       |
-|description     |  "Disable user account"       |
-|taskDefinitionId     |   "1dfdfcc7-52fa-4c2e-bf3a-e3919cc12950"      |
+|category    |  joiner,leaver      |
+|displayName     |  DisableUserAccount       |
+|description     |  Disable user account       |
+|taskDefinitionId     |   1dfdfcc7-52fa-4c2e-bf3a-e3919cc12950      |
 
 
 ```Example for usage within the workflow
@@ -308,12 +307,12 @@ For Microsoft Graph the parameters for the **Remove user from groups** task are 
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "leaver"      |
-|displayName     |  "Remove user from selected groups"       |
-|description     |  "Remove user from membership of selected Azure AD groups"       |
-|taskDefinitionId     |   "1953a66c-751c-45e5-8bfe-01462c70da3c"      |
-|name     |  "groupID"    |
-|values     |  The group id value surrounded by ""    |
+|category    |  leaver      |
+|displayName     |  Remove user from selected groups       |
+|description     |  Remove user from membership of selected Azure AD groups"      |
+|taskDefinitionId     |   1953a66c-751c-45e5-8bfe-01462c70da3c      |
+|name     |  groupID    |
+|value     |  The group id values surrounded by ""    |
 
 
 ```Example for usage within the workflow
@@ -343,10 +342,10 @@ For Microsoft Graph the parameters for the **Remove users from all groups** task
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "leaver"      |
-|displayName     |  "Remove user from all groups"      |
-|description     |  "Remove user from all Azure AD groups memberships"       |
-|taskDefinitionId     |   "b3a31406-2a15-4c9a-b25b-a658fa5f07fc"      |
+|category    |  leaver      |
+|displayName     |  Remove user from all groups      |
+|description     |  Remove user from all Azure AD groups memberships       |
+|taskDefinitionId     |   b3a31406-2a15-4c9a-b25b-a658fa5f07fc      |
 
 
 
@@ -372,12 +371,12 @@ For Microsoft Graph the parameters for the **Remove User from Teams** task are a
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "joiner,leaver"      |
-|displayName     |  "Remove user from selected Teams"       |
-|description     |  "Remove user from membership of selected Teams"       |
-|taskDefinitionId     |   "06aa7acb-01af-4824-8899-b14e5ed788d6"      |
-|name     |  "teamID"    |
-|values     |  The team id value surrounded by ""    |
+|category    |  joiner,leaver      |
+|displayName     |  Remove user from selected Teams      |
+|description     |  Remove user from membership of selected Teams      |
+|taskDefinitionId     |   06aa7acb-01af-4824-8899-b14e5ed788d6     |
+|name     |  teamID   |
+|value     |  The team id values surrounded by ""    |
 
 ```Example for usage within the workflow
  {
@@ -406,10 +405,10 @@ For Microsoft Graph the parameters for the **Remove users from all teams** task 
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "leaver"      |
-|displayName     |  "Remove user from all Teams memberships"      |
-|description     |  "Remove user from all Teams"       |
-|taskDefinitionId     |   "81f7b200-2816-4b3b-8c5d-dc556f07b024"      |
+|category    |  leaver      |
+|displayName     |  Remove user from all Teams memberships      |
+|description     |  Remove user from all Teams       |
+|taskDefinitionId     |   81f7b200-2816-4b3b-8c5d-dc556f07b024      |
 
 
 
@@ -435,10 +434,10 @@ For Microsoft Graph the parameters for the **Remove all license assignment from 
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "leaver"      |
-|displayName     |  "Remove all licenses for user"       |
-|description     |  "Remove all licenses assigned to the user"       |
-|taskDefinitionId     |   "8fa97d28-3e52-4985-b3a9-a1126f9b8b4e"      |
+|category    |  leaver      |
+|displayName     |  Remove all licenses for user       |
+|description     |  Remove all licenses assigned to the user       |
+|taskDefinitionId     |   8fa97d28-3e52-4985-b3a9-a1126f9b8b4e      |
 
 
 
@@ -464,10 +463,10 @@ For Microsoft Graph the parameters for the **Delete User** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  "leaver"      |
-|displayName     |  "Delete user account"       |
-|description     |  "Delete user account in Azure AD"       |
-|taskDefinitionId     |   "8d18588d-9ad3-4c0f-99d0-ec215f0e3dff"      |
+|category    |  leaver      |
+|displayName     |  Delete user account       |
+|description     |  Delete user account in Azure AD       |
+|taskDefinitionId     |   8d18588d-9ad3-4c0f-99d0-ec215f0e3dff      |
 
 
 

@@ -76,10 +76,8 @@
   - name: Lifecycle Workflows (Preview) 
     items:
     - name: Lifecycle Workflows Parts (Preview)
-      href: lifecycle-workflows-concept-parts.md
-    - name: Synchronize attributes (Preview)
-      href: how-to-lcw-synch-attributes.md       
-    - name: Tasks and definitions (Preview)
+      href: lifecycle-workflows-concept-parts.md     
+    - name: Built-in tasks (Preview)
       href: lifecycle-workflow-tasks.md   
     - name: Custom task Extension (Preview)
       href: lifecycle-workflow-extensibility.md
@@ -204,6 +202,8 @@
           href: trigger-custom-task.md
       - name: Manage
         items:
+        - name: Synchronize attributes (Preview)
+          href: how-to-lcw-synch-attributes.md  
         - name: Manage workflow properties (Preview)
           href: manage-workflow-properties.md
         - name: Manage workflow versions (Preview)
