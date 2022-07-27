@@ -18,7 +18,7 @@ ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 Use this article to learn which natural languages are supported by Sentiment Analysis and Opinion Mining.
 
 > [!NOTE]
-> Languages are added as new model versions are released. The current Generally Available model version for Sentiment Analysis is `2020-04-01`.
+> Languages are added as new model versions are released. The current Generally Available model version for Sentiment Analysis is `2022-06-01`.
 
 ## Sentiment Analysis language support
 
@@ -34,8 +34,8 @@ Use this article to learn which natural languages are supported by Sentiment Ana
 | Italian               |     `it`            |         2019-10-01         |                    |
 | Japanese              |     `ja`            |         2019-10-01         |                    |
 | Korean                |     `ko`            |         2019-10-01         |                    |
-| Norwegian  (Bokmål)   |     `no`            |         2020-04-01         |                    |
-| Portuguese (Brazil)   |    `pt-BR`          |         2020-04-01         |                    |
+| Norwegian  (Bokmål)   |     `no`            |         2019-10-01         |                    |
+| Portuguese (Brazil)   |    `pt-BR`          |         2019-10-01         |                    |
 | Portuguese (Portugal) |    `pt-PT`          |         2019-10-01         | `pt` also accepted |
 | Spanish               |     `es`            |         2019-10-01         |                    |
 | Turkish               |     `tr`             |         2020-04-01        |                    |
