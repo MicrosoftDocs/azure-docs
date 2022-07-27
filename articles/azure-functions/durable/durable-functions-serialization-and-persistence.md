@@ -1,11 +1,11 @@
 ---
 title: Data persistence and serialization in Durable Functions - Azure
 description: Learn how the Durable Functions extension for Azure Functions persists data
-author: ConnorMcMahon
+author: cgillum
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 05/26/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, python
+ms.devlang: csharp, java, javascript, python
 #Customer intent: As a developer, I want to understand what data is persisted to durable storage, how that data is serialized, and how I can customize it when it doesn't work the way my app needs it to.
 ---
 
@@ -61,7 +61,7 @@ Alternatively, .NET users have the option of implementing custom serialization p
 
 ### Default serialization logic
 
-Durable Functions internally uses [Json.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) to serialize orchestration and entity data to JSON. The default settings Durable Functions uses for Json.NET are:
+Durable Functions for .NET in-process internally uses [Json.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) to serialize orchestration and entity data to JSON. The default settings Durable Functions uses for Json.NET are:
 
 **Inputs, Outputs, and State:**
 
@@ -139,6 +139,12 @@ namespace MyApplication
 }
 ```
 
+### .NET Isolated and System.Text.Json
+
+Durable Functions running in the [.NET Isolated worker process](../dotnet-isolated-process-guide.md) use [System.Text.Json](/dotnet/api/system.text.json) libraries for serialization rather than Newtonsoft.Json. There is currently no support for injecting serialization settings. However, attributes may be used to control aspects of serialization.
+
+For more information on the built-in support for JSON serialization in .NET, see the [JSON serialization and deserialization in .NET overview documentation](/dotnet/standard/serialization/system-text-json-overview).
+
 # [JavaScript](#tab/javascript)
 
 ### Serialization and deserialization logic
@@ -155,5 +161,9 @@ For full customization of the serialization/deserialization pipeline, consider h
 It is strongly recommended to use type annotations to ensure Durable Functions serializes and deserializes your data correctly. While many built-in types are handled automatically, some built-in data types require type annotations to preserve the type during deserialization.
 
 For custom data types, you must define the JSON serialization and deserialization of a data type by exporting a static `to_json` and `from_json` method from your class.
+
+# [Java](#tab/java)
+
+Java uses the [Jackson v2.x](https://github.com/FasterXML/jackson#jackson-project-home-github) libraries for serialization and deserialization of data payloads. You can use [Jackson annotations](https://github.com/FasterXML/jackson-annotations/wiki/Jackson-Annotations) on your POJO types to customize the serialization behavior.
 
 ---

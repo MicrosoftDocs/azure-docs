@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 06/28/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -44,10 +44,6 @@ First you will need to get your resource key and endpoint:
 
 # [Client libraries (Azure SDK)](#tab/azure-sdk)
 
-First you will need to get your resource key and endpoint:
-
-[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
-
 ### Use the client libraries (Azure SDK)
 
 You can also use the client libraries provided by the Azure SDK to send requests to your model. 
@@ -68,18 +64,18 @@ You can also use the client libraries provided by the Azure SDK to send requests
     
     |Language  |Package version  |
     |---------|---------|
-    |.NET     | [1.0.0-beta.3 ](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0-beta.3)        |
-    |Python     | [1.1.0b1](https://pypi.org/project/azure-ai-language-conversations/)         |
+    |.NET     | [1.0.0](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0)        |
+    |Python     | [1.0.0](https://pypi.org/project/azure-ai-language-conversations/1.0.0)         |
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
-    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples)
-    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples)
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.0.0/sdk/cognitivelanguage/Azure.AI.Language.Conversations)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.0.0/sdk/cognitivelanguage/azure-ai-language-conversations)
     
 5. See the following reference documentation for more information:
     
-    * [C#](/dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true)
-    * [Python](/python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true)
+    * [C#](/dotnet/api/azure.ai.language.conversations)
+    * [Python](/python/api/azure-ai-language-conversations/azure.ai.language.conversations.aio)
     
 ---
 

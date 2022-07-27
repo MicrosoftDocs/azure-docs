@@ -70,8 +70,7 @@ The table below contains the parameters that define the resource group.
 > | ----------------------- | -------------------------------------------------------- | ---------- |
 > | `resource_group_name`   | Name of the resource group to be created                 | Optional   |  
 > | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
-
-
+> | `resource_group_tags`   | Tags to be associated to the resource group              | Optional   |
 
 
 ## SAP Virtual Hostname parameters
@@ -105,8 +104,8 @@ The database tier defines the infrastructure for the database tier, supported da
 > | `database_high_availability`       | Defines if the database tier is deployed highly available.                          | Optional     | See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
 > | `database_server_count`            | Defines the number of database servers.                                             | Optional     | Default value is 1 |
 > | `database_vm_zones`                | Defines the Availability Zones for the database servers.                            | Optional	    |                    |
-> | `database_size`                    | Defines the database sizing information.                                            | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
-> | `db_disk_sizes_filename`           | Defines the custom database sizing.                                                 | Optional     | See [Custom Sizing](automation-configure-extra-disks.md) |
+> | `db_sizing_dictionary_key`         | Defines the database sizing information.                                            | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
+> | `db_disk_sizes_filename`           | Defines the custom database sizing file name.                                       | Optional     | See [Custom Sizing](automation-configure-extra-disks.md) |
 > | `database_vm_use_DHCP`             | Controls if Azure subnet provided IP addresses should be used.                      | Optional     |                    |
 > | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet).                | Optional     |                    |
 > | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet).      | Optional     |                    |
@@ -141,7 +140,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | ---------------------------------- | --------------------------------------------------------------------------- | -----------| ------ |
 > | `enable_app_tier_deployment`	     | Defines if the application tier is deployed                                 | Optional	  |        |
 > | `sid`	                             |	Defines the SAP application SID                                            | Required	  |        |
-> | `app_tier_vm_sizing`	             | Lookup value defining the VM SKU and the disk layout for tha application tier servers | Optional |
+> | `app_tier_sizing_dictionary_key`   | Lookup value defining the VM SKU and the disk layout for tha application tier servers | Optional |
 > | `app_disk_sizes_filename`	         | Defines the custom disk size file for the application tier servers          | Optional 	| See [Custom Sizing](automation-configure-extra-disks.md) |
 > | `app_tier_authentication_type`     | Defines the authentication type for the application tier virtual machine(s) | Optional	  |       |
 > | `app_tier_use_DHCP`	               | Controls if Azure subnet provided IP addresses should be used (dynamic)     | Optional	  |       |
@@ -246,6 +245,20 @@ The table below contains the networking parameters.
 
 \* = Required For brown field deployments.
 
+## Key Vault Parameters
+
+If you don't want to use the workload zone key vault but another one, this can be added in the system's tfvars file.
+
+The table below defines the parameters used for defining the Key Vault information.
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                            | Description                                                                    | Type         | Notes                               |
+> | ----------------------------------- | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
+> | `user_keyvault_id`	                | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     | 
+> | `spn_keyvault_id`                   | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     | 
+> | `enable_purge_control_for_keyvaults | Disables the purge protection for Azure key vaults.                            | Optional     | Only use this for test environments |
+
+
 ### Anchor virtual machine parameters
 
 The SAP deployment automation framework supports having an Anchor virtual machine. The anchor virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
@@ -292,13 +305,15 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                       | Description                           | Type        |
-> | ---------------------------------------------- | ------------------------------------- | ----------- |
+> | Variable                                       | Description                                                                     | Type        |
+> | ---------------------------------------------- | ------------------------------------------------------------------------------- | ----------- |
 > | `resource_offset`                              | Provides and offset for resource naming. The offset number for resource naming when creating multiple resources. The default value is 0, which creates a naming pattern of disk0, disk1, and so on. An offset of 1 creates a naming pattern of disk1, disk2, and so on. | Optional    |
 > | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks using customer provided keys | Optional   |
 > | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations | Optional |
 > | `license_type`                                 | Specifies the license type for the virtual machines. | Possible values are `RHEL_BYOS` and `SLES_BYOS`. For Windows the possible values are `None`, `Windows_Client` and `Windows_Server`. |
 > | `use_zonal_markers`                            | Specifies if zonal Virtual Machines will include a zonal identifier. 'xooscs_z1_00l###' vs  'xooscs00l###'| Default value is true. |
+> | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups |  |
+> | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups|  |
 
 
 ## NFS support

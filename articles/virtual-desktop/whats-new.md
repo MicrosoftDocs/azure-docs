@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 06/02/2022
+ms.date: 07/07/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -19,6 +19,28 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 - Bug fixes
 
 Make sure to check back here often to keep up with new updates.
+
+## June 2022
+
+Here's what changed in June 2022:
+
+### Australia metadata service in public preview
+
+The Azure Virtual Desktop metadata database located in Australia is now in public preview. This allows customers to store their Azure Virtual Desktop objects and metadata within a database located within our Australia geography, ensuring that the data will only reside within Australia. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-the-azure-virtual-desktop/ba-p/3483090).
+
+### Intune user configuration for Windows 11 Enterprise multi-session VMs in public preview
+
+Deploying Intune user configuration policies from Microsoft Endpoint Manager admin center to Windows 11 Enterprise multi-session virtual machines (VMs) on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following:
+
+- User scope policies using the Settings catalog.
+- User certificates via Templates.
+- PowerShell scripts to run in the user context.
+
+For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/public-preview-intune-user-configuration-for-windows-11-multi/m-p/3562093).
+
+### Teams media optimizations for macOS now generally available
+
+Teams media optimizations for redirecting audio and video during calls and meetings to a local macOS machine is now generally available. To use this feature, you'll need to update or install, at a minimum, version 10.7.7 of the Azure Virtual Desktop macOS client. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-media-optimizations-is-now-generally-available/ba-p/3563125).
 
 ## May 2022
 
@@ -44,9 +66,9 @@ The latest update for FSLogix 2201 includes fixes to Cloud Cache and container r
 
 Here's what changed in April 2022:
 
-### Intune device configuration for Windows multisession now generally available
+### Intune device configuration for Windows multi-session now generally available
 
-Deploying Intune device configuration policies from Microsoft Endpoint Manager admin center to Windows multisession VMs on Azure Virtual Desktop is now generally available. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) and[ our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/intune-device-configuration-for-azure-virtual-desktop-multi/ba-p/3294444).
+Deploying Intune device configuration policies from Microsoft Endpoint Manager admin center to Windows multi-session VMs on Azure Virtual Desktop is now generally available. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/intune-device-configuration-for-azure-virtual-desktop-multi/ba-p/3294444).
 
 ### Scheduled Agent Updates public preview
 
@@ -66,7 +88,7 @@ Here's what changed in March 2022:
 
 ### Live Captions with Teams on Azure Virtual Desktop now generally available
 
-Accessibility has always been important to us, so we are pleased to announce that Teams for Azure Virtual Desktop now supports real-time captions. Learn how to use live captions at [Use live captions in a Teams meeting](https://support.microsoft.com/office/use-live-captions-in-a-teams-meeting-4be2d304-f675-4b57-8347-cbd000a21260). For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-live-captions-is-now-generally-available-on/ba-p/3264148).
+Accessibility has always been important to us, so we're pleased to announce that Teams for Azure Virtual Desktop now supports real-time captions. Learn how to use live captions at [Use live captions in a Teams meeting](https://support.microsoft.com/office/use-live-captions-in-a-teams-meeting-4be2d304-f675-4b57-8347-cbd000a21260). For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-live-captions-is-now-generally-available-on/ba-p/3264148).
 
 ### Multimedia redirection enhancements now in public preview
 
@@ -261,7 +283,7 @@ The start VM on connect feature is now generally available. This feature helps y
 
 We recently announced a new pricing option for remote app streaming for using Azure Virtual Desktop to deliver apps as a service to your customers and business partners. For example, software vendors can use remote app streaming to deliver apps as a software as a service (SaaS) solution that's accessible to their customers. To learn more about remote app streaming, check out [our documentation](./remote-app-streaming/overview.md).
 
-From July 14th, 2021 to December 31st, 2021, we're giving customers who use remote app streaming a promotional offer that lets their business partners and customers access Azure Virtual Desktop for no charge. This offer only applies to external user access rights. Regular billing will resume on January 1st, 2022. In the meantime, you can continue to use your existing Windows license entitlements found in licenses like Microsoft 365 E3 or Windows E3. To learn more about this offer, see the [Azure Virtual Desktop pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+From July 14, 2021 to December 31, 2021, we're giving customers who use remote app streaming a promotional offer that lets their business partners and customers access Azure Virtual Desktop for no charge. This offer only applies to external user access rights. Regular billing will resume on January 1, 2022. In the meantime, you can continue to use your existing Windows license entitlements found in licenses like Microsoft 365 E3 or Windows E3. To learn more about this offer, see the [Azure Virtual Desktop pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
 ### New Azure Virtual Desktop handbooks
 
@@ -325,7 +347,7 @@ We've expanded our Azure control plane presence to the United Arab Emirates (UAE
 
 ### Ending Internet Explorer 11 support
 
-On September 30th, 2021, the Azure Virtual Desktop web client will no longer support Internet Explorer 11. We recommend you start using the [Microsoft Edge](https://www.microsoft.com/edge?form=MY01R2&OCID=MY01R2&r=1) browser for your web client and remote sessions instead. For more information, see the announcement in [this blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-web-client-to-end-support-for-internet/m-p/2369007).
+On September 30, 2021, the Azure Virtual Desktop web client will no longer support Internet Explorer 11. We recommend you start using the [Microsoft Edge](https://www.microsoft.com/edge?form=MY01R2&OCID=MY01R2&r=1) browser for your web client and remote sessions instead. For more information, see the announcement in [this blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-web-client-to-end-support-for-internet/m-p/2369007).
 
 ### Microsoft Endpoint Manager public preview
 
@@ -372,7 +394,7 @@ You can now configure Start VM on Connect (preview) in the Azure portal. With th
 
 ### Required URL Check tool 
 
-The Azure Virtual Desktop agent, version 1.0.2944.400 includes a tool that validates URLs and displays whether the virtual machine can access the URLs it needs to function. If any required URLs are accessible, the tool will list them so you can unblock them, if needed. Learn more at our [Safe URL list](safe-url-list.md#required-url-check-tool).
+The Azure Virtual Desktop agent, version 1.0.2944.400 includes a tool that validates URLs and displays whether the virtual machine can access the URLs it needs to function. If any required URLs are accessible, the tool will list them so you can unblock them, if needed. Learn more at [Required URL Check tool](required-url-check-tool.md).
 
 ### Updates to the Azure portal UI for Azure Virtual Desktop
 
@@ -656,7 +678,7 @@ To learn more about new features, check out [this blog post](https://techcommuni
 
 ### Autoscaling tool update
 
-The latest version of the autoscaling tool that was in preview is now generally available. This tool uses an Azure automation account and the Azure Logic App to automatically shut down and restart session host VMs within a host pool, reducing infrastructure costs. Learn more at [Scale session hosts using Azure Automation](set-up-scaling-script.md).
+The latest version of the autoscaling tool that was in preview is now generally available. This tool uses an Azure Automation account and the Azure Logic App to automatically shut down and restart session host VMs within a host pool, reducing infrastructure costs. Learn more at [Scale session hosts using Azure Automation](set-up-scaling-script.md).
 
 ### Azure portal
 
@@ -705,7 +727,7 @@ Here's what this change does for you:
 
 ### PowerShell support
 
-We've added new AzWvd cmdlets to the Azure PowerShell Az Module with this update. This new module is supported in PowerShell Core, which runs on .NET Core.
+We've added new AzWvd cmdlets to the Azure Az PowerShell module with this update. This new module is supported in PowerShell Core, which runs on .NET Core.
 
 To install the module, follow the instructions in [Set up the PowerShell module for Azure Virtual Desktop](powershell-module.md).
 

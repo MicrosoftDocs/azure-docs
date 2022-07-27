@@ -2,14 +2,14 @@
 title: Security operations for privileged accounts in Azure Active Directory
 description: Learn about baselines, and how to monitor and alert on potential security issues with privileged accounts in Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
 ms.date: 04/29/2022
-ms.author: baselden
+ms.author: gasinh
 ms.custom: kr2b-contr-experiment
 ms.collection: M365-identity-device-management
 ---
@@ -34,7 +34,7 @@ The log files you use for investigation and monitoring are:
 
 * [Azure AD Audit logs](../reports-monitoring/concept-audit-logs.md)
 * [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
-* [Azure Key Vault insights](../../azure-monitor/insights/key-vault-insights-overview.md)
+* [Azure Key Vault insights](../../key-vault/key-vault-insights-overview.md)
 
 From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 

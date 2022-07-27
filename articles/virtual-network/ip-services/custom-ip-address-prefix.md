@@ -52,15 +52,15 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * IPv6 is currently not supported for custom IP prefixes.
 
+* Custom IP prefixes do not currently support derivation of IPs with Internet Routing Preference or that use Global Tier (for cross-region load-balancing).
+
 * In regions with [availability zones](../../availability-zones/az-overview.md), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
 
 * The advertisements of IPs from a custom IP prefix over Azure ExpressRoute aren't currently supported.
 
-* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It's possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions.
+* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](create-custom-ip-address-prefix-powershell.md).
 
-* Any IP addresses utilized from a custom IP prefix currently count against the standard public IP quota for a subscription and region. Contact Azure support to have quotas increased when required.
-
-* IPs brought to Azure cannot currently be used for Windows Server Activation.
+* IPs brought to Azure may have a delay up to 2 weeks before they can be used for Windows Server Activation.
 
 ## Pricing
 

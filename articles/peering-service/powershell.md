@@ -2,11 +2,11 @@
 title: 'Register a Peering Service connection - Azure PowerShell '
 description: In this tutorial learn how to register a Peering Service connection with PowerShell.
 services: peering-service
-author: derekolo
+author: halkazwini
 ms.service: peering-service
 ms.topic: tutorial
 ms.date: 05/18/2020
-ms.author: derekol 
+ms.author: halkazwini 
 ms.custom: devx-track-azurepowershell
 # Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service .
 ---

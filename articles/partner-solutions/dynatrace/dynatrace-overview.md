@@ -1,5 +1,5 @@
 ---
-title: Dynatrace integration overview - Azure partner solutions
+title: Dynatrace for Azure (preview) overview - Azure partner solutions
 description: Learn about using the Dynatrace Cloud-Native Observability Platform in the Azure Marketplace.
 ms.topic: conceptual
 author: flang-msft
@@ -10,9 +10,9 @@ ms.date: 06/07/2022
 
 # What is Dynatrace integration with Azure?
 
-Dynatrace is a popular monitoring solution that provides deep cloud observability, advanced AIOps, and continuous runtime application security capabilities in Azure.
+Dynatrace is a monitoring solution that provides deep cloud observability, advanced AIOps, and continuous runtime application security capabilities in Azure.
 
-Dynatrace for Azure offering in the Azure Marketplace enables you to create and manage Dynatrace environments using the Azure portal with a seamlessly integrated experience. This enables you to use Dynatrace as a monitoring solution for your Azure workloads through a streamlined workflow, starting from procurement, all the way to configuration and management.
+Dynatrace for Azure (preview) offering in the Azure Marketplace enables you to create and manage Dynatrace environments using the Azure portal with a seamlessly integrated experience. This enables you to use Dynatrace as a monitoring solution for your Azure workloads through a streamlined workflow, starting from procurement, all the way to configuration and management.
 
 You can create and manage the Dynatrace resources using the Azure portal through a resource provider named `Dynatrace.Observability`. Dynatrace owns and runs the software as a service (SaaS) application including the Dynatrace environments created through this experience.
 
@@ -33,7 +33,7 @@ Dynatrace for Azure provides the following capabilities:
 
 - **Manage Dynatrace OneAgent on VMs and App Services** - Provides a single experience to install and uninstall Dynatrace OneAgent on virtual machines and App Services.
 
-## Dynatrace Links
+## Dynatrace links
 
 For more help using Dynatrace for Azure service, see the [Dynatrace](https://aka.ms/partners/Dynatrace/PartnerDocs) documentation.
 

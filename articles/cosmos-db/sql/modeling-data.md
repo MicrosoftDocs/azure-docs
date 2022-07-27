@@ -28,6 +28,9 @@ After reading this article, you'll be able to answer the following questions:
 * How do I express data relationships in a non-relational database?
 * When do I embed data and when do I link to data?
 
+## Numbers in JSON
+Cosmos DB saves documents in JSON. Which means it is necessary to carefully determine whether it is necessary to convert numbers into strings before storing them in json or not.  All numbers should ideally be converted into a `String`, if there is any chance that they are outside the boundaries of double precision numbers according to [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754). The [Json specification](https://www.rfc-editor.org/rfc/rfc8259#section-6) calls out the reasons why using numbers outside of this boundary in general is a bad practice in JSON due to likely interoperability problems. These concerns are especially relevant for the partition key column, because it is immutable and requires data migration  to change it later.  
+
 ## <a id="embedding-data"></a>Embed data
 
 When you start modeling data in Azure Cosmos DB try to treat your entities as **self-contained items** represented as JSON documents.

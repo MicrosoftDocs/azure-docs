@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 05/24/2022
+ms.date: 06/14/2022
 ---
 
 # What is Service Connector?
@@ -46,6 +46,7 @@ Once a service connection is created, developers can validate and check the heal
 
 **Target Services:**
 
+* Apache Kafka on Confluent Cloud
 * Azure App Configuration
 * Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
 * Azure Cosmos DB (Core, MangoDB, Gremlin, Cassandra, Table)
@@ -54,9 +55,10 @@ Once a service connection is created, developers can validate and check the heal
 * Azure Event Hubs
 * Azure Key Vault
 * Azure Service Bus
+* Azure SQL Database
 * Azure SignalR Service
 * Azure Storage (Blob, Queue, File and Table storage)
-* Apache Kafka on Confluent Cloud
+* Azure Web PubSub
 
 ## How to use Service Connector?
 
