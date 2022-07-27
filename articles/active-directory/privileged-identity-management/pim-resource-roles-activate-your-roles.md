@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Activate my Azure resource roles in Privileged Identity Management
 
-Use Privileged Identity Management (PIM) in Azure Active Diretory (Azure AD), part of Microsoft Entra, to allow eligible role members for Azure resources to schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators).
+Use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, to allow eligible role members for Azure resources to schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators).
 
 This article is for members who need to activate their Azure resource role in Privileged Identity Management.
 
