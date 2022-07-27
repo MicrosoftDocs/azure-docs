@@ -181,4 +181,4 @@ In this quickstart, you used the Form Recognizer REST API preview (v3.0) to anal
 > [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [REST API preview (v3.0) reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [REST API preview (v3.0) reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
