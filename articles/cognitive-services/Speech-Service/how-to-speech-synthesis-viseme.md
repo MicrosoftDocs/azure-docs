@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events for lip-sync
 
 > [!NOTE]
-> Viseme ID supports [all neural voices](language-support.md#text-to-speech) in all TTS-supported locales, including custom neural voice. Scalable Vector Graphics (SVG) and blendshapes only support prebuilt neural voices in `en-US` and `zh-CN` locales, and don't support custom neural voice.
+> Viseme ID supports [all neural voices](language-support.md#text-to-speech) in [all supported locales](language-support.md#viseme), including custom neural voice. Scalable Vector Graphics (SVG) only supports prebuilt neural voices in `en-US` locale, and blendshapes supports prebuilt neural voices in `en-US` and `zh-CN` locales. SVG and blendshapes don't support custom neural voice.
 
 A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes. 
 
