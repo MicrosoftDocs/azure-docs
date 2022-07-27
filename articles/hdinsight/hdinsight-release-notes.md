@@ -20,7 +20,7 @@ If you would like to subscribe on release notes, watch releases on [this GitHub 
 
 This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
 
-HDInsight uses safe deployment practices which involve gradual region deployment. It may take up to ten business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
 
 
 ![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
@@ -30,13 +30,13 @@ HDInsight uses safe deployment practices which involve gradual region deployment
 
 HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
-This  new feature allows to add more disks in cluster which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
+This  new feature allows to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
 
 > [!NOTE]
 > The added disks are only configured for node manager local directories.
 > 
 
-For more details [see here](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#configuration--pricing )
+For more information, [see here](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#configuration--pricing )
 
 ![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
 ## Fixed
@@ -48,7 +48,7 @@ Customers using older version of cluster with OMS version 13 need to install OMS
 
 **How to check your current OMS version**
 
-1. Login to the cluster using SSH.
+1. Log in to the cluster using SSH.
 1. Run the following command in your SSH Client.
 
 ```
@@ -58,19 +58,20 @@ sudo /opt/omi/bin/ominiserver/ --version
 
 **How to upgrade your OMS version from 13 to 14**
 
-![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
-
-1. Login to the [Azure Portal](https://portal.azure.com/) 
-1. From the resource group select the HDInsight cluster resource 
+1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. From the resource group, select the HDInsight cluster resource 
 1. Click **Script actions** 
 1. From **Submit script action** panel, choose **Script type** as custom 
 1. Paste the following link in the Bash script URL box
 https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
-3. Select **Node type(s)**
-4. Click **Create** 
-5. Verify the successful installation of the patch using the following steps:  
+1. Select **Node type(s)**
+1. Click **Create** 
 
-  1. Login to the cluster using SSH.
+![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
+
+1. Verify the successful installation of the patch using the following steps:  
+
+  1. Log in to the cluster using SSH.
   1. Run the following command in your SSH Client.
 
   ```
@@ -104,10 +105,10 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
 |ITestDbTxnManager is broken after HIVE-24120 fix.|[HIVE-25516](https://issues.apache.org/jira/browse/HIVE-25516)|
 | Upgrade DataNucleus dependency to 5.2.8| [HIVE-26082](https://issues.apache.org/jira/browse/HIVE-26082)|
 |Perf optimizations in ORC split-generation| [HIVE-21457](https://issues.apache.org/jira/browse/HIVE-21457)|
-|Avoid reading table as ACID when table name is starting with "delta", but table is not transactional and BI Split Strategy is used| [HIVE-22582](https://issues.apache.org/jira/browse/HIVE-22582)|
+|Avoid reading table as ACID when table name is starting with "delta", but table isn't transactional and BI Split Strategy is used| [HIVE-22582](https://issues.apache.org/jira/browse/HIVE-22582)|
 |Remove an FS#exists call from AcidUtils#getLogicalLength|[HIVE-23533](https://issues.apache.org/jira/browse/HIVE-23533)|
 |Vectorized OrcAcidRowBatchReader.computeOffset and bucket optimization|[HIVE-17917](https://issues.apache.org/jira/browse/HIVE-17917)|
 
 ### Known issues
 
-Hive version 3.1.2 open source which is compatible on HDInsight; but  this release shows the Hive version as 3.1.0 in some places. However, there is no impact on the functionality, despite the Hive version is displayed as 3.1.0.
+Hive version 3.1.2 open source that is compatible on HDInsight; but  this release shows the Hive version as 3.1.0 in some places. However, there's no impact on the functionality, despite the Hive version is displayed as 3.1.0.
