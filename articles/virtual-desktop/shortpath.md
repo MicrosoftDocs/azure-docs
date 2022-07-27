@@ -167,7 +167,8 @@ If you're using [Azure Log Analytics](./diagnostics-log-analytics.md), you can m
 The possible values are:
 
 * **0** - user connection isn't using RDP Shortpath.
-- **1** - THe user connection is using RDP Shortpath for managed networks.
+- **1** - user connection is using RDP Shortpath for managed networks.
+- **2** - user connection is using RDP Shortpath for public networks.
   
 The following query list lets you review connection information. You can run this query in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). For each query, replace `userupn` with the UPN of the user you want to look up.
 
