@@ -85,50 +85,11 @@ The following sections provide details about properties that are used to define 
 
 This SQL server connector supports the following authentication types. See the corresponding sections for details.
 
-- [Windows authentication](#windows-authentication)
 - [SQL authentication](#sql-authentication)
+- [Windows authentication](#windows-authentication)
 
 >[!TIP]
 >If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again.
-
-### Windows authentication
-
-To use Windows authentication, the following properties are supported:
-
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The type property must be set to **SqlServer**. | Yes |
-| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. Refer to the following samples.
-| userName | Specify a user name. An example is **domainname\\username**. |Yes |
-| password | Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
-| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
-
-> [!NOTE]
-> Windows authentication is not supported in data flow.
-
-**Example: Use Windows authentication**
-
-```json
-{
-    "name": "SqlServerLinkedService",
-    "properties": {
-        "type": "SqlServer",
-        "typeProperties": {
-            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;",
-            "userName": "<domain\\username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
 
 ### SQL authentication
 
@@ -137,7 +98,7 @@ To use SQL authentication, the following properties are supported:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SqlServer**. | Yes |
-| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database by using either SQL authentication. Specify a login name as your user name, and ensure the database that you want to connect is mapped to this login. Refer to the following samples. | Yes |
+| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. Specify a login name as your user name, and ensure the database that you want to connect is mapped to this login. Refer to the following samples. | Yes |
 | password | If you want to put a password in Azure Key Vault, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
@@ -200,6 +161,73 @@ To use SQL authentication, the following properties are supported:
             "servicePrincipalKey": {
                 "type": "SecureString",
                 "value": "<service principal key>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Windows authentication
+
+To use Windows authentication, the following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **SqlServer**. | Yes |
+| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. Refer to the following samples.
+| userName | Specify a user name. An example is **domainname\\username**. |Yes |
+| password | Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
+
+> [!NOTE]
+> Windows authentication is not supported in data flow.
+
+**Example: Use Windows authentication**
+
+```json
+{
+    "name": "SqlServerLinkedService",
+    "properties": {
+        "type": "SqlServer",
+        "typeProperties": {
+            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;",
+            "userName": "<domain\\username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: Use Windows authentication with a password in Azure Key Vault**
+
+```json
+{
+    "name": "SqlServerLinkedService",
+    "properties": {
+        "annotations": [],
+        "type": "SqlServer",
+        "typeProperties": {
+            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;",
+            "userName": "<domain\\username>",
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {
