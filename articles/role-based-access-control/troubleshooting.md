@@ -249,7 +249,7 @@ Check that you are currently signed in with a user that is assigned a role that 
 
 When you try to create or update a custom role, you get an error similar to following:
 
-`The client '&lt;clientName&gt;' with object id '&lt;objectId&gt;' has permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on scope '/subscriptions/&lt;subscriptionId&gt;'; however, it does not have permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on the linked scope(s)'/subscriptions/&lt;subscriptionId1&gt;,/subscriptions/&lt;subscriptionId2&gt;,/subscriptions/&lt;subscriptionId3&gt;' or the linked scope(s)are invalid`
+`The client '<clientName>' with object id '<objectId>' has permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on scope '/subscriptions/<subscriptionId>'; however, it does not have permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on the linked scope(s)'/subscriptions/<subscriptionId1>,/subscriptions/<subscriptionId2>,/subscriptions/<subscriptionId3>' or the linked scope(s)are invalid`
 
 **Cause**
 
