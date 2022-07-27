@@ -73,6 +73,8 @@ items:
   items:
   - name: Contact support
     href: hpc-cache-support-ticket.md
+  - name: Increase quota
+    href: increase-quota.md
 
   - name: Troubleshoot
     items:
