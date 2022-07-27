@@ -245,7 +245,7 @@ mssparkutils.fs.unmount("/test")
 
 + The `mssparkutils fs help` function hasn't added the description about the mount/unmount part yet. 
 
-+ We plan to support an automatic unmount mechanism to remove the mount point when the application run finishes. It's not implemented yet. If you want to unmount the mount point to release the disk space, you need to explicitly call an unmount API in your code. Otherwise, the mount point will still exist in the node after the application run finishes. 
++ The unmount mechanism is not automatic. When the application run finishes, to unmount the mount point to release the disk space, you need to explicitly call an unmount API in your code. Otherwise, the mount point will still exist in the node after the application run finishes. 
 
 + Mounting a Data Lake Storage Gen1 storage account is not supported for now. 
 
