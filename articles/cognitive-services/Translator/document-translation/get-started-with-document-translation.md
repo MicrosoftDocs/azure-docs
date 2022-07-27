@@ -1,13 +1,13 @@
 ---
 title: Get started with Document Translation
-description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and platforms"
+description: "How to create a Document Translation service using the REST API or C#, Go, Java, Node.js, or Python programming languages and platforms"
 services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/23/2022
+ms.date: 07/27/2022
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -16,7 +16,7 @@ ms.custom: mode-other
 
 # Get started with Document Translation
 
- In this article, you'll learn to use Document Translation with HTTP REST API methods. Document Translation is a cloud-based feature of the [Azure Translator](../translator-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting.
+In this article, you'll learn to use Document Translation with HTTP REST API operations or a programming language of your choice to translate entire documents. Document Translation is a cloud-based feature of the [Azure Translator](../translator-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting.
 
 ## Prerequisites
 
