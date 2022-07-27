@@ -50,13 +50,13 @@ Leave the other values as their defaults, then select **Next: Networking**.
 
 On the **Networking** page, specify a **DNS name label** for your container. The name must be unique within the Azure region where you create the container instance. Your container will be publicly reachable at `<dns-name-label>.<region>.azurecontainer.io`. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
-An auto-generated hash is added as a DNS name label to your container instance's fully-qualified domain name (FQDN), which prevents malicious subdomain takeover. Specify the **DNS name label scope reuse** for the FQDN. You can choose one of the following:
+An auto-generated hash is added as a DNS name label to your container instance's fully qualified domain name (FQDN), which prevents malicious subdomain takeover. Specify the **DNS name label scope reuse** for the FQDN. You can choose one of these options:
 
 * Tenant
 * Subscription
 * Resource Group
 * No reuse
-* Any reuse (This is the least secure.)
+* Any reuse (This option is the least secure.)
 
 For this example, select **Tenant**.
 
@@ -70,7 +70,7 @@ When the validation completes, you're shown a summary of the container's setting
 
 When deployment starts, a notification appears that indicates the deployment is in progress. Another notification is displayed when the container group has been deployed.
 
-Open the overview for the container group by navigating to **Resource Groups** > **myresourcegroup** > **mycontainer**. Make a note of the **FQDN** (the fully qualified domain name) of the container instance, as well as its **Status**.
+Open the overview for the container group by navigating to **Resource Groups** > **myresourcegroup** > **mycontainer**. Make a note of the **FQDN** of the container instance and its **Status**.
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="Container group overview in the Azure portal":::
 
