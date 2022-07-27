@@ -28,6 +28,7 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 >[!IMPORTANT]
 >Deploying scaling plans with autoscale is currently limited to the following Azure regions:
 >
+>   - Australia East
 >   - Canada Central
 >   - Canada East
 >   - Central US
@@ -40,7 +41,6 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 >   - West Europe
 >   - West US
 >   - West US 2
->   - Australia East
 
 ## How a scaling plan works
 
