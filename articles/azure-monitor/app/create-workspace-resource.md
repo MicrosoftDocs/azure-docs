@@ -2,7 +2,8 @@
 title: Create a new Azure Monitor Application Insights workspace-based resource
 description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
 ms.topic: conceptual
-ms.date: 10/06/2020 
+ms.date: 07/14/2022
+ms.reviewer: cogoodson
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -164,6 +165,10 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
     ]
 }
 ```
+
+> [!NOTE]
+> * For more information on resource properties, see [Property values](https://docs.microsoft.com/azure/templates/microsoft.insights/components?tabs=bicep#property-values)
+> * Flow_Type and Request_Source are not used, but are included in this sample for completeness.
 
 #### Parameters file
 

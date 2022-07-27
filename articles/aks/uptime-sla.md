@@ -103,7 +103,7 @@ This process takes several minutes to complete.
 [vm-skus]: ../virtual-machines/sizes.md
 [paid-sku-tier]: /rest/api/aks/managed-clusters/create-or-update#managedclusterskutier
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[manage-resource-group-cli]: /azure/azure-resource-manager/management/manage-resource-groups-cli
+[manage-resource-group-cli]: ../azure-resource-manager/management/manage-resource-groups-cli.md
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
 [az-aks-create]: /cli/azure/aks?#az_aks_create

@@ -348,7 +348,7 @@ The error is caused by excessive use within a short timeframe. Wait five minutes
 
 ### More information
 
-For more information, see [Error code 429 - Call count has exceeded rate limits](manage-automation.md#error-code-429---call-count-has-exceeded-rate-limits).
+For more information, see [Data latency and rate limits](manage-automation.md#data-latency-and-rate-limits).
 
 ## ServerTimeout
 

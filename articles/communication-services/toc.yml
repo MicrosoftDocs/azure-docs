@@ -71,7 +71,7 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Add Teams video calling to your client app
+    - name: Add video calling as Teams user to your client app
       href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md
     - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
@@ -238,7 +238,7 @@ items:
         href: concepts/teams-interop.md
       - name: Join a Teams meeting
         href: concepts/join-teams-meeting.md
-      - name: Custom Teams endpoint
+      - name: Communication as Teams user
         items:
           - name: Overview
             href: concepts/teams-endpoint.md
