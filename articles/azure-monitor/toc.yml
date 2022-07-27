@@ -1008,8 +1008,6 @@ items:
         href: app/proactive-potential-memory-leak.md
       - name: Security detection
         href: app/proactive-application-security-detection-pack.md
-      - name: Azure Cloud Services
-        href: app/proactive-cloud-services.md
       - name: Manage smart detection rules
         href: app/proactive-arm-config.md
       - name: E-mail notification
