@@ -85,11 +85,12 @@ Microsoft Sentinel maintains the status of the file import for 30 days. The actu
 
 ## Understand the import templates
 
-Review each import template to ensure your indicators are imported successfully. If this is your first import, be sure to reference the instructions in the template file and follow the guidance below for supplemental advice.
+Review each template to ensure your indicators are imported successfully. If this is your first import, be sure to reference the instructions in the template file and follow the supplemental guidance below.
 
 ### CSV template structure  
 
 1. Choose between the **File indicators** or **All other indicator types** option from the **Indicator type** drop down menu when you select **CSV**. 
+
     The CSV template needs multiple columns to accommodate the file indicator type because file indicators can have multiple hash types like MD5, SHA256, and more. All other indicator types like IP addresses only require the observable type and the observable value.
 
 1. The column headings for the CSV **All other indicator types** template include fields such as `threatTypes`, single or multiple `tags`, `confidence`, and `tlpLevel`. TLP or Traffic Light Protocol is a sensitivity designation to help make decisions on threat intelligence sharing.
