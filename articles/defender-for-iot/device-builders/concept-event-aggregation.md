@@ -15,9 +15,9 @@ The Defender for IoT micro agent collects many types of device events including 
 
 To reduce the number of messages and costs while maintaining your device's security, Defender for IoT agents aggregate the following types of events:
 
-- ProcessCreate (Linux only)
+- Process events (Linux only)
 
-- Network ConnectionCreate
+- Network Activity events
 
 For more information, see [event aggregation for process and network collectors](#event-aggregation-for-process-and-network-collectors).
 
