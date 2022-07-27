@@ -594,6 +594,6 @@ To start with bringing your own machine learning to Microsoft Sentinel, view the
 
 * [Best practices for Microsoft Sentinel](best-practices.md) 
 * [Microsoft Sentinel sample workspace designs](sample-workspace-designs.md)
-* [Plan costs and understand Microsoft Sentinel pricing and billing](billing?tabs=commitment-tier)
+* [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md#understand-the-full-billing-model-for-microsoft-sentinel)
 * [Roles and permissions in Microsoft Sentinel](roles.md)
 * [Deploy Microsoft Sentinel side-by-side with an existing SIEM](deploy-side-by-side.md)
