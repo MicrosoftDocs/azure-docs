@@ -51,7 +51,7 @@ And then defining these elements for the resulting alert actions using:
 
         Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
 
-        If you select more than one dimension value, each time series that results from the combination will trigger its own alert, and will be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (which is the aggregated data), or you can use dimensions to alert only when the number of transactions is high for specific APIs.
+        If you select more than one dimension value, each time series that results from the combination will trigger its own alert, and will be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data), or you can use dimensions to alert only when the number of transactions is high for specific APIs.
 
         |Field  |Description  |
         |---------|---------|
@@ -158,38 +158,40 @@ And then defining these elements for the resulting alert actions using:
 
     ---
 
-1. From this point on, you can select the **Review + create** button at any time.
+    From this point on, you can select the **Review + create** button at any time.
+
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
     :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
 
-1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
+1. In the **Details** tab,
+    - Define the **Project details** by selecting the **Subscription** and **Resource group**. 
+    - Define the **Alert rule details**. Select the **Severity**, enter values for the **Alert rule name** and the **Alert rule description**, and select the **Region**. 
 
     :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
 1. (Optional) In the **Advanced options** section, you can set several options.
-
     ### [Metric alert](#tab/metric)
 
     |Field |Description |
     |---------|---------|
     |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-    |Automatically resolve alerts (preview) |Select to resolve the alert when the condition is not met anymore.|
+    |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
 
     ### [Log alert](#tab/log)
 
     |Field |Description |
     |---------|---------|
     |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-    |Automatically resolve alerts (preview) |Select to resolve the alert when the condition is not met anymore.|
+    |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
     |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
-    |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule is not created.|
+    |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
     ### [Activity log](#tab/activity-log)
 
-    1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
----
+    ---
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
 
