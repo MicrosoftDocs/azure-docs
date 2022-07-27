@@ -32,7 +32,7 @@ On the Azure portal homepage, select **Create a resource**.
 
 Select **Containers** > **Container Instances**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Begin creating a new container instance in the Azure portal":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Continue creating a new container instance in the Azure portal":::
 
 On the **Basics** page, choose a subscription and enter the following values for **Resource group**, **Container name**, **Image source**, and **Container image**.
 
