@@ -3,6 +3,7 @@ title: Using and managing discovery
 description: Microsoft Defender External Attack Surface Management (Defender EASM) relies on our proprietary discovery technology to continuously define your organization’s unique Internet-exposed attack surface. 
 author: danielledennis
 ms.author: dandennis
+ms.service: security
 ms.date: 07/14/2022
 ms.topic: how-to
 ---
