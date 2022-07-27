@@ -297,6 +297,8 @@
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
+            - name: Enable FIPS
+              href: enable-fips-nodes.md
         - name: Application security
           items:
             - name: Use Azure AD pod identity (preview)
