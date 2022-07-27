@@ -348,7 +348,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/proactive-cloud-services.md" ,
-            "redirect_url": "https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview",
+            "redirect_url": "https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview",
             "redirect_document_id": false
         },
         {
