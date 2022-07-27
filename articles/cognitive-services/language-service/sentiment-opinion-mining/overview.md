@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 06/15/2022
+ms.date: 07/27/2022
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
@@ -16,6 +16,8 @@ ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 # What is sentiment analysis and opinion mining in Azure Cognitive Service for Language?
 
 Sentiment analysis and opinion mining are features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. These features help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text. 
+
+Both sentiment analysis and opinion mining work with a variety of [written languages](./language-support.md).
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
