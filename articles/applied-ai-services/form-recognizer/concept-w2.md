@@ -28,7 +28,7 @@ The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following t
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
+|**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
 
 ### Try Form Recognizer
 
@@ -121,7 +121,7 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
 ## Next steps
 
