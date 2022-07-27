@@ -152,16 +152,16 @@ Migration operation will only be marked complete once the first recovery point h
 
 ### What operations can be performed from my classic Recovery Services vault, after migration is done?  
 
-You can only perform failover and disable replication from your classic vault, once migration is complete. Failover operation will be possible via the classic vault, till there are recovery points available in the older vault.
+You can only perform failover and disable replication from your classic vault after the migration. The failover operation is possible via the classic vault until the recovery points are available in the older vault.
 
-For example, if the retention period for a replicated item is 72 hours (3 days), the latest recovery point on the classic vault will continue to be available for 72 hours (3 days), post migration has been successfully completed. Once the time is up, Azure Site Recovery will trigger a purge replication operation on the replicated item and perform the cleanup of all associated storage and billing causing items.  
+For example, if the retention period for a replicated item is 72 hours (3 days), the latest recovery point on the classic vault will continue to be available for 72 hours (3 days), after a successful post migration. After the stipulated time, Azure Site Recovery will trigger a purge replication operation on the replicated item and perform the cleanup of all associated storage and billing causing items.   
 
 ### What if a disaster strikes my machine while the migration operation is in progress?
 
 Any replicated item on which migration is being performed will continue to support failover operation via the classic Recovery Services vault, till the last recovery point’s retention period expires. In case you try to execute failover operation, it will take a higher priority than migration operation. The job for migration will be aborted. To ensure that your replicated item is migrated, you will need to trigger the migration operation again, at a later point in time.   
 
 >[!Note]
-> Replicated item’s Compute and Network properties can be updated while the migration is in progress. But the changes may not get propagated to the modernized Recovery Services vault. 
+> The Compute and Network properties of replicated items can be updated while the migration is in progress. However, the changes may not get replicated in the modernized Recovery Services vault. 
 
 ### How many machines can I migrate in one go from classic to modernized vault?
 
