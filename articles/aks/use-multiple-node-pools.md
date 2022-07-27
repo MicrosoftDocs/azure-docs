@@ -171,7 +171,7 @@ az aks nodepool add \
 ```
 
 ### Add a confidential node pool (preview)
-AKS node pools now support the generaly available [confidential VM sizes (DCav5/ECav5)](https://aka.ms/AMD-ACC-VMs-GA-Inspire-2022) to create confidential node pools. To learn more about how confidential node pools can help shift an organization's highly sensitive, regulated resources to Azure and benefit from the full feature support of AKS, check out our [latest offering (in preview)][https://aka.ms/ACC-AKS-AMD-SEV-SNP-Preview-Blog].
+AKS node pools now support the generaly available [confidential VM sizes (DCav5/ECav5)](https://aka.ms/AMD-ACC-VMs-GA-Inspire-2022) to create confidential node pools. To learn more about how confidential node pools can help shift an organization's highly sensitive, regulated resources to Azure and benefit from the full feature support of AKS, check out our [latest offering (in preview)](https://aka.ms/ACC-AKS-AMD-SEV-SNP-Preview-Blog).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
