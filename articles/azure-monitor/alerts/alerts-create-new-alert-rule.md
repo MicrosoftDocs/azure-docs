@@ -28,7 +28,8 @@ And then defining these elements for the resulting alert actions using:
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot showing steps to create new alert rule.":::
 
 1. In the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, **resource location**, or do a search.
-    You can see the **Available signal types** for your selected resource(s) at the bottom right of the pane.
+
+    You can see the **Available signal types** for your selected resource(s) at the bottom right of the pane. The available signal types change based on the selected resource.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot showing select resource pane for creating new alert rule.":::
 
@@ -39,21 +40,18 @@ And then defining these elements for the resulting alert actions using:
 1. Select the **Signal name**, and follow the steps below depending on the type of alert you're creating.
     ### [Metric alert](#tab/metric)
 
-    1. In the **Configure signal logic** pane, select values for the following fields.
+    1. In the **Configure signal logic** pane, you can preview the results of the selected metric signal. Select values for the following fields.
 
         |Field |Description |
         |---------|---------|
         |Select time series|Select the time series to include in the results. |
-        |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.      |
+        |Chart period|Select the time span to include in the results. Can be from the last 6 hours to the last week.|
 
-    1. The **Preview** section shows you the results.
     1. (Optional) Depending on the signal type, you may see the **Split by dimensions** section.
 
         Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
 
         If you select more than one dimension value, each time series that results from the combination will trigger its own alert, and will be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (which is the aggregated data), or you can use dimensions to alert only when the number of transactions is high for specific APIs.
-
-        To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations. Splitting on Azure resource ID column makes the specified resource into the alert target. When you want a condition applied to multiple resources in the scope, you would **not** split by dimensions. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
         |Field  |Description  |
         |---------|---------|
@@ -70,7 +68,7 @@ And then defining these elements for the resulting alert actions using:
         |Operator|Select the operator for comparing the metric value against the threshold. |
         |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max. |
         |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic. |
-        |Unit| If you selected a **static** threshold, enter the unit for the condition logic. |
+        |Unit|If the selected metric signal supports different units,such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
         |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
         |Aggregation granularity| Select the interval over which data points are grouped using the aggregation type function.|
         |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.  |
@@ -80,7 +78,7 @@ And then defining these elements for the resulting alert actions using:
 
     1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert.
 
-        You can use the [alert query examples article](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
+        You can use the [alert query examples article](../logs/queries.md#query-sidebar) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
     1. Select **Run** to run the alert.
     1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
     1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last 5 minutes. If the system detects summarized query results, the rule is automatically updated with that information.
@@ -97,7 +95,9 @@ And then defining these elements for the resulting alert actions using:
 
         :::image type="content" source="media/alerts-log/alerts-log-measurements.png" alt-text="Measurements.":::
 
-    1. (Optional) In the **Split by dimensions** section, you can use dimensions to monitor the values of multiple instances of a resource with one rule. You can create resource-centric alerts at scale for a subscription or resource group. When you split by dimensions,  combinations of numerical or string columns are grouped to monitor for the same condition on multiple Azure resources. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
+    1. (Optional) In the **Split by dimensions** section, you can use dimensions to monitor the values of multiple instances of a resource with one rule. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group. When you split by dimensions, alerts are split into separate alerts by grouping combinations of numerical or string columns to monitor for the same condition on multiple Azure resources. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
+
+        Splitting on **Azure Resource ID** column makes specified resource the target of the alert.
 
         If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
 
@@ -109,7 +109,7 @@ And then defining these elements for the resulting alert actions using:
 
         |Field  |Description  |
         |---------|---------|
-        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
+        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource the target of the alert. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
         |Operator|The operator used on the dimension name and value.  |
         |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
         |Include all future values| Select this field to include any future values added to the selected dimension.  |
@@ -138,6 +138,9 @@ And then defining these elements for the resulting alert actions using:
 
         :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
 
+        > [!NOTE]
+        > If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**, or the rule creation will fail because it won't meet the policy requirements.
+
     1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
         :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
@@ -151,7 +154,7 @@ And then defining these elements for the resulting alert actions using:
         |---------|---------|
         |Event level| Select the level of the events that this alert rule monitors. Values are: **Critical**, **Error**, **Warning**, **Informational**, **Verbose** and **All**.|
         |Status|Select the status levels for which the alert is evaluated.|
-        |Event initiated by|Select the user or service principal that initiated the event.        |
+        |Event initiated by|Select the user or service principal that initiated the event.|
 
     ---
 
@@ -161,12 +164,32 @@ And then defining these elements for the resulting alert actions using:
     :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
 
 1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
-1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **Mute actions** for a period of time after the alert rule fires.
 
     :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
-    > [!NOTE]
-    > If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
+1. (Optional) In the **Advanced options** section, you can set several options.
+
+    ### [Metric alert](#tab/metric)
+
+        |Field |Description |
+        |---------|---------|
+        |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
+        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition is not met anymore.|
+
+    ### [Log alert](#tab/log)
+
+        |Field |Description |
+        |---------|---------|
+        |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
+        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition is not met anymore.|
+        |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
+        |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule is not created.|
+
+    ### [Activity log](#tab/activity-log)
+
+    1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+
+---
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
 
