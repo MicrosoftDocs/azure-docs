@@ -59,7 +59,7 @@ The following example shows the rules that are available for configuration.
         },
         "use-stable-resource-identifier": {
           "level": "warning"
-        }
+        },
         "use-stable-vm-image": {
           "level": "warning"
         }
