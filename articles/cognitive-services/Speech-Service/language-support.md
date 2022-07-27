@@ -1022,9 +1022,7 @@ The following table lists the released languages and public preview languages.
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
 
 > [!NOTE]
-> If you want to use languages that aren't listed here, please contact us by email at [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com). 
->  
-> For pronunciation assessment supported regions, see [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
+> For pronunciation assessment, `en-US` and `en-GB` are available in [all regions](regions.md#speech-to-text-pronunciation-assessment-and-translation), `zh-CN` is available in East Asia and Southeast Asia regions, `de-DE`, `es-ES`, and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.
 
 ## Speech translation
 
