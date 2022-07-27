@@ -13,15 +13,19 @@ ms.subservice: common
 ms.custom: devx-track-csharp
 ---
 
-# Migrate an application to use credential-free authentication with the Azure Identity client library
+# Migrate an application to credential-free authentication with the Azure Identity client library
 
-Application requests to Azure Storage must be authenticated. Azure Storage provides several different ways to securely connect with your app, each with its own features and implementation details. Some of these options rely on string-formatted keys to securely connect, such as connection strings or access keys. However, you should prioritize credential-free authentication in your applications when possible. Credential-free solutions such as Managed Identity or Role Based Access control (RBAC) can be safely implemented using DefaultAzureCredential. 
+Application requests to Azure Storage must be authenticated. Azure Storage provides several different ways for apps to connect securely, each with its own features and implementation details. Some of these options rely on string-formatted keys, such as connection strings, access keys, or shared access signatures. However, you should prioritize credential-free authentication in your applications when possible. 
+
+Credential-free solutions such as Managed Identity or Role Based Access control (RBAC) can provide robust security features by implementing `DefaultAzureCredential`. In this tutorial, you will learn how to update an existing application to use `DefaultAzureCredential` rather than alternatives such as connection strings.
 
 ## Comparing authentication options
 
-The following examples demonstrate how to connect to Azure Storage using different types of access keys. Many developers gravitate towards these options because they feel familiar to options they are traditionally used to working with.
+The following examples demonstrate how to connect to Azure Storage without `DefaultAzureCredential`. Many developers gravitate towards these solutions because they feel familiar to options they are traditionally used to working with. If you currently use one of these approaches, consider migrating to use `DefaultAzureCredential` using the steps described later in this document.
 
 ### [Connection String](#tab/connection-string)
+
+A connection string includes the authorization information required for your application to access data in an Azure Storage account. Your storage account access keys are similar to a root password for your storage account. Always be careful to protect your access keys.
 
 ```csharp
 BlobServiceClient blobServiceClient = new BlobServiceClient("<your-connection-string>");
@@ -38,6 +42,8 @@ BlobServiceClient blobServiceClient = new BlobServiceClient(
 ```
 
 ### [Shared Access Signature](#tab/shared-access-signature)
+
+A shared access signature (SAS) is a URI that grants restricted access rights to Azure Storage resources. You can provide a shared access signature to clients who should not be trusted with your storage account key but whom you wish to delegate access to certain storage account resources. By distributing a shared access signature URI to these clients, you grant them access to a resource for a specified period of time.
 
 ```csharp
 BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri("https://identitymigrationstorage.blob.core.windows.net"),
