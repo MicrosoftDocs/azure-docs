@@ -1,9 +1,9 @@
 ---
 title: Change Data Capture in Azure Data Factory & Azure Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about linked services in Azure Data Factory and Azure Synapse Analytics. Linked services link compute and data stores to the service.
-author: dcstwh
-ms.author: weetok
+description: Learn about change data capture in Azure Data Factory and Azure Synapse Analytics.
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: data-movement
@@ -12,11 +12,7 @@ ms.topic: conceptual
 ms.date: 07/26/2022
 ---
 
-# Linked services in Azure Data Factory and Azure Synapse Analytics
-
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version 1](v1/data-factory-create-datasets.md)
-> * [Current version](concepts-linked-services.md)
+# Changed data capture in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
