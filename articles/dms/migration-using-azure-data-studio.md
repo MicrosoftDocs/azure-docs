@@ -128,7 +128,6 @@ When you migrate database(s) using the Azure SQL migration extension for Azure D
     - Server audit
 - When migrating to SQL Server on Azure Virtual Machines, SQL Server 2014 and below as target versions are not supported currently.
 - Migrating to Azure SQL Database isn't supported.
-- Azure storage accounts secured by specific firewall rules or configured with a private endpoint are not supported for migrations.
 - You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL migration extension in Azure Data Studio and can be reused for further database migrations. 
 
 ## Pricing
