@@ -27,7 +27,7 @@ The article shows you how to use mount/unmount APIs in your workspace. You'll le
 > [!WARNING]
 > Azure file-share mounting is temporarily disabled. You can use Data Lake Storage Gen2 or Azure Blob Storage mounting instead, as described in the next section.
 >
-> Azure Data Lake Storage Gen1 storage is not supported. You can migrate to Data Lake Storage Gen2 by following the [migration gudiance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using the mount APIs.
+> Azure Data Lake Storage Gen1 storage is not supported. You can migrate to Data Lake Storage Gen2 by following the [Azure Data Lake Storage Gen1 to Gen2 migration guidance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using the mount APIs.
 
 
 <a id="How-to-mount-Gen2/blob-Storage"></a>
