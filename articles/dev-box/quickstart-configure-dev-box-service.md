@@ -57,10 +57,7 @@ The following steps show you how to create and configure a DevCenter.
  
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-basics.png" alt-text="Screenshot showing the Create DevCenter Basics tab."::: 
        
-<!--
-The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box](https://azure.microsoft.com/services/devbox).
-
-Link to ACOM page when available, rather than listing regions-->
+   <!-- The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box](https://aka.ms/devbox_acom). -->
 
 4. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-tags.png" alt-text="Screenshot showing the Create DevCenter Tags tab."::: 
@@ -187,9 +184,9 @@ The following steps show you how to create and configure a project in dev box.
    |**DevCenter**|Select the DevCenter to which you want to associate this project. All the DevCenter level settings will be applied to the project.|
    |**Name**|Enter a name for your project. |
    |**Description**|Enter a brief description of the project. |
+   |**Region**| Select the region you want the project to be created in.|
 
-   > [!CAUTION]
-   > The **Subscription mapping** tab is used to configure the Environments service. Don't enter any information for Dev Box configuration.
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create.png" alt-text="Screenshot of the Create a dev box project basics tab.":::
 
 1. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
 
