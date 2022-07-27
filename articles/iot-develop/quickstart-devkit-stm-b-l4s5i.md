@@ -45,6 +45,7 @@ You'll complete the following tasks:
 * Use Azure IoT Central to create cloud components, view properties, view device telemetry, and call direct commands
 
 :::zone pivot="iot-toolset-cmake"
+
 ## Prerequisites
 
 * A PC running Windows 10
@@ -54,6 +55,7 @@ You'll complete the following tasks:
     * The [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) (STM DevKit)
     * Wi-Fi 2.4 GHz
     * USB 2.0 A male to Micro USB male cable
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
