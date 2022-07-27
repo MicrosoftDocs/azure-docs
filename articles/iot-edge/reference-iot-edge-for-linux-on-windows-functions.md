@@ -22,6 +22,8 @@ The commands described in this article are from the `AzureEFLOW.psm1` file, whic
 
 If you don't have the **AzureEflow** folder in your PowerShell directory, use the following steps to download and install Azure IoT Edge for Linux on Windows: 
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
    ```powershell
@@ -29,6 +31,29 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
    $ProgressPreference = 'SilentlyContinue'
    Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
+:::moniker-end
+<!-- end iotedge-2018-06 -->
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
+
+   * **X64/AMD64**
+   ```powershell
+   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+   $ProgressPreference = 'SilentlyContinue'
+   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-X64" -OutFile $msiPath
+   ```
+
+   * **ARM64**
+   ```powershell
+   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+   $ProgressPreference = 'SilentlyContinue'
+   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-ARM64" -OutFile $msiPath
+   ```
+:::moniker-end
+<!-- end iotedge-2020-11 -->
+
 
 1. Install IoT Edge for Linux on Windows on your device.
 
