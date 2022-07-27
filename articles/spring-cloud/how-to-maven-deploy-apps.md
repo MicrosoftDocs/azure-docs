@@ -90,7 +90,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. On the Azure Spring Apps page, select **Create**.
 
-    :::image type="content" source="media/how-to-maven-deploy-apps/spring-cloud-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted.":::
+    :::image type="content" source="media/how-to-maven-deploy-apps/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted." lightbox="media/how-to-maven-deploy-apps/spring-apps-start.png":::
 
 1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
