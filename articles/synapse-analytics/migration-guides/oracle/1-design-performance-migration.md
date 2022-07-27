@@ -178,7 +178,7 @@ When you're planning to use Azure facilities to manage the migration process, cr
 
 ### Design differences between Oracle and Azure Synapse
 
-As mentioned earlier, there are some basic differences in approach between Oracle and Azure Synapse Analytics databases. [SSMA for Oracle](/sql/ssma/oracle/what-s-new-in-ssma-for-oracle-oracletosql?view=sql-server-ver16#ssma-v74) not only helps bridge these gaps but also automates the migration. Although SSMA isn't the most efficient approach for very high volumes of data, it's useful for smaller tables.
+As mentioned earlier, there are some basic differences in approach between Oracle and Azure Synapse Analytics databases. [SSMA for Oracle](/sql/ssma/oracle/what-s-new-in-ssma-for-oracle-oracletosql?view=sql-server-ver16&preserve-view=true#ssma-v74) not only helps bridge these gaps but also automates the migration. Although SSMA isn't the most efficient approach for very high volumes of data, it's useful for smaller tables.
 
 #### Multiple databases vs. single database and schemas
 
