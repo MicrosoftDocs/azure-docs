@@ -92,9 +92,11 @@ Azure Communication Services interoperability isn't compatible with Teams deploy
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Get access tokens for Guest/BYOI](../quickstarts/access-tokens.md)
-> [Join Teams meeting call as a Guest/BYOI](../quickstarts/voice-video-calling/get-started-teams-interop.md)
-> [Join Teams meeting chat as a Guest/BYOI](../quickstarts/chat/meeting-interop.md)
-> [Get access tokens for Teams users](../quickstarts/manage-teams-identity.md)
-> [Make a call as a Teams users to a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
+Find more details for Guest/BYOI interoperability:
+- [Get access tokens for Guest/BYOI](../quickstarts/access-tokens.md)
+- [Join Teams meeting call as a Guest/BYOI](../quickstarts/voice-video-calling/get-started-teams-interop.md)
+- [Join Teams meeting chat as a Guest/BYOI](../quickstarts/chat/meeting-interop.md)
+
+Find more details forTeams user interoperability:
+- [Get access tokens for Teams users](../quickstarts/manage-teams-identity.md)
+- [Make a call as a Teams users to a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
