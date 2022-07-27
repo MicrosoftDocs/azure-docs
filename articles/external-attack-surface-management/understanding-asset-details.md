@@ -1,6 +1,6 @@
 ---
 title: Understanding asset details
-description: Microsoft Defender External Attack Surface Management (Defender EASM) relies on our proprietary discovery technology to continuously define your organization’s unique Internet-exposed attack surface.
+description: Understanding asset details- Microsoft Defender External Attack Surface Management (Defender EASM) relies on our proprietary discovery technology to continuously define your organization’s unique Internet-exposed attack surface.
 author: danielledennis
 ms.author: dandennis
 ms.service: security
