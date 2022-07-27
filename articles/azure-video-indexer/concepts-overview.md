@@ -54,7 +54,7 @@ Azure Video Indexer selects the frame(s) that best represent each shot. Keyframe
 
 ## Time range vs. adjusted time range	
 
-TimeRange is the time range in the original video. Adjusted time range is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a 1-hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjusted time range is 00:00-00:15.	
+Time range is the time period in the original video. Adjusted time range is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a 1-hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjusted time range is 00:00-00:15.	
 
 ## Widgets
 
