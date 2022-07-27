@@ -126,7 +126,8 @@ You can simulate alerts for both of the control plane, and workload alerts with 
               args: ["-c", "while true; do echo sleeping; sleep 3600;done"]
     ```
 
-To create the pod run:
+    To create the pod run:
+    
     ```bash
     kubectl apply -f <path_to_the_yaml_file>
     ```
