@@ -26,8 +26,6 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 :::zone pivot="programming-language-csharp"
 
-* Install [Visual Studio 2022](https://www.visualstudio.com/vs/).
-
 * Install [.NET 6.0 SDK or later](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
