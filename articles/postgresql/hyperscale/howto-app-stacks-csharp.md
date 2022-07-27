@@ -6,7 +6,7 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 07/26/2022
 ---
 
 # C# app to connect and query Hyperscale (Citus)
@@ -38,8 +38,10 @@ To get the database credentials, you can use the **Connection strings** tab in t
 Use the following code to connect and load the data using CREATE TABLE and INSERT INTO SQL statements. The code uses these `NpgsqlCommand` class methods:
 
 * [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to Hyperscale (Citus),
-* [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) to set the CommandText property,
+* [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) to set the CommandText property
 * [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run database commands.
+
+[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
 ```csharp
 using System;
@@ -52,7 +54,7 @@ namespace Driver
         static void Main(string[] args)
         {
             // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
 
             connStr.TrustServerCertificate = true;
 
@@ -113,7 +115,7 @@ namespace Driver
         static void Main(string[] args)
         {
             // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50");
 
             connStr.TrustServerCertificate = true;
 
@@ -155,11 +157,11 @@ namespace Driver
         static void Main(string[] args)
         {
             // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
 
             connStr.TrustServerCertificate = true;
 
-            using (var conn = new NpgsqlConnection(connString))
+            using (var conn = new NpgsqlConnection(connStr))
             {
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
@@ -203,7 +205,7 @@ namespace Driver
         static void Main(string[] args)
         {
             // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
 
             connStr.TrustServerCertificate = true;
 
@@ -241,7 +243,7 @@ namespace Driver
         static void Main(string[] args)
         {
             // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
 
             connStr.TrustServerCertificate = true;
 
@@ -285,7 +287,7 @@ public class csvtotable
         String sFromFilePath = "C:\\Users\\Documents\\pharmacies.csv";
        
         // Replace below argument with connection string from portal.
-        var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+        var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
             
         connStr.TrustServerCertificate = true;
 
@@ -325,7 +327,7 @@ namespace Driver
         {
          
              // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
 
             connStr.TrustServerCertificate = true;
 
