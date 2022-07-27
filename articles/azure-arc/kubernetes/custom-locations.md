@@ -9,9 +9,9 @@ description: "Use custom locations to deploy Azure PaaS services on Azure Arc-en
 
 # Create and manage custom locations on Azure Arc-enabled Kubernetes
 
- The *Custom locations* feature provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale, or application instances, such as App Services, Functions, Event Grid, Logic Apps, and API Management.
+ The *custom locations* feature provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale, or application instances, such as App Services, Functions, Event Grid, Logic Apps, and API Management.
 
-A custom location has a one-to-one mapping to a namespace within the Azure Arc-enabled Kubernetes cluster. The custom location Azure resource combined with Azure RBAC can be used to grant granular permissions to application developers or database admins, enabling them to deploy resources such as databases or application instances on top of Arc-enabled Kubernetes clusters in a multi-tenant manner.
+A custom location has a one-to-one mapping to a namespace within the Azure Arc-enabled Kubernetes cluster. The custom location Azure resource combined with Azure role-based access control (Azure RBAC) can be used to grant granular permissions to application developers or database admins, enabling them to deploy resources such as databases or application instances on top of Arc-enabled Kubernetes clusters in a multi-tenant manner.
 
 A conceptual overview of this feature is available in [Custom locations - Azure Arc-enabled Kubernetes](conceptual-custom-locations.md).
 
@@ -35,7 +35,7 @@ In this article, you learn how to:
     az extension add --name customlocation
     ```
 
-    If you have already installed the `connectedk8s`, `k8s-extension`, and `customlocation` extensions, update to the **latest version** using the following command:
+    If you have already installed the `connectedk8s`, `k8s-extension`, and `customlocation` extensions, update to the **latest version** by using the following command:
 
     ```azurecli
     az extension update --name connectedk8s
@@ -63,7 +63,7 @@ In this article, you learn how to:
 
 ## Enable custom locations on your cluster
 
-If you are signed in to Azure CLI as an Azure AD user, to enable this feature on your cluster, execute the following command:
+If you are signed in to Azure CLI as an Azure Active Directory (Azure AD) user, to enable this feature on your cluster, execute the following command:
 
 ```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
@@ -91,7 +91,7 @@ This is because a service principal doesn't have permissions to get information 
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
    ```
 
-1. Sign in to Azure CLI using the service principal. Use the `<objectId>` or `id` value from above step to enable custom locations feature on the cluster:
+1. Sign in to Azure CLI using the service principal. Use the `<objectId>` or `id` value from the previous step to enable custom locations on the cluster:
 
     ```azurecli
     az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId/id> --features cluster-connect custom-locations
