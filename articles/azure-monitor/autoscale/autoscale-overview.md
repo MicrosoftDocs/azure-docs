@@ -117,7 +117,8 @@ In contrast, vertical scaling, scaling up or down, keeps the same number of reso
 
 ## Supported services for autoscale
 The following services are supported by autoscale:
-| Service | Schema & Docsumentation |
+
+| Service | Schema & Documentation |
 | --- | --- |
 | Web Apps |[Scaling Web Apps](autoscale-get-started.md) |
 | Cloud Services |[Autoscale a Cloud Service](../../cloud-services/cloud-services-how-to-scale-portal.md) |
@@ -143,6 +144,8 @@ The following services are supported by autoscale:
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:
 
 * [Azure Monitor autoscale common metrics](autoscale-common-metrics.md)
+* [Scale virtual machine scale sets](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell?toc=/azure/azure-monitor/toc.json)
+* [Autoscale using Resource Manager templates for VM scale sets](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell?toc=/azure/azure-monitor/toc.json)
 * [Best practices for Azure Monitor autoscale](autoscale-best-practices.md)
 * [Use autoscale actions to send email and webhook alert notifications](autoscale-webhook-email.md)
 * [Autoscale REST API](/rest/api/monitor/autoscalesettings)
