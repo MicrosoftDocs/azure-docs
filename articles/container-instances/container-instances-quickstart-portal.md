@@ -28,11 +28,11 @@ If you don't have an Azure subscription, create a [free account][azure-free-acco
 
 On the Azure portal homepage, select **Create a resource**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-create-resource.png" alt-text="Begin creating a new container instance in the Azure portal":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-create-resource.png" alt-text="Screenshot showing how to begin creating a new container instance in the Azure portal":::
 
 Select **Containers** > **Container Instances**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Continue creating a new container instance in the Azure portal":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Screenshot showing how to select a new container instance that you want to create in the Azure portal":::
 
 On the **Basics** page, choose a subscription and enter the following values for **Resource group**, **Container name**, **Image source**, and **Container image**.
 
