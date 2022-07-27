@@ -1,12 +1,12 @@
 ---
 title: .NET development for Azure Event Hubs - overview
-description: This article describes how to develop .NET applications that sends and receives events from Azure Event Hubs. 
+description: This article describes how to develop .NET applications that send and receives events from Azure Event Hubs. 
 ms.topic: how-to
 ms.date: 07/27/2022
 ---
 
 # .NET development for Azure Event Hubs
-This section provides how to develop applications using the Azure Event Hubs client library ([Azure.Messaging.EventHubs](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)). Articles in this section are ordered by increasing complexity, starting with more basic scenarios to help get started quickly. Though articles are independent, they will assume an understanding of the content discussed in earlier articles.
+This section provides how to develop applications using the Azure Event Hubs client library ([Azure.Messaging.EventHubs](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)). Articles in this section are ordered by increasing complexity, starting with more basic scenarios to help get started quickly. Though articles are independent, they'll assume an understanding of the content discussed in earlier articles.
 
 ## Install the package
 Install the Azure Event Hubs client library for .NET with [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/):
@@ -27,7 +27,7 @@ For the Event Hubs client library to interact with an event hub, it will need to
   An overview of the Event Hubs clients, detailing the available client types, the scenarios they serve, and demonstrating options for customizing their configuration, such as specifying a proxy.  
 
 - [Event Hubs Metadata](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample03_EventHubMetadata.md)  
-  A discussion of the metadata available for an Event Hub instance and demonstration of how to query and inspect the information.  
+  A discussion of the metadata available for an Event Hubs instance and demonstration of how to query and inspect the information.  
   
 - [Publishing Events](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md)  
   A deep dive into publishing events using the Event Hubs client library, detailing the different options available and illustrating common scenarios.  
@@ -36,13 +36,13 @@ For the Event Hubs client library to interact with an event hub, it will need to
   A deep dive into reading events using the Event Hubs client library, detailing the different options available and illustrating common scenarios.  
   
 - [Identity and Shared Access Credentials](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample06_IdentityAndSharedAccessCredentials.md)  
-  A discussion of the different types of authorization supported, focusing on identity-based credentials for Azure Active Directory and use the of shared access signatures and keys.  
+  A discussion of the different types of authorization supported, focusing on identity-based credentials for Azure Active Directory and use of shared access signatures and keys.  
   
 - [Earlier Language Versions](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample07_EarlierLanguageVersions.md)  
-  A demonstration of how to interact with the client library using earlier versions of C#, where newer syntax for asynchronous enumeration and disposal are not available.
+  A demonstration of how to interact with the client library using earlier versions of C#, where newer syntax for asynchronous enumeration and disposal isn't available.
 
-- [Building a Custom Event Processor using EventProcessor&lt;TPartition&gt;](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample08_CustomEventProcessor.md)  
-  An introduction to the `EventProcessor<TPartition>` base class which is used when building advanced processors which need full control over state management.
+- [Create a Custom Event Processor using EventProcessor&lt;TPartition&gt;](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample08_CustomEventProcessor.md)  
+  An introduction to the `EventProcessor<TPartition>` base class, which is used when building advanced processors, which need full control over state management.
 
 - [Observable Event Data Batch](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample09_ObservableEventBatch.md)  
   A demonstration of how to write an `ObservableEventDataBatch` class that wraps an `EventDataBatch` in order to allow an application to read events that have been added to a batch.

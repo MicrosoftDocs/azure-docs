@@ -120,7 +120,7 @@ finally
 }
 ```
 
-This example makes use of the `ReadEvents` method of the `EventHubConsumerClient`, which allows it to see events from all [partitions](event-hubs-features.md#partitions) of an event hub. While this is convenient to use for exploration, we strongly recommend not using it for production scenarios. `ReadEvents` does not guarantee fairness amongst the partitions during iteration. Each of the partitions compete to publish events to be read. Depending on how service communication takes place, there may be a clustering of events per partition and a noticeable bias for a given partition or subset of partitions.
+This example makes use of the `ReadEvents` method of the `EventHubConsumerClient`, which allows it to see events from all [partitions](event-hubs-features.md#partitions) of an event hub. While this is convenient to use for exploration, we strongly recommend not using it for production scenarios. `ReadEvents` does not guarantee fairness amongst the partitions during iteration. Partitions compete with each other to publish events to be read. Depending on how service communication takes place, there may be a clustering of events per partition and a noticeable bias for a given partition or subset of partitions.
 
 To read from all partitions in a production application, we recommend preferring the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) or a custom [EventProcessor<TPartition>](/dotnet/api/azure.messaging.eventhubs.primitives.eventprocessor-1) implementation.
 
