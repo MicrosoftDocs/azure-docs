@@ -5,12 +5,12 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/25/2022
+ ms.date: 07/27/2022
  ms.author: rogarana
  ms.custom: include file
 ---    
 - Only supported for data disks.
-- Disks smaller than 4 TiB can't be expanded to 4 TiB or larger without downtime.
+- Disks smaller than 4 TiB can't be expanded to 4 TiB or larger without downtime. Disks larger than 4 TiB can expand without downtime.
 - Not supported for Ultra disks 
 - Not supported for shared disks
 - Install and use either:
