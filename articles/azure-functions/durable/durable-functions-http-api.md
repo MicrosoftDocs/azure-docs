@@ -87,6 +87,8 @@ The response payload for the **HTTP 202** cases is a JSON object with the follow
 | **`terminatePostUri`**      |The "terminate" URL of the orchestration instance. |
 | **`purgeHistoryDeleteUri`** |The "purge history" URL of the orchestration instance. |
 | **`rewindPostUri`**         |(preview) The "rewind" URL of the orchestration instance. |
+| **`suspendPostUri`**         |The "suspend" URL of the orchestration instance. |
+| **`resumePostUri`**         |The "resume" URL of the orchestration instance. |
 
 The data type of all fields is `string`.
 
@@ -98,7 +100,9 @@ Here is an example response payload for an orchestration instance with `abc123` 
     "purgeHistoryDeleteUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123?code=XXX",
     "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/raiseEvent/{eventName}?code=XXX",
     "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123?code=XXX",
-    "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/terminate?reason={text}&code=XXX"
+    "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/terminate?reason={text}&code=XXX",
+    "suspendPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/suspend?reason={text}&code=XXX",
+    "resumePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/resume?reason={text}&code=XXX"
 }
 ```
 
@@ -168,7 +172,7 @@ The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON objec
 
 | Field                 | Data type | Description |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
+| **`runtimeStatus`**   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Suspended* *Completed*. |
 | **`input`**           | JSON      | The JSON data used to initialize the instance. This field is `null` if the `showInput` query string parameter is set to `false`.|
 | **`customStatus`**    | JSON      | The JSON data used for custom orchestration status. This field is `null` if not set. |
 | **`output`**          | JSON      | The JSON output of the instance. This field is `null` if the instance is not in a completed state. |
