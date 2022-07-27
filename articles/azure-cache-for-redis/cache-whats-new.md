@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 07/26/2022
+ms.date: 07/27/2022
 
 ---
 
@@ -13,7 +13,7 @@ ms.date: 07/26/2022
 
 ## July 2022
 
-### Redis 6 will become default for new cache instances
+### Redis 6 becomes default for new cache instances
 
 On November 1, 2022, all the versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
 
