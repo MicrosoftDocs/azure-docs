@@ -6,7 +6,7 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 07/26/2022
 ---
 
 # Python app to connect and query Hyperscale (Citus)
@@ -46,14 +46,15 @@ Replace the following values:
 
 ## Step 1: Connect, create table, and insert data
 
-The following code example connects to your Hyperscale (Citus) database using
-the [psycopg2.connect](https://www.psycopg.org/docs/connection.html) function,
-and loads data with a SQL INSERT statement.  The
-[cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) function
-executes the SQL query against the database.
+The following code example creates a connection pool to your Postgres database using
+the [psycopg2.pool](https://www.psycopg.org/docs/pool.html) library. **pool.getconn()** is used to get a connection from the pool.
+[cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) function executes the SQL query against the database.
+
+[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
 ```python
 import psycopg2
+from psycopg2 import pool
 
 # NOTE: fill in these variables for your own server group
 host = "<host>"
@@ -65,8 +66,12 @@ sslmode = "require"
 # now we'll build a connection string from the variables
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 
-conn = psycopg2.connect(conn_string)
-print("Connection established")
+postgreSQL_pool = psycopg2.pool.SimpleConnectionPool(1, 20,conn_string)
+if (postgreSQL_pool):
+    print("Connection pool created successfully")
+
+# Use getconn() to Get Connection from connection pool
+conn = postgreSQL_pool.getconn()
 
 cursor = conn.cursor()
 

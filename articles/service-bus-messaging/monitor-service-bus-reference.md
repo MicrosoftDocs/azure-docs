@@ -144,6 +144,37 @@ The following management operations are captured in operational logs:
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
 
+### Virtual network and IP filtering logs
+Service Bus virtual network (VNet) connection event JSON includes elements listed in the following table:
+
+| Name | Description |
+| ---  | ----------- | 
+| SubscriptionId | Azure subscription ID |
+| NamespaceName | Namespace name |
+| IPAddress | IP address of a client connecting to the Service Bus service |
+| Action | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
+| Reason | Provides a reason why the action was done |
+| Count | Number of occurrences for the given action |
+| ResourceId | Azure Resource Manager resource ID. |
+| Category | ServiceBusVNetConnectionEvent |
+
+> [!NOTE] 
+> Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
+
+Here's an example of a virtual network log JSON string:
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Accept Connection",
+    "Reason": "IP is accepted by IPAddress filter.",
+    "Count": 1,
+    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+    "Category": "ServiceBusVNetConnectionEvent"
+}
+```
 
 ## Runtime audit logs
 Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.  
