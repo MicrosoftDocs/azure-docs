@@ -12,7 +12,7 @@ The current release is 7.9.10.
 
 ## Azure CycleCloud 7.9 Release Highlights
 
-|Item|Sample|
+|  |  |
 | --- | --- |
 | [**IBM Spectrum LSF Support**](lsf.md)<br/>The official LSF resource connector plugin for CycleCloud is included in IBM LSF version 10.1 fp 9, and this release includes a LSF cluster template.  | ![LSF sample](./images/release-notes/lsf.png)  |
 | [**Node Management**](~/cluster-references/configuration-reference.md)<br/>The user interface now has explicit control over operating nodes.<br/><br/>  - It is now possible to add nodes to a cluster and specify the placement groups that the nodes should be in. This gives a user a measure of control over node proximity, which is invaluable for creating an MPI ring for building or debugging MPI code.<br/><br/>  - A keep-alive toggle on each node also gives users control over a node's lifespan independently from a scheduler's autoscaling policies. This feature is useful for users who need to access a node locally for troubleshooting applications or jobs.  | [ ![Node management sample](./images/release-notes/node_management_small.png) ](./images/release-notes/node_management_large.png#lightbox) |

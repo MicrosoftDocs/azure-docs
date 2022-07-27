@@ -14,7 +14,7 @@ The current release is 8.2.2.
 
 CycleCloud 8.2 is the second GA release of the CycleCloud 8.x platform and continues to add expanded scheduler support and improvements.
 
-|Item|Logo|
+|  |  |
 | --- | --- |
 | [**OpenPBS is supported by azpbs agent**](~/openpbs.md)<br/> Introducing `azpbs` a configuration-based agent for managing heterogeneous OpenPBS cluster including on-prem/cloud hybrid. `azpbs` is a more general and precise matching framework for job and VM resources. | ![Open PBS Logo](./images/release-notes/openpbs-logo.png) |
 | [**Altair Grid Engine is a Supported Scheduler Type**](~/gridengine.md)<br/> A free, demo version of Altair Grid Engine is available in CycleCloud 8.2, with a simple path to full end-to-end enterprise support for Altair clusters running on Azure. [Learn more about Altair + Azure here](https://techcommunity.microsoft.com/t5/azure-compute/univa-grid-engine-cluster-arrives-in-azure-cyclecloud-8-1/ba-p/1863043) | ![Altair Logo](./images/release-notes/altair-logo-small.png) |
