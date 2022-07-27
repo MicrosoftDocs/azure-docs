@@ -94,9 +94,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | Name | Source Attribute|
     | ------------ | --------- |
-    | email | user.mail |
-    | family_name | user.surname |
     | userName | user.userprincipalname |
+    | email | user.userprincipalname |
+    | family_name | user.surname |
+    | given_name | user.givenname |
     
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
