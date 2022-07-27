@@ -20,7 +20,7 @@ The following domains are only necessary if you're using a relevant OS. For exam
 
 | Domain                     | Port | Host operating systems |
 | -------------------------- | ---- | -- |
-| amazonlinux.\*.amazonaws.com/2/extras/* | 443 | Amazon Linux 2 |
+| amazonlinux.*.amazonaws.com/2/extras/\* | 443 | Amazon Linux 2 |
 | yum default repositories | - | RHEL / Centos |
 | apt default repositories | - | Debian |
 
