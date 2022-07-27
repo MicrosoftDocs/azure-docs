@@ -137,7 +137,7 @@ To create the pod run:
     kubectl exec -it mdc-test -- bash
     ```
 
-1. Select an executable, copy it to a convenient location and rename it to `./asc_alerttest_662jfi039n`. For example:
+1. Copy the executable to a separate location and rename it to `./asc_alerttest_662jfi039n` with the following command `cp /bin/echo ./asc_alerttest_662jfi039n`.
 `cp /bin/echo ./asc_alerttest_662jfi039n`.
 
 1. Execute the file `./asc_alerttest_662jfi039n testing eicar pipe`.
