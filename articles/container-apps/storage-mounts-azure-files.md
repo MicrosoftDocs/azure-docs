@@ -376,6 +376,8 @@ Now you can update the container app configuration to support the storage mount.
       --resource-group $RESOURCE_GROUP \
       --environment $ENVIRONMENT_NAME \
       --image nginx \
+      --min-replicas 1 \
+      --max-replicas 1 \
       --target-port 80 \
       --ingress external \
       --query properties.configuration.ingress.fqdn
@@ -389,6 +391,8 @@ Now you can update the container app configuration to support the storage mount.
       --resource-group $RESOURCE_GROUP `
       --environment $ENVIRONMENT_NAME `
       --image nginx `
+      --min-replicas 1 `
+      --max-replicas 1 `
       --target-port 80 `
       --ingress external `
       --query properties.configuration.ingress.fqdn
@@ -433,7 +437,7 @@ Now you can update the container app configuration to support the storage mount.
 
 1. Open *app.yaml* in a code editor.
 
-1. Add a reference to the storage volumes to the `template` and configure the storage mount in the `containers` definition.
+1. Add a reference to the storage volumes to the `template` definition.
 
     ```yml
     template:
