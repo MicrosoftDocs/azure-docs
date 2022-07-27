@@ -198,7 +198,7 @@ df.show()
 
 If you mounted a Blob Storage account and want to access it by using `mssparkutils` or the Spark API, you need to explicitly configure the SAS token via Spark configuration before you try to mount the container by using the mount API: 
 
-1. Update the Spark configuration as shown in the following code example if you want to access it by using `mssparkutils` or the Spark API after a trigger mount. You can bypass this step if you want to access the Spark configuration only by using a local file API after mounting.
+1. To access a Blob Storage account by using `mssparkutils` or the Spark API after a trigger mount, update the Spark configuration as shown in the following code example. You can bypass this step if you want to access the Spark configuration only by using the local file API after mounting.
 
     ```python 
     blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds("myblobstorageaccount") 
