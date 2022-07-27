@@ -40,7 +40,13 @@ Total supported language codes: 21
 | Portuguese (Brazil)   |    `pt-BR`          |         2019-10-01         |                    |
 | Portuguese (Portugal) |    `pt-PT`          |         2019-10-01         | `pt` also accepted |
 | Spanish               |     `es`            |         2019-10-01         |                    |
-| Turkish               |     `tr`             |         2020-04-01        |                    |
+| Arabic               |     `ar`             |         2022-06-01        |                    |
+| Danish               |     `da`             |         2022-06-01        |                    |
+| Greek               |     `el`             |         2022-06-01        |                    |
+| Finnish               |     `fi`             |         2022-06-01        |                    |
+| Polish               |     `pl`             |         2022-06-01        |                    |
+| Russian               |     `ru`             |         2022-06-01        |                    |
+| Swedish               |     `sv`             |         2022-06-01        |                    |
 
 ### Opinion Mining language support
 
