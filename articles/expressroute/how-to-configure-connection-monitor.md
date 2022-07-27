@@ -117,11 +117,11 @@ Once you've configured the monitoring solution. Continue to the next step of ins
 
 1. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/copy-id-key.png" alt-text="Screenshot of workspace id and primary key.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/copy-id-key.png" alt-text="Screenshot of workspace ID and primary key.":::
 
 1. For Windows machines, download and run this PowerShell script [*EnableRules.ps1*](https://aka.ms/npmpowershellscript) in a PowerShell window with Administrator privileges. The PowerShell script will open the relevant firewall port for the TCP transactions. 
  
-    For Linux machines, the port number needs to be changed manually with the follow steps:
+    For Linux machines, the port number needs to be changed manually with the following steps:
 
     * Navigate to path: /var/opt/microsoft/omsagent/npm_state.
     * Open file: npmdregistry

@@ -186,7 +186,7 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 
 1. Sign onto the Windows server that is a member of the NLB cluster with an administrative account.  
 2. Open Network Load Balancing Manager in Server Manager, click **Tools**, and then click **Network Load Balancing Manager**.
-3. To connect an Log Analytics gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**. 
+3. To connect a Log Analytics gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**. 
 
     ![Network Load Balancing Manager – Add Host To Cluster](./media/gateway/nlb02.png)
  
