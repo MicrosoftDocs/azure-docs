@@ -36,6 +36,22 @@ To view these logs:
 4. Within the results, you'll see the logs related to the installation of your packages.
     ![Screenshot that highlights system reserved library job results.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png "View system library job progress")
 
+## Track installation failures
+In certain cases, users can also inspect the full installation logs available in the Spark History Server to identify complicated dependency conflicts. The logs avaialble through the Spark UI could be truncated and accessing the full installation logs through the the Spark History Server would be useful in complex library installation scenarios.
+
+To view the full installation logs:
+1. Navigate to the Spark applications list in the **Monitor** tab. 
+2. Select the system Spark application job that corresponds to the failed pool update. These system jobs run under the *SystemReservedJob-LibraryManagement* title.
+   ![Screenshot that highlights the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-failure.png "View failed system library job")
+3. Select the highlighted **Spark history server** option which would open the Spark history server details page in a new tab.
+   ![Screenshot that highlights the details of the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-failure-details.png "View details of failed system library job")
+4. In this page, you will see 2 attempts, select **Attempt 1** as shown below.
+    ![Screenshot that highlights the executor details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-executors.png "View executor detaols in spark history server page")
+5. On the top navigation bar in the Spark history server page, switch to the **Executors** tab.
+    ![Screenshot that highlights the job details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-page.png "View the job details in the spark history server page")
+6. Dowload the **stdout** and **stderr** log files to access the full library management output and error logs.
+    ![Screenshot that highlights the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-executors-details.png "View stdout and stderr logs in the spark history server page")
+
 ## Validate your permissions
 To install and update libraries, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Azure Data Lake Storage Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.
 
