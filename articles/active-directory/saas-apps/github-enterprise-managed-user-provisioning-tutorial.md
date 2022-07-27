@@ -152,6 +152,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
     ![Provisioning Scope](common/provisioning-scope.png)
 
+> [!NOTE]
+> You should only sync users assigned to the GitHub application.
+
 15. When you are ready to provision, click **Save**.
 
     ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
