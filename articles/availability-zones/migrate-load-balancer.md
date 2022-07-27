@@ -21,83 +21,63 @@ For a Standard Zone redundant Load Balancer, the traffic is served by a single I
 
 You can choose to have a frontend guaranteed to a single zone, which is known as a zonal. This scenario means any inbound or outbound flow is served by a single zone in a region. Your frontend shares fate with the health of the zone. The data path is unaffected by failures in other zones. You can use zonal frontends to expose an IP address per Availability Zone.
 
-<!--Provide any general comments or information that would be useful to the customer concerning the AZ migration options they will be considering.-->
-
 ## Prerequisites
 - AZs are supported with Standard SKU for both load balancer and Public IP. 
 - Basic SKU type isn't supported. 
 - To create or move this resource, one should have the Network Contributor role or higher.
 
-<!-- List and describe all required prerequisites needed in order to accomplish the migration task. (Supported SKU needed, etc):
-
-* First prereq
-* Second,etc.
-
--->
-
 ## Downtime requirements
 
-Downtime is required.
+Downtime is required. All migration scenarios require some level of downtime down to the changing of resources used by the load balancer configurations.
+## Migration option 1: Enable existing Load Balancer to use Availability Zones (same region)
 
-<!--List any downtime requirements for your migration options.-->
+ Let's say you need to enable an existing load balancer to use Availability Zones within the same Azure region. You can't just switch an existing Azure load balancer from non-AZ to be AZ aware. But you won't have to redeploy a load balancer to take advantage of this migration. A quick Frontent IP configuration change will get this done for you.
 
-
-<!--In the sections below, provide each option separately. Use the following template for each:-->
-
-## Migration option 1:Enable existing Load Balancer to use Availability Zones (same region)
-
-### When to enable an existing Load Balancer to use Availability Zones (same region) 
-
-
-### How to enable an existing Load Balancer to use Availability Zones (same region) 
- You can't just switch an existing Azure load balancer from non-AZ to be AZ aware whether it is in the same or different Azure region. However, this also doesn’t imply that we need to redeploy the entire load balancer from scratch. The process of switching to AZs is rather easier when we need to make this change in the same region as compared to another region.
-To make this change, we need to create a new Frontend IP configuration with desired AZ option (Zonal or Zone Redundant) and associate it with the existing Load Balancer. This operation will change the Public IP of the load balancer, which will break the connectivity for certain resources using the old IP address. Make sure to update the load balancing rules and configurations to utilize these new public IPs.
+To enable an existing load balancer to use Availability Xones in the same region:
+1. Create a new Frontend IP configuration with desired AZ option (Zonal or Zone Redundant).
+1.  Associate the new IP with the existing Load Balancer. This operation will change the Public IP of the load balancer, which will break the connectivity for certain resources using the old IP address.
+1. Update the load balancing rules and configurations to utilize these new public IPs.
 
 :::image type="content" source="media/enable-availability-zones-load-balancer.png" alt-text="Screenshot of Azure Portal showing Availability Zone dropdown menu":::
 
-Note that it isn't required to have a load balancer for each zone, rather having a single load balancer with multiple frontends (zonal or zone redundant) associated to their respective backend pools will serve the purpose. 
+> [NOTE!]
+> It isn't required to have a load balancer for each zone, rather having a single load balancer with multiple frontends (zonal or zone redundant) associated to their respective backend pools will serve the purpose. 
 
-As Frontend IP can be either zonal or zone redundant, users need to decide which option to choose based on the requirements.  
+As Frontend IP can be either zonal or zone redundant, users need to decide which option to choose based on the requirements. The following are recommendations for each:
 
-**Zonal Frontend** - We recommend creating zonal frontend when backend is concentrated in a particular zone. For example, if backend instances are pinned to zone 2 then it makes sense to create Frontend IP configuration in Availability zone 2.
-Zone Redundant Frontend – When the resources (VMs, NICs, IP addresses, etc.) inside a backend pool are distributed across zones, then it's recommended to create Zone redundant Frontend. This will provide the high availability and ensure seamless connectivity even if a zone goes down. 
-
- For detailed guidance on using Availability Zones for Load balancer, refer to these articles:
-
-Load balance VMs across Zones
-Load balance VMs within a zone using a zonal Standard Load Balancer
-Quickstart: Create an internal load balancer - Azure portal - Azure Load Balancer | Microsoft Docs
-
-<!-- Need URLs for above-->
-
-<!-- Provide number steps. -->
-
+| **Frontend IP configuration** | **Recommendation** |
+| ----- | ----- |
+|Zonal Frontend | We recommend creating zonal frontend when backend is concentrated in a particular zone. For example, if backend instances are pinned to zone 2 then it makes sense to create Frontend IP configuration in Availability zone 2. |
+| Zone Redundant Frontend | When the resources (VMs, NICs, IP addresses, etc.) inside a backend pool are distributed across zones, then it's recommended to create Zone redundant Frontend. This will provide the high availability and ensure seamless connectivity even if a zone goes down. |
 ## Migration option 2: Migrate Load Balancer to another region with AZs
 
-### When to migrate Load Balancer to another region with AZs
+Depending on the type of load balancer you have, you'll need to follow different steps. The following sections cover migrating both external and internal load balancers
+### Migrate an Internal Load Balancer
 
-### How to migrate Load Balancer to another region with AZs
-
-#### Internal Load Balancer
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. A private IP address in the virtual network is configured as the frontend (named as LoadBalancerFrontend by default) for the load balancer. While configuring this FE IP, you can select the availability zones.
 
 Azure internal load balancers can't be moved from one region to another. We must associate the new load balancer to resources in the target region. For this, we can use an Azure Resource Manager template to export the existing configuration and virtual network of an internal load balancer. We can then stage the resource in another region by exporting the load balancer and virtual network to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region.
-- As part of this process, the virtual network configuration of the internal load balancer must be done first before moving the internal load balancer. Ensure to change the VNET name and target location, rest all parameters such as address prefix and subnets are optional to update.
-- Once VNET is deployed in the target region. Export the internal load balancer template, edit the target load balancer name, target VNET resource ID and other parameters. 
-- No need to change the Load balancing rules, Inbound NAT rules and health probes, these can be left as it is unless you want to modify/add more rules.
-- While deploying Frontend private IP in the subnet, ensure Zonal or Zone redundant option is selected as per requirement.
-- Verify all the changes and deploy the template from portal or PowerShell.
+
+To migrate an internal load balancer to another region:
+1. Export configuration of internal load balancer
+1. Export configuration of Virtual network
+    1. Change of the VNET name and target location are required. It is optional to update other parameters such as address prefix and subnet.
+1. Once VNET is deployed in the target region, export the internal load balancer template, edit the target load balancer name, target VNET resource ID and other parameters.
+1. No need to change the Load balancing rules, Inbound NAT rules and health probes, these can be left as it is unless you want to modify/add more rules.
+1. Edit template to deploy Frontend private IP in the subnet, ensure Zonal or Zone redundant option is selected as per requirement.
+1. Verify all the changes in the template are correct.
+1. Deploy the template from portal or PowerShell.
 
 Example:  Frontend IP configuration will resemble the following code when Zone redundant 
 :::image type="content" source="media/front-end-ip-json-zone-redundant.png" alt-text="Screenshot of JSON code for zone redundant front end ip":::
 
 
-For detailed guidance on moving Internal Load Balancer across regions, refer to the following articles:
+For detailed guidance on moving Internal Load Balancer across regions, refer to the following articles: (https://docs.microsoft.com/en-us/azure/load-balancer/move-across-regions-internal-load-balancer-portal)
 
 
 <!-- Find url for above -->
 
-#### External Load Balancer 
+#### Migrate a External Load Balancer 
 
 Azure external load balancers can't be moved between regions. We need to associate the new load balancer to resources in the target region.
 To redeploy load balancer with the source configuration to a new Zone resilient region, the most suitable approach is to use an Azure Resource Manager template to export the existing configuration external load balancer. You can then stage the resource in another region by exporting the load balancer and public IP to a template, modifying the parameters to match the destination region, and then deploying the template to the new region. 
@@ -116,7 +96,4 @@ Reference Link: Move an Azure external load balancer to another Azure region by 
 
 ## Next steps
 
-<!-- Provide useful URLs here in the following format:
-> [!div class="nextstepaction"]
-> [Link title](my-page.md).
- -->
+ To learn more about load balancers and availability zones, check out [Load Balancer and Availability Zones](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-availability-zones).
