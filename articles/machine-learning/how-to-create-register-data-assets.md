@@ -42,7 +42,7 @@ To create and work with Data assets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 
 * The [Azure Machine Learning CLI/SDK installed](how-to-configure-cli.md) and MLTable package installed (`pip install mltable`).
 

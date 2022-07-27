@@ -4,17 +4,17 @@ description: An introduction to HDInsight, and the Apache Hadoop and Apache Spar
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.date: 11/17/2021
+ms.date: 07/11/2022
 #Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
 # What is Azure HDInsight?
 
-Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more, in your Azure environment.
+Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, and more, in your Azure environment.
 
 ## What is HDInsight and the Hadoop technology stack?
 
-Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data in a customizable environment. You can use the most popular open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more. With these frameworks, you can enable a broad range of scenarios such as extract, transform, and load (ETL), data warehousing, machine learning, and IoT.
+Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data in a customizable environment. You can use the most popular open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm and more. With these frameworks, you can enable a broad range of scenarios such as extract, transform, and load (ETL), data warehousing, machine learning, and IoT.
 
 To see available Hadoop technology stack components on HDInsight, see [Components and versions available with HDInsight](./hdinsight-component-versioning.md). To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -27,7 +27,7 @@ To see available Hadoop technology stack components on HDInsight, see [Component
 |Secure and compliant    | HDInsight enables you to protect your enterprise data assets with Azure Virtual Network, encryption, and integration with Azure Active Directory. HDInsight also meets the most popular industry and government compliance standards.        |
 |Monitoring    | Azure HDInsight integrates with Azure Monitor logs to provide a single interface with which you can monitor all your clusters.        |
 |Global availability | HDInsight is available in more regions than any other [big data](#what-is-big-data) analytics offering. Azure HDInsight is also available in Azure Government, China, and Germany, which allows you to meet your enterprise needs in key sovereign areas. |  
-|Productivity     |  Azure HDInsight enables you to use rich productive tools for Hadoop and Spark with your preferred development environments. These development environments include  Visual Studio, VSCode, Eclipse, and IntelliJ for Scala, Python, R, Java, and .NET support. Data scientists can also collaborate using popular notebooks such as Jupyter and Zeppelin.    |
+|Productivity     |  Azure HDInsight enables you to use rich productive tools for Hadoop and Spark with your preferred development environments. These development environments include  Visual Studio, VSCode, Eclipse, and IntelliJ for Scala, Python, Java, and .NET support. Data scientists can also collaborate using popular notebooks such as Jupyter and Zeppelin.    |
 |Extensibility     |  You can extend the HDInsight clusters with installed components (Hue, Presto, and so on) by using script actions, by adding edge nodes, or by integrating with other [big data](#what-is-big-data) certified applications. HDInsight enables seamless integration with the most popular [big data](#what-is-big-data) solutions with a one-click deployment.|
 
 ### What is big data?
@@ -49,7 +49,7 @@ HDInsight includes specific cluster types and cluster customization capabilities
 
 ## Scenarios for using HDInsight
 
-Azure HDInsight can be used for a variety of scenarios in [big data](#what-is-big-data) processing. It can be historical data (data that's already collected and stored) or real-time data (data that's directly streamed from the source). The scenarios for processing such data can be summarized in the following categories:
+Azure HDInsight can be used for various scenarios in [big data](#what-is-big-data) processing. It can be historical data (data that's already collected and stored) or real-time data (data that's directly streamed from the source). The scenarios for processing such data can be summarized in the following categories:
 
 ### Batch processing (ETL)
 
@@ -75,7 +75,7 @@ You can use HDInsight to build applications that extract critical insights from 
 
 ### Hybrid
 
-You can use HDInsight to extend your existing on-premises [big data](#what-is-big-data) infrastructure to Azure to leverage the advanced analytics capabilities of the cloud.
+You can use HDInsight to extend your existing on-premises [big data](#what-is-big-data) infrastructure to Azure to apply the advanced analytics capabilities of the cloud.
 
 :::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png" alt-text="HDInsight architecture: Hybrid":::
 
@@ -90,7 +90,7 @@ HDInsight clusters, including Spark, HBase, Kafka, Hadoop, and others, support m
 |Programming language  |Information  |
 |---------|---------|
 |Default programming language support     | By default, HDInsight clusters support:<ul><li>Java</li><li>Python</li><li>.NET</li><li>Go</li></ul>  |
-|Java virtual machine (JVM) languages     | Many languages other than Java can run on a Java virtual machine (JVM). However, if you run some of these languages, you might have to install additional components on the cluster. The following JVM-based languages are supported on HDInsight clusters: <ul><li>Clojure</li><li>Jython (Python for Java)</li><li>Scala</li></ul>     |
+|Java virtual machine (JVM) languages     | Many languages other than Java can run on a Java virtual machine (JVM). However, if you run some of these languages, you might have to install more components on the cluster. The following JVM-based languages are supported on HDInsight clusters: <ul><li>Clojure</li><li>Jython (Python for Java)</li><li>Scala</li></ul>     |
 |Hadoop-specific languages     | HDInsight clusters support the following languages that are specific to the Hadoop technology stack: <ul><li>Pig Latin for Pig jobs</li><li>HiveQL for Hive jobs and SparkSQL</li></ul>        |
 
 ## Development tools for HDInsight
@@ -119,7 +119,7 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 ## In-region data residency 
 
-Spark, Hadoop, LLAP, Storm, and MLService do not store customer data, so these services automatically satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+Spark, Hadoop, LLAP, and Storm don't store customer data, so these services automatically satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
 
 Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
 

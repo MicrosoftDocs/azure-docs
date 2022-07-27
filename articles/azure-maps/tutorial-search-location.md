@@ -140,7 +140,7 @@ The Map Control API is a convenient client library. This API allows you to easil
 
    About this code:
 
-   * A `ready` event is added to the map, which fires when the map resources finnish loading and the map is ready to be accessed.
+   * A `ready` event is added to the map, which fires when the map resources finish loading and the map is ready to be accessed.
    * In the map `ready` event handler, a data source is created to store result data.
    * A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered. In this case, the result is rendered with a dark blue round pin icon, centered over the results coordinate, that allows other icons to overlap.
    * The result layer is added to the map layers.

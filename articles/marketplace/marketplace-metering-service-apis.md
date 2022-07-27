@@ -4,7 +4,7 @@ description: The usage event API allows you to emit usage events for SaaS offers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 07/07/2022
 author: arifgani
 ms.author: argani
 ---
@@ -158,7 +158,7 @@ The batch usage event API allows you to emit usage events for more than one purc
 | `authorization`      | A unique access token that identifies the ISV that is making this API call. The format is `Bearer <access_token>` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](./marketplace-metering-service-authentication.md). </li> </ul> |
 
 >[!NOTE]
->In the request body, the resource identifier has different meanings for SaaS app and for Azure Managed app emitting custom meter. The resource identifier for SaaS App is `resourceID`. The resource identifier for Azure Application Managed Apps plans is `resourceUri`.
+>In the request body, the resource identifier has different meanings for SaaS app and for Azure Managed app emitting custom meter. The resource identifier for SaaS App is `resourceID`. The resource identifier for Azure Application Managed Apps plans is `resourceUri`. For more information on resource identifiers, see [Azure Marketplace Metered Billing- Picking the correct ID when submitting usage events](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-marketplace-metered-billing-picking-the-correct-id-when/ba-p/3542373).
 
 For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions).
 
@@ -185,7 +185,7 @@ For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details 
 }
 ```
 
-For Azure Application Managed Apps plans, the `resourceUri` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+For Azure Application Managed Apps plans, the `resourceUri` is the Managed Application `resourceId`. An example script for fetching it can be found in [using the Azure-managed identities token](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 *Request body example for Azure Application managed apps:*
 

@@ -78,6 +78,6 @@ Monitoring Addon Custom Policy can be assigned at either the subscription or res
 ## Next steps
 
 - Learn more about [Azure Policy](../../governance/policy/overview.md).
-- Learn how [remediation security works](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
+- Learn how [remediation access control works](../../governance/policy/how-to/remediate-resources.md#how-remediation-access-control-works).
 - Learn more about [Container insights](./container-insights-overview.md).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).

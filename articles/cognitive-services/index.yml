@@ -57,7 +57,7 @@ conceptualContent:
           text: Custom Vision
         - url: ./computer-vision/index-identity.yml
           itemType: overview
-          text: Identity
+          text: Face
     - title: Language
       summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
       links:

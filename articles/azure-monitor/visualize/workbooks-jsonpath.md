@@ -5,10 +5,10 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/05/2022
 ---
 
-# How to use JSONPath to transform JSON data in workbooks
+# Use JSONPath to transform JSON data in workbooks
 
 Workbooks is able to query data from many sources. Some endpoints, such as [Azure Resource Manager](../../azure-resource-manager/management/overview.md) or custom endpoint, can return results in JSON. If the JSON data returned by the queried endpoint is not configured in a format that you desire, JSONPath can be used to transform the results.
 
@@ -18,7 +18,7 @@ By using JSONPath transformation, workbook authors are able to convert JSON into
 
 ## Using JSONPath
 
-1. Switch the workbook to edit mode by clicking on the *Edit* toolbar item.
+1. Switch the workbook to edit mode by clicking **Edit** in the toolbar.
 2. Use the *Add* > *Add query* link to add a query control to the workbook.
 3. Select the data source as *JSON*.
 4. Use the JSON editor to enter the following JSON snippet

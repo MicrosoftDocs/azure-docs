@@ -2,12 +2,12 @@
 title: SAP change data capture solution (Preview) - management
 titleSuffix: Azure Data Factory
 description: This article describes how to manage SAP change data capture (Preview) in Azure Data Factory.
-author: swinarko
+author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 06/01/2022
-ms.author: sawinark
+ms.author: ulrichchrist
 ---
 
 # Management of SAP change data capture (CDC) (Preview) in Azure Data Factory
@@ -56,13 +56,6 @@ To monitor data extractions on SAP systems, complete the following steps:
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-delete-queue-subscriptions.png" alt-text="Screenshot of the SAP ODQMON tool with the delete button highlighted for a particular queue subscription.":::
 
-## Current limitations
-
-The following are the current limitations of SAP CDC solution in ADF:
-
-- Resetting and deleting ODQ subscriptions from ADF aren't supported for now.
-- SAP hierarchies aren't supported for now.
-
 ## Troubleshooting delta change
 
 The Azure Data Factory ODP connector reads delta changes from the ODP framework, which itself provides them in tables called Operational Delta Queues (ODQs). 
@@ -90,5 +83,12 @@ Drilling down into the subscription, you find a list of “requests”, correspo
 Based on the timestamp in the first row, find the line corresponding to the copy activity run you want to analyze. If the number of rows shown in this screen equals the number of rows read by the copy activity, you've verified that ADF has read and transferred the data as provided by the SAP system. 
 
 In this case, we recommend consulting with the team responsible for your SAP system. 
+
+## Current limitations
+
+The following are the current limitations of SAP CDC solution in ADF:
+
+- Resetting and deleting ODQ subscriptions from ADF aren't supported for now.
+- SAP hierarchies aren't supported for now.
 
 

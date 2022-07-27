@@ -30,14 +30,16 @@ You can enable database protection on your subscription, or exclude specific dat
 
 ## Prerequisites
 
-- You must have Subscription Owner access
+You must have:
+
+- [Subscription Owner](../role-based-access-control/built-in-roles.md#owner) access.
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Enable database protection on your subscription
 
 **To enable Defender for Databases on a specific subscription**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 

@@ -2,12 +2,12 @@
 title: SAP change data capture solution (Preview) - data replication template
 titleSuffix: Azure Data Factory
 description: This topic describes how to use the SAP data replication template for SAP change data capture (Preview) in Azure Data Factory.
-author: swinarko
+author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 06/01/2022
-ms.author: sawinark
+ms.author: ulrichchrist
 ---
 
 # Auto-generate a pipeline from the SAP data replication template
@@ -20,7 +20,7 @@ This topic describes how to use the SAP data replication template for SAP change
 
 1.	Create a new pipeline from template.
 
-1.	Select SAP data replication template.
+1.	Select the **Replicate SAP data to Azure Synapse Analytics and persist raw data in Azure Data Lake Store Gen2** template.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-data-replication-template.png" alt-text="Screenshot of the template gallery with the SAP data replication template highlighted.":::
 
@@ -50,7 +50,7 @@ This topic describes how to use the SAP data replication template for SAP change
 
 1.	Select the **Save all** button and you can now run SAP data replication pipeline.
 
-1.	If you want to replicate SAP data to ADLS Gen2 in Delta format, complete the same steps as above, except using the Gen2 template.
+1.	If you want to replicate SAP data to ADLS Gen2 in Delta format, complete the same steps as above, except using the **Replicate SAP data to Azure Data Lake Store Gen2 in Delta format and persist raw data in CSV format** template.
 
     ADF copy activity runs on SHIR to extract raw data (full + deltas) from SAP systems and load it into ADLS Gen2 where it’s persisted as CSV files, archiving/preserving historical changes.  The files can be found in the _sapcdc_ container under the _deltachange/&lt;your pipeline name&gt;/&lt;your pipeline run timestamp&gt;_ folder path.  The **Extraction mode** property of ADF copy activity is set to _Delta_.  The **Subscriber process** property of ADF copy activity is parameterized.
 

@@ -285,5 +285,5 @@ The studio is also where you access the interactive tools that are part of Azure
 To get started with Azure Machine Learning, see:
 
 * [What is Azure Machine Learning?](../overview-what-is-azure-machine-learning.md)
-* [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md)
+* [Create an Azure Machine Learning workspace](../quickstart-create-resources.md)
 * [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md)

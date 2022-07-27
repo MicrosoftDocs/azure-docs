@@ -21,7 +21,7 @@ This release applies for HDInsight 4.0. HDInsight release is made available to a
 The OS versions for this release are: 
 - 	HDInsight 4.0: Ubuntu 18.04.5 
 
-## Spark 3.1 is now generally available
+### Spark 3.1 is now generally available
 
 Spark 3.1 is now Generally Available on HDInsight 4.0 release.  This release includes 
 
@@ -37,12 +37,12 @@ For a complete list of improvements, see the [Apache Spark 3.1 release notes.](h
 
 For more details on migration, see the [migration guide.](https://spark.apache.org/docs/latest/migration-guide.html)
 
-## Kafka 2.4 is now generally available
+### Kafka 2.4 is now generally available
 
 Kafka 2.4.1 is now Generally Available.  For more information, please see [Kafka 2.4.1 Release Notes.](http://kafka.apache.org/24/documentation.html) 
 Other features include MirrorMaker 2 availability, new metric category AtMinIsr topic partition, Improved broker start-up time by lazy on demand mmap of index files, More consumer metrics to observe user poll behavior.
 
-## Map Datatype in HWC is now supported in HDInsight 4.0 
+### Map Datatype in HWC is now supported in HDInsight 4.0 
 
 This release includes Map Datatype Support for HWC 1.0 (Spark 2.4) Via the spark-shell  application, and all other all spark clients that HWC supports. Following improvements are included like any other data types:
 
@@ -69,12 +69,12 @@ OSS backports that are included in Hive including HWC 1.0 (Spark 2.4) which supp
 | LLAP external client - Handle nested values when the parent struct is null                    | [HIVE-25243](https://issues.apache.org/jira/browse/HIVE-25243)     |
 | Upgrade arrow version to 0.11.0                    | [HIVE-23987](https://issues.apache.org/jira/browse/HIVE-23987)     |
 
-## Deprecation notices
-### Azure Virtual Machine Scale Sets on HDInsight  
+### Deprecation notices
+#### Azure Virtual Machine Scale Sets on HDInsight  
 
 HDInsight will no longer use Azure Virtual Machine Scale Sets to provision the clusters, no breaking change is expected. Existing HDInsight clusters on virtual machine scale sets will have no impact, any new clusters on latest images will no longer use Virtual Machine Scale Sets.  
 
-### Scaling of Azure HDInsight HBase workloads will now be supported only using manual scale
+#### Scaling of Azure HDInsight HBase workloads will now be supported only using manual scale
 
 Starting from March 01, 2022, HDInsight will only support manual scale for HBase, there's no impact on running clusters.  New HBase clusters won't be able to enable schedule based Autoscaling.  For more information on how to  manually scale your HBase cluster, refer our documentation on [Manually scaling Azure HDInsight clusters](./hdinsight-scaling-best-practices.md)
 
@@ -1960,7 +1960,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-96712              | [FLUME-3194](https://issues.apache.org/jira/browse/FLUME-3194)                                                                                                                                             | upgrade derby to the latest (1.14.1.0) version                                                                        |
 | BUG-96713              | [FLUME-2678](https://issues.apache.org/jira/browse/FLUME-2678)                                                                                                                                             | Upgrade xalan to 2.7.2 to take care of CVE-2014-0107 vulnerability                                                    |
 | BUG-96714              | [FLUME-2050](https://issues.apache.org/jira/browse/FLUME-2050)                                                                                                                                             | Upgrade to log4j2 (when GA)                                                                                           |
-| BUG-96737              | N/A                                                                                                                                                                                                        | Use java io filesystem methods to access local files                                                                  |
+| BUG-96737              | N/A                                                                                                                                                                                                        | Use Java io filesystem methods to access local files                                                                  |
 | BUG-96925              | N/A                                                                                                                                                                                                        | Upgrade Tomcat from 6.0.48 to 6.0.53 in Hadoop                                                                        |
 | BUG-96977              | [FLUME-3132](https://issues.apache.org/jira/browse/FLUME-3132)                                                                                                                                             | Upgrade tomcat jasper library dependencies                                                                            |
 | BUG-97022              | [HADOOP-14799](https://issues.apache.org/jira/browse/HADOOP-14799), [HADOOP-14903](https://issues.apache.org/jira/browse/HADOOP-14903), [HADOOP-15265](https://issues.apache.org/jira/browse/HADOOP-15265) | Upgrading Nimbus-JOSE-JWT library with version above 4.39                                                             |
