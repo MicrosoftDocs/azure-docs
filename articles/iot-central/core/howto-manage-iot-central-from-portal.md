@@ -50,9 +50,6 @@ After filling out all fields, select **Create**. To learn more, see [Create an I
 
 If you already have an Azure IoT Central application, you can delete it, or move it to a different subscription or resource group in the Azure portal.
 
-> [!NOTE]
-> Applications created using the *free* plan do not require an Azure subscriptions, and therefore you won't find them listed in your Azure subscription on the Azure portal. You can only see and manage free apps from the IoT Central portal.
-
 To get started, search for your application in the search bar at the top of the Azure portal. You can also view all your applications by searching for _IoT Central Applications_ and selecting the service:
 
 ![Screenshot that shows the search results for "IoT Central Applications" with the first service selected.](media/howto-manage-iot-central-from-portal/search-iot-central.png)
@@ -102,9 +99,6 @@ You can configure role assignments in the Azure portal or use the Azure CLI:
 You can use the set of metrics provided by IoT Central to assess the health of devices connected to your IoT Central application and the health of your running data exports.
 
 Metrics are enabled by default for your IoT Central application and you access them from the [Azure portal](https://portal.azure.com/). The [Azure Monitor data platform exposes these metrics](../../azure-monitor/essentials/data-platform-metrics.md) and provides several ways for you to interact with them. For example, you can use charts in the Azure portal, a REST API, or queries in PowerShell or the Azure CLI.
-
-> [!TIP]
-> Applications that use the free trial plan don't have an associated Azure subscription and so don't support Azure Monitor metrics. You can [convert an application to a standard pricing plan](./howto-faq.yml#how-do-i-move-from-a-free-to-a-standard-pricing-plan-) and get access to these metrics.
 
 ### View metrics in the Azure portal
 
