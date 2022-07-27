@@ -21,112 +21,197 @@ This article lists supported human languages for Immersive Reader features.
 
 | Language | Tag |
 |----------|-----|
+| Afrikaans (South Africa) | af-ZA |
+| Afrikaans | af |
+| Albanian (Albania) | sq-AL |
+| Albanian | sq |
+| Amharic (Ethiopia) | am-ET |
+| Amharic | am |
 | Arabic (Egyptian) | ar-EG |
+| Arabic (Lebanon) | ar-LB |
+| Arabic (Oman) | ar-OM |
 | Arabic (Saudi Arabia) | ar-SA |
-| Bulgarian | bg |
+| Azerbaijani (Azerbaijan) | az-AZ |
+| Azerbaijani | az |
+| Bangla (Bangladesh) | bn-BD |
+| Bangla (India) | bn-IN |
+| Bangla | bn |
+| Bosnian (Bosnia & Herzegovina) | bs-BA |
+| Bosnian | bs |
 | Bulgarian (Bulgaria) | bg-BG |
-| Catalan | ca |
+| Bulgarian | bg |
+| Burmese (Myanmar ) | my-MM |
+| Burmese | my |
 | Catalan (Catalan) | ca-ES |
-| Chinese | zh |
+| Catalan | ca |
 | Chinese (China) | zh-CN |
 | Chinese (Hong Kong SAR) | zh-HK |
 | Chinese (Macao SAR) | zh-MO |
 | Chinese (Singapore) | zh-SG |
 | Chinese (Taiwan) | zh-TW |
-| Chinese Simplified | zh-Hans |
+| Chinese | zh |
 | Chinese Simplified (China) | zh-Hans-CN |
 | Chinese Simplified (Singapore) | zh-Hans-SG |
-| Chinese Traditional | zh-Hant |
+| Chinese Simplified | zh-Hans |
 | Chinese Traditional (China) | zh-Hant-CN |
 | Chinese Traditional (Hong Kong SAR) | zh-Hant-HK |
 | Chinese Traditional (Macao SAR) | zh-Hant-MO |
 | Chinese Traditional (Taiwan) | zh-Hant-TW |
-| Croatian | hr |
+| Chinese Traditional | zh-Hant |
+| Chinese (Literary) | lzh |
+| Chinese (Literary, China) | lzh-CN |
 | Croatian (Croatia) | hr-HR |
-| Czech | cs |
+| Croatian | hr |
 | Czech (Czech Republic) | cs-CZ |
-| Danish | da |
+| Czech | cs |
 | Danish (Denmark) | da-DK |
-| Dutch | nl |
+| Danish | da |
 | Dutch (Belgium) | nl-BE |
 | Dutch (Netherlands) | nl-NL |
-| English | en |
+| Dutch | nl |
 | English (Australia) | en-AU |
 | English (Canada) | en-CA |
 | English (Hong Kong SAR) | en-HK |
 | English (India) | en-IN |
 | English (Ireland) | en-IE |
+| English (Kenya) | en-KE |
 | English (New Zealand) | en-NZ |
+| English (Nigeria) | en-NG |
 | English (Philippines) | en-PH |
+| English (Singapore) | en-SG |
+| English (South Africa) | en-ZA |
+| English (Tanzania) | en-TZ |
 | English (United Kingdom) | en-GB |
 | English (United States) | en-US |
+| English | en |
 | Estonian | et-EE |
-| Finnish | fi |
+| Filipino (Philippines) | fil-PH |
+| Filipino | fil |
 | Finnish (Finland) | fi-FI |
-| French | fr |
+| Finnish | fi |
 | French (Belgium) | fr-BE |
 | French (Canada) | fr-CA |
 | French (France) | fr-FR |
 | French (Switzerland) | fr-CH |
-| German | de |
+| French | fr |
+| Galician (Spain) | gl-ES |
+| Galician | gl |
+| Georgian (Georgia) | ka-GE |
+| Georgian | ka |
 | German (Austria) | de-AT |
 | German (Germany) | de-DE |
 | German (Switzerland)| de-CH |
-| Greek | el |
+| German | de |
 | Greek (Greece) | el-GR |
-| Hebrew | he |
+| Greek | el |
+| Gujarati (India) | gu-IN |
+| Gujarati | gu |
 | Hebrew (Israel) | he-IL |
-| Hindi | hi |
+| Hebrew | he |
 | Hindi (India) | hi-IN |
-| Hungarian | hu |
+| Hindi | hi |
 | Hungarian (Hungary) | hu-HU |
-| Indonesian | id |
+| Hungarian | hu |
+| Icelandic (Iceland) | is-IS |
+| Icelandic | is |
 | Indonesian (Indonesia) | id-ID |
+| Indonesian | id |
+| Irish | ga |
 | Irish | ga-IE |
-| Italian | it |
 | Italian (Italy) | it-IT |
-| Japanese | ja |
+| Italian | it |
 | Japanese (Japan) | ja-JP |
-| Korean | ko |
+| Japanese | ja |
+| Javanese (Indonesia) | jv-ID |
+| Javanese | jv |
+| Kannada (India) | kn-IN |
+| Kannada | kn |
+| Kazakh (Kazakhstan) | kk-KZ |
+| Kazakh | kk |
+| Khmer (Cambodia) | km-KH |
+| Khmer | km |
 | Korean (Korea) | ko-KR |
+| Korean | ko |
+| Lao (Laos) | lo-LA |
+| Lao | lo |
+| Latvian (Latvia) | lv-LV |
 | Latvian | Lv-LV |
+| Lithuanian | lt |
 | Lithuanian | lt-LT |
-| Malay | ms |
+| Macedonian (North Macedonia) | mk-MK |
+| Macedonian | mk |
 | Malay (Malaysia) | ms-MY |
+| Malay | ms |
+| Malayalam (India) | ml-IN |
+| Malayalam | ml |
+| Maltese | mt |
 | Maltese | Mt-MT |
-| Norwegian Bokmal| nb |
+| Marathi (India) | mr-IN |
+| Marathi | mr |
+| Mongolian (Mongolia) | mn-MN |
+| Mongolian | mn |
+| Nepali (Nepal) | ne-NP |
+| Nepali | ne |
 | Norwegian Bokmal (Norway) | nb-NO |
-| Polish | pl |
+| Norwegian Bokmal| nb |
+| Pashto (Afghanistan) | ps-AF |
+| Pashto | ps |
+| Persian (Iran) | fa-IR |
+| Persian | fa |
 | Polish (Poland) | pl-PL |
-| Portuguese | pt |
+| Polish | pl |
 | Portuguese (Brazil) | pt-BR |
-| Portuguese (Portugal) | pt-PT |  
-| Romanian | ro |
+| Portuguese (Portugal) | pt-PT |  
+| Portuguese | pt |
 | Romanian (Romania) | ro-RO |
-| Russian | ru |
+| Romanian | ro |
 | Russian (Russia) | ru-RU |
-| Slovak | sk |
+| Russian | ru |
+| Serbian (Cyrillic) | sr-Cyrl |
+| Serbian (Cyrillic, Serbia) | sr-Cyrl-RS |
+| Sinhala (Sri Lanka) | si-LK |
+| Sinhala | si |
 | Slovak (Slovakia) | sk-SK |
-| Slovenian | sl |
+| Slovak | sk |
 | Slovenian (Slovenia) | sl-SI |
-| Spanish | es |
+| Slovenian | sl |
+| Somali (Somalia) | so-SO |
+| Somali | so |
+| Spanish (Argentina) | es-AR |
+| Spanish (Colombia) | es-CO |
 | Spanish (Latin America) | es-419 |
 | Spanish (Mexico) | es-MX |
 | Spanish (Spain) | es-ES |
-| Swedish | sv |
+| Spanish (United States) | es-US |
+| Spanish | es |
+| Sundanese (Indonesia) | su-ID |
+| Sundanese | su |
+| Swahili (Kenya) | sw-KE |
+| Swahili | sw |
 | Swedish (Sweden) | sv-SE |
-| Tamil | ta |
+| Swedish | sv |
 | Tamil (India) | ta-IN |
-| Telugu | te |
+| Tamil (Malaysia) | ta-MY |
+| Tamil | ta |
 | Telugu (India) | te-IN |
-| Thai | th |
+| Telugu | te |
 | Thai (Thailand) | th-TH |
-| Turkish | tr |
+| Thai | th |
 | Turkish (Turkey) | tr-TR |
+| Turkish | tr |
+| Ukrainian (Ukraine) | uk-UA |
+| Ukrainian | uk |
 | Ukrainian | ur-PK |
-| Vietnamese | vi |
+| Urdu (India) | ur-IN |
+| Urdu | ur |
+| Uzbek (Uzbekistan) | uz-UZ |
+| Uzbek | uz |
 | Vietnamese (Vietnam) | vi-VN |
+| Vietnamese | vi |
+| Welsh | cy |
 | Welsh | Cy-GB |
+| Zulu (South Africa) | zu-ZA |
+| Zulu | zu |
 
 ## Translation
 
@@ -135,43 +220,45 @@ This article lists supported human languages for Immersive Reader features.
 | Afrikaans | af |
 | Albanian | sq |
 | Amharic | am |
-| Arabic | ar |
 | Arabic (Egyptian) | ar-EG |
 | Arabic (Saudi Arabia) | ar-SA |
+| Arabic | ar |
 | Armenian | hy |
+| Assamese | as |
 | Azerbaijani | az |
-| Afrikaans | af |
 | Bangla | bn |
+| Bashkir | ba |
 | Bosnian | bs |
-| Bulgarian | bg |
 | Bulgarian (Bulgaria) | bg-BG |
+| Bulgarian | bg |
 | Burmese | my |
-| Catalan | ca |
 | Catalan (Catalan) | ca-ES |
-| Chinese | zh |
+| Catalan | ca |
 | Chinese (China) | zh-CN |
 | Chinese (Hong Kong SAR) | zh-HK |
 | Chinese (Macao SAR) | zh-MO |
 | Chinese (Singapore) | zh-SG |
 | Chinese (Taiwan) | zh-TW |
-| Chinese Simplified | zh-Hans |
+| Chinese | zh |
 | Chinese Simplified (China) | zh-Hans-CN |
 | Chinese Simplified (Singapore) | zh-Hans-SG |
-| Chinese Traditional | zh-Hant |
+| Chinese Simplified | zh-Hans |
 | Chinese Traditional (China) | zh-Hant-CN |
 | Chinese Traditional (Hong Kong SAR) | zh-Hant-HK |
 | Chinese Traditional (Macao SAR) | zh-Hant-MO |
 | Chinese Traditional (Taiwan) | zh-Hant-TW |
-| Croatian | hr |
+| Chinese Traditional | zh-Hant |
+| Chinese (Literary) | lzh |
 | Croatian (Croatia) | hr-HR |
-| Czech | cs |
+| Croatian | hr |
 | Czech (Czech Republic) | cs-CZ |
-| Danish | da |
+| Czech | cs |
 | Danish (Denmark) | da-DK |
+| Danish | da |
 | Dari (Afghanistan) | prs |
-| Dutch | nl |
+| Divehi | dv |
 | Dutch (Netherlands) | nl-NL |
-| English | en |
+| Dutch | nl |
 | English (Australia) | en-AU |
 | English (Canada) | en-CA |
 | English (Hong Kong SAR) | en-HK |
@@ -180,106 +267,123 @@ This article lists supported human languages for Immersive Reader features.
 | English (New Zealand) | en-NZ |
 | English (United Kingdom) | en-GB |
 | English (United States) | en-US |
+| English | en |
 | Estonian | et |
+| Faroese | fo |
 | Fijian | fj |
 | Filipino | fil |
-| Finnish | fi |
 | Finnish (Finland) | fi-FI |
-| French | fr |
+| Finnish | fi |
 | French (Canada) | fr-CA |
 | French (France) | fr-FR |
 | French (Switzerland) | fr-CH |
-| German | de |
+| French | fr |
+| Georgian | ka |
 | German (Austria) | de-AT |
 | German (Germany) | de-DE |
 | German (Switzerland)| de-CH |
-| Gujarati | gu |
-| Greek | el |
+| German | de |
 | Greek (Greece) | el-GR |
+| Greek | el |
+| Gujarati | gu |
 | Haitian (Creole) | ht |
-| Hebrew | he |
 | Hebrew (Israel) | he-IL |
-| Hindi | hi |
+| Hebrew | he |
 | Hindi (India) | hi-IN |
+| Hindi | hi |
 | Hmong Daw | mww |
-| Hungarian | hu |
 | Hungarian (Hungary) | hu-HU |
+| Hungarian | hu |
 | Icelandic | is |
-| Indonesian | id |
 | Indonesian (Indonesia) | id-ID |
+| Indonesian | id |
+| Inuinnaqtun | ikt |
+| Inuktitut | iu |
+| Inuktitut (Latin) | iu-Latn |
 | Irish | ga |
-| Italian | it |
 | Italian (Italy) | it-IT |
-| Japanese | ja |
+| Italian | it |
 | Japanese (Japan) | ja-JP |
+| Japanese | ja |
 | Kannada | kn |
 | Kazakh | kk |
 | Khmer | km |
 | Kiswahili | sw |
-| Korean | ko |
 | Korean (Korea) | ko-KR |
+| Korean | ko |
 | Kurdish (Central) | ku |
 | Kurdish (Northern) | kmr |
+| KurdishCentral | ckb |
+| Kyrgyz | ky |
 | Lao | lo |
 | Latvian | lv |
 | Lithuanian | lt |
+| Macedonian | mk |
 | Malagasy | mg |
-| Malay | ms |
 | Malay (Malaysia) | ms-MY |
+| Malay | ms |
 | Malayalam | ml |
 | Maltese | mt |
 | Maori | mi |
 | Marathi | mr |
+| Mongolian (Cyrillic) | mn-Cyrl |
+| Mongolian (Traditional) | mn-Mong |
 | Nepali | ne |
-| Norwegian Bokmal| nb |
 | Norwegian Bokmal (Norway) | nb-NO |
+| Norwegian Bokmal| nb |
 | Odia | or |
 | Pashto (Afghanistan) | ps |
 | Persian | fa |
-| Polish | pl |
 | Polish (Poland) | pl-PL |
-| Portuguese | pt |
+| Polish | pl |
 | Portuguese (Brazil) | pt-BR |
-| Portuguese (Portugal) | pt-PT |  
+| Portuguese (Portugal) | pt-PT |
+| Portuguese | pt |
 | Punjabi | pa |
 | Querétaro Otomi | otq |
-| Romanian | ro |
 | Romanian (Romania) | ro-RO |
-| Russian | ru |
+| Romanian | ro |
 | Russian (Russia) | ru-RU |
+| Russian | ru |
 | Samoan | sm |
+| Serbian (Latin) | sr-Latn |
 | Serbian | sr |
 | Serbian(Cyrillic) | sr-Cyrl |
-| Serbian (Latin) | sr-Latn |
-| Slovak | sk |
 | Slovak (Slovakia) | sk-SK |
-| Slovenian | sl |
+| Slovak | sk |
 | Slovenian (Slovenia) | sl-SI |
-| Spanish | es |
+| Slovenian | sl |
+| Somali  | so |
 | Spanish (Latin America) | es-419 |
 | Spanish (Mexico) | es-MX |
 | Spanish (Spain) | es-ES |
-| Swedish | sv |
+| Spanish | es |
 | Swedish (Sweden) | sv-SE |
+| Swedish | sv |
 | Tahitian | ty |
-| Tamil | ta |
 | Tamil (India) | ta-IN |
-| Telugu | te |
+| Tamil | ta |
+| Tatar | tt |
 | Telugu (India) | te-IN |
-| Thai | th |
+| Telugu | te |
 | Thai (Thailand) | th-TH |
+| Thai | th |
+| Tibetan | bo |
 | Tigrinya | ti |
 | Tongan | to |
-| Turkish | tr |
 | Turkish (Turkey) | tr-TR |
+| Turkish | tr |
+| Turkmen | tk |
 | Ukrainian | uk |
+| UpperSorbian | hsb |
 | Urdu | ur |
-| Vietnamese | vi |
+| Uyghur | ug |
 | Vietnamese (Vietnam) | vi-VN |
+| Vietnamese | vi |
 | Welsh | cy |
 | Yucatec Maya | yua |
 | Yue Chinese | yue |
-
+| Zulu | zu |
 
 ## Language detection
 
