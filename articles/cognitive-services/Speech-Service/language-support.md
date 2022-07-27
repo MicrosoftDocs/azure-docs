@@ -879,7 +879,7 @@ Use the following table to determine supported styles and roles for each neural 
 |ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|||
 |pt-BR-FranciscaNeural|`calm`|||
 |zh-CN-XiaohanNeural|`affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported||
-|zh-CN-XiaomengNeural <sup>Public preview</sup>|`chat`|||
+|zh-CN-XiaomengNeural <sup>Public preview</sup>|`chat`|Supported||
 |zh-CN-XiaomoNeural|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
 |zh-CN-XiaoruiNeural|`angry`, `calm`, `fearful`, `sad`|Supported||
 |zh-CN-XiaoshuangNeural|`chat`|Supported||
@@ -889,10 +889,10 @@ Use the following table to determine supported styles and roles for each neural 
 |zh-CN-YunhaoNeural <sup>Public preview</sup>|`general`, `advertisement-upbeat` <sup>Public preview</sup>|Supported||
 |zh-CN-YunjianNeural <sup>Public preview</sup>|`narration-relaxed`, `sports-commentary`  <sup>Public preview</sup>, `sports-commentary-excited`  <sup>Public preview</sup>|Supported||
 |zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `sad`, `serious`|Supported|Supported|
-|zh-CN-YunYunxiaNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `fearful`, `narration-relaxed`, `sad`|Supported||
+|zh-CN-YunxiaNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `fearful`, `narration-relaxed`, `sad`|Supported||
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
 |zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
-|zh-CN-YunzeNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `disgruntled`, `depressed`, `documentary-narration`, `fearful`, `sad`, `serious`|Supported|Supported|
+|zh-CN-YunzeNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `documentary-narration`, `fearful`, `sad`, `serious`|Supported|Supported|
 
 
 
