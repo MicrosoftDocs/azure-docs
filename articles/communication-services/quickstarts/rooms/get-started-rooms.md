@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create and manage a `room` resource
+title: Quickstart - Create and manage a room resource
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to create a Room within your Azure Communication Services resource.
 services: azure-communication-services

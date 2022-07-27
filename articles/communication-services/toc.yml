@@ -85,7 +85,7 @@ items:
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
   - name: Rooms
     items:
-      - name: Create and manage a `room` resource
+      - name: Create and manage a room resource
         href: quickstarts/rooms/get-started-rooms.md  
       - name: Join a room call
         href: quickstarts/rooms/join-rooms-call.md
