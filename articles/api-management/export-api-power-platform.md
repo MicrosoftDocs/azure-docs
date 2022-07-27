@@ -42,6 +42,7 @@ Once the connector is created, navigate to your [Power Apps](https://make.powera
 
 > [!NOTE]
 > To call the API from the Power Apps test console, you need to add the "https://flow.microsoft.com" URL as an origin to the [CORS policy](api-management-cross-domain-policies.md#CORS) in your API Management instance.
+> To call the API from the Power Apps, you need to add the origin "https://authoring.*.powerapps.com" URL (this URL can be retrieved from the network tab of the browser when requested for the API call)  as an origin to the [CORS policy](api-management-cross-domain-policies.md#CORS) in your API Management instance.
 
 ## Next steps
 
