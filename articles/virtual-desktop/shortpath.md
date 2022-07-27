@@ -47,13 +47,13 @@ The following diagram gives a high-level overview of the RDP Shortpath network c
 
 ## Requirements
 
-To support RDP Shortpath, the Azure Virtual Desktop client needs a direct line of sight to the session host. You can get a direct line of sight by using one of these methods:
 
 - Make sure the remote client machines are running Windows 11, Windows 10, or Windows 7 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed. Currently, non-Windows clients aren't supported.
-- Use [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md)
-- Use a [Site-to-Site virtual private network (VPN) (IPsec-based)](../vpn-gateway/tutorial-site-to-site-portal.md)
-- Use a [Point-to-Site VPN (IPsec-based)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-- Use a [public IP address assignment](../virtual-network/ip-services/virtual-network-public-ip-address.md)
+- To support RDP Shortpath, the Azure Virtual Desktop client needs a direct line of sight to the session host. You can get a direct line of sight by using one of these methods:
+   - Use [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md)
+   - Use a [Site-to-Site virtual private network (VPN) (IPsec-based)](../vpn-gateway/tutorial-site-to-site-portal.md)
+   - Use a [Point-to-Site VPN (IPsec-based)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+   - Use a [public IP address assignment](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 
 If you're using other VPN types to connect to the Azure portal, we recommend using a User Datagram Protocol (UDP)-based VPN. While most Transmission Control Protocol (TCP)-based VPN solutions support nested UDP, they add inherited overhead of TCP congestion control, which slows down RDP performance.
 
