@@ -1,6 +1,6 @@
 ---
 title: What is Discovery?
-description: Microsoft Defender External Attack Surface Management (Defender EASM) relies on our proprietary discovery technology to continuously define your organization’s unique Internet-exposed attack surface. 
+description: What is Discovery - Microsoft Defender External Attack Surface Management (Defender EASM) relies on our proprietary discovery technology to continuously define your organization’s unique Internet-exposed attack surface. 
 author: danielledennis
 ms.author: dandennis
 ms.service: security
