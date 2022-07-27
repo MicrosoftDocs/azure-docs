@@ -52,7 +52,7 @@ Total supported language codes: 21
 
 Total supported language codes: 7
 
-| Language              | Language code | Starting with model version: |              Notes |
+| Language              | Language code | Starting with model version |              Notes |
 |----------------------|-------------|------------------------------------|-------------------|
 | English               |     `en`      |  2020-04-01              |                    |
 | French                |     `fr`      |         2021-10-01        |                    |
