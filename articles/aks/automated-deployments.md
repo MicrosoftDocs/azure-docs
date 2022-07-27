@@ -13,6 +13,9 @@ Automated deployments simplify the process of setting up a GitHub Action and cre
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+> [!NOTE]
+> This feature is not yet available in all regions.
+
 ## Prerequisites
 
 * A GitHub account.
@@ -25,35 +28,35 @@ Automated deployments simplify the process of setting up a GitHub Action and cre
 
 1. Select your AKS cluster, and then select **Automated deployments (preview)** on the left blade. Select **Create an automated deployment**.
 
-    :::image type="content" source="media/automated-deployments/ad-homescreen.png" alt-text="The automated deployments screen in the Azure portal.":::
+    :::image type="content" source="media/automated-deployments/ad-homescreen.png" alt-text="The automated deployments screen in the Azure portal."  lightbox="media/automated-deployments/ad-homescreen-expanded.png":::
 
 1. Name your workflow and click **Authorize** to connect your Azure account with your GitHub account. After your accounts are linked, choose which repository and branch you would like to create the GitHub Action for.
 
     - **GitHub**: Authorize and select the repository for your GitHub account.
 
-        :::image type="content" source="media/automated-deployments/ad-ghactivate-repo.png" alt-text="The authorize and repository selection screen.":::
+        :::image type="content" source="media/automated-deployments/ad-ghactivate-repo.png" alt-text="The authorize and repository selection screen." lightbox="media/automated-deployments/ad-ghactivate-repo-expanded.png":::
 
 1. Pick your dockerfile and your ACR and image.
 
-    :::image type="content" source="media/automated-deployments/ad-image.png" alt-text="The image selection screen.":::
+    :::image type="content" source="media/automated-deployments/ad-image.png" alt-text="The image selection screen." lightbox="media/automated-deployments/ad-image-expanded.png":::
 
 1. Determine whether you'll deploy with Helm or regular Kubernetes manifests. Once decided, pick the appropriate deployment files from your repository and decide which namespace you want to deploy into.
 
-    :::image type="content" source="media/automated-deployments/ad-deployment-details.png" alt-text="The deployment details screen.":::
+    :::image type="content" source="media/automated-deployments/ad-deployment-details.png" alt-text="The deployment details screen." lightbox="media/automated-deployments/ad-deployment-details-expanded.png":::
 
 1. Review your deployment before creating the pull request.
 
 1. Click **view pull request** to see your GitHub Action.
 
-    :::image type="content" source="media/automated-deployments/ad-view-pr.png" alt-text="The final screen of the deployment process. The view pull request button is highlighted.":::
+    :::image type="content" source="media/automated-deployments/ad-view-pr.png" alt-text="The final screen of the deployment process. The view pull request button is highlighted." lightbox="media/automated-deployments/ad-view-pr-expanded.png" :::
 
 1. Merge the pull request to kick off the GitHub Action and deploy your application.
 
-    :::image type="content" source="media/automated-deployments/ad-accept-pr.png" alt-text="The pull request page in GitHub. The merge pull request button is highlighted.":::
+    :::image type="content" source="media/automated-deployments/ad-accept-pr.png" alt-text="The pull request page in GitHub. The merge pull request button is highlighted." lightbox="media/automated-deployments/ad-accept-pr-expanded.png" :::
 
 1. Once your application is deployed, go back to automated deployments to see your history.
 
-    :::image type="content" source="media/automated-deployments/ad-view-history.png" alt-text="The history screen in Azure portal, showing all the previous automated deployments.":::
+    :::image type="content" source="media/automated-deployments/ad-view-history.png" alt-text="The history screen in Azure portal, showing all the previous automated deployments." lightbox="media/automated-deployments/ad-view-history-expanded.png" :::
 
 ## Clean up resources
 
