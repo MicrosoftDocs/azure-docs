@@ -1432,6 +1432,12 @@ items:
         href: visualize/workbooks-move-region.md
       - name: Move Workbook templates to another region
         href: visualize/workbook-templates-move-region.md
+    - name: Transition from View Designer
+      items:
+      - name: Move from View Designer to Workbooks
+        href: visualize/workbooks-view-designer-conversion-overview.md
+      - name: Sample JSON to covert View Designer views
+        href: visualize/workbooks-view-designer-conversions.md 
     - name: Workbook Samples
       href: visualize/workbooks-sample-links.md          
   - name: Other visualizations
