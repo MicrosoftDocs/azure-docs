@@ -1,15 +1,16 @@
 ---
-title: include file
-description: include file
+title: Quickstart - Join a room call
+titleSuffix: An Azure Communication Services quickstart
+description: In this quickstart, you'll learn how to join a room call using web or native mobile calling SDKs
 services: azure-communication-services
 author: radubulboaca
 manager: mariusu
 
-ms.service: azure-communication-services
-ms.date: 07/14/2022
-ms.topic: include
-ms.custom: include file
 ms.author: radubulboaca
+ms.date: 07/27/2022
+ms.topic: quickstart
+ms.service: azure-communication-services
+ms.custom: mode-other
 zone_pivot_groups: acs-web-ios-android
 ---
 
@@ -24,7 +25,7 @@ zone_pivot_groups: acs-web-ios-android
 - Two or more Communication User Identities. [Create and manage access tokens](../access-tokens.md) or [Quick-create identities for testing](../identity/quick-create-identity.md).
 - A room resource. [Create and manage rooms](get-started-rooms.md)
 
-## Obtain User Access Token
+## Obtain user access token
 
 You'll need to create a User Access Token for each call participant. [Learn how to create and manage user access tokens](../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
@@ -46,7 +47,7 @@ For details, see [Use Azure CLI to Create and Manage Access Tokens](../access-to
 [!INCLUDE [Join a room call from Android calling SDK](./includes/rooms-quickstart-call-android.md)]
 ::: zone-end
 
-## Next Steps 
+## Next steps 
 
 In this section you learned how to:
 > [!div class="checklist"]

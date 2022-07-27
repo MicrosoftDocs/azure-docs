@@ -22,7 +22,7 @@ ms.author: radubulboaca
 
 ## Setting up
 
-### Create a new Python application
+### Create a new python application
 
 In a terminal or console window, create a new folder for your application and navigate to it.
 
