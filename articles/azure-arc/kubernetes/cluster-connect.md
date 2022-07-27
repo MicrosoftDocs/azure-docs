@@ -183,9 +183,9 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     ```
 1. Get the token to output to console
   
-  ```console
-  echo $TOKEN
-  ```
+     ```console
+     echo $TOKEN
+     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
