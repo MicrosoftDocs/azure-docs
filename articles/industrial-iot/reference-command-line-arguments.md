@@ -15,7 +15,7 @@ This article describes the command-line arguments that you can use to set global
 ## Command-line arguments for version 2.5 and earlier
 
 * **Usage**: opcpublisher.exe \<applicationname> [\<iothubconnectionstring>] [\<options>]
-    
+
 * **applicationname**: (Required) The OPC Unified Architecture (OPC UA) application name to use.
 
     You also use the application name to register the publisher in the IoT hub device registry.
@@ -36,7 +36,6 @@ To control the application, you can use any of several of environment variables:
 > [!NOTE]
 > Command-line arguments overrule environment variable settings.
 
-
 | Argument | Description |
 | --- | --- |
 | `--pf, --publishfile=VALUE` | The file name to use to configure the nodes to publish.<br>Default: '/appdata/publishednodes.json' |
@@ -51,7 +50,7 @@ To control the application, you can use any of several of environment variables:
 | `--lf, --logfile=VALUE` | The file name of the log file to use.<br>Default: \<hostname>-publisher.log |
 | `--lt, --logflushtimespan=VALUE` | The timespan, in seconds, when the log file should be flushed.<br>Default: 00:00:30 sec |
 | `--ll, --loglevel=VALUE` | The log level to use. Allowed: fatal, error, warn, info, debug, verbose.<br>Default: info |
-| `--ih, --iothubprotocol=VALUE` | The protocol to use for communication with the Iot hub (allowed values: Amqp, Http1, Amqp_WebSocket_Only, Amqp_Tcp_Only, Mqtt, Mqtt_WebSocket_Only, Mqtt_ Tcp_Only) or the IoT Edge hub (allowed values: Mqtt_ Tcp_Only, Amqp_Tcp_Only).<br>Default for the IoT hub: Mqtt_WebSocket_Only<br>Default for the IoT Edge hub: Amqp_Tcp_Only |
+| `--ih, --iothubprotocol=VALUE` | The protocol to use for communication with the Iot hub (allowed values: Amqp, Http1, Amqp_WebSocket_Only, Amqp_Tcp_Only, Mqtt, Mqtt_WebSocket_Only, Mqtt_ Tcp_Only) or the IoT Edge hub (allowed values: Mqtt_Tcp_Only, Amqp_Tcp_Only).<br>Default for the IoT hub: Mqtt_WebSocket_Only<br>Default for the IoT Edge hub: Amqp_Tcp_Only |
 | `--ms, --iothubmessagesize=VALUE` | The maximum size of a message that can be sent to the Iot hub. When telemetry of this size is available, it is sent. 0 enforces immediate send when telemetry is available.<br>Minimum: 0<br>Maximum: 262144<br>Default: 262144 |
 | `--si, --iothubsendinterval=VALUE` | The interval, in seconds, when telemetry should be sent to the IoT hub. If the interval is 0, only the iothubmessagesize parameter controls when telemetry is sent.<br>Default: 10 |
 | `--dc, --deviceconnectionstring=VALUE` | If OPC Publisher can't register itself with the Iot hub, you can create a device with the name \<applicationname> manually and pass in the connection string of this device.<br>Default: none |
@@ -69,7 +68,7 @@ To control the application, you can use any of several of environment variables:
 | `--ki, --keepaliveinterval=VALUE` | Specifies the interval, in seconds, that the publisher sends keep-alive messages to the OPC servers on the endpoints that it's connected to.<br>Minimum: 2<br>Default: 2 |
 | `--kt, --keepalivethreshold=VALUE` | Specifies the number of keep-alive packets that a server can miss before the session is disconnected.<br>Minimum: 1<br>Default: 5 |
 | `--aa, --autoaccept` | OPC Publisher trusts all servers that it establishes a connection to.<br>Default: False |
-| `--tm, --trustmyself=VALUE` | Same as` trustowncert`.<br>Default: False |
+| `--tm, --trustmyself=VALUE` | Same as `trustowncert`.<br>Default: False |
 | `--to, --trustowncert` | The OPC Publisher certificate is put into the trusted certificate store automatically.<br>Default: False |
 | `--fd, --fetchdisplayname=VALUE` | Same as `fetchname`.<br>Default: False |
 | `--fn, --fetchname` | Enable reading the display name of a published node from the server. This setting increases the run time.<br>Default: False |
@@ -104,9 +103,7 @@ To control the application, you can use any of several of environment variables:
 | `--rt, --rejectedcertstoretype=VALUE` | Ignored. The rejected certificate store always resides in a directory. |
 | `--it, --issuercertstoretype=VALUE` | Ignored. The trusted issuer certificate store always resides in a directory. |
 
-
 ## Command-line arguments for version 2.6 and later
-
 
 | Argument | Description |
 | --- | --- | 
@@ -197,7 +194,6 @@ The `Alternative` field, when it's present, refers to the applicable CLI argumen
 | `MaxStringLength=VALUE` | The OPC UA Stack Transport Secure Channel maximum length of a string that can be sent/received over the OPC UA secure channel.<br>Alternative: --ol, --opcmaxstringlen<br>Mode: Standalone, orchestrated<br>Type: integer<br>Default: 130,816 (128 KB - 256) |
 | `RuntimeStateReporting=VALUE` | Enables reporting of OPC Publisher restarts.<br>Alternative: --rs, --runtimestatereporting<br>Mode: Standalone<br>Type: Boolean<br>Default: false |
 | `EnableRoutingInfo=VALUE` | Adds the routing information to telemetry messages. The name of the property is `$$RoutingInfo`, and the value is the `DataSetWriterGroup` for that particular message. When the `DataSetWriterGroup` isn't configured, the `$$RoutingInfo` property isn't added to the message even if this argument is set.<br>Alternative: --ri, --enableroutinginfo<br>Mode: Standalone<br>Type: Boolean<br>Default: false |
-
 
 ## Next steps
 
