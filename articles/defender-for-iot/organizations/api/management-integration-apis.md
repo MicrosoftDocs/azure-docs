@@ -25,6 +25,8 @@ For example, this API is currently implemented with [Tutorial: Integrate Service
 
 ## devices (Create and update devices)
 
+This API returns data about all devices that were updated after the given timestamp.
+
 **URI**: /devices/{timestamp}
 
 **URI parameters**:
@@ -63,6 +65,9 @@ For example, this API is currently implemented with [Tutorial: Integrate Service
 
 ## connections (Get device connections)
 
+This API returns data about all device connections that were updated after the given timestamp.
+
+
 **URI**: `/connections/{timestamp}`
 
 **URI parameters**:
@@ -99,6 +104,8 @@ For example, this API is currently implemented with [Tutorial: Integrate Service
 ---
 
 ## device (Get details for a device)
+
+This API returns data about a specific device per a given device ID.
 
 ### GET
 
@@ -213,22 +220,23 @@ An array of the following fields:
 
 **URI**: `/devicecves/{timestamp}`
 
-**URI parameters**:
-
-|Name  |Description  |
-|---------|---------|
-|**timestamp**     |   The start time from which results are returned.     |
-
 ### GET
 
 # [Request](#tab/devicecves-request)
+
 
 **Query parameters**:
 
 |Name  |Description  |
 |---------|---------|
+|**timestamp**     |   The start time from which results are returned.     |
+|---------|---------|
 |**page**     | Defines the number where the result page numbering begins. For example, `0`= first page is **0**. <br>Default = `0`|
 |**size**     |Defines the page sizing. Default = `50`         |
+|**sensorId** | Shows results from a specific sensor, as defined by the given sensor ID. |
+| **score** | Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**. |
+| **deviceIds** | A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456** |
+
 
 
 # [Response](#tab/devicecves-response)
