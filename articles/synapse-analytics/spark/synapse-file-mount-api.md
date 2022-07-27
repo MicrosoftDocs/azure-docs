@@ -6,7 +6,7 @@ services: synapse-analytics
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 07/12/2022
+ms.date: 07/27/2022
 ms.author: ruxu
 ms.reviewer: wiassaf
 ms.custom: subject-rbac-steps
