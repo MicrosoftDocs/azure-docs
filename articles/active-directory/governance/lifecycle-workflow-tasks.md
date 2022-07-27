@@ -15,6 +15,9 @@ Lifecycle Workflows come with many pre-configured tasks that are designed to aut
 
 
 ## Supported tasks (preview)
+ 
+Lifecycle Workflow's built-in tasks each include an identifier, known as **taskDefinitionID**, and can be used to create either new workflows from scratch, or inserted into workflow templates so that they fit the needs of your organization. For more information on templates available for use with Lifecycle Workflows, see: [Lifecycle Workflow Templates](lifecycle-workflow-templates.md).
+
 Lifecycle Workflows currently support the following tasks:
 
 |Task  |taskDefinitionID  |
@@ -36,15 +39,17 @@ Lifecycle Workflows currently support the following tasks:
 
 ## Common task parameters (preview)
 
+Common task parameters are the non-unique parameters contained in every task. These are configured 
+
 
 |Parameter  |Definition  |
 |---------|---------|
 |category     |  A string that identifies the category or categories of the task. The parameter can be a single or multiple string that is "joiner", "mover", or "leaver. Category of tasks must also contain a matching parameter as its workflow to run.      |
-|taskDefinitionId     | A string that allows built-in workflow tasks to run.       |
+|taskDefinitionId     | A string referencing a taskDefinition which determines which task to run.       |
 |isEnabled     | A boolean value that denotes whether the task is set to run or not. If set to “true" then the task will run.       |
 |displayName     |  A unique string that identifies the task.       |
 |description     | A string that describes the purpose of the task for administrative use. (Optional)         |
-|executionSequence     | An integer that states in what order the task will run in a workflow .       |
+|executionSequence     | An integer that is read-only which states in what order the task will run in a workflow. For more information about executionSequence and workflow order, see: [Execution conditions](lifecycle-workflows-concept-parts.md#execution-conditions).       |
 |continueOnError     |  A boolean value that determines if the failure of this task stops the subsequent workflows from running.        |
 |arguments     |  Contains unique parameters relevant for the given task       |
 
