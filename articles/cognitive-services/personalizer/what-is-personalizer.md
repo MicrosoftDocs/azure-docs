@@ -88,7 +88,7 @@ Use Personalizer when your scenario has:
 ## Integrating Personalizer in an application
 
 1. [Design](concepts-features.md) and plan the **_actions_**, and **_context_**. Determine the how to interpret feedback as a **_reward_** score.
-1. Each [Personalizer Resource](how-to-settings.md) you create is defined as one _Learning Loop_. The loop will receive the both the Rank and Reward calls for that content or user experience and train an underlyind RL model. There are 
+1. Each [Personalizer Resource](how-to-settings.md) you create is defined as one _Learning Loop_. The loop will receive the both the Rank and Reward calls for that content or user experience and train an underlying RL model. There are 
 
     |Resource type| Purpose|
     |--|--|

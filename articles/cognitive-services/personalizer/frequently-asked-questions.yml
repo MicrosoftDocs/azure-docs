@@ -52,7 +52,7 @@ sections:
         answer: |
 
           Personalizer's effectiveness in Apprentice mode will rarely achieve near 100% of the application's baseline; and never exceed it.
-          The best practice would be not aim for 100% attainment; but a range of 60% – 80% should ve achievable depending on the use case.
+          The best practice would be not aim for 100% attainment; but a range of 60% – 80% should be achievable depending on the use case.
           However, if the learning performance is slow or plateaued below 60%, then the following issues may have occurred:
           * Not enough features sent with Rank API call
           * Bugs in the features sent - such as sending non-aggregated feature data such as timestamps to Rank API
