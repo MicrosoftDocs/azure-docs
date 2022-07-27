@@ -130,21 +130,7 @@ Once stringified for the final deployment manifest, these values would look like
 If you're running your IoT Edge module on a GPU-optimized virtual machine, you can enable an IoT Edge module to connect to your GPU as well. To do this with an existing module, add some specifications to your `createOptions`:
 
 ```json
-{
-     "HostConfig": {
-         "DeviceRequests": 
-         [
-             {
-                 "Count": -1,
-                 "Capabilities": [
-                     [
-                         "gpu"
-                     ]
-                 ]
-             }
-         ]
-     }
- }
+{"HostConfig": {"DeviceRequests": [{"Count": -1,"Capabilities": [["gpu"]]}]}}
 ```
 
 To confirm these settings were successfully added, use the Docker inspect command to see the new setting in a JSON printout.
