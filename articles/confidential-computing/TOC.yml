@@ -43,7 +43,7 @@
     - name: Confidential node pools in AKS
       items:
         - name: Add a confidential node pool to your AKS cluster
-          href: https://aka.ms/add-a-confidential-node-pool-in-aks
+          href: confidential-node-pool-in-aks.md
 - name: Concept
   expanded: true
   items:
