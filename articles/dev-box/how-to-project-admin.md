@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Provide access to projects for project admins
 
-As a DevCenter Owner, you can create multiple projects in the DevCenter to align with each team's specific requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. Project Admins can use the network connections and dev box definitions configured at the DevCenter level to create and manage dev box pools within their project.
+You can create multiple projects in the DevCenter to align with each team's specific requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. Project Admins can use the network connections and dev box definitions configured at the DevCenter level to create and manage dev box pools within their project.
 
 A DevCenter Project Admin can manage a project by:
 
