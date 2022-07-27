@@ -1080,6 +1080,7 @@ items:
           href: sap-change-data-capture-data-replication-template.md
         - name: 8 - Managing the solution
           href: sap-change-data-capture-management.md
+        displayName: SAP, change data capture, CDC
   - name: Templates
     items:
     - name: Overview of templates

@@ -36,7 +36,7 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
 
 **To enable enhanced security features on one subscription**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Microsoft Defender for Cloud**.
 
@@ -52,7 +52,7 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
 
 **To enable enhanced security on multiple subscriptions or workspaces**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Microsoft Defender for Cloud**.
 
@@ -88,7 +88,7 @@ If you choose to disable the enhanced security features for a subscription, you 
  
 **To disable enhanced security features**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Microsoft Defender for Cloud**.
 

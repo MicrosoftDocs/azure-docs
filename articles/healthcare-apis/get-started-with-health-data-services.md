@@ -23,7 +23,7 @@ Before you can create a workspace in the Azure portal, you must have an Azure ac
 
 ## Deploy Azure Health Data Services 
 
-To get started with Azure Health Data Services, you must [create a resource](https://ms.portal.azure.com/#create/hub) in the Azure portal. Enter *Azure Health Data Services* in the **Search services and marketplace** box.
+To get started with Azure Health Data Services, you must [create a resource](https://portal.azure.com/#create/hub) in the Azure portal. Enter *Azure Health Data Services* in the **Search services and marketplace** box.
 
 [![Screenshot of the Azure search services and marketplace text box.](media/search-services-marketplace.png)](media/search-services-marketplace.png#lightbox)
 

@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage
-ms.date: 07/12/2022
+ms.date: 07/21/2022
 ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
@@ -92,6 +92,11 @@ ms.topic: conceptual
 ### AD DS & Azure AD DS Authentication
 * <a id="ad-support-devices"></a>
 **Does Azure Active Directory Domain Services (Azure AD DS) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
+
+    No, this scenario isn't supported.
+
+* <a id="ad-file-mount-cname"></a>
+**Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication (AD DS or Azure AD DS)?**
 
     No, this scenario isn't supported.
 
@@ -205,6 +210,11 @@ ms.topic: conceptual
 * <a id="share-snapshot-price"></a>
 **How much do share snapshots cost?**  
     Share snapshots are incremental in nature. The base share snapshot is the share itself. All subsequent share snapshots are incremental and store only the difference from the preceding share snapshot. You're billed only for the changed content. If you have a share with 100 GiB of data but only 5 GiB has changed since your last share snapshot, the share snapshot consumes only 5 additional GiB, and you're billed for 105 GiB. For more information about transaction and standard egress charges, see the [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## Interoperability with other services
+* <a id="cluster-witness"></a>
+**Can I use my Azure file share as a *File Share Witness* for my Windows Server Failover Cluster?**  
+    Currently, this configuration is not supported for an Azure file share. For more information about how to set this up for Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 ## See also
 * [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
