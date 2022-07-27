@@ -3,6 +3,7 @@ title: Deploying the Defender EASM Azure resource
 description: This article explains how to deploy the Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource using the Azure Portal.
 author: danielledennis
 ms.author: dandennis
+ms.service: security
 ms.date: 07/14/2022
 ms.topic: quickstart
 ---
