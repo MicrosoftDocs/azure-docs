@@ -28,7 +28,7 @@ Automation is required in three broad categories of operations:
 
 ## Azure services for Automation
 
-Multiple Azure services can fulfill the above requirements. Each service has its benefits and limitations, and customers can use multiple services to meet their automation requirements.  
+Multiple Azure services can fulfill the above requirements. Each service has its benefits and limitations, and customers can use multiple services to meet their automation requirements.
 
 **Deployment and management of resources**
   - Azure Resource Manager (ARM) templates with Bicep
@@ -36,12 +36,12 @@ Multiple Azure services can fulfill the above requirements. Each service has its
   - Azure Automation
   - Azure Automanage (for machine configuration and management.)
 
-**Responding to external events** 
+**Responding to external events**
   - Azure Functions
   - Azure Automation
   - Azure Policy Guest Config (to take an action when there's a change in the compliance state of resource.)
 
-**Complex orchestration and integration with 1st or 3rd party products** 
+**Complex orchestration and integration with 1st or 3rd party products**
   - Azure Logic Apps
   - Azure Functions or Azure Automation. (Azure Logic app has over 400+ connectors to other services, including Azure Automation and Azure Functions, which could be used to meet complex automation scenarios.)
 
@@ -75,7 +75,7 @@ The following table describes the scenarios and users for ARM template and Bicep
   | Create, manage, and update infrastructure resources to ensure that the deployed infrastructure meets the organization compliance standards. </br> </br> Audit and track Azure deployments.| Auditors and central information technology groups responsible to ensure that the deployed Azure infrastructure meets the organization compliance standards.
 
 
- 
+
 ### [Azure Automation](./overview.md)
 
 Azure Automation orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environments. It provides a persistent shared assets including variables, connections, objects that allow orchestration of complex jobs. [Learn more](./automation-runbook-gallery.md).
@@ -84,7 +84,7 @@ There are more than 3,000 modules in the PowerShell Gallery, and the PowerShell 
 
   **Scenarios** | **Users**
   --- | ---
-  | Allows to write an [Automation PowerShell runbook](./learn/powershell-runbook-managed-identity.md) that deploys an Azure resource by using an [Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).</br> </br> Schedule tasks, for example – Stop dev/test VMs or services at night and turn on during the day. </br> </br> Response to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, and so on. </br> </br> Hybrid automation where you can manage to automate on-premises servers such as SQL Server, Active Directory and so on. </br> </br> Azure resource life-cycle management and governance include resource provisioning, de-provisioning, adding correct tags, locks, NSGs and so on. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting. </br> </br> Infrastructure administrators manage the on-premises infrastructure using scripts or executing long-running jobs such as month-end operations on servers running on-premises. 
+  | Allows to write an [Automation PowerShell runbook](./learn/powershell-runbook-managed-identity.md) that deploys an Azure resource by using an [Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).</br> </br> Schedule tasks, for example – Stop dev/test VMs or services at night and turn on during the day. </br> </br> Response to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, and so on. </br> </br> Hybrid automation where you can manage to automate on-premises servers such as SQL Server, Active Directory and so on. </br> </br> Azure resource life-cycle management and governance include resource provisioning, de-provisioning, adding correct tags, locks, NSGs and so on. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting. </br> </br> Infrastructure administrators manage the on-premises infrastructure using scripts or executing long-running jobs such as month-end operations on servers running on-premises.
 
 ### Azure Automation based in-guest management
 
@@ -102,12 +102,12 @@ You can configure desired the state of your machines to discover and correct con
 
 Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy, steady-state of VM is equal to hands-free management. [Learn more](../automanage/automanage-virtual-machines.md).
 
-  **Linux and Windows support** 
+  **Linux and Windows support**
   - You can intelligently onboard virtual machines to select best practices Azure services.
   - It allows you to configure each service per Azure best practices automatically.
   - It supports customization of best practice services through VM Best practices template for Dev\Test and Production workload.
   - You can monitor for drift and correct it when detected.
-  - It provides a simple experience (point, select, set, and forget). 
+  - It provides a simple experience (point, select, set, and forget).
 
   **Scenarios** | **Users**
   --- | ---
@@ -118,25 +118,25 @@ Replaces repetitive, day-to-day operational tasks with an exception-only managem
 
 ### Azure Policy based Guest Configuration
 
-Azure Policy based Guest configuration is the next iteration of Azure Automation State configuration. [Learn more](../governance/policy/concepts/guest-configuration-policy-effects.md). 
+Azure Policy based Guest configuration is the next iteration of Azure Automation State configuration. [Learn more](../governance/machine-configuration/machine-configuration-policy-effects.md).
 
   You can check on what is installed in:
 
   - The next iteration of [Azure Automation State Configuration](./automation-dsc-overview.md).
   - For known-bad apps, protocols certificates, administrator privileges, and health of agents.
-  - For customer-authored content. 
+  - For customer-authored content.
 
   **Scenarios** | **Users**
   --- | ---
-  | Obtain compliance data that may include: The configuration of the operating system – files, registry, and services, Application configuration or presence, Check environment settings. </br> </br> Audit or deploy settings to all machines (Set) in scope either reactively to existing machines or proactively to new machines as they are deployed. </br> </br> Respond to policy events to provide [remediation on demand or continuous remediation.](../governance/policy/concepts/guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor) |  The Central IT, Infrastructure Administrators, Auditors (Cloud custodians) are working towards the regulatory requirements at scale and ensuring that servers' end state looks as desired. </br> </br> The application teams validate compliance before releasing change. 
+  | Obtain compliance data that may include: The configuration of the operating system – files, registry, and services, Application configuration or presence, Check environment settings. </br> </br> Audit or deploy settings to all machines (Set) in scope either reactively to existing machines or proactively to new machines as they are deployed. </br> </br> Respond to policy events to provide [remediation on demand or continuous remediation.](../governance/machine-configuration/machine-configuration-policy-effects.md#remediation-on-demand-applyandmonitor) |  The Central IT, Infrastructure Administrators, Auditors (Cloud custodians) are working towards the regulatory requirements at scale and ensuring that servers' end state looks as desired. </br> </br> The application teams validate compliance before releasing change.
 
 
 ### Azure Automation - Process Automation
 
-Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. [Learn more](./automation-runbook-types.md). 
+Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. [Learn more](./automation-runbook-types.md).
 
-  - It provides persistent shared assets, including variables, connections, objects, that allows orchestration of complex jobs. 
-  - You can invoke a runbook on the basis of [Azure Monitor alert](./automation-create-alert-triggered-runbook.md) or through a [webhook](./automation-webhooks.md). 
+  - It provides persistent shared assets, including variables, connections, objects, that allows orchestration of complex jobs.
+  - You can invoke a runbook on the basis of [Azure Monitor alert](./automation-create-alert-triggered-runbook.md) or through a [webhook](./automation-webhooks.md).
 
   **Scenarios** | **Users**
   --- | ---
@@ -151,7 +151,7 @@ Provides a serverless event-driven compute platform for automation that allows y
   - You can choose the hosting plan according to your function app scaling requirements, functionality, and resources required.
   - You can orchestrate complex workflows through [durable functions](../azure-functions/durable/durable-functions-overview.md?tabs=csharp).
   - You should avoid large, and long-running functions that can cause unexpected timeout issues. [Learn more](../azure-functions/functions-best-practices.md?tabs=csharp#write-robust-functions).
-  - When you write Powershell scripts within the Function Apps, you must tweak the scripts to define how the function behaves such as - how it's triggered, its input and output parameters. [Learn more](../azure-functions/functions-reference-powershell.md?tabs=portal). 
+  - When you write Powershell scripts within the Function Apps, you must tweak the scripts to define how the function behaves such as - how it's triggered, its input and output parameters. [Learn more](../azure-functions/functions-reference-powershell.md?tabs=portal).
 
   **Scenarios** | **Users**
   --- | ---
@@ -167,7 +167,7 @@ Logic Apps is a platform for creating and running complex orchestration workflow
   - Allows you to build smart integrations between 1st party and 3rd party apps, services and systems running across on-premises, hybrid and cloud native.
   - Allows you to use managed connectors from a 450+ and growing Azure connectors ecosystem to use in your workflows.
   - Provides a first-class support for enterprise integration and B2B scenarios.
-  - Flexibility to visually create and edit workflows - Low Code\no code approach 
+  - Flexibility to visually create and edit workflows - Low Code\no code approach
   - Runs only in the cloud.
   - Provides a large collection of ready made actions and triggers.
 
@@ -198,7 +198,7 @@ Provides a serverless event-driven compute platform for automation that allows y
   **Scenarios** | **Users**
   --- | ---
   | Respond to events on resources : such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts where you can send team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br>Executes Azure Function as part of Logic apps workflow through Azure Function Connector. | Application Developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications where a single or mutiple Azure Functions could be part of larger application workflow.
- 
+
 
 ## Next steps
 - To learn on how to securely execute the automation jobs, see [best practices for security in Azure Automation](./automation-security-guidelines.md).

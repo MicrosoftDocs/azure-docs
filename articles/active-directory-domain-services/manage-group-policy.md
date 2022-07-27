@@ -24,7 +24,7 @@ This article shows you how to install the Group Policy Management tools, then ed
 If you are interested in server management strategy, including machines in Azure and
 [hybrid connected](../azure-arc/servers/overview.md),
 consider reading about the
-[guest configuration](../governance/policy/concepts/guest-configuration.md)
+[guest configuration](../governance/machine-configuration/overview.md)
 feature of
 [Azure Policy](../governance/policy/overview.md).
 
