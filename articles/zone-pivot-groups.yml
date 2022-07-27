@@ -1631,7 +1631,7 @@ groups:
   prompt: Choose an option
   pivots:
   - id: portal
-    title: Azure Portal
+    title: Azure portal
   - id: aad-powershell
     title: Azure AD PowerShell
   - id: ms-powershell
@@ -1655,7 +1655,7 @@ groups:
   prompt: Choose an option
   pivots:
   - id: portal
-    title: Azure Portal
+    title: Azure portal
   - id: aad-powershell
     title: Azure AD PowerShell
   - id: ms-powershell
