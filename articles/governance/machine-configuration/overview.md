@@ -14,12 +14,12 @@ ms.service: machine-configuration
 Azure Policy's machine configuration feature provides native capability
 to audit or configure operating system settings as code,
 both for machines running in Azure and hybrid
-[Arc-enabled machines](../../../azure-arc/servers/overview.md).
+[Arc-enabled machines](../../azure-arc/servers/overview.md).
 The feature can be used directly per-machine,
 or at-scale orchestrated by Azure Policy.
 
 Configuration resources in Azure are designed as an
-[extension resource](../../../azure-resource-manager/management/extension-resource-types.md).
+[extension resource](../../azure-resource-manager/management/extension-resource-types.md).
 You can imagine each configuration as an additional set of properties
 for the machine. Configurations can include settings such as:
 
@@ -32,7 +32,7 @@ utilizes Azure Policy to dynamically assign configurations
 to machines. You can also assign configurations to machines
 [manually](machine-configuration-assignments.md#manually-creating-machine-configuration-assignments),
 or by using other Azure services such as
-[AutoManage](../../../automanage/automanage-virtual-machines.md).
+[Automanage](../../automanage/automanage-virtual-machines.md).
 
 Examples of each scenario are provided in the following table.
 
@@ -42,10 +42,10 @@ Examples of each scenario are provided in the following table.
 | [Compliance](../policy/assign-policy-portal.md) | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
 
 The per-setting results from configurations can be viewed either in the
-[Guest assignments page](../how-to/determine-non-compliance.md#compliance-details-for-machine-configuration)
+[Guest assignments page](../policy/how-to/determine-non-compliance.md)
 or if the configuration is orchestrated by an Azure Policy assignment,
 by clicking on the "Last evaluated resource" link on the
-["Compliance details" page](../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale).
+["Compliance details" page](../policy/how-to/determine-non-compliance.md).
 
 [A video walk-through of this document is available](https://youtu.be/t9L8COY-BkM). (update coming soon)
 
@@ -61,15 +61,15 @@ register the `Microsoft.GuestConfiguration` resource provider. If assignment of
 a machine configuration policy is done through the portal, or if the subscription
 is enrolled in Microsoft Defender for Cloud, the resource provider is registered
 automatically. You can manually register through the
-[portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
-[Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell),
+[portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
+[Azure PowerShell](../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell),
 or
-[Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+[Azure CLI](../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 ## Deploy requirements for Azure virtual machines
 
 To manage settings inside a machine, a
-[virtual machine extension](../../../virtual-machines/extensions/overview.md) is
+[virtual machine extension](../../virtual-machines/extensions/overview.md) is
 enabled and the machine must have a system-managed identity. The extension
 downloads applicable machine configuration assignment and the corresponding
 dependencies. The identity is used to authenticate the machine as it reads and
@@ -88,8 +88,8 @@ that you plan to manage.
 If you prefer to deploy the extension and managed identity to a single machine,
 follow the guidance for each:
 
-- [Overview of the Azure Policy Guest Configuration extension](../../../virtual-machines/extensions/machine-configuration.md)
-- [Configure managed identities for Azure resources on a VM using the Azure portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+- [Overview of the Azure Policy Guest Configuration extension](../../virtual-machines/extensions/machine-configuration.md)
+- [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 To use machine configuration packages that apply configurations, Azure VM guest
 configuration extension version **1.29.24** or later is required.
@@ -127,7 +127,7 @@ prior configuration has finished.
 
 Results are sent to the machine configuration service when the audit completes.
 When a policy
-[evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers)
+[evaluation trigger](../policy/how-to/get-compliance-data.md#evaluation-triggers)
 occurs, the state of the machine is written to the machine configuration resource
 provider. This update causes Azure Policy to evaluate the Azure Resource Manager
 properties. An on-demand Azure Policy evaluation retrieves the latest value from
@@ -172,9 +172,9 @@ Azure services and report compliance status.
 To communicate with the machine configuration resource provider in Azure, machines
 require outbound access to Azure datacenters on port **443**. If a network in
 Azure doesn't allow outbound traffic, configure exceptions with
-[Network Security Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
+[Network Security Group](../../virtual-network/manage-network-security-group.md#create-a-security-rule)
 rules. The
-[service tags](../../../virtual-network/service-tags-overview.md)
+[service tags](../../virtual-network/service-tags-overview.md)
 "AzureArcInfrastructure" and "Storage" can be used to reference the guest
 configuration and Storage services rather than manually maintaining the
 [list of IP ranges](https://www.microsoft.com/download/details.aspx?id=56519)

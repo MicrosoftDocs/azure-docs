@@ -330,4 +330,4 @@ across DSC versions, so don't attempt to manage the same settings.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for machine configuration](..policy/how-to/determine-non-compliance.md) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.

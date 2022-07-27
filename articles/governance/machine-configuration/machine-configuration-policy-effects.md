@@ -120,7 +120,7 @@ don't change the machine resource in Azure Resource Manager.
 
 If enforcement is set to "Disabled", the configuration assignment
 audits the state of the machine until the behavior is changed by a
-[remediation task](../how-to/remediate-resources.md). By default, machine configuration
+[remediation task](../policy/how-to/remediate-resources.md). By default, machine configuration
 definitions update the
 [assignmentType property](/rest/api/guestconfiguration/machine-configuration-assignments/get#assignmenttype) from "Audit" to "ApplyandMonitor" so the configuration
 is applied one time and then it won't apply again until a remediation is
@@ -149,14 +149,14 @@ When a machine configuration assignment is created, the
 is set to "Pending".
 The machine configuration service inside the machine (delivered to Azure
 virtual machines by the
-[Guest configuration extension](../../../virtual-machines/extensions/machine-configuration.md)
+[Guest configuration extension](./overview.md)
 and included with Arc-enabled servers) requests a list of assignments every 5
 minutes.
 If the machine configuration assignment has both requirements, a
 `complianceStatus` of "Pending" and a `configurationMode` of either
 "ApplyandMonitor" or "ApplyandAutoCorrect", the service in the machine
 applies the configuration. After the configuration is applied, at the
-[next interval](./machine-configuration.md#validation-frequency)
+[next interval](./overview.md)
 the configuration mode dictates whether the behavior is to only report on
 compliance status and allow drift or to automatically correct.
 
@@ -169,16 +169,16 @@ compliance status and allow drift or to automatically correct.
 
 ## Next steps
 
-- Read the [machine configuration overview](./machine-configuration.md).
-- Setup a custom machine configuration package [development environment](../how-to/machine-configuration-create-setup.md).
-- [Create a package artifact](../how-to/machine-configuration-create.md)
+- Read the [machine configuration overview](./overview.md).
+- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- [Create a package artifact](./machine-configuration-create.md)
   for machine configuration.
-- [Test the package artifact](../how-to/machine-configuration-create-test.md)
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](../how-to/machine-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
 - [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for machine configuration](../how-to/determine-non-compliance.md#compliance-details-for-machine-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.
