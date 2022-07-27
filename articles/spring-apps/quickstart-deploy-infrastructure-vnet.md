@@ -58,11 +58,11 @@ The templates used in this quickstart are from the [Azure Spring Apps Reference 
 
 ### [Standard tier](#tab/azure-spring-apps-standard)
 
-:::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploySpringStandard.json":::
+:::code language="json" source="~/azure-spring-apps-reference-architecture/ARM/brownfield-deployment/azuredeploySpringStandard.json":::
 
 ### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
-:::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploySpringEnterprise.json":::
+:::code language="json" source="~/azure-spring-apps-reference-architecture/ARM/brownfield-deployment/azuredeploySpringEnterprise.json":::
 
 ---
 
@@ -79,11 +79,11 @@ First, select the following image to sign in to Azure and open a template. The t
 
 ### [Standard tier](#tab/azure-spring-apps-standard)
 
-:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
+:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
 
 ### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
-:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
+:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
 
 ---
 

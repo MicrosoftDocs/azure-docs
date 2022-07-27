@@ -57,11 +57,11 @@ First, create an *azuredeploy.bicep* file with the following contents:
 
 ### [Standard tier](#tab/azure-spring-apps-standard)
 
-:::code language="bicep" source="~/azure-spring-cloud-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
+:::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
 
 ### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
-:::code language="bicep" source="~/azure-spring-cloud-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringEnterprise.bicep":::
+:::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringEnterprise.bicep":::
 
 ---
 

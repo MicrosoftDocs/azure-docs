@@ -813,8 +813,8 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-spring-cloud-reference-architecture",
-      "url": "https://github.com/Azure/azure-spring-cloud-reference-architecture",
+      "path_to_root": "azure-spring-apps-reference-architecture",
+      "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
       "branch": "main",
       "branch_mapping": {}
     },
