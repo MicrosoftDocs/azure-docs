@@ -43,7 +43,7 @@ Applications can implement both authentication models and leave the choice of au
 |Chat is available via | Communication Services Chat SDKs | Graph API |
 |Join Teams meetings | Yes | Yes |
 |Make and receive calls as Teams users | No | Yes |
-|PSTN support| Not supported for Communication Services users in Teams meetings | Teams phone system, calling plan, direct routing, operator connect|
+|PSTN support| Not supported for Communication Services users in Teams meetings | Microsoft Teams Phone, calling plan, direct routing, operator connect|
 
 \* Server logic issuing access tokens can perform any custom authentication and authorization of the request.
 
