@@ -17,7 +17,7 @@ This article describes Microsoft Azure autoscale and its benefits.
 Azure autoscale supports many resource types. For more information about supported resources, see [autoscale supported resources](#supported-services-for-autoscale).
 
 > [!NOTE]
-> [Availability sets](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) are an older scaling feature for Virtual Machines with limited support. We recommend migrating to [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) for faster and more reliable autoscale support. 
+> [Availability sets](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) are an older scaling feature for virtual machines with limited support. We recommend migrating to [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) for faster and more reliable autoscale support. 
 
 
 ## What is autoscale
@@ -31,7 +31,7 @@ For example, scale out your application by adding VMs when the average CPU usage
 
 When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. In addition, you can perform other actions like sending email  notifications, or webhooks to trigger processes in other systems.. 
 ### Predictive autoscale (preview)
-[Predictive autoscale](/azure/azure-monitor/autoscale/autoscale-predictive) uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load on your virtual machine scale set, based on historical CPU usage patterns. The scale set can then be scaled out in time to meet the predicted demand.
+[Predictive autoscale](/azure/azure-monitor/autoscale/autoscale-predictive) uses machine learning to help manage and scale Azure virtual machine scale sets with cyclical workload patterns. It forecasts the overall CPU load on your virtual machine scale set, based on historical CPU usage patterns. The scale set can then be scaled out in time to meet the predicted demand.
 ## Autoscale setup
 You can set up autoscale via:
 * [Azure portal](autoscale-get-started.md)
@@ -59,7 +59,7 @@ Set up schedule-based rules to trigger scale events. Use schedule-based rules wh
 ### Rules
 Rules define the conditions needed to trigger a scale event, the direction of the scaling, and the amount to scale by. Rules can be:
 * Metric-based  
-Trigger based on a metric value, for example when CPU usage is above 50%. Metric-based rules measure application load and add or remove VMs based on that load.
+Trigger based on a metric value, for example when CPU usage is above 50%.
 * Time-based  
 Trigger based on a schedule, for example, every Saturday at 8am. 
 
@@ -68,10 +68,6 @@ You can combine multiple rules using different metrics, for example CPU usage an
 * The OR operator is used when scaling out with multiple rules.
 * The AND operator is used when scaling in with multiple rules.
 
-
-
- 
-.
 ### Actions and automation
 Rules can trigger one or more actions. Actions include:
 
@@ -105,9 +101,9 @@ For code examples, see
 * [Autoscale REST API](/rest/api/monitor/autoscalesettings)
 
 ## Horizontal vs vertical scaling
-Autoscale scales horizontally, which is an increase, scale out, or decrease, scale in, of the number of resource instances. For example, in a virtual machine scale set, scaling out means adding more virtual machines. Horizontal is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load.
+Autoscale scales horizontally, which is an increase, or decrease of the number of resource instances. For example, in a virtual machine scale set, scaling out means adding more virtual machines Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation as it allows you to run a large number of VMs to handle load.
 
-In contrast, vertical scaling, scaling up or down, keeps the same number of resources constant, but gives them more capacity in terms of memory, CPU speed, disk space and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling also usually requires a VM restart during the scaling process.
+In contrast, vertical scaling, keeps the same number of resources constant, but gives them more capacity in terms of memory, CPU speed, disk space and network. Adding or removing capacity in vertical scaling is known as scaling or down. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling may also require a restart of the virtual machine during the scaling process.
 
 
 
@@ -118,8 +114,8 @@ The following services are supported by autoscale:
 | --- | --- |
 | Web Apps |[Scaling Web Apps](autoscale-get-started.md) |
 | Cloud Services |[Autoscale a Cloud Service](../../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Virtual Machines: Windows Scale Sets |[Scaling virtual machine scale sets in Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
-| Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
+| Virtual Machines: Windows scale sets |[Scaling virtual machine scale sets in Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Virtual Machines: Linux scale sets |[Scaling virtual machine scale sets in Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for virtual machine scale sets](autoscale-virtual-machine-scale-sets.md) |
 | Azure App Service |[Scale up an app in Azure App service](../../app-service/manage-scale-up.md)|
 | API Management service|[Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)
@@ -137,7 +133,7 @@ The following services are supported by autoscale:
 
 
 ## Next steps
-To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:
+To learn more about autoscale, see the following resources:
 
 * [Azure Monitor autoscale common metrics](autoscale-common-metrics.md)
 * [Scale virtual machine scale sets](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell?toc=/azure/azure-monitor/toc.json)
@@ -145,4 +141,4 @@ To learn more about autoscale, use the Autoscale Walkthroughs listed previously 
 * [Best practices for Azure Monitor autoscale](autoscale-best-practices.md)
 * [Use autoscale actions to send email and webhook alert notifications](autoscale-webhook-email.md)
 * [Autoscale REST API](/rest/api/monitor/autoscalesettings)
-* [Troubleshooting Virtual Machine Scale Sets Autoscale](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+* [Troubleshooting virtual machine scale sets and autoscale](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
