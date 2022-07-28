@@ -187,7 +187,7 @@
       href: how-to-deploy-mlflow-models.md
     - name: Update web service
       displayName: update hot reload model mounting
-      href: ../how-to-deploy-update-web-service.md
+      href: how-to-deploy-update-web-service.md
     - name: Deployment targets
       items: 
         - name: Local

@@ -1416,6 +1416,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-update-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-inferencing-gpus.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-inferencing-gpus",
         "redirect_document_id": true
