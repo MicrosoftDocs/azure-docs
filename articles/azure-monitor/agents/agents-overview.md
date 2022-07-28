@@ -29,7 +29,6 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 |		|	Other cloud (Azure Arc)	|	X	|	X	|		|
 |		|	On-premises (Azure Arc)	|	X	|	X	|		|
 |		|	Windows Client OS	|	X (Preview)	|		|		|
-|	-	|	-	|	-	|	-	|	-	|
 |	**Data collected**	|		|		|		|		|
 |		|	Event Logs	|	X	|	X	|	X	|
 |		|	Performance	|	X	|	X	|	X	|
@@ -41,13 +40,11 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 |		|	.NET app logs	|		|		|	X	|
 |		|	Crash dumps	|		|		|	X	|
 |		|	Agent diagnostics logs	|		|		|	X	|
-|	-	|	-	|	-	|	-	|	-	|
 |	**Data sent to**	|		|		|		|		|
 |		|	Azure Monitor Logs	|	X	|	X	|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|	X	|
 |		|	Azure Storage	|		|		|	X	|
 |		|	Event Hub	|		|		|	X	|
-|	-	|	-	|	-	|	-	|	-	|
 |	**Services and features supported**	|		|		|		|		|
 |		|	Log Analytics	|	X	|	X	|		|
 |		|	Metrics Explorer	|	X	|		|	X	|
@@ -64,18 +61,15 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 |		|	Azure	|	X	|	X	|	X	|	X	|
 |		|	Other cloud (Azure Arc)	|	X	|	X	|		|	X	|
 |		|	On-premises (Azure Arc)	|	X	|	X	|		|	X	|
-|	-	|	-	|	-	|	-	|	-	|	-	|
 |	**Data collected**	|		|		|		|		|		|
 |		|	Syslog	|	X	|	X	|	X	|		|
 |		|	Performance	|	X	|	X	|	X	|	X	|
 |		|	File based logs	|	X (Preview)	|		|		|		|
-|	-	|	-	|	-	|	-	|	-	|	-	|
 |	**Data sent to**	|		|		|		|		|		|
 |		|	Azure Monitor Logs	|	X	|	X	|		|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|		|	X	|
 		|	Azure Storage	|		|		|	X	|		|
 |		|	Event Hub	|		|		|	X	|		|
-|	-	|	-	|	-	|	-	|	-	|	-	|
 |	**Services and features supported**	|		|		|		|		|		|
 |		|	Log Analytics	|	X	|	X	|		|		|
 |		|	Metrics Explorer	|	X	|		|		|	X	|
