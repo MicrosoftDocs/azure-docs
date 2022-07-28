@@ -133,4 +133,4 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
 * View the REST API:
 
     > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
