@@ -86,7 +86,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
    /etc/adu/du-config.json
    ```
 
- 1. Restart the Device Update agent by running the following command:
+ 5. Restart the Device Update agent by running the following command:
 
    ```markdown
     sudo systemctl restart adu-agent
