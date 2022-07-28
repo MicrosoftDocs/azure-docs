@@ -15,12 +15,12 @@ Azure Static Web Apps features two different places where runtime and language v
 
 | Runtime type | Description |
 |--|--|
-| **Front end** | The node.js version responsible for running the website's build steps that build the front end application. |
+| **Front end** | The version responsible for running the website's build steps that build the front end application. |
 | **API** | The version and runtime of Azure Functions used in your web application. |
 
 ## Front end
 
-You can specify the runtime version that builds the front end of your static web app in the [application configuration file](configuration.md).
+You can specify the runtime version that builds the front end of your static web app in package.json.
 
 ```json
 TODO: add config example here
