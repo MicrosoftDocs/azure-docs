@@ -103,7 +103,7 @@ Your new plan is shown under the associated subscription in the **Plans** grid o
 
 ## Add a Defender for IoT plan for Enterprise IoT networks to an Azure subscription
 
-You can onboard and cancel a plan for Enterprise IoT networks in the Defender for Endpoint portal. To onboard an Enterprise IoT plan, see [Onboard Microsoft Defender for IoT](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+Onboard a Defender for IoT plan for Enterprise IoT networks from Microsoft Defender for Endpoint. For more information, see [Onboard Microsoft Defender for IoT](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
 Once you've onboarded a plan for Enterprise IoT networks from the Defender for Endpoint portal, you'll see the plan in the Azure portal under the associated subscription in the **Plans** grid in **Defender for IoT** > **Pricing**.
 
