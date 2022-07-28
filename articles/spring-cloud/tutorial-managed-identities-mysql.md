@@ -43,7 +43,7 @@ az group create --location <myLocation> --name <myResourceGroup>
 
 To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#az-keyvault-create):
 
-> [!Important]
+> [!IMPORTANT]
 > Each Key Vault must have a unique name. Replace *\<myKeyVaultName>* with the name of your Key Vault in the following examples.
 
 ```azurecli
