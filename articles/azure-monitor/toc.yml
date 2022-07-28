@@ -641,12 +641,12 @@ items:
     items:
     - name: Create a new alert rule
       href: alerts/alerts-create-new-alert-rule.md
-    - name: View and manage alert instances
+    - name: Manage alert rules
+      href: alerts/alerts-manage-alert-rules.md
+    - name: Manage alert instances
       href: alerts/alerts-page.md
     - name: Metric alert rules
       items:
-      - name: Manage metric alerts
-        href: alerts/alerts-metric.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
@@ -659,8 +659,6 @@ items:
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:
-      - name: Manage log alerts
-        href: alerts/alerts-log.md
       - name: Edit log alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries
@@ -675,8 +673,6 @@ items:
         href: alerts/api-alerts.md
     - name:  Activity log alert rules
       items:
-      - name: Alert on an activity log event
-        href: alerts/alerts-activity-log.md
       - name: Migrate management events to activity log alerts
         href: ./alerts/activity-log-alerts.md
       - name: Webhook schema

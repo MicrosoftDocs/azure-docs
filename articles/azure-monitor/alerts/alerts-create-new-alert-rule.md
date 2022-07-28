@@ -144,6 +144,7 @@ And then defining these elements for the resulting alert actions using:
     1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
+
     ### [Activity log](#tab/activity-log)
 
     1. In the **Conditions** pane, select the **Chart period**.
@@ -198,6 +199,7 @@ And then defining these elements for the resulting alert actions using:
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Details tab.":::
+
     ### [Activity log](#tab/activity-log)
 
     1. Define the **Alert rule details**.
@@ -271,5 +273,131 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 - To create a metric alert rule using PowerShell, use this cmdlet: [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2)
 - To create an  activity log alert rule using PowerShell, use this cmdlet: [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert)
 
+
+## Create an activity log alert rule using an Azure Resource Manager template
+
+To create an activity log alert rule using an Azure Resource Manager template, create a `microsoft.insights/activityLogAlerts` resource, and fill in all related properties. Here's a template that creates an activity log alert rule:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "activityLogAlertName": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique name (within the Resource Group) for the Activity log alert."
+      }
+    },
+    "activityLogAlertEnabled": {
+      "type": "bool",
+      "defaultValue": true,
+      "metadata": {
+        "description": "Indicates whether or not the alert is enabled."
+      }
+    },
+    "actionGroupResourceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Resource Id for the Action group."
+      }
+    }
+  },
+  "resources": [   
+    {
+      "type": "Microsoft.Insights/activityLogAlerts",
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('activityLogAlertName')]",      
+      "location": "Global",
+      "properties": {
+        "enabled": "[parameters('activityLogAlertEnabled')]",
+        "scopes": [
+            "[subscription().id]"
+        ],        
+        "condition": {
+          "allOf": [
+            {
+              "field": "category",
+              "equals": "Administrative"
+            },
+            {
+              "field": "operationName",
+              "equals": "Microsoft.Resources/deployments/write"
+            },
+            {
+              "field": "resourceType",
+              "equals": "Microsoft.Resources/deployments"
+            }
+          ]
+        },
+        "actions": {
+          "actionGroups":
+          [
+            {
+              "actionGroupId": "[parameters('actionGroupResourceId')]"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+The previous sample JSON can be saved as, for example, *sampleActivityLogAlert.json*. You can deploy the sample by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
+
+> [!NOTE]
+>The highest level that activity log alerts can be defined is the subscription level. There is no option to define an alert on two subscriptions. The definition should be to alert per subscription.
+
+The following fields are the options that you can use in the Azure Resource Manager template for the conditions fields. (Notice that **Resource Health**, **Advisor** and **Service Health** have extra properties fields for their special fields.) 
+
+1. `resourceId`: The resource ID of the impacted resource in the activity log event that the alert should be generated on.
+1. `category`: The category of the activity log event. For example: `Administrative`, `ServiceHealth`, `ResourceHealth`, `Autoscale`, `Security`, `Recommendation`, or `Policy`.
+1. `caller`: The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.
+1. `level`: Level of the activity in the activity log event that the alert should be generated on. For example: `Critical`, `Error`, `Warning`, `Informational`, or `Verbose`.
+1. `operationName`: The name of the operation in the activity log event. For example: `Microsoft.Resources/deployments/write`.
+1. `resourceGroup`: Name of the resource group for the impacted resource in the activity log event.
+1. `resourceProvider`: For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).
+1. `status`: String describing the status of the operation in the activity event. For example: `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.
+1. `subStatus`: Usually, this field is the HTTP status code of the corresponding REST call. But it can also include other strings describing a substatus. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.
+1. `resourceType`: The type of the resource that was affected by the event. For example: `Microsoft.Resources/deployments`.
+
+For example:
+
+```json
+"condition": {
+          "allOf": [
+            {
+              "field": "category",
+              "equals": "Administrative"
+            },
+            {
+              "field": "resourceType",
+              "equals": "Microsoft.Resources/deployments"
+            }
+          ]
+        }
+
+```
+
+For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).
+
+> [!NOTE]
+> It might take up to 5 minutes for the new activity log alert rule to become active.
+
+## Create a new activity log alert rule using the REST API 
+
+The Azure Monitor Activity Log Alerts API is a REST API. It's fully compatible with the Azure Resource Manager REST API. You can use it with PowerShell, by using the Resource Manager cmdlet or the Azure CLI.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### Deploy the Resource Manager template with PowerShell
+
+To use PowerShell to deploy the sample Resource Manager template shown in the [previous section](#create-an-activity-log-alert-rule-using-an-azure-resource-manager-template) section, use the following command:
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+```
+The *sampleActivityLogAlert.parameters.json* file contains the values provided for the parameters needed for alert rule creation.
+
 ## Next Steps
- - [View and manage your alert instances](alerts-page.md)
+ - [View and manage your alert instances](alerts-manage-alert-instances.md)
