@@ -117,7 +117,7 @@ This article lists supported human languages for Immersive Reader features.
 | Indonesian | id |
 | Indonesian (Indonesia) | id-ID |
 | Irish | ga |
-| Irish | ga-IE |
+| Irish (Ireland) | ga-IE |
 | Italian | it |
 | Italian (Italy) | it-IT |
 | Japanese | ja |
@@ -162,7 +162,7 @@ This article lists supported human languages for Immersive Reader features.
 | Polish (Poland) | pl-PL |
 | Portuguese | pt |
 | Portuguese (Brazil) | pt-BR |
-| Portuguese (Portugal) | pt-PT |  
+| Portuguese (Portugal) | pt-PT |
 | Romanian | ro |
 | Romanian (Romania) | ro-RO |
 | Russian | ru |
@@ -200,7 +200,6 @@ This article lists supported human languages for Immersive Reader features.
 | Turkish | tr |
 | Turkish (Turkey) | tr-TR |
 | Ukrainian | uk |
-| Ukrainian | ur-PK |
 | Ukrainian (Ukraine) | uk-UA |
 | Urdu | ur |
 | Urdu (India) | ur-IN |
@@ -338,7 +337,7 @@ This article lists supported human languages for Immersive Reader features.
 | Polish (Poland) | pl-PL |
 | Portuguese | pt |
 | Portuguese (Brazil) | pt-BR |
-| Portuguese (Portugal) | pt-PT |  
+| Portuguese (Portugal) | pt-PT |
 | Punjabi | pa |
 | Querétaro Otomi | otq |
 | Romanian | ro |
