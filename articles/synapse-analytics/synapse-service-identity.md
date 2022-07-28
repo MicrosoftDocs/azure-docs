@@ -13,8 +13,6 @@ ms.custom: devx-track-azurepowershell, synapse, subject-rbac-steps
 
 # Managed identity for Azure Synapse 
 
-[!INCLUDE[appliesto-xxx-asa-md](includes/appliesto-xxx-asa-md.md)]
-
 This article helps you understand managed identity (formerly known as Managed Service Identity/MSI) and how it works in Azure Synapse.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -30,7 +28,7 @@ There are two types of supported managed identities:
 
 Managed identity provides the below benefits:
 
-- [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case-managed identity is used for Azure Key Vault authentication.
+- [Store credential in Azure Key Vault](../data-factory/store-credentials-in-key-vault.md), in which case-managed identity is used for Azure Key Vault authentication.
 - Access data stores or computes using managed identity authentication, including Azure Blob storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks activity, Web activity, and more. Check the connector and activity articles for details.
 - Managed identity is also used to encrypt/decrypt data and metadata using the customer-managed key stored in Azure Key Vault, providing double encryption. 
 
@@ -44,8 +42,8 @@ Managed identity provides the below benefits:
 System-assigned managed identity is generated as follows:
 
 - When creating a Synapse workspace through **Azure portal or PowerShell**, managed identity will always be created automatically.
-- When creating a workspace through **SDK**, managed identity will be created only if you specify Identity = new ManagedIdentity" in the Synapse workspace object for creation."  See example in [.NET Quickstart - Create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- When creating Synapse workspace through **REST API**, managed identity will be created only if you specify "identity" section in request body. See example in [REST quickstart - create data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- When creating a workspace through **SDK**, managed identity will be created only if you specify Identity = new ManagedIdentity" in the Synapse workspace object for creation."  See example in [.NET Quickstart - Create data factory](../data-factory/quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- When creating Synapse workspace through **REST API**, managed identity will be created only if you specify "identity" section in request body. See example in [REST quickstart - create data factory](../data-factory/quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 If you find your service instance doesn't have a managed identity associated following [retrieve managed identity](#retrieve-managed-identity) instruction, you can explicitly generate one by updating it with identity initiator programmatically:
 
@@ -188,7 +186,7 @@ You can retrieve the managed identity from Azure portal or programmatically. The
 
 You can find the managed identity information from Azure portal -> your Synapse workspace -> Properties.
 
-:::image type="content" source="media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png" alt-text="Shows the Azure portal with the system-managed identity object ID for a Synapse workspace."  lightbox="media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png":::
+:::image type="content" source="../data-factory/media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png" alt-text="Shows the Azure portal with the system-managed identity object ID for a Synapse workspace."  lightbox="../data-factory/media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png":::
 
 - Managed Identity Object ID
 
@@ -320,15 +318,14 @@ You can easily execute Synapse Spark Notebooks with the system assigned managed 
 
 You can create, delete, manage user-assigned managed identities in Azure Active Directory. For more details refer to [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
-In order to use a user-assigned managed identity, you must first [create credentials](credentials.md) in your service instance for the UAMI.
+In order to use a user-assigned managed identity, you must first [create credentials](../data-factory/credentials.md) in your service instance for the UAMI.
 
 ## Next steps
-
-- [Create credentials](credentials.md).
+- [Create credentials](../data-factory/credentials.md).
 
 See the following topics that introduce when and how to use managed identity:
 
-- [Store credential in Azure Key Vault](store-credentials-in-key-vault.md).
-- [Copy data from/to Azure Data Lake Store using managed identities for Azure resources authentication](connector-azure-data-lake-store.md).
+- [Store credential in Azure Key Vault](../data-factory/store-credentials-in-key-vault.md).
+- [Copy data from/to Azure Data Lake Store using managed identities for Azure resources authentication](../data-factory/connector-azure-data-lake-store.md).
 
 See [Managed Identities for Azure Resources Overview](../active-directory/managed-identities-azure-resources/overview.md) for more background on managed identities for Azure resources, on which managed identity in Azure Synapse is based.
