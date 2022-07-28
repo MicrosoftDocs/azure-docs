@@ -69,31 +69,6 @@ Use the Azure Monitor agent to gain these benefits:
 
 When compared with the legacy agents, the Azure Monitor agent has [these limitations currently](./azure-monitor-agent-overview.md#current-limitations).
 
-## Log Analytics agent
-
-> [!WARNING]
-> The Log Analytics agents are on a deprecation path and will no longer be supported after August 31, 2024.
-
-The legacy [Log Analytics agent](./log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises machines. It sends data to a Log Analytics workspace. The Log Analytics agent is the same agent used by System Center Operations Manager. You can multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain insights in Azure Monitor and other services in Azure.
-
-> [!NOTE]
-> The Log Analytics agent for Windows is often referred to as Microsoft Monitoring Agent (MMA). The Log Analytics agent for Linux is often referred to as OMS agent.
-
-Use the Log Analytics agent if you need to:
-
-* Collect logs and performance data from Azure virtual machines or hybrid machines hosted outside of Azure.
-* Send data to a Log Analytics workspace to take advantage of features supported by [Azure Monitor Logs](../logs/data-platform-logs.md), such as [log queries](../logs/log-query-overview.md).
-* Use [VM insights](../vm/vminsights-overview.md), which allows you to monitor your machines at scale and monitor their processes and dependencies on other resources and external processes.  
-* Manage the security of your machines by using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) or [Microsoft Sentinel](../../sentinel/overview.md).
-* Use [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure and non-Azure machines.
-* Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application.
-
-Limitations of the Log Analytics agent:
-
-- Can't send data to Azure Monitor Metrics, Azure Storage, or Azure Event Hubs
-- Difficult to configure unique monitoring definitions for individual agents
-- Difficult to manage at scale because each virtual machine has a unique configuration
-
 ## Virtual machine extensions
 
 The [Azure Monitor agent](./azure-monitor-agent-manage.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
