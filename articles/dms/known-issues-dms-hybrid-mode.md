@@ -2,7 +2,7 @@
 title: Known issues/migration limitations with using Hybrid mode
 description: Learn about known issues/migration limitations with using Azure Database Migration Service in hybrid mode.
 services: database-migration
-author: dbamaster
+author: croblesm
 ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
