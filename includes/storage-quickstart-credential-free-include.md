@@ -80,10 +80,6 @@ After you add the environment variable in Windows, you must start a new instance
 export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
-#### Restart programs
-
-After you add the environment variable, restart any running programs that will need to read the environment variable. For example, restart your development environment or editor before you continue.
-
 ### Configure the connection string
 
 The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
