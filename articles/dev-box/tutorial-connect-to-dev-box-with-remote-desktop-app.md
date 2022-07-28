@@ -42,7 +42,7 @@ To download and setup the Remote Desktop app, follow these steps:
 
 1. Choose **Download Windows Desktop** to download the Remote Desktop client.
    
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png" alt-text="Screenshot of the "How would you like to connect to with the Remote Desktop client" dialog download windows desktop option":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png" alt-text="Screenshot of the download windows desktop option on the connect dialog.":::
 
 1. Once install of the RDP client completes, return to the dev portal and [connect to your dev box](#connect-to-your-dev-box)
    
@@ -58,7 +58,7 @@ To download and setup the Remote Desktop app, follow these steps:
 
 1. Choose **Open Windows Desktop** to launch the Remote Desktop client.
    
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/open-windows-desktop.png" alt-text="Screenshot of the "How would you like to connect to with the Remote Desktop client" dialog Open Windows Desktop option":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/open-windows-desktop.png" alt-text="Screenshot of the  Open Windows Desktop option on the Connect dialog":::
 
 1. Your dev box will appear in the Workspaces list of the Remote Desktop client. Double-click to connect.
 
