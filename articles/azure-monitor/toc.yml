@@ -926,6 +926,8 @@ items:
           href: app/java-standalone-arguments.md
         - name: Upgrade from 2.x SDK
           href: app/java-standalone-upgrade-from-2x.md
+        - name: Java Profiler
+          href: app/java-standalone-profiling.md
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
