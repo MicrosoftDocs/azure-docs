@@ -4,7 +4,7 @@ description: Reference information for Azure IoT Edge for Linux on Windows Power
 author: PatAltimore
 
 ms.author: fcabrera
-ms.date: 07/05/2022
+ms.date: 07/28/2022
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
@@ -63,7 +63,7 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
 
    You can specify custom installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command.
 
-1. Set the execution policy on the target device to `AllSigned` if it is not already.
+1. Set the execution policy on the target device to at least `AllSigned`.
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
