@@ -20,7 +20,7 @@ Use this article to find the natural languages supported by Key Phrase Analysis.
 ## Supported languages 
 
 > [!NOTE]
-> Languages are added as new [model versions](how-to/call-api.md#specify-the-key-phrase-extraction-model) are released for specific features. The current model version for Key Phrase Extraction is `2021-06-01`.
+> Languages are added as new [model versions](how-to/call-api.md#specify-the-key-phrase-extraction-model) are released for specific features. The current model version for Key Phrase Extraction is `2022-07-01`.
 
 Total supported language codes: 31
 
