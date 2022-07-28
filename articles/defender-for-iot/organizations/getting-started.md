@@ -107,7 +107,6 @@ Onboard a Defender for IoT plan for Enterprise IoT networks from Microsoft Defen
 
 Once you've onboarded a plan for Enterprise IoT networks from the Defender for Endpoint portal, you'll see the plan in the Azure portal under the associated subscription in the **Plans** grid in **Defender for IoT** > **Pricing**.
 
-Your plan will be shown under the associated subscription in the **Plans and pricing** grid.
 
 For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
