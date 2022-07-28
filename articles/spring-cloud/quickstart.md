@@ -50,7 +50,7 @@ To complete this quickstart:
 
 1. Create an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription.
 
-:::image type="content" source="media/spring-cloud-quickstart-java/Azure-storage-subscription-new.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/spring-cloud-quickstart-java/access-app-browser.png":::
+:::image type="content" source="media/spring-cloud-quickstart-java/Azure-storage-subscription-new.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/spring-cloud-quickstart-java/Azure-storage-subscription-new.png":::
 
 1. After login successfully, copying the command to list all the subscription you have.
 
@@ -158,11 +158,11 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 3. Select **Azure Spring Apps** from the results.
 
-    :::image type="content" source="media/spring-cloud-quickstart-java/find-spring-cloud-start-new.jpg" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results.":::
+    :::image type="content" source="media/spring-cloud-quickstart-java/spring-cloud-start-new.jpg" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results." lightbox="media/spring-cloud-quickstart-java/spring-cloud-start-new.jpg":::
 
 4. On the Azure Spring Apps page, select **Create**.
 
-    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/spring-cloud-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted.":::
+    :::image type="content" source="media/spring-cloud-quickstart-java/spring-cloud-create-new.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted." lightbox="media/spring-cloud-quickstart-java/spring-cloud-create-new.png":::
 
 5. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
@@ -171,7 +171,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
     - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
     - **Region**: Select the region for your service instance.
 
-    :::image type="content" source="media/spring-cloud-quickstart-java/portal-start-new.jpg" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page.":::
+    :::image type="content" source="media/spring-cloud-quickstart-java/portal-start-new.jpg" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="media/spring-cloud-quickstart-java/portal-start-new.jpg":::
 
 6. Select **Review and create**.
 
@@ -180,7 +180,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 1. Open the IntelliJ **Welcome** dialog, then select **Open** to open the import wizard.
 1. Select the **hellospring** folder.
 
-    :::image type="content" source="media/spring-cloud-quickstart-java/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box.":::
+    :::image type="content" source="media/spring-cloud-quickstart-java/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box." lightbox="media/spring-cloud-quickstart-java/intellij-new-project.png":::
 
 ### Installation and sign-in
 
