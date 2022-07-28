@@ -33,6 +33,16 @@
     href: ./machine-configuration-create-publish.md
   - name: How to setup a machine configuration authoring environment
     href: ./machine-configuration-create-setup.md
+  - name: Understand machine configuration assignment resources
+    href: ./machine-configuration-assignments.md
+  - name:  Azure Automation state configuration to machine configuration migration planning
+    href: ./machine-configuration-azure-automation-migration.md
+  - name: Changes to behavior in PowerShell DSC for machine configuration
+    href: ./machine-configuration-custom.md
+  - name: Planning a change from DSC extension for Linux to machine configuration
+    href: ./machine-configuration-dsc-extension-migration.md
+  - name: Remediation options for machine configuration
+    href: ./machine-configuration-policy-effects.md
 - name: Resources
   items:
   - name: Reference link

@@ -15,7 +15,7 @@ implementations:
 - **Vulnerabilities in security configuration on your machines should be remediated** in Azure
   Security Center
 
-For more information, see [Azure Policy guest configuration](../concepts/guest-configuration.md) and
+For more information, see [Azure Policy guest configuration](../../machine-configuration/overview.md) and
 [Overview of the Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).
 
 ## Administrative Templates - Control Panel
@@ -365,7 +365,7 @@ For more information, see [Azure Policy guest configuration](../concepts/guest-c
 
 Additional articles about Azure Policy and guest configuration:
 
-- [Azure Policy guest configuration](../concepts/guest-configuration.md).
+- [Azure Policy guest configuration](../../machine-configuration/overview.md).
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
 - Review other examples at [Azure Policy samples](./index.md).
 - Review [Understanding policy effects](../concepts/effects.md).
