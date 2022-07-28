@@ -108,7 +108,7 @@ The core operation of the Translator service is translating text. In this quicks
 #### Feedback: Set up project (C#)
 
 > [!div class="nextstepaction"]
-> [I created a project](#build-your-c#-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=feedback-set-up-project-c#)
+> [I created a project](#build-your-c-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=feedback-set-up-project-c#)
 
 ### Build your C# application
 
@@ -163,7 +163,7 @@ class Program
 #### Feedback: Build your application (C#)
 
 > [!div class="nextstepaction"]
-> [I built the application](#run-your-c#-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=feedback-build-your-application-c#)
+> [I built the application](#run-your-c-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=feedback-build-your-application-c#)
 
 ### Run your C# application
 
