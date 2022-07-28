@@ -35,14 +35,14 @@ We recommend that you review [common monitoring questions](monitoring-common-que
 
 ## Configure Site Recovery to send logs
 
-1. In the vault, click **Diagnostic settings** > **Add diagnostic setting**.
+1. In the vault, select **Diagnostic settings** > **Add diagnostic setting**.
 
     ![Screenshot showing the Add diagnostic setting option.](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. In **Diagnostic settings**, specify a name, and check the box **Send to Log Analytics**.
 3. Select the Azure Monitor Logs subscription, and the Log Analytics workspace.
 4. Select **Azure Diagnostics** in the toggle.
-5. From the log list, select all the logs with the prefix **AzureSiteRecovery**. Then click **OK**.
+5. From the log list, select all the logs with the prefix **AzureSiteRecovery**. Then select **OK**.
 
     ![Screenshot of the Diagnostics setting screen.](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -52,14 +52,14 @@ The Site Recovery logs start to feed into a table (**AzureDiagnostics**) in the 
 
 You can capture the data churn rate information and source data upload rate information for your VMware/physical machines at on-premises. To enable this, a Microsoft monitoring agent is required to be installed on the Process Server.
 
-1. Go to the Log Analytics workspace and click on **Advanced Settings**.
-2. Click on **Connected Sources** page and further select **Windows Servers**.
+1. Go to the Log Analytics workspace and select **Advanced Settings**.
+2. Select **Connected Sources** page and further select **Windows Servers**.
 3. Download the Windows Agent (64 bit) on the Process Server. 
 4. [Obtain the workspace ID and key](../azure-monitor/agents/agent-windows.md#workspace-id-and-key)
 5. [Configure agent to use TLS 1.2](../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Complete the agent installation](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard) by providing the obtained workspace ID and key.
-7. Once the installation is complete, go to Log Analytics workspace and click on **Advanced Settings**. Go to the **Data** page and further click on **Windows Performance Counters**. 
-8. Click on **'+'** to add the following two counters with sample interval of 300 seconds:
+6. [Complete the agent installation](../azure-monitor/agents/agent-windows.md#install-the-agent) by providing the obtained workspace ID and key.
+7. Once the installation is complete, go to Log Analytics workspace and select **Advanced Settings**. Go to the **Data** page and select **Windows Performance Counters**. 
+8. Select **'+'** to add the following two counters with sample interval of 300 seconds:
 
     - ASRAnalytics(*)\SourceVmChurnRate
     - ASRAnalytics(*)\SourceVmThrpRate
@@ -207,7 +207,7 @@ Category contains "Upload", "UploadRate", "none") 
 > [!Note]
 > Ensure you set up the monitoring agent on the Process Server to fetch these logs. Refer [steps to configure monitoring agent](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs).
 
-This query plots a trend graph for a specific disk **disk0** of a replicated item **win-9r7sfh9qlru**, that represents the data change rate (Write Bytes per Second), and data upload rate. You can find the disk name on **Disks** blade of the replicated item in the recovery services vault. Instance name to be used in the query is DNS name of the machine followed by _ and disk name as in this example.
+This query plots a trend graph for a specific disk, **disk0**, of a replicated item, **win-9r7sfh9qlru**, which represents the data change rate (Write Bytes per Second) and data upload rate. You can find the disk name on **Disks** blade of the replicated item in the recovery services vault. Instance name to be used in the query is DNS name of the machine followed by _ and disk name as in this example.
 
 ```
 Perf

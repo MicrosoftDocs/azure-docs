@@ -163,7 +163,11 @@
       - name: Cloudflare
         href: cloudflare-azure-ad-integration.md
       - name: Datawiza
-        href: datawiza-with-azure-ad.md 
+        items:
+        - name: Integrate Datawiza with Azure AD
+          href: datawiza-with-azure-ad.md 
+        - name: Configure Oracle JDE with Azure AD 
+          href: datawiza-azure-ad-sso-oracle-jde.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure
@@ -230,6 +234,8 @@
         href: application-sign-in-problem-application-error.md
       - name: Problem signing into a Microsoft app
         href: application-sign-in-problem-first-party-microsoft.md
+    - name: Create enterprise app for multi-tenant app registration
+      href: create-service-principal-cross-tenant.md    
   - name: Reference
     items:
     - name: Deletion and recovery FAQ

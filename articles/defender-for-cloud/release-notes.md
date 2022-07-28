@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 07/19/2022
+ms.date: 07/25/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,6 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in July include:
 
 - [General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection](#general-availability-ga-of-the-cloud-native-security-agent-for-kubernetes-runtime-protection)
+- [Defender for Container's VA adds support for the detection of language specific packages (Preview)](#defender-for-containers-va-adds-support-for-the-detection-of-language-specific-packages-preview)
 - [Protect against the Operations Management Suite vulnerability CVE-2022-29149](#protect-against-the-operations-management-suite-vulnerability-cve-2022-29149)
 
 ### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
@@ -42,6 +43,14 @@ Learn more about the Defender for Container's [feature availability](supported-m
 You can also review [all available alerts](alerts-reference.md#alerts-k8scluster).
 
 Note, if you're using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
+
+### Defender for Container's VA adds support for the detection of language specific packages (Preview)
+
+Defender for Container's vulnerability assessment (VA) is able to detect vulnerabilities in OS packages deployed via the OS package manager. We have now extended VA's abilities to detect vulnerabilities included in language specific packages.
+
+This feature is in `preview` and is only available for Linux images.
+
+To see all of the included language specific packages that have been added, check out Defender for Container's full list of [features and their availability](supported-machines-endpoint-solutions-clouds-containers.md#registries-and-images).
 
 ### Protect against the Operations Management Suite vulnerability CVE-2022-29149
 
@@ -99,6 +108,8 @@ Learn how to protect and connect your [AWS environment](quickstart-onboard-aws.m
 Today's increasing threats to organizations stretch the limits of security personnel to protect their expanding workloads. Security teams are challenged to implement the protections defined in their security policies.
 
 Now with the governance experience, security teams can assign remediation of security recommendations to the resource owners and require a remediation schedule. They can have full transparency into the progress of the remediation and get notified when tasks are overdue.
+
+This feature is free while it is in the preview phase.
 
 Learn more about the governance experience in [Driving your organization to remediate security issues with recommendation governance](governance-rules.md).
 
