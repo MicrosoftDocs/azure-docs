@@ -142,7 +142,7 @@ You can:
 ## Pricing model
 The charge for maintaining restored logs is calculated based on the volume of data you restore, in GB, and the number or days for which you restore the data. Charges are prorated and subject to the minimum restore duration and data volume. There is no charge for querying against restored logs.
 
-For example, if your table holds 500 GB a day and you restore 10 days of data, you will be charged for 5000 GB a day until you dismiss the restored data.
+For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you dismiss the restored data.
 
 > [!NOTE]
 > There is no charge for restored data during the preview period.
