@@ -24,7 +24,7 @@ If the exit code is `1-error`, then examine the log file. Once you understand th
 
 If the exit code is `2-panic`, then check the log file exists. If the file doesn't exist, file a bug or reach out to support.
 
-If the exit code is any other non-zero exit code, it may be a exit code from the system (e.g. OOM kill). Check your operating system documentation for special exit codes.
+If the exit code is any other non-zero exit code, it may be an exit code from the system. For example, OOMKilled.  Check your operating system documentation for special exit codes.
 
 ## 403 errors
 
