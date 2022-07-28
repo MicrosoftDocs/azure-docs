@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 7/28/2022
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-apps
 ---
@@ -18,13 +18,14 @@ zone_pivot_groups: programming-languages-spring-apps
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
 ::: zone pivot="programming-language-csharp"
+
 In this quickstart, you use the Azure CLI to provision an instance of the Azure Spring Apps service.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). The Azure Spring Apps service supports .NET Core 3.1 and later versions.
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 
 ## Install Azure CLI extension
@@ -88,6 +89,7 @@ az extension add --name spring
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
 You can provision an instance of the Azure Spring Apps service using the Azure portal or the Azure CLI.  Both methods are explained in the following procedures.
 
 ## Prerequisites
@@ -105,17 +107,17 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. In a new tab, open the [Azure portal](https://portal.azure.com/).
 
-2. From the top search box, search for **Azure Spring Apps**.
+1. From the top search box, search for **Azure Spring Apps**.
 
-3. Select **Azure Spring Apps** from the results.
+1. Select **Azure Spring Apps** from the results.
 
-   :::image type="content" source="media/quickstart-provision-service-instance/find-spring-cloud-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results.":::
+   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results." lightbox="media/quickstart-provision-service-instance/spring-apps-start.png":::
 
-4. On the Azure Spring Apps page, select **Create**.
+1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="media/quickstart-provision-service-instance/spring-cloud-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted.":::
+   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted.":::
 
-5. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
+1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
    - **Subscription**: Select the subscription you want to be billed for this resource.
    - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this value in later steps as **\<resource group name\>**.
@@ -123,9 +125,9 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
    - **Location**: Select the location for your service instance.
    - Select **Standard** for the **Pricing tier** option.
 
-   :::image type="content" source="media/quickstart-provision-service-instance/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page.":::
+   :::image type="content" source="media/quickstart-provision-service-instance/portal-start.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-service-instance/portal-start.png":::
 
-6. Select **Review and create**.
+1. Select **Review and create**.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
@@ -134,7 +136,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 The following procedure uses the Azure CLI extension to provision an instance of Azure Spring Apps.
 
-1. Update Azure CLI with Azure Spring Apps extension.
+1. Update the Azure CLI with the Azure Spring Apps extension.
 
    ```azurecli
    az extension update --name spring

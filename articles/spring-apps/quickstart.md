@@ -196,15 +196,15 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. Open the [Azure portal](https://portal.azure.com/).
 
-1. From the top search box, search for *Azure Spring Apps*.
+1. From the top search box, search for **Azure Spring Apps**.
 
-1. Select *Azure Spring Apps* from the results.
+1. Select **Azure Spring Apps** from the results.
 
-   :::image type="content" source="media/quickstart/find-spring-cloud-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results.":::
+   :::image type="content" source="media/quickstart/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results." lightbox="media/quickstart/spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="media/quickstart/spring-cloud-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted.":::
+   :::image type="content" source="media/quickstart/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted." lightbox="media/quickstart/spring-apps-create.png":::
 
 1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
@@ -213,7 +213,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
    * **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
    * **Region**: Select the region for your service instance.
 
-   :::image type="content" source="media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page.":::
+   :::image type="content" source="media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="media/quickstart/portal-start.png":::
 
 1. Select **Review and create**.
 
@@ -379,26 +379,26 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. In a new tab, open the [Azure portal](https://portal.azure.com/).
 
-2. From the top search box, search for **Azure Spring Apps**.
+1. From the top search box, search for **Azure Spring Apps**.
 
-3. Select **Azure Spring Apps** from the results.
+1. Select **Azure Spring Apps** from the results.
 
-    :::image type="content" source="media/quickstart/find-spring-cloud-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results.":::
+   :::image type="content" source="media/quickstart/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results." lightbox="media/quickstart/spring-apps-start.png":::
 
-4. On the Azure Spring Apps page, select **Create**.
+1. On the Azure Spring Apps page, select **Create**.
 
-    :::image type="content" source="media/quickstart/spring-cloud-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted.":::
+   :::image type="content" source="media/quickstart/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted." lightbox="media/quickstart/spring-apps-create.png":::
 
-5. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
+1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
-    - **Subscription**: Select the subscription you want to be billed for this resource.
-    - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this resource group in later steps as **\<resource group name\>**.
-    - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
-    - **Location**: Select the region for your service instance.
+   - **Subscription**: Select the subscription you want to be billed for this resource.
+   - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this resource group in later steps as **\<resource group name\>**.
+   - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
+   - **Location**: Select the region for your service instance.
 
-    :::image type="content" source="media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page.":::
+   :::image type="content" source="media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="media/quickstart/portal-start.png":::
 
-6. Select **Review and create**.
+1. Select **Review and create**.
 
 ## Build and deploy the app
 
