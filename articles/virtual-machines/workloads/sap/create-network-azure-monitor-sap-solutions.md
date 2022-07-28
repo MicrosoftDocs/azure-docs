@@ -180,8 +180,6 @@ Next, find and note important IP address ranges.
     1. On the **DNS configuration** page, note the **IP addresses** for the private endpoint.    
 
     1. For Log analytics private endpoint: Go to the private endpoint created for Azure Monitor Private Link Scope resource.         
-    
-        ![Diagram that shows linked scope resource.](https://user-images.githubusercontent.com/33844181/176845649-0ccef546-c511-4373-ac3d-cbf9e857ca78.png)
 
 1. On the private endpoint's menu, under **Settings**, select **DNS configuration**.
 1. On the **DNS configuration** page, note the associated IP addresses.
@@ -192,8 +190,6 @@ Next, find and note important IP address ranges.
 1. Go to the NSG resource in the Azure portal.
 1. In the NSG menu, under **Settings**, select **Outbound security rules**.
 The below image contains the required security rules for AMS resource to work. 
-![Diagram that shows Security Roles.](https://user-images.githubusercontent.com/33844181/176845846-44bbcb1a-4b86-4158-afa8-0eebd1378655.png)
-
 
 | Priority | Description |
 | -------- | ------------- |
