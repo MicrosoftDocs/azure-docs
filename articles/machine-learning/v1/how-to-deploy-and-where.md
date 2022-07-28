@@ -469,7 +469,7 @@ When you deploy remotely, you may have key authentication enabled. The example b
 
 
 
-See the article on [client applications to consume web services](how-to-consume-web-service.md) for more example clients in other languages.
+See the article on [client applications to consume web services](../how-to-consume-web-service.md) for more example clients in other languages.
 
   [!INCLUDE [Email Notification Include](../../../includes/machine-learning-email-notifications.md)]
 
@@ -488,7 +488,7 @@ The following table describes the different service states:
 | Healthy | The service is healthy and the endpoint is available. | Yes |
 
 > [!TIP]
-> When deploying, Docker images for compute targets are built and loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and deploy images to your compute targets. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
+> When deploying, Docker images for compute targets are built and loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and deploy images to your compute targets. For more information, see [Azure Container Registry service tiers](../../container-registry/container-registry-skus.md).
 
 > [!NOTE]
 > If you are deploying a model to Azure Kubernetes Service (AKS), we advise you enable [Azure Monitor](../../azure-monitor/containers/container-insights-enable-existing-clusters.md) for that cluster. This will help you understand overall cluster health and resource usage. You might also find the following resources useful:
