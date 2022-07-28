@@ -43,7 +43,7 @@ This article shows how to automate backup and restore operations of your API Man
 * The latest version of Azure PowerShell, if you plan to use Azure PowerShell cmdlets. If you haven't already, [install Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Configure storage account access
-When running a backup or restore operation, you need to configure access to the storage account. API Management supports two storage access mechanisms: an Azure Storage access key (the default), or an API Management managed identity.
+When running a backup or restore operation, you need to configure access to the storage account. API Management supports two storage access mechanisms: an Azure Storage access key, or an API Management managed identity.
 
 ### Configure storage account access key
 
@@ -69,7 +69,7 @@ Azure generates two 512-bit storage account access keys for each storage account
 
 In the following examples:
 
-* An API Management instance named *myapim* is in resource group *apimresourcegroup*
+* An API Management instance named *myapim* is in resource group *apimresourcegroup*.
 * A storage account named *backupstorageaccount* is in resource group *storageresourcegroup*. The storage account has a container named *backups*.
 * A backup blob will be created with name *ContosoBackup.apimbackup*.
 
@@ -81,6 +81,7 @@ $apiManagementResourceGroup="apimresourcegroup";
 $storageAccountName="backupstorageaccount";
 $storageResourceGroup="storageresourcegroup";
 $containerName="backups";
+$blobName="ContosoBackup.apimbackup"
 ```
 
 ### Access using storage access key
@@ -90,7 +91,8 @@ $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageResourceGroup 
 
 $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey
 
-Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName -StorageContext $storageContext -TargetContainerName $containerName -TargetBlobName "ContosoBackup.apimbackup"
+Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
+    -StorageContext $storageContext -TargetContainerName $containerName -TargetBlobName $blobName
 ```
 
 ### Access using managed identity
@@ -103,7 +105,9 @@ To configure a managed identity in your API Management instance to access the st
 ```powershell
 $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
 
-Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName  -StorageContext $storageContext -TargetContainerName $containerName -TargetBlobName "ContosoBackup.apimbackup" -AccessType "SystemAssignedManagedIdentity"
+Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
+    -StorageContext $storageContext -TargetContainerName $containerName `
+    -TargetBlobName $blobName -AccessType "SystemAssignedManagedIdentity"
 ```
 
 #### Access using user-assigned managed identity
@@ -118,7 +122,9 @@ $identityId = (Get-AzUserAssignedIdentity -Name $identityName -ResourceGroupName
 
 $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
 
-Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName  -StorageContext $storageContext -TargetContainerName $containerName -TargetBlobName "ContosoBackup.apimbackup" -AccessType "UserAssignedManagedIdentity" -identityClientId $identityid
+Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
+    -StorageContext $storageContext -TargetContainerName $containerName `
+    -TargetBlobName $blobName -AccessType "UserAssignedManagedIdentity" ` -identityClientId $identityid
 ```
 
 Backup is a long-running operation that may take several minutes to complete.
@@ -218,7 +224,8 @@ $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageResourceGroup 
 
 $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey$st
 
-Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName -StorageContext $storageContext -SourceContainerName $containerName -SourceBlobName $blobName
+Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
+    -StorageContext $storageContext -SourceContainerName $containerName -SourceBlobName $blobName
 ```
 
 ### Access using managed identity
@@ -230,7 +237,9 @@ To configure a managed identity in your API Management instance to access the st
 ```powershell
 $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
 
-Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName  -StorageContext $storageContext -SourceContainerName $containerName -SourceBlobName "ContosoBackup.apimbackup" -AccessType "SystemAssignedManagedIdentity"
+Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
+    -StorageContext $storageContext -SourceContainerName $containerName `
+    -SourceBlobName $blobName -AccessType "SystemAssignedManagedIdentity"
 ```
 
 #### Access using user-assigned managed identity
@@ -245,7 +254,9 @@ $identityId = (Get-AzUserAssignedIdentity -Name $identityName -ResourceGroupName
 
 $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
 
-Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName  -StorageContext $storageContext -SourceContainerName $containerName -SourceBlobName "ContosoBackup.apimbackup" -AccessType "UserAssignedManagedIdentity" -identityClientId $identityid
+Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
+    -StorageContext $storageContext -SourceContainerName $containerName $blobName `
+    -AccessType "UserAssignedManagedIdentity" -identityClientId $identityid
 ```
 
 Restore is a long-running operation that may take up to 30 or more minutes to complete.
