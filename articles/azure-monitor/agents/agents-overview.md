@@ -22,6 +22,37 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 
 ### Windows agents
 
+|		|		|	Azure Monitor agent	|	Log Analytics agent	|	Diagnostics extension (WAD)	|
+|	-	|	-	|	-	|	-	|	-	|
+|	**Environments supported**	|	Azure	|	x	|	x	|	x	|
+|		|	Other cloud (Azure Arc)	|	x	|	x	|		|
+|		|	On-premises (Azure Arc)	|	x	|	x	|		|
+|		|	Windows Client OS	|	x (Preview)	|		|		|
+|	-	|	-	|	-	|	-	|	-	|
+|	**Data collected**	|	Event Logs	|	x	|	x	|	x	|
+|		|	Performance	|	x	|	x	|	x	|
+|		|	File based logs	|	x (Preview)	|	x	|	x	|
+|		|	IIS logs	|	x (Preview)	|	x	|	x	|
+|		|	Insights and solutions	|		|	x	|	x	|
+|		|	Other services	|		|	x	|	x	|
+|		|	ETW events	|		|		|	x	|
+|		|	.NET app logs	|		|		|	x	|
+|		|	Crash dumps	|		|		|	x	|
+|		|	Agent diagnostics logs	|		|		|	x	|
+|	-	|	-	|	-	|	-	|	-	|
+|	**Data sent to**	|	Azure Monitor Logs	|	x	|	x	|	x	|
+|		|	Azure Monitor Metrics1	|	x	|		|	x	|
+|		|	Event Hub	|		|		|	x	|
+|	-	|	-	|	-	|	-	|	-	|
+|	**Services and features supported**	|	Log Analytics	|	x	|	x	|		|
+|		|	Metrics explorer	|	x	|		|	x	|
+|		|	Microsoft Sentinel 	|	x (view scope)	|	x	|		|
+|		|	VM insights	|		|	x	|		|
+|		|	Azure Automation	|		|	x	|		|
+|		|	Microsoft Defender for Cloud	|		|	x	|		|
+
+
+
 | | Azure Monitor agent | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | 
 |:---|:----|:---|:---|
 | **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)<br>[Windows Client OS (preview)](./azure-monitor-agent-windows-client.md)  | Azure | Azure<br>Other cloud<br>On-premises |  
