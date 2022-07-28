@@ -92,7 +92,9 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
     - **Committed devices**. If you selected a monthly or annual commitment, enter the number of assets you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
 
-    :::image type="content" source="media/how-to-manage-subscriptions/onboard-plan-2.png" alt-text="Screenshot of adding a plan for OT networks to your subscription.":::
+        For example: 
+        
+        :::image type="content" source="media/how-to-manage-subscriptions/onboard-plan-2.png" alt-text="Screenshot of adding a plan for OT networks to your subscription.":::
 
 1. Ensure the checkbox is selected to accept the terms.
 
