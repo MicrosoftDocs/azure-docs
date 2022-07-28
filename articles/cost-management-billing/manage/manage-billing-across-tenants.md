@@ -1,6 +1,6 @@
 ---
 title: Manage billing across multiple tenants
-description: Describes how to use associated billing tenants to manage billing across tenants and provision subscriptions in different tenants
+description: Describes how to use associated billing tenants to manage billing across tenants and move subscriptions in different tenants
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing
@@ -81,7 +81,7 @@ Before assigning roles, make sure you [add a tenant as an associated billing ten
 1. Select manage requests from the top of the **Access control (IAM)** page.
     
     ![Screenshot that shows manage requests button](./media/manage-billing-across-tenants/access-management-manage-requests.png)
-1. Select the role assignment request sent to the users to whom you you've assigned roles.
+1. Select the role assignment request sent to the users to whom you've assigned roles.
     
     ![Screenshot that shows billing access requests list](./media/manage-billing-across-tenants/access-management-requests-list.png)
 1. Copy the request URL.
@@ -90,7 +90,7 @@ Before assigning roles, make sure you [add a tenant as an associated billing ten
 
 ### Role assignments through associated billing tenants vs Azure B2B 
 
-Choosing to assign roles to users from associated billing tenants might be the right approach, depending on the needs of your organization. The following illustrations and table compares using associated billing tenants and Azure B2B to help you decide which approach is right for your organization. To learn more about Azure B2B, see [B2B collaboration overview](../../active-directory/external-identities/what-is-b2b.md)
+Choosing to assign roles to users from associated billing tenants might be the right approach, depending on the needs of your organization. The following illustrations and table compare using associated billing tenants and Azure B2B to help you decide which approach is right for your organization. To learn more about Azure B2B, see [B2B collaboration overview](../../active-directory/external-identities/what-is-b2b.md)
 
 ![Illustration showing associated billing tenant role assignment ](./media/manage-billing-across-tenants/associated-tenants-role-assignment.png)
 
@@ -101,11 +101,11 @@ Choosing to assign roles to users from associated billing tenants might be the r
 |Security     |  The users that you invite to share your billing account will follow their tenant's security policies      |  The users that you invite to share your billing account will follow your tenant's security policies       |
 |Access    | The users get access to your billing account in their own tenant and can manage billing and make purchases without switching tenants        |  External guest identities are created for users in your tenant and these identities get access to your billing account. Users would have to switch tenant to manage billing and make purchases     |
 
-## Moving Microsoft 365 subscriptions to an associated billing tenants
+## Moving Microsoft 365 subscriptions to an associated billing tenant
 
 Before moving subscriptions, make sure you [add a tenant as an associated billing tenant and enable provisioning access setting](#add-an-associated-billing-tenant).
 
-To move Microsoft 365 subscriptions in the associated billing tenants, see [provision subscriptions in associated billing tenants](https://aka.ms/moveM365subscriptions).
+To move Microsoft 365 subscriptions in the associated billing tenants, see [move subscriptions to an associated billing tenants](https://aka.ms/moveM365subscriptions).
 
 ## Need help? contact support
 
