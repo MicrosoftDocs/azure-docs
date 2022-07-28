@@ -41,7 +41,9 @@ ADF handles the checkpoint automatically for you
 Add a section on how to reset and manage pipelines with change data
 
 
->> Incremental copy overview
+## Incremental pipeline pattern
+
+https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-overview
 
 ## Next steps
 
