@@ -59,7 +59,7 @@ In this section, you create a Python console app that adds location metadata to 
    from azure.iot.hub.models import Twin, TwinProperties, QuerySpecification, QueryResult
    ```
 
-4. Add the following code. Replace `[IoTHub Connection String]` with the IoT hub connection string you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace `[Device Id]` with the device ID you registered for your device in the IoT Hub.
+4. Add the following code. Replace `[IoTHub Connection String]` with the IoT hub connection string you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace `[Device Id]` with the device ID (the name) from your registered device in the IoT Hub.
   
     ```python
     IOTHUB_CONNECTION_STRING = "[IoTHub Connection String]"
@@ -147,7 +147,7 @@ In this section, you create a Python console app that connects to your hub as yo
     from azure.iot.device import IoTHubModuleClient
     ```
 
-4. Add the following code. Replace the `[IoTHub Device Connection String]` placeholder value with the device connection string you saw previously when you registered a device in the IoT Hub:
+4. Add the following code. Replace the `[IoTHub Device Connection String]` placeholder value with the device connection string you saw when you registered a device in the IoT Hub:
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
