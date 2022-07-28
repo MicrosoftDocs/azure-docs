@@ -11,7 +11,7 @@ ms.date: 07/26/2022
 ---
 # Use Redis modules with Azure Cache for Redis
 
-You can use Redis modules are libraries to add additional data structures and functionalities to the core Redis software. You add the modules at the time you are creating your Enterprise tier cache.
+You can use Redis modules are libraries to add more data structures and functionality to the core Redis software. You add the modules at the time you're creating your Enterprise tier cache.
 
 For more information on creating an Enterprise cache, see [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md).
 
@@ -26,23 +26,11 @@ Some popular modules are available for use in the Enterprise tier of Azure Cache
 |RedisTimeSeries |   No    |    Yes   |   No    |
 |RedisJSON  |     No    |  Yes (preview)    |   Yes (preview)      |
 
-| Module |Basic, Standard, and Premium  |Enterprise  |Enterprise Flash  |
-|---------|---------|---------|---------|
-|RediSearch   |    ✘   |    ✓     | ✓ (preview)    |
-|RedisBloom   |      ✘   |    ✓    |   ✘    |
-|RedisTimeSeries |   ✘    |    ✓   |   ✘    |
-|RedisJSON  |     ✘    |  ✓ (preview)    |   ✓ (preview)      |
-
 Currently, `RediSearch` is the only module that can be used concurrently with active geo-replication.
 
 > [!NOTE]
 > Currently, you can't manually load any modules into Azure Cache for Redis. Manually updating modules version is also not possible.
 >
-
-<!-- Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
 
 ## Prerequisites
 
@@ -106,9 +94,9 @@ RedisBloom adds four probabilistic data structures to a Redis server: **bloom fi
 | ---------------------|------------------------|-------------------------|
 | **Bloom and Cuckoo filters** | Tells you if an item is either (a) certainly not in a set or (b) potentially in a set.    |   Checking if an email has already been sent to a user|
 |**Count-min sketch** | Determines the frequency of events in a stream | Counting how many times an IoT device reported a temperature under 0 degrees Celsius.  |
-|**Top-k**   | Finds the `k` most frequently seen items |  Determine the most frequent words used in War and Peace. (e.g. setting k = 50 will return the 50 most common words in the book) |
+|**Top-k**   | Finds the `k` most frequently seen items |  Determine the most frequent words used in War and Peace. (for example, setting k = 50 will return the 50 most common words in the book) |
 
-**Bloom and Cuckoo** filters are very similar to each other, but each have a unique set of advantages and disadvantages that are beyond the scope of
+**Bloom and Cuckoo** filters are similar to each other, but each has a unique set of advantages and disadvantages that are beyond the scope of
 this documentation.
 
 For more information, see [RedisBloom](https://redis.io/docs/stack/bloom/).
@@ -117,8 +105,8 @@ For more information, see [RedisBloom](https://redis.io/docs/stack/bloom/).
 
 The **RedisTimeSeries** module adds high-throughput time series capabilities to a Redis server. This data structure is optimized for high volumes of incoming data and contains features to work with time series data, including:
 
-- Aggregated queries (e.g. average, maximum, standard deviation, etc.)
-- Time-based queries (e.g. start-time and end-time)
+- Aggregated queries (for example, average, maximum, standard deviation, etc.)
+- Time-based queries (for example, start-time and end-time)
 - Downsampling/decimation
 - Data labeling for secondary indexing
 - Configurable retention period
@@ -137,7 +125,7 @@ Features include:
 - Wide range of operations for all JSON data types, including objects, numbers, arrays, and strings
 - Dedicated syntax and fast access to select and update elements inside documents
 
-The **RedisJSON** module is also designed to be used with the **RediSearch** module to provide integrated indexing and querying of data within a Redis server. This can be a powerful tool to quickly retrieve specific data points within JSON objects.
+The **RedisJSON** module is also designed for use with the **RediSearch** module to provide integrated indexing and querying of data within a Redis server. Using both modules together can be a powerful tool to quickly retrieve specific data points within JSON objects.
 
 Some common use-cases for **RedisJSON** include applications such as searching product catalogs, managing user profiles, and caching JSON-structured data.
 
