@@ -1,58 +1,53 @@
 ---
-title: Azure Deployment Environments concepts
-description: An overview of key concepts in Azure Deployment Environments.
+title: User scenarios for Azure Deployment Environments
+description: Learn about scenarios enabled by Azure Deployment Environments.
 ms.service: deployment-environments
 ms.topic: conceptual
 ms.author: anandmeg
 author: meghaanand
 ms.date: 07/29/2022
 ---
-# Azure Deployment Environments concepts
+# Scenarios for using Azure Deployment Environments
 
-The following list contains key concepts and definitions in Azure Deployment Environments.
+Depending on the needs of an enterprise, 'Project Fidalgo' can be configured to meet different requirements. This article discusses a few possible scenarios, covering their benefits brought by using Project Fidalgo, and the resources to use to implement those scenarios.
 
-## DevCenters
+- Environments as part of a Pipeline
+- Sandboxed investigations
+- On-demand Test environments
+- Training sessions, hands-on labs, and hackathons
 
-A DevCenter helps you to manage a group of projects together by applying similar settings and providing the 'infra as code' templates across different projects.
+## Environments as part of a CI/CD Pipeline
 
-## Projects
+Creating and managing environments across an enterprise can require significant effort. With 'Project Fidalgo', different types of environments such as Dev, Test, Staging, Pre-Prod, Prod, etc. can be easily created, updated and plugged into a CI/CD pipeline.  In this scenario, 'Project Fidalgo' provides the following benefits:
 
-Project is the infrastructure that encompasses Environments and development team members. You can associate Project(s) to a specific DevCenter and automatically all the settings at the DevCenter level will be applied to the Project.
+- Organizations can attach a Catalog and provide common 'infra-as-code' templates to create environments ensuring consistency across teams.
+- Developers and Testers can test the latest version of their application by quickly provisioning environments by using reusable templates.
+- Development Teams can connect their environments to CI/CD pipelines to enable DevOps scenarios.
+- Central Dev IT teams can centrally track costs, security alerts and manage environments across different Projects and DevCenters.
 
-## Environments
+## Sandboxed investigations
 
-Environment is a collection of Azure resources on which your application is deployed. For example, to deploy a web application, you might create an environment consisting of an App Service, KeyVault, Cosmos DB and a Storage Account. An environment could consist of both Azure PaaS and IaaS resources such as AKS Cluster, App Service, VMs, databases, etc.
+Developers often investigate different technologies or infrastructure design. By default, all environments created with 'Project Fidalgo' are created in their own resource group and the Project members get contributor access to those resources by default. This scenario allows developers to add and/or change Azure resources as they need for their development or test environments. Central Dev IT teams can easily and quickly track costs for all the environments used for investigations.
 
-## Identities
+## On-demand Test environments
 
-<!-- [Managed Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) --> are used in Deployment Environments to provide elevation-of-privilege capabilities. Identities will help provide self-serve capabilities to your development teams without them needing any access to the target subscriptions in which Azure resources are created. The managed identity attached to the DevCenter needs to be granted appropriate access to the target subscriptions and Deployment Environments will use that identity to perform the deployment on behalf of the developer.
+Often developers need to create ad-hoc test environments that mimic their formal development or testing environments to test a new capability before even checking in the code and executing a pipeline. With 'Project Fidalgo', test environments can be easily created, updated, or duplicated. It allows teams to access a fully configured environment when it’s needed. Developers can test the latest version of their application by quickly creating new ad-hoc environments using reusable templates.
 
-## Environment Types
+## Trainings, hands-on labs, and hackathons
 
-You can use 'Environment Types' to define the type of environments the development teams can create. Examples are Dev, Test, SandBox, Pre-Production, Production, etc. Deployment Environments provides the flexibility to name the Environment Types as per the nomenclature used in your enterprise. Once you create an Environment Type, you'll be able to apply different settings for each.
+A Project in 'Project Fidalgo' acts as a great container for transient activities like workshops, hands-on labs, trainings, or hackathons. The service allows you to create a Project where you can provide custom templates that each trainee can use to create identical and isolated environments for training. It’s easy to delete a Project and all related resources when the training is over.
 
-## Mappings
+# Proof of concept vs. Scaled Deployment
 
-Mappings will help you pre-configure the target subscription in which Azure resources will be created per Project per Environment Type. You'll be able to provide different subscriptions for different Environment Types in a given Project. Mappings will allow you to automatically apply the right set of policies on different Environments and abstracts the Azure related concepts from your development teams.
+Once you decide to explore Project Fidalgo, there are two general paths forward: Proof of Concept vs Scaled Deployment.
 
-## Catalogs
+A **proof of concept** deployment focuses on a concentrated effort from a single team to establish organizational value. While it can be tempting to think of a scaled deployment, the approach tends to fail more often than the proof of concept option. Therefore, we recommend that you start small, learn from the first team, repeat the same approach with two to three additional teams, and then plan for a scaled deployment based on the knowledge gained. For a successful proof of concept, we recommend that you pick one or two teams, and identify their scenarios (Environments as part of a CI/CD Pipeline vs Sandbox environments), document their current use cases, and deploy 'Project Fidalgo'.
 
-Catalog helps you to provide a set of curated 'infra-as-code' templates for your development teams to create Environments. You can attach either a GitHub Repository or Azure DevOps Services repository as a Catalog. Deployment Environments will scan through the respective folder of the repository to find Catalog Items, 'infra-as-code' template and their respective manifest, and make them available to use by all the Projects associated with the DevCenter.
-
-## Catalog Items
-
-A Catalog Item is a combination of 'infra-as-code' template (ARM templates during preview) and a manifest file. The environment definition will be defined in the ARM template and manifest will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to spin-up environments in Azure. <!-- [Learn more about Catalog Items](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-a-catalog-item.md) -->
-
-<!--
-
-## Azure Resource Manager templates
-
-[Azure Resource Manager(ARM) templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) helps you to define the infrastructure/configuration of your Azure solution and repeatedly deploy it in a consistent state.
-
-[Understand the structure and syntax of Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
-
+A **scaled deployment** consists of weeks of reviewing and planning with an intent of deploying Project Fidalgo to the entire enterprise that has hundreds or thousands of developers.
 
 ## Next steps
 
-[Tutorial: Set up and Configure a DevCenter](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/tutorial-create-and-configure-devcenter.md)
--->
+Read the following articles:
+
+- To get started with the service, [Tutorial: Set up a Fidalgo DevCenter](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/tutorial-create-and-configure-devcenter.md)
+- Learn more about [Project Fidalgo Concepts](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md)
