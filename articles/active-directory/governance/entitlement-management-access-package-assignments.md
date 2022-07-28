@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 01/05/2022
-ms.author: owinfreyatl
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -27,6 +27,7 @@ In Azure AD entitlement management, you can see who has been assigned to access 
 ## Prerequisites
 
 To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
+
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license

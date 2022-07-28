@@ -22,9 +22,9 @@ You might want to summarize status by using a simple visual indication instead o
 The following example shows how to set up a traffic light icon per computer based on the CPU utilization metric.
 
 1. [Create a new empty workbook](workbooks-create-workbook.md).
-1. [Add a parameter](workbooks-create-workbook.md#add-a-parameter-to-a-workbook), make it a [time range parameter](workbooks-time.md), and name it **TimeRange**.
+1. [Add a parameter](workbooks-create-workbook.md#add-a-parameter-to-an-azure-workbook), make it a [time range parameter](workbooks-time.md), and name it **TimeRange**.
 1. Select **Add query** to add a log query control to the workbook.
-1. For **Query type**, select `logs`. For **Resource type**, select `Log Analytics`, and select a Log Analytics workspace in your subscription that has VM performance data as a resource.
+1. For **Query type**, select `logs`, and for **Resource type**, select `Log Analytics`. Select a Log Analytics workspace in your subscription that has VM performance data as a resource.
 1. In the query editor, enter:
 
     ```
@@ -86,7 +86,7 @@ The following example shows how to enable this scenario. Let's say you want the 
 
 ### Set up parameters
 
-1. [Create a new empty workbook](workbooks-create-workbook.md) and [add a parameter component](workbooks-create-workbook.md#add-a-parameter-to-a-workbook).
+1. [Create a new empty workbook](workbooks-create-workbook.md) and [add a parameter component](workbooks-create-workbook.md#add-a-parameter-to-an-azure-workbook).
 1. Select **Add parameter** to create a new parameter. Use the following settings:
     - **Parameter name**: `OsFilter`
     - **Display name**: `Operating system`
