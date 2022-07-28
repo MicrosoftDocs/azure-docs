@@ -80,7 +80,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
     > To SSH into this VM after setup, use the associated **DNS name** with the following command:
     `ssh <adminUsername>@<DNS_Name>`.
 
-   1. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string.
+ 1. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string.
 
    ```markdown
    /etc/adu/du-config.json
