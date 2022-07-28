@@ -23,17 +23,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 Before you get started, make sure you have the following requirements in place:
 
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
-
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
-
-+ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-
-+ [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
-
-+ [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
-
-You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [functions-requirements-vs-code-csharp](../../includes/functions-requirements-vs-code-csharp.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
