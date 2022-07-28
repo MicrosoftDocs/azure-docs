@@ -8,7 +8,6 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 07/28/2022
 ms.topic: tutorial
-#Customer intent: 
 ---
 
 # Tutorial: Use the Microsoft Remote Desktop client to connect to a dev box
