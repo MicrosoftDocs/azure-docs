@@ -13,15 +13,15 @@ ms.subservice: common
 ms.custom: devx-track-csharp
 ---
 
-# Migrate an application to credential-free authentication
+# Migrate an application to use credential-free connections with Azure services
 
-Application requests to Azure Storage must be authenticated. Azure Storage provides several different ways for apps to connect securely. Some of these options rely on string-formatted keys as credentials, such as connection strings, access keys, or shared access signatures. However, you should prioritize credential-free authentication in your applications when possible. 
+Application requests to Azure Storage must be authenticated. Azure Storage provides several different ways for apps to connect securely. Some of these options rely on string-formatted keys as credentials, such as connection strings, access keys, or shared access signatures. However, you should prioritize credential-free connections in your applications when possible. 
 
-Credential-free solutions such as Managed Identity or Role Based Access control (RBAC)  provide robust security features and are implemented using `DefaultAzureCredential` from the Azure.Identity client library. In this tutorial, you will learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings.
+Credential-free solutions such as Azure Managed Identity or Role Based Access control (RBAC)  provide robust security features and are implemented using `DefaultAzureCredential` from the `Azure.Identity` client library. In this tutorial, you will learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings.
 
 ## Compare authentication options
 
-The following examples demonstrate how to connect to Azure Storage using key credentials. Many developers gravitate towards these solutions because they feel familiar to options they are traditionally used to working with. If you currently use one of these approaches, consider migrating to use `DefaultAzureCredential` using the steps described later in this document.
+The following examples demonstrate how to connect to Azure Storage using key credentials. Many developers gravitate towards these solutions because they feel familiar to options have traditionally worked with in the past. If you currently use one of these approaches, consider migrating to credential-free connections with `DefaultAzureCredential` using the steps described later in this document.
 
 ### [Connection String](#tab/connection-string)
 
@@ -52,9 +52,9 @@ BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri("https://ide
 ```
 ---
 
-Although it is possible to connect to Azure Storage with any of these options, they should be used with caution. Developers must be very diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if a key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there is risk of a malicious user accessing the application. Instead, consider updating your application to use credential-free authentication with `DefaultAzureCredential`. 
+Although it is possible to connect to Azure Storage with any of these options, they should be used with caution. Developers must be very diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if a key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there is risk of a malicious user accessing the application. Instead, consider updating your application to use credential-free connections with `DefaultAzureCredential`. 
 
-### Introducing credential-free authentication
+### Introducing credential-free connections
 
 Many Azure services support credential-free connections through the use of a class called `DefaultAzureCredential` from the `Azure.Identity` client library. `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code.
 
@@ -167,7 +167,7 @@ az role assignment create --assignee "<your-username>" \
 
 ## Next steps
 
-In this tutorial, you learned how to migrate an application to credential-free authentication.
+In this tutorial, you learned how to migrate an application to credential-free connections.
 
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
