@@ -355,7 +355,7 @@ Once you've added a code sample to your application, your Go program can be exec
 > [!div class="nextstepaction"]
 > [I created a Gradle project](#create-your-java-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-a-java-application)
 
-### Create a Java Application
+### Create your Java Application
 
 1. From the translator-text-app directory, run the following command:
 
