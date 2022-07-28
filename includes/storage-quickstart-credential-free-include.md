@@ -12,11 +12,11 @@ ms.custom: include file
 
 ## Authenticate the app to Azure
 
-Application requests to Azure Blob Storage must be authenticated. `DefaultAzureCredential` is the recommended approach for implementing authentication to Azure services in your code, including Blob Storage. 
+Application requests to Azure Blob Storage must be authenticated. `DefaultAzureCredential` is the recommended approach for implementing credential-free connections to Azure services in your code, including Blob Storage. 
 
-Azure Blob Storage also provides the option to authenticate using connection strings, but this approach should be used with caution. `DefaultAzureCredential` offers improved management and security benefits over connection strings. Both options are demonstrated in the following example.
+Azure Blob Storage also provides the option to authenticate using connection strings, but this approach should be used with caution. `DefaultAzureCredential` offers improved management and security benefits over connection strings to allow credential-free authentication. Both options are demonstrated in the following example.
 
-## [DefaultAzureCredential (Recommended)](#tab/managed-identity)
+## [Credential-free (Recommended)](#tab/managed-identity)
 
 `DefaultAzureCredential` is a class provided by the Azure Identity client library for .NET, which you can learn more about on the [DefaultAzureCredential overview](/dotnet/azure/sdk/authentication#defaultazurecredential). `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
