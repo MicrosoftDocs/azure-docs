@@ -6,7 +6,7 @@ ms.date: 07/27/2022
 ---
 
 # .NET development for Azure Event Hubs
-This section provides how to develop applications using the Azure Event Hubs client library ([Azure.Messaging.EventHubs](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)). Articles in this section are ordered by increasing complexity, starting with more basic scenarios to help get started quickly. Though articles are independent, they'll assume an understanding of the content discussed in earlier articles.
+This section provides how to develop applications using the Azure Event Hubs client library ([Azure.Messaging.EventHubs](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)). 
 
 ## Install the package
 Install the Azure Event Hubs client library for .NET with [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/):
@@ -207,7 +207,7 @@ The Event Hubs client logs are available to any `EventListener` by opting into t
 The Event Hubs client library is also instrumented for distributed tracing using Application Insights or OpenTelemetry.  More information can be found in the [Azure.Core Diagnostics sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#distributed-tracing).
 
 ## Next steps
-See the following samples (in the order of complexity).
+See the following articles.
 
 - [Hello world](hello-world-publish-receive-events.md)  
   An introduction to Event Hubs, illustrating the basic flow of events through an event hub, with the goal of quickly allowing you to view events being published and read from the Event Hubs service.  
