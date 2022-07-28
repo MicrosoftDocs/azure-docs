@@ -26,8 +26,8 @@ Advisor uses machine-learning algorithms to identify low utilization and to iden
 
 Advisor identifies resources that have not been used at all over the last 7 days and makes a recommendation to shut them down. 
 
--	Metrics considered are CPU and Outbound Network utilization (memory is not considered for shutdown recommendations since we’ve found that relying on CPU and Network provide enough signals for this recommendation)
-- The last 7 days of utilization data are considered
+-	Recommendation criteria include **CPU** and **Outbound Network utilization** metrics. **Memory** is not considered since we’ve found that **CPU** and **Outbound Network utilization** are sufficient.
+- The last 7 days of utilization data are analyzed
 - Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins)
 - A shutdown recommendation is created if: 
   - P95th of the maximum value of CPU utilization summed across all cores is less than 3%.
@@ -38,8 +38,8 @@ Advisor identifies resources that have not been used at all over the last 7 days
 
 Advisor considers resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which costs less than the current one (we currently consider retail rates only during recommendation generation). 
 
--	Metrics considered are CPU, Memory and Outbound Network utilization 
-- The last 7 days of utilization data are considered
+-	Recommendation criteria include **CPU**, **Memory** and **Outbound Network utilization**. 
+- The last 7 days of utilization data are analyzed
 - Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins)
 - An appropriate SKU is determined based on the following criteria:
   - Performance of the workloads on the new SKU should not be impacted. 
@@ -53,7 +53,7 @@ Advisor considers resizing virtual machines when it's possible to fit the curren
   - The new SKU is supported in the current region of the Virtual Machine with the recommendation
   - The new SKU is less expensive 
 - Advisor determines the type of workload (user-facing/non user-facing) by analyzing the CPU utilization characteristics of the workload. This is based on some fascinating findings by Microsoft Research. You can find more details here: [Prediction-Based Power Oversubscription in Cloud Platforms - Microsoft Research](https://www.microsoft.com/research/publication/prediction-based-power-oversubscription-in-cloud-platforms/).
-- Advisor recommends not just smaller SKUs in the same family (for example D3v2 to D2v2) but also SKUs in a newer version (for example D3v2 to D2v3) or even a completely different family (for example D3v2 to E3v2) based on the best fit and the cheapest costs with no performance impacts. 
+- Advisor recommends not just smaller SKUs in the same family (for example D3v2 to D2v2) but also SKUs in a newer version (for example D3v2 to D2v3) or a different family (for example D3v2 to E3v2) based on the best fit and the cheapest costs with no performance impacts. 
 
 ### Burstable recommendations
 
