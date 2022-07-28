@@ -88,15 +88,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Headspace application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-    ![Screenshot shows the image of Headspace application.](common/default-attributes.png "Attributes")
+    ![Screenshot shows the image of Headspace application.](https://user-images.githubusercontent.com/93796095/181595051-953264ea-fd5f-4156-b8c0-e90d4070bb46.png)
 
-1. In addition to above, Headspace application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In order to full Headspace's requirements, please follow the steps below to correctly configure the necessary Attributes & Claims:
+	1. Click the pencil or 'Edit' in the Attributes & Claims modal which should open a new page
+	2. Update the claims to match the below image, see step 3 for configuring `email`
+	![image](https://user-images.githubusercontent.com/93796095/181602617-8a9c60b0-c347-432d-bffe-a9cfcf96bba1.png)
+	3. Open to manage the `email` claim and select 'Transform' as the Source type and configure the transformation to match the screenshot below
+	![image](https://user-images.githubusercontent.com/93796095/181603552-4cac53a5-c7dc-4729-b04a-64aef8ec5767.png)
 
-    | Name | Source Attribute|
-    | ------------ | --------- |
-    | email | user.mail |
-    | family_name | user.surname |
-    | userName | user.userprincipalname |
+
     
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
