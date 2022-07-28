@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and configure a Route S
 services: route-server
 author: halkazwini
 ms.author: halkazwini
-ms.date: 09/01/2021
+ms.date: 07/28/2022
 ms.topic: quickstart
 ms.service: route-server
 ms.custom: devx-track-azurepowershell, mode-api
@@ -66,6 +66,9 @@ $subnet = @{
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
 
 $virtualnetwork | Set-AzVirtualNetwork
+
+$vnetInfo = Get-AzVirtualNetwork -Name myVirtualNetwork
+$subnetId = (Get-AzVirtualNetworkSubnetConfig -Name RouteServerSubnet -VirtualNetwork $vnetInfo).Id
 ```
 
 ## Create the Route Server
