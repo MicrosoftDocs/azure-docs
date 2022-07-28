@@ -44,12 +44,12 @@ The following diagram shows the autoscale architecture.
 
  ![Autoscale Flow Diagram](./media/autoscale-overview/Autoscale_Overview_v4.png)
 
-### Resource Metrics
+### Resource metrics
 Resources generate metrics that are used in autoscale rules to trigger scale events. Virtual machine scale sets use telemetry data from Azure diagnostics agents to generate metrics. Telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. 
 
 Some commonly used metrics include CPU usage, memory usage, thread counts, queue length, and disk usage. See [Autoscale Common Metrics](autoscale-common-metrics.md) for a list of available metrics.
 
-### Custom Metrics
+### Custom metrics
 Use your own custom metrics that your application generates. Configure your application to send metrics to [Application Insights](/azure/azure-monitor/app/app-insights-overview) so you can use those metrics decide when to scale.
 
 ### Time
@@ -77,7 +77,7 @@ Rules can trigger one or more actions. Actions include:
      + Start an [Azure Automation runbook](/azure/automation/overview).
      + Call an [Azure Function](/azure/azure-functions/functions-overview).
      + Trigger an [Azure Logic App](/azure/logic-apps/logic-apps-overview).  
-## Autoscale Settings
+## Autoscale settings
 
 Autoscale settings contain the autoscale configuration. The setting including scale conditions that define rules, limits, and schedules and notifications. Define one or more scale conditions in the settings, and one notification setup.
 
@@ -91,7 +91,7 @@ Autoscale uses the following terminology and structure. The UI and JSON
 | Schedule         | recurrence   | Indicates when autoscale should put this scale condition or profile into effect. You can have multiple scale conditions, which allow you to handle different and overlapping requirements. For example, you can have different scale conditions for different times of day, or days of the week. |
 | Notify           | notification | Defines the notifications to send when an autoscale event occurs. Autoscale can notify one or more email addresses or make a call one or more webhooks. You can configure multiple webhooks in the JSON but only one in the UI.                                 |
 
-![Azure autoscale setting, profile, and rule structure](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
+![Azure autoscale setting, profile, and rule structure](./media/autoscale-overview/azure-resource-manager-rule-structure-3.png)
 
 The full list of configurable fields and descriptions is available in the [Autoscale REST API](/rest/api/monitor/autoscalesettings).
 
