@@ -43,27 +43,47 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 |		|	Agent diagnostics logs	|		|		|	X	|
 |	-	|	-	|	-	|	-	|	-	|
 |	**Data sent to**	|		|		|		|		|
-|		|	Azure Monitor Logs	|	X	|	X	|	X	|
+|		|	Azure Monitor Logs	|	X	|	X	|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|	X	|
+|		|	Azure Storage	|		|		|	X	|
 |		|	Event Hub	|		|		|	X	|
 |	-	|	-	|	-	|	-	|	-	|
 |	**Services and features supported**	|		|		|		|		|
 |		|	Log Analytics	|	X	|	X	|		|
-|		|	Metrics explorer	|	X	|		|	X	|
+|		|	Metrics Explorer	|	X	|		|	X	|
 |		|	Microsoft Sentinel 	|	X (View scope)	|	X	|		|
-|		|	VM insights	|		|	X	|		|
+|		|	VM Insights	|		|	X	|		|
 |		|	Azure Automation	|		|	X	|		|
 |		|	Microsoft Defender for Cloud	|		|	X	|		|
 
 ### Linux agents
 
-|                                                   | Azure Monitor agent                                                                                                                       | Diagnostics<br>extension (LAD) | Telegraf<br>agent                   | Log Analytics<br>agent                                                                                 | 
-| :------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- | :---------------------------------- | :----------------------------------------------------------------------------------------------------- | 
-| **Environments supported**                        | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)                                                                               | Azure                          | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises                                                                    |
-| **Agent requirements**                            | None                                                                                                                                      | None                           | None                                | None                                                                                                   | 
-| **Data collected**                                | Syslog<br>Performance<br>File based logs (preview)<br>                                                                                    | Syslog<br>Performance          | Performance                         | Syslog<br>Performance                                                                                  | 
-| **Data sent to**                                  | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup>                                                                                   | Azure Storage<br>Event Hub     | Azure Monitor Metrics               | Azure Monitor Logs                                                                                     | 
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer<br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) |                                | Metrics explorer                    | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel | 
+|		|		|	Azure Monitor agent	|	Log Analytics agent	|	Diagnostics extension (LAD)	|	Telegraf agent	|
+|	-	|	-	|	-	|	-	|	-	|		|
+|	**Environments supported**	|		|		|		|		|		|
+|		|	Azure	|	X	|	X	|	X	|	X	|
+|		|	Other cloud (Azure Arc)	|	X	|	X	|		|	X	|
+|		|	On-premises (Azure Arc)	|	X	|	X	|		|	X	|
+|	-	|	-	|	-	|	-	|	-	|	-	|
+|	**Data collected**	|		|		|		|		|		|
+|		|	Syslog	|	X	|	X	|	X	|		|
+|		|	Performance	|	X	|	X	|	X	|	X	|
+|		|	File based logs	|	X (Preview)	|		|		|		|
+|	-	|	-	|	-	|	-	|	-	|	-	|
+|	**Data sent to**	|		|		|		|		|		|
+|		|	Azure Monitor Logs	|	X	|	X	|		|		|
+|		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|		|	X	|
+		|	Azure Storage	|		|		|	X	|		|
+|		|	Event Hub	|		|		|	X	|		|
+|	-	|	-	|	-	|	-	|	-	|	-	|
+|	**Services and features supported**	|		|		|		|		|		|
+|		|	Log Analytics	|	X	|	X	|		|		|
+|		|	Metrics Explorer	|	X	|		|		|	X	|
+|		|	Microsoft Sentinel 	|	X (View scope)	|	X	|		|		|
+|		|	VM Insights	|		|	X	|		|		|
+|		|	Azure Automation	|		|	X	|		|		|
+|		|	Microsoft Defender for Cloud	|		|	X	|		|		|
+
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
