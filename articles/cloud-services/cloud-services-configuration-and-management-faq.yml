@@ -251,7 +251,7 @@ sections:
   - name: Scaling
     questions:
       - question: |
-          I can't scale beyond X instances
+          I cannot scale beyond X instances
         answer: |
           Your Azure Subscription has a limit on the number of cores you can use. Scaling won't work if you have used all the cores available. For example, if you have a limit of 100 cores, this means you could have 100 A1 sized virtual machine instances for your Cloud Service, or 50 A2 sized virtual machine instances.
 
