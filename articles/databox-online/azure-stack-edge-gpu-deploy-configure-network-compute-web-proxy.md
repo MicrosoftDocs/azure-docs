@@ -551,6 +551,7 @@ In this tutorial, you learned about:
 > * Configure network
 > * Enable compute network
 > * Configure web proxy
+> * Validate network settings
 
 ::: zone-end
 
@@ -565,6 +566,7 @@ In this tutorial, you learned about:
 > * Configure virtual IP settings for Azure Consistent Services and NFS
 > * Configure advanced networking
 > * Configure web proxy
+> * Validate network settings
 
 ::: zone-end
 
