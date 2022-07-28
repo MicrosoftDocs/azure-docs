@@ -248,7 +248,7 @@ You can also check if the blobs are present in the workspace storage account.
    az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
    ```
   
-- If the blob is not present, you can use this command to obtain the logs from the storage initializer:
+- If the blob is present, you can use this command to obtain the logs from the storage initializer:
 
   ```azurecli
   az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
