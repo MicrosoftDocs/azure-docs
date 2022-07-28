@@ -245,14 +245,14 @@
               href: iot-hub-python-python-file-upload.md
         - name: Get started with device twins
           items:
-            - name: Node.js
-              href: iot-hub-node-node-twin-getstarted.md
             - name: .NET
               href: iot-hub-csharp-csharp-twin-getstarted.md
-            - name: Java
-              href: iot-hub-java-java-twin-getstarted.md
             - name: Python
               href: iot-hub-python-twin-getstarted.md
+            - name: Node.js
+              href: iot-hub-node-node-twin-getstarted.md
+            - name: Java
+              href: iot-hub-java-java-twin-getstarted.md
         - name: Get started with module twins
           items:
             - name: Portal
