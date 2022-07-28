@@ -4,7 +4,7 @@ description: Create a free certificate, import an App Service certificate, impor
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 04/27/2022
+ms.date: 07/28/2022
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
@@ -40,7 +40,7 @@ The following table lists the options for you to add certificates in App Service
 
 ## Private certificate requirements
 
-The [free App Service managed certificate](#create-a-free-managed-certificate) and the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
+The [free App Service managed certificate](#create-a-free-managed-certificate) and the [App Service certificate](#import-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
 * Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), encrypted using triple DES.
 * Contains private key at least 2048 bits long
@@ -112,7 +112,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 - Manages [certificate renewal](#renew-app-service-certificate).
 - Synchronizes the certificate automatically with the imported copies in App Service apps.
 
-To purchase an App Service certificate, go to [Start certificate order](#start-certificate-order).
+To purchase an App Service certificate, go to [Start certificate order](#start-certificate-purchase).
 
 > [!NOTE]
 > Currently, App Service certificates aren't supported in Azure National Clouds.
@@ -326,7 +326,7 @@ Public certificates are supported in the *.cer* format.
 
 ## Renew an expiring certificate
 
-Before a certificate expires, make sure to add the renewed certificate to App Service, and update any [TLS/SSL bindings](configure-ssl-certificate.md) where the process depends on the certificate type. For example, a [certificate imported from Key Vault](#import-a-certificate-from-key-vault), including an [App Service certificate](#import-an-app-service-certificate), automatically syncs to App Service every 24 hours and updates the TLS/SSL binding when you renew the certificate. For an [uploaded certificate](#upload-a-private-certificate), there's no automatic binding update. Based on your scenario, review the corresponding section:
+Before a certificate expires, make sure to add the renewed certificate to App Service, and update any [TLS/SSL bindings](configure-ssl-certificate.md) where the process depends on the certificate type. For example, a [certificate imported from Key Vault](#import-a-certificate-from-key-vault), including an [App Service certificate](#import-app-service-certificate), automatically syncs to App Service every 24 hours and updates the TLS/SSL binding when you renew the certificate. For an [uploaded certificate](#upload-a-private-certificate), there's no automatic binding update. Based on your scenario, review the corresponding section:
 
 - [Renew an uploaded certificate](#renew-uploaded-certificate)
 - [Renew an App Service certificate](#renew-app-service-certificate)
@@ -386,7 +386,7 @@ After the certificate renews inside your key vault, App Service automatically sy
 
 ## Manage App Service certificates
 
-This section includes links to tasks that help you manage an [App Service certificate that you purchased](#import-an-app-service-certificate):
+This section includes links to tasks that help you manage an [App Service certificate that you purchased](#import-app-service-certificate):
 
 - [Rekey an App Service certificate](#rekey-app-service-certificate)
 - [Export an App Service certificate](#export-app-service-certificate)
@@ -433,7 +433,7 @@ Because an App Service certificate is a [Key Vault secret](../key-vault/general/
 
 #### [Azure CLI](#tab/cli)
 
-To export the App Service Certificate as a PFX file, run the following commands in [Azure Cloud Shell](https://shell.azure.com). Or, you can locally run Cloud Shell locally if you [installed Azure CLI](/cli/azure/install-azure-cli). Replace the placeholders with the names that you used when you [created the App Service certificate](#start-certificate-order).
+To export the App Service Certificate as a PFX file, run the following commands in [Azure Cloud Shell](https://shell.azure.com). Or, you can locally run Cloud Shell locally if you [installed Azure CLI](/cli/azure/install-azure-cli). Replace the placeholders with the names that you used when you [bought the App Service certificate](#start-certificate-purchase).
 
 ```azurecli-interactive
 secretname=$(az resource show \
