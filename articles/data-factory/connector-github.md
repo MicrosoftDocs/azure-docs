@@ -17,18 +17,6 @@ ms.author: jianleishen
 
 The GitHub connector in Azure Data Factory and Synapse Analytics pipelines is only used to receive the entity reference schema for the [Common Data Model](format-common-data-model.md) format in mapping data flow.
 
-## Supported capabilities
-
-This GitHub connector is supported for the following capabilities:
-
-| Supported capabilities|IR |
-|---------| --------|
-|[Mapping data flow](concepts-data-flow-overview.md) (-/-)|&#9312; |
-
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
-
-For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
-
 ## Create a linked service to GitHub using UI
 
 Use the following steps to create a linked service to GitHub in the Azure portal UI.
