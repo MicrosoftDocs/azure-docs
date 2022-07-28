@@ -59,7 +59,7 @@ Remove the TLS binding for that certificate from the apps. Then try to delete th
 ### You can't purchase an App Service certificate 
 
 #### Symptom
-You can't purchase an [Azure App Service certificate](./configure-ssl-certificate.md#import-an-app-service-certificate) from the Azure portal.
+You can't purchase an [Azure App Service certificate](./configure-ssl-certificate.md#import-app-service-certificate) from the Azure portal.
 
 #### Cause and solution
 This problem can occur for any of the following reasons:
