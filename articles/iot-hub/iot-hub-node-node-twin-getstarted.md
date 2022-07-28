@@ -158,7 +158,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 3. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
 
-4. Add the following code to the **ReportConnectivity.js** file. Replace `{device connection string}` with the device connection string you copied when you created the **myDeviceId** device identity in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
+4. Add the following code to the **ReportConnectivity.js** file. Replace `{device connection string}` with the device connection string you saw previously when you registered a device in the IoT Hub:
 
     ```javascript
         'use strict';

@@ -148,7 +148,7 @@ In this section, you create a .NET console app that connects to your hub as **my
     using Newtonsoft.Json;
     ```
 
-1. Add the following fields to the **Program** class. Replace `{device connection string}` with the device connection string that you noted in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
+1. Add the following fields to the **Program** class. Replace `{device connection string}` with the device connection string that you saw previously when you registered a device in the IoT Hub:
 
     ```csharp  
     static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";

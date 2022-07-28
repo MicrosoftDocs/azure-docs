@@ -275,7 +275,7 @@ In this section, you create a Java console app that sets a reported property val
     import java.util.Scanner;
     ```
 
-9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you copied in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
+9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you saw previously when you registered a device in the IoT Hub:
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";
