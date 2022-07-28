@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/26/2022
+ms.date: 07/27/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -189,11 +189,6 @@ Follow these steps to configure compute IPs for your Kubernetes workloads.
     > - If your datacenter firewall is restricting or filtering traffic based on source IPs or MAC addresses, make sure that the compute IPs (Kubernetes node IPs) and MAC addresses are on the allowed list. The MAC addresses can be specified by running the `Set-HcsMacAddressPool` cmdlet on the PowerShell interface of the device.
 
 1. Assign **Kubernetes external service IPs**. These are also the load-balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed.
-
-   Run the Azure Edge Compute Runtime test to verify that the IPs supplied for Kubernetes nodes are not in use. If the Kubernetes node IPs or Kubernetes service IPs are in use, the test will fail with an error to that effect.
-
-   ![Screenshot of recommended actions to resolve node IP addresses already in use on the network. Provide unused IP addresses to resolve the issue or contact Microsoft Support.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/recommended-actions-ip-already-in-use.png)
-
     
     > [!IMPORTANT]
     > We strongly recommend that you specify a minimum of 1 IP address for Azure Stack Edge Hub service to access compute modules. You can then optionally specify additional IP addresses for other services/IoT Edge modules (1 per service/module) that need to be accessed from outside the cluster. The service IP addresses can be updated later. 
@@ -493,10 +488,6 @@ After the virtual switches are created, you can enable these switches for Kubern
 
     For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. For a 1-node device, provide a minimum of 2 free, contiguous IPv4 addresses. For a two-node cluster, provide a minimum of 3 free, contiguous IPv4 addresses.
 
-    Run the Azure Edge Compute Runtime test to verify that the IPs supplied for Kubernetes nodes are not in use. If the Kubernetes node IPs or Kubernetes service IPs are in use, the test will fail with an error to that effect.
-
-   ![Screenshot of recommended actions to resolve node IP addresses already in use on the network. Provide unused IP addresses to resolve the issue or contact Microsoft Support.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/recommended-actions-ip-already-in-use.png)
-
     > [!IMPORTANT]
     > - Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
     > - DHCP mode is not supported for Kubernetes node IPs. If you plan to deploy IoT Edge/Kubernetes, you must assign static Kubernetes IPs and then enable IoT role. This will ensure that static IPs are assigned to Kubernetes node VMs. 
@@ -529,9 +520,18 @@ This is an optional configuration. Although web proxy configuration is optional,
 
    2. To validate and apply the configured web proxy settings, select **Apply**.
 
-   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-web-proxy-1.png).
+   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-web-proxy-1.png)
 
-1. After the settings are applied, select **Next: Device**.
+## Validate network settings
+
+1. On the **Diagnostic tests** page, use these steps to validate your network settings:
+
+   1. Select the tests as shown below.
+   1. Select **Run test**.
+   
+   ![Screenshot of the Diagnostic tests page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test.png)  
+
+1. After the network settings are validated, return to the **Web proxy** page and select **Next: Device**.
 
 ::: zone pivot="two-node"
 
