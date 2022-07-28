@@ -223,7 +223,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 ## Limitations
 
 - The number of users and roles you can create must equal less than 10,000. 
-- The commands listCollections, listDatabases, killCursors are excluded from RBAC in the preview.
+- The commands listCollections, listDatabases, killCursors, and currentOp are excluded from RBAC in the preview.
 - Backup/Restore is not supported in the preview.
 - [Azure Synapse Link for Azure Cosmos DB](../synapse-link.md) is not supported in the preview.
 - Users and Roles across databases are not supported in the preview.
