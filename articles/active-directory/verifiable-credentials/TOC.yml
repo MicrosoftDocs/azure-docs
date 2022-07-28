@@ -45,7 +45,7 @@
     - name: Self Issued credentials
       href: how-to-use-quickstart-selfissued.md
   - name: Use the Verified ID Network
-    href: how-to-use-vcnetwork.md
+    href: how-use-vcnetwork.md
   - name: Using the Request Service REST API
     href: get-started-request-api.md
   - name: Link your domain to your DID
