@@ -413,9 +413,9 @@ Synapse Link, and analytical store by consequence, has different compatibility l
 
 * Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account.
 * Continuous backup mode isn't fully supported yet:
-  * Database accounts with Synapse Link enabled can't use continuous backup mode. 
-  * Database accounts with continuous backup mode enabled can enable Synapse Link through a support case.
-  * Database accounts that have neither continuous backup nor Synapse Link enabled can use these two features together through a support case.
+  * Database accounts with Synapse Link enabled currently can't use continuous backup mode. 
+  * Database accounts with continuous backup mode enabled can enable Synapse Link through a support case. This capability is in preview now.
+  * Database accounts that have neither continuous backup nor Synapse Link enabled can use these two features together through a support case. This capability is in preview now.
 
 ### Backup Polices
 
