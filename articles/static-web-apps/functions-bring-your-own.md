@@ -48,11 +48,11 @@ Before you associate an existing Functions app, you first need to adjust to conf
 
   Enter the following settings.
 
-    | Setting | Value |
-    |--|--|
-    | Backed resource type | Select **Function App**. |
-    | Subscription | Select your Azure subscription name. |
-    | Resource name | Select the Azure Functions app name. |
+      | Setting | Value |
+      |--|--|
+      | Backed resource type | Select **Function App**. |
+      | Subscription | Select your Azure subscription name. |
+      | Resource name | Select the Azure Functions app name. |
 
 1. Select the **Link** button.
 
