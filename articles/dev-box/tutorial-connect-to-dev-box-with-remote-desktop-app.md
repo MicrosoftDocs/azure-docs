@@ -12,11 +12,11 @@ ms.topic: tutorial
 
 # Tutorial: Use the Microsoft Remote Desktop client to connect to a dev box
 
-In this tutorial, you'll learn how to download a remote desktop app from the Microsoft [developer portal](https://aka.ms/developerportal) and connect to a dev box by using the remote desktop app.
+In this tutorial, you'll learn how to download a remote desktop app from the Microsoft [developer portal](https://aka.ms/developerportal) and connect to a dev box by using the remote desktop client.
 
 Remote desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Microsoft Remote Desktop for Windows or the Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
 
-Workspaces in the Microsoft Remote Desktop client list the managed resources you can access, including your dev boxes. You can view the dev boxes you're connected to in your Remote Desktop client Workspaces.
+Workspaces in the Microsoft Remote Desktop client list the managed resources you can access, including your dev boxes. You can view the dev boxes you're connected to in your Remote Desktop client's Workspaces.
 
 Learn more about the [key concepts for Microsoft Dev Box](./concept-dev-box-concepts.md).
 
