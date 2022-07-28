@@ -1,19 +1,19 @@
 ---
-title: Azure Deployment Environments concepts
-description: An overview of key concepts in Azure Deployment Environments.
+title: Azure Deployment Environments key concepts
+description: Learn the key concepts behind Azure Deployment Environments.
 ms.service: deployment-environments
-ms.topic: overview
-ms.author: rosemalcolm
-author: RoseHJM
-ms.date: 07/06/2022
+ms.topic: conceptual
+ms.author: anandmeg
+author: meghaanand
+ms.date: 07/29/2022
 ---
-# Azure Deployment Environments concepts
+# Key concepts for new Azure Deployment Environments concepts
 
-The following list contains key concepts and definitions in Azure Deployment Environments.
+Learn about the key concepts and components of Azure Deployment Environments preview. This can help you to more effectively deploy environments for your scenarios.
 
-## DevCenters
+## Dev centers
 
-A DevCenter helps you to manage a group of projects together by applying similar settings and providing the 'infra as code' templates across different projects.
+A dev center is a collection of projects that require similar settings. It allows you to manage multiple projects together and apply 'infra as code' templates across different projects.
 
 ## Projects
 
