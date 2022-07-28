@@ -32,7 +32,7 @@ To create custom TLS/SSL bindings or enable client certificates for your App Ser
 
    ![Scale-up menu](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 
-1. Make sure that your web app isnt in the **F1** or **D1** tier, which doesn't support custom TLS/SSL.
+1. Make sure that your web app isn't in the **F1** or **D1** tier, which doesn't support custom TLS/SSL.
 
    Your web app's current tier is highlighted by a dark blue box.
 
@@ -42,7 +42,7 @@ To create custom TLS/SSL bindings or enable client certificates for your App Ser
 
 ### Scale up your App Service plan
 
-1. Select any non-free tier, such as **B1**, **B2**, **B3**, or any other tier in the **Production** category. For additional options, select **See additional options**.
+1. Select any non-free tier, such as **B1**, **B2**, **B3**, or any other tier in the **Production** category. For more options, select **See additional options**.
 
 1. When you're done, select **Apply**.
 
