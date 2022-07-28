@@ -56,7 +56,7 @@ As you're creating private endpoints, consider the following:
  
 - Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-- The subscription from the private-link resource must also be registered with the Microsoft network resource provider. For more information, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
+- The subscription that contains the private link resource must be registered with the Microsoft network resource provider. The subscription that contains the private endpoint must also be registered with the Microsoft network resource provider. For more information, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
  
 ## Private-link resource 
 A private-link resource is the destination target of a specified private endpoint. The following table lists the available resources that support a private endpoint: 
