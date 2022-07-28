@@ -169,7 +169,7 @@ Business considerations may require that you apply your existing IoT sensors to 
 
 1. Onboard a new plan to the new subscription you want to use. For more information, see: 
 
-    [Onboard a plan - OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks-to-a-subscription)
+    [Onboard a plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks-to-a-subscription) in the Azure portal
 
     [Onboard a plan for Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks-to-a-subscription) in Defender for Endpoint
 
