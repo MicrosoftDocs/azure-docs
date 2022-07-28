@@ -79,7 +79,7 @@ A consumer is associated with a specific event hub and [consumer group](event-hu
 
 Each consumer has a unique view of the events in a partition that it reads from, which means that events are available to all consumers and aren't removed from the partition when read. It allows consumers to read and process events from the event hub at different speeds without interfering with one another.
 
-When events are published, they'll continue to exist in the event hub. They'll be available for consuming until they reach an age where they're older than the [retention period](event-hubs-faq.md#what-is-the-maximum-retention-period-for-events). Once removed, the events are no longer available to be read, and can't be recovered. Though the Event Hubs service is free to remove events older than the retention period, it doesn't do so deterministically. There's no guarantee of when events will be removed.
+When events are published, they'll continue to exist in the event hub. They'll be available for consuming until they reach an age where they're older than the [retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events). Once removed, the events are no longer available to be read, and can't be recovered. Though the Event Hubs service is free to remove events older than the retention period, it doesn't do so deterministically. There's no guarantee of when events will be removed.
 
 ```csharp
 try
@@ -122,7 +122,7 @@ finally
 
 This example makes use of the `ReadEvents` method of the `EventHubConsumerClient`, which allows it to see events from all [partitions](event-hubs-features.md#partitions) of an event hub. While it's convenient to use for exploration, we strongly recommend not using it for production scenarios. The `ReadEvents` method doesn't guarantee fairness amongst the partitions during iteration. Partitions compete with each other to publish events to be read. Depending on how service communication takes place, there may be a clustering of events per partition and a noticeable bias for a given partition or subset of partitions.
 
-To read from all partitions in a production application, we recommend preferring the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) or a custom [EventProcessor<TPartition>](/dotnet/api/azure.messaging.eventhubs.primitives.eventprocessor-1) implementation.
+To read from all partitions in a production application, we recommend preferring the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) or a custom [EventProcessor&ltTPartition&gt](/dotnet/api/azure.messaging.eventhubs.primitives.eventprocessor-1) implementation.
 
 ## Next steps
 See the following quickstarts and samples. 
