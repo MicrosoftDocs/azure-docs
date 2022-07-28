@@ -56,7 +56,7 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 ### Linux agents
 
 |		|		|	Azure Monitor agent	|	Log Analytics agent	|	Diagnostics extension (LAD)	|	Telegraf agent	|
-|	-	|	-	|	-	|	-	|	-	|		|
+|	-	|	-	|	-	|	-	|	-	|	-	|
 |	**Environments supported**	|		|		|		|		|		|
 |		|	Azure	|	X	|	X	|	X	|	X	|
 |		|	Other cloud (Azure Arc)	|	X	|	X	|		|	X	|
@@ -68,7 +68,7 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 |	**Data sent to**	|		|		|		|		|		|
 |		|	Azure Monitor Logs	|	X	|	X	|		|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|		|	X	|
-		|	Azure Storage	|		|		|	X	|		|
+|		|	Azure Storage	|		|		|	X	|		|
 |		|	Event Hub	|		|		|	X	|		|
 |	**Services and features supported**	|		|		|		|		|		|
 |		|	Log Analytics	|	X	|	X	|		|		|
@@ -77,7 +77,6 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 |		|	VM Insights	|		|	X	|		|		|
 |		|	Azure Automation	|		|	X	|		|		|
 |		|	Microsoft Defender for Cloud	|		|	X	|		|		|
-
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
