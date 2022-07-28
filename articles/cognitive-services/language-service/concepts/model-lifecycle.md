@@ -52,7 +52,7 @@ Use the table below to find which model versions are supported by each feature:
 
 | Feature                                             | Supported versions                                                  | Latest Generally Available version | Latest preview version |
 |-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
-| Sentiment Analysis and opinion mining               | `2019-10-01`, `2022-06-01`                                                        | `2022-06-01`                       |                        |
+| Sentiment Analysis and opinion mining               | `2019-10-01`, `2020-04-01`, `2021-10-01`, `2022-06-01`                                                        | `2022-06-01`                       |                        |
 | Language Detection                                  | `2021-11-20`                                                        | `2021-11-20`                       |                        |
 | Entity Linking                                      | `2021-06-01`                                                        | `2021-06-01`                       |                        |
 | Named Entity Recognition (NER)                      | `2021-06-01`                                                        | `2021-06-01`                       |                        |
