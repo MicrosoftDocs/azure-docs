@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/22/2022
+ms.date: 07/27/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: shkhalid, udayh, vakarand
@@ -288,10 +288,10 @@ Run the [az ad app federated-credential show](/cli/azure/ad/app/federated-creden
 
 The *id* parameter specifies the object ID of the application.
 
-The *credential-id* specifies the ID of the federated identity credential.
+The *credential-id* specifies the ID or name of the federated identity credential.
 
 ```azurecli-interactive
-az ad app federated-credential show --id f6475511-fd81-4965-a00e-41e7792b7b9c --credential-id c79f8feb-a9db-4090-85f9-90d820caa0eb
+az ad app federated-credential show --id f6475511-fd81-4965-a00e-41e7792b7b9c --federated-credential-id c79f8feb-a9db-4090-85f9-90d820caa0eb
 ```
 
 ## Delete a federated identity credential from an app
@@ -303,7 +303,7 @@ The *id* parameter specifies the object ID of the application.
 The *credential-id* specifies the ID of the federated identity credential.
 
 ```azurecli-interactive
-az ad app federated-credential delete --id f6475511-fd81-4965-a00e-41e7792b7b9c --credential-id c79f8feb-a9db-4090-85f9-90d820caa0eb
+az ad app federated-credential delete --id f6475511-fd81-4965-a00e-41e7792b7b9c --federated-credential-idc79f8feb-a9db-4090-85f9-90d820caa0eb
 ```
 
 ::: zone-end
