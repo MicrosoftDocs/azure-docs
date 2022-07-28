@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/17/2022
+ms.date: 07/28/2022
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -179,6 +179,12 @@ Snowflake connector utilizes Snowflake’s [COPY into [location]](https://docs.s
 
 If sink data store and format are natively supported by the Snowflake COPY command, you can use the Copy activity to directly copy from Snowflake to sink. For details, see [Direct copy from Snowflake](#direct-copy-from-snowflake). Otherwise, use built-in [Staged copy from Snowflake](#staged-copy-from-snowflake).
 
+In addition to having permission to access the related database, warehouse and tables that you configured in the Snowflake connector, make sure you have permission to execute the following command and access the schema `INFORMATION_SCHEMA` and the table `COLUMNS`.
+
+```sql
+COPY INTO <location>
+```
+
 To copy data from Snowflake, the following properties are supported in the Copy activity **source** section.
 
 | Property                     | Description                                                  | Required |
@@ -308,6 +314,16 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 Snowflake connector utilizes Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports writing data to Snowflake on Azure.
 
 If source data store and format are natively supported by Snowflake COPY command, you can use the Copy activity to directly copy from source to Snowflake. For details, see [Direct copy to Snowflake](#direct-copy-to-snowflake). Otherwise, use built-in [Staged copy to Snowflake](#staged-copy-to-snowflake).
+
+In addition to having permission to access the related database, warehouse and tables that you configured in the Snowflake connector, make sure you have permission to execute the following command and access the schema `INFORMATION_SCHEMA` and the table `COLUMNS`.
+
+```sql
+SELECT CURRENT_REGION()
+COPY INTO <table>
+SHOW REGIONS
+CREATE OR REPLACE STAGE
+DROP STAGE
+```
 
 To copy data to Snowflake, the following properties are supported in the Copy activity **sink** section.
 
