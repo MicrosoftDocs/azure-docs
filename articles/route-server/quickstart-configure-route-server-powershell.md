@@ -66,6 +66,9 @@ $subnet = @{
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
 
 $virtualnetwork | Set-AzVirtualNetwork
+
+$vnetInfo = Get-AzVirtualNetwork -Name myVirtualNetwork
+$subnetId = (Get-AzVirtualNetworkSubnetConfig -Name RouteServerSubnet -VirtualNetwork $vnetInfo).Id
 ```
 
 ## Create the Route Server
@@ -86,15 +89,12 @@ $virtualnetwork | Set-AzVirtualNetwork
     
 2. Create the Azure Route Server with [New-AzRouteServer](/powershell/module/az.network/new-azrouteserver). This example creates an Azure Route Server named **myRouteServer** in the **WestUS** location. The *HostedSubnet* is the resource ID of the RouteServerSubnet created in the previous section.
 
-    ```azurepowershell-interactive
-    $vnetInfo = Get-AzVirtualNetwork -Name myVirtualNetwork
-    $subnetId = (Get-AzVirtualNetworkSubnetConfig -Name RouteServerSubnet -VirtualNetwork $vnetInfo).Id
-    
+    ```azurepowershell-interactive      
     $rs = @{
         RouteServerName = 'myRouteServer'
         ResourceGroupName = 'myRouteServerRG'
         Location = 'WestUS'
-        HostedSubnet = $subnetConfig.Id
+        HostedSubnet = $subnetId.Id
         PublicIP = $publicIp
     }
     New-AzRouteServer @rs 
