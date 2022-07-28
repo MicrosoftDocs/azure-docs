@@ -63,7 +63,6 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Request attributes** | [Blob prefix](#blob-prefix) |
 > | **Principal attributes support** | True |
 > | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
-role-based-access-control/conditions-format.md
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.List'})`<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path) |
 
 ### Read a blob
