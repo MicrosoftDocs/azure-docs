@@ -412,15 +412,15 @@ The following table represents currently supported custom telemetry types that y
 - Custom requests, dependencies, and exceptions are supported through `opentelemetry-api`.
 - Any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-by-using-the-2x-sdk).
 
-| Custom telemetry type            | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
-|---------------------|------------|---------------------|---------|-------------------|
-| Custom events       |            |                     |  Yes    |                   |
-| Custom metrics      |  Yes       |                     |  Yes    |                   |
-| Dependencies        |            |                     |  Yes    |  Yes              |
-| Exceptions          |            |  Yes                |  Yes    |  Yes              |
-| Page views          |            |                     |  Yes    |                   |
-| Requests            |            |                     |  Yes    |  Yes              |
-| Traces              |            |  Yes                |  Yes    |  Yes              |
+| Custom telemetry type | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
+|-----------------------|------------|---------------------|---------|-------------------|
+| Custom events         |            |                     |  Yes    |                   |
+| Custom metrics        |  Yes       |                     |  Yes    |  Yes              |
+| Dependencies          |            |                     |  Yes    |  Yes              |
+| Exceptions            |            |  Yes                |  Yes    |  Yes              |
+| Page views            |            |                     |  Yes    |                   |
+| Requests              |            |                     |  Yes    |  Yes              |
+| Traces                |            |  Yes                |  Yes    |  Yes              |
 
 Currently, we're not planning to release an SDK with Application Insights 3.x.
 
