@@ -38,7 +38,7 @@ By default, API requests will use the latest Generally Available model. You can 
 > If you’re using the SDK for C#, Java, JavaScript or Python, see the reference documentation for information on the appropriate model-version parameter.
 For synchronous endpoints, use the `model-version` query parameter. For example:
 
-`POST <your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01`.
+`POST <your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01&model-version=2022-06-01`.
 
 For asynchronous endpoints, use the `model-version` property in the request body under task properties. 
  
