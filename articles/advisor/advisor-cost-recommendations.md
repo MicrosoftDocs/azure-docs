@@ -36,7 +36,7 @@ Advisor identifies resources that have not been used at all over the last 7 days
 
 ### Resize SKU recommendations
 
-Advisor considers resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which costs less than the current one (we currently consider retail rates only during recommendation generation). 
+Advisor recommends to resize virtual machines when it's possible to fit the current load on a more appropriate SKU, which costs less than the current one (based on retail rates) are used to generate the recommendation generation). 
 
 -	Recommendation criteria include **CPU**, **Memory** and **Outbound Network utilization**. 
 - The last 7 days of utilization data are analyzed
@@ -52,7 +52,7 @@ Advisor considers resizing virtual machines when it's possible to fit the curren
   - The new SKU has the same Accelerated Networking and Premium Storage capabilities 
   - The new SKU is supported in the current region of the Virtual Machine with the recommendation
   - The new SKU is less expensive 
-- Advisor determines the type of workload (user-facing/non user-facing) by analyzing the CPU utilization characteristics of the workload. This is based on some fascinating findings by Microsoft Research. You can find more details here: [Prediction-Based Power Oversubscription in Cloud Platforms - Microsoft Research](https://www.microsoft.com/research/publication/prediction-based-power-oversubscription-in-cloud-platforms/).
+- Advisor determines if a workload is user-facing by analyzing its CPU utilization characteristics. The approach is based on findings by Microsoft Research. You can find more details here: [Prediction-Based Power Oversubscription in Cloud Platforms - Microsoft Research](https://www.microsoft.com/research/publication/prediction-based-power-oversubscription-in-cloud-platforms/).
 - Advisor recommends not just smaller SKUs in the same family (for example D3v2 to D2v2) but also SKUs in a newer version (for example D3v2 to D2v3) or a different family (for example D3v2 to E3v2) based on the best fit and the cheapest costs with no performance impacts. 
 
 ### Burstable recommendations
@@ -60,7 +60,7 @@ Advisor considers resizing virtual machines when it's possible to fit the curren
 This is a special type of resize recommendation, where Advisor analyzes workloads to determine eligibility to run on specialized SKUs called Burstable SKUs that allow for variable workload performance requirements and are generally cheaper than general purpose SKUs. Learn more about burstable SKUs here: [B-series burstable - Azure Virtual Machines](../virtual-machines/sizes-b-series-burstable.md).
 
 - A burstable SKU recommendation is made if:
-- The average CPU utilization is less than a burstable SKUs' baseline performance
+- The average **CPU utilization** is less than a burstable SKUs' baseline performance
   - If the P95 of CPU is less than two times the burstable SKUs' baseline performance
   - If the current SKU does not have accelerated networking enabled (burstable SKUs don’t support accelerated networking yet)
   - If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days
