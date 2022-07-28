@@ -146,11 +146,11 @@ items:
   - name: Java (Service)
     href: /java/api/com.microsoft.azure.sdk.iot.provisioning.service
   - name: Node.js (Device)
-    href: /javascript/api/overview/azure/iothubdeviceprovisioning
+    href: /javascript/api/azure-iot-provisioning-device
   - name: Node.js (Service)
-    href: /javascript/api/overview/azure/iothubdeviceprovisioning
+    href: /javascript/api/azure-iot-provisioning-service
   - name: Node.js (Management)
-    href: /javascript/api/overview/azure/iothubdeviceprovisioning
+    href: /javascript/api/overview/azure/arm-deviceprovisioningservices-readme
   - name: Python (Device)
     href: /python/api/azure-iot-device/azure.iot.device.aio.provisioningdeviceclient
   - name: Python (Management)
