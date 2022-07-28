@@ -20,7 +20,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 > [!NOTE]
 > Viseme ID supports [all neural voices](language-support.md#text-to-speech) in [all supported locales](language-support.md#viseme), including custom neural voice. Scalable Vector Graphics (SVG) only supports prebuilt neural voices in `en-US` locale, and blendshapes supports prebuilt neural voices in `en-US` and `zh-CN` locales. SVG and blendshapes don't support custom neural voice.
 
-A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes. 
+A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes.
 
 You can use visemes to control the movement of 2D and 3D avatar models, so that the mouth movements are perfectly matched to synthetic speech. For example, you can:
 
@@ -45,7 +45,7 @@ You can request viseme output in SSML. For details, see [how to use viseme eleme
 
 ## Viseme ID
 
-Viseme ID refers to an integer number that specifies a viseme. We offer 22 different visemes, each depicting the mouth shape for a specific set of phonemes. There's no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they look the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes). 
+Viseme ID refers to an integer number that specifies a viseme. We offer 22 different visemes, each depicting the mouth shape for a specific set of phonemes. There's no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they look the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes).
 
 Speech audio output can be accompanied by viseme IDs and `Audio offset`. The `Audio offset` indicates the offset timestamp that represents the start time of each viseme, in ticks (100 nanoseconds).
 
@@ -53,7 +53,7 @@ Speech audio output can be accompanied by viseme IDs and `Audio offset`. The `Au
 
 Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes.
 
-## 2D SVG animation 
+## 2D SVG animation
 
 For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position.
 
@@ -61,11 +61,11 @@ With temporal tags that are provided in a viseme event, these well-designed SVGs
 
 ![Screenshot showing a 2D rendering example of four red-lipped mouths, each representing a different viseme ID that corresponds to a phoneme.](media/text-to-speech/viseme-demo-2D.png)
 
-## 3D blendshapes animation 
+## 3D blendshapes animation
 
-For 3D characters, you can design a character that suits your scenario and use blendshapes to drive the facial movement of your character. 
+For 3D characters, you can design a character that suits your scenario and use blendshapes to drive the facial movement of your character.
 
-The blendshapes is two dimension D matrix, and each row represents a blendshapes facial status of a frame (in 60 Hz). 
+The blendshapes is two dimension D matrix, and each row represents a blendshapes facial status of a frame (in 60 Hz).
 
 ## Get viseme events with the Speech SDK
 
@@ -83,6 +83,9 @@ using (var synthesizer = new SpeechSynthesizer(speechConfig, audioConfig))
     {
         Console.WriteLine($"Viseme event received. Audio offset: " +
             $"{e.AudioOffset / 10000}ms, viseme id: {e.VisemeId}.");
+
+        // `Animation` is an xml string for SVG or a json string for blendshapes
+        var animation = e.Animation;
     };
 
     var result = await synthesizer.SpeakSsmlAsync(ssml));
@@ -104,6 +107,9 @@ synthesizer->VisemeReceived += [](const SpeechSynthesisVisemeEventArgs& e)
         // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
         << "Audio offset: " << e.AudioOffset / 10000 << "ms, "
         << "viseme id: " << e.VisemeId << "." << endl;
+
+    // `Animation` is an xml string for SVG or a json string for blendshapes
+    auto animation = e.Animation;
 };
 
 auto result = synthesizer->SpeakSsmlAsync(ssml).get();
@@ -121,6 +127,9 @@ synthesizer.VisemeReceived.addEventListener((o, e) -> {
     // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
     System.out.print("Viseme event received. Audio offset: " + e.getAudioOffset() / 10000 + "ms, ");
     System.out.println("viseme id: " + e.getVisemeId() + ".");
+
+    // `Animation` is an xml string for SVG or a json string for blendshapes
+    String animation = e.getAnimation();
 });
 
 SpeechSynthesisResult result = synthesizer.SpeakSsmlAsync(ssml).get();
@@ -150,6 +159,9 @@ var synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig, audioConfig);
 // Subscribes to viseme received event
 synthesizer.visemeReceived = function (s, e) {
     window.console.log("(Viseme), Audio offset: " + e.audioOffset / 10000 + "ms. Viseme ID: " + e.visemeId);
+
+    // `Animation` is an xml string for SVG or a json string for blendshapes
+    var animation = e.Animation;
 }
 
 synthesizer.speakSsmlAsync(ssml);
@@ -167,6 +179,9 @@ SPXSpeechSynthesizer *synthesizer =
 // Subscribes to viseme received event
 [synthesizer addVisemeReceivedEventHandler: ^ (SPXSpeechSynthesizer *synthesizer, SPXSpeechSynthesisVisemeEventArgs *eventArgs) {
     NSLog(@"Viseme event received. Audio offset: %fms, viseme id: %lu.", eventArgs.audioOffset/10000., eventArgs.visemeId);
+
+    // `Animation` is an xml string for SVG or a json string for blendshapes
+    NSString *animation = eventArgs.Animation;
 }];
 
 [synthesizer speakSsml:ssml];
