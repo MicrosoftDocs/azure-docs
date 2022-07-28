@@ -84,7 +84,9 @@
     - name: Versioning (Preview)
       href: lifecycle-workflow-versioning.md
     - name: Templates (Preview)
-      href: lifecycle-workflow-templates.md        
+      href: lifecycle-workflow-templates.md  
+    - name: Deployment (Preview)
+      href: lifecycle-workflows-deployment.md        
 - name: How-to guides
   expanded: true
   items:
