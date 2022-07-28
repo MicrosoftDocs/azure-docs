@@ -266,7 +266,7 @@ sections:
           
           For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)
           
-          For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md)
+          For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](../azure-monitor/app/azure-web-apps-net-core.md)
           
           For more information about how to enable Azure Diagnostics Logging for Cloud Services, see [Set up diagnostics for Azure Cloud Services and virtual machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
           
