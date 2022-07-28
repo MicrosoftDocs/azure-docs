@@ -14,7 +14,7 @@ zone_pivot_groups: iot-dps-set2
  
 # Programmatically create a Device Provisioning Service enrollment group for X.509 certificate attestation
 
-This article shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
+This article shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Azure IoT Hub DPS service SDK](libraries-sdks.md#service-sdks) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
 
 ## Prerequisites
 
@@ -129,7 +129,7 @@ This section shows you how to create a .NET Core console application that adds a
     dotnet add package Microsoft.Azure.Devices.Provisioning.Service 
     ```
 
-    This step downloads, installs, and adds a reference to the [Azure IoT Provisioning Service Client SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
+    This step downloads, installs, and adds a reference to the [Azure IoT DPS service client NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) and its dependencies. This package includes the binaries for the .NET service SDK.
 
 1. Open *Program.cs* file in an editor.
 
@@ -227,6 +227,8 @@ This section shows you how to create a Node.js script that adds an enrollment gr
      ```cmd\sh
      npm install azure-iot-provisioning-service
      ```  
+
+    This step downloads, installs, and adds a reference to the [Azure IoT DPS service client package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) and its dependencies. This package includes the binaries for the Node.js service SDK.
 
 2. Using a text editor, create a **create_enrollment_group.js** file in your working folder. Add the following code to the file and save:
 
@@ -373,7 +375,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
     mvn install -DskipTests
     ```
 
-    This command downloads the [Provisioning service client Maven package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine and builds the sample. This package includes the binaries for the Java service SDK.
+    This command downloads the [Azure IoT DPS service client Maven package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine and builds the sample. This package includes the binaries for the Java service SDK.
 
 1. Switch to the *target* folder and run the sample. Be aware that the build in the previous step outputs .jar file in the *target* folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. You may need to replace the version in the command below.
 

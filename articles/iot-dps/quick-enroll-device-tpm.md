@@ -3,7 +3,7 @@ title: How to programmatically create an Azure Device Provisioning Service indiv
 description: This article shows you how to programmatically create an individual enrollment entry for a device that uses TPM attestation.
 author: kgremban
 ms.author: kgremban
-ms.date: 07/26/2022
+ms.date: 07/28/2022
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
@@ -14,7 +14,7 @@ zone_pivot_groups: iot-dps-set2
  
 # Programmatically create a Device Provisioning Service individual enrollment for TPM attestation
 
-This article shows you how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. After you've created the individual enrollment, you can optionally enroll a simulated TPM device to the provisioning service through this enrollment entry.
+This article shows you how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service by using the [Azure IoT Hub DPS service SDK](libraries-sdks.md#service-sdks) and a sample application. After you've created the individual enrollment, you can optionally enroll a simulated TPM device to the provisioning service through this enrollment entry.
 
 Although these steps work on both Windows and Linux computers, this article uses a Windows development computer.
 
@@ -134,11 +134,11 @@ This section shows you how to create a .NET Core console app that adds an indivi
     dotnet add package Microsoft.Azure.Devices.Provisioning.Service 
     ```
 
-    This step downloads, installs, and adds a reference to the [Azure IoT Provisioning Service Client SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
+    This step downloads, installs, and adds a reference to the [Azure IoT DPS service client NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) and its dependencies. This package includes the binaries for the .NET service SDK.
 
 1. Open *Program.cs* file in an editor.
 
-1. Replace the namespace statement at the top of the file with the following: 
+1. Replace the namespace statement at the top of the file with the following:
 
     ```csharp
     namespace CreateIndividualEnrollment;
@@ -229,6 +229,8 @@ This section shows you how to create a .NET Core console app that adds an indivi
     ```cmd\sh
     npm install azure-iot-provisioning-service
     ```  
+
+    This step downloads, installs, and adds a reference to the [Azure IoT DPS service client package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) and its dependencies. This package includes the binaries for the Node.js service SDK.
 
 2. Using a text editor, create a _create_individual_enrollment.js_ file in your working folder. Add the following code to the file:
 
@@ -374,7 +376,7 @@ AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEA
     mvn install -DskipTests
     ```
 
-    This command downloads the [Provisioning service client Maven package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine and builds the sample. This package includes the binaries for the Java service SDK.
+    This command downloads the [Azure IoT DPS service client Maven package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine and builds the sample. This package includes the binaries for the Java service SDK.
 
 1. Switch to the *target* folder and run the sample. Be aware that the build in the previous step outputs .jar file in the *target* folder with the following file format: `service-enrollment-sample-{version}-with-deps.jar`; for example: `service-enrollment-sample-1.8.1-with-deps.jar`. You may need to replace the version in the command below.
 
