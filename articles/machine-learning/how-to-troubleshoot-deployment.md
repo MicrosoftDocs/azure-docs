@@ -105,6 +105,8 @@ The local inference server allows you to quickly debug your entry script (`score
     ```bash
     curl -p 127.0.0.1:5001/score
     ```
+> [!NOTE]
+> [**Learn frequently asked questions**](how-to-inference-server-http.md#frequently-asked-questions) about Azure machine learning Inference HTTP server.
 
 ## Container cannot be scheduled
 

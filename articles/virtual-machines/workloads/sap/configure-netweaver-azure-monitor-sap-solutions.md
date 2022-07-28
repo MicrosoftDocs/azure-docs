@@ -5,13 +5,15 @@ author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
-ms.date: 07/06/2022
+ms.date: 07/21/2022
 ms.author: sujaj
 
 ---
 
 
-# Configure SAP NetWeaver for Azure Monitor for SAP solutions
+# Configure SAP NetWeaver for Azure Monitor for SAP solutions (preview)
+
+[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
 This article explains how to configure SAP NetWeaver for use with Azure Monitor for SAP solutions (AMS). You can use SAP NetWeaver with both versions of the service, AMS and AMS (classic).
 The SAP start service provides multiple services, including monitoring the SAP system. AMS and AMS (classic) use **SAPControl**, which is a SOAP web service interface that exposes these capabilities. The **SAPControl** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use AMS with NetWeaver.
@@ -128,7 +130,7 @@ Enable **SMON** to monitor the system performance.
 1. Make sure the version of **ST-PI** is **SAPK-74005INSTPI**. 
 1. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/en/2651881).
 1. It's recommended to schedule **SDF/SMON** as a background job in your target SAP client each minute. Log in to SAP and use **TCODE /SDF/SMON** to configure the setting.
-1. To use an SAP access control list (ACL) to restrict access by IP address, add the IP address of the **sapmon** collector VM to the ACL.
+
 
 Enable SAP Internet Communication Framework (ICF):
 
@@ -258,7 +260,7 @@ To install the NetWeaver provider in the Azure portal:
 
 1. Sign in to the Azure portal. 
 
-1. Go to the **Azure Monitor for SAP Solutions** service.
+1. Go to the **Azure Monitor for SAP solutions** service.
 
 1. Select **Create** to add a new AMS resource.
 
