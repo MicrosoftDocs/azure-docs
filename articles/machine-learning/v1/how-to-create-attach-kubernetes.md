@@ -14,8 +14,12 @@ ms.date: 04/21/2022
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
+> * [v1](how-to-create-attach-kubernetes.md)
+> * [v2 (current version)](../how-to-attach-kubernetes-anywhere.md)
 
 Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
 
@@ -23,9 +27,9 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-- The [Azure CLI extension for Machine Learning service](v1/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
-- If you plan on using an Azure Virtual Network to secure communication between your Azure ML workspace and the AKS cluster, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please follow tutorial [create a secure workspace](./tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
+- If you plan on using an Azure Virtual Network to secure communication between your Azure ML workspace and the AKS cluster, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please follow tutorial [create a secure workspace](../tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 
 ## Limitations
 
@@ -160,7 +164,7 @@ The following example demonstrates how to create a new AKS cluster using the SDK
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

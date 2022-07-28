@@ -88,7 +88,7 @@
       href: how-to-create-attach-compute-cluster.md
     - name: Azure Kubernetes Service
       displayName: AKS, inference
-      href: ../how-to-create-attach-kubernetes.md
+      href: how-to-create-attach-kubernetes.md
   - name: Security
     items:
     - name: Use managed identities for access control
