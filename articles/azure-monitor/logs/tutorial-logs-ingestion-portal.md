@@ -8,8 +8,6 @@ ms.date: 07/15/2022
 # Tutorial: Send data to Azure Monitor Logs using REST API (Azure portal)
 [Logs ingestion API (preview)](logs-ingestion-api-overview.md) in Azure Monitor allow you to send external data to a Log Analytics workspace with a REST API. This tutorial uses the Azure portal to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
 
-[!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
-
 > [!NOTE]
 > This tutorial uses the Azure portal. See [Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)](tutorial-logs-ingestion-api.md) for a similar tutorial using resource manager templates.
 
@@ -27,6 +25,7 @@ To complete this tutorial, you need the following:
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac) .
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- PowerShell 7.2 or higher.
 
 
 ## Overview of tutorial
@@ -73,6 +72,9 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 
 ## Generate sample data
+> [!IMPORTANT]
+> You must be using PowerShell version 7.2 or higher. 
+
 The following PowerShell script both generates sample data to configure the custom table and sends sample data to the logs ingestion API to test the configuration. 
 
 1. Run the following PowerShell command which adds a required assembly for the script.

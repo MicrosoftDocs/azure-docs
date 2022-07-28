@@ -16,13 +16,17 @@ ms.author: jiajzhan
 
 Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to improve the pronunciation of text-to-speech voices. To learn when and how to use each alphabet, see [Use phonemes to improve pronunciation](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).
 
-Speech service supports the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) stress and syllable symbols that are listed here. You set `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
+Speech service supports the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) suprasegmentals that are listed here. You set `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 
 |`ipa` | Symbol         | 
 |-------|-------------------|
 | `ˈ`   | Primary stress     | 
 | `ˌ`   | Secondary stress   | 
 | `.`   | Syllable boundary  | 
+| `ː`   | Long  | 
+| `‿`   | Linking   | 
+> [!NOTE]
+> long suprasegmental symbol is `ː` not the punctuation colon `:`.
 
 For some locales, Speech service defines its own phonetic alphabets, which ordinarily map to the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). The eight locales that support the Microsoft Speech API (SAPI, or `sapi`) are en-US, fr-FR, de-DE, es-ES, ja-JP, zh-CN, zh-HK, and zh-TW. For those eight locales, you set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 

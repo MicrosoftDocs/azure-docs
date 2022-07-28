@@ -6,7 +6,7 @@ manager: roshar
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.date: 12/02/2021
+ms.date: 07/27/2022
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
@@ -21,7 +21,7 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 - To migrate a physical PC or VM from on-premises with a larger OS drive.
 
 > [!IMPORTANT]
-> Unless you use [Resize without downtime (preview)](#resize-without-downtime-preview), resizing an OS or data disk of an Azure VM requires the VM to be deallocated.
+> Unless you use [Resize without downtime (preview)](#resize-without-downtime-preview), resizing a data disk requires the VM to be deallocated.
 >
 > Shrinking an existing disk isn’t supported, and can potentially result in data loss.
 > 

@@ -166,6 +166,8 @@
       href: reference-server-sdk-python.md
   - name: Control plane
     href: /rest/api/webpubsub/
+  - name: Azure CLI
+    href: /cli/azure/webpubsub
 
 - name: Resources
   items:
