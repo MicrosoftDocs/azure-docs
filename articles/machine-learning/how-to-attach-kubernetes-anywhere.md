@@ -6,12 +6,18 @@ author: ssalgadodev
 ms.author: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/23/2021
+ms.date: 07/28/2022
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
 
 # Configure Kubernetes cluster for Azure Machine Learning
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
+> * [v1](./v1/how-to-create-attach-kubernetes.md)
+> * [v2 (current version)](how-to-attach-kubernetes-anywhere.md)
 
 Azure Machine Learning Kubernetes compute enables you to run training jobs such as AutoML, pipeline, and distributed jobs,  or to deploy models as online endpoint or batch endpoint. Azure ML Kubernetes compute supports two kinds of Kubernetes cluster:
 * **[Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service/)** (AKS) cluster in Azure. With your own managed AKS cluster in Azure, you can gain security and controls to meet compliance requirement as well as flexibility to manage teams' ML workload.
