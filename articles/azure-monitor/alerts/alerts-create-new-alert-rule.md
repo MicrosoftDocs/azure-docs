@@ -83,7 +83,7 @@ And then defining these elements for the resulting alert actions using:
     1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
     1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last 5 minutes. If the system detects summarized query results, the rule is automatically updated with that information.
 
-        :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
 
     1. In the **Measurement** section, select values for these fields:
 
@@ -93,7 +93,7 @@ And then defining these elements for the resulting alert actions using:
         |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value using the aggregation granularity. For example: Total, Average, Minimum, or Maximum.    |
         |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
 
-        :::image type="content" source="media/alerts-log/alerts-log-measurements.png" alt-text="Measurements.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-measurements.png" alt-text="Measurements.":::
 
     1. (Optional) In the **Split by dimensions** section, you can use dimensions to monitor the values of multiple instances of a resource with one rule. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group. When you split by dimensions, alerts are split into separate alerts by grouping combinations of numerical or string columns to monitor for the same condition on multiple Azure resources. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
 
@@ -114,7 +114,7 @@ And then defining these elements for the resulting alert actions using:
         |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
         |Include all future values| Select this field to include any future values added to the selected dimension.  |
 
-        :::image type="content" source="media/alerts-log/alerts-create-log-rule-dimensions.png" alt-text="Screenshot of the splitting by dimensions section of a new log alert rule.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-dimensions.png" alt-text="Screenshot of the splitting by dimensions section of a new log alert rule.":::
 
     1. In the **Alert logic** section, select values for these fields:
 
@@ -124,7 +124,7 @@ And then defining these elements for the resulting alert actions using:
         |Threshold value| A number value for the threshold. |
         |Frequency of evaluation|The interval in which the query is run. Can be set from a minute to a day. |
 
-        :::image type="content" source="media/alerts-log/alerts-create-log-rule-logic.png" alt-text="Screenshot of alert logic section of a new log alert rule.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-logic.png" alt-text="Screenshot of alert logic section of a new log alert rule.":::
 
     1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy.
 
@@ -136,14 +136,14 @@ And then defining these elements for the resulting alert actions using:
         |Evaluation period|The time period within which the number of violations occur. |
         |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than 2 days, the 2 day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to 2 days of data.<br> If the query requires more data than the alert evaluation, and there's no **ago** command in the query, you can change the time range manually.|
 
-        :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
 
         > [!NOTE]
         > If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**, or the rule creation will fail because it won't meet the policy requirements.
 
     1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
-        :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
     ### [Activity log](#tab/activity-log)
 
     1. In the **Conditions** pane, select the **Chart period**.
@@ -162,45 +162,62 @@ And then defining these elements for the resulting alert actions using:
 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
-    :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
 
-1. In the **Details** tab,
-    - Define the **Project details** by selecting the **Subscription** and **Resource group**. 
-    - Define the **Alert rule details**. Select the **Severity**, enter values for the **Alert rule name** and the **Alert rule description**, and select the **Region**. 
+1. In the **Details** tab, define the **Project details** by selecting the **Subscription** and **Resource group**. 
+1. ### [Metric alert](#tab/metric)
 
-    :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
+    1. Define the **Alert rule details**.
+        - Select the **Severity**.
+        - Enter values for the **Alert rule name** and the **Alert rule description**.
+        - Select the **Region**.
+    
+    1. (Optional) In the **Advanced options** section, you can set several options.
 
-1. (Optional) In the **Advanced options** section, you can set several options.
-    ### [Metric alert](#tab/metric)
+        |Field |Description |
+        |---------|---------|
+        |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
+        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
 
-    |Field |Description |
-    |---------|---------|
-    |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-    |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Details tab.":::
 
     ### [Log alert](#tab/log)
 
-    |Field |Description |
-    |---------|---------|
-    |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-    |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
-    |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
-    |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
+    1. Define the **Alert rule details**.
+        - Select the **Severity**.
+        - Enter values for the **Alert rule name** and the **Alert rule description**.
+        - Select the **Region**.
+    
+    1. (Optional) In the **Advanced options** section, you can set several options.
 
+        |Field |Description |
+        |---------|---------|
+        |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
+        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
+        |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
+        |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
+
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Details tab.":::
     ### [Activity log](#tab/activity-log)
 
-    Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    1. Define the **Alert rule details**.
+        - Enter values for the **Alert rule name** and the **Alert rule description**.
+        - Select the **Region**.
+    
+    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Details tab.":::
 
     ---
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
 
-    :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
 
 1. In the **Review + create** tab, a validation will run and inform you of any issues.
 1. When validation passes and you've reviewed the settings, select the **Create** button.
 
-    :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 
 > [!NOTE]
 > This article describes creating alert rules using the alert rule wizard.The new alert rule experience is a little different than the old experience. Please note these changes:
