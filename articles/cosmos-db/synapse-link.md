@@ -118,7 +118,7 @@ Synapse Link isn't recommended if you're looking for traditional data warehouse 
 
 *  Backup and restore:
    *  Although analytical store data is not backed up, and therefore cannot be restored, you can rebuild your analytical store by reenabling Synapse Link in the restored container.
-   *  Synapse Link is not fully compatible with continuous backup mode.
+   *  Synapse Link isn't fully compatible with continuous backup mode.
    *  Click [here](analytical-store-introduction.md#backup) for more information about resilience, backups, restores, and compatibilities.
          
 * Granular Role-based Access (RBAC)s isn't supported when querying from Synapse. Users that have access to your Synapse workspace and have access to the Cosmos DB account can access all containers within that account. We currently don't support more granular access to the containers. 
