@@ -45,10 +45,17 @@ This article provides a reference for API Management policies used to transform 
 ### Policy statement
 
 ```xml
-<json-to-xml apply="always | content-type-json" consider-accept-header="true | false" parse-date="true | false"/>
+<json-to-xml 
+    apply="always | content-type-json" 
+    consider-accept-header="true | false" 
+    parse-date="true | false" 
+    namespace-separator="separator character"
+    attribute-block-name="name" />
 ```
 
 ### Example
+
+Consider the following policy:
 
 ```xml
 <policies>
@@ -57,9 +64,44 @@ This article provides a reference for API Management policies used to transform 
     </inbound>
     <outbound>
         <base />
-        <json-to-xml apply="always" consider-accept-header="false" parse-date="false"/>
+        <json-to-xml apply="always" consider-accept-header="false" parse-date="false" namespace-separator=":" attribute-block-name="#attrs" />
     </outbound>
 </policies>
+```
+
+If the backend returns the following JSON:
+
+``` json
+{
+  "soapenv:Envelope": {
+    "xmlns:soapenv": "http://schemas.xmlsoap.org/soap/envelope/",
+    "xmlns:v1": "http://localdomain.com/core/v1",
+    "soapenv:Header": {},
+    "soapenv:Body": {
+      "v1:QueryList": {
+        "#attrs": {
+          "queryName": "test"
+        },
+        "v1:QueryItem": {
+          "name": "dummy text"
+        }
+      }
+    }
+  }
+}
+```
+
+The XML response to the client will be:
+
+``` xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://localdomain.com/core/v1">
+  <soapenv:Header />
+  <soapenv:Body>
+    <v1:QueryList queryName="test">
+      <name>dummy text</name>
+    </v1:QueryList>
+  </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Elements
@@ -75,6 +117,8 @@ This article provides a reference for API Management policies used to transform 
 |apply|The attribute must be set to one of the following values.<br /><br /> -   always - always apply conversion.<br />-   content-type-json - convert only if response Content-Type header indicates presence of JSON.|Yes|N/A|
 |consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 |parse-date|When set to `false` date values are simply copied during transformation|No|true|
+|namespace-separator|The character to use as a namespace separator|No|Underscore|
+|attribute-block-name|When set, properties inside the named object will be added to the element as attributes|No|Not set|
 
 ### Usage
  This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).

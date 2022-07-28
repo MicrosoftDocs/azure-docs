@@ -198,6 +198,8 @@ items:
       href: how-to-elastic-apm-java-agent-monitor.md
     - name: Analyze logs with ELK
       href: how-to-elastic-diagnostic-settings.md
+    - name: Health probes and graceful termination
+      href: how-to-configure-health-probes-graceful-termination.md
   - name: Network
     items:
     - name: Deploy Azure Spring Apps in a virtual network

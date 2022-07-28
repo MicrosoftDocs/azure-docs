@@ -3,9 +3,9 @@ title: Template deployment what-if
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 07/11/2022
 ms.author: tomfitz
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 # ARM template deployment what-if operation
@@ -17,6 +17,8 @@ You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API 
 ### Microsoft Learn
 
 To learn more about what-if, and for hands-on guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif) on **Microsoft Learn**.
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Install Azure PowerShell module
 

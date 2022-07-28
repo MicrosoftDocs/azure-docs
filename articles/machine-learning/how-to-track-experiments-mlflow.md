@@ -34,7 +34,7 @@ Use MLflow to query and manage all the experiments in Azure Machine Learning. Th
 ### Prerequisites
 
 * Install `azureml-mlflow` plug-in.
-* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure ML MLtracking URL. You can follow the instruction at [Track runs from your local machine](how-to-use-mlflow-cli-runs.md#track-runs-from-your-local-machine)
+* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure ML MLtracking URL. You can follow the instruction at [Track runs from your local machine](how-to-use-mlflow-cli-runs.md)
 
 ### Support matrix for querying runs and experiments
 
@@ -58,6 +58,7 @@ The MLflow client exposes several methods to retrieve runs, including options to
 | Filtering runs with string comparators (params, tags, and attributes): `LIKE`/`ILIKE` | **&check;** |  |
 | Filtering runs with comparators `AND` | **&check;** | **&check;** |
 | Filtering runs with comparators `OR` | **&check;** |  |
+| Renaming experiments | **&check;** |  |
 
 > [!NOTE]
 > - <sup>1</sup> Check the section [Getting runs inside an experiment](#getting-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure ML.
@@ -107,7 +108,7 @@ By experiment name:
   ```python
   mlflow.search_runs(experiment_names=[ "my_experiment" ])
   ```  
-By experiment id:
+By experiment ID:
 
   ```python
   mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ])
@@ -174,9 +175,9 @@ The following example shows all the runs that have been completed:
   runs[runs.status == "FINISHED"]
   ```
   
-## Accessing runs details
+## Getting metrics, parameters, artifacts and models
 
-By default, MLflow returns runs as a Pandas `Dataframe`. You can get Python objects if needed, which may be useful to get details about them by specifying the `output_format` parameter:
+By default, MLflow returns runs as a Pandas `Dataframe` containing a limited amount of information. You can get Python objects if needed, which may be useful to get details about them. Use the `output_format` parameter to control how output is returned:
 
   ```python
   runs = mlflow.search_runs(
@@ -250,7 +251,10 @@ MLflow also allows you to both operations at once and download and load the mode
   model = mlflow.xgboost.load_model(f"runs:/{last_run.info.run_id}/{artifact_path}")
   ```
 
-## Getting child (nested) runs information
+> [!TIP]
+> You can also load models from the registry using MLflow. View [loading MLflow models with MLflow](how-to-manage-models-mlflow.md#loading-models-from-registry) for details.
+
+## Getting child (nested) runs
 
 MLflow supports the concept of child (nested) runs. They are useful when you need to spin off training routines requiring being tracked independently from the main training process. This is the typical case of hyper-parameter tuning for instance. You can query all the child runs of a specific run using the property tag `mlflow.parentRunId`, which contains the run ID of the parent run.
 

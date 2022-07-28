@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Private Link connectivity problems
+title: Troubleshoot Azure Private Link Service connectivity problems
 description: Step-by-step guidance to diagnose private link connectivity
 services: private-link
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.author: rdhillon
 
 ---
 
-# Troubleshoot Azure Private Link connectivity problems
+# Troubleshoot Azure Private Link Service connectivity problems
 
 This article provides step-by-step guidance to validate and diagnose connectivity for your Azure Private Link setup.
 
@@ -103,7 +103,7 @@ If you experience connectivity problems with your private link setup, review the
 
        ![Verify private link service metrics](./media/private-link-tsg/pls-metrics.png)
 
-1. Use [Azure Monitor - Networks](../azure-monitor/insights/network-insights-overview.md#dependency-view) for insights and to see a dependency view of the resources by going to:
+1. Use [Azure Monitor - Networks](../network-watcher/network-insights-overview.md#dependency-view) for insights and to see a dependency view of the resources by going to:
      - Azure Monitor
      - Networks
      - Private Link services

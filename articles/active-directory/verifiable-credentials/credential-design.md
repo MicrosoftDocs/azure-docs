@@ -1,6 +1,6 @@
 ---
-title: How to customize your Microsoft Entra Verified ID (preview)
-description: This article shows you how to create your own custom verifiable credential
+title: Customize your Microsoft Entra Verified ID (preview)
+description: This article shows you how to create your own custom verifiable credential.
 services: active-directory
 author: barclayn
 manager: rkarlin
@@ -9,42 +9,42 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 06/22/2022
 ms.author: barclayn
-# Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
+# Customer intent: As a developer, I am looking for information about how to enable my users to control their own information. 
 ---
 
-# How to customize your verifiable credentials (preview)
+# Customize your verifiable credentials (preview)
 
-[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
+[!INCLUDE [verifiable credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-Verifiable credentials are made up of two components, the rules and display definitions. The rules definition determines what the user needs to provide before they receive a verifiable credential. The display definition controls the branding of the credential and styling of the claims. In this guide, we'll explain how to modify both files to meet the requirements of your organization. 
+Verifiable credentials are made up of two components, *rules* definitions and *display* definitions. A rules definition determines what users need to provide before they receive a verifiable credential. A display definition controls the branding of the credential and styling of the claims. 
+
+This article explains how to modify both types of files to meet the requirements of your organization. 
 
 > [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> Microsoft Entra Verified ID is currently in preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Rules definition: Requirements from the user
 
 The rules definition is a simple JSON document that describes important properties of verifiable credentials. In particular, it describes how claims are used to populate your verifiable credential.
 
-There are currently four input types that are available to configure in the rules definition. These types are used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your DID. The following are the four types with explanations.
+### User-input types
 
-- ID Token
-- ID Token Hint
-- Verifiable credentials via a verifiable presentation.
-- Self-Attested Claims
+The following four user-input types are currently available to be configured in the rules definition. They're used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your decentralized identifier (DID).
 
-**ID token:** When this option is configured, you'll need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be prompted to 'Sign in' on the Authenticator app to meet this requirement and add the associated claims from their account. 
+* **ID token**: When this option is configured, you'll need to provide an Open ID Connect configuration URI and include the claims that should be included in the verifiable credential. Users are prompted to 'Sign in' on the Authenticator app to meet this requirement and add the associated claims from their account. 
 
-**ID token hint:** The sample App and Tutorial use the ID Token Hint. When this option is configured, the relying party app will need to provide claims that should be included in the VC in the Request Service API issuance request. Where the relying party app gets the claims from is up to the app, but it can come from the current sign-in session, from backend CRM systems or even from self asserted user input. 
+* **ID token hint**: The sample App and Tutorial use the ID token Hint. When this option is configured, the relying party app will need to provide claims that should be included in the verifiable credential in the Request Service API issuance request. Where the relying party app gets the claims from is up to the app, but it can come from the current sign-in session, from backend CRM systems or even from self asserted user input. 
 
-**Verifiable credentials:** The end result of an issuance flow is to produce a Verifiable Credential but you may also ask the user to Present a Verifiable Credential in order to issue one. The rules definition is able to take specific claims from the presented Verifiable Credential and include those claims in the newly issued Verifiable Credential from your organization. 
+* **Verifiable credentials**: The end result of an issuance flow is to produce a verifiable credential but you may also ask the user to Present a verifiable credential in order to issue one. The rules definition is able to take specific claims from the presented verifiable credential and include those claims in the newly issued verifiable credential from your organization. 
 
-**Self attested claims:** When this option is selected, the user will be able to directly type information into Authenticator. At this time, strings are the only supported input for self attested claims. 
+* **Self-attested claims**: When this option is selected, the user can type information directly into Authenticator. At this time, strings are the only supported input for self attested claims. 
 
-![detailed view of verifiable credential card](media/credential-design/issuance-doc.png) 
+   ![Detailed view of a verifiable credential card.](media/credential-design/issuance-doc.png) 
 
-**Static claims:** Additionally we can declare a static claim in the rules definition, however this input doesn't come from the user. The Issuer defines a static claim in the rules definition and would look like any other claim in the Verifiable Credential. Add a credentialSubject after vc.type and declare the attribute and the claim. 
+### Static claims
+
+Additionally, you can declare a static claim in the rules definition, but this input doesn't come from the user. The issuer defines a static claim in the rules definition, and it looks like any other claim in the verifiable credential. You add credentialSubject after vc.type and declare the attribute and the claim. 
 
 ```json
 "vc": {
@@ -59,7 +59,7 @@ There are currently four input types that are available to configure in the rule
 
 ## Input type: ID token
 
-To get ID Token as input, the rules definition needs to configure the well-known endpoint of the OIDC compatible Identity system. In that system you need to register an application with the correct information from [Issuer service communication examples](issuer-openid.md). Additionally, the client_id needs to be put in the rules definition, and a scope parameter needs to be filled in with the correct scopes. For example, Azure Active Directory needs the email scope if you want to return an email claim in the ID token.
+To get an ID token as input, the rules definition needs to configure the well-known endpoint of the OpenID Connect (OIDC)-compatible identity system. In that system you need to register an application with the correct information from the [Issuer service communication examples](issuer-openid.md). Additionally, you need to put client_id in the rules definition and fill in a scope parameter with the correct scopes. For example, Azure Active Directory needs the email scope if you want to return an email claim in the ID token.
 
 ```json
   {
@@ -94,11 +94,11 @@ To get ID Token as input, the rules definition needs to configure the well-known
     }
 ```
 
-See [idToken attestation](rules-and-display-definitions-model.md#idtokenattestation-type) for reference of properties.
+For more information about properties, see [idTokenAttestation type](rules-and-display-definitions-model.md#idtokenattestation-type).
 
 ## Input type: ID token hint
 
-To get ID Token hint as input, the rules definition shouldn't contain configuration for and OIDC Identity system but instead have the special value `https://self-issued.me` for the configuration property. The claims mappings are the same as for the ID token type, but the difference is that the claim values need to be provided by the issuance relying party app in the Request Service API issuance request.
+To get an ID token hint as input, the rules definition shouldn't contain configuration for an OIDC identity system. Instead, it should have the special value `https://self-issued.me` for the configuration property. The claims mappings are the same as for the ID token type, but the difference is that the claim values need to be provided by the issuance relying party app in the Request Service API issuance request.
 
 ```json
   {
@@ -130,28 +130,30 @@ To get ID Token hint as input, the rules definition shouldn't contain configurat
     }
 ```
 
-See [idTokenHint attestation](rules-and-display-definitions-model.md#idtokenhintattestation-type) for reference of properties.
+For more information about properties, see [idTokenHintAttestation type](rules-and-display-definitions-model.md#idtokenhintattestation-type).
 
-### vc.type: Choose credential type(s) 
+### vc.type: Choose credential types 
 
-All verifiable credentials must declare their "type" in their rules definition. The type of a credential distinguishes your verifiable credentials from credentials issued by other organizations and ensures interoperability between issuers and verifiers. To indicate a credential type, you must provide one or more credential types that the credential satisfies. Each type is represented by a unique string - often a URI will be used to ensure global uniqueness. The URI doesn't need to be addressable; it's treated as a string. 
+All verifiable credentials must declare their *type* in their rules definition. The credential type distinguishes your verifiable credentials from credentials that are issued by other organizations, and it ensures interoperability between issuers and verifiers. 
+
+To indicate a credential type, provide one or more credential types that the credential satisfies. Each type is represented by a unique string. Often, a URI is used to ensure global uniqueness. The URI doesn't need to be addressable. It's treated as a string. 
 
 As an example, a diploma credential issued by Contoso University might declare the following types:
 
 | Type | Purpose |
 | ---- | ------- |
-| `https://schema.org/EducationalCredential` | Declares that diplomas issued by Contoso University contain attributes defined by schema.org's `EducationaCredential` object. |
-| `https://schemas.ed.gov/universityDiploma2020` | Declares that diplomas issued by Contoso University contain attributes defined by the United States department of education. |
+| `https://schema.org/EducationalCredential` | Declares that diplomas issued by Contoso University contain attributes defined by the schema.org `EducationaCredential` object. |
+| `https://schemas.ed.gov/universityDiploma2020` | Declares that diplomas issued by Contoso University contain attributes defined by the U.S. Department of Education. |
 | `https://schemas.contoso.edu/diploma2020` | Declares that diplomas issued by Contoso University contain attributes defined by Contoso University. |
 
-Contoso declaring three types of diplomas, allows them to issue credentials that satisfy different requests from verifiers. A bank can request a set of `EducationCredential`s from a user, and the diploma can be used to satisfy the request. But the Contoso University Alumni Association can request a credential of type `https://schemas.contoso.edu/diploma2020`, and the diploma will also satisfy the request.
+By declaring three types of diplomas, Contoso can issue credentials that satisfy different requests from verifiers. A bank can request a set of `EducationCredential`s from a user, and the diploma can be used to satisfy the request. Or the Contoso University Alumni Association can request a credential of type `https://schemas.contoso.edu/diploma2020`, and the diploma can also satisfy the request.
 
-To ensure interoperability of your credentials, it's recommended that you work closely with related organizations to define credential types, schemas, and URIs for use in your industry. Many industry bodies provide guidance on the structure of official documents that can be repurposed for defining the contents of verifiable credentials. You should also work closely with the verifiers of your credentials to understand how they intend to request and consume your verifiable credentials.
+To ensure interoperability of your credentials, we recommend that you work closely with related organizations to define credential types, schemas, and URIs for use in your industry. Many industry bodies provide guidance on the structure of official documents that can be repurposed for defining the contents of verifiable credentials. You should also work closely with the verifiers of your credentials to understand how they intend to request and consume your verifiable credentials.
 
 ## Input type: Verifiable credential
 
->[!NOTE]
->rules definitions that ask for a verifiable credential do not use the presentation exchange format for requesting credentials. This will be updated when the Issuing Service supports the standard, Credential Manifest. 
+> [!NOTE]
+> Rules definitions that ask for a verifiable credential don't use the presentation exchange format for requesting credentials. This approach will be updated when the issuing service supports the standard, Credential Manifest. 
 
 ```json
 {
@@ -192,11 +194,11 @@ To ensure interoperability of your credentials, it's recommended that you work c
 }
 ```
 
-See [verifiablePresentation attestation](rules-and-display-definitions-model.md#verifiablepresentationattestation-type) for reference of properties.
+For more information about properties, see [verifiablePresentationAttestation type](rules-and-display-definitions-model.md#verifiablepresentationattestation-type).
 
-## Input type: Selfattested claims
+## Input type: Self-attested claims
 
-During the issuance flow, the user can be asked to input some self-attested information. As of now, the only input type is a 'string'. 
+During the issuance flow, users can be asked to input some self-attested information. As of now, the only input type is 'string'. 
 
 ```json
 {
@@ -227,26 +229,26 @@ During the issuance flow, the user can be asked to input some self-attested info
 }
 ```
 
-See [selfIssued attestation](rules-and-display-definitions-model.md#selfissuedattestation-type) for reference of properties.
+For more information about properties, see [selfIssuedAttestation type](rules-and-display-definitions-model.md#selfissuedattestation-type).
 
 ## Display definition: Verifiable credentials in Microsoft Authenticator
 
-Verifiable credentials offer a limited set of options that can be used to reflect your brand. This article provides instructions how to customize your credentials, and best practices for designing credentials that look great once issued to users.
+Verifiable credentials offer a limited set of options that can be used to reflect your brand. This article provides instructions how to customize your credentials, and best practices for designing credentials that look great after they're issued to users.
 
-Verifiable credentials issued to users are displayed as cards in Microsoft Authenticator. As the administrator, you may choose card color, icon, and text strings to match your organization's brand.
+Authenticator displays verifiable credentials that are issued to users as cards. As an administrator, you can choose card colors, icons, and text strings to match your organization's brand.
 
-![issuance documentation](media/credential-design/detailed-view.png) 
+![Image of a verified credential card in Authenticator, calling out key elements.](media/credential-design/detailed-view.png) 
 
 Cards also contain customizable fields. You can use these fields to let users know the purpose of the card, the attributes it contains, and more.
 
 ## Create a credential display definition
 
-Much like the rules definition, the display definition is a simple JSON document that describes how the contents of your verifiable credentials should be displayed in the Microsoft Authenticator app.
+Much like the rules definition, the display definition is a simple JSON document that describes how the Authenticator app should display the contents of your verifiable credentials.
 
 >[!NOTE]
-> At this time, this display model is only used by Microsoft Authenticator.
+> This display model is currently used only by Microsoft Authenticator.
 
-The display definition has the following structure.
+The display definition has the following structure:
 
 ```json
 {
@@ -278,11 +280,11 @@ The display definition has the following structure.
 }
 ```
 
-See [Display definition model](rules-and-display-definitions-model.md#displaymodel-type) for reference of properties.
+For more information about properties, see [displayModel type](rules-and-display-definitions-model.md#displaymodel-type).
 
 ## Next steps
 
-Now you have a better understanding of verifiable credential design and how you can create your own to meet your needs.
+Now that you have a better understanding of verifiable credential design and how to create your own, see:
 
 - [Issuer service communication examples](issuer-openid.md)
-- Reference for [Rules and Display definitions](rules-and-display-definitions-model.md)
+- [Rules and display definition reference](rules-and-display-definitions-model.md)

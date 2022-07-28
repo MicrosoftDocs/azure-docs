@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 06/23/2022
 ---
 
 # Copy data from and to Salesforce Service Cloud using Azure Data Factory or Synapse Analytics
@@ -240,6 +240,9 @@ To copy data from Salesforce Service Cloud, the following properties are support
     }
 ]
 ```
+
+> [!Note]
+> Salesforce Service Cloud source doesn't support proxy settings in the self-hosted integration runtime, but sink does.
 
 ### Salesforce Service Cloud as a sink type
 

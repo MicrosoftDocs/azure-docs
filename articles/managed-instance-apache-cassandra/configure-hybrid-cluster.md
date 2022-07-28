@@ -208,7 +208,25 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    ```
 
    > [!IMPORTANT]
-   > If you are using hybrid cluster as a method of migrating historic data into the new Azure Managed Instance Cassandra data centers, ensure that you run `nodetool repair --full` on all the nodes in your existing cluster's data center. You should run this only after all of the above steps have been taken. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. Prior to changing the replication settings, you should also make sure that any application code that connects to your existing Cassandra cluster is using LOCAL_QUORUM. You should leave it at this setting during the migration (it can be switched back afterwards if required).
+   > If you are using hybrid cluster as a method of migrating historic data into the new Azure Managed Instance Cassandra data centers, ensure that you disable automatic repairs:
+   > ```azurecli-interactive
+   >     az managed-cassandra cluster update --cluster-name --resource-group--repair-enabled false
+   > ```
+   > Then run `nodetool repair --full` on all the nodes in your existing cluster's data center. You should run this **only after all of the prior steps have been taken**. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. Prior to changing the replication settings, you should also make sure that any application code that connects to your existing Cassandra cluster is using LOCAL_QUORUM. You should leave it at this setting during the migration (it can be switched back afterwards if required). After the migration is completed, you can enable automatic repair again, and point your application code to the new Cassandra Managed Instance data center's seed nodes (and revert the quorum settings if preferred).  
+   > 
+   > Finally, to decommission your old data center:
+   > 
+   > - Run `ALTER KEYSPACE` for each keyspace, removing the old data center.
+   > - We recommend running `nodetool repair` for each keyspace as well, before the below step.
+   > - Run [nodetool decommision](https://cassandra.apache.org/doc/latest/cassandra/operating/topo_changes.html#removing-nodes) for each on premise data center node. 
+
+   > [!NOTE]
+   > To speed up repairs we advise (if system load permits it) to increase both stream throughput and compaction throughput as in the example below:
+   >```azure-cli
+   >   az managed-cassandra cluster invoke-command --resource-group $resourceGroupName --cluster-name $clusterName --host $host --command-name nodetool --arguments "setstreamthroughput"="" "7000"=""
+   >    
+   >   az managed-cassandra cluster invoke-command --resource-group $resourceGroupName --cluster-name $clusterName --host $host --command-name nodetool --arguments "setcompactionthroughput"="" "960"=""   
+   >```
 
 ## Troubleshooting
 

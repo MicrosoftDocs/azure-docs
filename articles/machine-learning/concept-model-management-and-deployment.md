@@ -75,12 +75,11 @@ Registered models are identified by name and version. Each time you register a m
 > [!TIP]
 > You can also register models trained outside Machine Learning.
 
-You can't delete a registered model that's being used in an active deployment.
-For more information, see the "Register model" section of [Deploy models](how-to-deploy-and-where.md#registermodel).
-
 > [!IMPORTANT]
-> When you use the **Filter by** `Tags` option on the **Models** page of Azure Machine Learning Studio, instead of using `TagName : TagValue`, use `TagName=TagValue` without spaces.
+> * When you use the **Filter by** `Tags` option on the **Models** page of Azure Machine Learning Studio, instead of using `TagName : TagValue`, use `TagName=TagValue` without spaces.
+> * You can't delete a registered model that's being used in an active deployment.
 
+For more information, [Work with models in Azure Machine Learning](how-to-manage-models.md).
 
 ### Package and debug models
 
@@ -209,6 +208,7 @@ You can also use Azure Data Factory to create a data ingestion pipeline that pre
 
 Learn more by reading and exploring the following resources:
 
++ [Learning path: End-to-end MLOps with Azure Machine Learning](/learn/paths/build-first-machine-operations-workflow/)
 + [How and where to deploy models](how-to-deploy-and-where.md) with Machine Learning
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
