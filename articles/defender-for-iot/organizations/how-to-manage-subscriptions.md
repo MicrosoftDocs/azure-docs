@@ -171,7 +171,7 @@ Business considerations may require that you apply your existing IoT sensors to 
 
     [Onboard a plan - OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks-to-a-subscription)
 
-    [Onboard a plan - Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks-to-a-subscription)
+    [Onboard a plan for Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks-to-a-subscription) in Defender for Endpoint
 
 1. Register your sensors under the new subscription. For more information, see [Set up an Enterprise IoT sensor](tutorial-getting-started-eiot-sensor.md#set-up-an-enterprise-iot-sensor).
 
