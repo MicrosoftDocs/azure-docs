@@ -13,7 +13,7 @@ This Microsoft Defender plan detects anomalous activities indicating unusual and
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.
 
-Microsoft Defender for SQL servers on machines extends the protections for your Azure-native SQL servers to fully support hybrid environments and protect SQL servers (all supported versions) hosted in Azure, multicloud environments, and even on-premises machines:
+Microsoft Defender for SQL servers on machines extends the protections for your Azure-native SQL servers to fully support hybrid environments and protect SQL servers hosted in Azure, multicloud environments, and even on-premises machines:
 
 - [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
@@ -44,7 +44,7 @@ Learn more about [vulnerability assessment for Azure SQL servers on machines](de
 |----|:----|
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for SQL servers on machines** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
-|Protected SQL versions:|SQL Server versions currently [supported by Microsoft](/mem/configmgr/core/plan-design/configs/support-for-sql-server-versions) in:
+|Protected SQL versions:|[SQL Server versions currently supported by Microsoft](/mem/configmgr/core/plan-design/configs/support-for-sql-server-versions) in:
 <br>- [SQL on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)<br>- [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)<br>- On-premises SQL servers on Windows machines without Azure Arc<br>|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet|
 
