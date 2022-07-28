@@ -69,12 +69,6 @@ Use the Azure Monitor agent to gain these benefits:
 
 When compared with the legacy agents, the Azure Monitor agent has [these limitations currently](./azure-monitor-agent-overview.md#current-limitations).
 
-## Virtual machine extensions
-
-The [Azure Monitor agent](./azure-monitor-agent-manage.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
-
-On hybrid machines, use [Azure Arc-enabled servers](../../azure-arc/servers/manage-vm-extensions.md) to deploy the Azure Monitor agent, Log Analytics, and Azure Monitor Dependency VM extensions.
-
 ## Supported operating systems
 
 The following tables list the operating systems that are supported by the Azure Monitor agents. See the documentation for each agent for unique considerations and for the installation process. See Telegraf documentation for its supported operating systems. All operating systems are assumed to be x64. x86 is not supported for any operating system.
