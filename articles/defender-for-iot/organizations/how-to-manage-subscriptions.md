@@ -7,7 +7,10 @@ ms.topic: how-to
 
 # Manage Defender for IoT plans
 
-Your Defender for IoT deployment is managed through a Microsoft Defender for IoT plan on your Azure subscriptions. For OT networks, you can onboard, edit, and cancel a Defender for IoT plan from your subscriptions in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). For Enterprise IoT networks, you can onboard and cancel a plan in the [Microsoft Defender for Endpoint portal](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+Your Defender for IoT deployment is managed through a Microsoft Defender for IoT plan on your Azure subscription. 
+
+- **For OT networks**, onboard, edit, and cancel Defender for IoT plans from Defender for IoT in the Azure portal. 
+- **For Enterprise IoT networks**, onboard and cancel Defender for IoT plans in Microsoft Defender for Endpoint.
 
 For each plan, you'll be asked to define the number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise. 
 
