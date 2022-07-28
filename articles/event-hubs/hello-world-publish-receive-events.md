@@ -1,12 +1,12 @@
 ---
-title: .NET development for Azure Event Hubs - overview
-description: This article describes how to develop .NET applications that send and receives events from Azure Event Hubs. 
+title: Send and receive events from Azure Event Hubs using .NET (Hello World)
+description: This article describes the simple scenario of sending events to and receiving events from Azure Event Hubs using .NET.  
 ms.topic: how-to
 ms.date: 07/27/2022
 ---
 
-# .NET development for Azure Event Hubs
-This article shows you how to publish events and read from the Event Hubs service. To accomplish this, the article introduces you to the `EventHubProducerClient` and `EventHubConsumerClient`, along with some of the core concepts of Event Hubs.
+# Publish events to and read events from Azure Event Hubs using .NET 
+This article shows you how to publish events and read from the Event Hubs service. It introduces you to the `EventHubProducerClient` and `EventHubConsumerClient`, along with some of the core concepts of Event Hubs.
 
 ## Create a client
 To interact with Event Hubs, a client is needed for each area of functionality, such as publishing and reading of events. All clients are scoped to a single Event Hubs instance (or event hub) under an Event Hubs namespace. Clients that read events are also scoped to a consumer group.  For this example, we'll configure our clients using the set of information that follows.
@@ -73,13 +73,13 @@ finally
 ```
 
 ## Read events
-Now that the events have been published, you'll read back all events from the event hub using the `EventHubConsumerClient` that was created.  It's important to note that because events aren't removed when reading, if you're using an existing event hub, you're likely to see events that had been previously published as well as those from the batch that we just sent.
+Now that the events have been published, you'll read back all events from the event hub using the `EventHubConsumerClient` that was created.  It's important to note that because events aren't removed when reading, if you're using an existing event hub, you're likely to see events that had been previously published as well as the events from the batch that we just sent.
 
 A consumer is associated with a specific event hub and [consumer group](event-hubs-features.md#consumer-groups). Conceptually, the consumer group is a label that identifies one or more event consumers as a set.  Often, consumer groups are named after the responsibility of the consumer in an application, such as **Telemetry** or **OrderProcessing**.  When an event hub is created, a default consumer group is created for it, named **$Default**.  
 
-Each consumer has a unique view of the events in a partition that it reads from, which means that events are available to all consumers and aren't removed from the partition when read. This allows consumers to read and process events from the event hub at different speeds without interfering with one another.
+Each consumer has a unique view of the events in a partition that it reads from, which means that events are available to all consumers and aren't removed from the partition when read. It allows consumers to read and process events from the event hub at different speeds without interfering with one another.
 
-When events are published, they'll continue to exist in the event hub. They'll be available for consuming until they reach an age where they're older than the [retention period](event-hubs-faq.md#what-is-the-maximum-retention-period-for-events). Once removed, the events are no longer available to be read and can't be recovered. Though the Event Hubs service is free to remove events older than the retention period, it doesn't do so deterministically; there is no guarantee of when events will be removed.
+When events are published, they'll continue to exist in the event hub. They'll be available for consuming until they reach an age where they're older than the [retention period](event-hubs-faq.md#what-is-the-maximum-retention-period-for-events). Once removed, the events are no longer available to be read, and can't be recovered. Though the Event Hubs service is free to remove events older than the retention period, it doesn't do so deterministically. There's no guarantee of when events will be removed.
 
 ```csharp
 try
@@ -120,7 +120,7 @@ finally
 }
 ```
 
-This example makes use of the `ReadEvents` method of the `EventHubConsumerClient`, which allows it to see events from all [partitions](event-hubs-features.md#partitions) of an event hub. While this is convenient to use for exploration, we strongly recommend not using it for production scenarios. `ReadEvents` does not guarantee fairness amongst the partitions during iteration. Partitions compete with each other to publish events to be read. Depending on how service communication takes place, there may be a clustering of events per partition and a noticeable bias for a given partition or subset of partitions.
+This example makes use of the `ReadEvents` method of the `EventHubConsumerClient`, which allows it to see events from all [partitions](event-hubs-features.md#partitions) of an event hub. While it's convenient to use for exploration, we strongly recommend not using it for production scenarios. The `ReadEvents` method doesn't guarantee fairness amongst the partitions during iteration. Partitions compete with each other to publish events to be read. Depending on how service communication takes place, there may be a clustering of events per partition and a noticeable bias for a given partition or subset of partitions.
 
 To read from all partitions in a production application, we recommend preferring the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) or a custom [EventProcessor<TPartition>](/dotnet/api/azure.messaging.eventhubs.primitives.eventprocessor-1) implementation.
 

@@ -197,7 +197,7 @@
           items:
             - name: .NET (Azure.Messaging.EventHubs)
               items:
-              - name: .NET development
+              - name: .NET development overview
                 href: dot-net-development.md
               - name: Hello world - publish and receive events
                 href: hello-world-publish-receive-events.md
