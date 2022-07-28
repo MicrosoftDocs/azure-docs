@@ -3,7 +3,7 @@ title: Azure Virtual Desktop Sandbox - Azure
 description: How to set up Windows Sandbox for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 07/28/2022
 ms.author: helohr
 manager: femila
 ---
@@ -32,7 +32,7 @@ Enable-WindowsOptionalFeature -FeatureName "Containers-DisposableClientVM" -All 
 >[!NOTE]
 >This change will require that you restart the virtual machine.
 
-To install the VHD image, open the **Remote Desktop Connection** app and sign in to your virtual machine (VM). Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
+Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
 
 ## Publish Windows Sandbox on your host pool
 
