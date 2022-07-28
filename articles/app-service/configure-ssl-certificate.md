@@ -102,7 +102,7 @@ The free certificate comes with the following limitations:
 
 1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
 
-## Buy and import an App Service certificate
+## Buy and import App Service certificate
 
 If you purchase an App Service certificate from Azure, Azure manages the following tasks:
 
