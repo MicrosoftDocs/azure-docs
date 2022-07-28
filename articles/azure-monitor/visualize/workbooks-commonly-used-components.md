@@ -24,7 +24,7 @@ The following example shows how to set up a traffic light icon per computer base
 1. [Create a new empty workbook](workbooks-create-workbook.md).
 1. [Add a parameter](workbooks-create-workbook.md#add-a-parameter-to-an-azure-workbook), make it a [time range parameter](workbooks-time.md), and name it **TimeRange**.
 1. Select **Add query** to add a log query control to the workbook.
-1. For **Query type**, select `logs`, and for **Resource type**, select `Log Analytics`. Select a Log Analytics workspace in your subscription that has VM performance data as a resource.
+1. For **Query type**, select `Logs`, and for **Resource type**, select `Log Analytics`. Select a Log Analytics workspace in your subscription that has VM performance data as a resource.
 1. In the query editor, enter:
 
     ```
