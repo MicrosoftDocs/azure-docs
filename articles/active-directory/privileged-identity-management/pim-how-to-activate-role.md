@@ -3,7 +3,7 @@ title: Activate Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to activate Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: mtillman
+author: amsliu
 manager: karenhoran
 editor: ''
 
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/02/2022
-ms.author: mtillman
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management

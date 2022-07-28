@@ -498,7 +498,7 @@ productDirectory:
       azureCategories:
         - compute
         - web
-      url: spring-cloud/index.yml
+      url: spring-apps/index.yml
     # Card
     - title: Azure VMware Solution
       summary: Run your VMware workloads natively on Azure
