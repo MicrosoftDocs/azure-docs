@@ -958,12 +958,12 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Turkish (Turkey) | `tr-TR` | No |No|
 | Vietnamese (Vietnam) | `vi-VN` | No |No|
 
-## Viseme
+### Viseme
 
 A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes. Speech audio output can be accompanied by viseme ID, Scalable Vector Graphics (SVG), or blendshapes. 
 
 > [!NOTE]
-> Viseme ID supports [all neural voices](#text-to-speech) in the supported locales, including custom neural voice. SVG only supports prebuilt neural voices in `en-US` locale, and blendshapes supports prebuilt neural voices in `en-US` and `zh-CN` locales. SVG and blendshapes don't support custom neural voice.
+> Viseme ID supports [all neural voices](#text-to-speech) in the supported locales, including custom neural voice. SVG only supports prebuilt neural voices in `en-US` locale, and blendshapes supports prebuilt neural voices in `en-US` and `zh-CN` locales. 
 
 The following table lists the languages supported by viseme.
 
