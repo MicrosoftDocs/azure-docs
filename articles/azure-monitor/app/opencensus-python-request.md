@@ -42,7 +42,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     }
     ```
 
-You can find an example Django application in the sample Azure Monitor OpenCenses Python git repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/docs_samples).
+You can find an example Django application in the sample Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/docs_samples).
 
 ## Tracking Flask applications
 
