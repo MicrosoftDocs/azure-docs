@@ -27,7 +27,7 @@ for the machine. Configurations can include settings such as:
 - Application configuration or presence
 - Environment settings
 
-Configurations are distinct from policy definitions. Guest configuration
+Configurations are distinct from policy definitions. Machine configuration
 utilizes Azure Policy to dynamically assign configurations
 to machines. You can also assign configurations to machines
 [manually](machine-configuration-assignments.md#manually-creating-machine-configuration-assignments),
@@ -137,7 +137,7 @@ Resource Graph.
 
 ## Supported client types
 
-Guest configuration policy definitions are inclusive of new versions. Older versions of operating
+Machine configuration policy definitions are inclusive of new versions. Older versions of operating
 systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
 compatible. The following table shows a list of supported operating systems on Azure images.
 The ".x" text is symbolic to represent new minor versions of Linux distributions.
@@ -259,7 +259,7 @@ for the same definitions using the same parameter values as machines in the prim
 
 ## Data residency
 
-Guest configuration stores/processes customer data. By default, customer data is replicated to the
+Machine configuration stores/processes customer data. By default, customer data is replicated to the
 [paired region.](../../availability-zones/cross-region-replication-azure.md)
 For the regions: Singapore, Brazil South, and East Asia all customer data is stored and processed in the region.
 
@@ -270,7 +270,7 @@ For more information about troubleshooting machine configuration, see
 
 ### Multiple assignments
 
-Guest configuration policy definitions currently only support assigning the same
+Machine configuration policy definitions currently only support assigning the same
 guest assignment once per machine when the policy assignment uses different
 parameters.
 

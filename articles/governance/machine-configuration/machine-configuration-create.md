@@ -154,7 +154,7 @@ already exist. Community solutions can be discovered by searching the PowerShell
 [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
 
 > [!NOTE]
-> Guest configuration extensibility is a "bring your own
+> Machine configuration extensibility is a "bring your own
 > license" scenario. Ensure you have met the terms and conditions of any third
 > party tools before use.
 

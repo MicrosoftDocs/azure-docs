@@ -11,7 +11,7 @@ author: timwarner-msft
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
-Guest configuration is the latest implementation of functionality that has been provided by the
+Machine configuration is the latest implementation of functionality that has been provided by the
 PowerShell Desired State Configuration (DSC) extension for Linux virtual machines in Azure. When possible,
 you should plan to move your content and machines to the new service. This article provides guidance
 on developing a migration strategy.
@@ -33,7 +33,7 @@ is completed asynchronously. The deployment doesn't return until the configurati
 running inside the virtual machine. After deployment, no further information is returned to ARM.
 The monitoring and drift are managed within the machine.
 
-Guest configuration processes configurations in a "pull" model. The extension is
+Machine configuration processes configurations in a "pull" model. The extension is
 deployed to a virtual machine and then jobs are executed based on guest assignment details. it's
 not possible to view the status while the configuration in real time as it's being applied inside
 the machine. it's possible to monitor and correct drift from Azure Resource Manager (ARM) after the
@@ -44,7 +44,7 @@ as passwords or shared keys. Secrets management hasn't yet been implemented for 
 
 ### Considerations for whether to migrate existing machines or only new machines
 
-Guest configuration uses DSC version 3 with PowerShell version 7. DSC version 3 can coexist with
+Machine configuration uses DSC version 3 with PowerShell version 7. DSC version 3 can coexist with
 older versions of DSC in
 [Linux](/powershell/dsc/getting-started/lnxgettingstarted).
 The implementations are separate. However, there's no conflict detection.
@@ -74,7 +74,7 @@ The expected steps for migration are:
 
 #### Consider decomposing complex configuration files
 
-Guest configuration can manage multiple configurations per machine. Many configurations written for
+Machine configuration can manage multiple configurations per machine. Many configurations written for
 DSC extension for Linux assumed the limitation of managing a single configuration per
 machine. To take advantage of the expanded capabilities offered by machine configuration, large
 configuration files can be divided into many smaller configurations where each handles a specific

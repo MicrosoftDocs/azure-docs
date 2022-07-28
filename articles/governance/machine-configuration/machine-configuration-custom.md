@@ -16,20 +16,20 @@ Before you begin, it's a good idea to read the overview of
 
 [A video walk-through of this document is available](https://youtu.be/nYd55FiKpgs).
 
-Guest configuration uses
+Machine configuration uses
 [Desired State Configuration (DSC)](/powershell/dsc/overview)
 version 3 to audit and configure machines. The DSC configuration defines the
 state that the machine should be in. There's many notable differences in how
 DSC is implemented in machine configuration.
 
-## Guest configuration uses PowerShell 7 cross platform
+## Machine configuration uses PowerShell 7 cross platform
 
-Guest configuration is designed so the experience of managing Windows and Linux
+Machine configuration is designed so the experience of managing Windows and Linux
 can be consistent. Across both operating system environments, someone with
 PowerShell DSC knowledge can create and publish configurations using scripting
 skills.
 
-Guest configuration only uses PowerShell DSC version 3 and doesn't rely on the
+Machine configuration only uses PowerShell DSC version 3 and doesn't rely on the
 previous implementation of
 [DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
 or the "nx" providers included in that repository.
@@ -42,7 +42,7 @@ installed as a
 
 ## Multiple configurations
 
-Guest configuration supports assigning multiple configurations to
+Machine configuration supports assigning multiple configurations to
 the same machine. There's no special steps required within the
 operating system of machine configuration extension. There's no need to configure
 [partial configurations](/powershell/dsc/pull-server/partialConfigs).
@@ -78,7 +78,7 @@ DSC extension has a simplified model where all artifacts are packaged together
 and stored in a location accessible from the target machine using an HTTPS request
 (Azure Blob Storage is the popular option).
 
-Guest configuration only uses the simplified model where all artifacts
+Machine configuration only uses the simplified model where all artifacts
 are packaged together and accessed from the target machine over HTTPS.
 There's no need to publish modules, scripts, or compile in the service. One
 change is that the package should always include a compiled MOF. It is
@@ -89,7 +89,7 @@ on the target machine.
 
 In Azure Automation state configuration, DSC configurations were
 [limited in size](../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
-Guest configuration supports a total package size of 100 MB (before
+Machine configuration supports a total package size of 100 MB (before
 compression). There's no specific limit on the size of the MOF file within
 the package.
 

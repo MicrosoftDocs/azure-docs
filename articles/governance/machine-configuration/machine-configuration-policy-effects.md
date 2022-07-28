@@ -30,7 +30,7 @@ Before you begin, it's a good idea to read the overview page for
 
 ## How remediation (Set) is managed by machine configuration
 
-Guest configuration uses the policy effect
+Machine configuration uses the policy effect
 [DeployIfNotExists](../policy/concepts/effects.md#deployifnotexists)
 for definitions that deliver changes inside machines.
 Set the properties of a policy assignment to control how
@@ -39,7 +39,7 @@ delivers configurations automatically or on-demand.
 
 [A video walk-through of this document is available](https://youtu.be/rjAk1eNmDLk).
 
-### Guest configuration assignment types
+### Machine configuration assignment types
 
 There are three available assignment types when guest assignments are created.
 The property is available as a parameter of machine configuration definitions
@@ -75,7 +75,7 @@ or if the method returns "false" the agent reports "NonCompliant".
 
 ## Continuous remediation (AutoCorrect)
 
-Guest configuration supports the concept of "continuous remediation". If the machine drifts out of compliance for a configuration, the next time it's evaluated the configuration is corrected automatically. Unless an error occurs, the machine always reports status as "Compliant" for the configuration. There's no way to report when a drift was automatically corrected when using continuous remediation.
+Machine configuration supports the concept of "continuous remediation". If the machine drifts out of compliance for a configuration, the next time it's evaluated the configuration is corrected automatically. Unless an error occurs, the machine always reports status as "Compliant" for the configuration. There's no way to report when a drift was automatically corrected when using continuous remediation.
 
 To enable this behavior, set the
 [assignmentType property](/rest/api/guestconfiguration/machine-configuration-assignments/get#assignmenttype)

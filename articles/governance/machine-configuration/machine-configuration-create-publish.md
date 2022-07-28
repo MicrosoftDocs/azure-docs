@@ -14,7 +14,7 @@ author: timwarner-msft
 Before you begin, it's a good idea to read the overview page for
 [machine configuration](./overview.md).
 
-Guest configuration custom .zip packages must be stored in a location that is
+Machine configuration custom .zip packages must be stored in a location that is
 accessible via HTTPS by the managed machines. Examples include GitHub
 repositories, an Azure Repo, Azure storage, or a web server within your private
 datacenter.

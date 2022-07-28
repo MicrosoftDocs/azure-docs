@@ -11,7 +11,7 @@ author: timwarner-msft
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
-Guest configuration is the latest implementation of functionality
+Machine configuration is the latest implementation of functionality
 that has been provided by Azure Automation State Configuration (also known as
 Azure Automation Desired State Configuration, or AADSC).
 When possible, you should plan to move your content and machines to the new service.
@@ -44,13 +44,13 @@ migrate machines. The expected steps for migration are outlined.
 - Unregister servers from Azure Automation State Configuration
 - Assign configurations to servers using machine configuration
 
-Guest configuration uses DSC version 3 with PowerShell version 7.
+Machine configuration uses DSC version 3 with PowerShell version 7.
 DSC version 3 can coexist with older versions of DSC in
 [Windows](/powershell/dsc/getting-started/wingettingstarted) and
 [Linux](/powershell/dsc/getting-started/lnxgettingstarted).
 The implementations are separate. However, there's no conflict detection.
 
-Guest configuration doesn't require publishing modules or configurations in to
+Machine configuration doesn't require publishing modules or configurations in to
 a service, or compiling in a service. Instead, content is developed and tested
 using purpose-built tooling and published anywhere the machine can reach over
 HTTPS (typically Azure Blob Storage).
@@ -159,7 +159,7 @@ UnixMode   User             Group                 LastWriteTime           Size N
 
 #### Consider decomposing complex configuration files
 
-Guest configuration can manage multiple configurations per machine.
+Machine configuration can manage multiple configurations per machine.
 Many configurations written for Azure Automation State Configuration assumed the
 limitation of managing a single configuration per machine. To take advantage of
 the expanded capabilities offered by machine configuration, large

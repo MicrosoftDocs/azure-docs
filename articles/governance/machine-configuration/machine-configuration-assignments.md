@@ -1,6 +1,6 @@
 ---
 title: Understand machine configuration assignment resources
-description: Guest configuration creates extension resources named machine configuration assignments that map configurations to machines.
+description: Machine configuration creates extension resources named machine configuration assignments that map configurations to machines.
 author: timwarner-msft
 ms.date: 07/15/2022
 ms.topic: conceptual
@@ -93,7 +93,7 @@ The following table describes each property of guest assignment resources.
 
 ### Deletion of manually created machine configuration assignments
 
-Guest configuration assignments created through any manual approach (such as
+Machine configuration assignments created through any manual approach (such as
 an Azure Resource Manager template deployment) must be deleted manually.
 Deleting the parent resource (virtual machine or Arc-enabled machine) will also
 delete the machine configuration assignment.

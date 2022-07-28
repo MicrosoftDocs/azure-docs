@@ -180,7 +180,7 @@ An example snippet of a policy definition that filters for tags is given below.
 
 #### Using parameters in custom machine configuration policy definitions
 
-Guest configuration supports overriding properties of a Configuration at run time. This feature
+Machine configuration supports overriding properties of a Configuration at run time. This feature
 means that the values in the MOF file in the package don't have to be considered static. The
 override values are provided through Azure Policy and don't change how the Configurations are
 authored or compiled.

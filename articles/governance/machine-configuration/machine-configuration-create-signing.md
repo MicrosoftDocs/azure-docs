@@ -12,7 +12,7 @@ author: timwarner-msft
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
-Guest configuration custom policies use SHA256 hash to validate the policy
+Machine configuration custom policies use SHA256 hash to validate the policy
 package hasn't changed. Optionally, customers may also use a certificate to sign
 packages and force the machine configuration extension to only allow signed
 content.
@@ -30,7 +30,7 @@ published. This cmdlet requires a 'Code Signing' certificate. If you do not have
 ## Windows signature validation
 
 ```azurepowershell-interactive
-# How to create a self sign cert and use it to sign Guest Configuration custom policy package
+# How to create a self sign cert and use it to sign Machine Configuration custom policy package
 
 # Create Code signing cert
 $mycert = New-SelfSignedCertificate -Type CodeSigningCert -DnsName 'GCEncryptionCertificate' -HashAlgorithm SHA256
