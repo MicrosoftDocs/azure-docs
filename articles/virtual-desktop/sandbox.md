@@ -23,7 +23,7 @@ Before you get started, here's what you need to configureWindows Sandbox in Azur
 
 First, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. When you're given the option to select an operating system (OS) for your master image, select either Windows 10 or Windows 11.
 
-When customizing your master image, you'll need to enable the **Containers-DisposableClientVM" feature by running the following command:
+When customizing your master image, you'll need to enable the **Containers-DisposableClientVM** feature by running the following command:
 
 ```powershell
 Enable-WindowsOptionalFeature -FeatureName "Containers-DisposableClientVM" -All -Online
@@ -103,6 +103,8 @@ To publish Windows Sandbox to your host pool using PowerShell:
 
   >[!NOTE]
   >After running this command, you'll be given a prompt to name the app. Fill out the prompt to continue.
+
+---
 
 That's it! Leave the rest of the options default. You should now have Windows Sandbox Remote App published for your users.
 
