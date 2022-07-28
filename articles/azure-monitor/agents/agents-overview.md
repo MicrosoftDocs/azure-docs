@@ -94,22 +94,6 @@ Limitations of the Log Analytics agent:
 - Difficult to configure unique monitoring definitions for individual agents
 - Difficult to manage at scale because each virtual machine has a unique configuration
 
-## Azure Diagnostics extension
-
-The [Azure Diagnostics extension](./diagnostics-extension-overview.md) collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. It primarily collects data into Azure Storage. It also allows you to define data sinks to send data to other destinations, such as Azure Monitor Metrics and Azure Event Hubs.
-
-Use the Azure Diagnostics extension if you need to:
-
-- Send data to Azure Storage for archiving or to analyze it with tools such as [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-- Send data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) to analyze it with [Metrics Explorer](../essentials/metrics-getting-started.md) and to take advantage of features such as near-real-time [metric alerts](../alerts/alerts-metric-overview.md) and [autoscale](../autoscale/autoscale-overview.md) (Windows only).
-- Send data to third-party tools by using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
-- Collect [Boot Diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics) to investigate VM boot issues.
-
-Limitations of the Azure Diagnostics extension:
-
-- Can only be used with Azure resources
-- Limited ability to send data to Azure Monitor Logs
-
 ## Virtual machine extensions
 
 The [Azure Monitor agent](./azure-monitor-agent-manage.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
