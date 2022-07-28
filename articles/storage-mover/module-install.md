@@ -39,13 +39,15 @@ This article guides you through the installation of the Azure Storage Mover modu
 
 - **PowerShell 5.1, or 6.0 and greater**<br />
   To check your version, use the following command.
- 
-   ```powershell
-   echo $PSVersionTable.PSVersion.ToString()
-   ``` 
+
+  ```powershell
+  echo $PSVersionTable.PSVersion.ToString()
+  ```
+
+  If needed, you can reference the [Install PowerShell](/powershell/scripting/install/installing-powershell) article to install a newer version of PowerShell.
 
 - **The latest version of PowerShellGet**<br />
-  The install the latests version, close and subsequently re-open the PowerShell console after running the following command.
+  To install the latest version, runt the following command with elevated privileges. Afterward, close and subsequently re-open the PowerShell console.
 
   ```powershell
   Install-Module PowerShellGet –Repository PSGallery –Force
@@ -58,29 +60,13 @@ Prescriptively direct the customer through the procedure end-to-end. Don't link 
 
 ## Remove previous installations and modules
 
-Before installing the new versions of the Azure Storage Mover PowerShell modules, remove previous installations of Microsoft Azure PowerShell and any existing `AzureRM` and `Az` modules. This will prevent any possible module clashes. Complete the following steps to verify that the removal has been completed.
+Before installing a newer version of the Azure Storage Mover PowerShell module, you'll need to remove any previous installations. Te removal of Microsoft Azure PowerShell and any existing `AzureRM` and `Az` modules will prevent the possibility of module clashes.
 
-1. **Remove Azure PowerShell**<br />
-    Open the Windows control panel and select **Programs > Programs and Features**. Remove any existing installations of Microsoft Azure PowerShell.
-
-1. **Identify any `AzureRM` and `Az` modules installed**<br />
-    Open PowerShell and run the following commands, taking note of the *Directory* location if modules are located.
-
-    ```powershell
-    Get-Module -Name AzureRM.* -ListAvailable
-    Get-Module -Name Az.* -ListAvailable
-    ```
-
-1. **Delete any modules identified**<br />
-   If the PowerShell command identifies modules installed on your machine, navigate to the directory specified within the command list. Select any `AzureRM.*` and `Az.*` folders containing the modules and delete them.
-
-After completing the previously identified steps, you're ready to begin installing the new modules as described in the next section.
+Complete the steps included in the [uninstall Azure PowerShell modules](/powershell/azure/uninstall-az-ps) article to complete the removal. Afterward, follow the guidance in the next section to install the new modules.
 
 ## Install Storage Mover modules
 
-With no installed `AzureRM` or `Az` modules to cause clashes with the updated modules, you're ready to begin the install. Follow the steps within this section to complete the installation process.
-
-1. Run the RegisterRepository.ps1 script to setup a local repository pointing at the modules found in the **pkgs** file. Running **RegisterRepository.ps1** with no parameters will create a repository with the same name as its containing folder. You can also choose the name for the repository by providing a value for the `-RepositoryName` parameter.
+1. Run the **RegisterRepository.ps1** script to setup a local repository pointing at the modules found in the **pkgs** file. Running **RegisterRepository.ps1** with no parameters will create a repository with the same name as its containing folder. You can also choose the name for the repository by providing a value for the `-RepositoryName` parameter.
 
 1. Install the modules by running the following command.
 

@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 07/27/2022
 ms.custom: template-how-to
 ---
 
@@ -55,6 +55,49 @@ This article guides you through the construction of Oma's waffles. After complet
 4. H2s (Docs Required)
 
 Prescriptively direct the customer through the procedure end-to-end. Don't link to other content (until 'next steps'), but include whatever the customer needs to complete the scenario in the article. -->
+
+## Download agent VM
+
+You'll need an agent VM to facilitate the migration of your files.
+
+## Run the agent
+
+Providing sufficient resources like RAM and compute cores to your agent is important.
+
+# [Hyper-V](#tab/hyper-v)
+
+1. Unpack the agent VHD to a local folder.
+1. Create a new VM to host the agent.
+1. Specify values for the agent VM's name and location (preferably in the same location as he VHD). Select **Next**.
+1. Specify the generation of the agent VM - for now, only **Gen 1** is supported.
+1. Provide adequate RAM for the agent VM (3072 MB dynamic RAM provided in our example).
+1. Configure networking (**Not connected** for now).Select **Next**.
+1. Select **Use an existing Virtual Hard Disk** and specify the unpacked agent VHD created earlier.Select **Next**.
+1. Select **Finish**.
+
+# [Portal](#tab/portal)
+
+Content for the Azure Portal...
+
+# [PowerShell](#tab/powerhell)
+
+Create the agent using the following sample code.
+
+```azurepowershell
+New-AzStorageMoverAgent -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -Name $agentName -ArcResourceId $arcId -Description "Agent description" -ArcVMUuid $guid #-Debug 
+```
+
+Validate agent creation using the following sample code.
+
+```azurepowershell
+Get-AzStorageMoverAgent -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -Name $agentName 
+```
+
+---
+
+## Register the agent
+
+Once your agent VM is running, you'll need to create trust to use it for migrations.
 
 ## Prepare the batter
 
