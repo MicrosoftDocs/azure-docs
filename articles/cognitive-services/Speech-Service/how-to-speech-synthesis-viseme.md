@@ -215,9 +215,9 @@ The SVG output is a xml string that contains the animation.
 Render the SVG animation along with the synthesized speech to see the mouth movement.
 
 ```xml
-<svg width= \"1200px\" height= \"1200px\" ..>
-  <g id= \"front_start\" stroke= \"none\" stroke-width= \"1\" fill= \"none\" fill-rule= \"evenodd\">
-    <animate attributeName= \"d\" begin= \"d_dh_front_background_1_0.end\" dur= \"0.27500
+<svg width= "1200px" height= "1200px" ..>
+  <g id= "front_start" stroke= "none" stroke-width= "1" fill= "none" fill-rule= "evenodd">
+    <animate attributeName= "d" begin= "d_dh_front_background_1_0.end" dur= "0.27500
     ...
 ```
 
