@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Azure SQL - the benefits and features
 description: Learn how Microsoft Defender for Azure SQL protects your Azure SQL databases.
-ms.date: 07/17/2022
+ms.date: 07/28/2022
 ms.topic: overview
 ms.custom: references_regions
 ---

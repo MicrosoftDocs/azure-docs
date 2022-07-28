@@ -4,7 +4,7 @@ description: Learn how to enable Microsoft Defender for Cloud for all of your da
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 07/17/2022
+ms.date: 07/28/2022
 ---
 
 # Enable Microsoft Defender for Cloud database plans
