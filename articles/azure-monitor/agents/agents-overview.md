@@ -24,32 +24,33 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 
 |		|		|	Azure Monitor agent	|	Log Analytics agent	|	Diagnostics extension (WAD)	|
 |	-	|	-	|	-	|	-	|	-	|
-|	**Environments supported**	|	Azure	|	x	|	x	|	x	|
-|		|	Other cloud (Azure Arc)	|	x	|	x	|		|
-|		|	On-premises (Azure Arc)	|	x	|	x	|		|
-|		|	Windows Client OS	|	x (Preview)	|		|		|
+|	**Environments supported**	|	Azure	|	X	|	X	|	X	|
+|		|	Other cloud (Azure Arc)	|	X	|	X	|		|
+|		|	On-premises (Azure Arc)	|	X	|	X	|		|
+|		|	Windows Client OS	|	X (Preview)	|		|		|
 |	-	|	-	|	-	|	-	|	-	|
-|	**Data collected**	|	Event Logs	|	x	|	x	|	x	|
-|		|	Performance	|	x	|	x	|	x	|
-|		|	File based logs	|	x (Preview)	|	x	|	x	|
-|		|	IIS logs	|	x (Preview)	|	x	|	x	|
-|		|	Insights and solutions	|		|	x	|	x	|
-|		|	Other services	|		|	x	|	x	|
-|		|	ETW events	|		|		|	x	|
-|		|	.NET app logs	|		|		|	x	|
-|		|	Crash dumps	|		|		|	x	|
-|		|	Agent diagnostics logs	|		|		|	x	|
+|	**Data collected**	|	Event Logs	|	X	|	X	|	X	|
+|		|	Performance	|	X	|	X	|	X	|
+|		|	File based logs	|	X (Preview)	|	X	|	X	|
+|		|	IIS logs	|	X (Preview)	|	X	|	X	|
+|		|	Insights and solutions	|		|	X	|	X	|
+|		|	Other services	|		|	X	|	X	|
+|		|	ETW events	|		|		|	X	|
+|		|	.NET app logs	|		|		|	X	|
+|		|	Crash dumps	|		|		|	X	|
+|		|	Agent diagnostics logs	|		|		|	X	|
 |	-	|	-	|	-	|	-	|	-	|
-|	**Data sent to**	|	Azure Monitor Logs	|	x	|	x	|	x	|
-|		|	Azure Monitor Metrics1	|	x	|		|	x	|
-|		|	Event Hub	|		|		|	x	|
+|	**Data sent to**	|	Azure Monitor Logs	|	X	|	X	|	X	|
+|		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|	X	|
+|		|	Event Hub	|		|		|	X	|
 |	-	|	-	|	-	|	-	|	-	|
-|	**Services and features supported**	|	Log Analytics	|	x	|	x	|		|
-|		|	Metrics explorer	|	x	|		|	x	|
-|		|	Microsoft Sentinel 	|	x (view scope)	|	x	|		|
-|		|	VM insights	|		|	x	|		|
-|		|	Azure Automation	|		|	x	|		|
-|		|	Microsoft Defender for Cloud	|		|	x	|		|
+|	**Services and features supported**	|	Log Analytics	|	X	|	X	|		|
+|		|	Metrics explorer	|	X	|		|	X	|
+|		|	Microsoft Sentinel 	|	X (View scope)	|	X	|		|
+|		|	VM insights	|		|	X	|		|
+|		|	Azure Automation	|		|	X	|		|
+|		|	Microsoft Defender for Cloud	|		|	X	|		|
+
 
 
 
