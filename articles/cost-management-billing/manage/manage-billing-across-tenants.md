@@ -33,7 +33,7 @@ When you add an associated billing tenant, you can enable one or both of the fol
 
 ## Add an associated billing tenant
 
-Before you begin, make sure you have either the tenant ID or the primary domain name for the tenant you want to invite. For more information, see [Find a tenant ID or domain name](finding-tenantid-domain.md).
+Before you begin, make sure you have either the tenant ID or the primary domain name for the tenant you want to add. For more information, see [Find a tenant ID or domain name](finding-tenantid-domain.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
@@ -50,8 +50,8 @@ Before you begin, make sure you have either the tenant ID or the primary domain 
 
     ![Screenshot that shows associated billing tenants form ](./media/manage-billing-across-tenants/associated-tenants-add.png)
 
-> [!NOTE]
-> The friendly name of an associated billing tenant is used to easily identify the tenant in the Cost management + Billing section. The name is different from the display name of the tenant in Azure active directory.
+    > [!NOTE]
+    > The friendly name of an associated billing tenant is used to easily identify the tenant in the Cost management + Billing section. The name is different from the display name of the tenant in Azure active directory.
 
 1. Select **Save**.
 
@@ -73,7 +73,7 @@ Before assigning roles, make sure you [add a tenant as an associated billing ten
 
     ![Screenshot that shows access control page while assigning roles](./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png)
 1. In the Add role assignment pane, select a role, select the associated billing tenant from the tenant dropdown, then enter the email address of the users, groups or apps to whom you want to assign roles.
-1. Select **Save**.
+1. Select **Add**.
 
     ![Screenshot that shows saving a role assignment](./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png)
 1. The users receive an email with a link to review the role assignment request. After they accept the role, they have access to your billing account.
