@@ -54,6 +54,7 @@ In this tutorial, you learn about:
 > * Configure virtual IP settings for Azure Consistent Services and NFS
 > * Configure advanced networking
 > * Configure web proxy
+> * Validate network settings
 
 ::: zone-end
 
