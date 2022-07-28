@@ -16,7 +16,7 @@ To get health data from the *SentinelHealth* data table, you must first turn on 
 
 When the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for supported data connectors.
 
-To configure the retention time for your health events, see the [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
+To configure the retention time for your health events, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
 
 > [!IMPORTANT]
 >
