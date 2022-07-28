@@ -3,7 +3,7 @@ title: Azure Virtual Desktop Sandbox - Azure
 description: How to set up Windows Sandbox for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 07/29/2022
 ms.author: helohr
 manager: femila
 ---
@@ -48,7 +48,7 @@ To publish Windows Sandbox to your host pool:
 
 4. Once you're in the application group, select the **Applications** tab. The Applications grid will display all existing apps within the app group.
 
-5. Select **+ Add** to open the **Add application** tab
+5. Select **+ Add** to open the **Add application** tab.
 
 6. For **Application source**, select **File Path**.
 
@@ -64,45 +64,45 @@ To publish Windows Sandbox to your host pool using PowerShell:
 
 1. Connect to Azure using one of the following methods:
   
-  - Open a PowerShell prompt on your local device. Run the `Connect-AzAccount` cmdlet to sign in to your Azure account. For more information, see [Sign in with Azure PowerShell](https://github.com/powershell/azure/authenticate-azureps).
-  - Sign in to [the Azure portal](https://portal.azure.com/) and open [Azure Cloud Shell](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cloud-shell/overview.md) with PowerShell as the shell type.
+   - Open a PowerShell prompt on your local device. Run the `Connect-AzAccount` cmdlet to sign in to your Azure account. For more information, see [Sign in with Azure PowerShell](https://github.com/powershell/azure/authenticate-azureps).
+   - Sign in to [the Azure portal](https://portal.azure.com/) and open [Azure Cloud Shell](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cloud-shell/overview.md) with PowerShell as the shell type.
 
 2. Run the following cmdlet to get a list of all the Azure tenants your account has access to:
   
-  ```powershell
-  Get-AzTenant
-  ```
+   ```powershell
+   Get-AzTenant
+   ```
 
-  When you see the tenant you want to sign in to, make a note of its name.
+   When you see the tenant you want to sign in to, make a note of its name.
 
 3. Run the following command to store the ID of the Azure tenant you want to connect to, replacing `"Fabrikam"` with your tenant name:
 
-  ```powershell
-  $tenantId = (Get-AzTenant | ? Name -eq "Fabrikam").Id
-  ```
+   ```powershell
+   $tenantId = (Get-AzTenant | ? Name -eq "Fabrikam").Id
+   ```
 
 4. Run the following command to list all subscriptions containing a host pool that are currently available to you:
    
-  ```powershell
-  Get-AzSubscription -TenantId $tenantId
-  ```
+   ```powershell
+   Get-AzSubscription -TenantId $tenantId
+   ```
    
-  Find the name of the subscription that contains a host pool you want to assign a managed identity to in that list. Once you do, make a note of its name and ID.
+   Find the name of the subscription that contains a host pool you want to assign a managed identity to in that list. Once you do, make a note of its name and ID.
 
 5. Change your current Azure session to use the subscription you identified in the previous step, replacing the placeholder value `"<subscription name or id>"` with the name or ID of the subscription you want to use:
    
-  ```powershell
-  Set-AzContext -Tenant $tenantId -Subscription "<subscription name or id>"
-  ```
+   ```powershell
+   Set-AzContext -Tenant $tenantId -Subscription "<subscription name or id>"
+   ```
 
 6. Run the following command to create a Sandbox remote app:
 
-  ```powershell
-  New-AzWvdApplication -ResourceGroupName <Resource Group Name> -GroupName <Application Group Name> -FilePath 'C:\windows\system32\WindowsSandbox.exe' -IconIndex 0 -IconPath 'C:\windows\system32\WindowsSandbox.exe' -CommandLineSetting 'Allow' -ShowInPortal:$true -SubscriptionId <Workspace Subscription ID>
-  ```
+   ```powershell
+   New-AzWvdApplication -ResourceGroupName <Resource Group Name> -GroupName <Application Group Name> -FilePath 'C:\windows\system32\WindowsSandbox.exe' -IconIndex 0 -IconPath 'C:\windows\system32\WindowsSandbox.exe' -CommandLineSetting 'Allow' -ShowInPortal:$true -SubscriptionId <Workspace Subscription ID>
+   ```
 
-  >[!NOTE]
-  >After running this command, you'll be given a prompt to name the app. Fill out the prompt to continue.
+   >[!NOTE]
+   >After running this command, you'll be given a prompt to name the app. Fill out the prompt to continue.
 
 ---
 
