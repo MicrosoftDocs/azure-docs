@@ -279,7 +279,7 @@ To configure a default version-level immutability policy for a container in the 
 
    The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
 
-   The **Block and append blobs** option extends this support to certain Microsoft tools, such as Azure Data Factory, which implement append blobs by using block blobs. If your workloads depend on those tools, you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob.
+   The **Block and append blobs** option extends this support by adding the ability to write new blocks to a block blob.  The Blob Storage API does not provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, some Microsoft applications use internal APIs to create block blobs and then append to them. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob. 
 
    To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
@@ -558,8 +558,10 @@ To configure a legal hold on a blob version, you must first enable version-level
 To configure a legal hold on a blob version with the Azure portal, follow these steps:
 
 1. Locate the target version, which may be the current version or a previous version of a blob. Select the **More** button and choose **Access policy**.
-1. Under the **Immutable blob versions** section, select **Add policy**.
-1. Choose **Legal hold** as the policy type, and select **OK** to apply it.
+
+2. Under the **Immutable blob versions** section, select **Add policy**.
+
+3. Choose **Legal hold** as the policy type, and select **OK** to apply it.
 
 The following image shows a current version of a blob with both a time-based retention policy and legal hold configured.
 
