@@ -72,5 +72,4 @@ You can now start interacting with the Grafana application to configure data sou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
-> [How to modify access permissions to Azure Monitor](./how-to-permissions.md)
+> [Configure data sources](./how-to-data-source-plugins-managed-identity.md)

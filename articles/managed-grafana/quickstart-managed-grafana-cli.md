@@ -83,4 +83,4 @@ If you're not going to continue to use this instance, delete the Azure resources
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
+> [Configure data sources](./how-to-data-source-plugins-managed-identity.md)

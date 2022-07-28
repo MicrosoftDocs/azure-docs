@@ -73,4 +73,6 @@ Now that you've configured your diagnostic settings, Azure will stream all new e
 
 > [!div class="nextstepaction"]
 > [Grafana UI](./grafana-app-ui.md)
-> [How to share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)
+
+> [!div class="nextstepaction"]
+> [Share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)

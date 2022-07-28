@@ -58,6 +58,10 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
-> [How to modify access permissions to Azure Monitor](./how-to-permissions.md)
-> [How to call Grafana APIs in your automation with Azure Managed Grafana](./how-to-api-calls.md)
+> [Configure data sources](./how-to-data-source-plugins-managed-identity.md)
+
+> [!div class="nextstepaction"]
+> [Modify access permissions to Azure Monitor](./how-to-permissions.md)
+
+> [!div class="nextstepaction"]
+> [Call Grafana APIs in your automation](./how-to-api-calls.md)

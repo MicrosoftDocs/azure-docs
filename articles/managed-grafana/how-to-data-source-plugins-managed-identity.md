@@ -75,4 +75,6 @@ Authentication and authorization are then made through the provided managed iden
 
 > [!div class="nextstepaction"]
 > [Modify access permissions to Azure Monitor](./how-to-permissions.md)
+
+> [!div class="nextstepaction"]
 > [Share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)
