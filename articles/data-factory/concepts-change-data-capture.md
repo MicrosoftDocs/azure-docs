@@ -24,7 +24,11 @@ To learn more read the introductory article for [Azure Data Factory](introductio
 
 When performing data integration and ETL processes, your jobs can often perform much better and be more effective by only reading source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on aech run. Executing pipelines that only read the latest changed data is available in many of ADF's source connectors by simply enabling a checkbox property. Support for full-fidelity CDC, which inlcudes row markers for upserts, deletes, and updates, as well as rules for resetting the ADF-managed checkpoint are available in several connectors. Lastly, ADF supports patterns and templates for managing incremental pipelines with user-controlled checkpoints as well.
 
-## Connector support
+## CDC Connector support
+
+| Connector   | Full CDC | Incremental CDC | Incremental pipeline pattern |
+| :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [Azure Blob Storage](connector-azure-blob-storage.md) |   | ✓    |   
 
 
 Native connectors:
@@ -41,9 +45,6 @@ ADF handles the checkpoint automatically for you
 Add a section on how to reset and manage pipelines with change data
 
 
-## Incremental pipeline pattern
-
-https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-overview
 
 ## Next steps
 
