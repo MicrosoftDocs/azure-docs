@@ -63,16 +63,16 @@ az containerapp create \
   --name queuereader \
   --environment "my-environment-name" \
   --image demos/queuereader:v1 \
-  --secrets "queue-connection-string=$CONNECTION_STRING" \
+  --secrets "queue-connection-string=$CONNECTION_STRING"
 ```
 
 Here, a connection string to a queue storage account is declared in the `--secrets` parameter. The value for `queue-connection-string` comes from an environment variable named `$CONNECTION_STRING`.
 
 # [PowerShell](#tab/powershell)
 
-Secrets are defined using the `--secrets` parameter.
+When you create a container app, secrets are defined using the `--secrets` parameter.
 
-- The parameter accepts a comma-delimited set of name/value pairs.
+- The parameter accepts a space-delimited set of name/value pairs.
 - Each pair is delimited by an equals sign (`=`).
 
 ```azurecli
@@ -81,7 +81,7 @@ az containerapp create `
   --name queuereader `
   --environment "my-environment-name" `
   --image demos/queuereader:v1 `
-  --secrets "queue-connection-string=$CONNECTION_STRING" `
+  --secrets "queue-connection-string=$CONNECTION_STRING"
 ```
 
 Here, a connection string to a queue storage account is declared in the `--secrets` parameter. The value for `queue-connection-string` comes from an environment variable named `$CONNECTION_STRING`.
