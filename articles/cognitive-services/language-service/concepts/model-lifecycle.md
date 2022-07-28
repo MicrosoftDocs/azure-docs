@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 07/27/2022
 ms.author: aahi
 ---
 
@@ -52,7 +52,7 @@ Use the table below to find which model versions are supported by each feature:
 
 | Feature                                             | Supported versions                                                  | Latest Generally Available version | Latest preview version |
 |-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
-| Sentiment Analysis and opinion mining               | `2019-10-01`                                                        | `2021-10-01`                       |                        |
+| Sentiment Analysis and opinion mining               | `2019-10-01`, `2022-06-01`                                                        | `2022-06-01`                       |                        |
 | Language Detection                                  | `2021-11-20`                                                        | `2021-11-20`                       |                        |
 | Entity Linking                                      | `2021-06-01`                                                        | `2021-06-01`                       |                        |
 | Named Entity Recognition (NER)                      | `2021-06-01`                                                        | `2021-06-01`                       |                        |
