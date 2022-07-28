@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events for lip-sync
 
 > [!NOTE]
-> Viseme ID supports [all neural voices](language-support.md#text-to-speech) in [all supported locales](language-support.md#viseme), including custom neural voice. Scalable Vector Graphics (SVG) only supports prebuilt neural voices in `en-US` locale, and blendshapes supports prebuilt neural voices in `en-US` and `zh-CN` locales. SVG and blendshapes don't support custom neural voice.
+> Viseme ID supports [all neural voices](language-support.md#text-to-speech) in [all supported locales](language-support.md#viseme), including custom neural voice. Scalable Vector Graphics (SVG) only supports prebuilt neural voices in `en-US` locale, and blendshapes supports prebuilt neural voices in `en-US` and `zh-CN` locales. 
 
 A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes.
 
@@ -238,61 +238,63 @@ The output json looks like the following sample, where each row of the `BlendSha
 
 The order of `BlendShapes` is as follows.
 
-eyeBlinkLeft<br>
-eyeLookDownLeft<br>
-eyeLookInLeft<br>
-eyeLookOutLeft<br>
-eyeLookUpLeft<br>
-eyeSquintLeft<br>
-eyeWideLeft<br>
-eyeBlinkRight<br>
-eyeLookDownRight<br>
-eyeLookInRight<br>
-eyeLookOutRight<br>
-eyeLookUpRight<br>
-eyeSquintRight<br>
-eyeWideRight<br>
-jawForward<br>
-jawLeft<br>
-jawRight<br>
-jawOpen<br>
-mouthClose<br>
-mouthFunnel<br>
-mouthPucker<br>
-mouthLeft<br>
-mouthRight<br>
-mouthSmileLeft<br>
-mouthSmileRight<br>
-mouthFrownLeft<br>
-mouthFrownRight<br>
-mouthDimpleLeft<br>
-mouthDimpleRight<br>
-mouthStretchLeft<br>
-mouthStretchRight<br>
-mouthRollLower<br>
-mouthRollUpper<br>
-mouthShrugLower<br>
-mouthShrugUpper<br>
-mouthPressLeft<br>
-mouthPressRight<br>
-mouthLowerDownLeft<br>
-mouthLowerDownRight<br>
-mouthUpperUpLeft<br>
-mouthUpperUpRight<br>
-browDownLeft<br>
-browDownRight<br>
-browInnerUp<br>
-browOuterUpLeft<br>
-browOuterUpRight<br>
-cheekPuff<br>
-cheekSquintLeft<br>
-cheekSquintRight<br>
-noseSneerLeft<br>
-noseSneerRight<br>
-tongueOut<br>
-headRoll<br>
-leftEyeRoll<br>
-rightEyeRoll
+| Order | `BlendShapes` |
+| --------- | ----------- | 
+| 1 | eyeBlinkLeft|
+| 2 | eyeLookDownLeft|
+| 3 | eyeLookInLeft|
+| 4 | eyeLookOutLeft|
+| 5 | eyeLookUpLeft|
+| 6 | eyeSquintLeft|
+| 7 | eyeWideLeft|
+| 8 | eyeBlinkRight|
+| 9 | eyeLookDownRight|
+| 10 | eyeLookInRight|
+| 11 | eyeLookOutRight|
+| 12 | eyeLookUpRight|
+| 13 | eyeSquintRight|
+| 14 | eyeWideRight|
+| 15 | jawForward|
+| 16 | jawLeft|
+| 17 | jawRight|
+| 18 | jawOpen|
+| 19 | mouthClose|
+| 20 | mouthFunnel|
+| 21 | mouthPucker|
+| 22 | mouthLeft|
+| 23 | mouthRight|
+| 24 | mouthSmileLeft|
+| 25 | mouthSmileRight|
+| 26 | mouthFrownLeft|
+| 27 | mouthFrownRight|
+| 28 | mouthDimpleLeft|
+| 29 | mouthDimpleRight|
+| 30 | mouthStretchLeft|
+| 31 | mouthStretchRight|
+| 32 | mouthRollLower|
+| 33 | mouthRollUpper|
+| 34 | mouthShrugLower|
+| 35 | mouthShrugUpper|
+| 36 | mouthPressLeft|
+| 37 | mouthPressRight|
+| 38 | mouthLowerDownLeft|
+| 39 | mouthLowerDownRight|
+| 40 | mouthUpperUpLeft|
+| 41 | mouthUpperUpRight|
+| 42 | browDownLeft|
+| 43 | browDownRight|
+| 44 | browInnerUp|
+| 45 | browOuterUpLeft|
+| 46 | browOuterUpRight|
+| 47 | cheekPuff|
+| 48 | cheekSquintLeft|
+| 49 | cheekSquintRight|
+| 50 | noseSneerLeft|
+| 51 | noseSneerRight|
+| 52 | tongueOut|
+| 53 | headRoll|
+| 54 | leftEyeRoll|
+| 55 | rightEyeRoll|
 
 ---
 
