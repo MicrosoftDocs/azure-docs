@@ -11,7 +11,7 @@ ms.reviewer: riroloff
 # Overview of autoscale in Microsoft Azure
 This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
 
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [API Management services](../../api-management/api-management-key-concepts.md), and [Azure Data Explorer Clusters](/azure/data-explorer/).
+Azure autoscale supports a growing list of resource types. See the list of [supported resources](#supported-services-for-autoscale) for more details.
 
 > [!NOTE]
 > Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to virtual machine scale sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
@@ -107,6 +107,13 @@ You can set up autoscale via
 | Spring Cloud |[Set up autoscale for microservice applications](../../spring-cloud/how-to-setup-autoscale.md)|
 | Service Bus |[Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)|
 | Azure SignalR Service | [Automatically scale units of an Azure SignalR service](../../azure-signalr/signalr-howto-scale-autoscale.md) |
+| Media Services | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling) |
+| Logic Apps - Integration Service Environment(ISE) | [Add ISE Environment](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity) |
+| Azure App Service Environment | [Autoscaling and App Service Environment v1](../../app-service/environment/app-service-environment-auto-scale.md) |
+| Service Fabric Managed Clusters | [Introduction to Autoscaling on Service Fabric managed clusters](../../service-fabric/how-to-managed-cluster-autoscale.md) |
+| Azure Stream Analytics | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md) |
+| Azure Machine Learning Workspace | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md) |
+
 
 ## Next steps
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:

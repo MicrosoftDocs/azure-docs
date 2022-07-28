@@ -24,7 +24,9 @@ If you are not familiar with MLflow, you may not be aware of the difference betw
 
 Any file generated (and captured) from an experiment's run or job is an artifact. It may represent a model serialized as a Pickle file, the weights of a PyTorch or TensorFlow model, or even a text file containing the coefficients of a linear regression. Other artifacts can have nothing to do with the model itself, but they can contain configuration to run the model, pre-processing information, sample data, etc. As you can see, an artifact can come in any format. 
 
-You can log artifacts in MLflow in a similar way you log a file with Azure ML SDK v1:
+You may have been logging artifacts already:
+
+# [Using MLflow SDK](#tab/mlflow)
 
 ```python
 filename = 'model.pkl'
@@ -33,6 +35,32 @@ with open(filename, 'wb') as f:
 
 mlflow.log_artifact(filename)
 ```
+
+# [Using Azure ML SDK v1](#tab/sdkv1)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+```python
+filename = 'model.pkl'
+with open(filename, 'wb') as f:
+  pickle.dump(model, f)
+
+mlflow.log_file(filename)
+```
+
+# [Using the outputs folder](#tab/outputs)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+```python
+os.mkdirs("outputs", exists_ok=True)
+
+filename = 'outputs/model.pkl'
+with open(filename, 'wb') as f:
+  pickle.dump(model, f)
+```
+
+---
 
 ### Models
 
@@ -44,6 +72,32 @@ Logging models has the following advantages:
 > * Swagger is enabled in endpoints automatically and the __Test__ feature can be used in Azure ML studio.
 > * Models can be used as pipelines inputs directly.
 > * You can use the Responsable AI dashbord.
+
+Models can get logged by:
+
+# [Using MLflow SDK](#tab/mlflow)
+
+```python
+mlflow..sklearn.log_model(sklearn_estimator, "classifier")
+```
+
+# [Using Azure ML SDK v1](#tab/sdkv1)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+Logging models using Azure ML SDK v1 is not possible. We recommend to use MLflow SDK.
+
+# [Using the outputs folder](#tab/outputs)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+```python
+os.mkdirs("outputs/classifier", exists_ok=True)
+
+mlflow.sklearn.save_model(sklearn_estimator, "outputs/classifier")
+```
+
+---
 
 ## The MLModel format
 
@@ -157,9 +211,18 @@ name: mlflow-env
 
 ### Model's predict function
 
-All MLflow models contain a `predict` function. This function is the one that is called when a model is deployed using a no-code-deployment experience. What the `predict` function returns (classes, probabilities, a forecast, etc.) depend on the framework (i.e. flavor) used for training. Read the documentation of each flavor to know what they return.
+All MLflow models contain a `predict` function. **This function is the one that is called when a model is deployed using a no-code-deployment experience**. What the `predict` function returns (classes, probabilities, a forecast, etc.) depend on the framework (i.e. flavor) used for training. Read the documentation of each flavor to know what they return.
 
 In same cases, you may need to customize this function to change the way inference is executed. On those cases, you will need to [log models with a different behavior in the predict method](how-to-log-mlflow-models.md#logging-models-with-a-different-behavior-in-the-predict-method) or [log a custom model's flavor](how-to-log-mlflow-models.md#logging-custom-models).
+
+## Loading MLflow models back
+
+Models created as MLflow models can be loaded back directly from the run where they were logged, from the file system where they are saved or from the model registry where they are registered. MLflow provides a consistent way to load those models regardless of the location.
+
+There are two workflows available for loading models:
+
+* **Loading back the same object and types that were logged:**: You can load models using MLflow SDK and obtain an instance of the model with types belonging to the training library. For instance, an ONNX model will return a `ModelProto` while a decision tree trained with Scikit-Learn model will return a `DecisionTreeClassifier` object. Use `mlflow.<flavor>.load_model()` to do so.
+* **Loading back a model for running inference:** You can load models using MLflow SDK and obtain a wrapper where MLflow warranties there will be a `predict` function. It doesn't matter which flavor you are using, every MLflow model needs to implement this contract. Furthermore, MLflow warranties that this function can be called using arguments of type `pandas.DataFrame`, `numpy.ndarray` or `dict[strin, numpyndarray]` (depending on the signature of the model). MLflow handles the type conversion to the input type the model actually expects. Use `mlflow.pyfunc.load_model()` to do so.
 
 ## Start logging models
 

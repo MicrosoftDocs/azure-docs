@@ -326,6 +326,8 @@ items:
         href: sql/best-practices-serverless-sql-pool.md
       - name: Best practices dedicated SQL pools
         href: sql/best-practices-dedicated-sql-pool.md
+      - name: Distribution Advisor 
+        href: sql/distribution-advisor.md
       - name: Materialized view
         items:
         - name: Performance tuning guidance
@@ -704,9 +706,9 @@ items:
       href: ./spark/apache-spark-autoscale.md
     - name: Intelligent Cache
       href: ./spark/apache-spark-intelligent-cache-concept.md
-    - name: Azure Synapse runtimes
+    - name: Azure Synapse runtimes for Apache Spark
       items:
-        - name: Runtime overview
+        - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
         - name: Azure Synapse Apache Spark 3.2 runtime
           href: ./spark/apache-spark-32-runtime.md
@@ -714,6 +716,8 @@ items:
           href: ./spark/apache-spark-3-runtime.md
         - name: Azure Synapse Apache Spark 2.4 runtime
           href: ./spark/apache-spark-24-runtime.md
+        - name: Lifecycle and Supportability
+          href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks

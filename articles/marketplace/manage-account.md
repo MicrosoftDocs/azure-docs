@@ -4,8 +4,8 @@ description: Manage a commercial marketplace account in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: varsha-sarah
-ms.author: vavargh
+author: sharath-satish-msft
+ms.author: shsatish
 ms.date: 1/20/2022
 ---
 

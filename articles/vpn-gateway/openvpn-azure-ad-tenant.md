@@ -50,17 +50,18 @@ Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, y
 1. Enable Azure AD authentication on the VPN gateway by navigating to **Point-to-site configuration** and picking **OpenVPN (SSL)** as the **Tunnel type**. Select **Azure Active Directory** as the **Authentication type**, then fill in the information under the **Azure Active Directory** section. Replace {AzureAD TenantID} with your tenant ID.
 
    * **Tenant:** TenantID for the Azure AD tenant
-   	   * Enter `https://login.microsoftonline.com/{AzureAD TenantID}/` for Azure Public AD 
-   	   * Enter `https://login.microsoftonline.us/{AzureAD TenantID/` for Azure Government AD 
-   	   * Enter `https://login-us.microsoftonline.de/{AzureAD TenantID/` for Azure Germany AD 
-   	   * Enter `https://login.chinacloudapi.cn/{AzureAD TenantID/` for China 21Vianet AD 
+
+   	 * Enter `https://login.microsoftonline.com/{AzureAD TenantID}/` for Azure Public AD
+   	 * Enter `https://login.microsoftonline.us/{AzureAD TenantID/` for Azure Government AD
+   	 * Enter `https://login-us.microsoftonline.de/{AzureAD TenantID/` for Azure Germany AD
+   	 * Enter `https://login.chinacloudapi.cn/{AzureAD TenantID/` for China 21Vianet AD
 	
    * **Audience:** Application ID of the "Azure VPN" Azure AD Enterprise App
 
-	   * Enter 41b23e61-6c1e-4545-b367-cd054e0ed4b4 for Azure Public
-	   * Enter 51bb15d4-3a4f-4ebf-9dca-40096fe32426 for Azure Government
-	   * Enter 538ee9e6-310a-468d-afef-ea97365856a9 for Azure Germany
-	   * Enter 49f817b6-84ae-4cc0-928c-73f27289b3aa for Azure China 21Vianet
+	  * Enter 41b23e61-6c1e-4545-b367-cd054e0ed4b4 for Azure Public
+	  * Enter 51bb15d4-3a4f-4ebf-9dca-40096fe32426 for Azure Government
+	  * Enter 538ee9e6-310a-468d-afef-ea97365856a9 for Azure Germany
+	  * Enter 49f817b6-84ae-4cc0-928c-73f27289b3aa for Azure China 21Vianet
 
 
    * **Issuer**: URL of the Secure Token Service `https://sts.windows.net/{AzureAD TenantID}/`

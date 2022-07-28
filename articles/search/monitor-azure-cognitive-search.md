@@ -13,7 +13,8 @@ ms.custom: subject-monitoring
 
 # Monitoring Azure Cognitive Search
 
-[Azure Monitor](../azure-monitor/overview.md) is enabled with every subscription to provide monitoring capabilities over all Azure resources, including Cognitive Search. When you sign up for search, Azure Monitor collects [**activity logs**](/azure/azure-monitor/agents/data-sources#azure-activity-log) and [**metrics**](/azure/azure-monitor/essentials/data-platform-metrics) as soon as you start using the service. 
+[Azure Monitor](../azure-monitor/overview.md) is enabled with every subscription to provide monitoring capabilities over all Azure resources, including Cognitive Search. When you sign up for search, Azure Monitor collects [**activity logs**](../azure-monitor/data-sources.md#azure-activity-log) and [**metrics**](../azure-monitor/essentials/data-platform-metrics.md) as soon as you start using the service. 
+
 
 Optionally, you can enable diagnostic settings to collect [**resource logs**](../azure-monitor/essentials/resource-logs.md). Resource logs contain detailed information about search service operations that's useful for deeper analysis and investigation. 
 
@@ -50,13 +51,13 @@ For REST calls, use an [admin API key](search-security-api-keys.md) and [Postman
 
 ## Monitor activity logs
 
-In Azure Cognitive Search, [**activity logs**](/azure/azure-monitor/agents/data-sources#azure-activity-log) reflect control plane activity, such as service and capacity updates, or API key usage or management. Activity logs are collected [free of charge](/azure/azure-monitor/usage-estimated-costs#pricing-model), with no configuration required. Data retention is 90 days, but you can configure durable storage for longer retention.
+In Azure Cognitive Search, [**activity logs**](../azure-monitor/data-sources.md#azure-activity-log) reflect control plane activity, such as service and capacity updates, or API key usage or management. Activity logs are collected [free of charge](../azure-monitor/usage-estimated-costs.md#pricing-model), with no configuration required. Data retention is 90 days, but you can configure durable storage for longer retention.
 
 1. In the Azure portal, find your search service. From the menu on the left, select **Activity logs** to view the logs for your search service.
 
 1. Entries will often include **Get Admin Key**, one entry for every call that [provided an admin API key](search-security-api-keys.md) on the request. There are no details about the call itself, just a notification that the admin key was used. For insights into content (or data plane) operations, you'll need to enable diagnostic settings and collect resource logs.
 
-1. See [Azure Monitor activity log](/azure/azure-monitor/essentials/activity-log) for general guidance on working with activity logs.
+1. See [Azure Monitor activity log](../azure-monitor/essentials/activity-log.md) for general guidance on working with activity logs.
 
 1. See [Management REST API reference](/rest/api/searchmanagement/) for control plane activity that might appear in the log.
 
@@ -66,15 +67,15 @@ The following screenshot shows the activity log signals that can be configured i
 
 ## Monitor metrics
 
-In Azure Cognitive Search, [**platform metrics**](/azure/azure-monitor/essentials/data-platform-metrics) measure query performance, indexing volume, and skillset invocation.
+In Azure Cognitive Search, [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md) measure query performance, indexing volume, and skillset invocation.
 
-Metrics are collected [free of charge](/azure/azure-monitor/usage-estimated-costs#pricing-model), with no configuration required. Platform metrics are stored for 93 days. However, in the portal you can only query a maximum of 30 days' worth of metrics data on any single chart. This limitation doesn't apply to log-based metrics. 
+Metrics are collected [free of charge](../azure-monitor/usage-estimated-costs.md#pricing-model), with no configuration required. Platform metrics are stored for 93 days. However, in the portal you can only query a maximum of 30 days' worth of metrics data on any single chart. This limitation doesn't apply to log-based metrics. 
 
 1. In the Azure portal, find your search service. From the menu on the left, under Monitoring, select **Metrics** to open metrics explorer.
 
-1. See [Tutorial: Analyze metrics for an Azure resource](/azure/azure-monitor/essentials/tutorial-metrics) for general guidance on using metrics explorer.
+1. See [Tutorial: Analyze metrics for an Azure resource](../azure-monitor/essentials/tutorial-metrics.md) for general guidance on using metrics explorer.
 
-1. See [Microsoft.Search/searchServices (Azure Monitor)](/azure/azure-monitor/essentials/metrics-supported#microsoftsearchsearchservices) for the platform metrics of Azure Cognitive Search.
+1. See [Microsoft.Search/searchServices (Azure Monitor)](../azure-monitor/essentials/metrics-supported.md#microsoftsearchsearchservices) for the platform metrics of Azure Cognitive Search.
 
 1. See [Monitoring data reference](monitor-azure-cognitive-search-data-reference.md) for supplemental descriptions and dimensions.
 
@@ -82,11 +83,11 @@ Metrics are collected [free of charge](/azure/azure-monitor/usage-estimated-cost
 
 ## Set up alerts
 
-Alerts help you to identify and address issues before they become a problem for application users. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [resource logs](../azure-monitor/alerts/alerts-unified-log.md), and [activity logs](../azure-monitor/alerts/activity-log-alerts.md). Alerts are billable (see the [Pricing model](/azure/azure-monitor/usage-estimated-costs#pricing-model) for details).
+Alerts help you to identify and address issues before they become a problem for application users. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [resource logs](../azure-monitor/alerts/alerts-unified-log.md), and [activity logs](../azure-monitor/alerts/activity-log-alerts.md). Alerts are billable (see the [Pricing model](../azure-monitor/usage-estimated-costs.md#pricing-model) for details).
 
 1. In the Azure portal, find your search service. From the menu on the left, under Monitoring, select **Alerts** to open metrics explorer.
 
-1. See [Tutorial: Create a metric alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-metric-alert) for general guidance on setting up alerts from metrics explorer.
+1. See [Tutorial: Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md) for general guidance on setting up alerts from metrics explorer.
 
 The following table describes several rules. On a search service, throttling or query latency that exceeds a given threshold are the most commonly used alerts, but you might also want to be notified if a search service is deleted.
 
