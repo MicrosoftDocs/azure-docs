@@ -359,7 +359,7 @@ In this section, you create a Java console app that handles the desired properti
     import java.util.Scanner;
     ```
 
-9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you copied previously in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
+9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you copied previously when you registered a new device in your IoT Hub:
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";
