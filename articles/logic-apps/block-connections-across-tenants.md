@@ -17,9 +17,9 @@ ms.date: 08/01/2022
 
 Azure Logic Apps includes many connectors for you to build integration apps and workflows and to access various data, apps, services, systems, and other resources. These connectors authorize your access to these resources by using Azure Active Directory (Azure AD) to authenticate your credentials.
 
-When you create a connection from your workflow to access a resource, you can share that connection with others in the same Azure AD tenant or different tenant by sending a consent link. This shared connection provides access to same resource. However, this capability creates a security vulnerability when anyone in other Azure AD tenants create and share a connection from their logic app workflow. This connection might give the sender access to the recipient's resources.
+When you create a connection from your workflow to access a resource, you can share that connection with others in the same Azure AD tenant or different tenant by sending a consent link. This shared connection provides access to same resource but creates a security vulnerability.
 
-As a security measure and to prevent this scenario, you can block access to and from your own Azure AD tenant through such shared connections. You can also permit but restrict connections only to specific tenants. By setting up a tenant isolation policy, you can better control data movement between your tenant and resources that require Azure AD authorized access.
+As a security measure to prevent this scenario, you can block access to and from your own Azure AD tenant through such shared connections. You can also permit but restrict connections only to specific tenants. By setting up a tenant isolation policy, you can better control data movement between your tenant and resources that require Azure AD authorized access.
 
 ## Prerequisites
 
