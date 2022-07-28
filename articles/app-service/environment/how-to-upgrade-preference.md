@@ -17,11 +17,11 @@ If you don't have an App Service Environment, see [How to Create an App Service 
 > This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
 > 
 
-With App Service Environment v3, you can specify your preference for when and how the upgrade is applied. The upgrade can be applied automatically or manually. Even with your preference set to automatic, have some options to influence the timing.
+With App Service Environment v3, you can specify your preference for when and how the upgrade is applied. The upgrade can be applied automatically or manually. Even with your preference set to automatic, you have some options to influence the timing.
 
 ## Automatic upgrade preference
 
-When you use an automatic upgrade preference, the platform will upgrade your App Service Environment instance when the upgrade is available in the region in which the App Service Environment instance is deployed. You can choose from one of these options:
+When you use an automatic upgrade preference, the platform will upgrade your App Service Environment instance when the upgrade is available in the region in which the instance is deployed. You can choose from one of these options:
 
 * *None* is the default option. This option will automatically apply the upgrade during the upgrade process for that region.
 * *Early* will apply the upgrade automatically, but will prioritize it as one of the first instances in the region to be upgraded.
