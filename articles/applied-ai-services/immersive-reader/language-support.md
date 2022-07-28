@@ -145,7 +145,7 @@ This article lists supported human languages for Immersive Reader features.
 | Malayalam | ml |
 | Malayalam (India) | ml-IN |
 | Maltese | mt |
-| Maltese | Mt-MT |
+| Maltese (Malta) | Mt-MT |
 | Marathi | mr |
 | Marathi (India) | mr-IN |
 | Mongolian | mn |
@@ -208,7 +208,7 @@ This article lists supported human languages for Immersive Reader features.
 | Vietnamese | vi |
 | Vietnamese (Vietnam) | vi-VN |
 | Welsh | cy |
-| Welsh | Cy-GB |
+| Welsh (United Kingdom) | Cy-GB |
 | Zulu | zu |
 | Zulu (South Africa) | zu-ZA |
 
