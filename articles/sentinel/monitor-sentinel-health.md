@@ -1,10 +1,10 @@
 ---
 title: Turn on health monitoring in Microsoft Sentinel
 description: Monitor supported data connectors by using the SentinelHealth data table.
-author: cwatson-cat
 ms.topic: how-to
 ms.date: 7/28/2022
-ms.author: cwatson
+author: limwainstein
+ms.author: lwainstein
 ms.service: microsoft-sentinel
 ---
 
@@ -12,7 +12,7 @@ ms.service: microsoft-sentinel
 
 Monitor the health of supported data connectors by turning on health monitoring in Microsoft Sentinel. Get insights on health drifts, such as the latest failure events, or changes from success to failure states. Use this information to create alerts and other automated actions.
 
-To get health data from the [SentinelHealth](/azure-monitor/reference/tables/sentinelhealth) data table, you must first turn on the Microsoft Sentinel health feature for your workspace.
+To get health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace.
 
 When the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for supported data connectors.
 
@@ -50,4 +50,4 @@ SentinelHealth
 
 ## Next steps
 
-- [Monitor the health of your Microsoft Sentinel data connectors](monitor-data-connector-health.md)
+[Monitor the health of your Microsoft Sentinel data connectors](monitor-data-connector-health.md)
