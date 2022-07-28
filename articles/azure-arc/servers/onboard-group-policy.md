@@ -149,6 +149,8 @@ try
 ```
 
 ## Create a Group Policy Object
+> [!NOTE]
+> Before applying the Group Policy Scheduled Task, you must first check the folder `ScheduledTasks` (located within the `Preferences` folder) and modify the `ScheduledTasks.xml` file by changing `<GroupId>NT AUTHORITY\SYSTEM<\GroupId>` to `<UserId>NT AUTHORITY\SYSTEM</UserId>`.
 
 Create a new Group Policy Object (GPO) to run the onboarding script using the configuration file details: 
 
