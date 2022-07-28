@@ -1,10 +1,10 @@
 ---
-title: Migrate Azure Application Gateway and WAF deployments to availability zone support 
+title: Migrate Azure Application Gateway Standard and WAF v2 deployments to availability zone support 
 description: Learn how to migrate your Azure Application Gateway and WAF deployments to availability zone support.
 author: anaharris-ms
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/26/2022
+ms.date: 07/28/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions
@@ -12,13 +12,13 @@ ms.custom: references_regions
 
 # Migrate Application Gateway and WAF deployments to availability zone support
  
-[Application Gateway Standard v2](/azure/application-gateway/overview-v2) or [WAF v2](/azure/web-application-firewall/ag/ag-overview) supports zonal and zone redundant deployments. For more information about zone redundancy, see [Regions and availability zones](az-overview.md). 
+[Application Gateway Standard v2](/azure/application-gateway/overview-v2) with [WAF v2](/azure/web-application-firewall/ag/ag-overview) supports zonal and zone redundant deployments. For more information about zone redundancy, see [Regions and availability zones](az-overview.md). 
 
-If you previously deployed Azure Application Gateway Standard v2 or WAF v2 without zonal support, you must redeploy these services to enable zone redundancy. Two migration options to redeploy these services are described in this article.
+If you previously deployed **Azure Application Gateway Standard v2** or **Azure Application Gateway Standard v2 + WAF v2** without zonal support, you must redeploy these services to enable zone redundancy. Two migration options to redeploy these services are described in this article.
 
 ## Prerequisites
 
-- Your deployment must be Standard v2 or WAF v2 SKU. Earlier SKUs (Standard and WAF) don't support zone awareness.
+- Your deployment must be Standard v2 or WAF v2 SKU. Earlier SKUs (Standard and WAF) don't support availability zones.
 
 ## Downtime requirements
 
