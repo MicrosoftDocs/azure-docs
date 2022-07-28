@@ -1,8 +1,8 @@
 ---
 title: IoT Hub Device Provisioning Service libraries and SDKs
 description: Information about the device and service libraries available for developing solutions with Device Provisioning Service (CPS).
-author: JimacoMS4
-ms.author: v-jbrannian
+author: kgremban
+ms.author: kgremban
 ms.date: 06/30/2022
 ms.topic: reference
 ms.service: iot-dps
@@ -16,11 +16,11 @@ The Azure IoT Hub Device Provisioning Service (DPS) is a helper service for IoT 
 
 There are three categories of software development kits (SDKs) for working with DPS:
 
+- [DPS device SDKs](#device-sdks) provide data plane operations for devices. You use the device SDK to provision a device through DPS.
+
 - [DPS service SDKs](#service-sdks) provide data plane operations for backend apps. You can use the service SDKs to create and manage individual enrollments and enrollment groups, and to query and manage device registration records.
 
 - [DPS management SDKs](#management-sdks) provide control plane operations for backend apps. You can use the management SDKs to create and manage DPS instances and metadata. For example, to create and manage DPS instances in your subscription, to upload and verify certificates with a DPS instance, or to create and manage authorization policies or allocation policies in a DPS instance.
-
-- [DPS device SDKs](#device-sdks) provide data plane operations for devices. You use the device SDK to provision a device through DPS.
 
 The DPS SDKs are built on top of the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md), which help you build devices and backend apps that communicate with Azure IoT Hub.
 
