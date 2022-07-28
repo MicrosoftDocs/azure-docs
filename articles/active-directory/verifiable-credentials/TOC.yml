@@ -77,7 +77,7 @@
   - name: Admin API specification
     href: admin-api.md
   - name: Verified ID Network API specification
-    href: vcnetwork-api.md
+    href: vc-network-api.md
   - name: Supported standards
     href: verifiable-credentials-standards.md
 - name: Resources
