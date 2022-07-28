@@ -110,14 +110,6 @@ Limitations of the Azure Diagnostics extension:
 - Can only be used with Azure resources
 - Limited ability to send data to Azure Monitor Logs
 
-## Telegraf agent
-
-The [InfluxData Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) is used to collect performance data from Linux computers to send to Azure Monitor Metrics.
-
-Use the Telegraf agent if you need to:
-
-* Send data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) to analyze it with [Metrics Explorer](../essentials/metrics-getting-started.md) and to take advantage of features such as near-real-time [metric alerts](../alerts/alerts-metric-overview.md) and [autoscale](../autoscale/autoscale-overview.md) (Linux only).
-
 ## Virtual machine extensions
 
 The [Azure Monitor agent](./azure-monitor-agent-manage.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
