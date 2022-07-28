@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 08/01/2022
 ms.author: madsd
 
 ---
@@ -86,13 +86,15 @@ Through application routing or configuration routing options, you can configure 
 
 Application routing applies to traffic that is sent from your app after it has been started. See [configuration routing](#configuration-routing) for traffic during start up. When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your virtual network. You configure this behavior through the **Route All** setting. If **Route All** is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that **Route All** is enabled.
 
-> [!NOTE]
-> * Only traffic configured in application or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
-> * When **Route All** is enabled, outbound traffic from your app is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
+* Only traffic configured in application or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
+* When **Route All** is enabled, outbound traffic from your app is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
 
 Learn [how to configure application routing](./configure-vnet-integration-routing.md).
 
 We recommend that you use the **Route All** configuration setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing `WEBSITE_VNET_ROUTE_ALL` app setting can still be used, and you can enable all traffic routing with either setting.
+
+> [!NOTE]
+> Outbound SMTP connectivity (port 25) is supported for App Service when the SMTP traffic is routed through the virtual network integration. The supportability is determined by the subscription type where the virtual network is deployed. For virtual networks created before 1. August 2022, you will have to re-enable outbound SMTP connectivity support on the subscription. For more information on subscription type support and how to request support to re-enable outbound SMTP connectivity, see [Troubleshoot outbound SMTP connectivity problems in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 #### Configuration routing
 
@@ -127,9 +129,6 @@ Route tables and network security groups only apply to traffic routed through th
 When configuring network security groups or route tables that affect outbound traffic, you must make sure you consider your application dependencies. Application dependencies include endpoints that your app needs during runtime. Besides APIs and services the app is calling, this could also be derived endpoints like certificate revocation list (CRL) check endpoints and identity/authentication endpoint, for example Azure Active Directory. If you are using [continuous deployment in App Service](./deploy-continuous-deployment.md), you might also need to allow endpoints depending on type and language. Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx/blob/main/doc/hosts/appservice.md#network-dependencies), you will need to allow `oryx-cdn.microsoft.io:443`.
 
 When you want to route outbound traffic on-premises, you can use a route table to send outbound traffic to your Azure ExpressRoute gateway. If you do route traffic to a gateway, set routes in the external network to send any replies back. Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic is affected. Similar to user-defined routes, BGP routes affect traffic according to your routing scope setting.
-
-> [!NOTE]
-> Outbound SMTP connectivity (port 25) is not supported on App Service, however when routing traffic through virtual network integration, the supportability is determined by the subscription. For virtual networks created before 30. June 2022, you will have to re-enable outbound SMTP connectivity support on the subscription. For more information on subscription type support and how to request support  to re-enable outbound SMTP connectivity, see [Troubleshoot outbound SMTP connectivity problems in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ### Service endpoints
 
