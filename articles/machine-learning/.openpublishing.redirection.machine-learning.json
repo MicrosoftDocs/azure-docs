@@ -1246,9 +1246,9 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-secure-web-service.md",
-        "redirect_url": "/azure/machine-learning/how-to-secure-web-service",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/how-to-secure-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-attach-kubernetes-anywhere",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-schedule-pipelines.md",
