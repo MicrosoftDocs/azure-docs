@@ -92,7 +92,7 @@ landingContent:
           url: confidential-containers.md
         - text: App enclave nodes in AKS
           url: confidential-nodes-aks-overview.md
-        - text: Confidential node pool in AKS
+        - text: Confidential VM node pool in AKS
           url: confidential-node-pool-in-aks.md
       - linkListType: quickstart
         links:

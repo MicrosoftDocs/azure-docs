@@ -42,7 +42,7 @@
           href: confidential-enclave-nodes-aks-get-started.md
     - name: Confidential node pools in AKS
       items:
-        - name: Add a confidential node pool to your AKS cluster
+        - name: Add a confidential VM node pool to your AKS cluster
           href: https://aka.ms/add-a-confidential-node-pool-in-aks
 - name: Concept
   expanded: true
