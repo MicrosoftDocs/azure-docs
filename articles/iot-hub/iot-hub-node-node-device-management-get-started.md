@@ -72,7 +72,7 @@ In this section, you:
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Add a **connectionString** variable and use it to create a **Client** instance.  Replace the `{yourdeviceconnectionstring}` placeholder value with the device connection string you saw previously when you registered a device in the IoT Hub:  
+5. Add a **connectionString** variable and use it to create a **Client** instance.  Replace the `{yourdeviceconnectionstring}` placeholder value with the device connection string you saw when you registered a device in the IoT Hub:  
 
     ```javascript
     var connectionString = '{yourdeviceconnectionstring}';

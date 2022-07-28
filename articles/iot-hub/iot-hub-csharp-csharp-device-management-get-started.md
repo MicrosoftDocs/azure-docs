@@ -156,7 +156,7 @@ To create the simulated device app, follow these steps:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Add the following fields to the **Program** class. Replace the `{device connection string}` placeholder value with the device connection string that you saw previously when you registered a device in the IoT Hub:
+1. Add the following fields to the **Program** class. Replace the `{device connection string}` placeholder value with the device connection string you saw when you registered a device in the IoT Hub:
 
     ```csharp
     static string DeviceConnectionString = "{device connection string}";
