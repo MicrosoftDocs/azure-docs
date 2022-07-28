@@ -158,6 +158,9 @@ Delete all sensors that are associated with the subscription prior to removing t
 
 1.  In the plan cancellation dialog, confirm that you've removed all associated sensors, and then select **Confirm cancellation** to cancel the Defender for IoT plan from the subscription.
 
+> [!NOTE]
+> To remove Enterprise IoT only from your plan, cancel your plan from Microsoft Defender for Endpoint. For more information, see the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#cancel-your-defender-for-iot-plan).
+
 ## Move existing sensors to a different subscription
 
 Business considerations may require that you apply your existing IoT sensors to a different subscription than the one you’re currently using. To do this, you'll need to onboard a new plan and register the sensors under the new subscription, and then remove them from the old subscription. This process may include some downtime, and historic data isn't migrated.
