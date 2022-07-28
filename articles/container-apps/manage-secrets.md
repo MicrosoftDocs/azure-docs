@@ -94,7 +94,7 @@ After declaring secrets at the application level as described in the [defining s
 
 ## Example
 
-The following example shows an application that declares a connection string at the application level. Then it is referenced in a container environment variable and in a scale rule.
+The following example shows an application that declares a connection string at the application level. This connection is referenced in a container environment variable and in a scale rule.
 
 # [ARM template](#tab/arm-template)
 
