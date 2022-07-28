@@ -22,9 +22,13 @@ This article outlines how to use Data Flow to transform data in TeamDesk (Previe
 
 ## Supported capabilities
 
-This TeamDesk connector is supported for the following activities:
+This TeamDesk connector is supported for the following capabilities:
 
-- [Mapping data flow](concepts-data-flow-overview.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312; |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 ## Create a TeamDesk linked service using UI
 
