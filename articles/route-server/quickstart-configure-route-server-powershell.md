@@ -94,7 +94,7 @@ $subnetId = (Get-AzVirtualNetworkSubnetConfig -Name RouteServerSubnet -VirtualNe
         RouteServerName = 'myRouteServer'
         ResourceGroupName = 'myRouteServerRG'
         Location = 'WestUS'
-        HostedSubnet = $subnetId.Id
+        HostedSubnet = $subnetId
         PublicIP = $publicIp
     }
     New-AzRouteServer @rs 
