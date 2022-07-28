@@ -1074,7 +1074,7 @@ A _viseme_ is the visual description of a phoneme in spoken language. It defines
 | `type`    | Specifies the type of viseme output.<ul><li>`redlips_front` – lip-sync with viseme ID and audio offset output </li><li>`FacialExpression` – blendshapes output</li></ul> | Required             |
 
 > [!NOTE]
-> Currently, `redlips_front` only supports prebuilt neural voices in `en-US` locale, and `FacialExpression` supports prebuilt neural voices in `en-US` and `zh-CN` locales. `redlips_front` and `FacialExpression` don't support custom neural voice.
+> Currently, `redlips_front` only supports prebuilt neural voices in `en-US` locale, and `FacialExpression` supports prebuilt neural voices in `en-US` and `zh-CN` locales. 
 
 **Example**
 
