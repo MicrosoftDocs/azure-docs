@@ -178,7 +178,7 @@ In this section, you create a Python console app that initiates a remote **lockD
 
 2. Using a text editor, create a new **scheduleJobService.py** file in your working directory.
 
-3. Add the following `import` statements and variables at the start of the **scheduleJobService.py** file. Replace the `{IoTHubConnectionString}` placeholder with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{deviceId}` placeholder with the device ID (the name) of your new device you previously registered:
+3. Add the following `import` statements and variables at the start of the **scheduleJobService.py** file. Replace the `{IoTHubConnectionString}` placeholder with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{deviceId}` placeholder with the device ID (the name) from your registered device:
 
     ```python
     import os
