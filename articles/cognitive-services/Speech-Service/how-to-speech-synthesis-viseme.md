@@ -205,28 +205,29 @@ Here's an example of the viseme output.
 
 # [2D SVG](#tab/2dsvg)
 
-```text
-(Viseme), Viseme ID: 1, Audio offset: 200ms.
+The SVG output is a xml string that contains the animation.
+Render the SVG animation along with the synthesized speech to see the mouth movement.
 
-(Viseme), Viseme ID: 5, Audio offset: 850ms.
-
-……
-
-(Viseme), Viseme ID: 13, Audio offset: 2350ms.
+```xml
+<svg width= \"1200px\" height= \"1200px\" ..>
+  <g id= \"front_start\" stroke= \"none\" stroke-width= \"1\" fill= \"none\" fill-rule= \"evenodd\">
+    <animate attributeName= \"d\" begin= \"d_dh_front_background_1_0.end\" dur= \"0.27500
+    ...
 ```
 
 # [3D blendshapes](#tab/3dblendshapes)
 
-The output json looks like the following sample, where the `BlendShapes` has a dimension of 55, and each row is an array with 55 numbers. Each number in the array can vary between 0 to 1. The order of numbers is in line with the order of 'BlendShapes'.
+The output json looks like the following sample, where each row of the `BlendShapes` is an array with 55 numbers. Each number in the array can vary between 0 to 1. The order of numbers is in line with the order of 'BlendShapes'.
 
-```text
-(Viseme), Viseme ID: 1, Audio offset: 200ms.
-
-(Viseme), Viseme ID: 5, Audio offset: 850ms.
-
-……
-
-(Viseme), Viseme ID: 13, Audio offset: 2350ms.
+```json
+{
+    "FrameIndex":0,
+    "BlendShapes":[
+        [0.021,0.321,...,0.258],
+        [0.045,0.234,...,0.288],
+        ...
+    ]
+}
 ```
 
 The order of `BlendShapes` is as follows.
