@@ -1,5 +1,5 @@
 ---
-title: Schedule Azure Machine Learning pipeline jobs (preview)
+title: Schedule Azure Machine Learning pipeline jobs (CLI preview)
 titleSuffix: Azure Machine Learning
 description: Schedule pipeline jobs allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
@@ -70,22 +70,21 @@ The `trigger` section contains following properties:
 
 This schedule refer a pipeline job yaml in local. Customer also can refer a existing pipeline job in workspace.
 
-### Manage schedule via CLI
+### Manage schedule
 
-#### Create schedule via CLI
+#### Create schedule
 After you create schedule yaml, you can use following command to create schedule via CLI.
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="create_schedule" :::    
 
-#### Check schedule detail via CLI
+#### Check schedule detail
 
+#### List all schedules in a workspace
 
+#### Update a schedule
 
-#### List all schedules in a workspace via CLI
+#### Disable/Enable a schedule
 
-#### Update a schedule via CLI
-#### Disable/Enable a schedule via CLI
-
-### Query triggered jobs from a schedule via CLI
+### Query triggered jobs from a schedule
 
 
 

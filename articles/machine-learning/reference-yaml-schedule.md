@@ -24,7 +24,6 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
-
 | Key | Type | Description | Allowed values |
 | --- | ---- | ----------- | -------------- |
 | `$schema` | string | The YAML schema. | |
@@ -83,7 +82,6 @@ Customer can directly use `create_job: azureml:<job_name>` or can use use follow
 
 
 ### Attributes of the `settings` key
-
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
 | `default_datastore` | string | Name of the datastore to use as the default datastore for the pipeline job. This value must be a reference to an existing datastore in the workspace using the `azureml:<datastore-name>` syntax. Any outputs defined in the `outputs` property of the parent pipeline job or child step jobs will be stored in this datastore. If omitted, outputs will be stored in the workspace blob datastore. | |
@@ -91,7 +89,6 @@ Customer can directly use `create_job: azureml:<job_name>` or can use use follow
 | `continue_on_step_failure` | boolean | Whether the execution of steps in the pipeline should continue if one step fails. The default value is `False`, which means that if one step fails, the pipeline execution will be stopped, canceling any running steps. | `False` |
 
 ### Job inputs
-
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `type` | string | The type of job input. Specify `uri_file` for input data that points to a single file source, or `uri_folder` for input data that points to a folder source. | `uri_file`, `uri_folder` | `uri_folder` |
@@ -99,7 +96,6 @@ Customer can directly use `create_job: azureml:<job_name>` or can use use follow
 | `mode` | string | Mode of how the data should be delivered to the compute target. <br><br> For read-only mount (`ro_mount`), the data will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as a file. Azure ML will resolve the input to the mount path. <br><br> For `download` mode the data will be downloaded to the compute target. Azure ML will resolve the input to the downloaded path. <br><br> If you only want the URL of the storage location of the data artifact(s) rather than mounting or downloading the data itself, you can use the `direct` mode. This will pass in the URL of the storage location as the job input. Note that in this case you are fully responsible for handling credentials to access the storage. | `ro_mount`, `download`, `direct` | `ro_mount` |
 
 ### Job outputs
-
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `type` | string | The type of job output. For the default `uri_folder` type, the output will correspond to a folder. | `uri_folder` | `uri_folder` |
@@ -121,8 +117,6 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 ## YAML: Schedule with cron expression
 
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-schedule.yml":::
-
-- [Install and use the CLI (v2)](how-to-configure-cli.md)
 
 ## Appendix
 ### Timezone
