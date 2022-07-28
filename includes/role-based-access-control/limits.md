@@ -13,7 +13,7 @@
 | Area | Resource | Limit |
 | --- | --- | --- |
 | [Azure role assignments](../../articles/role-based-access-control/overview.md) |  |  |
-|  | Azure role assignments per Azure subscription<br/>The role assignments limit for a subscription is currently being increased. For more information, see [Troubleshoot Azure RBAC](../../articles/role-based-access-control/troubleshooting.md#azure-role-assignments-limit). | 2,000 |
+|  | Azure role assignments per Azure subscription<br/>The role assignments limit for a subscription is currently being increased. For more information, see [Troubleshoot Azure RBAC](../../articles/role-based-access-control/troubleshooting.md#limits). | 2,000 |
 |  | Azure role assignments per management group | 500 |
 |  | Size of description for Azure role assignments | 2 KB |
 |  | Size of [condition](../../articles/role-based-access-control/conditions-overview.md) for Azure role assignments | 8 KB |
