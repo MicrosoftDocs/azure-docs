@@ -32,9 +32,9 @@ You must have:
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 - To protect SQL databases in hybrid and multicloud environments, you have to connect your AWS account or GCP project to Defender for Cloud. Defender for Cloud uses Azure Arc to communicate with your hybrid and multicloud machines. Check out the following articles for more information:
 
-  - [Connect your non-Azure machines to Microsoft Defender for Cloud](quickstart-onboard-machines.md)
   - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
   - [Connect your GCP project to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
+  - [Connect your on-premises and other cloud machines to Microsoft Defender for Cloud](quickstart-onboard-machines.md)
 
 ## Enable database protection on your subscription
 
