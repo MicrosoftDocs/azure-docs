@@ -69,7 +69,7 @@ After you've set up your network sensor and have full visibility into all device
 
 <!--do we need the words 'to a subscription' in this heading?-->
 
-## Onboard a Defender for IoT plan for OT networks to a subscription
+## Onboard a Defender for IoT plan for OT networks
 
 This procedure describes how to add a Defender for IoT plan for OT networks to an Azure subscription.
 
