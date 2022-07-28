@@ -12,18 +12,19 @@ ms.topic: how-to
 
 # Provide access to projects for dev box users
 
-A DevCenter owner or project admin must provide team members with access to a Dev Box project before they can create dev boxes from the pools within it. By using the built-in DevCenter Dev Box User role, you can assign permissions to Active Directory Users or Groups at the project level. 
+Team members must have access to a specific Dev Box project before they can create dev boxes. By using the built-in DevCenter Dev Box User role, you can assign permissions to Active Directory Users or Groups at the project level. 
 
 A DevCenter Dev Box User can:
 
 - View pools within a project.
 - Create dev boxes.
+- Connect to a dev box.
 - Manage dev boxes that they created.
 - Delete dev boxes that they created.
 
 ## Assign permissions to dev box users
 
-1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/projects).
+1. In the [Azure portal](https://portal.azure.com), use the Search box to locate Dev Box resources, and select Projects. 
 
 1. Select the project you want to provide your team members access to.
  
@@ -37,7 +38,7 @@ A DevCenter Dev Box User can:
  
    :::image type="content" source="./media/how-to-dev-box-user/add-role-assignment.png" alt-text="Screenshot showing the Add menu with Add role assignment highlighted.":::
 
-1. On the Add role assignment page, on the Role tab, search for *devcenter*, select the **DevCenter Dev Box User** built-in role, and then select **Next**.
+1. On the Add role assignment page, on the Role tab, search for *devcenter dev box user*, select the **DevCenter Dev Box User** built-in role, and then select **Next**.
  
    :::image type="content" source="./media/how-to-dev-box-user/dev-box-user-role.png" alt-text="Screenshot showing the search box.":::
 
@@ -51,7 +52,7 @@ A DevCenter Dev Box User can:
 
 1. On the Members tab, select **Review + assign**.
 
-The user will now be able to view the project and all the pools within it. Dev box users can create dev boxes from any of the pools and manage those dev boxes from the [Developer Portal](https://portal.fidalgo.azure.com).
+The user will now be able to view the project and all the pools within it. Dev box users can create dev boxes from any of the pools and manage those dev boxes from the [Developer Portal](https://aka.ms/developerportal).
 
 ## Next steps
 
