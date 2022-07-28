@@ -142,3 +142,4 @@ To learn more about autoscale, see the following resources:
 * [Use autoscale actions to send email and webhook alert notifications](autoscale-webhook-email.md)
 * [Autoscale REST API](/rest/api/monitor/autoscalesettings)
 * [Troubleshooting virtual machine scale sets and autoscale](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+* [Troubleshooting Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-troubleshoot)
