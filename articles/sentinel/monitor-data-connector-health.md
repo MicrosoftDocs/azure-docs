@@ -67,7 +67,7 @@ There are three tabbed sections in this workbook:
 
 ## Use the SentinelHealth data table (Public preview)
 
-To get data connector health data from the [SentinelHealth](/azure-monitor/reference/tables/sentinelhealth) data table, you must first [turn on the Microsoft Sentinel health feature](monitor-sentinel-health.md) for your workspace.
+To get data connector health data from the *SentinelHealth* data table, you must first [turn on the Microsoft Sentinel health feature](monitor-sentinel-health.md) for your workspace.
 
 Once the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
 
@@ -169,7 +169,7 @@ For more information, see [Azure Monitor alerts overview](../azure-monitor/alert
 
 ### SentinelHealth table columns schema
 
-The following table describes the columns and data generated in the [SentinelHealth](/azure-monitor/reference/tables/sentinelhealth) data table for data connectors:
+The following table describes the columns and data generated in the SentinelHealth data table for data connectors:
 
 | ColumnName    | ColumnType     | Description|
 | ----------------------------------------------- | -------------- | --------------------------------------------------------------------------- |
