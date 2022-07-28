@@ -204,7 +204,7 @@ To grant permissions, follow these steps. For detailed steps, see [Assign Azure 
 
 1. Select your Azure subscription.
 
-1. Under **System-assigned managed identity**, select **Synapse**, and then select a workspace. You can also use the object ID or workspace name (as the managed-identity name) to find this identity. To get the managed identity's application ID, use PowerShell.
+1. Under **System-assigned managed identity**, select **Synapse workspace**, and then select a workspace. You can also use the object ID or workspace name (as the managed-identity name) to find this identity. To get the managed identity's application ID, use PowerShell.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
