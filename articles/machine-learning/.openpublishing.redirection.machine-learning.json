@@ -2366,6 +2366,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-create-attach-kubernetes.md",
+        "redirect_url": "/azure/machine-learning/how-to-attach-kubernetes-anywhere",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-compute-cluster-instance-os-upgrade.md",
         "redirect_url": "/azure/machine-learning/concept-vulnerability-management",
         "redirect_document_id": false
