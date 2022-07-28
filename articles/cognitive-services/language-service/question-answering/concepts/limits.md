@@ -47,7 +47,7 @@ File names may not include the following characters:
 ### Maximum number of files
 
 > [!NOTE]
-> Question answering currently has no limits on the number of sources that can be added. Throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
+> Question answering currently has no limits on the number of sources that can be added. Throughput is currently capped at 10 text records per second for both management APIs and prediction APIs.
 
 ### Maximum number of deep-links from URL
 
