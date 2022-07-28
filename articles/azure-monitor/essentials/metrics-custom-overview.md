@@ -244,7 +244,7 @@ The following steps will provide more information to assist with troubleshooting
 1. Under **Select a scope**, check the applicable subscription and resource groups.
 1. Under **Refine scope**, choose **Custom Metric Usage** and the desired location.
 1. Select the **Apply** button.
-1. Choose either **Active Time Series**, **Active Time Series Limit**, or **Thorttled Time Series**.
+1. Choose either **Active Time Series**, **Active Time Series Limit**, or **Throttled Time Series**.
 
 ## Design limitations and considerations
 
