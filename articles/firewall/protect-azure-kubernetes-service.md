@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/27/2022
+ms.date: 07/28/2022
 ms.author: victorh
 ---
 
@@ -33,11 +33,11 @@ You can download a zip file from the [Microsoft Download Center](https://downloa
 
 The following diagram shows the sample environment from the video that the script and guide configure:
 
-:::image type="content" source="media/protect-azure-kubernetes-service/aks-firewall.png" alt-text="A K S cluster with Azure Firewall for ingress egress filtering":::
+:::image type="content" source="media/protect-azure-kubernetes-service/aks-firewall.png" alt-text="Diagram showing A K S cluster with Azure Firewall for ingress egress filtering.":::
 
 There is one difference between the script and the following guide. The script uses managed identities, but the guide uses a service principal. This shows you two different ways to create an identity to manage and create cluster resources.
 
-## Restrict Egress Traffic Using Azure Firewall
+## Restrict egress traffic using Azure Firewall
 
 ### Set configuration via environment variables
 
@@ -257,7 +257,7 @@ Use the [az aks get-credentials][az-aks-get-credentials] command to configure `k
 az aks get-credentials -g $RG -n $AKSNAME
 ```
 
-## Restrict Ingress Traffic Using Azure Firewall
+## Restrict ingress traffic using Azure Firewall
 
 You can now start exposing services and deploying applications to this cluster. In this example, we'll expose a public service, but you may also choose to expose an internal service via [internal load balancer](../aks/internal-lb.md).
 
