@@ -33,6 +33,9 @@ For no-code-deployment, Azure Machine Learning
     * `pandas`
     * The scoring script baked into the image.
 
+> [!IMPORTANT]
+> If you are used to deploying models using scoring scripts and custom environments and you are looking to know how to achieve the same functionality using MLflow models, we recommend reading [Using MLflow models for no-code deployment](how-to-log-mlflow-models.md).
+
 > [!NOTE]
 > Consider the following limitations when deploying MLflow models to Azure Machine Learning:
 > - Spark flavor is not supported at the moment for deployment.

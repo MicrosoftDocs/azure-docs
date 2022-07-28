@@ -91,6 +91,9 @@ For large data files, we recommend you import from Azure Blob. Large files can b
 
 The following python code will create a sample dataset and show how to upload a file and print the returned ID. Make sure to save the IDs returned as you'll need them for the fine-tuning training job creation.
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
+
 ```python
 import openai
 from openai import cli
@@ -236,7 +239,7 @@ When you're done with your fine-tuned model, you can delete the deployment and f
 
 ### Delete your model deployment
 
-To delete a deployment, you can use the [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete), Azure OpenAI Studio or [REST APIs](../reference.md#delete-a-deployment). here's an example of how to delete your deployment with the Azure CLI:
+To delete a deployment, you can use the [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete), Azure OpenAI Studio or [REST APIs](../reference.md#delete-a-deployment). here's an example of how to delete your deployment with the Azure CLI:
 
 ```console
 az cognitiveservices account deployment delete --name

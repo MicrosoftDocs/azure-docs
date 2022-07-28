@@ -95,7 +95,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 1. Paste your key and endpoint into the above code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
-   > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
+   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 1. Build the app with the following command:
 
@@ -108,6 +108,29 @@ Use the OCR client library to read printed and handwritten text from a remote im
    ```console
    gradle run
    ```
+
+## Output
+
+```console
+Operation Location:https://pafarley-computer-vision.cognitiveservices.azure.com/vision/v3.2/read/analyzeResults/c6755b9a-1b37-4a0a-9497-d4483fce670a
+Polling for Read results ...
+
+Printing Read results for page 1
+Nutrition Facts Amount Per Serving
+Serving size: 1 bar (40g)
+Serving Per Package: 4
+Total Fat 13g
+Saturated Fat 1.5g
+Amount Per Serving
+Trans Fat 0g
+alories 190
+Cholesterol Omg
+ories from Fat 110
+Sodium 20mg
+nt Daily Values are based on
+Vitamin A 50%
+calorie diet
+```
 
 ## Clean up resources
 
