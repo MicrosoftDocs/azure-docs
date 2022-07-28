@@ -37,7 +37,7 @@ To prevent this scenario, you can block access to and from your own Azure AD ten
 
     For example, some legacy connections might not have an associated tenant ID. So, you have to choose whether to block or allow such connections.
 
-  - The choice whether to initially enable or disable the isolation policy.
+  - The choice whether to enable or disable the isolation policy.
 
   - The tenant IDs for any tenants where you want to allow connections to or from your tenant.
 
