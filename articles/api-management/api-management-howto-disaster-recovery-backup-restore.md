@@ -20,15 +20,8 @@ To recover from availability problems that affect your API Management service, b
 
 Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging. Beware that runtime data such as users and subscriptions will be copied as well, which might not always be desirable.
 
-This article shows how to use automate backup and restore operations of your API Management instance using an external storage account. The steps shown here use either the [Backup-AzApiManagement](/powershell/module/az.apimanagement/backup-azapimanagement) and [Restore-AzApiManagement](/powershell/module/az.apimanagement/restore-azapimanagement) Azure PowerShell cmdlets, or the [Api Management Service - Backup](/rest/api/apimanagement/current-ga/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/current-ga/api-management-service/restore) REST APIs.
+This article shows how to$ automate backup and restore operations of your API Management instance using an external storage account. The steps shown here use either the [Backup-AzApiManagement](/powershell/module/az.apimanagement/backup-azapimanagement) and [Restore-AzApiManagement](/powershell/module/az.apimanagement/restore-azapimanagement) Azure PowerShell cmdlets, or the [Api Management Service - Backup](/rest/api/apimanagement/current-ga/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/current-ga/api-management-service/restore) REST APIs.
 
-## Considerations and constraints
-
--   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
--   While backup is in progress, **avoid management changes in the service** such as pricint tier upgrade or downgrade, change in domain name, and more.
--   **Changes** made to the service configuration (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
-- Backup does not capture pre-aggregated log data used in reports shown on the **Analytics** blade in the Azure portal.
--   **The pricing tier** of the service being restored into **must match** the pricing tier of the backed-up service being restored.
 
 > [!WARNING]
 > Each backup expires after 30 days. If you attempt to restore a backup after the 30-day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
@@ -46,16 +39,18 @@ This article shows how to use automate backup and restore operations of your API
 * An API Management service instance. If you don't have one, see [Create an API Management service instance](get-started-create-service-instance.md).
 * An Azure storage account. If you don't have one, see [Create a storage account](../storage/common/storage-account-create.md).
     * [Create a container](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in the storage account to hold the backup data.
-    * [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) should **not** be enabled on the Blob Service in the storage account.
+        
+    > [!NOTE]
+    > [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) should **not** be enabled on the Blob Service in the storage account.
 * The latest version of Azure PowerShell, if you plan to use Azure PowerShell cmdlets. If you haven't already, [install Azure PowerShell](/powershell/azure/install-az-ps).
-* If you plan to make direct REST calls for the backup and restore operations, see [Azure REST API reference](/rest/api/azure/) for information about authenticating and calling Azure REST APIs.
+* To make direct REST calls for the backup and restore operations, see [Azure REST API reference](/rest/api/azure/) for information about authenticating and calling Azure REST APIs.
 
 ## Configure storage account access
 When running a backup or restore operation, you need to configure access to the storage account. API Management supports two storage access mechanisms: an Azure Storage access key (the default), or an API Management managed identity.
 
 ### Configure storage account access key
 
-Azure generates two 512-bit storage account access keys for each storage account. These keys can be used to authorize access to data in your storage account via Shared Key authorization. To view, retreve, and manage the keys, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal).
+Azure generates two 512-bit storage account access keys for each storage account. These keys can be used to authorize access to data in your storage account via Shared Key authorization. To view, retrieve, and manage the keys, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal).
 
 ### Configure API Management managed identity
 
@@ -69,12 +64,72 @@ Azure generates two 512-bit storage account access keys for each storage account
 1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
 
 
-
-
-
 ## <a name="step1"> </a>Back up an API Management service
 
-To back up an API Management service issue the following HTTP request:
+# [PowerShell](#tab/powershell)
+
+[Sign in](/powershell/azure/authenticate-azureps) with Azure PowerShell.
+
+In the following examples:
+
+* An API Management instance named *myapim* is in resource group *apimresourcegroup*
+* A storage account named *backupstorageaccount* is in resource group *storageresourcegroup*. The storage account has a container named *backups*.
+* A backup blob will be created with name *ContosoBackup.apimbackup*.
+
+Set variables in PowerShell:
+
+```powershell
+$apiManagementName="myapim";
+$apiManagementResourceGroup="apimresourcegroup";
+$storageAccountName="backupstorageaccount";
+$storageResourceGroup="storageresourcegroup";
+$containerName="backups";
+```
+
+### Access using storage access key
+
+```powershell
+$storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageResourceGroup -StorageAccountName $storageAccountName)[0].Value
+
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey
+
+Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName -StorageContext $storageContext -TargetContainerName $containerName -TargetBlobName "ContosoBackup.apimbackup"
+```
+
+### Access using managed identity
+
+
+To configure a managed identity in your API Management instance to access the storage account, see [Configure a managed identity](#configure-api-management-managed-identity), earlier in this article.
+
+#### Access using system-assigned managed identity
+
+```powershell
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
+
+Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName  -StorageContext $storageContext -TargetContainerName $containerName -TargetBlobName "ContosoBackup.apimbackup" -AccessType "SystemAssignedManagedIdentity"
+```
+
+#### Access using user-assigned managed identity
+
+In this example, a user-assigned managed identity named *myidentity* is in resource group *identityresourcegroup*.
+
+```powershell
+$identityName = "myidentity";
+$identityResourceGroup = "identityresourcegroup";
+
+$identityId = (Get-AzUserAssignedIdentity -Name $identityName -ResourceGroupName $identityResourceGroup).ClientId
+
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
+
+Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName  -StorageContext $storageContext -TargetContainerName $containerName -TargetBlobName "ContosoBackup.apimbackup" -AccessType "UserAssignedManagedIdentity" -identityClientId $identityid
+```
+
+Backup is a long-running operation that may take several minutes to complete.
+
+# [REST](#tab/rest)
+
+
+To back up an API Management service, issue the following HTTP request:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
@@ -85,11 +140,11 @@ where:
 -   `subscriptionId` - ID of the subscription that holds the API Management service you're trying to back up
 -   `resourceGroupName` - name of the resource group of your Azure API Management service
 -   `serviceName` - the name of the API Management service you're making a backup of specified at the time of its creation
--   `api-version` - a valid REST API version such as `2020-12-01` or `2021-04-01-preview`.
+-   `api-version` - a valid REST API version such as `2021-08-01` or `2021-04-01-preview`.
 
 In the body of the request, specify the target storage account name, blob container name, backup name, and the storage access type. If the storage container doesn't exist, the backup operation creates it.
 
-#### Access using storage access key
+### Access using storage access key
 
 ```json
 {
@@ -100,12 +155,12 @@ In the body of the request, specify the target storage account name, blob contai
 }
 ```
 
-#### Access using managed identity
+### Access using managed identity
 
 > [!NOTE]
 > Using an API Management managed identity for storage operations during backup and restore requires API Management REST API version `2021-04-01-preview` or later.
 
-**Access using system-assigned managed identity**
+#### Access using system-assigned managed identity
 
 ```json
 {
@@ -116,7 +171,7 @@ In the body of the request, specify the target storage account name, blob contai
 }
 ```
 
-**Access using user-assigned managed identity**
+#### Access using user-assigned managed identity
 
 ```json
 {
@@ -131,9 +186,72 @@ In the body of the request, specify the target storage account name, blob contai
 
 Set the value of the `Content-Type` request header to `application/json`.
 
-Backup is a long-running operation that may take more than a minute to complete. If the request succeeded and the backup process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress, you continue to receive a `202 Accepted` status code. A Response code of `200 OK` indicates successful completion of the backup operation.
+Backup is a long-running operation that may take several minutes to complete. If the request succeeded and the backup process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress, you continue to receive a `202 Accepted` status code. A Response code of `200 OK` indicates successful completion of the backup operation.
+---
 
-### <a name="step2"> </a>Restore an API Management service
+## <a name="step2"> </a>Restore an API Management service
+
+> [!CAUTION]
+> Avoid changes to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress. Changes **could be overwritten**.
+
+# [PowerShell](#tab/powershell)
+
+In the following examples, 
+
+* An API Management instance named *myapim* is restored from the backup blob named *ContosoBackup.apimbackup* in storage account *backupstorageaccount*.
+* The backup blob is ins a container named *backups*.
+
+Set variables in PowerShell:
+
+```powershell
+$apiManagementName="myapim";
+$apiManagementResourceGroup="apimresourcegroup";
+$storageAccountName="backupstorageaccount";
+$storageResourceGroup="storageresourcegroup";
+$containerName="backups";
+$blobName="ContosoBackup.apimbackup;
+```
+
+### Access using storage access key
+
+```powershell
+$storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageResourceGroup -StorageAccountName $storageAccountName)[0].Value
+
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey$st
+
+Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName -StorageContext $storageContext -SourceContainerName $containerName -SourceBlobName $blobName
+```
+
+### Access using managed identity
+
+To configure a managed identity in your API Management instance to access the storage account, see [Configure a managed identity](#configure-api-management-managed-identity), earlier in this article.
+
+#### Access using system-assigned managed identity
+
+```powershell
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
+
+Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName  -StorageContext $storageContext -SourceContainerName $containerName -SourceBlobName "ContosoBackup.apimbackup" -AccessType "SystemAssignedManagedIdentity"
+```
+
+#### Access using user-assigned managed identity
+
+In this example, a user-assigned managed identity named *myidentity* is in resource group *identityresourcegroup*.
+
+```powershell
+$identityName = "myidentity";
+$identityResourceGroup = "identityresourcegroup";
+
+$identityId = (Get-AzUserAssignedIdentity -Name $identityName -ResourceGroupName $identityResourceGroup).ClientId
+
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
+
+Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName  -StorageContext $storageContext -SourceContainerName $containerName -SourceBlobName "ContosoBackup.apimbackup" -AccessType "UserAssignedManagedIdentity" -identityClientId $identityid
+```
+
+Restore is a long-running operation that may take up to 30 or more minutes to complete.
+
+# [REST](#tab/rest)
 
 To restore an API Management service from a previously created backup, make the following HTTP request:
 
@@ -146,11 +264,11 @@ where:
 -   `subscriptionId` - ID of the subscription that holds the API Management service you're restoring a backup into
 -   `resourceGroupName` - name of the resource group that holds the Azure API Management service you're restoring a backup into
 -   `serviceName` - the name of the API Management service being restored into specified at its creation time
--   `api-version` - a valid REST API version such as `2020-12-01` or `2021-04-01-preview`
+-   `api-version` - a valid REST API version such as `2021-08-01` or `2021-04-01-preview`
 
 In the body of the request, specify the existing storage account name, blob container name, backup name, and the storage access type. 
 
-#### Access using storage access key
+### Access using storage access key
 
 ```json
 {
@@ -161,12 +279,12 @@ In the body of the request, specify the existing storage account name, blob cont
 }
 ```
 
-#### Access using managed identity
+### Access using managed identity
 
 > [!NOTE]
 > Using an API Management managed identity for storage operations during backup and restore requires API Management REST API version `2021-04-01-preview` or later.
 
-**Access using system-assigned managed identity**
+#### Access using system-assigned managed identity
 
 ```json
 {
@@ -177,7 +295,7 @@ In the body of the request, specify the existing storage account name, blob cont
 }
 ```
 
-**Access using user-assigned managed identity**
+#### Access using user-assigned managed identity
 
 ```json
 {
@@ -192,22 +310,27 @@ In the body of the request, specify the existing storage account name, blob cont
 Set the value of the `Content-Type` request header to `application/json`.
 
 Restore is a long-running operation that may take up to 30 or more minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive a `202 Accepted` status code. A response code of `200 OK` indicates successful completion of the restore operation.
+---
 
-> [!IMPORTANT]
-> **Changes** made to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
+## Constraints
 
+-   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
+-   While backup is in progress, **avoid management changes in the service** such as pricing tier upgrade or downgrade, change in domain name, and more.
+-   **Changes** made to the service configuration (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
+- Backup doesn't capture pre-aggregated log data used in reports shown on the **Analytics** window in the Azure portal.
+-   **The pricing tier** of the service being restored into **must match** the pricing tier of the backed-up service being restored.
 
 ## Storage networking constraints
 
 ### Access using storage access key
 
-If the storage account is **[firewall][azure-storage-ip-firewall] enabled** and a storage key is used for access, then the customer must **Allow** the set of [Azure API Management control plane IP addresses][control-plane-ip-address] on their storage account for backup or restore to work. The storage account can be in any Azure region except the one where the API Management service is located. For example, if the API Management service is in West US, then the Azure Storage account can be in West US 2 and the customer needs to open the control plane IP 13.64.39.16 (API Management control plane IP of West US) in the firewall. This is because the requests to Azure Storage are not SNATed to a public IP from compute (Azure API Management control plane) in the same Azure region. Cross-region storage requests will be SNATed to the public IP address.
+If the storage account is **[firewall][azure-storage-ip-firewall] enabled** and a storage key is used for access, then the customer must **Allow** the set of [Azure API Management control plane IP addresses][control-plane-ip-address] on their storage account for backup or restore to work. The storage account can be in any Azure region except the one where the API Management service is located. For example, if the API Management service is in West US, then the Azure Storage account can be in West US 2 and the customer needs to open the control plane IP 13.64.39.16 (API Management control plane IP of West US) in the firewall. This is because the requests to Azure Storage aren't SNATed to a public IP from compute (Azure API Management control plane) in the same Azure region. Cross-region storage requests will be SNATed to the public IP address.
 
 ### Access using managed identity
 
 If an API Management system-assigned managed identity is used to access a firewall-enabled storage account, ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
-## What is not backed up
+## What isn't backed up
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
 -   [Custom domain TLS/SSL](configure-custom-domain.md) certificates.
 -   [Custom CA certificates](api-management-howto-ca-certificates.md), which includes intermediate or root certificates uploaded by the customer.
