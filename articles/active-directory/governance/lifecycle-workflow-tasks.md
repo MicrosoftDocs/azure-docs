@@ -39,7 +39,7 @@ Lifecycle Workflows currently support the following tasks:
 
 ## Common task parameters (preview)
 
-Common task parameters are the non-unique parameters contained in every task. These are configured 
+Common task parameters are the non-unique parameters contained in every task. When adding tasks to a new workflow, or a workflow template, you can customize and configure these parameters so that they match your requirements.
 
 
 |Parameter  |Definition  |
@@ -110,6 +110,8 @@ The Azure AD prerequisites to run the **Generate Temporary Access Password and s
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
+ 
+
 
 For Microsoft Graph the parameters for the **Generate Temporary Access Password and send via email to user's manager** task are as follows:
 
@@ -119,8 +121,7 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Password 
 |displayName     | GenerateTAPAndSendEmail (Customizable by user)      |
 |description     | Generate Temporary Access Password and send via email to user's manager (Customizable by user)       |
 |taskDefinitionId     |   1b555e50-7f65-41d5-b514-5894a026d10d     |
-|tapLifetimeInMinutes     | The lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days).   |
-|tapIsUsableOnce     |  Determines whether the pass is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime.   |
+|arguments     |  Argument contains the name parameter "tapLifetimeInMinutes", which is the lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days). The argument also contains the tapIsUsableOnce parameter, which determines whether the password is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime.    |
 
 
 ```Example for usage within the workflow
@@ -144,6 +145,10 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Password 
 
 ```
 
+> [!NOTE]
+> The employee hire date is the same as the startDateTime used for the tapLifetimeInMinutes parameter.
+
+
 ### Add user to group
 
 You're able to add a user to an Azure AD security or Microsoft 365 group. You're able to customize the task name and description for this task.
@@ -165,8 +170,7 @@ For Microsoft Graph the parameters for the **Add user to group** task are as fol
 |displayName     |  AddUserToGroup (Customizable by user)        |
 |description     |  Add user to group (Customizable by user)       |
 |taskDefinitionId     |   22085229-5809-45e8-97fd-270d28d66910      |
-|name     |  groupID    |
-|value     |  The group id value surrounded by ""    |
+|arguments     |  Argument contains a name parameter that is the "groupID", and a value parameter which is the group ID of the group you are adding the user to.    |
 
 
 ```Example for usage within the workflow
@@ -201,8 +205,8 @@ For Microsoft Graph the parameters for the **Add user to team** task are as foll
 |displayName     |  AddUserToTeam (Customizable by user)       |
 |description     |  Add user to team (Customizable by user)        |
 |taskDefinitionId     |   e440ed8d-25a1-4618-84ce-091ed5be5594      |
-|name     |  teamID    |
-|value     |  The team id value surrounded by ""    |
+|argument     |  Argument contains a name parameter that is the "teamID", and a value parameter which is the team ID of the existing team you are adding a user to.    |
+
 
 
 ```Example for usage within the workflow
@@ -270,8 +274,8 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
 |displayName     | Run a Custom Task Extension (Customizable by user)        |
 |description     |  Run a custom Task Extension (Customizable by user)      |
 |taskDefinitionId     |   "d79d1fcc-16be-490c-a865-f4533b1639ee      |
-|name     |  logicAppURL     |
-|value     |  The endpoint URL for the Logic App     |
+|argument     |  Argument contains a name parameter that is the "LogicAppURL", and a value parameter which is the Logic App HTTP trigger.     |
+
 
 
 
@@ -343,8 +347,8 @@ For Microsoft Graph the parameters for the **Remove user from groups** task are 
 |displayName     |  Remove user from selected groups (Customizable by user)        |
 |description     |  Remove user from membership of selected Azure AD groups (Customizable by user)      |
 |taskDefinitionId     |   1953a66c-751c-45e5-8bfe-01462c70da3c      |
-|name     |  groupID    |
-|value     |  The group id values surrounded by ""    |
+|argument     |  Argument contains a name parameter that is the "groupID", and a value parameter which is the group Id(s) of the group or groups you are removing the user from.   |
+
 
 
 ```Example for usage within the workflow
@@ -413,8 +417,8 @@ For Microsoft Graph the parameters for the **Remove User from Teams** task are a
 |displayName     |  Remove user from selected Teams (Customizable by user)       |
 |description     |  Remove user from membership of selected Teams (Customizable by user)       |
 |taskDefinitionId     |   06aa7acb-01af-4824-8899-b14e5ed788d6     |
-|name     |  teamID   |
-|value     |  The team id values surrounded by ""    |
+|arguments     |  Argument contains a name parameter that is the "teamID", and a value parameter which is the Teams ID of the Teams you are removing the user from.   |
+
 
 ```Example for usage within the workflow
  {

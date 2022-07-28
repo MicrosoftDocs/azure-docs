@@ -14,8 +14,15 @@ ms.custom: template-concept
 
 
 
-Workflows created using Lifecycle Workflows can be updated as needed to satisfy the needs of users as they move through their lifecycle in your organization. To manage updates in workflows, Lifecycle Workflows introduce the concept of workflow versioning. Understanding how workflow versioning is handled during the workflow update process allows you to strategically set up workflows so that workflows tasks, and conditions, are always relevant for users the workflow runs for.
+Workflows created using Lifecycle Workflows can be updated as needed to satisfy the needs of users as they move through their lifecycle in your organization. To manage updates in workflows, Lifecycle Workflows introduce the concept of workflow versioning. Workflow versions are separate workflows built using the same information of an original workflow, but with updated parameters so that they're reported differently within logs. Workflow versions can change the actions or even scope of an existing workflow.  Understanding how workflow versioning is handled during the workflow update process allows you to strategically set up workflows so that workflows tasks, and conditions, are always relevant for users the workflow runs for.
 
+
+## Versioning benefits
+
+Using versioning with Lifecycle Workflows has many benefits over the alternative of creating a new workflow for each use case. These benefits show up in its ability to improve the reporting process for troubleshooting and record keeping capabilities in two ways:
+
+- **Infinite history**- While history, by default, in our audit logs only report information from the previous 30 days, workflow versioning is able to report information about changes to the workflow from its creation.
+- **Processed user tracking**- Allows tracking of which specific version of a workflow processed a user.
 
 ## Workflow properties that won't trigger the creation of a new workflow version
 
@@ -62,25 +69,25 @@ Detailed **Version information** are as follows:
 
 |parameter  |description  |
 |---------|---------|
-|Version Number     | An integer denoting which version of the workflow the information is for. Sequentially goes up with each new workflow version. **This parameter is version specific.**        |
-|Last modified date     | The last time the workflow was updated. If a new version of a workflow is created, this time will still show the creation time of the newest version of the workflow. **This parameter isn't version specific.**        |
-|Last modified by     | Who last modified this workflow. **Not dependent on workflow version.**        |
-|Created date     |  The date and time for when a workflow version was created. **This parameter is version specific.**     |
-|Created by     | Who created this specific version of the workflow. **This parameter is version specific.**        |
+|Version Number     | An integer denoting which version of the workflow the information is for. Sequentially goes up with each new workflow version.        |
+|Last modified date     | The last time the workflow was updated. If a new version of a workflow is created, this time will still show the creation time of the newest version of the workflow       |
+|Last modified by     | Who last modified this workflow      |
+|Created date     |  The date and time for when a workflow version was created   |
+|Created by     | Who created this specific version of the workflow.       |
 
 
-Detailed information for **BASICS** information are as follows:
+Detailed information for **BASICS** data are as follows:
 
 
 |parameter  |description  |
 |---------|---------|
-|Name     | Name of the workflow at this version. **This isn't version specific.**        |
-|Description     | Description of the workflow at this version. **This is version specific.**        |
-|Category     | Category of the workflow. **This isn't editable.**      |
-|Trigger type     | The trigger type for the workflow. **This is version specific.**        |
-|Days from event     | Number of days before or after event timing. **This is version specific**. Won't appear if the trigger type is set to on-demand.        |
-|Event timing     | Defines timing as before or after the days from event parameter. **This is version specific**. Won't appear if the trigger type is set to on-demand.        |
-|Event user attribute     | Attribute used for the trigger. **Not editable and is version specific.**. Won't appear if the trigger type is set to on-demand.        |
+|Name     | Name of the workflow at this version.       |
+|Description     | Description of the workflow at this version.      |
+|Category     | Category of the workflow.      |
+|Trigger type     | The trigger type for the workflow.     |
+|Days from event     | Number of days before or after event timing. Won't appear if the trigger type is set to on-demand.        |
+|Event timing     | Defines timing as before or after the days from event parameter. Won't appear if the trigger type is set to on-demand.        |
+|Event user attribute     | Attribute used for the trigger. Won't appear if the trigger type is set to on-demand.        |
 
 Detailed information for **Configure** information are as follows:
 
@@ -90,8 +97,8 @@ Detailed information for **Configure** information are as follows:
 
 |parameter  |description  |
 |---------|---------|
-|Scope type     | The user scope for executing the workflow. **Not editable and is version specific.**       |
-|Rule     |  Rules for the scope for executing a workflow. **This is version specific.**      |
+|Scope type     | The user scope for executing the workflow.      |
+|Rule     |  Rules for the scope for executing a workflow.     |
 
 
 
