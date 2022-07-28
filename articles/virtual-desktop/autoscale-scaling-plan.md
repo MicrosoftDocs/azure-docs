@@ -52,7 +52,7 @@ For best results, we recommend using Autoscale with VMs you deployed with Azure 
 
 To use scaling plans, make sure you follow these guidelines:
 
-- You can currently only configure Autoscale with pooled existing host pools.
+- You can currently only configure Autoscale with existing pooled host pools.
 - You must create the scaling plan in the same Azure region as the host pool you assign it to. You can't assign a scaling plan in one Azure region to a host pool in another Azure region.
 - All host pools you use with Autoscale must have a configured *MaxSessionLimit* parameter. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AzWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool) or [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) PowerShell cmdlets.
 - You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
