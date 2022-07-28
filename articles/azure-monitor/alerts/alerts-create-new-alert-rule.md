@@ -166,13 +166,13 @@ And then defining these elements for the resulting alert actions using:
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
 
 1. In the **Details** tab, define the **Project details** by selecting the **Subscription** and **Resource group**. 
-1. ### [Metric alert](#tab/metric)
+1. Define the **Alert rule details**.
 
-    1. Define the **Alert rule details**.
-        - Select the **Severity**.
-        - Enter values for the **Alert rule name** and the **Alert rule description**.
-        - Select the **Region**.
-    
+    ### [Metric alert](#tab/metric)
+
+    1. Select the **Severity**.
+    1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. Select the **Region**.
     1. (Optional) In the **Advanced options** section, you can set several options.
 
         |Field |Description |
@@ -184,11 +184,9 @@ And then defining these elements for the resulting alert actions using:
 
     ### [Log alert](#tab/log)
 
-    1. Define the **Alert rule details**.
-        - Select the **Severity**.
-        - Enter values for the **Alert rule name** and the **Alert rule description**.
-        - Select the **Region**.
-    
+    1. Select the **Severity**.
+    1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. Select the **Region**.
     1. (Optional) In the **Advanced options** section, you can set several options.
 
         |Field |Description |
@@ -202,10 +200,8 @@ And then defining these elements for the resulting alert actions using:
 
     ### [Activity log](#tab/activity-log)
 
-    1. Define the **Alert rule details**.
-        - Enter values for the **Alert rule name** and the **Alert rule description**.
-        - Select the **Region**.
-    
+    1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. Select the **Region**.
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Details tab.":::
