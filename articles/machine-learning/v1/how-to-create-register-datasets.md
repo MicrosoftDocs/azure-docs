@@ -88,7 +88,10 @@ With TabularDatasets, you can specify a time stamp from a column in the data or 
 Create a TabularDataset with [the Python SDK](#create-a-tabulardataset) or [Azure Machine Learning studio](../how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
-> [Automated ML](../concept-automated-ml.md) workflows generated via the Azure Machine Learning studio currently only support TabularDatasets. 
+> [Automated ML](../concept-automated-ml.md) workflows generated via the Azure Machine Learning studio currently only support TabularDatasets.
+> 
+>[!NOTE]
+>For TabularDatasets generating from [SQL query results](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-), either T-SQL (e.g. 'WITH' sub query) or duplicate column name is not supported. Complex query like T-SQL can cause performance issues. Duplicate column names in dataset can cause ambiguity issues. 
 
 ## Access datasets in a virtual network
 
