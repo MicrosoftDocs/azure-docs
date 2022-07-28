@@ -129,7 +129,9 @@ az webapp identity assign --resource-group <resource-group-name> -name <app-serv
 
 ### [Azure portal](#tab/assign-role-azure-portal)
 
-1. Next, you need to grant permissions to the managed identity you just created to access your storage account. You can do this by assigning a role to the managed identity, just like you did with your local development user. Navigate to your storage account overview page and select **Access Control (IAM)** from the left navigation.
+Next, you need to grant permissions to the managed identity you created to access your storage account. You can do this by assigning a role to the managed identity, just like you did with your local development user. 
+
+1. Navigate to your storage account overview page and select **Access Control (IAM)** from the left navigation.
 
 1. Choose **Add role assignment**
 
