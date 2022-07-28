@@ -163,6 +163,8 @@ The following steps show you how to create and configure a dev box definition. Y
    |**Image**|Select the base operating system for the dev box. You can select an image from the marketplace or from an Azure Compute Gallery.|To make custom images available for the dev box pool, you can attach an Azure Compute Gallery from an Azure Subscription that you manage. Learn [How to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
    |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes will not be modified when an image version is updated.|
 
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-definition-create.png" alt-text="Screenshot showing the create dev box definition page with suggested images highlighted.":::
+
    For your image, consider using either:
    - Windows 11 Enterprise Cloud PC + Microsoft 365 Apps
    - Windows 10 Enterprise Cloud PC, version 21H2 + Microsoft 365 Apps
