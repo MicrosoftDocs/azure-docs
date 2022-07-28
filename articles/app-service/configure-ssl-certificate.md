@@ -29,9 +29,13 @@ The following table lists the options for you to add certificates in App Service
 ## Prerequisites
 
 - [Create an App Service app](./index.yml).
+
 - For a private certificate, make sure that it satisfies all [requirements from App Service](#private-certificate-requirements).
+
 - **Free certificate only**:
-  - Map the domain you want a certificate for to App Service. For information, see [Tutorial: Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md).
+
+  - Map the domain where you want the certificate to App Service. For information, see [Tutorial: Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md).
+  
   - For a root domain (like contoso.com), make sure your app doesn't have any [IP restrictions](app-service-ip-restrictions.md) configured. Both certificate creation and its periodic renewal for a root domain depends on your app being reachable from the internet.
 
 ## Private certificate requirements
@@ -395,7 +399,7 @@ If you think your certificate's private key is compromised, you can rekey your c
 
 1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. From the left menu, select **Rekey and Sync**.
 
-1. To start the process, selet **Rekey**. This process can take 1-10 minutes to complete.
+1. To start the process, select **Rekey**. This process can take 1-10 minutes to complete.
 
    ![Rekey an App Service certificate](./media/configure-ssl-certificate/rekey-app-service-cert.png)
 
@@ -448,7 +452,7 @@ az keyvault secret download \
 
 ---
 
-The downloaded PFX file is a raw PKCS12 file that contains both the public and private certificates and has an import password that's an empty string. You can locally install the file by leaving the password field empty. You can't [upload the file as-is into App Service](#upload-a-private-certificate) because the file isnt [password protected](#private-certificate-requirements).
+The downloaded PFX file is a raw PKCS12 file that contains both the public and private certificates and has an import password that's an empty string. You can locally install the file by leaving the password field empty. You can't [upload the file as-is into App Service](#upload-a-private-certificate) because the file isn't [password protected](#private-certificate-requirements).
 
 ### Delete App Service certificate
 
