@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 1. Select **Access control (IAM)** in the navigation menu.
 1. Click **Add**, then **Add role assignment**
 
-      :::image type="content" source="media/managed-grafana-how-to-share-IAM.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
+      :::image type="content" source="media/share/iam-page.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
 
 1. Select one of the Grafana roles to assign to a user or security group. The available roles are:
 
@@ -50,7 +50,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
    - Grafana Editor
    - Grafana Viewer
 
-    :::image type="content" source="media/managed-grafana-how-to-share-role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
+    :::image type="content" source="media/share/role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
 
 > [!NOTE]
 > Dashboard and data source level sharing will be done from within the Grafana application. Fore more details, refer to [Grafana permissions](https://grafana.com/docs/grafana/latest/permissions/).
