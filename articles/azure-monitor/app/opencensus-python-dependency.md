@@ -13,7 +13,7 @@ A dependency is an external component that is called by your application. Depend
 
 First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).
 
-You can find sample dependency applications in the Azure Monitor OpenCenses Python git repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/docs_samples).
+You can find sample dependency applications in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/docs_samples).
 
 ## In-process dependencies
 
