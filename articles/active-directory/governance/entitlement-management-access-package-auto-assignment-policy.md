@@ -38,7 +38,7 @@ To create a policy for an access package, you need to start from the access pack
 
 1. Click **Policies** and then **Add auto-assignment policy** to create a new policy.
 
-1. In the first tab, you will specify the rule.  Click **Edit**.
+1. In the first tab, you'll specify the rule.  Click **Edit**.
 
 1. Provide a dynamic membership rule, using the [membership rule builder](../enterprise-users/groups-dynamic-membership.md) or by clicking **Edit** on the rule syntax text box.
 
