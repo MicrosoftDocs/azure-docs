@@ -20,7 +20,7 @@ To recover from availability problems that affect your API Management service, b
 
 Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging. Beware that runtime data such as users and subscriptions will be copied as well, which might not always be desirable.
 
-This article shows how to$ automate backup and restore operations of your API Management instance using an external storage account. The steps shown here use either the [Backup-AzApiManagement](/powershell/module/az.apimanagement/backup-azapimanagement) and [Restore-AzApiManagement](/powershell/module/az.apimanagement/restore-azapimanagement) Azure PowerShell cmdlets, or the [Api Management Service - Backup](/rest/api/apimanagement/current-ga/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/current-ga/api-management-service/restore) REST APIs.
+This article shows how to automate backup and restore operations of your API Management instance using an external storage account. The steps shown here use either the [Backup-AzApiManagement](/powershell/module/az.apimanagement/backup-azapimanagement) and [Restore-AzApiManagement](/powershell/module/az.apimanagement/restore-azapimanagement) Azure PowerShell cmdlets, or the [Api Management Service - Backup](/rest/api/apimanagement/current-ga/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/current-ga/api-management-service/restore) REST APIs.
 
 
 > [!WARNING]
@@ -40,10 +40,7 @@ This article shows how to$ automate backup and restore operations of your API Ma
 * An Azure storage account. If you don't have one, see [Create a storage account](../storage/common/storage-account-create.md).
     * [Create a container](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in the storage account to hold the backup data.
         
-    > [!NOTE]
-    > [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) should **not** be enabled on the Blob Service in the storage account.
 * The latest version of Azure PowerShell, if you plan to use Azure PowerShell cmdlets. If you haven't already, [install Azure PowerShell](/powershell/azure/install-az-ps).
-* To make direct REST calls for the backup and restore operations, see [Azure REST API reference](/rest/api/azure/) for information about authenticating and calling Azure REST APIs.
 
 ## Configure storage account access
 When running a backup or restore operation, you need to configure access to the storage account. API Management supports two storage access mechanisms: an Azure Storage access key (the default), or an API Management managed identity.
@@ -64,9 +61,9 @@ Azure generates two 512-bit storage account access keys for each storage account
 1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
 
 
-## <a name="step1"> </a>Back up an API Management service
+## Back up an API Management service
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 [Sign in](/powershell/azure/authenticate-azureps) with Azure PowerShell.
 
@@ -126,8 +123,9 @@ Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $api
 
 Backup is a long-running operation that may take several minutes to complete.
 
-# [REST](#tab/rest)
+### [REST](#tab/rest)
 
+See [Azure REST API reference](/rest/api/azure/) for information about authenticating and calling Azure REST APIs.
 
 To back up an API Management service, issue the following HTTP request:
 
@@ -187,14 +185,15 @@ In the body of the request, specify the target storage account name, blob contai
 Set the value of the `Content-Type` request header to `application/json`.
 
 Backup is a long-running operation that may take several minutes to complete. If the request succeeded and the backup process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress, you continue to receive a `202 Accepted` status code. A Response code of `200 OK` indicates successful completion of the backup operation.
+
 ---
 
-## <a name="step2"> </a>Restore an API Management service
+## Restore an API Management service
 
 > [!CAUTION]
 > Avoid changes to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress. Changes **could be overwritten**.
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 In the following examples, 
 
@@ -251,7 +250,7 @@ Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $ap
 
 Restore is a long-running operation that may take up to 30 or more minutes to complete.
 
-# [REST](#tab/rest)
+### [REST](#tab/rest)
 
 To restore an API Management service from a previously created backup, make the following HTTP request:
 
@@ -310,6 +309,7 @@ In the body of the request, specify the existing storage account name, blob cont
 Set the value of the `Content-Type` request header to `application/json`.
 
 Restore is a long-running operation that may take up to 30 or more minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive a `202 Accepted` status code. A response code of `200 OK` indicates successful completion of the restore operation.
+
 ---
 
 ## Constraints
@@ -318,7 +318,8 @@ Restore is a long-running operation that may take up to 30 or more minutes to co
 -   While backup is in progress, **avoid management changes in the service** such as pricing tier upgrade or downgrade, change in domain name, and more.
 -   **Changes** made to the service configuration (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
 - Backup doesn't capture pre-aggregated log data used in reports shown on the **Analytics** window in the Azure portal.
--   **The pricing tier** of the service being restored into **must match** the pricing tier of the backed-up service being restored.
+- [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) should **not** be enabled on the Blob service in the storage account.
+-  **The pricing tier** of the service being restored into **must match** the pricing tier of the backed-up service being restored.
 
 ## Storage networking constraints
 
@@ -330,7 +331,7 @@ If the storage account is **[firewall][azure-storage-ip-firewall] enabled** and 
 
 If an API Management system-assigned managed identity is used to access a firewall-enabled storage account, ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
-## What isn't backed up
+## What is not backed up
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
 -   [Custom domain TLS/SSL](configure-custom-domain.md) certificates.
 -   [Custom CA certificates](api-management-howto-ca-certificates.md), which includes intermediate or root certificates uploaded by the customer.
