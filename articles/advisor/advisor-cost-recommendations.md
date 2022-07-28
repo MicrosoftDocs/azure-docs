@@ -28,7 +28,7 @@ Advisor identifies resources that have not been used at all over the last 7 days
 
 -	Metrics considered are CPU and Outbound Network utilization (memory is not considered for shutdown recommendations since we’ve found that relying on CPU and Network provide enough signals for this recommendation)
 - The last 7 days of utilization data are considered
-- Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the average of max values while aggregating to 30 mins)
+- Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins)
 - A shutdown recommendation is created if: 
   - P95th of the maximum value of CPU utilization summed across all cores is less than 3%.
   - P100 of average CPU in last 3 days (sum over all cores) <= 2%   
@@ -40,7 +40,7 @@ Advisor considers resizing virtual machines when it's possible to fit the curren
 
 -	Metrics considered are CPU, Memory and Outbound Network utilization 
 - The last 7 days of utilization data are considered
-- Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the average of max values while aggregating to 30 mins)
+- Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins)
 - An appropriate SKU is determined based on the following criteria:
   - Performance of the workloads on the new SKU should not be impacted. 
     - Target for user-facing workloads: 
