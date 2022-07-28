@@ -94,7 +94,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
     :::image type="content" source="media/how-to-manage-subscriptions/onboard-plan-2.png" alt-text="Screenshot of adding a plan for OT networks to your subscription.":::
 
-1. Ensure the checkbox is selected to accept the terms.
+1. Select **I accept the terms**, and then select **Save**.
 
 1. Select **Save**.
 
