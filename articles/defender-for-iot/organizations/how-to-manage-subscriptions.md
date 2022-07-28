@@ -73,7 +73,7 @@ After you've set up your network sensor and have full visibility into all device
 
 This procedure describes how to add a Defender for IoT plan for OT networks to an Azure subscription.
 
-**To onboard Defender for IoT plan for OT networks:**
+**To onboard a Defender for IoT plan for OT networks:**
 
 1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
 
