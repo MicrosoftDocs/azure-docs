@@ -122,7 +122,7 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
    /etc/adu/du-config.json
    ```
 
-1. Restart the Device Update agent by running the following command:
+5. Restart the Device Update agent by running the following command:
 
    ```markdown
     sudo systemctl restart adu-agent
