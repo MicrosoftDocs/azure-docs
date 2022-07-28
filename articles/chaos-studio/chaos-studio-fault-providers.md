@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 The following are the supported resource types for faults, the target types, and suggested roles to use when giving an experiment permission to a resource of that type.
 
-| Resource Type | Target name | Suggested role assignment |
+| Resource Type | Target name/type | Suggested role assignment |
 | - | - | - |
 | Microsoft.Cache/Redis (service-direct) | Microsoft-AzureCacheForRedis | Redis Cache Contributor |
 | Microsoft.ClassicCompute/domainNames (service-direct) | Microsoft-DomainNames | Classic Virtual Machine Contributor |

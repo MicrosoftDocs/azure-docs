@@ -310,7 +310,7 @@ gradle run
 
 > [!IMPORTANT]
 >
-> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  See [Azure Cognitive Services security](../../cognitive-services-security.md?tabs=command-line%2ccsharp) for ways to securely store and access your credentials.
+> For the code samples below, you'll hard-code your Shared Access Signature (SAS) URL where indicated. Remember to remove the SAS URL from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
 >
 > You may need to update the following fields, depending upon the operation:
 >>>
