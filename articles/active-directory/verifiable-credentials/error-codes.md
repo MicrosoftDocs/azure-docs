@@ -37,7 +37,7 @@ During public preview, the Request Service API returned errors in the following 
 
 ```
 
-This format is now changed into the following to enable both simpler error handling and better support for troubleshooting. In the new format, the outer [error](#error-type) code and message fields have standardized values while the [```innererror```](#innererror-type) object provide details on what caused the error.
+This format is now changed into the following to enable both simpler error handling and better support for troubleshooting. In the new format, the outer [error](#error-type) code and message fields have standardized values while the [```innererror```](#inner-error-type) object provide details on what caused the error.
 
 ```json
 {
@@ -71,7 +71,7 @@ The `error` object is now matching the HTTP Status Code returned from the API Ca
 |---------|---------|---------|
 | `code` | string| The return error code matching the HTTP Status Code. |
 | `message`| string| A standardized error message that is also dependent on the HTTP status code returned. |
-| `innererror` | [Innererror](#innererror-type)| Provide details on what caused the error. |
+| `innererror` | [Innererror](#inner-error-type)| Provide details on what caused the error. |
 
 
 ### Error codes and messages
