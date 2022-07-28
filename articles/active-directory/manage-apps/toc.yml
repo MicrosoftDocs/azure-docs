@@ -233,7 +233,7 @@
       - name: Error on application sign-in page
         href: application-sign-in-problem-application-error.md
       - name: Problem signing into a Microsoft app
-        href: application-sign-in-problem-first-party-microsoft.
+        href: application-sign-in-problem-first-party-microsoft.md
     - name: Create enterprise app for multi-tenant app registration
       href: create-service-principal-cross-tenant.md    
   - name: Reference
