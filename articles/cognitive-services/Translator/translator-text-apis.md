@@ -44,6 +44,9 @@ In this how-to guide, you'll learn to use the [Translator service REST APIs](ref
 
     :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
+
 ## Headers
 
 To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to make sure the following headers are included with each request. Don't worry, we'll include the headers in the sample code in the following sections.
