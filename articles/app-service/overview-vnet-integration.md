@@ -100,12 +100,6 @@ We recommend that you use the **Route All** configuration setting to enable rout
 
 When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, configuration traffic will go directly over the public route, but for the mentioned individual components, you can actively configure it to be routed through the virtual network integration.
 
-> [!NOTE]
-> * Windows containers don't support pulling custom container images over virtual network integration.
-> * Backup/restore to private storage accounts is currently not supported.
-> * Configure SSL/TLS certificates from private Key Vaults is currently not supported.
-> * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
-
 ##### Content storage
 
 Bringing your own storage for content in often used in Functions where [content storage](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
@@ -119,6 +113,12 @@ When using custom containers for Linux, you can pull the container over the virt
 ##### App settings using Key Vault references
 
 App settings using Key Vault references will attempt to get secrets over the public route. If the Key Vault is blocking public traffic and the app is using virtual network integration, an attempt will then be made to get the secrets through the virtual network integration.
+
+> [!NOTE]
+> * Windows containers don't support pulling custom container images over virtual network integration.
+> * Backup/restore to private storage accounts is currently not supported.
+> * Configure SSL/TLS certificates from private Key Vaults is currently not supported.
+> * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
 
 #### Network routing
 
