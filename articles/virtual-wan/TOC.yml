@@ -180,7 +180,9 @@
       - name: Certificate authentication clients
         items:
         - name: Windows clients
-          href: vpn-client-certificate-windows.md      
+          href: vpn-client-certificate-windows.md
+        - name: macOS and iOS clients
+          href: point-to-site-vpn-client-cert-mac.md    
         - name: Install client certificates
           href: install-client-certificates.md
       - name: VPN client profiles
