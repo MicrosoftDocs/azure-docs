@@ -86,20 +86,20 @@ To better understand Privileged Identity Management and its documentation, you s
 
 ## Role assignment workflow
 
-The PIM role assignments give you a secure way to grant access to resources in your organization. This section describes the assignment workflow. The workflow includes assign roles to members, activate assignments, approve or deny request, extend and renew assignments. 
+The PIM role assignments give you a secure way to grant access to resources in your organization. This section describes the assignment workflow. The workflow includes assign roles to members, activate assignments, approve or deny requests, extend and renew assignments. 
 
 PIM keeps you informed by sending you and other participants [email notifications](pim-email-notifications.md). These emails might also include links to relevant tasks, such activating, approve or deny a request. 
 
 ### Assign
 
-To grant access to a resource, you assign roles to users, groups, service principals, or managed identities. When you assign a role, you select:
+The assignment flow starts by assign roles. To grant access to a resource, you assign roles to users, groups, service principals, or managed identities. When you assign a role, you select:
 
 - The members or owners you want to assign the role.
-- The scope that limits the assigned role to a particular set of resources. 
+- The scope of the assignment. The scope limits the assigned role to a particular set of resources.
 - The type of the assignment
   - **Eligible** assignments require the member of the role to perform an action to use the role. Actions might include self-service activation, or requesting approval from designated approvers.
   - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role.
-- Time-bound access to resources using start and end dates, or permanent assignment. For eligible assignments, the members can activate or requesting approval during the start and end dates. For active assignments, the members can use the assign role during this period of time.
+- The duration of the assignment, using start and end dates or permanent. For eligible assignments, the members can activate or requesting approval during the start and end dates. For active assignments, the members can use the assign role during this period of time.
 
 For more information, check out the following articles: [Assign Azure AD roles](pim-how-to-add-role-to-user.md), [Assign Azure resource roles](pim-resource-roles-assign-roles.md), and [Assign eligibility for a privileged access group](groups-assign-member-owner.md)
 
@@ -107,7 +107,7 @@ For more information, check out the following articles: [Assign Azure AD roles](
 
 If users have been made eligible for a role, then they must activate the role assignment before using the role. To activate the role, users select specific activation duration within the maximum (configured by administrators), and the reason for the activation request.
 
-If the role requires [approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of the user's browser informing them the request is pending approval. Otherwise, the member can start using the role immediately.
+If the role requires [approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of the user's browser informing them the request is pending approval. If an approval isn't required, the member can start using the role immediately.
 
 For more information, check out the following articles: [Activate Azure AD roles](pim-how-to-activate-role.md), [Activate my Azure resource roles](pim-resource-roles-activate-your-roles.md), and [Activate my privileged access group roles](groups-activate-roles.md)
 
