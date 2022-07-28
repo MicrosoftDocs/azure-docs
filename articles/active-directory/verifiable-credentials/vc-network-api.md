@@ -132,4 +132,4 @@ Content-type: application/json
 
 ## Next steps
 
-Learn more about [Entra Verified ID Network](how-use-vc-network.md).
+Learn more about [Entra Verified ID Network](how-use-vcnetwork.md).
