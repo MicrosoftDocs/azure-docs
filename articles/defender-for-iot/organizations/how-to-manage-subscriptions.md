@@ -133,7 +133,6 @@ For example, you may have more devices that require monitoring if you're increas
 
 1. Ensure the checkbox is selected to accept the terms.
 
-1. Select **Save**.
 
 Changes to your plan will take effect one hour after confirming the change. Billing for these changes will be reflected at the beginning of the month following confirmation of the change.
 
