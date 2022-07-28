@@ -8,4 +8,5 @@ items:
     items:
     - name: Create and configure DevCenter
       href: tutorial-create-and-configure-devcenter.md
-    
+    - name: Create and configure a DevCenter Project
+      href: tutorial-create-and-configure-projects.md    
