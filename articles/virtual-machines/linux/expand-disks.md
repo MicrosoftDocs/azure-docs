@@ -5,7 +5,7 @@ author: roygara
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 07/27/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli 
