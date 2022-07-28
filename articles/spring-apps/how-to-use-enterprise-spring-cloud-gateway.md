@@ -118,7 +118,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    To assign a public endpoint, select **Yes** next to **Assign endpoint**. You'll get a URL in a few minutes. Save the URL to use later.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted." lightbox="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png":::
+   :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted." lightbox="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
    You can also use Azure CLI to assign the endpoint, as shown in the following command:
 
@@ -162,7 +162,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    You can also view the routes in the portal.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane." lightbox="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png":::
+   :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane." lightbox="media/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png":::
 
 1. Use the following command to access the `animal rescue backend` API through the gateway endpoint:
 
