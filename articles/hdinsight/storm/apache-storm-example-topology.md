@@ -4,7 +4,7 @@ description: A list of example Storm topologies created and tested with Apache S
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/27/2019
+ms.date: 06/29/2022
 ---
 
 # Example Apache Storm topologies and components for Apache Storm on HDInsight

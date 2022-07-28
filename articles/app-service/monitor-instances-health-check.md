@@ -55,7 +55,7 @@ In addition to configuring the Health check options, you can also configure the 
 
 Health check integrates with App Service's [authentication and authorization features](overview-authentication-authorization.md). No additional settings are required if these security features are enabled.
 
-If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. Once you have those features in-place, you can authenticate the health check request by inspecting the header, `x-ms-auth-internal-token`, and validating that it matches the SHA256 hash of the environment variable `WEBSITE_AUTH_ENCRPYTION_KEY`. If they match, then the health check request is valid and originating from App Service. 
+If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. Once you have those features in-place, you can authenticate the health check request by inspecting the header, `x-ms-auth-internal-token`, and validating that it matches the SHA256 hash of the environment variable `WEBSITE_AUTH_ENCRYPTION_KEY`. If they match, then the health check request is valid and originating from App Service. 
 
 ##### [.NET](#tab/dotnet)
 

@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 05/17/2022
+ms.date: 06/03/2022
 ms.author: ranku
 ---
 
@@ -19,7 +19,7 @@ As a prerequisite, you'll need an Azure subscription and have been granted prope
 
 ## Create Azure resource
 
-To get started with Azure API for FHIR, you must [create a resource](https://ms.portal.azure.com/#create/hub) in the Azure portal.  Enter *Azure API for FHIR* in the **Search services and marketplace** box.
+To get started with Azure API for FHIR, you must [create a resource](https://portal.azure.com/#create/hub) in the Azure portal.  Enter *Azure API for FHIR* in the **Search services and marketplace** box.
 
  
 [![Screenshot of the Azure search services and marketplace text box.](media/get-started/search-services-marketplace.png)](media/get-started/search-services-marketplace.png#lightbox)
@@ -62,3 +62,5 @@ This article described the basic steps to get started using Azure API for FHIR. 
 
 >[!div class="nextstepaction"]
 >[Frequently asked questions about Azure API for FHIR](fhir-faq.yml)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

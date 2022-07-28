@@ -2,11 +2,11 @@
 title: Upgrade from Basic Internal to Standard Internal - Azure Load Balancer
 description: This article shows you how to upgrade Azure Internal Load Balancer from Basic SKU to Standard SKU
 services: load-balancer
-author: irenehua
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
-ms.author: irenehua
+ms.author: mbender
 ---
 
 # Upgrade Azure Internal Load Balancer- No Outbound Connection Required

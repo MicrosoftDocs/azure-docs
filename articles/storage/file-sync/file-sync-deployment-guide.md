@@ -1,10 +1,10 @@
 ---
 title: Deploy Azure File Sync | Microsoft Docs
-description: Learn how to deploy Azure File Sync, from start to finish, using the Azure portal, PowerShell, or the Azure CLI.
+description: Learn how to deploy Azure File Sync from start to finish using the Azure portal, PowerShell, or the Azure CLI.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 06/03/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -24,7 +24,9 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 1. An **Azure file share** in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
     - [Create a file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) for a step-by-step description of how to create a file share.
-2. **SMB security settings** on the storage account must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+2. The following **storage account** settings must be enabled to allow Azure File Sync access to the storage account:  
+    -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+    -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
 3. At least one supported instance of **Windows Server** to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
 4. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
 
@@ -36,7 +38,9 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 1. An **Azure file share** in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
     - [Create a file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) for a step-by-step description of how to create a file share.
-2. **SMB security settings** on the storage account must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+2. The following **storage account** settings must be enabled to allow Azure File Sync access to the storage account:  
+    -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+    -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
 3. At least one supported instance of **Windows Server** to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
 
 4. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
@@ -75,7 +79,9 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 1. An **Azure file share** in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
     - [Create a file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) for a step-by-step description of how to create a file share.
-2. **SMB security settings** on the storage account must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+2. The following **storage account** settings must be enabled to allow Azure File Sync access to the storage account:  
+    -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+    -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
 3. At least one supported instance of **Windows Server** to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
 
 4. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
@@ -267,7 +273,11 @@ Execute the following PowerShell code to download the appropriate version of the
 $osver = [System.Environment]::OSVersion.Version
 
 # Download the appropriate version of the Azure File Sync agent for your OS.
-if ($osver.Equals([System.Version]::new(10, 0, 17763, 0))) {
+if ($osver.Equals([System.Version]::new(10, 0, 20348, 0))) {
+    Invoke-WebRequest `
+        -Uri https://aka.ms/afs/agent/Server2022 `
+        -OutFile "StorageSyncAgent.msi" 
+} elseif ($osver.Equals([System.Version]::new(10, 0, 17763, 0))) {
     Invoke-WebRequest `
         -Uri https://aka.ms/afs/agent/Server2019 `
         -OutFile "StorageSyncAgent.msi" 
@@ -564,15 +574,15 @@ The recommended steps to onboard on Azure File Sync for the first time with zero
 1. Redirect users and applications to this new share.
 1. You can optionally delete any duplicate shares on the servers.
 
-If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure files shares. This approach is suggested, if and only if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process.
+If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure file shares using another data transfer tool instead of using the Storage Sync Service to upload the data. The pre-seeding approach is only suggested if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process.
 
 1. Ensure that data on any of the servers can't change during the onboarding process.
-1. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB. Robocopy, for example. You can also use AzCopy over REST. Be sure to use AzCopy with the appropriate switches to preserve ACLs timestamps and attributes.
+1. Pre-seed Azure file shares with the server data using any data transfer tool over SMB, such as Robocopy, or AzCopy over REST. If using Robocopy, make sure you mount the Azure file share(s) using the storage account access key; don't use a domain identity. If using AzCopy, be sure to set the appropriate switches to preserve ACL timestamps and attributes.
 1. Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
 1. Let sync finish reconciliation process on all endpoints.
 1. Once reconciliation is complete, you can open shares for changes.
 
-Currently, pre-seeding approach has a few limitations -
+Currently, pre-seeding approach has a few limitations:
 - Data changes on the server before the sync topology is fully up and running can cause conflicts on the server endpoints.
 - After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.
 

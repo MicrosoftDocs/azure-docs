@@ -3,7 +3,7 @@ title: Tutorial - Create and manage Azure budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/13/2022
+ms.date: 06/07/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -110,7 +110,7 @@ To toggle between configuring an Actual vs Forecasted cost alert, use the `Type`
 
 If you want to receive emails, add azure-noreply@microsoft.com to your approved senders list so that emails don't go to your junk email folder. For more information about notifications, see [Use cost alerts](./cost-mgt-alerts-monitor-usage-spending.md).
 
-In the following example, an email alert gets generated when 90% of the budget is reached. If you create a budget with the Budgets API, you can also assign roles to people to receive alerts. Assigning roles to people isn't supported in the Azure portal. For more about the Azure budgets API, see [Budgets API](/rest/api/consumption/budgets). If you want to have an email alert sent in a different language, see [Supported locales for budget alert emails](manage-automation.md#supported-locales-for-budget-alert-emails).
+In the following example, an email alert gets generated when 90% of the budget is reached. If you create a budget with the Budgets API, you can also assign roles to people to receive alerts. Assigning roles to people isn't supported in the Azure portal. For more about the Azure budgets API, see [Budgets API](/rest/api/consumption/budgets). If you want to have an email alert sent in a different language, see [Supported locales for budget alert emails](../automate/automate-budget-creation.md#supported-locales-for-budget-alert-emails).
 
 Alert limits support a range of 0.01% to 1000% of the budget threshold that you've provided.
 
@@ -160,10 +160,10 @@ Budget integration with action groups works for action groups which have enabled
 
 ## Create and edit budgets with PowerShell
 
-If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. 
+If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. However, we recommend that you use REST APIs to create and edit budgets because CLI commands might not support the latest version of the APIs.
 
->[!Note]
->Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically because PowerShell and CLI aren't yet supported.
+> [!NOTE]
+> Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically.
 
 To download the latest version of Azure PowerShell, run the following command:
 

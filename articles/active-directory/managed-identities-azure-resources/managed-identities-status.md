@@ -8,7 +8,7 @@ ms.date: 01/10/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: karenhoran
+manager: rkarlin
 ms.collection: M365-identity-device-management
 ---
 

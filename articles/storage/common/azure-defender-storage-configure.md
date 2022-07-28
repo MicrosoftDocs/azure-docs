@@ -3,13 +3,13 @@ title: Configure Microsoft Defender for Storage
 titleSuffix: Azure Storage
 description: Configure Microsoft Defender for Storage to detect anomalies in account activity and be notified of potentially harmful attempts to access your account.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 05/31/2022
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: ozgun 
 ms.custom: devx-track-azurepowershell
 ---

@@ -107,7 +107,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure Functions bindings
-            url: https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service
+            url: ../azure-functions/functions-bindings-signalr-service.md
 
   # Card
   - title: Common tasks
@@ -143,8 +143,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/signalr/
+            url: /rest/api/signalr/
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/signalr?view=azure-cli-latest
+            url: /cli/azure/signalr?view=azure-cli-latest
           - text: ASP.NET Core SignalR
-            url: https://docs.microsoft.com/aspnet/core/signalr/introduction
+            url: /aspnet/core/signalr/introduction

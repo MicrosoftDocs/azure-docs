@@ -34,6 +34,11 @@ sections:
         answer: |
              There are various measures taken by Site Recovery to ensure data integrity. A secure connection is established between all services by using the HTTPS protocol. This makes sure that any malware or outside entities can't tamper the data. Another measure taken is using checksums. The data transfer between source and target is executed by computing checksums of data between them. This ensures that the transferred data is consistent.
 
+      - question: |
+         How can I migrate/protect software which requires a persistent MAC address on the virtual machine?
+        answer: |
+             Azure does not support persistent MAC addresses and so software with MAC based license models cannot be used for both on-premises to Azure migration or disaster recovery.
+
   - name: Service providers
     questions:
       - question: |

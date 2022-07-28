@@ -4,8 +4,7 @@ description: How to view and configure settings for collecting data from your au
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
@@ -13,11 +12,6 @@ ms.author: kenwith
 ---
 
 # View and configure settings for data collection
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 
 You can use the **Data Collectors** dashboard in Permissions Management to view and configure settings for collecting data from your authorization systems. It also provides information about the status of the data collection.
 

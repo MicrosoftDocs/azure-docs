@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to stream Azure Digital Twins telemetry to clients using Azure SignalR
 author: dejimarquis
 ms.author: aymarqui # Microsoft employees only
-ms.date: 02/22/2022
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -50,7 +50,7 @@ First, download the required sample apps. You'll need both of the following samp
 
         :::image type="content" source="media/includes/download-repo-zip.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub and the steps for downloading it as a zip." lightbox="media/includes/download-repo-zip.png":::
 
-    This button will download a copy of the sample repo in your machine, as *digital-twins-samples-master.zip*. Unzip the folder.
+    This button will download a copy of the sample repo in your machine, as *digital-twins-samples-main.zip*. Unzip the folder.
 * [SignalR integration web app sample](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This sample React web app will consume Azure Digital Twins telemetry data from an Azure SignalR Service.
     -  Navigate to the sample link and use the same download process to download a copy of the sample to your machine, as *digitaltwins-signalr-webapp-sample-main.zip*. Unzip the folder.
 
@@ -64,22 +64,24 @@ In this section, you'll set up two Azure functions:
 * *negotiate* - A HTTP trigger function. It uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
 * *broadcast* - An [Event Grid](../event-grid/overview.md) trigger function. It receives Azure Digital Twins telemetry data through the event grid, and uses the output binding of the SignalR instance you created in the previous step to broadcast the message to all connected client applications.
 
-Start Visual Studio (or another code editor of your choice), and open the code solution in the *digital-twins-samples-master > ADTSampleApp* folder. Then do the following steps to create the functions:
+Start Visual Studio or another code editor of your choice, and open the code solution in the *digital-twins-samples-main\ADTSampleApp* folder. Then do the following steps to create the functions:
 
-1. In the *SampleFunctionsApp* project, create a new C# class called *SignalRFunctions.cs*. For instructions on how to create a new class, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
+1. In the *SampleFunctionsApp* project, create a new C# class called *SignalRFunctions.cs*.
 
 1. Replace the contents of the class file with the following code:
     
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
-1. In Visual Studio's **Package Manager Console** window, or any command window on your machine, navigate to the folder *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp*, and run the following command to install the `SignalRService` NuGet package to the project:
+1. In Visual Studio's **Package Manager Console** window, or any command window on your machine, navigate to the folder *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp*, and run the following command to install the `SignalRService` NuGet package to the project:
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
 
     Running this command should resolve any dependency issues in the class.
 
-1. Publish your function to Azure. You can publish it to the same app service/function app that you used in the end-to-end tutorial [prerequisite](#prerequisites), or create a new one—but you may want to use the same one to minimize duplication. For instructions on how to publish a function using Visual Studio, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+1. Publish the function to Azure, using your preferred method.
+
+    For instructions on how to publish the function using **Visual Studio**, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure). For instructions on how to publish the function using **Visual Studio Code**, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#publish-the-project-to-azure). For instructions on how to publish the function using the **Azure CLI**, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#deploy-the-function-project-to-azure). 
 
 ### Configure the function
 
@@ -168,7 +170,7 @@ Next, set permissions in your function app in the Azure portal:
 
 During the end-to-end tutorial prerequisite, you [configured the device simulator](tutorial-end-to-end.md#configure-and-run-the-simulation) to send data through an IoT Hub and to your Azure Digital Twins instance.
 
-Now, all you have to do is start the simulator project, located in *digital-twins-samples-master > DeviceSimulator > DeviceSimulator.sln*. If you're using Visual Studio, you can open the project and then run it with this button in the toolbar:
+Now, start the simulator project located in *digital-twins-samples-main\DeviceSimulator\DeviceSimulator.sln*. If you're using Visual Studio, you can open the project and then run it with this button in the toolbar:
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Screenshot of the Visual Studio start button with the DeviceSimulator project open.":::
 
@@ -206,7 +208,7 @@ Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resourc
 az group delete --name <your-resource-group>
 ```
 
-Finally, delete the project sample folders that you downloaded to your local machine (*digital-twins-samples-master.zip*, *digitaltwins-signalr-webapp-sample-main.zip*, and their unzipped counterparts).
+Finally, delete the project sample folders that you downloaded to your local machine (*digital-twins-samples-main.zip*, *digitaltwins-signalr-webapp-sample-main.zip*, and their unzipped counterparts).
 
 ## Next steps
 

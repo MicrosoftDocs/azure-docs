@@ -4,6 +4,10 @@
   items:
     - name: What is Event Hubs?
       href: event-hubs-about.md
+    - name: Event Hubs for Apache Kafka
+      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: Azure Schema Registry in Event Hubs
+      href: schema-registry-overview.md      
     - name: Terminology
       href: event-hubs-features.md
 - name: Quickstarts
@@ -31,6 +35,8 @@
           href: event-hubs-java-get-started-send.md
         - name: Java (azure-eventhubs - legacy)
           href: event-hubs-java-get-started-send-legacy.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
         - name: Python (azure-eventhub)
           href: event-hubs-python-get-started-send.md
         - name: JavaScript (azure/event-hubs)
@@ -66,7 +72,7 @@
     - name: Analyze fraudulent call data with Stream Analytics
       href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
     - name: Capture Event Hubs data in Parquet format
-      href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md
+      href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md?toc=/azure/event-hubs/TOC.json
       maintainContext: true
     - name: Build real time dashboards with Power BI
       href: ../stream-analytics/no-code-power-bi-tutorial.md
@@ -82,6 +88,12 @@
       href: event-hubs-samples.md
 - name: Concepts
   items:
+    - name: Event Hubs Capture
+      items:
+      - name: Capture event data in Event Hubs
+        href: event-hubs-capture-overview.md
+      - name: Explore captured Avro files
+        href: explore-captured-avro-files.md
     - name: Application groups
       href: resource-governance-overview.md     
     - name: Tiers 
@@ -92,12 +104,6 @@
         href: event-hubs-dedicated-overview.md
       - name: Compare tiers
         href: compare-tiers.md
-    - name: Event Hubs for Apache Kafka
-      href: event-hubs-for-kafka-ecosystem-overview.md
-    - name: Event Hubs Capture
-      href: event-hubs-capture-overview.md
-    - name: Azure Schema Registry in Event Hubs
-      href: schema-registry-overview.md      
     - name: Event processing using SDKs
       items: 
       - name: Event processor host (legacy SDK)
@@ -319,6 +325,12 @@
               href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy&preserve-view=true
         - name: Management library
           href: /java/api/com.microsoft.azure.management.eventhub
+    - name: Spring
+      items:
+        - name: Spring integration
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-integration-with-azure-event-hubs?toc=/azure/event-hubs/TOC.json
+        - name: Spring Cloud Stream
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-cloud-stream-binder-for-azure-event-hubs?toc=/azure/event-hubs/TOC.json
     - name: Python
       items:
         - name: Client library

@@ -7,9 +7,12 @@ ms.topic: overview
 ms.author: sunila
 author: sunilagarwal
 ms.custom: mvc
-ms.date: 12/01/2021
+ms.date: 06/24/2022
 ---
+
 # Choose the right PostgreSQL server option in Azure
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 With Azure, your PostgreSQL Server workloads can run in a hosted virtual machine infrastructure as a service (IaaS) or as a hosted platform as a service (PaaS). PaaS has multiple deployment options, each with multiple service tiers. When you choose between IaaS and PaaS, you must decide if you want to manage your database, apply patches, and make backups, or if you want to delegate these operations to Azure.
 

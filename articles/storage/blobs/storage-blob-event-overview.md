@@ -3,7 +3,7 @@ title: Reacting to Azure Blob storage events | Microsoft Docs
 description: Use Azure Event Grid to subscribe and react to Blob storage events. Understand the event model, filtering events, and practices for consuming events.
 author: normesta
 ms.author: normesta
-ms.date: 04/06/2020
+ms.date: 06/13/2022
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
@@ -101,16 +101,7 @@ Applications that handle Blob storage events should follow a few recommended pra
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png) <sup>2</sup>  | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png) <sup>2</sup> | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps
 

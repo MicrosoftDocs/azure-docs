@@ -78,9 +78,9 @@ The model would have the following entity-level evaluation, for the *city* entit
 | False Positive | 1 | *Forrest* was incorrectly predicted as *city* while it should have been *person*. |
 | False Negative | 1 | *Frederick* was incorrectly predicted as *person* while it should have been *city*. |
 
-* **Precision** = `#True_Positive / (#True_Positive + #False_Positive)` = `2 / (2 + 1) = 0.67`
-* **Recall** = `#True_Positive / (#True_Positive + #False_Negatives)` = `2 / (2 + 1) = 0.67`
-* **F1 Score** = `2 * Precision * Recall / (Precision + Recall)` =  `(2 * 0.67 * 0.67) / (0.67 + 0.67) = 0.67`
+* **Precision** = `#True_Positive / (#True_Positive + #False_Positive)` = `1 / (1 + 1) = 0.5`
+* **Recall** = `#True_Positive / (#True_Positive + #False_Negatives)` = `1 / (1 + 1) = 0.5`
+* **F1 Score** = `2 * Precision * Recall / (Precision + Recall)` =  `(2 * 0.5 * 0.5) / (0.5 + 0.5) = 0.5`
 
 ### Model-level evaluation for the collective model
 

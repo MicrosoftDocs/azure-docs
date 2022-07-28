@@ -70,10 +70,10 @@ The following M functions add or transform columns: [Table.AddColumn](/powerquer
     step, but the user must ensure that there are no duplicate column names
     among the joined tables
 * Supported Join Kinds:
-    [Inner](/powerquery-m/joinkind-inner),
-    [LeftOuter](/powerquery-m/joinkind-leftouter),
-    [RightOuter](/powerquery-m/joinkind-rightouter),
-    [FullOuter](/powerquery-m/joinkind-fullouter)
+    Inner,
+    LeftOuter,
+    RightOuter,
+    FullOuter
 * Both
     [Value.Equals](/powerquery-m/value-equals)
     and

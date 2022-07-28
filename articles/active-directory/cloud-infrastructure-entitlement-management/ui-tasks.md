@@ -4,8 +4,7 @@ description: How to view information about active and completed tasks in the Act
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
@@ -13,10 +12,6 @@ ms.author: kenwith
 ---
 
 # View information about active and completed tasks
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This article describes the usage of the **Permissions Management Tasks** pane in Permissions Management.
 

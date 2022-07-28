@@ -6,16 +6,24 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 07/15/2022
 ---
 
 # High availability in Azure Database for PostgreSQL – Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 High availability (HA) avoids database downtime by maintaining standby replicas
-of every node in a server group. If a node goes down, Hyperscale (Citus) switches
-incoming connections from the failed node to its standby. Failover happens
-within a few minutes, and promoted nodes always have fresh data through
+of every node in a server group. If a node goes down, Hyperscale (Citus)
+switches incoming connections from the failed node to its standby. Failover
+happens within a few minutes, and promoted nodes always have fresh data through
 PostgreSQL synchronous streaming replication.
+
+All primary nodes in a server group are provisioned into one availability zone
+for better latency between the nodes. The standby nodes are provisioned into
+another zone. The Azure portal
+[displays](concepts-server-group.md#node-availability-zone) the availability
+zone of each node in a server group.
 
 Even without HA enabled, each Hyperscale (Citus) node has its own locally
 redundant storage (LRS) with three synchronous replicas maintained by Azure
@@ -39,7 +47,7 @@ promoted coordinator will be accessible with the same connection string.
 Recovery can be broken into three stages: detection, failover, and full
 recovery.  Hyperscale (Citus) runs periodic health checks on every node, and
 after four failed checks it determines that a node is down. Hyperscale (Citus)
-then promotes a standby to primary node status (failover), and provisions a new
+then promotes a standby to primary node status (failover), and creates a new
 standby-to-be.  Streaming replication begins, bringing the new node up to date.
 When all data has been replicated, the node has reached full recovery.
 
@@ -58,7 +66,7 @@ for server groups in the Azure portal.
   synchronization is in progress. Once all data is replicated to the new
   standby, synchronous replication will be enabled between the primary and
   standby nodes, and the nodes' state will transition back to **Healthy**.
-* **No**: HA is not enabled on this node.
+* **No**: HA isn't enabled on this node.
 
 ## Next steps
 

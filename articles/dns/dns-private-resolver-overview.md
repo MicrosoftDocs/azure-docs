@@ -6,7 +6,7 @@ ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 06/02/2022
+ms.date: 06/29/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -21,6 +21,8 @@ Azure DNS Private Resolver is a new service that enables you to query Azure DNS 
 ## How does it work?
 
 Azure DNS Private Resolver requires an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).  When you create an Azure DNS Private Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The resolver's [outbound endpoint](#outbound-endpoints) processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure.  DNS queries that are initiated in networks linked to a ruleset can be sent to other DNS servers.
+
+You don't need to change any DNS client settings on your virtual machines (VMs) to use the Azure DNS Private Resolver.
 
 The DNS query process when using an Azure DNS Private Resolver is summarized below:
 
@@ -116,10 +118,15 @@ Subnets used for DNS resolver have the following limitations:
 Outbound endpoints have the following limitations:
 - An outbound endpoint can't be deleted unless the DNS forwarding ruleset and the virtual network links under it are deleted.
 
+### Ruleset restrictions
+
+- Rulesets can have no more than 25 rules in Public Preview.
+- Rulesets can't be linked across different subscriptions in Public Preview.
+
 ### Other restrictions
 
 - IPv6 enabled subnets aren't supported in Public Preview.
-- Currently, rulesets can't be linked across different subscriptions.
+
 
 ## Next steps
 

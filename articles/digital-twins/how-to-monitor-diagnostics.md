@@ -147,7 +147,7 @@ Here are the field and property descriptions for API logs.
 | `ResultDescription` | String | Additional details about the event |
 | `DurationMs` | String | How long it took to perform the event in milliseconds |
 | `CallerIpAddress` | String | A masked source IP address for the event |
-| `CorrelationId` | Guid | Customer provided unique identifier for the event |
+| `CorrelationId` | Guid | Unique identifier for the event |
 | `ApplicationId` | Guid | Application ID used in bearer authorization |
 | `Level` | Int | The logging severity of the event |
 | `Location` | String | The region where the event took place |
