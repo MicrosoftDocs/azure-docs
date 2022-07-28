@@ -46,13 +46,13 @@ Before you associate an existing Functions app, you first need to adjust to conf
 
 1. From the _Production_ row, select **Link** to open the *Link new Backend* window.
 
-  Enter the following settings.
+    Enter the following settings.
 
-      | Setting | Value |
-      |--|--|
-      | Backed resource type | Select **Function App**. |
-      | Subscription | Select your Azure subscription name. |
-      | Resource name | Select the Azure Functions app name. |
+    | Setting | Value |
+    |--|--|
+    | Backed resource type | Select **Function App**. |
+    | Subscription | Select your Azure subscription name. |
+    | Resource name | Select the Azure Functions app name. |
 
 1. Select the **Link** button.
 
