@@ -29,6 +29,8 @@ When performing data integration and ETL processes, your jobs can often perform 
 | Connector   | Full CDC | Incremental CDC | Incremental pipeline pattern |
 | :-------------------- | :--------------------------- | :--------------------------------- | :--------------------------- |
 | [Azure Blob Storage](connector-azure-blob-storage.md) | &nbsp;    | ✓    | &nbsp;     |   
+| [ADLS Gen1](load-azure-data-lake-store.md) | &nbsp; | ✓    | &nbsp;     |
+| [ADLS Gen2](load-azure-data-lake-storage-gen2.md) | &nbsp; | ✓    | &nbsp;     |
 
 
 Native connectors:
