@@ -4,8 +4,8 @@ description: This topic describes how to run scripts within an Azure Linux virtu
 services: automation
 ms.service: virtual-machines
 ms.collection: linux
-author: cynthn
-ms.author: cynthn
+author: ericd-mst-github
+ms.author: erd
 ms.date: 10/27/2021
 ms.topic: how-to  
 ms.reviewer: jushiman
