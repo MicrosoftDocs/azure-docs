@@ -2,10 +2,10 @@
 title: Monitor the health of your Microsoft Sentinel data connectors
 description: Use the SentinelHealth data table and the Health Monitoring workbook to keep track of your data connectors' connectivity and performance.
 author: limwainstein
+ms.author: lwainstein
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 07/28/2022
-ms.author: lwainstein
 ms.service: microsoft-sentinel
 ---
 
