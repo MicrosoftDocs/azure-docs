@@ -102,13 +102,13 @@ In this example, the application connection string is declared as `queue-connect
 
 :::code language="json" source="code/secure-app-arm-template.json" highlight="11,12,13,27,28,29,30,31,44,45,61,62":::
 
-Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret. Also, the Azure Queue Storage scale rule's authorization configuration uses the `queue-connection-string` secret as to define its connection.
+Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret. Also, the Azure Queue Storage scale rule's authentication configuration uses the `queue-connection-string` secret as to define its connection.
 
 To avoid committing secret values to source control with your ARM template, pass secret values as ARM template parameters.
 
 # [Azure CLI](#tab/azure-cli)
 
-In this example, you create a container app with a secret that's referenced in an environment variable using the Azure CLI. To reference a secret in an environment variable in the Azure CLI, set its value to `secretref:`, followed by the name of the secret.
+In this example, you create a container app using the Azure CLI with a secret that's referenced in an environment variable. To reference a secret in an environment variable in the Azure CLI, set its value to `secretref:`, followed by the name of the secret.
 
 ```bash
 az containerapp create \
@@ -120,11 +120,11 @@ az containerapp create \
   --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
 ```
 
-Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
+Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret.
 
 # [PowerShell](#tab/powershell)
 
-In this example, you create an application with a secret that's referenced in an environment variable using the Azure CLI.
+In this example, you create a container app using the Azure CLI with a secret that's referenced in an environment variable. To reference a secret in an environment variable in the Azure CLI, set its value to `secretref:`, followed by the name of the secret.
 
 ```azurecli
 az containerapp create `
@@ -136,7 +136,7 @@ az containerapp create `
   --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
 ```
 
-Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
+Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret.
 
 ---
 
