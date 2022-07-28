@@ -54,9 +54,9 @@ This content applies to both versions of the service, AMS and AMS (classic).
 
     :::image type="content" source="./media/ams-alerts/ams-alert-4.png" alt-text="Screenshot showing final step of alert configuration." lightbox="./media/ams-alerts/ams-alert-4.png":::
     
-1..	Navigate to **Alert rules** to view the newly created alert rule. When and if alerts are fired, you can view them under **Fired alerts**.
+1.	Navigate to **Alert rules** to view the newly created alert rule. When and if alerts are fired, you can view them under **Fired alerts**.
 
-    :::image type="content" source="./media/ams-alerts/ams-alert-5.png" alt-text="Screenshot showing result of alert cofiguration." lightbox="./media/ams-alerts/ams-alert-5.png":::
+    :::image type="content" source="./media/ams-alerts/ams-alert-5.png" alt-text="Screenshot showing result of alert configuration." lightbox="./media/ams-alerts/ams-alert-5.png":::
 
 ## Next steps
 

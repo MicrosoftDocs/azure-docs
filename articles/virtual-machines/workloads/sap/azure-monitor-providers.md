@@ -22,7 +22,7 @@ You can choose to configure different provider types for data collection from th
 
 You can also configure multiple providers of a specific provider type to reuse the same SAP monitor resource and associated managed group. For more information, see [Manage Azure Resource Manager resource groups by using the Azure portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md).
 
-![Diagram showing AMS connection to available providers.](./media/azure-monitor-sap/azure-monitor-providers.png)
+![Diagram showing AMS connection to available providers.](./media/azure-monitor-providers/providers.png)
 
 It's recommended to configure at least one provider when you deploy an AMS resource. By configuring a provider, you start data collection from the corresponding component for which the provider is configured.   
 
