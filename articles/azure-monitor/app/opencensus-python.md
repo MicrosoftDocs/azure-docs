@@ -21,10 +21,6 @@ You may have noted that OpenCensus is converging into [OpenTelemetry](https://op
 > [!NOTE]
 > A preview [OpenTelemetry-based Python offering](opentelemetry-enable.md?tabs=python) is available. [Learn more](opentelemetry-overview.md).
 
-## Prerequisites
-
-You can find all of the necessary resources to run these examples in the sample Azure Monitor OpenCenses Python git repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/docs_samples).
-
 ## Introducing Opencensus Python SDK
 
 [OpenCensus](https://opencensus.io) is a set of open source libraries to allow collection of distributed tracing, metrics and logging telemetry. Through the use of [Azure Monitor exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure), you will be able to send this collected telemetry to Application insights. This article walks you through the process of setting up OpenCensus and Azure Monitor Exporters for Python to send your monitoring data to Azure Monitor.
@@ -543,6 +539,11 @@ In the list under **Active**:
 - For telemetry sent with the Azure Monitor logs exporter, logs appear under `traces`. Exceptions appear under `exceptions`.
 
 For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](../logs/data-platform-logs.md).
+
+## Sample Applications
+
+You can find sample applications in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor).
+
 
 ## Learn more about OpenCensus for Python
 

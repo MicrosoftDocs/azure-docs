@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.devlang: python
 ms.custom: devx-track-python
+ms.reviewer: mmcc
 ---
 
 # Track dependencies with OpenCensus Python
@@ -12,8 +13,6 @@ ms.custom: devx-track-python
 A dependency is an external component that is called by your application. Dependency data is collected using OpenCensus Python and its various integrations. The data is then sent to Application Insights under Azure Monitor as `dependencies` telemetry.
 
 First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).
-
-You can find sample dependency applications in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/docs_samples).
 
 ## In-process dependencies
 
@@ -163,6 +162,10 @@ from opencensus.trace import config_integration
 
 config_integration.trace_integrations(['sqlalchemy'])
 ```
+
+## Sample Applications
+
+You can find sample applications in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor).
 
 ## Next steps
 
