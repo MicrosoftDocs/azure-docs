@@ -46,7 +46,7 @@ After you sign in for the first time, you need to activate the on-premises manag
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="Screenshot that shows selecting multiple subscriptions." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png":::
 
-   If you haven't already onboarded Defender for IoT to a subscription, see [Onboard a Defender for IoT plan to a subscription](how-to-manage-subscriptions.md#onboard-a-defender-for-iot-plan-to-a-subscription).
+   If you haven't already onboarded Defender for IoT to a subscription, see [Onboard a Defender for IoT plan for OT networks to a subscription](how-to-manage-subscriptions.md#onboard-a-defender-for-iot-plan-for-ot-networks-to-a-subscription).
 
    > [!Note]
    > If you delete a subscription, you must upload a new activation file to the on-premises management console that was affiliated with the deleted subscription.
