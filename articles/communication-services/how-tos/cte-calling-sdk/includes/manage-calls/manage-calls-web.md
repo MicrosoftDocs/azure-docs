@@ -23,13 +23,13 @@ const oneToOneCall = teamsCallAgent.startCall(userCallee);
 Start a one-to-one phone call to E.164 phone number:
 ```js
 const phoneCallee = { phoneNumber: '<PHONE_NUMBER_E164_FORMAT>' }
-const oneToOneCall = callAgent.startCall(phoneCallee );
+const oneToOneCall = teamsCallAgent.startCall(phoneCallee );
 ```
 Start a group call to Teams user with Voice-over IP (VoIP) and phone number:
 ```js
 const userCallee = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' }
 const phoneCallee = { phoneNumber: '<PHONE_NUMBER_E164_FORMAT>'};
-const groupCall = callAgent.startCall([userCallee, phoneCallee], { threadId: '<THREAD_ID>' });
+const groupCall = teamsCallAgent.startCall([userCallee, phoneCallee], { threadId: '<THREAD_ID>' });
 ```
 
 ## Join a call
@@ -38,14 +38,18 @@ const groupCall = callAgent.startCall([userCallee, phoneCallee], { threadId: '<T
 
 You can join Teams meetings with the method `join` on the `teamsCallAgent` instance. Teams users can join Teams meeting by providing a `TeamsMeetingLinkLocator`, `TeamsMeetingCoordinatesLocator`, or `TeamsMeetingIdLocator`.
 
-#### Join Teams meeting with meeting URL
+Join Teams meeting with meeting URL:
 ```js
-const meetingCall = callAgent.join({ meetingLink: '<MEETING_LINK>' });
+const meetingCall = teamsCallAgent.join({ meetingLink: '<MEETING_LINK>' });
 ```
 
-#### Join Teams meeting with combination of thread ID, organizer ID, tenant ID, and message ID
+Join Teams meeting with combination of thread ID, organizer ID, tenant ID, and message ID:
 ```js
-const meetingCall = callAgent.join({ threadId: '<THREAD_ID>', organizerId: '<ORGANIZER_ID>', tenantId: '<TENANT_ID>', messageId: '<MESSAGE_ID>' });
+const meetingCall = teamsCallAgent.join({ threadId: '<THREAD_ID>', organizerId: '<ORGANIZER_ID>', tenantId: '<TENANT_ID>', messageId: '<MESSAGE_ID>' });
+```
+Join Teams meeting with meeting code:
+```js
+const meetingCall = teamsCallAgent.join({ meetingId: '<MEETING_CODE>'});
 ```
 
 ## Receive a Teams incoming call
