@@ -162,3 +162,14 @@ az role assignment create --assignee "<your-username>" \
 ```
 
 ---
+
+## Next steps
+
+In this tutorial, you learned how to migrate an application to credential-free authentication.
+
+You can read the following resources to explore the concepts discussed in this article in more depth:
+
+- For more information on authorizing access with managed identity, visit [Authorize access to blob data with managed identities for Azure resources](https://docs.microsoft.com/en-us/azure/storage/blobs/authorize-managed-identity).
+-[Authorize with Azure roles](/azure/storage/blobs/authorize-access-azure-active-directory)
+- To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
+- To learn more about authorizing from a web application, visit [Authorize from a native or web application](/azure/storage/common/storage-auth-aad-app)
