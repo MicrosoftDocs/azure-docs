@@ -41,7 +41,7 @@ Code snippets are included with the concepts described next. Complete samples fo
 
 You provide candidate languages, at least one of which is expected be in the audio. You can include up to 4 languages for [at-start LID](#at-start-and-continuous-language-identification) or up to 10 languages for [continuous LID](#at-start-and-continuous-language-identification).
 
-You must provide the full 4-letter locale, but language identification only uses one locale per base language. Do not include multiple locales (e.g., "en-US" and "en-GB") for the same language.
+You must provide the full locale with dash (`-`) separator, but language identification only uses one locale per base language. Do not include multiple locales (e.g., "en-US" and "en-GB") for the same language.
 
 ::: zone pivot="programming-language-csharp"
 
