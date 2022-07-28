@@ -142,9 +142,15 @@ SpeechSynthesisResult result = synthesizer.SpeakSsmlAsync(ssml).get();
 ```Python
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
 
+def viseme_cb(evt):
+    print("Viseme event received: audio offset: {}ms, viseme id: {}.".format(
+        evt.audio_offset / 10000, evt.viseme_id))
+
+    # `Animation` is an xml string for SVG or a json string for blendshapes
+    animation = evt.animation
+
 # Subscribes to viseme received event
-speech_synthesizer.viseme_received.connect(lambda evt: print(
-    "Viseme event received: audio offset: {}ms, viseme id: {}.".format(evt.audio_offset / 10000, evt.viseme_id)))
+speech_synthesizer.viseme_received.connect(viseme_cb)
 
 result = speech_synthesizer.speak_ssml_async(ssml).get()
 ```
