@@ -29,6 +29,9 @@ Microsoft Defender for SQL servers on machines extends the protections for your 
 
     - [Connect your GCP project to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
 
+    > [!NOTE]
+    > Enable database protection for your multicloud SQL servers through the AWS connector](quickstart-onboard-aws.md?pivots=env-settings#connect-your-aws-account) or the [GCP connector](quickstart-onboard-gcp.md?pivots=env-settings#configure-the-databases-plan).
+
 This plan includes functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases.
 
 A vulnerability assessment service discovers, tracks, and helps you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
