@@ -1455,6 +1455,8 @@
         href: mindwireless-tutorial.md
       - name: Miro
         href: miro-tutorial.md
+      - name: Mist Cloud Admin SSO
+        href: mist-cloud-admin-tutorial.md
       - name: Mitel Connect
         href: mitel-connect-tutorial.md
       - name: Mixpanel
