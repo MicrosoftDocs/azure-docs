@@ -93,11 +93,11 @@ Here, a connection string to a queue storage account is declared in the `--secre
 
 ## Using secrets
 
-The secret value is mapped to the secret name declared at the application level as described in the [defining secrets](#defining-secrets) section.    The `passwordSecretRef` and `secretRef` parameters are used to reference the secret names as environment variables at the container level.  The `passwordSecretRef` provides a descriptive parameter name for secrets containing passwords.
+The secret value is mapped to the secret name declared at the application level as described in the [defining secrets](#defining-secrets) section.    The `passwordSecretRef` and `secretref` parameters are used to reference the secret names as environment variables at the container level.  The `passwordSecretRef` provides a descriptive parameter name for secrets containing passwords.
 
 ## Example
 
-The following example shows an application that declares a connection string at the application level and is used throughout the configuration via `secretRef`.
+The following example shows an application that declares a connection string at the application level and is used throughout the configuration via `secretref`.
 
 # [ARM template](#tab/arm-template)
 
@@ -120,10 +120,10 @@ az containerapp create \
   --environment "my-environment-name" \
   --image demos/myQueueApp:v1 \
   --secrets "queue-connection-string=$CONNECTIONSTRING" \
-  --env-vars "QueueName=myqueue" "ConnectionString=secretRef:queue-connection-string"
+  --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
 ```
 
-Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretRef`.
+Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
 
 # [PowerShell](#tab/powershell)
 
@@ -136,10 +136,10 @@ az containerapp create `
   --environment "my-environment-name" `
   --image demos/myQueueApp:v1 `
   --secrets "queue-connection-string=$CONNECTIONSTRING" `
-  --env-vars "QueueName=myqueue" "ConnectionString=secretRef:queue-connection-string"
+  --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
 ```
 
-Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretRef`.
+Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
 
 ---
 

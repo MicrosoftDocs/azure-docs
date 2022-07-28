@@ -6,6 +6,7 @@ author: rboucher
 ms.author: robb
 ms.date: 06/16/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: shijain
 ---
 
 # Monitoring solutions in Azure Monitor
@@ -237,6 +238,8 @@ To verify the link between a Log Analytics workspace and an Automation account:
 1. If the workspace is linked to an Automation account, then this page lists the workspace it's linked to. If you select the name of the listed workspace, you're redirected to the overview page for that workspace.
 
 ## Remove a monitoring solution
+
+You can remove any installed monitoring solution, except **LogManagment**, which is a built-in solution that contains the schemas that aren't associated to a specific solution.
 
 ### [Portal](#tab/portal)
 

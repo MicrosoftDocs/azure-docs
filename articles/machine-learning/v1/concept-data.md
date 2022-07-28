@@ -29,7 +29,7 @@ Azure Machine Learning makes it easy to connect to your data in the cloud. It pr
     
 ## Data workflow
 
-When you're ready to use the data in your cloud-based storage solution, we recommend the following data delivery workflow. This workflow assumes you have an [Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) and data in a cloud-based storage service in Azure. 
+When you're ready to use the data in your cloud-based storage solution, we recommend the following data delivery workflow. This workflow assumes you have an [Azure storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) and data in a cloud-based storage service in Azure. 
 
 1. Create an [Azure Machine Learning datastore](#connect-to-storage-with-datastores) to store connection information to your Azure storage.
 

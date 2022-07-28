@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 05/12/2022
+ms.date: 07/25/2022
 ---
 
 # Common error codes and messages 
@@ -243,7 +243,7 @@ This article lists common error codes and messages reported by mapping data flow
 - **Cause**: An invalid staging configuration is provided in the Hive.
 - **Recommendation**: Please update the related ADLS Gen2 linked service that is used as staging. Currently, only the service principal key credential is supported.
 
-- **Message**: ADLS Gen2 storage staging properties should be specified. Either one of key or tenant/spnId/spnKey or miServiceUri/miServiceToken is required.
+- **Message**: ADLS Gen2 storage staging properties should be specified. Either one of key or tenant/spnId/spn Credential/spnCredentialType or miServiceUri/miServiceToken is required.
 - **Cause**: An invalid staging configuration is provided in the Hive.
 - **Recommendation**: Update the related ADLS Gen2 linked service with right credentials that are used as staging in the Hive.
 
@@ -635,6 +635,148 @@ This article lists common error codes and messages reported by mapping data flow
 - **Message**: java.sql.SQLTransactionRollbackException. Deadlock found when trying to get lock; try restarting transaction. If the problem persists, please contact Azure Support
 - **Cause**: Transient error
 - **Recommendation**: Retry the request after a wait period.
+
+## Error code: DF-Executor-OutOfMemorySparkError
+
+- **Message**: The data may be too large to fit in the memory.
+- **Cause**: The size of the data far exceeds the limit of the node memory.
+- **Recommendation**: Increase the core count and switch to the memory optimized compute type.
+
+## Error code: DF-SQLDW-InternalErrorUsingMSI
+
+- **Message**: An internal error occurred while authenticating against Managed Service Identity in Azure Synapse Analytics instance. Please restart the Azure Synapse Analytics instance or contact Azure Synapse Analytics Dedicated SQL Pool support if this problem persists.
+- **Cause**: An internal error occurred in Azure Synapse Analytics.
+- **Recommendation**: Restart the Azure Synapse Analytics instance or contact Azure Synapse Analytics Dedicated SQL Pool support if this problem persists.
+
+## Error code: DF-Executor-IncorrectLinkedServiceConfiguration
+
+- **Message**: Possible causes are,
+    - The linked service is incorrectly configured as type 'Azure Blob Storage' instead of 'Azure DataLake Storage Gen2' and it has 'Hierarchical namespace' enabled. Please create a new linked service of type 'Azure DataLake Storage Gen2' for the storage account in question. 
+    - Certain scenarios with any combinations of 'Clear the folder', non-default 'File name option', 'Key' partitioning may fail with a Blob linked service on a 'Hierarchical namespace' enabled storage account. You can disable these dataflow settings (if enabled) and try again in case you do not want to create a new Gen2 linked service.
+- **Cause**: Delete operation on the Azure Data Lake Storage Gen2 account failed since its linked service is incorrectly configured as Azure Blob Storage.
+- **Recommendation**: Create a new Azure Data Lake Storage Gen2 linked service for the storage account. If that's not feasible, some known scenarios like **Clear the folder**, non-default **File name option**, **Key** partitioning in any combinations may fail with an Azure Blob Storage linked service on a hierarchical namespace enabled storage account. You can disable these data flow settings if you enabled them and try again.
+
+## Error code: DF-Delta-InvalidProtocolVersion
+
+- **Message**: Unsupported Delta table protocol version, Refer https://docs.delta.io/latest/versioning.html#-table-version for versioning information.
+- **Cause**: Data flows don't support this version of the Delta table protocol.
+- **Recommendation**: Use a lower version of the Delta table protocol.
+
+## Error code: DF-SAPODP-SubscriberNameMissed
+
+- **Message**: 'subscriberName' is required while option 'enable change data capture' is selected
+- **Cause**: The SAP linked service property `subscriberName` is required while option 'enable change data capture' is selected.
+- **Recommendation**: Specify the `subscriberName` in SAP ODP linked service.
+
+## Error code: DF-SAPODP-StageContainerMissed
+
+- **Message**: Container or file system is required for staging storage.
+- **Cause**: Your container or file system is not specified for staging storage.
+- **Recommendation**: Specify the container or file system for the staging storage.
+
+## Error code: DF-SAPODP-StageFolderPathMissed
+
+- **Message**: Folder path is required for staging storage
+- **Cause**: Your staging storage folder path is not specified.
+- **Recommendation**: Specify the staging storage folder.
+
+## Error code: DF-SAPODP-ContextMissed
+
+- **Message**: Context is required
+- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
+
+    | Cause analysis | Recommendation |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Your context value can't be empty when reading data. | Specify the context. |
+    | Your context value can't be empty when browsing object names. | Specify the context. |
+
+## Error code: DF-SAPODP-StageContainerInvalid
+
+- **Message**: Unable to create Azure Blob container
+- **Cause**: The input container is not existed in your staging storage.
+- **Recommendation**: Input a valid container name for the staging storage. Reselect another existed container name or create a new container manually with your input name.
+
+## Error code: DF-SAPODP-SessionTerminate
+
+- **Message**: Internal session terminated with a runtime error RAISE_EXCEPTION (see ST22)
+- **Cause**: Transient issues for SLT objects.
+- **Recommendation**: Rerun the data flow activity.
+
+## Error code: DF-SAPODP-StageAuthInvalid
+
+- **Message**: Invalid client secret provided
+- **Cause**: The service principal certificate credential of the staging storage is not correct.
+- **Recommendation**: Check whether the test connection is successful in your staging storage linked service, and confirm the authentication setting of your staging storage is correct.
+- **Message**: Failed to authenticate the request to storage
+- **Cause**: The key of your staging storage is not correct.
+- **Recommendation**: Check whether the test connection is successful in your staging storage linked service, and confirm the key of your staging Azure Blob Storage is correct.
+
+## Error code: DF-SAPODP-ObjectNameMissed
+
+- **Message**: 'objectName' (SAP object name) is required
+- **Cause**: Object names must be defined when reading data from SAP ODP.
+- **Recommendation**: Specify the SAP ODP object name.
+
+## Error code: DF-SAPODP-ContextInvalid
+
+- **Cause**: The context value doesn't exist in SAP OPD.
+- **Recommendation**: Check the context value and make sure it's valid.
+
+## Error code: DF-SAPODP-ObjectInvalid
+
+- **Cause**: The object name is not found or not released.
+- **Recommendation**: Check the object name and make sure it is valid and already released.
+
+## Error code: DF-SAPODP-SLT-LIMITATION
+
+- **Message**: Preview is not supported in SLT system
+- **Cause**: Your context or object is in SLT system that doesn't support preview. This is an SAP ODP SLT system limitation.
+- **Recommendation**: Directly run the data flow activity.
+
+## Error code: DF-SAPODP-AuthInvalid
+
+- **Message**: SapOdp Name or Password incorrect
+- **Cause**: Your input name or password is incorrect.
+- **Recommendation**: Confirm your input name or password is correct.
+
+## Error code: DF-SAPODP-SHIROFFLINE
+
+- **Cause**: Your self-hosted integration runtime is offline.
+- **Recommendation**: Check your self-hosted integration runtime status and confirm it's online.
+
+## Error code: DF-SAPODP-SAPSystemError
+
+- **Cause**: This is an SAP system error: `user id locked`.
+- **Recommendation**: Contact SAP admin for assistance.
+
+## Error code: DF-SAPODP-SystemError
+
+- **Cause**: This error is a data flow system error or SAP server system error.
+- **Recommendation**: Check the error message. If it contains SAP server related error stacktrace, contact SAP admin for assistance. Otherwise, contact Microsoft support for further assistance.
+
+## Error code: DF-SAPODP-StageStorageTypeInvalid
+
+- **Message**: Your staging storage type of SapOdp is invalid
+- **Cause**: Only Azure Blob Storage and Azure Data Lake Storage Gen2 are supported for SAP ODP staging.
+- **Recommendation**: Select Azure Blob Storage or Azure Data Lake Storage Gen2 as your staging storage.
+
+## Error code: DF-SAPODP-StageBlobPropertyInvalid
+
+- **Message**: Read from staging storage failed: Staging blob storage auth properties not valid.
+- **Cause**: Staging Blob storage properties aren't valid.
+- **Recommendation**: Check the authentication setting in your staging linked service.
+
+## Error code: DF-SAPODP-StageStorageServicePrincipalCertNotSupport
+
+- **Message**: Read from staging storage failed: Staging storage auth not support service principal cert.
+- **Cause**: The service principal certificate credential is not supported for the staging storage.
+- **Recommendation**: Change your authentication to not use the service principal certificate credential.
+
+## Error code: DF-SAPODP-StageGen2PropertyInvalid
+
+- **Message**: Read from staging storage failed: Staging Gen2 storage auth properties not valid.
+- **Cause**: Authentication properties of your staging Azure Data Lake Storage Gen2 aren't valid.
+- **Recommendation**: Check the authentication setting in your staging linked service.
 
 
 ## Next steps

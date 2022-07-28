@@ -102,7 +102,7 @@ Connect-AzAccount
 
 #### Log analytics workspace
 
-To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the bracketed values with your values:
+To send resource logs to a Log Analytics workspace, enter these commands. Replace the bracketed values with your values:
 
 ```azurepowershell
 ## Place the load balancer in a variable. ##
@@ -130,7 +130,7 @@ Set-AzDiagnosticSetting `
 
 #### Storage account
 
-To enable Diagnostic Logs in a storage account, enter these commands. Replace the bracketed values with your values:
+To send resource logs to a storage account, enter these commands. Replace the bracketed values with your values:
 
 ```azurepowershell
 ## Place the load balancer in a variable. ##
@@ -158,7 +158,7 @@ Set-AzDiagnosticSetting `
 
 #### Event hub
 
-To enable Diagnostic Logs for an event hub namespace, enter these commands. Replace the bracketed values with your values:
+To send resource logs to an event hub namespace, enter these commands. Replace the bracketed values with your values:
 
 ```azurepowershell
 ## Place the load balancer in a variable. ##
@@ -201,7 +201,7 @@ az login
 
 #### Log analytics workspace
 
-To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the bracketed values with your values:
+To send resource logs to a Log Analytics workspace, enter these commands. Replace the bracketed values with your values:
 
 ```azurecli
 lbid=$(az network lb show \
@@ -225,7 +225,7 @@ az monitor diagnostic-settings create \
 
 #### Storage account
 
-To enable Diagnostic Logs in a storage account, enter these commands. Replace the bracketed values with your values:
+To send resource logs to a storage account, enter these commands. Replace the bracketed values with your values:
 
 ```azurecli
 lbid=$(az network lb show \
@@ -249,7 +249,7 @@ az monitor diagnostic-settings create \
 
 #### Event hub
 
-To enable Diagnostic Logs for an event hub namespace, enter these commands. Replace the bracketed values with your values:
+To send resource logs to an event hub namespace, enter these commands. Replace the bracketed values with your values:
 
 ```azurecli
 lbid=$(az network lb show \

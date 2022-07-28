@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 06/30/2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -108,7 +108,9 @@ Once you have a better understanding of how your attributes will be organized an
 
 To grant access to the appropriate people, follow these steps to assign one of the custom security attribute roles. 
 
-#### Assign roles at attribute set scope
+### Assign roles at attribute set scope
+
+#### Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
@@ -129,8 +131,37 @@ To grant access to the appropriate people, follow these steps to assign one of t
     
     > [!NOTE]
     > Users with attribute set scope role assignments currently can see other attribute sets and custom security attribute definitions.
-    
-#### Assign roles at tenant scope
+
+#### PowerShell
+
+Use [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment) to assign the role. The following example assigns the Attribute Assignment Administrator role to a principal with an attribute set scope named Engineering.
+
+```powershell
+$roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"
+$directoryScope = "/attributeSets/Engineering"
+$principalId = "f8ca5a85-489a-49a0-b555-0a6d81e56f0d"
+$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $directoryScope -RoleDefinitionId $roleDefinitionId -PrincipalId $principalId
+```
+
+#### Microsoft Graph API
+
+Use the [Create unified Role Assignment](/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&preserve-view=true) API to assign the role. The following example assigns the Attribute Assignment Administrator role to a principal with an attribute set scope named Engineering.
+
+```http
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+Content-type: application/json
+
+{
+    "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
+    "roleDefinitionId": "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d",
+    "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d",
+    "directoryScopeId": "/attributeSets/Engineering"
+}
+```
+
+### Assign roles at tenant scope
+
+#### Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
@@ -141,6 +172,14 @@ To grant access to the appropriate people, follow these steps to assign one of t
     ![Screenshot of assigning attribute roles at tenant scope.](./media/custom-security-attributes-manage/manage-tenant.png)
 
 1. Add assignments for the custom security attribute roles.
+
+#### PowerShell
+
+Use [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment) to assign the role. For more information, see [Assign Azure AD roles at different scopes](../roles/assign-roles-different-scopes.md).
+
+#### Microsoft Graph API
+
+Use the [Create unified Role Assignment](/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&preserve-view=true) API to assign the role. For more information, see [Assign Azure AD roles at different scopes](../roles/assign-roles-different-scopes.md).
 
 ## View audit logs for attribute changes
 

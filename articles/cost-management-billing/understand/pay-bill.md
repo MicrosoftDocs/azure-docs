@@ -34,9 +34,9 @@ On 1 October 2021, automatic payments in India may block some credit card transa
 
 [Learn more about the Reserve Bank of India directive; Processing of e-mandate on cards for recurring transactions](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
 
-On 1 July 2022, Microsoft and other online merchants will no longer be storing credit card information. To comply with this regulation Microsoft will be removing all stored card details from Microsoft Azure. To avoid service interruption, you will need to add a payment method and make a one-time payment for all invoices.
+On 30 September 2022, Microsoft and other online merchants will no longer be storing credit card information. To comply with this regulation Microsoft will be removing all stored card details from Microsoft Azure. To avoid service interruption, you will need to add and verify your payment method to make a payment in the Azure portal for all invoices.
 
-[Learn about the Reserve Bank of India directive; Restriction on storage of actual card data ](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12211)
+[Learn about the Reserve Bank of India directive; Restriction on storage of actual card data ](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF)
 
 ## Pay by default payment method
 

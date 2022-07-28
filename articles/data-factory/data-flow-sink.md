@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/25/2022
+ms.date: 06/23/2022
 ---
 
 # Sink transformation in mapping data flow
@@ -137,7 +137,7 @@ Below is a video tutorial on how to use database error row handling automaticall
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
 
-For assert failure rows, you can use the Assert transformation upstream in your data flow and then redirect failed assertions to an output file here in the sink errors tab.
+For assert failure rows, you can use the Assert transformation upstream in your data flow and then redirect failed assertions to an output file here in the sink errors tab. You also have an option here to ignore rows with assertion failures and not output those rows at all to the sink destination data store.
 
 :::image type="content" source="media/data-flow/assert-errors.png" alt-text="Assert failure rows":::
 

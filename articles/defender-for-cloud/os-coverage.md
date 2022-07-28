@@ -1,5 +1,5 @@
 ---
-title: Platforms supported by Microsoft Defender for Cloud | Microsoft Docs
+title: Platforms supported by Microsoft Defender for Cloud
 description: This document provides a list of platforms supported by Microsoft Defender for Cloud.
 ms.topic: overview
 ms.date: 11/09/2021
@@ -8,7 +8,9 @@ ms.date: 11/09/2021
 
 This page shows the platforms and environments supported by Microsoft Defender for Cloud.
 
-## Combinations of environments <a name="vm-server"></a>
+<a name="vm-server"></a>
+
+## Combinations of environments
 
 Microsoft Defender for Cloud supports virtual machines and servers on different types of hybrid environments:
 
@@ -33,11 +35,15 @@ To learn more about the specific Defender for Cloud features available on Window
 > [!NOTE]
 > Even though **Microsoft Defender for Servers** is designed to protect servers, most of its features are supported for Windows 10 machines. One feature that isn't currently supported is [Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
-## Managed virtual machine services <a name="virtual-machine"></a>
+<a name="virtual-machine"></a>
+
+## Managed virtual machine services
 
 Virtual machines are also created in a customer subscription as part of some Azure-managed services as well, such as Azure Kubernetes (AKS), Azure Databricks, and more. Defender for Cloud discovers these virtual machines too, and the Log Analytics agent can be installed and configured if a supported OS is available.
 
-## Cloud Services <a name="cloud-services"></a>
+<a name="cloud-services"></a>
+
+## Cloud Services
 
 Virtual machines that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
