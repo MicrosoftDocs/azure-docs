@@ -4,7 +4,7 @@ description: How to create and deploy applications in Azure Spring Apps by using
 author: karlerickson
 ms.author: karler
 ms.topic: conceptual
-ms.service: spring-apps
+ms.service: spring-cloud
 ms.devlang: azurepowershell
 ms.date: 2/15/2022
 ms.custom: devx-track-azurepowershell, event-tier1-build-2022
