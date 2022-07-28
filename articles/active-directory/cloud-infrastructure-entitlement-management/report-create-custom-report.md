@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Create, view, and share a custom report
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how to create, view, and share a custom report in Permissions Management.
 
 ## Create a custom report

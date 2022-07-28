@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 04/18/2022
+ms.date: 07/11/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
@@ -44,11 +44,21 @@ The UI supports selecting multiple subscriptions to view resource changes. Use t
 
 ## Diagnose and solve problems tool
 
+From your resource's overview page in Azure portal, select **Diagnose and solve problems** the left menu. As you enter the Diagnose and Solve Problems tool, the **Microsoft.ChangeAnalysis** resource provider will automatically be registered. 
+
+### Diagnose and solve problems tool for Web App
+
 Azure Monitor's Change Analysis is:
 - A standalone detector in the Web App **Diagnose and solve problems** tool. 
 - Aggregated in **Application Crashes** and **Web App Down detectors**. 
 
-From your resource's overview page in Azure portal, select **Diagnose and solve problems** the left menu. As you enter the Diagnose and Solve Problems tool, the **Microsoft.ChangeAnalysis** resource provider will automatically be registered. 
+You can view change data via the **Web App Down** and **Application Crashes** detectors. The graph summarizes:
+- The change types over time.
+- Details on those changes. 
+
+By default, the graph displays changes from within the past 24 hours help with immediate problems.
+
+:::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view.":::   
 
 ### Diagnose and solve problems tool for Virtual Machines
 

@@ -5,6 +5,7 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 11/08/2021
+ms.reviewer: lualderm
 ---
 
 # Tutorial: Collect and analyze resource logs from an Azure resource

@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 07/28/2022
 ---
 
 # Enterprise security and governance for Azure Machine Learning
@@ -73,7 +73,6 @@ For more information, see the following articles:
 * [Connect to storage services](how-to-access-data.md)
 * [Use Azure Key Vault for secrets when training](how-to-use-secrets-in-runs.md)
 * [Use Azure AD managed identity with Azure Machine Learning](how-to-use-managed-identities.md)
-* [Use Azure AD managed identity with your web service](how-to-use-azure-ad-identity.md)
 
 ## Network security and isolation
 
@@ -89,7 +88,7 @@ For more information, see the following documents:
 * [Secure workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure training environment](how-to-secure-training-vnet.md)
 * For securing inference, see the following documents:
-    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+    * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)

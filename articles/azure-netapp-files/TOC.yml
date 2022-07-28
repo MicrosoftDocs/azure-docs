@@ -167,6 +167,8 @@
       href: request-region-access.md
   - name: Manage Active Directory 
     items:
+    - name: Understand guidelines for Active Directory Domain Services
+      href: understand-guidelines-active-directory-domain-service-site.md
     - name: Create and manage Active Directory connections
       href: create-active-directory-connections.md
     - name: Modify Active Directory connections
@@ -203,6 +205,8 @@
         href: azure-netapp-files-create-volumes-smb.md
       - name: Enable Continuous Availability on existing SMB volumes
         href: enable-continuous-availability-existing-SMB.md
+      - name: Use DFS-N and DFS Root Consolidation with Azure NetApp Files
+        href: use-dfs-n-and-dfs-root-consolidation-with-azure-netapp-files.md
     - name: Manage dual-protocol volumes
       items:
       - name: Create a dual-protocol volume 

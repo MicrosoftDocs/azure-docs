@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, sdkv1, event-tier1-build-2022
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/12/2022
+ms.date: 06/28/2022
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
@@ -28,7 +28,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 > * [Secure workspace resources](how-to-secure-workspace-vnet.md).
 > * [Secure training environments](how-to-secure-training-vnet.md).
 > * For securing inference, see the following documents:
->     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+>     * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
 >     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 > * [Use Azure Machine Learning studio in a VNet](how-to-enable-studio-virtual-network.md).
 > * [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
@@ -42,7 +42,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 
 * If you enable public access for a workspace secured with private endpoint and use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
 * You may encounter problems trying to access the private endpoint for your workspace if you are using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla. We recommend using Microsoft Edge or Google Chrome as a workaround.
-* Using a private endpoint does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal. Data plane operations, such as using Azure Machine Learning studio, APIs (including published pipelines), or the SDK use the private endpoint.
+* Using a private endpoint does not affect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal. Data plane operations, such as using Azure Machine Learning studio, APIs (including published pipelines), or the SDK use the private endpoint.
 * When creating a compute instance or compute cluster in a workspace with a private endpoint, the compute instance and compute cluster must be in the same Azure region as the workspace.
 * When creating or attaching an Azure Kubernetes Service cluster to a workspace with a private endpoint, the cluster must be in the same region as the workspace.
 * When using a workspace with multiple private endpoints, one of the private endpoints must be in the same VNet as the following dependency services:
@@ -339,6 +339,14 @@ In some situations, you may want to allow someone to connect to your secured wor
 > * Using Jupyter, JupyterLab, and RStudio on a compute instance, including running notebooks, __is not supported__.
 
 To enable public access, use the following steps:
+
+> [!TIP]
+> There are two possible properties that you can configure:
+> * `allow_public_access_when_behind_vnet` - used by the Python SDK v1
+> * `public_network_access` - used by the CLI and Python SDK v2 (preview)
+> Each property overrides the other. For example, setting `public_network_access` will override any previous setting to `allow_public_access_when_behind_vnet`.
+>
+> Microsoft recommends using `public_network_access` to enable or disable public access to a workspace.
 
 # [Python](#tab/python)
 

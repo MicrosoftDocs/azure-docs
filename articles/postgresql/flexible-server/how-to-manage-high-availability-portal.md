@@ -42,25 +42,23 @@ This section provides details specifically for HA-related fields. You can follow
 
 4.  If you chose the Availability zone in step 2 and if you chose zone-redundant HA, then you can choose the standby zone.
     :::image type="content" source="./media/how-to-manage-high-availability-portal/choose-standby-availability-zone.png" alt-text="Screenshot of Standby AZ selection.":::
+ 
 
->[!NOTE]
-> See the [HA limitation section](concepts-high-availability.md#high-availability---limitations) for a current restriction with same-zone HA deployment.  
-
-1.  If you want to change the default compute and storage, click  **Configure server**.
+5.  If you want to change the default compute and storage, click  **Configure server**.
  
     :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="Screenshot of configure compute and storage screen.":::  
 
-2.  If high availability option is checked, the burstable tier will not be available to choose. You can choose either
+6.  If high availability option is checked, the burstable tier will not be available to choose. You can choose either
     **General purpose** or **Memory Optimized** compute tiers. Then you can select **compute size** for your choice from the dropdown.
 
     :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Compute tier selection screen.":::  
 
 
-3.  Select **storage size** in GiB using the sliding bar and select the **backup retention period** between 7 days and 35 days.
+7.  Select **storage size** in GiB using the sliding bar and select the **backup retention period** between 7 days and 35 days.
    
     :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Screenshot of Storage Backup."::: 
 
-4. Click **Save**. 
+8. Click **Save**. 
 
 ## Enable high availability post server creation
 

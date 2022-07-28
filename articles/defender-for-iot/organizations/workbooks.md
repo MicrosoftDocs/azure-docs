@@ -2,14 +2,10 @@
 title: Use Azure Monitor workbooks in Microsoft Defender for IoT
 description: Learn how to view and create Azure Monitor workbooks for Defender for IoT data.
 ms.topic: how-to
-ms.date: 03/06/2022
+ms.date: 06/02/2022
 ---
 
-# Use Azure Monitor workbooks in Microsoft Defender for IoT (Public preview)
-
-> [!IMPORTANT]
->
-> The **Workbooks** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Use Azure Monitor workbooks in Microsoft Defender for IoT
 
 Azure Monitor workbooks provide graphs, charts, and dashboards that visually reflect data stored in your Azure Resource Graph subscriptions and are available directly in Microsoft Defender for IoT.
 
@@ -57,12 +53,11 @@ Use the Defender for IoT **Workbooks** page to create custom Azure Monitor workb
     |**Query**     |  Add a query to use when creating your workbook graphs and charts.   <br><br>- Make sure to select **Azure Resource Graph** as your **Data source** and select all of your relevant subscriptions. <br>- Add a graphical representation for your data by selecting a type from the **Visualization** options.  |
     |**Metric**     | Add metrics to use when creating workbook graphs and charts.       |
     |**Group**     |  Add groups to organize your workbooks into sub-areas.       |
-    |     |         |
 
     For each option, after you've defined all available settings, select the **Add...** or **Run...** button to create that workbook element. For example, **Add parameter** or **Run Query**.
 
     > [!TIP]
-    > You can build your queries in the [Azure Resource Graph Explorer](https://ms.portal.azure.com/#blade/HubsExtension/ArgQueryBlade) and copy them into your workbook query.
+    > You can build your queries in the [Azure Resource Graph Explorer](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade) and copy them into your workbook query.
 
 1. In the toolbar, select **Save** :::image type="icon" source="media/workbooks/save-icon.png" border="false"::: or **Save as** :::image type="icon" source="media/workbooks/save-as-icon.png" border="false"::: to save your workbook, and then select **Done editing**.
 

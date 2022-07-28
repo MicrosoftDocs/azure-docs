@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 06/22/2022
 ms.reviewer: azfuncdf, antchu
 ms.devlang: powershell
-ms.custom: mode-api
+ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Create your first durable function in PowerShell
