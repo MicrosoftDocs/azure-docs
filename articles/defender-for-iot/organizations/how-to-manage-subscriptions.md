@@ -96,7 +96,6 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
 1. Select **I accept the terms**, and then select **Save**.
 
-1. Select **Save**.
 
 Your OT networks plan will be shown under the associated subscription in the **Plans** grid. 
 
