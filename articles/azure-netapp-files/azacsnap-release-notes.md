@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 07/29/2022
 ms.author: phjensen
 ---
 
