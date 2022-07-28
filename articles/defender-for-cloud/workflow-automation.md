@@ -171,6 +171,7 @@ Unfortunately, this change accompanied with unavoidable breaking change and all 
     |Deploy Workflow Automation for Microsoft Defender for Cloud alerts | When an Microsoft Defender for Clou dAlert is created or triggered <sup>[1](#footnote1)</sup>|
     | Deploy Workflow Automation for Microsoft Defender for Cloud recommendations | When an Microsoft Defender for Cloud Recommendation is created or triggered |
     | Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance | When a Microsoft Defender for Cloud Regulatory Compliance Assessment is created or triggered |
+
     <sup><a name="footnote1"></a>1</sup> The typo `Clou dAlert` is intentional.
 
 ## Next steps
