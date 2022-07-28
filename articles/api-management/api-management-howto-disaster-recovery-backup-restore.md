@@ -255,8 +255,8 @@ $identityId = (Get-AzUserAssignedIdentity -Name $identityName -ResourceGroupName
 $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
 
 Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
-    -StorageContext $storageContext -SourceContainerName $containerName $blobName `
-    -AccessType "UserAssignedManagedIdentity" -identityClientId $identityid
+    -StorageContext $storageContext -SourceContainerName $containerName `
+    -SourceBlobName $blobName -AccessType "UserAssignedManagedIdentity" ` -identityClientId $identityid
 ```
 
 Restore is a long-running operation that may take up to 30 or more minutes to complete.
