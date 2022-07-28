@@ -46,7 +46,7 @@ Use clear and unambiguous language and use a list format.
 
 ## Adding modules to your cache
 
-You must add modules when you create your Enterprise tier cache. To add a module or modules when creating a new cache, use the settings in the Advanced tab of the Enterprise tier caches. 
+You must add modules when you create your Enterprise tier cache. To add a module or modules when creating a new cache, use the settings in the Advanced tab of the Enterprise tier caches.
 
 You can add all the available modules or to select only specific modules to install.
 
@@ -68,7 +68,7 @@ The following modules are available when creating a new Enterprise cache.
 
 ### RediSearch
 
-The **RediSearch** module adds a _real-time search engine_ to a Redis server, combining low latency performance with powerful search features. 
+The **RediSearch** module adds a _real-time search engine_ to a Redis server, combining low latency performance with powerful search features.
 
 Features include:
 
