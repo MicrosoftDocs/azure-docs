@@ -41,9 +41,11 @@ To prevent this scenario, you can block access to and from your own Azure AD ten
 
   - The tenant IDs for any tenants where you want to allow connections to or from your tenant.
 
-  - The choice whether to allow inbound connections to your tenant from each allowed tenant.
+    If you choose to allow such connections, include the following information:
+    
+    - The choice whether to allow inbound connections to your tenant from each allowed tenant.
 
-  - The choice whether to allow inbound connections from your tenant to each allowed tenant.
+    - The choice whether to allow inbound connections from your tenant to each allowed tenant.
 
 - To test the tenant isolation policy, you need a second Azure AD tenant. From this tenant, you'll try connecting to and from the isolated tenant after the isolation policy takes effect.
 
