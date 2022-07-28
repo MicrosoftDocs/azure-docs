@@ -17,9 +17,12 @@ ms.date: 08/01/2022
 
 Azure Logic Apps includes many connectors for you to build integration apps and workflows and to access various data, apps, services, systems, and other resources. These connectors authorize your access to these resources by using Azure Active Directory (Azure AD) to authenticate your credentials.
 
-When you create a connection from your workflow to access a resource, you can share that connection with others in the same Azure AD tenant or different tenant by sending a consent link. This shared connection provides access to same resource. However, this capability creates a security vulnerability. Anyone in other Azure AD tenants can create a logic app workflow with a connection. They can then share that connection's consent link with anyone else in a different tenant, for example, by sending a phishing email. If the receiver signs in using the shared connection, the sender can now access the resources in recipient's tenant.
+When you create a connection from your workflow to access a resource, you can share that connection with others in the same Azure AD tenant or different tenant by sending a consent link. This shared connection provides access to same resource. However, this capability creates a security vulnerability when anyone in other Azure AD tenants create and share a connection from their logic app workflow. This connection might give the sender access to the recipient's resources.
 
-To prevent this scenario, you can block access to and from your own Azure AD tenant through shared connections. By setting up a tenant isolation policy, you can better control data movement between your tenant and resources that require Azure AD authorized access.
+Should we describe this security vulnerability in such detail publicly? Perhaps it might be better to simply mention how users may want to block connections to and from their tenant as a security measure, or only allow connections with certain specific tenants?
+
+
+As a security measure and to prevent this scenario, you can block access to and from your own Azure AD tenant through such shared connections. You can also permit but restrict connections only to specific tenants. By setting up a tenant isolation policy, you can better control data movement between your tenant and resources that require Azure AD authorized access.
 
 ## Prerequisites
 
