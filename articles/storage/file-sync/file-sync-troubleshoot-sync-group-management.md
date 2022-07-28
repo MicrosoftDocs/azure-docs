@@ -80,7 +80,7 @@ This error occurs if the limit of server endpoints per server is reached. Azure 
 This error occurs if another server endpoint is already syncing the server endpoint path specified. Azure File Sync does not support multiple server endpoints syncing the same directory or volume.
 
 <a id="-2160590967"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2160590967 or 0x80c80077)**  
-This error occurs if the server endpoint path contains orphaned tiered files. If a server endpoint was recently removed, wait until the orphaned tiered files cleanup has completed. An Event ID 6662 is logged to the Telemetry event log once the orphaned tiered files cleanup has started. An Event ID 6661 is logged once the orphaned tiered files cleanup has completed and a server endpoint can be recreated using the path. If the server endpoint creation fails after the tiered files cleanup has completed or if Event ID 6661 cannot be found in the Telemetry event log due to event log rollover, remove the orphaned tiered files by performing the steps documented in the [Tiered files are not accessible on the server after deleting a server endpoint](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) section.
+This error occurs if the server endpoint path contains orphaned tiered files. If a server endpoint was recently removed, wait until the orphaned tiered files cleanup has completed. An Event ID 6662 is logged to the Telemetry event log once the orphaned tiered files cleanup has started. An Event ID 6661 is logged once the orphaned tiered files cleanup has completed and a server endpoint can be recreated using the path. If the server endpoint creation fails after the tiered files cleanup has completed or if Event ID 6661 cannot be found in the Telemetry event log due to event log rollover, remove the orphaned tiered files by performing the steps documented in [Tiered files are not accessible on the server after deleting a server endpoint](file-sync-troubleshoot-cloud-tiering.md#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
 
 <a id="-2134347757"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired" (Error code: -2134347757 or 0x80c87013)**  
 This error occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal, which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](file-sync-server-registration.md#unregister-the-server-with-storage-sync-service).
@@ -136,7 +136,7 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
 
 A server endpoint health status of "No Activity" means the server endpoint has not logged sync activity in the past two hours.
 
-To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](file-sync-troubleshoot-sync-errors.md#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
 A server endpoint may not log sync activity for several hours due to a bug or insufficient system resources. Verify the latest Azure File Sync [agent version](file-sync-release-notes.md) is installed. If the issue persists, open a support request.
 
