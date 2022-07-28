@@ -193,7 +193,7 @@ To delete a federated identity credential, select the **Delete** icon for the cr
 
 Run the [az ad app federated-credential create](/cli/azure/ad/app/federated-credential) command to create a new federated identity credential on your app (specified by the object ID of the app).  
 
-The *id* parameter specifies the object ID of the application.  The *parameters* parameter specifies the parameters, in JSON format, for creating the federated identity credential.
+The *id* parameter specifies the identifier URI, application ID, or object ID of the application.  The *parameters* parameter specifies the parameters, in JSON format, for creating the federated identity credential.
 
 ### GitHub Actions example
 
@@ -276,7 +276,7 @@ az ad app federated-credential create --id f6475511-fd81-4965-a00e-41e7792b7b9c 
 
 Run the [az ad app federated-credential list](/cli/azure/ad/app/federated-credential) command to list the federated identity credentials on your app.
 
-The *id* parameter specifies the object ID of the application.
+The *id* parameter specifies the identifier URI, application ID, or object ID of the application.
 
 ```azurecli-interactive
 az ad app federated-credential list --id f6475511-fd81-4965-a00e-41e7792b7b9c
@@ -286,9 +286,9 @@ az ad app federated-credential list --id f6475511-fd81-4965-a00e-41e7792b7b9c
 
 Run the [az ad app federated-credential show](/cli/azure/ad/app/federated-credential) command to get a federated identity credential on your app.
 
-The *id* parameter specifies the object ID of the application.
+The *id* parameter specifies the identifier URI, application ID, or object ID of the application.
 
-The *credential-id* specifies the ID or name of the federated identity credential.
+The *federated-credential-id* specifies the ID or name of the federated identity credential.
 
 ```azurecli-interactive
 az ad app federated-credential show --id f6475511-fd81-4965-a00e-41e7792b7b9c --federated-credential-id c79f8feb-a9db-4090-85f9-90d820caa0eb
@@ -298,12 +298,12 @@ az ad app federated-credential show --id f6475511-fd81-4965-a00e-41e7792b7b9c --
 
 Run the [az ad app federated-credential delete](/cli/azure/ad/app/federated-credential) command to remove a federated identity credential from your app.
 
-The *id* parameter specifies the object ID of the application.
+The *id* parameter specifies the identifier URI, application ID, or object ID of the application.
 
-The *credential-id* specifies the ID of the federated identity credential.
+The *federated-credential-id* specifies the ID or name of the federated identity credential.
 
 ```azurecli-interactive
-az ad app federated-credential delete --id f6475511-fd81-4965-a00e-41e7792b7b9c --federated-credential-idc79f8feb-a9db-4090-85f9-90d820caa0eb
+az ad app federated-credential delete --id f6475511-fd81-4965-a00e-41e7792b7b9c --federated-credential-id c79f8feb-a9db-4090-85f9-90d820caa0eb
 ```
 
 ::: zone-end
@@ -346,7 +346,7 @@ To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
 ## Configure a federated identity credential on an app
 
-Run the [New-AzADAppFederatedIdentityCredential](/powershell/module/az.resources/new-azadappfederatedidentitycredential) cmdlet to create a new federated identity credential on an application.
+Run the [New-AzADAppFederatedCredential](/powershell/module/az.resources/new-azadappfederatedcredential) cmdlet to create a new federated identity credential on an application.
 
 ### GitHub Actions example
 
@@ -360,7 +360,7 @@ Run the [New-AzADAppFederatedIdentityCredential](/powershell/module/az.resources
 - *Audience* lists the audiences that can appear in the external token.  This field is mandatory.  The recommended value is "api://AzureADTokenExchange".
 
 ```azurepowershell-interactive
-New-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -name 'GitHub-Actions-Test' -Subject 'repo:octo-org/octo-repo:environment:Production'
+New-AzADAppFederatedCredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -Name 'GitHub-Actions-Test' -Subject 'repo:octo-org/octo-repo:environment:Production'
 ```
 
 ### Kubernetes example
@@ -372,7 +372,7 @@ New-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Audien
 - *Audience* lists the audiences that can appear in the `aud` claim of the external token.
 
 ```azurepowershell-interactive
-New-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://aksoicwesteurope.blob.core.windows.net/9d80a3e1-2a87-46ea-ab16-e629589c541c/' -name 'Kubernetes-federated-credential' -Subject 'system:serviceaccount:erp8asle:pod-identity-sa'
+New-AzADAppFederatedCredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://aksoicwesteurope.blob.core.windows.net/9d80a3e1-2a87-46ea-ab16-e629589c541c/' -Name 'Kubernetes-federated-credential' -Subject 'system:serviceaccount:erp8asle:pod-identity-sa'
 ```
 
 ### Other identity providers example
@@ -386,12 +386,12 @@ Specify the following parameters (using a software workload running in Google Cl
 - *Audiences*: must match the `aud` claim in the external token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. The recommended value is "api://AzureADTokenExchange".
 
 ```azurepowershell-interactive
-New-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://accounts.google.com' -name 'GcpFederation' -Subject '112633961854638529490'
+New-AzADAppFederatedCredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://accounts.google.com' -Name 'GcpFederation' -Subject '112633961854638529490'
 ```
 
 ## List federated identity credentials on an app
 
-Run the [Get-AzADAppFederatedCredential](/powershell/module/az.resources/get-azadappfederatedidentitycredential) cmdlet to list the federated identity credentials for an application.
+Run the [Get-AzADAppFederatedCredential](/powershell/module/az.resources/get-azadappfederatedcredential) cmdlet to list the federated identity credentials for an application.
 
 ```azurepowershell-interactive
 Get-AzADApplication -ObjectId $app | Get-AzADAppFederatedCredential
@@ -399,18 +399,18 @@ Get-AzADApplication -ObjectId $app | Get-AzADAppFederatedCredential
 
 ## Get a federated identity credential on an app
 
-Run the [Get-AzADAppFederatedCredential](/powershell/module/az.resources/get-azadappfederatedidentitycredential) cmdlet to get the federated identity credential by ID from an application.
+Run the [Get-AzADAppFederatedCredential](/powershell/module/az.resources/get-azadappfederatedcredential) cmdlet to get the federated identity credential by ID from an application.
 
 ```azurepowershell-interactive
-Get-AzADAppFederatedCredential -ApplicationObjectId $appObjectId -Id $credentialId
+Get-AzADAppFederatedCredential -ApplicationObjectId $appObjectId -FederatedCredentialId $credentialId
 ```
 
 ## Delete a federated identity credential from an app
 
-Run the [Remove-AzADAppFederatedIdentityCredential](/powershell/module/az.resources/remove-azadappfederatedidentitycredential) cmdlet to delete a federated identity credential from an application.
+Run the [Remove-AzADAppFederatedCredential](/powershell/module/az.resources/remove-azadappfederatedcredential) cmdlet to delete a federated identity credential from an application.
 
 ```azurepowershell-interactive
-Remove-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Id $credentialId
+Remove-AzADAppFederatedCredential -ApplicationObjectId $appObjectId -FederatedCredentialId $credentialId
 ```
 
 ::: zone-end
