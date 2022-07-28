@@ -10,12 +10,14 @@ ms.date: 06/06/2022
 ms.author: chrupa
 ---
 
-# What is FHIR&reg; service?
+# What is the FHIR service?
 
-FHIR service in Azure Health Data Services (hereby called the FHIR service) enables rapid exchange of data through Fast Healthcare Interoperability Resources (FHIR®) APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
+The FHIR service in Azure Health Data Services enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR®) data standard. Offered as a managed Platform-as-a-Service (PaaS) for the storage and exchange of FHIR data, the FHIR service makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud. 
 
-- Managed FHIR service, provisioned in the cloud in minutes 
-- Enterprise-grade, FHIR-based endpoint in Azure for data access, and storage in FHIR format
+The FHIR service offers the following:
+
+- Managed FHIR-compliant server, provisioned in the cloud in minutes 
+- Enterprise-grade, FHIR-based endpoint in Azure for data access, and storage in the FHIR format
 - High performance, low latency
 - Secure management of Protected Health Information (PHI) in a compliant cloud environment
 - SMART on FHIR for mobile and web implementations
