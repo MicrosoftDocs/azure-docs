@@ -99,43 +99,43 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Normal and dedicated host | Availability zone support |
 | -------------------- | ------------------------- | ------------------------- |
-| Australia East       | x                         | x                         |
-| Australia Southeast  | x                         |                           |
-| Brazil South         | x                         | x                         |
-| Canada Central       | x                         | x                         |
-| Canada East          | x                         |                           |
-| Central India        | x                         | x                         |
-| Central US           | x                         | x                         |
-| East Asia            | x                         | x                         |
-| East US              | x                         | x                         |
-| East US 2            | x                         | x                         |
-| France Central       | x                         | x                         |
-| Germany West Central | x                         | x                         |
-| Japan East           | x                         | x                         |
-| Korea Central        | x                         | x                         |
-| North Central US     | x                         |                           |
-| North Europe         | x                         | x                         |
-| Norway East          | x                         | x                         |
-| South Africa North   | x                         | x                         |
-| South Central US     | x                         | x                         |
-| Southeast Asia       | x                         | x                         |
-| Switzerland North    | x                         |                           |
-| UAE North            | x                         |                           |
-| UK South             | x                         | x                         |
-| UK West              | x                         |                           |
-| West Central US      | x                         |                           |
-| West Europe          | x                         | x                         |
-| West US              | x                         |                           |
-| West US 2            | x                         | x                         |
-| West US 3            | x                         | x                         |
+| Australia East       | :&#x2713:                 | :&#x2713:                 |
+| Australia Southeast  | :&#x2713:                 |                           |
+| Brazil South         | :&#x2713:                 | :&#x2713:                 |
+| Canada Central       | :&#x2713:                 | :&#x2713:                 |
+| Canada East          | :&#x2713:                 |                           |
+| Central India        | :&#x2713:                 | :&#x2713:                 |
+| Central US           | :&#x2713:                 | :&#x2713:                 |
+| East Asia            | :&#x2713:                 | :&#x2713:                 |
+| East US              | :&#x2713:                 | :&#x2713:                 |
+| East US 2            | :&#x2713:                 | :&#x2713:                 |
+| France Central       | :&#x2713:                 | :&#x2713:                 |
+| Germany West Central | :&#x2713:                 | :&#x2713:                 |
+| Japan East           | :&#x2713:                 | :&#x2713:                 |
+| Korea Central        | :&#x2713:                 | :&#x2713:                 |
+| North Central US     | :&#x2713:                 |                           |
+| North Europe         | :&#x2713:                 | :&#x2713:                 |
+| Norway East          | :&#x2713:                 | :&#x2713:                 |
+| South Africa North   | :&#x2713:                 | :&#x2713:                 |
+| South Central US     | :&#x2713:                 | :&#x2713:                 |
+| Southeast Asia       | :&#x2713:                 | :&#x2713:                 |
+| Switzerland North    | :&#x2713:                 |                           |
+| UAE North            | :&#x2713:                 |                           |
+| UK South             | :&#x2713:                 | :&#x2713:                 |
+| UK West              | :&#x2713:                 |                           |
+| West Central US      | :&#x2713:                 |                           |
+| West Europe          | :&#x2713:                 | :&#x2713:                 |
+| West US              | :&#x2713:                 |                           |
+| West US 2            | :&#x2713:                 | :&#x2713:                 |
+| West US 3            | :&#x2713:                 | :&#x2713:                 |
 
 ### Azure Government:
 
 | Region           | Normal and dedicated host | Availability zone support |
 | ---------------- | ------------------------- | ------------------------- |
-| US Gov Texas     | x                         |                           |
-| US Gov Arizona   | x                         |                           |
-| US Gov Virginia  | x                         |                           |
+| US Gov Texas     | :&#x2713:                 |                           |
+| US Gov Arizona   | :&#x2713:                 |                           |
+| US Gov Virginia  | :&#x2713:                 |                           |
 
 ## App Service Environment v2
 
