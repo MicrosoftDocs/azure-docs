@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/03/2022
+ms.date: 07/28/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
@@ -42,17 +42,18 @@ Using the indexed claim in verifiable credentials, you can search for issued ver
    ![Revoke a credential](media/how-to-issuer-revoke/settings-revoke.png) 
 1. Search for the index claim of the user you want to revoke. If you haven't indexed a claim, search won't work, and you won't be able to revoke the verifiable credential.
 
-   ![Find the credential to revoke](media/how-to-issuer-revoke/revoke-search.png)
+   ![Screenshot of the credential to revoke](media/how-to-issuer-revoke/revoke-search.png)
 
     >[!NOTE]
     >Since we are only storing a hash of the indexed claim from the verifiable credential, only an exact match will populate the search results. We take the input as searched by the IT Admin and we use the same hashing algorithm to see if we have a hash match in our database.
     
 1. Once you've found a match, select the **Revoke** option to the right of the credential you want to revoke.
 
-   ![A warning letting you know that after revocation the user still has the credential](media/how-to-issuer-revoke/warning.png) 
+   ![Screenshot of a warning letting you know that after revocation the user still has the credential](media/how-to-issuer-revoke/warning.png) 
 
 1. After successful revocation, you see the status update and a green banner will appear at the top of the page. 
-   ![Verify this domain in settings](media/how-to-issuer-revoke/revoke-successful.png) 
+   
+   ![screenshot of a successfully revoked verifiable credential message](media/how-to-issuer-revoke/revoke-successful.png) 
 
 Now whenever a presentation is sent to the Request Service API it will check if the VC has been revoked.
 

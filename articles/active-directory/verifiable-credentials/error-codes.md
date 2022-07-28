@@ -8,7 +8,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
-ms.date: 07/19/2022
+ms.date: 07/29/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application.
@@ -108,7 +108,7 @@ The following are the possible top level `code` values that maps to the differen
 | 504 | gatewayTimeout |Time out received from another gateway.|
 | 507 | insufficientStorage |Unable to save data for the request.|
 
-### Innererror type
+### Inner error type
 
 The inner error object contains error specific details useful to the developer to help investigate the current failure.
 
@@ -136,7 +136,7 @@ The inner error object contains error specific details useful to the developer t
 | `target` | string| Optional. Target contains the field in the request that is causing this error. This field is optional and may not be present, depending on the error type. |
 
 
-### Innererror codes
+### Inner error codes
 
 |Code|Description|
 |-|-|

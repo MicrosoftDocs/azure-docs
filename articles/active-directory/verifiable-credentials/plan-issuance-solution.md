@@ -7,7 +7,7 @@ manager: martinco
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 07/19/2022
+ms.date: 07/28/2022
 ms.author: barclayn
 ms.custom: references_regions
 ---
@@ -54,14 +54,14 @@ Each issuer has a single key set used for signing, updating, and recovery. This 
 
 * Display definitions determine how claims are displayed in the holder’s wallet and also includes branding and other elements. The Display definition can be localized into multiple languages. See [How to customize your verifiable credentials](../verifiable-credentials/credential-design.md).
 
-* Rules are an issuer-defined model that describes the required inputs of a verifiable credential, the trusted sources of the inputs, and the mapping of input claims to output claims that are stored in the VC. Depending on which attestation that is defined in the rules definition, the input claims can come from an OIDC Identity Provider, from an id_token_hint or being self asserted during issuance via user input in the wallet.
+* Rules are an issuer-defined model that describes the required inputs of a verifiable credential. Rules also defined trusted input sources, and the mapping of input claims to output claims stored in the VC. Depending on the type of attestation defined in the rules definition, the input claims can come from different providers. Input claims may come from an OIDC Identity Provider, from an id_token_hint or they may be self asserted during issuance via user input in the wallet.
 
    * **Input** – Are a subset of the model in the rules file for client consumption. The subset must describe the set of inputs, where to obtain the inputs and the endpoint to call to obtain a verifiable credential.
 
 
 ### Microsoft Entra Verified ID service
 
-![Microsoft Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-vc-services.png)
+![Diagram of Microsoft Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-vc-services.png)
 
 The Microsoft Entra Verified ID service enables you to issue and revoke VCs based on your configuration. The service:
 
@@ -155,19 +155,19 @@ All verifiable credentials must declare their *type* in their [rules definition]
 
 In addition to the industry-specific standards and schemas that might be applicable to your scenarios, consider the following aspects:
 
-* **Minimize private information**: Meet the use cases with the minimal amount of private information necessary. For example, a VC used for e-commerce websites that offers discounts to employees and alumni can be fulfilled by presenting the credential with just the first and last name claims. Additional information such as hiring date, title, department, etc. are not needed.
+* **Minimize private information**: Meet the use cases with the minimal amount of private information necessary. For example, a VC used for e-commerce websites that offers discounts to employees and alumni can be fulfilled by presenting the credential with just the first and last name claims. Additional information such as hiring date, title, department, aren't needed.
 
 * **Favor abstract claims**: Each claim should meet the need while minimizing the detail. For example, a claim named “ageOver” with discrete values such as “13”,”21”,”60”, is more abstract than a date of birth claim.
 
-* **Plan for revocability**: We recommend you define an index claim to enable mechanisms to find and revoke credentials. You are limited to defining one index claim per contract. It is important to note that values for indexed claims are not stored in the backend, only a hash of the claim value. For more information, see [Revoke a previously issued verifiable credential](../verifiable-credentials/how-to-issuer-revoke.md).
+* **Plan for revocability**: We recommend you define an index claim to enable mechanisms to find and revoke credentials. You are limited to defining one index claim per contract. It is important to note that values for indexed claims aren't stored in the backend, only a hash of the claim value. For more information, see [Revoke a previously issued verifiable credential](../verifiable-credentials/how-to-issuer-revoke.md).
 
-For additional considerations on credential attributes, refer to the [Verifiable Credentials Data Model 1.0 (w3.org)](https://www.w3.org/TR/vc-data-model/) specification.
+For other considerations on credential attributes, refer to the [Verifiable Credentials Data Model 1.0 (w3.org)](https://www.w3.org/TR/vc-data-model/) specification.
 
 ## Plan quality attributes
 
 ### Plan for performance
 
-As with any solution, you must plan for performance. The key areas to focus on are latency and scalability. During initial phases of a release cycle, performance should not be a concern. However, when adoption of your issuance solution results in many verifiable credentials being issued, performance planning might become a critical part of your solution.
+As with any solution, you must plan for performance. The key areas to focus on are latency and scalability. During initial phases of a release cycle, performance shouldn't be a concern. However, when adoption of your issuance solution results in many verifiable credentials being issued, performance planning might become a critical part of your solution.
 
 The following provides areas to consider when planning for performance:
 
@@ -188,9 +188,9 @@ Model based on throughput:
 
 * Maximum signing performance of a Key Vault is 2,000 signing/~10 seconds. This is about 12,000 signings per minute. This means your solution can support up to 4,000 VC issuances per minute.
 
-* You cannot control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md). 
+* You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md). 
 
-* If you are planning a large rollout and onboarding of VCs, consider batching VC creation to ensure you do not exceed limits.
+* If you are planning a large rollout and onboarding of VCs, consider batching VC creation to ensure you don't exceed limits.
 
 As part of your plan for performance, determine what you will monitor to better understand the performance of the solution. In addition to application-level website monitoring, consider the following as you define your VC issuance monitoring strategy:
 
@@ -238,7 +238,7 @@ If the rare event that the Microsoft Entra Verified ID issuance service or Azure
 
 Your organization may have specific compliance needs related to your industry, type of transactions, or country of operation. 
 
-**Data residency**: The Microsoft Entra Verified ID issuance service is deployed in a subset of Azure regions. The service is used for compute functions only. We do not store values of verifiable credentials in Microsoft systems. However, as part of the issuance process, personal data is sent and used when issuing VCs. Using the VC service should not impact data residency requirements. If, as a part of identity verification you store any personal information, that should be stored in a manner and region that meets your compliance requirements. For Azure-related guidance, visit the Microsoft Trust Center website. 
+**Data residency**: The Microsoft Entra Verified ID issuance service is deployed in a subset of Azure regions. The service is used for compute functions only. We don't store values of verifiable credentials in Microsoft systems. However, as part of the issuance process, personal data is sent and used when issuing VCs. Using the VC service shouldn't impact data residency requirements. If, as a part of identity verification you store any personal information, that should be stored in a manner and region that meets your compliance requirements. For Azure-related guidance, visit the Microsoft Trust Center website. 
 
 **Revoking credentials**: Determine if your organization will need to revoke credentials. For example, an admin may need to revoke credentials when an employee leaves the company. Or if a credential is issued for a driver’s license, and the holder is caught doing something that would cause the driver’s license to be suspended, the VC might need to be revoked. For more information, see [Revoke a previously issued verifiable credential](how-to-issuer-revoke.md).
 

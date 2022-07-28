@@ -14,7 +14,7 @@ ms.author: barclayn
 #Customer intent: As a verifiable credentials developer, I want to configure verifying credentials from another party 
 ---
 
-# Entra Verified ID Network API
+# Entra Verified ID network API
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
@@ -35,7 +35,7 @@ The API is protected through Azure Active Directory and uses OAuth2 bearer token
 
 This API is used to search for issuers available in the Entra Verified ID Network. You can search for issuers by their **linked domain** name. The value supplied for the `filter` parameter will be used to find issuers that have onboarded to Entra Verified ID and have a verified linked domain. Currently you can only filter by `linkeddomainurls` and with operator `like`. There will be a maximum of 15 issuers in the response.
 
-#### HTTP Request
+#### HTTP request
 
 `GET /v1.0/verifiableCredentialsNetwork/authorities?filter=linkeddomainurls%20like%20Woodgrove`
 
@@ -53,7 +53,7 @@ This API is used to search for issuers available in the Entra Verified ID Networ
 | filter | linkeddomainurls like Woodgrove |
 
 
-#### Return Message
+#### Return message
 
 ```
 HTTP/1.1 200 OK
@@ -85,7 +85,7 @@ Content-type: application/json
 
 This API is used search for published credential types for a specific issuer. You need to know the issuers `tenantId` and `issuerId`. The return message is a collection of published credential types and their respective claims. There will be a maximum of 100 credential types in the response.
 
-#### HTTP Request
+#### HTTP request
 
 `GET /v1.0/tenants/:tenantId/verifiableCredentialsNetwork/authorities/:issuerId/contracts/`
 
@@ -104,7 +104,7 @@ This API is used search for published credential types for a specific issuer. Yo
 | issuerId | IssuerId obtained from the search by linked domain name |
 
 
-#### Return Message
+#### Return message
 
 ```
 HTTP/1.1 200 OK

@@ -143,7 +143,7 @@ The Request Service REST API generates several events to the callback endpoint. 
 | `state` | string| Correlates the callback event with the state passed in the original payload. |
 | `headers` | string| Optional. You can include a collection of HTTP headers required by the receiving end of the POST message. The current supported header values are the `api-key` or the `Authorization` headers. Any other header will throw an invalid callback header error|
 
-### pin type
+### Pin type
 
 The `pin` type defines a PIN code that can be displayed as part of the issuance. `pin` is optional, and, if used, should always be sent out-of-band. When you're using a HASH PIN code, you must define the `salt`, `alg`, and `iterations` properties. `pin` contains the following properties:
 

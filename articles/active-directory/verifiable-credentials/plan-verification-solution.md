@@ -7,7 +7,7 @@ manager: martinco
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 07/19/2022
+ms.date: 07/28/2022
 ms.author: barclayn
 ms.custom: references_regions
 ---
@@ -19,7 +19,7 @@ ms.custom: references_regions
 >[!IMPORTANT]
 > Microsoft Entra Verified ID is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Microsoft’s Microsoft Entra Verified ID (Azure AD VC) service enables you to trust proofs of user identity without expanding your trust boundary. With Azure AD VC, you create accounts or federate with another identity provider. By using verifiable credentials based on an open standard, a verification exchange enables applications to request credentials that aren't bound to a specific domain. This approach makes it easier to request and verify credentials at scale.
+Microsoft’s Microsoft Entra Verified ID (Azure AD VC) service enables you to trust proofs of user identity without expanding your trust boundary. With Azure AD VC, you create accounts or federate with another identity provider. When a solution implements a verification exchange using verifiable credentials, it enables applications to request credentials that aren't bound to a specific domain. This approach makes it easier to request and verify credentials at scale.
 
 If you haven’t already, we suggest you review the [Microsoft Entra Verified ID architecture overview](introduction-to-verifiable-credentials-architecture.md). You may also want to review [Plan your Microsoft Entra Verified ID issuance solution](plan-issuance-solution.md).
 
@@ -35,7 +35,7 @@ As you plan your verification solution, you must consider what business capabili
 
 As part of your plan for a verification solution, you must enable the interactions between the verifier, the subject, and the issuer. In this article, the terms relying party and verifier are used interchangeably. The following diagram shows the components of your verification architecture.
 
-![Components of a verification solution](media/plan-verification-solution/plan-verification-solution-architecture.png)
+![Diagram of the components of a verification solution.](media/plan-verification-solution/plan-verification-solution-architecture.png)
 
 
 ### Microsoft Entra Verified ID service
@@ -49,31 +49,31 @@ The service requires an Azure AD tenant that provides an Identity and Access Man
 
 ### Azure Key Vault
 
-![Azure Key Vault](./media/plan-verification-solution/plan-verification-solution-key-vault.png)
+![Diagram of the components of a verification solution with Azure Key Vault highlighted.](./media/plan-verification-solution/plan-verification-solution-key-vault.png)
 
 The Azure Key Vault service stores your verifier keys, which are generated when you enable the Microsoft Entra Verified ID issuance service. The keys are used to provide message security. Each verifier has a single key set used for signing, updating, and recovering VCs. This key set is used each time you service a verification request. Microsoft key set currently uses Elliptic Curve Cryptography (ECC) [SECP256k1](https://en.bitcoin.it/wiki/Secp256k1). We're exploring other cryptographic signature schemas that will be adopted by the broader DID community.
 
 ### Request Service API
 
-![Request Service API](./media/plan-verification-solution/plan-verification-solution-apis.png)
+![Diagram of the components of a verification solution with request Service API highlighted.](./media/plan-verification-solution/plan-verification-solution-apis.png)
 
 Application programming interfaces (APIs) provide developers a method to abstract interactions between components of the solution to execute verification operations. 
 
 ### Trust System 
 
-![Azure AD VC ION](./media/plan-verification-solution/plan-verification-solution-ion.png)
+![Diagram of the components of a verification solution with the trust system highlighted.](./media/plan-verification-solution/plan-verification-solution-ion.png)
 
 Microsoft Entra Verified ID currently supports two trust system. One is [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/)that uses Bitcoin’s blockchain for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and is used to perform cryptographic signature checks by parties to the transaction. The other alternative for trust system is [DID Web](https://w3c-ccg.github.io/did-method-web/), where the DID document is hosted on the issuers webserver.
 
 ### Microsoft Authenticator application
 
-![Microsoft Authenticator application](media/plan-verification-solution/plan-verification-solution-authenticator.png)
+![Diagram of the components of a verification solution with Microsoft Authenticator application highlighted.](media/plan-verification-solution/plan-verification-solution-authenticator.png)
 
 Microsoft Authenticator is the mobile application that orchestrates the interactions between the relying party, the user, the Microsoft Entra Verified ID issuance service, and dependencies described in the contract used to issue VCs. Microsoft Authenticator acts as a digital wallet in which the holder of the VC stores the VC. It's also the mechanism used to present VCs for verification.
 
 ### Relying party (RP) 
 
-![Relying party components](media/plan-verification-solution/plan-verification-solution-relying-party.png)
+![Diagram of the components of a verification solution with Relying party components highlighted.](media/plan-verification-solution/plan-verification-solution-relying-party.png)
 
 #### Web front end
 
@@ -91,7 +91,7 @@ The following are examples of designs to satisfy specific use cases. The first i
 
 Verifiable credentials can be used to enable faster onboarding by replacing some human interactions. VCs can be used to onboard employees, students, citizens, or others to access services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a VC to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a VC to prove their identity and gain access. 
 
-![Account onboarding scenario](media/plan-verification-solution/plan-verification-solution-onboarding.png)
+![Diagram showing the account onboarding scenario.](media/plan-verification-solution/plan-verification-solution-onboarding.png)
 
 #### Other elements 
 
@@ -131,7 +131,7 @@ Verifiable credentials can be used to enable faster onboarding by replacing some
 
 Verifiable credentials can be used as other proof to access to sensitive applications inside the organization. For example, VCs can also be used to provide employees with access to line-of-business applications based on achieving specific criteria, such as a certification.
 
-![Access inside of the trust boundary](media/plan-verification-solution/plan-verification-solution-inside-trust-boundary-access.png)
+![Diagram of the components of a verification solution with other elements included.](media/plan-verification-solution/plan-verification-solution-inside-trust-boundary-access.png)
 
 #### Other elements 
 
@@ -163,7 +163,7 @@ Verifiable credentials can also be used by relying parties that want to grant ac
 
 The decentralized nature of verifiable credentials enables this scenario without establishing federation relationships. 
 
-![Access outside of the trust boundary](media/plan-verification-solution/plan-verification-solution-outside-trust-boundary-access.png)
+![Diagram of the components of a verification solution showing that access is taking place from outside of the trust boundary.](media/plan-verification-solution/plan-verification-solution-outside-trust-boundary-access.png)
 
 #### Other elements 
 
@@ -192,7 +192,7 @@ Verifiable credentials can be used as an approach to account recovery. For examp
 
 Note: While the scenario we describe in this section is specific to recover Azure AD accounts, this approach can also be used to recover accounts in other systems.
 
-![Account recovery solution](media/plan-verification-solution/plan-verification-solution-account-recovery.png)
+![Diagram of the components of a verification solution showing the account recovery scenario.](media/plan-verification-solution/plan-verification-solution-account-recovery.png)
 
 #### Other Elements
 
@@ -262,7 +262,7 @@ You can use information in presented VCs to build a user profile. If you want to
 
 ## Plan for performance
 
-As with any solution, you must plan for performance. Focus areas include latency, throughput, and scalability. During initial phases of a release cycle, performance should not be a concern. However, when adoption of your solution results in many verifiable credentials being verified, performance planning might become a critical part of your solution.
+As with any solution, you must plan for performance. Focus areas include latency, throughput, and scalability. During initial phases of a release cycle, performance shouldn't be a concern. However, when adoption of your solution results in many verifiable credentials being verified, performance planning might become a critical part of your solution.
 
 The following provides areas to consider when planning for performance:
 
