@@ -131,7 +131,7 @@ For example, you may have more devices that require monitoring if you're increas
    - Update the number of committed devices
    - Update the number of sites (annual commitments only)
 
-1. Ensure the checkbox is selected to accept the terms.
+1. Select the **I accept the terms** option, and then select **Save**.
 
 
 Changes to your plan will take effect one hour after confirming the change. Billing for these changes will be reflected at the beginning of the month following confirmation of the change.
