@@ -97,7 +97,7 @@
       items:
       - name: Secure inferencing environment (v1)
         displayName: vnet
-        href: ../how-to-secure-inferencing-vnet.md
+        href: how-to-secure-inferencing-vnet.md
       - name: Configure secure web services (v1)
         displayName: ssl, tls
         href: ../how-to-secure-web-service.md
@@ -172,7 +172,7 @@
     items:
     - name: Where and how to deploy
       displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
-      href: ../how-to-deploy-and-where.md
+      href: how-to-deploy-and-where.md
     - name: Hyperparameter tuning a model (v1)
       displayName: azurecli, AzureML
       href: how-to-tune-hyperparameters-v1.md
