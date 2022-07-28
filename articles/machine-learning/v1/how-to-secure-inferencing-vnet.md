@@ -103,7 +103,7 @@ To add AKS in a virtual network to your workspace, use the following steps:
    > [!IMPORTANT]
    > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](../../virtual-network/network-security-groups-overview.md#default-security-rules).
 
-   [![An inbound security rule](./media/how-to-secure-inferencing-vnet/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-secure-inferencing-vnet/aks-vnet-inbound-nsg-scoring.png#lightbox)
+   ![Screenshot that shows an inbound security rule.](./media/how-to-secure-inferencing-vnet/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-secure-inferencing-vnet/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
     > [!IMPORTANT]
     > The IP address shown in the image for the scoring endpoint will be different for your deployments. While the same IP is shared by all deployments to one AKS cluster, each AKS cluster will have a different IP address.
