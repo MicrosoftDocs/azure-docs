@@ -180,18 +180,18 @@ To deploy scripts sequentially, use a deployment template, specifying a `depends
 
 ```json
 { 
-    "type": "Microsoft.Compute/virtualMachines/runCommands", 
-    "name": "secondRunCommand", 
-    "apiVersion": "2019-12-01", 
-    "location": "[parameters('location')]", 
-    "dependsOn": <full resourceID of the previous other Run Command>, 
-    "properties": { 
-        "source": {  
-            "script": "echo Hello World!"  
-        }, 
-        "timeoutInSeconds": 60  
+    "type":"Microsoft.Compute/virtualMachines/runCommands",
+    "name":"secondRunCommand",
+    "apiVersion":"2019-12-01",
+    "location":"[parameters('location')]",
+    "dependsOn":<full resourceID of the previous other Run Command>,
+    "properties":{
+        "source":{
+            "script":"echo Hello World!" 
+        },
+        "timeoutInSeconds":60
     }
-} 
+}
 ```
 
 ### Execute multiple Run Commands sequentially 
