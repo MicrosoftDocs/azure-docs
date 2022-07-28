@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 author: ericd-mst-github
 ms.author: erd
-ms.date: 10/27/2021
+ms.date: 07/28/2022
 ms.topic: how-to  
 ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
