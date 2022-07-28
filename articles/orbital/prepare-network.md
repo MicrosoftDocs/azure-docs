@@ -67,12 +67,12 @@ Here's how to set up the link flows based on direction on tcp or udp preference.
 ### Uplink
 
 | Setting                        | TCP Client                 | TCP Server                           | UDP Client                 | UDP Server                           |
-|--------------------------------|----------------------------|--------------------------------------|----------------------------|--------------------------------------|
-| Contact Profile Link ipAddress | Blank                      | Routable IP from delegated subnet    | Blank                      | Routable IP from delegated subnet    |
-| Contact Profile Link port      | Unique port in 49152-65535 | Unique port in 49152-65535           | Unique port in 49152-65535 | Unique port in 49152-65535           |
+|--------------------------------|----------------------------|--------------------------------------|----------------------------|-----------------------------------|
+| Contact Profile Link ipAddress | Blank                      | Routable IP from delegated subnet    | Blank                      | Not applicable                    |
+| Contact Profile Link port      | Unique port in 49152-65535 | Unique port in 49152-65535           | Unique port in 49152-65535 | Not applicable                    |
 | **Output**                     |                            |                                      |                            |                                      |
-| Contact Object destinationIP   | Connect to this IP         | Not applicable                       | Connect to this IP         | Not applicable                       |
-| Contact Object sourceIP        | Not applicable             | Link will come from one of these IPs | Not applicable             | Link will come from one of these IPs |
+| Contact Object destinationIP   | Connect to this IP         | Not applicable                       | Connect to this IP         | Not applicable                    |
+| Contact Object sourceIP        | Not applicable             | Link will come from one of these IPs | Not applicable             | Not applicable                    |
 
 
 
@@ -80,10 +80,10 @@ Here's how to set up the link flows based on direction on tcp or udp preference.
 
 | Setting                        | TCP Client                 | TCP Server                           | UDP Client                 | UDP Server                           |
 |--------------------------------|----------------------------|--------------------------------------|----------------------------|--------------------------------------|
-| Contact Profile Link ipAddress | Blank                      | Routable IP from delegated subnet    | Blank                      | Routable IP from delegated subnet    |
-| Contact Profile Link port      | Unique port in 49152-65535 | Unique port in 49152-65535           | Unique port in 49152-65535 | Unique port in 49152-65535           |
+| Contact Profile Link ipAddress | Blank                      | Routable IP from delegated subnet    | Not applicable             | Routable IP from delegated subnet    |
+| Contact Profile Link port      | Unique port in 49152-65535 | Unique port in 49152-65535           | Not applicable             | Unique port in 49152-65535           |
 | **Output**                     |                            |                                      |                            |                                      |
-| Contact Object destinationIP   | Connect to this IP         | Not applicable                       | Connect to this IP         | Not applicable                       |
+| Contact Object destinationIP   | Connect to this IP         | Not applicable                       | Not applicable             | Not applicable                       |
 | Contact Object sourceIP        | Not applicable             | Link will come from one of these IPs | Not applicable             | Link will come from one of these IPs |
 
 ## Next steps
