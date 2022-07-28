@@ -54,7 +54,7 @@ landingContent:
           - text: Use the Quota REST API
             url: https://techcommunity.microsoft.com/t5/azure-governance-and-management/using-the-new-quota-rest-api/ba-p/2183670
           - text: Automate quota management with the REST API
-            url: https://azure.microsoft.com/en-us/blog/automating-quota-management-with-azure-quota-rest-api/
+            url: https://azure.microsoft.com/blog/automating-quota-management-with-azure-quota-rest-api/
 
   # Card 
   - title: Get started
