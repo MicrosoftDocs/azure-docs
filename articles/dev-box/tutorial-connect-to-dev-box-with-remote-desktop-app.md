@@ -52,7 +52,7 @@ To download and setup the Remote Desktop app, follow these steps:
 
 1. Sign in to the [developer portal](https://aka.ms/developerportal).
 
-1. Select **Open in RDP client** for the dev box you want to connect to.
+1. Select **Open in RDP client** for the dev box you want to connect.
    
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/open-rdp-client.png" alt-text="Screenshot of the Your dev box card showing the Open in RDP client option.":::
 
