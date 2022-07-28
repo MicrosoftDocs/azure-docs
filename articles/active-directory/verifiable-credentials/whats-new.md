@@ -6,7 +6,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 07/19/2022
+ms.date: 07/28/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -26,7 +26,7 @@ This article lists the latest features, improvements, and changes in the Microso
 - Request Service API have **new endpoints** and **updated JSON payloads**. For issuance, see [Issuance API specification](issuance-request-api.md#issuance-request-payload) and for presentation, see [Presentation API specification](presentation-request-api.md#presentation-request-payload). The old endpoints and JSON payloads will continue to work, but you should change your applications to use the new endpoints and payloads.
 - Request Service API **[Error codes](error-codes.md)** have been **updated** 
 - The **[Admin API](admin-api.md)** is made **public** and is documented. The Azure portal is using the Admin API and with this REST API you can automate the onboarding or your tenant and creation of credential contracts.
-- Find issuers and credentials to verify via the [The Microsoft Entra Verified ID Network](how-to-use-vcnetwork.md).
+- Find issuers and credentials to verify via the [The Microsoft Entra Verified ID Network](how-use-vcnetwork.md).
 - For migrating your Azure Storage based credentials to become Managed Credentials there is a powershell script in the [github samples repo](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/contractmigration/scripts/contractmigration) for the task.
 
 - We also made the following updates to our Plan and design docs:
