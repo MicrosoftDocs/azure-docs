@@ -130,7 +130,7 @@ To view the device template:
 
 To customize the device template:
 
-1. Go to **Customize** on the **Device templates** menu.
+1. Navigate to the **Flow Meter** device template.
 1. Find the `Temperature` telemetry type.
 1. Update the **Display Name** of `Temperature` to `Reported temperature`.
 1. Update the unit of measurement, or set the **Min value** and **Max value**.
@@ -140,13 +140,12 @@ To customize the device template:
 
 ### Add a cloud property
 
-1. Go to **Cloud Properties** on the **Device templates** menu.
-1. Add a new cloud property by selecting **+ Add Cloud Property**.
+1. Navigate to the **Flow Meter** device template, and select **+ Add capability**.
+1. Add a new cloud property by selecting **Cloud Property** as **Capability type**.
     In Azure IoT Central, you can add a property that's relevant to the device. As an example, a cloud property could be an alerting threshold specific to an installation area, asset information, or other maintenance information.
 1. Select **Save** to save any changes.
 
 To learn more, see [Cloud properties](../core/concepts-device-templates.md#cloud-properties).
-
 
 ### Views
 

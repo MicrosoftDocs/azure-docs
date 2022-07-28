@@ -3,8 +3,8 @@ title: Troubleshooting for Datadog - Azure partner solutions
 description: This article provides information about troubleshooting for Datadog on Azure.
 ms.topic: conceptual
 ms.date: 05/28/2021
-author: davidsmatlak
-ms.author: davidsmatlak
+author: flang-msft
+ms.author: franlanglois
 ---
 
 # Fix common errors for Datadog on Azure

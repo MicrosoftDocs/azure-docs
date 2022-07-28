@@ -28,13 +28,13 @@ To add a cloud property to store the customer name associated with the device:
 
 1. In your IoT Central application, navigate to the **Temperature Controller** device template on the **Device templates** page.
 
-1. In the **Temperature Controller** device template, select **Cloud properties**.
+1. In the **Temperature Controller** device template, select **+Add capabaility**.
 
-1. Select **Add cloud property**. Enter *Customer name* as the **Display name**, expand the entry and choose **String** as the **Schema**. Then select **Save**.
+1. Enter *Customer name* as the **Display name**, select **Cloud property** as the **capability type**, expand the entry and choose **String** as the **Schema**. Then select **Save**.
 
 To customize how the **Get Max-Min report** commands display in your IoT Central application:
 
-1. Select **Customize** in the device template.
+1. Navigate to the **Temperature Controller** device template on the **Device templates** page.
 
 1. For **getMaxMinReport (thermostat1)**, replace *Get Max-Min report.* with *Get thermostat1 status report*.
 
@@ -44,7 +44,7 @@ To customize how the **Get Max-Min report** commands display in your IoT Central
 
 To customize how the **Target Temperature** writable properties display in your IoT Central application:
 
-1. Select **Customize** in the device template.
+1. Navigate to the **Temperature Controller** device template on the **Device templates** page.
 
 1. For **targetTemperature (thermostat1)**, replace *Target Temperature* with *Target Temperature (1)*.
 

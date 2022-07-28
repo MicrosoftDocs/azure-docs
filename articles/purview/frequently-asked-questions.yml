@@ -24,13 +24,29 @@ sections:
           Purpose of this FAQ
         answer: |
           This FAQ answers common questions that customers and field teams often ask. It's intended to clarify questions about Microsoft Purview and related solutions, such as Azure Data Catalog (ADC) Gen 2 (deprecated) and Azure Information Protection.
+      - question: |
+          Does this FAQ include information about the Microsoft Purview compliance portal?
+        answer: |
+          No. For the FAQ about Microsoft Purview risk and compliance solutions, see [Microsoft Purview compliance documentation](/microsoft-365/compliance/compliance-manager-faq)
+      - question: |
+          Where can I submit feedback or feature requests?
+        answer: |
+          You can submit feature requests on [our feedback page](https://feedback.azure.com/d365community/forum/82d7bddb-fb24-ec11-b6e6-000d3a4f07b8) which is checked regularly by the product team.
 
+          If you have an issue with Microsoft Purview, [reach out to support](https://azure.microsoft.com/support/create-ticket/).
+
+          If you have feedback about the documentation, reach out using the feedback button at the bottom of every documentation page.
       - question: |
           What are the source types available for metadata scanning and classification?
         answer: |
           There are a number of sources available, and we're adding more all the time.
           For a full list of sources and all their available capabilities, see our [supported data sources article](azure-purview-connector-overview.md).
-          
+
+      - question: |
+          Does Microsoft Purview support scanning zipped files?
+        answer: |
+          Currently, Microsoft Purview supports scanning GZIP files that contain a single CSV. For more information, see [supported file types for scanning.](microsoft-purview-connector-overview.md#file-types-supported-for-scanning)
+
       - question: |
           What data systems/processors can we connect and get lineage?
         answer: |
@@ -125,3 +141,23 @@ sections:
           No, the data map doesn't currently provide the data loss prevention capabilities that are supported for Microsoft 365 apps and services. 
           
           Read about [Data Loss Prevention in Microsoft Purview Information Protection](/microsoft-365/compliance/information-protection#prevent-data-loss) if you are interested in data loss prevention for Microsoft 365 apps and services.
+
+      - question: |
+          Can I use the same self-hosted integration runtime (SHIR) for both Microsoft Purview and Azure Data Factory?
+        answer: |
+          No. For more information about the SHIR, see our [self-hosted integration runtime documentation](manage-integration-runtimes.md).
+
+      - question: |
+          How do I use the REST API for Microsoft Purview?
+        answer: |
+          You can follow our documentation for examples: [using the REST API to access the data catalog](tutorial-using-rest-apis.md), and [using the REST API to manage access control](tutorial-metadata-policy-collections-apis.md). We also have a tutorial for using the [Python SDK](tutorial-using-python-sdk.md), and [Atlas 2.2 APIs](tutorial-atlas-2-2-apis.md).
+
+      - question: |
+          What network, security, and firewall configurations are recommended for Microsoft Purview?
+        answer: |
+          For network, security, and firewall configuration recommendations, see our [security best practices documentation.](concept-best-practices-security.md)
+
+      - question: |
+          Does Microsoft Purview have master data management (MDM) capabilities?
+        answer: |
+          Yes; Currently, Microsoft Purview has [partnered with Profisee for master data management capabilities](how-to-deploy-profisee-purview-integration.md).

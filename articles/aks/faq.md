@@ -36,7 +36,7 @@ Yes, you can use different virtual machine sizes in your AKS cluster by creating
 
 ## Are security updates applied to AKS agent nodes?
 
-Azure automatically applies security patches to the Linux nodes in your cluster on a nightly schedule. However, you're responsible for ensuring that those Linux nodes are rebooted as required. You have several options for rebooting nodes:
+AKS patches CVE’s that have a "vendor fix" every week. CVE's without a fix are waiting on a "vendor fix" before it can be remediated.  The AKS images will get automatically updated inside of 30 days and it recommended that customer apply an updated Node Image on a regular cadence to ensure that latest patched images and OS patches are all applied and current:
 
 - Manually, through the Azure portal or the Azure CLI.
 - By upgrading your AKS cluster. The cluster upgrades [cordon and drain nodes][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
