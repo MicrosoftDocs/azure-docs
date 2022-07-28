@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/27/2022
+ms.date: 07/28/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -39,6 +39,7 @@ In this tutorial, you learn about:
 > * Configure network
 > * Configure advanced networking
 > * Configure web proxy
+> * Validate network settings
 
 ::: zone-end
 
@@ -550,7 +551,7 @@ This is an optional configuration. However, if you use a web proxy, you can conf
    
    ![Screenshot of the Diagnostic tests page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test.png)  
 
-1. After the network settings are validated, return to the **Web proxy** page and select **Next: Device**.
+1. After network settings are validated, return to the **Web proxy** page and select **Next: Device**.
 
 ## Next steps
 
