@@ -194,12 +194,13 @@ Just like built-in roles, the `AssignableScopes` property specifies the scopes t
 
 Before you can delete a custom role, you must remove any role assignments that use the custom role. If you try to delete a custom role with role assignments, you get the message: `There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)`.
 
-Here are steps to help find the role assignments:
+Here are steps to help find the role assignments before deleting a custom role:
 
 - List the [custom role definition](role-definitions-list.md).
 - In the [assignable scopes](role-definitions.md#assignablescopes) section, get the management groups, subscriptions, and resource groups.
 - Iterate over the assignable scopes and [list the role assignments](role-assignments-list-portal.md).
 - [Remove the role assignments](role-assignments-remove.md) that use the custom role.
+- [Delete the custom role](custom-roles-portal.md#delete-a-custom-role).
 
 ## Custom role limits
 
