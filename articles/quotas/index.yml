@@ -50,6 +50,7 @@ landingContent:
           - text: Azure REST API
             url: /rest/api/reserved-vm-instances/quotaapi
       - linkListType: learn
+        links:
           - text: Using the Quota REST API
             url: https://techcommunity.microsoft.com/t5/azure-governance-and-management/using-the-new-quota-rest-api/ba-p/2183670
           - text: Automating quota management with the REST API
