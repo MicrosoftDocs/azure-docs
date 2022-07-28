@@ -20,6 +20,26 @@ ms.author: phjensen
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
 
+## Jul-2022
+
+### AzAcSnap 6 (Build: 1A5EAD9)
+
+AzAcSnap 6 brings a new release model for AzAcSnap.  Since AzAcSnap v5.0 was released as GA in April-2021, there have been 8 releases of AzAcSnap across two branches.  The main GA branch (v5.0) has received three updates with minor patches, and the Preview branch (v5.1) has receievd five updates since it was released as a Public Preview in January-2022.  Our goal with the new release model is to align with how Azure components are released, this allows to move features from Preview to GA (without having to move an entire branch), and introduce new Preview features (without having to create a new branch).  From AzAcSnap 6 we will have a single code-base with fully supported GA features and Preview features which are subject to Microsoft's Preview Ts&Cs.  Customers cannot accidentally use Preview features, and must enable them with the `--preview` command line option (which indicates the user accepts Microsoft's Preview Ts&Cs).  The next release will be AzAcSnap 7, which could include; patches (if necessary) for GA features, current Preview features moving to GA, or new Preview features.
+
+AzAcSnap 6 is being released with the following fixes and improvements:
+
+- Features moved to GA (generally available):
+  - Oracle Database support.
+  - Backint integration to work with Azure Backup.
+  - RunBefore/RunAfter command line options to execute custom shell scripts and commands prior to taking storage snapshots.
+- Features in Preview:
+  - Azure Key Vault to store Service Principal content.
+  - Azure Managed Disk as an alternate storage back-end.
+- ANF Client API Version updated to 2021-10-01.
+- Change to workflow for handling Backint to re-enable backint shoudl there be a failure when putting SAP HANA in a consistent state for snapshot.
+ 
+Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).
+
 ## May-2022
 
 ### AzAcSnap v5.0.3 (Build: 20220524.14204) - Patch update to v5.0.2
