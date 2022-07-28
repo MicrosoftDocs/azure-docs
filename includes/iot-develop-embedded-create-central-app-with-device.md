@@ -27,7 +27,7 @@ To create a new application:
     :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-select-custom.png" alt-text="Screenshot of create a custom app in Azure IoT Central":::
 
 1. Add Application Name and a URL.
-1. Select a standard pricing plan and you'll need to set a **Directory**, an **Azure subscription**, and a **Location**. To learn about pricing, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). 
+1. Select one of the standard pricing plans. Select your **Directory**, **Azure subscription**, and **Location**. To learn about creating IoT Central applications, see [Create an IoT Central application](../iot-central-core/howto-create-iot-central-application.md). To learn about pricing, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/).
 
     :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-create-custom.png" alt-text="Screenshot of entering information for the new app in Azure IoT Central":::
 
