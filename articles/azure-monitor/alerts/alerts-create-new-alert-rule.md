@@ -266,7 +266,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
      - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
      - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
 
----
+    ---
 
 ## Create a new alert rule using PowerShell
 

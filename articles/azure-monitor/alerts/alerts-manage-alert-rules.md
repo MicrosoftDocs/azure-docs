@@ -49,39 +49,39 @@ This section describes how to do manage metric alert rules using the cross-platf
 
 You can use commands with ``--help`` option to learn more about the command and how to use it. For example, the following command shows you the list of commands available for creating, viewing, and managing metric alerts.
 
-    ```azurecli
-    az monitor metrics alert --help
-    ```
+```azurecli
+az monitor metrics alert --help
+```
 
 ### View all the metric alerts in a resource group
 
-    ```azurecli
-    az monitor metrics alert list  -g {ResourceGroup}
-    ```
+```azurecli
+az monitor metrics alert list  -g {ResourceGroup}
+```
 
 ### See the details of a particular metric alert rule
 
 Use the name or the resource ID of the rule in the following commands:
 
-    ```azurecli
-    az monitor metrics alert show -g {ResourceGroup} -n {AlertRuleName}
-    ```
+```azurecli
+az monitor metrics alert show -g {ResourceGroup} -n {AlertRuleName}
+```
 
-    ```azurecli
-    az monitor metrics alert show --ids {RuleResourceId}
-    ```
+```azurecli
+az monitor metrics alert show --ids {RuleResourceId}
+```
 
 ### Disable a metric alert rule
 
-    ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
-    ```
+```azurecli
+az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
+```
 
 ### Delete a metric alert rule
 
-    ```azurecli
-    az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
-    ```
+```azurecli
+az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
+```
 
 ## Manage metric alert rules with PowerShell
 
@@ -112,38 +112,38 @@ This section describes how to manage log alerts using the cross-platform [Azure 
 
 You can use commands with ``--help`` option to learn more about the command and how to use it. For example, the following command shows you the list of commands available for creating, viewing, and managing log alerts.
 
-    ```azurecli
-    az monitor scheduled-query --help
-    ```
+```azurecli
+az monitor scheduled-query --help
+```
 
 ### View all the log alerts in a resource group
 
-    ```azurecli
-    az monitor scheduled-query list -g {ResourceGroup}
-   ```
+```azurecli
+az monitor scheduled-query list -g {ResourceGroup}
+```
 
 ### See the details of a particular log alert rule
 
 Use the name or the resource ID of the rule in the following command:
 
-    ```azurecli
-    az monitor scheduled-query show -g {ResourceGroup} -n {AlertRuleName}
-    ```
-    ```azurecli
-    az monitor scheduled-query show --ids {RuleResourceId}
-    ```
+```azurecli
+az monitor scheduled-query show -g {ResourceGroup} -n {AlertRuleName}
+```
+```azurecli
+az monitor scheduled-query show --ids {RuleResourceId}
+```
 
 ### Disable a log alert rule
 
-    ```azurecli
-    az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled false
-    ```
+```azurecli
+az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled false
+```
 
 ### Delete a log alert rule
 
-    ```azurecli
-    az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}
-    ```
+```azurecli
+az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}
+```
 
 ### Use the Azure Resource Manager CLI with [templates](./alerts-log-create-templates.md) files
 
