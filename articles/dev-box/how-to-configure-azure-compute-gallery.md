@@ -6,19 +6,19 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/08/2022
+ms.date: 07/28/2022
 ms.topic: how-to
 ---
 
 # Configure an Azure Compute Gallery
 
- An Azure Compute Gallery is a repository in Azure for managing and sharing images. It's stored in your Azure subscription and helps you build structure and organization around your image resources. You can create virtual machine images with different configurations and store them in an Azure Compute Gallery to provide easy access for maintenance and updates. You can make the custom images in your gallery available to dev box users through projects for them to create their own dev boxes. 
+ An Azure Compute Gallery is a repository in Azure for managing and sharing images. It's stored in your Azure subscription and helps you build structure and organization around your image resources. You can use Azure Compute Gallery to provide custom images for your dev box users.
 
 Advantages of using a gallery include:
 - You maintain the images in a single location and use them across DevCenters, projects, and pools.
-- Development teams can use the *Latest* image version of an image definition to ensure they always receive the most recent bits when creating dev boxes.
+- Development teams can use the *latest* image version of an image definition to ensure they always receive the most recent image when creating dev boxes.
 - Development teams can use a specific image version to standardize on a supported image version until a newer version is validated.
-- Microsoft Dev Box replicates images for dev boxes to the Azure regions configured in network connections. Replication takes place when the dev box definition is created. 
+
 
 You can learn more about Azure Compute Galleries and how to create them here:
 - [Store and share images in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) 
@@ -45,7 +45,9 @@ When using an Azure Compute Gallery image to create a dev box definition, the Wi
 To allow the services to perform these actions, you must provide permissions to your gallery as follows:
 
 ### Windows 365 Service Principal
-1. From the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries), open the gallery you want to attach to the DevCenter.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Use the Search box to locate the Azure Compute Gallery you want to attach to the DevCenter.
 1. Select the **Access Control (IAM)** menu item.
 1. Select **+ Add** > **Add role assignment**.
 1. On the Role tab, select **Reader**, and then select **Next**.
@@ -56,8 +58,9 @@ To allow the services to perform these actions, you must provide permissions to 
 
 ### DevCenter Managed Identity
 1. Use these steps to [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
-1. From the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters), open your DevCenter.
-1. Select **Identity** from the left menu.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Use the Search box to locate Dev Box resources, and select DevCenter.
+1. Open your DevCenter and select **Identity** from the left menu.
 1. On the **User assigned** tab, select **+ Add**.
 1. In Add user assigned managed identity, select the user-assigned managed identity that you created in step 1 and then select **Add**.
 
@@ -92,7 +95,7 @@ In order to use the images from a gallery in dev box definitions, you must first
  
 :::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-add.png" alt-text="Screenshot showing the Select a Gallery to add option.":::
 
-6. If there is a name conflict in the DevCenter, then you must provide a unique name to use for this gallery.
+6. If there's a name conflict in the DevCenter, then you must provide a unique name to use for this gallery.
 
 7. Select **Add**.
   
