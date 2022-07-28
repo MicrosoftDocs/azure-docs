@@ -107,6 +107,9 @@ Start by adding the following lines to your Program class. Make sure to add your
 
 [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
+
 ```csharp
 private static readonly string ApiKey = "REPLACE-WITH-YOUR-PERSONALIZER-KEY";
 private static readonly string ServiceEndpoint = "https://REPLACE-WITH-YOUR-PERSONALIZER-RESOURCE-NAME.cognitiveservices.azure.com";
