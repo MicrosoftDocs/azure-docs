@@ -29,7 +29,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 - Two cores
 - 4 GB of RAM
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
-- Non-Azure machines must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) for Arc-enabled VMware vSphere VM
+- Non-Azure machines must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) for Arc-enabled VMware vSphere VMs.
 
 ### Supported operating systems
 
@@ -65,7 +65,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 If you use a proxy server for communication between Azure Automation and machines running the extension-base Hybrid Runbook Worker, ensure that the appropriate resources are accessible. The timeout for requests from the Hybrid Runbook Worker and Automation services is 30 seconds. After three attempts, a request fails.
 
 > [!NOTE]
-> For Azure VMs and Arc-enabled Servers, you can set up the proxy settings by PowerShell cmdlets or API. This is currently not supported for Arc-enabled VMware vSphere VMs. 
+> For Azure VMs and Arc-enabled Servers, you can set up the proxy settings using PowerShell cmdlets or API. This is currently not supported for Arc-enabled VMware vSphere VMs. 
 
  To install the extension using cmdlets:
  
@@ -206,7 +206,7 @@ You can also add machines to an existing hybrid worker group.
 
 1. Select **Add** to add the machine to the group.
 
-   Once added, you can see the machine type as Azure virtual machine, Server-Azure Arc or VMware virtual machine-Azure Arc. The **Platform** field shows the worker as **Agent based (V1)** or **Extension based (V2)**.
+   After adding, you can see the machine type as Azure virtual machine, Server-Azure Arc or VMware virtual machine-Azure Arc. The **Platform** field shows the worker as **Agent based (V1)** or **Extension based (V2)**.
 
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform.png" alt-text="Platform field showing agent or extension based.":::
 
@@ -701,3 +701,5 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 - To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](../virtual-machines/extensions/features-windows.md) and [Azure VM extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
 
 - To learn about VM extensions for Arc-enabled servers, see [VM extension management with Azure Arc-enabled servers](../azure-arc/servers/manage-vm-extensions.md).
+
+- To learn about VM extensions for Arc-enabled VMware vSphere VMs, see [Manage VMware VMs in Azure through Arc-enabled VMware vSphere](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md).
