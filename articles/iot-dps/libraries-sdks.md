@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Microsoft SDKs for IoT Hub Device Provisioning Service
 
-The Azure IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub. The DPS package provides SDKs help you build backend and device applications that leverage DPS to provide zero-touch, just-in-time provisioning to one or more IoT hubs. The SDKs are published in a variety of popular languages and handle the underlying transport and security protocols between your devices or backend apps and DPS, freeing developers to focus on application development. Additionally, using the SDKs provides you with support for future updates to DPS, including security updates.
+The Azure IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub. The DPS package provides SDKs to help you build backend and device applications that leverage DPS to provide zero-touch, just-in-time provisioning to one or more IoT hubs. The SDKs are published in a variety of popular languages and handle the underlying transport and security protocols between your devices or backend apps and DPS, freeing developers to focus on application development. Additionally, using the SDKs provides you with support for future updates to DPS, including security updates.
 
 There are three categories of software development kits (SDKs) for working with DPS:
 
@@ -22,13 +22,7 @@ There are three categories of software development kits (SDKs) for working with 
 
 - [DPS device SDKs](#device-sdks) provide data plane operations for devices. You use the device SDK to provision a device through DPS.
 
-Azure IoT SDKs are also available for the following services:
-
-- [IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md): To help you build devices and backend apps that communicate with Azure IoT Hub.
-
-- [Device Update for IoT Hub SDKs](../iot-hub-device-update/understand-device-update.md): To help you deploy over-the-air (OTA) updates for IoT devices.
-
-- [IoT Plug and Play SDKs](../iot-develop/libraries-sdks.md): To help you build IoT Plug and Play solutions.
+The DPS SDKs are built on top of the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md), which help you build devices and backend apps that communicate with Azure IoT Hub.
 
 ## Device SDKs
 
@@ -55,7 +49,7 @@ These SDKs were designed and created to run on devices with limited compute and 
 | **FreeRTOS** | FreeRTOS Middleware | [GitHub](https://github.com/Azure/azure-iot-middleware-freertos) | [Samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples) | [Reference](https://azure.github.io/azure-iot-middleware-freertos) |
 | **Bare Metal** | Azure SDK for Embedded C | [GitHub](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot) | [Samples](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/README.md) | [Reference](https://azure.github.io/azure-sdk-for-c) |
 
-Learn more about the IoT Hub device SDKs in the [IoT Device Development documentation](../iot-develop/about-iot-sdks.md).
+Learn more about the device and embedded device SDKs in the [IoT Device Development documentation](../iot-develop/about-iot-sdks.md).
 
 ## Service SDKs
 
