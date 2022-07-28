@@ -43,7 +43,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - To attach an AKS cluster, the service principal/user performing the operation must be assigned the __Owner or contributor__ Azure role-based access control (Azure RBAC) role on the Azure resource group that contains the cluster. The service principal/user must also be assigned [Azure Kubernetes Service Cluster Admin Role](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) on the cluster.
 
-- If you **attach** an AKS cluster, which has an [Authorized IP range enabled to access the API server](../../aks/api-server-authorized-ip-ranges.md), enable the AzureML control plane IP ranges for the AKS cluster. The AzureML control plane is deployed across paired regions and deploys inference pods on the AKS cluster. Without access to the API server, the inference pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
+- If you **attach** an AKS cluster, which has an [Authorized IP range enabled to access the API server](../../aks/api-server-authorized-ip-ranges.md), enable the AzureML control plane IP ranges for the AKS cluster. The AzureML control plane is deployed across paired regions and deploys inference pods on the AKS cluster. Without access to the API server, the inference pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
 
     Authorized IP ranges only works with Standard Load Balancer.
 
@@ -211,7 +211,7 @@ For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)
 
 # [Portal](#tab/azure-portal)
 
-For information on creating an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#inference-clusters).
+For information on creating an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#inference-clusters).
 
 ---
 
@@ -233,7 +233,7 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
 * [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
-* [Create an AKS cluster (portal)](../aks/learn/quick-kubernetes-deploy-portal.md)
+* [Create an AKS cluster (portal)](../../aks/learn/quick-kubernetes-deploy-portal.md)
 * [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 The following example demonstrates how to attach an existing AKS cluster to your workspace:
@@ -292,7 +292,7 @@ For more information, see the [az ml computetarget attach aks](/cli/azure/ml(v1)
 
 # [Portal](#tab/azure-portal)
 
-For information on attaching an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#inference-clusters).
+For information on attaching an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#inference-clusters).
 
 ---
 
@@ -322,7 +322,7 @@ Following example shows how to enable TLS termination with automatic TLS certifi
 
 
 ```
-Following example shows how to enable TLS termination with custom certificate and custom domain name. With custom domain and certificate, you must update your DNS record to point to the IP address of scoring endpoint, please see [Update your DNS](how-to-secure-web-service.md#update-your-dns)
+Following example shows how to enable TLS termination with custom certificate and custom domain name. With custom domain and certificate, you must update your DNS record to point to the IP address of scoring endpoint, please see [Update your DNS](../how-to-secure-web-service.md#update-your-dns)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -342,7 +342,7 @@ Following example shows how to enable TLS termination with custom certificate an
 
 ```
 >[!NOTE]
-> For more information about how to secure model deployment on AKS cluster, please see [use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
+> For more information about how to secure model deployment on AKS cluster, please see [use TLS to secure a web service through Azure Machine Learning](../how-to-secure-web-service.md)
 
 ## Create or attach an AKS cluster to use Internal Load Balancer with private IP
 
@@ -403,7 +403,7 @@ aks_target.wait_for_completion(show_output = True)
 ---
 
 >[!IMPORTANT]
-> If your AKS cluster is configured with an Internal Load Balancer, using a Microsoft provided certificate is not supported and you must use [custom certificate to enable TLS](how-to-secure-web-service.md#deploy-on-azure-kubernetes-service). 
+> If your AKS cluster is configured with an Internal Load Balancer, using a Microsoft provided certificate is not supported and you must use [custom certificate to enable TLS](../how-to-secure-web-service.md#deploy-on-azure-kubernetes-service). 
 
 >[!NOTE]
 > For more information about how to secure inferencing environment, please see [Secure an Azure Machine Learning Inferencing Environment](how-to-secure-inferencing-vnet.md)
