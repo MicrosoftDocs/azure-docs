@@ -24,12 +24,14 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 
 |		|		|	Azure Monitor agent	|	Log Analytics agent	|	Diagnostics extension (WAD)	|
 |	-	|	-	|	-	|	-	|	-	|
-|	**Environments supported**	|	Azure	|	X	|	X	|	X	|
+|	**Environments supported**	|		|		|		|		|
+|		|	Azure	|	X	|	X	|	X	|
 |		|	Other cloud (Azure Arc)	|	X	|	X	|		|
 |		|	On-premises (Azure Arc)	|	X	|	X	|		|
 |		|	Windows Client OS	|	X (Preview)	|		|		|
 |	-	|	-	|	-	|	-	|	-	|
-|	**Data collected**	|	Event Logs	|	X	|	X	|	X	|
+|	**Data collected**	|		|		|		|		|
+|		|	Event Logs	|	X	|	X	|	X	|
 |		|	Performance	|	X	|	X	|	X	|
 |		|	File based logs	|	X (Preview)	|	X	|	X	|
 |		|	IIS logs	|	X (Preview)	|	X	|	X	|
@@ -40,27 +42,18 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 |		|	Crash dumps	|		|		|	X	|
 |		|	Agent diagnostics logs	|		|		|	X	|
 |	-	|	-	|	-	|	-	|	-	|
-|	**Data sent to**	|	Azure Monitor Logs	|	X	|	X	|	X	|
+|	**Data sent to**	|		|		|		|		|
+|		|	Azure Monitor Logs	|	X	|	X	|	X	|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|	X	|
 |		|	Event Hub	|		|		|	X	|
 |	-	|	-	|	-	|	-	|	-	|
-|	**Services and features supported**	|	Log Analytics	|	X	|	X	|		|
+|	**Services and features supported**	|		|		|		|		|
+|		|	Log Analytics	|	X	|	X	|		|
 |		|	Metrics explorer	|	X	|		|	X	|
 |		|	Microsoft Sentinel 	|	X (View scope)	|	X	|		|
 |		|	VM insights	|		|	X	|		|
 |		|	Azure Automation	|		|	X	|		|
 |		|	Microsoft Defender for Cloud	|		|	X	|		|
-
-
-
-
-| | Azure Monitor agent | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | 
-|:---|:----|:---|:---|
-| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)<br>[Windows Client OS (preview)](./azure-monitor-agent-windows-client.md)  | Azure | Azure<br>Other cloud<br>On-premises |  
-| **Agent requirements**  | None | None | None | 
-| **Data collected** | Event Logs<br>Performance<br>File based logs (preview)<br> | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<br>File based logs<br>IIS logs<br>Insights and solutions<br>Other services |
-| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | 
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer<br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel |
 
 ### Linux agents
 
