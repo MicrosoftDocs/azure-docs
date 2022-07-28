@@ -36,7 +36,7 @@ Advisor identifies resources that have not been used at all over the last 7 days
 
 ### Resize SKU recommendations
 
-Advisor recommends resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which costs less than the current one (based on retail rates) are used to generate the recommendation generation). 
+Advisor recommends resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which is less expensive (based on retail rates). 
 
 -	Recommendation criteria include **CPU**, **Memory** and **Outbound Network utilization**. 
 - The last 7 days of utilization data are analyzed
