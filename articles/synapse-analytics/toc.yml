@@ -471,7 +471,7 @@ items:
         displayName: workload, management
   - name: How-to guides
     items:
-    - name: Backup and restore
+    - name: Back up and restore
       items:
       - name: Create restore points
         href: ./backuprestore/sqlpool-create-restore-point.md
