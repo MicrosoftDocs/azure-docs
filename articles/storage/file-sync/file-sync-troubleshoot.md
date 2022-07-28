@@ -4,7 +4,7 @@ description: Troubleshoot common issues that you might encounter with Azure File
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 7/27/2022
+ms.date: 7/28/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -48,13 +48,12 @@ To run AFSDiag, perform the steps below:
 2. Reproduce the issue. When you're finished, enter **D**.
 3. A .zip file that contains logs and trace files is saved to the output directory that you specified. 
 
-## Common troubleshooting areas
+## Common troubleshooting subject areas
 
 For more detailed information, choose the subject area that you'd like to troubleshoot.
 
 - [Agent installation and server registration](file-sync-troubleshoot-installation.md)
-- [Cloud endpoint creation](file-sync-troubleshoot-cloud-endpoint-creation.md)
-- [Server endpoint creation, deletion, and health](file-sync-troubleshoot-server-endpoint-creation.md)
+- [Sync group management (including cloud endpoint and server endpoint creation)](file-sync-troubleshoot-sync-group-management.md)
 - [Sync errors](file-sync-troubleshoot-sync-errors.md)
 - [Cloud tiering](file-sync-troubleshoot-cloud-tiering.md)
 
