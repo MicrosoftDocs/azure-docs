@@ -65,9 +65,7 @@ We recommend making an initial estimate of your committed devices when onboardin
 
     If you are also a Defender for Endpoint customer, you can identify devices managed by Defender for Endpoint in the Defender for Endpoint **Device inventory** page. In the **Endpoints** tab, filter for devices by **Onboarding status**. For more information, see [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
-After you've set up your network sensor and have full visibility into all devices, you can [edit your plan](#edit-a-plan) to update the number of committed devices as needed.
-
-<!--do we need the words 'to a subscription' in this heading?-->
+After you've set up your network sensor and have full visibility into all devices, you can [Edit a plan](#edit-a-plan-for-ot-networks) to update the number of committed devices as needed.
 
 ## Onboard a Defender for IoT plan for OT networks
 
@@ -91,15 +89,13 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
     - **Committed devices**. If you selected a monthly or annual commitment, enter the number of assets you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
 
+    For example: 
 
     :::image type="content" source="media/how-to-manage-subscriptions/onboard-plan-2.png" alt-text="Screenshot of adding a plan for OT networks to your subscription.":::
 
-1. Select **I accept the terms**, and then select **Save**.
-
+1. Select the **I accept the terms** option, and then select **Save**.
 
 Your OT networks plan will be shown under the associated subscription in the **Plans** grid. 
-
-<!--same here do we need the words 'to a subscription' in this heading?-->
 
 ## Onboard a Defender for IoT plan for Enterprise IoT networks
 
@@ -133,13 +129,11 @@ For example, you may have more devices that require monitoring if you're increas
 
 1. Select the **I accept the terms** option, and then select **Save**.
 
-
 Changes to your plan will take effect one hour after confirming the change. Billing for these changes will be reflected at the beginning of the month following confirmation of the change.
 
 > [!NOTE]
 > **For an on-premises management console:**
  After any changes are made, you will need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. For more information, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
-
 
 ## Cancel a Defender for IoT plan from a subscription
 
@@ -169,9 +163,9 @@ Business considerations may require that you apply your existing IoT sensors to 
 
 1. Onboard a new plan to the new subscription you want to use. For more information, see: 
 
-    [Onboard a plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks-to-a-subscription) in the Azure portal
+    [Onboard a plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks) in the Azure portal
 
-    [Onboard a plan for Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks-to-a-subscription) in Defender for Endpoint
+    [Onboard a plan for Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks) in Defender for Endpoint
 
 1. Register your sensors under the new subscription. For more information, see [Set up an Enterprise IoT sensor](tutorial-getting-started-eiot-sensor.md#set-up-an-enterprise-iot-sensor).
 
