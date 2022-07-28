@@ -35,6 +35,7 @@ For best results, we recommend using Autoscale with VMs you deployed with Azure 
 > - You can only use Autoscale in the Azure public cloud.
 > - You can only configure Autoscale with the Azure portal.
 > - You can only deploy a scaling plan to these regions:
+>   - Australia East
 >   - Canada Central
 >   - Canada East
 >   - Central US
