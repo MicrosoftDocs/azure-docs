@@ -105,10 +105,12 @@ The core operation of the Translator service is translating text. In this quicks
 
     :::image type="content" source="media/quickstarts/install-newtonsoft.png" alt-text="Screenshot of the NuGet package install button.":::
 
-> [!div class="nextstepaction"]
-> [I created a project](#build-your-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+#### Feedback: Set up project (C#)
 
-### Build your application
+> [!div class="nextstepaction"]
+> [I created a project](#build-your-c#-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=feedback-set-up-project-c#)
+
+### Build your C# application
 
 > [!NOTE]
 >
@@ -158,11 +160,21 @@ class Program
 
 ```
 
+#### Feedback: Build your application (C#)
+
+> [!div class="nextstepaction"]
+> [I built the application](#run-your-c#-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=feedback-build-your-application-c#)
+
 ### Run your C# application
 
 Once you've added a code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-:::image type="content" source="media/quickstarts/run-program-visual-studio.png" alt-text="Screenshot of the rum program button in Visual Studio.":::
+:::image type="content" source="media/quickstarts/run-program-visual-studio.png" alt-text="Screenshot of the run program button in Visual Studio.":::
+
+#### Feedback: Run your application (C#)
+
+> [!div class="nextstepaction"]
+> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=feedback-run-application-c#)
 
 ### [Go](#tab/go)
 
@@ -183,6 +195,13 @@ You can use any text editor to write Go applications. We recommend using the lat
         ```console
           go version
         ```
+
+#### Feedback: Set up project (Go)
+
+> [!div class="nextstepaction"]
+> [I created a project](#build-your-go-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=platform-feedback-set-uo-project-go)
+
+### Build your Go application
 
 1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-app**, and navigate to it.
 
@@ -251,6 +270,11 @@ func main() {
 }
 ```
 
+#### Feedback: Build your application (Go)
+
+> [!div class="nextstepaction"]
+> [I created a project](#run-your-go-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=feedback-build-your-application-go)
+
 ### Run your Go application
 
 Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-app** folder and use the following command:
@@ -258,6 +282,10 @@ Once you've added a code sample to your application, your Go program can be exec
 ```console
  go run translation.go
 ```
+
+#### Feedback: Run your application (Go)
+
+> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=feedback-run-your-application-go)
 
 ### [Java](#tab/java)
 
@@ -606,7 +634,7 @@ After a successful call, you should see the following response:
 
 That's it, congratulations! You have learned to use the Translator service to translate text.
 
-## Next step
+## Next steps
 
  Explore our how-to documentation and take a deeper dive into Translation service capabilities:
 
