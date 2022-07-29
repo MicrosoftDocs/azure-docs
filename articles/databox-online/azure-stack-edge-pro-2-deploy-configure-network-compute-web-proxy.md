@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/28/2022
+ms.date: 07/29/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -545,14 +545,15 @@ This is an optional configuration. However, if you use a web proxy, you can conf
 
 ## Validate network settings
 
-1. On the **Diagnostic tests** page, use these steps to validate your network settings:
+Follow these steps to validate your network settings.
 
-   1. Select the tests as shown below.
-   1. Select **Run test**.
+1. Go to the **Diagnostic tests** page and select the tests as shown below.
+1. Select **Run test**.
    
    ![Screenshot of the Diagnostic tests page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test.png)  
 
-1. After network settings are validated, return to the **Web proxy** page and select **Next: Device**.
+1. Review test results to ensure that status shows "Healthy" for each test that was run. If a test fails, select **Recommended actions**, implement the recommended change, and then rerun the test.
+1. After network settings are validated and all tests return "Healthy" status, proceed to **Device** settings.
 
 ## Next steps
 
