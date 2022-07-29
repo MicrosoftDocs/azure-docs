@@ -70,7 +70,7 @@ FHIR capabilities from Microsoft are available in three configurations:
 * Azure API for FHIR is a managed FHIR server offered as a PaaS in Azure – easily provisioned in the Azure portal. Azure API for FHIR is not part of Azure Health Data Services. 
 * FHIR Server for Azure, an open-source FHIR server that can be deployed into your Azure subscription, is available on GitHub at https://github.com/Microsoft/fhir-server.
 
-For use cases that require customizing a FHIR server or that require access to the underlying services – such as the database without going through the FHIR API, developers should choose the open-source FHIR Server for Azure. For implementation of a turnkey, production-ready FHIR API with a provisioned backend database (i.e., data can only be accessed through the FHIR API - not directly from querying the database), developers should choose the FHIR service.
+For use cases that require customizing a FHIR server or that require access to the underlying services – such as the database without going through the FHIR API, developers should choose the open-source FHIR Server for Azure. For implementation of a turnkey, production-ready FHIR API with a provisioned backend database (i.e., data can only be accessed through the FHIR API - not from directly querying the database), developers should choose the FHIR service.
 
 ## Next Steps
 
