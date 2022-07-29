@@ -99,7 +99,7 @@ Verify that both the client and the root certificate are installed.
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/service-name.png" alt-text="Screenshot shows the Network window with the option to select an interface, select VPN type, and enter a service name." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/service-name.png":::
 
-1. Go to the VPN client profile that you downloaded. In the **Generic** folder, open the **VpnSettings.xml** file using a text editor. In the example, you can see information about the tunel type and the server address. Even though there are two VPN types listed, this VPN client will connect over IKEv2. Copy the **VpnServer** tag value.
+1. Go to the VPN client profile that you downloaded. In the **Generic** folder, open the **VpnSettings.xml** file using a text editor. In the example, you can see information about the tunnel type and the server address. Even though there are two VPN types listed, this VPN client will connect over IKEv2. Copy the **VpnServer** tag value.
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/vpn-server.png" alt-text="Screenshot shows the VpnSettings.xml file open with the VpnServer tag highlighted." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/vpn-server.png":::
 
