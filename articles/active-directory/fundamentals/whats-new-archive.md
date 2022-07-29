@@ -1,6 +1,6 @@
 ---
 title: Archive for What's new in Azure Active Directory? | Microsoft Docs
-description: The What's new release notes in the Overview section of this content set contains 6 months of activity. After 6 months, the items are removed from the main article and put into this archive article.
+description: The What's new release notes in the Overview section of this content set contain 6 months of activity. After 6 months, the items are removed from the main article and put into this archive article.
 services: active-directory
 author: barclayn
 manager: rkarlin
@@ -930,13 +930,13 @@ Users that have been assigned the User administrator role can longer create cata
 
 ---
 
-### Windows Azure Active Directory connector is deprecated
+### Microsoft Azure Active Directory connector is deprecated
 
 **Type:** Deprecated  
 **Service category:** Microsoft Identity Manager  
 **Product capability:** Identity Lifecycle Management
  
-The Windows Azure AD Connector for FIM is at feature freeze and deprecated. The solution of using FIM and the Azure AD Connector has been replaced. Existing deployments should migrate to [Azure AD Connect](../hybrid/whatis-hybrid-identity.md), Azure AD Connect Sync, or the [Microsoft Graph Connector](/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph), as the internal interfaces used by the Azure AD Connector for FIM are being removed from Azure AD. [Learn more](/microsoft-identity-manager/microsoft-identity-manager-2016-deprecated-features).
+The Microsoft Azure Active Directory Connector for FIM is at feature freeze and deprecated. The solution of using FIM and the Azure AD Connector has been replaced. Existing deployments should migrate to [Azure AD Connect](../hybrid/whatis-hybrid-identity.md), Azure AD Connect Sync, or the [Microsoft Graph Connector](/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph), as the internal interfaces used by the Azure AD Connector for FIM are being removed from Azure AD. [Learn more](/microsoft-identity-manager/microsoft-identity-manager-2016-deprecated-features).
 
 ---
 
@@ -2830,7 +2830,7 @@ It's recommended that customers use role template IDs in their PowerShell script
 
 API connectors are now available for use with Azure Active Directory B2C. API connectors enable you to use web APIs to customize your sign-up user flows and integrate with external cloud systems. You can you can use API connectors to:
 
-- Integrate with custom approval workflows
+- Integrate with custom approval workflow
 - Validate user input data
 - Overwrite user attributes 
 - Run custom business logic 
@@ -2978,7 +2978,7 @@ Azure AD Connect Cloud Provisioning public preview refresh features two major en
 
 - On-demand Provisioning or Test User experience
 
-    Once you have setup your configuration, you might want to test to see if the user transformation is working as expected before applying it to all your users in scope. With on-demand provisioning, IT Admins can enter the Distinguished Name (DN) of an AD user and see if they're getting synced as expected. On-demand provisioning provides a great way to ensure that the attribute mappings you did previously work as expected. [Learn More](../cloud-sync/how-to-on-demand-provision.md)
+    Once you have set up your configuration, you might want to test to see if the user transformation is working as expected before applying it to all your users in scope. With on-demand provisioning, IT Admins can enter the Distinguished Name (DN) of an AD user and see if they're getting synced as expected. On-demand provisioning provides a great way to ensure that the attribute mappings you did previously work as expected. [Learn More](../cloud-sync/how-to-on-demand-provision.md)
  
 ---
 
@@ -3062,7 +3062,7 @@ For more information, please see [User management enhancements (preview) in Azur
 **Service category:** Enterprise Apps 
 **Product capability:** SSO
 
-You can add free text notes to Enterprise applications. You can add any relevant information that will help you manager applications under Enterprise applications. For more information, see [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](../manage-apps/add-application-portal-configure.md). 
+You can add free text notes to Enterprise applications. You can add any relevant information that will help manager applications under Enterprise applications. For more information, see [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](../manage-apps/add-application-portal-configure.md). 
 
 ---
 
