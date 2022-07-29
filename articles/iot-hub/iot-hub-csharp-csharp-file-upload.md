@@ -214,7 +214,7 @@ Now you're ready to run the applications.
 
 
 
-1. Next, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample** under the folder where you expanded the Azure IoT C# samples. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you copied previously in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
+1. Next, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample** under the folder where you expanded the Azure IoT C# samples. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you saw when you registered a device in the IoT Hub.
 
     ```cmd/sh
     dotnet restore
