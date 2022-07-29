@@ -26,15 +26,15 @@ Microsoft will work with Thales to ensure that customers meet the prerequisites 
 - If a customer is new to payShield or the remote management option, they should take the formal training courses available from Thales and its approved partners.
 - If a customer is using payShield on premises today with custom firmware, they must conduct a porting exercise to update the firmware to a version compatible with the Azure deployment. Contact a Thales account manager to request a quote.
 
-## Firmware Support
+## Firmware and license support
 
-The HSM base firmware installed in public preview is Thales payShield10K base software version 1.4a 1.8.3. Versions below 1.4a 1.8.3. are not supported. Customers must ensure that they only upgrade to a firmware version that meets their compliance requirements.
+The HSM base firmware installed in public preview is Thales payShield10K base software version 1.4a 1.8.3 with the Premium Package license. Versions below 1.4a 1.8.3. are not supported. Customers must ensure that they only upgrade to a firmware version that meets their compliance requirements.
 
 Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs, as needed. If customers have questions or require assistance, they should work with Thales support.
 
 Microsoft is responsible for applying payShield security patches to unallocated HSMs.  
 
-## Microsoft Support
+## Microsoft support
 
 Microsoft will provide support for hardware issues, networking issues, and provisioning issues.
 
@@ -47,7 +47,7 @@ Microsoft support can be contacted by creating a support ticket through the Azur
 - Select "Create a support request".
 - On the "New support request" screen, select "Technical" as your issue type, and then "Payment HSM" as the service type. 
 
-## Thales Support
+## Thales support
 
 Thales will provide payment application-level support including client software, HSM configuration and backup, and HSM operation support.
 
