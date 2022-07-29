@@ -188,7 +188,7 @@ To run this script in Azure Machine Learning, you need to make your training dat
     The `target_path` value specifies the path on the datastore where the CIFAR10 data will be uploaded.
 
     >[!TIP] 
-    > While you're using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad hoc files. If you need an ETL tool, you can use [Azure Data Factory](../data-factory/introduction.md) to ingest your data into Azure.
+    > While you're using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad hoc files. If you need an ETL tool, you can use [Azure Data Factory](../../data-factory/introduction.md) to ingest your data into Azure.
 
 2. Select **Save and run script in terminal** to run the *upload-data.py* script.
 
