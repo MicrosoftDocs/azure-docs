@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 5/23/2022
+ms.date: 7/29/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -32,6 +32,7 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - East US 2
 - France Central
 - Germany West Central
+- Japan East
 - Korea Central
 - North Central US
 - North Europe
