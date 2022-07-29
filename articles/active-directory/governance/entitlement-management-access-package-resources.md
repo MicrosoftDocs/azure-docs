@@ -54,7 +54,7 @@ If you need to add resources to an access package, you should check whether the 
 
 A resource role is a collection of permissions associated with a resource.  Resources can be made available for users to request if you add resource roles from each of the catalog's resources to your access package. You can add resource roles that are provided by groups, teams, applications, and SharePoint sites.  When a user receives an assignment to an access package, they'll be added to all the resource roles in the access package.
 
-If you want different users to receive different the roles, then you'll need to create multiple access packages in the catalog, with separate access packages for each of the resource roles.  You can also mark the access packages as [incompatible](entitlement-management-access-package-incompatible.md) with each other so users can't request access to access packages that would give them excessive access.
+If you want some users to receive different roles than others, then you'll need to create multiple access packages in the catalog, with separate access packages for each of the resource roles.  You can also mark the access packages as [incompatible](entitlement-management-access-package-incompatible.md) with each other so users can't request access to access packages that would give them excessive access.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
