@@ -31,7 +31,7 @@ Developers can experiment with the capabilities on multiple levels to evaluate, 
 
 ### Low code or no-code
 
-You can create an identity and access token for Teams guests on Azure Portal without a single line of code. [Here are steps how to do it](../../../quickstarts/identity/quick-create-identity.md).
+You can create an identity and access token for Teams guests on Azure portal without a single line of code. [Here are steps how to do it](../../../quickstarts/identity/quick-create-identity.md).
 
 With a valid identity, access token, and Teams meeting URL, you can use [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/story/composites-call-with-chat-jointeamsmeeting--join-teams-meeting) to join Teams meeting without any code.
 
