@@ -119,7 +119,7 @@ To perform the steps in this section, you must have and existing virtual network
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Hybrid Azure Active Directory join highlighted.":::
 
----
+   ---
 
 1. Select **Review + Create**.
 
