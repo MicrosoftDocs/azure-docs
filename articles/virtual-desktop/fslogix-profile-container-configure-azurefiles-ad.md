@@ -252,7 +252,7 @@ To configure Profile Container on your session host VMs:
 
 1. Restart the VM used to create your custom image or a session host VM. You will need to repeat these steps for any remaining session host VMs.
 
-You have now finished the setting up Profile Container. If you are installing Profile Container in your custom image, you will need to finish creating the custom image. For more information, follow the steps in [Create a golden image in Azure](set-up-golden-image.md) from the section [Take the final snapshot](set-up-golden-image.md#take-the-final-snapshot) onwards.
+You have now finished the setting up Profile Container. If you are installing Profile Container in your custom image, you will need to finish creating the custom image. For more information, follow the steps in [Create a custom image in Azure](set-up-golden-image.md) from the section [Take the final snapshot](set-up-golden-image.md#take-the-final-snapshot) onwards.
 
 ## Validate profile creation 
 
