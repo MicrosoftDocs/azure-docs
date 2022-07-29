@@ -58,7 +58,7 @@ In [the first part](tutorial-routing.md#create-a-storage-account) of this tutori
 
 1. Select **Container** to create the new container.
 
-   :::image type="content" source="./media/tutorial-message-enrichments/create-storage-container.png" alt-text="Create a storage container.":::
+   :::image type="content" source="./media/tutorial-message-enrichments/create-storage-container.png" alt-text="Screenshot of creating a storage container.":::
 
 1. Name the container *enriched* and select **Create**.
 
@@ -109,11 +109,11 @@ Create a second endpoint and route for the enriched messages.
 
 1. In the **Routes** tab, select **Add**.
 
-   :::image type="content" source="./media/tutorial-message-enrichments/add-route.png" alt-text="Add a new message route.":::
+   :::image type="content" source="./media/tutorial-message-enrichments/add-route.png" alt-text="Screenshot of adding a new message route.":::
 
 1. Select **Add endpoint** next to the **Endpoint** field, then select **Storage** from the dropdown menu.
 
-   :::image type="content" source="./media/tutorial-message-enrichments/add-storage-endpoint.png" alt-text="Add a new endpoint for a route.":::
+   :::image type="content" source="./media/tutorial-message-enrichments/add-storage-endpoint.png" alt-text="Screenshot of adding a new endpoint for a route.":::
 
 1. Provide the following information for the new storage endpoint:
 
@@ -123,7 +123,7 @@ Create a second endpoint and route for the enriched messages.
    | **Azure Storage container** | Select **Pick a container**, which takes you to a list of storage accounts. Choose the storage account that you created in the previous section, then choose the **enriched** container that you created in that account. Select **Select**.|
    | **Encoding** | Select **JSON**. If this field is greyed out, then your storage account region doesn't support JSON. In that case, continue with the default **AVRO**. |
 
-   :::image type="content" source="./media/tutorial-message-enrichments/create-storage-endpoint.png" alt-text="Pick a container.":::
+   :::image type="content" source="./media/tutorial-message-enrichments/create-storage-endpoint.png" alt-text="Screenshot showing selecting a container for an endpoint.":::
 
 1. Accept the default values for the rest of the parameters and select **Create**.
 
@@ -136,7 +136,7 @@ Create a second endpoint and route for the enriched messages.
    | **Enable route** | Verify that this field is set to `enabled`. |
    | **Routing query** | Enter `level="storage"` as the query string. |
 
-   :::image type="content" source="./media/tutorial-message-enrichments/create-storage-route.png" alt-text="Save the routing query information.":::
+   :::image type="content" source="./media/tutorial-message-enrichments/create-storage-route.png" alt-text="Screenshot showing saving routing query information.":::
 
 1. Select **Save**.
 
@@ -197,7 +197,7 @@ Create three message enrichments that will be routed to the **enriched** storage
 
 1. For each message enrichment, fill in the name and value, and then select the endpoint **ContosoStorageEndpointEnriched** from the drop-down list. Here's an example of how to set up an enrichment that adds the IoT hub name to the message:
 
-   :::image type="content" source="./media/tutorial-message-enrichments/add-message-enrichments.png" alt-text="Add first enrichment.":::
+   :::image type="content" source="./media/tutorial-message-enrichments/add-message-enrichments.png" alt-text="Screenshot that shows adding the first enrichment.":::
 
    Add these values to the list for the ContosoStorageEndpointEnriched endpoint:
 
@@ -260,7 +260,7 @@ Follow these steps to add a location tag to your device's twin:
     		, "tags": {"location": "Plant 43"}
     ```
 
-    :::image type="content" source="./media/tutorial-message-enrichments/add-location-tag-to-device-twin.png" alt-text="Screenshot of adding location tag to device twin in Azure portal":::
+    :::image type="content" source="./media/tutorial-message-enrichments/add-location-tag-to-device-twin.png" alt-text="Screenshot of adding location tag to device twin in Azure portal.":::
 
 # [Azure CLI](#tab/cli)
 
@@ -317,7 +317,7 @@ After leaving the console application to run for a few minutes, view the data:
 
 1. Select **Storage browser** from the navigation menu. Select **Blob containers** to see the two containers that you created over the course of these tutorials.
 
-   :::image type="content" source="./media/tutorial-message-enrichments/show-blob-containers.png" alt-text="See the containers in the storage account.":::
+   :::image type="content" source="./media/tutorial-message-enrichments/show-blob-containers.png" alt-text="Screenshot showing the blob containers in the storage account.":::
 
 The messages in the container called **enriched** have the message enrichments included in the messages. The messages in the container you created earlier have the raw messages with no enrichments. Drill down into the **enriched** container until you get to the bottom and then open the most recent message file. Then do the same for the other container to verify that one is enriched and one isn't.
 
