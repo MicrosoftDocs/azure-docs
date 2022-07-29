@@ -9,7 +9,7 @@ ms.date: 07/29/2022
 ---
 # Scenarios for using Azure Deployment Environments
 
-This article discusses a few possible scenarios and benefits of Azure Deployment Environments, and the resources used to implement those scenarios.Depending on the needs of an enterprise, Azure Deployment Environments can be configured to meet different requirements. 
+This article discusses a few possible scenarios and benefits of Azure Deployment Environments, and the resources used to implement those scenarios. Depending on the needs of an enterprise, Azure Deployment Environments can be configured to meet different requirements. 
 
 Some possible scenarios are:
 - Environments as part of a CI/CD pipeline
