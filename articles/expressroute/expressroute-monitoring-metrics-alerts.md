@@ -299,7 +299,7 @@ You can view the memory utilization of each ExpressRoute Traffic Collector insta
 
 **Guidance:** Set an alert for when avg memory utilization exceeds a certain threshold.  
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/memory-usage.png" alt-text="Screenshot of CPU usage for ExpressRoute Traffic Collector." lightbox="./media/expressroute-monitoring-metrics-alerts/memory-usage.png":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/memory-usage.png" alt-text="Screenshot of memory usage for ExpressRoute Traffic Collector." lightbox="./media/expressroute-monitoring-metrics-alerts/memory-usage.png":::
 
 ### Count of flow records processed - Split by instances or ExpressRoute circuit
 
