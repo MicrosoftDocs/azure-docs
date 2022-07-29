@@ -37,10 +37,10 @@ The document covers –
 
 ### Azure Metrics 
 
-Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics give information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with the CPU utilization to find out the times at which the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md)
+Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics give information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with the CPU utilization to find out the times at which the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md).
 
 ### Query Store
-Query Store automatically captures the history of queries and runtime statistics, and retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance. For step-by-step guidance, see [Query Store](./concepts-query-store.md)
+Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance. For step-by-step guidance, see [Query Store](./concepts-query-store.md).
 
 ### pg_stat_statements
 pg_stat_statements extension helps in identifying the queries that consume time on the server.
@@ -95,7 +95,7 @@ ORDER BY duration DESC;
 
 ### Total Number of Connections and Number Connections by State 
 
-A large of connections to database is also another issue that might lead to increased CPU as well as memory utilization.
+A large number of connections to database is also another issue that might lead to increased CPU as well as memory utilization.
 
 Following query will give information about the number of connections by state – 
 ~~~
@@ -108,7 +108,7 @@ GROUP BY 1 ORDER BY 1;
 
 ## Resolve High CPU Utilization: 
 
-### Using EXPLAIN to debug slow query 
+### Using Explain Analyze 
 
 Once you know the query, which is running for long time one can use “EXPLAIN” to further investigate the query and tune it. 
 
@@ -127,7 +127,7 @@ For more details of pg bouncer
 
 Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [Pg Bouncer](./concepts-pgbouncer.md)
 
-### Terminating a long running session 
+### Terminating Long Running Sessions
 
 You could consider killing a long running transaction as an option.
 
@@ -139,23 +139,20 @@ AND application_name = '<YOUR APPLICATION NAME>';
 ~~~
 
 You can also filter by other properties like usename (username), datname (database name), client_addr (client's address), state, etc.  
-Once you have the sessions PID that you want to terminate, replace the “SELECT *” with “SELECT pg_terminate_backend(pid)” and those sessions will be terminated 
 
-For example, to the update the above query you can use: 
+Once you have the session's PID you can terminate using the following query:
 ~~~
-SELECT pg_terminate_backend(pid) FROM pg_stat_activity  
-WHERE usename != 'azure_superuser'  
-AND application_name = '<YOUR APPLICATION NAME>' ; 
+SELECT pg_terminate_backend(pid);
 ~~~
-### Monitoring Vacuum and Table Stats 
+### Monitoring Vacuum And Table Stats 
 
-Keeping the table statistics up to date helps in improving the performance of queries. Monitor whether regular autovacuuming is being carried out. 
+Keeping the table statistics up to date helps in improving the performance of queries. Monitor whether regular auto vacuuming is being carried out. 
 
 The following query helps to identify the tables that need vacuuming 
 ~~~
 select schemaname,relname,n_dead_tup,n_live_tup,last_vacuum,last_analyze,last_autovacuum,last_autoanalyze from pg_stat_all_tables where n_live_tup > 0;   
 ~~~
-last_autovacuum and last_autoanalyze columns will give date time when the table was last autovacuumed or analyzed. If the tables are not being vacuumed regularly steps should be taken to tune autovacuum. The details are found in the autovacuum troubleshooting guide.
+last_autovacuum and last_autoanalyze columns will give date time when the table was last autovacuumed or analyzed. If the tables are not being vacuumed regularly steps should be taken to tune autovacuum. The details are found in the autovacuum troubleshooting guide [Autovacuum Troubleshooting](./concepts-pgbouncer.md).
 
 A more short term solution would be to do a manual vacuum analyze of the tables where slow queries are seen:
 ~~~
