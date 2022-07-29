@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Use [queries](#query-for-documets) and [aggregation pipelines](#aggregation-pipelines) to find documents in a collection.
+Use [queries](#query-for-documents) and [aggregation pipelines](#aggregation-pipelines) to find documents in a collection.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples) are available on GitHub as a JavaScript project.
@@ -88,7 +88,7 @@ const sortStage = {
 
 ### Aggregate the pipeline to get iterable cursor
 
-The pipeline is aggregated to produce a iterable cursor. 
+The pipeline is aggregated to produce an iterable cursor. 
 
 ```javascript
 const db = 'adventureworks';
