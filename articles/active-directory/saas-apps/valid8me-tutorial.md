@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create valid8Me test user
 
-1. In a different web browser window, log into your valid8Me website as an administrator.
+1. In a different web browser window, log in to your valid8Me website as an administrator.
 
 1. Navigate to **Configuration** >  **Single Sign On** > **Invitation** tab and click **Create**. 
     
@@ -168,9 +168,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to valid8Me Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to valid8Me Sign on URL where you can initiate the login flow.  
 
-* Go to valid8Me Sign-on URL directly and initiate the login flow from there.
+* Go to valid8Me Sign on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
