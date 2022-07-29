@@ -164,14 +164,14 @@ In some cases, for example when dependencies exist between modules, it may be de
                 "systemModules": {
                     "edgeAgent": {
                         "env": {
-+                           "ModuleUpdateMode": {
++                            "ModuleUpdateMode": {
 +                               "value": "WaitForAllPulls"
 +                            }
                         ...
 }
 ```
 ::: moniker-end
-## Container management
+### Container management
 
 * **Important**
   * Use tags to manage versions
