@@ -8,7 +8,7 @@ ms.date: 01/10/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: karenhoran
+manager: rkarlin
 ms.collection: M365-identity-device-management
 ---
 
@@ -64,7 +64,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure Service Bus               | [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](../../service-bus-messaging/service-bus-managed-service-identity.md)                                                                                                        |
 | Azure Service Fabric            | [Using Managed identities for Azure with Service Fabric](../../service-fabric/concepts-managed-identity.md)                                                                                                        |
 | Azure SignalR Service           | [Managed identities for Azure SignalR Service](../../azure-signalr/howto-use-managed-identity.md)                                                                                                     |
-| Azure Spring Cloud              | [How to enable system-assigned managed identity for Azure Spring Cloud application](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md) |
+| Azure Spring Apps               | [Enable system-assigned managed identity for an application in Azure Spring Apps](../../spring-apps/how-to-enable-system-assigned-managed-identity.md) |
 | Azure SQL                       | [Azure SQL Transparent Data Encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview)                                                                                     |
 | Azure SQL Managed Instance      | [Azure SQL Transparent Data Encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview)                                                                                       |
 | Azure Stack Edge                | [Manage Azure Stack Edge secrets using Azure Key Vault](../../databox-online/azure-stack-edge-gpu-activation-key-vault.md#recover-managed-identity-access)

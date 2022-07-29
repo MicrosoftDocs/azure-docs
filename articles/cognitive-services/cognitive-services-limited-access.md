@@ -27,9 +27,9 @@ The following services are Limited Access:
 
 - [Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context): Pro features 
 - [Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context): All features 
-- Face API: Identify and Verify features
-- Computer Vision: Celebrity Recognition feature 
-- [Azure Video Indexer](/azure/azure-video-indexer/limited-access-features): Celebrity Recognition and Face Identify features 
+- [Face API](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context): Identify and Verify features
+- [Computer Vision](/legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context): Celebrity Recognition feature 
+- [Azure Video Indexer](../azure-video-indexer/limited-access-features.md): Celebrity Recognition and Face Identify features 
 
 Features of these services that are not listed above are available without registration. 
 

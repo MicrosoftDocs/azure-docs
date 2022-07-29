@@ -58,7 +58,7 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
--  Enter ```nslookup_<storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
+-  Enter ```nslookup <storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
 
     You'll receive a message like this:  
 

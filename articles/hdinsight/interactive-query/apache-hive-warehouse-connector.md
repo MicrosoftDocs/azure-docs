@@ -1,11 +1,11 @@
 ---
 title: Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight
 description: Learn how to integrate Apache Spark and Apache Hive with the Hive Warehouse Connector on Azure HDInsight.
-author: nis-goel
-ms.author: nisgoel
+author: reachnijel
+ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 07/18/2022
 ---
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight
@@ -50,6 +50,13 @@ It is important to note that you can view the WLM resource plans from both the c
 > - HWC supports writing only in ORC file formats. Non-ORC writes (eg: parquet and text file formats) are not supported via HWC. 
 
 Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. Follow these steps to set up these clusters in Azure HDInsight.
+
+### Supported Cluster types & versions
+
+| HWC Version | Spark Version | InteractiveQuery Version |
+|:---:|:---:|---|
+| v1 | Spark 2.4 \| HDI 4.0 | Interactive Query 3.1 \| HDI 4.0 |
+| v2 | Spark 3.1 \| HDI 5.0 | Interactive Query 3.1 \| HDI 5.0 |
 
 ### Create clusters
 
@@ -248,3 +255,5 @@ kinit USERNAME
 * [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
 * [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
 * [Submitting Spark Applications via Spark-submit utility](https://spark.apache.org/docs/2.4.0/submitting-applications.html)
+* [HWC 1.0 supported APIs](./hive-warehouse-connector-apis.md)
+* [HWC 2.0 supported APIs](./hive-warehouse-connector-v2-apis.md)

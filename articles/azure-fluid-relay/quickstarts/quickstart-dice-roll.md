@@ -11,10 +11,7 @@ ms.custom: mode-other
 
 # Quickstart: Dice roller
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
-In this quickstart, we'll walk through through the process of creating a dice roller app that uses the Azure Fluid Relay service. The quickstart is broken into two parts. In part one, we'll create the app itself and run it against a local Fluid server. In part two, we'll reconfigure the app to run against the Azure Fluid Relay service instead of the local dev server.
+In this quickstart, we'll walk through the process of creating a dice roller app that uses the Azure Fluid Relay service. The quickstart is broken into two parts. In part one, we'll create the app itself and run it against a local Fluid server. In part two, we'll reconfigure the app to run against the Azure Fluid Relay service instead of the local dev server.
 
 The sample code used in this quickstart is available [here](https://github.com/microsoft/FluidHelloWorld/tree/main-azure).
 
@@ -55,16 +52,16 @@ To run against the Azure Fluid Relay service, you'll need to update your app's c
 
 ### Configure and create an Azure client
 
-To configure the Azure client, replace the values in the `serviceConfig` object in `app.js` with your Azure Fluid Relay
-service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal.
+To configure the Azure client, replace the local connection `serviceConfig` object in `app.js` with your Azure Fluid Relay
+service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. Your `serviceConfig` object should look like this with the values replaced
 
 ```javascript
 const serviceConfig = {
     connection: {
-        tenantId: LOCAL_MODE_TENANT_ID, // REPLACE WITH YOUR TENANT ID
+        tenantId: "MY_TENANT_ID", // REPLACE WITH YOUR TENANT ID
         tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, { id: "userId" }),
-        orderer: "http://localhost:7070", // REPLACE WITH YOUR ORDERER ENDPOINT
-        storage: "http://localhost:7070", // REPLACE WITH YOUR STORAGE ENDPOINT
+        endpoint: "https://myServiceEndpointUrl", // REPLACE WITH YOUR SERVICE ENDPOINT
+        type: "remote",
     }
 };
 ```

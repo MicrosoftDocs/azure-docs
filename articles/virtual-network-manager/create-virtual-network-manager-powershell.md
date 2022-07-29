@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 06/27/2022
 ms.custom: template-quickstart, ignite-fall-2021, mode-api
 ---
 
@@ -27,15 +27,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 > [!IMPORTANT]
-> Perform this quickstart using Powershell localy, not through Azure Cloud Shell. The version of `Az.Network` in Azure Cloud Shell does not currently support the Azure Virtual Network Manager cmdlets.
-
-## Register subscription for public preview
-
-Use the following command to register your Azure subscription for Public Preview of Azure Virtual Network Manager:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AllowAzureNetworkManager -ProviderNamespace Microsoft.Network
-```
+> Perform this quickstart using Powershell locally, not through Azure Cloud Shell. The version of `Az.Network` in Azure Cloud Shell does not currently support the Azure Virtual Network Manager cmdlets.
 
 ## Install Azure PowerShell module
 
@@ -67,7 +59,7 @@ New-AzResourceGroup @rg
     [System.Collections.Generic.List[string]]$subGroup = @()  
     $subGroup.Add("/subscriptions/abcdef12-3456-7890-abcd-ef1234567890")
     [System.Collections.Generic.List[string]]$mgGroup = @()  
-    $mgGroup.Add("/managementGroups/abcdef12-3456-7890-abcd-ef1234567890")
+    $mgGroup.Add("/providers/Microsoft.Management/managementGroups/abcdef12-3456-7890-abcd-ef1234567890")
     
     [System.Collections.Generic.List[String]]$access = @()  
     $access.Add("Connectivity");  
@@ -156,14 +148,26 @@ $virtualnetworkC | Set-AzVirtualNetwork
 1. Create a static virtual network member with New-AzNetworkManagerGroupMembersItem.
 
     ```azurepowershell-interactive
-    $member = New-AzNetworkManagerGroupMembersItem –ResourceId "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA"
+    $ng = @{
+         Name = 'myNetworkGroup'
+         ResourceGroupName = 'myAVNMResourceGroup'
+         NetworkManagerName = 'myAVNM'
+         MemberType = 'Microsoft.Network/VirtualNetwork'
+     }
+     $networkgroup = New-AzNetworkManagerGroup @ng
     ```
-
+    
 1. Add the static member to the static membership group with the following commands:
 
     ```azurepowershell-interactive
-    [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerGroupMembersItem]]$groupMembers = @()  
-    $groupMembers.Add($member)
+    $sm = @{
+         Name = 'myStaticMember'
+         ResourceGroupName = 'myAVNMResourceGroup'
+         NetworkGroupName = 'myNetworkGroup'
+         NetworkManagerName = 'myAVNM'
+         ResourceId = '/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
+     }
+     $statimember = New-AzNetworkManagerStaticMember @sm
     ```
 
 ### Dynamic membership

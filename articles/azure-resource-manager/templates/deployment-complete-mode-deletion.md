@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 06/27/2022
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -86,7 +86,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | alerts | No |
 > | alertsMetaData | No |
 > | migrateFromSmartDetection | No |
-> | prometheusRuleGroups | Yes |
 > | smartDetectorAlertRules | Yes |
 > | smartGroups | No |
 

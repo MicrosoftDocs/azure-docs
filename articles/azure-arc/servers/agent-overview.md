@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 06/06/2022
+ms.date: 07/05/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -50,6 +50,7 @@ Metadata information about a connected machine is collected after the Connected 
 * Cluster resource ID (for Azure Stack HCI nodes)
 * Hardware manufacturer
 * Hardware model
+* CPU logical core count
 * Cloud provider
 * Amazon Web Services (AWS) metadata, when running in AWS:
   * Account ID
@@ -59,7 +60,6 @@ Metadata information about a connected machine is collected after the Connected 
   * Instance ID
   * Image
   * Machine type
-  * OS
   * Project ID
   * Project number
   * Service accounts

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to ingest device telemetry messages from Azure IoT Hub to digital twins in an instance of Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/16/2022
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -130,7 +130,7 @@ You can test your new ingress function by using the device simulator from [Conne
 
 1. Navigate to the [Azure Digital Twins end-to-end sample project repository](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Get the sample project on your machine by selecting the **Browse code** button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a .zip by selecting the **Code** button followed by **Download ZIP**.
 
-      This will download a .zip folder to your machine as *digital-twins-samples-master.zip*. Unzip the folder and extract the files. You'll be using the *DeviceSimulator* project folder.
+      This will download a .zip folder to your machine as *digital-twins-samples-main.zip*. Unzip the folder and extract the files. You'll be using the *DeviceSimulator* project folder.
 1. [Register the simulated device with IoT Hub](tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
 2. [Configure and run the simulation](tutorial-end-to-end.md#configure-and-run-the-simulation)
 

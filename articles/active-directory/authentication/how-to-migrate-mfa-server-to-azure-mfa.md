@@ -1,23 +1,23 @@
 ---
 title: Migrate from MFA Server to Azure AD Multi-Factor Authentication - Azure Active Directory
-description: Step-by-step guidance to migrate from Azure MFA Server on-premises to Azure Multi-Factor Authentication
+description: Step-by-step guidance to migrate from MFA Server on-premises to Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 06/23/2022
 
-ms.author: BaSelden
-author: BarbaraSelden
+ms.author: gasinh
+author: Gargi-Sinha
 manager: martinco
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Migrate from Azure MFA Server to Azure AD Multi-Factor Authentication
+# Migrate from MFA Server to Azure AD Multi-Factor Authentication
 
-Multifactor authentication (MFA) is important to securing your infrastructure and assets from bad actors. Azure Multi-Factor Authentication Server (MFA Server) isn’t available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Azure Active Directory (Azure AD) Multi-Factor Authentication.
+Multifactor authentication (MFA) is important to securing your infrastructure and assets from bad actors. Azure AD Multi-Factor Authentication Server (MFA Server) isn’t available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Azure Active Directory (Azure AD) Multi-Factor Authentication.
 
 In this article, we assume that you have a hybrid environment where:
 
@@ -32,7 +32,7 @@ There are multiple possible end states to your migration, depending on your goal
 | <br> | Goal: Decommission MFA Server ONLY | Goal: Decommission MFA Server and move to Azure AD Authentication | Goal: Decommission MFA Server and AD FS |
 |------|------------------------------------|-------------------------------------------------------------------|-----------------------------------------|
 |MFA provider | Change MFA provider from MFA Server to Azure AD Multi-Factor Authentication. | Change MFA provider from MFA Server to Azure AD Multi-Factor Authentication. |	Change MFA provider from MFA Server to Azure AD Multi-Factor Authentication. |
-|User authentication  |Continue to use federation for Azure AD authentication. | Move to Azure AD with Password Hash Synchronization (preferred) or Passthrough Authentication **and** seamless single sign-on (SSO).| Move to Azure AD with Password Hash Synchronization (preferred) or Passthrough Authentication **and** SSO. |
+|User authentication  |Continue to use federation for Azure AD authentication. | Move to Azure AD with Password Hash Synchronization (preferred) or Passthrough Authentication **and** Seamless Single Sign-On (SSO).| Move to Azure AD with Password Hash Synchronization (preferred) or Passthrough Authentication **and** SSO. |
 |Application authentication | Continue to use AD FS authentication for your applications. | Continue to use AD FS authentication for your applications. | Move apps to Azure AD before migrating to Azure AD Multi-Factor Authentication. |
 
 If you can, move both your multifactor authentication and your user authentication to Azure. For step-by-step guidance, see [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md). 
@@ -62,7 +62,7 @@ While you can migrate users’ registered multifactor authentication phone numbe
 Users will need to register and add a new account on the Authenticator app and remove the old account. 
 
 To help users to differentiate the newly added account from the old account linked to the MFA Server, make sure the Account name for the Mobile App on the MFA Server is named in a way to distinguish the two accounts. 
-For example, the Account name that appears under Mobile App on the MFA Server has been renamed to OnPrem MFA Server. 
+For example, the Account name that appears under Mobile App on the MFA Server has been renamed to On-Premises MFA Server. 
 The account name on the Authenticator App will change with the next push notification to the user. 
 
 Migrating phone numbers can also lead to stale numbers being migrated and make users more likely to stay on phone-based MFA instead of setting up more secure methods like Microsoft Authenticator in passwordless mode. 
@@ -103,7 +103,7 @@ We recommend that you use Password Hash Synchronization (PHS).
 
 ### Passwordless authentication
 
-As part of enrolling users to use Microsoft Authenticator as a second factor, we recommend you enable passwordless phone sign-in as part of their registration. For more information, including other passwordless methods such as FIDO and Windows Hello for Business, visit [Plan a passwordless authentication deployment with Azure AD](howto-authentication-passwordless-deployment.md#plan-for-and-deploy-the-authenticator-app).
+As part of enrolling users to use Microsoft Authenticator as a second factor, we recommend you enable passwordless phone sign-in as part of their registration. For more information, including other passwordless methods such as FIDO and Windows Hello for Business, visit [Plan a passwordless authentication deployment with Azure AD](howto-authentication-passwordless-deployment.md#plan-for-and-deploy-microsoft-authenticator).
 
 ### Microsoft Identity Manager self-service password reset 
 
@@ -128,8 +128,8 @@ Check with the service provider for supported product versions and their capabil
 - The NPS extension doesn't use Azure AD Conditional Access policies. If you stay with RADIUS and use the NPS extension, all authentication requests going to NPS will require the user to perform MFA.
 - Users must register for Azure AD Multi-Factor Authentication prior to using the NPS extension. Otherwise, the extension fails to authenticate the user, which can generate help desk calls.
 - When the NPS extension invokes MFA, the MFA request is sent to the user's default MFA method. 
-  - Because the sign-in happens on non-Microsoft applications, it is unlikely that the user will see visual notification that multifactor authentication is required and that a request has been sent to their device.
-  - During the multifactor authentication requirement, the user must have access to their default authentication method to complete the requirement. They cannot choose an alternative method. Their default authentication method will be used even if it is disabled in the tenant authentication methods and multifactor authentication policies.
+  - Because the sign-in happens on non-Microsoft applications, it's unlikely that the user will see visual notification that multifactor authentication is required and that a request has been sent to their device.
+  - During the multifactor authentication requirement, the user must have access to their default authentication method to complete the requirement. They can't choose an alternative method. Their default authentication method will be used even if it's disabled in the tenant authentication methods and multifactor authentication policies.
   - Users can change their default multifactor authentication method in the Security Info page (aka.ms/mysecurityinfo).
 - Available MFA methods for RADIUS clients are controlled by the client systems sending the RADIUS access requests.
   - MFA methods that require user input after they enter a password can only be used with systems that support access-challenge responses with RADIUS. Input methods might include OTP, hardware OATH tokens or the Microsoft Authenticator application.

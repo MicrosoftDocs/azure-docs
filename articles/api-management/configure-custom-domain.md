@@ -58,7 +58,7 @@ There are several API Management endpoints to which you can assign a custom doma
 API Management supports custom TLS certificates or certificates imported from Azure Key Vault. You can also enable a free, managed certificate.
 
 > [!WARNING]
-> If you wish to improve the security of your applications with certificate pinning, you should use a custom domain name and either a custom or Key Vault certificate, not the default certificate or the free, managed certificate. We don't recommend taking a hard dependency on a certificate that you don't manage.
+> If you require certificate pinning, please use a custom domain name and either a custom or Key Vault certificate, not the default certificate or the free, managed certificate. We don't recommend taking a hard dependency on a certificate that you don't manage.
 
 # [Custom](#tab/custom)
 
@@ -94,6 +94,7 @@ API Management offers a free, managed TLS certificate for your domain, if you do
 #### Limitations
 
 * Currently can be used only with the Gateway endpoint of your API Management service
+* Not supported with the self-hosted gateway
 * Not supported in the following Azure regions: France South and South Africa West
 * Currently available only in the Azure cloud
 * Does not support root domain names (for example, `contoso.com`). Requires a fully qualified name such as `api.contoso.com`.

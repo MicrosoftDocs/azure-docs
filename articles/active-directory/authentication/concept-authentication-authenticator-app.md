@@ -1,12 +1,12 @@
 ---
-title: Microsoft Entra Authenticator app authentication method - Azure Active Directory
-description: Learn about using the Microsoft Entra Authenticator app in Azure Active Directory to help secure your sign-ins
+title: Microsoft Authenticator authentication method - Azure Active Directory
+description: Learn about using the Microsoft Authenticator in Azure Active Directory to help secure your sign-ins
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 06/23/2022
 
 ms.author: justinha
 author: justinha
@@ -16,13 +16,13 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to understand how to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# Authentication methods in Azure Active Directory - Microsoft Entra Authenticator app
+# Authentication methods in Azure Active Directory - Microsoft Authenticator app
 
-The Microsoft Entra Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account and is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594) and [iOS](https://go.microsoft.com/fwlink/?linkid=866594). With the Microsoft Authenticator app, users can authenticate in a passwordless way during sign-in, or as an additional verification option during self-service password reset (SSPR) or multifactor authentication events.
+The Microsoft Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account and is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594) and [iOS](https://go.microsoft.com/fwlink/?linkid=866594). With the Microsoft Authenticator app, users can authenticate in a passwordless way during sign-in, or as an additional verification option during self-service password reset (SSPR) or multifactor authentication events.
 
 Users may receive a notification through the mobile app for them to approve or deny, or use the Authenticator app to generate an OATH verification code that can be entered in a sign-in interface. If you enable both a notification and verification code, users who register the Authenticator app can use either method to verify their identity.
 
-To use the Authenticator app at a sign-in prompt rather than a username and password combination, see [Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md).
+To use the Authenticator app at a sign-in prompt rather than a username and password combination, see [Enable passwordless sign-in with the Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Users don't have the option to register their mobile app when they enable SSPR. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or as part of the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -35,7 +35,7 @@ Instead of seeing a prompt for a password after entering a username, a user that
 
 This authentication method provides a high level of security, and removes the need for the user to provide a password at sign-in. 
 
-To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md).
+To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 ## Notification through mobile app
 
@@ -59,6 +59,6 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 ## Next steps
 
-- To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md).
+- To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 - Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).

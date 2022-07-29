@@ -8,7 +8,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+>[!VIDEO https://www.youtube.com/embed/Aq5VTLfXU_4]
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
 

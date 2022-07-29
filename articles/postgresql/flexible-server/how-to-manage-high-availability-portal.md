@@ -6,7 +6,7 @@ author: sr-msft
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 06/23/2022
 ---
 
 # Manage high availability in Flexible Server
@@ -42,6 +42,7 @@ This section provides details specifically for HA-related fields. You can follow
 
 4.  If you chose the Availability zone in step 2 and if you chose zone-redundant HA, then you can choose the standby zone.
     :::image type="content" source="./media/how-to-manage-high-availability-portal/choose-standby-availability-zone.png" alt-text="Screenshot of Standby AZ selection.":::
+ 
 
 5.  If you want to change the default compute and storage, click  **Configure server**.
  
@@ -140,6 +141,18 @@ Follow these steps to perform a planned failover from your primary to the standb
 >
 > * The overall end-to-end operation time may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
 
+## Enabling Zone redundant HA after the region supports AZ
+
+There are Azure regions that do not support availability zones. If you have already deployed non-HA servers, you cannot directly enable zone redundant HA on the server, but you can perform restore and enable HA in that server.  Following steps shows how to enable Zone redundant HA for that server.
+
+1. From the overview page of the server, click **Restore** to [perform a PITR](how-to-restore-server-portal.md#restoring-to-the-latest-restore-point). Choose **Latest restore point**. 
+2. Choose a server name, availability zone.
+3. Click **Review+Create**".
+4. A new Flexible server will be created from the backup. 
+5. Once the new server is created, from the overview page of the server, follow the [guide](#enable-high-availability-post-server-creation) to enable HA.
+6. After data verification, you can optionally [delete](how-to-manage-server-portal.md#delete-a-server) the old server. 
+7. Make sure your clients connection strings are modified to point to your new HA-enabled server.
+   
 
 ## Next steps
 

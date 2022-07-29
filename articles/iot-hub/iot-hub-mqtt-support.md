@@ -294,7 +294,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > If you are routing D2C messages to a Storage account and you want to levarage JSON encoding you need to specify the Content Type and Content Encoding
 > information including `$.ct=application%2Fjson&$.ce=utf-8` as part of the `{property_bag}` mentioned above. 
 > 
-> These attributes format are protocol-specific and are translated by IoT Hub into the relative System Properties as described [here](/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)
+> These attributes format are protocol-specific and are translated by IoT Hub into the relative System Properties as described [here](./iot-hub-devguide-routing-query-syntax.md#system-properties)
 
 The following is a list of IoT Hub implementation-specific behaviors:
 

@@ -21,7 +21,7 @@ Optical character recognition (OCR) allows you to extract printed or handwritten
 Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started with the REST API or a client SDK. Or, try out the capabilities of OCR quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ![OCR demos](./Images/ocr-demo.gif)
 

@@ -24,8 +24,8 @@ In this tutorial:
 
 ## Prerequisites
 
-> * Install, create and sign in to [ORAS artifact enabled registry](/articles/container-registry/container-registry-oras-artifacts#sign-in-with-oras-1)
-> * Create or use an [Azure Key Vault](/azure/key-vault/general/quick-create-cli)
+> * Install, create and sign in to [ORAS artifact enabled registry](./container-registry-oras-artifacts.md#create-oras-artifact-enabled-registry)
+> * Create or use an [Azure Key Vault](../key-vault/general/quick-create-cli.md)
 >*  This tutorial can be run in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 ## Install the notation CLI and AKV plugin
@@ -76,13 +76,12 @@ In this tutorial:
 1. Configure AKV resource names
 
     ```bash
-    # Name of the existing AKV Resource Group
-    AKV_RG=myResourceGroup
     # Name of the existing Azure Key Vault used to store the signing keys
     AKV_NAME=<your-unique-keyvault-name>
     # New desired key name used to sign and verify
     KEY_NAME=wabbit-networks-io
     KEY_SUBJECT_NAME=wabbit-networks.io
+    CERT_PATH=./${KEY_NAME}.pem
     ```
 
 2. Configure ACR and image resource names
@@ -109,7 +108,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
 
 1. Create a certificate policy file
 
-    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with **notation** in AKV. 
+    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with **notation** in AKV. The EKU listed is for code-signing, but isn't required for notation to sign artifacts.
 
     ```bash
     cat <<EOF > ./my_policy.json
@@ -120,8 +119,6 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
         },
         "x509CertificateProperties": {
         "ekus": [
-            "1.3.6.1.5.5.7.3.1",
-            "1.3.6.1.5.5.7.3.2",
             "1.3.6.1.5.5.7.3.3"
         ],
         "subject": "CN=${KEY_SUBJECT_NAME}",
@@ -140,12 +137,13 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
 1. Get the Key ID for the certificate
 
     ```bash
-    KEY_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'id' -otsv)
+    KEY_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'kid' -o tsv)
     ```
 4. Download public certificate
 
     ```bash
-    az keyvault certificate download --file $CERT_PATH --id $KEY_ID --encoding PEM
+    CERT_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'id' -o tsv)
+    az keyvault certificate download --file $CERT_PATH --id $CERT_ID --encoding PEM
     ```
 
 5. Add the Key ID to the keys and certs

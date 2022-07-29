@@ -4,6 +4,8 @@ description: Generate a shared access signature (SAS) URI for a virtual hard dis
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
+ms.author: amhindma
+author: amhindma
 ms.date: 06/23/2021
 ---
 
