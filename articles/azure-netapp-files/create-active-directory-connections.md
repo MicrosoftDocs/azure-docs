@@ -253,7 +253,7 @@ If you accidentally reset the password of the AD computer account on the AD serv
 
 The reset Active Directory computer account password feature is currently in public preview. If you are using this feature for the first time, you need to register the feature first.
 
-1. Register the **reset Active Directory computer account psasword** feature:   
+1. Register the **reset Active Directory computer account password** feature:   
 ```azurepowershell-interactive
 Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
 ```
