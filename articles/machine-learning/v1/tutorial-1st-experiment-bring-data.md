@@ -163,7 +163,7 @@ optimizer = optim.SGD(
 ```
 
 
-## <a name="upload"></a> Upload the data to Azure
+## Upload the data to Azure
 
 To run this script in Azure Machine Learning, you need to make your training data available in Azure. Your Azure Machine Learning workspace comes equipped with a _default_ datastore. This is an Azure Blob Storage account where you can store your training data.
 

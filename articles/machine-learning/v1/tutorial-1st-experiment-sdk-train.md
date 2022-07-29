@@ -142,7 +142,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
     :::image type="content" source="../media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
 
 
-## <a name="test-local"></a> Test locally
+## Test locally
 
 Select **Save and run script in terminal** to run the *train.py* script directly on the compute instance.
 
@@ -258,7 +258,7 @@ If you see an error `Your total snapshot size exceeds the limit`, the **data** f
 Select the **...** at the end of the folder, then select **Move** to move **data** to the **get-started** folder.  
 
 
-## <a name="log"></a> Log training metrics
+## Log training metrics
 
 Now that you have a model training in Azure Machine Learning, start tracking some performance metrics.
 
