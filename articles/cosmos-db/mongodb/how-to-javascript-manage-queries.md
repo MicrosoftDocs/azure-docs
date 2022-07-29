@@ -48,6 +48,76 @@ For specific **aggregation pipeline support**, refer to the following:
 * [Version 3.6](feature-support-36.md#aggregation-pipeline)
 * [Version 3.2](feature-support-32.md#aggregation-pipeline)
 
+### Aggregation pipeline syntax
+
+A pipeline is an array with a series of stages as JSON objects. 
+
+```javascript
+const pipeline = [
+    stage1,
+    stage2
+]
+```
+
+### Pipeline stage syntax
+
+A _stage_ is the property of the stage syntax, such as:
+
+* $match - find documents
+* $addFields - add field to cursor, usually from previous stage
+* $limit - limit the number of results returned in cursor
+* $project - pass along new or existing fields, can be computed fields
+* $group - group results by a field or fields in pipeline
+* $sort - sort results
+
+```javascript
+// reduce collection to relative documents
+const matchStage = {
+    '$match': {
+        'categoryName': { $regex: 'Bikes' },
+    }
+}
+
+// sort documents on field `name`
+const sortStage = { 
+    '$sort': { 
+        "name": 1 
+    } 
+},
+```
+
+### Aggregate the pipeline to get iterable cursor
+
+The pipeline is aggregated to produce a iterable cursor. 
+
+```javascript
+const db = 'adventureworks';
+const collection = 'products';
+
+const aggCursor = client.db(databaseName).collection(collectionName).aggregate(pipeline);
+
+await aggCursor.forEach(product => {
+    console.log(JSON.stringify(product));
+});
+```
+
+## Use a pipeline in JavaScript
+
+Use a pipeline to keep data processing on the server before returning to the client. 
+
+### Example 1: Product subcategories, count of products, and average price
+
+```javascript
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregate/average-price-in-each-product-subcategory.js" id="aggregation_1":::
+```
+
+## Example 2: Bike types with price range
+
+```javascript
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregate/bike-types-and-price-ranges.js" id="aggregation_1":::
+```
+
+
 ## See also
 
 - [Get started with Azure Cosmos DB MongoDB API and JavaScript](how-to-javascript-get-started.md)
