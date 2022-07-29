@@ -50,6 +50,9 @@ After you've uploaded [training datasets](./how-to-custom-speech-test-and-train.
     > [!IMPORTANT]
     > Take note of the **Expiration** date. This is the last date that you can use your custom model for speech recognition. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
+
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -64,11 +67,15 @@ To create a model with datasets for training, use the `spx csr model create` com
 
 Here's an example Speech CLI command that creates a model with datasets for training:
 
-```azurecli
+```azurecli-interactive
 spx csr model create --project YourProjectId --name "My Model" --description "My Model Description" --dataset YourDatasetId --language "en-US"
 ```
+
 > [!NOTE]
 > In this example, the `baseModel` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -114,7 +121,7 @@ The top-level `self` property in the response body is the model's URI. Use this 
 
 For Speech CLI help with models, run the following command:
 
-```azurecli
+```azurecli-interactive
 spx help csr model
 ```
 
@@ -151,6 +158,9 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 
 > [!NOTE]
 > In this example, the `baseModel` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -216,6 +226,9 @@ Follow these instructions to copy a model to a project in another region:
 
 After the model is successfully copied, you'll be notified and can view it in the target project.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Copy-a-model" target="_target">I ran into an issue</a>
+
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -240,6 +253,9 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 
 > [!NOTE]
 > Only the `targetSubscriptionKey` property in the request body has information about the destination Speech resource.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Copy-a-model" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -300,7 +316,7 @@ To connect a model to a project, use the `spx csr model update` command. Constru
 
 Here's an example Speech CLI command that connects a model to a project:
 
-```azurecli
+```azurecli-interactive
 spx csr model update --model YourModelId --project YourProjectId
 ```
 
@@ -316,7 +332,7 @@ You should receive a response body in the following format:
 
 For Speech CLI help with models, run the following command:
 
-```azurecli
+```azurecli-interactive
 spx help csr model
 ```
 

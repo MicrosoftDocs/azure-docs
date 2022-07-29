@@ -1,20 +1,25 @@
 ---
-title: Configure SQL Server for Azure Monitor for SAP solutions (Preview)
-description: Learn how to configure SQL Server for Azure Monitor for SAP solutions (AMS).
+title: Configure Microsoft SQL Server provider for Azure Monitor for SAP solutions (preview)
+description: Learn how to configure a Microsoft SQL Server provider for use with Azure Monitor for SAP solutions (AMS).
 author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
-ms.date: 07/06/2022
+ms.date: 07/28/2022
 ms.author: sujaj
-
+#Customer intent: As a developer, I want to configure a Microsoft SQL Server provider so that I can use Azure Monitor for SAP solutions for monitoring.
 ---
 
+# Configure SQL Server for Azure Monitor for SAP solutions (preview)
 
+[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-# Configure SQL Server for Azure Monitor for SAP solutions
+In this how-to guide, you'll learn to configure a Microsoft SQL Server provider for Azure Monitor for SAP solutions (AMS) through the Azure portal. 
 
-This article explains how to configure the Microsoft SQL server provider for Azure Monitor for SAP solutions (AMS) through the Azure portal.
+## Prerequisites
+
+- An Azure subscription. 
+- An existing AMS resource. To create an AMS resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
 
 ## Open Windows port
 
@@ -89,3 +94,7 @@ To install the provider from AMS:
 1. Select **Review + create** to complete the deployment.
 
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn about AMS provider types](azure-monitor-providers.md)
