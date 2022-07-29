@@ -19,7 +19,7 @@ The Enterprise and Enterprise Flash tiers of Azure Cache for Redis now support t
 
 The **RedisJSON** module implements the community version of the module so you can use your existing knowledge and workstreams. **RedisJSON** is  designed for use with the search functionality of **RediSearch**. Using both modules provides integrated indexing and querying of data. For more information, see [RedisJSON](https://aka.ms/redisJSON).
 
-The **RediSearch** module is also now available for Azure Cache for Redis. For more information on using Redis modules in Azure Cache for Redis, see [Use Redis modules with Azure Cache for Redis](cache-how-to-use-modules.md).
+The **RediSearch** module is also now available for Azure Cache for Redis. For more information on using Redis modules in Azure Cache for Redis, see [[Use Redis modules with Azure Cache for Redis](cache-how-to-use-modules.md)](cache-redis-modules.md).
 
 ## July 2022
 
